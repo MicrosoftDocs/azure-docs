@@ -19,7 +19,7 @@ robots: noindex
 ---
 # Azure Data Factory - JSON Scripting Reference
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA).
+> This article applies to version 1 of Data Factory.
 
 
 This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).  

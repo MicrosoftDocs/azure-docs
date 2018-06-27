@@ -35,23 +35,11 @@ You also need [Docker for VS Code](https://marketplace.visualstudio.com/items?it
 
 1. In Visual Studio code, open the integrated terminal by selecting **View** > **Integrated terminal**. 
 
-2. In the integrated terminal, run the following command to intall (or update) the **AzureIoTEdgeModule** template.
-
-   ```cmd/sh
-   dotnet new -i Microsoft.Azure.IoT.Edge.Module
-   ```
-
-3. In the integrated terminal, enter the following command to update the latest version of the **AzureIoTEdgeFunction** template in .NET: 
-
-   ```cmd/sh
-   dotnet new -i Microsoft.Azure.IoT.Edge.Function
-   ```
-
-1. In the VS Code **Command Palette**, enter and run the command **Azure IoT Edge: New IoT Edge solution**. Select your workspace folder and provide the solution name (default is EdgeSolution). Create a C# module (with the name **SampleModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (**localhost:5000/<first module name>**). You can change it to Azure Container Registry or Docker Hub. 
+1. In the VS Code **Command Palette**, enter and run the command **Azure IoT Edge: New IoT Edge solution**. Select your workspace folder and provide the solution name (default is EdgeSolution). Create a C# module (with the name **PipeModule**) as the first user module in this solution. The default template of C# module is a pipe module, which directly pipes messages from upstream to downstream. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (**localhost:5000/<first module name>**). You can change it to Azure Container Registry or Docker Hub. 
 
 2. The VS Code window loads your IoT Edge solution workspace. The root folder contains a **modules** folder, a **.vscode** folder, and a deployment manifest template file. Debug configurations are located in the .vscode folder. All of the user module codes are subfolders of the modules folder. The deployment.template.json file is the deployment manifest template. Some of the parameters in this file are parsed from the module.json file, which exists in every module folder.
 
-3. Add your second module to this solution project. There are several ways to add a new module to current solution. Enter and run the command **Azure IoT Edge: Add IoT Edge module**. Select the deployment template file to update. Or right-click the modules folder or right-click the deployment.template.json file and select **Add IoT Edge Module**. Then there will be a dropdown list to select module type. Select an **Azure Functions - C#** module with the name **SampleFunction** and its Docker image repository. 
+3. Add your second module to this solution project. There are several ways to add a new module to current solution. Enter and run the command **Azure IoT Edge: Add IoT Edge module**. Select the deployment template file to update. Or right-click the modules folder or right-click the deployment.template.json file and select **Add IoT Edge Module**. Then there will be a dropdown list to select module type. Select an **Azure Functions - C#** module with the name **PipeFunction** and its Docker image repository. The default template of C# functions module is a pipe module, which directly pipes messages from upstream to downstream.
 
 4. Open the deployment.template.json file. Verify that the file declares three modules and the runtime. The message is generated from the tempSensor module. The message is directly piped via the SampleModule and SampleFunction modules and then sent to your IoT hub. 
 
@@ -59,9 +47,9 @@ You also need [Docker for VS Code](https://marketplace.visualstudio.com/items?it
 
    ```json
         "routes": {
-          "SensorToPipeModule": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/SampleModule/inputs/input1\")",
-          "PipeModuleToPipeFunction": "FROM /messages/modules/SampleModule/outputs/output1 INTO BrokeredEndpoint(\"/modules/SampleFunction/inputs/input1\")",
-          "PipeFunctionToIoTHub": "FROM /messages/modules/SampleFunction/outputs/output1 INTO $upstream"
+          "SensorToPipeModule": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/PipeModule/inputs/input1\")",
+          "PipeModuleToPipeFunction": "FROM /messages/modules/PipeModule/outputs/output1 INTO BrokeredEndpoint(\"/modules/PipeFunction/inputs/input1\")",
+          "PipeFunctionToIoTHub": "FROM /messages/modules/PipeFunction/outputs/output1 INTO $upstream"
         },
    ```
 

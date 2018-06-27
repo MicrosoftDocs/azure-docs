@@ -19,10 +19,6 @@ ms.author: jingwang
 # Schema mapping in copy activity
 This article describes how Azure Data Factory copy activity does schema mapping and data type mapping from source data to sink data when perform the data copy.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
-
-
 ## Column mapping
 
 By default, copy activity **map source data to sink by column names**, unless [explicit column mapping](#explicit-column-mapping) is configured. More specifically, copy activity:

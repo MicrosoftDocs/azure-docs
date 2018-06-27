@@ -20,11 +20,11 @@ robots: noindex
 ---
 # Move data from DB2 by using Azure Data Factory Copy Activity
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-db2-connector.md)
-> * [Version 2 - Preview](../connector-db2.md)
+> * [Version 1](data-factory-onprem-db2-connector.md)
+> * [Version 2 (current version)](../connector-db2.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [DB2 connector in V2](../connector-db2.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [DB2 connector in V2](../connector-db2.md).
 
 
 This article describes how you can use Copy Activity in Azure Data Factory to copy data from an on-premises DB2 database to a data store. You can copy data to any store that is listed as a supported sink in the [Data Factory data movement activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article. This topic builds on the Data Factory article, which presents an overview of data movement by using Copy Activity and lists the supported data store combinations. 
