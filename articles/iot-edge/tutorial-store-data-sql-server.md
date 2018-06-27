@@ -43,12 +43,16 @@ In this tutorial, you use the Azure IoT Edge extension for VS Code to build a mo
 
 You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry. 
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Azure Container Registry**.
-2. Give your registry a name, choose a subscription, choose a resource group, and set the SKU to **Basic**. 
-3. Select **Create**.
-4. Once your container registry is created, navigate to it and select **Access keys**. 
-5. Toggle **Admin user** to **Enable**.
-6. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial. 
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Container Registry**.
+
+    ![create container registry](./media/tutorial-deploy-function/create-container-registry.png)
+
+2. Give your registry a name, and choose a subscription.
+3. For the resource group, it is recommended that you use the same resource group name that contains your IoT Hub. By keeping all the resources together in the same group, you can manage them together. For example, deleting the resource group used for testing deletes all test resources contained in the group. 
+4. Set the SKU to **Basic**, and toggle **Admin user** to **Enable**. 
+5. Click **Create**.
+6. Once your container registry is created, navigate to it and select **Access keys**. 
+7. Copy the values for **Login server**, **Username**, and **Password**. You'll use these values later in the tutorial. 
 
 ## Create a function project
 
