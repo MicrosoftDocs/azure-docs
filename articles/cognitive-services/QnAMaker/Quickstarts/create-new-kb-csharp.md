@@ -286,7 +286,7 @@ namespace QnAMaker
         }
     }
 }
-
+  
 ```
 
 ## Understand what QnA Maker returns
