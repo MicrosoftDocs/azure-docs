@@ -102,7 +102,7 @@ On your VM, install the required packages for the Azure Python SDK modules and A
 sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev python-pip
 
 ## Install Ansible and Azure SDKs via pip
-pip install ansible[azure]
+sudo pip install ansible[azure]
 ```
 
 Now move on to [Create Azure credentials](#create-azure-credentials).
