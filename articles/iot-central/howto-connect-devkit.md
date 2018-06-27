@@ -153,15 +153,15 @@ You can view the telemetry measurements and reported property values, and config
 
 1. On the **Measurements** page, you can see the telemetry coming from the MXChip device:
 
-    ![View telemetry from real device](media/howto-connect-devkit/realtelemetry.png)
+    ![View telemetry from real device](media/howto-connect-devkit/devicetelemetrynew.png)
 
-1. On the **Properties** page, you can view the last die number reported by the device:
+1. On the **Properties** page, you can view the last die number and the device location reported by the device:
 
-    ![View device properties](media/howto-connect-devkit/deviceproperties.png)
+    ![View device properties](media/howto-connect-devkit/devicepropertynew.png)
 
 1. On the **Settings** page, you can update the settings on the MXChip device:
 
-    ![View device settings](media/howto-connect-devkit/settings.png)
+    ![View device settings](media/howto-connect-devkit/devicesettingsnew.png)
 
 ## Download the source code
 
