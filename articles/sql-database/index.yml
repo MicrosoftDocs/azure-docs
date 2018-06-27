@@ -68,12 +68,12 @@ sections:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-       - title: Scale Managed Instance
+      - title: Scale Managed Instance
         values:
           - href: 
           - href:
           - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
-       - title: Configure Azure network for Managed Instance
+      - title: Configure Azure network for Managed Instance
         values:
           - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
           - href: 
