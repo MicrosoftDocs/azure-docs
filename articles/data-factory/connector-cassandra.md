@@ -18,7 +18,7 @@ ms.author: jingwang
 ---
 # Copy data from Cassandra using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version](v1/data-factory-onprem-cassandra-connector.md)
+> * [Version 1](v1/data-factory-onprem-cassandra-connector.md)
 > * [Current version](connector-cassandra.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Cassandra database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.

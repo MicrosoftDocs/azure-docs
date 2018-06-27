@@ -1941,7 +1941,7 @@ To define an Oracle linked service, set the **type** of the linked service to **
 | --- | --- | --- |
 | driverType | Specify which driver to use to copy data from/to Oracle Database. Allowed values are **Microsoft** or **ODP** (default). See [Supported version and installation](#supported-versions-and-installation) section on driver details. | No |
 | connectionString | Specify information needed to connect to the Oracle Database instance for the connectionString property. | Yes |
-| gatewayName | Name of the gateway that that is used to connect to the on-premises Oracle server |Yes |
+| gatewayName | Name of the gateway that is used to connect to the on-premises Oracle server |Yes |
 
 #### Example
 ```json

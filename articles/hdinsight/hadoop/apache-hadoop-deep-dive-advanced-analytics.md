@@ -56,7 +56,7 @@ Along with selecting the best-fitting algorithm(s), you need to consider whether
 HDInsight has several machine learning options for an advanced analytics workflow:
 
 * [Machine Learning and Spark](#machine-learning-and-spark)
-* [R and R Server](#r-and-r-server)
+* [R and ML Services](#r-and-r-server)
 * [Azure Machine Learning and Hive](#azure-machine-learning-and-hive)
 * [Spark and Deep learning](#spark-and-deep-learning)
 
@@ -70,9 +70,9 @@ There are three scalable machine learning libraries that bring algorithmic model
 * [**SparkML**](https://spark.apache.org/docs/1.2.2/ml-guide.html) - SparkML is a newer package that provides a higher-level API built on top of Spark DataFrames for constructing ML pipelines.
 * [**MMLSpark**](https://github.com/Azure/mmlspark)  - The Microsoft Machine Learning library for Apache Spark (MMLSpark) is designed to make data scientists more productive on Spark, to increase the rate of experimentation, and to leverage cutting-edge machine learning techniques, including deep learning, on very large datasets. The MMLSpark library simplifies common modeling tasks for building models in PySpark. 
 
-### R and R Server
+### R and ML Services
 
-As part of HDInsight, you can create an HDInsight cluster with [R Server](../r-server/r-server-overview.md) ready to be used with massive datasets and models. This new capability provides data scientists and statisticians with a familiar R interface that can scale on-demand through HDInsight, without the overhead of cluster setup and maintenance.
+As part of HDInsight, you can create an HDInsight cluster with [ML Services](../r-server/r-server-overview.md) ready to be used with massive datasets and models. This new capability provides data scientists and statisticians with a familiar R interface that can scale on-demand through HDInsight, without the overhead of cluster setup and maintenance.
 
 ### Azure Machine Learning and Hive
 
