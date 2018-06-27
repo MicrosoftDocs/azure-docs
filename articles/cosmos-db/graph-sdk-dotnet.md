@@ -2,7 +2,7 @@
 title: Azure CosmosDB Graph API .NET SDK & Resources | Microsoft Docs
 description: Learn all about the Azure CosmosDB Graph API including release dates, retirement dates, and changes made between each version.
 services: cosmos-db
-author: luisbosquez
+author: SnehaGunda
 manager: kfile
 
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.component: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/17/2017
-ms.author: lbosq
+ms.author: sngun
 
 ---
 # Azure Cosmos DB Graph .NET API: Download and release notes

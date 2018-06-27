@@ -2,7 +2,7 @@
 title: 'Azure Cosmos DB: Develop with the Graph API in .NET | Microsoft Docs'
 description: Learn how to develop with Azure Cosmos DB's SQL API using .NET
 services: cosmos-db
-author: luisbosquez
+author: SnehaGunda
 manager: kfile
 editor: ''
 
@@ -11,7 +11,7 @@ ms.component: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/02/2018
-ms.author: lbosq
+ms.author: sngun
 ms.custom: mvc
 ---
 # Azure Cosmos DB: Develop with the Graph API in .NET
