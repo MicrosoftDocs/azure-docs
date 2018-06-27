@@ -31,8 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the [quickstart](quickstart-linux.md) or first tutorial.
-* The primary key connection string for the IoT Edge device.  
+* The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Docker](https://docs.docker.com/engine/installation/) on the same computer that has Visual Studio Code. The Community Edition (CE) is sufficient for this tutorial. 
@@ -60,7 +59,6 @@ The following steps show you how to create an IoT Edge Node.js module using Visu
     ```
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
-3. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
 4. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
    1. Select the folder where you want to create the solution. 
    2. Provide a name for your solution or accept the default **EdgeSolution**.
@@ -151,18 +149,28 @@ In the previous section you created an IoT Edge solution and added code to the N
 
 When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a `deployment.json` file in a new **config** folder. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the your Node.js code, and the push it to the container registry that you specified when you initialized the solution. 
 
-You can see the full container image address with tag in the VS Code integrated terminal. The image address is built from information in the `module.json` file, with the format **\<repository\>:\<version\>-\<platform\>**. For this tutorial, it should look like **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
+You can see the full container image address with tag in the `docker build` command that runs in the VS Code integrated terminal. The image address is built from information in the `module.json` file, with the format **\<repository\>:\<version\>-\<platform\>**. For this tutorial, it should look like **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
 
 ## Deploy and run the solution
 
-1. Configure the Azure IoT Toolkit extension with connection string for your IoT hub: 
-    1. Open the VS Code explorer by selecting **View** > **Explorer**. 
-    2. In the explorer, click **AZURE IOT HUB DEVICES** and then click **...**. Click **Select IoT Hub**. Follow the instructions to log in you Azure account and choose your IoT hub.
-       Note that you can also setup by clicking **Set IoT Hub Connection String**. Enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window.
+You could use the Azure portal to deploy your Node.ms module to an IoT Edge device like you did in the quickstarts, but you can also deploy and monitor modules from within Visual Studio Code. The following sections use the Azure IoT Edge extension for VS Code that was listed in the prerequisites. Install that now if you did not already. 
 
-2. In Azure IoT Hub Devices explorer, right-click your IoT Edge device, then click **Create Deployment for IoT Edge device**. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**.
+1. Open the VS Code command palette by selecting **View** > **Command Palette**.
 
-3. Click the refresh button. You should see the new **NodeModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
+2. Search for and run the command **Azure: Sign in**. Follow the instructions to sign in your Azure account. 
+
+3. In the command palette, search for and run the command **Azure IoT Hub: Select IoT Hub**. 
+
+4. Select the subscription that contains your IoT hub, then select the IoT hub that you want to access.
+
+5. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
+
+6. Right-click the name of your IoT Edge device, then select **Create Deployment for IoT Edge device**. 
+
+7. Navigate to the solution folder that contains NodeModule. Open the **config** folder and select the **deployment.json** file. Click **Select Edge Deployment Manifest**.
+
+8. Refresh the **Azure IoT Hub Devices** section. You should see the new **NodeModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
+
 
 ## View generated data
 
