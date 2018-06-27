@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 06/27/2018
 ms.author: sashan
 
 ---
@@ -61,7 +61,7 @@ You can verify whether you are connected to a read-only replica by running the f
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 > [!NOTE]
-> At any given time only one of the AlwaysON replicas is accessible for ReadOnly sessions.
+> At any given time only one of the AlwaysON replicas is accessible by the ReadOnly sessions.
 
 ## Enable and disable Read Scale-Out using Azure PowerShell
 
