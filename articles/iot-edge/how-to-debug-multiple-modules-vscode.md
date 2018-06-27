@@ -24,7 +24,7 @@ With VS Code and Azure IoT Edge extension, you can attach the module process in 
 
 ### Build your IoT Edge modules for debugging purpose
 1. To start multi-module debugging, you need to use **Dockerfile.amd64.debug** to rebuild your docker images and deploy your Edge solution again. In VS Code explorer, navigate to `deployment.template.json` file. Update your image URLs by adding a `.debug` in the end. You need two module images with `.debug` at least. If you are working on the solution from previous tutorial, you should have a C# functions module and a C# module. Update these two image URLs by adding a `.debug` in the end and save this file. 
-2. Rebuild your solution. In VS Code command palette, type and run the command **Edge: Build IoT Edge solution**.
+2. Rebuild your solution. In VS Code command palette, type and run the command **Azure IoT Edge: Build IoT Edge solution**.
 3. In Azure IoT Hub Devices explorer, right-click an IoT Edge device ID, then select **Create deployment for Edge device**. Select the `deployment.json` file under the `config` folder. Then you can see the deployment is successfully created with a deployment ID in VS Code integrated terminal.
 
 You can check your container status in the VS Code Docker explorer or by running the `docker ps` command in the terminal.
