@@ -27,7 +27,7 @@
     href: how-to-translate-speech.md
   - name: Get the Speech Devices SDK
     href: get-speech-devices-sdk.md
-  - name: Batch transcription (call centers)
+  - name: Batch transcription
     href: batch-transcription.md
 - name: Customization
   items:
