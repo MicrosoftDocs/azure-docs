@@ -232,7 +232,7 @@ The command line for an Azure Batch container task executes in a working directo
 * All task environment variables are mapped into the container
 * The application working directory is set the same as for a regular task, so you can use features such as application packages and resource files
 
-Because Batch changes the default working directory in your container, the task runs in a location different from the typical container entry point (for example, C:\ by default on a Windows container, or / on Linux). Make sure that your task command line or container entry point specifies an absolute path, if it isn't already configured that way.
+Because Batch changes the default working directory in your container, the task runs in a location different from the typical container entry point (for example, `c:\` by default on a Windows container, or `/` on Linux). Make sure that your task command line or container entry point specifies an absolute path, if it isn't already configured that way.
 
 The following Python snippet shows a basic command line running in an Ubuntu container pulled from Docker Hub. The container run options are additional arguments to the `docker create` command that the task runs. Here, the `--rm` option removes the container after the task finishes.
 
