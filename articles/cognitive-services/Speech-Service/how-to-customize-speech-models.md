@@ -117,13 +117,13 @@ As part of the model creation process, you can test your model against an acoust
 
 After you have created custom acoustic models or language models, you can deploy them to a custom **Speech to Text** endpoint. Only the account that created an endpoint is permitted to make calls to it.
 
-To create an endpoint, choose **Deployments** from the **Custom Speech** menu at the top of the page. The **Deployments** page contains a table of current custom endpoints, if you have created any. Click **Create New** to create a new endpoint.
+To create an endpoint, choose **Endpoints** from the **Custom Speech** menu at the top of the page. The **Endpoints** page contains a table of current custom endpoints, if you have created any. Click **Create New** to create a new endpoint.
 
 Choose the models you want to use in the **Acoustic Model** and **Language Model** lists. The available choices always include the base Microsoft models. You may not mix conversational  models with search and dictate models, so choosing an acoustic model limits the available language models, and vice versa. You may use the same models in any number of endpoints.
 
 Click **Create** after choosing the models. Your new endpoint may take up to 30 minutes to provision.
 
-When your endpoint is ready, select it in the **Deployments** table to see the URI and deployment ID. You can use custom endpoints with the [Rest API](rest-apis.md#speech-to-text) and the [Speech SDK](speech-sdk.md). The [code samples](samples.md) include an example of using a custom Speech to Text endpoint.
+When your endpoint is ready, select it in the **Endpoints** table to see the URI and deployment ID. You can use custom endpoints with the [Rest API](rest-apis.md#speech-to-text) and the [Speech SDK](speech-sdk.md). The [code samples](samples.md) include an example of using a custom Speech to Text endpoint.
 
 ## Next steps
 

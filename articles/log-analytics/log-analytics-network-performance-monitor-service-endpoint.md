@@ -16,11 +16,11 @@ ms.date: 02/20/2018
 ms.author: abshamsft
 
 ---
-# Service Endpoint Monitor
+# Service Connectivity Monitor
 
-You can use the Service Endpoint Monitor capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, and SQL databases. 
+You can use the Service Connectivity Monitor capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, and SQL databases. 
 
-You can perform the following functions with Service Endpoint Monitor: 
+You can perform the following functions with Service Connectivity Monitor: 
 
 - Monitor the network connectivity to your applications and network services from multiple branch offices or locations. Applications and network services include Office 365, Dynamics CRM, internal line-of-business applications, and SQL databases.
 - Use built-in tests to monitor network connectivity to Office 365 and Dynamics 365 endpoints. 
@@ -29,7 +29,7 @@ You can perform the following functions with Service Endpoint Monitor:
 - Identify hot spots on the network that might be causing poor application performance by viewing the latency contributed by each hop on a topology map.
 
 
-![Service Endpoint Monitor](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Service Connectivity Monitor](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## Configuration 
@@ -50,11 +50,11 @@ netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmp
 netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
 ```
 
-### Create Service Endpoint Monitor tests 
+### Create Service Connectivity Monitor tests 
 
 Start creating your tests to monitor network connectivity to the service endpoints.
 
-1. Select the **Service Endpoint Monitor** tab.
+1. Select the **Service Connectivity Monitor** tab.
 2. Select **Add Test**, and enter the test name and description. 
 3. Select the type of test:<br>
 
@@ -79,7 +79,7 @@ Start creating your tests to monitor network connectivity to the service endpoin
 
 ## Walkthrough 
 
-Go to the Network Performance Monitor dashboard view. To get a summary of the health of the different tests you created, look at the **Service Endpoint Monitor** page. 
+Go to the Network Performance Monitor dashboard view. To get a summary of the health of the different tests you created, look at the **Service Connectivity Monitor** page. 
 
 ![Service Endpoint Monitor page](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 
