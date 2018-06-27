@@ -146,7 +146,7 @@ Check that your container image was successfully created and stored in the Azure
 
 1. Select **Next**.
 
-1. In the **Review Template** step, select **Submit**.
+1. In the **Review Deployment** step, select **Submit**.
 
 1. Return to the device details page and select **Refresh**.  You should see the new **machinelearningmodule** running along with the **tempSensor** module and the IoT Edge runtime modules.
 

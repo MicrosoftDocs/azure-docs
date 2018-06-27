@@ -9,12 +9,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Run code at the edge
-    items:
-    - name: Linux/Mac
-      href: quickstart-linux.md
-    - name: Windows
-      href: quickstart.md
+  - name: Deploy code to a Linux device
+    href: quickstart-linux.md
+  - name: Deploy code to a Windows device
+    href: quickstart.md
 - name: Tutorials
   items:
   - name: Find insights at the edge

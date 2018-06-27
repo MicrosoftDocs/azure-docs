@@ -82,7 +82,7 @@ If you want to create your own module and customize it for your environment, the
    ```
 
 8. Select **Next**. 
-9. In the **Review Template** step, select **Submit**. 
+9. In the **Review Deployment** step, select **Submit**. 
 10. Return to the device details page and select **Refresh**. You should see the new **modbus** module running along with the IoT Edge runtime.
 
 ## View data

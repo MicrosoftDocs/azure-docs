@@ -33,7 +33,7 @@ One of the key capabilities of Azure IoT Edge is being able to deploy modules to
    }
    ```
 
-1. In the **Review template** step, select **Submit**.
+1. In the **Review Deployment** step, select **Submit**.
 1. Return to the device details page and select **Refresh**. In addition to the edgeAgent module that was created when you first started the service, you should see another runtime module called **edgeHub** and the **tempSensor** module listed. 
 
    ![View tempSensor in list of deployed modules](./media/iot-edge-deploy-module/deployed-modules.png)
