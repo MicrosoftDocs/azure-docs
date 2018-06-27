@@ -39,6 +39,8 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
     - *myBackendSubnet* - for the subnet name.
 2. Click **Create** to create the virtual network.
 
+![Create a load balancer](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
+
 ## Create a Basic Load Balancer
 Create an internal Basic Load Balancer using the portal.
 
@@ -53,10 +55,7 @@ Create an internal Basic Load Balancer using the portal.
     - *myResourceGroupILB* - for the name of the new resource group that you create.
 3. Click **Create** to create the load balancer.
    
-    ![Create a load balancer](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
-
-
-## Create backend servers
+    ## Create backend servers
 
 In this section, you create two virtual machines for the backend pool of your Basic Load Balancer, and then install IIS on the virtual machines to help test the load balancer.
 
