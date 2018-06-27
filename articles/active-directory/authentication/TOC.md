@@ -94,13 +94,13 @@
 #### [NPS extension errors](howto-mfa-nps-extension-errors.md)
 
 ## Certificate-based authentication
-### [Get started with certificate auth](../active-directory/active-directory-certificate-based-authentication-get-started.md)
-#### [CBA on Android Devices](../active-directory/active-directory-certificate-based-authentication-android.md)
-#### [CBA on iOS Devices](../active-directory/active-directory-certificate-based-authentication-ios.md)
+### [Get started with certificate auth](../active-directory-certificate-based-authentication-get-started.md)
+#### [CBA on Android Devices](../active-directory-certificate-based-authentication-android.md)
+#### [CBA on iOS Devices](../active-directory-certificate-based-authentication-ios.md)
 
 ## Develop
 ### [Build MFA into custom apps](howto-mfa-sdk.md)
-### [Build your app to support MFA](../active-directory/develop/active-directory-appmodel-v2-overview.md)
+### [Build your app to support MFA](../develop/active-directory-appmodel-v2-overview.md)
 
 ## Reporting
 ### [SSPR Reports](howto-sspr-reporting.md)
@@ -113,14 +113,14 @@
 ## [Azure PowerShell cmdlets](/powershell/azure/overview)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
-## [Service limits and restrictions](../active-directory/active-directory-service-limits-restrictions.md)
+## [Service limits and restrictions](../active-directory-service-limits-restrictions.md)
 
 # Related
 
-## [Azure AD Connect](../active-directory/connect/active-directory-aadconnect.md)
-## [Azure AD Connect Health](../active-directory/connect-health/active-directory-aadconnect-health.md)
-## [Azure AD for developers](../active-directory/develop/active-directory-how-to-integrate.md)
-## [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/active-directory-securing-privileged-access.md)
+## [Azure AD Connect](../connect/active-directory-aadconnect.md)
+## [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
+## [Azure AD for developers](../develop/active-directory-how-to-integrate.md)
+## [Azure AD Privileged Identity Management](../privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Resources
 
