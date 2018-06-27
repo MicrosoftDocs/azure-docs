@@ -31,7 +31,7 @@ The Azure Function that you create in this tutorial filters the temperature data
 
 ## Prerequisites
 
-To test the Functions module that you build in this tutorial, you need an IoT Edge device. You can use the device that you configured in the [Linux/Mac](quickstart-linux.md) or [Windows](quickstart.md) quickstart.
+To test the Functions module that you build in this tutorial, you need an IoT Edge device. You can use the device that you configured in the [Linux](quickstart-linux.md) or [Windows](quickstart.md) quickstart.
 
 Have the following prerequisites on your development machine: 
 * [Visual Studio Code](https://code.visualstudio.com/). 
