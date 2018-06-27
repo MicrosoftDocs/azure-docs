@@ -197,7 +197,7 @@ After you complete the previous sections, you can set up monitoring.
             
   ![rules](.\media\how-to-npm\14.png)
 
-## <a name="configure connections"></a>Step 5: Configure monitors
+## <a name="configmonitor"></a>Step 5: Configure monitors
 
 Follow the steps for the type of peering that you want to monitor, Microsoft peering or private peering. After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available. Once you see the monitoring tiles, your ExpressRoute circuits and connection resources are being monitored by NPM.
         
