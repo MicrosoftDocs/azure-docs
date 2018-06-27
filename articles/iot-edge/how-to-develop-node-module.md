@@ -1,5 +1,5 @@
 ---
-title: Create Node.js modules for Azure IoT Edge | Microsoft Docs
+title: Debug Node.js modules for Azure IoT Edge | Microsoft Docs
 description: Use Visual Studio Code to develop and debug Node.js modules for
  Azure IoT Edge
 services: iot-edge

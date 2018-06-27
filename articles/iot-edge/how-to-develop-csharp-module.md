@@ -1,5 +1,5 @@
 ---
-title: Create C# modules for Azure IoT Edge | Microsoft Docs
+title: Debug C# modules for Azure IoT Edge | Microsoft Docs
 description: Use Visual Studio Code to develop, build, and debug a C# module for
  Azure IoT Edge
 services: iot-edge
