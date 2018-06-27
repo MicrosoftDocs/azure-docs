@@ -92,9 +92,8 @@ The possible Azure Event Grid configuration properties are as follows:
 
 * **EventGridTopicEndpoint** - The endpoint of the Event Grid Topic. The *%AppSettingName%* syntax can be used to resolve this value from application settings or environment variables.
 * **EventGridKeySettingName** - The key of the application setting on your Azure Function. Durable Functions will get the Event Grid Topic key from the value.
-* **EventGridPublishRetryCount** - [Optional] The number of times to retry if publishing to the Event Grid Topic fails.
+* **EventGridPublishRetryCount** - [Optional] The number of times to retry if publishing to the Event Grid topic fails.
 * **EventGridPublishRetryInterval** - [Optional] The Event Grid publish retry interval in the *hh:mm:ss* format. If not specified, the default retry interval is 5 minutes.
-* **EventGridPublishRetryHttpStatus** - [Optional] The list of HTTP status codes to consider when retrying failed publish attempts - e.g. 400, 403.
 
 Once you configure the `host.json` file, Your Durable Functions project starts to send lifecycle events to the Event Grid topic. This works when you run in the Function App and when you run locally.
 
