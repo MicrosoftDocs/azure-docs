@@ -138,6 +138,8 @@
       href: connector-azure-blob-storage.md
     - name: Azure Cosmos DB
       href: connector-azure-cosmos-db.md
+    - name: Azure Data Lake Storage
+      href: connector-azure-data-lake-storage.md
     - name: Azure Data Lake Store
       href: connector-azure-data-lake-store.md
     - name: Azure Database for MySQL
@@ -275,6 +277,8 @@
     - name: Copy Data tool
       href: copy-data-tool.md  
       items:
+    - name: Load Data Lake Storage
+      href: load-azure-data-lake-storage-gen2.md    
     - name: Load SQL Data Warehouse
       href: load-azure-sql-data-warehouse.md
     - name: Load Data Lake Store
