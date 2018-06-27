@@ -33,28 +33,51 @@ On Linux:
     sudo journalctl -u iotedge -f
     ```
 
-- To view more detailed logs of the IoT Edge Security Manager:
+* View verbose logs from iotedgectl commands:
 
-    - Edit the iotedge daemon settings:
+   ```cmd
+   iotedgectl --verbose DEBUG <command>
+   ```
 
-      ```bash
-      sudo systemctl edit iotedge.service
-      ```
-    
-    - Update the following lines:
-    
-      ```
-      [Service]
-      Environment=IOTEDGE_LOG=edgelet=debug
-      ```
+* If you experience connectivity issues, inspect your edge device environment variables like your device connection string:
+
+   ```cmd
+   docker exec edgeAgent printenv
+   ```
 
 You can also check the messages being sent between IoT Hub and the IoT Edge devices. View these messages by using the [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension for Visual Studio Code. For more guidance, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
-After investigating the logs and messages for information, you can also try restarting the Azure IoT Edge runtime:
+   - Restart the IoT Edge Security Daemon:
+    
+      ```bash
+      sudo systemctl cat iotedge.service
+      sudo systemctl daemon-reload
+      sudo systemctl restart iotedge
+      ```
 
-   ```cmd
-   iotedgectl restart
+On Windows:
+- To view the status of the IoT Edge Security Manager:
+
+   ```powershell
+   Get-Service iotedge
    ```
+
+- To view the logs of the IoT Edge Security Manager:
+
+   ```powershell
+   # Displays logs from today, newest at the bottom.
+ 
+   Get-WinEvent -ea SilentlyContinue `
+   -FilterHashtable @{ProviderName= "iotedged";
+     LogName = "application"; StartTime = [datetime]::Today} |
+   select TimeCreated, Message |
+   sort-object @{Expression="TimeCreated";Descending=$false}
+   ```
+
+### If the IoT Edge Security Manager is not running, verify your yaml configuration file
+
+> [!WARNING]
+> YAML files cannot contain tabs as identation. Use 2 spaces instead.
 
 ## Edge Agent stops after about a minute
 
@@ -101,29 +124,11 @@ A container fails to run, and the Edge Agent logs show a 403 error.
 The Edge Agent doesn't have permissions to access a module's image. 
 
 ### Resolution
-Try running the `iotedgectl login` command again.
+Make sure that your registry credentials are correctly specified in your deployment manifest
 
-## iotedgectl can't find Docker
+## IoT Edge security daemon fails with an invalid hostname
 
-The commands `iotedgectl setup` or `iotedgectl start` fail and print the following message to the logs:
-```output
-File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
-  info = self._client.info()
-File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
-  return self.api.info(*args, **kwargs)
-File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
-  return self._result(self._get(self._url("/info")), True)
-```
-
-### Root cause
-iotedgectl can't find Docker, which is a pre-requisite.
-
-### Resolution
-Install Docker, make sure that it is running and retry.
-
-## iotedgectl setup fails with an invalid hostname
-
-The command `iotedgectl setup` fails and prints the following message: 
+The command `sudo journalctl -u iotedge` fails and prints the following message: 
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
@@ -144,9 +149,17 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 4. Copy the new DNS name, which should be in the format **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**.
 5. Inside the virtual machine, use the following command to set up the IoT Edge runtime with your DNS name:
 
-   ```input
-   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
-   ```
+   - On Linux:
+
+      ```bash
+      sudo nano /etc/iotedge/config.yaml
+      ```
+
+   - On Windows:
+
+      ```cmd
+      notepad C:\ProgramData\iotedge\config.yaml
+      ```
 
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iot-edge/issues) so that we can continue to improve. 
