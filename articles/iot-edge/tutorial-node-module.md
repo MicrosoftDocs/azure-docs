@@ -56,7 +56,7 @@ The following steps show you how to create an IoT Edge Node.js module using Visu
 2. In the integrated terminal, enter the following command to install **yeoman** and the generator for Node.js Azure IoT Edge module: 
 
     ```cmd/sh
-    npm install -g yo https://github.com/Azure/generator-azure-iot-edge-module/archive/v1.0.0-rc5.tar.gz
+    npm install -g yo generator-azure-iot-edge-module
     ```
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
