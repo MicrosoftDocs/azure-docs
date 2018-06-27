@@ -67,6 +67,8 @@ For this tutorial, you create a single VNet with three subnets:
 
 This tutorial uses a simplified network configuration for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet, and workload servers are in peered VNets with one or more subnets.
 
+![Tutorial network infrastructure](media/tutorial-firewall-rules-portal/Tutorial_network.png)
+
 ## Set up the network environment
 First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, and test servers.
 
