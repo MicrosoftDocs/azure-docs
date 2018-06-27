@@ -43,9 +43,9 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
     7. Select **Save**.
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-1. You see the **home page** for the lab. 
+1. You see the **dashboard** for the lab. 
     
-    ![Classroom lab home page](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
+    ![Classroom lab dashboard](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 
 ## Configure usage policy
 
@@ -55,8 +55,9 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
     ![Usage policy](../media/tutorial-setup-classroom-lab/usage-policy-settings.png)
 
+
 ## Set up the template 
-A template in a lab is a base virtual machine image from which all users’ virtual machines are created. Set up the template virtual machine so that it is configured with exactly what you want to provide to the lab users. You can provide a name and description of the template that the lab users see. Set the visibility of the template to public to make instances of the template VM available to your lab users. 
+A template in a lab is a base virtual machine image from which all users’ virtual machines are created. Set up the template virtual machine so that it is configured with exactly what you want to provide to the lab users. You can provide a name and description of the template that the lab users see. Publish the template to public to make instances of the template VM available to your lab users. 
 
 ### Set title and description
 1. In the **Template** section, select **Edit** (pencil icon) for the template. 
@@ -66,30 +67,49 @@ A template in a lab is a base virtual machine image from which all users’ virt
 
     ![Classroom lab description](../media/tutorial-setup-classroom-lab/lab-description.png)
 
-### Publish the template 
-To publish a template VM, you set the availability of the template to **public**. When you do so, Azure Lab Services creates VMs in the lab by using the template. The number of VMs created in this process is same as the maximum number of users allowed into the lab, which you can set in the usage policy of the lab. All virtual machines have the same configuration as the template. 
+### Set up the template VM
+ You connect to the template VM and install any required software on it before making it available to your students. 
 
-1. Wait until the template VM is ready. 
-2. Select **Publish** in the **Template** section. 
-3. In the **Availability** page, select **Public**.
+1. Wait until the template virtual machine is ready. Once it is ready, the **Start** button should be enabled. To start the VM, select **Start**.
+
+    ![Start the template VM](../media/tutorial-setup-classroom-lab/start-template-vm.png)
+1. To connect to the VM, select **Connect**, and follow instructions. 
+
+    ![Connect to the template VM](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
+1. Install any software that's required for students to do the lab (for example, Visual Studio, Azure Storage Explorer, etc.). 
+2. Disconnect (close your remote desktop session) from the template VM. 
+3. **Stop** the template VM by selecting **Stop**. 
+
+    ![Stop the template VM](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
+
+### Publish the template 
+When you publish a template, Azure Lab Services creates VMs in the lab by using the template. The number of VMs created in this process is same as the maximum number of users allowed into the lab, which you can set in the usage policy of the lab. All virtual machines have the same configuration as the template. 
+
+1. Select **Publish** in the **Template** section. 
+
+    ![Publish the template VM](../media/tutorial-setup-classroom-lab/public-access.png)
+1. In the **Publish** window, select the **Published** option. 
+2. Now, select the **Publish** button. This process may take some time depending on how many VMs are being created, which is same as the number of users allowed into the lab.
     
     > [!IMPORTANT]
     > Once a template is publicly available, its access can't be changed to private. 
-4. Select **Save**.
-
-    ![Availability](../media/tutorial-setup-classroom-lab/public-access.png)
-4. Switch to the **Virtual machines** page, and confirm that you see five virtual machines that are in **Unassigned** state. 
+4. Switch to the **Virtual machines** page, and confirm that you see five virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. 
 
     ![Virtual machines](../media/tutorial-setup-classroom-lab/virtual-machines.png)
+5. Wait until the VMs are created. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
 
-Optionally, you can **start** the template VM, **connect** to it and install any software required for the lab, and **stop** the template VM before making it public. 
+    ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## Send registration link to students
 
-1. Select **User registration** tile.
-2. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard. Paste it in an email editor, and send an email to the student. 
+1. Switch to the **Dashboard** view. 
+2. Select **User registration** tile.
+
+    ![Student registration link](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
+1. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard. Paste it in an email editor, and send an email to the student. 
 
     ![Student registration link](../media/tutorial-setup-classroom-lab/registration-link.png)
+2. On the **User registration** dialog box, select **Close**. 
 
 
 ## Next steps

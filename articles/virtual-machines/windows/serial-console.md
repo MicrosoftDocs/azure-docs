@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure virtual machine serial console | Microsoft Docs
 description: Bi-Directional serial console for Azure virtual machines.
 services: virtual-machines-windows
@@ -30,6 +30,7 @@ The virtual machine serial console on Azure provides access to a text-based cons
 
 ## Prerequisites 
 
+* You must be using the resource management deployment model. Classic deployments are not supported. 
 * Virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
 * The account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
 

@@ -36,8 +36,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this tutorial, you will need:
 
-- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
-- [Azure PowerShell](/powershell/azure/install-azurerm-ps) installed locally.
+- Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
+- [Azure PowerShell](/powershell/azure/install-azurerm-ps) installed locally
 
 ## Sign in to Azure PowerShell
 
@@ -291,4 +291,4 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Custom roles in Azure](custom-roles.md)
+> [Create custom roles using PowerShell](custom-roles-powershell.md)
