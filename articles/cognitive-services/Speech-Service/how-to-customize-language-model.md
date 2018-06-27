@@ -111,3 +111,4 @@ If you would like to change the "Name" or "Description" of the model at some poi
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 - [How to recognize speech in C#](quickstart-csharp-windows.md)
+- [Git Sample Data](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

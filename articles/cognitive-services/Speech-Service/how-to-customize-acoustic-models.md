@@ -137,3 +137,4 @@ You will now see a new entry in the acoustic models table corresponding to this 
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 - [How to recognize speech in C#](quickstart-csharp-windows.md)
+- [Git Sample Data](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)
