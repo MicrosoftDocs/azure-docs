@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 05/18/2018
+ms.date: 06/27/2018
 ms.author: gsacavdm
 
 ---
