@@ -4,7 +4,7 @@ description: Resolve common issues and learn troubleshooting skills for Azure Io
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
+ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -18,18 +18,44 @@ If you experience issues running Azure IoT Edge in your environment, use this ar
 
 When you encounter an issue, learn more about the state of your IoT Edge device by reviewing the container logs and messages that pass to and from the device. Use the commands and tools in this section to gather information. 
 
-* Look at the logs of the docker containers to detect issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: Edge Agent and Edge Hub. The Edge Agent logs typically provide info on the lifecycle of each container. The Edge Hub logs provide info on messaging and routing. 
+### Check the status of the IoT Edge Security Manager and its logs:
 
-   ```cmd
-   docker logs <container name>
+On Linux:
+- To view the status of the IoT Edge Security Manager:
+
+   ```bash
+   sudo systemctl status iotedge
    ```
 
-* View the messages going through the Edge Hub, and gather insights on device properties updates with verbose logs from the runtime containers.
+- To view the logs of the IoT Edge Security Manager:
 
-   ```cmd
-   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
-   ```
+    ```bash
+    sudo journalctl -u iotedge -f
+    ```
+
+- To view more detailed logs of the IoT Edge Security Manager:
+
+   - Edit the iotedge daemon settings:
+
+      ```bash
+      sudo systemctl edit iotedge.service
+      ```
    
+   - Update the following lines:
+    
+      ```
+      [Service]
+      Environment=IOTEDGE_LOG=edgelet=debug
+      ```
+    
+   - Restart the IoT Edge Security Daemon:
+    
+      ```bash
+      sudo systemctl cat iotedge.service
+      sudo systemctl daemon-reload
+      sudo systemctl restart iotedge
+      ```
+
 * View verbose logs from iotedgectl commands:
 
    ```cmd
