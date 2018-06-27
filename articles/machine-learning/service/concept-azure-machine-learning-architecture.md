@@ -13,8 +13,6 @@ ms.date: 06/18/2018
 
 # Azure Machine Learning Services architecture and key terms 
 
-An **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. The run history file stores each run in your project so you can monitor your model during training.  
-
 The __Azure Machine Learning workspace__ is the top-level resource for Azure Machine learning. It provides the following resources:
 
 * Run histories - Information about each run of your project.
