@@ -25558,6 +25558,21 @@
             "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started.md",
             "redirect_url": "/azure/active-directory-b2c/tutorial-create-tenant",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-app-passwords",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-first-time",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-troubleshoot",
+            "redirect_document_id": false
+        }        
     ]
 }
