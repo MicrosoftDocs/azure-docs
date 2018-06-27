@@ -1,6 +1,6 @@
 ---
-title: Release notes for Hadoop components on Azure HDInsight | Microsoft Docs
-description: Latest release notes and versions of Hadoop components for Azure HDInsight. Get development tips and details for Spark, R Server, Hive and more.
+title: Archived release notes for Hadoop components on Azure HDInsight | Microsoft Docs
+description: Archived release notes and versions of Hadoop components for Azure HDInsight. Get development tips and details for Spark, R Server, Hive and more.
 services: hdinsight
 documentationcenter: ''
 editor: cgronlun
@@ -17,9 +17,9 @@ ms.date: 03/20/2018
 ms.author: nitinme
 
 ---
-# Release notes for Hadoop components on Azure HDInsight
+# Archived release notes for Hadoop components on Azure HDInsight
 
-This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
+For the **most recent** Azure HDInsight release updates, see [HDInsight Release Notes](hdinsight-release-notes.md).
 
 > [!IMPORTANT]
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).

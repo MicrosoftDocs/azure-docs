@@ -1,16 +1,39 @@
-# Summary
+---
+title: Release notes for Azure HDInsight | Microsoft Docs
+description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
+services: hdinsight
+documentationcenter: ''
+editor: cgronlun
+manager: jhubbard
+author: nitinme
+tags: azure-portal
+
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 07/01/2018
+ms.author: nitinme
+
+---
+# Release notes for Azure HDInsight
+
+This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
+
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
+
+## Summary
 
 The June 2018 release of HDInsight is shaping up to be a significant release with a lot of new updates and capabilities for our customers as outlined below.
 
-# New features
+## New features
 
 The new updates and capabilities fall in to the following categories:
 
-1.  ***Update Hadoop and other open source projects*** – In addition to, 1000+ bug fixes across 20+ open source projects, this update contains a new version of **Spark (2.3)** and **Kafka (1.0)**.
+1.  ***Update Hadoop and other open source projects*** – In addition to 1000+ bug fixes across 20+ open source projects, this update contains a new version of **Spark (2.3)** and **Kafka (1.0)**.
 
     a.  [**New features in Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  **[New features in Kafka 1.0](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html) **
+    b.  [**New features in Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
 
 2.  ***Update R Server 9.1 to Machine Learning Services 9.3*** – This is a much awaited update for the R community which introduces dedicated session pooling, improved operationalization support so you can easily deploy your models. Learn more on how to use Machine Learning Services on HDInsight.
 
@@ -18,7 +41,7 @@ The new updates and capabilities fall in to the following categories:
 
 4.  ***HDInsight Enterprise Security Package Updates (Preview)*** – (Preview) [Virtual Network Service Endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) support for ADLS Gen2, Cosmos DB and Azure DB.
 
-# Component versions
+## Component versions
 
 The official Apache versions of all HDInsight 3.6 components are listed below. All components listed here are official Apache releases of the most recent stable versions available.
 
@@ -58,15 +81,15 @@ The official Apache versions of all HDInsight 3.6 components are listed below. A
 
 Later versions of a few Apache components are sometimes bundled in the HDP distribution in addition to the versions listed above. In this case, these later versions are listed in the Technical Previews table and should not substitute for the Apache component versions of the above list in a production environment.
 
-# Technical Preview Features
+## Technical Preview Features
 
 The following features are available within this release but are not ready for production deployment. We encourage you to explore these technical preview features in non-production environments and provide feedback on your experiences through the [MSDN forum ](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight) or [Stackoverflow (\#hdinsight)](https://stackoverflow.com/questions/tagged/hdinsight).
 
 ​
 
-# Apache Patch Information
+## Apache Patch Information
 
-## Hadoop
+### Hadoop
 
 This release provides Hadoop Common 2.7.3 and the following Apache patches:
 
@@ -150,9 +173,7 @@ HDP 2.6.4 provided Hadoop Common 2.7.3 and the following Apache patches:
 
 -   [YARN-6805](https://issues.apache.org/jira/browse/YARN-6805): NPE in LinuxContainerExecutor due to null PrivilegedOperationException exit code.
 
-## 
-
-## HBase
+### HBase
 
 This release provides HBase 1.1.2 and the following Apache patches.
 
@@ -218,9 +239,7 @@ This release provides HBase 1.1.2 and the following Apache patches.
 
 -   [HBASE-20008](https://issues.apache.org/jira/browse/HBASE-20008): \[backport\] NullPointerException when restoring a snapshot after splitting a region.
 
-## 
-
-## Hive
+### Hive
 
 This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following patches:
 
@@ -480,9 +499,7 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-18944*](https://issues.apache.org/jira/browse/HIVE-18944): Groupping sets position is set incorrectly during DPP.
 
-## 
-
-## Kafka
+### Kafka
 
 This release provides Kafka 1.0.0 and the following Apache patches.
 
@@ -516,11 +533,9 @@ This release provides Kafka 1.0.0 and the following Apache patches.
 
 -   [KAFKA-6274](https://issues.apache.org/jira/browse/KAFKA-6274): Improve KTable Source state store auto-generated names.
 
-## 
+### 
 
-## 
-
-## Mahout
+### Mahout
 
 In HDP-2.3.x and 2.4.x, instead of shipping a specific Apache release of Mahout, we synchronized to a particular revision point on Apache Mahout trunk. This revision point is after the 0.9.0 release, but before the 0.10.0 release. This provides a large number of bug fixes and functional enhancements over the 0.9.0 release, but provides a stable release of the Mahout functionality before the complete conversion to new Spark-based Mahout in 0.10.0.
 
@@ -534,9 +549,7 @@ In HDP-2.5.x and 2.6.x, we removed the "commons-httpclient" library from Mahout 
 
 -   There is an even smaller possibility that some Mahout jobs may encounter crashes in Mahout's hbase-client code calls to the hadoop-common libraries, due to binary compatibility problems. Regrettably, there is no way to resolve this issue except revert to the HDP-2.4.2 version of Mahout, which may have security issues. Again, this should be very unusual, and is unlikely to occur in any given Mahout job suite.
 
-## 
-
-## Oozie
+### Oozie
 
 This release provides Oozie 4.2.0 with the following Apache patches.
 
@@ -562,9 +575,7 @@ This release provides Oozie 4.2.0 with the following Apache patches.
 
 -   [OOZIE-3167](https://issues.apache.org/jira/browse/OOZIE-3167): Upgrade tomcat version on Oozie 4.3 branch.
 
-## 
-
-## Phoenix
+### Phoenix
 
 This release provides Phoenix 4.7.0 and the following Apache patches:
 
@@ -608,9 +619,7 @@ This release provides Phoenix 4.7.0 and the following Apache patches:
 
 -   [PHOENIX-4588](https://issues.apache.org/jira/browse/PHOENIX-4588): Clone expression also if it's children have Determinism.PER\_INVOCATION.
 
-## 
-
-## Pig
+### Pig
 
 This release provides Pig 0.16.0 with the following Apache patches.
 
@@ -618,9 +627,7 @@ This release provides Pig 0.16.0 with the following Apache patches.
 
 -   [PIG-5175](https://issues.apache.org/jira/browse/PIG-5175): Upgrade jruby to 1.7.26.
 
-## 
-
-## Ranger
+### Ranger
 
 This release provides Ranger 0.7.0 and the following Apache patches:
 
@@ -640,15 +647,11 @@ This release provides Ranger 0.7.0 and the following Apache patches:
 
 -   [RANGER-2008](https://issues.apache.org/jira/browse/RANGER-2008): Policy evaluation is failing for multiline policy conditions.
 
-## 
-
-## Slider
+### Slider
 
 This release provides Slider 0.92.0 with no additional Apache patches.
 
-## 
-
-## Spark
+### Spark
 
 This release provides Spark 2.3.0 and the following Apache patches:
 
@@ -774,15 +777,11 @@ This release provides Spark 2.3.0 and the following Apache patches:
 
 -   [SPARK-23881](https://issues.apache.org/jira/browse/SPARK-23881): Fix flaky test JobCancellationSuite."interruptible iterator of shuffle reader".
 
-## 
-
-## Sqoop
+### Sqoop
 
 This release provides Sqoop 1.4.6 with no additional Apache patches.
 
-## 
-
-## Storm
+### Storm
 
 This release provides Storm 1.1.1 and the following Apache patches:
 
@@ -796,17 +795,13 @@ This release provides Storm 1.1.1 and the following Apache patches:
 
 -   [STORM-2960](https://issues.apache.org/jira/browse/STORM-2960): Better to stress importance of setting up proper OS account for Storm processes.
 
-## 
-
-## Tez
+### Tez
 
 This release provides Tez 0.7.0 and the following Apache patches:
 
 -   [TEZ-1526](https://issues.apache.org/jira/browse/TEZ-1526): LoadingCache for TezTaskID slow for large jobs.
 
-## 
-
-## Zeppelin
+### Zeppelin
 
 This release provides Zeppelin 0.7.3 with no additionalApache patches.
 
@@ -816,9 +811,7 @@ This release provides Zeppelin 0.7.3 with no additionalApache patches.
 
 -   [ZEPPELIN-903](https://issues.apache.org/jira/browse/ZEPPELIN-903): Replace CXF with Jersey2.
 
-## 
-
-## ZooKeeper
+### ZooKeeper
 
 This release provides ZooKeeper 3.4.6 and the following Apache patches:
 
@@ -832,7 +825,7 @@ This release provides ZooKeeper 3.4.6 and the following Apache patches:
 
 -   [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726): Patch for introduces potential race condition.
 
-[]{#_Toc517170651 .anchor}Fixed Common Vulnerabilities and Exposures
+## Fixed Common Vulnerabilities and Exposures
 
 This section covers all Common Vulnerabilities and Exposures (CVE) that are addressed in this release.
 
@@ -886,7 +879,7 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 
 | **Summary:** handler/ssl/OpenSslEngine.java in Netty 4.0.x before 4.0.37.Final and 4.1.x before 4.1.1.Final allows remote attackers to cause a denial of service (infinite loop) |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Severity: **Moderate                                                                                                                                                           |
+| **Severity:** Moderate                                                                                                                                                           |
 | **Vendor:** Hortonworks                                                                                                                                                          |
 | **Versions Affected:** HDP 2.x.x since 2.3.x                                                                                                                                     |
 | **Users Affected:** All users that use HDFS.                                                                                                                                     |
@@ -898,11 +891,11 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 | **Summary:** Apache Ranger path matching issue in policy evaluation                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
 | **Severity:** Normal                                                                                                                   |
-| **Vendor: **Hortonworks                                                                                                                |
+| **Vendor:** Hortonworks                                                                                                                |
 | **Versions Affected:** All HDP 2.5 versions including Apache Ranger versions 0.6.0/0.6.1/0.6.2                                         |
 | **Users affected:** All users of the ranger policy admin tool.                                                                         |
 | **Impact:** Ranger policy engine incorrectly matches paths in certain conditions when a policy contains wildcards and recursive flags. |
-| **Fix detail: **Fixed policy evaluation logic                                                                                          |
+| **Fix detail:** Fixed policy evaluation logic                                                                                          |
 | **Recommended Action:** Users should upgrade to HDP 2.5.4+ (with Apache Ranger 0.6.3+) or HDP 2.6+ (with Apache Ranger 0.7.0+)         |
 
 ### **​CVE-2016-8751**
@@ -919,7 +912,7 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 
 ### 
 
-# Fixed Issues for Support
+## Fixed Issues for Support
 
 Fixed issues represent selected issues that were previously logged via Hortonworks Support, but are now addressed in the current release. These issues may have been reported in previous versions within the Known Issues section; meaning they were reported by customers or identified by Hortonworks Quality Engineering team.
 
@@ -1322,257 +1315,37 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-99807              | [OOZIE-2844](https://issues.apache.org/jira/browse/OOZIE-2844)                                                                                                                                                                                                                 | Increase stability of Oozie actions when log4j.properties is missing or not readable                                                                         |
 | RMP-9995               | [AMBARI-22222](https://issues.apache.org/jira/browse/AMBARI-22222)                                                                                                                                                                                                             | Switch druid to use /var/druid directory instead of /apps/druid on local disk                                                                                |
 
-# 
+## Behavioral changes
 
-# Behavioral changes
+|**Apache Component**|**Apache JIRA**|**Summary**|**Details**|
+|--|--|--|--|
+|**Spark 2.3** |**N/A** |**Changes as documented in the Apache Spark release notes** |- There is a "Deprecation" document and a "Change of behavior" guide 
+https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations
+- For SQL part, there is another detailed "Migration" guide (from 2.2 to 2.3),
+http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark job completes successfully but there is an HDFS disk quota full error |**Scenario:** Running **insert overwrite** when a quota is set on the Trash folder of the user who runs the command.
+**Previous Behavior:** The job succeeds even though it fails to move the data to the Trash. The result can wrongly contain some of the data previously present in the table.
+**New Behavior:** When the move to the Trash folder fails, the files are permanently deleted.|
+|**Kafka 1.0**|**N/A**|**Changes as documented in the Apache Spark release notes** |http://kafka.apache.org/10/documentation.html#upgrade_100_notable|
+|**Hive/ Ranger** | |Additional ranger hive policies required for INSERT OVERWRITE |**Scenario:** Additional ranger hive policies required for **INSERT OVERWRITE**
+**Previous behavior:** Hive **INSERT OVERWRITE** queries succeed as usual.
+**New behavior:** Hive **INSERT OVERWRITE** queries are unexpectedly failing after upgrading to HDP-2.6.x with the error:
+Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user jdoe does not have WRITE privilege on /tmp/*(state=42000,code=40000)
+As of HDP-2.6.0, Hive **INSERT OVERWRITE** queries require a Ranger URI policy to allow write operations, even if the user has write privilege granted through HDFS policy.
+**Workaround/Expected Customer Action:**
+1. Create a new policy under the Hive repository.
+2. In the dropdown where you see Database, select URI.
+3. Update the path (Example: /tmp/*)
+4. Add the users and group and save.
+5. Retry the insert query.|
+|**HDFS**|**N/A** |HDFS should support for multiple KMS Uris |**Previous Behavior:** dfs.encryption.key.provider.uri property was used to configure the KMS provider path.
+**New Behavior:** dfs.encryption.key.provider.uri is now deprecated in favor of hadoop.security.key.provider.path to configure the KMS provider path.|
+|**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Option for disabling scheduler |**Component Affected:** Zeppelin-Server
+**Previous Behavior:** In previous releases of Zeppelin, there was no option for disabling scheduler.
+**New Behavior:** By default, users will no longer see scheduler, as it is disabled by default.
+**Workaround/Expected Customer Action:** If you want to enable scheduler, you will need to add azeppelin.notebook.cron.enable with value of true under custom zeppelin site in Zeppelin settings from Ambari.|
 
-+-----------------+-----------------+-----------------+-----------------+
-| **Apache        | **Apache JIRA** | **Summary**     | **Details**     |
-| Component**     |                 |                 |                 |
-+=================+=================+=================+=================+
-| **Spark 2.3**   | **N/A**         | **Changes as    | -   There is a  |
-|                 |                 | documented in   |     \`Deprecati |
-|                 |                 | the Apache      | on\`            |
-|                 |                 | Spark release   |     document    |
-|                 |                 | notes**         |     and a       |
-|                 |                 |                 |     \`Change of |
-|                 |                 |                 |     behavior\`  |
-|                 |                 |                 |     guide\      |
-|                 |                 |                 |     [https://sp |
-|                 |                 |                 | ark.apache.org/ |
-|                 |                 |                 | releases/spark- |
-|                 |                 |                 | release-2-3-0.h |
-|                 |                 |                 | tml\#deprecatio |
-|                 |                 |                 | ns](https://spa |
-|                 |                 |                 | rk.apache.org/r |
-|                 |                 |                 | eleases/spark-r |
-|                 |                 |                 | elease-2-3-0.ht |
-|                 |                 |                 | ml)             |
-|                 |                 |                 |                 |
-|                 |                 |                 | -   For SQL     |
-|                 |                 |                 |     part, there |
-|                 |                 |                 |     is another  |
-|                 |                 |                 |     detailed    |
-|                 |                 |                 |     \`Migration |
-|                 |                 |                 | \`              |
-|                 |                 |                 |     guide (from |
-|                 |                 |                 |     2.2 to      |
-|                 |                 |                 |     2.3),\      |
-|                 |                 |                 |     [http://spa |
-|                 |                 |                 | rk.apache.org/d |
-|                 |                 |                 | ocs/latest/sql- |
-|                 |                 |                 | programming-gui |
-|                 |                 |                 | de.html\#upgrad |
-|                 |                 |                 | ing-from-spark- |
-|                 |                 |                 | sql-22-to-23](h |
-|                 |                 |                 | ttp://spark.apa |
-|                 |                 |                 | che.org/docs/la |
-|                 |                 |                 | test/sql-progra |
-|                 |                 |                 | mming-guide.htm |
-|                 |                 |                 | l)              |
-+-----------------+-----------------+-----------------+-----------------+
-| Spark           | [HIVE-12505](ht | Spark job       | **Scenario:** R |
-|                 | tps://issues.ap | completes       | unning **insert |
-|                 | ache.org/jira/b | successfully    | overwrite** whe |
-|                 | rowse/HIVE-1250 | but there is an | n               |
-|                 | 5)              | HDFS disk quota | a quota is set  |
-|                 |                 | full error      | on the Trash    |
-|                 |                 |                 | folder of the   |
-|                 |                 |                 | user who runs   |
-|                 |                 |                 | the command.    |
-|                 |                 |                 |                 |
-|                 |                 |                 | **Previous      |
-|                 |                 |                 | Behavior:** The |
-|                 |                 |                 | job succeeds    |
-|                 |                 |                 | even though it  |
-|                 |                 |                 | fails to move   |
-|                 |                 |                 | the data to the |
-|                 |                 |                 | Trash. The      |
-|                 |                 |                 | result can      |
-|                 |                 |                 | wrongly contain |
-|                 |                 |                 | some of the     |
-|                 |                 |                 | data previously |
-|                 |                 |                 | present in the  |
-|                 |                 |                 | table.          |
-|                 |                 |                 |                 |
-|                 |                 |                 | **New           |
-|                 |                 |                 | Behavior:** Whe |
-|                 |                 |                 | n               |
-|                 |                 |                 | the move to the |
-|                 |                 |                 | Trash folder    |
-|                 |                 |                 | fails, the      |
-|                 |                 |                 | files are       |
-|                 |                 |                 | permanently     |
-|                 |                 |                 | deleted.        |
-+-----------------+-----------------+-----------------+-----------------+
-| **Kafka 1.0**   | **N/A**         | **Changes as    | <http://kafka.a |
-|                 |                 | documented in   | pache.org/10/do |
-|                 |                 | the Apache      | cumentation.htm |
-|                 |                 | Spark release   | l#upgrade_100_n |
-|                 |                 | notes**         | otable>         |
-+-----------------+-----------------+-----------------+-----------------+
-|                 |                 |                 |                 |
-+-----------------+-----------------+-----------------+-----------------+
-| **Hive/         |                 | Additional      | **Scenario:**Ad |
-| Ranger**        |                 | ranger hive     | ditional        |
-|                 |                 | policies        | ranger hive     |
-|                 |                 | required for    | policies        |
-|                 |                 | INSERT          | required        |
-|                 |                 | OVERWRITE       | for **INSERT    |
-|                 |                 |                 | OVERWRITE**     |
-|                 |                 |                 |                 |
-|                 |                 |                 | **Previous      |
-|                 |                 |                 | behavior:** Hiv |
-|                 |                 |                 | e **INSERT      |
-|                 |                 |                 | OVERWRITE**quer |
-|                 |                 |                 | ies             |
-|                 |                 |                 | succeed as      |
-|                 |                 |                 | usual.          |
-|                 |                 |                 |                 |
-|                 |                 |                 | **New           |
-|                 |                 |                 | behavior:** Hiv |
-|                 |                 |                 | e **INSERT      |
-|                 |                 |                 | OVERWRITE** que |
-|                 |                 |                 | ries            |
-|                 |                 |                 | are             |
-|                 |                 |                 | unexpectedly    |
-|                 |                 |                 | failing after   |
-|                 |                 |                 | upgrading to    |
-|                 |                 |                 | HDP-2.6.x with  |
-|                 |                 |                 | the error:      |
-|                 |                 |                 |                 |
-|                 |                 |                 | Error while     |
-|                 |                 |                 | compiling       |
-|                 |                 |                 | statement:      |
-|                 |                 |                 | FAILED:         |
-|                 |                 |                 | HiveAccessContr |
-|                 |                 |                 | olException     |
-|                 |                 |                 | Permission      |
-|                 |                 |                 | denied: user    |
-|                 |                 |                 | jdoe does not   |
-|                 |                 |                 | have WRITE      |
-|                 |                 |                 | privilege on    |
-|                 |                 |                 | /tmp/\*(state=4 |
-|                 |                 |                 | 2000,code=40000 |
-|                 |                 |                 | )               |
-|                 |                 |                 |                 |
-|                 |                 |                 | As of           |
-|                 |                 |                 | HDP-2.6.0,      |
-|                 |                 |                 | Hive **INSERT   |
-|                 |                 |                 | OVERWRITE**     |
-|                 |                 |                 | queries require |
-|                 |                 |                 | a Ranger URI    |
-|                 |                 |                 | policy to allow |
-|                 |                 |                 | write           |
-|                 |                 |                 | operations,     |
-|                 |                 |                 | even if the     |
-|                 |                 |                 | user has write  |
-|                 |                 |                 | privilege       |
-|                 |                 |                 | granted through |
-|                 |                 |                 | HDFS policy.    |
-|                 |                 |                 |                 |
-|                 |                 |                 | **Workaround/Ex |
-|                 |                 |                 | pected          |
-|                 |                 |                 | Customer        |
-|                 |                 |                 | Action:**       |
-|                 |                 |                 |                 |
-|                 |                 |                 | 1.  Create a    |
-|                 |                 |                 |     > new       |
-|                 |                 |                 |     > policy    |
-|                 |                 |                 |     > under the |
-|                 |                 |                 |     > Hive      |
-|                 |                 |                 |     > repositor |
-|                 |                 |                 | y.              |
-|                 |                 |                 |                 |
-|                 |                 |                 | 2.  In the      |
-|                 |                 |                 |     > dropdown  |
-|                 |                 |                 |     > where you |
-|                 |                 |                 |     > see       |
-|                 |                 |                 |     > Database, |
-|                 |                 |                 |     > select    |
-|                 |                 |                 |     > URI.      |
-|                 |                 |                 |                 |
-|                 |                 |                 | 3.  Update the  |
-|                 |                 |                 |     > path      |
-|                 |                 |                 |     > (Example: |
-|                 |                 |                 |     > /tmp/\*)  |
-|                 |                 |                 |                 |
-|                 |                 |                 | 4.  Add the     |
-|                 |                 |                 |     > users and |
-|                 |                 |                 |     > group and |
-|                 |                 |                 |     > save.     |
-|                 |                 |                 |                 |
-|                 |                 |                 | 5.  Retry the   |
-|                 |                 |                 |     > insert    |
-|                 |                 |                 |     > query.    |
-+-----------------+-----------------+-----------------+-----------------+
-| **HDFS**        | **N/A**         | HDFS should     | **Previous      |
-|                 |                 | support for     | Behavior:**dfs. |
-|                 |                 | multiple KMS    | encryption.key. |
-|                 |                 | Uris            | provider.uri pr |
-|                 |                 |                 | operty          |
-|                 |                 |                 | was used to     |
-|                 |                 |                 | configure the   |
-|                 |                 |                 | KMS provider    |
-|                 |                 |                 | path.           |
-|                 |                 |                 |                 |
-|                 |                 |                 | **New           |
-|                 |                 |                 | Behavior:**dfs. |
-|                 |                 |                 | encryption.key. |
-|                 |                 |                 | provider.uri is |
-|                 |                 |                 | now deprecated  |
-|                 |                 |                 | in favor        |
-|                 |                 |                 | of hadoop.secur |
-|                 |                 |                 | ity.key.provide |
-|                 |                 |                 | r.path to       |
-|                 |                 |                 | configure the   |
-|                 |                 |                 | KMS provider    |
-|                 |                 |                 | path.           |
-+-----------------+-----------------+-----------------+-----------------+
-| **Zeppelin**    | [**ZEPPELIN-327 | Option for      | **Component     |
-|                 | 1**](https://is | disabling       | Affected: **Zep |
-|                 | sues.apache.org | scheduler       | pelin-Server    |
-|                 | /jira/browse/ZE |                 |                 |
-|                 | PPELIN-3271)    |                 | **Previous      |
-|                 |                 |                 | Behavior: **In  |
-|                 |                 |                 | previous        |
-|                 |                 |                 | releases of     |
-|                 |                 |                 | Zeppelin, there |
-|                 |                 |                 | was no option   |
-|                 |                 |                 | for disabling   |
-|                 |                 |                 | scheduler.      |
-|                 |                 |                 |                 |
-|                 |                 |                 | **New           |
-|                 |                 |                 | Behavior: **By  |
-|                 |                 |                 | default, users  |
-|                 |                 |                 | will no longer  |
-|                 |                 |                 | see scheduler,  |
-|                 |                 |                 | as it is        |
-|                 |                 |                 | disabled by     |
-|                 |                 |                 | default.        |
-|                 |                 |                 |                 |
-|                 |                 |                 | **Workaround/Ex |
-|                 |                 |                 | pected          |
-|                 |                 |                 | Customer        |
-|                 |                 |                 | Action:** If    |
-|                 |                 |                 | you want to     |
-|                 |                 |                 | enable          |
-|                 |                 |                 | scheduler, you  |
-|                 |                 |                 | will need to    |
-|                 |                 |                 | add             |
-|                 |                 |                 | azeppelin.noteb |
-|                 |                 |                 | ook.cron.enable |
-|                 |                 |                 |  with           |
-|                 |                 |                 | value           |
-|                 |                 |                 | oftrue under    |
-|                 |                 |                 | custom zeppelin |
-|                 |                 |                 | site in         |
-|                 |                 |                 | Zeppelin        |
-|                 |                 |                 | settings from   |
-|                 |                 |                 | Ambari.         |
-+-----------------+-----------------+-----------------+-----------------+
-
-# Known Issues
+## Known issues
 
 -   **Spark 2.3**
 
@@ -1588,35 +1361,32 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
 -   **Workaround for Ranger service check failure**
 
-> ([RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Workaround for Ranger service check failure while upgrading to HDP 2.6.2 from previous HDP versions.
+    -   ([RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Workaround for Ranger service check failure while upgrading to HDP 2.6.2 from previous HDP versions.
 
-|     | **Note**                         |
-|-----|----------------------------------|
-|     | Only when Ranger is SSL enabled. |
-
-> This issue arises when attempting to upgrade to HDP-2.6.1 from previous HDP versions through Ambari. Ambari uses a curl call to do a service check to Ranger service in Ambari. If the JDK version used by Ambari is JDK-1.7, the curl call will fail with the below error:
->
-> curl: (35) error:14077410:SSL routines:SSL23\_GET\_SERVER\_HELLO:sslv3 alert handshake failure
->
-> The reason for this error is the tomcat version used in Ranger is Tomcat-7.0.7\*. Using JDK-1.7 conflicts with default ciphers provided in Tomcat-7.0.7\*.
->
-> You can resolve this issue in two ways:
-
--   Update the JDK used in Ambari from JDK-1.7 to JDK-1.8 (see the section [Change the JDK Version](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) in the Ambari Reference Guide).
-
--   If you want to continue supporting a JDK-1.7 environment:
-
-    1.  Add the property ranger.tomcat.ciphers in the ranger-admin-site section in your Ambari Ranger configuration with the below value:
-
-> SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
-
-1.  If you environment is configured for Ranger-KMS, add the property ranger.tomcat.ciphers in theranger-kms-site section in your Ambari Ranger configuration with the below value:
-
-> SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
-
-|     | **Note**                                                                                                                                                                        |
-|-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     | The noted values are working examples and may not be indicative of your environment. Ensure that the way you set these properties matches how your environment is configured.   |
+        >[!NOTE]
+        >Only when Ranger is SSL enabled. |
+    
+    This issue arises when attempting to upgrade to HDP-2.6.1 from previous HDP versions through Ambari. Ambari uses a curl call to do a service check to Ranger service in Ambari. If the JDK version used by Ambari is JDK-1.7, the curl call will fail with the below error:
+    
+    `curl: (35) error:14077410:SSL routines:SSL23\_GET\_SERVER\_HELLO:sslv3 alert handshake failure`
+    
+    The reason for this error is the tomcat version used in Ranger is Tomcat-7.0.7\*. Using JDK-1.7 conflicts with default ciphers provided in Tomcat-7.0.7\*.
+    
+    You can resolve this issue in two ways:
+    
+    -   Update the JDK used in Ambari from JDK-1.7 to JDK-1.8 (see the section [Change the JDK Version](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) in the Ambari Reference Guide).
+    
+    -   If you want to continue supporting a JDK-1.7 environment:
+    
+        1.  Add the property ranger.tomcat.ciphers in the ranger-admin-site section in your Ambari Ranger configuration with the below value:
+        
+        SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+        
+        2.  If your environment is configured for Ranger-KMS, add the property ranger.tomcat.ciphers in theranger-kms-site section in your Ambari Ranger configuration with the below value:
+        
+        SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+    >[!NOTE]
+    >The noted values are working examples and may not be indicative of your environment. Ensure that the way you set these properties matches how your environment is configured.   
 
 -   **RangerUI: Escape of policy condition text entered in the policy form**
 
@@ -1672,7 +1442,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 >
 > After removing the above line, the Ranger UI will allow you to create policies with policy condition that can contain special characters and policy evaluation will be successful for the same policy.
 
-# Deprecation
+## Deprecation
 
 -   **OMS Portal:** We have removed the link from HDInsight resource page that was pointing to OMS portal. Log Analytics initially used its own portal called the OMS portal to manage its configuration and analyze collected data. All functionality from this portal has been moved to the Azure portal where it will continue to be developed. HDInsight has deprecated the support for OMS portal. Customers will use HDInsight Log Analytics integration in Azure portal.
 
@@ -1680,7 +1450,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
     -   <https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations>
 
-# ​Upgrading
+## ​Upgrading
 
 All of these features are available in HDInsight 3.6. To get the latest version of Spark, Kafka and R Server (Machine Learning Services), please choose the Spark, Kafka, ML Services version when you [create a HDInsight 3.6 cluster](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). To get support for ADLS, you can choose the ADLS storage type as an option. Existing clusters will not be upgraded to these versions automatically.
 
