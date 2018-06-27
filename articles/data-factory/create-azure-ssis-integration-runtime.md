@@ -53,7 +53,7 @@ For a list of Azure regions in which Data Factory is currently available, select
 
 For a list of Azure regions in which the Azure-SSIS Integration Runtime is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **SSIS Integration Runtime**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).### Compare SQL Database and Managed Instance (Preview)
 
-### <a name="compare-sql-database-and-managed-instance-preview"></a> Compare SQL Database and Managed Instance (Preview)
+### Compare SQL Database and Managed Instance (Preview)
 
 The following table compares certain features of SQL Database and Managed Instance (Preview) as they relate to the Azure-SSIR IR:
 
