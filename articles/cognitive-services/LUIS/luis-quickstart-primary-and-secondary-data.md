@@ -27,7 +27,7 @@ In this tutorial, create an app that demonstrates how to extract machine-learned
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
 ## Before you begin
 If you don't have the Human Resources app from the [hierarchical entities](luis-quickstart-intent-and-hier-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github repository.
@@ -45,7 +45,7 @@ This app demonstrates how to pull data out of an utterance. Consider the followi
 
 Job title, department name, and even job description can all be used interchangeably to refer to a position in a company. This app needs to extract that name or phrase and return it. 
 
-This tutorial adds a new entity to extract job or department name. The ability to extract a specific job number is shown in the regular expression [tutorial](luis-quickstart-intent-regex-entity.md). 
+This tutorial adds a new entity to extract job or department name. The ability to extract a specific job number is shown in the regular expression [tutorial](luis-quickstart-intents-regex-entity.md). 
 
 ## Purpose of the simple entity
 The purpose of the simple entity in this LUIS app is to teach LUIS what a job title or department is and where it can be found in an utterance. The part of the utterance that is the job can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of jobs in any utterance across all intents.  
@@ -146,48 +146,219 @@ On the **Publish** page, select the **endpoint** link at the bottom of the page.
 
 [![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Screenshot of Publish page with endpoint highlighted")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
 
-This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `text I'm driving and will be 30 minutes late to the meeting`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `SendMessage` utterances.
+This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `Here is my c.v. for the programmer job`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `ApplyForJob` utterances.
 
-```
+```JSON
 {
-  "query": "text I'm driving and will be 30 minutes late to the meeting",
+  "query": "Here is my c.v. for the programmer job",
   "topScoringIntent": {
-    "intent": "SendMessage",
-    "score": 0.987501
+    "intent": "ApplyForJob",
+    "score": 0.9826467
   },
   "intents": [
     {
-      "intent": "SendMessage",
-      "score": 0.987501
+      "intent": "ApplyForJob",
+      "score": 0.9826467
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0218927357
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.007849265
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00349470088
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.00348804821
     },
     {
       "intent": "None",
-      "score": 0.111048922
+      "score": 0.00319909188
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00222647213
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00211193133
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00172086991
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00138010911
     }
   ],
   "entities": [
     {
-      "entity": "i ' m driving and will be 30 minutes late to the meeting",
-      "type": "Message",
-      "startIndex": 5,
-      "endIndex": 58,
-      "score": 0.162995353
+      "entity": "programmer",
+      "type": "Job",
+      "startIndex": 24,
+      "endIndex": 33,
+      "score": 0.5230502
     }
   ]
 }
 ```
 
+## Names are tricky
+The LUIS app found the correct intent with high confidence and it extracted the job name, but names are tricky. Try the utterance `This is the lead welder paperwork.`.  
+
+In the following JSON, LUIS responds with the correct intent, `ApplyForJob`, but didn't extract the `lead welder` job name. 
+
+```JSON
+{
+  "query": "This is the lead welder paperwork.",
+  "topScoringIntent": {
+    "intent": "ApplyForJob",
+    "score": 0.468558252
+  },
+  "intents": [
+    {
+      "intent": "ApplyForJob",
+      "score": 0.468558252
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0102701457
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.009442534
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00639619166
+    },
+    {
+      "intent": "None",
+      "score": 0.005859333
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.005087704
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00315379258
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00259344373
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00193389168
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.000420796918
+    }
+  ],
+  "entities": []
+}
+```
+
+Because a name can be anything, LUIS will predict entities more accurately if it has a phrase list of words to boost the signal.
+
+## Add jobs phrase list to boost signal
+Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) from the LUIS-Samples Github repository. The list is 1220 job words and phrases. Look through the list for job words that are meaningful to you. If your words or phrases are not on the list, add your own.
+
+1. In the **Build** section of the LUIS app, select **Phrase lists** found under the **Improve app performance** menu.
+
+2. Select **Create new phrase list**. 
+
+3. Name the new phrase list `Jobs` and copy the list from jobs-phrase-list.csv into the **Values** text box. Select enter. 
+
+    If you want more words added to the phrase list, review the recommended words and add any that are relevant. 
+
+4. Select **Save** to activate the phrase list.
+
+5. [Train](#train-the-luis-app) and [publish](#publish-the-app-to-get-the-endpoint-URL) the app again to use phrase list.
+
+6. Requery at the endpoint with the same utterance: `This is the lead welder paperwork.`
+
+    The JSON response includes the extracted entity:
+
+    ```JSON
+    {
+        "query": "This is the lead welder paperwork.",
+        "topScoringIntent": {
+            "intent": "ApplyForJob",
+            "score": 0.920025647
+        },
+        "intents": [
+            {
+            "intent": "ApplyForJob",
+            "score": 0.920025647
+            },
+            {
+            "intent": "GetJobInformation",
+            "score": 0.003800706
+            },
+            {
+            "intent": "Utilities.StartOver",
+            "score": 0.00299335527
+            },
+            {
+            "intent": "MoveEmployee",
+            "score": 0.0027167045
+            },
+            {
+            "intent": "None",
+            "score": 0.00259556063
+            },
+            {
+            "intent": "FindForm",
+            "score": 0.00224019377
+            },
+            {
+            "intent": "Utilities.Stop",
+            "score": 0.00200693542
+            },
+            {
+            "intent": "Utilities.Cancel",
+            "score": 0.00195913855
+            },
+            {
+            "intent": "Utilities.Help",
+            "score": 0.00162656687
+            },
+            {
+            "intent": "Utilities.Confirm",
+            "score": 0.0002851904
+            }
+        ],
+        "entities": [
+            {
+            "entity": "lead welder",
+            "type": "Job",
+            "startIndex": 12,
+            "endIndex": 22,
+            "score": 0.8295959
+            }
+        ]
+    }
+    ```
+
+## Is the phrase list an exact match?
+Adding the phrase list boosted the signal of the words in the list but is **not** used as an exact match. The phrase list has several jobs with the first word of `lead` and also has the job `welder` but does not have the job `lead welder`. 
+
 ## What has this LUIS app accomplished?
-This app, with just two intents and one entity, identified a natural language query intention and returned the message data. 
+This app, with a simple entity and a phrase list of words, identified a natural language query intention and returned the message data. 
 
-The JSON result identifies the top scoring intent `SendMessage` with a score of 0.987501. All scores are between 1 and 0, with the better score being close to 1. The `None` intent's score is 0.111048922, much closer to zero. 
-
-The message data has a type, `Message`, as well as a value, `i ' m driving and will be 30 minutes late to the meeting`. 
-
-Your chatbot now has enough information to determine the primary action, `SendMessage`, and a parameter of that action, the text of the message. 
+Your chatbot now has enough information to determine the primary action of applying for a job and a parameter of that action, which job is referenced. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to send the message through a 3rd party API. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to use a 3rd party API to send the job information to a Human Resources representative. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
@@ -197,6 +368,3 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 > [!div class="nextstepaction"]
 > [Learn how to add a hierarchical entity](luis-quickstart-intent-and-hier-entity.md)
 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
