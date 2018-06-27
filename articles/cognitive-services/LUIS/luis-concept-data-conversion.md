@@ -35,6 +35,5 @@ The data sent to the endpoint, via the Speech SDK, regardless if it is speech or
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Correct spelling mistakes with this tutorial](luis-tutorial-bing-spellcheck.md)
+> Use speech to text with this document](luis-tutorial-speech-to-intent.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
