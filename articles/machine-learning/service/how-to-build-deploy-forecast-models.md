@@ -964,7 +964,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-You can see that most of the series (213 out of 249) are irregular. An [imputation transform]https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) is required to fill in missing sales quantity values. While there are many imputation options, the following sample code uses a linear interpolation.
+You can see that most of the series (213 out of 249) are irregular. An [imputation transform](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) is required to fill in missing sales quantity values. While there are many imputation options, the following sample code uses a linear interpolation.
 
 
 ```python
