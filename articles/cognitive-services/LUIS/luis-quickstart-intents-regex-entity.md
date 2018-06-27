@@ -239,5 +239,5 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about the list entity](luis-quickstart-intent-and-list.md)
+> [Learn about the list entity](luis-quickstart-intent-and-list-entity.md)
 
