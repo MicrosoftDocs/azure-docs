@@ -13,7 +13,9 @@ ms.author: v-geberr
 ---
 
 # Prebuilt domain reference
-This reference provides information about the prebuilt domains, which are prebuilt collections of intents and entities that LUIS offers.
+This reference provides information about the [prebuilt domains](luis-how-to-use-prebuilt-domains.md), which are prebuilt collections of intents and entities that LUIS offers.
+
+[Custom domains](create-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
 
 ## List of prebuilt domains
 LUIS offers 20 prebuilt domains. 
