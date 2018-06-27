@@ -116,7 +116,7 @@ This section details the configuration prerequisites for CentOS server and your 
    4. To ensure that your iSCSI initiator is enabled during boot time, use the `chkconfig` command to enable the service.
       
        `chkconfig iscsi on`
-   5. To verify that that it was properly setup, run the command:
+   5. To verify that it was properly setup, run the command:
       
        `chkconfig --list | grep iscsi`
       

@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 06/26/2018
 ms.author: tomfitz
 ---
 
@@ -61,6 +61,10 @@ Before setting the deadletter location, you must have a storage account with a c
 The following script gets the resource ID of an existing storage account, and creates an event subscription that uses a container in that storage account for the dead-letter endpoint.
 
 ```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 storagename=demostorage
 containername=testcontainer
 
