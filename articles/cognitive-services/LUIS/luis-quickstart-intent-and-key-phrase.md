@@ -153,7 +153,7 @@ The new `keyphrase` version of the app needs to be trained.
   "entities": [
     {
       "entity": "hrf-123456",
-      "type": "HRF-number",
+      "type": "HRF-number",git 
       "startIndex": 10,
       "endIndex": 19
     },

@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2018
+ms.date: 06/27/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -22,10 +22,7 @@ Join your Azure-SSIS integration runtime (IR) to an Azure virtual network in the
 
 - You are hosting the SQL Server Integration Services (SSIS) catalog database in Azure SQL Database with virtual network service endpoints/Managed Instance (Preview). 
 
- Azure Data Factory version 2 (Preview) lets you join your Azure-SSIS integration runtime to a virtual network created through the classic deployment model or the Azure Resource Manager deployment model. 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is in generally availability (GA), see the [Data Factory version 1 documentation](v1/data-factory-introduction.md). 
+ Azure Data Factory lets you join your Azure-SSIS integration runtime to a virtual network created through the classic deployment model or the Azure Resource Manager deployment model. 
 
 ## Access to on-premises data stores
 If SSIS packages access only public cloud data stores, you don't need to join the Azure-SSIS IR to a virtual network. If SSIS packages access on-premises data stores, you must join the Azure-SSIS IR to a virtual network that is connected to the on-premises network. 
@@ -109,7 +106,10 @@ If you're concerned about losing the ability to inspect outbound Internet traffi
 See [this PowerShell script](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) for an example. You have to run the script weekly to keep the Azure data center IP address list up-to-date. 
 
 ### <a name="resource-group"></a> Requirements for Resource Group
-The Azure-SSIS IR needs to create certain network resources under the same resource group as the virtual network, including an Azure load balancer, an Azure public IP address, and a network work security group. 
+-   The Azure-SSIS IR needs to create certain network resources under the same resource group as the virtual network. These resources include the following:
+    -   An Azure load balancer, with the name *<Guid>-azurebatch-cloudserviceloadbalancer*.
+    -   An Azure public IP address, with the name *<Guid>-azurebatch-cloudservicepublicip*.
+    -   A network work security group, with the name *<Guid>-azurebatch-cloudservicenetworksecuritygroup*. 
 
 -   Make sure that you don't have any resource lock on the Resource Group or Subscription to which the virtual network belongs. If you configure either a read-only lock or a delete lock, starting and stopping the IR may fail or hang. 
 
