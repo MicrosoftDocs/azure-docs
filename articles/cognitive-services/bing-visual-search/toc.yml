@@ -15,6 +15,17 @@
     href: quickstarts/nodejs.md
   - name: First query in Python
     href: quickstarts/python.md
+- name: SDK
+  expanded: true
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: SDK in C#
+    href: visual-search-sdk-c-sharp.md
+  - name: SDK in Node
+    href: visual-search-sdk-node.md
+  - name: SDK in Python
+    href: visual-search-sdk-python.md
 - name: Tutorials
   items:
   - name: Single-page Web app
