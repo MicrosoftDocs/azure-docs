@@ -63,7 +63,7 @@ For the remaining tasks, you use SSMS to connect to and manage your server.
 
 ## Add a user account to the server administrator role
 
-In this task, you add a user or group account from your Azure AD to the server administrator role.
+In this task, you add a user or group account from your Azure AD to the server administrator role. If you're adding a security group, it must have the `MailEnabled` property set to `True`.
 
 1. In **Object Explorer**, right-click your server name, and then click **Properties**. 
 2. In the **Analysis Server Properties** window, click **Security** > **Add**.

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
@@ -26,7 +26,6 @@ This article discusses some of the core characteristics of Azure SQL DB as a pla
 - Security and compliance
 - Intelligent database monitoring and maintenance
 - Data movement
-
 
 ## Business continuity and disaster recovery (BCDR)
 Business continuity and disaster recovery abilities enable you to continue your business, as usual, in case of a disaster. The disaster could be a database level event (for example, someone mistakenly drops a crucial table) or a data-centre level event (regional catastrophe, for example a tsunami). 
@@ -231,7 +230,7 @@ SQL Database offers various service tiers Basic, Standard, and Premium. Each ser
 
 For making sure you’re on the right performance level, you can monitor your query and database resource consumption through one of the above-mentioned ways in “How do I monitor the performance and resource utilization in SQL Database”. Should you find that your queries/databases are consistently running hot on CPU/Memory etc. you can consider scaling up to a higher performance level. Similarly, if you note that even during your peak hours, you don’t seem to use the resources as much; consider scaling down from the current performance level. 
 
-If you have a SaaS app pattern or a database consolidation scenario, consider using an Elastic Pool for cost optimization. Elastic pool is a great way to achieve database consolidation and cost-optimization. To read more about managing multiple databases using Elastic Pool, see: [Manage pools and databases](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal). 
+If you have a SaaS app pattern or a database consolidation scenario, consider using an Elastic Pool for cost optimization. Elastic pool is a great way to achieve database consolidation and cost-optimization. To read more about managing multiple databases using Elastic Pool, see: [Manage pools and databases](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 
 ### How often do I need to run database integrity checks for my database?
 SQL Database uses some smart techniques that allow it to handle certain classes of data corruption automatically and without any data loss. These techniques are built in to the service and are leveraged by the service when need arises. On a regular basis, your database backups across the service are tested by restoring them and running DBCC CHECKDB on it. If there are issues, SQL Database proactively addresses them. [Automatic page repair](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) is leveraged for fixing pages that are corrupt or have data integrity issues. The database pages are always verified with the default CHECKSUM setting that verifies the integrity of the page. SQL Database proactively monitors and reviews the data integrity of your database and, if issues arise, addresses them with the highest priority. In addition to these, you may choose to optionally run your own integrity checks at your will.  For more information, see [Data Integrity in SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)

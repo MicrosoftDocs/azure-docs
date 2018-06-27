@@ -57,4 +57,4 @@ If your chatbot requires a specific LUIS score to indicate confidence in an inte
 
 See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

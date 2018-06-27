@@ -114,7 +114,7 @@ You can set a certain location of an Azure IR, in which case the data movement o
 If you choose to use the auto-resolve Azure IR which is the default, 
 
 - For copy activity, ADF will make a best effort to automatically detect your sink and source data store to choose the best location either in the same region if available or the closest one in the same geography, or if not detectable to use the data factory region as alternative.
-- For transformation activity dispatching, ADF will use the IR in the data factory region.
+- For Lookup/GetMetadata activity execution and transformation activity dispatching, ADF will use the IR in the data factory region.
 
 You can monitor which IR location takes effect during activity execution in pipeline activity monitoring view on UI or activity monitoring payload.
 
@@ -146,6 +146,10 @@ For Copy activity, it requires source and sink linked services to define the dir
 - **Copying between two cloud data sources**: when both source and sink linked services are using Azure IR, ADF will use the regional Azure IR if you specified, or auto determine a location of Azure IR if you choose the auto-resolve IR (default) as described in [Integration runtime location](#integration-runtime-location) section.
 - **Copying between a cloud data source and a data source in private network**: if either source or sink linked service points to a self-hosted IR, the copy activity is executed on that self-hosted Integration Runtime.
 - **Copying between two data sources in private network**: both the source and sink Linked Service must point to the same instance of integration runtime, and that integration runtime is used to execute the copy Activity.
+
+### Lookup and GetMetadata activity
+
+The Lookup and GetMetadata activity is executed on the integration runtime associated to the data store linked service.
 
 ### Transformation activity
 

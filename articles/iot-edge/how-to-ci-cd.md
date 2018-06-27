@@ -447,7 +447,7 @@ So, when deploying to IoT Edge devices, there are three main environments.
 This tutorial demonstrates how you can use the continuous integration and continuous deployment features of VSTS or TFS. 
 
 * Understand the IoT Edge deployment in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md)
-* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale][how-to-deploy-monitor.md].
+* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
 
 
 

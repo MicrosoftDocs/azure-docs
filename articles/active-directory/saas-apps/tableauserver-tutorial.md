@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: c1917375-08aa-445c-a444-e22e23fa19e0
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -253,7 +254,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Tableau Server tile in the Access Panel, you should get automatically signed-on to your Tableau Server application.
-For more information about the Access Panel, see [introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
+For more information about the Access Panel, see [introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

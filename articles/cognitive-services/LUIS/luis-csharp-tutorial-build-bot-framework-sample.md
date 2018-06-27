@@ -169,5 +169,5 @@ Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, 
 [BotFramework]: https://docs.microsoft.com/bot-framework/
 [AssignedEndpointDoc]: https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
 [VisualStudio]: https://www.visualstudio.com/
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 <!-- tested on Win10 -->

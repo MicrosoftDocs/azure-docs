@@ -55,7 +55,7 @@ Below is an example result. It's a `list` of detected faces. Each item in the li
 
 ## Draw rectangles around the faces
 
-Using the json coordinates that you received from the previous command, you can draw rectangles on the image to visually represent each face. At the top of the file, add the following:
+Using the json coordinates that you received from the previous command, you can draw rectangles on the image to visually represent each face. You will need to `pip install Pillow` to use the `PIL` imaging module.  At the top of the file, add the following:
 
 ```python
 import requests

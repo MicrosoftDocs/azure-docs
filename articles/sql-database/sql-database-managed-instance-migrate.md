@@ -73,7 +73,6 @@ Managed Instance supports the following database migration options (currently th
 
 - Azure Database Migration Service - migration with near-zero downtime
 - Native RESTORE from URL - uses native backups from SQL Server and requires some downtime
-- Migrate using BACPAC file - uses BACPAC file from SQL Server or SQL Database and requires some downtime
 
 ### Azure Database Migration Service
 
@@ -102,10 +101,6 @@ The following table provides more information regarding the method you can use d
 > Restore of system databases is not supported. To migrate instance level objects (stored in master or msdb databases), we recommend to script them out and run T-SQL scripts on the destination instance.
 
 For a full tutorial that includes restoring a database backup to a Managed Instance using a SAS credential, see [Restore from backup to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md).
-
-### Migrate using BACPAC file
-
-You can import to Azure SQL Database and  Managed Instance from a create a copy of the original database, with the data, in a BACPAC file. See [Import a BACPAC file to a new Azure SQL Database](sql-database-import.md).
 
 ## Monitor applications
 

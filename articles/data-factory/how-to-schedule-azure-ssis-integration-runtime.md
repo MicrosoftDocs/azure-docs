@@ -3,18 +3,16 @@ title: How to schedule the Azure SSIS integration runtime | Microsoft Docs
 description: This article describes how to schedule starting and stopping of an Azure SSIS integration runtime by using Azure Automation and Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: 
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/01/2018
-ms.author: douglasl
-
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
 ---
 # How to start and stop the Azure SSIS integration runtime on a schedule
 This article describes how to schedule starting and stopping of an Azure SSIS integration runtime (IR) by using Azure Automation and Azure Data Factory. Running an Azure SSIS (SQL Server Integration Services) integration runtime (IR) has a cost associated with it. Therefore, you typically want to run the IR only when you need to run SSIS packages in Azure, and stop the IR when you don't need it. You can use the Data Factory UI or Azure PowerShell to [manually start or stop an Azure SSIS IR](manage-azure-ssis-integration-runtime.md)).

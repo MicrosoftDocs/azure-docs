@@ -45,7 +45,9 @@ Given enough example utterances, LUIS would be able to increase prediction confi
 A pattern is matched based on detecting the entities inside the pattern first, then validating the rest of the words and word order of the pattern. Entities are required in the pattern for a pattern to match. 
 
 ## Pattern syntax
-Entities in patterns are surrounded by curly brackets. Patterns can include entities, and entities with roles. Pattern.any is an entity only used in patterns. The syntax for each of these is explained in the following sections.
+Pattern syntax is a template for an utterance. The template should contain words and entities you want to match as well as words and punctuation you want to ignore. It is **not** a regular expression. 
+
+Entities in patterns are surrounded by curly brackets, `{}`. Patterns can include entities, and entities with roles. Pattern.any is an entity only used in patterns. The syntax is explained in the following sections.
 
 ### Syntax to add an entity to a pattern template
 To add an entity into the pattern template, surround the entity name with curly braces, such as `Who does {Employee} manage?`. 
@@ -104,7 +106,7 @@ Mark optional text in the utterance using the regular expression square bracket 
 Punctuation marks such as `.`, `!`, and `?` can be ignored using the square brackets. In order to ignore these marks, each mark must be in a separate pattern. The optional syntax doesn't currently support ignoring an item in a list of several items.
 
 ## Patterns only
-LUIS allows an app without any example utterances in intent. This is allowed only if patterns are used. Patterns require at least one entity in each pattern. For a pattern-only app, the pattern should not contain machine-learned entities because these do require example utterances. 
+LUIS allows an app without any example utterances in intent. This usage is allowed only if patterns are used. Patterns require at least one entity in each pattern. For a pattern-only app, the pattern should not contain machine-learned entities because these do require example utterances. 
 
 ## Best practices
 Learn [best practices](luis-concept-best-practices.md).
@@ -114,4 +116,4 @@ Learn [best practices](luis-concept-best-practices.md).
 > [!div class="nextstepaction"]
 > [Learn how to implement patterns in this tutorial](luis-tutorial-pattern.md)
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

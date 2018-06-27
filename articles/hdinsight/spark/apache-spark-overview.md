@@ -42,7 +42,7 @@ Spark clusters in HDInsight offer a fully managed Spark service. Benefits of cre
 | Support for Azure Data Lake Store | Spark clusters in HDInsight can use Azure Data Lake Store as both the primary storage or additional storage. For more information on Data Lake Store, see [Overview of Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md). |
 | Integration with Azure services |Spark cluster in HDInsight comes with a connector to Azure Event Hubs. You can build streaming applications using the Event Hubs, in addition to [Kafka](http://kafka.apache.org/), which is already available as part of Spark. |
 | Support for R Server | You can set up an R Server in HDInsight Spark cluster to run distributed R computations with the speeds promised with a Spark cluster. For more information, see [Get started using R Server in HDInsight](../r-server/r-server-get-started.md). |
-| Integration with third-party IDEs | HDInsight provides several IDE plugins that are useful to create and submit applications to an HDInsight Spark cluster. For more information, see [Use Azure Toolkit for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md) and [Use Azure Toolkit for Eclipse](apache-spark-eclipse-tool-plugin.md).|
+| Integration with third-party IDEs | HDInsight provides several IDE plugins that are useful to create and submit applications to an HDInsight Spark cluster. For more information, see [Use Azure Toolkit for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md), [Use HDInsight for VSCode](../hdinsight-for-vscode.md) and [Use Azure Toolkit for Eclipse](apache-spark-eclipse-tool-plugin.md).|
 | Concurrent Queries |Spark clusters in HDInsight support concurrent queries. This capability enables multiple queries from one user or multiple queries from various users and applications to share the same cluster resources. |
 | Caching on SSDs |You can choose to cache data either in memory or in SSDs attached to the cluster nodes. Caching in memory provides the best query performance but could be expensive. Caching in SSDs provides a great option for improving query performance without the need to create a cluster of a size that is required to fit the entire dataset in memory. |
 | Integration with BI Tools |Spark clusters in HDInsight provide connectors for  BI tools such as [Power BI](http://www.powerbi.com/) for data analytics. |
@@ -108,3 +108,4 @@ You can use the following articles to learn more about Spark in HDInsight:
 In this overview, you get some basic understanding of Apache Spark in Azure HDInsight. Advance to the next article to learn how to create an HDInsight Spark cluster and run some Spark SQL queries:
 
 - [Create an Spark cluster in HDInsight](./apache-spark-jupyter-spark-sql.md)
+

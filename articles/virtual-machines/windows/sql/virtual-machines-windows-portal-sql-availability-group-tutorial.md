@@ -410,8 +410,8 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
    | **Name** | Text | SQLAlwaysOnEndPointListener |
    | **Frontend IP address** | Choose an address |Use the address that you created when you created the load balancer. |
    | **Protocol** | Choose TCP |TCP |
-   | **Port** | Use the port for the SQL Server instance | 1433 |
-   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 1433 |
+   | **Port** | Use the port for the availability group listener | 1435 |
+   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 1435 |
    | **Probe** |The name you specified for the probe | SQLAlwaysOnEndPointProbe |
    | **Session Persistence** | Drop down list | **None** |
    | **Idle Timeout** | Minutes to keep a TCP connection open | 4 |

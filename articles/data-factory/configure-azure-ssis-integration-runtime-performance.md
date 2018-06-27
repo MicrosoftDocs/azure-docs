@@ -6,8 +6,9 @@ ms.date: 01/10/2018
 ms.topic: conceptual
 ms.service: data-factory
 ms.workload: data-services
-author: douglaslMS
-ms.author: douglasl
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
 manager: craigg
 ---
 # Configure the Azure-SSIS Integration Runtime for high performance

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
 ---
 
 # Retrieve access review results
 
-Administrators can use Azure Active Directory (Azure AD) to [create an access review](active-directory-azure-ad-controls-create-access-review.md) for group members or users assigned to an application.  A user who is in the **Global Administrator**, **Security Administrator** or **Security Reader** role can also read the results of an access review.  To assign users to one of these roles, a Privileged Role Administrator can use Azure AD PIM to make a user eligible to activate the role, or a Global Administrator can permanently [assign a user to the role](fundamentals/active-directory-users-assign-role-azure-portal.md).
+Administrators can use Azure Active Directory (Azure AD) to [create an access review](active-directory-azure-ad-controls-create-access-review.md) for group members or users assigned to an application.  A user who is in the **Global Administrator**, **User Account Administrator**, **Security Administrator** or **Security Reader** role can also read the results of an access review.  To assign users to one of these roles, a Privileged Role Administrator can use Azure AD PIM to make a user eligible to activate the role, or a Global Administrator can permanently [assign a user to the role](fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## Locating an access review
 

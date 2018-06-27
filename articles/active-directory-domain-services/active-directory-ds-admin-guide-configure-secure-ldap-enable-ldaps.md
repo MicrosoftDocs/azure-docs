@@ -127,4 +127,4 @@ If you still have trouble connecting to the managed domain using secure LDAP, [c
 * [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
 * [Administer Group Policy on an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Network security groups](../virtual-network/security-overview.md)
-* [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Create a Network Security Group](../virtual-network/tutorial-filter-network-traffic.md)

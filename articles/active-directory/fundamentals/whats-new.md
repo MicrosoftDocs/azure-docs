@@ -1,21 +1,18 @@
 ---
-title: What's new? Release notes for Azure Active Directory | Microsoft Docs
+title: What's new? Release notes for Azure AD | Microsoft Docs
 description: Learn what is new with Azure Active Directory (Azure AD), such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 featureFlags:
  - clicktale
+ 
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 06/18/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
 ---
@@ -23,8 +20,6 @@ ms.reviewer: dhanyahk
 # What's new in Azure Active Directory?
 
 > Stay up-to-date with what's new in Azure Active Directory (Azure AD) by subscribing to the [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
-
-
 
 Azure AD receives improvements on an ongoing basis. To stay up-to-date with the most recent developments, this article provides you with information about:
 
@@ -36,6 +31,40 @@ Azure AD receives improvements on an ongoing basis. To stay up-to-date with the 
 
 This page is updated monthly, so revisit it regularly.
 
+## June 2018
+
+### Change notice: Security fix to the delegated authorization flow for apps using Azure AD Activity Logs API
+
+**Type:** Plan for change  
+**Service category:** Monitoring & Reporting  
+**Product capability:** Reporting
+
+Due to our stronger security enforcement, we’ve had to make a change to the permissions for apps that use a delegated authorization flow to access [Azure AD Activity Logs APIs](https://aka.ms/aadreportsapi). This change will occur by **June 26, 2018**.
+
+If any of your apps use Azure AD Activity Log APIs, follow these steps to ensure the app doesn’t break after the change happens.
+
+**To update your app permissions**
+
+1.	Sign in to the Azure portal.
+
+2.	On the left navbar, select **Azure Active Directory**, and then select **App Registrations**.
+
+3.	Select your app that uses the Azure AD Activity Logs API, select **Settings**, and then in the **Settings** blade, select **Required permissions**.
+
+4.	In the **Required permissions** blade, select the **Windows Azure Active Directory** API.
+
+5.	In the **Delegated permissions** area of the **Enable access** blade, select the box next to **Read directory** data, and then select **Save**.
+
+    You’ll return to the **Required permissions** blade.
+
+    ![Delegated permissions Read directory option](./media/whats-new/app-registration-delegate-read-directory.png)
+
+6.	Select **Grant permissions**, and then select **Yes**.
+    
+    >[!Note]
+    >You must be a Global administrator to grant permissions to the app.
+
+---
 
 ## May 2018
 

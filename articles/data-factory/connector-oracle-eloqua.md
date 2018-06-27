@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 06/22/2018
 ms.author: jingwang
 
 ---
@@ -45,8 +45,8 @@ The following properties are supported for Oracle Eloqua linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Eloqua** | Yes |
-| endpoint | The endpoint of the Eloqua server. (that is, eloqua.example.com)  | Yes |
-| username | The site name and user name of your Eloqua account in the form: site name/user name. (that is, Eloqua/Alice)  | Yes |
+| endpoint | The endpoint of the Eloqua server. Eloqua supports multiple data centers, to determine your endpoint, login to https://login.eloqua.com with your credential, then copy the **base URL** portion from the redirected URL with the pattern of `xxx.xxx.eloqua.com`. | Yes |
+| username | The site name and user name of your Eloqua account in the form: `SiteName\Username` e.g. `Eloqua\Alice`.  | Yes |
 | password | The password corresponding to the user name. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
@@ -60,8 +60,8 @@ The following properties are supported for Oracle Eloqua linked service:
     "properties": {
         "type": "Eloqua",
         "typeProperties": {
-            "endpoint" : "eloqua.example.com",
-            "username" : "Eloqua/Alice",
+            "endpoint" : "<base URL e.g. xxx.xxx.eloqua.com>",
+            "username" : "<site name>\\<user name e.g. Eloqua\\Alice>",
             "password": {
                  "type": "SecureString",
                  "value": "<password>"
