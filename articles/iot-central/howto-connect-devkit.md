@@ -165,7 +165,7 @@ You can view the telemetry measurements and reported property values, and config
 
 1. On the **Dashboard** page, you can see the location map
 
-![View device dashboard](media/howto-connect-devkit/devicedashboardnew.png)
+    ![View device dashboard](media/howto-connect-devkit/devicedashboardnew.png)
 
 
 ## Download the source code
