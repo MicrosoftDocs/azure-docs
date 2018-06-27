@@ -1,26 +1,20 @@
 ---
-title: Troubleshoot Azure Backup Agent | Microsoft Docs
+title: Troubleshoot Azure Backup Agent
 description: Troubleshoot installation and registration of Azure Backup Agent
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
-editor: ''
-
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/4/2017
-ms.author: saurse;markgal;
-
+ms.author: saurse
 ---
 
 # Troubleshoot Azure Backup Agent configuration and registration issues
 ## Recommended steps
 Refer to the recommended actions in the following tables to resolve errors that you might encounter during the configuration or registration of Azure Backup Agent.
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## Invalid vault credentials provided. The file is either corrupted or does not have the latest credentials associated with recovery service.
 | Error details | Possible causes | Recommended actions |
@@ -37,13 +31,19 @@ Refer to the recommended actions in the following tables to resolve errors that 
 
 | Error details | Possible causes | Recommended actions |
 | ---     | ---     | ---    |		
-| **Error** </br>*Failed to set the encryption key for secure backups. The current operation failed due to an internal service error 'Invalid input error'. Please retry the operation after some time. If the issue persists, please contact Microsoft support*. |Server is already registered with another vault.| Unregister the server from the vault and register again.
+| **Error** </br>*Failed to set the encryption key for secure backups Activation did not succeed completely but the encryption passphrase was saved to the following file*. |<li>Server is already registered with another vault.<li>During configuration, the passphrase was corrupted| Unregister the server from the vault and register again with a new passphrase.
 
 ## The activation did not complete successfully. The current operation failed due to an internal service error [0x1FC07]
 
 | Error details | Possible causes | Recommended actions |
 | ---     | ---     | ---    |			
-| **Error** </br><ol><li>*The activation did not complete successfully. The current operation failed due to an internal service error [0x1FC07]. Please retry the operation after some time. If the issue persists, please contact Microsoft support* <li>*Error 34506. The encryption passphrase stored on this computer is not correctly configured*. | <li> The scratch folder is located on a volume that has insufficient space. <li> The scratch folder has been moved incorrectly to another location. <li> The OnlineBackup.KEK file is missing. | <li>Move the scratch folder or cache location to a volume with free space equivalent to 5-10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Questions about the Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.
+| **Error** </br><ol><li>*The activation did not complete successfully. The current operation failed due to an internal service error [0x1FC07]. Please retry the operation after some time. If the issue persists, please contact Microsoft support*| <li> The scratch folder is located on a volume that has insufficient space. <li> The scratch folder has been moved incorrectly to another location. <li> The OnlineBackup.KEK file is missing. | <li>Upgrade to the [latest version](http://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space equivalent to 5-10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Questions about the Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.
+  
+## Error 34506. The encryption passphrase stored on this computer is not correctly configured
+
+| Error details | Possible causes | Recommended actions |
+| ---     | ---     | ---    |			
+| **Error** </br><ol><li>*Error 34506. The encryption passphrase stored on this computer is not correctly configured*. | <li> The scratch folder is located on a volume that has insufficient space. <li> The scratch folder has been moved incorrectly to another location. <li> The OnlineBackup.KEK file is missing. | <li>Upgrade to the [latest version](http://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space equivalent to 5-10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Questions about the Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache location path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.  
 
 ## Need help? Contact support
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

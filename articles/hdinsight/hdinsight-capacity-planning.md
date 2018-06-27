@@ -11,8 +11,6 @@ editor: cgronlun
 ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
@@ -88,8 +86,7 @@ A cluster's scale is determined by the quantity of its VM nodes. For all cluster
 
 Depending on your cluster type, increasing the number of worker nodes adds additional computational capacity (such as more cores), but may also add to the total amount of memory required for the entire cluster to support in-memory storage of data being processed. As with the choice of VM size and type, selecting the right cluster scale is typically reached empirically, using simulated workloads or canary queries.
 
-You can scale out your cluster to meet peak load demands, then scale it back down when those extra nodes are no longer needed.
-<!-- - see [Scaling - best practices](hdinsight-scaling-best-practices.md). -->
+You can scale out your cluster to meet peak load demands, then scale it back down when those extra nodes are no longer needed. For more information, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md).
 
 ### Cluster lifecycle
 

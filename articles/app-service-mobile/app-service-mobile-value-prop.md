@@ -30,26 +30,26 @@ With the Mobile Apps feature, you can:
 * **Build native and cross-platform apps**: Whether you're building native iOS, Android, and Windows apps or cross-platform Xamarin or Cordova (PhoneGap) apps, you can take advantage of App Service by using native SDKs.
 * **Connect to your enterprise systems**: With the Mobile Apps feature, you can add corporate sign-in in minutes, and connect to your enterprise on-premises or cloud resources.
 * **Build offline-ready apps with data sync**: Make your mobile workforce more productive by building apps that work offline, and use Mobile Apps to sync data in the background when connectivity is present with any of your enterprise data sources or software as a service (SaaS) APIs.
-* **Push notifications to millions in seconds**: Engage your customers with instant push notifications on any device, personalized to their needs and sent when the time is right.
+* **Push notifications to millions in seconds**: Engage your customers with instant push notifications on any device, personalized to their needs, and sent when the time is right.
 
 ## Mobile Apps features
 The following features are important to cloud-enabled mobile development:
 
-* **Authentication and authorization**: Select from an ever-growing list of identity providers, including Azure Active Directory for enterprise authentication, plus social providers such as Facebook, Google, Twitter, and Microsoft accounts. Mobile Apps offers an OAuth 2.0 service for each provider. You can also integrate the SDK for the identity provider for provider-specific functionality.
+* **Authentication and authorization**: Support for identity providers, including Azure Active Directory for enterprise authentication, plus social providers such as Facebook, Google, Twitter, and Microsoft accounts. Mobile Apps offers an OAuth 2.0 service for each provider. You can also integrate the SDK for the identity provider for provider-specific functionality.
 
-    Discover more about our [authentication features].
+    Discover more about the [authentication features].
 
 * **Data access**: Mobile Apps provides a mobile-friendly OData v3 data source that's linked to Azure SQL Database or an on-premises SQL server. Because this service can be based on Entity Framework, you can easily integrate with other NoSQL and SQL data providers, including [Azure Table storage], MongoDB, [Azure Cosmos DB], and SaaS API providers such as Office 365 and Salesforce.com.
 
-* **Offline sync**: Our client SDKs make it easy to build robust and responsive mobile applications that operate with an offline dataset. You can sync this dataset automatically with the back-end data, including conflict-resolution support.
+* **Offline sync**: The client SDKs make it easy to build robust and responsive mobile applications that operate with an offline dataset. You can sync this dataset automatically with the back-end data, including conflict-resolution support.
 
-  Discover more about our [data features].
+  Discover more about the [data features].
 
-* **Push notifications**: Our client SDKs integrate seamlessly with the registration capabilities of Azure Notification Hubs, so you can send push notifications to millions of users simultaneously.
+* **Push notifications**: The client SDKs integrate seamlessly with the registration capabilities of Azure Notification Hubs, so you can send push notifications to millions of users simultaneously.
 
-  Discover more about our [push notification features].
+  Discover more about the [push notification features].
 
-* **Client SDKs**: We provide a complete set of client SDKs that cover native development ([iOS], [Android], and [Windows]), cross-platform development ([Xamarin.iOS and Xamarin.Android], [Xamarin.Forms]), and hybrid application development ([Apache Cordova]). Each client SDK is available with an MIT license and is open source.
+* **Client SDKs**: There is a complete set of client SDKs that cover native development ([iOS], [Android], and [Windows]), cross-platform development ([Xamarin.iOS and Xamarin.Android], [Xamarin.Forms]), and hybrid application development ([Apache Cordova]). Each client SDK is available with an MIT license and is open-source.
 
 ## Azure App Service features
 The following platform features are useful for mobile production sites:
@@ -62,7 +62,7 @@ The following platform features are useful for mobile production sites:
 
   Discover more about [staging environments].
 
-* **Continuous deployment**: App Service can integrate with common source control management (SCM) systems, so you can automatically deploy a new version of your back end by pushing to a branch of your SCM system.
+* **Continuous deployment**: App Service can integrate with common _source control management_ (SCM) systems, allowing you to easily deploy a new version of your back end.
 
   Discover more about [deployment options](../app-service/app-service-deploy-local-git.md).
 
@@ -70,7 +70,7 @@ The following platform features are useful for mobile production sites:
 
   Discover more about [hybrid connections], [virtual networks], and [ExpressRoute].
 
-* **Isolated and dedicated environments**: You can run App Service in a fully isolated and dedicated environment for securely running Azure App Service apps at high scale. This environment is ideal for application workloads that require high scale, isolation, or secure network access.
+* **Isolated and dedicated environments**: For securely running Azure App Service apps, you can run App Service in a fully isolated and dedicated environment. This environment is ideal for application workloads that require high scale, isolation, or secure network access.
 
   Discover more about [App Service environments].
 
@@ -102,4 +102,4 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [virtual networks]: ../app-service/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
 [App Service environments]: ../app-service/environment/intro.md
-[learning map]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
+[learning map]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/

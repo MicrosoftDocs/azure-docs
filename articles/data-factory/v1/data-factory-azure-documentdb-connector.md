@@ -4,15 +4,15 @@ description: Learn how move data to/from Azure Cosmos DB collection using Azure 
 services: data-factory, cosmosdb
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
 ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 
@@ -20,11 +20,11 @@ robots: noindex
 ---
 # Move data to and from Azure Cosmos DB using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-azure-documentdb-connector.md)
-> * [Version 2 - Preview](../connector-azure-cosmos-db.md)
+> * [Version 1](data-factory-azure-documentdb-connector.md)
+> * [Version 2 (current version)](../connector-azure-cosmos-db.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Azure Cosmos DB connector in V2](../connector-azure-cosmos-db.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Azure Cosmos DB connector in V2](../connector-azure-cosmos-db.md).
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from Azure Cosmos DB (SQL API). It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity. 
 

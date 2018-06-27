@@ -3,9 +3,9 @@ title: 'Incrementally copy multiple tables by using Azure Data Factory | Microso
 description: 'In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL database.'
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: jhubbard
-editor: spelluru
+author: dearandyxu
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: jingwang
+ms.author: yexu
 ---
 # Incrementally load data from multiple tables in SQL Server to an Azure SQL database
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in on-premises SQL Server to an Azure SQL database.    
@@ -32,9 +32,6 @@ You perform the following steps in this tutorial:
 > * Add or update data in source tables.
 > * Rerun and monitor the pipeline.
 > * Review the final results.
-
-> [!NOTE]
-> This article applies to version 2 of Azure Data Factory, which is currently in preview. If you use version 1 of the Data Factory service, which is generally available, see the [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## Overview
 Here are the important steps to create this solution: 
@@ -106,7 +103,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     
     ```
 
-### Create destination tables in your SQL database
+### Create destination tables in your Azure SQL database
 1. Open SQL Server Management Studio, and connect to your SQL Server database.
 
 2. In **Server Explorer**, right-click the database and choose **New Query**.
@@ -129,7 +126,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 	```
 
-### Create another table in the SQL database to store the high watermark value
+### Create another table in the Azure SQL database to store the high watermark value
 1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value: 
     
     ```sql
@@ -151,7 +148,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     
     ```
 
-### Create a stored procedure in the SQL database 
+### Create a stored procedure in the Azure SQL database 
 
 Run the following command to create a stored procedure in your SQL database. This stored procedure updates the watermark value after every pipeline run. 
 
@@ -169,7 +166,7 @@ END
 
 ```
 
-### Create data types and additional stored procedures
+### Create data types and additional stored procedures in the Azure SQL database
 Run the following query to create two stored procedures and two data types in your SQL database. 
 They're used to merge the data from source tables into destination tables.
 
@@ -267,7 +264,7 @@ Note the following points:
     The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * To create Data Factory instances, the user account you use to sign in to Azure must be a member of contributor or owner roles, or an administrator of the Azure subscription.
-* Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, SQL Database, etc.) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
+* Currently, Data Factory allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, SQL Database, etc.) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -701,7 +698,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **More services**, search with the keyword *Data factories*, and select **Data factories**. 
+2. Select **All services**, search with the keyword *Data factories*, and select **Data factories**. 
 
     ![Data factories menu](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
 

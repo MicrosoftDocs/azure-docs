@@ -2,7 +2,7 @@
 title: "Azure Cloud Services NetworkConfiguration Schema | Microsoft Docs"
 ms.custom: ""
 ms.date: "12/07/2016"
-ms.prod: "azure"
+services: cloud-services
 ms.reviewer: ""
 ms.service: "cloud-services"
 ms.suite: ""

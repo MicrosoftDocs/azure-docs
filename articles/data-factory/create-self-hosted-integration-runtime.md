@@ -4,23 +4,20 @@ description: Learn how to create self-hosted integration runtime in Azure Data F
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
 
 ---
 # How to create and configure Self-hosted Integration Runtime
 The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. For details about IR, see [Integration Runtime Overview](concepts-integration-runtime.md).
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
 
 A self-hosted integration runtime is capable of running copy activities between a cloud data stores and a data store in private network and dispatching transform activities against compute resources in an on-premises or Azure Virtual Network. Install Self-hosted integration runtime needs on an on-premises machine or a virtual machine inside a private network.  
 
@@ -62,6 +59,7 @@ Here is a high-level data flow for the summary of steps for copy with self-hoste
 - Self-hosted integration runtime must be used for supporting data integration within Azure Virtual Network.
 - Treat your data source as an on-premises data source (that is behind a firewall) even when you use **ExpressRoute**. Use the self-hosted integration runtime to establish connectivity between the service and the data source.
 - You must use the self-hosted integration runtime even if the data store is in the cloud on an **Azure IaaS virtual machine**.
+- Tasks may fail in a Self-hosted Integration Runtime installed on a Windows Server on which FIPS-compliant encryption is enabled. To work around this issue, disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## Prerequisites
 

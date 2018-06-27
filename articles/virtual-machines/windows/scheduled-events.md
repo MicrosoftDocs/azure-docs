@@ -3,8 +3,8 @@ title: Scheduled Events for Windows VMs in Azure | Microsoft Docs
 description: Scheduled events using the Azure Metadata service for on your Windows virtual machines.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
-author: zivraf
-manager: timlt
+author: ericrad
+manager: jeconnoc
 editor: ''
 tags: ''
 
@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2017
-ms.author: zivr
+ms.date: 02/22/2018
+ms.author: ericrad
 
 ---
-# Azure Metadata Service: Scheduled Events (Preview) for Windows VMs
-
-> [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
+# Azure Metadata Service: Scheduled Events for Windows VMs
 
 Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine maintenance. It provides information about upcoming maintenance events (e.g. reboot) so your application can prepare for them and limit disruption. It is available for all Azure Virtual Machine types including PaaS and IaaS on both Windows and Linux. 
 
 For information about Scheduled Events on Linux, see [Scheduled Events for Linux VMs](../linux/scheduled-events.md).
+
+> [!Note] 
+> Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
 
 ## Why Scheduled Events?
 
@@ -45,59 +44,43 @@ Scheduled Events provides events in the following use cases:
 - Platform initiated maintenance (e.g. Host OS Update)
 - User initiated maintenance (e.g. user restarts or redeploys a VM)
 
-## The basics  
+## The Basics  
 
 Azure Metadata service exposes information about running Virtual Machines using a REST Endpoint accessible from within the VM. The information is available via a non-routable IP so that it is not exposed outside the VM.
 
-### Scope
-Scheduled events are delivered to:
-- All Virtual Machines in a Cloud Service
-- All Virtual Machines in an Availability Set
-- All Virtual Machines in a Scale Set Placement Group. 
-
-As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
-
-## Discovering the endpoint
-For VNET enabled VMs, the full endpoint for the latest version of Scheduled Events is: 
+### Endpoint Discovery
+For VNET enabled VMs, the metadata service is available from a static non-routable IP, `169.254.169.254`. The full endpoint for the latest version of Scheduled Events is: 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
 
-In the case where a Virtual Machine is created within a Virtual Network (VNet), the metadata service is available from a static non-routable IP, `169.254.169.254`.
 If the Virtual Machine is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
 Refer to this sample to learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
-### Versioning 
+### Version and Region Availability
 The Scheduled Events Service is versioned. Versions are mandatory and the current version is `2017-08-01`.
 
-| Version | Release Notes | 
-| - | - | 
-| 2017-08-01 | <li> Removed prepended underscore from resource names for Iaas VMs<br><li>Metadata Header requirement enforced for all requests | 
-| 2017-03-01 | <li>Public Preview Version
+| Version | Release Type | Regions | Release Notes | 
+| - | - | - | - |
+| 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for Iaas VMs<br><li>Metadata Header requirement enforced for all requests | 
+| 2017-03-01 | Preview | All |<li>Initial release
 
 > [!NOTE] 
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
-### Using headers
-When you query the Metadata Service, you must provide the header `Metadata:true` to ensure the request was not unintentionally redirected. The `Metadata:true` header is required for all scheduled events requests. Failure to include the header in the request will result in a Bad Request response from the Metadata Service.
+### Enabling and Disabling Scheduled Events
+Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes.
 
-### Enabling Scheduled Events
-The first time you make a request for scheduled events, Azure implicitly enables the feature on your Virtual Machine. As a result, you should expect a delayed response in your first call of up to two minutes.
+Scheduled Events is disabled for your service if it does not make a request for 24 hours.
 
-> [!NOTE]
-> Scheduled Events is automatically disabled for your service if your service doesn't call the end point for 1 day. Once Scheduled Events is disabled for your service, there will be no events created for user initiated maintenance.
-
-### User initiated maintenance
+### User Initiated Maintenance
 User initiated virtual machine maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. This allows you to test the maintenance preparation logic in your application and allows your application to prepare for user initiated maintenance.
 
 Restarting a virtual machine schedules an event with type `Reboot`. Redeploying a virtual machine schedules an event with type `Redeploy`.
 
-> [!NOTE] 
-> Currently a maximum of 100 user initiated maintenance operations can be simultaneously scheduled.
-
-> [!NOTE] 
-> Currently user initiated maintenance resulting in Scheduled Events is not configurable. Configurability is planned for a future release.
-
 ## Using the API
+
+### Headers
+When you query the Metadata Service, you must provide the header `Metadata:true` to ensure the request was not unintentionally redirected. The `Metadata:true` header is required for all scheduled events requests. Failure to include the header in the request will result in a Bad Request response from the Metadata Service.
 
 ### Query for events
 You can query for Scheduled Events simply by making the following call:
@@ -125,7 +108,7 @@ In the case where there are scheduled events, the response contains an array of 
 }
 ```
 
-### Event properties
+### Event Properties
 |Property  |  Description |
 | - | - |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
@@ -133,9 +116,9 @@ In the case where there are scheduled events, the response contains an array of 
 | ResourceType | Type of resource this event impacts. <br><br> Values: <ul><li>`VirtualMachine`|
 | Resources| List of resources this event impacts. This is guaranteed to contain machines from at most one [Update Domain](manage-availability.md), but may not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided; the event will no longer be returned when the event is completed.
-| NotBefore| Time after which this event may start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
+| NotBefore| Time after which this event may start. <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 
-### Event scheduling
+### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on event type. This time is reflected in an event's `NotBefore` property. 
 
 |EventType  | Minimum Notice |
@@ -143,6 +126,14 @@ Each event is scheduled a minimum amount of time in the future based on event ty
 | Freeze| 15 minutes |
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
+
+### Event Scope		
+Scheduled events are delivered to:		  
+ - All Virtual Machines in a Cloud Service		
+ - All Virtual Machines in an Availability Set		
+ - All Virtual Machines in a Scale Set Placement Group. 		
+
+As a result, you should check the `Resources` field in the event to identify which VMs are going to be impacted. 
 
 ### Starting an event 
 
@@ -207,7 +198,7 @@ function Handle-ScheduledEvents($scheduledEvents)
 
 # Set up the scheduled events URI for a VNET-enabled VM
 $localHostIP = "169.254.169.254"
-$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
+$scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-08-01' -f $localHostIP 
 
 # Get events
 $scheduledEvents = Get-ScheduledEvents $scheduledEventURI
@@ -229,6 +220,7 @@ foreach($event in $scheduledEvents.Events)
 
 ## Next steps 
 
+- Watch a [Scheduled Events Demo](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) on Azure Friday. 
 - Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events Github Repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Read more about the APIs available in the [Instance Metadata service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](planned-maintenance.md).

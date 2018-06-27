@@ -4,7 +4,7 @@ description: A disaster recovery scenario for an Oracle Database 12c database in
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 

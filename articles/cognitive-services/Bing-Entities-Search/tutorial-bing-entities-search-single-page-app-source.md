@@ -2,11 +2,10 @@
 title: Bing Image Search single-page web app (source code) | Microsoft Docs
 description: Source code for tutorial showing how to use the Bing Image Search API in a single-page Web application.
 services: cognitive-services
-author: jerrykindall
+author: v-jerkin
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-image-search
+ms.component: bing-entity-search
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: v-jerkin

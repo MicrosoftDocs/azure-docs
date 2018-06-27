@@ -2,13 +2,13 @@
 title: Get started with Azure Service Fabric CLI 
 description: Learn how to use the Azure Service Fabric CLI. Learn how to connect to a cluster and how to manage applications.
 services: service-fabric
-author: samedder
+author: Christina-Kang
 manager: timlt
 
 ms.service: service-fabric
-ms.topic: get-started-article
-ms.date: 10/20/2017
-ms.author: edwardsa
+ms.topic: conceptual
+ms.date: 05/23/2018
+ms.author: bikang
 
 ---
 # Azure Service Fabric CLI
@@ -21,7 +21,7 @@ The Azure Service Fabric command-line interface (CLI) is a command-line utility 
 
 Prior to installation, make sure your environment has both Python and pip installed. For more information, see the [pip quickstart documentation](https://pip.pypa.io/en/latest/quickstart/) and the official [Python installation documentation](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-The CLI supports Python versions 2.7, 3.5 and 3.6. Python 3.6 is the recommended version, since Python 2.7 will reach end of support soon.
+The CLI supports Python versions 2.7, 3.5, and 3.6. Python 3.6 is the recommended version, since Python 2.7 will reach end of support soon.
 
 ### Service Fabric target runtime
 
@@ -29,7 +29,9 @@ The Service Fabric CLI is meant to support the latest runtime version of the Ser
 
 | CLI version   | supported runtime version |
 |---------------|---------------------------|
-| Latest (~=3)  | Latest (~=6.0)            |
+| Latest (~=5)  | Latest (~=6.2)            |
+| 4.0.0         | 6.1                       |
+| 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
 You can optionally specify a target version of the CLI to install by suffixing the `pip install` command with `==<version>`. For example, for version 1.1.0 the syntax would be:
@@ -65,7 +67,7 @@ python --version
 pip --version
 ```
 
-Then run the following command to install the Service Fabric CLI:
+Then run the following command to install the Azure Service Fabric CLI (sfctl) and view the CLI help page:
 
 ```bat
 pip install sfctl
@@ -104,6 +106,19 @@ If the installation on Windows subsystem for Linux fails with incorrect folder p
 ```bash
 sudo pip3 install sfctl
 ```
+
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+
+To install Service Fabric CLI on Red Hat, run the following commands:
+
+```bash
+sudo yum install -y python34
+sudo yum install python34-setuptools
+sudo easy_install-3.4 pip
+sudo pip3 install sfctl
+```
+
+For testing the installation, you can refer to the steps mentioned in **Ubuntu and Windows subsystem for Linux** section
 
 <a name = "cli-mac"></a>
 ### MacOS
@@ -215,13 +230,13 @@ For more information, see the [OpenSSL documentation](https://www.openssl.org/do
 
 Some operations might generate the following message:
 
-`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+`Failed to establish a new connection`
 
 Verify that the specified cluster endpoint is available and listening. Also, verify that the Service Fabric Explorer UI is available at that host and port. To update the endpoint, use `sfctl cluster select`.
 
 ### Detailed logs
 
-Detailed logs often are helpful when you debug or report a problem. A global `--debug` flag increases the verbosity of log files.
+Detailed logs often are helpful when you debug or report a problem. The `--debug` flag increases the verbosity of the output.
 
 ### Command help and syntax
 

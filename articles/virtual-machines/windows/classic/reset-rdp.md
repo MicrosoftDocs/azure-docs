@@ -4,7 +4,7 @@ description: Learn how to reset an account password or Remote Desktop services o
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 

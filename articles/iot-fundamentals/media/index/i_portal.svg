@@ -1,0 +1,26 @@
+<svg id="ICONS-64x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #556a8a;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #55d2f6;
+      }
+
+      .cls-3 {
+        fill: #e5e5e5;
+      }
+    </style>
+  </defs>
+  <title>i_portal</title>
+  <path class="cls-1" d="M62,8H2A1,1,0,0,0,1,9V56H63V9A1,1,0,0,0,62,8Z"/>
+  <line class="cls-1" x1="1" y1="18" x2="64" y2="18"/>
+  <rect class="cls-2" x="2" y="19" width="12" height="36"/>
+  <rect class="cls-2" x="14" y="19" width="48" height="7"/>
+  <rect class="cls-3" x="2" y="9" width="60" height="8"/>
+</svg>

@@ -3,7 +3,7 @@ title: Usage API related FAQs | Microsoft Docs
 description: List of Azure Stack meters, comparison to Azure usage API, Usage Time and Reported Time, error codes.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
-ms.author: brenduns
+ms.date: 03/09/2018
+ms.author: mabrigg
 ms.reviewer: alfredop
 
 ---
@@ -68,7 +68,7 @@ Usage is reported for the following resource providers:
   Azure Stack.
 * The Provider Usage API applies only to Azure Stack.
 * Currently, the [RateCard
-  API](https://msdn.microsoft.com/en-us/library/azure/mt219004.aspx)
+  API](https://msdn.microsoft.com/library/azure/mt219004.aspx)
   that is available in Azure is not available in Azure Stack.
 
 ## What is the difference between usage time and reported time?

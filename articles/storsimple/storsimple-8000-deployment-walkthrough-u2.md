@@ -4,7 +4,7 @@ description: Describes the steps and best practices for deploying the StorSimple
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2017
+ms.date: 04/23/2018
 ms.author: alkohli
 
 ---
@@ -192,6 +192,19 @@ Perform the following steps to get the iSCSI Qualified Name (IQN) of a Windows h
 Perform the following steps in the Azure portal to create an on-demand manual backup for a single volume on your StorSimple device.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
+
+## View the pinout diagram for serial cable for StorSimple
+The following pinout diagram can be used for the StorSimple serial console cable.
+
+Here the DB9 female connector is P1 and the 3.5 mm connector is P2.
+
+![Pinout diagram 1 for StorSimple serial console cable](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram1.png)
+
+The tip of the stereo jack is considered to be PIN 3 RX, the middle is PIN 2 TX and the base is PIN 1 GND as shown in the following diagram.
+
+![Pinout diagram 2 for StorSimple serial console cable](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram2.png)
+
+
 
 ## Next steps
 * [Configure a StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).

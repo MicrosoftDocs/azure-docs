@@ -4,24 +4,24 @@ description: This article provides information  about expressions and functions 
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 
 ---
 # Expressions and functions in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-functions-variables.md)
-> * [Version 2 - Preview](control-flow-expression-language-functions.md)
+> * [Version 1](v1/data-factory-functions-variables.md)
+> * [Current version](control-flow-expression-language-functions.md)
 
-This article provides details about expressions and functions supported by Azure Data Factory (version 2). 
+This article provides details about expressions and functions supported by Azure Data Factory. 
 
 ## Introduction
 JSON values in the definition can be literal or expressions that are evaluated at runtime. For example:  
@@ -36,20 +36,15 @@ JSON values in the definition can be literal or expressions that are evaluated a
 "name": "@pipeline().parameters.password"
 ```
 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Functions and variables in Data Factory V1](v1/data-factory-functions-variables.md).
-
-
 ## Expressions  
-Expressions can appear anywhere in a JSON string value and always result in another JSON value. If a JSON value is an expression, the body of the expression is extracted by removing the at-sign (@). If a literal string is needed that starts with @, it must be escaped by using @@. The following examples show how expressions are evaluated.  
+Expressions can appear anywhere in a JSON string value and always result in another JSON value. If a JSON value is an expression, the body of the expression is extracted by removing the at-sign (\@). If a literal string is needed that starts with @, it must be escaped by using @@. The following examples show how expressions are evaluated.  
   
 |JSON value|Result|  
 |----------------|------------|  
 |"parameters"|The characters 'parameters' are returned.|  
 |"parameters[1]"|The characters 'parameters[1]' are returned.|  
-|"@@"|A 1 character string that contains '@' is returned.|  
-|" @"|A 2 character string that contains ' @' is returned.|  
+|"\@@"|A 1 character string that contains '@' is returned.|  
+|" \@"|A 2 character string that contains ' @' is returned.|  
   
  Expressions can also appear inside strings, using a feature called *string interpolation* where expressions are wrapped in `@{ ... }`. For example: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -57,13 +52,13 @@ Expressions can appear anywhere in a JSON string value and always result in anot
   
 |JSON value|Result|  
 |----------------|------------|  
-|"@pipeline().parameters.myString"| Returns `foo` as a string.|  
-|"@{pipeline().parameters.myString}"| Returns `foo` as a string.|  
-|"@pipeline().parameters.myNumber"| Returns `42` as a *number*.|  
-|"@{pipeline().parameters.myNumber}"| Returns `42` as a *string*.|  
+|"\@pipeline().parameters.myString"| Returns `foo` as a string.|  
+|"\@{pipeline().parameters.myString}"| Returns `foo` as a string.|  
+|"\@pipeline().parameters.myNumber"| Returns `42` as a *number*.|  
+|"\@{pipeline().parameters.myNumber}"| Returns `42` as a *string*.|  
 |"Answer is: @{pipeline().parameters.myNumber}"| Returns the string `Answer is: 42`.|  
-|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
-|"Answer is: @@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
+|"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
+|"Answer is: \@@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### Examples
 
@@ -212,7 +207,7 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
 |-------------------|-----------------|  
 |int|Convert the parameter to an integer. For example, the following expression returns 100 as a number, rather than a string:  `int('100')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Value<br /><br /> **Description**: Required. The value that is converted to an integer.|  
 |string|Convert the parameter to a string. For example, the following expression returns `'10'`:  `string(10)` You can also convert an object to a string, for example if the **foo** parameter is an object with one property `bar : baz`, then the following would return `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Value<br /><br /> **Description**: Required. The value that is converted to a string.|  
-|json|Convert the parameter to a JSON type value. It is the opposite of string(). For example, the following expression returns `[1,2,3]` as an array, rather than a string:<br /><br /> `parse('[1,2,3]')`<br /><br /> Likewise, you can convert a string to an object. For example, `json('{"bar" : "baz"}')` returns:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string that is converted to a native type value.<br /><br /> The json function supports xml input as well. For example, the parameter value of:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> is converted to the following json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|json|Convert the parameter to a JSON type value. It is the opposite of string(). For example, the following expression returns `[1,2,3]` as an array, rather than a string:<br /><br /> `json('[1,2,3]')`<br /><br /> Likewise, you can convert a string to an object. For example, `json('{"bar" : "baz"}')` returns:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: String<br /><br /> **Description**: Required. The string that is converted to a native type value.<br /><br /> The json function supports xml input as well. For example, the parameter value of:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> is converted to the following json:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|Convert the parameter argument to a floating-point number. For example, the following expression returns `10.333`:  `float('10.333')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Value<br /><br /> **Description**: Required. The value that is converted to a floating-point number.|  
 |bool|Convert the parameter to a Boolean. For example, the following expression returns `false`:  `bool(0)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Value<br /><br /> **Description**: Required. The value that is converted to a boolean.|  
 |coalesce|Returns the first non-null object in the arguments passed in. Note: an empty string is not null. For example, if parameters 1 and 2 are not defined, this returns `fallback`:  `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Parameter number**: 1 ... *n*<br /><br /> **Name**: Object*n*<br /><br /> **Description**: Required. The objects to check for `null`.|  
@@ -258,7 +253,7 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
 |addseconds|Adds an integer number of seconds to a string timestamp passed in. The number of seconds can be positive or negative. The result is a string in ISO 8601 format ("o") by default, unless a format specifier is provided. For example `2015-03-15T13:27:00Z`:<br /><br /> `addseconds('2015-03-15T13:27:36Z', -36)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Timestamp<br /><br /> **Description**: Required. A string that contains the time.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Seconds<br /><br /> **Description**: Required. The number of seconds to add. May be negative to subtract seconds.<br /><br /> **Parameter number**: 3<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. Either a [single format specifier character](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) or a [custom format pattern](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) that indicates how to format the value of this timestamp. If format is not provided, the ISO 8601 format ("o") is used.|  
 |addminutes|Adds an integer number of minutes to a string timestamp passed in. The number of minutes can be positive or negative. The result is a string in ISO 8601 format ("o") by default, unless a format specifier is provided. For example, `2015-03-15T14:00:36Z`:<br /><br /> `addminutes('2015-03-15T13:27:36Z', 33)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Timestamp<br /><br /> **Description**: Required. A string that contains the time.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Minutes<br /><br /> **Description**: Required. The number of minutes to add. May be negative to subtract minutes.<br /><br /> **Parameter number**: 3<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. Either a [single format specifier character](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) or a [custom format pattern](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) that indicates how to format the value of this timestamp. If format is not provided, the ISO 8601 format ("o") is used.|  
 |addhours|Adds an integer number of hours to a string timestamp passed in. The number of hours can be positive or negative. The result is a string in ISO 8601 format ("o") by default, unless a format specifier is provided. For example `2015-03-16T01:27:36Z`:<br /><br /> `addhours('2015-03-15T13:27:36Z', 12)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Timestamp<br /><br /> **Description**: Required. A string that contains the time.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Hours<br /><br /> **Description**: Required. The  number of hours to add. May be negative to subtract hours.<br /><br /> **Parameter number**: 3<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. Either a [single format specifier character](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) or a [custom format pattern](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) that indicates how to format the value of this timestamp. If format is not provided, the ISO 8601 format ("o") is used.|  
-|adddays|Adds an integer number of days to a string timestamp passed in. The number of days can be positive or negative. The result is a string in ISO 8601 format ("o") by default, unless a format specifier is provided. For example `2015-02-23T13:27:36Z`:<br /><br /> `addseconds('2015-03-15T13:27:36Z', -20)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Timestamp<br /><br /> **Description**: Required. A string that contains the time.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Days<br /><br /> **Description**: Required. The number of days to add. May be negative to subtract days.<br /><br /> **Parameter number**: 3<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. Either a [single format specifier character](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) or a [custom format pattern](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) that indicates how to format the value of this timestamp. If format is not provided, the ISO 8601 format ("o") is used.|  
+|adddays|Adds an integer number of days to a string timestamp passed in. The number of days can be positive or negative. The result is a string in ISO 8601 format ("o") by default, unless a format specifier is provided. For example `2015-02-23T13:27:36Z`:<br /><br /> `adddays('2015-03-15T13:27:36Z', -20)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Timestamp<br /><br /> **Description**: Required. A string that contains the time.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Days<br /><br /> **Description**: Required. The number of days to add. May be negative to subtract days.<br /><br /> **Parameter number**: 3<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. Either a [single format specifier character](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) or a [custom format pattern](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) that indicates how to format the value of this timestamp. If format is not provided, the ISO 8601 format ("o") is used.|  
 |formatDateTime|Returns a string in date format. The result is a string in ISO 8601 format ("o") by default, unless a format specifier is provided. For example `2015-02-23T13:27:36Z`:<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Date<br /><br /> **Description**: Required. A string that contains the date.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. Either a [single format specifier character](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) or a [custom format pattern](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) that indicates how to format the value of this timestamp. If format is not provided, the ISO 8601 format ("o") is used.|  
 
 ## Next steps

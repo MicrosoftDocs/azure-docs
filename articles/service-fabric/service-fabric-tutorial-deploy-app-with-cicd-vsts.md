@@ -1,6 +1,6 @@
 ---
 title: Deploy an Azure Service Fabric application with continuous integration (Team Services) | Microsoft Docs
-description: Learn how to set up continuous integration and deployment for a Service Fabric application using Visual Studio Team Services.  Deploy an application to a Service Fabric cluster in Azure.
+description: In this tutorial, you learn how to set up continuous integration and deployment for a Service Fabric application using Visual Studio Team Services.  Deploy an application to a Service Fabric cluster in Azure.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -19,8 +19,8 @@ ms.custom: mvc
 
 ---
 
-# Deploy an application with CI/CD to a Service Fabric cluster
-This tutorial is part three of a series and describes how to set up continuous integration and deployment for an Azure Service Fabric application using Visual Studio Team Services.  An existing Service Fabric application is needed, the application created in [Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is used as an example.
+# Tutorial: deploy an application with CI/CD to a Service Fabric cluster
+This tutorial is part four of a series and describes how to set up continuous integration and deployment for an Azure Service Fabric application using Visual Studio Team Services.  An existing Service Fabric application is needed, the application created in [Build a .NET application](service-fabric-tutorial-create-dotnet-app.md) is used as an example.
 
 In part three of the series, you learn how to:
 
@@ -34,6 +34,7 @@ In this tutorial series you learn how to:
 > [!div class="checklist"]
 > * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
 > * [Deploy the application to a remote cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * Configure CI/CD using Visual Studio Team Services
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
@@ -75,7 +76,7 @@ Verify your email and select your account in the **Team Services Domain** drop-d
 Publishing the repo creates a new team project in your account with the same name as the local repo. To create the repo in an existing team project, click **Advanced** next to **Repository** name and select a team project. You can view your code on the web by selecting **See it on the web**.
 
 ## Configure Continuous Delivery with VSTS
-A Team Services build definition describes a workflow that is composed of a set of build steps that are executed sequentially. Create a build definition that that produces a Service Fabric application package, and other artifacts, to deploy to a Service Fabric cluster. Learn more about [Team Services build definitions](https://www.visualstudio.com/docs/build/define/create). 
+A Team Services build definition describes a workflow that is composed of a set of build steps that are executed sequentially. Create a build definition that produces a Service Fabric application package, and other artifacts, to deploy to a Service Fabric cluster. Learn more about [Team Services build definitions](https://www.visualstudio.com/docs/build/define/create). 
 
 A Team Services release definition describes a workflow that deploys an application package to a cluster. When used together, the build definition and release definition execute the entire workflow starting with source files to ending with a running application in your cluster. Learn more about Team Services [release definitions](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 

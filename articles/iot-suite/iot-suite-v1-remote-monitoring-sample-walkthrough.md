@@ -32,7 +32,22 @@ This article walks you through some of the key elements of the remote monitoring
 
 The following diagram outlines the logical components of the preconfigured solution:
 
-![Logical architecture](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
+![Logical architecture](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+
+## Microservices & Docker Containers
+Remote Monitoring is the first of our preconfigured solutions to leverage a
+microservices architecture. The solution is available in both [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) and [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+Microservices have emerged as a prevalent pattern to achieve scale and flexibility
+(by allowing containers to be scaled individually), without compromising development speed.
+Microservices compartmentalize the code and provide well defined interfaces
+making the solution easier to understand and less monolithic. It also further
+expands options for partners that want to extend our current
+solution accelerators to build finished solutions that can be monetized.
+
+**Learn more about Docker Containers**
+* [Install Docker](https://docs.docker.com/engine/installation/)
+* [Common Docker Commands for Remote Monitoring](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#common-docker-commands)
+* [Docker Getting Started](https://docs.docker.com/get-started/)
 
 ## Simulated devices
 

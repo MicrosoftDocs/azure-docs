@@ -2,25 +2,22 @@
 title: How to query graph data in Azure Cosmos DB? | Microsoft Docs
 description: Learn to query graph data in Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: ''
 
-ms.assetid: 8bde5c80-581c-4f70-acb4-9578873c92fa
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
 
 ---
 
-# Azure Cosmos DB: How to query with the Graph API?
+# Tutorial: Query Azure Cosmos DB Graph API by using Gremlin
 
 The Azure Cosmos DB [Graph API](graph-introduction.md) supports [Gremlin](https://github.com/tinkerpop/gremlin/wiki) queries. This article provides sample documents and queries to get you started. A detailed Gremlin reference is provided in the [Gremlin support](gremlin-support.md) article.
 
@@ -83,4 +80,4 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial to learn how to distribute your data globally.
 
 > [!div class="nextstepaction"]
-> [Distribute your data globally](tutorial-global-distribution-sql-api.md)
+> [Distribute your data globally](tutorial-global-distribution-graph.md)

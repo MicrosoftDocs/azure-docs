@@ -4,9 +4,8 @@ description: Add interactive search and refinement to your app with Knowledge Ex
 services: cognitive-services
 author: bojunehsu
 manager: stesp
-
 ms.service: cognitive-services
-ms.technology: kes
+ms.component: knowledge-exploration
 ms.topic: article
 ms.date: 03/26/2016
 ms.author: paulhsu
@@ -18,6 +17,8 @@ Welcome to the Microsoft Knowledge Exploration Service.  Knowledge Exploration S
 See [Getting Started](GettingStarted.md) for a sample walkthrough of how to use KES to create an interactive search interface for an academic publications domain.
 
 ![AcademicAutoComplete](AutoComplete.png)
+
+KES has moved from Cognitive Services Preview to Cognitive Services Labs. The new homepage for the project is [http://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration](http://labs.cognitive.microsoft.com/en-us/project-knowledge-exploration).
 
 ## Reference
 * [Command Line Interface](CommandLine.md)

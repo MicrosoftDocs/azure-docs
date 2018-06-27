@@ -117,7 +117,7 @@ The following software versions are used during the deployment:
 <tr><th>Software</th><th>Source</th><th>Version</th></tr>
 <tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
+<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
@@ -357,7 +357,7 @@ The above process can be executed using Azure portal; use a Windows machine (use
         #Tested with Azure Powershell - November 2014
         #This powershell script deployes a number of VMs from an existing image inside an Azure region
         #Import your Azure subscription into the current Powershell session before proceeding
-        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
 
         #fundamental variables - change these to reflect your subscription
         $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
@@ -607,7 +607,7 @@ You should see the same display as seen for the West region:
 Execute a few more inserts and see that those get replicated to west-us part of the cluster.
 
 ## Test Cassandra Cluster from Node.js
-Using one of the Linux VMs crated in the "web" tier previously, you execute a simple Node.js script to read the previously inserted data
+Using one of the Linux VMs created in the "web" tier previously, you execute a simple Node.js script to read the previously inserted data
 
 **Step 1: Install Node.js and Cassandra Client**
 

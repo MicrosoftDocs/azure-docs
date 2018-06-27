@@ -58,7 +58,10 @@ Navigate to the [Azure portal](https://portal.azure.com) and click **Networking*
 The overview page shows a list of all packet captures that exist no matter the state.
 
 > [!NOTE]
-> Packet capture requires connectivity to the storage account over port 443.
+> Packet capture requires following conectivity.
+> * Outbound connectivity to the storage account over port 443.
+> * Inbound and Outbound connectivity to 169.254.169.254
+> * Inbound and Outbound connectivity to 168.63.129.16
 
 ![packet capture overview screen][1]
 
@@ -137,7 +140,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 
-Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
+Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->
 [1]: ./media/network-watcher-packet-capture-manage-portal/figure1.png

@@ -115,6 +115,8 @@ Here is a table of all supported bindings.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
+Having issues with errors coming from the bindings? Review the [Azure Functions Binding Error Codes](functions-bindings-error-pages.md) documentation.
+
 ## Reporting Issues
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 

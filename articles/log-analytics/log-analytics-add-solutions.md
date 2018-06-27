@@ -1,9 +1,9 @@
 ---
 title: Add Azure Log Analytics management solutions | Microsoft Docs
-description: Operations Management Suite (OMS) / Log Analytics management solutions are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.
+description: Management solutions in Azure are a collection of logic, visualization, and data acquisition rules that provide metrics pivoted around a particular problem area.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
-ms.author: banders
+ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 
 ---
 # Add Azure Log Analytics management solutions to your workspace
 
-Log Analytics management solutions are a collection of **logic**, **visualization**, and **data acquisition rules** that provide metrics pivoted around a particular problem area. This article lists management solutions supported by Log Analytics and shows you how to add and remove for a workspace by using the Azure portal. You can also add solutions in the OMS portal using the Solutions Gallery.
+Log Analytics management solutions are a collection of **logic**, **visualization**, and **data acquisition rules** that provide metrics pivoted around a particular problem area. This article lists management solutions supported by Log Analytics and shows you how to add and remove for a workspace by using the Azure portal.
 
 Management solutions allow deeper insights to:
 
@@ -30,9 +30,9 @@ Management solutions allow deeper insights to:
 > [!NOTE]
 > Log Analytics includes Log Search functionality, so you don't need to install a management solution to enable it. However, you get data visualizations, suggested searches, and insights by adding management solutions to your workspace.
 
-Using this article, you add management solutions to a workspace using the Azure portal Marketplace. After you've added a solution, data is collected from the servers in your infrastructure and sent to the OMS service. Processing by the OMS service typically takes a few minutes to an hour. After the service processes the data, you can view it in OMS.
+Using this article, you add management solutions to a workspace using the Azure portal Marketplace. After you've added a solution, data is collected from the servers in your infrastructure and sent to Log Analytics. Processing typically takes a few minutes to an hour. After the service processes the data, you can view it in Log Analytics.
 
-You can easily remove a management solution when it is no longer needed. When you remove a management solution, its data is not sent to OMS. If you are on the Free pricing tier, removing a solution can reduce the amount of data used, helping you stay under daily quota of data.
+You can easily remove a management solution when it is no longer needed. When you remove a management solution, its data is not sent to Log Analytics. If you are on the Free pricing tier, removing a solution can reduce the amount of data used, helping you stay under daily quota of data.
 
 ## View available management solutions
 
@@ -42,8 +42,7 @@ You can install management solutions from Azure marketplace by clicking the **Ge
 
 ## Add a management solution
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) using your Azure subscription.
-2. In the **New** blade under **Marketplace**, select **Monitoring + management**.
-3. In the **Monitoring + management** blade, click **See all**.  
+2. Select **Create a resource** > **Monitoring + Management** > **See all**.  
     ![Monitoring + management blade](./media/log-analytics-add-solutions/monitoring-management-blade.png)  
 4. To the right of **Management Solutions**, click **More**.
 5. In the **Management Solutions** blade, select a management solution that you want to add to a workspace.  
@@ -122,14 +121,14 @@ Community provided solutions are available from the [Azure template gallery](htt
 ## Data collection details
 The following tables show data collection methods and other details about how data is collected for Log Analytics management solutions and data sources. The tables are categorized by solution offers, which equate to [subscription pricing tiers](https://go.microsoft.com/fwlink/?linkid=827926). The Activity Log Analytics solution is available to all pricing tiers free of charge.
 
-The Log Analytics Windows agent and System Center Operations Manager agent are essentially the same. The Windows agent includes additional functionality to allow it to connect to the OMS workspace and route through a proxy. If you use an Operations Manager agent, it must be targeted as an OMS agent to communicate with OMS. Operations Manager agents in this table are OMS agents that are connected to Operations Manager. See [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md) for information about connecting your existing Operations Manager environment to OMS.
+The Log Analytics Windows agent and System Center Operations Manager agent are essentially the same. The Windows agent includes additional functionality to allow it to connect to the Log Analytics workspace and route through a proxy. If you use an Operations Manager agent, it must be targeted as an OMS agent to communicate with Log Analytics. Operations Manager agents in this table are OMS agents that are connected to Operations Manager. See [Connect Operations Manager to Log Analytics](log-analytics-om-agents.md) for information about connecting your existing Operations Manager environment to Log Analytics.
 
 > [!NOTE]
-> The type of agent that you use determines how data is sent to OMS, with the following conditions:
+> The type of agent that you use determines how data is sent to Log Analytics, with the following conditions:
 > - You either use the Windows agent or an Operations Manager-attached OMS agent.
-> - When Operations Manager is required, Operations Manager agent data for the solution is always sent to OMS using the Operations Manager management group. Additionally, when Operations Manager is required, only the Operations Manager agent is used by the solution.
-> - When Operations Manager is not required and the table shows that Operations Manager agent data is sent to OMS using the management group, then Operations Manager agent data is always sent to OMS using management groups. Windows agents bypass the management group and send their data directly to OMS.
-> - When Operations Manager agent data is not sent using a management group, then the data is sent directly to OMS—bypassing the management group.
+> - When Operations Manager is required, Operations Manager agent data for the solution is always sent to Log Analytics using the Operations Manager management group. Additionally, when Operations Manager is required, only the Operations Manager agent is used by the solution.
+> - When Operations Manager is not required and the table shows that Operations Manager agent data is sent to Log Analytics using the management group, then Operations Manager agent data is always sent to Log Analytics using management groups. Windows agents bypass the management group and send their data directly to Log Analytics.
+> - When Operations Manager agent data is not sent using a management group, then the data is sent directly to Log Analytics—bypassing the management group.
 
 ### Insight & Analytics / Log Analytics
 
@@ -238,7 +237,7 @@ The following information applies to both public and private previews:
 * Things may not always work correctly.
   * Issues range from being a minor annoyance through to something not working at all.
 * There is potential for the preview to have a negative impact on your systems / environment.
-  * We try to avoid negative things happening to the systems you’re using with OMS but sometimes unexpected things occur.
+  * We try to avoid negative things happening to the systems you’re using but sometimes unexpected things occur.
 * Data loss / corruption may occur.
 * We may ask you to collect diagnostic logs or other data to help troubleshoot issues.
 * The feature or solution may be removed (either temporarily or permanently).

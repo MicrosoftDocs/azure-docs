@@ -1,16 +1,16 @@
----
+﻿---
 title: Create an application gateway with URL path-based routing rules - Azure PowerShell | Microsoft Docs
 description: Learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using Azure PowerShell.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
+ms.author: victorh
 
 ---
 # Create an application gateway with URL path-based routing rules using Azure PowerShell
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. To find the version, run ` Get-Module -ListAvailable AzureRM` . If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. To find the version, run ` Get-Module -ListAvailable AzureRM` . If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -349,7 +349,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Test base URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Change the URL to http://<ip-address>:8080/video/test.htm to the end of the base URL and you should see something like the following example:
+Change the URL to http://<ip-address>:8080/video/test.htm, substituting your IP address for <ip-address>, and you should see something like the following example:
 
 ![Test images URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 

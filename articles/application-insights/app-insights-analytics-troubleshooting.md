@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
 
@@ -53,7 +53,7 @@ An authentication related error occurred (during authentication or during access
 4. Open another (ordinary) browser window and go to [Azure](https://portal.azure.com). Sign out. Then open your link and sign in with the correct credentials.
 5. Edge and Internet Explorer users can also get this error when trusted zone settings are not supported.
    
-    Verify both [Analytics portal](https://analytics.applicationinsights.io) and [Azure Active Directory portal](https://portal.azure.com) are in the same security zone:
+    Verify both [Analytics portal](https://portal.azure.com) and [Azure Active Directory portal](https://portal.azure.com) are in the same security zone:
    
    * In Internet Explorer, open **Internet Options**, **Security**, **Trusted sites**, **Sites**:
      
