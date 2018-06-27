@@ -71,10 +71,10 @@ In this section, you create two virtual machines for the backend pool of your Ba
     - *myAvailabilitySet* - for the name of the new Availability set that you create.
     -  *myVNet* - ensure it is selected as the virtual network.
     - *myBackendSubnet* - ensure it is selected as the subnet.
-    - *myNetworkSecurityGroup* - for the name of the new network security group (firewall) that you must create.
+5. Under **Network Security Group**, select **Advanced**. then for **Network security group (firewall)**, select **None**.
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
-7. Using steps 1-6, create a second VM, named, *VM2* with *myAvailabilityset* as the Availability set, *myVnet* as the virtual network, *myBackendSubnet* as subnet, and *myNetworkSecurityGroup* as its Network Security Group, . 
+7. Using steps 1-6, create a second VM, named, *VM2* with *myAvailabilityset* as the Availability set, *myVnet* as the virtual network, *myBackendSubnet* as subnet, and select **None** for the **Network security group (firewall)**. 
 
 ### Install IIS and customize the default web page
 
@@ -95,33 +95,6 @@ In this section, you create two virtual machines for the backend pool of your Ba
     ```
 5. Close the RDP connection with *myVM1*.
 6. Repeat steps 1-5 with *myVM2* to install IIS and customize the default web page.
-
-## Create NSG rules
-
-In this section, you create NSG rules to allow inbound connections using HTTP and RDP.
-
-1. Click **All resources** in the left-hand menu, and then from the resources list click **myNetworkSecurityGroup** that is located in the **myResourceGroupLB** resource group.
-2. Under **Settings**, click **Inbound security rules**, and then click **Add**.
-3. Enter these values for the inbound security rule named *myHTTPRule* to allow for an inbound HTTP connections using port 80:
-    - *Service Tag* - for **Source**.
-    - *Internet* - for **Source service tag**
-    - *80* - for **Destination port ranges**
-    - *TCP* - for **Protocol**
-    - *Allow* - for **Action**
-    - *100* for **Priority**
-    - *myHTTPRule* for name
-    - *Allow HTTP* - for description
-4. Click **OK**.
- 
-5. Repeat steps 2 to 4 to create another rule named *myRDPRule* to allow for an inbound RDP connection using port 3389 with the following values:
-    - *Service Tag* - for **Source**.
-    - *Internet* - for **Source service tag**
-    - *3389* - for **Destination port ranges**
-    - *TCP* - for **Protocol**
-    - *Allow* - for **Action**
-    - *200* for **Priority**
-    - *myRDPRule* for name
-    - *Allow RDP* - for description
 
 ## Create Basic Load Balancer resources
 
