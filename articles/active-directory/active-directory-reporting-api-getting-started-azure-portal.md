@@ -50,7 +50,7 @@ You can use the [MSGraph explorer](https://developer.microsoft.com/en-us/graph/g
 
 ![Graph Explorer](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
 
-![Modify permissions UI](./media/active-directory-reporting-troubleshooting-graph-api/modify-permissions.png)
+![Modify permissions UI](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
 ## Recommendation 
 
