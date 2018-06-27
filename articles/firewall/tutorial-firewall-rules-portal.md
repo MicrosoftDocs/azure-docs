@@ -61,9 +61,9 @@ Get-AzureRmProviderFeature -FeatureName AllowAzureFirewall -ProviderNamespace Mi
 The examples in the Azure Firewall articles assume that you have already installed the public preview.
 
 For this tutorial, you create a single VNet with three subnets:
-- **FW-SN** - the firewall is in this subnet
+- **FW-SN** - the firewall is in this subnet.
 - **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
-- **Jump-SN** - The "jump" server is in this subnet. The jump server has a public IP address that you can connect to using Remote Desktop. From there, you can then connect to (using another Remote Desktop) to the workload server.
+- **Jump-SN** - The "jump" server is in this subnet. The jump server has a public IP address that you can connect to using Remote Desktop. From there, you can then connect to (using another Remote Desktop) the workload server.
 
 This tutorial uses a simplified network configuration for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet, and workload servers are in peered VNets with one or more subnets.
 
