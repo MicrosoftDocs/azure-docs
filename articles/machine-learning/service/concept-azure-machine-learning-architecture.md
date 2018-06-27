@@ -13,7 +13,7 @@ ms.date: 06/18/2018
 
 # Azure Machine Learning Services architecture and key terms 
 
-The Azure Machine Learning workspace is an Azure resource, and the logical container for all artifacts created through Azure Machine learning. The workspace also contains information about Azure resources that are used by Azure Machine Learning.
+The Azure Machine Learning workspace is the logical container for all artifacts created through Azure Machine learning. The workspace also contains information about Azure resources that are used by Azure Machine Learning.
 
 The following are artifacts contained in a workspace:
 
@@ -58,7 +58,8 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 
 A project is a local folder on your computer that contains the files for your solution. To use a local folder with Azure Machine Learning Services, you must attach it to a workspace. For an example of how to do attach a project to a workspace, see one of the following documents:
 
-* [TBD]
+* [Create a workspace with Python]()
+* [Create a workspace with Azure CLI]()
 
 When you submit a project for execution, the folder is copied into the compute target. The entry script is executed in a Python environment configured through a __run configuration__.
 
@@ -68,7 +69,7 @@ A model is a scoring logic operation materialized in one or more files. A model 
 
 ## Docker image
 
-A Docker image is created by the Azure ML Image Construction Engine, and registered with an Azure ML Workspace. It encapsulates:
+A Docker image is created by the Azure Machine Learning Image Construction Engine, and registered with a workspace. It encapsulates:
 
 * One or model files
 * Your scoring script
@@ -88,7 +89,7 @@ You can use the Python SDK API to store and retrieve files from the datastore as
 
 ## Run
 
-A __run__ is an execution record stored in Azure ML run history service. It contains the following information:
+A __run__ is an execution record stored in the run history of a workgroup. It contains the following information:
 
 * Metadata about the run (timestamp, duration etc.)
 * Metrics logged by your script
@@ -122,7 +123,7 @@ Compute targets are attached to a workspace. Computer targets other than the loc
 
 ## Metrics
 
-When developing your solution, you can use the Azure ML Python SDK in your Python script to log metrics information. You can provide name-value pairs, where the name is a string and the value is one of the following items:
+When developing your solution, you can use the Azure Machine Learning Python SDK in your Python script to log metrics information. You can provide name-value pairs, where the name is a string and the value is one of the following items:
 
 * String
 * Number
@@ -131,7 +132,7 @@ When developing your solution, you can use the Azure ML Python SDK in your Pytho
 
 ## Snapshots
 
-When submitting a project run, Azure ML compresses the project folder as a zip file and sends it to the compute target. The project is then expanded and executed there. Azure ML also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
+When submitting a project run, Azure Machine Learning compresses the project folder as a zip file and sends it to the compute target. The project is then expanded and executed there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
 
 ## Task
 
