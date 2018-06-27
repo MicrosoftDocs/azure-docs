@@ -83,7 +83,7 @@ Contact us if you require higher scale.
 
 **Question**: The data report says there were failed utterances. What is the issue?
 
-**Answer**: Failing to upload 100% of the utterences in a file is not a problem.
+**Answer**: Failing to upload 100% of the utterances in a file is not a problem.
 If the vast majority of the utterances in an acoustic or language data set (for example, >95%) are successfully imported, the data set can be usable. However, it is recommended that you try to understand why the utterances failed and fix the problems. Most common problems, such as formatting errors, are easy to fix. 
 
 ## Creating AM
@@ -148,7 +148,7 @@ You should aim to beat the baseline model to make the customization worthwhile
 
 **Answer**: Uploading a list of words will get the words into to vocabulary but not teach the system how the words are typically used.
 By providing full or partial utterances (sentences or phrases of things users are likely to say) the language model can learn the new words and how, they are used. The custom language model is good not just for getting new words in the system
-but also for adjusting the likelihood of known words for your application. Providing full utterances helps the system learn ebtter. 
+but also for adjusting the likelihood of known words for your application. Providing full utterances helps the system learn better. 
 
 ## Next steps
 

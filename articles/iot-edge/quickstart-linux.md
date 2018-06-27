@@ -4,7 +4,7 @@ description: In this quickstart, learn how to deploy prebuilt code remotely to a
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/20/2018
+ms.date: 06/27/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -55,10 +55,10 @@ The free level of IoT Hub works for this quickstart. If you've used IoT Hub in t
    az group create --name TestResources --location westus
    ```
 
-1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub called **MyIoTHub** in the resource group **TestResources**. Each IoT hub needs a globally unique name. If you receive an error from this command, try a different value in the *--name* field. 
+1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub in the resource group **TestResources**. Replace *{hub_name}* with a unique name for your IoT hub.
 
    ```azurecli-interactive
-   az iot hub create --resource-group TestResources --name MyIotHub --sku F1 
+   az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
    ```
 
 ## Register an IoT Edge device
@@ -68,16 +68,16 @@ Register an IoT Edge device with your newly created IoT Hub.
 
 Create a device identity for your simulated device so that it can communicate with your IoT hub. Since IoT Edge devices behave and can be managed differently than typical IoT devices, you declare this to be an IoT Edge device from the beginning. 
 
-1. In the Azure cloud shell, enter the following command to create a device named **myEdgeDevice** in your hub **MyIoTHub**
+1. In the Azure cloud shell, enter the following command to create a device named **myEdgeDevice** in your hub.
 
    ```azurecli-interactive
-   az iot hub device-identity create --device-id myEdgeDevice --hub-name MyIoTHub --edge-enabled
+   az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
    ```
 
 1. Retrieve the connection string for your device, which links your physical device with its identity in IoT Hub. 
 
    ```azurecli-interactive
-   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name MyIoTHub
+   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
 1. Copy the connection string and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
@@ -94,7 +94,7 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It has three component
 
 The packages that you need to run the IoT Edge runtime are managed in a software repository. Configure your IoT Edge device to access this repository. 
 
-The steps in this section are for devices running Ubuntu 16.04. For other versions of Linux, see [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
+The steps in this section are for devices running **Ubuntu 16.04**. To access the software repository on other versions of Linux, see [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 1. On the machine that you're using as an IoT Edge device, install the repository configuration.
 
@@ -114,8 +114,15 @@ The steps in this section are for devices running Ubuntu 16.04. For other versio
 
 The IoT Edge runtime is a set of containers, and the logic that you deploy to your IoT Edge device is packaged as containers. Prepare your device for these components by installing a container runtime.
 
+Update **apt-get**.
+
    ```bash
    sudo apt-get update
+   ```
+
+Install Moby, a container runtime, and its CLI commands. 
+
+   ```bash
    sudo apt-get install moby-engine
    sudo apt-get install moby-cli   
    ```
@@ -221,10 +228,10 @@ Remove the container runtime.
    sudo apt-get remove --purge moby
    ```
 
-When you no longer need the IoT Hub you created, you can use the [az iot hub delete][lnk-delete] command to remove the resource and any devices associated with it:
+When you no longer need the Azure resources that you created, you can use the following command to delete the resource group that you created and any resources associated with it:
 
-   ```azurecli
-   az iot hub delete --name MyIoTHub --resource-group IoTEdge
+   ```azurecli-interactive
+   az group delete --name TestResources
    ```
 
 ## Next steps

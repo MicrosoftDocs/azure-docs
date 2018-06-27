@@ -4,7 +4,7 @@ description:  In this quickstart, learn how to deploy prebuilt code remotely to 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/21/2018
+ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -57,7 +57,7 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It has three component
 
 The packages that you need to run the IoT Edge runtime are managed in a software repository. Configure your IoT Edge device to access this repository. 
 
-The steps in this section are for devices running Ubuntu 16.04. For other versions of Linux, see [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
+The steps in this section are for devices running **Ubuntu 16.04**. To access the software repository on other versions of Linux, see [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 1. On the machine that you're using as an IoT Edge device, install the repository configuration.
 
@@ -77,8 +77,15 @@ The steps in this section are for devices running Ubuntu 16.04. For other versio
 
 The IoT Edge runtime is a set of containers, and the logic that you deploy to your IoT Edge device is packaged as containers. Prepare your device for these components by installing a container runtime.
 
+Update **apt-get**.
+
    ```bash
    sudo apt-get update
+   ```
+
+Install Moby, a container runtime, and its CLI commands. 
+
+   ```bash
    sudo apt-get install moby-engine
    sudo apt-get install moby-cli   
    ```
@@ -161,6 +168,31 @@ View the messages being sent from the tempSensor module:
 The temperature sensor module may be waiting to connect to Edge Hub if the last line you see in the log is `Using transport Mqtt_Tcp_Only`. Try killing the module and letting the Edge Agent restart it. You can kill it with the command `sudo docker stop tempSensor`.
 
 You can also view the telemetry the device is sending by using the [IoT Hub explorer tool][lnk-iothub-explorer] or the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+
+## Clean up resources
+
+If you want to continue on to the IoT Edge tutorials, you can use the device that you registered and set up in this quickstart. If you want to remove the installations from your device, use the following commands.  
+
+Remove the IoT Edge runtime.
+
+   ```bash
+   sudo apt-get remove --purge iotedge
+   ```
+
+Delete the containers that were created on your device. 
+
+   ```bash
+   sudo docker rm -f $(sudo docker ps -aq)
+   ```
+
+Remove the container runtime.
+
+   ```bash
+   sudo apt-get remove --purge moby
+   ```
+
+When you no longer need the Azure IoT hub or IoT Edge device that you created in this quickstart, you can delete them in the Azure portal. Navigate to the overview page of your IoT hub and select **Delete**. 
+
 ## Next steps
 
 In this quickstart, you created a new IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a simulated device generating raw data about its environment. 

@@ -18,13 +18,10 @@ ms.author: jingwang
 ---
 #  Copy data to or from Azure SQL Data Warehouse by using Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Version 1: GA](v1/data-factory-azure-sql-data-warehouse-connector.md)
-> * [Version 2: Preview](connector-azure-sql-data-warehouse.md)
+> * [Version1 ](v1/data-factory-azure-sql-data-warehouse-connector.md)
+> * [Current version](connector-azure-sql-data-warehouse.md)
 
 This article explains how to use Copy Activity in Azure Data Factory to copy data to or from Azure SQL Data Warehouse. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, currently in preview. If you use version 1 of the Data Factory service, which is generally available (GA), see [Azure SQL Data Warehouse connector in V1](v1/data-factory-azure-sql-data-warehouse-connector.md).
 
 ## Supported capabilities
 

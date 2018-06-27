@@ -62,6 +62,7 @@ The following steps show you how to create an IoT Edge Python module using Visua
     ```
 
 3. Select **View** > **Command Palette** to open the VS Code command palette. 
+4. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
 5. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
    1. Select the folder where you want to create the solution. 
    2. Provide a name for your solution or accept the default **EdgeSolution**.
@@ -222,8 +223,6 @@ To delete the entire resource group by name:
 
 3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
 
-<!-->    ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
--->
 4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
