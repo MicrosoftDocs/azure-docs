@@ -36,20 +36,20 @@ Once completed, Cloud Shell will automatically attach your storage (mounted as `
 Additionally, your `$Home` directory is persisted as an .img in your Azure File share.
 Files outside of `$Home` and machine state are not persisted across sessions. Use best practices when storing secrets such as SSH keys. Services like [Azure Key Vault have tutorials for setup](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
-[Learn more about persisting files in Bash in Cloud Shell.](persisting-shell-storage.md)
+[Learn more about persisting files in Cloud Shell.](persisting-shell-storage.md)
 
 ### Azure drive (Azure:)
 
 PowerShell in Cloud Shell (Preview) starts you in Azure drive (`Azure:`).
 The Azure drive enables easy discovery and navigation of Azure resources such as Compute, Network, Storage etc. similar to filesystem navigation.
-You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure) to manage these resources.
-Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are instantly reflected in the Azure drive.
+You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure) to manage these resources regardless of the drive you are in.
+Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are reflected in the Azure drive.  You can run `dir -Force` to refresh your resources.
 
 ![](media/features-powershell/azure-drive.png)
 
 ### Deep integration with open-source tooling
 
-Cloud Shell includes pre-configured authentication for open-source tools such as Terraform and Ansible. Try it out from the example walkthroughs.
+Cloud Shell includes pre-configured authentication for open-source tools such as Terraform, Ansible and Chef InSpec. Try it out from the example walkthroughs.
 
 ## Tools
 
@@ -68,7 +68,7 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 
 |Language   |Version   |
 |---|---|
-|.NET       |2.0.0       |
+|.NET Core  |2.0.0       |
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |

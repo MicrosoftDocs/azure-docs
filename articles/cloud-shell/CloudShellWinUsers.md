@@ -11,7 +11,7 @@ Proper casing must be used while `tab` completing in the file system.  PowerShel
 
 ## Windows PowerShell alias vs Linux utilities
 
-Existing commands in Linux, such as `ls`, `sort`, and `sleep` take precedence over their PowerShell aliases.  Below are the removed aliases as well as the equivalent commands:  
+Existing commands in Linux, such as `ls`, `sort`, and `sleep` take precedence over their PowerShell aliases.  Below are common removed aliases as well as the equivalent commands:  
 
 |Removed Alias   |Equivalent Command   |
 |---|---|
@@ -21,8 +21,8 @@ Existing commands in Linux, such as `ls`, `sort`, and `sleep` take precedence ov
 
 ## Persisting $home vs $home\clouddrive
 
-For users of who persisted their settings for tools such as Git and SSH in their Cloud Drive, the $HOME directory is now persisted across sessions.
+For users of who persisted scripts and other files in their Cloud Drive, the $HOME directory is now persisted across sessions.
 
 ## What's new in PowerShell Core 6
 
-For more information about what is new in PowerShell Core 6, reference the [PowerShell docs](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6)
+For more information about what is new in PowerShell Core 6, reference the [PowerShell docs](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) and the [Getting Started with PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) blog post

@@ -27,7 +27,7 @@ Azure Cloud Shell has the following known limitations:
 
 The machine that provides your Cloud Shell session is temporary, and it is recycled after your session is inactive for 20 minutes. Cloud Shell requires an Azure file share to be mounted. As a result, your subscription must be able to set up storage resources to access Cloud Shell. Other considerations include:
 
-* With mounted storage, only modifications within the `clouddrive` directory are persisted. In Bash, your `$Home` directory is also persisted.
+* With mounted storage, only modifications within the `$Home` directory are persisted.
 * Azure file shares can be mounted only from within your [assigned region](persisting-shell-storage.md#mount-a-new-clouddrive).
   * In Bash, run `env` to find your region set as `ACC_LOCATION`.
 
@@ -59,23 +59,33 @@ Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud
 
 ## PowerShell limitations
 
-
 ### `AzureAD` module name
 
 The `AzureAD` module name is currently `AzureAD.Standard.Preview`, the module provides the same functionality.
 
- ### `Sqlcmd` functionality
+### `SqlServer` module functionality
 
- Currently, cmdlets such as `Invoke-SQLcmd` are not supported.
-
+The `SqlServer` module included in Cloud Shell has only prerelease support for PowerShell Core. In particular, `Invoke-SqlCmd` is not available yet.
 
 ### Default file location when created from Azure drive:
 
-Using PowerShell cmdlets, users can not create files under the Azure drive. When users create new files using other tools, such as vim or nano, the files are saved to C:\Users folder by default. 
+Using PowerShell cmdlets, users can not create files under the Azure drive. When users create new files using other tools, such as vim or nano, the files are saved to the `$HOME` by default. 
 
 ### GUI applications are not supported
 
 If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Connect-AzureRmAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+
+### Tab completion crashes PSReadline
+
+If the user's EditMode in PSReadline is set to Emacs, the user tries to display all possibilities via tab completion, and the window size is too small to display all the possibilites, PSReadline will crash.
+
+### Large Gap after displaying progress bar
+
+If the user performs an action that displays a progress bar, such a tab completing while in the `Azure:` drive, then it is possible that the cursor is not set properly and a gap appears where the progress bar was previously.
+
+### Random characers appear inline
+
+The cursor position sequence codes, for example `5;13R`, can appear in the user input.  The charaters can be manually removed.
 
 ## Next steps
 
