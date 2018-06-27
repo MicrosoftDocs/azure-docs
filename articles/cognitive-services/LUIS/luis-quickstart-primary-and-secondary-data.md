@@ -278,7 +278,7 @@ In the following JSON, LUIS responds with the correct intent, `ApplyForJob`, but
 Because a name can be anything, LUIS predicts entities more accurately if it has a phrase list of words to boost the signal.
 
 ## To boost signal, add jobs phrase list
-Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) from the LUIS-Samples Github repository. The list is over one thoasand job words and phrases. Look through the list for job words that are meaningful to you. If your words or phrases are not on the list, add your own.
+Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) from the LUIS-Samples Github repository. The list is over one thousand job words and phrases. Look through the list for job words that are meaningful to you. If your words or phrases are not on the list, add your own.
 
 1. In the **Build** section of the LUIS app, select **Phrase lists** found under the **Improve app performance** menu.
 
