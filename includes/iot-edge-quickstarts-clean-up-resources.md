@@ -22,11 +22,11 @@ Otherwise, you can delete the local configurations and the Azure resources creat
 To delete only the IoT Hub execute the following command using your hub name and resource group name:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group IoTEdge
+az iot hub delete --name MyIoTHub --resource-group TestResources
 ```
 
 
-To delete a resource group by name:
+To delete the entire resource group by name:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
 
@@ -39,42 +39,7 @@ To delete a resource group by name:
 4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
 
-Remove the IoT Edge service runtime based on your IoT device platform (Linux or Windows).
 
-### Windows
-
-Remove the IoT Edge runtime.
-
-```Powershell
-Stop-Service iotedge 
-Remove-Service -Name iotedge
-```
-
-Delete the containers that were created on your device. 
-
-```Powershell
-docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
-```
-
-### Linux
-
-Remove the IoT Edge runtime.
-
-```bash
-sudo apt-get remove --purge iotedge
-```
-
-Delete the containers that were created on your device. 
-
-```bash
-sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor")
-```
-
-Remove the container runtime.
-
-```bash
-sudo apt-get remove --purge moby
-```
 
 
 
