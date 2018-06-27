@@ -47,7 +47,7 @@ To create a VM with a static public IP address in the Azure portal, complete the
 5. In the **Choose a size** pane, click **A1 Standard** as follows, and then click **Select**.
    
     ![Azure portal - Choose a size](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. In the **Settings** pane, click **Public IP address**, then in the **Create public IP address** pane, under **Assignment**, click **Static** as as follows. And, then click **OK**.
+6. In the **Settings** pane, click **Public IP address**, then in the **Create public IP address** pane, under **Assignment**, click **Static** as follows. And, then click **OK**.
    
     ![Azure portal - Create public IP address](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
 7. In the **Settings** pane, click **OK**.

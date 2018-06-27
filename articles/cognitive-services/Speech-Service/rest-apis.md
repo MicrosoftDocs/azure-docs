@@ -19,15 +19,7 @@ The REST APIs of the unified Speech service are similar to the APIs provided by 
 
 In the Speech to Text API, only the endpoints used differ from the previous Speech service Speech Recognition API. The new endpoints are shown in the table below. Use the one that matches your subscription region.
 
-Region|	Speech to Text endpoint
--|-
-West US| `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-East Asia| `https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-North Europe| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-
-> [!NOTE]
-> You must append the required language in the URI to avoid an http 401 error. So for en-US the correct URI would be:
-> https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
+[!include[](includes/endpoints-speech-to-text.md)]
 
 The Speech to Text API is otherwise similar to the [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) for the previous Speech API.
 
@@ -58,14 +50,7 @@ en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en
 
 The following are the REST endpoints for the unified Speech service Text to Speech API. Use the endpoint that matches your subscription region.
 
-Region|	Text to Speech endpoint
--|-
-West US|	`https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
-East Asia|	`https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
-North Europe|	`https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
-
-> [!NOTE]
-> If you created a custom voice font, use your custom endpoint instead.
+[!include[](includes/endpoints-text-to-speech.md)]
 
 Keep these differences in mind as you refer to the [REST API documentation](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) for the previous Speech API.
 
@@ -73,11 +58,7 @@ Keep these differences in mind as you refer to the [REST API documentation](http
 
 Sending a request to the Speech service's REST API requires an access token. You obtain a token by providing your subscription key to a regional Speech service `issueToken` endpoint, shown in the table below. Use the endpoint that matches your subscription region.
 
-Region|	Token service endpoint
--|-
-West US|	`https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-East Asia|	`https://eastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-North Europe|	`https://northeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+[!include[](includes/endpoints-token-service.md)]
 
 Each access token is valid for 10 minutes. You may obtain a new token at any time—including, if you like, just before every Speech REST API request. To minimize network traffic and latency, however, we recommend using the same token for nine minutes.
 
