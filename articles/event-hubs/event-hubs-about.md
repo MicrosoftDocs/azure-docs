@@ -32,15 +32,15 @@ Event Hubs is used in some of the following common scenarios:
 
 ## Why use Event Hubs?
 
-Organizations need data-driven strategies to increase competitive advantage, or to analyze data to get valuable insights. Event Hubs provides a distributed stream processing platform with low latency and seamless integration, with data and analytics services inside and outside Azure to build a complete Big Data pipeline.
+Data is valuable only when there is an easy way to process and get timely insights from data sources. Event Hubs provides a distributed stream processing platform with low latency and seamless integration, with data and analytics services inside and outside Azure to build a complete Big Data pipeline.
 
-The common role that Event Hubs plays in solution architectures is the "front door" for an event pipeline, often called an *event ingestor*. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events. Event Hubs provides a unified streaming platform with time retention buffer, decoupling the event producers from event consumers. 
+Event Hubs represents the "front door" for an event pipeline, often called an *event ingestor* in solution architectures. An event ingestor is a component or service that sits between event publishers and event consumers to decouple the production of an event stream from the consumption of those events. Event Hubs provides a unified streaming platform with time retention buffer, decoupling the event producers from event consumers. 
 
 ## Key features
 
 Event Hubs provides message stream handling capability but has characteristics that are different from traditional enterprise messaging. Event Hubs capabilities are built around high throughput and event processing scenarios. Event Hubs contains the following [key components](event-hubs-features.md):
 
-- **Event producers**: Any entity that sends data to an event hub. Event publishers can publish events using HTTPS or AMQP 1.0. 
+- **Event producers**: Any entity that sends data to an event hub. Event publishers can publish events using HTTPS or AMQP 1.0 or Apache Kafka 
 - **Partitions**: Each consumer only reads a specific subset, or partition, of the message stream.
 - **Consumer groups**: A view (state, position, or offset) of an entire event hub. Consumer groups enable multiple consuming applications to each have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets.
 - **Throughput units**: Pre-purchased units of capacity that control the throughput capacity of Event Hubs.
@@ -64,7 +64,7 @@ Azure Event Hubs also integrates with [Azure Functions](/azure/azure-functions/)
 
 ## Scalable 
 
-You can start with data streams in megabytes, and grow to gigabytes or terabytes of data streams using the [Auto-inflate](event-hubs-auto-inflate.md) feature. 
+With Event Hubs, you can start with data streams in megabytes, and grow to gigabytes or terabytes. [Auto-inflate](event-hubs-auto-inflate.md) feature is one of the many options available to scale the number of throughput units to meet your usage needs. 
 
 ## Rich ecosystem
 
