@@ -20,9 +20,9 @@ ms.custom: mvc
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure portal
 
-This quickstart shows how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in Azure Data Lake Storage Gen2.
+This quickstart shows how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in Azure Data Lake Storage Gen2 Preview.
 
-As part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics. 
+As part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -31,6 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 - [Create a Azure Data Lake Storage Gen2 Account](quickstart-create-account.md)
 
 ## Set aside storage account configuration
+
 During this tutorial you need to have access to your storage account name and access key. In the Azure portal, select **All Services** and filter on *storage*. Select **Storage accounts** and locate the account you created for this tutorial.
 
 From the **Overview** copy the name of the storage account in to a text editor. Next, select **Access keys** and copy the value for **key1** into your text editor as both vaules are needed for commands coming later.
