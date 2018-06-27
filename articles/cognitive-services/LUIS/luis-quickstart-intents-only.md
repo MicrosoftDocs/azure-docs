@@ -17,15 +17,15 @@ In this quickstart, create an app that demonstrates how to use **intents** to de
 
 This app is the simplest type of LUIS app because it doesn't extract data from the utterances. It only determines the user's intention of the utterance.
 
-For this article, you need a free [LUIS][LUIS] account for the LUIS website to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account for the LUIS website to author your LUIS application.
 
 ## Purpose of the app
 This app has a few intents. The first intent, **`GetJobInformation`**, identifies when a user wants information about jobs available inside a company. The second intent, **`None`**, identifies every other type of utterance. Later in the quickstart, a third intent, `ApplyForJob`, is added. 
 
 ## Create a new app
-1. Log in to the [LUIS][LUIS] website. Make sure to log in to the [region](luis-reference-regions.md#publishing-regions) where you need the LUIS endpoints published.
+1. Log in to the [LUIS](luis-reference-regions.md#luis-website) website. Make sure to log in to the [region](luis-reference-regions.md#publishing-regions) where you need the LUIS endpoints published.
 
-2. On the [LUIS][LUIS] website, select **Create new app**.  
+2. On the [LUIS](luis-reference-regions.md#luis-website) website, select **Create new app**.  
 
     [![](media/luis-quickstart-intents-only/app-list.png "Screenshot of My Apps page")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
@@ -177,6 +177,3 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 
 > [!div class="nextstepaction"]
 > [Learn how to add prebuilt intents and entities](luis-tutorial-prebuilt-intents-entities.md)
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
