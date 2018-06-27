@@ -79,6 +79,11 @@ By default, the Azure Service Fabric runtime looks for predefined section names 
 ### Replicator security configuration
 Replicator security configurations are used to secure the communication channel that is used during replication. This means that services will not be able to see each other's replication traffic, ensuring that the data that is made highly available is also secure. By default, an empty security configuration section prevents replication security.
 
+> [!IMPORTANT]
+> On Linux nodes, certificates must be PEM-formatted. To learn more about locating and configuring certificates for Linux, see [Configure certificates on Linux](./service-fabric-configure-certificates-linux.md). 
+> 
+> 
+
 ### Default section name
 ReplicatorSecurityConfig
 
