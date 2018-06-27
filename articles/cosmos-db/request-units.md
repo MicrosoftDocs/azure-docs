@@ -43,8 +43,6 @@ To help you get started, Azure Cosmos DB Program Manager Andrew Liu discusses re
 > 
 > 
 
-There is a minor bug in the above shows that when 1KB data with 100,000 records is used, the total storage is 100GB but I think the storage should be 100MB instead
-
 ## Throughput isolation in globally distributed databases
 
 If you replicate your database to more than one region, Azure Cosmos DB provides throughput isolation to ensure that request unit usage in one region doesn't affect request unit usage in another region. For example, if you write data to one region and read data from another region, the request units that are used to perform the write operation in region A don't take away from the request units that are used for the read operation in region B. Request units aren't split across the regions in which you've deployed your database. Each region in which the database is replicated has the full number of request units provisioned. For more information about global replication, see [How to distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
