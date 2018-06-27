@@ -13,9 +13,9 @@
     href: service-fabric-mesh-quickstart-dotnet-core.md
 - name: Tutorials
   items:
-  - name: Deploy an Azure Service Mesh app
+  - name: Deploy an Azure Service Fabric Mesh app
     items:
-    - name: 1- Build a Service Mesh application
+    - name: 1- Build a Service Fabric Mesh application
       href: service-fabric-mesh-tutorial-create-dotnetcore.md
     - name: 2- Debug the application
       href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
@@ -40,11 +40,6 @@
     href: service-fabric-mesh-setup-developer-environment-sdk.md
   - name: Deploy an app (CLI)
     href: service-fabric-mesh-deploy-app-template.md
-
-- name: Reference
-  items:
-  - name: REST APIs
-    href: https://msdn.microsoft.com/library/mt704034(Azure.100).aspx
 
 - name: Resources
   items:
