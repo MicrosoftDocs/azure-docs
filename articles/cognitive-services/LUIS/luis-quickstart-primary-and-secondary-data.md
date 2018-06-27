@@ -23,9 +23,8 @@ In this tutorial, create an app that demonstrates how to extract machine-learned
 > * Add simple entity to extract jobs from app
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response
-> * Add phrase list to boost job title extraction
-> * Train, and publish app
-> * Query endpoint of app to see LUIS JSON response
+> * Add phrase list to boost signal of job words
+> * Train, publish app, and requery endpoint
 
 For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
@@ -37,20 +36,18 @@ If you want to keep the original Human Resources app, clone the version on the [
 ## Purpose of the app
 This app demonstrates how to pull data out of an utterance. Consider the following utterances from a chatbot:
 
-|Utterance|Extractable job name|Job information type|
-|:--|:--|:--|
-|I want to apply for the new accounting job.|accounting|job or department name|
-|Please submit my resume for the engineering position.|engineering|job or department name|
-|Fill out application for job 123456|123456|specific job number|
+|Utterance|Extractable job name|
+|:--|:--|
+|I want to apply for the new accounting job.|accounting|
+|Please submit my resume for the engineering position.|engineering|
+|Fill out application for job 123456|123456|
 
-Job title, department name, and even job description can all be used interchangeably to refer to a position in a company. This app needs to extract that name or phrase and return it. 
-
-This tutorial adds a new entity to extract job or department name. The ability to extract a specific job number is shown in the regular expression [tutorial](luis-quickstart-intents-regex-entity.md). 
+This tutorial adds a new entity to extract the job name. The ability to extract a specific job number is shown in the regular expression [tutorial](luis-quickstart-intents-regex-entity.md). 
 
 ## Purpose of the simple entity
-The purpose of the simple entity in this LUIS app is to teach LUIS what a job title or department is and where it can be found in an utterance. The part of the utterance that is the job can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of jobs in any utterance across all intents.  
+The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of jobs in any utterance across all intents.  
 
-The job title or department is difficult to determine because a job title or department is a name. A name can be a noun, verb, or a phrase of several words. For example:
+The job name is difficult to determine because a name can be a noun, verb, or a phrase of several words. For example:
 
 |Jobs|
 |--|
@@ -65,7 +62,7 @@ The job title or department is difficult to determine because a job title or dep
 |extruder|
 |millwright|
 
-This LUIS app has job titles and departments in several intents. By labeling these words in all the intents' utterances, LUIS learns more about what a job title or department is and where it is found in utterances.
+This LUIS app has job names in several intents. By labeling these words in all the intents' utterances, LUIS learns more about what a job is and where it is found in utterances.
 
 ## Create job simple entity
 
