@@ -22,7 +22,7 @@ This article shows you how to enable sign-in for users of a LinkedIn account by 
 Complete the steps in the [Get started with custom policies](active-directory-b2c-get-started-custom.md) article.
 
 ## Step 1: Create a LinkedIn account application
-To use LinkedIn as an identity provider in Azure Active Directory B2C (Azure AD B2C), you must create a LinkedIn application and supply it with the right parameters. You can register a LinkedIn application by going to the [LinkedIn sign-up page](https://LinkedIn.com/signup).
+To use LinkedIn as an identity provider in Azure Active Directory B2C (Azure AD B2C), you must create a LinkedIn application and supply it with the right parameters. You can register a LinkedIn application by going to the [LinkedIn sign-up page](https://www.linkedin.com/start/join).
 
 1. Go to the [LinkedIn application management](https://www.linkedin.com/secure/developer?newapp=) website, sign in with your LinkedIn account credentials, and then select **Create Application**.
 

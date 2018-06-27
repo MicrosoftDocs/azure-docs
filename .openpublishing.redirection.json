@@ -1,6 +1,10 @@
 {
     "redirections": [
         {
+            "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
+            "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
+            "redirect_document_id": true
+        },        {
             "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
             "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
             "redirect_document_id": true
@@ -751,11 +755,50 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-edge/sql-storage.md",
+            "redirect_url": "/azure/iot-edge/tutorial-store-data-sql-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/tutorial-create-deployment-with-cli-iot-extension.md",
+            "redirect_url": "/azure/iot-edge/how-to-register-device-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-edge/how-to-vscode-debug-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-vscode-debug-azure-function.md",
+            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/tutorial-simulate-device-linux.md",
+            "redirect_url": "/azure/iot-edge/quickstart-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/tutorial-simulate-device-windows.md",
+            "redirect_url": "/azure/iot-edge/quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-iot-edge-works.md",
+            "redirect_url": "/azure/iot-edge/about-iot-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/tutorial-multiple-modules-in-vscode.md",
+            "redirect_url": "/azure/iot-edge/how-to-develop-multiple-modules-vscode",
+            "redirect_document_id": false
+        },        {
             "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
             "redirect_url": "/azure/cognitive-services/recommendations/overview",
             "redirect_document_id": false
@@ -833,6 +876,96 @@
         {
             "source_path": "articles/active-directory/active-directory-users-work-info-azure-portal.md",
             "redirect_url": "/azure/active-directory/active-directory-users-profile-azure-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dockerextension-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/capture-image-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/capture-image",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/change-vm-size-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/change-vm-size",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/copy-vm-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/copy-vm",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/create-ssh-secured-vm-from-template-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/create-ssh-secured-vm-from-template",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/encrypt-disks-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/encrypt-disks",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/expand-disks-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/expand-disks",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/install-mongodb-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/install-mongodb",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/key-vault-setup-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/key-vault-setup-cli",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/multiple-nics-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/nsg-quickstart-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/nsg-quickstart",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/static-dns-name-resolution-for-linux-on-azure-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/static-dns-name-resolution-for-linux-on-azure",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/tag-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/tag",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/troubleshoot-recovery-disks-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/troubleshoot-recovery-disks",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/upload-vhd-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/upload-vhd",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/using-cloud-init-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/using-cloud-init",
+            "redirect_document_id": true
+        },
+		{
+            "source_path": "articles/virtual-machines/linux/using-vmaccess-extension-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/using-vmaccess-extension",
             "redirect_document_id": true
         },
         {
@@ -2517,6 +2650,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-troubleshooting-automation-errors.md",
+            "redirect_url": "/azure/automation/troubleshoot/runbooks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-onboard-troubleshoot.md",
+            "redirect_url": "/azure/automation/troubleshoot/onboarding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-troubleshooting-hybrid-runbook-worker.md",
+            "redirect_url": "/azure/automation/troubleshoot/hybrid-runbook-worker",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-alert-activity-log.md",
             "redirect_url": "/azure/automation/automation-alert-metric",
             "redirect_document_id": false
@@ -2997,8 +3145,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/app-service/app-service-high-density-hosting.md",
-            "redirect_url": "/azure/app-service/environment/app-service-high-density-hosting",
+            "source_path": "articles/app-service/environment/app-service-high-density-hosting.md",
+            "redirect_url": "/azure/app-service/app-service-high-density-hosting",
             "redirect_document_id": false
         },
         {
@@ -13397,13 +13545,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-aadconnect-pass-through-authentication.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication",
+            "source_path": "articles/active-directory/active-directory-aadconnect-ports.md",
+            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-ports",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-aadconnect-ports.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-ports",
+            "source_path": "articles/active-directory/active-directory-aadconnect-pass-through-authentication.md",
+            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication",
             "redirect_document_id": false
         },
         {
@@ -14708,7 +14856,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-dockerextension-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/dockerextension-nodejs",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": false
         },
         {
@@ -15258,7 +15406,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-using-cloud-init-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/using-cloud-init-nodejs",
+            "redirect_url": "/azure/virtual-machines/linux/using-cloud-init", 
             "redirect_document_id": false
         },
         {
@@ -24327,6 +24475,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-password-smart-lockout",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/application-proxy-understand-connectors.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connectors",
             "redirect_document_id": false
@@ -25157,6 +25310,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory/migrate-adfs-apps-to-azure.md",
+            "redirect_url": "/azure/active-directory/manage-apps/active-directory/migrate-adfs-apps-to-azure",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
             "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": true
@@ -25415,6 +25573,21 @@
             "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started.md",
             "redirect_url": "/azure/active-directory-b2c/tutorial-create-tenant",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-app-passwords",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-first-time",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-troubleshoot",
+            "redirect_document_id": false
+        }        
     ]
 }

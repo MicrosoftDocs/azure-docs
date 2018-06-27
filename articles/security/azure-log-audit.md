@@ -376,7 +376,7 @@ Integration scenarios for SIEM:
 
 ## Next steps
 
-- [Auditing and logging](https://www.microsoft.com/trustcenter/security/auditingandlogging): Protect data by maintaining visibility and responding quickly to timely security alerts.
+- [Auditing and logging](https://docs.microsoft.com/azure/security/security-management-and-monitoring-overview): Protect data by maintaining visibility and responding quickly to timely security alerts.
 
 - [Security logging and audit-log collection within Azure](https://azure.microsoft.com/resources/videos/security-logging-and-audit-log-collection/): Enforce these settings to ensure that your Azure instances are collecting the correct security and audit logs.
 

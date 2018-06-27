@@ -9,7 +9,7 @@
 
 3. You will be prompted to choose the language that you would like to set for your device. Specify the language, and then press **Enter**.
 
-4. In the serial console menu that is presented, choose option 1 to **log in with full access**.
+4. In the serial console menu that is presented, choose option 1, **Log in with full access**.
      Complete steps 5-12 to configure the minimum required network settings for your device. **These configuration steps need to be performed on the active controller of the device.** The serial console menu indicates the controller state in the banner message. If you are not connected to the active controller, disconnect and then connect to the active controller.
 
 5. At the command prompt, type your password. The default device password is **Password1**.

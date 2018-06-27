@@ -53,6 +53,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Brazil South | X | X |
 | North Europe | X | X |
 | West Europe |  | X |
+| France Central |  | X |
 | UK West |  | X |
 | UK South |  | X |
 | East Asia | X | X |
@@ -76,13 +77,13 @@ The storage you provision is the amount of storage capacity available to your Az
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
 | Storage increment size | 1 GB | 1 GB | 1 GB |
-| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 7500 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 7500 IOPS |
+| IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |
 
 You can add additional storage capacity during and after the creation of the server. The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
 
-### Reaching the store limit
+### Reaching the storage limit
 
 The server is marked read-only when the amount of free storage reaches less than 5 GB or 5% of provisioned storage, whichever is less. For example, if you have provisioned 100 GB of storage, and the actual utilization goes over 95 GB, the server is marked read-only. Alternatively, if you have provisioned 5 GB of storage, the server is marked read-only when the free storage reaches less than 250 MB.  
 
