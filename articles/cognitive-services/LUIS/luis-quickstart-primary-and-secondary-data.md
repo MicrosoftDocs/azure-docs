@@ -71,23 +71,30 @@ This LUIS app has job titles and departments in several intents. By labeling the
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
+    [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
 2. On the **Intents** page, select **ApplyForJob** intent. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png "Screenshot of LUIS with 'Create new intent' button highlighted")](media/luis-quickstart-primary-and-secondary-data/create-new-intent-button.png#lightbox)
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "Screenshot of LUIS with 'ApplyForJob' intent highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
 
 3. In the utterance, `I want to apply for the new accounting job`, select `accounting`, enter `Job` in the top field of the pop-up menu, then select **Create new entity** in the pop-up menu. 
 
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Screenshot of LUIS with 'ApplyForJob' intent with create entity steps highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+
 4. In the pop-up window, verify the entity name and type and select **Done**.
+
+    ![Create simple entity pop-up modal dialog with name of Job and type of simple](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
 5. In the utterance, `Submit resume for engineering position`, label the word engineering as a Job entity. Select the word engineering, then select Job from the pop-up menu. 
 
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot of LUIS labeling job entity highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+
     All the utterances are labeled but five utterances aren't enough to teach LUIS about job-related words and phrases. The jobs that use the number value do not need more examples because that uses a regular expression entity. The jobs that are words or phrases need at least 15 more examples. 
 
-6. Add more utterances and mark the job words or phrases as **Job** entity. In the following table, the square brackets indicate the job-related words to label as a job entity. The words `job` and `c.v.` have synonyms across the utterances to teach LUIS words that are related to this intent. The job types are general across employment on purpose for an employment service. If you wanted jobs related to a specific industry, the job words should reflect that. 
+6. Add more utterances and mark the job words or phrases as **Job** entity. The job types are general across employment for an employment service. If you wanted jobs related to a specific industry, the job words should reflect that. 
 
     |Utterance|Job entity|
+    |:--|:--|
     |I'm applying for the Program Manager desk in R&D|Program Manager|
     |Here is my line cook application.|line cook|
     |My resume for camp counselor is attached.|camp counselor|
@@ -113,6 +120,7 @@ This LUIS app has job titles and departments in several intents. By labeling the
 3. Label the jobs in the example utterances:
 
     |Utterance|Job entity|
+    |:--|:--|
     |Is there any work in databases?|databases|
     |Looking for a new situation with responsibilities in accounting|accounting|
     |What positions are available for senior engineers?|senior engineers|
@@ -210,7 +218,7 @@ This action opens another browser window with the endpoint URL in the address ba
 ```
 
 ## Names are tricky
-The LUIS app found the correct intent with high confidence and it extracted the job name, but names are tricky. Try the utterance `This is the lead welder paperwork.`.  
+The LUIS app found the correct intent with high confidence and it extracted the job name, but names are tricky. Try the utterance `This is the lead welder paperwork`.  
 
 In the following JSON, LUIS responds with the correct intent, `ApplyForJob`, but didn't extract the `lead welder` job name. 
 
@@ -270,17 +278,25 @@ In the following JSON, LUIS responds with the correct intent, `ApplyForJob`, but
 Because a name can be anything, LUIS predicts entities more accurately if it has a phrase list of words to boost the signal.
 
 ## To boost signal, add jobs phrase list
-Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) from the LUIS-Samples Github repository. The list is 1220 job words and phrases. Look through the list for job words that are meaningful to you. If your words or phrases are not on the list, add your own.
+Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) from the LUIS-Samples Github repository. The list is over one thoasand job words and phrases. Look through the list for job words that are meaningful to you. If your words or phrases are not on the list, add your own.
 
 1. In the **Build** section of the LUIS app, select **Phrase lists** found under the **Improve app performance** menu.
 
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png "Screenshot of Phrase lists left nav button highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png#lightbox)
+
 2. Select **Create new phrase list**. 
 
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png "Screenshot of create new phrase list button highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png#lightbox)
+
 3. Name the new phrase list `Jobs` and copy the list from jobs-phrase-list.csv into the **Values** text box. Select enter. 
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     If you want more words added to the phrase list, review the recommended words and add any that are relevant. 
 
 4. Select **Save** to activate the phrase list.
+
+    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot of create new phrase list dialog pop-up with words in phrase list values box")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 5. [Train](#train-the-luis-app) and [publish](#publish-the-app-to-get-the-endpoint-URL) the app again to use phrase list.
 
