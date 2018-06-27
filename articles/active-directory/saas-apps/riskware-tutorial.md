@@ -160,7 +160,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	e. In **Sign out Page** textbox, paste the **Sign-Out URL** value, which you have copied from Azure portal.
 
-	f. In the **Post Form Field** textbox, type the field name present in Post Response that contains SAML like SamlResponse
+	f. In the **Post Form Field** textbox, type the field name present in Post Response that contains SAML like SAMLResponse
 
 	g. In the **XML Identity Tag Name** textbox, type attribute, which contains the unique identifier in the SAML response like NameID.
 
@@ -227,7 +227,7 @@ To enable Azure AD users to log in to Riskware, they must be provisioned into Ri
 
 	![Riskware Configuration people](./media/riskware-tutorial/tutorial_riskware_people.png)
 
-4. On the **Details** tab, perform the following steps:
+4. Select **Details** tab and perform the following steps:
 
 	![Riskware Configuration details](./media/riskware-tutorial/tutorial_riskware_details.png)
 
@@ -237,7 +237,7 @@ To enable Azure AD users to log in to Riskware, they must be provisioned into Ri
 
 	c. In **Surname** textbox, enter the last name of user like **Simon**.
 
-5. On the **Security** tab, perform the following steps:	
+5. On the **Security** tab, perform the following steps:
 
 	![Riskware Configuration security](./media/riskware-tutorial/tutorial_riskware_security.png)
 
@@ -247,11 +247,11 @@ To enable Azure AD users to log in to Riskware, they must be provisioned into Ri
 
 	c. In the **Password** textbox, enter password of the user.
 
-6. On the **Organisation** tab, perform the following steps:
+6. On the **Organization** tab, perform the following steps:
 
 	![Riskware Configuration org](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-	a. Select the option as **Level1** organisation.
+	a. Select the option as **Level1** organization.
 
 	b. Under **Person's Primary Workplace** section, in the **Location** textbox, type your location.
 
