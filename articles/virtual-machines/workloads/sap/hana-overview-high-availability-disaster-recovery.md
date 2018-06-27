@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -40,10 +40,12 @@ The following table shows the currently supported high availability and disaster
 | Scenario supported in HANA Large Instances | High availability option | Disaster recovery option | Comments |
 | --- | --- | --- | --- |
 | Single node | Not available. | Dedicated DR setup.<br /> Multipurpose DR setup. | |
-| Host auto-failover: N+m<br /> including 1+1 | Possible with the standby taking the active role.<br /> HANA controls the role switch. | Dedicated DR setup.<br /> Multipurpose DR setup.<br /> DR synchronization by using storage replication. | HANA volume sets are attached to all the nodes (n+m).<br /> DR site must have the same number of nodes. |
+| Host auto-failover: Scale-out (with or without standby)<br /> including 1+1 | Possible with the standby taking the active role.<br /> HANA controls the role switch. | Dedicated DR setup.<br /> Multipurpose DR setup.<br /> DR synchronization by using storage replication. | HANA volume sets are attached to all the nodes.<br /> DR site must have the same number of nodes. |
 | HANA system replication | Possible with primary or secondary setup.<br /> Secondary moves to primary role in a failover case.<br /> HANA system replication and OS control failover. | Dedicated DR setup.<br /> Multipurpose DR setup.<br /> DR synchronization by using storage replication.<br /> DR by using HANA system replication is not yet possible without third-party components. | Separate set of disk volumes are attached to each node.<br /> Only disk volumes of secondary replica in the production site get replicated to the DR location.<br /> One set of volumes is required at the DR site. | 
 
 A dedicated DR setup is where the HANA Large Instance unit in the DR site is not used for running any other workload or non-production system. The unit is passive and is deployed only if a disaster failover is executed. Though, this setup is not a preferred choice for many customers.
+
+Refer [HLI supported scenarios](hana-supported-scenario.md) to learn storage layout and ethernet details for your architecture.
 
 > [!NOTE]
 > [SAP HANA MCOD deployments](https://launchpad.support.sap.com/#/notes/1681092) (multiple HANA Instances on one unit) as overlaying scenarios work with the HA and DR methods listed in the table. An exception is the use of HANA System Replication with an automatic failover cluster based on Pacemaker. Such a case only supports one HANA instance per unit. For [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) deployments, only non-storage-based HA and DR methods work if more than one tenant is deployed. With one tenant deployed, all methods listed are valid.  
