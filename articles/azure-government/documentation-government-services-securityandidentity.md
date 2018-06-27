@@ -47,7 +47,7 @@ For details on this service and how to use it, see the [Azure Active Directory D
 
 ### Variations
 
-The URLs for accessing Key Vault in Azure Government are different:
+The URLs for accessing Azure Active Directory in Azure Government are different:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |

@@ -5,7 +5,7 @@
  author: jimdial
  ms.service: networking
  ms.topic: include
- ms.date: 06/12/2018
+ ms.date: 06/20/2018
  ms.author: jdial
  ms.custom: include file
 
@@ -21,7 +21,7 @@
 | Private IP Addresses per virtual network |4096 |4096 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
 | Network Security Groups (NSG) |100 |200 |
-| NSG rules per NSG |200 |400 |
+| NSG rules per NSG |200 |1000 |
 | User defined route tables |100 |200 |
 | User defined routes per route table |100 |400 |
 | Public IP addresses (dynamic) |5 |contact support |
@@ -40,7 +40,7 @@ The following limits apply only for networking resources managed through Azure R
 | Virtual network peerings per Virtual Network |10 |50 |
 | DNS Servers per virtual network |9 |25 |
 | Private IP Addresses per virtual network |16384** |16384 |
-| Private IP Addresses per network interface |256 |1024 |
+| Private IP Addresses per network interface |256 |256 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
 | Network Interfaces (NIC) |24000** |24000 |
 | Network Security Groups (NSG) |100 |5000 |
@@ -60,6 +60,7 @@ The following limits apply only for networking resources managed through Azure R
 **These default limits apply to subscriptions that have not previously had these limits increased through support
 
 #### <a name="load-balancer"></a>Load Balancer limits
+The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md)
 
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |

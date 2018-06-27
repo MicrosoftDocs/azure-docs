@@ -1,3 +1,4 @@
+
 ---
 title: Azure virtual machine serial console | Microsoft Docs
 description: Bi-Directional serial console for Azure virtual machines.
@@ -29,6 +30,7 @@ The virtual machine serial console on Azure provides access to a text-based cons
 
 ## Prerequisites 
 
+* You must be using the resource management deployment model. Classic deployments are not supported. 
 * Virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
 * The account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
 * For settings specific to Linux distro, see [Accessing the serial console for Linux](#accessing-serial-console-for-linux)
@@ -87,8 +89,8 @@ Interacting with bootloader | Access GRUB/BCD via the serial console | Linux/Win
 ## Accessing serial console for Linux
 In order for serial console to function properly, the guest operating system must be configured to read and write console messages to the serial port. Most [Endorsed Azure Linux Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) have the serial console configured by default. Just by clicking in the portal on the Serial console section will provide access to the console. 
 
-### Access for RedHat 
-RedHat Images available on Azure have console access enabled by default. Single user mode in Red Hat requires root user to be enabled, which is disabled by default. If you have a need to enable single user mode, use the following instructions:
+### Access for Red Hat 
+Red Hat Images available on Azure have console access enabled by default. Single user mode in Red Hat requires root user to be enabled, which is disabled by default. If you have a need to enable single user mode, use the following instructions:
 
 1. Log in to the Red Hat system via SSH
 2. Enable password for root user 

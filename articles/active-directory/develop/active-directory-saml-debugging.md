@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: dastrock; smalser
+ms.reviewer: hirsin, dastrock, smalser
 ---
 
 # Debug SAML-based single sign-on to applications in Azure Active Directory
@@ -41,6 +41,9 @@ To test SAML-based single sign-on between AAD and a target application:
 3.	From the list of Enterprise Applications, click the application for which you want to test single sign-on, and then from the options on the left click **Single sign-on**.
 4.	To open the SAML-based single sign-on testing experience, in the **Domain and URLs** section click **Test SAML Setting**. If the Test SAML Setting button is greyed out, you need to fill out and save the required attributes first.
 5.	In the **Test single sign-on** blade, use your corporate credentials to sign in to the target application. You can sign in as the current user or as a different user. If you sign in as a different user, a prompt will ask you to authenticate.
+
+    ![Test SAML page](media/active-directory-saml-debugging/testing.png)
+
 
 If you are successfully signed in, the test has passed. In this case, Azure AD issued a SAML response token to the application. The application used the SAML token to successfully sign you in.
 
@@ -80,7 +83,7 @@ You might sign in successfully and then see an error on the application's page. 
 
 To resolve the error:
 
-1. If the application is in the Azure AD Gallery, verify you have followed all the steps for integrating the application with Azure AD. To find the integration instructions for your application, see the [list of SaaS application integration tutorials](../active-directory-saas-tutorial-list.md).
+1. If the application is in the Azure AD Gallery, verify you have followed all the steps for integrating the application with Azure AD. To find the integration instructions for your application, see the [list of SaaS application integration tutorials](../saas-apps/tutorial-list.md).
 2. Retrieve the SAML response.
     - If the My Apps Secure Sign-in extension is installed, from the **Test single sign-on** blade, click **download the SAML response**.
     - If the extension is not installed, use a tool such as [Fiddler](http://www.telerik.com/fiddler) to retrieve the SAML response. 

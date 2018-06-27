@@ -127,6 +127,8 @@
     href: /cli/azure/aks
   - name: REST
     href: /rest/api/aks
+  - name: .NET
+    href: /dotnet/api/overview/azure/containerservice
   - name: Python
     href: /python/api/overview/azure/containerservice
   - name: Java

@@ -428,6 +428,8 @@
         href: service-fabric-securing-containers.md
       - name: Set up gMSA for Windows containers 
         href: service-fabric-setup-gmsa-for-windows-containers.md
+      - name: Configure certificates on Linux
+        href: service-fabric-configure-certificates-linux.md
     - name: Configure periodic backups (Clusters on Azure)
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: Configure periodic backups (Standalone Clusters)
@@ -610,13 +612,13 @@
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Azure Diagnostics
         href: service-fabric-diagnostics-event-aggregation-lad.md 
-      - name: Set up OMS Log Analytics
+      - name: Set up Log Analytics
         href: service-fabric-diagnostics-oms-setup.md
-      - name: Monitor with OMS
+      - name: Monitor with Log Analytics
         href: service-fabric-diagnostics-event-analysis-oms.md  
     - name: Monitor infrastructure
       items:
-      - name: Performance monitoring with the OMS Agent
+      - name: Performance monitoring with the Log Analytics Agent
         href: service-fabric-diagnostics-oms-agent.md
       - name: Performance monitoring with WAD
         href: service-fabric-diagnostics-perf-wad.md     

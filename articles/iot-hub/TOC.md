@@ -1,4 +1,4 @@
-# [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
+# [Azure IoT Fundamentals](/azure/iot-fundamentals)
 # [IoT Hub Documentation](index.yml)
 
 # Overview
@@ -20,6 +20,7 @@
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Routing messages](tutorial-routing.md)
 ## [Configure your devices](tutorial-device-twins.md)
+## [Manage firmware updates](tutorial-firmware-update.md)
 ## [Test device connectivity](tutorial-connectivity.md)
 ## Send cloud-to-device messages
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
@@ -84,10 +85,10 @@
 ### [Use the IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Use the serializer](iot-hub-device-sdk-c-serializer.md)
 
-## [Security from the ground up](iot-hub-security-ground-up.md)
-## [Security best practices](iot-hub-security-best-practices.md)
-## [Security architecture](iot-hub-security-architecture.md)
-## [Secure your IoT deployment](iot-hub-security-deployment.md)
+## [Security from the ground up](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
+## [Security best practices](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
+## [Security architecture](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
+## [Secure your IoT deployment](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 ## Secure using X.509 CA certificates
 ### [X.509 CA certificate security overview](iot-hub-x509ca-overview.md)
 #### [X.509 CA certificate security concepts](iot-hub-x509ca-concept.md)
@@ -110,6 +111,8 @@
 #### [Retrieve a Twitter message with Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 #### [Send messages to an MQTT server using Eclipse Paho APIs](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 #### [Monitor the magnetic sensor and send email notifications with Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
+
+## [Device configuration best practices](iot-hub-configuration-best-practices.md)
 
 # How-to guides
 ## Plan
@@ -169,6 +172,9 @@
 ### Get started with module twins
 #### [Portal](iot-hub-portal-csharp-module-twin-getstarted.md)
 #### [.NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
+#### [Python](iot-hub-python-python-module-twin-getstarted.md)
+#### [C](iot-hub-c-c-module-twin-getstarted.md)
+#### [Node](iot-hub-node-node-module-twin-getstarted.md)
 ### Use direct methods
 #### [Node.js](iot-hub-node-node-direct-methods.md)
 #### [.NET](iot-hub-csharp-csharp-direct-methods.md)
@@ -221,7 +227,9 @@
 ## [Upgrade an IoT hub](iot-hub-upgrade.md)
 ## [Usage metrics](iot-hub-metrics.md)
 ## [Configure IP filtering](iot-hub-ip-filtering.md)
-## [Configure devices at scale](iot-hub-auto-device-config.md)
+## Configure devices at scale
+### [Use Azure portal](iot-hub-auto-device-config.md)
+### [Use Azure CLI](iot-hub-auto-device-config-cli.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=iot-hub)
@@ -259,6 +267,7 @@
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Customer data requests](iot-hub-customer-data-requests.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
+## [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 ## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
 ## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)

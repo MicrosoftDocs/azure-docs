@@ -2,13 +2,13 @@
 title: Azure SQL Data Sync | Microsoft Docs
 description: This overview introduces Azure SQL Data Sync
 services: sql-database
-author: douglaslms
+author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: douglasl
+ms.author: xiwu
 ms.reviewer: douglasl
 ms.custom: data-sync
 ---
@@ -124,7 +124,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 
 ### How much does the SQL Data Sync service cost?
 
-During the Preview, there is no charge for the SQL Data Sync service itself.  However, you still accrue data transfer charges for data movement in and out of your SQL Database instance. For more info, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+There is no charge for the SQL Data Sync service itself.  However, you still accrue data transfer charges for data movement in and out of your SQL Database instance. For more info, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### What regions support Data Sync?
 
