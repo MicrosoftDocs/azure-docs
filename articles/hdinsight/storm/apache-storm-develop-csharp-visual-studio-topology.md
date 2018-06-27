@@ -42,9 +42,9 @@ To use a C# topology with a Linux-based cluster, you must update the Microsoft.S
 
 You can develop C# topologies with SCP.NET by using one of the following versions of Visual Studio:
 
-* Visual Studio 2012 with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+* Visual Studio 2012 with Update 4
 
-* Visual Studio 2013 with [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+* Visual Studio 2013 with Update 4 or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
 * Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 

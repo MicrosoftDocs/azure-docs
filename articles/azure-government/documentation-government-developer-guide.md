@@ -81,6 +81,7 @@ To learn about mapping global Azure and SQL Database endpoints to Azure Governme
 | Portal | https://portal.azure.us | https://portal.azure.com |
 | Active Directory Endpoint and Authority | https://login.microsoftonline.us | https://login.microsoftonline.com |
 | Active Directory Graph API | https://graph.windows.net/ | https://graph.windows.net/ |
+| Microsoft Graph API | https://graph.microsoft.com/ | https://graph.microsoft.com/ |
 | Azure API | https://management.usgovcloudapi.net/ | https://management.azure.com/ |
 | SQL Database DNS Suffix | *.database.usgovcloudapi.net | *.database.windows.net |
 | Storage DNS Suffix | *.core.usgovcloudapi.net | *.core.windows.net |

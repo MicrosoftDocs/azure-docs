@@ -25,7 +25,7 @@ Learn about the Apache Hadoop ecosystem components and versions in Microsoft Azu
 Each HDInsight version is a cloud distribution of a version of Hortonworks Data Platform (HDP).
 
 ## Hadoop components available with different HDInsight versions
-Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the HDP distribution and a set of components that are contained within that distribution. As of February 17, 2017, the default cluster version used by Azure HDInsight is 3.5 and is based on HDP 2.5.
+Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the HDP distribution and a set of components that are contained within that distribution. As of April 4, 2017, the default cluster version used by Azure HDInsight is 3.6 and is based on HDP 2.6.
 
 The component versions associated with HDInsight cluster versions are listed in the following table: 
 
