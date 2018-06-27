@@ -1,6 +1,6 @@
 ---
-title: Archived release notes for Hadoop components on Azure HDInsight | Microsoft Docs
-description: Archived release notes and versions of Hadoop components for Azure HDInsight. Get development tips and details for Spark, R Server, Hive and more.
+title: Archived release notes for Azure HDInsight | Microsoft Docs
+description: Archived release notes and versions of Azure HDInsight. 
 services: hdinsight
 documentationcenter: ''
 editor: cgronlun
@@ -8,7 +8,6 @@ manager: jhubbard
 author: nitinme
 tags: azure-portal
 
-ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na

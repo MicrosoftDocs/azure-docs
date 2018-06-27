@@ -8,6 +8,8 @@ manager: jhubbard
 author: nitinme
 tags: azure-portal
 
+ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
+ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
@@ -81,13 +83,7 @@ The official Apache versions of all HDInsight 3.6 components are listed below. A
 
 Later versions of a few Apache components are sometimes bundled in the HDP distribution in addition to the versions listed above. In this case, these later versions are listed in the Technical Previews table and should not substitute for the Apache component versions of the above list in a production environment.
 
-## Technical Preview Features
-
-The following features are available within this release but are not ready for production deployment. We encourage you to explore these technical preview features in non-production environments and provide feedback on your experiences through the [MSDN forum ](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight) or [Stackoverflow (\#hdinsight)](https://stackoverflow.com/questions/tagged/hdinsight).
-
-​
-
-## Apache Patch Information
+## Apache patch information
 
 ### Hadoop
 
@@ -912,7 +908,7 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 
 ### 
 
-## Fixed Issues for Support
+## Fixed issues for support
 
 Fixed issues represent selected issues that were previously logged via Hortonworks Support, but are now addressed in the current release. These issues may have been reported in previous versions within the Known Issues section; meaning they were reported by customers or identified by Hortonworks Quality Engineering team.
 
@@ -1319,31 +1315,12 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
 |**Apache Component**|**Apache JIRA**|**Summary**|**Details**|
 |--|--|--|--|
-|**Spark 2.3** |**N/A** |**Changes as documented in the Apache Spark release notes** |- There is a "Deprecation" document and a "Change of behavior" guide 
-https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations
-- For SQL part, there is another detailed "Migration" guide (from 2.2 to 2.3),
-http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
-|Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark job completes successfully but there is an HDFS disk quota full error |**Scenario:** Running **insert overwrite** when a quota is set on the Trash folder of the user who runs the command.
-**Previous Behavior:** The job succeeds even though it fails to move the data to the Trash. The result can wrongly contain some of the data previously present in the table.
-**New Behavior:** When the move to the Trash folder fails, the files are permanently deleted.|
+|**Spark 2.3** |**N/A** |**Changes as documented in the Apache Spark release notes** |- There is a "Deprecation" document and a "Change of behavior" guide, https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- For SQL part, there is another detailed "Migration" guide (from 2.2 to 2.3), http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark job completes successfully but there is an HDFS disk quota full error |**Scenario:** Running **insert overwrite** when a quota is set on the Trash folder of the user who runs the command.<br /><br />**Previous Behavior:** The job succeeds even though it fails to move the data to the Trash. The result can wrongly contain some of the data previously present in the table.<br /><br />**New Behavior:** When the move to the Trash folder fails, the files are permanently deleted.|
 |**Kafka 1.0**|**N/A**|**Changes as documented in the Apache Spark release notes** |http://kafka.apache.org/10/documentation.html#upgrade_100_notable|
-|**Hive/ Ranger** | |Additional ranger hive policies required for INSERT OVERWRITE |**Scenario:** Additional ranger hive policies required for **INSERT OVERWRITE**
-**Previous behavior:** Hive **INSERT OVERWRITE** queries succeed as usual.
-**New behavior:** Hive **INSERT OVERWRITE** queries are unexpectedly failing after upgrading to HDP-2.6.x with the error:
-Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user jdoe does not have WRITE privilege on /tmp/*(state=42000,code=40000)
-As of HDP-2.6.0, Hive **INSERT OVERWRITE** queries require a Ranger URI policy to allow write operations, even if the user has write privilege granted through HDFS policy.
-**Workaround/Expected Customer Action:**
-1. Create a new policy under the Hive repository.
-2. In the dropdown where you see Database, select URI.
-3. Update the path (Example: /tmp/*)
-4. Add the users and group and save.
-5. Retry the insert query.|
-|**HDFS**|**N/A** |HDFS should support for multiple KMS Uris |**Previous Behavior:** dfs.encryption.key.provider.uri property was used to configure the KMS provider path.
-**New Behavior:** dfs.encryption.key.provider.uri is now deprecated in favor of hadoop.security.key.provider.path to configure the KMS provider path.|
-|**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Option for disabling scheduler |**Component Affected:** Zeppelin-Server
-**Previous Behavior:** In previous releases of Zeppelin, there was no option for disabling scheduler.
-**New Behavior:** By default, users will no longer see scheduler, as it is disabled by default.
-**Workaround/Expected Customer Action:** If you want to enable scheduler, you will need to add azeppelin.notebook.cron.enable with value of true under custom zeppelin site in Zeppelin settings from Ambari.|
+|**Hive/ Ranger** | |Additional ranger hive policies required for INSERT OVERWRITE |**Scenario:** Additional ranger hive policies required for **INSERT OVERWRITE**<br /><br />**Previous behavior:** Hive **INSERT OVERWRITE** queries succeed as usual.<br /><br />**New behavior:** Hive **INSERT OVERWRITE** queries are unexpectedly failing after upgrading to HDP-2.6.x with the error:<br /><br />Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user jdoe does not have WRITE privilege on /tmp/*(state=42000,code=40000)<br /><br />As of HDP-2.6.0, Hive **INSERT OVERWRITE** queries require a Ranger URI policy to allow write operations, even if the user has write privilege granted through HDFS policy.<br /><br />**Workaround/Expected Customer Action:**<br /><br />1. Create a new policy under the Hive repository.<br />2. In the dropdown where you see Database, select URI.<br />3. Update the path (Example: /tmp/*)<br />4. Add the users and group and save.<br />5. Retry the insert query.|
+|**HDFS**|**N/A** |HDFS should support for multiple KMS Uris |**Previous Behavior:** dfs.encryption.key.provider.uri property was used to configure the KMS provider path.<br /><br />**New Behavior:** dfs.encryption.key.provider.uri is now deprecated in favor of hadoop.security.key.provider.path to configure the KMS provider path.|
+|**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Option for disabling scheduler |**Component Affected:** Zeppelin-Server<br /><br />**Previous Behavior:** In previous releases of Zeppelin, there was no option for disabling scheduler.<br /><br />**New Behavior:** By default, users will no longer see scheduler, as it is disabled by default.<br /><br />**Workaround/Expected Customer Action:** If you want to enable scheduler, you will need to add azeppelin.notebook.cron.enable with value of true under custom zeppelin site in Zeppelin settings from Ambari.|
 
 ## Known issues
 
@@ -1361,10 +1338,10 @@ As of HDP-2.6.0, Hive **INSERT OVERWRITE** queries require a Ranger URI policy t
 
 -   **Workaround for Ranger service check failure**
 
-    -   ([RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Workaround for Ranger service check failure while upgrading to HDP 2.6.2 from previous HDP versions.
+    -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607): Workaround for Ranger service check failure while upgrading to HDP 2.6.2 from previous HDP versions.
 
         >[!NOTE]
-        >Only when Ranger is SSL enabled. |
+        >Only when Ranger is SSL enabled. 
     
     This issue arises when attempting to upgrade to HDP-2.6.1 from previous HDP versions through Ambari. Ambari uses a curl call to do a service check to Ranger service in Ambari. If the JDK version used by Ambari is JDK-1.7, the curl call will fail with the below error:
     
@@ -1379,68 +1356,68 @@ As of HDP-2.6.0, Hive **INSERT OVERWRITE** queries require a Ranger URI policy t
     -   If you want to continue supporting a JDK-1.7 environment:
     
         1.  Add the property ranger.tomcat.ciphers in the ranger-admin-site section in your Ambari Ranger configuration with the below value:
-        
-        SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+            
+            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
         
         2.  If your environment is configured for Ranger-KMS, add the property ranger.tomcat.ciphers in theranger-kms-site section in your Ambari Ranger configuration with the below value:
-        
-        SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+            
+            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+    
     >[!NOTE]
     >The noted values are working examples and may not be indicative of your environment. Ensure that the way you set these properties matches how your environment is configured.   
 
 -   **RangerUI: Escape of policy condition text entered in the policy form**
-
-> **Component Affected:** Ranger
-
-#### **​Description of Problem**
-
-> If a user wants to create policy with custom policy conditions and the expression or text contains special characters, then policy enforcement will not work. Special characters are converted into ASCII before saving the policy into the database.
->
-> **Special Characters:** & &lt; &gt; " \` '
->
-> For example, the condition tags.attributes\['type'\]='abc' would get converted to the following once the policy is saved:User can see the policy condition with these chars by opening policy in edit mode.
->
-> tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
->
-> You can see the policy condition with these characters by opening the policy in edit mode.
-
-#### **​Workaround**
-
-##### **​Option \#1: Create/Update policy via Ranger Rest API**
-
-> REST URL: http://&lt;host&gt;:6080/service/plugins/policies
->
-> **Creating policy with policy condition:**
->
-> The below example will create policy with tags as \`tags-test\` and assign it to \`public\` group with policy condition astags.attr\['type'\]=='abc' by selecting all hive component permission likeselect,update,create,drop,alter,index,lock,all.
->
-> **Example:**
->
-> curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":\["tags-test"\],"isRecursive":"","isExcludes":false}},"policyItems":\[{"groups":\["public"\],"conditions":\[{"type":"accessed-after-expiry","values":\[\]},{"type":"tag-expression","values":\["tags.attr\['type'\]=='abc'"\]}\],"accesses":\[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}\]}\],"denyPolicyItems":\[\],"allowExceptions":\[\],"denyExceptions":\[\],"service":"tagdev"}'
->
-> **Update existing policy with policy condition:**
->
-> The below example will update policy with tags as \`tags-test\` and assign it to \`public\` group with policy condition astags.attr\['type'\]=='abc' by selecting all hive component permission likeselect,update,create,drop,alter,index,lock,all.
->
-> REST URL: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
->
-> **Example:**
->
-> curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":\["tags"\],"isExcludes":false,"isRecursive":false}},"policyItems":\[{"accesses":\[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}\],"users":\[\],"groups":\["public"\],"conditions":\[{"type":"ip-range","values":\["tags.attributes\['type'\]=abc"\]}\],"delegateAdmin":false}\],"denyPolicyItems":\[\],"allowExceptions":\[\],"denyExceptions":\[\],"dataMaskPolicyItems":\[\],"rowFilterPolicyItems":\[\]}'
-
-##### **​Option \#2: Apply Javascript changes**
-
-> Steps to update JS file :
-
-1.  1\. Find out PermissionList.js file under /usr/hdp/current/ranger-admin
-
-2.  2\. Find out definition of renderPolicyCondtion function (line no:404).
-
-3.  3\. Remove below line from that function i.e under display function(line no:434)
-
-> val = \_.escape(val);//Line No:460
->
-> After removing the above line, the Ranger UI will allow you to create policies with policy condition that can contain special characters and policy evaluation will be successful for the same policy.
+    
+    **Component Affected:** Ranger
+    
+    **​Description of Problem**
+    
+    If a user wants to create policy with custom policy conditions and the expression or text contains special characters, then policy enforcement will not work. Special characters are converted into ASCII before saving the policy into the database.
+    
+    **Special Characters:** & &lt; &gt; " \` '
+    
+    For example, the condition tags.attributes\['type'\]='abc' would get converted to the following once the policy is saved:User can see the policy condition with these chars by opening policy in edit mode.
+    
+    tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
+    
+    You can see the policy condition with these characters by opening the policy in edit mode.
+    
+    **​Workaround**
+    
+        - **​Option \#1: Create/Update policy via Ranger Rest API**
+          REST URL: http://&lt;host&gt;:6080/service/plugins/policies
+          
+          **Creating policy with policy condition:**
+          
+          The following example will create policy with tags as \`tags-test\` and assign it to \`public\` group with policy condition astags.attr\['type'\]=='abc' by selecting all hive component permission likeselect,update,create,drop,alter,index,lock,all.
+          
+          **Example:**
+          
+          curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":\["tags-test"\],"isRecursive":"","isExcludes":false}},"policyItems":\[{"groups":\["public"\],"conditions":\[{"type":"accessed-after-expiry","values":\[\]},{"type":"tag-expression","values":\["tags.attr\['type'\]=='abc'"\]}\],"accesses":\[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}\]}\],"denyPolicyItems":\[\],"allowExceptions":\[\],"denyExceptions":\[\],"service":"tagdev"}'
+          
+          **Update existing policy with policy condition:**
+          
+          The following example will update policy with tags as \`tags-test\` and assign it to \`public\` group with policy condition astags.attr\['type'\]=='abc' by selecting all hive component permission likeselect,update,create,drop,alter,index,lock,all.
+          
+          REST URL: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
+          
+          **Example:**
+          
+          curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":\["tags"\],"isExcludes":false,"isRecursive":false}},"policyItems":\[{"accesses":\[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}\],"users":\[\],"groups":\["public"\],"conditions":\[{"type":"ip-range","values":\["tags.attributes\['type'\]=abc"\]}\],"delegateAdmin":false}\],"denyPolicyItems":\[\],"allowExceptions":\[\],"denyExceptions":\[\],"dataMaskPolicyItems":\[\],"rowFilterPolicyItems":\[\]}'
+          
+        - **​Option \#2: Apply Javascript changes**
+          
+          Steps to update JS file :
+          
+          1.  Find out PermissionList.js file under /usr/hdp/current/ranger-admin
+          
+          2.  Find out definition of renderPolicyCondtion function (line no:404).
+          
+          3.  Remove below line from that function i.e under display function(line no:434)
+              
+              val = \_.escape(val);//Line No:460
+          
+          After removing the above line, the Ranger UI will allow you to create policies with policy condition that can contain special characters and policy evaluation will be successful for the same policy.
 
 ## Deprecation
 
