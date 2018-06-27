@@ -42,7 +42,7 @@ The attribute is synchronized by Azure AD Connect.  During installation, you can
    ![Unverified domains](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png) 
 
 ## Alternate login ID
-In some environments, end users may only be aware of their email address and not their UPN.  The use of email address may be due to a corporate policy or an on-premises line-of-business application dependencie.
+In some environments, end users may only be aware of their email address and not their UPN.  The use of email address may be due to a corporate policy or an on-premises line-of-business application dependency.
 
 Alternate login ID allows you to configure a sign-in experience where users can sign-in with an attribute other than their UPN, such as mail.
 
@@ -147,8 +147,7 @@ On-Premises user object:
 - userPrincipalName	: us5@contoso.com
 
 Synchronize update on on-premises mail attribute and primary SMTP address to Azure AD Tenant
-- After the initial synchronization of the user object, updates to the on-premises mail attribute and the primary SMTP address will not affect the Azure AD MailNickName or the UserPr
-- incipalName attribute.
+- After the initial synchronization of the user object, updates to the on-premises mail attribute and the primary SMTP address will not affect the Azure AD MailNickName or the UserPrincipalName attribute.
 
 Azure AD Tenant user object:
 - MailNickName		: us4
