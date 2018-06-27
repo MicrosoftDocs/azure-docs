@@ -48,12 +48,10 @@ Managed connectors are organized into these groups:
   For example, if you're working with BizTalk Server, 
   you can connect your logic app to your BizTalk Server 
   by using the [on-premises BizTalk Server connector](#on-premises-connectors). 
-  You'd also create an integration account, which you link to your logic app, 
-  and use the [integration account connectors](#integration-account-connectors) 
-  for expanding your BizTalk workflows into Azure. 
+  You can then use the [integration account connectors](#integration-account-connectors) 
+  for extending or performing operations similar to BizTalk Server. 
   Or, if you want to have your BizTalk Server communicate with a logic app, 
-  you can use the [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). 
-  Learn more about [how to set up and use the BizTalk Server Adapter](https://docs.microsoft.com/biztalk/core/logic-app-adapter) for 
+  you can use the [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). Learn more about [how to set up and use the BizTalk Server Adapter](https://docs.microsoft.com/biztalk/core/logic-app-adapter) for 
   exchanging messages with a logic app.
 
 For technical information about each connector's triggers and actions, 
@@ -153,8 +151,8 @@ use BizTalk Server, these connectors might seem familiar already.
 |   |   |   |   | 
 |---|---|---|---| 
 | [![API icon][as2-icon]<br/>**AS2</br> decoding**][as2-decode-doc] | [![API icon][as2-icon]<br/>**AS2</br> encoding**][as2-encode-doc] | [![API icon][edifact-icon]<br/>**EDIFACT</br> decoding**][edifact-decode-doc] | [![API icon][edifact-icon]<br/>**EDIFACT</br> encoding**][edifact-encode-doc] | 
-| [![API icon][flat-file-decode-icon]<br/>**Flat file</br> decoding**][flat-file-decode-doc] | [![API icon][flat-file-encode-icon]<br/>**Flat file</br> encoding**][flat-file-encode-doc] | [![API icon][integration-account-icon]<br/>**Integration<br/>account**][integration-account-doc] | [![API icon][liquid-icon]<br/>**Transform JSON**</br>**or XML (Liquid)**][json-liquid-transform-doc] | 
-[![API icon][xml-transform-icon]<br/>**Transform<br/>XML**][xml-transform-doc] | [![API icon][x12-icon]<br/>**X12</br> decoding**][x12-decode-doc] | [![API icon][x12-icon]<br/>**X12</br> encoding**][x12-encode-doc] | [![API icon][xml-validate-icon]<br/>**XML <br/>validation**][xml-validate-doc] |  
+| [![API icon][flat-file-decode-icon]<br/>**Flat file</br> decoding**][flat-file-decode-doc] | [![API icon][flat-file-encode-icon]<br/>**Flat file</br> encoding**][flat-file-encode-doc] | [![API icon][integration-account-icon]<br/>**Integration<br/>account**][integration-account-doc] | [![API icon][liquid-icon]<br/>**Liquid**</br>**transforms**][json-liquid-transform-doc] | 
+| [![API icon][x12-icon]<br/>**X12</br> decoding**][x12-decode-doc] | [![API icon][x12-icon]<br/>**X12</br> encoding**][x12-encode-doc] | [![API icon][xml-transform-icon]<br/>**XML**</br>**transforms**][xml-transform-doc] | [![API icon][xml-validate-icon]<br/>**XML <br/>validation**][xml-validate-doc] |  
 ||||| 
 
 <a name="enterprise-connectors"></a>
