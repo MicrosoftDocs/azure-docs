@@ -17,7 +17,7 @@ ms.topic: how-to-article
 ms.date: 04/03/2018
 ms.author: b-juche
 ---
-# Troubleshoot SDE Resource Provider errors for Azure NetApp Files
+# Troubleshoot Azure NetApp Files Resource Provider errors for Azure NetApp Files
 This article describes common Service Delivery Engine (SDE) Resource Provider errors, their causes, solutions, and workarounds. 
 
 <a name="error_01"></a>***Azure KeyVault not configured.***   

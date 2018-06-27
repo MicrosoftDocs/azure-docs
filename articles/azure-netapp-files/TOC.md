@@ -16,4 +16,4 @@
 ## [Manage snapshots](azure-netapp-files-manage-snapshots.md)
 
 # Monitor and troubleshoot
-## [Troubleshoot SDE Resource Provider errors](azure-netapp-files-troubleshoot-sde-resource-provider-errors.md)
+## [Troubleshoot Azure NetApp Files Resource Provider errors](azure-netapp-files-troubleshoot-resource-provider-errors.md)
