@@ -136,7 +136,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Riskware Configuration](./media/riskware-tutorial/tutorial_riskware_configure.png)
 
-7. In a different web browser window, log in to your Riskware company site as an administrator.
+7. In a different web browser window, sign in to your Riskware company site as an administrator.
 
 8. On the top right, click **Maintenance** to open the maintenance page.
 
@@ -213,11 +213,11 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Create a Riskware test user
 
-To enable Azure AD users to log in to Riskware, they must be provisioned into Riskware. In Riskware, provisioning is a manual task.
+To enable Azure AD users to sign in to Riskware, they must be provisioned into Riskware. In Riskware, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to Riskware as a Security Administrator.
+1. Sign in to Riskware as a Security Administrator.
 
 2. On the top right, click **Maintenance** to open the maintenance page. 
 
