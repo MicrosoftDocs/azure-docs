@@ -44,11 +44,37 @@ When you encounter an issue, learn more about the state of your IoT Edge device 
 
 You can also check the messages being sent between IoT Hub and the IoT Edge devices. View these messages by using the [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension for Visual Studio Code. For more guidance, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
-After investigating the logs and messages for information, you can also try restarting the Azure IoT Edge runtime:
+   - Restart the IoT Edge Security Daemon:
+    
+      ```bash
+      sudo systemctl cat iotedge.service
+      sudo systemctl daemon-reload
+      sudo systemctl restart iotedge
+      ```
 
-   ```cmd
-   iotedgectl restart
+On Windows:
+- To view the status of the IoT Edge Security Manager:
+
+   ```powershell
+   Get-Service iotedge
    ```
+
+- To view the logs of the IoT Edge Security Manager:
+
+   ```powershell
+   # Displays logs from today, newest at the bottom.
+ 
+   Get-WinEvent -ea SilentlyContinue `
+   -FilterHashtable @{ProviderName= "iotedged";
+     LogName = "application"; StartTime = [datetime]::Today} |
+   select TimeCreated, Message |
+   sort-object @{Expression="TimeCreated";Descending=$false}
+   ```
+
+### If the IoT Edge Security Manager is not running, verify your yaml configuration file
+
+> [!WARNING]
+> YAML files cannot contain tabs as identation. Use 2 spaces instead.
 
 ## Edge Agent stops after about a minute
 
