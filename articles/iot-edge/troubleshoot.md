@@ -76,6 +76,39 @@ On Windows:
 > [!WARNING]
 > YAML files cannot contain tabs as identation. Use 2 spaces instead.
 
+You can also check the messages being sent between IoT Hub and the IoT Edge devices. View these messages by using the [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension for Visual Studio Code. For more guidance, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
+
+### Restart containers
+After investigating the logs and messages for information, you can try restarting containers:
+
+```
+iotedge restart <container name>
+```
+
+Restart the IoT Edge runtime containers:
+
+```
+iotedge restart edgeAgent && iotedge restart edgeHub
+```
+
+### Restart the IoT Edge security manager
+
+If issue is still persisting, you can try restarting the IoT Edge security manager.
+
+On Linux:
+
+   ```cmd
+   sudo systemctl restart iotedge
+   ```
+
+On Windows:
+
+   ```powershell
+   Stop-Service iotedge -NoWait
+   sleep 5
+   Start-Service iotedge
+   ```
+
 ## Edge Agent stops after about a minute
 
 The Edge Agent starts and runs successfully for about a minute, then stops. The logs indicate that the Edge Agent is attempting to connect to IoT Hub over AMQP, and then approximately 30 seconds later attempt to connect using AMQP over websocket. When that fails, the Edge Agent exits. 
