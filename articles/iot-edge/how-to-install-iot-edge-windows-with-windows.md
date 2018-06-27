@@ -43,8 +43,8 @@ Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime (e.g. Doc
 In an Administrator PowerShell window, execute the following commands:
 
 ```powershell
-Invoke-WebRequest https://conteng.blob.core.windows.net/iotedged/iotedged-windows.zip -o .\iotedged.zip
-Expand-Archive .\iotedge.zip C:\ProgramData\iotedge -f
+Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
 Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
 rmdir C:\ProgramData\iotedge\iotedged-windows
 $env:Path += ";C:\ProgramData\iotedge"
