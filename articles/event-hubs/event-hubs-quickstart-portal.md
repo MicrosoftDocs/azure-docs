@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Process event streams using the Azure portal | Microsoft Docs
-description: In this quickstart, you learn how to process event streams using Azure portal
+description: In this quickstart, you learn how to process event streams using Azure portal.
 services: event-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -9,7 +9,7 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/24/2018
+ms.date: 06/26/2018
 ms.author: sethm
 #Customer intent: How do I stream data and process telemetry from an event hub? 
 
@@ -19,17 +19,14 @@ ms.author: sethm
 
 Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create an event hub using the [Azure portal](https://portal.azure.com), and then send to and receive from an event hub using the .NET Standard SDK.
 
+To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account][] before you begin.
+
 ## Prerequisites
 
-To complete this tutorial, make sure you have:
+To complete this quickstart, make sure you have:
 
-- An Azure subscription. If you don't have one, [create a free subscription][] before you begin.
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
-
-## Log on to Azure
-
-Log on to the [Azure portal][] using your Azure subscription.
 
 ## Create a resource group
 
@@ -51,7 +48,7 @@ A resource group is a logical collection of Azure resources. All resources are d
 
 ## Create an Event Hubs namespace
 
-An Event Hubs namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more event hubs. To create a namespace in your resource group using the portal, do the following:
+An Event Hubs namespace provides a unique scoping container, referenced by its fully qualified domain name, in which you create one or more event hubs. To create a namespace in your resource group using the portal, do the following:
 
 1. Log on to the [Azure portal][], and click **Create a resource** at the top left of the screen.
 
@@ -77,18 +74,18 @@ To create an event hub within the namespace, do the following:
 
 1. In the Event Hubs namespace list, click the newly created namespace.      
    
-    ![](./media/event-hubs-quickstart-namespace-portal/create-event-hub2.png) 
+    ![](./media/event-hubs-quickstart-portal/create-event-hub2.png) 
 
 2. In the namespace window, click **Event Hubs**.
    
-    ![](./media/event-hubs-quickstart-namespace-portal/create-event-hub3.png)
+    ![](./media/event-hubs-quickstart-portal/create-event-hub3.png)
 
 1. At the top of the window, click **+ Add Event Hub**.
    
-    ![](./media/event-hubs-quickstart-namespace-portal/create-event-hub4.png)
+    ![](./media/event-hubs-quickstart-portal/create-event-hub4.png)
 1. Type a name for your event hub, then click **Create**.
    
-    ![](./media/event-hubs-quickstart-namespace-portal/create-event-hub5.png)
+    ![](./media/event-hubs-quickstart-portal/create-event-hub5.png)
 
 Congratulations! You have used the portal to create an Event Hubs namespace, and an event hub within that namespace.
 
@@ -100,17 +97,17 @@ The Event Processor Host is an intelligent agent that simplifies receiving event
 
 2. Click **Storage**, then click **Storage account**.
    
-    ![](./media/event-hubs-quickstart-namespace-portal/create-storage1.png)
+    ![](./media/event-hubs-quickstart-portal/create-storage1.png)
 
 3. In **Create storage account**, type a name for the storage account. Choose an Azure subscription, resource group, and location in which to create the resource. Then click **Create**.
    
-    ![](./media/event-hubs-quickstart-namespace-portal/create-storage2.png)
+    ![](./media/event-hubs-quickstart-portal/create-storage2.png)
 
 4. In the list of storage accounts, click the newly created storage account.
 
 5. In the storage account window, click **Access keys**. Copy the value of **key1** to use later.
    
-    ![](./media/event-hubs-quickstart-namespace-portal/create-storage3.png)
+    ![](./media/event-hubs-quickstart-portal/create-storage3.png)
 
 ## Download and run the samples
 
@@ -161,7 +158,11 @@ Then, run the **SampleEphReceiver** app, and observe the messages being received
  
 ## Clean up resources
 
-You can use the portal to remove the storage account, namespace, and event hub.
+You can use the portal to remove the storage account, namespace, and event hub. 
+
+1. From the Azure portal, click **All resources** in the left-hand pane. 
+2. Click the storage account or namespace you want to delete. Deleting the namespace also removes any event hubs inside it.
+3. On the menu bar at the top of the screen, click **Delete**. Confirm the deletion. 
 
 ## Next steps
 
@@ -170,10 +171,9 @@ In this article, you created the Event Hubs namespace and other resources requir
 > [!div class="nextstepaction"]
 > [Visualize data anomalies on Event Hubs data streams](event-hubs-tutorial-visualize-anomalies.md)
 
-[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Azure portal]: https://portal.azure.com/
-[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
-[1]: ./media/event-hubs-quickstart-namespace-portal/resource-groups1.png
-[2]: ./media/event-hubs-quickstart-namespace-portal/resource-groups2.png
-[3]: ./media/event-hubs-quickstart-namespace-portal/sender1.png
-[4]: ./media/event-hubs-quickstart-namespace-portal/receiver1.png
+[1]: ./media/event-hubs-quickstart-portal/resource-groups1.png
+[2]: ./media/event-hubs-quickstart-portal/resource-groups2.png
+[3]: ./media/event-hubs-quickstart-portal/sender1.png
+[4]: ./media/event-hubs-quickstart-portal/receiver1.png
