@@ -79,6 +79,47 @@ On Windows:
 > [!WARNING]
 > YAML files cannot contain tabs as identation. Use 2 spaces instead.
 
+On Linux:
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+On Windows:
+
+   ```cmd
+   notepad C:\ProgramData\iotedge\config.yaml
+   ```
+
+### Check container logs for issues
+
+Once the IoT Edge Security Daemon is running, look at the logs of the containers to detect issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: Edge Agent and Edge Hub. The Edge Agent logs typically provide info on the lifecycle of each container. The Edge Hub logs provide info on messaging and routing. 
+
+   ```cmd
+   iotedge logs <container name>
+   ```
+
+### View the messages going through the Edge hub
+
+View the messages going through the Edge hub, and gather insights on device properties updates with verbose logs from the edgeAgent and edgeHub runtime containers. To turn on verbose logs on these containers, set the `RuntimeLogLevel` environment variable: 
+
+On Linux:
+    
+   ```cmd
+   export RuntimeLogLevel="debug"
+   ```
+    
+On Windows:
+    
+   ```powershell
+   [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
+   ```
+
+### If the IoT Edge Security Manager is not running, verify your yaml configuration file
+
+> [!WARNING]
+> YAML files cannot contain tabs as identation. Use 2 spaces instead.
+
 ## Edge Agent stops after about a minute
 
 The Edge Agent starts and runs successfully for about a minute, then stops. The logs indicate that the Edge Agent is attempting to connect to IoT Hub over AMQP, and then approximately 30 seconds later attempt to connect using AMQP over websocket. When that fails, the Edge Agent exits. 
