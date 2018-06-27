@@ -159,6 +159,10 @@
       href: ./blueprints/fedramp-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/fedramp-paaswa-overview.md
+  - name: TIC
+    items:
+    - name: Trusted Internet Connection with Azure
+      href: ./compliance/compliance-tic.md
   - name: PCI DSS
     href: ./blueprints/payment-processing-blueprint.md
     items:
