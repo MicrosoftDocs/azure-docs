@@ -17,23 +17,23 @@
       href: luis-quickstart-intents-only.md
 - name: Tutorials
   items: 
-  - name: Add prebuilt intents and entities
-    href: luis-tutorial-prebuilt-intents-entities.md
-  - name: Get data from entity
+  - name: Build custom app
     items: 
-    - name: Simple entity
-      href: luis-quickstart-primary-and-secondary-data.md
-    - name: Hierarchical entity
-      href: luis-quickstart-intent-and-hier-entity.md
-    - name: Regular expresion entity
+    - name: 1. Add prebuilt intents and entities
+      href: luis-tutorial-prebuilt-intents-entities.md
+    - name: 2. Add regular expresion entity
       href: luis-quickstart-intents-regex-entity.md
-    - name: List entity
+    - name: 3. Add list entity
       href: luis-quickstart-intent-and-list-entity.md
-    - name: KeyPhrase entity
+    - name: 4. Add hierarchical entity
+      href: luis-quickstart-intent-and-hier-entity.md
+    - name: 5. Add simple entity and phrase list
+      href: luis-quickstart-primary-and-secondary-data.md
+    - name: 6. Add keyPhrase entity
       href: luis-quickstart-intent-and-key-phrase.md
-    - name: Sentiment analysis
+    - name: 7. Add sentiment analysis
       href: luis-quickstart-intent-and-sentiment-analysis.md
-  - name: Improve prediction 
+    - name: Improve prediction 
     items: 
     - name: With patterns
       href: luis-tutorial-pattern.md
