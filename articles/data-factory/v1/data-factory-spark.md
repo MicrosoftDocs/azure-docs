@@ -33,7 +33,7 @@ robots: noindex
 > * [.NET custom activity](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> This article applies to version 1 of Azure Data Factory, which is generally available. If you use version 2 of the Data Factory service, which is in preview, see [Transform data by using the Apache Spark activity in Data Factory version 2](../transform-data-using-spark.md).
+> This article applies to version 1 of Azure Data Factory, which is generally available. If you use the current version of the Data Factory service, see [Transform data by using the Apache Spark activity in Data Factory](../transform-data-using-spark.md).
 
 ## Introduction
 The Spark activity is one of the [data transformation activities](data-factory-data-transformation-activities.md) supported by Data Factory. This activity runs the specified Spark program on your Spark cluster in Azure HDInsight. 

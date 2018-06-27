@@ -31,7 +31,7 @@ An active Azure subscription. If you don't have one, you can register via one of
 
 ### Start VS Code
 
-- Make sure your DevKit is **not** connected to your computer.
+- Make sure your DevKit is connected to your computer.
 - Start VS Code.
 - Connect the DevKit to your computer.
 
@@ -40,7 +40,10 @@ An active Azure subscription. If you don't have one, you can register via one of
 
 ### Open Arduino Examples folder
 
-Expand left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP AZ3166 > AzureIoT**, and select **ShakeShake**. A new VS Code window with a project folder in it opens.
+Expand left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP AZ3166 > AzureIoT**, and select **ShakeShake**. A new VS Code window with a project folder in it opens.  
+
+> [!NOTE]
+> If you can't see the MXCHIP AZ3166 section, make sure your device is properly connected and restart Visual Studio Code.  
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 

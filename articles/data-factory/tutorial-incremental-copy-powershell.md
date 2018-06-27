@@ -3,7 +3,7 @@ title: 'Incrementally copy a table by using Azure Data Factory | Microsoft Docs'
 description: 'In this tutorial, you create an Azure data factory pipeline that copies data incrementally from an Azure SQL database to Azure Blob storage.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 
@@ -13,15 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: shlo
+ms.author: yexu
 ---
 # Incrementally load data from an Azure SQL database to Azure Blob storage
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from a table in an Azure SQL database to Azure Blob storage. 
-
-
-> [!NOTE]
-> This article applies to version 2 of Azure Data Factory, which is currently in preview. If you use version 1 of the Data Factory service, which is generally available, see the [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 
 You perform the following steps in this tutorial:
 
@@ -188,7 +183,7 @@ Note the following points:
     ```
 
 * To create Data Factory instances, the user account you use to sign in to Azure must be a member of contributor or owner roles, or an administrator of the Azure subscription.
-* Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Storage, SQL Database, etc.) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
+* Currently, Data Factory allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Storage, SQL Database, etc.) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
 
 
 ## Create linked services

@@ -121,7 +121,9 @@ To transfer a LUIS app to a different Azure subscription, export the LUIS app an
 By default, your LUIS app logs utterances from users. To download a log of utterances that users send to your LUIS app, go to **My Apps**, and click on the ellipsis (***...***) in the listing for your app. Then click **Export Endpoint Logs**. The log is formatted as a comma-separated value (CSV) file.
 
 ### How can I disable the logging of utterances?
-You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on user queries. If you set `log=false` because of data-privacy concerns, you can't download a record of those user utterances from LUIS or use those utterances to improve your app.
+You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on [active learning](luis-concept-review-endpoint-utterances.md#what-is-active-learning). If you set `log=false` because of data-privacy concerns, you can't download a record of those user utterances from LUIS or use those utterances to improve your app.
+
+Logging is the only storage of utterances. 
 
 ### Why don't I want all my endpoint utterances logged?
 If you are using your log for prediction analysis, do not capture test utterances in your log.

@@ -135,7 +135,7 @@ The following query string parameters can be used with the endpoint URL:
 |Query string|Type|Example value|Purpose|
 |--|--|--|--|
 |verbose|boolean|true|Include [all intent scores](#include-all-predicted-intent-scores) for utterance|
-|timezoneOffset|number (unit is minutes)|60|Set [timezone offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) for [datetimeV2 prebuilt entities](luis-reference-prebuilt-entities.md#builtindatetimev2)|
+|timezoneOffset|number (unit is minutes)|60|Set [timezone offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) for [datetimeV2 prebuilt entities](luis-reference-prebuilt-datetimev2.md)|
 |spellCheck|boolean|true|[correct spelling](#enable-bing-spell-checker) of utterance -- used in conjunction with bing-spell-check-subscription-key query string parameter|
 |bing-spell-check-subscription-key|subscription ID||used in conjunction with spellCheck query string parameter|
 |staging|boolean|false|select staging or production endpoint|

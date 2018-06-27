@@ -36,7 +36,7 @@ Before starting development with the Speech Devices SDK, gather the information 
 
 * If you wish to use the Speech service's intent recognition, subscribe to the [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) and [obtain a subscription key](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azureibizasubscription). 
 
-    You may [create a simple LUIS model](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) or use the sample LUIS model, `LUIS-example.json`, available from the Speech Devices SDK [download site](https://shares.datatransfer.microsoft.com/). Upload your model's JSON file to the [LUIS portal](https://www.lui.ai/applications) by clicking **Import new app** and choosing the JSON file.
+    You may [create a simple LUIS model](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) or use the sample LUIS model, `LUIS-example.json`, available from the Speech Devices SDK [download site](https://shares.datatransfer.microsoft.com/). Upload your model's JSON file to the [LUIS portal](https://www.luis.ai/home) by clicking **Import new app** and choosing the JSON file.
 
 ## Set up the development kit
 

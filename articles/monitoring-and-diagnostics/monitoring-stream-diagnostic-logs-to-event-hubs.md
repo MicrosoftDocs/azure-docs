@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: johnkem
 ms.component: ""
 ---
@@ -87,7 +87,7 @@ The Event Hub Authorization Rule ID is a string with this format: `{Event Hub na
 
 ### Via Azure CLI 2.0
 
-To enable streaming via the [Azure CLI 2.0](insights-cli-samples.md), you can use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
+To enable streaming via the [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest), you can use the [az monitor diagnostic-settings create](https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
