@@ -44,11 +44,12 @@ Creating Cosmos DB as an output in Stream Analytics generates a prompt for infor
 
 
 ![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
-  
-* **Output Alias** – An alias to refer this output in your ASA query  
-* **Account Name** – The name or endpoint URI of the Azure Cosmos DB account.  
-* **Account Key** – The shared access key for the Azure Cosmos DB account.  
-* **Database** – The Azure Cosmos DB database name.  
-* **Collection Name** – The collection name for the collection to be used. Following are sample valid inputs:  
-  1\) MyCollection – One collection named “MyCollection” must exist.  
-* **Document ID** – Optional. The column name in output events used as the unique key on which insert or update operations must be based. If left empty, all events will be inserted, with no update option.
+
+Field           | Description 
+-------------   | -------------
+Output Alias    | An alias to refer this output in your ASA query   
+Account Name    | The name or endpoint URI of the Azure Cosmos DB account 
+Account Key     | The shared access key for the Azure Cosmos DB account
+Database        | The Azure Cosmos DB database name
+Collection Name | The collection name for the collection to be used  e.g., `MyCollection` – One collection named `MyCollection` must exist.  
+Document ID     | Optional. The column name in output events used as the unique key on which insert or update operations must be based. If left empty, all events will be inserted, with no update option.
