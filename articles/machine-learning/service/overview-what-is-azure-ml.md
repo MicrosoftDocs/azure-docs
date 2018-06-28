@@ -49,8 +49,8 @@ If you aren't a subscriber, you can [open an Azure account for free](https://azu
 ## Next steps
 
 1. Create an Azure Machine Learning Workspace using one of our quickstarts:
-   + [Create a workspace and project in Python](quickstart-set-up-in-python.md)
-   + [Create a workspace and project with the CLI](quickstart-set-up-in-cli.md)
+   + [Create a workspace and project in Python](quickstart-get-started.md)
+   + [Create a workspace and project with the CLI](quickstart-get-started-with-cli.md)
    + [Create a workspace in Azure portal](how-to-create-workspace-in-portal.md)
     
 2. Step through [the tutorial](tutorial-build-train-deploy-with-azure-machine-learning.md) to learn how to train and deploy models with Azure Machine Learning Services. 
