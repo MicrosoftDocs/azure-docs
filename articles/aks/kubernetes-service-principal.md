@@ -2,13 +2,13 @@
 title: Service principal for Azure Kubernetes cluster
 description: Create and manage an Azure Active Directory service principal for a Kubernetes cluster in AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 04/19/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
