@@ -17,13 +17,10 @@ ms.author: jingwang
 ---
 # Copy data to or from Azure Data Lake Store by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-azure-datalake-connector.md)
-> * [Version 2 - Preview](connector-azure-data-lake-store.md)
+> * [Version 1](v1/data-factory-azure-datalake-connector.md)
+> * [Current version](connector-azure-data-lake-store.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data to and from Azure Data Lake Store. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Azure Data Lake Store connector in V1](v1/data-factory-azure-datalake-connector.md).
 
 ## Supported capabilities
 
@@ -38,6 +35,9 @@ Specifically, this Azure Data Lake Store connector supports:
 > If you copy data using Self-hosted Integration Runtime, configure the corporate firewall to allow outbound traffic to `<ADLS account name>.azuredatalakestore.net` and `login.microsoftonline.com/<tenant>/oauth2/token` on port 443. The latter is Azure Security Token Service (STS) that IR need communicate with to get access token.
 
 ## Get started
+
+> [!TIP]
+> For a walkthrough of using Azure Data Lake Store connector, see [Load data into Azure Data Lake Store](load-azure-data-lake-store.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 06/21/2018
 ---
 # Limitations in Azure Database for MySQL
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
@@ -56,10 +56,10 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 ## Data manipulation statement support
 
 ### Supported
-- LOAD DATA INFILE - Supported, but it must specify the [LOCAL] parameter that is directed to a UNC path (Azure storage mounted through XSMB).
+- `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB).
 
 ### Unsupported
-- SELECT ... INTO OUTFILE
+- `SELECT ... INTO OUTFILE`
 
 ## Functional limitations
 

@@ -61,7 +61,7 @@ For more information, see
                         }
                     },
                     {
-                        "RegistrationUrl": "registrationUrl",
+                        "RegistrationUrl": "registrationUrl"
                     },
                     {
                         "NodeConfigurationName": "nodeConfigurationName"
@@ -113,7 +113,7 @@ see [VirtualMachineScaleSetExtension class](/dotnet/api/microsoft.azure.manageme
                             },
                         },
                         {
-                            "RegistrationUrl": "registrationUrl",
+                            "RegistrationUrl": "registrationUrl"
                         },
                         {
                             "NodeConfigurationName": "nodeConfigurationName"

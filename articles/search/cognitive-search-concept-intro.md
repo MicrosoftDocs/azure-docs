@@ -20,7 +20,7 @@ AI integration is through *cognitive skills* that enrich source documents throug
 
 Skills used during indexing can be predefined or custom:
 
-+ [Prefined skills](cognitive-search-predefined-skills.md) are based on the same AI algorithms used in Cognitive Services APIs: [Named Entity Recognition](cognitive-search-skill-named-entity-recognition.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), and [OCR](cognitive-search-skill-ocr.md) are just a few. 
++ [Predefined skills](cognitive-search-predefined-skills.md) are based on the same AI algorithms used in Cognitive Services APIs: [Named Entity Recognition](cognitive-search-skill-named-entity-recognition.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), and [OCR](cognitive-search-skill-ocr.md) are just a few. 
 
 + [Custom skills](cognitive-search-create-custom-skill-example.md) can be developed by you for any specialized processing that you  require. Examples of custom skills might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
 

@@ -21,7 +21,7 @@ Batch transcription is ideal for use cases with large amounts of audio. It enabl
 The Batch transcription API makes the above scenario possible. It offers asynchronous speech to text transcription along with additional features.
 
 > [!NOTE]
-> The Batch transcription API is idea for Call Centers which typically accumulate thousands of hours of audio in a daily basis.
+> The Batch transcription API is ideal for Call Centers which typically accumulate thousands of hours of audio. The Fire & Forget philosophy of the API makes it easy to transcribe large volume of audio recordings.
 
 ### Supported formats
 
@@ -68,6 +68,9 @@ As with all features of the Unified Speech Service, the user needs to create a s
 
 4. Copy and paste that key in the client code in the sample below.
 
+> [!NOTE]
+> If you plan to use a custom model then you will need the ID of that model too. Note that this is not the Deployment or Endpoint ID that you find on the Endpoint Details view but the model ID which you can retrieve when you click on the Details of that model
+
 ## Sample code
 
 Making use of the API is fairly straight forward. The sample code below needs to be customized with a subscription key and an API key.
@@ -75,7 +78,7 @@ Making use of the API is fairly straight forward. The sample code below needs to
 ```cs
    static async Task TranscribeAsync()
         { 
-            // Creating an Batch transcription API Client
+            // Creating a Batch transcription API Client
             var client = 
                 await CrisClient.CreateApiV1ClientAsync(
                     "<your msa>", // MSA email
@@ -128,11 +131,18 @@ Making use of the API is fairly straight forward. The sample code below needs to
         }
 ```
 
+> [!NOTE]
+> The subscription key mentioned in the above code snippet is the key from the Speech(Preview) resource that you create on Azure portal. Keys obtained from the Custom Speech Service resource will not work.
+
+
 Notice the asynchronous setup for posting audio and receiving transcription status. The client created is a NET Http client. There is a `PostTranscriptions` method for sending the audio file details, and a `GetTranscriptions` method to receive the results. `PostTranscriptions` returns a handle, and  `GetTranscriptions` method is using this handle to create a handle to obtain the transcription status.
 
 The current sample code does not specify any custom models. The service will use the baseline models for transcribing the file(s). If the user wishes to specify the models, one can pass on the same method the modelIDs for the acoustic and the language model. 
 
 If one does not wish to use baseline, one must pass model Ids for both acoustic and language models.
+
+> [!NOTE]
+> For baseline transcription the user does not have to declare the Endpoints of the baseline models. If the user wants to use custom models he would have to provide their endpoints IDs as the [Sample](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). If user wants to use an acoustic baseline with a baseline language model then he would only have to declare the custom model's endpoint ID. Internally our system will figure out the partner baseline model (be it acoustic or language) and use that to fullfill the transcription request.
 
 ### Supported storage
 

@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Data Factory V2 Preview Documentation
+title: Azure Data Factory Documentation
 metadata:
   title: Azure Data Factory Documentation - Tutorials, API Reference | Microsoft Docs
   description: Learn how to use Data Factory to set up automated data pipelines to and from on-premises and cloud sources in order to move and process data for analysis. 
@@ -14,14 +14,14 @@ metadata:
   ms.date: 09/08/2017
   ms.author: douglasl
 abstract:
-  description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis. <p>Currently, the version V2 of Data Factory is in preview. The version V1 is generally available. If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation.</a></p> 
+  description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, as well as move and transform data for analysis. <p>If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation.</a></p> 
   aside:
     image:
       alt: 
       height: 110
       src: media/index/video.png
       width: 250  
-    title: Visually build pipelines for Azure Data Factory V2 (19:31)
+    title: Visually build pipelines for Azure Data Factory (19:31)
     href: https://azure.microsoft.com/en-us/resources/videos/azure-friday-visually-build-pipelines-for-azure-data-factory-v2
     width: 250
 sections:

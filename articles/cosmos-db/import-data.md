@@ -241,7 +241,7 @@ The format of the Azure Table storage connection string is:
 > 
 > 
 
-Enter the name of the Azure table from to import from. You may optionally specify a [filter](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+Enter the name of the Azure table from to import from. You may optionally specify a [filter](../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 The Azure Table storage source importer option has the following additional options:
 

@@ -24,9 +24,6 @@ In this tutorial, you use Azure PowerShell to create a Data Factory pipeline tha
 > * Start a pipeline run.
 > * Monitor the pipeline run.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
