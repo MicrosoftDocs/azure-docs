@@ -11,7 +11,7 @@
   items: 
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
-  - name: Tutorials
+- name: Tutorials
   items: 
   - name: Build app
     items: 
