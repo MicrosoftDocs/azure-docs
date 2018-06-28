@@ -96,4 +96,5 @@ For the latest set of samples, see the [Cognitive Services Speech SDK Sample Git
 ## Next steps
 
 - [Translate speech](how-to-translate-speech.md)
-- [Customize speech models](how-to-customize-speech-models.md)
+- [Customize acoustic models](how-to-customize-acoustic-models.md)
+- [Customize language models](how-to-customize-language-model.md)
