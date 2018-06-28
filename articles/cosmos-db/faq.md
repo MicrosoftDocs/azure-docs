@@ -277,9 +277,6 @@ You can use the [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azu
 
 Tools with the flexibility to take a connection string in the format specified previously can support the new Table API. A list of table tools is provided on the [Azure Storage Client Tools](../storage/common/storage-explorers.md) page. 
 
-### Do PowerShell or Azure CLI work with the Table API?
-There is support for [PowerShell](table-powershell.md). Azure CLI support is not currently available.
-
 ### Is the concurrency on operations controlled?
 Yes, optimistic concurrency is provided via the use of the ETag mechanism. 
 
