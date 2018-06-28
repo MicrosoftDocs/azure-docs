@@ -47,15 +47,15 @@ The Premium tier features these advanced mapping services:
 
 ### Batch Search and Geocoding Service
 
-This service provides batch operations for large sets of search queries. With the help of this service, developers can pass a batch of search calls into the Maps Search service at a single time, and get all of the resulting location information in a single response. For example, a large business can 
+This service provides batch operations for large sets of search queries. This means the developers can pass a batch of search calls into the Maps service, and get all of the resulting location information in a single response. For example, a large retail business can get coordinates for all their stores by doing a batch search, and store them in a database in order to find all stores within a certain radius of a given location.
 
 ### Return Polygons for Area Features
 
-This provides the ability to fetch a polygon for a given geographic entity. 
+This provides the ability to fetch a polygon for a given geographic entity. This means the developers can pass a batch of route calls into the Maps service, and get all the routing information in a single response. For example, a logistics company might send a batch request for all delivery routes for that day, and then pass along a route to each of the drivers. 
 
 ### Batch Routing Service
 
-This provides batch operations for large sets of routing queries.
+This service provides batch operations for large sets of routing queries.
 
 ### Matrix Routing Service
 
