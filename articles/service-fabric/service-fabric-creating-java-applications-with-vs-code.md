@@ -29,7 +29,7 @@ This article shows you how to build, deploy, and debug a Java Service Fabric app
 
 ## Prerequisites
 
-This article assumes that you have already installed VS Code, the Service Fabric Reliable Services extension for VS Code, and any dependencies required for your development environment. To learm more, see [Getting Started](./service-fabric-with-vs-code-getting-started.md#prerequisites).
+This article assumes that you have already installed VS Code, the Service Fabric Reliable Services extension for VS Code, and any dependencies required for your development environment. To learn more, see [Getting Started](./service-fabric-with-vs-code-getting-started.md#prerequisites).
 
 ## Download the sample
 This article uses the Voting application in the [Service Fabric Java application quickstart sample GitHub repository](https://github.com/Azure-Samples/service-fabric-java-quickstart). 
@@ -112,7 +112,7 @@ To set a breakpoint, complete the following steps:
 
    > [!IMPORTANT]
    > Make sure you set breakpoints on executable lines of code. For example breakpoints set on method declarations, `try` statements, or `catch` statements will be missed by the debugger.
-1. To begin debugging, select the **Debug (Attach)** configuration from the debug menu and click the run button (green arrow).
+2. To begin debugging, click the Debug icon in the **Activity Bar**, select the **Debug (Attach)** configuration from the debug menu, and click the run button (green arrow).
 
    ![Debug (Attach) Configuration](./media/service-fabric-creating-java-applications-with-vs-code/debug-attach-java.png)
 
@@ -124,5 +124,5 @@ To set a breakpoint, complete the following steps:
    
    ![Disconnect from debugger](./media/service-fabric-creating-java-applications-with-vs-code/debug-bar-disconnect.png)
        
-5. After you have finished debugging, you can use the **Service Fabric: Remove Application** command to remove the Voting application from your local cluster. 
+5. When you've finished debugging, you can use the **Service Fabric: Remove Application** command to remove the Voting application from your local cluster. 
 
