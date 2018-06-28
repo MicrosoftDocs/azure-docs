@@ -25693,16 +25693,6 @@
             "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-signin.md",
             "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-signin",
             "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md",
-            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-troubleshoot",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/multi-factor-authentication/end-user/sign-in-experience-updates.md",
-            "redirect_url": "/azure/active-directory/authentication/end-user/current/sign-in-experience-updates",
-            "redirect_document_id": false
-        }            
+        }        
     ]
 }
