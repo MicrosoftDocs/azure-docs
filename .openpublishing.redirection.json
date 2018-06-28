@@ -6866,7 +6866,7 @@
         },
         {
             "source_path": "articles/cosmos-db/spark-connector-graph.md",
-            "redirect_url": "https://docs.microsoft.com/azure/azure-functions/spark-connector",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/spark-connector",
             "redirect_document_id": false
         },
         {
