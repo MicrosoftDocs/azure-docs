@@ -37,7 +37,7 @@ By creating a hierarchy that is grouped by departments, you can assign [Azure Ro
 - 10,000 management groups can be supported in a single directory.
 - A management group tree can support up to six levels of depth.
   - This limit doesn't include the Root level or the subscription level.
-- Each management group can only support one parent.
+- Each management group and subscription can only support one parent.
 - Each management group can have multiple children.
 - All subscriptions and management groups are contained within a single hierarchy in each directory. See [Important facts about the Root management group](#important-facts-about-the-root-management-group) for exceptions during the Preview.
 
@@ -64,11 +64,10 @@ Each directory is given a single top-level management group called the "Root" ma
   - The name will be "Tenant root group".
   - The ID will be the Azure Active Directory ID.
 - The root management group can't be moved or deleted, unlike other management groups.  
-- All subscriptions and management groups fold up to the one root management group within the directory. **
-  - All items in the directory fold up to the root management group for global management.
-  - All existing subscriptions within the directory are made children of the root.
+- All subscriptions and management groups fold up to the one root management group within the directory.
+  - All resources in the directory fold up to the root management group for global management.
   - New subscriptions are automatically defaulted to the root management group when created.
-- All Azure users can see the root management group, but not all users have access to manage that root management group.
+- All Azure customers can see the root management group, but not all customers have access to manage that root management group.
   - Everyone who has access to a subscription can see the context of where that subscription is in the hierarchy.  
   - No one is given default access to the root management group. Directory Global Administrators are the only users that can elevate themselves to gain access.  Once they have access, the directory administrators can assign any RBAC role to other users to manage.  
 
@@ -79,10 +78,10 @@ Each directory is given a single top-level management group called the "Root" ma
   
 ## Initial setup of management groups
 
-When any user starts using management groups, there's a setup process that happens. The first step is the root management group is created in the directory. Once this group is created, all existing subscriptions that exist in the directory are made children of the root management group.  The reason for this process is to make sure there's only one management group hierarchy within a directory.  The single hierarchy within the directory allows administrative customers to apply global access and policies that other customers within the directory can't bypass. Anything assigned on the root will apply across all management groups, subscriptions, resource groups, and resources within the directory by having one hierarchy within the directory.  
+When any user starts using management groups, there's an initial setup process that happens. The first step is the root management group is created in the directory. Once this group is created, all existing subscriptions that exist in the directory are made children of the root management group.  The reason for this process is to make sure there's only one management group hierarchy within a directory.  The single hierarchy within the directory allows administrative customers to apply global access and policies that other customers within the directory can't bypass. Anything assigned on the root will apply across all management groups, subscriptions, resource groups, and resources within the directory by having one hierarchy within the directory.  
 
 > [!IMPORTANT]
-> Any assignment of user access or policy assignment on the root management group applies to **all resources within the directory**. Because of this, all customers should evaluate the need to have items defined on this scope.  User access and policy assignments should be "Must Have" only at this scope.  
+> Any assignment of user access or policy assignment on the root management group **applies to all resources within the directory**. Because of this, all customers should evaluate the need to have items defined on this scope.  User access and policy assignments should be "Must Have" only at this scope.  
   
 ## Management group access
 
