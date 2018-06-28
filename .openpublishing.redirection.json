@@ -1,5 +1,10 @@
 {
     "redirections": [
+		{
+            "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-speech-models.md",
+            "redirect_url": "/azure/cognitive-services/Speech-Service/how-to-customize-acoustic-models",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
