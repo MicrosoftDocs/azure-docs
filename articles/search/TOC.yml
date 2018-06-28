@@ -47,6 +47,8 @@
     href: search-semi-structured-data.md
   - name: Add synonyms in .NET
     href: search-synonyms-tutorial-sdk.md
+  - name: Add auto-complete (new!)
+    href: search-autocomplete-tutorial.md
   - name: Portal walkthrough
     href: search-get-started-portal.md
 - name: Samples
