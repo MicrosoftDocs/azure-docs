@@ -20,7 +20,7 @@ Two sample FAQ URLs are given below ('urls' in the string kb). QnA Maker automat
 
 ## Prerequisites
 
-If your preferred IDE is Visual Studio, you will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code sample on Windows. (The free Community Edition will work.)
+If your preferred IDE is Visual Studio, you'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code sample on Windows. (The free Community Edition will work.)
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **QnA Maker** chosen as your resource. You'll need a paid subscription key from your new API account in your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. Either key will work for this quickstart.
 
@@ -286,12 +286,12 @@ namespace QnAMaker
         }
     }
 }
-
+  
 ```
 
 ## Understand what QnA Maker returns
 
-A successful response is returned in JSON, as shown in the following example. Your results may differ slightly. But if the final call returns a "Succeeded" state... your knowledge base was created successfully.
+A successful response is returned in JSON, as shown in the following example. Your results may differ slightly. If the final call returns a "Succeeded" state... your knowledge base was created successfully. To troubleshoot refer to the [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) of the QnA Maker API.
 
 ```json
 Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create.
@@ -299,7 +299,7 @@ Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/
   "operationState": "NotStarted",
   "createdTimestamp": "2018-06-25T10:30:15Z",
   "lastActionTimestamp": "2018-06-25T10:30:15Z",
-  "userId": "0d85ec291c284197a70cfeb51725cd22",
+  "userId": "0d85ec291c204197a70cfec51725cd22",
   "operationId": "d9d40918-01bd-49f4-88b4-129fbc434c94"
 }
 Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
@@ -307,7 +307,7 @@ Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d4
   "operationState": "Running",
   "createdTimestamp": "2018-06-25T10:30:15Z",
   "lastActionTimestamp": "2018-06-25T10:30:15Z",
-  "userId": "0d85ec291c284197a70cfeb51725cd22",
+  "userId": "0d85ec291c184197a70cfeb51025cd22",
   "operationId": "d9d40918-01bd-49f4-88b4-129fbc434c94"
 }
 Waiting 30 seconds...
@@ -316,7 +316,7 @@ Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d4
   "operationState": "Running",
   "createdTimestamp": "2018-06-25T10:30:15Z",
   "lastActionTimestamp": "2018-06-25T10:30:15Z",
-  "userId": "0d85ec291c284197a70cfeb51725cd22",
+  "userId": "0d85ec221c284197a70gfeb51725cd22",
   "operationId": "d9d40918-01bd-49f4-88b4-129fbc434c94"
 }
 Waiting 30 seconds...
@@ -326,7 +326,7 @@ Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d4
   "createdTimestamp": "2018-06-25T10:30:15Z",
   "lastActionTimestamp": "2018-06-25T10:30:51Z",
   "resourceLocation": "/knowledgebases/1d9eb2a1-de2a-4709-91b2-f6ea8afb6fb9",
-  "userId": "0d85ec291c284197a70cfeb51725cd22",
+  "userId": "0d85ec294c284197a70cfeb51775cd22",
   "operationId": "d9d40918-01bd-49f4-88b4-129fbc434c94"
 }
 Press any key to continue.
