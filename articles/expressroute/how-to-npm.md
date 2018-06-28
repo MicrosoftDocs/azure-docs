@@ -178,7 +178,7 @@ For more information about NSG, see [Network Security Groups](../virtual-network
 >
 >
 
-## <a name="setupmonitor"></a>Step 4: Configure NPM
+## <a name="setupmonitor"></a>Step 4: Discover peering connections
 
 After you complete the previous sections, you can set up monitoring.
 
@@ -197,7 +197,7 @@ After you complete the previous sections, you can set up monitoring.
             
   ![rules](.\media\how-to-npm\14.png)
 
-### <a name="configmonitor"></a>5. Configure monitors
+## <a name="configmonitor"></a>Step 5: Configure monitors
 
 Follow the steps for the type of peering that you want to monitor, Microsoft peering or private peering.
 
@@ -205,7 +205,7 @@ Follow the steps for the type of peering that you want to monitor, Microsoft pee
 >After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available.
 >
         
-#### Microsoft peering
+### Microsoft peering
 
 For Microsoft peering, click the Microsoft peering connection(s) that you want to monitor, and configure the settings.
 
@@ -224,7 +224,7 @@ For Microsoft peering, click the Microsoft peering connection(s) that you want t
     >[!NOTE]
     >Make sure that you choose only those agents which have connectivity to the Microsoft service endpoint that was specified in the previous steps. The on-premises agents must be able to reach the endpoint using the ExpressRoute connection.
 
-#### Private peering
+### Private peering
 
 When the discovery completes, you see rules for unique Circuit name and VNet name. Initially, these rules are disabled. Enable the rules, then select the monitoring agents and threshold values.
 
