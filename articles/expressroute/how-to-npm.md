@@ -180,8 +180,6 @@ For more information about NSG, see [Network Security Groups](../virtual-network
 
 ## <a name="setupmonitor"></a>Step 4: Discover peering connections
 
-After you complete the previous sections, you can set up monitoring.
-
 1. Navigate to the Network Performance Monitor overview tile by going to the **All Resources** page, then click on the whitelisted NPM Workspace.
 
   ![npm workspace](.\media\how-to-npm\npm.png)
