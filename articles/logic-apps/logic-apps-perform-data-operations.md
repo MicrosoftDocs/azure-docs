@@ -82,28 +82,36 @@ as the first step in your logic app
 
 ## Compose action
 
-To save yourself from repeatedly entering the same 
-inputs while building your logic app's workflow, 
-you can create a single string for those inputs by 
-using the **Data Operations - Compose** action. 
-These inputs can have various types, such as integers, 
-Booleans, arrays, JSON objects, and any other native 
-type that Azure Logic Apps supports, for example, binary and XML. 
-You can then use this output in actions that follow after the **Compose** action.
+To construct a single output, such as a JSON object, from multiple inputs, 
+you can use the **Data Operations - Compose** action. These inputs can 
+have various types, such as integers, Booleans, arrays, JSON objects, 
+and any other native type that Azure Logic Apps supports, for example, 
+binary and XML. You can then use the output in actions that follow 
+after the **Compose** action. The **Compose** action can also save 
+you from entering the same inputs repeatedly while building your 
+logic app's workflow.  
 
-For example, if you want to construct a JSON message from a string variable 
-and an integer variable, you can use the **Compose** action and create this result:
+For example, you can construct a JSON message from various variables, 
+such as string variables that store people's first names and last names, 
+and an integer variable that stores people's ages. Here, the **Compose** 
+action accepts this input:
 
 ```
-"{ "fullName": nameVariable, "age": ageVariable }"
+"{ "age": <ageVar>, "fullName": "<lastNameVar>, <firstNameVar>" }"
+```
+
+and creates this output:
+
+```
+"{ "fullName": "Owens, Sophie", "age": 35 }"
 ```
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
 
    This example uses the Azure portal and a logic app with a 
-   **Recurrence** trigger and two **Initialize variable** actions. 
-   These actions are set up for creating a string variable 
+   **Recurrence** trigger and several **Initialize variable** actions. 
+   These actions are set up for creating two string variables 
    and an integer variable. When you test your logic app later, 
    you can manually run your app without waiting for the trigger to fire.
 
@@ -303,7 +311,7 @@ From the actions list, select this action: **Data Operations - Create HTML table
    the dynamic content list appears so you can select 
    the previously created variable:
 
-   ![Select array output for creating HTML table](./media/logic-apps-perform-data-operations/configure-create-hmtl-table-action.png)
+   ![Select array output for creating HTML table](./media/logic-apps-perform-data-operations/configure-create-html-table-action.png)
 
    Here is the finished example **Create HTML table** action: 
 
@@ -726,13 +734,13 @@ enter this expression that includes the **Select** action's name:
    and includes the outputs from the **actionBody('Select')** 
    expression in the email's body:
 
-   ![Action outputs in the "Send an email" action](./media/logic-apps-change-manage-data-operations/send-email-select-action.png)
+   ![Action outputs in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 
 3. Now, manually run your logic app. On the designer toolbar, choose **Run**. 
 
    Based on the email connector you used, here are the results you get:
 
-   ![Email with "Select" action results](./media/logic-apps-change-manage-data-operations/select-email-results.png)
+   ![Email with "Select" action results](./media/logic-apps-perform-data-operations/select-email-results.png)
 
 ## Get support
 
