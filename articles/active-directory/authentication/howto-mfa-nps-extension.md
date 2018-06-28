@@ -1,6 +1,6 @@
 ---
-title: Use existing NPS servers to provide Azure MFA capabilities | Microsoft Docs
-description: Add cloud-based two-step vericiation capabilities to your existing authentication infrastructure
+title: Use existing NPS servers to provide Azure MFA capabilities
+description: Add cloud-based two-step verification capabilities to your existing authentication infrastructure
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -55,8 +55,8 @@ Windows Server 2008 R2 SP1 or above.
 
 These libraries are installed automatically with the extension.
 
--	[Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--	[Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 The Microsoft Azure Active Directory Module for Windows PowerShell is installed, if it is not already present, through a configuration script you run as part of the setup process. There is no need to install this module ahead of time if it is not already installed.
 
@@ -67,6 +67,13 @@ Everyone using the NPS extension must be synced to Azure Active Directory using 
 When you install the extension, you need the directory ID and admin credentials for your Azure AD tenant. You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select the **Azure Active Directory** icon on the left, then select **Properties**. Copy the GUID in the **Directory ID** box and save it. You use this GUID as the tenant ID when you install the NPS extension.
 
 ![Find your Directory ID under Azure Active Directory properties](./media/howto-mfa-nps-extension/find-directory-id.png)
+
+### Network requirements
+
+The NPS server needs to be able to communicate with the following URLs over ports 80 and 443.
+
+* https://adnotifications.windowsazure.com  
+* https://login.microsoftonline.com
 
 ## Prepare your environment
 
@@ -128,19 +135,19 @@ Your users also need to follow these steps to enroll before they can authenticat
 
 ### Download and install the NPS extension for Azure MFA
 
-1.	[Download the NPS Extension](https://aka.ms/npsmfa) from the Microsoft Download Center.
-2.	Copy the binary to the Network Policy Server you want to configure.
-3.	Run *setup.exe* and follow the installation instructions. If you encounter errors, double-check that the two libraries from the prerequisite section were successfully installed.
+1. [Download the NPS Extension](https://aka.ms/npsmfa) from the Microsoft Download Center.
+2. Copy the binary to the Network Policy Server you want to configure.
+3. Run *setup.exe* and follow the installation instructions. If you encounter errors, double-check that the two libraries from the prerequisite section were successfully installed.
 
 ### Run the PowerShell script
 
-The installer creates a PowerShell script in this location: `C:\Program Files\Microsoft\AzureMfa\Config` (where C:\ is your installation drive). This PowerShell script performs the following actions:
+The installer creates a PowerShell script in this location: `C:\Program Files\Microsoft\AzureMfa\Config` (where C:\ is your installation drive). This PowerShell script performs the following actions each time it is run:
 
--	Create a self-signed certificate.
--	Associate the public key of the certificate to the service principal on Azure AD.
--	Store the cert in the local machine cert store.
--	Grant access to the certificate’s private key to Network User.
--	Restart the NPS.
+- Create a self-signed certificate.
+- Associate the public key of the certificate to the service principal on Azure AD.
+- Store the cert in the local machine cert store.
+- Grant access to the certificate’s private key to Network User.
+- Restart the NPS.
 
 Unless you want to use your own certificates (instead of the self-signed certificates that the PowerShell script generates), run the PowerShell Script to complete the installation. If you install the extension on multiple servers, each one should have its own certificate.
 
@@ -159,8 +166,8 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 
 Repeat these steps on any additional NPS servers that you want to set up for load balancing.
 
->[!NOTE]
->If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
+> [!NOTE]
+> If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
 
 ## Configure your NPS extension
 
@@ -229,7 +236,7 @@ This error could be due to one of several reasons. Use these steps to help troub
 
 Verify that AD Connect is running, and that the user is present in both Windows Active Directory and Azure Active Directory.
 
-------------------------------------------------------------
+-------------------------------------------------------------
 
 ### Why do I see HTTP connect errors in logs with all my authentications failing?
 

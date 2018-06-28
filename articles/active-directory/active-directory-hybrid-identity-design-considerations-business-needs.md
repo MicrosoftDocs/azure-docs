@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 06/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
@@ -54,7 +54,7 @@ You also need to be aware of the cloud services that your company might have. Pe
 * Is this integration currently in production or is it a pilot?
 
 > [!NOTE]
-> If you don’t have an accurate mapping of all your apps and cloud services, you can use the Cloud App Discovery tool. This tool can provide your IT department with visibility into all your organization’s business and consumer cloud apps. That makes it easier than ever to discover shadow IT in your organization, including details on usage patterns and any users accessing your cloud applications. To get started see [Cloud app discovery](manage-apps/cloud-app-discovery.md).
+> Cloud Discovery analyzes your traffic logs against Microsoft Cloud App Security's cloud app catalog of over 16,000 cloud apps that are ranked and scored based on more than 70 risk factors, to provide you with ongoing visibility into cloud use, Shadow IT, and the risk Shadow IT poses into your organization.To get started see [Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 > 
 > 
 
