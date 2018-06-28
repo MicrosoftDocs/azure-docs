@@ -182,6 +182,7 @@ To log into your local installation of the CLI, run the login command:
 ```cli
 az login
 ```
+
 ### Create a resource group
 
 To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#az_group_create) command. 
