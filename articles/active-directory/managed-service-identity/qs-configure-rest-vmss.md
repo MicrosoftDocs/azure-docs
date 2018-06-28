@@ -90,7 +90,7 @@ To enable system assigned identity on an existing virtual machine scale set, you
     curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
-3. To enable system assigned identity on a virtual machine scale set with existing user assigned identities, you need to retain the user assigned identities returned when you ran the CURL command `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>"` and then add `SystemAssigned` to the `type` value.  
+3. To enable system assigned identity on a virtual machine scale set with existing user assigned identities, you need to add `SystemAssigned` to the `type` value.  
    
    For example if your virtual machine scale set has the user assigned identities `ID1` and `ID2` assigned to it, and you would like to add system assigned identity to the virtual machine scale set, use the following CURL call. Replace `<ACCESS TOKEN>` and `<SUBSCRIPTION ID>` with values appropriate to your environment.
    
@@ -163,7 +163,9 @@ In this section, you learn how to add and remove user assigned identity on a vir
 
 3. To ensure you don't delete existing user or system assigned managed identities that are assigned to the virtual machine scale set, you need to list the identity types assigned to the virtual machine scale set by using the following CURL command. If you have managed identities assigned to the virtual machine scale set, they are listed under in the `identity` value.
  
-   `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>"`
+   ```bash
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
 
 4. If you don't have any user or system assigned identities assigned to your virtual machine scale set, use the following CURL command to call the Azure Resource Manager REST endpoint to assign the first user assigned identity to the virtual machine scale set.  If you have a user or system assigned identity(s) assigned to the virtual machine scale set, skip to step 5 that shows you how to add multiple user assigned identities to a virtual machine scale set while also maintaining the system assigned identity.
 
