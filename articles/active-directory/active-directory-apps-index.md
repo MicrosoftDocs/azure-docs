@@ -108,7 +108,7 @@ Once you set up single sign-on to your apps and resources, you can then further 
 | How to enable conditional access for the following types of resources |[Conditional Access for SaaS Apps](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Conditional Access for Office 365 services](active-directory-conditional-access-device-policies.md)<br /><br />[Conditional Access for On-Premises Applications](active-directory-conditional-access-azure-portal.md)<br /><br />[Conditional Access for On-Premises Applications Published via Azure AD App Proxy](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | How to register devices with Azure Active Directory in order to enable device-based conditional access policies |[Overview of Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)<br /><br />[How to Enable Automatic Device Registration for Domain Joined Windows Devices](active-directory-conditional-access-automatic-device-registration.md)<br />— [Steps for Windows 8.1 devices](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Steps for Windows 7 devices](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
-| How to use the Microsoft Authenticator app for two-step verification |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| How to use the Microsoft Authenticator app for two-step verification |[Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 Conditional Access is an [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) feature.
 

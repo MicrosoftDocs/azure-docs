@@ -2,13 +2,13 @@
 title: Run virtual kubelet in an Azure Kubernetes Service (AKS) cluster
 description: Use virtual kubelet to run Kubernetes containers on Azure Container Instances.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 06/12/2018
-ms.author: nepeters
+ms.author: iainfou
 ---
 
 # Virtual Kubelet with AKS
