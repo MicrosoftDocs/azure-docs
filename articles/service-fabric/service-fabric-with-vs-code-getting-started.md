@@ -29,14 +29,13 @@ This article provides an overview of the requirements and setup of the extension
 
 ## Prerequisites
 
-The following prerequisites must be installed across environments.
+The following prerequisites must be installed on all environments.
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Git](https://git-scm.com/)
 * [Service Fabric SDK](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
-* [.NET Core](https://www.microsoft.com/net/learn/get-started) (version 2.0.0 or later)
 * Yeoman Generators -- install the appropriate generators for your application
 
    ```sh
@@ -46,19 +45,17 @@ The following prerequisites must be installed across environments.
    npm install -g generator-azuresfcontainer
    npm install -g generator-azuresfguest
    ```
-The following must be installed on Windows:
 
-* [Windows Subsystem for Linux - Ubuntu distribution](https://msdn.microsoft.com/commandline/wsl/install_guide)
-
-The following must be installed for Java development:
+The following prerequisites must be installed for Java development:
 
 * [Java SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (version 1.8)
 * [Gradle](https://gradle.org/install/)
-* [Debugger for Java VS Code extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Needed to debug Java services. Debugging Java services is supported on Linux only. You can install either clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
+* [Debugger for Java VS Code extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Needed to debug Java services. Debugging Java services is supported on Linux only. You can install either by clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
 
-The following must be installed for .NET Core/C# development:
+The following prerequisites must be installed for .NET Core/C# development:
 
-* [C# for Visual Studio Code (powered by OmniSharp) VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Needed to debug C# services. You can install either clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
+* [.NET Core](https://www.microsoft.com/net/learn/get-started) (version 2.0.0 or later)
+* [C# for Visual Studio Code (powered by OmniSharp) VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Needed to debug C# services. You can install either by clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
 
 ## Setup
 
@@ -113,7 +110,7 @@ The **Service Fabric: Deploy Application** command deploys your Service Fabric a
 3.  You can also use **Service Fabric: Publish Application** command with no parameters set in the Cloud.json file to deploy to a local cluster.
 
 > [!NOTE]
-> Deploying to the local cluster is not supported for Java applications on a Windows machine.
+> Deploying Java applications to the local cluster is not supported on Windows machines.
 
 ### Service Fabric: Remove Application
 The **Service Fabric: Remove Application** command removes a Service Fabric application from the cluster that it was previously deployed to using the VS Code extension. 
@@ -128,6 +125,3 @@ The **Service Fabric: Remove Application** command can build either Java or C# S
     and builds your application accordingly.
 2.  Select the **Service Fabric: Build Application** command.
 3.  The output of the build process is written to the integrated terminal.
-
-  <!-- Images -->
-  [debug-icon]: ./media/service-fabric-vs-code-extension/debug-icon-workspace.png

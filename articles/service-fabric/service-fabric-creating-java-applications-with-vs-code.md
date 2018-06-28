@@ -54,6 +54,10 @@ Open VS Code.  Click the Explorer icon in the **Activity Bar** and click **Open 
    ![Build Application Command in VS Code](./media/service-fabric-creating-java-applications-with-vs-code/sf-build-application.png)
 
 ## Deploy the application to the local cluster
+After you have built the application, you can deploy it to a local cluster. 
+
+> [!IMPORTANT]
+> Deploying Java applications to the local cluster is not supported on Windows machines.
 
 1. From the **Command Palette**, select the **Service Fabric: Deploy Application (Localhost) command**. The output of the install process is sent to the integrated terminal.
 
@@ -71,6 +75,9 @@ Open VS Code.  Click the Explorer icon in the **Activity Bar** and click **Open 
 
 ## Debug the application
 When debugging applications in VS Code, the application must be running on a local cluster. Breakpoints can then be added to the code.
+
+> [!IMPORTANT]
+> Debugging Java applications is not supported on Windows machines.
 
 To prepare the VotingDataService and the Voting application for debugging, complete the following steps:
 
@@ -119,11 +126,3 @@ To set a breakpoint, complete the following steps:
        
 5. After you have finished debugging, you can use the **Service Fabric: Remove Application** command to remove the Voting application from your local cluster. 
 
-<!-- Images -->
-[debug-attach]: ./media/service-fabric-vs-code-extension/debug-attach-java.png
-[debug-config]: ./media/service-fabric-vs-code-extension/debug-config-java.png
-[debug-workspace]: ./media/service-fabric-vs-code-extension/debug-icon-workspace.png
-[voting-sample]: ./media/service-fabric-vs-code-extension/voting-sample-in-browser.png
-[deploy-application]:  ./media/service-fabric-vs-code-extension/sf-deploy-application.png
-[build-application]: ./media/service-fabric-vs-code-extension/sf-build-application.png
-[java-voting-application]: ./media/service-fabric-vs-code-extension/java-voting-application.png
