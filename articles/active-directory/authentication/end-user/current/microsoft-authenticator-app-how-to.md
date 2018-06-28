@@ -51,11 +51,11 @@ For a personal Microsoft account (one that you use to sign in to Outlook.com, Xb
 1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
 2. Check the box next to **Authenticator app** then select **Configure**.
 
-    ![The Configure button on the security verification settings screen](./media/authenticator-app-how-to/azureauthe.png)
+    ![The Configure button on the security verification settings screen](./media/microsoft-authenticator-app-how-to/azureauthe.png)
 
     This brings up a screen with a QR code on it.
 
-    ![Screen that provides the QR code](./media/authenticator-app-how-to/barcode2.png)
+    ![Screen that provides the QR code](./media/microsoft-authenticator-app-how-to/barcode2.png)
 3. Open the Microsoft Authenticator app. On the **accounts** screen, select **+**, and then specify that you want to add a work or school account.
 4. Use the camera to scan the QR code, and then select **Done** to close the QR code screen.
 
@@ -63,40 +63,40 @@ For a personal Microsoft account (one that you use to sign in to Outlook.com, Xb
 
 5. When the app shows your account name with a six-digit code underneath it, you're done.
 
-    ![Accounts screen](./media/authenticator-app-how-to/accounts.png)
+    ![Accounts screen](./media/microsoft-authenticator-app-how-to/accounts.png)
 
 ### Add an account to the app manually
 1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md).
 2. Select **Configure**.
 
-    ![The Configure button on the security verification settings screen](./media/authenticator-app-how-to/azureauthe.png)
+    ![The Configure button on the security verification settings screen](./media/microsoft-authenticator-app-how-to/azureauthe.png)
 
     This brings up a screen with a QR code on it.  Note the code and URL.
 
-    ![Screen that provides the QR code and URL](./media/authenticator-app-how-to/barcode2.png)
+    ![Screen that provides the QR code and URL](./media/microsoft-authenticator-app-how-to/barcode2.png)
 3. Open the Microsoft Authenticator app. On the **accounts** screen, select **+**, and then specify that you want to add a work or school account.
 
 4. In the scanner, select **enter code manually**.
 
-    ![Screen for scanning a QR code](./media/multi-factor-authentication-end-user-first-time/scan2.png)
+    ![Screen for scanning a QR code](./media/microsoft-authenticator-app-how-to/scan2.png)
 5. Enter the code and the URL in the appropriate boxes in the app, then select **Finish**.
 
-    ![Screen for entering code and URL](./media/authenticator-app-how-to/manual.png)
+    ![Screen for entering code and URL](./media/microsoft-authenticator-app-how-to/manual.png)
 
 6. When the app shows your account name with a six-digit code underneath it, you're done.
 
-    ![Accounts screen](./media/authenticator-app-how-to/accounts.png)
+    ![Accounts screen](./media/microsoft-authenticator-app-how-to/accounts.png)
 
 ### Add an account to the app using your device's fingerprint or facial recognition capabilities
 Your organization may require a PIN to complete the verification challenge. The Microsoft Authenticator app can use your device's fingerprint or facial recognition capabilities instead of a PIN. To set this up on your first verification in the app, you will see an option to use Touch ID (for iOS) or fingerprint identification instead. 
 
 To set up Touch ID for Microsoft Authenticator, you need to complete a normal verification challenge with a PIN. Microsoft Authenticator will automatically set it up for devices that support Touch ID. 
 
-![Verification of Touch ID setup](./media/authenticator-app-how-to/touchid1.png)
+![Verification of Touch ID setup](./media/microsoft-authenticator-app-how-to/touchid1.png)
 
 From that point forward, when you're required to verify your sign-in, you select the received push notification and scan your fingerprint instead of entering your PIN.
 
-![Push notification](./media/authenticator-app-how-to/touchid2.png)
+![Push notification](./media/microsoft-authenticator-app-how-to/touchid2.png)
 
 ## Use the app when you sign in
 

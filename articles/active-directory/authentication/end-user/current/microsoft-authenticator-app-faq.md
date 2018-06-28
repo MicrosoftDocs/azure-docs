@@ -66,7 +66,7 @@ If you use Microsoft Authenticator for your work or school account, then your or
 No, push notifications only work with Microsoft accounts and Azure Active Directory accounts. If your work or school uses Azure AD accounts, they may disable this feature.  
 
 ### I got a new device or restored my device from a backup. How do I set up my accounts in the Microsoft Authenticator app again?
-If you’re running an iOS device, have turned on **Auto Backup**, and have created a backup of your accounts on your old device; you can use that backup to recover your account credentials on your new device. For more info, see the [Backup and recover account credentials with the Microsoft Authenticator app](microsoft-authenticator-app-backup-and-recovery.md) article. 
+If you’re running an iOS device, have turned on **Auto Backup**, and have created a backup of your accounts on your old device; you can use that backup to recover your account credentials on your new device. For more info, see the [Backup and recover account credentials with the Microsoft Authenticator app](../../../../multi-factor-authentication/end-user/microsoft-authenticator-app-backup-and-recovery.md) article. 
 
 ### I lost my device or moved on to a new device. How do I make sure notifications don't continue to go to my old device?  
 Adding the Microsoft Authenticator app to your new iOS device won't automatically remove the app from your old device. Even deleting the app from your old device isn't enough. You must both delete the app from your old device and tell Microsoft or your organization to forget the old device and unregister it from your account.
@@ -114,5 +114,5 @@ If your question wasn't answered here, we want to hear from you. Go to the [Micr
 
 ### Related topics
 * [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) for Microsoft accounts
-* [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
+* [Having trouble with two-step verification](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
 * [Use the Microsoft Authenticator to sign in from your phone](microsoft-authenticator-app-phone-signin-faq.md)
