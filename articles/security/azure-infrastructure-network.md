@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/25/2018
+ms.date: 06/28/2018
 ms.author: terrylan
 
 ---
@@ -99,6 +99,17 @@ Edge Routers segregate the application environment from the Internet. Edge route
 Network devices are positioned at access and edge locations and act as boundary points where ingress and/or egress filters are applied.
 
 ## Next steps
+To learn more about what Microsoft does to secure the Azure infrastructure, see:
+
+- [Azure facilities, premises, and physical security](azure-physical-security.md)
+- [Availability of Azure infrastructure](azure-infrastructure-availability.md)
+- [Azure information system components and boundaries](azure-infrastructure-components.md)
+- [Azure production network](azure-production-network.md)
+- [Microsoft Azure SQL Database security features](azure-infrastructure-sql.md)
+- [Azure production operations and management](azure-infrastructure-operations.md)
+- [Monitoring of Azure infrastructure](azure-infrastructure-monitoring.md)
+- [Integrity of Azure infrastructure](azure-infrastructure-integrity.md)
+- [Protection of customer data in Azure](azure-protection-of-customer-data.md)
 
 <!--Image references-->
 [1]: ./media/azure-infrastructure-network/network-arch.png

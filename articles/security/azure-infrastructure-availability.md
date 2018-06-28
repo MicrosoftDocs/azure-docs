@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 06/28/2018
 ms.author: terrylan
 
 ---
@@ -42,3 +42,14 @@ Azure ensures that a database is Internet accessible through an Internet gateway
 Azure delivers storage through a highly scalable and durable storage service, which provides connectivity endpoints allowing it to be accessible directly by a consuming application. Through the storage service, incoming storage requests will be processed efficiently with transactional integrity.
 
 ## Next steps
+To learn more about what Microsoft does to secure the Azure infrastructure, see:
+
+- [Azure facilities, premises, and physical security](azure-physical-security.md)
+- [Azure information system components and boundaries](azure-infrastructure-components.md)
+- [Azure network architecture](azure-infrastructure-network.md)
+- [Azure production network](azure-production-network.md)
+- [Microsoft Azure SQL Database security features](azure-infrastructure-sql.md)
+- [Azure production operations and management](azure-infrastructure-operations.md)
+- [Monitoring of Azure infrastructure](azure-infrastructure-monitoring.md)
+- [Integrity of Azure infrastructure](azure-infrastructure-integrity.md)
+- [Protection of customer data in Azure](azure-protection-of-customer-data.md)

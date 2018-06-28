@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 06/28/2018
 ms.author: terrylan
 
 ---
@@ -87,6 +87,17 @@ Changes are monitored for success. On a failure scenario, the change is rolled-b
 Similarly, hardware and network changes have established validation steps to evaluate their adherence to the build requirements. The releases are reviewed and authorized through a coordinated Change Advisory Board (CAB) of respective groups across the stack.
 
 ## Next steps
+To learn more about what Microsoft does to secure the Azure infrastructure, see:
+
+- [Azure facilities, premises, and physical security](azure-physical-security.md)
+- [Availability of Azure infrastructure](azure-infrastructure-availability.md)
+- [Azure information system components and boundaries](azure-infrastructure-components.md)
+- [Azure network architecture](azure-infrastructure-network.md)
+- [Azure production network](azure-production-network.md)
+- [Azure production operations and management](azure-infrastructure-operations.md)
+- [Monitoring of Azure infrastructure](azure-infrastructure-monitoring.md)
+- [Integrity of Azure infrastructure](azure-infrastructure-integrity.md)
+- [Protection of customer data in Azure](azure-protection-of-customer-data.md)
 
 <!--Image references-->
 [1]: ./media/azure-infrastructure-sql/sql-database-firewall.png

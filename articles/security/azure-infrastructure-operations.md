@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 06/28/2018
 ms.author: terrylan
 
 ---
@@ -42,3 +42,14 @@ The Corporate network user base includes Microsoft Azure Support personnel. The 
 Access to internal Azure applications is controlled through authentication with Active Directory Federation Services (ADFS). ADFS is a service hosted by MSIT that provides authentication of CorpNet users through applying a secure token and user claims. ADFS enables internal Microsoft Azure applications to authenticate users against the Microsoft corporate AD domain. To access the Production network from the CorpNet environment, the user must authenticate using multi-factor authentication.
 
 ## Next steps
+To learn more about what Microsoft does to secure the Azure infrastructure, see:
+
+- [Azure facilities, premises, and physical security](azure-physical-security.md)
+- [Availability of Azure infrastructure](azure-infrastructure-availability.md)
+- [Azure information system components and boundaries](azure-infrastructure-components.md)
+- [Azure network architecture](azure-infrastructure-network.md)
+- [Azure production network](azure-production-network.md)
+- [Microsoft Azure SQL Database security features](azure-infrastructure-sql.md)
+- [Monitoring of Azure infrastructure](azure-infrastructure-monitoring.md)
+- [Integrity of Azure infrastructure](azure-infrastructure-integrity.md)
+- [Protection of customer data in Azure](azure-protection-of-customer-data.md)

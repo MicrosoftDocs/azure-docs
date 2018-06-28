@@ -49,6 +49,18 @@ Responsibilities that are always retained by you, regardless of the type of depl
 Be sure that you understand the division of responsibility between you and Microsoft in a SaaS, PaaS, and IaaS deployment. See [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) for more detail.
 
 ## Next steps
+To learn more about what Microsoft does to secure the Azure infrastructure, see:
+
+- [Azure facilities, premises, and physical security](azure-physical-security.md)
+- [Availability of Azure infrastructure](azure-infrastructure-availability.md)
+- [Azure information system components and boundaries](azure-infrastructure-components.md)
+- [Azure network architecture](azure-infrastructure-network.md)
+- [Azure production network](azure-production-network.md)
+- [Microsoft Azure SQL Database security features](azure-infrastructure-sql.md)
+- [Azure production operations and management](azure-infrastructure-operations.md)
+- [Monitoring of Azure infrastructure](azure-infrastructure-monitoring.md)
+- [Integrity of Azure infrastructure](azure-infrastructure-integrity.md)
+- [Protection of customer data in Azure](azure-protection-of-customer-data.md)
 
 <!--Image references-->
 [1]: ./media/azure-security-infrastructure/responsibility-zones.png

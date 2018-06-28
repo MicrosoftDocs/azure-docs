@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/25/2018
+ms.date: 06/28/2018
 ms.author: terrylan
 
 ---
@@ -52,3 +52,14 @@ Azure ensures all running roles (Internet-facing web, or back-end processing wor
 Azure ensures that the application/service deployed is reachable via standard web-based protocols. Internet-facing web role virtual instances will have external Internet connectivity and will be reachable directly by web users. Back-end processing worker role virtual instances have external Internet connectivity but cannot be accessed directly by an external web user, in order to protect the sensitivity and integrity of the operations that worker roles perform on behalf of the publicly-accessible web role virtual instances.
 
 ## Next steps
+To learn more about what Microsoft does to secure the Azure infrastructure, see:
+
+- [Azure facilities, premises, and physical security](azure-physical-security.md)
+- [Availability of Azure infrastructure](azure-infrastructure-availability.md)
+- [Azure information system components and boundaries](azure-infrastructure-components.md)
+- [Azure network architecture](azure-infrastructure-network.md)
+- [Azure production network](azure-production-network.md)
+- [Microsoft Azure SQL Database security features](azure-infrastructure-sql.md)
+- [Azure production operations and management](azure-infrastructure-operations.md)
+- [Monitoring of Azure infrastructure](azure-infrastructure-monitoring.md)
+- [Protection of customer data in Azure](azure-protection-of-customer-data.md)
