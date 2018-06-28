@@ -102,36 +102,9 @@ A load balancer rule defines the front-end IP configuration for the incoming tra
 
 Before you deploy some VMs and can test your load balancer, create the supporting virtual network resources.
 
-###  Create a network security group
-Create network security group to define inbound connections to your virtual network.
-
-```azurecli-interactive
-  az network nsg create \
-    --resource-group myResourceGroupILB \
-    --name myNetworkSecurityGroup
-```
-
-### Create a network security group rule
-
-Create a network security group rule to allow inbound connections through port 80.
-
-```azurecli-interactive
-  az network nsg rule create \
-    --resource-group myResourceGroupILB \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRuleHTTP \
-    --protocol tcp \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 80 \
-    --access allow \
-    --priority 300
-```
 ### Create NICs
 
-Create two network interfaces with [az network nic create](/cli/azure/network/nic#az_network_nic_create) and associate them with the private IP address and the network security group. 
+Create two network interfaces with [az network nic create](/cli/azure/network/nic#az_network_nic_create) and associate them with the private IP address. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -140,7 +113,6 @@ for i in `seq 1 2`; do
     --name myNic$i \
     --vnet-name myVnet \
     --subnet mySubnet \
-    --network-security-group myNetworkSecurityGroup \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
 done
