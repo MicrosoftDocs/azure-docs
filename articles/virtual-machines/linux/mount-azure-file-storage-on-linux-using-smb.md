@@ -1,9 +1,9 @@
 ---
 title: Mount Azure File storage on Linux VMs using SMB | Microsoft Docs
-description: How to mount Azure File storage on Linux VMs using SMB with the Azure CLI 2.0
+description: How to mount Azure File storage on Linux VMs using SMB with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 
@@ -13,14 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2017
-ms.author: iainfou
+ms.date: 06/13/2018
+ms.author: cynthn
 
 ---
 
 # Mount Azure File storage on Linux VMs using SMB
 
+<<<<<<< HEAD
+This article shows you how to utilize the Azure File storage service on a Linux VM using an SMB mount with the Azure CLI. Azure File storage offers file shares in the cloud using the standard SMB protocol. The requirements are:
+=======
 This article shows you how to utilize the Azure File storage service on a Linux VM using an SMB mount with the Azure CLI 2.0. Azure File storage offers file shares in the cloud using the standard SMB protocol. The requirements are:
+>>>>>>> 59e6805bf8f8a2eeddb46cf046ee6391ac1f9064
 
 - [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
 - [SSH public and private key files](mac-create-ssh-keys.md)
@@ -67,7 +71,7 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 1. Create a resource group with [az group create](/cli/azure/group#az_group_create) to hold the file share.
 
-    To create a resource group named `myResourceGroup` in the "West US" location, use the following example:
+    To create a resource group named *myResourceGroup* in the *West US* location, use the following example:
 
     ```azurecli
     az group create --name myResourceGroup --location westus
@@ -78,7 +82,8 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
     To create a storage account named mystorageaccount by using the Standard_LRS storage SKU, use the following example:
 
     ```azurecli
-    az storage account create --resource-group myResourceGroup \
+    az storage account create \
+	    --resource-group myResourceGroup \
         --name mystorageaccount \
         --location westus \
         --sku Standard_LRS
@@ -91,7 +96,8 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
     View the storage account keys with the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). The storage account keys for the named `mystorageaccount` are listed in the following example:
 
     ```azurecli
-    az storage account keys list --resource-group myResourceGroup \
+    az storage account keys list \
+	    --resource-group myResourceGroup \
         --account-name mystorageaccount
     ```
 
