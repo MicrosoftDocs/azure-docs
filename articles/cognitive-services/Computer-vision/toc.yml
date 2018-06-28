@@ -103,10 +103,10 @@
     items:
     - name: Analyze an image
       href: quickstarts-sdk/csharp-analyze-sdk.md
-#    - name: Generate a thumbnail
-#      href: quickstarts-sdk/csharp-thumb-sdk.md
-#    - name: Extract handwritten text
-#      href: quickstarts-sdk/csharp-hand-text-sdk.md
+    - name: Generate a thumbnail
+      href: quickstarts-sdk/csharp-thumb-sdk.md
+    - name: Extract handwritten text
+      href: quickstarts-sdk/csharp-hand-text-sdk.md
 - name: How-to guides
   items:
   - name: First Computer Vision apps

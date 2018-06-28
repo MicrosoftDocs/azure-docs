@@ -84,6 +84,14 @@ namespace ImageAnalyze
                 new ApiKeyServiceClientCredentials(subscriptionKey), 
                 new System.Net.Http.DelegatingHandler[] { });
 
+            // You must use the same region as you used to get your subscription
+            // keys. For example, if you got your subscription keys from westus,
+            // replace "Westcentralus" with "Westus".
+            //
+            // Free trial subscription keys are generated in the westcentralus
+            // region. If you use a free trial subscription key, you shouldn't
+            // need to change the region.
+
             // Specify the Azure region
             computerVision.AzureRegion = AzureRegions.Westcentralus;
 
