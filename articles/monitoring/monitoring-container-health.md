@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2018
+ms.date: 06/28/2018
 ms.author: magoedte
 ---
 
@@ -34,7 +34,7 @@ If you are interested in monitoring and managing your Docker and Windows contain
 Before starting, review the following details so you can understand the supported prerequisites.
 
 - A new or existing AKS cluster
-- A containerized OMS agent for Linux version microsoft/oms:ciprod04202018 and later. This agent is installed automatically during onboarding of container health.  
+- A containerized OMS agent for Linux version microsoft/oms:ciprod04202018 and later. The version number is represented by a date following the format - *mmddyyyy*.  It is installed automatically during onboarding of container health.  
 - A Log Analytics workspace.  It can be created when you enable monitoring of your new AKS cluster, or you can create one through [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), or from the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
 - Member of the Log Analytics contributor role in order to enable container monitoring.  For more information on how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
 
@@ -240,7 +240,9 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster.  
 
 ## Verify agent deployed successfully
-To verify the OMS agent deployed properly, run the following command: `kubectl get ds omsagent --namespace=kube-system`.
+To verify the OMS agent deployed properly, run the following command to verify the agent is properly deployed: 
+
+`kubectl get ds omsagent --namespace=kube-system`
 
 The output should resemble the following indicating it did deploy properly:
 
@@ -249,6 +251,17 @@ User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
+To verify a new deployment, run the following command:
+
+`kubectl get deployment omsagent-rs -n=kube-system`
+
+The output should resemble the following indicating it did deploy properly:
+
+```
+User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
+NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE                    AGE
+omsagent   1         1         1         1            3h
+```
 
 ## View performance utilization
 When you open container health, the page immediately presents the performance utilization of your cluster nodes.  Viewing information about your AKS cluster is organized into three perspectives:
@@ -475,7 +488,7 @@ If container health was successfully enabled and configured but you are not seei
 
 1. Check the status of the agent by running the following command: `kubectl get ds omsagent --namespace=kube-system`
 
-    The output should resemble the following indicating the agent is running on all node in the cluster.  For example, this cluster has two nodes and you should expect the value to equal number of nodes.  
+    The output should resemble the following indicating the agent is running on all nodes in the cluster.  For example, this cluster has two nodes and you should expect the value to equal number of nodes.  
 
     ```
     User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
