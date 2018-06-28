@@ -40,8 +40,8 @@ The following steps describe the process required to push a certificate onto the
 2. Update the azuredeploy.parameters.json file.
 3. Deploy the template
 
->[!NOTE]
->You can use these steps from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
+> [!NOTE]
+> You can use these steps from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
 
 ## Prerequisites
 
@@ -53,8 +53,8 @@ The following steps describe the process required to push a certificate onto the
 
 The following script creates a certificate in the .pfx format, creates a key vault, and stores the certificate in the key vault as a secret.
 
->[!IMPORTANT]
->You must use the `-EnabledForDeployment` parameter when creating the key fault. This parameter ensures that the key vault can be referenced from Azure Resource Manager templates.
+> [!IMPORTANT]
+> You must use the `-EnabledForDeployment` parameter when creating the key vault. This parameter ensures that the key vault can be referenced from Azure Resource Manager templates.
 
 ```powershell
 
