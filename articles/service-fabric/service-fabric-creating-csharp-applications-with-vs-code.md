@@ -54,7 +54,7 @@ The application should now appear in your VS Code workspace.
 
 ![Counter Service Application in Workspace](./media/service-fabric-creating-csharp-applications-with-vs-code/counter-service-application-in-workspace.png)
 
-## Deploy the Counter Service application to a local cluster
+## Build the application
 1. Press (Ctrl + Shift + p) to open the **Command Palette** in VS Code.
 2. Search for and select the **Service Fabric: Build Application** command. The build output is sent to the integrated terminal.
 
@@ -75,16 +75,16 @@ After you have built the application, you can deploy it to the local cluster.
 
    ![Counter Service application in Browser](./media/service-fabric-creating-csharp-applications-with-vs-code/counter-service-running.png)
 
-## Debug in VS Code
+## Debug the application
 When debugging applications in VS Code, the application must be running on a local cluster. Breakpoints can then be added to the code.
 
 To set a breakpoint and debug, complete the following steps:
 1. In Explorer, open the */src/CounterServiceApplication/CounterService/CounterService.cs* file and set a breakpoint at line 62 inside the `RunAsync` method.
-3. Click the Debug icon in the **Activity Bar** to open the debugger view in VS Code. Click the gear icon at the top of the debugger view and select **Csharp** from the dropdown environment menu. The launch.json file opens. You can close this file. Now you should see configuration choices in the debug configuration menu located next to the run button (green arrow).
+3. Click the Debug icon in the **Activity Bar** to open the debugger view in VS Code. Click the gear icon at the top of the debugger view and select **.NET Core** from the dropdown environment menu. The launch.json file opens. You can close this file. Now you should see configuration choices in the debug configuration menu located next to the run button (green arrow).
 
    ![Debug Icon in VS Code Workspace](./media/service-fabric-creating-csharp-applications-with-vs-code/debug-icon-workspace.png)
 
-2. Select **.NET Core Attach** from the configuration menu.
+2. Select **.NET Core Attach** from the debug configuration menu.
 
    ![Debug Icon in VS Code Workspace](./media/service-fabric-creating-csharp-applications-with-vs-code/debug-start.png)
 
