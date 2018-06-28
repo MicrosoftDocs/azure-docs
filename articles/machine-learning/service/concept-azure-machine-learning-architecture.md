@@ -59,7 +59,7 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 
 ## Project
 
-A project is a local folder on your computer that contains the files for your machine learing solution. To use a local folder with Azure Machine Learning Services, you must attach it to a workspace. For an example of how to do attach a project to a workspace, see one of the following documents:
+A project is a local folder on your computer that contains the files for your machine learning solution. To use a local folder with Azure Machine Learning Services, you must attach it to a workspace. For an example of how to do attach a project to a workspace, see one of the following documents:
 
 * [Create a workspace with Python]()
 * [Create a workspace with Azure CLI]()
