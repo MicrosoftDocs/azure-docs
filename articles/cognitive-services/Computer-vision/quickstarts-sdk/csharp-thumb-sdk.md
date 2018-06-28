@@ -1,7 +1,7 @@
 ---
-title: Computer Vision API C# quickstart sdk analyze image | Microsoft Docs
+title: Computer Vision API C# quickstart sdk create thumbnail | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze an image using the Computer Vision Windows C# client library in Cognitive Services.
+description: In this quickstart, you generate a thumbnail from an image using the Computer Vision Windows C# client library in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -12,26 +12,18 @@ ms.topic: quickstart
 ms.date: 06/28/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze a local image with C&#35;
+# Quickstart: Generate a thumbnail with C&#35;
 
-In this quickstart, you analyze both a local and a remote image to extract visual features using the Computer Vision Windows client library.
+In this quickstart, you generate a thumbnail from an image using the Computer Vision Windows client library.
 
 ## Prerequisites
 
 * To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 * The [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
 
-## AnalyzeImageAsync method
+## Get Thumbnail request
 
-The `AnalyzeImageAsync` and `AnalyzeImageInStreamAsync` methods wrap the [Analyze Image API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for remote and local images, respectively. You can use these methods to extract visual features based on image content and choose which features to return, including:
-
-* A detailed list of tags related to the image content.
-* A description of image content in a complete sentence.
-* The coordinates, gender, and age of any faces contained in the image.
-* The ImageType (clip art or a line drawing).
-* The dominant color, the accent color, or whether an image is black & white.
-* The category defined in this [taxonomy](../Category-Taxonomy.md).
-* Does the image contain adult or sexually suggestive content?
+The `GenerateThumbnailAsync` and `GenerateThumbnailInStreamAsync` methods wrap the [Get Thumbnail API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) for remote and local images, respectively.  You can use these methods to generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the region of interest and generate cropping coordinates based on that region.
 
 To run the sample, do the following steps:
 
@@ -52,36 +44,29 @@ using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
 using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace ImageAnalyze
+namespace ImageThumbnail
 {
     class Program
     {
         // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
         private const string subscriptionKey = "<SubscriptionKey>";
 
-        private const string remoteImageUrl =
-            "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
-
         // localImagePath = @"C:\Documents\LocalImage.jpg"
         private const string localImagePath = @"<LocalImage>";
 
-        // Specify the features to return
-        private static readonly List<VisualFeatureTypes> features =
-            new List<VisualFeatureTypes>()
-        {
-            VisualFeatureTypes.Categories, VisualFeatureTypes.Description,
-            VisualFeatureTypes.Faces, VisualFeatureTypes.ImageType,
-            VisualFeatureTypes.Tags
-        };
+        private const string remoteImageUrl =
+            "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg";
+
+        private const int thumbnailWidth = 100;
+        private const int thumbnailHeight = 100;
 
         static void Main(string[] args)
         {
             ComputerVisionAPI computerVision = new ComputerVisionAPI(
-                new ApiKeyServiceClientCredentials(subscriptionKey), 
+                new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
@@ -95,8 +80,8 @@ namespace ImageAnalyze
             // Specify the Azure region
             computerVision.AzureRegion = AzureRegions.Westcentralus;
 
-            var t1 = AnalyzeRemoteAsync(computerVision, remoteImageUrl);
-            var t2 = AnalyzeLocalAsync(computerVision, localImagePath);
+            var t1 = GetRemoteThumbnailAsync(computerVision, remoteImageUrl);
+            var t2 = GetLocalThumbnailAsnc(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait();
 
@@ -104,17 +89,26 @@ namespace ImageAnalyze
             Console.ReadLine();
         }
 
-        // Analyze a remote image
-        private static async Task AnalyzeRemoteAsync(
+        // Create a thumbnail from a remote image
+        private static async Task GetRemoteThumbnailAsync(
             ComputerVisionAPI computerVision, string imageUrl)
         {
-            ImageAnalysis analysis =
-                await computerVision.AnalyzeImageAsync(imageUrl, features);
-            DisplayResults(analysis, imageUrl);
+            Stream thumbnail = await computerVision.GenerateThumbnailAsync(
+                thumbnailWidth, thumbnailHeight, imageUrl, true);
+
+            string imageName = imageUrl.Substring(imageUrl.LastIndexOf('/') + 1);
+            string path = Environment.ExpandEnvironmentVariables("%TEMP%");
+            string thumbnailFilePath =
+                path + "\\" + imageName.Insert(imageName.Length - 4, "_thumb");
+
+            // Save the thumbnail to the users %TEMP% folder,
+            // using the original name with the suffix "_thumb".
+            // Note: This will overwrite an existing file of the same name.
+            SaveThumbnail(thumbnail, thumbnailFilePath);
         }
 
-        // Analyze a local image
-        private static async Task AnalyzeLocalAsync(
+        // Create a thumbnail from a local image
+        private static async Task GetLocalThumbnailAsnc(
             ComputerVisionAPI computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
@@ -126,29 +120,40 @@ namespace ImageAnalyze
 
             using (Stream imageStream = File.OpenRead(imagePath))
             {
-                ImageAnalysis analysis = await computerVision.AnalyzeImageInStreamAsync(
-                    imageStream, features);
-                DisplayResults(analysis, imagePath);
+                Stream thumbnail = await computerVision.GenerateThumbnailInStreamAsync(
+                    thumbnailWidth, thumbnailHeight, imageStream, true);
+
+                string thumbnailFilePath =
+                    localImagePath.Insert(localImagePath.Length - 4, "_thumb");
+
+                // Save the thumbnail to the same folder as the original image,
+                // using the original name with the suffix "_thumb".
+                // Note: This will overwrite an existing file of the same name.
+                SaveThumbnail(thumbnail, thumbnailFilePath);
             }
         }
 
-        // Display the most relevant caption for the image
-        private static void DisplayResults(ImageAnalysis analysis, string imageUri)
+        // Save the thumbnail locally
+        private static void SaveThumbnail(Stream thumbnail, string thumbnailFilePath)
         {
-            Console.WriteLine(imageUri);
-            Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
+            using (Stream file = File.Create(thumbnailFilePath))
+            {
+                thumbnail.CopyTo(file);
+            }
+            Console.WriteLine("Thumbnail written to: {0}\n", thumbnailFilePath);
         }
     }
 }
 ```
 
-## AnalyzeImageAsync response
+## Get Thumbnail response
 
-A successful response displays the most relevant caption for each image, for example:
+A successful response saves the thumbnail for each image locally and displays the thumbnail's location, for example:
 
 ```cmd
-http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
-a large waterfall over a rocky cliff
+Thumbnail written to: C:\Documents\LocalImage_thumb.jpg
+
+Thumbnail written to: C:\Users\user\AppData\Local\Temp\Bloodhound_Puppy_thumb.jpg
 ```
 
 ## Next steps
