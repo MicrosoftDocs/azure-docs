@@ -75,7 +75,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
     <html>
     <head>
         <meta name="viewport" content="width=device-width" />
-        <title>Sign-In with Microsoft Guide</title>
+        <title>Sign in with Microsoft Guide</title>
     </head>
     <body>
     @if (!Request.IsAuthenticated)
@@ -111,7 +111,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
 
 <!--start-collapse-->
 > ### More Information
-> This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, please go to the [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
+> This page adds a sign-in button in SVG format with a black background:<br/>![Sign in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, please go to the [this page](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
 <!--end-collapse-->
 
 ## Add a controller to display user's claims
@@ -169,7 +169,7 @@ In Visual Studio, create a new view to display the user's claims in a web page:
     <html>
     <head>
         <meta name="viewport" content="width=device-width" />
-        <title>Sign-In with Microsoft Sample</title>
+        <title>Sign in with Microsoft Sample</title>
         <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
     </head>
     <body style="padding:50px">

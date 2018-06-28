@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
 
 ---
@@ -152,7 +152,8 @@ The services that enable moving to both a new resource group and subscription ar
 * Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics jobs can't be moved when in running state.
-* SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases. 
+* SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
+* Time Series Insights
 * Traffic Manager
 * Virtual Machines - VMs with managed disks can't be moved. See [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
