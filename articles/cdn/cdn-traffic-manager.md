@@ -52,7 +52,9 @@ After you set up your CDN and Traffic Manager profiles, follow these steps to ad
 
     a. For the first CNAME entry, map your custom domain, with the cdnverify subdomain, to your CDN endpoint. This entry registers the custom domain to the endpoint.
 
-       For example: `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101akamai.azureedge.net`  
+      For example: 
+
+      `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101akamai.azureedge.net`  
 
     b. For the second CNAME entry, map your custom domain, without the cdnverify subdomain, to your CDN endpoint. This entry maps the custom domain to Traffic Manager.
 
@@ -68,7 +70,7 @@ After you set up your CDN and Traffic Manager profiles, follow these steps to ad
                              
     For example: 
 
-     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
+    `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
 4. From your Azure CDN profile, select the second CDN endpoint (Verizon) and repeat step 2. Select **Add custom domain**, and input *cdndemo101akamai.azureedge.net*.
  
