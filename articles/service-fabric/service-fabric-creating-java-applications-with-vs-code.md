@@ -1,5 +1,5 @@
 ---
-title: Develop Java Service Fabric applications with Visual Studio Code| Microsoft Docs
+title: Develop Java Service Fabric applications with Visual Studio Code | Microsoft Docs
 description: This article shows how to build, deploy, and debug Java Service Fabric applications using Visual Studio Code. 
 services: service-fabric
 documentationcenter: .net
@@ -29,7 +29,7 @@ This article shows you how to build, deploy, and debug a Java Service Fabric app
 
 ## Prerequisites
 
-This article assumes that you have already installed VS Code, the Service Fabric Reliable Services extension for VS Code, and any dependencies required by your development environment. To learm more, see [Getting Started](./service-fabric-with-vs-code-getting-started.md#prerequisites).
+This article assumes that you have already installed VS Code, the Service Fabric Reliable Services extension for VS Code, and any dependencies required for your development environment. To learm more, see [Getting Started](./service-fabric-with-vs-code-getting-started.md#prerequisites).
 
 ## Download the sample
 This article uses the Voting application in the [Service Fabric Java application quickstart sample GitHub repository](https://github.com/Azure-Samples/service-fabric-java-quickstart). 
@@ -54,7 +54,7 @@ Open VS Code.  Click the Explorer icon in the **Activity Bar** and click **Open 
    ![Build Application Command in VS Code](./media/service-fabric-creating-java-applications-with-vs-code/sf-build-application.png)
 
 ## Deploy the application to the local cluster
-After you have built the application, you can deploy it to a local cluster. 
+After you have built the application, you can deploy it to the local cluster. 
 
 > [!IMPORTANT]
 > Deploying Java applications to the local cluster is not supported on Windows machines.

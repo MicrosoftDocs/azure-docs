@@ -1,9 +1,9 @@
 ---
-title: Create a .NET Core Service Fabric application with Visual Studio Code| Microsoft Docs
-description: This article is an overview of creating Service Fabric applications using Visual Studio Code. 
+title: Develop .NET Core Service Fabric applications with Visual Studio Code | Microsoft Docs
+description: This article shows how to build, deploy, and debug .NET Core Service Fabric applications using Visual Studio Code. 
 services: service-fabric
 documentationcenter: .net
-author: peterpogorski
+author: JimacoMS2
 manager: timlt
 editor: ''
 
@@ -13,38 +13,25 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/06/2017
-ms.author: t-pepogo
+ms.date: 06/29/2018
+ms.author: v-jamebr
 
 ---
 
-# Creating C# Service Fabric Applications with VS Code
+# Develop C# Service Fabric applications with Visual Studio Code
 
-The [Service Fabric Reliable Services extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) makes it easy to build .NET Core Service Fabric applications on Windows, Linux, and  macOS operating systems.
+The [Service Fabric Reliable Services extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) makes it easy to build .NET Core Service Fabric applications on Windows, Linux, and  macOS operating systems.
 
-This article shows you how to build, deploy, and debug a .NET Core Service Fabric application with Visual Studio Code.
+This article shows you how to build, deploy, and debug a .NET Core Service Fabric application using Visual Studio Code.
 
 ## Prerequisites
-As VS Code is a lightweight editor, a number of dependencies must be first installed before Service Fabric applications can be created using VS Code.
 
-* [Install Visual Studio Code](https://code.visualstudio.com/)
-* [Install Node.js](https://nodejs.org/)
-* [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Install git](https://git-scm.com/)
-* Install Yeoman Generators
-
-   ```sh
-   npm install -g yo
-   npm install -g generator-azuresfjava
-   npm install -g generator-azuresfcsharp
-   ```
-
-### Windows Only
-
-If you are using VS Code on Windows, a bash shell must be installed. Bash on Ubuntu (On Windows) can be installed by following these [instructions](https://msdn.microsoft.com/commandline/wsl/install_guide).
+This article assumes that you have already installed VS Code, the Service Fabric Reliable Services extension for VS Code, and any dependencies required for your development environment. To learm more, see [Getting Started](./service-fabric-with-vs-code-getting-started.md#prerequisites).
 
 ## Download the sample
-In a command window, run the following command to clone the sample app repository to your local machine.
+This article uses the CounterService application in the [Service Fabric .NET Core getting started samples GitHub repository](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started). 
+
+To clone the repository to your development machine, run the following command from a terminal window (command window on Windows):
 
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started.git
@@ -68,16 +55,19 @@ The application should now appear in your Visual Studio Code workspace.
 ![Counter Service Application in Workspace][counter-service-workspace]
 
 ## Deploy the Counter Service application to a local cluster
-1. Press (Ctrl + Shift + p) in order to open the command prompt in Visual Studio Code.
-2. Search for the Service Fabric: Build Application command. When prompted to select a language, select C#. The output of the build process will be output in the integrated terminal.
+1. Press (Ctrl + Shift + p) to open the **Command Palette** in VS Code.
+2. Search for and select the **Service Fabric: Build Application** command. The build output is sent to the integrated terminal.
 
    ![Build Application Command in Visual Studio Code][build-application]
 
-3. Search for the Service Fabric: Deploy Application (Localhost) command. The output of the install process can be seen in the integrated terminal.
+## Deploy the application to the local cluster
+After you have built the application, you can deploy it to the local cluster. 
+
+1. From the **Command Palette**, select the **Service Fabric: Deploy Application (Localhost) command**. The output of the install process is sent to the integrated terminal.
 
    ![Deploy Application Command in Visual Studio Code][deploy-application]
 
-4. When the deployment is complete, launch a browser and open this page: `http://localhost:31001` - the web front-end of the application.
+4. When the deployment is complete, launch a browser and open this page: http://localhost:31001. This is the web front-end of the application.
 
    ![Counter Service Application in Browser][counter-service-application]
 
