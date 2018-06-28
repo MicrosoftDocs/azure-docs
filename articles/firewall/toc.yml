@@ -1,5 +1,4 @@
 - name: Azure Firewall Documentation
-<<<<<<< HEAD
   href: index.yml
 - name: Overview
   items:
@@ -53,6 +52,3 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-application-gateway
-=======
-  href: index.yml
->>>>>>> b3225f930bb81e019499fb76309a055f5e7f8ab7
