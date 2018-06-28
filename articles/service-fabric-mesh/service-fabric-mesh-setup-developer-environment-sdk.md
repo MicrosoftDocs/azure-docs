@@ -2,17 +2,17 @@
 title: Set up your development environment to build Service Fabric Mesh apps
 description: The prerequisites required before you can create a Service Fabric app and deploy it to Azure Service Fabric Mesh.
 services: Azure Service Fabric Mesh
-keywords: 
+keywords:  
 author: tylermsft
 ms.author: twhitney
 ms.date: 06/13/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
-manager: timlt
+manager: timlt 
 #Customer intent: As a developer, I need to prepare install the prerequisites to enable service fabric mesh development in visual studio.
 ---
 
-# Set up your development environment to build Service Fabric Mesh apps
+# Set up your development environment to build Service Fabric apps
 
 To build and run Azure Service Fabric apps on your Windows development machine, install the Service Fabric runtime, SDK, and tools.
 
@@ -56,7 +56,7 @@ Visual Studio 2017 is required to deploy Service Fabric apps. [Install version 1
 - ASP.NET and web development
 - Azure Development
 
-## Docker
+ ## Docker
 
 Install Docker to support the containerized Service Fabric apps used by Service Fabric Mesh.
 
@@ -82,9 +82,9 @@ Restart your computer.
 
 ## SDK and tools
 
-Install the Service Fabric runtime, SDK, and tools.
+Install the Service Fabric runtime, SDK, and tools in a dependent order.
 
-1. Download the [Service Fabric Runtime][download-runtime]. Then run it with the **/AcceptEULA** flag on the command line, for example:
+1. Download the [Service Fabric Runtime][download-runtime] executable, save it and manually run it with the **/AcceptEULA** flag on the command line, for example:
 `c:\users\<user name>\downloads\MicrosoftServiceFabric.6.3.116.9494.exe /AcceptEULA`
 2. Install the [Service Fabric SDK][download-sdk].
 3. Install the [Service Fabric Mesh SDK][download-sdkmesh].
@@ -108,10 +108,26 @@ After you install the runtime, SDKs and Visual Studio tools, create a developmen
 
 You're now ready to create Service Fabric Mesh apps!
 
+## Install the Service Fabric Mesh CLI
+The Azure Service Fabric Mesh CLI is used to deploy and manage resources.  It requires that you're running the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
+
+Remove any previous installation of the Azure Service Fabric Mesh CLI module.
+
+```azurecli
+az extension remove --name mesh
+```
+
+Install the Azure Service Fabric Mesh CLI extension module. For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI.
+
+```azurecli
+az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.7.0-py2.py3-none-any.whl
+```
+
 ## Next steps
 
-Read through the [Create a .NET Core app to Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md) tutorial.
+Read through the [Create an Azure Service Fabric app](service-fabric-mesh-tutorial-create-dotnetcore.md) tutorial.
 
+[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows
 [download-docker-server]: https://docs.docker.com/install/windows/docker-ee/
 [download-runtime]: http://aka.ms/sfruntime

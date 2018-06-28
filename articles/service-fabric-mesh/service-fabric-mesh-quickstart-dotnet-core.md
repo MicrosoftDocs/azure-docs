@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Deploy an Azure Service Fabric Mesh app
+title: Quickstart - Deploy an app to Azure Service Fabric Mesh | Microsoft Docs
 description: This quickstart shows you how to create an ASP.NET Core website and publish it to Azure Service Fabric Mesh.
 services: service--fabric-mesh
 documentationcenter: .net
@@ -11,7 +11,7 @@ ms.service: service-fabric-mesh
 ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: NA 
 ms.date: 06/12/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
@@ -24,7 +24,7 @@ Azure Service Fabric Mesh is a fully managed service that enables developers to 
 
 In this quickstart you'll create a new Service Fabric Mesh app (an ASP.NET Core website), run it on the local development cluster, and then publish it to run on Azure.
 
-You'll need an Azure subscription. If you don't have one, you can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+You'll need an Azure subscription. If you don't have one, you can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. You will also need to [setup your developer environment](service-fabric-mesh-setup-developer-environment-sdk.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -86,7 +86,7 @@ Back in the **Publish Service Fabric Application** dialog, under **Azure Contain
 
 In the publish dialog, press the **Publish** button to deploy your Service Fabric application to Azure.
 
-When you publish to Azure for the first time, it can take up to 10 or more minutes. Subsequent publishes of the same project generally take around five minutes. These estimates will vary based on your internet connection speed and other factors. You can monitor the progress of the deployment by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the deployment has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
+When you publish to Azure for the first time, the docker image is pushed to the Azure Container Registry (ACR) which takes time depending on the size of the image. Subsequent publishes of the same project will be faster. You can monitor the progress of the deployment by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the deployment has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
 
 ```json
 Packaging Application...
@@ -111,7 +111,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-Alternatively, you can delete the resource group [from the portal](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources).
+Alternatively, you can delete the resource group [from the Azure portal](https://portal.azure.com).
 
 ## Next steps
 To learn more about Service Fabric Mesh, read the overview:

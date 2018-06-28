@@ -5,10 +5,10 @@ services: service-fabric-mesh
 keywords: 
 author: chackdan
 ms.author: chackdan
-ms.date: 06/26/2018
+ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
-manager: timlt
+manager: timlt 
 ---
 # Commonly asked Service Fabric Mesh questions
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. This article has answers to commonly asked questions.
@@ -66,7 +66,7 @@ Yes, encrypting secrets is not supported in the current Private Preview.
 
 There is a known issue, where you might have to reference services differently in your local development cluster and in Azure Mesh. In your local development cluster use {serviceName}.{applicationName}. In Azure Service Fabric Mesh, use {servicename}. Azure Mesh does not currently support dns resolution across applications.
 
-For other known DNS issues with running a Service Fabric development cluster on Windows 10, see here: https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-how-to-debug-windows-containers.
+For other known DNS issues with running a Service Fabric development cluster on Windows 10, see here: [Debug Windows containers](/azure/service-fabric/service-fabric-how-to-debug-windows-containers).
 
 **I get this error when using the CLI module _ImportError: cannot import name 'sdk_no_wait'**
 

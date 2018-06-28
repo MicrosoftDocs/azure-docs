@@ -7,7 +7,7 @@
     href: service-fabric-mesh-overview.md
 - name: Quickstarts
   items:
-  - name: Deploy a container
+  - name: Deploy Hello World
     href: service-fabric-mesh-quickstart-deploy-container.md
   - name: Deploy a Service Fabric application
     href: service-fabric-mesh-quickstart-dotnet-core.md
@@ -25,12 +25,10 @@
   items:
   - name: Terminology
     href: service-fabric-mesh-terminology.md
-  - name: Application model
-    href: service-fabric-mesh-application-model.md
+  - name: Service Fabric resources
+    href: service-fabric-mesh-service-fabric-resources.md
   - name: Monitoring and diagnostics
     href: service-fabric-mesh-monitoring-diagnostics.md
-  - name: Application scaling
-    href: service-fabric-mesh-scaling.md
   - name: Storing state
     href: service-fabric-mesh-storing-state.md
 
@@ -40,6 +38,12 @@
     href: service-fabric-mesh-setup-developer-environment-sdk.md
   - name: Deploy an app (CLI)
     href: service-fabric-mesh-deploy-app-template.md
+  - name: Deploy an app with Azure Files volume
+    href: service-fabric-mesh-deploy-app-azurefiles-volume.md
+  - name: Deploy an app from a private registry
+    href: service-fabric-mesh-deploy-app-private-registry.md
+  - name: Scale services in an app
+    href: service-fabric-mesh-app-scale-out.md
 
 - name: Resources
   items:
@@ -57,3 +61,4 @@
     href: https://azure.microsoft.com/updates/?product=service-fabric-mesh
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
+ 
