@@ -44,7 +44,7 @@ When a bulk operation to import or update documents is triggered with a batch of
 
 ![Bulk executor architecture](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-The Bulk Executor library makes sure to maximally utilize the throughput allocated to a collection. It uses an [AIMD-style congestion control mechanism](https://tools.ietf.org/html/rfc5681) for each Azure Cosmos DB partition key range to efficiently handle throttling and timeouts. 
+The Bulk Executor library makes sure to maximally utilize the throughput allocated to a container. It uses an [AIMD-style congestion control mechanism](https://tools.ietf.org/html/rfc5681) for each Azure Cosmos DB partition key range to efficiently handle throttling and timeouts. 
 
 ## Next Steps 
   
