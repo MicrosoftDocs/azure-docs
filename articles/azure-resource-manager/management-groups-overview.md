@@ -18,11 +18,11 @@ ms.author: rithorn
 
 # Organize your resources with Azure management groups 
 
-If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure management groups provides a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
+If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
 
-The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **All Services** section. 
+The management group feature is available in a public preview. To start using management groups, sign in to the [Azure portal](https://portal.azure.com) and search for **Management Groups** in the **All Services** section. 
 
-As an example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.
+For example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. This policy would be applied to all management groups, subscriptions, and resources under that management group by only allowing VMs to be created in that region.
 
 ## Hierarchy of management groups and subscriptions 
 
@@ -31,15 +31,15 @@ The following diagram shows an example hierarchy that consists of management gro
 
 ![tree](media/management-groups/MG_overview.png)
 
-By creating a hierarchy that is grouped by departments, you are able to assign [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md) roles that *inherit* to the departments under that management group. By using management groups, you can reduce your workload and reduces the risk of error by only having to assign the role once. 
+By creating a hierarchy that is grouped by departments, you can assign [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md) roles that *inherit* to the departments under that management group. By using management groups, you can reduce your workload and reduces the risk of error by only having to assign the role once. 
 
 ### Important facts about management groups
 - 10,000 management groups can be supported in a single directory. 
 - A management group tree can support up to six levels of depth.
-    - This limit does not include the Root level or the subscription level.
+    - This limit doesn't include the Root level or the subscription level.
 - Each management group can only support one parent.
 - Each management group can have multiple children. 
-- All subscriptions and management groups are contained within a single hierarchy in each directory. See xxx for exceptions. 
+- All subscriptions and management groups are contained within a single hierarchy in each directory. See [the section on the root management group](### Important facts about the Root management group ) for exceptions. 
 
 ### Preview subscription visibility limitation 
 There's currently a limitation within the preview where you aren't able to view subscriptions that you have inherited access to. The access is inherited to the subscription, but the Azure Resource Manager isn't able to honor the inheritance access yet.  
@@ -57,43 +57,35 @@ This item is being worked on and will be resolved before management groups are a
 
 Each directory is given a single top-level management group called the "Root" management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This Root management group allows for global policies and RBAC assignments to be applied at the directory level. The [Directory Administrator needs to elevate themselves](../role-based-access-control/elevate-access-global-admin.md) to be the owner of this root group initially. Once the administrator is the owner of the group, they can assign any RBAC role to other directory users or groups to manage the hierarchy.  
 
-### Important facts about the Root management group
-- The root management group's name and ID are given the Azure Active Directory ID by default. The display name can be updated at any time to show different within the Azure portal. 
-- All subscriptions and management groups can fold up to the one root management group within the directory.  
-    - It is recommended to have all items in the directory fold up to the Root management group for global management.  
-    - During the Public Preview, all subscriptions within the directory are not automatically made children of the root.   
-    - During the Public Preview, new subscriptions are not automatically defaulted to the Root management group. 
-- The root management group cannot be moved or deleted, unlike other management groups. 
-
 ### Important facts about the Root management group    
 - The root management group's name and ID are given by default. The display name can be updated at any time to show different within the Azure portal.
     - The name will be "Tenant root group". 
     - The ID will be the Azure Active Directory ID.
-- The root management group cannot be moved or deleted, unlike other management groups.  
+- The root management group can't be moved or deleted, unlike other management groups.  
 - All subscriptions and management groups fold up to the one root management group within the directory. **
     - All items in the directory fold up to the root management group for global management. 
-    - All exisitng subscriptions within the directory are made children of the root.   
+    - All existing subscriptions within the directory are made children of the root.   
     - New subscriptions are automatically defaulted to the root management group when created. 
-- All Azure users are able to see the root management group, but not all users have access to manage that root management group. 
-    - Everyone who has access to a subscription can see the context of where that subscriptin is in the hierarchy.  
-    - No one is given default access to the root management group. Directory Admins are the only users that can elevate themselves to gain access.  Once they have access they can assign any RBAC role to other users to manage.  
+- All Azure users can see the root management group, but not all users have access to manage that root management group. 
+    - Everyone who has access to a subscription can see the context of where that subscription is in the hierarchy.  
+    - No one is given default access to the root management group. Directory Global Administrators are the only users that can elevate themselves to gain access.  Once they have access, the directory administrators can assign any RBAC role to other users to manage.  
 
 >[!NOTE]
->If your directory started using the management groups service prior to 6/25/2018, your directory might not be set up with all subscriptions in the hierarchy. The management group team is retroactivly updating each directory that started using managment groups in the Public Preview prior to that date. 
+>If your directory started using the management groups service before 6/25/2018, your directory might not be set up with all subscriptions in the hierarchy. The management group team is retroactivly updating each directory that started using managment groups in the Public Preview prior to that date within July 2018. All subscriptions in the directories will be made children under the root management group prior.  
 >
 >If you have questions on this retroactive process, contact: managementgroups@microsoft.com  
   
 
 ### Initial setup of management groups 
-When any user starts using management groups, there's a setup process that happens . The first step is the root management group is created in the directory. Once this is group is created, all exisisting subscriptions that exisit in the directory are made children of the root management group.  The reason for this process is to ensure that there is only one management group hierarhcy within a directory.  The single hierarchy within the directory allows administrative customers to apply global access and polciies that other cusotmers within the directory cannot bypass. Since there will never be a state of multiple hierarhcies, customers can be assured that anything assigned on the root will be enforced accross all management groups, subscriptions, resource groups, and resources within the directory.  
+When any user starts using management groups, there's a setup process that happens. The first step is the root management group is created in the directory. Once this is group is created, all existing subscriptions that exisit in the directory are made children of the root management group.  The reason for this process is to make sure there's only one management group hierarchy within a directory.  The single hierarchy within the directory allows administrative customers to apply global access and policies that other customers within the directory can't bypass. Anything assigned on the root will apply across all management groups, subscriptions, resource groups, and resources within the directory by having one hierarchy within the directory.  
 
 > [!IMPORTANT]
 > Any assignement of user access or polciy assignment on the root management group applies to **all resources within the directory**. Because of this, all customers should evaluate the need to have items defiend on this scope.  User access and policy assignments should be "Must Have" only at this scope.  
   
 ## Management group access
 
-Azure management groups supports [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md) for all resource accesses and role definitions. These permissions are inherited to child resources that exist in the hierarchy. Any built in RBAC role can be assigned to a management group which will inherit down the hierarchy to the resources.  For example, the RBAC role VM contributor can be assigned to a management group. This role has no action on the management gorup, but will inherit to all VM's under that management group.  
-The following chart shows the list of roles and thier supported actions on management groups. 
+Azure management groups support [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md) for all resource accesses and role definitions. These permissions are inherited to child resources that exist in the hierarchy. Any built-in RBAC role can be assigned to a management group that will inherit down the hierarchy to the resources.  For example, the RBAC role VM contributor can be assigned to a management group. This role has no action on the management group, but will inherit to all VMs under that management group.  
+The following chart shows the list of roles and the supported actions on management groups. 
 
 | RBAC Role Name             | Create | Rename | Move | Delete | Assign Access | Assign Policy | Read  |
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
@@ -103,8 +95,8 @@ The following chart shows the list of roles and thier supported actions on manag
 |Resource Policy Contributor |        |        |      |        |               | X             |       |
 |User Access Administrator   |        |        |      |        | X             |               |       |
 
-### Custom RBAC Role Defination and Assignement 
-Custom RBAC roles are not supported on management groups at this time.  Please see the [management group feedback forum](https://aka.ms/mgfeedback) to view the status of this item. 
+### Custom RBAC Role Defination and Assignment 
+Custom RBAC roles aren't supported on management groups at this time.  See the [management group feedback forum](https://aka.ms/mgfeedback) to view the status of this item. 
 
 ## Next steps 
 To learn more about management groups, see: 
