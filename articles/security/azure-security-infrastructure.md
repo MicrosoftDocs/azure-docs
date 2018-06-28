@@ -13,15 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/25/2018
+ms.date: 06/28/2018
 ms.author: terrylan
 
 ---
 
 # Security of Azure infrastructure
-Microsoft Azure runs in datacenters managed and operated by Azure. These geographically-dispersed datacenters comply with key industry standards, such as ISO/IEC 27001:2013 and NIST SP 800-53, for security and reliability. The datacenters are managed, monitored, and administered by Microsoft operations staff that have years of experience in delivering the world’s largest online services with 24 x 7 continuity. In addition to datacenter, network, and personnel security practices, Azure incorporates security practices at the application and platform layers to enhance security for application developers and service administrators.
+Microsoft Azure runs in datacenters managed and operated by Microsoft. These geographically dispersed datacenters comply with key industry standards, such as ISO/IEC 27001:2013 and NIST SP 800-53, for security and reliability. The datacenters are managed, monitored, and administered by Microsoft operations staff. The operations staff has years of experience in delivering the world’s largest online services with 24 x 7 continuity.
 
-This series of articles provides information on what Microsoft does to secure the physical datacenter. The articles address physical security, availability, datacenter components, network and production architectures, operations, monitoring, integrity, and data protection.
+This series of articles provides information on what Microsoft does to secure the Azure infrastructure. The articles address:
+
+- [Physical Security](azure-physical-security.md)
+- [Availability](azure-infrastructure-availability.md)
+- [Components and boundaries](azure-infrastructure-components.md)
+- [Network architecture](azure-infrastructure-network.md)
+- [Production network](azure-production-network.md)
+- [SQL Database](azure-infrastructure-sql.md)
+- [Operations](azure-infrastructure-operations.md)
+- [Monitoring](azure-infrastructure-monitoring.md)
+- [Integrity](azure-infrastructure-integrity.md)
+- [Data protection](azure-protection-of-customer-data.md)
 
 ## Shared responsibility model
 It’s important to understand the division of responsibility between you and Microsoft. On-premises, you own the whole stack but as you move to the cloud some responsibilities transfer to Microsoft. The following responsibility matrix shows the areas of the stack in a software as a service (SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS) deployment that you are responsible for and Microsoft is responsible for.
