@@ -86,13 +86,8 @@ You can also keep the resource group, but delete a single workspace by displayin
 
 
 ## Next steps
-You have now created an Azure Machine Learning Workspace.
 
-For a quickstart showing you how to create a project, run a script, and explore the run history of the script, try:
-+ [Create a project with Azure Machine Learning Services SDK for Python](quickstart-set-up-in-python.md)
-+ [Create a project with Azure Machine Learning Services CLI](quickstart-set-up-in-cli.md)
-
-For a more in-depth experience of this workflow, follow the full-length tutorial that contains detailed steps for building, training, and deploying models with Azure Machine Learning Services. 
+Follow the full-length tutorial to learn how to use a workspace to build, train, and deploy models with Azure Machine Learning Services.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Build, train, and deploy](tutorial-build-train-deploy-with-azure-machine-learning.md)

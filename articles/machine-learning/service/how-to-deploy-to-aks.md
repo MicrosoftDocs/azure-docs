@@ -23,8 +23,7 @@ But, if you want your models and web services for high-scale, production usage, 
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- An Azure Machine Learning Workspace and a local project directory. Learn how to get these prerequisites using the [Quickstart: Create a project and get started in Python](quickstart-set-up-in-python.md) or [using the CLI](quickstart-set-up-in-cli.md).
-
+- An Azure Machine Learning Workspace and a local project directory. Learn how to get these prerequisites using the [Portal quickstart](quickstart-get-started.md) or [CLI quickstart](quickstart-get-started-with-cli.md)
 - A provisioned AKS cluster
 
 

@@ -24,6 +24,6 @@ Use the rich set of `az ml` commands to interact the service in any command-line
 
 **Try these next steps for the machine learning CLI extension:**
 
-1. [Install the CLI and get started](quickstart-set-up-in-cli.md).
+1. [Install the CLI and get started](quickstart-get-started-with-cli.md).
 
 1. Look up commands in [the CLI reference documentation]().

@@ -24,7 +24,7 @@ While the workflow hasn't changed, the July 2018 release of Azure Machine Learni
 + An [updated and expanded CLI](reference-azure-machine-learning-sdk.md)
 + New portal UI for sharing and managing your run histories and compute targets
 
-In this newer release, [the architecture of Azure Machine Learning Services](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of requiring multiple Azure resources and accounts, the service has moved to a single, top-level resource called the Azure Machine Learning Workspace.  You can quickly create a workspace [in Python](quickstart-set-up-in-python.md), using [the CLI](quickstart-set-up-in-cli.md), or in the [Azure portal](how-to-create-workspace-in-portal.md).  This workspace can be used by one or more users to store their compute resources, models, deployments, and run histories. You can also have multiple workspaces.
+In this newer release, [the architecture of Azure Machine Learning Services](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of requiring multiple Azure resources and accounts, the service has moved to a single, top-level resource called the Azure Machine Learning Workspace.  You can quickly create a workspace in the [Azure portal](quickstart-get-started.md) or using [the CLI](quickstart-get-started-with-cli.md).  This workspace can be used by one or more users to store their compute resources, models, deployments, and run histories. You can also have multiple workspaces.
 
 While Azure Machine Learning still offers the CLI and SDK clients, the desktop Workbench application was deprecated. You can still monitor your run history, but now you can do so in the Azure portal online. In this workspace interface in the portal, you can run history reports, manage the compute targets attached to your workspace, managing your models, Docker images, and even deploy web services.
 
@@ -53,7 +53,7 @@ Generally speaking, most of the artifacts created in the pre-GA version of Azure
 
 You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, projects are local directories that are attached to the new workspace. [See a diagram of the latest architecture](concept-azure-machine-learning-architecture.md). 
 
-Since much of the project contents was already on your local machine, you just need to register the local project directory with your new workspace. Learn how to create a new project [in Python with the new SDK](quickstart-set-up-in-python.md) or with [the updated CLI](quickstart-set-up-in-cli.md).
+Since much of the project contents was already on your local machine, you just need to register the local project directory with your new workspace. Learn how to create a new project [in Python with the new SDK](quickstart-get-started.md) or with [the updated CLI](quickstart-get-started-with-cli.md).
 
 With a few lines of code, your pre-existing project files will continue to work in the latest version. [Learn how migrate your projects.](how-to-migrate-to-ga.md#projects)
 

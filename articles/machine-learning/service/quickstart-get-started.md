@@ -1,5 +1,5 @@
 ---
-title: Get Started with Azure Machine Learning Services | Microsoft Docs
+title: Get started with Azure Machine Learning Services | Microsoft Docs
 description: In this Quickstart, you will learn how to create a workspace and a project to get started with Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -11,7 +11,7 @@ ms.author: roastala
 ms.date: 07/27/2018
 ---
 
-# Get started with Azure Machine Learning Services
+# Quickstart: Get started with Azure Machine Learning Services
 
 In this quickstart, you'll use the Azure portal to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md).
 
@@ -22,8 +22,8 @@ You'll learn how to:
 1. Run a Python script in your project to show a few metrics.
 1. View the run history.
 
- > [!NOTE]
-> For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/), [Azure storage](https://azure.microsoft.com/en-us/services/storage/), [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/), and [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
+> [!NOTE]
+> For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/en-us/services/container-registry/), [storage](https://azure.microsoft.com/en-us/services/storage/), [application insights](https://azure.microsoft.com/en-us/services/application-insights/), and [key vault](https://azure.microsoft.com/en-us/services/key-vault/).
 
 The resources you create can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
 
