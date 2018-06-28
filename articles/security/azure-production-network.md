@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/25/2018
+ms.date: 06/27/2018
 ms.author: terrylan
 
 ---
@@ -22,13 +22,13 @@ ms.author: terrylan
 The users of the Azure production network include external customers accessing their own Microsoft Azure Applications as well as internal Microsoft Azure support personnel that manage the production network. The security access methods and protection mechanisms for establishing connections to the Azure production network are discussed in this article.
 
 ## Internet Routing and Fault Tolerance
-A globally-redundant internal and external Microsoft Azure Domain Name Service (WADNS) infrastructure along with multiple primary and secondary Domain Name Service (DNS) server clusters provide for fault tolerance while additional Microsoft Azure network security controls such as NetScaler are used to prevent Distributed Denial of Service (DDoS) attacks and protect the integrity of Microsoft Azure DNS services.
+A globally redundant internal and external Microsoft Azure Domain Name Service (WADNS) infrastructure along with multiple primary and secondary Domain Name Service (DNS) server clusters provide for fault tolerance while additional Microsoft Azure network security controls such as NetScaler are used to prevent Distributed Denial of Service (DDoS) attacks and protect the integrity of Microsoft Azure DNS services.
 
-The WADNS servers are located at multiple datacenter facilities. The WADNS implementation incorporates a hierarchy of secondary/primary DNS servers to publicly resolve Azure customer domain names. These domain names typically resolve to a CloudApp.net address which wraps the Virtual IP (VIP) address for the customer’s service. Unique to Azure, the VIP corresponding to internal Dedicated IP (DIP) address of the tenant translation is done by the Microsoft load balancers responsible for that VIP.
+The WADNS servers are located at multiple datacenter facilities. The WADNS implementation incorporates a hierarchy of secondary/primary DNS servers to publicly resolve Azure customer domain names. The domain names typically resolve to a CloudApp.net address, which wraps the Virtual IP (VIP) address for the customer’s service. Unique to Azure, the VIP corresponding to internal Dedicated IP (DIP) address of the tenant translation is done by the Microsoft load balancers responsible for that VIP.
 
-Azure is hosted in geographically-distributed Azure datacenters within the U.S. and is built on state-of-the-art routing platforms implementing robust and scalable architectural standards. Some of the notable features are:
+Azure is hosted in geographically distributed Azure datacenters within the U.S. and is built on state-of-the-art routing platforms implementing robust and scalable architectural standards. Some of the notable features are:
 
-- Multiprotocol Label Switching (MPLS) based traffic engineering providing efficient link utilization and graceful degradation of service in case of outage
+- Multiprotocol Label Switching (MPLS) based traffic engineering providing efficient link utilization and graceful degradation of service if there is an outage
 - Networks are implemented with “need plus one” (N+1) redundancy architectures or better.
 - Externally, datacenters are served by dedicated, high-bandwidth network circuits that redundantly connect properties with over 1,200 Internet service providers globally at multiple peering points providing in excess of 2,000 gigabytes per second (Gbps) of edge capacity.
 
@@ -41,9 +41,9 @@ Once Internet traffic for Azure is routed to the nearest datacenter, a connectio
 
 External Load Balancing devices are located behind the access routers to perform Network Address Translation (NAT) from Internet-routable IPs to Azure internal IPs. They also route packets to valid Production internal IPs and ports, and act as a protection mechanism to limit exposing internal Production Network address space.
 
-By default, Microsoft enforces Hypertext Transfer Protocol Secure (HTTPS) for all traffic being transmitted to the customer’s web browsers, including login and all traffic thereafter. The use of TLS v1.2 enables a secure tunnel for traffic to flow through. ACLs on access and core routers ensure the source of the traffic is consistent with what is expected.
+By default, Microsoft enforces Hypertext Transfer Protocol Secure (HTTPS) for all traffic being transmitted to the customer’s web browsers, including sign in and all traffic thereafter. The use of TLS v1.2 enables a secure tunnel for traffic to flow through. ACLs on access and core routers ensure the source of the traffic is consistent with what is expected.
 
-An important distinction in this architecture compared to traditional security architecture is that there are no dedicated hardware firewalls, specialized intrusion detection/prevention devices, or other security appliances normally expected before connections are made to the Azure Production environment. Customers typically expect these hardware firewall devices in the Azure network; however, there are none employed within Azure. Almost exclusively, those security features are built into the software running the Azure environment to provide robust multi-layered security mechanisms including firewall capabilities. Additionally, the scope of the boundary and associated sprawl of critical security devices is significantly easier to manage and inventory as shown in the illustration above because it is managed by the software running Azure.
+An important distinction in this architecture compared to traditional security architecture is that there are no dedicated hardware firewalls, specialized intrusion detection/prevention devices, or other security appliances normally expected before connections are made to the Azure Production environment. Customers typically expect these hardware firewall devices in the Azure network; however, there are none employed within Azure. Almost exclusively, those security features are built into the software running the Azure environment to provide robust multi-layered security mechanisms including firewall capabilities. Additionally, the scope of the boundary and associated sprawl of critical security devices is easier to manage and inventory as shown in the illustration above because it is managed by the software running Azure.
 
 ## Core security and firewall features
 Azure implements robust software security and firewall features at various levels to enforce security features typically expected in a traditional environment to protect the core Security Authorization boundary.
@@ -55,14 +55,14 @@ Azure implements host-based software firewalls inside the Production network. Se
 
 There are two categories of rules that are programmed here:
 
-- Machine Config or Infrastructure Rules: By default, all communication is blocked. There are exceptions to allow a VM to send and receive Dynamic Host Configuration Protocol (DHCP) communications, DNS information, send traffic to the “public” Internet, outbound to other VMs within the FC cluster and OS Activation server. Since the VMs’ allowed list of outgoing destinations does not include Microsoft Azure router subnets and other Microsoft properties, this acts a one layer of defense for them.
-- Role Configuration File: This defines the inbound ACLs based on the tenants’ service model. For example, if a tenant has a web front-end on port 80 on a certain VM, then port 80 is opened to all IP addresses. If the VM has a worker role running, then the worker role is opened only to the VM within the same tenant.
+- Machine Config or Infrastructure Rules: By default, all communication is blocked. There are exceptions to allow a VM to send and receive Dynamic Host Configuration Protocol (DHCP) communications, DNS information, send traffic to the “public” Internet, outbound to other VMs within the FC cluster and OS Activation server. Since the VMs’ allowed list of outgoing destinations does not include Microsoft Azure router subnets and other Microsoft properties, the rules act as a layer of defense for them.
+- Role Configuration File: Defines the inbound ACLs based on the tenants’ service model. For example, if a tenant has a web front end on port 80 on a certain VM, then port 80 is opened to all IP addresses. If the VM has a worker role running, then the worker role is opened only to the VM within the same tenant.
 
-**Native Host Firewall**: Microsoft Azure Fabric and Storage run on a Native OS which has no Hypervisor and hence the Windows Firewall is configured with the above two sets of rules.
+**Native Host Firewall**: Microsoft Azure Fabric and Storage run on a Native OS, which has no Hypervisor and hence the Windows Firewall is configured with the above two sets of rules.
 
-**Host Firewall**: The host firewall protects the Host partition which runs the Hypervisor. The rules are programmed to allow only the FC and jump boxes to talk to the host partition on a specific port. The other exceptions are to allow DHCP response and DNS Replies. Azure uses a Machine Configuration file which has the template of firewall rules for the host partition. There is also a host firewall exception that allows VMs to communicate to Host components (wireserver & metadata server) through specific protocol/ports.
+**Host Firewall**: The host firewall protects the Host partition, which runs the Hypervisor. The rules are programmed to allow only the FC and jump boxes to talk to the host partition on a specific port. The other exceptions are to allow DHCP response and DNS Replies. Azure uses a Machine Configuration file, which has the template of firewall rules for the host partition. There is also a host firewall exception that allows VMs to communicate to Host components, wire server & metadata server, through specific protocol/ports.
 
-**Guest Firewall**: This is the Windows Firewall piece of the Guest OS (which is configurable by the customer on customer VMs and storage).
+**Guest Firewall**: Windows Firewall piece of the Guest OS, which is configurable by the customer on customer VMs and storage.
 
 Additional security features built-into the Azure capabilities:
 
