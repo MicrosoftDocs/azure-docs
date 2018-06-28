@@ -19,7 +19,7 @@ ms.custom: end-user
 ---
 
 # Manage your settings for two-step verification
-This article answers questions about how to update settings for two-step verification or multi-factor authentication. If you are having issues signing in to your account, refer to [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for troubleshooting help.
+This article answers questions about how to update settings for two-step verification or multi-factor authentication. If you are having issues signing in to your account, refer to [Having trouble with two-step verification](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) for troubleshooting help.
 
 ## Where to find the settings page
 Depending on how your company set up Azure Multi-Factor Authentication, there are a few places where you can change your settings like your phone number.
@@ -30,7 +30,7 @@ If your company support sent out a specific URL or steps to manage two-step veri
 
 - Go to https://aka.ms/MFASetup.
 
-    ![Proofup](./media/multi-factor-authentication-end-user-manage/proofup.png)
+    ![Proofup](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 
 If clicking that link doesn't work for you, you can also get to the **Additional security verification** page by following these steps:
 
@@ -40,17 +40,17 @@ If clicking that link doesn't work for you, you can also get to the **Additional
 
 3. Select **Additional security verification**.  
 
-    ![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
+    ![Myapps](./media/multi-factor-authentication-end-user-manage-settings/myapps1.png)
 
 4. The Additional security verification page loads with your settings.
 
-    ![Proofup](./media/multi-factor-authentication-end-user-manage/proofup.png)
+    ![Proofup](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 
 ## I want to change my phone number, or add a secondary number
 It is important to configure a secondary authentication phone number.  Because your primary phone number and your mobile app are probably on the same phone, the secondary phone number is the only way you will be able to get back into your account if your phone is lost or stolen.
 
 > [!NOTE]
-> If you don't have access to your primary phone number, and need help getting in to your account, see the [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) article for more help.  
+> If you don't have access to your primary phone number, and need help getting in to your account, see the [Having trouble with two-step verification](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) article for more help.  
 
 **To change your primary phone number:**  
 
@@ -72,8 +72,8 @@ Depending on your organization settings, you may have a checkbox that says "Don'
 2. The next time you sign in on any device, you'll be prompted to perform two-step verification.
 
 ## How do I clean up Microsoft Authenticator from my old device and move to a new one?
-When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. For more information, see [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
+When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. For more information, see [Microsoft Authenticator](../../../../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md).
 
 ## Next steps
-* Get troubleshooting tips and help on [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md)
-* Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-step verification.
+* Get troubleshooting tips and help on [Having trouble with two-step verification](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md)
+* Set up [app passwords](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-step verification.

@@ -62,7 +62,7 @@ If you are not sure how you use multi-factor authentication, then you can always
 1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Click your name at the top right, and choose **Profile**.
 3. Select **Additional Security Verification**.
-   ![Select additional security verification - screenshot](./media/multi-factor-authentication-end-user-manage/myapps1.png)
+   ![Select additional security verification - screenshot](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
 
 4. Select **app passwords**.
    ![Select app passwords - screenshot](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
@@ -77,7 +77,7 @@ If you are not sure how you use multi-factor authentication, then you can always
 2. At the top, select profile.
 3. Select **Additional Security Verification**.
 
-   ![Select additional security verification - screenshot](./media/multi-factor-authentication-end-user-manage/myapps1.png)
+   ![Select additional security verification - screenshot](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
 
 4. Select **app passwords**.
 
@@ -94,4 +94,4 @@ If you are not sure how you use multi-factor authentication, then you can always
 
 - [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md)
 
-- Try out the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) to verify your sign-ins with app notifications, instead of receiving texts or calls.
+- Try out the [Microsoft Authenticator app](../../../../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) to verify your sign-ins with app notifications, instead of receiving texts or calls.
