@@ -1,6 +1,6 @@
 ---
 title: Lookup activity in Azure Data Factory | Microsoft Docs
-description: Learn how to use lookup activity to look up a value from an external source. This output can further be referenced by succeeding activities. 
+description: Learn how to use Lookup activity to look up a value from an external source. This output can be further referenced by succeeding activities. 
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -18,14 +18,14 @@ ms.author: shlo
 ---
 # Lookup activity in Azure Data Factory
 
-Lookup activity can be used to retrieve a dataset from any of the ADF-supported data source.  It can be used in the following scenario:
-- Dynamically determine which objects (files, tables, etc) to operate on in a subsequent activity, instead of hard-coding the object name
+Lookup activity can be used to retrieve a dataset from any of the Azure Data Factory-supported data sources. It can be used in the following scenario:
+- Dynamically determine which objects to operate on in a subsequent activity, instead of hard-coding the object name. Some object examples are files and tables.
 
-Lookup activity can read and return the content of a configuration file, a configuration table, or the result of executing a query or stored procedure.  The output from Lookup activity can be used in a subsequent copy or transformation activity if it is a singleton value, or used in a ForEach activity if it is an array of attributes.
+Lookup activity can read and return the content of a configuration file, a configuration table, or the result of executing a query or stored procedure. The output from Lookup activity can be used in a subsequent copy or transformation activity if it's a singleton value. The output can be used in a **ForEach** activity if it's an array of attributes.
 
 ## Supported capabilities
 
-The following data sources are supported for lookup. The maximum number of rows can be returned by Lookup activity is **5000**, and up to **2MB** in size. And currently the max duration for Lookup activity before timeout is one hour.
+The following data sources are supported for Lookup activity. The maximum number of rows that can be returned by Lookup activity is **5000**, up to **2 MB** in size. Currently, the maximum duration for Lookup activity before timeout is one hour.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
