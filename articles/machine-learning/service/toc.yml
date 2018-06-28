@@ -13,8 +13,10 @@
     href: how-to-migrate-to-ga.md
 - name: Quickstarts
   items:
-  - name: Get started
-    href: quickstart-get-started.md  
+  - name: Get started - Portal
+    href: quickstart-get-started.md
+  - name: Get started - CLI
+    href: quickstart-set-up-in-cli.md   
 - name: Tutorials
   items:
   - name: Train and deploy models
