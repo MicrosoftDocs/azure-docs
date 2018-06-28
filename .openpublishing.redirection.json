@@ -13735,6 +13735,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-hub/iot-hub-security-ground-up.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-operations.md",
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-operations",
             "redirect_document_id": false
@@ -25647,6 +25652,51 @@
         {
             "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.experimental.md",
             "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/microsoft-authenticator-app-backup-and-recovery.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/microsoft-authenticator-app-backup-and-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/microsoft-authenticator-app-faq.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/microsoft-authenticator-app-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/microsoft-authenticator-app-phone-signin-faq.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/microsoft-authenticator-app-phone-signin-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-app-passwords",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-signin.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-signin",
             "redirect_document_id": false
         }        
     ]
