@@ -1,5 +1,5 @@
 ---
-title: Auto-provision Azure IoT Edge device with DPS| Microsoft Docs 
+title: Auto-provision Azure IoT Edge device with DPS - Windows | Microsoft Docs 
 description: Use a simulated device on your Windows machine to test automatic device provisioning for Azure IoT Edge with Device Provisioning Service
 author: kgremban
 manager: timlt
@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Create and provision a simulated TPM Edge device on Linux
+# Create and provision a simulated TPM Edge device on Windows
 
 Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing. 
 

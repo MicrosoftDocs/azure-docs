@@ -1,5 +1,5 @@
 ---
-title: Provision simulated TPM Edge device - Azure IoT Edge| Microsoft Docs 
+title: Auto-provision Azure IoT Edge device with DPS - Linux | Microsoft Docs 
 description: Use a simulated TPM on a Linux VM to test device provisioning for Azure IoT Edge
 author: kgremban
 manager: timlt
