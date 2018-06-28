@@ -107,6 +107,7 @@ When you reboot the Linux VM, the mounted SMB share is unmounted during shutdown
 ```bash
 //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
+This is just one example. For increased security in production environments, you should store your credentials outside of fstab.
 
 ## Next steps
 
