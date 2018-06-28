@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier (Entity ID). Contact [Bomgar Remote Support Client support team](https://www.bomgar.com/docs/index.htm#support) to get these values. 
  
-4. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/bomgarremotesupport-tutorial/tutorial_bomgarremotesupport_certificate.png) 
 
@@ -119,7 +119,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/bomgarremotesupport-tutorial/tutorial_general_400.png)
 
-6. To configure single sign-on on **Bomgar Remote Support** side, you need to send the copied **App Federation Metadata Url** to [Bomgar Remote Support support team](https://www.bomgar.com/docs/index.htm#support). They set this setting to have the SAML SSO connection set properly on both sides.
+6. To configure single sign-on on **Bomgar Remote Support** side, you need to send the downloaded **Metadata XML** to [Bomgar Remote Support support team](https://www.bomgar.com/docs/index.htm#support). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
