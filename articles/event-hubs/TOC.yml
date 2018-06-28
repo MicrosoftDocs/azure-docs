@@ -12,9 +12,9 @@
   items:
   - name: Process event streams - Portal
     href: event-hubs-quickstart-portal.md
-  - name: Process event streams - Azure CLI
+  - name: Process event streams - CLI
     href: event-hubs-quickstart-cli.md
-  - name: Process event streams - Azure PowerShell
+  - name: Process event streams - PowerShell
     href: event-hubs-quickstart-powershell.md
 - name: Tutorials
   items:
