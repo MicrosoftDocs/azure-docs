@@ -21,7 +21,7 @@ ms.custom: it-pro
 
 You can now see and manage all the members of the administrator roles in the Azure Active Directory portal. If you frequently manage role assignments, you will probably prefer this experience. And if you ever wondered “What the heck do these roles really do?”, you can see a detailed list of permissions for each of the Azure AD administrator roles.
 
-It's easy to see your own permissions as well. Click **Your role** get quick access to your user page for a list of all your active assigned roles. Click the ellipsis on the right of each row to open the detailed description of the role. When you select select **Manage in PIM** (Privileged Identity Management), Privileged Role Administrators can add or remove members, or change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have PIM, you can still select **Manage in PIM** to sign up for a trial.
+It's easy to see your own permissions as well. Click **Your role** get quick access to your user page for a list of all your active assigned roles. Click the ellipsis on the right of each row to open the detailed description of the role.
 
 ![list of roles in Azure AD portal](./media/directory-manage-roles-portal/role-list.png)
 
@@ -29,7 +29,7 @@ You can also select the entire row to view the list of assigned members.
 
 ![list of members of an admin role](./media/directory-manage-roles-portal/member-list.png)
 
-If you are a Global Administrator or a Privileged Role Administrator, you can easily add or remove members, filter the list, or select a member to go to the user page to see their active assigned roles.
+If you are a Global Administrator or a Privileged Role Administrator, you can easily add or remove members, filter the list, or select a member to go to the user page to see their active assigned roles. When you select select **Manage in PIM** (Privileged Identity Management), Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have PIM, you can still select **Manage in PIM** to sign up for a trial.
 
 ## Role details in the portal
 
