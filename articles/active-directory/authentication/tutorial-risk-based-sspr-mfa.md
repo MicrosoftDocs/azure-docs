@@ -17,7 +17,7 @@ ms.reviewer: sahenry
 ---
 # Tutorial: Enable risk-based Multi-Factor Authentication and password changes
 
-Azure Active Directory (Azure AD) Identity Protection is licensed as an Azure AD Premium P2 feature that is more than just a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to risky behaviors. These policies, can either automatically block or initiate remediation, including requiring password changes and enforcing Multi-Factor Authentication.
+In this tutorial, you will enable features of Azure Active Directory (Azure AD) Identity Protection, an Azure AD Premium P2 feature that is more than just a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to risky behaviors. These policies, can either automatically block or initiate remediation, including requiring password changes and enforcing Multi-Factor Authentication.
 
 Azure AD Identity Protection policies can be used in addition to existing conditional access policies as an extra layer of protection. Your users may never trigger a risky behavior requiring one of these policies, but as an administrator you know they are protected.
 
@@ -49,7 +49,7 @@ Enabling the risk-based policies is a straightforward process. The steps below w
 
 ### Enable users to register for Multi-Factor Authentication
 
-Azure AD Identity Protection includes a default policy that can hep you to get your users registered for Multi-Factor Authentication and easily identigy the current registration status. Enabling this policy does not start requiring users to perform Multi-Factor Authentication but will ask them to pre-register.
+Azure AD Identity Protection includes a default policy that can hep you to get your users registered for Multi-Factor Authentication and easily identify the current registration status. Enabling this policy does not start requiring users to perform Multi-Factor Authentication, but will ask them to pre-register.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Click on **All services**, then browse to **Azure AD Identity Protection**.
@@ -74,7 +74,7 @@ Microsoft works with researchers, law enforcement, various security teams at Mic
 
 ### Enable risk-based Multi-Factor Authentication
 
-Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform a Multi-Factor Authentication to prove that they are really who they say they are. To enable a policy requiring MFA when a risky sign-in is detected enable the following policy.
+Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform a Multi-Factor Authentication to prove that they are really who they say they are. To enable a policy requiring MFA when a risky sign-in is detected, enable the following policy.
 
 1. Click on Sign-in risk policy
 1. Under **Conditions**, select **User risk**, then choose **Medium and above**.
