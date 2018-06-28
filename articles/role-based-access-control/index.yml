@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Role-Based Access Control Documentation
+title: Role-based access control documentation
 metadata:
   document_id: 
-  title: Azure Role-Based Access Control Documentation | Microsoft Docs
+  title: Role-based access control (RBAC) documentation in Azure | Microsoft Docs
   description: Learn about role-based access control (RBAC) to manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
   services: active-directory
   author: rolyon

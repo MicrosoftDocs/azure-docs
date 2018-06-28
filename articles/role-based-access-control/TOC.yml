@@ -1,4 +1,4 @@
-- name: Role-Based Access Control Documentation
+- name: Role-based access control documentation
   href: index.yml
   items:
 - name: Overview
@@ -25,10 +25,6 @@
   items:
   - name: Understand role definitions
     href: role-definitions.md
-  - name: Built-in roles
-    href: built-in-roles.md
-  - name: Resource provider operations
-    href: resource-provider-operations.md
   - name: Privileged Identity Management (PIM) for RBAC
     href: pim-azure-resource.md
   - name: Conditional access for Azure management
@@ -63,3 +59,11 @@
     href: role-assignments-external-users.md
   - name: Troubleshoot
     href: troubleshooting.md
+- name: Reference
+  items:
+  - name: Built-in roles
+    href: built-in-roles.md
+  - name: Resource provider operations
+    href: resource-provider-operations.md
+  - name: RBAC limits
+    href: ../azure-subscription-service-limits.md#role-based-access-control-limits
