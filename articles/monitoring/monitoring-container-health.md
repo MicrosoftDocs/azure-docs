@@ -259,8 +259,8 @@ The output should resemble the following indicating it did deploy properly:
 
 ```
 User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
-NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE                    AGE
-omsagent   1         1         1         1            3h
+NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
+omsagent   1         1         1            1            3h
 ```
 
 ## View performance utilization
