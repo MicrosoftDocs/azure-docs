@@ -1,5 +1,5 @@
 ---
-title: Introduction to Service Fabric resources | Microsoft Docs
+title: Introduction to Azure Service Fabric resources | Microsoft Docs
 description: Learn about the Service Fabric resources, the simple, unified way to deploy and manage Service Fabric applications.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -25,9 +25,9 @@ Service Fabric resources are a simple, unified way to deploy and manage applicat
 
 A Service Fabric resource describes how something should run in the Service Fabric environment. The following types of resources are currently supported:
 
- - Applications and services
- - Volumes
- - Networks
+- Applications and services
+- Volumes
+- Networks
 
 Each resource is described declaratively in a resource file. A resource file is a simple YAML or JSON document that describes how to run an instance of an application, service, volume, or network. Service Fabric will then ensure the resource continues to run as described in the resource file.
 
@@ -39,10 +39,10 @@ A service resource describes how to run a set of container images together. The 
 
 Each service resource contains any number of *code packages*. A code package describes everything needed to run a single container image, including:
 
- - Container name, version, and registry
- - CPU and memory resources required for each container
- - Network endpoints
- - Volumes to mount in the container, referencing a separate volume resource.
+- Container name, version, and registry
+- CPU and memory resources required for each container
+- Network endpoints
+- Volumes to mount in the container, referencing a separate volume resource.
 
 All the code packages defined in a service resource are always deployed and activated together as a group. This means each instance of a service will include all code packages together on the same node. The service resource also describes how many instances of the service to run, and the network the service belongs to.
 
@@ -82,7 +82,6 @@ Networks are individually deployable resources, just like applications and servi
 ### Volumes
 
 Volumes are directories that get mounted inside your container instances that you can use to write files. The volume resource is a declarative way to describe how a volume is mounted and the backing storage for the volume.
-
 
 ## Programming models
 Service resources only define a container image to run. There are no frameworks or base classes you need to implement in your service code. Instead, you can run any code, written in any language, using any framework inside the container without implementing Service Fabric-specific APIs. 

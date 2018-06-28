@@ -84,7 +84,7 @@ The password parameter in the template is of `string` type for ease of use. It w
 ## Verify that the application is able to use the volume
 The application creates a file named _data.txt_ in the file share (if it does not exist already). The content of this file is a number that is incremented every 30 seconds by the application. To verify that the example works correctly, open the _data.txt_ file periodically and verify that the number is being updated.
 
-The file may be downloaded using any tool that enables browsing an Azure Files file share. The [Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) is an example of such a tool.
+The file may be downloaded using any tool that enables browsing an Azure Files file share. The [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is an example of such a tool.
 
 ## Next steps
 

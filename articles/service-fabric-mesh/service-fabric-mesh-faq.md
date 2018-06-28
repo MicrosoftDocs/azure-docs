@@ -66,7 +66,7 @@ Yes, encrypting secrets is not supported in the current Private Preview.
 
 There is a known issue, where you might have to reference services differently in your local development cluster and in Azure Mesh. In your local development cluster use {serviceName}.{applicationName}. In Azure Service Fabric Mesh, use {servicename}. Azure Mesh does not currently support dns resolution across applications.
 
-For other known DNS issues with running a Service Fabric development cluster on Windows 10, see here: https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-how-to-debug-windows-containers.
+For other known DNS issues with running a Service Fabric development cluster on Windows 10, see here: [Debug Windows containers](/azure/service-fabric/service-fabric-how-to-debug-windows-containers).
 
 **I get this error when using the CLI module _ImportError: cannot import name 'sdk_no_wait'**
 

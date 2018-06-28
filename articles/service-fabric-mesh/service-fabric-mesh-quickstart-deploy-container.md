@@ -78,7 +78,7 @@ The network resource for this quickstart application is helloWorldNetwork, you c
 az mesh network show --resource-group $rg --name helloWorldNetwork
 ```
 
-The command will return with information like the json snippet below when running the command in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+The command will return with information like the json snippet below when running the command in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 From the output, copy the IP address.
 

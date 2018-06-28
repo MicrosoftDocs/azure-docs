@@ -46,10 +46,10 @@ az login
 az account set --subscription "<subscriptionName>"
 ```
 ## Create a container registry and push image to it
-Create Azure Container Registry by following [this](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli) guide. Perform the steps up to ["List container images"](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli#list-container-images) step. At this time, `aci-helloworld:v1` should be present in this private container registry.
+Create Azure Container Registry by following [this](/azure/container-registry/container-registry-get-started-azure-cli) guide. Perform the steps up to ["List container images"](/azure/container-registry/container-registry-get-started-azure-cli#list-container-images) step. At this time, `aci-helloworld:v1` should be present in this private container registry.
 
 ## Retrieve credentials for the registry
-In order to deploy a container instance from the registry that was created, credentials must be provided during the deployment. The production scenarios should use a [service principal for container registry access](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-service-principal), but to keep this quickstart brief, enable the admin user on your registry with the following command:
+In order to deploy a container instance from the registry that was created, credentials must be provided during the deployment. The production scenarios should use a [service principal for container registry access](/azure/container-registry/container-registry-auth-service-principal), but to keep this quickstart brief, enable the admin user on your registry with the following command:
 
 ```azurecli-interactive
 az acr update --name <acrName> --admin-enabled true

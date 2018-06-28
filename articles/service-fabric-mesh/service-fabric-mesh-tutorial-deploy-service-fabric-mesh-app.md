@@ -164,7 +164,7 @@ Now that you have completed publishing a Service Fabric application to Azure, tr
 
 * Explore the [Voting app sample](https://github.com/Azure/service-fabric-mesh-preview-pr/tree/master/samples/src/votingapp) to see another example of service-to-service communication.
 * Read [Service Fabric resources](service-fabric-mesh-service-fabric-resources.md)
-* Read about the [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+* Read about the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest

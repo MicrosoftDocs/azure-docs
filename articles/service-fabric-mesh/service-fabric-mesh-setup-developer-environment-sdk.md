@@ -125,7 +125,7 @@ az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.7.0-p
 
 ## Next steps
 
-Read through the [Create an Azure Service Fabric app](service-fabric-mesh-tutorial-create-dotnetcore.md?branch=pr-en-us-45221) tutorial.
+Read through the [Create an Azure Service Fabric app](service-fabric-mesh-tutorial-create-dotnetcore.md) tutorial.
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows

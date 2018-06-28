@@ -1,5 +1,5 @@
 ---
-title: Scale services in a Service Fabric application | Microsoft Docs
+title: Scale services in an Azure Service Fabric application | Microsoft Docs
 description: Learn how to independently scale services within an application running on Service Fabric Mesh using the Azure CLI.
 services: service-fabric
 documentationcenter: .net
