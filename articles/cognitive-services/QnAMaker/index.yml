@@ -29,7 +29,7 @@ sections:
       text: C&#35;
       href: Quickstarts/create-new-kb-csharp
     - image:
-        src: media/index/Go-Logo_Blue.png
+        src: media/index/Go-Logo_Blue.svg
       text: Go
       href: Quickstarts/create-new-kb-go
     - image: 
