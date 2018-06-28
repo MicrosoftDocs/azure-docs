@@ -104,7 +104,7 @@ Additionally, the NSG also illustrates how to lock down secure LDAP access over 
 
 ![Sample NSG to secure LDAPS access over the internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**More information** - [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+**More information** - [Create a Network Security Group](../virtual-network/manage-network-security-group.md).
 
 
 ## Network connectivity
@@ -142,4 +142,4 @@ You can connect a Resource Manager-based virtual network to the Azure classic vi
 * [Azure virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 * [Configure a VNet-to-VNet connection for the classic deployment model](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Azure Network Security Groups](../virtual-network/security-overview.md)
-* [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Create a Network Security Group](../virtual-network/manage-network-security-group.md)

@@ -100,7 +100,7 @@ Azure Kubernetes Service (AKS) has been CNCF certified as Kubernetes conformant.
 
 ## Regulatory compliance
 
-Azure Kubernetes Service (AKS) is compliant with SOC and ISO/HIPPA/HITRUST.
+Azure Kubernetes Service (AKS) is compliant with SOC and ISO/HIPAA/HITRUST.
 
 ## Next steps
 

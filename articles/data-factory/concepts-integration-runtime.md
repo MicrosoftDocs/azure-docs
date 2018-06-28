@@ -24,10 +24,6 @@ The Integration Runtime (IR) is the compute infrastructure used by Azure Data Fa
 - **Activity dispatch**:  Dispatch and monitor transformation activities running on a variety of compute services such as Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, and more.
 - **SSIS package execution**: Natively execute SQL Server Integration Services (SSIS) packages in a managed Azure compute environment.
 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
-
 In Data Factory, an activity defines the action to be performed. A linked service defines a target data store or a compute service. An integration runtime provides the bridge between the activity and linked Services.  It is referenced by the linked service, and provides the compute environment where the activity either runs on or gets dispatched from.  This way, the activity can be performed in the region closest possible to the target data store or compute service in the most performant way while meeting security and compliance needs.
 
 ## Integration runtime types
@@ -61,7 +57,7 @@ Azure Integration Runtime supports connecting to data stores and compute service
 ### Azure IR compute resource and scaling
 Azure integration runtime provides a fully managed, serverless compute in Azure.  You don’t have to worry about infrastructure provision, software installation, patching, or capacity scaling.  In addition, you only pay for the duration of the actual utilization.
 
-Azure integration runtime provides the native compute to move data between cloud data stores in a secure, reliable, and high-performance manner.  You can set how many data movement units to use on the copy activity, and the compute size of the Azure IR is elastically scaled up accordingly without you having to explicitly adjusting size of the Azure Integration Runtime.
+Azure integration runtime provides the native compute to move data between cloud data stores in a secure, reliable, and high-performance manner.  You can set how many data integration units to use on the copy activity, and the compute size of the Azure IR is elastically scaled up accordingly without you having to explicitly adjusting size of the Azure Integration Runtime.
 
 Activity dispatch is a lightweight operation to route the activity to the target compute service, so there isn’t need to scale up the compute size for this scenario.
 
@@ -114,7 +110,7 @@ You can set a certain location of an Azure IR, in which case the data movement o
 If you choose to use the auto-resolve Azure IR which is the default, 
 
 - For copy activity, ADF will make a best effort to automatically detect your sink and source data store to choose the best location either in the same region if available or the closest one in the same geography, or if not detectable to use the data factory region as alternative.
-- For transformation activity dispatching, ADF will use the IR in the data factory region.
+- For Lookup/GetMetadata activity execution and transformation activity dispatching, ADF will use the IR in the data factory region.
 
 You can monitor which IR location takes effect during activity execution in pipeline activity monitoring view on UI or activity monitoring payload.
 
@@ -146,6 +142,10 @@ For Copy activity, it requires source and sink linked services to define the dir
 - **Copying between two cloud data sources**: when both source and sink linked services are using Azure IR, ADF will use the regional Azure IR if you specified, or auto determine a location of Azure IR if you choose the auto-resolve IR (default) as described in [Integration runtime location](#integration-runtime-location) section.
 - **Copying between a cloud data source and a data source in private network**: if either source or sink linked service points to a self-hosted IR, the copy activity is executed on that self-hosted Integration Runtime.
 - **Copying between two data sources in private network**: both the source and sink Linked Service must point to the same instance of integration runtime, and that integration runtime is used to execute the copy Activity.
+
+### Lookup and GetMetadata activity
+
+The Lookup and GetMetadata activity is executed on the integration runtime associated to the data store linked service.
 
 ### Transformation activity
 

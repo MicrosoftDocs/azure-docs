@@ -107,7 +107,7 @@ In this section, you can both enable Azure AD SSO in the Azure portal and config
 	b. In the **Reply URL** box, type a URL that has the following syntax: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
 	> [!NOTE] 
-	> The preceding values are not real. Update them with the actual identifier and reply URL. To obtain the values, contact the [vxMaintain support team](http://www.verisae.com/contact-us).
+	> The preceding values are not real. Update them with the actual identifier and reply URL. To obtain the values, contact the [vxMaintain support team](https://www.hubspot.com/company/contact).
  
 4. Under **SAML Signing Certificate**, select **Metadata XML**, and then save the metadata file to your computer.
 
@@ -117,7 +117,7 @@ In this section, you can both enable Azure AD SSO in the Azure portal and config
 
 	![The Save button](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. To configure **vxMaintain** SSO, send the downloaded **Metadata XML** file to the [vxMaintain support team](http://www.verisae.com/contact-us).
+6. To configure **vxMaintain** SSO, send the downloaded **Metadata XML** file to the [vxMaintain support team](https://www.hubspot.com/company/contact).
 
 > [!TIP]
 > As you set up the app, you can read a concise version of the preceding instructions in the [Azure portal](https://portal.azure.com). After you add the app from the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab, and then access the embedded documentation from the **Configuration** section. 
@@ -157,7 +157,7 @@ In this section, you create test user Britta Simon in the Azure portal by doing 
  
 ### Create a vxMaintain test user
 
-In this section, you create test user Britta Simon in vxMaintain. To add users in the vxMaintain platform, work with the [vxMaintain support team](http://www.verisae.com/contact-us). Before you use SSO, create and activate the users.
+In this section, you create test user Britta Simon in vxMaintain. To add users in the vxMaintain platform, work with the [vxMaintain support team](https://www.hubspot.com/company/contact). Before you use SSO, create and activate the users.
 
 ### Assign the Azure AD test user
 

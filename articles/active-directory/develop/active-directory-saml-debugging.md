@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: dastrock; smalser
+ms.reviewer: hirsin, dastrock, smalser
 ---
 
 # Debug SAML-based single sign-on to applications in Azure Active Directory
@@ -41,6 +41,9 @@ To test SAML-based single sign-on between AAD and a target application:
 3.	From the list of Enterprise Applications, click the application for which you want to test single sign-on, and then from the options on the left click **Single sign-on**.
 4.	To open the SAML-based single sign-on testing experience, in the **Domain and URLs** section click **Test SAML Setting**. If the Test SAML Setting button is greyed out, you need to fill out and save the required attributes first.
 5.	In the **Test single sign-on** blade, use your corporate credentials to sign in to the target application. You can sign in as the current user or as a different user. If you sign in as a different user, a prompt will ask you to authenticate.
+
+    ![Test SAML page](media/active-directory-saml-debugging/testing.png)
+
 
 If you are successfully signed in, the test has passed. In this case, Azure AD issued a SAML response token to the application. The application used the SAML token to successfully sign you in.
 
