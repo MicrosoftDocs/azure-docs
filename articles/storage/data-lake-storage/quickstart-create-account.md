@@ -46,7 +46,7 @@ The button launches an interactive shell that you can use to run the steps in th
 
 ### Install the CLI locally
 
-You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Overview of creating an Azure Data Lake Storage Gen2 account
 
@@ -111,6 +111,15 @@ To remove a resource group using the Azure portal:
 2. Locate the resource group to delete, and right-click the **More** button (**...**) on the right side of the listing.
 3. Select **Delete resource group**, and confirm.
 
+
+## Upgrade your powershell module
+
+In order to interact with Data Lake Storage Gen2 through PowerShell, you will have to upgrade your module to the preview version.
+
+To do that, open an elevated PowerShell and enter the following command: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+
+Then restart your shell.
+
 ## Create an account using PowerShell
 
 Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions to authenticate.
@@ -147,7 +156,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind StorageV2 
-  -HierarchialNamespace $True
+  -EnableHierarchicalNamespace $True
 ```
 
 ### Clean up resources
@@ -157,6 +166,12 @@ To remove the resource group and its associated resources, including the new sto
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
+
+## Upgrade your CLI module
+
+In order to interact with Data Lake Storage Gen2 through CLI, you will have to add the extension to your shell.
+
+To do that: using the Cloud Shell or a local shell, enter the following command to do that: `az extension add --name storage-preview`
 
 ## Create an account using Azure CLI 
 
@@ -191,7 +206,7 @@ az storage account create \
     --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --hierarchical-namespace true
+    --Enable-hierarchical-namespace true
 ```
 
 ### Clean up resources

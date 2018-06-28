@@ -13,7 +13,7 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 --- 
 
-# Tutorial: Create app using a list entity
+# Tutorial: 4. Add list entity
 In this tutorial, create an app that demonstrates how to get data that matches a predefined list. 
 
 <!-- green checkmark -->
@@ -27,7 +27,7 @@ In this tutorial, create an app that demonstrates how to get data that matches a
 For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account to author your LUIS application.
 
 ## Before you begin
-If you don't have the Human Resources app from the regex entities [custom domain](luis-quickstart-intents-regex-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [regex entity](luis-quickstart-intents-regex-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `list`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
@@ -300,5 +300,5 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to add a hierarchical entity](luis-quickstart-intent-and-hier-entity.md)
+> [Add a hierarchical entity to the app](luis-quickstart-intent-and-hier-entity.md)
 

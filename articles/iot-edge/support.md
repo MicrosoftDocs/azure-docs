@@ -28,8 +28,8 @@ Tier 1 systems can be thought of as officially supported. This means that Micros
 * provides installation packages for them
 
 Generally Available
-* Ubuntu 18.04
-* Ubuntu 16.04
+* Ubuntu Server 18.04
+* Ubuntu Server 16.04
 * Raspbian-stretch
 
 Public Preview
@@ -42,9 +42,9 @@ Tier 2 systems can be thought of as compatible with Azure IoT Edge and can be us
 * Microsoft has done ad-hoc testing on the platforms or knows of a partner successfully running Azure IoT Edge on the platform
 * Installation packages for other platforms may work on these platforms
 
-Ubuntu Server 18.04
+Ubuntu 18.04
 
-Ubuntu Server 16.04
+Ubuntu 16.04
 
 Wind River 8
 

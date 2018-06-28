@@ -24216,7 +24216,12 @@
         },
         {
             "source_path": "articles/active-directory/cloudappdiscovery-get-started.md",
-            "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery",
+            "redirect_url": "/cloud-app-security/set-up-cloud-discovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/cloud-app-discovery.md",
+            "redirect_url": "/cloud-app-security/set-up-cloud-discovery",
             "redirect_document_id": false
         },
         {
@@ -24226,7 +24231,12 @@
         },
         {
             "source_path": "articles/active-directory/cloudappdiscovery-set-up-snapshots.md",
-            "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery-create-snapshot-reports",
+            "redirect_url": "/cloud-app-security/set-up-cloud-discovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/cloud-app-discovery-create-snapshot-reports.md",
+            "redirect_url": "/cloud-app-security/set-up-cloud-discovery",
             "redirect_document_id": false
         },
         {
