@@ -143,7 +143,7 @@ message protocols and formats, such as EDIFACT, AS2, and X12.
 With the features in the [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md), 
 you can build logic apps that transform message formats used by 
 your partners into formats that your organization's systems 
-can interpret and process. Logic apps handles these exchanges 
+can interpret and process. Logic Apps handles these exchanges 
 smoothly and also securely with encryption and digital signatures.
 
 Start small with your current systems and services, 
@@ -171,14 +171,14 @@ mature integration scenarios by providing these capabilities and more:
   * [XML transform maps](../logic-apps/logic-apps-enterprise-integration-maps.md)
   * [XML validation schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md)
    
-For example, if you're using Microsoft BizTalk Server, your logic apps 
+For example, if you're using Microsoft BizTalk Server, logic apps 
 can connect to and communicate with your BizTalk Server by using the 
 [BizTalk Server connector](../connectors/apis-list.md#on-premises-connectors). 
-You can then extend or perform BizTalk-like operations in your logic apps by using the 
+You can then extend or perform BizTalk-like operations in your logic apps by including 
 [integration account connectors](../connectors/apis-list.md#integration-account-connectors), 
 which are available with the Enterprise Integration Pack. 
 
-Going in the other direction, your BizTalk Server can 
+Going in the other direction, BizTalk Server can 
 connect to and communicate with logic apps by using the 
 [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). 
 Learn how to [set up and use the BizTalk Server Adapter](https://docs.microsoft.com/biztalk/core/logic-app-adapter) 
