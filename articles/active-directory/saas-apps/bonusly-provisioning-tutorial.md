@@ -99,11 +99,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png)
 
-5. Under the **Admin Credentials** section, input the **tokenkey** of your Bonusly's account. Examples of these values are:
+5. Under the **Admin Credentials** section, input the **Secret Token** of your Bonusly account.
 
-	*   In the **tokenkey** field, populate the secret token as described in Step 6.
+	*   In the **Secret Token** field, populate the secret token as described in Step 6.
 
-6. The **tokenkey** for your Bonusly account is located in **Admin > Company > Integrations > API > Bonusly REST API >**. Upon navigating to the location click on **Create New API Access Token** to create a new tokenkey.
+1. The **Secret Token** for your Bonusly account is located in **Admin > Company > Integrations**. Upon navigating to the location scroll to the **If you want to code** section and click on the **API** graphic. On the next screen, click on **Create New API Access Token** to create a new Secret Token.
 
 	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png)
 
