@@ -193,8 +193,6 @@ For more information about NSG, see [Network Security Groups](../virtual-network
   * All of the Microsoft peering connections in the ExpressRoute circuit(s) that are associated with this subscription.
   * All of the private peering connections that connect to the VNets associated with this subscription.
             
-  ![rules](.\media\how-to-npm\14.png)
-
 ## <a name="configmonitor"></a>Step 5: Configure monitors
 
 Follow the steps for the type of peering that you want to monitor, Microsoft peering or private peering.
@@ -211,18 +209,20 @@ For Microsoft peering, click the Microsoft peering connection(s) that you want t
    Make sure that only the Microsoft service endpoint is selected here. The endpoint must be connected to ExpressRoute and reachable by the on-premises agents.
 3. Select the checkbox **Enable Health Monitoring for this peering**.
 4. Choose the monitoring conditions. You can set custom thresholds to generate health events by typing threshold values. Whenever the value of the condition goes above its selected threshold for the selected network/subnetwork pair, a health event is generated.
-5. Click the **Add Agents** button to add the on-premises servers from which you want to monitor the Microsoft peering connection.
-
-    Make sure that you choose only those agents which have connectivity to the Microsoft service endpoint that was specified in the previous steps. The on-premises agents must be able to reach the endpoint using the ExpressRoute connection.
+5. Click the **Add Agents** button to add the on-premises servers from which you want to monitor the Microsoft peering connection.<br>Make sure that you choose only those agents which have connectivity to the Microsoft service endpoint that was specified in the previous steps. The on-premises agents must be able to reach the endpoint using the ExpressRoute connection.
 6. After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available.
 
 ### Private peering
 
-When the discovery completes, you see rules for unique Circuit name and VNet name. Initially, these rules are disabled. 
+Form private peering, when discovery completes, you see rules for unique Circuit Name and VNet Name. Initially, these rules are disabled.
 
-1. Enable the rules.
-2. Select the monitoring agents and threshold values.
-3. After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available.
+![rules](.\media\how-to-npm\14.png)
+
+1. Check the **Monitor this peering** checkbox.
+2. Select the checkbox **Enable Health Monitoring for this peering**.
+3. Choose the monitoring conditions. You can set custom thresholds to generate health events by typing threshold values. Whenever the value of the condition goes above its selected threshold for the selected network/subnetwork pair, a health event is generated.
+5. Click the **Add Agents** button to add the on-premises servers from which you want to monitor the Microsoft peering connection.<br>Make sure that you choose only those agents which have connectivity to the Microsoft service endpoint that was specified in the previous steps. The on-premises agents must be able to reach the endpoint using the ExpressRoute connection.
+6. After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available.
 
 ## <a name="explore"></a>Step 6: View monitoring tiles
 
