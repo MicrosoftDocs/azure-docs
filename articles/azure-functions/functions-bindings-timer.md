@@ -281,6 +281,10 @@ If you share a Storage account across multiple function apps, make sure that eac
 
 Unlike the queue trigger, the timer trigger doesn't retry after a function fails. When a function fails, it isn't called again until the next time on the schedule.
 
+## Troubleshooting
+
+For information about what to do when the timer trigger doesn't work as expected, see [Investigating and reporting issues with timer triggered functions not firing](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
+
 ## Next steps
 
 > [!div class="nextstepaction"]

@@ -325,7 +325,7 @@ To learn more about limits on a more granular level, such as document size, quer
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### SQL Database limits
-For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md).
+For SQL Database limits, see [SQL Database Resource Limits for single databases](sql-database/sql-database-vcore-resource-limits-single-databases.md) and [SQL Database Resource Limits for elastic pools and pooled databases](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### SQL Data Warehouse limits
 For SQL Data Warehouse limits, see [SQL Data Warehouse Resource Limits](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).

@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items: 
-  - name: Learn about Language Understanding
+  - name: What is Language Understanding?
     href: Home.md
   - name: Supported languages
     href: luis-supported-languages.md
@@ -25,10 +25,10 @@
       href: luis-quickstart-primary-and-secondary-data.md
     - name: Hierarchical entity
       href: luis-quickstart-intent-and-hier-entity.md
-    - name: List entity
-      href: luis-quickstart-intent-and-list-entity.md
     - name: Regular expresion entity
       href: luis-quickstart-intents-regex-entity.md
+    - name: List entity
+      href: luis-quickstart-intent-and-list-entity.md
     - name: KeyPhrase entity
       href: luis-quickstart-intent-and-key-phrase.md
     - name: Sentiment analysis
@@ -238,7 +238,33 @@
   - name: Boundaries
     href: luis-boundaries.md
   - name: Prebuilt entity reference
-    href: luis-reference-prebuilt-entities.md
+    items:
+    - name: Entities per culture
+      href: luis-reference-prebuilt-entities.md
+    - name: Age entity
+      href: luis-reference-prebuilt-age.md
+    - name: Currency entity
+      href: luis-reference-prebuilt-currency.md
+    - name: DatetimeV2 entity
+      href: luis-reference-prebuilt-datetimev2.md
+    - name: Dimension entity
+      href: luis-reference-prebuilt-dimension.md
+    - name: Deprecated entities
+      href: luis-reference-prebuilt-deprecated.md
+    - name: Email entity
+      href: luis-reference-prebuilt-email.md
+    - name: Number entity
+      href: luis-reference-prebuilt-number.md
+    - name: Ordinal entity
+      href: luis-reference-prebuilt-ordinal.md
+    - name: Percentage entity
+      href: luis-reference-prebuilt-percentage.md
+    - name: Phonenumber entity
+      href: luis-reference-prebuilt-phonenumber.md
+    - name: Temperature entity
+      href: luis-reference-prebuilt-temperature.md
+    - name: URL entity
+      href: luis-reference-prebuilt-url.md
   - name: Prebuilt domain reference
     href: luis-reference-prebuilt-domains.md
   - name: Cortana prebuilt app reference

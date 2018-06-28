@@ -43,6 +43,3 @@ sections:
       html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
     - title: REST
       html: <p><a href="https://msdn.microsoft.com/library/mt684941">Compute REST API Reference</a></p>
-
-
-

@@ -28,6 +28,8 @@ This document assumes that you have an AKS cluster. If you need an AKS cluster, 
 
 You also need the Azure CLI version **2.0.33** or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
+[Helm](https://docs.helm.sh/using_helm/#installing-helm) is also required in order to install the Virtual Kubelet.
+
 ## Installation
 
 Use the [az aks install-connector][aks-install-connector] command to install Virtual Kubelet. The following example deploys both the Linux and Windows connector.
