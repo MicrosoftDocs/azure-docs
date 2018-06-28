@@ -488,26 +488,26 @@ If container health was successfully enabled and configured but you are not seei
 
 1. Check the status of the agent by running the following command: 
 
-`kubectl get ds omsagent --namespace=kube-system`
+    `kubectl get ds omsagent --namespace=kube-system`
 
-The output should resemble the following indicating it did deploy properly:
+    The output should resemble the following indicating it did deploy properly:
 
-```
-User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
-NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+    ```
+    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
+    NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
+    omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+    ```  
 2. Check the status of the deployment by running the following command:
 
-`kubectl get deployment omsagent-rs -n=kube-system`
+    `kubectl get deployment omsagent-rs -n=kube-system`
 
-The output should resemble the following indicating it did deploy properly:
+    The output should resemble the following indicating it did deploy properly:
 
-```
-User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
-NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
-omsagent   1         1         1            1            3h
-```
+    ```
+    User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
+    NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
+    omsagent   1         1         1            1            3h
+    ```
 
 3. Check the status of the pod to verify it is running or not by running the following command: `kubectl get pods --namespace=kube-system`
 
