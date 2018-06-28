@@ -173,7 +173,7 @@ Read more about Virtual Kubelet at the [Virtual Kubelet Github projet][vk-github
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
 
 <!-- LINKS - external -->
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#get
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
