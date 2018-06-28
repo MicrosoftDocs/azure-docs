@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Bonusly for automatic user provisioning with Azure A
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Bonusly.
 services: active-directory
 documentationcenter: ''
-author: zhchia-msft
-writer: zhchia-msft
+author: zchhia-msft
+writer: zchhia-msft
 manager: beatrizd-msft
 
 ms.assetid: na
