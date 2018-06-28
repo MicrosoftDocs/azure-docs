@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2018
+ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -71,7 +71,7 @@ In this section, you create two virtual machines for the backend pool of your Ba
     - *myAvailabilitySet* - for the name of the new Availability set that you create.
     -  *myVNet* - ensure it is selected as the virtual network.
     - *myBackendSubnet* - ensure it is selected as the subnet.
-5. Under **Network Security Group**, select **Advanced**. then for **Network security group (firewall)**, select **None**.
+5. Under **Network Security Group**, select **Advanced**. Next, for **Network security group (firewall)**, select **None**.
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
 7. Using steps 1-6, create a second VM, named, *VM2* with *myAvailabilityset* as the Availability set, *myVnet* as the virtual network, *myBackendSubnet* as subnet, and select **None** for the **Network security group (firewall)**. 
@@ -108,7 +108,7 @@ To distribute traffic to the VMs, a back-end address pool contains the IP addres
 1. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
 2. Under **Settings**, click **Backend pools**, then click **Add**.
 3. On the **Add a backend pool** page, do the following:
-    - For name, type *myBackEndPool, as the name for your backend pool.
+    - For name, type *myBackEndPool*, as the name for your backend pool.
     - For **Associated to**, from the drop-down menu, click **Availability set**
     - For **Availability set**, click, **myAvailabilitySet**.
     - Click **Add a target network IP configuration** to add each virtual machine (*myVM1* & *myVM2*) that you created to the backend pool.
