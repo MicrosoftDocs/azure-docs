@@ -98,7 +98,7 @@ The cluster is ready to use when the state is `steady` and the single node is `I
 If you need to connect to the cluster nodes (in this case, a single node) to install applications or perform maintenance, get connection information by running the [az batchai cluster node list](/cli/azure/batchai/cluster/node#az_batchai_cluster_node_list) command:
 
 
-```azurecli-interactive:
+```azurecli-interactive
 az batchai cluster node list \
     --cluster mycluster \
     --workspace myworkspace \
