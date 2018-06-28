@@ -12311,7 +12311,7 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-overview.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-options",
+            "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
             "redirect_document_id": false
         },
         {
@@ -13743,6 +13743,11 @@
             "source_path": "articles/active-directory/active-directory-aadconnectsync-implement-password-synchronization.md",
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-security-ground-up.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-operations.md",
@@ -21301,8 +21306,13 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators",
+            "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md",
+          "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
@@ -24671,18 +24681,23 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-deploy.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy",
+            "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-suite/iot-suite-what-are-solution-accelerators.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators",
-            "redirect_document_id": false
+          "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-what-is-azure-iot.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-what-is-azure-iot",
+            "redirect_url": "/azure/iot-fundamentals/iot-introduction",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md",
+          "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
@@ -24696,8 +24711,13 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-explore.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore",
+            "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-maintain.md",
@@ -24841,8 +24861,13 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-options.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-options",
+            "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-options.md",
+          "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-permissions.md",
@@ -25637,6 +25662,51 @@
         {
             "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.experimental.md",
             "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/microsoft-authenticator-app-backup-and-recovery.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/microsoft-authenticator-app-backup-and-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/microsoft-authenticator-app-faq.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/microsoft-authenticator-app-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/microsoft-authenticator-app-phone-signin-faq.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/microsoft-authenticator-app-phone-signin-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-app-passwords",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-signin.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-signin",
             "redirect_document_id": false
         }        
     ]
