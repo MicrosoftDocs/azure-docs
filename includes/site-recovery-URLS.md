@@ -12,7 +12,7 @@ ms.author: raynew
 ---
 | Name | Commercial URL | Government URL | Description |
 |---|---|---|---|
-| AAD | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Used for access control and identity management using AAD |
+| Azure AD | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Used for access control and identity management using AAD |
 | Backup | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | Used for replication data transfer and coordination |
 | Replication | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | Used for replication management operations and coordination |
 | Storage | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | Used for access to the storage account that stores replicated data |
