@@ -55,5 +55,5 @@ See [App Settings](luis-how-to-collaborate.md) to learn how to manage collaborat
 
 See [Add email to access list](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58fcccdd5aca2f08a4104342) with the Authoring APIs.
 
-[luis-reference-prebuilt-domains]:luis-reference-prebuilt-domains.md
-[LUIS]:luis-reference-regions.md#luis-website
+[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/04/2018
+ms.date: 06/21/2018
 ms.author: douglasl
 ---
 # Enable Azure Active Directory authentication for the Azure-SSIS integration runtime
@@ -48,7 +48,7 @@ You can use an existing Azure AD group, or create a new one using Azure AD Power
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Add the Data Factory MSI to the group. You can follow [Azure Data Factory service identity](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity) to get the service identity ID (for example, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc).
+3.  Add the Data Factory MSI to the group. You can follow [Azure Data Factory service identity](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity) to get the principal SERVICE IDENTITY ID (for example, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, but do not use SERVICE IDENTITY APPLICATION ID for this purpose).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

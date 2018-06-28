@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   ms.devlang: na
   ms.service: active-directory
-  ms.component: domains
+  ms.component: domain-services
 sections:
 - items:
   - type: markdown

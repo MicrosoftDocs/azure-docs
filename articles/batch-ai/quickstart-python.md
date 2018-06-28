@@ -14,8 +14,8 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: Python
 ms.topic: quickstart
-ms.date: 10/06/2017
-ms.author: lili
+ms.date: 06/18/2018
+ms.author: danlep
 ---
 
 # Run a CNTK training job using the Azure Python SDK
@@ -28,7 +28,7 @@ In this example, you use the MNIST database of handwritten images to train a con
 
 * Azure subscription - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Azure Python SDK - See [installation instructions](/python/azure/python-sdk-azure-install)
+* Azure Python SDK - See [installation instructions](/python/azure/python-sdk-azure-install). This article requires at least azure-mgmt-batchai package version 2.0.0.
 
 * Azure storage account - See [How to create an Azure storage account](../storage/common/storage-create-storage-account.md)
 
@@ -57,12 +57,15 @@ storage_account_key = 'FILL-IN-HERE'
 # specify the credentials used to remote login your GPU node
 admin_user_name = 'FILL-IN-HERE'
 admin_user_password = 'FILL-IN-HERE'
+
+# specify the location in which to create Batch AI resources
+mylocation = 'eastus'
 ```
 
 Note, that putting credentials into the source code is not a good practice and it's done here to make the quickstart simpler.
 Consider to use environment variables or a separate configuration file instead.
 
-## Create Batch AI Client
+## Create Batch AI client
 
 The following code creates a service principal credentials object and Batch AI client:
 
@@ -89,14 +92,14 @@ resource_group_name = 'myresourcegroup'
 resource_management_client = ResourceManagementClient(
         credentials=creds, subscription_id=subscription_id)
 resource = resource_management_client.resource_groups.create_or_update(
-        resource_group_name, {'location': 'eastus'})
+        resource_group_name, {'location': mylocation})
 ```
 
 
 ## Prepare Azure file share
 For illustration purposes, this quickstart uses an Azure File share to host the training data and scripts for the training job.
 
-1. Create a file share named `batchaiquickstart`.
+Create a file share named `batchaiquickstart`.
 
 ```Python
 from azure.storage.file import FileService
@@ -105,20 +108,28 @@ service = FileService(storage_account_name, storage_account_key)
 service.create_share(azure_file_share_name, fail_on_exist=False)
 ```
 
-2. Create a directory in the share named `mnistcntksample`
+Create a directory in the share named `mnistcntksample`.
 
 ```Python
 mnist_dataset_directory = 'mnistcntksample'
-service.create_directory(azure_file_share_name, mnist_dataset_directory,
-                         fail_on_exist=False)
+service.create_directory(azure_file_share_name, mnist_dataset_directory, fail_on_exist=False)
 ```
-3. Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip into the current directory. The following code uploads required files into Azure File share:
+Download the [sample package](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D) and unzip into the current directory. The following code uploads required files into Azure File share:
 
 ```Python
 for f in ['Train-28x28_cntk_text.txt', 'Test-28x28_cntk_text.txt',
           'ConvNet_MNIST.py']:
      service.create_file_from_path(
              azure_file_share_name, mnist_dataset_directory, f, f)
+```
+
+## Create Batch AI workspace
+
+A workspace is a top-level collection of all types of Batch AI resources. You create your Batch AI cluster and experiments in a workspace.
+
+```Python
+workspace_name='myworkspace'
+batchai_client.workspaces.create(resource_group_name, workspace_name, mylocation)
 ```
 
 ## Create GPU cluster
@@ -131,9 +142,7 @@ cluster_name = 'mycluster'
 relative_mount_point = 'azurefileshare'
 
 parameters = models.ClusterCreateParameters(
-    # Location where the cluster will physically be deployed
-    location='eastus',
-    # VM size. Use NC or NV series for GPU
+    # VM size. Use N-series for GPU
     vm_size='STANDARD_NC6',
     # Configure the ssh users
     user_account_settings=models.UserAccountSettings(
@@ -167,7 +176,7 @@ batchai_client.clusters.create(resource_group_name, cluster_name,
 Monitor the cluster status using the following command:
 
 ```Python
-cluster = batchai_client.clusters.get(resource_group_name, cluster_name)
+cluster = batchai_client.clusters.get(resource_group_name, workspace_name, cluster_name)
 print('Cluster state: {0} Target: {1}; Allocated: {2}; Idle: {3}; '
       'Unusable: {4}; Running: {5}; Preparing: {6}; Leaving: {7}'.format(
     cluster.allocation_state,
@@ -188,16 +197,18 @@ Cluster state: AllocationState.steady Target: 1; Allocated: 1; Idle: 0; Unusable
 
 The cluster is ready when the nodes are allocated and finished preparation (see the `nodeStateCounts` attribute). If something went wrong, the `errors` attribute contains the error description.
 
-## Create training job
+## Create experiment and training job
 
-After the cluster is created, configure and submit the learning job:
+After the cluster is created, create an experiment (a logical container for a group of related jobs). Then configure and submit a learning job in the experiment:
 
 ```Python
+experiment_name='myexperiment'
+
+batchai_client.experiments.create(resource_group_name, workspace_name, experiment_name)
+
 job_name = 'myjob'
 
-parameters = models.job_create_parameters.JobCreateParameters(
-    # The job and cluster must be created in the same location
-    location=cluster.location,
+parameters = models.JobCreateParameters(
     # The cluster this job will run on
     cluster=models.ResourceId(id=cluster.id),
     # The number of VMs in the cluster to use
@@ -226,16 +237,16 @@ parameters = models.job_create_parameters.JobCreateParameters(
 )
 
 # Create the job
-batchai_client.jobs.create(resource_group_name, job_name, parameters).result()
+batchai_client.jobs.create(resource_group_name, workspace_name, experiment_name, job_name, parameters).result()
 ```
 
 ## Monitor job
 You can inspect the job’s state using the following code:
 
 ```Python
-job = batchai_client.jobs.get(resource_group_name, job_name)
+job = batchai_client.jobs.get(resource_group_name, workspace_name, experiment_name, job_name)
 
-print('Job state: {0} '.format(job.execution_state.name))
+print('Job state: {0} '.format(job.execution_state))
 ```
 
 Output is similar to: `Job state: running`.
@@ -250,7 +261,7 @@ Use the following code to list generated stdout, stderr, and log files:
 
 ```Python
 files = batchai_client.jobs.list_output_files(
-    resource_group_name, job_name,
+    resource_group_name, workspace_name, experiment_name, job_name,
     models.JobsListOutputFilesOptions(outputdirectoryid="stdouterr"))
 
 for file in (f for f in files if f.download_url):
@@ -261,7 +272,7 @@ for file in (f for f in files if f.download_url):
 Use the following code to list generated model files:
 ```Python
 files = batchai_client.jobs.list_output_files(
-    resource_group_name, job_name,
+    resource_group_name, workspace_name, experiment_name,job_name,
     models.JobsListOutputFilesOptions(outputdirectoryid="MODEL"))
 
 for file in (f for f in files if f.download_url):
@@ -272,12 +283,12 @@ for file in (f for f in files if f.download_url):
 
 Use the following code to delete the job:
 ```Python
-batchai_client.jobs.delete(resource_group_name, job_name)
+batchai_client.jobs.delete(resource_group_name, workspace_name, experiment_name, job_name)
 ```
 
 Use the following code to delete the cluster:
 ```Python
-batchai_client.clusters.delete(resource_group_name, cluster_name)
+batchai_client.clusters.delete(resource_group_name, workspace_name, cluster_name)
 ```
 
 Use the following code to delete all allocated resources:

@@ -18,9 +18,6 @@ ms.author: shlo
 # Branching and chaining activities in a Data Factory pipeline
 In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, you want to send details of the successful copy operation (such as the amount of data written) in a success email. If the copy activity fails, you want to send details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 A high-level overview of the scenario:
 ![Overview](media/tutorial-control-flow/overview.png)
 
@@ -485,7 +482,7 @@ In the “Url” property, paste the Request URL endpoints from your Logic Apps 
 - Message – Passing value of `@{activity('CopyBlobtoBlob').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of dataWritten. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
 - Data Factory Name – Passing value of `@{pipeline().DataFactory}` This is a system variable, allowing you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
 - Pipeline Name – Passing value of `@{pipeline().Pipeline}`. This is also a system variable, allowing you to access the corresponding pipeline name. 
-- Receiver – Passing value of "@pipeline().parameters.receiver"). Accessing the pipeline parameters.
+- Receiver – Passing value of "\@pipeline().parameters.receiver"). Accessing the pipeline parameters.
  
 This code creates a new Activity Dependency, depending on the previous copy activity that it succeeds.
 

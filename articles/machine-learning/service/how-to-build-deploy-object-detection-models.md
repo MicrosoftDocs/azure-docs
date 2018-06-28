@@ -363,7 +363,7 @@ Operationalization is the process of publishing models and code as web services 
 
 Once your model is trained, you can deploy that model as a web service for consumption using [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster. Using ACS, you can scale your web service manually or use the autoscaling functionality.
 
-**Log in with Azure CLI**
+**Sign in with Azure CLI**
 
 Using an [Azure](https://azure.microsoft.com/) account with a valid subscription, log in using the following CLI command:
 <br>`az login`

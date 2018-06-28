@@ -16,7 +16,7 @@ ms.author: v-geberr;
 # Publish your trained app
 When you finish building and testing your LUIS app, publish it. After the app is published, the Publish page shows all associated HTTP [endpoints](luis-glossary.md#endpoint). These endpoints, per [region](luis-reference-regions.md) and per [key](Manage-Keys.md), are then integrated into any client, chatbot, or backend application. 
 
-You can always [test](train-test.md) your app before publishing it. 
+You can always [test](interactive-test.md) your app before publishing it. 
 
 ## Production and staging slots
 You can publish your app to the **Staging slot** or the **Production Slot**. By using two publishing slots, this allows you to have two different versions with published endpoints or the same version on two different endpoints. 
@@ -135,7 +135,7 @@ The following query string parameters can be used with the endpoint URL:
 |Query string|Type|Example value|Purpose|
 |--|--|--|--|
 |verbose|boolean|true|Include [all intent scores](#include-all-predicted-intent-scores) for utterance|
-|timezoneOffset|number (unit is minutes)|60|Set [timezone offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) for [datetimeV2 prebuilt entities](luis-reference-prebuilt-entities.md#builtindatetimev2)|
+|timezoneOffset|number (unit is minutes)|60|Set [timezone offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) for [datetimeV2 prebuilt entities](luis-reference-prebuilt-datetimev2.md)|
 |spellCheck|boolean|true|[correct spelling](#enable-bing-spell-checker) of utterance -- used in conjunction with bing-spell-check-subscription-key query string parameter|
 |bing-spell-check-subscription-key|subscription ID||used in conjunction with spellCheck query string parameter|
 |staging|boolean|false|select staging or production endpoint|
@@ -150,4 +150,4 @@ Test your published endpoint by selecting the URL in the **Endpoint** column. Th
 ## Next steps
 
 * See [Manage keys](./Manage-Keys.md) to add keys to your LUIS app, and learn about how keys map to regions.
-* See [Train and test your app](Train-Test.md) for instructions on how to test your published app in the test console.
+* See [Train and test your app](interactive-test.md) for instructions on how to test your published app in the test console.

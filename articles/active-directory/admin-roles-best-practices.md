@@ -5,8 +5,9 @@ description: Ensure that your organization’s administrative access and admin a
 services: active-directory 
 keywords: 
 author: curtand
+manager: mtillman
 ms.author: curtand
-ms.date: 03/09/2018
+ms.date: 06/25/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
@@ -15,7 +16,6 @@ ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
 
 ---
-
 
 # Securing privileged access for hybrid and cloud deployments in Azure AD
 

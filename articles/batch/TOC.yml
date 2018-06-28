@@ -111,7 +111,7 @@
     - name: Rendering
       href: batch-rendering-service.md
     - name: Data processing with Batch and Data Factory
-      href: ../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json
+      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
   - name: Monitor Batch solutions
     href: monitoring-overview.md
     items:

@@ -4,7 +4,7 @@ description: Optimize Azure CDN for the type of content delivery
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: 
+manager: cfowler
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
-ms.author: rli
+ms.date: 06/13/2018
+ms.author: v-deasim
 ---
 # Optimize Azure CDN for the type of content delivery
 
@@ -78,11 +78,11 @@ General web delivery is the most common optimization option. It's designed for g
 A typical website contains static and dynamic content. Static content includes images, JavaScript libraries, and style sheets that can be cached and delivered to different users. Dynamic content is personalized for an individual user, such as news items that are tailored to a user profile. Dynamic content, such as shopping cart contents, isn't cached because it's unique to each user. General web delivery can optimize your entire website. 
 
 > [!NOTE]
-> If you use **Azure CDN Standard from Akamai**, use this optimization if your average file size is smaller than 10 MB. If your average file size is larger than 10 MB, select **Large file download** from the **Optimized for** drop-down list.
+> If you are using an **Azure CDN Standard from Akamai** profile, select this optimization type if your average file size is smaller than 10 MB. Othewise, if your average file size is larger than 10 MB, select **Large file download** from the **Optimized for** drop-down list.
 
 ### General media streaming
 
-If you need to use the endpoint for live streaming and video-on-demand streaming, use the general media streaming optimization.
+If you need to use the endpoint for live streaming and video-on-demand streaming, select the general media streaming optimization type.
 
 Media streaming is time-sensitive, because packets that arrive late on the client, such as frequent buffering of video content, can cause a degraded viewing experience. Media streaming optimization reduces the latency of media content delivery and provides a smooth streaming experience for users. 
 
@@ -96,18 +96,19 @@ For more information about media streaming optimization, see [Media streaming op
 
 Video-on-demand media streaming optimization improves video-on-demand streaming content. If you use an endpoint for video-on-demand streaming, use this option.
 
-For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**, use the general web delivery optimization type to deliver video-on-demand streaming media content.
+For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** profiles, use the general web delivery optimization type to deliver video-on-demand streaming media content.
 
 For more information about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
 
 > [!NOTE]
-> If the CDN endpoint primarily serves video-on-demand content, use this optimization type. The major difference between this optimization and the general media streaming optimization is the connection retry time-out. The time-out is much shorter to work with live streaming scenarios.
+> If the CDN endpoint primarily serves video-on-demand content, use this optimization type. The major difference between this optimization type and the general media streaming optimization type is the connection retry time-out. The time-out is much shorter to work with live streaming scenarios.
+>
 
 ### Large file download
 
 For **Azure CDN Standard from Akamai** profiles, large file downloads are optimized for content larger than 10 MB. If your average file size is smaller than 10 MB, use general web delivery. If your average files sizes are consistently larger than 10 MB, it might be more efficient to create a separate endpoint for large files. For example, firmware or software updates typically are large files. To deliver files larger than 1.8 GB, the large file download optimization is required.
 
-For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**, use the general web delivery optimization type to deliver large file download content. There is no limitation on file download size.
+For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** profiles, use the general web delivery optimization type to deliver large file download content. There is no limitation on file download size.
 
 For more information about large file optimization, see [Large file optimization](cdn-large-file-optimization.md).
 

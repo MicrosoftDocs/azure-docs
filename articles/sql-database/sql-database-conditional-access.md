@@ -6,15 +6,22 @@ author: GithubMirek
 manager: johammer
 ms.custom: security
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mireks
+ms.reviewer: carlrab
 ---
 
 
 # Conditional Access (MFA) with Azure SQL Database and Data Warehouse  
 
-Both SQL Database and SQL Data Warehouse support Microsoft Conditional Access. The following steps show how to configure SQL Database to enforce a Conditional Access policy.  
+Both Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) support Microsoft Conditional Access. 
+
+> [!NOTE]
+> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+
+The following steps show how to configure SQL Database to enforce a Conditional Access policy.  
 
 ## Prerequisites  
 - You must configure your SQL Database or SQL Data Warehouse to support Azure Active Directory authentication. For specific steps, see [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication-configure.md).  

@@ -66,7 +66,7 @@ The graphics you choose are shown in the following circumstances:
     * By passing the *whr* parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com"
     * By passing the *username* parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com"
 
-Find details on how to configure company branding in the article [Add company branding to your sign-in page in Azure AD](../customize-branding.md).
+Find details on how to configure company branding in the article [Add company branding to your sign-in page in Azure AD](../fundamentals/customize-branding.md).
 
 ### Directory name
 

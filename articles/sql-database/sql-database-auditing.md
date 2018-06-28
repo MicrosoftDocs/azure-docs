@@ -2,12 +2,12 @@
 title: Get started with Azure SQL database auditing | Microsoft Docs
 description: Use Azure SQL database auditing to track database events into an audit log.
 services: sql-database
-author: giladm
+author: giladmit
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/24/2018
 ms.author: giladm
 
 ---
@@ -198,12 +198,17 @@ For a script example, see [Configure auditing and threat detection using PowerSh
 
 **REST API - Blob auditing**:
 
-* [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-* [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-* [Get Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-* [Get Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [Create or Update Database Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/createorupdate)
+* [Create or Update Server Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
+* [Get Database Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
+* [Get Server Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
 * [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
+Extended policy with WHERE clause support for additional filtering:
+* [Create or Update Database *Extended* Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+* [Create or Update Server *Extended* Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+* [Get Database *Extended* Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/get)
+* [Get Server *Extended* Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

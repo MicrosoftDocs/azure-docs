@@ -10,7 +10,7 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/15/2018
 ms.author: adhurwit
 
 ---
@@ -30,16 +30,15 @@ To complete this tutorial, you must have the following:
 
 * A URI to a secret in an Azure Key Vault
 * A Client ID and a Client Secret for a web application registered with Azure Active Directory that has access to your Key Vault
-* A web application. We will be showing the steps for an ASP.NET MVC application deployed in Azure as a Web App.
+* A web application. 
 
 >[!IMPORTANT]
->* This sample depends on an older way of manually provisioning AAD Identities. Currently, there is a new feature in preview called [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), which can automatically provision AAD Identities. Please refer to the following sample on [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) for further details.
+>* This sample depends on an older way of manually provisioning AAD Identities. Currently, there is a new feature in preview called [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), which can automatically provision AAD Identities. For information on Key Vault and managed service identities please refer to the following sample on [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/).
 
 > [!NOTE]
 >* It is essential that you have completed the steps listed in [Get Started with Azure Key Vault](key-vault-get-started.md) for this tutorial so that you have the URI to a secret and the Client ID and Client Secret for a web application.
 
-
-The web application that will be accessing the Key Vault is the one that is registered in Azure Active Directory and has been given access to your Key Vault. If this is not the case, go back to Register an Application in the Get Started tutorial and repeat the steps listed.
+The web application will access the vault needs to be registered in Azure Active Directory. It also needs to have access rights to Key Vault. If not, go back to Register an Application in the Get Started tutorial and repeat the steps listed.
 
 This tutorial is designed for web developers that understand the basics of creating web applications on Azure. For more information about Azure Web Apps, see [Web Apps overview](../app-service/app-service-web-overview.md).
 
@@ -52,7 +51,7 @@ There are two packages that your web application needs to have installed.
 
 Both of these packages can be installed using the Package Manager Console using the Install-Package command.
 
-```
+```PowerShell
 // this is currently the latest stable version of ADAL
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 Install-Package Microsoft.Azure.KeyVault
@@ -154,9 +153,9 @@ For more information on creating a test certificate, see [How to: Create Your Ow
 
 ### Associate the Certificate with an Azure AD application
 
-Now that you have a certificate, you need to associate it with an Azure AD application. Presently, the Azure portal does not support this workflow; this can be completed through PowerShell. Run the following commands to associate the certificate with the Azure AD application:
+Now that you have a certificate, you need to associate it with an Azure AD application. Run the following commands to associate the certificate with the Azure AD application:
 
-```ps
+```PowerShell
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 $x509.Import("C:\data\KVWebApp.cer")
 $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())

@@ -41,14 +41,14 @@ sections:
         src: media/index/blue_globe_icon.png
       title: Web
     rows:
-    - title: Computer Vision - API
+    - title: Computer Vision - Analyze an image
       values:
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/CSharp-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
       - href:
-    - title: Custom Vision - Build a Classifier
+    - title: Custom Vision - Build an image classifier
       values:
       - href:
       - href:
@@ -62,35 +62,35 @@ sections:
       - href: 
       - href:
       - href: /azure/cognitive-services/speech-service/get-started 
-    - title: Translator Speech - API
+    - title: Translator Speech - Translate spoken words
       values: 
       - href: /azure/cognitive-services/translator-speech/quickstarts/csharp
       - href: /azure/cognitive-services/translator-speech/quickstarts/java
       - href: /azure/cognitive-services/translator-speech/quickstarts/nodejs
       - href: /azure/cognitive-services/translator-speech/quickstarts/python
       - href:
-    - title: LUIS - Use prebuilt domain
+    - title: LUIS - Use prebuilt home automation 
       values:
       - href: 
       - href: 
       - href: 
       - href:
       - href: /azure/cognitive-services/luis/luis-get-started-create-app
-    - title: Translator Text - API sign up
+    - title: Translator Text - Translate one language to another
       values:
+      - href: Translator/quickstart-csharp-translate
+      - href: Translator/quickstart-java-translate
+      - href: Translator/quickstart-nodejs-translate
+      - href: Translator/quickstart-python-translate
       - href: 
-      - href: 
-      - href: 
-      - href:
-      - href: /azure/cognitive-services/translator/translator-text-how-to-signup
-    - title: Bing Web Search - Call and Response
+    - title: Bing Web Search - Get relevant web queries
       values: 
       - href: /azure/cognitive-services/bing-web-search/quickstarts/csharp
       - href: /azure/cognitive-services/bing-web-search/quickstarts/java
       - href: /azure/cognitive-services/bing-web-search/quickstarts/nodejs
       - href: /azure/cognitive-services/bing-web-search/quickstarts/python
       - href:
-    - title: Bing Image Search - Call and Response
+    - title: Bing Image Search - Get relevant image queries
       values:
       - href: /azure/cognitive-services/bing-image-search/quickstarts/csharp
       - href: /azure/cognitive-services/bing-image-search/quickstarts/java

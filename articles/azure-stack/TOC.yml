@@ -130,8 +130,6 @@
       href: azure-stack-viewing-public-ip-address-consumption.md
     - name: Change user subscription owner
       href: azure-stack-change-subscription-owner.md
-    - name: Manage Windows Azure Pack VMs
-      href: azure-stack-manage-windows-azure-pack.md
     - name: Start and stop Azure Stack
       href: azure-stack-start-and-stop.md
     - name: Manage capacity
@@ -191,6 +189,8 @@
         href: azure-stack-enable-multitenancy.md
     - name: Rotate secrets
       href: azure-stack-rotate-secrets.md
+    - name: Update antivirus
+      href: azure-stack-security-av.md
   - name: Offer services
     items:
     - name: Overview of offering services
@@ -294,15 +294,15 @@
       - name: Offer a Kubernetes Cluster
         href: azure-stack-solution-template-kubernetes-cluster-add.md
     - name: Usage and billing
+      href: azure-stack-billing-and-chargeback.md
       items:
-      - name: Overview
-        href: azure-stack-billing-and-chargeback.md
       - name: Manage usage and billing as a CSP
         href: azure-stack-add-manage-billing-as-a-csp.md
-      - name: Add tenants for usage and billing 
-        href: azure-stack-csp-howto-register-tenants.md
-      - name: Manage tenant registration
-        href: azure-stack-csp-ref-operations.md
+        items:
+        - name: Add tenants for usage and billing 
+          href: azure-stack-csp-howto-register-tenants.md
+        - name: Manage tenant registration
+          href: azure-stack-csp-ref-operations.md
       - name: Usage and billing reference
         items:
         - name: Usage data reporting

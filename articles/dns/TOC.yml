@@ -6,7 +6,7 @@
     href: dns-overview.md
 - name: Quickstarts
   items:
-  - name: Create DNS zone and record - portal
+  - name: Name resolution - portal
     href: dns-getstarted-portal.md
   - name: Create DNS zone and record - PowerShell
     href: dns-getstarted-powershell.md
@@ -16,10 +16,10 @@
   items:
   - name: Host your domain in Azure DNS
     href: dns-delegate-domain-azure-dns.md
-  - name: Create private DNS zone and record
-    href: private-dns-getstarted-powershell.md
   - name: Create custom DNS records for a web app
     href: dns-web-sites-custom-domain.md
+  - name: Create private DNS zone and record
+    href: private-dns-getstarted-powershell.md
 - name: Samples
   items:
   - name: Azure CLI

@@ -52,13 +52,15 @@
       href: security-center-customize-os-security-config.md
     - name: Security policy using Azure policy
       href: security-center-azure-policy.md
+    - name: Tenant-wide visibility
+      href: security-center-management-groups.md  
   
   - name: Implement security recommendations
     href: security-center-recommendations.md
   - name: Monitor security health
     href: security-center-monitoring.md
     items:
-    - name: Compute security
+    - name: Compute & apps security
       href: security-center-virtual-machine-recommendations.md
       items:
       - name: Apply disk encryption
@@ -79,6 +81,10 @@
         href: security-center-update-os-version.md
       - name: Vulnerability assessment not installed
         href: security-center-vulnerability-assessment-recommendations.md
+      - name: Add a web application firewall
+        href: security-center-add-web-application-firewall.md
+      - name: Finalize application protection
+        href: security-center-add-web-application-firewall.md#finalize-application-protection
   
     - name: Network security
       href: security-center-network-recommendations.md
@@ -100,15 +106,7 @@
       - name: Enable auditing and threat detection on SQL servers
         href: security-center-enable-auditing-on-sql-servers.md
       - name: Enable Transparent Data Encryption
-        href: security-center-enable-transparent-data-encryption.md
-  
-    - name: Application security
-      href: security-center-application-recommendations.md
-      items:
-      - name: Add a web application firewall
-        href: security-center-add-web-application-firewall.md
-      - name: Finalize application protection
-        href: security-center-add-web-application-firewall.md#finalize-application-protection
+        href: security-center-enable-transparent-data-encryption.md     
  
     - name: Identity and Access
       href: security-center-identity-access.md  

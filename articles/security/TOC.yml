@@ -56,8 +56,6 @@
   - name: IaaS security
     href: security-virtual-machines-overview.md
     items:
-    - name: Best practices - Azure VMs
-      href: azure-security-best-practices-vms.md
     - name: Best practices - IaaS workloads
       href: azure-security-iaas.md
     - name: Azure marketplace images
@@ -67,6 +65,8 @@
     items:
     - name: Choose Azure AD authentication
       href: azure-ad-choose-authn.md
+    - name: Security checklist
+      href: azure-ad-secure-steps.md
     - name: Best practices
       href: azure-security-identity-management-best-practices.md
     - name: Enforce MFA on subscription administrators
