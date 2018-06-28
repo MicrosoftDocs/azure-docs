@@ -128,7 +128,7 @@ To prevent unauthorized access, delete all the user's app passwords. After the u
 
 **Q: What if a user can't sign in to non-browser apps?**
 
-If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-mfasettings.md#app-passwords), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
+If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-mfasettings.md#app-passwords), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](end-user/current/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
 
 If your organization doesn't have legacy clients, you should not allow your users to create app passwords.
 
