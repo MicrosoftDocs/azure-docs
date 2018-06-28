@@ -159,9 +159,11 @@ Open the command prompt on the computer running your simulated device again. Con
 
 View the messages being sent from the tempSensor module:
 
-   ```bash
-   iotedge logs tempSensor -f 
+  ```bash
+   sudo iotedge logs tempSensor -f 
    ```
+
+After a logoff and login, *sudo* is not required for the above command.
 
 ![View the data from your module](./media/quickstart-linux/iotedge-logs.png)
 
