@@ -203,215 +203,162 @@ A sample PowerShell script  is given below for reference.
 This script creates a new storage account and container; then shows you how to set and clear legal holds, create, and lock a time-based retention policy (aka ImmutabilityPolicy), extend the retention interval etc.
 
 ```powershell
-\$ResourceGroup = "\<Enter your resource group\>”
+$ResourceGroup = "<Enter your resource group>”
+$StorageAccount = "<Enter your storage account name>"
+$container = "<Enter your container name>"
+$container2 = "<Enter another container name>”
+$location = "<Enter the storage account location>"
 
-\$StorageAccount = "\<Enter your storage account name\>"
-
-\$container = "\<Enter your container name\>"
-
-\$container2 = "\<Enter another container name\>”
-
-\$location = "\<Enter the storage account location\>"
-
-\# Login to the Azure Resource Manager Account
-
+# Login to the Azure Resource Manager Account
 Login-AzureRMAccount
-
 Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Storage"
 
-\# Create your Azure Resource Group
+# Create your Azure Resource Group
+New-AzureRmResourceGroup -Name $ResourceGroup -Location $location
 
-New-AzureRmResourceGroup -Name \$ResourceGroup -Location \$location
+# Create your Azure storage account
+New-AzureRmStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
+	$StorageAccount -SkuName Standard_LRS -Location $location -Kind Storage
 
-\# Create your Azure storage account
+# Create a new container
+New-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+	-StorageAccountName $StorageAccount -Name $container
 
-New-AzureRmStorageAccount -ResourceGroupName \$ResourceGroup -StorageAccountName
-\$StorageAccount -SkuName Standard_LRS -Location \$location -Kind Storage
+# Create Container 2 with Storage Account object
+$accountObject = Get-AzureRmStorageAccount -ResourceGroupName $ResourceGroup `
+	-StorageAccountName $StorageAccount
+New-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 
-\# Create a new container
+# Get container
+Get-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+	-StorageAccountName $StorageAccount -Name $container
 
-New-AzureRmStorageContainer -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -Name \$container
+# Get Container with Account object
+$containerObject = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container
 
-\# Create Container 2 with Storage Account object
+#list container
+Get-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+	-StorageAccountName $StorageAccount
 
-\$accountObject = Get-AzureRmStorageAccount -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount
+#remove container (Add -Force to dismiss prompt)
+Remove-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+	-StorageAccountName $StorageAccount -Name $container2
 
-New-AzureRmStorageContainer -StorageAccount \$accountObject -Name \$container2
+#with Account object
+Remove-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 
-\# Get container
+#with Container object
+$containerObject2 = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
+Remove-AzureRmStorageContainer -InputObject $containerObject2
 
-Get-AzureRmStorageContainer -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -Name \$container
+#Set LegalHold
+Add-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
+	-StorageAccountName $StorageAccount -Name $container -Tag tag1,tag2
 
-\# Get Container with Account object
+#with Account object
+Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3
 
-\$containerObject = Get-AzureRmStorageContainer -StorageAccount \$accountObject
--Name \$container
+#with Container object
+Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4,tag5
 
-\#list container
+#Clear LegalHold
+Remove-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
+	-StorageAccountName $StorageAccount -Name $container -Tag tag2
 
-Get-AzureRmStorageContainer -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount
+#with Account object
+Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3,tag5
 
-\#remove container (Add -Force to dismiss prompt)
+#with Container object
+Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4
 
-Remove-AzureRmStorageContainer -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -Name \$container2
+# create/update ImmutabilityPolicy
+## with account/container name
 
-\#with Account object
+Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
+	-StorageAccountName $StorageAccount -ContainerName $container -ImmutabilityPeriod 10
 
-Remove-AzureRmStorageContainer -StorageAccount \$accountObject -Name
-\$container2
+#with Account object
+Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+	-ContainerName $container -ImmutabilityPeriod 1 -Etag $policy.Etag
 
-\#with Container object
+#with Container object
+$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
+	$containerObject -ImmutabilityPeriod 7
 
-\$containerObject2 = Get-AzureRmStorageContainer -StorageAccount \$accountObject
--Name \$container2
+## with ImmutabilityPolicy object
+Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -ImmutabilityPeriod 5
 
-Remove-AzureRmStorageContainer -InputObject \$containerObject2
+#get ImmutabilityPolicy
+Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
+	-StorageAccountName $StorageAccount -ContainerName $container
 
-\#Set LegalHold
+#with Account object
+Get-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+	-ContainerName $container
 
-Add-AzureRmStorageContainerLegalHold -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -Name \$container -Tag tag1,tag2
+#with Container object
+Get-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject
 
-\#with Account object
+#Lock ImmutabilityPolicy (Add -Force to dismiss prompt)
+## with ImmutabilityPolicy object
 
-Add-AzureRmStorageContainerLegalHold -StorageAccount \$accountObject -Name
-\$container -Tag tag3
+$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+	$ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
+$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
 
-\#with Container object
+## with account/container name
+$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+	$ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
+	-Etag $policy.Etag
 
-Add-AzureRmStorageContainerLegalHold -Container \$containerObject -Tag tag4,tag5
-
-\#Clear LegalHold
-
-Remove-AzureRmStorageContainerLegalHold -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -Name \$container -Tag tag2
-
-\#with Account object
-
-Remove-AzureRmStorageContainerLegalHold -StorageAccount \$accountObject -Name
-\$container -Tag tag3,tag5
-
-\#with Container object
-
-Remove-AzureRmStorageContainerLegalHold -Container \$containerObject -Tag tag4
-
-\# create/update ImmutabilityPolicy
-
-\#\# with account/container name
-
-Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -ContainerName \$container
--ImmutabilityPeriod 10
-
-\#with Account object
-
-Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount \$accountObject
--ContainerName \$container -ImmutabilityPeriod 1 -Etag \$policy.Etag
-
-\#with Container object
-
-\$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container
-\$containerObject -ImmutabilityPeriod 7
-
-\#\# with ImmutabilityPolicy object
-
-Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy \$policy
--ImmutabilityPeriod 5
-
-\#get ImmutabilityPolicy
-
-Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName \$ResourceGroup
--StorageAccountName \$StorageAccount -ContainerName \$container
-
-\#with Account object
-
-Get-AzureRmStorageContainerImmutabilityPolicy -StorageAccount \$accountObject
--ContainerName \$container
-
-\#with Container object
-
-Get-AzureRmStorageContainerImmutabilityPolicy -Container \$containerObject
-
-\#Lock ImmutabilityPolicy (Add -Force to dismiss prompt)
-
-\#\# with ImmutabilityPolicy object
-
-\$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
-\$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
-
-\$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy
-\$policy -force
-
-\#\# with account/container name
-
-\$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
-\$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
--Etag \$policy.Etag
-
-\#with Account object
-
-\$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -StorageAccount
-\$accountObject -ContainerName \$container -Etag \$policy.Etag
-
-\#with Container object
-
-\$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -Container
-\$containerObject -Etag \$policy.Etag -force
-
-\#Extend ImmutabilityPolicy
-
-\#\# with ImmutabilityPolicy object
-
-\$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
-\$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
-
-\$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy
-\$policy -ImmutabilityPeriod 11 -ExtendPolicy
-
-\#\# with account/container name
-
-\$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
-\$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
--ImmutabilityPeriod 11 -Etag \$policy.Etag -ExtendPolicy
-
-\#with Account object
-
-\$policy = Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount
-\$accountObject -ContainerName \$container -ImmutabilityPeriod 12 -Etag
-\$policy.Etag -ExtendPolicy
-
-\#with Container object
-
-\$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container
-\$containerObject -ImmutabilityPeriod 13 -Etag \$policy.Etag -ExtendPolicy
-
-\#Remove ImmutabilityPolicy (Add -Force to dismiss prompt)
-
-\#\# with ImmutabilityPolicy object
-
-\$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
-\$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
-
-Remove-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy \$policy
-
-\#\# with account/container name
-
-Remove-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName
-\$ResourceGroup -StorageAccountName \$StorageAccount -ContainerName \$container
--Etag \$policy.Etag
-
-\#with Account object
-
-Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount \$accountObject
--ContainerName \$container -Etag \$policy.Etag
-
-\#with Container object
-
-Remove-AzureRmStorageContainerImmutabilityPolicy -Container \$containerObject
--Etag \$policy.Etag
+#with Account object
+$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
+	$accountObject -ContainerName $container -Etag $policy.Etag
+
+#with Container object
+$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -Container `
+	$containerObject -Etag $policy.Etag -force
+
+#Extend ImmutabilityPolicy
+## with ImmutabilityPolicy object
+
+$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+	$ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
+
+$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
+	$policy -ImmutabilityPeriod 11 -ExtendPolicy
+
+## with account/container name
+$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+	$ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
+	-ImmutabilityPeriod 11 -Etag $policy.Etag -ExtendPolicy
+
+#with Account object
+$policy = Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
+	$accountObject -ContainerName $container -ImmutabilityPeriod 12 -Etag `
+	$policy.Etag -ExtendPolicy
+
+#with Container object
+$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
+	$containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
+
+#Remove ImmutabilityPolicy (Add -Force to dismiss prompt)
+## with ImmutabilityPolicy object
+$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+	$ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
+Remove-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+
+## with account/container name
+Remove-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+	$ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
+	-Etag $policy.Etag
+
+#with Account object
+Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+	-ContainerName $container -Etag $policy.Etag
+
+#with Container object
+Remove-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject `
+	-Etag $policy.Etag
+	
 ```
