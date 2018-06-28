@@ -19,7 +19,7 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM agent unable to communicate with Azure Backup
 
-Error message: "VM Agent unable to communicate with Azure Backup"<br>
+Error message: **VM Agent unable to communicate with Azure Backup**<br>
 Error code: "UserErrorGuestAgentStatusUnavailable"
 
 After you register and schedule a VM for the Backup service, Backup initiates the job by communicating with the VM agent to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. When a snapshot isn't triggered, the backup might fail. Complete the following troubleshooting steps in the order listed, and then retry your operation:
