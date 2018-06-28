@@ -146,7 +146,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 * Deprecated IPartitionResolver based custom partitioning code. Please use partitioned collections for higher storage and throughput.
 
 ### <a name="1.7.1"/>1.7.1
-* Added retry policy support for throttling.  
+* Added retry policy support for rate limiting.  
 
 ### <a name="1.7.0"/>1.7.0
 * Added time to live (TTL) support for documents.
