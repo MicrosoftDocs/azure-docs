@@ -57,16 +57,16 @@ An auditing policy can be defined for a specific database or as a default server
 The following section describes the configuration of auditing using the Azure portal.
 
 1. Go to the [Azure portal](https://portal.azure.com).
-2. Go to the **Settings** blade of the SQL database/SQL server you want to audit. In the **Settings** blade, select **Auditing & Threat detection**.
+2. Navigate to **Auditing** under the Security heading in your SQL database/server pane.
 
     <a id="auditing-screenshot"></a>
     ![Navigation pane][1]
 3. If you prefer to set up a server auditing policy, you can select the **View server settings** link in the database auditing blade. You can then view or modify the server auditing settings. Server auditing policies  apply to all existing and newly created databases on this server.
 
     ![Navigation pane][2]
-4. If you prefer to enable blob auditing on the database level, for **Auditing**, select **ON**, and for **Auditing type**, select  **Blob**.
+4. If you prefer to enable auditing on the database level, switch **Auditing** to **ON**.
 
-    If server blob auditing is enabled, the database-configured audit will exist side by side with the server blob audit.
+    If server auditing is enabled, the database-configured audit will exist side-by-side with the server audit.
 
     ![Navigation pane][3]
 5. To open the **Audit Logs Storage** blade, select **Storage Details**. Select the Azure storage account where logs will be saved, and then select the retention period. The old logs will be deleted. Then click **OK**.
@@ -99,7 +99,8 @@ There are several methods you can use to view blob auditing logs:
     An **Audit records** blade opens, from which you'll be able to view the logs.
 
     - You can view specific dates by clicking **Filter** at the top of the **Audit records** blade.
-    - You can switch between audit records that were created by a server policy or database policy audit.
+    - You can switch between audit records that were created by the *server audit policy* and the *database audit policy* by toggling **Audit Source**.
+    - You can view only SQL injection related audit records by checking  **Show only audit records for SQL injections** checkbox.
 
        ![Navigation pane][8]
 
@@ -145,8 +146,8 @@ With geo-replicated databases, when you enable auditing on the primary database 
 * Server-level (**recommended**): Turn on auditing on both the **primary server** as well as the **secondary server** - the primary and secondary databases will each be audited independently based on their respective server-level policy.
 
 * Database-level: Database-level auditing for secondary databases can only be configured from Primary database auditing settings.
-   * Blob auditing must be enabled on the *primary database itself*, not the server.
-   * After blob auditing is enabled on the primary database, it will also become enabled on the secondary database.
+   * Auditing must be enabled on the *primary database itself*, not the server.
+   * After auditing is enabled on the primary database, it will also become enabled on the secondary database.
 
     >[!IMPORTANT]
     >With database-level auditing, the storage settings for the secondary database will be identical to those of the primary database, causing cross-regional traffic. We recommend that you enable only server-level auditing, and leave the database-level auditing disabled for all databases.
@@ -202,7 +203,6 @@ For a script example, see [Configure auditing and threat detection using PowerSh
 * [Create or Update Server Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
 * [Get Database Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
 * [Get Server Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
-* [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 Extended policy with WHERE clause support for additional filtering:
 * [Create or Update Database *Extended* Blob Auditing Policy](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
