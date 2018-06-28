@@ -18,7 +18,7 @@ ms.author: glenga
 ---
 # Code and test Azure Functions locally
 
-While you are able to develop and test Azure Functions in the [Azure portal], many developers prefer a local development experience. Azure Functions makes it easy to use your favorite code editor and local development tools to develop and test your functions on your local computer. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Functions runtime.
+While you're able to develop and test Azure Functions in the [Azure portal], many developers prefer a local development experience. Functions makes it easy to use your favorite code editor and development tools to create and test functions on your local computer. Your local functions can connect to live Azure services, and you can debug them on your local computer using the full Functions runtime.
 
 ## Local development environments
 
