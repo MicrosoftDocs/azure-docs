@@ -49,7 +49,7 @@ Any changes made to the Azure resources, either made directly in Azure portal or
 
 ### Deep integration with open-source tooling
 
-Cloud Shell includes pre-configured authentication for open-source tools such as Terraform, Ansible and Chef InSpec. Try it out from the example walkthroughs.
+Cloud Shell includes pre-configured authentication for open-source tools such as Terraform, Ansible, and Chef InSpec. Try it out from the example walkthroughs.
 
 ## Tools
 

@@ -77,15 +77,15 @@ If the user runs a command that would create a Windows dialog box, such as `Conn
 
 ### Tab completion crashes PSReadline
 
-If the user's EditMode in PSReadline is set to Emacs, the user tries to display all possibilities via tab completion, and the window size is too small to display all the possibilites, PSReadline will crash.
+If the user's EditMode in PSReadline is set to Emacs, the user tries to display all possibilities via tab completion, and the window size is too small to display all the possibilities, PSReadline will crash.
 
 ### Large Gap after displaying progress bar
 
 If the user performs an action that displays a progress bar, such a tab completing while in the `Azure:` drive, then it is possible that the cursor is not set properly and a gap appears where the progress bar was previously.
 
-### Random characers appear inline
+### Random characters appear inline
 
-The cursor position sequence codes, for example `5;13R`, can appear in the user input.  The charaters can be manually removed.
+The cursor position sequence codes, for example `5;13R`, can appear in the user input.  The characters can be manually removed.
 
 ## Next steps
 

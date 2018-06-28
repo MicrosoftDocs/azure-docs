@@ -125,7 +125,7 @@ If the user runs a command that would create a Windows dialog box, such as `Conn
 
 ## GDPR compliance for Cloud Shell
 
-Azure Cloud Shell takes your personal data seriously, the data captured and stored by the Azure Cloud Shell service are used to provide defaults for your experience such as your most recently used shell, preferred font size, preferred font type, and file share details that back clouddrive. Should you wish to export or delete this data, we have included the following instructions.
+Azure Cloud Shell takes your personal data seriously, the data captured and stored by the Azure Cloud Shell service are used to provide defaults for your experience such as your most recently used shell, preferred font size, preferred font type, and file share details that back cloud drive. Should you wish to export or delete this data, we have included the following instructions.
 
 ### Export
 In order to **export** the user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands.

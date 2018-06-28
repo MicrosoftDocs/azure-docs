@@ -42,7 +42,7 @@ If you mount an existing file share, the storage accounts must be:
 * Locally redundant storage or geo-redundant storage to support file shares.
 * Located in your assigned region. When you are onboarding, the region you are assigned to is listed in the resource group name `cloud-shell-storage-<region>`.
 
-#### The clouddrive mount command
+#### The `clouddrive mount` command
 
 > [!NOTE]
 > If you're mounting a new file share, a new user image is created for your `$Home` directory. Your previous `$Home` image is kept in your previous file share.
