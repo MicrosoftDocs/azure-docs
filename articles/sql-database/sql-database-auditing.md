@@ -70,8 +70,6 @@ The following section describes the configuration of auditing using the Azure po
 
     ![Navigation pane][3]
 5. To open the **Audit Logs Storage** blade, select **Storage Details**. Select the Azure storage account where logs will be saved, and then select the retention period. The old logs will be deleted. Then click **OK**.
-    >[!TIP]
-    >To get the most out of the auditing reports templates, use the same storage account for all audited databases.
 
     <a id="storage-screenshot"></a>
     ![Navigation pane][4]
