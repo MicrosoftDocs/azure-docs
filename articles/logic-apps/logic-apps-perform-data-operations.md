@@ -17,12 +17,19 @@ ms.suite: integration
 
 # Perform data operations in Azure Logic Apps
 
-This article shows how you can work with data outputs 
-from triggers and actions in your logic apps. For example, 
-you can convert arrays into tables or strings, 
-create subarrays based on a condition, 
-or create user-friendly tokens from properties in JSON content 
-so you can use those properties more easily in your logic apps. 
+This article shows how you can work with data by adding 
+actions that perform tasks such as create tables from arrays, 
+create arrays from other arrays based on a condition, 
+create user-friendly tokens from JSON object properties 
+so you can more easily use those properties in your workflow, 
+and so on. If you don't find the action you want here, 
+try browsing the many [functions for manipulating data](../logic-apps/workflow-definition-language-functions-reference.md) 
+that Logic Apps provides.
+
+These tables summarize the data operation actions 
+based on the source data types they work on, 
+but the operation descriptions appear alphabetically.
+
 
 **Array actions** 
 
@@ -43,12 +50,9 @@ These actions help you work with data in JavaScript Object Notation (JSON) forma
 
 | Action | Description | 
 |--------|-------------| 
-| [**Compose**](#compose-action) | Create a single output from inputs with varying data types. | 
+| [**Compose**](#compose-action) | Create a message, or string, from multiple inputs that can have various data types. You can then use this string as a single input, rather than repeatedly entering the same inputs. For example, you can create a single JSON message from various inputs. | 
 | [**Parse JSON**](#parse-json-action) | Create user-friendly data tokens for properties in JSON content so you can more easily use the properties in your logic apps. | 
 ||| 
-
-Also, Logic Apps provide these actions for 
-manipulating data, you can also use various data functions 
 
 To create more complex JSON transformations, see 
 [Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
@@ -78,14 +82,21 @@ as the first step in your logic app
 
 ## Compose action
 
-To save yourself from repeatedly entering the same multiple 
-inputs while building your logic app's workflow, you can create 
-a single output from those inputs, including expressions, 
-by using the **Data Operations - Compose** action. 
-These inputs can have varying types, such as integers, 
+To save yourself from repeatedly entering the same 
+inputs while building your logic app's workflow, 
+you can create a single string for those inputs by 
+using the **Data Operations - Compose** action. 
+These inputs can have various types, such as integers, 
 Booleans, arrays, JSON objects, and any other native 
 type that Azure Logic Apps supports, for example, binary and XML. 
 You can then use this output in actions that follow after the **Compose** action.
+
+For example, if you want to construct a JSON message from a string variable 
+and an integer variable, you can use the **Compose** action and create this result:
+
+```
+"{ "fullName": nameVariable, "age": ageVariable }"
+```
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
