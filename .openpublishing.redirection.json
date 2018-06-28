@@ -81,7 +81,7 @@
         },
         {
             "source_path": "articles/machine-learning/preview/known-issues-and-troubleshooting-guide.md",
-            "redirect_url": "/azure/machine-learning/service/known-issues-and-troubleshooting-guide",
+            "redirect_url": "/azure/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide",
             "redirect_document_id": true
         },
         {
@@ -22617,11 +22617,6 @@
         {
             "source_path": "articles/machine-learning/desktop-workbench/aml-pricing.md",
             "redirect_url": "/azure/machine-learning/service/aml-pricing",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md",
-            "redirect_url": "/azure/machine-learning/service/known-issues-and-troubleshooting-guide",
             "redirect_document_id": false
         },
         {
