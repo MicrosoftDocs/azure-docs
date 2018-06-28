@@ -192,7 +192,13 @@ In this section, you learn how to add and remove user assigned identity on an Az
    az account get-access-token
    ```
 
-2. To ensure you don't delete any existing user assigned managed identities that you would like to keep assigned to the VM or remove the system assigned identity, you need to list the managed identities by using this CURL command: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>"`. If you have managed identities assigned to the VM, they are listed under in the `identity` value.
+2. To ensure you don't delete any existing user assigned managed identities that you would like to keep assigned to the VM or remove the system assigned identity, you need to list the managed identities by using the following CURL command: 
+ 
+   ```bash
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+ 
+   If you have managed identities assigned to the VM, they are listed in the response in the `identity` value.
 
    For example, if you have user assigned identities `ID1` and `ID2` assigned to your VM, and would only like to keep `ID1` assigned and retain the system assigned identity, you would use the same CURL command as assigning a user assigned managed identity to a VM only keeping the `ID1` value and keep the `SystemAssigned` value. This removes the `ID2` user assigned identity from the VM while retaining the system assigned identity.
 
