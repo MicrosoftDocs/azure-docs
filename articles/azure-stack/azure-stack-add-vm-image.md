@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/24/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
 
@@ -51,7 +51,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
    ![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
 
-2. Sign in to Azure Stack as operator. In the menu, select **More services** > **Resource Providers**. Then, select  **Compute** > **VM images** > **Add**.
+2. Sign in to Azure Stack as operator. In the menu, select **More services**. Then, select  **Compute** > **VM images** > **Add**.
 
 3. Under **Add a VM Image**, enter the publisher, offer, SKU, and version of the virtual machine image. These name segments refer to the VM   image in Resource Manager templates. Make sure to select the **osType** value correctly. For **OS Disk Blob URI**, enter the Blob URI where the    image was uploaded. Then, select **Create** to begin creating the VM Image.
 
