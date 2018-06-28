@@ -478,7 +478,7 @@ The Table service automatically indexes entities using the **PartitionKey** and 
 
 If you also want to be able to find an employee entity based on the value of another property, such as email address, you must use a less efficient partition scan to find a match. This is because the table service does not provide secondary indexes. In addition, there is no option to request a list of employees sorted in a different order than **RowKey** order.  
 
-You are anticipating a very high volume of transactions against these entities and want to minimize the risk of the Table service throttling your client.  
+You are anticipating a very high volume of transactions against these entities and want to minimize the risk of the Table service rate limiting your client.  
 
 #### Solution
 To work around the lack of secondary indexes, you can store multiple copies of each entity with each copy using different **PartitionKey** and **RowKey** values. If you store an entity with the structures shown below, you can efficiently retrieve employee entities based on email address or employee id. The prefix values for the **PartitionKey**, "empid_" and "email_" enable you to identify which index you want to use for a query.  
@@ -777,7 +777,7 @@ Consider the following points when deciding how to implement this pattern:
 * Does your design support other ways your application will use the data such as looking up specific entities, linking with other data, or generating aggregate information?  
 * Does your design avoid hot spots when you are inserting new entities?  
 * Expect a delay if you want to reuse the same table name after deleting it. It's better to always use unique table names.  
-* Expect some throttling when you first use a new table while the Table service learns the access patterns and distributes the partitions across nodes. You should consider how frequently you need to create new tables.  
+* Expect some rate limiting when you first use a new table while the Table service learns the access patterns and distributes the partitions across nodes. You should consider how frequently you need to create new tables.  
 
 #### When to use this pattern
 Use this pattern when you have a high volume of entities that you must delete at the same time.  
@@ -898,7 +898,7 @@ Consider the following points when deciding how to implement this pattern:
 * Does your anticipated volume of transactions mean that you are likely to reach the scalability targets for an individual partition and be throttled by the storage service?  
 
 #### When to use this pattern
-Avoid the prepend/append anti-pattern when your volume of transactions is likely to result in throttling by the storage service when you access a hot partition.  
+Avoid the prepend/append anti-pattern when your volume of transactions is likely to result in rate limiting by the storage service when you access a hot partition.  
 
 #### Related patterns and guidance
 The following patterns and guidance may also be relevant when implementing this pattern:  
