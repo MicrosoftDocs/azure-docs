@@ -120,7 +120,7 @@ Check that your container image was successfully created and stored in the Azure
 1. If you've previously deployed the tempSensor module to your IoT Edge device, it may autopopulate. If it's not already in your list of modules, add it.
 
     1. Click **Add** and select **IoT Edge Module**.
-    2. In the **Name** field, enter `tempsensor`.
+    2. In the **Name** field, enter `tempSensor`.
     3. In the **Image URI** field, enter `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`.
     4. Select **Save**.
 
