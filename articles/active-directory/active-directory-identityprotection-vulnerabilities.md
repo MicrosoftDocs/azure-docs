@@ -2,7 +2,7 @@
 title: Vulnerabilities detected by Azure Active Directory Identity Protection | Microsoft Docs
 description: Overview of the vulnerabilities detected by Azure Active Directory Identity Protection.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
+keywords: azure active directory identity protection, cloud discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -43,9 +43,9 @@ This vulnerability helps you identify unmanaged cloud apps in your organization.
 
 In modern enterprises, IT departments are often unaware of all the cloud applications that users in their organization are using to do their work. It is easy to see why administrators would have concerns about unauthorized access to corporate data, possible data leakage, and other security risks. 
 
-We recommend to deploy Cloud App Discovery to discover unmanaged cloud applications, and to manage these applications using Azure Active Directory.
+We recommend to deploy Cloud Discovery to discover unmanaged cloud applications, and to manage these applications using Azure Active Directory.
 
-For more information, see [Finding unmanaged cloud applications with Cloud App Discovery](manage-apps/cloud-app-discovery.md).
+For more information, see [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
 ## Security Alerts from Privileged Identity Management
 This vulnerability helps you discover and resolve alerts about privileged identities in your organization.  

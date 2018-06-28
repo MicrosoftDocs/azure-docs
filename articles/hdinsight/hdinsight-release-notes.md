@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: Release notes for Azure HDInsight | Microsoft Docs
 description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
