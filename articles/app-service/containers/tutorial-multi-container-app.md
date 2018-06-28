@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Tutorial: Create a multi-container (preview) app in Web App for Containers
 
-[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. In this tutorial, you'll learn how to create a multi-container app using WordPress and MySQL.
+[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. In this tutorial, you'll learn how to create a multi-container app using WordPress and MySQL. You'll complete this tutorial in Cloud Shell, but you can also run these commands locally with [Cloud Shell](/cli/azure/install-azure-cli) (2.0.32 or later).
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
@@ -36,35 +36,13 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need:
-
-* Install [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 or later).
-* Experience with [Docker Compose](https://docs.docker.com/compose/) or [Kubernetes](https://kubernetes.io/).
-
-## Create a deployment user
-
-In the local command-prompt, create deployment credentials with the [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set) command. This deployment user is required for FTP and local Git deployment to a web app. The user name and password are account level. _They are different from your Azure subscription credentials._
-
-In the following example, replace *\<username>* and *\<password>* (including brackets) with a new user name and password. The user name must be unique within Azure. The password must be at least eight characters long, with two of the following three elements: letters, numbers, symbols.
-
-```azurecli-interactive
-az webapp deployment user set --user-name <username> --password <password>
-```
-
-You should get a JSON output, with the password shown as `null`. If you get a `'Conflict'. Details: 409` error, change the username. If you get a `'Bad Request'. Details: 400` error, use a stronger password.
-
-You create this deployment user only once; you can use it for all your Azure deployments.
-
-> [!NOTE]
-> Record the user name and password. You use them to deploy the web app later.
->
->
+To complete this tutorial, you need experience with [Docker Compose](https://docs.docker.com/compose/) or [Kubernetes](https://kubernetes.io/).
 
 ## Create a resource group
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
-In the local command-prompt, create a resource group with the [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *South Central US* location. To see all supported locations for App Service on Linux in **Standard** tier, run the [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) command.
+In Cloud Shell, create a resource group with the [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) command. The following example creates a resource group named *myResourceGroup* in the *South Central US* location. To see all supported locations for App Service on Linux in **Standard** tier, run the [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) command.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -76,7 +54,7 @@ When the command finishes, a JSON output shows you the resource group properties
 
 ## Create an Azure App Service plan
 
-In the local command-prompt, create an App Service plan in the resource group with the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
+In Cloud Shell, create an App Service plan in the resource group with the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
@@ -86,7 +64,7 @@ The following example creates an App Service plan named `myAppServicePlan` in th
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
 ```
 
-When the App Service plan has been created, the Azure CLI shows information similar to the following example:
+When the App Service plan has been created, Cloud Shell shows information similar to the following example:
 
 ```json
 {
@@ -141,13 +119,13 @@ Copy and paste the following YAML locally to a file named `compose-wordpress.yml
 
 ## Create a Docker Compose app
 
-In your local command-prompt terminal, create a multi-container [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _\<app_name>_ with a unique app name.
+In your Cloud Shell, create a multi-container [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _\<app_name>_ with a unique app name.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
 ```
 
-When the web app has been created, the Azure CLI shows output similar to the following example:
+When the web app has been created, Cloud Shell shows output similar to the following example:
 
 ```json
 {
@@ -186,7 +164,7 @@ In the following command, substitute your MySQL server name where you see the _&
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
 ```
 
-When the MySQL server is created, the Azure CLI shows information similar to the following example:
+When the MySQL server is created, Cloud Shell shows information similar to the following example:
 
 ```json
 {
@@ -219,7 +197,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 az mysql db create --resource-group myResourceGroup --server-name <mysql_server_name> --name wordpress
 ```
 
-When the database has been created, the Azure CLI shows information similar to the following example:
+When the database has been created, Cloud Shell shows information similar to the following example:
 
 ```json
 {
@@ -237,13 +215,13 @@ When the database has been created, the Azure CLI shows information similar to t
 
 To connect the WordPress app to this new MySQL server, you'll configure a few WordPress-specific environment variables, including the SSL CA path defined by `MYSQL_SSL_CA`. The [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm) from [DigiCert](http://www.digicert.com/) is provided in the [custom image](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) below.
 
-To make these changes, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the local command-prompt terminal. App settings are case-sensitive and space-separated.
+To make these changes, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in Cloud Shell. App settings are case-sensitive and space-separated.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WORDPRESS_DB_HOST="<mysql_server_name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql_server_name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
 ```
 
-When the app setting has been created, the Azure CLI shows information similar to the following example:
+When the app setting has been created, Cloud Shell shows information similar to the following example:
 
 ```json
 [
@@ -307,13 +285,13 @@ services:
 
 ### Update app with new configuration
 
-In your local command-prompt terminal, reconfigure your multi-container [web app](app-service-linux-intro.md) with the [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) command. Don't forget to replace _\<app_name>_ with the name of the web app you created earlier.
+In Cloud Shell, reconfigure your multi-container [web app](app-service-linux-intro.md) with the [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) command. Don't forget to replace _\<app_name>_ with the name of the web app you created earlier.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
 ```
 
-When the app has been reconfigured, the Azure CLI shows information similar to the following example:
+When the app has been reconfigured, Cloud Shell shows information similar to the following example:
 
 ```json
 [
@@ -336,13 +314,13 @@ Your multi-container is now running in Web App for Containers. However, if you i
 
 ### Configure environment variables
 
-To use of persistent storage, you'll enable this setting within App Service. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the local command-prompt terminal. App settings are case-sensitive and space-separated.
+To use of persistent storage, you'll enable this setting within App Service. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in Cloud Shell. App settings are case-sensitive and space-separated.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-When the app setting has been created, the Azure CLI shows information similar to the following example:
+When the app setting has been created, Cloud Shell shows information similar to the following example:
 
 ```json
 [
@@ -383,7 +361,7 @@ services:
 
 ### Update app with new configuration
 
-In your local command-prompt terminal, reconfigure your multi-container [web app](app-service-linux-intro.md) with the [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) command. Don't forget to replace _\<app_name>_ with a unique app name.
+In Cloud Shell, reconfigure your multi-container [web app](app-service-linux-intro.md) with the [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) command. Don't forget to replace _\<app_name>_ with a unique app name.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -428,13 +406,13 @@ Add the redis container to the bottom of the configuration file so it looks like
 
 ### Configure environment variables
 
-To use Redis, you'll enable this setting, `WP_REDIS_HOST`, within App Service. This is a *required setting* for WordPress to communicate with the Redis host. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the local command-prompt terminal. App settings are case-sensitive and space-separated.
+To use Redis, you'll enable this setting, `WP_REDIS_HOST`, within App Service. This is a *required setting* for WordPress to communicate with the Redis host. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in Cloud Shell. App settings are case-sensitive and space-separated.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WP_REDIS_HOST="redis"
 ```
 
-When the app setting has been created, the Azure CLI shows information similar to the following example:
+When the app setting has been created, Cloud Shell shows information similar to the following example:
 
 ```json
 [
@@ -454,7 +432,7 @@ When the app setting has been created, the Azure CLI shows information similar t
 
 ### Update app with new configuration
 
-In your local command-prompt terminal, reconfigure your multi-container [web app](app-service-linux-intro.md) with the [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) command. Don't forget to replace _\<app_name>_ with a unique app name.
+In Cloud Shell, reconfigure your multi-container [web app](app-service-linux-intro.md) with the [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) command. Don't forget to replace _\<app_name>_ with a unique app name.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -537,7 +515,7 @@ In the following command, substitute your MySQL server name where you see the _&
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
 ```
 
-When the MySQL server is created, the Azure CLI shows information similar to the following example:
+When the MySQL server is created, Cloud Shell shows information similar to the following example:
 
 ```json
 {
@@ -572,7 +550,7 @@ If you haven't already, create an [Azure Database for MySQL server](#create-an-a
 az mysql db create --resource-group myResourceGroup --server-name <mysql_server_name> --name wordpress
 ```
 
-When the database has been created, the Azure CLI shows information similar to the following example:
+When the database has been created, Cloud Shell shows information similar to the following example:
 
 ```json
 {
@@ -588,13 +566,13 @@ When the database has been created, the Azure CLI shows information similar to t
 
 ### Configure database variables in WordPress
 
-To connect the WordPress app to this new MySQL server, you'll configure a few WordPress-specific environment variables. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the local command-prompt terminal. App settings are case-sensitive and space-separated.
+To connect the WordPress app to this new MySQL server, you'll configure a few WordPress-specific environment variables. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in Cloud Shell. App settings are case-sensitive and space-separated.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WORDPRESS_DB_HOST="<mysql_server_name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql_server_name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
 ```
 
-When the app setting has been created, the Azure CLI shows information similar to the following example:
+When the app setting has been created, Cloud Shell shows information similar to the following example:
 
 ```json
 [
@@ -627,13 +605,13 @@ Your multi-container is now running in Web App for Containers. The data will be 
 
 ### Configure environment variables
 
-To use of persistent storage, you'll enable this setting within App Service. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in the local command-prompt terminal. App settings are case-sensitive and space-separated.
+To use of persistent storage, you'll enable this setting within App Service. To make this change, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) command in Cloud Shell. App settings are case-sensitive and space-separated.
 
 ```bash
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-When the app setting has been created, the Azure CLI shows information similar to the following example:
+When the app setting has been created, Cloud Shell shows information similar to the following example:
 
 ```json
 [
@@ -647,13 +625,13 @@ When the app setting has been created, the Azure CLI shows information similar t
 
 ### Create a multi-container app (Kubernetes)
 
-In your local command-prompt terminal, create a multi-container [web app](app-service-linux-intro.md) in the `myResourceGroup` resource group and the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _\<app_name>_ with a unique app name.
+In Cloud Shell, create a multi-container [web app](app-service-linux-intro.md) in the `myResourceGroup` resource group and the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _\<app_name>_ with a unique app name.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
 ```
 
-When the web app has been created, the Azure CLI shows output similar to the following example:
+When the web app has been created, Cloud Shell shows output similar to the following example:
 
 ```json
 {
