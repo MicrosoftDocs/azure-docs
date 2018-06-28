@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 06/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -42,4 +42,4 @@ When you're viewing a role's members, select **Description** to see the complete
 
 * Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 * For more about roles and Administrator role assignment, see [Assign administrator roles](active-directory-assign-admin-roles-azure-portal.md)
-* For default user permissions, see a [comparison of default guest and member user permissions](.\fundamentals\users-default-permissions.md)
+* For default user permissions, see a [comparison of default guest and member user permissions](./fundamentals/users-default-permissions.md)
