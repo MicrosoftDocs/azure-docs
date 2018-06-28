@@ -60,7 +60,7 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
 You can use JavaScript to access the same results you saw in the browser window in the previous step. 
 1. Copy the code that follows and save it into an HTML file:
 
-   [!code-javascript[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/javascript/call-endpoint.html)]
+   [!code-html[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/javascript/call-endpoint.html)]
 
 2. Open the file in a browser. Enter your LUIS endpoint key in the form and select **Submit**.
 
