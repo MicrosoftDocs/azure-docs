@@ -153,15 +153,15 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 ## Threat model
 
-The data flow diagram for this reference architecture is available for [download](https://aka.ms/UKNHSdadfd) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
+The data flow diagram for this reference architecture is available for [download](https://aka.ms/uknhs-analytics-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
 ![Analytics for UK NHS threat model](images/uknhs-analytics-threat-model.png?raw=true "Analytics for UK NHS threat model")
 
 ## Compliance documentation
 
-The [Azure Security and Compliance Blueprint – UK NHS Customer Responsibility Matrix](https://aka.ms/UKNHSCRM) lists all security principles required by UK NHS. This matrix details whether the implementation of each principle is the responsibility of Microsoft, the customer, or shared between the two.
+The [Azure Security and Compliance Blueprint – UK NHS Customer Responsibility Matrix](https://aka.ms/uknhs-crm) lists all security principles required by UK NHS. This matrix details whether the implementation of each principle is the responsibility of Microsoft, the customer, or shared between the two.
 
-The [Azure Security and Compliance Blueprint – UK NHS Data Analytics Implementation Matrix](https://aka.ms/UKNHSdaCIM) provides information on which UK NHS requirements are addressed by the data analytics architecture, including detailed descriptions of how the implementation meets the requirements of each covered principle.
+The [Azure Security and Compliance Blueprint – UK NHS Data Analytics Implementation Matrix](https://aka.ms/uknhs-analytics-cim) provides information on which UK NHS requirements are addressed by the data analytics architecture, including detailed descriptions of how the implementation meets the requirements of each covered principle.
 
 
 ## Guidance and recommendations

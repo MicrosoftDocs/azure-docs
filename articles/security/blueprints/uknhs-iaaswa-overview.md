@@ -189,15 +189,15 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 ## Threat model
 
-The data flow diagram for this reference architecture is available for [download](https://aka.ms/UKNHSIaaSdfd) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
+The data flow diagram for this reference architecture is available for [download](https://aka.ms/uknhs-iaaswa-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
 ![IaaS Web Application for UK NHS threat model](images/uknhs-iaaswa-threat-model.png?raw=true "IaaS Web Application for UK NHS threat model")
 
 ## Compliance documentation
 
-The [Azure Security and Compliance Blueprint – UK NHS Customer Responsibility Matrix](https://aka.ms/UKNHSCRM) lists all UK NHS requirements. This matrix details whether the implementation of each principle is the responsibility of Microsoft, the customer, or shared between the two.
+The [Azure Security and Compliance Blueprint – UK NHS Customer Responsibility Matrix](https://aka.ms/uknhs-crm) lists all UK NHS requirements. This matrix details whether the implementation of each principle is the responsibility of Microsoft, the customer, or shared between the two.
 
-The [Azure Security and Compliance Blueprint – UK NHS IaaS Web Application Implementation Matrix](https://aka.ms/UKNHSIaaSCIM) provides information on which UK NHS requirements are addressed by the IaaS web application architecture, including detailed descriptions of how the implementation meets the requirements of each covered principle.
+The [Azure Security and Compliance Blueprint – UK NHS IaaS Web Application Implementation Matrix](https://aka.ms/uknhs-iaaswa-cim) provides information on which UK NHS requirements are addressed by the IaaS web application architecture, including detailed descriptions of how the implementation meets the requirements of each covered principle.
 
 ## Guidance and recommendations
 
