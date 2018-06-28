@@ -486,16 +486,30 @@ This section provides information to help troubleshoot issues with container hea
 
 If container health was successfully enabled and configured but you are not seeing any status information or results in Log Analytics when you perform a log search, you can perform the following steps to help diagnose the problem.   
 
-1. Check the status of the agent by running the following command: `kubectl get ds omsagent --namespace=kube-system`
+1. Check the status of the agent by running the following command: 
 
-    The output should resemble the following indicating the agent is running on all nodes in the cluster.  For example, this cluster has two nodes and you should expect the value to equal number of nodes.  
+`kubectl get ds omsagent --namespace=kube-system`
 
-    ```
-    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
-	NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-    omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-    ```
-2. Check the status of the pod to verify it is running or not by running the following command: `kubectl get pods --namespace=kube-system`
+The output should resemble the following indicating it did deploy properly:
+
+```
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
+NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
+omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+```  
+2. Check the status of the deployment by running the following command:
+
+`kubectl get deployment omsagent-rs -n=kube-system`
+
+The output should resemble the following indicating it did deploy properly:
+
+```
+User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
+NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
+omsagent   1         1         1            1            3h
+```
+
+3. Check the status of the pod to verify it is running or not by running the following command: `kubectl get pods --namespace=kube-system`
 
     The output should resemble the following with a status of *Running* for the omsagent:
 
@@ -509,7 +523,7 @@ If container health was successfully enabled and configured but you are not seei
     omsagent-fkq7g                      1/1       Running   0          1d 
     ```
 
-3. Check the agent logs. When the containerized agent gets deployed, it runs a quick check by running OMI commands and shows the version of the agent and Docker provider. To see that the agent has been onboarded successfully, run the following command: `kubectl logs omsagent-484hw --namespace=kube-system`
+4. Check the agent logs. When the containerized agent gets deployed, it runs a quick check by running OMI commands and shows the version of the agent and Docker provider. To see that the agent has been onboarded successfully, run the following command: `kubectl logs omsagent-484hw --namespace=kube-system`
 
     The status should resemble the following:
 
