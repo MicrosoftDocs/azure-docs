@@ -61,7 +61,7 @@ CALL mysql.az_load_timezone();
 To view available time zone values, run the following command:
 
 ```sql
-SELECT * FROM time_zone;
+SELECT name FROM time_zone;
 ```
 
 Use the `SET time_zone` command to set the server's time zone parameter. The example below sets the time zone to the Helsinki time zone.  
