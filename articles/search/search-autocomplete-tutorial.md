@@ -160,7 +160,7 @@ The Suggest function takes two parameters that determine whether hit highlights 
 
 The other examples on the page follow the same pattern to add hit highlighting, type-ahead for auto-complete recommendations, and facets to support client-side caching of the auto-complete results.  Review each of these to understand how they work and how to leverage them in your search experience.
 
-### JavaScript Language Example
+### JavaScript language example
 
 For the JavaScript language example, the JavaScript code in IndexJavaScript.cshtml page leverages the jQuery UI Autocomplete.  This is a library that does most of the heavy lifting in presenting a nice looking search box and makes it easy to make asynchronous calls to Azure Search to retrieve recommendations.  Let's look at the JavaScript code for the first example:
 
