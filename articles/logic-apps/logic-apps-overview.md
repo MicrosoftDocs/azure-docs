@@ -151,28 +151,25 @@ Here are more details about the capabilities and benefits that you get with Logi
   Logic Apps and the EIP help you implement and scale up to more 
   mature integration scenarios by providing these capabilities and more:
 
-  * Build off these products and services: 
+  * Build off these products and services:
 
-    * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server) 
-
-    * [Azure Functions](../azure-functions/functions-overview.md) 
-
-    * [API Management](../api-management/api-management-key-concepts.md) 
-
+    * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
+    * [Azure Functions](../azure-functions/functions-overview.md)
+    * [Azure API Management](../api-management/api-management-key-concepts.md)
     * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
   * Process [XML messages](../logic-apps/logic-apps-enterprise-integration-xml.md)
-
   * Process [flat files](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
-
-  * Exchange messages with [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), and [X12](../logic-apps/logic-apps-enterprise-integration-x12.md) protocols
-
-  * Store and manage these B2B artifacts and more in one place with [integration accounts](../logic-apps/logic-apps-enterprise-integration-accounts.md):
+  * Exchange messages with [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), 
+  [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), and 
+  [X12](../logic-apps/logic-apps-enterprise-integration-x12.md) protocols
+  * Store and manage these B2B artifacts and more in one place with 
+  [integration accounts](../logic-apps/logic-apps-enterprise-integration-accounts.md):
 
     * [Partners](../logic-apps/logic-apps-enterprise-integration-partners.md)
     * [Agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
-    * [Maps for XML transform](../logic-apps/logic-apps-enterprise-integration-maps.md)
-    * [Schemas for XML validation](../logic-apps/logic-apps-enterprise-integration-schemas.md)
+    * [XML transform maps](../logic-apps/logic-apps-enterprise-integration-maps.md)
+    * [XML validation schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md)
    
   For example, if you're using Microsoft BizTalk Server, your logic apps 
   can connect to and communicate with your BizTalk Server by using the 
@@ -181,7 +178,7 @@ Here are more details about the capabilities and benefits that you get with Logi
   [integration account connectors](../connectors/apis-list.md#integration-account-connectors), 
   which are available with the Enterprise Integration Pack. 
 
-  Going the other direction, your BizTalk Server can 
+  Going in the other direction, your BizTalk Server can 
   connect to and communicate with logic apps by using the 
   [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). 
   Learn how to [set up and use the BizTalk Server Adapter](https://docs.microsoft.com/biztalk/core/logic-app-adapter) 
