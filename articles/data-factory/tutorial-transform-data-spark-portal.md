@@ -93,7 +93,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 5. For **Version**, select **V2**.
 6. For **Location**, select the location for the data factory. 
 
-   Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (like Azure Storage and Azure SQL Database) and computes (like HDInsight) that Data Factory uses can be in other regions.
+   For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (like Azure Storage and Azure SQL Database) and computes (like HDInsight) that Data Factory uses can be in other regions.
 7. Select **Pin to dashboard**.     
 8. Select **Create**.
 9. On the dashboard, you see the following tile with the status **Deploying Data Factory**: 
