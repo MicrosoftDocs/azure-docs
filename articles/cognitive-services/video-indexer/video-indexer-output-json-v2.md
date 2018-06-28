@@ -489,8 +489,8 @@ Business and product brand names detected in the speech to text transcript and/o
 |---|---|
 |id|The brand ID.|
 |name|The brands name.|
-|wikiId | The suffix of the brand wikipedia url. For example, "Target_Corporation” is the suffix of [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|wikiUrl | The brand’s Wikipedia url, if exists. For example, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|referenceId | The suffix of the brand wikipedia url. For example, "Target_Corporation” is the suffix of [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|referenceUrl | The brand’s Wikipedia url, if exists. For example, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description|The brands description.|
 |tags|A list of predefined tags that were associated with this brand.|
 |confidence|The confidence value of the Video Indexer brand detector (0-1).|
@@ -518,8 +518,8 @@ Business and product brand names detected in the speech to text transcript and/o
 {
     "id": 1,
     "name": "Microsoft",
-    "wikiId": "Microsoft",
-    "wikiUrl": "http: //en.wikipedia.org/wiki/Microsoft",
+    "referenceId": "Microsoft",
+    "referenceUrl": "http: //en.wikipedia.org/wiki/Microsoft",
     "description": "Microsoft Corporation is...",
     "tags": [
     "competitors",

@@ -5,8 +5,8 @@ services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: "sql-database"
-author: "douglaslMS"
-ms.author: "douglasl"
+author: "allenwux"
+ms.author: "xiwu"
 manager: "craigg"
 ---
 # Best practices for SQL Data Sync 

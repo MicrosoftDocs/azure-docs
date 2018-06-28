@@ -2,11 +2,11 @@
 title: "Troubleshoot Azure SQL Data Sync | Microsoft Docs"
 description: "Learn how to troubleshoot common issues with Azure SQL Data Sync."
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 06/20/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
 ---
@@ -124,27 +124,6 @@ To find the specific cause of the failure, generate and look at the Windows Inst
 -   For uninstalls: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
 
 You can also turn on logging for all installations that are performed by Windows Installer. The Microsoft Knowledge Base article [How to enable Windows Installer logging](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) provides a one-click solution to turn on logging for Windows Installer. It also provides the location of the logs.
-
-### My client agent doesn't work
-
-#### Description and symptoms
-
-You get the following messages when you attempt to use the client agent:
-
-"Sync failed with exception There was an error while trying to deserialize parameter www.microsoft.com/.../05:GetBatchInfoResult. See InnerException for more information."
-
-"Inner exception message: Type 'Microsoft.Synchronization.ChangeBatch' is an invalid collection type since it does not have a default constructor."
-
-#### Cause
-
-This is a known issue with SQL Data Sync installation. The most likely cause of this message is one of the following:
-
--   You are running Windows 8 Developer Preview.
--   You have .NET Framework 4.5 installed.
-
-#### Resolution
-
-Ensure that you install the client agent on a computer that isn't running Windows 8 Developer Preview, and that the .NET Framework 4.5 isn't installed.
 
 ### My client agent doesn't work after I cancel the uninstall
 

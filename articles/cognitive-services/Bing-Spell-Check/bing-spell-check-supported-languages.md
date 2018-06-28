@@ -12,7 +12,9 @@ ms.author: nolachar
 ---
 # Supported language list and status
 
-These languages are supported by the Bing Spell Check API.
+These languages are supported by the Bing Spell Check API (only in `spell` mode). 
+
+Please note that to work with any other language than `en-US`, the `mkt` should be set and either `Accept-Language` or `setLang` should be set as it has been described in [Spell Check API v7 reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
 
 | Language    | Language code |
 |:----------- |:-------------:|
