@@ -827,8 +827,7 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 
 ### **​CVE-2017-7676**
 
-| **Summary:** Apache Ranger policy evaluation ignores characters after ‘\*’ wildcard character                                       |
-|-------------------------------------------------------------------------------------------------------------------------------------|
+| **Summary:** Apache Ranger policy evaluation ignores characters after ‘\*’ wildcard character |
 | **Severity:** Critical                                                                                                              |
 | **Vendor:** Hortonworks                                                                                                             |
 | **Versions Affected:** HDInsight 3.6 versions including Apache Ranger versions 0.5.x/0.6.x/0.7.0                                    |
@@ -839,48 +838,37 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 
 ### **​CVE-2017-7677**
 
-|                                                                                                                |
-|----------------------------------------------------------------------------------------------------------------|
 | **Summary:** Apache Ranger Hive Authorizer should check for RWX permission when external location is specified |
-
-| **Severity:** Critical                                                                           |
 |--------------------------------------------------------------------------------------------------|
+| **Severity:** Critical                                                                           |
 | **Vendor:** Hortonworks                                                                          |
 | **Versions Affected:** HDInsight 3.6 versions including Apache Ranger versions 0.5.x/0.6.x/0.7.0 |
-
-| **Users affected:** Environments that use external location for hive tables                                                                                                                 |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Users affected:** Environments that use external location for hive tables |
 | **Impact:** In environments that use external location for hive tables, Apache Ranger Hive Authorizer should check for RWX permission for the external location specified for create table. |
-
-|                                                                                                                 |
-|-----------------------------------------------------------------------------------------------------------------|
 | **Fix detail:** Ranger Hive Authorizer was updated to correctly handle permission check with external location. |
-
-|                                                                                      |
-|--------------------------------------------------------------------------------------|
 | **Recommended Action:** Users should upgrade to HDI 3.6 (with Apache Ranger 0.7.1+). |
 
 ### **​CVE-2017-9799**
 
-| **Summary:** Potential execution of code as the wrong user in Apache Storm                                                                                                                                                                                                                                                                                                           |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Severity:** Important                                                                                                                                                                                                                                                                                                                                                              |
-| **Vendor:** Hortonworks                                                                                                                                                                                                                                                                                                                                                              |
-| **Versions Affected:** HDP 2.4.0, HDP-2.5.0, HDP-2.6.0                                                                                                                                                                                                                                                                                                                               |
-| **Users affected:** Users who use Storm in secure mode and are using blobstore to distribute topology based artifacts or using the blobstore to distribute any topology resources.                                                                                                                                                                                                   |
+| **Summary:** Potential execution of code as the wrong user in Apache Storm |
+|--------------------------------------------------------------------------------------------------|
+|**Severity:** Important |
+| **Vendor:** Hortonworks |
+| **Versions Affected:** HDP 2.4.0, HDP-2.5.0, HDP-2.6.0 |
+| **Users affected:** Users who use Storm in secure mode and are using blobstore to distribute topology based artifacts or using the blobstore to distribute any topology resources. |
 | **Impact:** Under some situations and configurations of storm it is theoretically possible for the owner of a topology to trick the supervisor to launch a worker as a different, non-root, user. In the worst case, this could lead to secure credentials of the other user being compromised. This vulnerability only applies to Apache Storm installations with security enabled. |
-| **Mitigation:** Upgrade to HDP-2.6.2.1 as there are currently no workarounds.                                                                                                                                                                                                                                                                                                        |
+| **Mitigation:** Upgrade to HDP-2.6.2.1 as there are currently no workarounds.  |
 
 ### **​CVE-2016-4970**
 
 | **Summary:** handler/ssl/OpenSslEngine.java in Netty 4.0.x before 4.0.37.Final and 4.1.x before 4.1.1.Final allows remote attackers to cause a denial of service (infinite loop) |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Severity:** Moderate                                                                                                                                                           |
-| **Vendor:** Hortonworks                                                                                                                                                          |
-| **Versions Affected:** HDP 2.x.x since 2.3.x                                                                                                                                     |
-| **Users Affected:** All users that use HDFS.                                                                                                                                     |
-| **Impact:** Impact is low as Hortonworks does not use OpenSslEngine.java directly in Hadoop codebase.                                                                            |
-| **Recommended Action:** Upgrade to HDP 2.6.3.                                                                                                                                    |
+|--------------------------------------------------------------------------------------------------|
+| **Severity:** Moderate  |
+| **Vendor:** Hortonworks  |
+| **Versions Affected:** HDP 2.x.x since 2.3.x  |
+| **Users Affected:** All users that use HDFS. |
+| **Impact:** Impact is low as Hortonworks does not use OpenSslEngine.java directly in Hadoop codebase.     |
+| **Recommended Action:** Upgrade to HDP 2.6.3.   |
 
 ### **​CVE-2016-8746**
 
@@ -896,17 +884,15 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 
 ### **​CVE-2016-8751**
 
-| **Summary:** Apache Ranger stored cross site scripting issue                                                                                                                                                               |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Severity:** Normal                                                                                                                                                                                                       |
-| **Vendor:** Hortonworks                                                                                                                                                                                                    |
-| **Versions Affected:** All HDP 2.3/2.4/2.5 versions including Apache Ranger versions 0.5.x/0.6.0/0.6.1/0.6.2                                                                                                               |
-| **Users affected:** All users of the ranger policy admin tool.                                                                                                                                                             |
+| **Summary:** Apache Ranger stored cross site scripting issue  |
+|--------------------------------------------------------------------------------------------------|
+| **Severity:** Normal |
+| **Vendor:** Hortonworks |
+| **Versions Affected:** All HDP 2.3/2.4/2.5 versions including Apache Ranger versions 0.5.x/0.6.0/0.6.1/0.6.2  |
+| **Users affected:** All users of the ranger policy admin tool. |
 | **Impact:** Apache Ranger is vulnerable to a Stored Cross-Site Scripting when entering custom policy conditions. Admin users can store some arbitrary javascript code execute when normal users sign in and access policies. |
-| **Fix detail:** Added logic to sanitize the user input.                                                                                                                                                                    |
-| **Recommended Action:** Users should upgrade to HDP 2.5.4+ (with Apache Ranger 0.6.3+) or HDP 2.6+ (with Apache Ranger 0.7.0+)                                                                                             |
-
-### 
+| **Fix detail:** Added logic to sanitize the user input.  |
+| **Recommended Action:** Users should upgrade to HDP 2.5.4+ (with Apache Ranger 0.6.3+) or HDP 2.6+ (with Apache Ranger 0.7.0+)  |
 
 ## Fixed issues for support
 
@@ -1345,7 +1331,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
     
     This issue arises when attempting to upgrade to HDP-2.6.1 from previous HDP versions through Ambari. Ambari uses a curl call to do a service check to Ranger service in Ambari. If the JDK version used by Ambari is JDK-1.7, the curl call will fail with the below error:
     
-    `curl: (35) error:14077410:SSL routines:SSL23\_GET\_SERVER\_HELLO:sslv3 alert handshake failure`
+    `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
     
     The reason for this error is the tomcat version used in Ranger is Tomcat-7.0.7\*. Using JDK-1.7 conflicts with default ciphers provided in Tomcat-7.0.7\*.
     
@@ -1376,7 +1362,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
     
     **Special Characters:** & &lt; &gt; " \` '
     
-    For example, the condition tags.attributes\['type'\]='abc' would get converted to the following once the policy is saved:User can see the policy condition with these chars by opening policy in edit mode.
+    For example, the condition tags.attributes\['type'\]='abc' would get converted to the following once the policy is saved.
     
     tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
     
@@ -1385,25 +1371,26 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
     **​Workaround**
     
     - **​Option \#1: Create/Update policy via Ranger Rest API**
+        
         REST URL: http://&lt;host&gt;:6080/service/plugins/policies
         
         **Creating policy with policy condition:**
         
-        The following example will create policy with tags as \`tags-test\` and assign it to \`public\` group with policy condition astags.attr\['type'\]=='abc' by selecting all hive component permission likeselect,update,create,drop,alter,index,lock,all.
+        The following example will create policy with tags as \`tags-test\` and assign it to \`public\` group with policy condition astags.attr\['type'\]=='abc' by selecting all hive component permissions like select, update, create, drop, alter, index, lock, all.
         
         **Example:**
         
-        curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":\["tags-test"\],"isRecursive":"","isExcludes":false}},"policyItems":\[{"groups":\["public"\],"conditions":\[{"type":"accessed-after-expiry","values":\[\]},{"type":"tag-expression","values":\["tags.attr\['type'\]=='abc'"\]}\],"accesses":\[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}\]}\],"denyPolicyItems":\[\],"allowExceptions":\[\],"denyExceptions":\[\],"service":"tagdev"}'
+        `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
         
         **Update existing policy with policy condition:**
         
-        The following example will update policy with tags as \`tags-test\` and assign it to \`public\` group with policy condition astags.attr\['type'\]=='abc' by selecting all hive component permission likeselect,update,create,drop,alter,index,lock,all.
+        The following example will update policy with tags as \`tags-test\` and assign it to \`public\` group with policy condition astags.attr\['type'\]=='abc' by selecting all hive component permissions like select, update, create, drop, alter, index, lock, all.
         
         REST URL: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
         
         **Example:**
         
-        curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":\["tags"\],"isExcludes":false,"isRecursive":false}},"policyItems":\[{"accesses":\[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}\],"users":\[\],"groups":\["public"\],"conditions":\[{"type":"ip-range","values":\["tags.attributes\['type'\]=abc"\]}\],"delegateAdmin":false}\],"denyPolicyItems":\[\],"allowExceptions":\[\],"denyExceptions":\[\],"dataMaskPolicyItems":\[\],"rowFilterPolicyItems":\[\]}'
+        `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
         
     - **​Option \#2: Apply Javascript changes**
         
@@ -1413,7 +1400,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
         
         2.  Find out definition of renderPolicyCondtion function (line no:404).
         
-        3.  Remove below line from that function i.e under display function(line no:434)
+        3.  Remove following line from that function i.e under display function(line no:434)
             
             val = \_.escape(val);//Line No:460
             
