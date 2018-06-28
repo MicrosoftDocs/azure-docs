@@ -73,7 +73,24 @@ As with all features of the Unified Speech Service, the user needs to create a s
 
 ## Sample code
 
-Making use of the API is fairly straight forward. The sample code below needs to be customized with a subscription key and an API key.
+Making use of the API is fairly straight forward. The sample code below needs to be customized with a subscription key and an API key, which in turns allows the developer to obtain a bearer token, as the code following code snippet shows:
+
+```cs
+    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+        {
+            var client = new HttpClient();
+            client.Timeout = TimeSpan.FromMinutes(25);
+            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
+
+            var tokenProviderPath = "/oauth/ctoken";
+            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
+
+            return new CrisClient(client);
+        }
+```
+
+Once the token is obtained the developer must specifiy the SAS Uri pointing to the audio file requiring transcription. The rest of the code simply iterates through the status and displays results.
 
 ```cs
    static async Task TranscribeAsync()
