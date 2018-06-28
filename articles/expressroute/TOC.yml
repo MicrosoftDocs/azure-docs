@@ -89,7 +89,7 @@
     href: expressroute-howto-move-arm.md
   - name: Migrate associated virtual networks from classic to Resource Manager
     href: expressroute-migration-classic-resource-manager.md
-  - name: Create a zone-redundant VNet gateway in Azure Availabilty Zones
+  - name: Create a zone-redundant VNet gateway in Azure Availability Zones
     href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
   - name: Configure a router for ExpressRoute
     items:

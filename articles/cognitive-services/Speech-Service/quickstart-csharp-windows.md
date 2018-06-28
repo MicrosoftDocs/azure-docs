@@ -28,7 +28,7 @@ In this article, you learn how to create a C# console application in Windows usi
 
     ![Create Visual C# Console App (.NET Framework)](media/sdk/speechsdk-05-vs-cs-new-console-app.png "Create Visual C# Console App")
 
-2. Install and reference the Speech SDK NuGet package. In the Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
+2. Install and reference the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget). In the Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
 
     ![Right-click Manage NuGet Packages for Solution](media/sdk/speechsdk-06-vs-cs-manage-nuget-packages.png "Manage NuGet Packages for Solution")
 
@@ -96,4 +96,5 @@ For the latest set of samples, see the [Cognitive Services Speech SDK Sample Git
 ## Next steps
 
 - [Translate speech](how-to-translate-speech.md)
-- [Customize speech models](how-to-customize-speech-models.md)
+- [Customize acoustic models](how-to-customize-acoustic-models.md)
+- [Customize language models](how-to-customize-language-model.md)
