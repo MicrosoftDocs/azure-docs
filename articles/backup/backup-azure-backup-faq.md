@@ -114,7 +114,7 @@ Azure Backup enforces a maximum size for a data source, however, the limits for 
 |:---:|:--- |:--- |
 | 1 |Windows Server 2012 or later |54,400 GB |
 | 2 |Windows 8 or later |54,400 GB |
-| 3 |Windows Server 2008, Windows Server 2008 R2 |1700 GB |
+| 3 |Windows Server 2008 R2 SP1 |1700 GB |
 | 4 |Windows 7 |1700 GB |
 
 The following table explains how each data source size is determined.
