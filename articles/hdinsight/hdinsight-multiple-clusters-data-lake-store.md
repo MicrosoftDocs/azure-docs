@@ -93,6 +93,6 @@ Set read-execute permissions for **others** through the hierarchy, for example, 
 
 ## See also
 
-* [Quickstart: Set up clusters in HDInsight](../data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 
 

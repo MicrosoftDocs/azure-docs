@@ -126,7 +126,7 @@ There are several ways you can access the files in Data Lake Store from an HDIns
 
 Use the following links for detailed instructions on how to create HDInsight clusters with access to Data Lake Store.
 
-* [Using Portal](../data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Using Portal](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Using PowerShell (with Data Lake Store as default storage)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [Using PowerShell (with Data Lake Store as additional storage)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Using Azure templates](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)

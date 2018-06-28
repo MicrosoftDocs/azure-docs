@@ -25,7 +25,7 @@ In this tutorial, you use Jupyter notebook available with HDInsight Spark cluste
 
 * Azure Data Lake Store account. Follow the instructions at [Get started with Azure Data Lake Store using the Azure portal](../../data-lake-store/data-lake-store-get-started-portal.md).
 
-* Azure HDInsight Spark cluster with Data Lake Store as storage. Follow the instructions at [Quickstart: Set up clusters in HDInsight](../../data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Azure HDInsight Spark cluster with Data Lake Store as storage. Follow the instructions at [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 	
 ## Prepare the data

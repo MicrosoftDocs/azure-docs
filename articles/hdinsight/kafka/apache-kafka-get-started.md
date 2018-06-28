@@ -97,7 +97,7 @@ To create a Kafka on HDInsight cluster, use the following steps:
 
     Use the __Next__ button to finish basic configuration.
 
-5. From **Storage**, select or create a Storage account. For the steps in this document, leave the other fields at the default values. Use the __Next__ button to save storage configuration. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+5. From **Storage**, select or create a Storage account. For the steps in this document, leave the other fields at the default values. Use the __Next__ button to save storage configuration. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![Set the storage account settings for HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
 

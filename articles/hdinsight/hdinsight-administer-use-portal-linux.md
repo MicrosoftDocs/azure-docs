@@ -103,7 +103,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
     * **Monitoring**: Monitor the cluster in Azure Log Analytics.
     * **Properties**: View the cluster properties.
     * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
-    * **Data Lake Store access**: Configure access Data Lake Stores.  See [Quickstart: Set up clusters in HDInsight](../data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+    * **Data Lake Store access**: Configure access Data Lake Stores.  See [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
     * **Resource health**: See [Azure resource health overview](../service-health/resource-health-overview.md).
     * **New support request**: Allows you to create a support ticket with Microsoft support.
     
