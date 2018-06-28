@@ -6855,11 +6855,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cosmos-db/table-powershell.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cosmos-db/tutorial-develop-graph-dotnet.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet",
             "redirect_document_id": false
