@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 title: Release notes for Azure HDInsight | Microsoft Docs
 description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
@@ -829,13 +828,14 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 ### **​CVE-2017-7676**
 
 | **Summary:** Apache Ranger policy evaluation ignores characters after ‘\*’ wildcard character |
-| **Severity:** Critical                                                                                                              |
-| **Vendor:** Hortonworks                                                                                                             |
-| **Versions Affected:** HDInsight 3.6 versions including Apache Ranger versions 0.5.x/0.6.x/0.7.0                                    |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Severity:** Critical                                                                           |
+| **Vendor:** Hortonworks                                                                          |
+| **Versions Affected:** HDInsight 3.6 versions including Apache Ranger versions 0.5.x/0.6.x/0.7.0     |
 | **Users affected:** Environments that use Ranger policies with characters after ‘\*’ wildcard character – like my\*test, test\*.txt |
 | **Impact:** Policy resource matcher ignores characters after ‘\*’ wildcard character, which can result in unintended behavior.      |
-| **Fix detail:** Ranger policy resource matcher was updated to correctly handle wildcard matches.                                    |
-| **Recommended Action:** Upgrade to HDI 3.6 (with Apache Ranger 0.7.1+).                                                             |
+| **Fix detail:** Ranger policy resource matcher was updated to correctly handle wildcard matches.           |
+| **Recommended Action:** Upgrade to HDI 3.6 (with Apache Ranger 0.7.1+).                                |
 
 ### **​CVE-2017-7677**
 
