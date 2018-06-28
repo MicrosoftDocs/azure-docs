@@ -23,7 +23,7 @@ You can create and manage self-service databases in the user portal. An Azure St
 
 1. Sign in to the [Azure Stack](azure-stack-poc.md) user portal.
 
-2. Select **+ New** &gt;**Data + Storage"** &gt; **SQL Server Database** &gt; **Add**.
+2. Select **+ New** &gt;**Data + Storage** &gt; **SQL Server Database** &gt; **Add**.
 
 3. Under **Create Database**, enter the required information, such as **Database Name** and **Max Size in MB**.
 

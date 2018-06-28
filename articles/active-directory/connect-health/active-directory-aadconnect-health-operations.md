@@ -117,7 +117,7 @@ To allow a user access at the *all service instances* level within Azure AD Conn
 
 #### Step 2: Add users and groups, and assign roles
 1. From the **Configure** section, click **Users**.<br>
-   ![Screenshot of Azure AD Connect Health RBAC main blade, with Users highlighted](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+   ![Screenshot of Azure AD Connect Health resource sidebar](./media/active-directory-aadconnect-health/startRBAC.png)
 2. Select **Add**.
 3. In the **Select a role** pane, select a role (for example, **Owner**).<br>
    ![Screenshot of Azure AD Connect Health RBAC Users window](./media/active-directory-aadconnect-health/RBAC_add.png)
