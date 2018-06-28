@@ -11,7 +11,7 @@ ms.date: 06/11/2018
 ms.author: panosper
 ---
 
-# Txt To Speech Frequently Asked Questions
+# Text To Speech Frequently Asked Questions
 
 If you can't find answers to your questions in this FAQ, try asking the Custom Speech Service community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) and [UserVoice](https://cognitive.uservoice.com/)
 
@@ -47,10 +47,6 @@ We provide additional services to help you prepare scripts for recording. Contac
 **Question**: Can I download my model and run it locally?
 
 **Answer**: Models cannot be downloaded and executed locally.
-
-**Question**: The data report says there were failed utterances. What is the issue? 
-
-**Answer**: Failing to upload 100% of the utterances in a file is not a problem. However, it is recommended that you try to understand why the utterances failed and fix the problems. Most common problems, such as formatting errors, are easy to fix. See here for the [format requirements](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts)
 
 ## Next steps
 

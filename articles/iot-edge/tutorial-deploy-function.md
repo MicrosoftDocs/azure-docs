@@ -210,8 +210,9 @@ Remove the IoT Edge service runtime based on your IoT device platform (Linux or 
 Remove the IoT Edge runtime.
 
 ```Powershell
-Stop-Service iotedge 
-Remove-Service -Name iotedge
+stop-service iotedge -NoWait
+sleep 5
+sc.exe delete iotedge
 ```
 
 Delete the containers that were created on your device. 

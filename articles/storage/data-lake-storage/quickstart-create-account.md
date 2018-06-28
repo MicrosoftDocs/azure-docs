@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Data Lake Storage Gen2 storage account | Microsoft Docs
-description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 using the Azure portal, Azure PowerShell, or the Azure CLI
+title: Create an Azure Data Lake Storage Gen2 Preview storage account | Microsoft Docs
+description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 Preview using the Azure portal, Azure PowerShell, or the Azure CLI
 services: storage
 author: jamesbak
 manager: twooley
@@ -13,9 +13,9 @@ ms.date: 06/27/2018
 ms.author: jamesbak
 ---
 
-# Quickstart: Create an Azure Data Lake Storage Gen2 storage account
+# Quickstart: Create an Azure Data Lake Storage Gen2 Preview storage account
 
-Azure Data Lake Storage Gen2 accounts [support an Hierarchical Namespace Service](introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](abfs-driver.md).
+Azure Data Lake Storage Gen2 Preview accounts [support an Hierarchical Namespace Service](introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](abfs-driver.md).
 
 To enable Data Lake Storage Gen2 capabilities on your storage account, [fill out the preview survey to request access](https://aka.ms/adlsgen2signup). Once approved, then you are able to create a new Data Lake Storage Gen2 account. This quickstart demonstrates how to create an account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -46,11 +46,11 @@ The button launches an interactive shell that you can use to run the steps in th
 
 ### Install the CLI locally
 
-You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+You can also install and use the Azure CLI locally. This quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Overview of creating an Azure Data Lake Storage Gen2 account
 
-Before you create an account, you first create a resource group that acts as a logical container to storage accounts or any other Azure resources you create. If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account,and any other resources associated with the resource group. For more information regarding resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
+Before you create an account, you first create a resource group that acts as a logical container to storage accounts or any other Azure resources you create. If you wish to clean up the resources created by this quickstart, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account, and any other resources associated with the resource group. For more information regarding resource groups, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
 > You must create new storage accounts as type **StorageV2 (general-purpose V2)** to take advantage of Data Lake Storage Gen2 features.  
@@ -111,6 +111,15 @@ To remove a resource group using the Azure portal:
 2. Locate the resource group to delete, and right-click the **More** button (**...**) on the right side of the listing.
 3. Select **Delete resource group**, and confirm.
 
+
+## Upgrade your powershell module
+
+In order to interact with Data Lake Storage Gen2 through PowerShell, you will have to upgrade your module to the preview version.
+
+To do that, open an elevated PowerShell and enter the following command: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+
+Then restart your shell.
+
 ## Create an account using PowerShell
 
 Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions to authenticate.
@@ -147,17 +156,8 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind StorageV2 
-  -HierarchialNamespace $True
+  -EnableHierarchicalNamespace $True
 ```
-
-When creating an account with zone-redundant storage (ZRS Preview), geo-redundant storage (GRS), or read-access geo-redundant storage (RA-GRS), substitute the desired value in the table below for the **SkuName** parameter.
-
-|Replication option  |SkuName parameter  |
-|---------|---------|
-|Locally-redundant storage (LRS)     |Standard_LRS         |
-|Zone-redundant storage (ZRS)     |Standard_ZRS         |
-|Geo-redundant storage (GRS)     |Standard_GRS         |
-|Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
 
 ### Clean up resources
 
@@ -166,6 +166,12 @@ To remove the resource group and its associated resources, including the new sto
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
+
+## Upgrade your CLI module
+
+In order to interact with Data Lake Storage Gen2 through CLI, you will have to add the extension to your shell.
+
+To do that: using the Cloud Shell or a local shell, enter the following command to do that: `az extension add --name storage-preview`
 
 ## Create an account using Azure CLI 
 
@@ -200,7 +206,7 @@ az storage account create \
     --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --hierarchical-namespace true
+    --Enable-hierarchical-namespace true
 ```
 
 ### Clean up resources
