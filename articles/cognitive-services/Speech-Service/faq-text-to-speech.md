@@ -11,15 +11,11 @@ ms.date: 06/11/2018
 ms.author: panosper
 ---
 
-# Custom Speech Service Frequently Asked Questions
+# Txt To Speech Frequently Asked Questions
 
 If you can't find answers to your questions in this FAQ, try asking the Custom Speech Service community on [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) and [UserVoice](https://cognitive.uservoice.com/)
 
 ## General
-
-**Question**: What is the difference between Baseline and Custom Speech to Text Models?
-
-**Answer**: Baseline models have been trained with Microsoft owned data and are already deployed in the cloud. Custom models allow the user to adapt a model to better fit a particular environment with specific ambient noise or language. Factory floors, cars, noisy streets would require adapted acoustic model whereas specific topics such as biology, physics, radiology, product names, and custom acronyms would require a language model.
 
 **Question**: What is the difference between the standard and custom voice models?
 
