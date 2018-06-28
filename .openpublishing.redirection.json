@@ -24360,11 +24360,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/QnAMaker/index.md",
-            "redirect_url": "/azure/cognitive-services/QnAMaker/overview/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/Recommendations/index.md",
             "redirect_url": "/azure/cognitive-services/Recommendations/overview",
             "redirect_document_id": false
