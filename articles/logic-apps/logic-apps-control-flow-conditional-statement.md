@@ -81,20 +81,20 @@ open your logic app in Logic App Designer.
 
    > [!TIP]
    > To create a more advanced condition or use expressions, 
-   > choose **Edit in advanced mode**. You can use 
+   > you can use 
    > expressions defined by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
    > 
    > For example:
    >
    > ![Edit condition in code](./media/logic-apps-control-flow-conditional-statement/edit-condition-advanced-mode.png)
 
-5. Under **IF YES** and **IF NO**, add the steps to perform 
+5. Under **If true** and **If false**, add the steps to perform 
 based on whether the condition is met. For example:
 
    ![Condition with YES and NO paths](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > You can drag existing actions into the **IF YES** and **IF NO** paths.
+   > You can drag existing actions into the **If true** and **If false** paths.
 
 6. Save your logic app.
 
