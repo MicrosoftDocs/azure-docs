@@ -49,9 +49,9 @@ Using the REST API to get information on the subscription returns details as you
 
 This item is being worked on and will be resolved before management groups are announced as "General Availability."  
 
-### Cloud Solution Provider(CSP) limitation during Preview
+### Cloud Solution Provider (CSP) limitation during Preview
 
-There's a current limitation for Cloud Solution Provider(CSP) Partners where they aren't able to create or manage their customer's management groups within their customer's directory.  
+There's a current limitation for Cloud Solution Provider (CSP) Partners where they aren't able to create or manage their customer's management groups within their customer's directory.  
 This item is being worked on and will be resolved before management groups are announced as "General Availability."
 
 ## Root management group for each directory
