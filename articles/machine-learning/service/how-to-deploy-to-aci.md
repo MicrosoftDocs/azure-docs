@@ -1,24 +1,30 @@
 ---
-title: Migrate to Azure Machine Learning, general availability
-description: Learn how to upgrade or migrate to the generally available version of Azure Machine Learning Services.
+title: Deploy web services to an Azure Container Instance | Azure Machine Learning
+description: Learn how to deploy a trained model as a web service API on Azure Container Instances with Azure Machine Learning Services.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: haining
-author: haining
+ms.author: raymondl
+author: raymondlaghaeian
 ms.date: 07/27/2018
 ---
 
-# How to deploy web services from Azure Machine Learning Services to an Azure Container Instance
+# How to deploy web services to an Azure Container Instance
 
 In this article, you'll learn how to deploy a trained model as a web service API on  [Azure Container Instances](https://azure.microsoft.com/en-us/services/container-instances/) (ACI).
+
+THE GIST: (rewrite) If you want to test your models and web services quickly, ACI is the way to go. It can be done in a few minutes with just a 4-6 lines of code.  It is the perfect option for testing deployments.
+But, if you want your models and web services for high-scale, production usage, deploy them to AKS. This option offers scalability, SLA, logging, authentication, and more. It only takes about 10 minutes longer and a few more lines of code than ACI. With AKS, you can still test your web services, but its designed to leave them running. 
+
 
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - An Azure Machine Learning Workspace and a local project directory. Learn how to get these prerequisites using the [Portal quickstart](quickstart-get-started.md) or [CLI quickstart](quickstart-get-started-with-cli.md).
+
+- The Azure Machine Learning SDK for Python installed
 
 
 @@WHAT ARE THESE? INSTALL AND CONFIGURE WHAT?
@@ -28,14 +34,12 @@ In this article, you'll learn how to deploy a trained model as a web service API
 @@WHY DO I NEED THIS ARTICLE IF THE ONE YOU LNK TO HERE TELLS ME HOW TO DEPLOY TO ACI? CAN WE USE THE OUTPUTS FROM[ THE TUTORIAL HAI HAS](tutorial-build-train-deploy-with-azure-machine-learning.md##deploy-the-model-in-aci) INSTEAD? 
 
 2. Complete [01. Train and Deploy to ACI](01.SDK-101-Train-and-Deploy-to-ACI.ipynb) Notebook
-
-
-**IMPORTANT**:
- * You'll reuse the *workspace configuration*, *env.yml*, *best_model.pkl*, *score.py, and *myenv.yml* from the above notebooks.
  * The 01 Notebook taught you how to deploy a web service directly from model in one step. This Notebook shows a more advanced approach that gives you more control over model versions and Docker image versions.  
 
+ * You'll reuse the *workspace configuration*, *env.yml*, *best_model.pkl*, *score.py, and *myenv.yml* from the above notebooks.
+
 ## Install libraries
-@@ FROM WHERE?
+@@ FROM WHERE? the SDK? PROVIDE A DESCRIPTION.
 
 ```python
 import azureml.core
