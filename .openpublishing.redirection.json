@@ -1,5 +1,10 @@
 {
     "redirections": [
+		{
+            "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-speech-models.md",
+            "redirect_url": "/azure/cognitive-services/Speech-Service/how-to-customize-acoustic-models",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
@@ -6857,6 +6862,36 @@
         {
             "source_path": "articles/cosmos-db/welcome-documentdb-customers.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/faq#moving-to-cosmos-db",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/graph-sdk-dotnet.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-api-cpp-get-started.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-develop-graph-dotnet.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-functions-http-trigger.md",
+            "redirect_url": "https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/spark-connector-graph.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/spark-connector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-global-distribution-graph.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally",
             "redirect_document_id": false
         },
         {
@@ -24357,11 +24392,6 @@
         {
             "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/index.md",
             "redirect_url": "/azure/cognitive-services/LinguisticAnalysisAPI/Home",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/cognitive-services/QnAMaker/index.md",
-            "redirect_url": "/azure/cognitive-services/QnAMaker/overview/overview",
             "redirect_document_id": false
         },
         {
