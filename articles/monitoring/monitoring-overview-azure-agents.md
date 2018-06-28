@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 06/28/2018
 ms.author: magoedte
 ---
 
@@ -44,4 +44,6 @@ For advanced monitoring where you need more than collecting metrics and a subset
 * Azure services such as [Application Insights](https://docs.microsoft.com/azure/application-insights/) and [Azure Security Center](https://docs.microsoft.com/azure/security-center/) natively store their data directly in Log Analytics.  
 
 ## Next steps
-<Placeholder>
+
+- See [Collect data from computers in your environment with Log Analytics](../log-analytics/log-analytics-concept-hybrid.md) to review requirements and available methods to deploy the agent to computers in your datacenter or other cloud environment.
+- See [Collect data about Azure Virtual Machines](../log-analytics/log-analytics-quick-collect-azurevm.md) to configure data collection from Azure VMs. 
