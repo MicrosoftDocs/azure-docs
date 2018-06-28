@@ -22,8 +22,6 @@ Learn more in this video with Azure Cosmos DB Principal Program Manager Denny Le
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
 
-For working with Spark GraphX and the Gremlin graph APIs of Azure Cosmos DB, see [Perform graph analytics using Spark and Apache TinkerPop Gremlin](spark-connector-graph.md).
-
 ## Download
 
 To get started, download the Spark to Azure Cosmos DB connector from the [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/) repository on GitHub.
