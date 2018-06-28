@@ -18,11 +18,6 @@ ms.author: yexu
 # Incrementally load data from an Azure SQL database to Azure Blob storage
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from a table in an Azure SQL database to Azure Blob storage. 
 
-
-> [!NOTE]
-> This article applies to version 2 of Azure Data Factory, which is currently in preview. If you use version 1 of the Data Factory service, which is generally available, see the [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
-
 You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
@@ -168,7 +163,7 @@ END
       - Select **Create new**, and enter the name of a resource group.   
          
         To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2 (Preview)** for the **version**.
+4. Select **V2** for the **version**.
 5. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 6. Select **Pin to dashboard**.     
 7. Click **Create**.      

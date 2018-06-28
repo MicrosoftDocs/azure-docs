@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
 
@@ -113,18 +113,13 @@ Once you set up single sign-on to your apps and resources, you can then further 
 Conditional Access is an [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) feature.
 
 ## Apps & Azure AD
-### Cloud App Discovery: Find which SaaS apps are being used in your organization
-Cloud App Discovery helps IT departments learn which SaaS apps are being used throughout the organization. It can measure app usage and popularity so that IT can determine which apps will benefit the most from being brought under IT control and being integrated with Azure AD.
+### Cloud Discovery: Find which SaaS apps are being used in your organization
+Cloud Discovery analyzes your traffic logs against Microsoft Cloud App Security's cloud app catalog of over 16,000 cloud apps that are ranked and scored based on more than 70 risk factors, to provide you with ongoing visibility into cloud use, Shadow IT, and the risk Shadow IT poses into your organization.
 
 | Article Guide |  |
 |:---:| --- |
-| A general overview of how it works |[Finding unsanctioned cloud applications with Cloud App Discovery](manage-apps/cloud-app-discovery.md) |
-| A deeper dive into how it works, with answers to questions on privacy |[Security and Privacy Considerations](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
-| Frequently Asked Questions |[FAQ for Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
-| Tutorials for deploying Cloud App Discovery |[Group Policy Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[System Center Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Installing on Proxy Servers with Custom Ports](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
-| The change log for updates to the Cloud App Discovery agent |[Change log](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx) |
+| A general overview of how it works |[Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery) |
 
-Cloud App Discovery is an [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) feature.
 
 ### Automatically provision and deprovision user accounts in SaaS apps
 Automate the creation, maintenance, and removal of user identities in SaaS applications such as Dropbox, Salesforce, ServiceNow, and more. Match and sync existing identities between Azure AD and your SaaS apps, and control access by automatically disabling accounts when users leave the organization.

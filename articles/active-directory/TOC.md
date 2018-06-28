@@ -151,6 +151,7 @@
 ### [SSPR Customization](authentication/concept-sspr-customization.md)
 ### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR Reporting](authentication/howto-sspr-reporting.md)
+### [Smart lockout](authentication/howto-password-smart-lockout.md)
 ### [Eliminate weak passwords](authentication/concept-password-ban-bad.md)
 ### [Configure the banned password list](authentication/howto-password-ban-bad.md)
 ### [On-premises integration](authentication/concept-password-ban-bad-on-premises.md)
@@ -184,12 +185,6 @@
 ### [Overview](manage-apps/what-is-application-management.md)
 ### [Getting started](manage-apps/plan-an-application-integration.md)
 ### [SaaS app integration tutorials](saas-apps/tutorial-list.md)
-
-
-### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
-#### [Create snapshot reports](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
-#### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 ### [User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md) 
 #### [App integration tutorials](saas-apps/tutorial-list.md) 
