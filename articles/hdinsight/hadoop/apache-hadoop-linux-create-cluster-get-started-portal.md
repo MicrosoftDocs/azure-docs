@@ -77,7 +77,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
     
     |Property  |Description  |
     |---------|---------|
-    |**Primary storage type**     | For this article, select **Azure storage** to use Azure Storage Blob as the default storage account. You can also use Azure Data Lake Store as the default storage. |
+    |**Primary storage type**     | For this article, select **Azure storage** to use Azure Storage Blob as the default storage account. You can also use Azure Data Lake Storage as the default storage. |
     |**Selection method**     |  For this article, select **My subscriptions** to use a storage account from your Azure subscription. To use storage account from other subscriptions, select **Access key** and then provide the access key for that account. |
     |**Create a new storage account**     | Provide a name for the storage account.|
 
