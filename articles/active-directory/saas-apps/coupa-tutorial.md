@@ -107,7 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Coupa Domain and URLs single sign-on information](./media/coupa-tutorial/tutorial_coupa_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `http://<companyname>.Coupa.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.coupahost.com`
 
     > [!NOTE]
 	> The Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Coupa Client support team](https://success.coupa.com/Support/Contact_Us?) to get this value.
