@@ -43,10 +43,12 @@ mkdir quickstart
 cd quickstart
 ```
 
-Next, run the following command to clone the sample app repository to your quickstart directory.
+Next, run the following command to clone the sample app repository to your quickstart directory. Then change to the `multicontainerwordpress` directory.
 
 ```bash
 git clone https://github.com/Azure-Samples/multicontainerwordpress
+
+cd multicontainerwordpress
 ```
 
 ## Create a resource group
@@ -95,11 +97,9 @@ When the App Service plan has been created, the Azure CLI shows information simi
 
 ## Create a Docker Compose app
 
-In your Cloud Shell terminal, change to the `multicontainerwordpress` directory. Create a multi-container [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _\<app_name>_ with a unique app name.
+In your Cloud Shell terminal, create a multi-container [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _\<app_name>_ with a unique app name.
 
 ```bash
-cd multicontainerwordpress
-
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
 ```
 

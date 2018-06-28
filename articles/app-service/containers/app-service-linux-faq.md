@@ -158,9 +158,16 @@ Within the configuration file, reference your ACR image like the following examp
 image: <server-name>.azurecr.io/<image-name>:<tag>
 ```
 
-**How do I know which container is exposed?**
+**How do I know which container is internet accessible?**
 
-The first container to expose port 80 or 8080 will be used. Otherwise, the first container in the configuration file will be exposed. To explicitly expose a specific container, create an application setting `WEBSITES_WEB_CONTAINER_NAME` with the value of the container name.
+- Only one container can be open for access
+- Only port 80 and 8080 is accessible
+
+Here are the rules for determining which container is accessible - in the order of precedence:
+
+- Application setting `WEBSITES_WEB_CONTAINER_NAME` set to the container name
+- The first container to define port 80 or 8080
+- If neither of the above is true, the first container defined in the file will be accessible
 
 ## Pricing and SLA
 
