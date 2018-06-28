@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a storage account
 
-Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account#create). This example creates a storage account named `mySTORAGEACCT<random number>` and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
+Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account#create). This example creates a storage account named *mySTORAGEACCT<random number>* and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -92,11 +92,13 @@ mkdir -p /mnt/MyAzureFileShare
 
 ## Mount the share
 
-Mount the Azure file share to the local directory.
+Mount the Azure file share to the local directory. 
 
-    ```bash
-    sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
-    ```
+```bash
+sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
+```
+
+
 
 ## Persist the mount
 
