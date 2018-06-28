@@ -14,7 +14,7 @@ ms.author: v-geberr
 
 --- 
 
-# Tutorial: Learn how to return data from keyPhrase entity 
+# Tutorial: 7. Add keyPhrase entity 
 In this tutorial, use an app that demonstrates how to extract key subject matter from utterances.
 
 <!-- green checkmark -->
@@ -204,5 +204,5 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create app that returns sentiment along with intent prediction](luis-quickstart-intent-and-sentiment-analysis.md)
+> [Add sentiment analysis to app](luis-quickstart-intent-and-sentiment-analysis.md)
 
