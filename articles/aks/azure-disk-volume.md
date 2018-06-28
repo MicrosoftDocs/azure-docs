@@ -46,6 +46,10 @@ Once the disk has been created, you should see output similar to the following. 
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
 
+> [!NOTE]
+> If you need to create the disk in a separate resource group, you also need to add the Azure Kubernetes Service (AKS) service principal for your cluster to the resource group holding the disk with the `Contributor` role. 
+>
+
 ## Mount disk as volume
 
 Mount the Azure disk into your pod by configuring the volume in the container spec.
