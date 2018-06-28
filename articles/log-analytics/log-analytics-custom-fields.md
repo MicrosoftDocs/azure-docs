@@ -126,7 +126,7 @@ We can see that **Service_CF** is created but is not yet added to any records.
 
 ![Initial count](media/log-analytics-custom-fields/initial-count.png)
 
-After some time has passed so new events are collected, we can see that that the **Service_CF** field is now being added to records that match our criteria.
+After some time has passed so new events are collected, we can see that the **Service_CF** field is now being added to records that match our criteria.
 
 ![Final results](media/log-analytics-custom-fields/final-results.png)
 

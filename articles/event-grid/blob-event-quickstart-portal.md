@@ -33,7 +33,7 @@ To use Blob storage events, you need either a [Blob storage account](../storage/
 
    ![Select storage](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Provide values for the Blog storage, including a unique name for the account. For account type, select **Blob storage**. For location, select one of the [locations](overview.md) that supports Event Grid. When done providing values, select **Create**.
+1. Provide values for the Blob storage, including a unique name for the account. For account type, select **Blob storage**. For location, select one of the [locations](overview.md) that supports Event Grid. When done providing values, select **Create**.
 
    ![Start steps](./media/blob-event-quickstart-portal/provide-blob-values.png)
 
