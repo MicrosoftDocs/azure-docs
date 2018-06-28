@@ -37,7 +37,7 @@ This solution template can deploy single or multi member Ethereum consortium net
 ## Deployment use cases
 
 The template can deploy Ethereum consortium for leader and member join in a variety of ways, here are the ones we have tested:
- - On a multi-node Azure Stack, with Azure AD or AD FS, deploy lead and member using the same subscription or with different subscriptions.
+- On a multi-node Azure Stack, with Azure AD or AD FS, deploy lead and member using the same subscription or with different subscriptions.
 - On a single-node Azure Stack (with Azure AD) deploy lead and member using the same subscription.
 
 ### Standalone and consortium leader deployment
