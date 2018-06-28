@@ -42,67 +42,73 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 ## Open the application in VS Code
 
-Open VS Code. Click **File -> Open Folder** and navigate to the *Voting* directory (*./service-fabric-java-quickstart/Voting*). The workspace should contain the same files shown in the screenshot below.
+Open VS Code.  Click the Explorer icon in the **Activity Bar** and click **Open Folder**, or click  **File -> Open Folder**. Navigate to the *./service-fabric-java-quickstart/Voting* directory in the folder where you cloned the repository then click **OK**. The workspace should contain the same files shown in the screenshot below.
 
-![Java Voting Application in Workspace][java-voting-application]
+![Java Voting Application in Workspace](./media/service-fabric-vs-code-extension/java-voting-application.png)
 
-## Build and deploy the Voting application to a local cluster
+## Build the application
 
 1. Press (Ctrl + Shift + p) to open the **Command Palette** in VS Code.
-2. Search for the **Service Fabric: Build Application** command. When prompted to select a language, select Java. The output of the build process will be output in the integrated terminal.
+2. Search for and select the **Service Fabric: Build Application** command. The build output is sent to the integrated terminal.
 
-   ![Build Application Command in VS Code][build-application]
+   ![Build Application Command in VS Code](./media/service-fabric-vs-code-extension/sf-build-application.png)
 
-3. Search for the Service Fabric: Deploy Application (Localhost) command. The output of the install process can be seen in the integrated terminal.
+## Deploy the application to the local cluster
 
-   ![Deploy Application Command in VS Code][deploy-application]
+3. From the Command Palette, select the **Service Fabric: Deploy Application (Localhost) command**. The output of the install process is sent to the integrated terminal.
 
-4. When the deployment is complete, launch a browser and open this page: `http://localhost:8080` - the web front-end of the application.
+   ![Deploy Application Command in VS Code](./media/service-fabric-vs-code-extension/sf-deploy-application.png)
+
+4. When the deployment is complete, launch a browser and open Service Fabric Explorer: http://localhost:19080/Explorer. You should see that the application is running. This may take some time, so be patient. 
 
    ![Voting Application in Browser][voting-sample]
 
-5. To remove the application from the cluster, search for the Service Fabric: Remove Application command. The output of the uninstall process will be output in the integrated terminal.
+4. After you've verified that the application is running, launch a browser and open this page: http://localhost:8080. This is the web front-end of the application. You can add items and click on them to vote.
 
-## Debug in VS Code
+   ![Voting Application in Browser](./media/service-fabric-vs-code-extension/voting-sample-in-browser.png)
+
+5. To remove the application from the cluster, select the **Service Fabric: Remove Application** command from the **Command Palette**. The output of the uninstall process is sent to the integrated terminal. You can use Service Fabric Explorer to verify that the application has been removed from the local cluster.
+
+## Debug the application
 When debugging applications in VS Code, the application must be running on a local cluster. Breakpoints can be added to the code to see what is happening in the code.
 
-1. Update the entryPoint.sh file, which is located in Voting/VotingApplication/VotingDataServicePkg/Code.
-Replace the command on line 6 with the following:
+To prepare the VotingDataService and the Voting application for debugging, complete the following steps:
+
+1. Update the *Voting/VotingApplication/VotingDataServicePkg/Code/entryPoint.sh* file.
+Comment out the command on line 6 (use '#') and add the following command to the bottom of the file:
 
    ```
    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingDataService.jar
    ```
 
-2. Update the ApplicationManifest.xml file, which is located in Voting/VotingApplication. Set the **MinReplicaSetSize** and the **TargetReplicaSetSize** to 1 in the **StatefulService** element:
+2. Update the *Voting/VotingApplication/ApplicationManifest.xml* file. Set the **MinReplicaSetSize** and the **TargetReplicaSetSize** attributes to "1" in the **StatefulService** element:
    
    ```xml
          <StatefulService MinReplicaSetSize="1" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="1">
    ```
 
-3. Click the debug icon in the workspace to open the debugging view in VS Code. Select Java from the environment menu.
+3. Click the Debug icon in the **Activity Bar** to open the debugger view in VS Code. Click the gear icon at the top of the debugger view and select **Java** from the dropdown environment menu. The launch.json file opens. 
 
-   ![Debug Icon in VS Code Workspace][debug-workspace]
+   ![Debug Icon in VS Code Workspace](./media/service-fabric-vs-code-extension/debug-icon-workspace.png)
 
-3. Open the launch.json file that is located in the explorer of VS Code. In, the configuration named **Debug (Attach)** update the port value to be **8001**.
+3. In the launch.json file, set the port value in the configuration named **Debug (Attach)** to **8001**. Save the file.
 
-   ![Debug Configuration for the launch.json][debug-config]
+   ![Debug Configuration for the launch.json](./media/service-fabric-vs-code-extension/debug-config-java.png)
 
-4. Deploy the application on a local cluster by using the **Service Fabric: Deploy Application (Localhost)** command. Your application is now ready to be debugged.
+4. Deploy the application to the local cluster by using the **Service Fabric: Deploy Application (Localhost)** command. Verify that the application is running in Service Fabric Explorer. Your application is now ready to be debugged.
 
-To set a breakpoint in the code, complete the following steps:
+To set a breakpoint, complete the following steps:
 
-1. Open the **VotingDataService.java** file, which is located in the /Voting/VotingDataService/src/statefulservice. Set a breakpoint on first line of code in the `try` block in the `addItem` method (line 80).
+1. In Explorer, open the */Voting/VotingDataService/src/statefulservice/VotingDataService.java* file. Set a breakpoint on first line of code in the `try` block in the `addItem` method (line 80).
    > [!IMPORTANT]
-   > Make sure you set breakpoints on executable lines of code. For example breakpoints set on method declarations, `try` statements, and `catch` statements will be missed by the debugger.
-2. Select the Debug (Attach) configuration from the debug menu and click the run button to begin debugging.
+   > Make sure you set breakpoints on executable lines of code. For example breakpoints set on method declarations, `try` statements, or `catch` statements will be missed by the debugger.
+2. To begin debugging, select the **Debug (Attach)** configuration from the debug menu and click the run button (green arrow).
 
-   ![Debug (Attach) Configuration][debug-attach]
+   ![Debug (Attach) Configuration](./media/service-fabric-vs-code-extension/debug-attach-java.png)
 
-3. In a web browser, go to http://localhost:8080. Type a new item in the text box and click **+ Add**. Your breakpoint should be hit. 
-1. To continue execution of the program, click the run icon on the Debug toolbar at the top of VS Code.
-
+3. In a web browser, go to http://localhost:8080. Type a new item in the text box and click **+ Add**. Your breakpoint should be hit. You can use the Debug toolbar at the top of VS Code to continue execution, step over lines, step into methods, or step out of the current method. 
 4. To end the debugging session, click the plug icon on the Debug toolbar at the top of VS Code.
-5. After you have finished debugging, you can use the **Service Fabric:Remove Application** command to remove the Voting application from your local cluster. 
+5. After you have finished debugging, you can use the **Service Fabric: Remove Application** command to remove the Voting application from your local cluster. 
 
 <!-- Images -->
 [debug-attach]: ./media/service-fabric-vs-code-extension/debug-attach-java.png

@@ -54,11 +54,11 @@ The following must be installed for Java development:
 
 * [Java SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (version 1.8)
 * [Gradle](https://gradle.org/install/)
-* [Debugger for Java VS Code extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Needed to debug Java services. Debugging Java services is supported on Linux only. You can install either through the Extensions panel in VS Code or by clicking on the install link in Marketplace.
+* [Debugger for Java VS Code extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Needed to debug Java services. Debugging Java services is supported on Linux only. You can install either clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
 
 The following must be installed for .NET Core/C# development:
 
-* [C# for Visual Studio Code (powered by OmniSharp) VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Needed to debug C# services. You can install either through the Extensions panel in VS Code or by clicking on the install link in Marketplace.
+* [C# for Visual Studio Code (powered by OmniSharp) VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Needed to debug C# services. You can install either clicking the Extensions icon in the **Activity Bar** in VS Code and searching for the extension, or from the VS Code Marketplace.
 
 ## Setup
 
@@ -113,7 +113,7 @@ The **Service Fabric: Deploy Application** command deploys your Service Fabric a
 3.  You can also use **Service Fabric: Publish Application** command with no parameters set in the Cloud.json file to deploy to a local cluster.
 
 > [!NOTE]
-> Deploying to the local cluster is not supported for Java applications in a Windows development environment.
+> Deploying to the local cluster is not supported for Java applications on a Windows machine.
 
 ### Service Fabric: Remove Application
 The **Service Fabric: Remove Application** command removes a Service Fabric application from the cluster that it was previously deployed to using the VS Code extension. 
