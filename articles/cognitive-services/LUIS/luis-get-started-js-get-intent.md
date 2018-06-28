@@ -61,11 +61,12 @@ You can use JavaScript to access the same results you saw in the browser window 
 1. Copy the code that follows and save it into an HTML file:
 
    [!code-javascript[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/javascript/call-endpoint.html)]
-2. Replace `"YOUR SUBSCRIPTION KEY"` with your subscription key in this line of code: `xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","YOUR SUBSCRIPTION KEY");`
 
-3. Open the file you saved using a web browser.  An alert window should pop up that says `Detected the following intent: TurnOn`.
+2. Open the file in a browser. Enter your LUIS endpoint key in the form and select **Submit**.
 
-![Popup that says TurnOn](./media/luis-get-started-node-get-intent/popup-turn-on.png)
+    ![Html sample displayed in browser with LUIS results for Home Automation app](./media/luis-get-started-js-get-intent/html-results.png)
+
+    The result display under the form. 
 
 ## Clean up resources
 The two resources created in this tutorial are the LUIS subscription key and the C# project. Delete the LUIS subscription key from the Azure portal. Close the Visual Studio project and remove the directory from the file system. 
