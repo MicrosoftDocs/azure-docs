@@ -33,17 +33,15 @@ The following steps walk you through the process of creating the certificates an
 ## Prerequisites
 1.	[Install the Azure IoT Edge runtime][lnk-install-windows-x64] on a Windows device you want to use as the transparent gateway.
 
-1. Get OpenSSL for Windows.
+1. Get OpenSSL for Windows. There are many ways you can install OpenSSL:
 
->[!NOTE]
->If you already have OpenSSL installed on your Windows device, you may skip this step but 
-> please ensure that  `openssl.exe` is available in your `%PATH%` environment variable.
+   >[!NOTE]
+   >If you already have OpenSSL installed on your Windows device, you may skip this step but 
+   > please ensure that  `openssl.exe` is available in your `%PATH%` environment variable.
 
-  There are many ways you can install OpenSSL:
    * Download and install any [third-party OpenSSL binaries](https://wiki.openssl.org/index.php/Binaries), for example, from [this project on SourceForge](https://sourceforge.net/projects/openssl/).
    
-   * Download the OpenSSL source code and build the binaries on your machine by yourself or do this via [vcpkg](https://github.com/Microsoft/vcpkg). 
-     * The instructions here use vcpkg to download source code, compile and install OpenSSL on your Windows machine all in very easy to use steps.
+   * Download the OpenSSL source code and build the binaries on your machine by yourself or do this via [vcpkg](https://github.com/Microsoft/vcpkg). The instructions listed below use vcpkg to download source code, compile and install OpenSSL on your Windows machine all in very easy to use steps.
    
      1. Navigate to a directory where you want to install vcpkg. From here on we'll refer to this as $VCPKGDIR. Follow the instructions to download and install [vcpkg](https://github.com/Microsoft/vcpkg).
    
