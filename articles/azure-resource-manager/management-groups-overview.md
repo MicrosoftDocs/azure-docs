@@ -77,7 +77,7 @@ Each directory is given a single top-level management group called the "Root" ma
 >
 >If you have questions on this retroactive process, contact: managementgroups@microsoft.com  
   
-### Initial setup of management groups
+## Initial setup of management groups
 
 When any user starts using management groups, there's a setup process that happens. The first step is the root management group is created in the directory. Once this group is created, all existing subscriptions that exist in the directory are made children of the root management group.  The reason for this process is to make sure there's only one management group hierarchy within a directory.  The single hierarchy within the directory allows administrative customers to apply global access and policies that other customers within the directory can't bypass. Anything assigned on the root will apply across all management groups, subscriptions, resource groups, and resources within the directory by having one hierarchy within the directory.  
 
@@ -87,6 +87,7 @@ When any user starts using management groups, there's a setup process that happe
 ## Management group access
 
 Azure management groups support [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md) for all resource accesses and role definitions. These permissions are inherited to child resources that exist in the hierarchy. Any built-in RBAC role can be assigned to a management group that will inherit down the hierarchy to the resources.  For example, the RBAC role VM contributor can be assigned to a management group. This role has no action on the management group, but will inherit to all VMs under that management group.  
+
 The following chart shows the list of roles and the supported actions on management groups.
 
 | RBAC Role Name             | Create | Rename | Move | Delete | Assign Access | Assign Policy | Read  |
