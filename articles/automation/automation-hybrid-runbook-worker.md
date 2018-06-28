@@ -138,19 +138,7 @@ In addition to the standard addresses and ports that the Hybrid Runbook Worker r
 
 ## Troubleshoot
 
-The Hybrid Runbook Worker depends on an agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Microsoft Monitoring Agent. For Linux, it's the OMS Agent for Linux. If registration of the worker fails, here are some possible causes for the error.
-
-### The hybrid worker is behind a proxy or firewall
-
-Verify that the computer has outbound access to *.azure-automation.net on port 443.
-
-### The computer that the hybrid worker is running on has less than the minimum hardware requirements
-
-A computer running the Hybrid Runbook Worker should meet the minimum hardware requirements before you designate it to host this feature. Otherwise, depending on the resource utilization of other background processes and the contention caused by runbooks during execution, the computer can become overutilized and cause runbook job delays or timeouts.
-
-Confirm that the computer designated to run the Hybrid Runbook Worker feature meets the minimum hardware requirements. If it does, monitor CPU and memory utilization to determine any correlation between the performance of Hybrid Runbook Worker processes and Windows. Memory or CPU pressure might indicate the need to upgrade processors, add processors, or increase memory to address the resource bottleneck and resolve the error. Or, select a different compute resource that can support the minimum requirements and scale when workload demands indicate that an increase is necessary.
-
-For more information on troubleshooting for a specific OS, see [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#troubleshooting) or [Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#troubleshooting).
+To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshooting Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#general)
 
 ## Next steps
 
