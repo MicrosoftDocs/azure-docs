@@ -84,7 +84,7 @@ You have three options for storing your logs:
 
 2. To start collecting data, click **Turn on diagnostics**.
 
-   ![Turning on diagnostics][1]
+<!---   ![Turning on diagnostics][1] -->
 
 3. The **Diagnostics settings** blade provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. Click **Configure** under **Log Analytics** to configure your workspace. You can also use event hubs and a storage account to save the diagnostic logs.
 
