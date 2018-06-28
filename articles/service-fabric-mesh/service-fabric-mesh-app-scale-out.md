@@ -76,7 +76,7 @@ az mesh deployment create --resource-group <resourceGroupName> --template-uri ht
 ```
 In a minute or so, your command should return with `"provisioningState": "Succeeded"`. Once it does, get the public IP address by querying for the network resources created in this deployment.
 
-To deploy, Windows application use[https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.base.windows.json](https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.base.windows.json) template. Note for Windows, container images are large compared to Linux, so it may take more time than deploying Linux application.
+To deploy, Windows application use[https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.base.windows.json](https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.base.windows.json) template. Note that for Windows, container images are large compared to Linux, so it may take more time than deploying Linux application.
 
 ## Obtain public IP address and connect to it
 
