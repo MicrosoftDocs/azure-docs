@@ -97,7 +97,7 @@ journalctl -u iotedge --no-pager --no-full
 And, list running modules with:
 
 ```cmd/sh
-iotedge list
+sudo iotedge list
 ```
 
 ## Next steps
