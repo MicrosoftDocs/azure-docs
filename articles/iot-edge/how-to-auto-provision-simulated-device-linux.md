@@ -76,12 +76,12 @@ In the virtual machine, build a C SDK tool that you can use to retrieve the devi
 
 1. Start your VM and connect to it to finish the installation process. 
 
-2. In your VM, run the following commands to build the C SDK tool and retrieve your device provisioning information. 
+2. In your VM, follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C. 
+
+3. Run the following commands to build an C SDK tool that retrieves your device provisioning information. 
 
    ```bash
-   cd azure-iot-sdk-c
-   mkdir cmake
-   cd cmake
+   cd azure-iot-sdk-c/cmake
    cmake -Duse_prov_client:BOOL=ON ..
    cd provisioning_client/tools/tpm_device_provision
    make
@@ -151,7 +151,7 @@ Use the following steps to give TPM access. Alternatively, you can accomplish th
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-4. Add the access information. 
+4. Copy the following access information into the rules file. 
 
    ```input 
    # allow iotedge access to tpm0
@@ -171,7 +171,13 @@ Use the following steps to give TPM access. Alternatively, you can accomplish th
    ```bash
    ls -l /dev/tpm0
    ```
-   
+
+   Successful output looks like the following:
+
+   ```output
+   crw------- 1 root root 10, 224 Jun 28 22:34 /dev/tpm0
+   ```
+
 8. Open the IoT Edge runtime overrides file. 
 
    ```bash
@@ -190,6 +196,8 @@ Use the following steps to give TPM access. Alternatively, you can accomplish th
    ```bash
    sudo systemctl cat iotedge.service
    ```
+
+   Successful output displays the **iotedge** default service variables, and then shows the environment variable that you set in **override.conf**. 
 
 12. Reload the settings.
 

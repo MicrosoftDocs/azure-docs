@@ -62,7 +62,12 @@ sudo apt-get install -f
 
 ## Configure the Azure IoT Edge Security Daemon
 
-The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml`. *The file is write-protected by default, you might need to use `sudo` to edit it. For example `sudo nano /etc/iotedge/config.yaml`*
+
+The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml`. The file is write-protected by default, you might need elevated permissions to edit it.
+
+```bash
+sudo nano /etc/iotedge/config.yaml
+```
 
 The edge device can be configured manually using a [device connection string][lnk-dcs] or [automatically via Device Provisioning Service][lnk-dps].
 
@@ -101,6 +106,8 @@ sudo systemctl restart iotedge
 ```
 
 ## Verify successful installation
+
+If you used the **manual configuration** steps in the previous section, the IoT Edge runtime should be successfully provisioned and running on your device. If you used the **automatic configuration** steps, then you need to complete some additional steps so that the runtime can register your device with your IoT hub on your behalf. For next steps, see [Create and provision a simulated TPM Edge device on a Linux virtual machine](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
 
 You can check the status of the IoT Edge Daemon using:
 
