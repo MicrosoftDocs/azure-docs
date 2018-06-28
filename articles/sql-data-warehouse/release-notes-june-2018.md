@@ -7,7 +7,7 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 06/18/2018
+ms.date: 06/25/2018
 ms.author: twounder
 ms.reviewer: twounder
 ---
