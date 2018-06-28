@@ -48,5 +48,30 @@ az mysql server configuration set --name slow_query_log --resource-group myresou
 ```
 This code resets the **slow\_query\_log** configuration to the default value **OFF**. 
 
+## Populating the time zone tables
+
+By default, the time zone on all Azure Database for MySQL servers is set to "SYSTEM", which maps to the UTC time zone.
+
+The time zone tables on your server can be populated using the `az_load_timezone` stored procedure.
+
+```sql
+CALL mysql.az_load_timezone();
+```
+
+To view available time zone values, run the following command:
+
+```sql
+SELECT * FROM time_zone;
+```
+
+Use the `SET time_zone` command to set the server's time zone parameter. The example below sets the time zone to the Helsinki time zone.  
+
+```sql
+SET time_zone = 'Europe/Helsinki';
+```
+
+Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
+
 ## Next steps
+
 - How to configure [server parameters in Azure portal](howto-server-parameters.md)

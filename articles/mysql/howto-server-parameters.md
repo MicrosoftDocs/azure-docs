@@ -27,30 +27,6 @@ Azure Database for MySQL supports configuration of some server parameters. This 
 5. If you have saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
 ![Reset all to default](./media/howto-server-parameters/5-reset_parameters.png)
 
-## Populating the time zone tables
-
-By default, the time zone on all Azure Database for MySQL servers is set to "SYSTEM", which maps to the UTC time zone.
-
-The time zone tables on your server can be populated using the `az_load_timezone` stored procedure.
-
-```sql
-CALL mysql.az_load_timezone();
-```
-
-To view available time zone values, run the following command:
-
-```sql
-SELECT * FROM time_zone;
-```
-
-Use the `SET time_zone` command to set the server's time zone parameter. The example below sets the time zone to the Helsinki time zone.  
-
-```sql
-SET time_zone = 'Europe/Helsinki';
-```
-
-Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
-
 ## List of configurable server parameters
 
 The list of supported server parameters is constantly growing. Use the server parameters tab in Azure portal to get the definition and configure server parameters based on your application requirements.
@@ -90,6 +66,30 @@ These additional server parameters are not configurable in the system:
 |innodb_log_file_size|512MB|
 
 Other server parameters that are not listed here are set to their MySQL out-of-box default values for versions [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) and [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+
+## Populating the time zone tables
+
+By default, the time zone on all Azure Database for MySQL servers is set to "SYSTEM", which maps to the UTC time zone.
+
+The time zone tables on your server can be populated using the `az_load_timezone` stored procedure.
+
+```sql
+CALL mysql.az_load_timezone();
+```
+
+To view available time zone values, run the following command:
+
+```sql
+SELECT * FROM time_zone;
+```
+
+Use the `SET time_zone` command to set the server's time zone parameter. The example below sets the time zone to the Helsinki time zone.  
+
+```sql
+SET time_zone = 'Europe/Helsinki';
+```
+
+Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
 
 ## Next steps
 
