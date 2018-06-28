@@ -13,7 +13,7 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
 
-# Tutorial: Create app that uses simple entity
+# Tutorial: 6. Add simple entity and phrase list
 In this tutorial, create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
 
 <!-- green checkmark -->
@@ -379,4 +379,4 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to add a prebuilt keyphrase entity](luis-quickstart-intent-and-key-phrase.md)
+> [Add a prebuilt keyphrase entity](luis-quickstart-intent-and-key-phrase.md)
