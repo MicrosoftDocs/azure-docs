@@ -23,13 +23,12 @@
 ### [Site Recovery overview](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Secure
-### [Monitor resources](oms-security-monitoring-resources.md)
-### [Respond to security alerts](oms-security-responding-alerts.md)
-### [Baseline assessment](oms-security-baseline.md)
-### [Malware assessment](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [System update assessment](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Connect security products](oms-security-connect-products.md)
-### [Web baseline assessment](oms-security-web-baseline-assessment.md)
+### [Monitor resources](../security-center/security-center-monitoring.md)
+### [Respond to security alerts](../security-center/security-center-managing-and-responding-alerts.md)
+### [Baseline assessment](../security-center/security-center-customize-os-security-config.md)
+### [Malware assessment](../security-center/security-center-install-endpoint-protection.md)
+### [Connect security products](../security-center/quick-security-solutions.md)
+### [Web baseline assessment](../security-center/security-center-customize-os-security-config.md)
 
 ## Use solutions
 ### [Management solutions](../monitoring/monitoring-solutions.md)
@@ -46,7 +45,6 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric Analytics](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Service Map
-##### [Walkthrough](../monitoring/monitoring-walkthrough-servicemap.md)
 ##### [Use](../monitoring/monitoring-service-map.md)
 ##### [Configure](../monitoring/monitoring-service-map-configure.md)
 ##### [Integration with Operations Manager](../monitoring/monitoring-service-map-scom.md)

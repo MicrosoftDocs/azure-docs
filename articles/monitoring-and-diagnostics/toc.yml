@@ -23,6 +23,8 @@
     href: monitoring-data-sources.md
   - name: Azure Monitor
     href: monitoring-overview-azure-monitor.md
+  - name: Agents 
+    href: ../monitoring/monitoring-overview-azure-agents.md
   - name: Metrics
     href: monitoring-overview-metrics.md
   - name: Autoscale
@@ -129,6 +131,8 @@
       href: monitoring-rest-api-walkthrough.md
     - name: Azure PowerShell samples
       href: insights-powershell-samples.md
+    - name: Azure CLI samples
+      href: insights-cli-samples.md
   - name: Use Azure Diagnostics extension
     items:
     - name: Send to Azure Storage

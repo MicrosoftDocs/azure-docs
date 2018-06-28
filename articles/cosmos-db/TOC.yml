@@ -1,3 +1,6 @@
+metadata:
+  experimental: true
+  experiment_id: "d1c17cc0-2ae0-4b"
 items:
   - name: Azure Cosmos DB Documentation
     href: index.yml
@@ -70,6 +73,8 @@ items:
     items:
     - name: Global distribution
       href: distribute-data-globally.md
+    - name: Multi-master setup
+      href: multi-region-writers.md
     - name: Partitioning
       href: partition-data.md
     - name: Throughput
@@ -80,8 +85,6 @@ items:
       href: unique-keys.md
     - name: Serverless database
       href: serverless-computing-database.md
-    - name: BulkExecutor overview
-      href: bulk-executor-overview.md
     - name: Security
       href: database-security.md
       items:
@@ -117,8 +120,6 @@ items:
               href: sql-api-java-get-started.md
             - name: Node.js
               href: sql-api-nodejs-get-started.md
-            - name: C++
-              href: sql-api-cpp-get-started.md
           - name: Build a web app
             items:
             - name: .NET
@@ -143,10 +144,6 @@ items:
             href: local-emulator.md
           - name: Export certificates
             href: local-emulator-export-ssl-certificates.md
-        - name: 6 - Integrate with Functions
-          items:
-          - name: HTTP trigger
-            href: tutorial-functions-http-trigger.md
       - name: Samples
         items:
         - name: Azure CLI
@@ -161,14 +158,14 @@ items:
           href: sql-api-python-samples.md
         - name: Java samples
           href: sql-api-java-samples.md
+        - name: Async Java samples
+          href: sql-api-async-java-samples.md
       - name: Concepts
         items:
         - name: Resources
           href: sql-api-resources.md
         - name: Model document data
           href: modeling-data.md
-        - name: Multi-master setup
-          href: multi-region-writers.md
       - name: How To Guides
         items:
         - name: BulkExecutor - .NET
@@ -327,6 +324,8 @@ items:
           href: mongodb-readpreference.md
         - name: Indexing
           href: mongodb-indexing.md
+        - name: TTL in MongoDB 	
+          href: mongodb-ttl.md 
         - name: Visualize your data with Power BI
           href: powerbi-visualize.md
         - name: Manage using Storage Explorer
@@ -347,26 +346,14 @@ items:
           href: gremlin-support.md
       - name: Tutorials
         items:
-        - name: 1 - Create
-          href: tutorial-develop-graph-dotnet.md
-        - name: 2 - Query
+        - name: 1 - Query
           href: tutorial-query-graph.md
-        - name: 3 - Distribute globally
-          href: tutorial-global-distribution-graph.md
       - name: How To Guides
         items:
         - name: Graph partitioning
           href: graph-partitioning.md
         - name: Manage using Storage Explorer
           href: storage-explorer.md
-        - name: Integrate
-          items:
-          - name: Connect to Spark GraphX
-            href: spark-connector-graph.md 
-      - name: Reference
-        items:
-          - name: .NET
-            href: graph-sdk-dotnet.md
       - name: Resources
         items:
         - name: Manage using Storage Explorer
@@ -399,8 +386,6 @@ items:
           href: table-storage-how-to-use-dotnet.md
         - name: F#
           href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
-        - name: Node.js 
-          href: table-storage-cloud-service-nodejs.md
         - name: Java
           href: table-storage-how-to-use-java.md
         - name: Node.js
@@ -413,8 +398,6 @@ items:
           href: table-storage-how-to-use-python.md
         - name: Ruby
           href: table-storage-how-to-use-ruby.md
-        - name: PowerShell
-          href: table-storage-how-to-use-powershell.md
       - name: Reference
         items:
           - name: .NET
@@ -467,12 +450,18 @@ items:
       href: regional-failover.md
     - name: Diagnostic logging
       href: logging.md
+    - name: BulkExecutor overview
+      href: bulk-executor-overview.md
     - name: Cost-effective reads and writes
       href: key-value-store-cost.md
     - name: Expire data automatically
       href: time-to-live.md
+    - name: Manage using PowerShell
+      href: manage-account-with-powershell.md
     - name: Manage using Storage Explorer
       href: storage-explorer.md
+    - name: Multi-region writers
+      href: multi-master-workaround.md
   - name: Resources
     items:
     - name: Manage using Storage Explorer

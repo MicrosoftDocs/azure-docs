@@ -53,7 +53,7 @@ To collect alerts, perform the following steps on the Nagios server.
     ```
 
 ### Configuring Zabbix alert collection
-To collect alerts from a Zabbix server, you need to specify a user and password in *clear text*.  While not ideal, we recommend that you create the user and grant permissions to monitor onlu.
+To collect alerts from a Zabbix server, you need to specify a user and password in *clear text*.  While not ideal, we recommend that you create a Zabbix user with read-only permissions to catch relevant alarms.
 
 To collect alerts on the Nagios server, perform the following steps.
 
@@ -70,7 +70,7 @@ To collect alerts on the Nagios server, perform the following steps.
 
 2. Restart the omsagent daemon
 
-	sudo sh /opt/microsoft/omsagent/bin/service_control restart
+	`sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
 ## Alert records

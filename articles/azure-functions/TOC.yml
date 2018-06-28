@@ -49,8 +49,8 @@
     href: functions-openapi-definition.md
   - name: Image resize with Event Grid
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Create a serverless web application with Functions as the API
-    href: https://docs.microsoft.com/learn/build-serverless-app/index 
+  - name: Create a serverless web app
+    href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database 
   - name: Functions on Linux
     items: 
     - name: Custom image
@@ -139,9 +139,13 @@
      - name: Testing functions
        href: functions-test-a-function.md
      - name: Develop and debug locally
-       href: functions-run-local.md
+       href: functions-develop-local.md
      - name: Visual Studio development
        href: functions-develop-vs.md
+     - name: Core Tools development
+       href: functions-run-local.md
+     - name: Manage connections
+       href: manage-connections.md
      - name: Error handling
        href: functions-bindings-error-pages.md 
   - name: Deploy
@@ -201,7 +205,11 @@
     - name: Blob storage
       href: functions-bindings-storage-blob.md
     - name: Azure Cosmos DB
-      href: functions-bindings-cosmosdb.md
+      items: 
+      - name: Functions 1.x
+        href: functions-bindings-cosmosdb.md
+      - name: Functions 2.x
+        href: functions-bindings-cosmosdb-v2.md
     - name: Event Grid
       href: functions-bindings-event-grid.md
     - name: Event Hubs

@@ -6,7 +6,7 @@ author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/04/2018
 ms.author: tomfitz
 ---

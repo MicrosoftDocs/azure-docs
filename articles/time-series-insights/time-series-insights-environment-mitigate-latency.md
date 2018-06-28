@@ -1,12 +1,11 @@
 ---
 title: How to monitor and reduce throttling in Azure Time Series Insights | Microsoft Docs
 description: This article describes how to monitor, diagnose, and mitigate performance issues that cause latency and throttling in Azure Time Series Insights.
-services: time-series-insights
 ms.service: time-series-insights
-author: jasonwhowell
+services: time-series-insights
+author: ashannon7
 ms.author: jasonh
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data

@@ -4,7 +4,7 @@ description: Setting up Pacemaker on SUSE Linux Enterprise Server in Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -274,10 +274,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** Install HA extension
+1. **[A]** Install Fence agents
    
    <pre><code>
-   sudo zypper install sle-ha-release fence-agents
+   sudo zypper install fence-agents
    </code></pre>
 
 1. **[A]** Setup host name resolution   

@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 
@@ -60,7 +61,7 @@ If you have not configured password writeback for a specific user or if the user
 
 ## How does Pass-through Authentication protect you against brute-force password attacks?
 
-Read [Azure Active Directory Pass-through Authentication: Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) for more information.
+Read [Azure Active Directory Pass-through Authentication: Smart Lockout](../authentication/howto-password-smart-lockout.md) for more information.
 
 ## What do Pass-through Authentication Agents communicate over ports 80 and 443?
 
@@ -127,7 +128,7 @@ If you uninstall a Pass-through Authentication Agent from a server, it causes th
 ## Next steps
 - [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Learn which scenarios are supported and which ones are not.
 - [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
-- [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
+- [Smart Lockout](../authentication/howto-password-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
 - [Technical deep dive](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Understand how the Pass-through Authentication feature works.
 - [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security deep dive](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.

@@ -10,9 +10,10 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: mbullwin;sdash
+ms.reviewer: sdash
+ms.author: mbullwin
 
 ---
 # Unified cross-component transaction diagnostics

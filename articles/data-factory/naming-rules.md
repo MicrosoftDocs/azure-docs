@@ -12,16 +12,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
 
 ---
 # Azure Data Factory - naming rules
 The following table provides naming rules for Data Factory artifacts.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [naming rules in Data Factory version1](v1/data-factory-naming-rules.md).
 
 | Name | Name Uniqueness | Validation Checks |
 |:--- |:--- |:--- |
@@ -30,4 +27,4 @@ The following table provides naming rules for Data Factory artifacts.
 | Resource Group |Unique across Microsoft Azure. Names are case-insensitive. | For more info, see [Azure naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). |
 
 ## Next steps
-Learn how to create data factories by following step-by-step instructions in [QUickstart: create a data factory](quickstart-create-data-factory-powershell.md) article. 
+Learn how to create data factories by following step-by-step instructions in [Quickstart: create a data factory](quickstart-create-data-factory-powershell.md) article. 

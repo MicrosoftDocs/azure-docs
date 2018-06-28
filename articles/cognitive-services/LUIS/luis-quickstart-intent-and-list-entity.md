@@ -1,164 +1,144 @@
 ---
-title: Create a LUIS app to get exact text match listed data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and list entities to extract data in this quickstart. 
+title: Tutorial create a LUIS app to get exact text match listed data - Azure | Microsoft Docs 
+description: In this tutorial, learn how to create a simple LUIS app using intents and list entities to extract data in this quickstart. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: quickstart
-ms.date: 05/07/2018
+ms.topic: tutorial
+ms.date: 06/21/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 --- 
 
-# Quickstart: Create app using a list entity
-In this quickstart, create an app that demonstrates how to get data that matches a predefined list. 
+# Tutorial: 4. Add list entity
+In this tutorial, create an app that demonstrates how to get data that matches a predefined list. 
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Understand list entities 
+> * Create new LUIS app for the Human Resources (HR) domain with MoveEmployee intent
+> * Add list entity to extract Employee from utterance
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response
+
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account to author your LUIS application.
+
+## Before you begin
+If you don't have the Human Resources app from the [regex entity](luis-quickstart-intents-regex-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github repository.
+
+If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `list`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## Purpose of the list entity
-This app takes drink orders such as `1 coke and 1 milk please` and returns the data such as the type of drink. A **list** entity of drinks looks for exact text matches and returns those matches. 
+This app predicts utterances about moving an employee from one building to a different building. This app uses a list entity to extract an employee. The employee can be referred to using name, phone number, email, or U.S. federal social security number. 
 
-A list entity is a good choice for this type of data when the data values are a known set. The names of drinks can vary including slang, and abbreviations but the names do not frequently change. 
+A list entity can hold many items with synonyms for each item. For a small to medium size company, the list entity is used to extract the employee information. 
 
-## App intents
-The intents are categories of what the user wants. This app has two intents: OrderDrink and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  
+The canonical name for each item is the employee number. For this domain, examples of the synonyms are: 
 
-## List entity is an exact text match
-The purpose of the entity is to find and categorize parts of the text in the utterance. 
-A [list](luis-concept-entity-types.md) entity allows for an exact match of words or phrases.  
+|Synonym purpose|Synonym value|
+|--|--|
+|Name|John W. Smith|
+|Email address|john.w.smith@mycompany.com|
+|Phone extension|x12345|
+|Personal mobile phone number|425-555-1212|
+|U.S. federal social security number|123-45-6789|
 
-For this drink app, LUIS extracts the drink order in such as way that a standard order can be created and filled. LUIS allows utterances to have variations, abbreviations, and slang. 
+A list entity is a good choice for this type of data when:
 
-Simple example utterances from users include:
+* The data values are a known set.
+* The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
+* The text in the utterance is an exact match with a synonym. 
+
+LUIS extracts the employee in such as way that a standard order to move the employee can be created by the client application.
+<!--
+## Example utterances
+Simple example utterances for a `MoveEmployee` inent:
 
 ```
-2 glasses of milk
-3 bottles of water
-2 cokes
-```
-
-Abbreviated or slang versions of utterances include:
+move John W. Smith from B-1234 to H-4452
+mv john.w.smith@mycompany from office b-1234 to office h-4452
 
 ```
-5 milk
-3 h2o
-1 pop
-```
- 
-The list entity matches `h2o` to water, and `pop` to soft drink.  
+-->
 
-## What LUIS does
-When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chat bot takes that JSON response and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+## Add MoveEmployee intent
 
-## Create a new app
-1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
+1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-2. On the [LUIS][LUIS] website, select **Create new app**.  
+    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png#lightbox)
 
-    ![Create new app](./media/luis-quickstart-intent-and-list-entity/app-list.png)
+2. Select **Create new intent**. 
 
-3. In the pop-up dialog, enter the name `MyDrinklist`. 
+    [ ![Screenshot of Intents page with Create new intent button highlighted](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png#lightbox)
 
-    ![Name the app MyDrinkList](./media/luis-quickstart-intent-and-list-entity/create-app-dialog.png)
+3. Enter `MoveEmployee` in the pop-up dialog box then select **Done**. 
 
-4. When that process finishes, the app shows the **Intents** page with the **None** Intent. 
+    ![Screenshot of create new intent dialog with](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-ddl.png)
 
-    [![](media/luis-quickstart-intent-and-list-entity/intents-page-none-only.png "Screenshot of Intents page")](media/luis-quickstart-intent-and-list-entity/intents-page-none-only.png#lightbox)
+4. Add example utterances to the intent.
 
-## Create a new intent
-
-1. On the **Intents** page, select **Create new intent**. 
-
-    [![](media/luis-quickstart-intent-and-list-entity/create-new-intent.png "Screenshot of Intents page with Create new intent button highlighted")](media/luis-quickstart-intent-and-list-entity/create-new-intent.png#lightbox)
-
-2. Enter the new intent name `OrderDrinks`. This intent should be selected any time a user wants to order a drink.
-
-    By creating an intent, you are creating the primary category of information that you want to identify. Giving the category a name allows any other application that uses the LUIS query results to use that category name to find an appropriate answer or take appropriate action. LUIS won't answer these questions, only identify what type of information is being asked for in natural language. 
-
-    [![](media/luis-quickstart-intent-and-list-entity/intent-create-dialog-order-drinks.png "Screenshot of creating new OrderDrings intent")](media/luis-quickstart-intent-and-list-entity/intent-create-dialog-order-drinks.png#lightbox)
-
-3. Add several utterances to the `OrderDrinks` intent that you expect a user to ask for, such as:
-
-    | Example utterances|
+    |Example utterances|
     |--|
-    |Please send 2 cokes and a bottle of water to my room|
-    |2 perriers with a twist of lime|
-    |h20|
+    |move John W. Smith from B-1234 to H-4452|
+    |mv john.w.smith@mycompany.com from office b-1234 to office h-4452|
+    |shift x12345 to h-1234 tomorrow|
+    |place 425-555-1212 in HH-2345|
+    |move 123-45-6789 from A-4321 to J-23456|
+    |mv Jill Jones from D-2345 to J-23456|
+    |shift jill-jones@mycompany.com to M-12345|
+    |x23456 to M-12345|
+    |425-555-0000 to h-4452|
+    |234-56-7891 to hh-2345|
 
-    [![](media/luis-quickstart-intent-and-list-entity/intent-order-drinks-utterance.png "Screenshot of entering utterance on OrderDrinks intent page")](media/luis-quickstart-intent-and-list-entity/intent-order-drinks-utterance.png#lightbox)
+    [ ![Screenshot of Intent page with new utterances highlighted](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
-## Add utterances to None intent
+    This application has prebuilt number entity added from the previous tutorial, so each number is tagged. This information may be enough for your client application but the number isn't labeled with the type. Creating a new entity with an appropriate name allows the client application to process the entity when it is returned from LUIS.
 
-The LUIS app currently has no utterances for the **None** intent. It needs utterances that you don't want the app to answer, so it has to have utterances in the **None** intent. Do not leave it empty. 
+## Create an employee list entity
+Now that the **MoveEmployee** intent has utterances, LUIS needs to understand what an employee is. 
 
-1. Select **Intents** from the left panel. 
+1. Select **Entities** in the left panel.
 
-    [![](media/luis-quickstart-intent-and-list-entity/left-panel-intents.png "Screenshot of selecting Intents link from left panel")](media/luis-quickstart-intent-and-list-entity/left-panel-intents.png#lightbox)
+    [ ![Screenshot of Intent page with Entities button in left navigation highlighted](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png#lightbox)
 
-2. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app:
+2. Select **Create new entity**.
 
-    | Example utterances|
-    |--|
-    |Cancel!|
-    |Good bye|
-    |What is going on?|
+    [ ![Screenshot of Entities page with Create new entity highlighted](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png#lightbox)
 
-## When the utterance is predicted for the None intent
-In your LUIS-calling application (such as a chat bot), when LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The bot can also give more directions for continuing the conversation if the user doesn't want to end it. 
+3. In the entity pop-up dialog, enter `Employee` for the entity name, and  **List** for entity type. Select **Done**.  
 
-Entities work in the **None** intent. If the top scoring intent is **None** but an entity is extracted that is meaningful to your chat bot, your chat bot can follow up with a question that focuses the customer's intent. 
+    [![](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "Screenshot of creating new entity pop-up dialog")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
-## Create a menu entity from the Intent page
-Now that the two intents have utterances, LUIS needs to understand what a drink is. Navigate back to the `OrderDrinks` intent and label (mark) the drinks in an utterance by following the steps:
+4. On the Employee entity page, enter `Employee-24612` as the new value.
 
-1. Return to the `OrderDrinks` intent by selecting **Intents** in the left panel.
+    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Screenshot of entering value")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
-2. Select `OrderDrinks` from the intents list.
+5. For Synonyms, add the following values:
 
-3. In the utterance, `Please send 2 cokes and a bottle of water to my room`, select the word `water`. A drop-down menu appears with a text box at the top to create a new entity. Enter the entity name `Drink` in the text box then select **Create new entity** in the drop-down menu. 
+    |Synonym purpose|Synonym value|
+    |--|--|
+    |Name|John W. Smith|
+    |Email address|john.w.smith@mycompany.com|
+    |Phone extension|x12345|
+    |Personal mobile phone number|425-555-1212|
+    |U.S. federal social security number|123-45-6789|
 
-    [![](media/luis-quickstart-intent-and-list-entity/intent-label-h2o-in-utterance.png "Screenshot of creating new entity by selecting word in utterance")](media/luis-quickstart-intent-and-list-entity/intent-label-h2o-in-utterance.png#lightbox)
+    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Screenshot of entering synonyms")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
-4. In the pop-up window, select the **List** entity type. Add synonym `h20`. Select the enter key after each synonym. Don't add `perrier` to the synonym list. That is added in the next step as an example. Select **Done**.
+6. Enter the `Employee-45612` as a new value.
 
-    [![](media/luis-quickstart-intent-and-list-entity/create-list-ddl.png "Screenshot of configuring new entity")](media/luis-quickstart-intent-and-list-entity/create-list-ddl.png#lightbox)
+7. For Synonyms, add the following values:
 
-5. Now that the entity is created, label the other synonyms for water by selecting the synonym for water, then select `Drink` in the drop-down list. Follow the menu to the right, then select `Set as synonym`, then select `water`.
-
-    [![](media/luis-quickstart-intent-and-list-entity/intent-label-perriers.png "Screenshot of labeling utterance with existing entity")](media/luis-quickstart-intent-and-list-entity/intent-label-perriers.png#lightbox)
-
-## Modify the list entity from the Entity page
-The drink list entity is created but doesn't have many items and synonyms. If you know some of the terms, abbreviations, and slang, it is quicker to fill in the list on the **Entity** page. 
-
-1. Select **Entities** from the left panel.
-
-    [![](media/luis-quickstart-intent-and-list-entity/intent-select-entities.png "Screenshot of selecting Entities from left panel")](media/luis-quickstart-intent-and-list-entity/intent-select-entities.png#lightbox)
-
-2. Select `Drink` from entities list.
-
-    [![](media/luis-quickstart-intent-and-list-entity/entities-select-drink-entity.png "Screenshot of selecting Drink entity from entities list")](media/luis-quickstart-intent-and-list-entity/entities-select-drink-entity.png#lightbox)
-
-3. In the text box, enter `Soda pop`, then select enter. This is a term that is broadly applied to carbonated drinks. Every culture has a nick-name or slang term for this type of drink.
-
-    [![](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-canonical-name.png "Screenshot of entering canonical name")](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-canonical-name.png#lightbox)
-
-4. On the same row as `Soda pop`, enter synonyms such as: 
-
-    ```
-    coke
-    cokes
-    coca-cola
-    coca-colas
-    ```
-
-    The synonyms can include phrases, punctuation, possessives, and plurals. Since the list entity is an exact text match (except for case), the synonyms need to have every variation. You can expand the list as you learn more variations from the query logs or reviewing endpoint hits. 
-
-    This article has a few synonyms, to keep the example short. A production-level LUIS app would have many synonyms and would be reviewed and expanded on a regular basis. 
-
-    [![](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-synonyms.png "Screenshot of adding synonyms")](media/luis-quickstart-intent-and-list-entity/drink-entity-enter-synonyms.png#lightbox)
+    |Synonym purpose|Synonym value|
+    |--|--|
+    |Name|Jill Jones|
+    |Email address|jill-jones@mycompany.com|
+    |Phone extension|x23456|
+    |Personal mobile phone number|425-555-0000|
+    |U.S. federal social security number|234-56-7891|
 
 ## Train the LUIS app
 LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
@@ -172,7 +152,7 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
     ![Training succeeded](./media/luis-quickstart-intent-and-list-entity/trained.png)
 
 ## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chat bot or other application, you need to publish the app. 
+In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
@@ -189,75 +169,136 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
     [![](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png "Screenshot of endpoint url on Publish page")](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png#lightbox)
 
-2. Go to the end of the URL in the address and enter `2 cokes and 3 waters`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `OrderDrinks` intent with the two drink types of `cokes` and `waters`.
+2. Go to the end of the URL in the address and enter `shift 123-45-6789 from Z-1242 to T-54672`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `MoveEmployee` intent with `Employee` extracted.
 
-```
+```JSON
 {
-  "query": "2 cokes and 3 waters",
+  "query": "shift 123-45-6789 from Z-1242 to T-54672",
   "topScoringIntent": {
-    "intent": "OrderDrinks",
-    "score": 0.999998569
+    "intent": "MoveEmployee",
+    "score": 0.9882801
   },
   "intents": [
     {
-      "intent": "OrderDrinks",
-      "score": 0.999998569
+      "intent": "MoveEmployee",
+      "score": 0.9882801
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.016044287
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.007611245
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.007063288
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00684710965
     },
     {
       "intent": "None",
-      "score": 0.23884207
+      "score": 0.00304174074
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.002981
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.00212222221
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00191026414
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0007461446
     }
   ],
   "entities": [
     {
-      "entity": "cokes",
-      "type": "Drink",
-      "startIndex": 2,
-      "endIndex": 6,
+      "entity": "123 - 45 - 6789",
+      "type": "Employee",
+      "startIndex": 6,
+      "endIndex": 16,
       "resolution": {
         "values": [
-          "Soda pop"
+          "Employee-24612"
         ]
       }
     },
     {
-      "entity": "waters",
-      "type": "Drink",
-      "startIndex": 14,
-      "endIndex": 19,
+      "entity": "123",
+      "type": "builtin.number",
+      "startIndex": 6,
+      "endIndex": 8,
       "resolution": {
-        "values": [
-          "h20"
-        ]
+        "value": "123"
+      }
+    },
+    {
+      "entity": "45",
+      "type": "builtin.number",
+      "startIndex": 10,
+      "endIndex": 11,
+      "resolution": {
+        "value": "45"
+      }
+    },
+    {
+      "entity": "6789",
+      "type": "builtin.number",
+      "startIndex": 13,
+      "endIndex": 16,
+      "resolution": {
+        "value": "6789"
+      }
+    },
+    {
+      "entity": "-1242",
+      "type": "builtin.number",
+      "startIndex": 24,
+      "endIndex": 28,
+      "resolution": {
+        "value": "-1242"
+      }
+    },
+    {
+      "entity": "-54672",
+      "type": "builtin.number",
+      "startIndex": 34,
+      "endIndex": 39,
+      "resolution": {
+        "value": "-54672"
       }
     }
   ]
 }
 ```
 
+The employee was found and returned as type `Employee` with a resolution value of `Employee-24612`.
+
 ## Where is the natural language processing in the List entity? 
-Because the list entity is an exact text match, it doesn't rely on natural language processing (or machine-learning). LUIS does use natural language processing (or machine-learning) to select the correct top-scoring intent. Additionally, an utterance can be a mix of more than one entity or even more than one type of entity. Each utterance is processed for all the entities in the app, including natural language processing (or machine-learned) entities such as the **Simple** entity.
+Because the list entity is an exact text match, it doesn't rely on natural language processing (or machine-learning). LUIS does use natural language processing (or machine-learning) to select the correct top-scoring intent. Additionally, an utterance can be a mix of more than one entity or even more than one type of entity. Each utterance is processed for all the entities in the app, including natural language processing (or machine-learned) entities.
 
 ## What has this LUIS app accomplished?
-This app, with just two intents and a list entity, identified a natural language query intention and returned the extracted data. 
+This app, with a list entity, extracted the correct employee. 
 
-Your chat bot now has enough information to determine the primary action, `OrderDrinks`, and what types of drinks were ordered from the Drink list entity. 
+Your chatbot now has enough information to determine the primary action, `MoveEmployee`, and which employee to move. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
-[Learn how to add a hierarchical entity](luis-quickstart-intent-and-hier-entity.md). 
+> [!div class="nextstepaction"]
+> [Add a hierarchical entity to the app](luis-quickstart-intent-and-hier-entity.md)
 
-Add the **number** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the number for each drink type. 
-
-Add the **dimension** [prebuilt entity](add-entities.md#add-prebuilt-entity) to extract the volume for each drink type such as liters or gallons.
-
-
-<!--References-->
-[LUIS]:luis-reference-regions.md#luis-website
-[LUIS-regions]:luis-reference-regions.md#publishing-regions

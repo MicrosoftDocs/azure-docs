@@ -30,12 +30,14 @@
     href: render-coverage.md
   - name: Routing coverage
     href: routing-coverage.md
-  - name: Search categories
-    href: search-categories.md
+  - name: Supported search categories
+    href: supported-search-categories.md
   - name: Supported languages
     href: supported-languages.md
   - name: Consumption model
     href: consumption-model.md
+  - name: Extend geoJSON
+    href: extend-geojson.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
@@ -69,18 +71,34 @@
     - name: Show traffic 
       href: map-show-traffic.md
     - name: Interacting with mouse events
-      href: map-events.md   
+      href: map-events.md
+    - name: Accessible map applications
+      href: map-accessibility.md
 - name: Reference
   items:
-  - name: Services API - REST
-    href: https://docs.microsoft.com/rest/api/maps/
-  - name: Map Control API - Javascript
-    href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
+  - name: REST
+    items:
+    - name: Render service
+      href: https://docs.microsoft.com/rest/api/maps/render
+    - name: Route service
+      href: https://docs.microsoft.com/rest/api/maps/route
+    - name: Search service
+      href: https://docs.microsoft.com/rest/api/maps/search
+    - name: Timezone service
+      href: https://docs.microsoft.com/rest/api/maps/timezone
+    - name: Traffic service
+      href: https://docs.microsoft.com/rest/api/maps/traffic
+    - name: Maps account management
+      href: https://docs.microsoft.com/rest/api/maps-management
+  - name: JavaScript
+    items:
+    - name: Map control
+      href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
 - name: Related
   items:
   - name: Solutions
     items:
-    - name: IoT Suite Preconfigured Solutions
+    - name: IoT solution accelerators
       href: /azure/iot-suite
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/

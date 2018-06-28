@@ -1,28 +1,27 @@
-﻿---
-title: Tools for Azure Stack storage
+---
+title: Tools for Azure Stack storage | Microsoft Docs
 description: Learn about Azure Stack storage data transfer tools
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
 
-ms.assetid:
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/25/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 
 
 ---
-# Use data transfer tools for Azure Stack Storage
+# Use data transfer tools for Azure Stack storage
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Microsoft Azure Stack provides a set of the storage services for disks, blobs, tables, queues, and account management functions. You can use a set of Azure Storage tools if you want to manage or move data to or from Azure Stack Storage. This article provides an  overview of the available tools.
+Microsoft Azure Stack provides a set of the storage services for disks, blobs, tables, queues, and account management functions. You can use a set of Azure storage tools if you want to manage or move data to or from Azure Stack storage. This article provides an  overview of the available tools.
 
 Your requirements determine which of the following tools works best for you:
 
@@ -38,11 +37,11 @@ Your requirements determine which of the following tools works best for you:
 
     An open-source, cross-platform tool that provides a set of commands for working with the Azure and Azure Stack platforms.
 
-* [Microsoft Storage Explorer](#microsoft-azure-storage-explorer)
+* [Microsoft storage explorer](#microsoft-azure-storage-explorer)
 
     An easy-to-use stand-alone app with a user interface.
 
-Due to the storage services differences between Azure and Azure Stack, there might be some specific requirements for each tool described in the following sections. For a comparison between Azure Stack storage and Azure storage, see [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md).
+Due to the storage services differences between Azure and Azure Stack, there might be some specific requirements for each tool described in the following sections. For a comparison between Azure Stack storage and Azure storage, see [Azure Stack storage: Differences and considerations](azure-stack-acs-differences.md).
 
 ## AzCopy
 
@@ -100,9 +99,9 @@ azcopy \
     --dest-key <key>
 ````
 
-### Move data between Azure and Azure Stack Storage
+### Move data between Azure and Azure Stack storage
 
-Asynchronous data transfer between Azure Storage and Azure Stack is not supported. You need to specify the transfer with the **/SyncCopy** or **--sync-copy** option.
+Asynchronous data transfer between Azure storage and Azure Stack is not supported. You need to specify the transfer with the **/SyncCopy** or **--sync-copy** option.
 
 **Windows**
 
@@ -125,7 +124,7 @@ azcopy \
 ### Azcopy known issues
 
  - Any AzCopy operation on a file store is not available because file storage is not yet available in Azure Stack.
- - Asynchronous data transfer between Azure Storage and Azure Stack is not supported. You can specify the transfer with the **/SyncCopy** option to copy the data.
+ - Asynchronous data transfer between Azure storage and Azure Stack is not supported. You can specify the transfer with the **/SyncCopy** option to copy the data.
  - The Linux version of Azcopy only supports 1802 update or later versions. And it doesn’t support Table service.
 
 ## Azure PowerShell
@@ -148,7 +147,7 @@ This sample assume you have successfully [Installed PowerShell for Azure Stack](
    > [!NOTE]
    > This script has to be run at the root directory for **AzureStack_Tools**.
 
-```PowerShell
+```PowerShell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
@@ -211,21 +210,21 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 # end
-```
+````
 
 ### PowerShell known issues
 
-The current compatible Azure PowerShell module version for Azure Stack is 1.2.12. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
+The current compatible Azure PowerShell module version for Azure Stack is 1.3.0. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
 
-* The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.12 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
+* The return value format of `Get-AzureRmStorageAccountKey` in version 1.3.0 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
 
    ```
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.3.2, and previous versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Key1
@@ -240,11 +239,11 @@ The Azure CLI is Azure’s command-line experience for managing Azure resources.
 
 Azure CLI is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager. It provides many of the same functions found in the Azure Stack portal, including rich data access.
 
-Azure Stack requires Azure CLI version 2.0. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). For more information about how to use the Azure CLI 2.0 to perform several tasks working with resources in your Azure Stack Storage account, see [Using the Azure CLI2.0 with Azure Storage](../../storage/storage-azure-cli.md)
+Azure Stack requires Azure CLI version 2.0. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). For more information about how to use the Azure CLI 2.0 to perform several tasks working with resources in your Azure Stack storage account, see [Using the Azure CLI2.0 with Azure storage](../../storage/storage-azure-cli.md)
 
 ### Azure CLI sample script for Azure Stack
 
-Once you complete the CLI installation and configuration, you can try the following steps to work with a small shell sample script to interact with Azure Stack Storage resources. The script completes the following actions:
+Once you complete the CLI installation and configuration, you can try the following steps to work with a small shell sample script to interact with Azure Stack storage resources. The script completes the following actions:
 
 * Creates a new container in your storage account.
 * Uploads an existing file (as a blob) to the container.
@@ -261,7 +260,7 @@ Before you run this script, make sure that you can successfully connect to, and 
 
 ```bash
 #!/bin/bash
-# A simple Azure Stack Storage example script
+# A simple Azure Stack storage example script
 
 export AZURESTACK_RESOURCE_GROUP=<resource_group_name>
 export AZURESTACK_RG_LOCATION="local"
@@ -290,17 +289,18 @@ echo "Downloading the file..."
 az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --account-name $AZURESTACK_STORAGE_ACCOUNT_NAME --name $AZURESTACK_STORAGE_BLOB_NAME --file $DESTINATION_FILE --output table
 
 echo "Done"
-```
+````
 
-## Microsoft Azure Storage Explorer
+## Microsoft Azure storage explorer
 
-Microsoft Azure Storage Explorer is a standalone app from Microsoft. It allows you to easily work with both Azure Storage and Azure Stack Storage data on Windows, macOS and Linux computers. If you want an easy way to manage your Azure Stack Storage data, then consider using Microsoft Azure Storage Explorer.
+Microsoft Azure storage explorer is a standalone app from Microsoft. It allows you to easily work with both Azure storage and Azure Stack storage data on Windows, macOS and Linux computers. If you want an easy way to manage your Azure Stack storage data, then consider using Microsoft Azure storage explorer.
 
-* To learn more about configuring Azure Storage Explorer to work with Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md).
-* To learn more about Microsoft Azure Storage Explorer, see [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* To learn more about configuring Azure storage explorer to work with Azure Stack, see [Connect storage explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md).
+* To learn more about Microsoft Azure storage explorer, see [Get started with storage explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## Next steps
-* [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md)
-* [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+
+* [Connect storage explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md)
+* [Get started with storage explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
-* [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+* [Introduction to Microsoft Azure storage](../../storage/common/storage-introduction.md)

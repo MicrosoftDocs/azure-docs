@@ -23,6 +23,8 @@ ms.custom: mvc
 
 Azure Content Delivery Network (CDN) includes four products: **Azure CDN Standard from Microsoft** (in preview), **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**. 
 
+For information about migrating an **Azure CDN Standard from Verizon** profile to **Azure CDN Premium from Verizon**, see [Migrate an Azure CDN profile from Standar Verizon to Premium Verizon](cdn-migrate.md).
+
 The following table compares the features available with each product.
 
 | **Performance features and optimizations** | **Standard Microsoft (preview)** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** |
@@ -38,7 +40,6 @@ The following table compares the features available with each product.
 | Cache/header settings (using [caching rules](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
 | Cache/header settings (using [rules engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
 | [Query string caching](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| Regional caching  |**&#x2713;** |  |  |  |
 | IPv4/IPv6 dual-stack | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 support](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
@@ -49,7 +50,7 @@ The following table compares the features available with each product.
 | [Geo-filtering](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Token authentication](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [DDOS protection](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Bring your own certificate](cdn-custom-ssl.md#option-2-enable-the-https-feature-with-your-own-certificate) |**&#x2713;** |  |  |  |
+| [Bring your own certificate](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) |**&#x2713;** |  |  |  |
 ||||
 | **Analytics and reporting** | **Standard Microsoft (preview)** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | [Azure diagnostic logs](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |

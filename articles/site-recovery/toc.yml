@@ -101,6 +101,14 @@
         href: hyper-v-vmm-secondary-support-matrix.md
       - name: Hyper-V to secondary site architecture
         href: hyper-v-vmm-architecture.md
+  - name: Networking
+    items:
+    - name: Azure Traffic Manager with Site Recovery
+      href: concepts-traffic-manager-with-site-recovery.md
+    - name: ExpressRoute with Site Recovery
+      href: concepts-expressroute-with-site-recovery.md
+    - name: Network Security Groups with Site Recovery
+      href: concepts-network-security-group-with-site-recovery.md
   - name: Disaster recovery for apps
     href: site-recovery-workload.md
   - name: About recovery plans
@@ -109,10 +117,6 @@
     href: migrate-overview.md
   - name: About role-based access control with Site Recovery
     href: site-recovery-role-based-linked-access-control.md
-  - name: About Azure Traffic Manager with Site Recovery
-    href: concepts-traffic-manager-with-site-recovery.md
-  - name: About ExpressRoute with Site Recovery
-    href: concepts-expressroute-with-site-recovery.md
   - name: FAQ
     href: site-recovery-faq.md
 - name: How-to Guides
@@ -231,6 +235,8 @@
         href: vmware-azure-manage-configuration-server.md
       - name: Manage the configuration server for physical server replication
         href: physical-manage-configuration-server.md
+      - name: Manage process servers
+        href: vmware-azure-manage-process-server.md
       - name: Manage vCenter servers
         href: vmware-azure-manage-vcenter.md
       - name: Remove servers and disable protection

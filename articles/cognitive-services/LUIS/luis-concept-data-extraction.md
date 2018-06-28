@@ -12,7 +12,7 @@ ms.author: v-geberr;
 ---
 
 # Data extraction
-LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action.
+LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chatbot to take action.
 
 In the following sections, learn what data is returned from intents and entities with examples of JSON. The hardest data to extract is the machine-learned data because it is not an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you are confident you receive the data you expect. 
 
@@ -43,7 +43,7 @@ The primary data is the top scoring **intent name**. Using the `MyStore` [quicks
 |--|--|--|--|
 |Intent|String|topScoringIntent.intent|"GetStoreInfo"|
 
-If your chat bot or LUIS-calling app makes a decision based on more than one intent score, return all the intents' scores by setting the querystring parameter, `verbose=true`. The endpoint response is:
+If your chatbot or LUIS-calling app makes a decision based on more than one intent score, return all the intents' scores by setting the querystring parameter, `verbose=true`. The endpoint response is:
 
 ```JSON
 {
@@ -107,7 +107,7 @@ If you add prebuilt domains, the intent name indicates the domain, such as `Util
 
 
 ## Data from entities
-Most chat bots and applications need more than the intent name. This additional, optional data comes from entities discovered in the utterance. Each type of entity returns different information about the match. 
+Most chatbots and applications need more than the intent name. This additional, optional data comes from entities discovered in the utterance. Each type of entity returns different information about the match. 
 
 A single word or phrase in an utterance can match more than one entity. In that case, each matching entity is returned with its score. 
 
@@ -416,6 +416,19 @@ Another example utterance, using a synonym for Paris:
   ]
 }
 ```
+
+## Extracting names
+Getting names from an utterance is difficult because a name can be almost any combination of letters and words. Depending on what type of name you are extracting, you have several options. These are not rules but more guidelines. 
+
+### Names of people
+People's name can have some slight format depending on language and culture. Use either a hierarchical entity with first and last names as children or use a simple entity with roles of first and last name. Make sure to give examples that use the first and last name in different parts of the utterance, in utterances of different lengths, and utterances across all intents including the None intent. [Review](label-suggested-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
+
+### Names of places
+Location names are set and known such as cities, counties, states, provinces, and countries. If your app uses a know set of locations, consider a list entity. If you need to find all place names, create a simple entity, and provide a variety of examples. Add a phrase list of place names to reinforce what place names look like in your app. [Review](label-suggested-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
+
+### New and emerging names
+Some apps need to be able to find new and emerging names such as products or companies. This is the most difficult type of data extraction. Begin with a simple entity and add a phrase list. [Review](label-suggested-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly. 
+
 ## Pattern roles data
 Roles are contextual differences of entities. 
 
@@ -559,7 +572,7 @@ The key phrase extraction entity returns key phrases in the utterance, provided 
 ```
 
 ## Data matching multiple entities
-LUIS returns all entities discovered in the utterance. As a result, your chat bot may need to make decision based on the results. An utterance can have many entities in an utterance:
+LUIS returns all entities discovered in the utterance. As a result, your chatbot may need to make decision based on the results. An utterance can have many entities in an utterance:
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
@@ -691,6 +704,6 @@ The LUIS endpoint can discover the same data in different entities:
 
 ## Next steps
 
-See [Add entities](Add-entities.md) to learn more about how to add entities to your LUIS app.
+See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
 
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

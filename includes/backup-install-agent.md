@@ -18,7 +18,7 @@ After creating the Recovery Services vault, install the Backup agent on each of 
    
     ![Vault credentials](./media/backup-install-agent/vc.png)
    
-    The vault credentials file is valid only for 48 hrs (after it’s downloaded from the portal). If you encounter any error in this screen (e.g “Vault credentials file provided has expired”), login to the Azure portal and download the vault credentials file again.
+    The vault credentials file is valid only for 48 hrs (after it’s downloaded from the portal). If you encounter any error in this screen (e.g “Vault credentials file provided has expired”), sign in to the Azure portal and download the vault credentials file again.
    
     Ensure the setup application can access the vault credentials file. If you encounter access-related errors, copy the vault credentials file to a temporary location on the local machine and retry the operation.
    

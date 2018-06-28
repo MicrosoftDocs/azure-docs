@@ -102,7 +102,7 @@ On your VM, install the required packages for the Azure Python SDK modules and A
 sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev python-pip
 
 ## Install Ansible and Azure SDKs via pip
-pip install ansible[azure]
+sudo pip install ansible[azure]
 ```
 
 Now move on to [Create Azure credentials](#create-azure-credentials).
@@ -146,7 +146,7 @@ Now move on to [Create Azure credentials](#create-azure-credentials).
 
 Ansible communicates with Azure using a username and password or a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Ansible. You control and define the permissions as to what operations the service principal can perform in Azure. To improve security over just providing a username and password, this example creates a basic service principal.
 
-On your host computer or in the Azure Cloud Shell, create a service principal using [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac). The credentials that Ansible needs are output to the screen:
+On your host computer or in the Azure Cloud Shell, create a service principal using [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). The credentials that Ansible needs are output to the screen:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
@@ -162,7 +162,7 @@ An example of the output from the preceding commands is as follows:
 }
 ```
 
-To authenticate to Azure, you also need to obtain your Azure subscription ID using [az account show](/cli/azure/account#az_account_show):
+To authenticate to Azure, you also need to obtain your Azure subscription ID using [az account show](/cli/azure/account#az-account-show):
 
 ```azurecli-interactive
 az account show --query "{ subscription_id: id }"

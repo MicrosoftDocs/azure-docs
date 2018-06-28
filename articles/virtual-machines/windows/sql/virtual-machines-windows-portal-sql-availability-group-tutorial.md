@@ -55,7 +55,7 @@ Before you begin the tutorial, you need to [Complete prerequisites for creating 
 <a name="CreateCluster"></a>
 ## Create the cluster
 
-After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Severs and a witness server.  
+After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Severs and a witness server.
 
 1. RDP to the first SQL Server using a domain account that is an administrator on both SQL Servers and the witness server.
 
@@ -83,7 +83,8 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 
    ![Cluster Properties](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Select **Static IP Address** and specify an available address from subnet where the SQL Server is in the Address text box. Then, click **OK**.
+3. Select **Static IP Address** and specify an available address from the Automatic Private IP Addressing (APIPA) range: 169.254.0.1 to 169.254.255.254 in the Address text box. For this example you can use any address in that range. For example `169.254.0.1`. Then, click **OK**.
+
 4. In the **Cluster Core Resources** section, right-click cluster name and click **Bring Online**. Then, wait until both resources are online. When the cluster name resource comes online, it updates the DC server with a new AD computer account. Use this AD account to run the Availability Group clustered service later.
 
 ### <a name="addNode"></a>Add the other SQL Server to cluster
@@ -409,8 +410,8 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
    | **Name** | Text | SQLAlwaysOnEndPointListener |
    | **Frontend IP address** | Choose an address |Use the address that you created when you created the load balancer. |
    | **Protocol** | Choose TCP |TCP |
-   | **Port** | Use the port for the SQL Server instance | 1433 |
-   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 1433 |
+   | **Port** | Use the port for the availability group listener | 1435 |
+   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 1435 |
    | **Probe** |The name you specified for the probe | SQLAlwaysOnEndPointProbe |
    | **Session Persistence** | Drop down list | **None** |
    | **Idle Timeout** | Minutes to keep a TCP connection open | 4 |

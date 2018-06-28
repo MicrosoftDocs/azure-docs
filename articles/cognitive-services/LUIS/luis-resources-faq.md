@@ -1,6 +1,6 @@
 ---
-title: Language Understanding Intelligent Services (LUIS) in Azure frequently asked questions | Microsoft Docs
-description: Get answers to frequently asked questions about Language Understanding Intelligent Services (LUIS)
+title: Language Understanding (LUIS) in Azure frequently asked questions | Microsoft Docs
+description: Get answers to frequently asked questions about Language Understanding (LUIS)
 author: v-geberr
 manager: kaiqb
 services: cognitive-services
@@ -44,13 +44,16 @@ The previous **Pattern feature** is currently deprecated, replaced by **[Pattern
 ### How do I use an entity to pull out the correct data? 
 See [entities](luis-concept-entity-types.md) and [data extraction](luis-concept-data-extraction.md).
 
+### Should variations of an example utterance include punctuation? 
+Either add the different variations as example utterances to the intent or add the pattern of the example utterance with the [syntax to ignore](luis-concept-patterns.md#pattern-syntax) the punctuation. 
+
 ## LUIS endpoint
 
 ### Why does LUIS add spaces to the query around or in the middle of words?
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### How do I create and assign a LUIS endpoint key?
-[Create the endpoint key](azureibizasubscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](Manage-keys.md#assign-endpoint-key) on the **[Publish](publishapp.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
+[Create the endpoint key](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](Manage-keys.md#assign-endpoint-key) on the **[Publish](publishapp.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### How do I interpret LUIS scores? 
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 (less than 50%) does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
@@ -73,11 +76,11 @@ See the [boundaries](luis-boundaries.md) reference.
 
 ### I want to build a LUIS app with more than the maximum number of intents. What should I do?
 
-See [Best practices for intents](luis-concept-best-practices.md#if-you-need-more-than-the-maximum-number-of-intents).
+See [Best practices for intents](luis-concept-intent.md#if-you-need-more-than-the-maximum-number-of-intents).
 
 ### I want to build an app in LUIS with more than the maximum number of entities. What should I do?
 
-See [Best practices for entities](luis-concept-best-practices.md#if-you-need-more-than-the-maximum-number-of-entities)
+See [Best practices for entities](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities)
 
 ### What are the limits on the number and size of phrase lists?
 For the maximum length of a [phrase list](./luis-concept-feature.md), see the [boundaries](luis-boundaries.md) reference.
@@ -118,7 +121,9 @@ To transfer a LUIS app to a different Azure subscription, export the LUIS app an
 By default, your LUIS app logs utterances from users. To download a log of utterances that users send to your LUIS app, go to **My Apps**, and click on the ellipsis (***...***) in the listing for your app. Then click **Export Endpoint Logs**. The log is formatted as a comma-separated value (CSV) file.
 
 ### How can I disable the logging of utterances?
-You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on user queries. If you set `log=false` because of data-privacy concerns, you can't download a record of those user utterances from LUIS or use those utterances to improve your app.
+You can turn off the logging of user utterances by setting `log=false` in the Endpoint URL that your client application uses to query LUIS. However, turning off logging disables your LUIS app's ability to suggest utterances or improve performance that's based on [active learning](luis-concept-review-endpoint-utterances.md#what-is-active-learning). If you set `log=false` because of data-privacy concerns, you can't download a record of those user utterances from LUIS or use those utterances to improve your app.
+
+Logging is the only storage of utterances. 
 
 ### Why don't I want all my endpoint utterances logged?
 If you are using your log for prediction analysis, do not capture test utterances in your log.
@@ -187,7 +192,14 @@ The following features were released at the Build 2018 Conference:
 
 Additional authoring [API routes](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) were included. 
 
-[Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo
+Videos: 
+* [Azure Friday At Build 2018: Cognitive Services - Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Build 2018 AI Show - What’s New with Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
+* [Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+
+Projects: 
+* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - source code on Github
 
 ## Next steps
 
@@ -195,4 +207,4 @@ To learn more about LUIS, see the following resources:
 * [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
 
-[LUIS]:luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

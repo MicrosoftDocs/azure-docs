@@ -24,18 +24,18 @@ This article explains how to use the Standard Encoder in Media Services to encod
 
 ### Encoding for streaming
 
-As the name suggests, if you use the **AdaptiveStreaming** preset when creating an encoding Transform, you will get an output that is suitable for delivery via streaming protocols like HLS, DASH, CMAF etc. When using this **AdaptiveStreaming** preset, the encoder intelligently determines how many video layers to generate and at what bitrate and resolution. The output Asset contains MP4 files where AAC-encoded audio and H.264-encoded video is not interleaved.
+When you use the **AdaptiveStreaming** preset in **Transform**, you get an output that is suitable for delivery via streaming protocols like HLS and DASH. When using this preset, the service intelligently determines how many video layers to generate and at what bitrate and resolution. The output content contains MP4 files where AAC-encoded audio and H.264-encoded video is not interleaved.
 
 To see an example of how this preset is used, see [Stream a file](stream-files-dotnet-quickstart.md).
 
 ## Output
 
-This section shows three examples of the output video layers produced by the Media Services encoder as a result of encoding with the **AdaptiveStreaming** preset. In all cases, the output will contain audio-only MP4 file with stereo audio encoded at 128 kbps.
+This section shows three examples of the output video layers produced by the Media Services encoder as a result of encoding with the **AdaptiveStreaming** preset. In all cases, the output contains an audio-only MP4 file with stereo audio encoded at 128 kbps.
 
 ### Example 1
 Source with height "1080" and framerate "29.970" produces 6 video layers:
 
-|Layer|Height|Width|Bitrate(kbps)|
+|Layer|Height|Width|Bitrate (kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -47,7 +47,7 @@ Source with height "1080" and framerate "29.970" produces 6 video layers:
 ### Example 2
 Source with height "720" and framerate "23.970" produces 5 video layers:
 
-|Layer|Height|Width|Bitrate(kbps)|
+|Layer|Height|Width|Bitrate (kbps)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -58,7 +58,7 @@ Source with height "720" and framerate "23.970" produces 5 video layers:
 ### Example 3
 Source with height "360" and framerate "29.970" produces 3 video layers:
 
-|Layer|Height|Width|Bitrate(kbps)|
+|Layer|Height|Width|Bitrate (kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

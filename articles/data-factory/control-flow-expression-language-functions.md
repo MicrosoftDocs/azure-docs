@@ -11,17 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 
 ---
 # Expressions and functions in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-functions-variables.md)
-> * [Version 2 - Preview](control-flow-expression-language-functions.md)
+> * [Version 1](v1/data-factory-functions-variables.md)
+> * [Current version](control-flow-expression-language-functions.md)
 
-This article provides details about expressions and functions supported by Azure Data Factory (version 2). 
+This article provides details about expressions and functions supported by Azure Data Factory. 
 
 ## Introduction
 JSON values in the definition can be literal or expressions that are evaluated at runtime. For example:  
@@ -36,20 +36,15 @@ JSON values in the definition can be literal or expressions that are evaluated a
 "name": "@pipeline().parameters.password"
 ```
 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Functions and variables in Data Factory V1](v1/data-factory-functions-variables.md).
-
-
 ## Expressions  
-Expressions can appear anywhere in a JSON string value and always result in another JSON value. If a JSON value is an expression, the body of the expression is extracted by removing the at-sign (@). If a literal string is needed that starts with @, it must be escaped by using @@. The following examples show how expressions are evaluated.  
+Expressions can appear anywhere in a JSON string value and always result in another JSON value. If a JSON value is an expression, the body of the expression is extracted by removing the at-sign (\@). If a literal string is needed that starts with @, it must be escaped by using @@. The following examples show how expressions are evaluated.  
   
 |JSON value|Result|  
 |----------------|------------|  
 |"parameters"|The characters 'parameters' are returned.|  
 |"parameters[1]"|The characters 'parameters[1]' are returned.|  
-|"@@"|A 1 character string that contains '@' is returned.|  
-|" @"|A 2 character string that contains ' @' is returned.|  
+|"\@@"|A 1 character string that contains '@' is returned.|  
+|" \@"|A 2 character string that contains ' @' is returned.|  
   
  Expressions can also appear inside strings, using a feature called *string interpolation* where expressions are wrapped in `@{ ... }`. For example: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -57,13 +52,13 @@ Expressions can appear anywhere in a JSON string value and always result in anot
   
 |JSON value|Result|  
 |----------------|------------|  
-|"@pipeline().parameters.myString"| Returns `foo` as a string.|  
-|"@{pipeline().parameters.myString}"| Returns `foo` as a string.|  
-|"@pipeline().parameters.myNumber"| Returns `42` as a *number*.|  
-|"@{pipeline().parameters.myNumber}"| Returns `42` as a *string*.|  
+|"\@pipeline().parameters.myString"| Returns `foo` as a string.|  
+|"\@{pipeline().parameters.myString}"| Returns `foo` as a string.|  
+|"\@pipeline().parameters.myNumber"| Returns `42` as a *number*.|  
+|"\@{pipeline().parameters.myNumber}"| Returns `42` as a *string*.|  
 |"Answer is: @{pipeline().parameters.myNumber}"| Returns the string `Answer is: 42`.|  
-|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
-|"Answer is: @@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
+|"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
+|"Answer is: \@@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### Examples
 

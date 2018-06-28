@@ -1,25 +1,25 @@
 ---
-title: Troubleshoot two-step verification | Microsoft Docs
+title: Troubleshoot two-step verification - Azure AD | Microsoft Docs
 description: This document will provide users information on what to do if they run into an issue with Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 keywords: multifactor authentication client, authentication problem, correlation ID
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
-
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2017
-ms.author: barlan
+ms.author: lizross
 ms.reviewer: richagi
 ms.custom: end-user
 experimental: true
 experiment_id: 34685ebc-9bdb-4e 
 ---
+
 # Get help with two-step verification
 This article answers the most common questions that people ask about two-step verification.
 
@@ -43,7 +43,7 @@ Some days you leave your phone at home, but still need to sign in at work. The f
 3. Select the verification option you want to use.
 4. Continue with two-step verification.
 
-If you don't see the **Use a different verification option** link, then that means you didn't set up alternative methods when you first registered for two-step verification. Contact your company support to get help signing in to your account. Once you're signed in, make sure to [manage your settings](multi-factor-authentication-end-user-manage-settings.md) to add additional verification methods for next time.
+If you don't see the **Use a different verification option** link, then that means you didn't set up alternative methods when you first registered for two-step verification. Contact your company support to get help signing in to your account. Once you're signed in, make sure to [manage your settings](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md) to add additional verification methods for next time.
 
 If you do see the **Use a different verification option** link, but you don't have access to your alternative methods either, contact your company support to get help signing in to your account.
 
@@ -63,10 +63,10 @@ To sign in using the alternate phone number, follow these steps:
    ![Different Verification](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
 
 3. Select the phone number or device that you have access to.
-4. After you're back in your account, [manage your settings](multi-factor-authentication-end-user-manage-settings.md) to change your authentication phone number.
+4. After you're back in your account, [manage your settings](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md) to change your authentication phone number.
 
 ### Clear your settings
-If you have not configured a secondary authentication phone number, you have to contact your company support for help. Have them clear your settings so the next time you sign in, you will be prompted to [register for two-step verification](multi-factor-authentication-end-user-first-time.md) again.
+If you have not configured a secondary authentication phone number, you have to contact your company support for help. Have them clear your settings so the next time you sign in, you will be prompted to [register for two-step verification](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md) again.
 
 ## I am not receiving a text or call on my phone
 There are several reasons why you may try to sign in, but not receive the text or phone call. If you've successfully received texts or phone calls to your phone in the past, then this is probably an issue with the phone provider, not your account. Make sure that you have good cell signal, and if you are trying to receive a text message make sure that you are able to recieve text messages. Ask a friend to call you or text you as a test.
@@ -80,16 +80,16 @@ If you've waited several minutes for a text or call, the fastest way to get into
 
     If you received multiple verification codes, use the newest one.
 
-If you don’t have another method configured, contact your company support and ask them to clear your settings. The next time you sign in, you will be prompted to [set up multi-factor authentication](multi-factor-authentication-end-user-first-time.md) again.
+If you don’t have another method configured, contact your company support and ask them to clear your settings. The next time you sign in, you will be prompted to [set up multi-factor authentication](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md) again.
 
-If you often have delays due to bad cell signal, we recommend you use the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) on your smartphone. The app can generate random security codes that you use to sign in, and these codes don't require any cell signal or internet connection.
+If you often have delays due to bad cell signal, we recommend you use the [Microsoft Authenticator app](../../active-directory/authentication/end-user/current/microsoft-authenticator-app-how-to.md) on your smartphone. The app can generate random security codes that you use to sign in, and these codes don't require any cell signal or internet connection.
 
 ## App passwords are not working
-First, make sure that you have entered the app password correctly. The generated app password replaces your normal password, but only for older desktop applications that don't support two-step verification. If it still isn't working, try signing-in and [create a new app password](multi-factor-authentication-end-user-app-passwords.md).  If it still doesn't work, contact your company support and have them [delete your existing app passwords](../../active-directory/authentication/howto-mfa-userdevicesettings.md) and then you can create a new one.
+First, make sure that you have entered the app password correctly. The generated app password replaces your normal password, but only for older desktop applications that don't support two-step verification. If it still isn't working, try signing-in and [create a new app password](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-app-passwords.md).  If it still doesn't work, contact your company support and have them [delete your existing app passwords](../../active-directory/authentication/howto-mfa-userdevicesettings.md) and then you can create a new one.
 
 ## I didn't find an answer to my problem.
 If you've tried these troubleshooting steps but are still running into problems, contact your company support. They should be able to assist you.
 
 ## Related topics
-* [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)  
-* [Microsoft Authenticator application FAQ](microsoft-authenticator-app-faq.md)
+* [Manage your settings for two-step verification](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md)  
+* [Microsoft Authenticator application FAQ](../../active-directory/authentication/end-user/current/microsoft-authenticator-app-faq.md)

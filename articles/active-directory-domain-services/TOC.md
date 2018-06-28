@@ -1,4 +1,4 @@
-# [Azure AD Domain Services Documentation](index.md)
+# [Azure AD Domain Services Documentation](index.yml)
 
 # Overview
 ## [What is Azure AD Domain Services?](active-directory-ds-overview.md)
@@ -27,7 +27,7 @@
 ### [Windows Server VM from template](active-directory-ds-join-windows-vm-template.md)
 ### [CentOS](active-directory-ds-join-centos-linux-vm.md)
 ### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
-### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administer a managed domain
 ### [Administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
@@ -38,6 +38,7 @@
 #### [Task 3: enable secure LDAP for the managed domain using Azure portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Create an OU on a managed domain](active-directory-ds-admin-guide-create-ou.md)
+### [Create a group managed service account on a managed domain](active-directory-ds-create-gmsa.md)
 ### [Administer group policy on a managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Select a virtual network](active-directory-ds-networking.md)
 ## Deploy applications
@@ -59,7 +60,7 @@
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Related
-## [Azure Active Directory](../active-directory/active-directory-whatis.md)
+## [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 

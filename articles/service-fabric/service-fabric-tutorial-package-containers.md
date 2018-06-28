@@ -42,7 +42,8 @@ Service fabric provides scaffolding tools to help create applications from termi
 1. Install nodejs and NPM on your machine. Note that, Mac OSX users will have to use the package manager Homebrew
 
     ```bash
-    sudo apt-get install npm && sudo apt install nodejs-legacy
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+    sudo apt-get install -y nodejs 
     ```
 2. Install Yeoman template generator on your machine from NPM
 
@@ -239,7 +240,7 @@ For information about creating your own cluster, see [Create a Service Fabric cl
 
 You can deploy the application the Azure cluster using the Service Fabric CLI. If Service Fabric CLI is not installed on your machine, follow instructions [here](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) to install it.
 
-Connect to the Service Fabric cluster in Azure. Replace the placeholder endpoint with your own. The endpoint must be a full URL similar to the one below.
+Connect to the Service Fabric cluster in Azure. Replace the sample endpoint with your own. The endpoint must be a full URL similar to the one below.
 
 ```bash
 sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify

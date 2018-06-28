@@ -1,9 +1,49 @@
-- name: QnA Maker Documentation
-  href: Overview/overview.md
+- name: QnA Maker Documentation 
+  href: index.yml
 - name: Overview
   items:
+  - name: What is QnA Maker?
+    href: Overview/overview.md
   - name: Supported languages
     href: Overview/languages-supported.md
+- name: Quickstarts
+  items: 
+  - name: Create a new knowledge base
+    items:
+    - name: C#
+      href: Quickstarts/create-new-kb-csharp.md
+    - name: Go
+      href: Quickstarts/create-new-kb-go.md
+    - name: Java
+      href: Quickstarts/create-new-kb-java.md
+    - name: Node.js
+      href: Quickstarts/create-new-kb-nodejs.md
+    - name: Python
+      href: Quickstarts/create-new-kb-python.md
+  - name: Update a knowledge base
+    items:
+    - name: C#
+      href: Quickstarts/update-kb-csharp.md
+    - name: Go
+      href: Quickstarts/update-kb-go.md
+    - name: Java
+      href: Quickstarts/update-kb-java.md
+    - name: Node.js
+      href: Quickstarts/update-kb-nodejs.md
+    - name: Python
+      href: Quickstarts/update-kb-python.md
+  - name: Publish a knowledge base
+    items:
+    - name: C#
+      href: Quickstarts/publish-kb-csharp.md
+    - name: Go
+      href: Quickstarts/publish-kb-go.md
+    - name: Java
+      href: Quickstarts/publish-kb-java.md
+    - name: Node.js
+      href: Quickstarts/publish-kb-nodejs.md
+    - name: Python
+      href: Quickstarts/publish-kb-python.md
 - name: Concepts
   items:
   - name: Knowledge base
@@ -22,8 +62,10 @@
     href: Quickstarts/create-publish-knowledge-base.md
   - name: Create a knowledge base
     href: How-To/create-knowledge-base.md
-  - name: Import a knowledge base
-    href: How-To/migrate-knowledge-base.md
+  - name: Use metadata with GenerateAnswer API
+    href: How-To/metadata-generateanswer-usage.md
+  - name: Migrate a knowledge base from Preview
+    href: Tutorials/migrate-knowledge-base.md
   - name: Edit a knowledge base
     href: How-To/edit-knowledge-base.md
   - name: Collaborate on a knowledge base
@@ -48,6 +90,8 @@
     href: Tutorials/choosing-capacity-qnamaker-deployment.md
   - name: Upgrade your QnA Maker service
     href: How-To/upgrade-qnamaker-service.md
+  - name: Troubleshoot and update QnAMaker runtime
+    href: How-To/troubleshooting-runtime.md
   - name: Use QnA Maker API
     items:
     - name: C#

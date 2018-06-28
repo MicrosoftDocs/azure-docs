@@ -31,16 +31,27 @@ To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*
 
 If you use the default settings in Azure AD Connect, the following mappings are made:
 
-| On-premises Active Directory | Azure AD | Azure AD authentication contact info |
-| --- | --- | --- |
-| telephoneNumber | Office phone | Alternate phone |
-| mobile | Mobile phone | Phone |
+| On-premises Active Directory | Azure AD |
+| --- | --- |
+| telephoneNumber | Office phone |
+| mobile | Mobile phone |
 
-These fields may appear empty until a user confirms their authentication data.
+Once a user verifies their mobile phone number, the Phone field under Authentication contact info in Azure AD will also be populated with that number.
 
-A Global Administrator can manually set the Authentication contact info for the user as displayed in the following screenshot.
+## Authentication contact info
+
+A Global Administrator can manually set the Authentication contact info for a user as displayed in the following screenshot.
 
 ![Contact][Contact]
+
+If the Phone field is populated and Mobile phone is enabled in the SSPR policy, the user will see that number on the password reset registration page and during the password reset workflow. 
+
+The Alternate phone field is not used for password reset.
+
+If the Email field is populated and Email is enabled in the SSPR policy, the user will see that email on the password reset registration page and during the password reset workflow.
+
+If the Alternate email field is populated and Email is enabled in the SSPR policy, the user will **not** see that email on the password reset registration page, but they will see it during the password reset workflow. 
+
 
 ## Security questions and answers
 

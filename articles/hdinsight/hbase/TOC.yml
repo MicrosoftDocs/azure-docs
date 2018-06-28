@@ -249,15 +249,10 @@
       href: apache-hbase-replication.md
     - name: Set up backup and replication for HBase and Phoenix
       href: apache-hbase-backup-replication.md
-  - name: Monitoring using OMS
+  - name: Monitoring using Log Analytics
     items:
     - name: Use Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Monitor HBase with OMS
-      href: apache-hbase-monitor-with-oms.md
-    - name: Cluster-specific dashboards
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Use queries with Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md

@@ -12,7 +12,7 @@ ms.author: v-geberr
 ---
 
 # Keys in LUIS
-LUIS uses two keys: [authoring](#programmatic-key) and [endpoint](#endpoint-key). The authoring key is created for you automatically when you create your LUIS account. When you are ready to publish your LUIS app, you need to [create the endpoint key](azureibizasubscription.md#create-luis-endpoint-key), [assign it](Manage-keys.md#assign-endpoint-key) to your LUIS app, and [use it with the endpoint query](#use-endpoint-key-in-query). 
+LUIS uses two keys: [authoring](#programmatic-key) and [endpoint](#endpoint-key). The authoring key is created for you automatically when you create your LUIS account. When you are ready to publish your LUIS app, you need to [create the endpoint key](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [assign it](Manage-keys.md#assign-endpoint-key) to your LUIS app, and [use it with the endpoint query](#use-endpoint-key-in-query). 
 
 |Key|Purpose|
 |--|--|
@@ -71,4 +71,4 @@ If you exceed your per second quota, you receive an HTTP 429 error. If you excee
 
 * Learn [concepts](Manage-Keys.md#assign-endpoint-key) about authoring and endpoint keys.
 
-[LUIS]:luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

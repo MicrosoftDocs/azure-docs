@@ -6,8 +6,8 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 06/14/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -29,7 +29,6 @@ Examples:
 -  W=0, M=0, Y=5, WeekOfYear=3
 
    The 3rd full backup of each year will be kept for 5 years.
-
 - W=0, M=3, Y=0
 
    The first full backup of each month will be kept for 3 months.
@@ -51,8 +50,20 @@ W=12 weeks (84 days), M=12 months (365 days), Y=10 years (3650 days), WeekOfYear
 
  
 If you were to modify the above policy and set W=0 (no weekly backups), the cadence of backup copies would change as shown in the above table by the highlighted dates. The storage amount needed to keep these backups would reduce accordingly. 
-Note: The LTR copies are created by Azure storage service so the copy process has no performance impact on the existing database.
-To restore a database from the LTR storage, you can select a specific backup based on its timestamp.   The database can be restored to any existing server under the same subscription as the original database. 
+
+> [!NOTE]
+1. The LTR copies are created by Azure storage service so the copy process has no performance impact on the existing database.
+2. The policy applies to the future backups. E.g. if the specified WeekOfYear is in the past when the policy is configured, the first LTR backup will be created next year. 
+3. To restore a database from the LTR storage, you can select a specific backup based on its timestamp.   The database can be restored to any existing server under the same subscription as the original database. 
+> 
+
+## Geo-replication and long-term backup retention
+
+If you are using active geo-replication or failover groups as your business continuity solution you should prepare for eventual failovers and configure the same LTR policy on the geo-secondary database. This will not increase your LTR storage cost as backups are not generated from the secondaries. Only when the secondary becomes primary the backups will be created. This way you will guarantee non-interrupted generation of the LTR backups when the failover is triggered and the primary moves to the secondary region. 
+
+> [!NOTE]
+When the original primary database recovers from the outage that cause it to failover, it will become a new secondary. Therefore, the backup creation will not resume and the existing LTR policy will not take effect until it becomes the primary again. 
+> 
 
 ## Configure long-term backup retention
 

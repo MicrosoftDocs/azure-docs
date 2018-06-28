@@ -1,6 +1,6 @@
 ---
-title: Create an ASP.NET Framework web app in Azure | Microsoft Docs
-description: Learn how to run web apps in Azure App Service by deploying the default ASP.NET web app.
+title: Create a C# ASP.NET Framework web app in Azure | Microsoft Docs
+description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/30/2017
+ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
 ---
@@ -31,11 +31,7 @@ Watch the video to see this quickstart in action and then follow the steps yours
 
 To complete this tutorial:
 
-* Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the following workloads:
-    - **ASP.NET and web development**
-    - **Azure development**
-
-    ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the **ASP.NET and web development** workload.
 
 If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 
@@ -139,7 +135,8 @@ Find the `<div class="jumbotron">` HTML tag near the top, and replace the entire
 
 To redeploy to Azure, right-click the **myFirstAzureWebApp** project in **Solution Explorer** and select **Publish**.
 
-In the publish page, select **Publish**.
+On the publish page, select **Publish**.
+![Visual Studio publish summary page](./media/app-service-web-get-started-dotnet-framework/publish-summary-page.png)
 
 When publishing completes, Visual Studio launches a browser to the URL of the web app.
 

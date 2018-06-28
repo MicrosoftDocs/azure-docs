@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: ramankumarlive
+ms.service: storage
+ms.topic: "include"
+ms.date: 06/05/2018
+ms.author: ramankum
+ms.custom: "include file"
+---
+
 # High-performance Premium Storage and managed disks for VMs
 Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines (VMs) with input/output (I/O)-intensive workloads. VM disks that use Premium Storage store data on solid-state drives (SSDs). To take advantage of the speed and performance of premium storage disks, you can migrate existing VM disks to Premium Storage.
 
@@ -61,7 +73,7 @@ Here are some of the features of Premium Storage:
 
 ## Supported VMs
 
-Premium Storage supports B-series, DS-series, DSv2-series, DSv3-series, GS-series, Ls-series, M-series, and Fs-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
+Premium Storage supports B-series, DS-series, DSv2-series, DSv3-series, Esv3-series, GS-series, Ls-series, M-series, and Fs-series VMs. You can use standard and premium storage disks with these VM types. You cannot use premium storage disks with VM series that are not Premium Storage-compatible.
 
 
 For information about VM types and sizes in Azure for Windows, see [Windows VM sizes](../articles/virtual-machines/windows/sizes.md). For information about VM types and sizes in Azure for Linux, see [Linux VM sizes](../articles/virtual-machines/linux/sizes.md).

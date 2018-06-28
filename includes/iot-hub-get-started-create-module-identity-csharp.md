@@ -40,7 +40,16 @@ In this section, you create a .NET console app that creates a device identity an
     const string moduleID = "myFirstModule";
     ```
 
-5. Add the following methods to the **Program** class:
+5. Add the following code to the **Main** class.
+    ```csharp
+    static void Main(string[] args)
+    {
+        AddDeviceAsync().Wait();
+        AddModuleAsync().Wait();
+    }
+    ```
+
+6. Add the following methods to the **Program** class:
 
     ```csharp
     private static async Task AddDeviceAsync()
@@ -84,7 +93,7 @@ In this section, you create a .NET console app that creates a device identity an
 
 [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-6. Run this application, and make a note of the device key and module key.
+7. Run this application, and make a note of the device key and module key.
 
 > [!NOTE]
 > The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide][lnk-devguide-identity].

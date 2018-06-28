@@ -51,13 +51,34 @@
     href: ../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json
 - name: Platform and infrastructure
   items:
+  - name: Infrastructure security
+    href: azure-security-infrastructure.md
+    items:
+    - name: Physical security
+      href: azure-physical-security.md
+    - name: Availability
+      href: azure-infrastructure-availability.md
+    - name: Components and boundaries
+      href: azure-infrastructure-components.md
+    - name: Network architecture
+      href: azure-infrastructure-network.md
+    - name: Production network
+      href: azure-production-network.md
+    - name: SQL Database
+      href: azure-infrastructure-sql.md
+    - name: Operations
+      href: azure-infrastructure-operations.md
+    - name: Monitoring
+      href: azure-infrastructure-monitoring.md
+    - name: Integrity
+      href: azure-infrastructure-integrity.md
+    - name: Data protection
+      href: azure-protection-of-customer-data.md
   - name: Microsoft Antimalware
     href: azure-security-antimalware.md
   - name: IaaS security
     href: security-virtual-machines-overview.md
     items:
-    - name: Best practices - Azure VMs
-      href: azure-security-best-practices-vms.md
     - name: Best practices - IaaS workloads
       href: azure-security-iaas.md
     - name: Azure marketplace images
@@ -67,6 +88,8 @@
     items:
     - name: Choose Azure AD authentication
       href: azure-ad-choose-authn.md
+    - name: Security checklist
+      href: azure-ad-secure-steps.md
     - name: Best practices
       href: azure-security-identity-management-best-practices.md
     - name: Enforce MFA on subscription administrators
@@ -95,11 +118,11 @@
       href: security-internet-of-things-overview.md
       items:
       - name: IoT security best practices
-        href: ../iot-suite/iot-security-best-practices.md
+        href: ../iot-accelerators/iot-security-best-practices.md
       - name: IoT security
-        href: ../iot-suite/iot-security-architecture.md#security-in-iot
+        href: ../iot-accelerators/iot-security-architecture.md#security-in-iot
       - name: Secure your IoT deployment
-        href: ../iot-suite/iot-suite-security-deployment.md
+        href: ../iot-accelerators/iot-accelerators-security-deployment.md
   - name: Azure Service Fabric security
     href: azure-service-fabric-security-overview.md
     items:
@@ -158,7 +181,9 @@
     - name: Data warehouse
       href: ./blueprints/fedramp-datawarehouse-overview.md
     - name: IaaS web application
-      href: ./blueprints/fedramp-iaaswa-overview.md  
+      href: ./blueprints/fedramp-iaaswa-overview.md
+    - name: PaaS web application
+      href: ./blueprints/fedramp-paaswa-overview.md
   - name: PCI DSS
     href: ./blueprints/payment-processing-blueprint.md
     items:
@@ -197,6 +222,8 @@
     href: ./blueprints/azure-health.md
 - name: White papers
   href: security-white-papers.md
+- name: Azure security services
+  href: azure-security-services-technologies.md
 - name: Technical overviews
   href: security-overviews.md
 - name: Best practices

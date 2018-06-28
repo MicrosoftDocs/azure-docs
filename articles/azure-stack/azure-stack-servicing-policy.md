@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: harik
 
@@ -35,10 +35,9 @@ Microsoft expects to release software update packages on a monthly cadence. Howe
 
 Find documentation on how to plan for and manage updates, and how to determine your current version in [Manage updates overview](azure-stack-updates.md). 
 For information about a specific update, including how to download it, see the release notes for that update: 
+- [Azure Stack 1805 update](azure-stack-update-1805.md)
+- [Azure Stack 1804 update](azure-stack-update-1804.md)
 - [Azure Stack 1803 update](azure-stack-update-1803.md)
-- [Azure Stack 1802 update](azure-stack-update-1802.md)
-- [Azure Stack 1712 update](azure-stack-update-1712.md)
-
 
 
 ## Hotfixes

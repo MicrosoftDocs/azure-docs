@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 06/11/2018
 ms.author: magoedte; bwren
 
 ---
@@ -34,9 +34,16 @@ The Advanced Analytics portal is a dedicated portal that provides advanced funct
 ![Advanced Analytics portal](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
 
-Because of its advanced features, you'll usually use the Advanced Analytics portal as your primary tool for creating and editing queries.  Once you've determined that the query works as expected, then you'll copy and paste it elsewhere such as Log Search page or View Designer.  Because the Advanced Analytics portal supports queries with multiple lines though, you need to take the following into consideration when copying a query from this portal.
+Because of its advanced features, you'll usually use the Advanced Analytics portal as your primary tool for creating and editing queries.  Once you've determined that the query works as expected, then you'll copy and paste it elsewhere such as Log Search page or View Designer.  
 
-- Comments must be removed from the query before it's copied and pasted into another location.  You can comment a line by preceding it with two slashes (//).  When you paste a multiple line query into a single line, line breaks are removed.  If comments are included, all characters after the first comment are considered part of the comment.
+### Firewall requirements
+Your browser requires access to the following addresses to access the Advanced Analytics portal.  If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
+
+| Uri | IP | Ports |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamic | 80,443 |
+| api.loganalytics.io    | Dynamic | 80,443 |
+| docs.loganalytics.io   | Dynamic | 80,443 |
 
 
 ## Next steps

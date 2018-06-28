@@ -17,33 +17,65 @@ metadata:
 abstract:
   description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. 
 sections:
-- title: 
-  items:
-  - type: list
-    style: cards
-    className: cardsA
-    items:
-    - html: <a href="/azure/media-services/latest/">
-            <br><strong>Azure Media Services v3 (preview)</strong></a>
-            <p>Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
-    - html: <a href="/azure/media-services/previous/">
-            <br><strong>Azure Media Services v2 (GA)</strong></a>
-            <p>Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services v2.</p>
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to create a Media Services account, start encoding your videos, and use Azure Media Player to play them back:'
-  - type: list
-    style: ordered
-    items:
-    - html: Stream files&#58; <a href="/azure/media-services/latest/stream-files-dotnet-quickstart">v3</a> | <a href="/azure/media-services/previous/media-services-portal-vod-get-started">v2</a>   
 
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to stream files and analyze your videos with Media Services.:'
-  - type: list
-    style: ordered
+  - items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 2
+      items:
+        - href: /azure/media-services/latest/
+          html: <p>Learn how to encode, stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
+          image:
+            src: media/index/AMSIcons-media_servicesV3.svg
+          title: Azure Media Services v3 (preview)
+        - href: /azure/media-services/previous/
+          html: <p>Learn how to encode, stream on-demand, and broadcast live videos with Media Services v2.</p>
+          image:
+            src: media/index/AMSIcons-media_servicesV2.svg
+          title: Azure Media Services v2 (GA)
+
+  - title: 5-Minute Quickstarts
     items:
-    - html: Upload, encode, stream videos&#58; <a href="/azure/media-services/latest/stream-files-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-dotnet-get-started">v2</a>
-    - html: Analyze videos&#58; <a href="/azure/media-services/latest/analyze-videos-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-analytics-overview">v2</a>
+    - type: paragraph
+      text: 'Learn how to encode and stream with Media Services:'
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: media/index/AMSIcons-encoding.svg
+          title: Stream files
+      rows:
+        - title: Media Services v3
+          values:
+          - href: /azure/media-services/latest/stream-files-dotnet-quickstart
+        - title: Media Services v2
+          values:
+          - href: /azure/media-services/previous/media-services-portal-vod-get-started
+  - title: Step-by-Step Tutorials
+    items:
+    - type: paragraph
+      text: 'Learn how to stream files and analyze your videos with Media Services:'
+    - type: table
+      style: dataMatrix
+      columns:
+        - image:
+            src: media/index/AMSIcons-encoding.svg
+          title: Encode and stream
+        - image:
+            src: media/index/AMSIcons-live.svg
+          title: Stream live          
+        - image:
+            src: media/index/AMSIcons-media_analytics.svg
+          title: Analyze videos
+      rows:
+        - title: Media Services v3
+          values:
+          - href: /azure/media-services/latest/stream-files-tutorial-with-api
+          - href: /azure/media-services/latest/stream-live-tutorial-with-api
+          - href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+        - title: Media Services v2
+          values:
+          - href: /azure/media-services/previous/media-services-dotnet-get-started
+          - href: /azure/media-services/previous/media-services-portal-live-passthrough-get-started
+          - href:  

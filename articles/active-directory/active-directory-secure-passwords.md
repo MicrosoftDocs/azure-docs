@@ -3,19 +3,18 @@ title: Azure AD tiered password security | Microsoft Docs
 description: Explains how Azure AD enforces strong passwords and protects users passwords from cyber criminals,
 services: active-directory
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
-
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 08/28/2017
-ms.author: barlan
-
+ms.author: lizross
 ---
+
 # A multi-tiered approach to Azure AD password security
 
 This article discusses some best practices you can follow as a user or as an administrator to protect your Azure Active Directory (Azure AD) or Microsoft Account.
@@ -23,7 +22,7 @@ This article discusses some best practices you can follow as a user or as an adm
  > [!NOTE]
  > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
  >
- > Azure AD administrators can reset user passwords using the guidance in the article [Reset the password for a user in Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
+ > Azure AD administrators can reset user passwords using the guidance in the article [Reset the password for a user in Azure Active Directory](fundamentals/active-directory-users-reset-password-azure-portal.md).
  >
 
 ## Password requirements

@@ -3,12 +3,14 @@ title: Tutorial - Enable a web application to authenticate with accounts using A
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for an ASP.NET web application.
 services: active-directory-b2c
 author: davidmu1
+manager: mtillman
 
 ms.author: davidmu
 ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
+ms.service: active-directory
+ms.component: B2C
 ---
 
 # Tutorial: Enable a web application to authenticate with accounts using Azure Active Directory B2C
@@ -37,7 +39,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Select **Azure AD B2C** from the services list in the Azure portal. 
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**. You should now be using the tenant that you created in the previous tutorial. 
 
 2. In the B2C settings, click **Applications** and then click **Add**. 
 
@@ -59,7 +61,7 @@ Registered apps are displayed in the applications list for the Azure AD B2C tena
 
 ![Web app properties](./media/active-directory-b2c-tutorials-web-app/b2c-web-app-properties.png)
 
-Make note of the **Application Client ID**. The ID uniquely identifies the app and is needed when configuring the app later in the tutorial.
+Make note of the **Application ID**. The ID uniquely identifies the app and is needed when configuring the app later in the tutorial.
 
 ### Create a client password
 
@@ -133,7 +135,7 @@ To enable password reset on your application, you need to create a **password re
 
 Now that you have a web app registered and policies created, you need to configure your app to use your Azure AD B2C tenant. In this tutorial, you configure a sample web app you can download from GitHub. 
 
-[Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) or clone the sample web app from GitHub.
+[Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) or clone the sample web app from GitHub. Make sure that you extract the sample file in a folder where the total character length of the path is less than 260.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
@@ -147,26 +149,13 @@ There are two projects in the sample solution:
 
 **Web API sample app (TaskService):** Web API that supports the create, read, update, and delete task list functionality. The web API is protected by Azure AD B2C and called by the web app.
 
-You need to change the app to use the app registration in your tenant, which includes the client ID or application ID and the client password or application key. You also need to configure the policies you created. The sample web app defines the configuration values as app settings in the Web.config file. To change the app settings:
+You need to change the app to use the app registration in your tenant, which includes the application ID and the key that you previously recorded. You also need to configure the policies you created. The sample web app defines the configuration values as app settings in the Web.config file. To change the app settings:
 
 1. Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 
-2. In the **TaskWebApp** web app project, open the **Web.config** file and make the following updates to the existing keys:
+2. In the **TaskWebApp** web app project, open the **Web.config** file. Replace the value for `ida:Tenant` with the name of the tenant that you created. Replace the value for `ida:ClientId` with the application ID that you recorded. Replace the value of `ida:ClientSecret` with the key that you recorded.
 
-    ```C#
-    <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
-    
-    <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
-    
-    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
-    ```
-3. Update the existing keys with the values of the policy names you created in a previous step. Remember to include the *b2c_1_* prefix.
-
-    ```C#
-    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
-    <add key="ida:EditProfilePolicyId" value="b2c_1_SiPe" />
-    <add key="ida:ResetPasswordPolicyId" value="b2c_1_SSPR" />
-    ```
+3. In the **Web.config** file, replace the value for `ida:SignUpSignInPolicyId` with `b2c_1_SiUpIn`. Replace the value for `ida:EditProfilePolicyId` with `b2c_1_SiPe`. Replace the value for `ida:ResetPasswordPolicyId` with `b2c_1_SSPR`.
 
 ## Run the sample web app
 

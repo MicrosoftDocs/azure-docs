@@ -157,7 +157,7 @@
         "articles/analysis-services/**/*.md": "https://feedback.azure.com/forums/556165-azure-analysis-services",
         "articles/ansible/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/api-management/**/*.md": "https://feedback.azure.com/forums/248703-api-management",
-        "articles/app-service-mobile/**/*.md": "https://feedback.azure.com/forums/568069-azure-mobile-app",
+        "articles/app-service-mobile/**/*.md": "https://github.com/Azure/azure-mobile-apps/issues",
         "articles/app-service/**/*.md": "https://feedback.azure.com/forums/169385-web-apps",
         "articles/application-gateway/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=134448",
         "articles/application-insights/**/*.md": "https://feedback.azure.com/forums/357324-application-insights",
@@ -239,6 +239,7 @@
         "articles/guidance/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/guides/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/hdinsight/**/*.md": "https://feedback.azure.com/forums/217335-hdinsight",
+        "articles/iot-central/**/*.md": "https://feedback.azure.com/forums/911455-azure-iot-central",
         "articles/iot-dps/**/*.md": "https://feedback.azure.com/forums/321918-azure-iot",
         "articles/iot-edge/**/*.md": "https://feedback.azure.com/forums/907045-azure-iot-edge",
         "articles/iot-hub/**/*.md": "https://feedback.azure.com/forums/321918-azure-iot",
@@ -296,6 +297,12 @@
         "articles/virtual-network/**/*.md":"https://feedback.azure.com/forums/217313-networking?category_id=77469",
         "articles/visual-studio/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",      
         "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77470"
+        },
+        "searchScope": {
+          "articles/data-lake-analytics/**/*.md": ["Azure","Azure Data Lake Analytics"],
+          "articles/postgresql/**.md": ["Azure","Azure Database for PostgreSQL","PostgreSQL"],
+          "articles/mysql/**.md": ["Azure","Azure Database for MySQL", "MySQL"],
+          "articles/stream-analytics/**/*.md": ["Azure", "Stream Analytics"]
         }
     },
     "template": [

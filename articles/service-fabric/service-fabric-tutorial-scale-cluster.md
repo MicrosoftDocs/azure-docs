@@ -84,7 +84,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Now that you're connected, you can use a command to get the status of each node in the cluster. For PowerShell, use the `Get-ServiceFabricClusterHealth` command, and for **sfctl** use the `sfctl cluster select` command.
+Now that you're connected, you can use a command to get the status of each node in the cluster. For **PowerShell**, use the `Get-ServiceFabricClusterHealth` command, and for **sfctl** use the `sfctl cluster select` command.
 
 ## Scale out
 
@@ -128,20 +128,17 @@ sfctl node list --query "sort_by(items[*], &name)[-1]"
 
 The service fabric cluster needs to know that this node is going to be removed. There are three steps you need to take:
 
-1. Disable the node so that it no longer is a replicate for data.
+1. Disable the node so that it no longer is a replicate for data.  
+PowerShell: `Disable-ServiceFabricNode`  
+sfctl: `sfctl node disable`
 
-    PowerShell: `Disable-ServiceFabricNode`
-    sfcli: `sfctl node disable`
+2. Stop the node so that the service fabric runtime shuts down cleanly, and your app gets a terminate request.  
+PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
+sfctl: `sfctl node transition --node-transition-type Stop`
 
-2. Stop the node so that the service fabric runtime shuts down cleanly, and your app gets a terminate request.
-
-    PowerShell: `Start-ServiceFabricNodeTransition -Stop`
-    sfcli: `sfctl node transition --node-transition-type Stop`
-
-3. Remove the node from the cluster.
-
-PowerShell: `Remove-ServiceFabricNodeState`
-sfcli: `sfctl node remove-state`
+2. Remove the node from the cluster.  
+PowerShell: `Remove-ServiceFabricNodeState`  
+sfctl: `sfctl node remove-state`
 
 Once these three steps have been applied to the node, it can be removed from the scale set. If you're using any durability tier besides [bronze][durability], these steps are done for you when the scale set instance is removed.
 

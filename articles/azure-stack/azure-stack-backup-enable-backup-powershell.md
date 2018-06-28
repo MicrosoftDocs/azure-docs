@@ -61,7 +61,7 @@ In the same PowerShell session, edit the following PowerShell script by adding t
 
 | Variable        | Description   |
 |---              |---                                        |
-| $username       | Type the **Username** using the domain and username for the shared drive location. For example, `Contoso\administrator`. |
+| $username       | Type the **Username** using the domain and username for the shared drive location with sufficient access to read and write files. For example, `Contoso\backupshareuser`. |
 | $password       | Type the **Password** for the user. |
 | $sharepath      | Type the path to the **Backup storage location**. You must use a Universal Naming Convention (UNC) string for the path to a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. To ensure availability of the backup data, the  device should be in a separate location. |
 

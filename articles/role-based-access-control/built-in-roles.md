@@ -1,6 +1,6 @@
 ---
-title: Built-in roles for role-based access control (RBAC) in Azure | Microsoft Docs
-description: Describes the built-in roles for role-based access control (RBAC) in Azure. Lists the actions and notActions.
+title: Built-in roles in Azure | Microsoft Docs
+description: Describes the built-in roles for role-based access control (RBAC) in Azure. Lists the actions, notActions, dataActions, and notDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,19 +12,19 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/06/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 
 ms.custom: it-pro
 ---
-# Built-in roles for Azure role-based access control
-[Role-based access control (RBAC)](overview.md) has several built-in role definitions that you can assign to users, groups, and service principals. Role assignments are the way you control access to resources in Azure. You can’t modify the built-in roles, but you can create your own [custom roles](custom-roles.md) to fit the specific needs of your organization.
+# Built-in roles in Azure
+[Role-based access control (RBAC)](overview.md) has several built-in role definitions that you can assign to users, groups, and service principals. Role assignments are the way you control access to resources in Azure. If the built-in roles don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md).
 
 The built-in roles are always evolving. To get the latest role definitions, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) or [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ## Built-in role descriptions
-The following table provides brief descriptions of the built-in roles. Click the role name to see the list of `actions` and `notActions` for each role.
+The following table provides brief descriptions of the built-in roles. Click the role name to see the list of `actions`, `notActions`, `dataActions`, and `notDataActions` for each role.
 
 
 | Built-in role | Description |
@@ -80,6 +80,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [New Relic APM Account Contributor](#new-relic-apm-account-contributor) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them. |
 | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys. |
 | [Redis Cache Contributor](#redis-cache-contributor) | Lets you manage Redis caches, but not access to them. |
+| [Resource Policy Contributor (Preview)](#resource-policy-contributor-preview) | (Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy. |
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. |
 | [Search Service Contributor](#search-service-contributor) | Lets you manage Search services, but not access to them. |
 | [Security Admin](#security-admin) | In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations |
@@ -93,6 +94,10 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [SQL Server Contributor](#sql-server-contributor) | Lets you manage SQL servers and databases, but not access to them, and not their security -related policies. |
 | [Storage Account Contributor](#storage-account-contributor) | Lets you manage storage accounts, but not access to them. |
 | [Storage Account Key Operator Service Role](#storage-account-key-operator-service-role) | Storage Account Key Operators are allowed to list and regenerate keys on Storage Accounts |
+| [Storage Blob Data Contributor (Preview)](#storage-blob-data-contributor-preview) | Allows for read, write and delete access to Azure Storage blob containers and data |
+| [Storage Blob Data Reader (Preview)](#storage-blob-data-reader-preview) | Allows for read access to Azure Storage blob containers and data |
+| [Storage Queue Data Contributor (Preview)](#storage-queue-data-contributor-preview) | Allows for read, write, and delete access to Azure Storage queues and queue messages |
+| [Storage Queue Data Reader (Preview)](#storage-queue-data-reader-preview) | Allows for read access to Azure Storage queues and queue messages |
 | [Support Request Contributor](#support-request-contributor) | Lets you create and manage Support requests |
 | [Traffic Manager Contributor](#traffic-manager-contributor) | Lets you manage Traffic Manager profiles, but does not let you control who has access to them. |
 | [User Access Administrator](#user-access-administrator) | Lets you manage user access to Azure resources. |
@@ -124,6 +129,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Authorization/*/Delete | Can't delete roles and role assignments |
 > | Microsoft.Authorization/*/Write | Can't create roles and role assignments |
 > | Microsoft.Authorization/elevateAccess/Action | Grants the caller User Access Administrator access at the tenant scope |
+> | Microsoft.Blueprint/blueprintAssignments/write |  |
+> | Microsoft.Blueprint/blueprintAssignments/delete |  |
 
 ## Reader
 > [!div class="mx-tableFixed"]
@@ -700,7 +707,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **Actions** |  |
 > | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Insights/components/purge/action |  |
+> | Microsoft.Insights/components/purge/action | Purging data from Application Insights |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Delete specified data from workspace |
 
@@ -1030,6 +1037,20 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Support/* | Create and manage support tickets |
+
+## Resource Policy Contributor (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | (Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy. |
+> | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | **Actions** |  |
+> | */read | Read resources of all types, except secrets. |
+> | Microsoft.Authorization/policyassignments/* | Create and manage policy assignments |
+> | Microsoft.Authorization/policydefinitions/* | Create and manage policy definitions |
+> | Microsoft.Authorization/policysetdefinitions/* | Create and manage policy sets |
+> | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | Create and manage support tickets |
 
 ## Scheduler Job Collections Contributor
@@ -1385,6 +1406,58 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/listkeys/action | Returns the access keys for the specified storage account. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerates the access keys for the specified storage account. |
 
+## Storage Blob Data Contributor (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for read, write and delete access to Azure Storage blob containers and data |
+> | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **Actions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container or a list of containers |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returns the result of put or lease blob container |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returns the result of deleting a blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returns the result of writing a blob |
+
+## Storage Blob Data Reader (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for read access to Azure Storage blob containers and data |
+> | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | **Actions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container or a list of containers |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
+
+## Storage Queue Data Contributor (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for read, write, and delete access to Azure Storage queues and queue messages |
+> | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | **Actions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returns the result of deleting a queue |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Returns the result of writing a queue |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Returns the result of deleting a message |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returns a message |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Returns the result of writing a message |
+
+## Storage Queue Data Reader (Preview)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Allows for read access to Azure Storage queues and queue messages |
+> | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
+> | **Actions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returns a message |
+
 ## Support Request Contributor
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1434,6 +1507,9 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Network/loadBalancers/read | Gets a load balancer definition |
 > | Microsoft.Network/networkInterfaces/read | Gets a network interface definition.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | Log in to a virtual machine as a regular user |
+> | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Log in to a virtual machine with Windows administrator or Linux root user privileges |
 
 ## Virtual Machine Contributor
 > [!div class="mx-tableFixed"]
@@ -1492,6 +1568,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Network/loadBalancers/read | Gets a load balancer definition |
 > | Microsoft.Network/networkInterfaces/read | Gets a network interface definition.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | Log in to a virtual machine as a regular user |
 
 ## Web Plan Contributor
 > [!div class="mx-tableFixed"]

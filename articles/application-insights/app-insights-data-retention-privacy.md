@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: mbullwin
 
@@ -124,22 +124,9 @@ All data is encrypted as it moves between data centers.
 #### Is the data encrypted in transit from my application to Application Insights servers?
 Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages. The only exception is data sent from plain HTTP web pages. 
 
-## Personally Identifiable Information
-#### Could Personally Identifiable Information (PII) be sent to Application Insights?
-Yes, it's possible. 
+## Personal data stored in Application Insights
 
-As general guidance:
-
-* Most standard telemetry (that is, telemetry sent without you writing any code) does not include explicit PII. However, it might be possible to identify individuals by inference from a collection of events.
-* Exception and trace messages could contain PII
-* Custom telemetry - that is, calls such as TrackEvent that you write in code using the API or log traces - can contain any data you choose.
-
-The table at the end of this document contains more detailed descriptions of the data collected.
-
-#### Am I responsible for complying with laws and regulations in regard to PII?
-Yes. It is your responsibility to ensure that the collection and use of the data complies with laws and regulations, and with the Microsoft Online Services Terms.
-
-You should inform your customers appropriately about the data your application collects and how the data is used.
+Our [Application Insights personal data article](app-insights-customer-data.md) discusses this topic in-depth.
 
 #### Can my users turn off Application Insights?
 Not directly. We don't provide a switch that your users can operate to turn off Application Insights.
@@ -150,7 +137,7 @@ However, you can implement such a feature in your application. All the SDKs incl
 Application Insights does not filter or delete your data. You should manage the data appropriately and avoid sending such data to Application Insights.
 
 ## Data sent by Application Insights
-The SDKs vary between platforms, and there are are several components that you can install. (Refer to [Application Insights - overview][start].) Each component sends different data.
+The SDKs vary between platforms, and there are several components that you can install. (Refer to [Application Insights - overview][start].) Each component sends different data.
 
 #### Classes of data sent in different scenarios
 | Your action | Data classes collected (see next table) |

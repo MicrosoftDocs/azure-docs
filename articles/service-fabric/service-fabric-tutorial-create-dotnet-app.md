@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: ryanwi
 ms.custom: mvc
 
@@ -75,9 +75,22 @@ To get a complete understanding of how ASP.NET Core integrates with Service Fabr
 
 ### Add AngularJS to the VotingWeb service
 
-Add [AngularJS](http://angularjs.org/) to your service using [Bower support](/aspnet/core/client-side/bower). First, add a Bower configuration file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **Web** and then **Bower Configuration File**.  The *bower.json* file is created.
+Add [AngularJS](http://angularjs.org/) to your service using [Bower support](/aspnet/core/client-side/bower). First, add a *.bowerrc* settings file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **C#** and then **JSON File**.  Enter **.bowerrc** in the *Name* field and click **Add**.
 
-Open *bower.json* and add entries for angular and angular-bootstrap, then save your changes.
+Open *.bowerrc* and replace the contents with the following, which indicates that Bower will install the package assets to the *wwwroot/lib* directory.
+
+```json
+{
+ "directory": "wwwroot/lib",
+  "registry": "https://registry.bower.io"
+}
+```
+
+Save your changes to *.bowerrc*.  This creates a *.bowerrc* file in your project.  
+
+Next, add a Bower configuration file to the project.  In Solution Explorer, right-click on **VotingWeb** and select **Add->New Item**. Select **C#** and then **JSON File**.  Enter **bower.json** in the *Name* field and click **Add**.
+
+Open *bower.json* and replace the contents with the following entries for angular and angular-bootstrap, then save your changes.
 
 ```json
 {
@@ -94,7 +107,7 @@ Open *bower.json* and add entries for angular and angular-bootstrap, then save y
 }
 ```
 
-Upon saving the *bower.json* file, Angular is installed in your project's *wwwroot/lib* folder. Additionally, it is listed within the *Dependencies/Bower* folder.
+Upon saving the *bower.json* file, Visual Studio's bower support will install Angular in your project's *wwwroot/lib* folder. Additionally, it is listed within the *Dependencies/Bower* folder.
 
 ### Update the site.js file
 

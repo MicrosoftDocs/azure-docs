@@ -1,20 +1,13 @@
 ---
-title: Stream Azure monitoring data to Event Hubs | Microsoft Docs
+title: Stream Azure monitoring data to Event Hubs
 description: Learn how to stream all of your Azure monitoring data to an event hub to get the data into a partner SIEM or analytics tool.
 author: johnkemnetz
-manager: robb
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/05/2018
 ms.author: johnkem
-
+ms.component: ""
 ---
 # Stream Azure monitoring data to an event hub for consumption by an external tool
 
@@ -94,7 +87,7 @@ Application monitoring data requires that your code is instrumented with an SDK,
 
 1. [Set up continuous export](../application-insights/app-insights-export-telemetry.md) of the Application Insights data to a storage account.
 
-2. Set up a timer-triggered Logic App that [pulls data from blob storage](../connectors/connectors-create-api-azureblobstorage.md#use-an-action) and [pushes it as a message to the event hub](../connectors/connectors-create-api-azure-event-hubs.md#send-events-to-your-event-hub-from-your-logic-app).
+2. Set up a timer-triggered Logic App that [pulls data from blob storage](../connectors/connectors-create-api-azureblobstorage.md#add-action) and [pushes it as a message to the event hub](../connectors/connectors-create-api-azure-event-hubs.md#add-action).
 
 ## What can I do with the monitoring data being sent to my event hub?
 

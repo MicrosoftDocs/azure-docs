@@ -163,6 +163,13 @@
       href: service-fabric-application-model.md
     - name: Application and service manifests
       href: service-fabric-application-and-service-manifests.md
+    - name: Application and service manifest examples
+      href: service-fabric-manifest-examples.md
+      items:
+      - name: Reliable services application and service manifest examples
+        href: service-fabric-manifest-example-reliable-services-app.md
+      - name: Multi-container application and service manifest examples
+        href: service-fabric-manifest-example-container-app.md
     - name: Hosting model
       href: service-fabric-hosting-model.md
     - name: Application security
@@ -399,6 +406,8 @@
         href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md    
     - name: Build an ASP.NET Core service
       href: service-fabric-add-a-web-frontend.md
+    - name: Build an Apache Tomcat server container on Linux
+      href: service-fabric-get-started-tomcat.md
     - name: Configure security
       items:
       - name: Manage application secrets
@@ -419,6 +428,8 @@
         href: service-fabric-securing-containers.md
       - name: Set up gMSA for Windows containers 
         href: service-fabric-setup-gmsa-for-windows-containers.md
+      - name: Configure certificates on Linux
+        href: service-fabric-configure-certificates-linux.md
     - name: Configure periodic backups (Clusters on Azure)
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: Configure periodic backups (Standalone Clusters)
@@ -433,6 +444,8 @@
       href: service-fabric-visualstudio-configure-secure-connections.md
     - name: Debug a .NET service in VS
       href: service-fabric-debugging-your-application.md
+    - name: Debug Windows containers with Service Fabric and VS
+      href: service-fabric-how-to-debug-windows-containers.md
     - name: Common errors and exceptions
       href: service-fabric-errors-and-exceptions.md
     - name: Monitor and diagnose locally
@@ -521,12 +534,18 @@
           href: service-fabric-cluster-creation-via-arm.md
         - name: Cluster using certificate common name
           href: service-fabric-create-cluster-using-cert-cn.md
+        - name: Enable Disk Encryption for Windows
+          href: service-fabric-enable-azure-disk-encryption-windows.md
+        - name: Enable Disk Encryption for Linux
+          href: service-fabric-enable-azure-disk-encryption-linux.md
       - name: Scale
         items:
-        - name: Manually
+        - name: Manually scale out
           href: service-fabric-cluster-scale-up-down.md
-        - name: Programmatically
+        - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
+        - name: Scale up the primary node type VMs
+          href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
       - name: Upgrade
         href: service-fabric-cluster-upgrade.md
       - name: Set access control
@@ -543,6 +562,8 @@
         href: service-fabric-cluster-delete.md
       - name: Remote connect to cluster node VM
         href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+      - name: Upgrade/migrate VMSS SKU 
+        href: service-fabric-update-vmss-sku.md
     - name: Standalone clusters
       items:
       - name: Create
@@ -591,16 +612,16 @@
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Azure Diagnostics
         href: service-fabric-diagnostics-event-aggregation-lad.md 
-      - name: Set up OMS Log Analytics
+      - name: Set up Log Analytics
         href: service-fabric-diagnostics-oms-setup.md
-      - name: Monitor with OMS
+      - name: Monitor with Log Analytics
         href: service-fabric-diagnostics-event-analysis-oms.md  
     - name: Monitor infrastructure
       items:
-      - name: Performance monitoring with WAD
-        href: service-fabric-diagnostics-perf-wad.md
-      - name: Performance monitoring with the OMS Agent
+      - name: Performance monitoring with the Log Analytics Agent
         href: service-fabric-diagnostics-oms-agent.md
+      - name: Performance monitoring with WAD
+        href: service-fabric-diagnostics-perf-wad.md     
     - name: Monitor health
       items:
       - name: Report and check health
@@ -611,6 +632,13 @@
         href: service-fabric-view-entities-aggregated-health.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
+    - name: Diagnose common scenarios
+      href: service-fabric-diagnostics-common-scenarios.md
+  - name: Best practices
+    items:
+    - name: Production readiness checklist
+      href: service-fabric-production-readiness-checklist.md
+
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -626,20 +654,29 @@
       href: service-fabric-sfctl-application.md
     - name: sfctl chaos
       href: service-fabric-sfctl-chaos.md
+      items:
+      - name: sfctl chaos schedule  
+        href: service-fabric-sfctl-chaos-schedule.md
     - name: sfctl cluster
       href: service-fabric-sfctl-cluster.md
     - name: sfctl compose
       href: service-fabric-sfctl-compose.md
+    - name: sfctl container
+      href: service-fabric-sfctl-container.md
     - name: sfctl is
       href: service-fabric-sfctl-is.md
     - name: sfctl node
       href: service-fabric-sfctl-node.md
     - name: sfctl partition
       href: service-fabric-sfctl-partition.md
+    - name: sfctl property
+      href: service-fabric-sfctl-property.md
     - name: sfctl replica
       href: service-fabric-sfctl-replica.md
     - name: sfctl rpm
       href: service-fabric-sfctl-rpm.md
+    - name: sfctl sa-cluster
+      href: service-fabric-sfctl-sa-cluster.md
     - name: sfctl service
       href: service-fabric-sfctl-service.md
     - name: sfctl store
@@ -656,6 +693,17 @@
     href: service-fabric-cluster-fabric-settings.md
   - name: Service model XML schema
     href: service-fabric-service-model-schema.md
+    items:
+    - name: Elements
+      href: service-fabric-service-model-schema-elements.md
+    - name: Complex types
+      href: service-fabric-service-model-schema-complex-types.md
+    - name: Attribute groups
+      href: service-fabric-service-model-schema-attribute-groups.md
+    - name: Simple types
+      href: service-fabric-service-model-schema-simple-types.md
+    - name: Element groups
+      href: service-fabric-service-model-schema-element-groups.md
   - name: Environment variables
     href: service-fabric-environment-variables-reference.md
 - name: Resources

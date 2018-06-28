@@ -2,38 +2,48 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Speech service?
+  - name: What is the Speech service?
     href: overview.md
     expanded: true
 - name: Quickstarts
   items:
-  - name: Prepare to use Speech service # OK
+  - name: Try the Speech service for free # OK
     href: get-started.md
-  - name: Recognize speech in C# # OK
+  - name: Recognize speech in C#
     href: quickstart-csharp-windows.md
-  - name: Recognize speech in C++ for Windows # OK
-    href: cpp-windows.md
-  - name: Recognize speech in C++ for Linux # OK
-    href: cpp-linux.md
+  - name: Recognize speech in C++ for Windows
+    href: quickstart-cpp-windows.md
+  - name: Recognize speech in C++ for Linux
+    href: quickstart-cpp-linux.md
+  - name: Get started with Speech Devices SDK
+    href: speech-devices-sdk-qsg.md
 - name: How-to guides
   items:
-    - name: Recognize speech # OK
-      href: how-to-speech-to-text.md
-    - name: Customize speech models # OK
-      href: how-to-customize-speech-models.md
-    - name: Synthesize speech # OK
-      href: how-to-text-to-speech.md
-    - name: Customize voice fonts # OK
-      href: how-to-customize-voice-font.md
-    - name: Translate speech # OK
-      href: how-to-translate-speech.md
-    - name: Prepare transcripts #OK
-      href: prepare-transcription.md
-    - name: Get the Speech Devices SDK
-      href: get-speech-devices-sdk.md
-    - name: Customize device wake word # OK
-      href: speech-devices-sdk-create-kws.md
-- name: Samples # OK
+  - name: Recognize speech
+    href: how-to-speech-to-text.md
+  - name: Synthesize speech
+    href: how-to-text-to-speech.md
+  - name: Translate speech
+    href: how-to-translate-speech.md
+  - name: Get the Speech Devices SDK
+    href: get-speech-devices-sdk.md
+  - name: Batch transcription
+    href: batch-transcription.md
+- name: Customization
+  items:
+  - name: Customize acoustic models
+    href: how-to-customize-acoustic-models.md
+  - name: Customize language models
+    href: how-to-customize-language-model.md
+  - name: Customize Voice Fonts (Bot Brand Voice)
+    href: how-to-customize-voice-font.md
+  - name: Prepare transcripts
+    href: prepare-transcription.md
+  - name: Use custom audio streams
+    href: how-to-use-audio-input-streams.md
+  - name: Customize device wake word (Devices SDK)
+    href: speech-devices-sdk-create-kws.md
+- name: Samples
   items:
   - name: Download samples
     href: samples.md
@@ -45,30 +55,40 @@
     href: translation.md
 - name: Concepts
   items:
-  - name: Speech to Text # OK
+  - name: Speech to Text
     href: speech-to-text.md
-  - name: Text to Speech # OK
+  - name: Text to Speech
     href: text-to-speech.md
-  - name: Speech Translation # OK
+  - name: Speech Translation
     href: speech-translation.md
-  - name: Speech SDK # OK
+  - name: Speech SDK
     href: speech-sdk.md
-  - name: Speech Devices SDK # OK
+  - name: Speech Devices SDK
     href: speech-devices-sdk.md
 - name: Reference
   items:
-  - name: Supported languages # OK
+  - name: Supported languages
     href: supported-languages.md
-  - name: REST APIs # OK
+  - name: Regions
+    href: regions.md
+  - name: REST APIs
     href: rest-apis.md
-#  - name: WebSockets protocols # OK
+#  - name: WebSockets protocols
 #    href: websockets.md
-  - name: Speech SDK API # OK
+  - name: Speech SDK API
     href: speech-sdk-reference.md
-  - name: Speech synthesis markup # OK
+  - name: Speech synthesis markup
     href: speech-synthesis-markup.md
 - name: Resources
   items:
+  - name: FAQ
+    items:
+    - name: Speech to Text FAQ
+      href: faq-stt.md
+    - name: Text To Speech FAQ
+      href: faq-text-to-speech.md
+    - name: Translator FAQ
+      href: https://www.microsoft.com/en-us/translator/faq.aspx
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: UserVoice

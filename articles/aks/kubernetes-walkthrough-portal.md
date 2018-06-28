@@ -2,13 +2,13 @@
 title: Quickstart - Azure Kubernetes cluster portal quickstart
 description: Quickly learn to create a Kubernetes cluster for Linux containers in AKS with the Azure portal.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -28,7 +28,7 @@ Sign in to the Azure portal at http://portal.azure.com.
 
 ## Create AKS cluster
 
-Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
+Choose **Create a resource** > select **Kubernetes Service** > **Create**.
 
 Complete the following steps under each heading of the create AKS cluster form.
 
@@ -58,7 +58,7 @@ Select **Review + create** and then **Create** when complete.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/aks-portal-3.png)
 
-After a short wait, the ASK cluster is deployed and ready to use. Browse to the AKS cluster resource group, select the AKS resource, and you should see the AKS cluster dashboard.
+After a short wait, the AKS cluster is deployed and ready to use. Browse to the AKS cluster resource group, select the AKS resource, and you should see the AKS cluster dashboard.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/aks-portal-5.png)
 

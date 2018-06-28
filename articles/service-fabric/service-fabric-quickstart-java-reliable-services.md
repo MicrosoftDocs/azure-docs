@@ -122,13 +122,13 @@ Use whatever method you are most comfortable with to import the certificate on y
 
 Certificate thumbprint needs to be added to your application because it is using Service Fabric programming models.
 
-1. You will need the thumbprint of your certificate in the ```Voting/VotingApplication/ApplicationManiest.xml``` file when running on a secure cluster. Run the following command to extract the thumbprint of the certificate.
+1. You will need the thumbprint of your certificate in the `Voting/VotingApplication/ApplicationManifest.xml` file when running on a secure cluster. Run the following command to extract the thumbprint of the certificate.
 
     ```bash
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. In the ```Voting/VotingApplication/ApplicationManiest.xml```, add the following snippet under the **ApplicationManifest** tag. The **X509FindValue** should be the thumbprint from the previous step (no semicolons).
+2. In the `Voting/VotingApplication/ApplicationManifest.xml` file, add the following snippet under the **ApplicationManifest** tag. The **X509FindValue** should be the thumbprint from the previous step (no semicolons). 
 
     ```xml
     <Certificates>
@@ -164,7 +164,7 @@ Now that the application and your cluster are ready, you can deploy it to the cl
 
 ## Scale applications and services in a cluster
 
-Services can be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. There are many ways of scaling your services; for example, you can use scripts or commands from Service Fabric CLI (sfctl). The following steps, use Service Fabric Explorer.
+Services can be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. There are many ways of scaling your services; for example, you can use scripts or commands from Service Fabric CLI (sfctl). The following steps use Service Fabric Explorer.
 
 Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser by browsing to the cluster's HTTP management port (19080); for example, `http://lnxxug0tlqm5.westus.cloudapp.azure.com:19080`.
 

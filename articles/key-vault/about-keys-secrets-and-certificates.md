@@ -326,7 +326,7 @@ The certificate attributes are mirrored to attributes of the addressable key and
 
 A Key Vault certificate has the following attributes:  
 
--   *enabled*: boolean, optional, default is **true**. This attribute can be specified to indicate if the certificate data can be retrieved as secret or operable as a key. This is used in conjunction with *nbf* and*exp*when an operation occurs between *nbf* and exp, it will only be permitted if enabled is set to true. Operations outside the *nbf* and*exp*window are automatically disallowed.  
+-   *enabled*: boolean, optional, default is **true**. This attribute can be specified to indicate if the certificate data can be retrieved as secret or operable as a key. This is used in conjunction with *nbf* and *exp* when an operation occurs between *nbf* and *exp*, it will only be permitted if enabled is set to true. Operations outside the *nbf* and *exp* window are automatically disallowed.  
 
 There are additional read-only attributes that are included in response:
 

@@ -1,26 +1,19 @@
 ---
 title: Azure Internet of Things (IoT) technologies and solutions
 description: Presents the collection of PaaS/SaaS techologies and solutions available for building an Azure IoT solution.
-services: iot-hub
-documentationcenter: 
 author: BryanLa
 manager: timlt
-editor: bryanla; v-clay
-
-ms.service: iot
-ms.devlang: na
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/30/2018
-ms.author: bryanla; v-clay
-ms.custom: 
-
+ms.date: 05/18/2018
+ms.author: bryanla
 ---
+
 # Azure IoT technologies and solutions: PaaS and SaaS
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The Azure IoT product portfolio is an overview of the available PaaS/SaaS technologies and solutions. It presents the two paths that are available for building your own solution:
-- Platform as a Service (PaaS): build your application using [Azure IoT solution accelerators](https://www.azureiotsuite.com/), which are a collection of enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions.
+- Platform as a Service (PaaS): build your application using [Azure IoT solution accelerators](https://www.azureiotsolutions.com/), which are a collection of enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions.
 - Software as a Service (SaaS): get started fast with [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), the new SaaS solution to develop IoT applications without being exposed to the complexity of IoT solution. If your organization lacks the resources to build your own IoT solution, Azure IoT Central is a codeless IoT solution that can create device models, dashboards, and rules in minutes.
 
 ![Azure IoT technologies and solutions][img-paas-saas-technologies-solutions]

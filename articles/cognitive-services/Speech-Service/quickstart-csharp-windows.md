@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech using the Speech service C# SDK for Windows | Microsoft Docs'
+title: 'Quickstart: Recognize speech using the Cognitive Services Speech C# SDK for Windows | Microsoft Docs'
 description: Learn how to recognize speech using the C# SDK for Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
 ---
-# Quickstart: Recognize speech using Speech service C# SDK
+# Quickstart: Recognize speech using the Cognitive Services Speech C# SDK
 
-In this article, you learn how to create a C# console application in Windows using the Speech SDK to transcribe speech to text.
+In this article, you learn how to create a C# console application in Windows using the Cognitive Services Speech SDK to transcribe speech to text.
 
 ## Prerequisites
 
-* Make sure you have the required setup for using the Speech service. See [Prepare to use Speech service](get-started.md).
+* A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
 * Visual Studio 2017, Community Edition or higher.
 * The **.NET desktop development** workload in Visual Studio. You can enable it in **Tools** \> **Get Tools and Features**. 
 
@@ -28,7 +28,7 @@ In this article, you learn how to create a C# console application in Windows usi
 
     ![Create Visual C# Console App (.NET Framework)](media/sdk/speechsdk-05-vs-cs-new-console-app.png "Create Visual C# Console App")
 
-2. Install and reference the Speech SDK NuGet package. In the Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
+2. Install and reference the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget). In the Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
 
     ![Right-click Manage NuGet Packages for Solution](media/sdk/speechsdk-06-vs-cs-manage-nuget-packages.png "Manage NuGet Packages for Solution")
 
@@ -91,9 +91,10 @@ The result of the recognition is displayed on screen.
 
 ## Download code
 
-The code from this article can be downloaded [here](https://aka.ms/csspeech/winsample).
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 ## Next steps
 
 - [Translate speech](how-to-translate-speech.md)
-- [Customize speech models](how-to-customize-speech-models.md)
+- [Customize acoustic models](how-to-customize-acoustic-models.md)
+- [Customize language models](how-to-customize-language-model.md)

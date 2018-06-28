@@ -11,8 +11,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: shlo
 
 ---
@@ -22,9 +22,6 @@ Lookup activity can be used to retrieve a dataset from any of the ADF-supported 
 - Dynamically determine which objects (files, tables, etc) to operate on in a subsequent activity, instead of hard-coding the object name
 
 Lookup activity can read and return the content of a configuration file, a configuration table, or the result of executing a query or stored procedure.  The output from Lookup activity can be used in a subsequent copy or transformation activity if it is a singleton value, or used in a ForEach activity if it is an array of attributes.
-
-> [!NOTE]
-> This article applies to version 2 of Azure Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
 
 ## Supported capabilities
 
@@ -275,11 +272,11 @@ This Azure SQL Database instance contains the data to be copied to Blob storage.
 ```json
 {
   "Id": "1",
-  "tableName": "Table1",
+  "tableName": "Table1"
 }
 {
    "Id": "2",
-  "tableName": "Table2",
+  "tableName": "Table2"
 }
 ```
 
@@ -289,11 +286,11 @@ This Azure SQL Database instance contains the data to be copied to Blob storage.
 [ 
     {
         "Id": "1",
-          "tableName": "Table1",
-    }
+        "tableName": "Table1"
+    },
     {
         "Id": "2",
-        "tableName": "Table2",
+        "tableName": "Table2"
     }
 ]
 ```

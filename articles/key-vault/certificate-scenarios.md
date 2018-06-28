@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Key Vault certificates
 description: The following scenarios outline several of the primary usages of Key Vault’s certificate management service including the additional steps required for creating your first certificate in your key vault.
 services: key-vault
@@ -80,9 +80,9 @@ Note - This process, through step 3.1, is a onetime operation.
       -   Renewal information - > ex. 90 days before expiry  
 
   - A certificate creation process is usually an asynchronous process and involves polling your key vault for the state of the create certificate operation.  
-[Get certificate operation](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)
-            -   Status: completed, failed with error information or, canceled  
-            -   Because of the delay to create, a cancel operation can be initiated. The cancel may or may not be effective.  
+[Get certificate operation](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+      -   Status: completed, failed with error information or, canceled  
+      -   Because of the delay to create, a cancel operation can be initiated. The cancel may or may not be effective.  
 
 ## Import a certificate  
  Alternatively – a cert can be imported into Key Vault – PFX or PEM.  

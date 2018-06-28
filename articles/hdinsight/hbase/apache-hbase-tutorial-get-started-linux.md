@@ -31,7 +31,7 @@ Before you begin trying this HBase example, you must have the following items:
 * [curl](http://curl.haxx.se/download.html).
 
 ## Create HBase cluster
-The following procedure uses an Azure Resource Manager template to create a HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+The following procedure uses an Azure Resource Manager template to create a HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Click the following image to open the template in the Azure portal. The template is located in [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/).
    
@@ -39,7 +39,7 @@ The following procedure uses an Azure Resource Manager template to create a HBas
 2. From the **Custom deployment** blade, enter the following values:
    
    * **Subscription**: Select your Azure subscription that is used to create the cluster.
-   * **Resource group**: Create an Azure Resource Management group or use an existing one.
+   * **Resource group**: Create an Azure Resource management group or use an existing one.
    * **Location**: Specify the location of the resource group. 
    * **ClusterName**: Enter a name for the HBase cluster.
    * **Cluster login name and password**: The default login name is **admin**.
