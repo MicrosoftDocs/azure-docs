@@ -529,8 +529,6 @@ This release provides Kafka 1.0.0 and the following Apache patches.
 
 -   [KAFKA-6274](https://issues.apache.org/jira/browse/KAFKA-6274): Improve KTable Source state store auto-generated names.
 
-### 
-
 ### Mahout
 
 In HDP-2.3.x and 2.4.x, instead of shipping a specific Apache release of Mahout, we synchronized to a particular revision point on Apache Mahout trunk. This revision point is after the 0.9.0 release, but before the 0.10.0 release. This provides a large number of bug fixes and functional enhancements over the 0.9.0 release, but provides a stable release of the Mahout functionality before the complete conversion to new Spark-based Mahout in 0.10.0.
