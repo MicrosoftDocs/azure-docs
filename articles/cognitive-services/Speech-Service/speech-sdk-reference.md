@@ -15,7 +15,7 @@ ms.author: v-jerkin
 
 # Speech SDK reference
 
-The Speech Software Development Kit (SDK) provides your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **Speech to Text** and **Speech Translation**. Text to Speech employs REST POST calls over HTTP.
+The Speech Software Development Kit (SDK) provides your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **Speech to Text** and **Speech Translation**. Text to Speech employs [REST] (https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) POST calls over HTTP.
 
 The table below describes the currently supported programming languages and operating systems.
 

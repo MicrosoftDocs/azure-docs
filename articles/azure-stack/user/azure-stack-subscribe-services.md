@@ -14,14 +14,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: 
 ---
 
 # Tutorial: create and test a subscription
 This tutorial shows you how to create a subscription containing an offer and then test it. 
-For the test, you will log in to the Azure Stack user portal as a cloud administrator, subscribe to the offer, and then create a virtual machine.
+For the test, you will sign in to the Azure Stack user portal as a cloud administrator, subscribe to the offer, and then create a virtual machine.
 
 > [!TIP]
 > For more a more advanced evaluation experience, you can [create a subscription for a particular user](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm#create-a-subscription-as-a-cloud-operator) and then login as that user in the user portal. 
@@ -37,7 +37,7 @@ What you will learn:
 ## Subscribe to an offer
 To subscribe to an offer as a user, you need to login to the Azure Stack user portal to discover the services that have been offered by the Azure Stack operator.
 
-1. Log in to the user portal and click **Get a Subscription**.
+1. Sign in to the user portal and click **Get a Subscription**.
 
    ![Get a subscription](media/azure-stack-subscribe-services/get-subscription.png)
 
@@ -59,7 +59,7 @@ While logged in to the user portal, you can test the offer by provisioning a vir
 > [!NOTE]
 > This test requires that a Windows Server 2016 Datacenter VM has first been added to the Azure Stack marketplace. 
 
-1. Log in to the user portal.
+1. Sign in to the user portal.
 
 2. In the user portal, click **Virtual Machines** > **Add** > **Windows Server 2016 Datacenter**, and then click **Create**.
 

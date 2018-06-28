@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/14/2018
+ms.date: 06/13/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
@@ -24,23 +24,11 @@ This quickstart assumes a basic understanding of Kubernetes concepts, for detail
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Enabling AKS preview
-
-Ensure that the needed Azure service providers are enabled with the `az provider register` command.
-
-```azurecli-interactive
-az provider register -n Microsoft.Network
-az provider register -n Microsoft.Storage
-az provider register -n Microsoft.Compute
-az provider register -n Microsoft.ContainerService
-```
-
-After registering, you are now ready to create a Kubernetes cluster with AKS.
-
 ## Create a resource group
 
 Create a resource group with the [az group create][az-group-create] command. An Azure resource group is a logical group in which Azure resources are deployed and managed.
-When creating a resource group you are asked to specify a location, this is where your resources will live in Azure. While AKS is in preview, only some location options are available. These are `eastus, westeurope, centralus, canadacentral, canadaeast`.
+
+When creating a resource group you are asked to specify a location, this is where your resources will live in Azure.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 

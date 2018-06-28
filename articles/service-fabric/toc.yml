@@ -163,6 +163,13 @@
       href: service-fabric-application-model.md
     - name: Application and service manifests
       href: service-fabric-application-and-service-manifests.md
+    - name: Application and service manifest examples
+      href: service-fabric-manifest-examples.md
+      items:
+      - name: Reliable services application and service manifest examples
+        href: service-fabric-manifest-example-reliable-services-app.md
+      - name: Multi-container application and service manifest examples
+        href: service-fabric-manifest-example-container-app.md
     - name: Hosting model
       href: service-fabric-hosting-model.md
     - name: Application security
@@ -399,6 +406,8 @@
         href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md    
     - name: Build an ASP.NET Core service
       href: service-fabric-add-a-web-frontend.md
+    - name: Build an Apache Tomcat server container on Linux
+      href: service-fabric-get-started-tomcat.md
     - name: Configure security
       items:
       - name: Manage application secrets
@@ -419,6 +428,8 @@
         href: service-fabric-securing-containers.md
       - name: Set up gMSA for Windows containers 
         href: service-fabric-setup-gmsa-for-windows-containers.md
+      - name: Configure certificates on Linux
+        href: service-fabric-configure-certificates-linux.md
     - name: Configure periodic backups (Clusters on Azure)
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: Configure periodic backups (Standalone Clusters)
@@ -601,13 +612,13 @@
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Azure Diagnostics
         href: service-fabric-diagnostics-event-aggregation-lad.md 
-      - name: Set up OMS Log Analytics
+      - name: Set up Log Analytics
         href: service-fabric-diagnostics-oms-setup.md
-      - name: Monitor with OMS
+      - name: Monitor with Log Analytics
         href: service-fabric-diagnostics-event-analysis-oms.md  
     - name: Monitor infrastructure
       items:
-      - name: Performance monitoring with the OMS Agent
+      - name: Performance monitoring with the Log Analytics Agent
         href: service-fabric-diagnostics-oms-agent.md
       - name: Performance monitoring with WAD
         href: service-fabric-diagnostics-perf-wad.md     
@@ -623,6 +634,11 @@
       href: service-fabric-troubleshoot-local-cluster-setup.md
     - name: Diagnose common scenarios
       href: service-fabric-diagnostics-common-scenarios.md
+  - name: Best practices
+    items:
+    - name: Production readiness checklist
+      href: service-fabric-production-readiness-checklist.md
+
 - name: Reference
   items:
   - name: Azure PowerShell

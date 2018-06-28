@@ -61,7 +61,7 @@ The strategy that you use will dictate the user sign-in experience.  The followi
 | Web Browsers |Forms-based authentication |single sign-on, sometimes required to supply organization ID |
 | Outlook |Prompt for credentials |Prompt for credentials |
 | Skype for Business (Lync) |Prompt for credentials |single sign-on for Lync, prompted credentials for Exchange |
-| Skydrive Pro |Prompt for credentials |single sign-on |
+| OneDrive for Business |Prompt for credentials |single sign-on |
 | Office Pro Plus Subscription |Prompt for credentials |single sign-on |
 
 **External or untrusted  sources**:
@@ -69,7 +69,7 @@ The strategy that you use will dictate the user sign-in experience.  The followi
 |  | Synchronized Identity | Federated Identity |
 | --- | --- | --- |
 | Web Browsers |Forms-based authentication |Forms-based authentication |
-| Outlook, Skype for Business (Lync), Skydrive Pro, Office subscription |Prompt for credentials |Prompt for credentials |
+| Outlook, Skype for Business (Lync), OneDrive for Business, Office subscription |Prompt for credentials |Prompt for credentials |
 | Exchange ActiveSync |Prompt for credentials |single sign-on for Lync, prompted credentials for Exchange |
 | Mobile apps |Prompt for credentials |Prompt for credentials |
 

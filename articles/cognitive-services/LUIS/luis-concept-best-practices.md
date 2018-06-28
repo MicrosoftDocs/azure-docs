@@ -7,7 +7,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 06/08/2018
 ms.author: v-geberr;
 ---
 # Best practices
@@ -19,9 +19,9 @@ Use the app authoring process to build your LUIS app.
 * Test from endpoint 
 * Add features
 
-Once your app is published, use the authoring cycle of add features, publish, and test from endpoint. Do not begin the next authoring cycle by adding more example utterances. That does not let LUIS learn your model with real-world user utterances. 
+Once your app is [published](publishapp.md), use the authoring cycle of add features, publish, and test from endpoint. Do not begin the next authoring cycle by adding more example utterances. That does not let LUIS learn your model with real-world user utterances. 
 
-In order for LUIS to be efficient at its job of learning, do not expand the utterances until the current set of both example and endpoint utterances are returning confident, high prediction scores. Improve scores using active learning, patterns, and phrase lists. 
+In order for LUIS to be efficient at its job of learning, do not expand the utterances until the current set of both example and endpoint utterances are returning confident, high prediction scores. Improve scores using active learning, [patterns](luis-concept-patterns.md), and [phrase lists](luis-concept-feature.md). 
 
 ## Do and Don't
 The following list includes best practices for LUIS apps:
@@ -54,14 +54,16 @@ Book a hotel
 Use prediction data from LUIS to determine if your intents are overlapping. Overlapping intents confuses LUIS. The result is that the top scoring intent is too close to another intent. Because LUIS does not use the exact same path through the data for training each time, an overlapping intent has a chance of being first or second in training. You want the utterance's score for each intention to be farther apart so this doesn't happen. Good distinction for intents should result in the expected top intent every time. 
  
 ## Do build the app iteratively
-Keep a separate *blind* test set that is not used as example utterances or endpoint utterances. Keep improving the app for your test set. Adapt the test set to reflect real user utterances. Use this blind test set to evaluate each iteration. 
+Keep a separate *blind* test set that is not used as [example utterances](luis-concept-utterance.md) or endpoint utterances. Keep improving the app for your test set. Adapt the test set to reflect real user utterances. Use this blind test set to evaluate each iteration. 
 
 Developers should have three sets of data. The first is the example utterances for building the model. The second is for testing the model at the endpoint. The third is the blind test data used in [batch testing](luis-how-to-batch-test.md). This last set is not used in training the application nor sent on the endpoint.  
 
 ## Do add phrase lists and patterns in later iterations
-Phrase lists allow you to define dictionaries of words related to your app domain. Seed your phrase list with a few words then use the suggest feature so LUIS knows about more words in the vocabulary. Don't add every word to the vocabulary since the phrase list isn't an exact match. 
+[Phrase lists](luis-concept-feature.md) allow you to define dictionaries of words related to your app domain. Seed your phrase list with a few words then use the suggest feature so LUIS knows about more words in the vocabulary. Don't add every word to the vocabulary since the phrase list isn't an exact match. 
 
-Real user utterances from the endpoint may reveal patterns of word choice and placement. The pattern feature takes this word choice and placement along with regular expressions to improve your prediction accuracy. A regular expression in the pattern allows for words and punctuation you intend to ignore while still matching the pattern. 
+Real user utterances from the endpoint, very similar to each other, may reveal patterns of word choice and placement. The [pattern](luis-concept-patterns.md) feature takes this word choice and placement along with regular expressions to improve your prediction accuracy. A regular expression in the pattern allows for words and punctuation you intend to ignore while still matching the pattern. 
+
+Use pattern's optional syntax for punctuation so punctuation can be ignored.
 
 Do not apply these practices before your app has received endpoint requests because that skews the confidence.  
 
@@ -69,16 +71,16 @@ Do not apply these practices before your app has received endpoint requests beca
 This is the fallback intent, indicated everything outside your application. Add one example utterance to the None intent for every 10 example utterances in the rest of your LUIS app.
 
 ## Do leverage the suggest feature for active learning
-Use active learning on a regular basis, instead of adding more example utterances to intents. Because the app is constantly receiving endpoint utterances, this list is growing and changing.
+Use [active learning](label-suggested-utterances.md)'s **Review endpoint utterances** on a regular basis, instead of adding more example utterances to intents. Because the app is constantly receiving endpoint utterances, this list is growing and changing.
 
 ## Do monitor the performance of your app
 Monitor the prediction accuracy using a test set. 
 
 ## Don't add many example utterances to intents
-Only add utterances from active learning in the iterative process. 
+After the app is published, only add utterances from active learning in the iterative process. If utterances are too similar, add a pattern. 
 
 ## Don't use LUIS as a training platform
-LUIS is specific to a language model's domain. It will not meant to work as a general training platform. 
+LUIS is specific to a language model's domain. It is not meant to work as a general training platform. 
 
 ## Don't add many example utterances of the same format, ignoring other formats
 LUIS expects variations in an intent's utterances. The utterances can vary while having the same overall meaning. Variations can include utterance length, word choice, and word placement. 
@@ -92,18 +94,19 @@ The second column uses different verbs (buy, reserve, book), different quantitie
 ## Don't mix the definition of intents and entities
 Create an intent for any action your bot will take. Use entities as parameters that make that action possible. 
 
-For a chatbot that will book airline flights, create a BookFlight intent. Do not create an intent for every airline or every destination. Use those pieces of data as entities and mark them in the example utterances. 
+For a chatbot that will book airline flights, create a **BookFlight** intent. Do not create an intent for every airline or every destination. Use those pieces of data as [entities](luis-concept-entity-types.md) and mark them in the example utterances. 
 
 ## Don't create phrase lists with all the possible values
-Provide a few examples in the phrase lists but not every word. LUIS generalizes and takes context into account. 
+Provide a few examples in the [phrase lists](luis-concept-feature.md) but not every word. LUIS generalizes and takes context into account. 
 
 ## Don't add many patterns
-Don't add too many patterns. LUIS is meant to learn quickly with fewer examples. Don't overload the system unnecessarily.
+Don't add too many [patterns](luis-concept-patterns.md). LUIS is meant to learn quickly with fewer examples. Don't overload the system unnecessarily.
 
 ## Don't train and publish with every single example utterance
-Add 10 or 15 utterances before training and publishing. That allows you to see the impact on prediction accuracy. A single utterance may not have a visible impact on the score. 
+Add 10 or 15 utterances before training and publishing. That allows you to see the impact on prediction accuracy. Adding a single utterance may not have a visible impact on the score. 
 
 ## Next steps
 
 * Learn how to [plan your app](plan-your-app.md) in your LUIS app.
-[LUIS]: luis-reference-regions.md#luis-website
+
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

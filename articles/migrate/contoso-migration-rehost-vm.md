@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/30/2018
+ms.date: 06/13/2018
 ms.author: raynew
 ---
 
@@ -21,21 +21,22 @@ This document is one in a series of articles that show how the fictitious compan
 
 **Article** | **Details** | **Status**
 --- | --- | ---
-Article 1: Overview | Provides an overview of Contoso's migration strategy, the article series, and the sample apps we use. | Available
-Article 2: Deploy an Azure infrastructure | Describes how Contoso prepares its on-premises and Azure infrastructure for migration. The same infrastructure is used for all Contoso migration scenarios. | Available
-Article 3: Assess on-premises resources  | Shows how Contoso runs an assessment of their on-premises two-tier SmartHotel app running on VMware. They assess app VMs with the [Azure Migrate](migrate-overview.md) service, and the app SQL Server database with the [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Available
-Article 4: Refactor (lift-and-shift) to Azure VMs and a SQL Managed Instance (this article) | Demonstrates how Contoso migrates the SmartHotel app to Azure. They migrate the app frontend VM using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), and the app database using the [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) service, to migrate to a SQL Managed Instance. | Available
-Article 5: Refactor (lift-and-shift) to Azure VMs (this article) | Shows how Contoso migrate their SmartHotel app VMs using Site Recovery only.
-Article 6: Refactor (lift-and-shift) to Azure VMs and SQL Server Availability Groups | Shows how Contoso migrates the SmartHotel app. They use Site Recovery to migrate the app VMs, and the Database Migration service to migrate the app database to a SQL Server Availability Group. | Available
-Article 7: Refactor (lift-and-shift) to Azure VMs and Azure MySQL Server | Demonstrates how Contoso migrates the SmartHotel app VMs using Site Recovery, and MySQL Workbench to migrate (backup and restore) to an Azure MySQL Server instance. | Available
+[Article 1: Overview](contoso-migration-overview.md) | Provides an overview of Contoso's migration strategy, the article series, and the sample apps we use. | Available
+[Article 2: Deploy an Azure infrastructure](contoso-migration-infrastructure.md) | Describes how Contoso prepares its on-premises and Azure infrastructure for migration. The same infrastructure is used for all Contoso migration scenarios. | Available
+[Article 3: Assess on-premises resources](contoso-migration-assessment.md)  | Shows how Contoso runs an assessment of their on-premises two-tier SmartHotel app running on VMware. They assess app VMs with the [Azure Migrate](migrate-overview.md) service, and the app SQL Server database with the [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Available
+[Article 4: Rehost to Azure VMs and a SQL Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstrates how Contoso migrates the SmartHotel app to Azure. They migrate the app frontend VM using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), and the app database using the [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) service, to migrate to a SQL Managed Instance. | Available
+Article 5: Rehost to Azure VMs (this article) | Shows how Contoso migrate their SmartHotel app VMs using Site Recovery only.
+[Article 6: Rehost to Azure VMs and SQL Server Availability Groups](contoso-migration-rehost-vm-sql-ag.md) | Shows how Contoso migrates the SmartHotel app. They use Site Recovery to migrate the app VMs, and the Database Migration service to migrate the app database to a SQL Server Availability Group. | Available
+[Article 7: Rehost a Linux app on Azure VMs](contoso-migration-rehost-linux-vm.md) | Demonstrates how Contoso migrates the Linux osTicket app to Azure VMs using Site Recovery. | Available
+[Article 8: Rehost a Linux app Azure VMs and Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstrates how Contoso migrates the Linux osTicket app to Azure VMs using Site Recovery, and migrates the app database to an Azure MySQL Server instance using MySQL Workbench. | Available
 
-In this article, Contoso will migrate the two-tier Windows. NET SmartHotel app running on VMware VMs, to Azure. If you want to use this app, it's provided as open source and you can download it from [github](https://github.com/Microsoft/SmartHotel360).
+In this article, Contoso will migrate the two-tier Windows. NET SmartHotel app running on VMware VMs, to Azure. If you want to use this app, it's provided as open-source and you can download it from [github](https://github.com/Microsoft/SmartHotel360).
 
 
 
 ## Business drivers
 
-The IT Leadership team has worked closely with their business partners to understand what they want to achieve with this migration:
+The IT Leadership team has worked closely with business partners to understand what they want to achieve with this migration:
 
 - **Address business growth**: Contoso is growing, and as a result there is pressure on their on-premises systems and infrastructure.
 - **Limit risk**: The SmartHotel app is critical for the Contoso business. They want to move it to Azure with zero risk.
@@ -48,7 +49,7 @@ The Contoso cloud team has pinned down goals for this migration. These goals are
 
 - After migration, the app in Azure should have the same performance capabilities as it does today in VMware.  The app will remain as critical in the cloud as it is on-premises. 
 - Contoso doesn’t want to invest in this app.  It is important to the business, but in its current form they simply want to move it safely to the cloud.
-- Contoso doesn't want to change the ops model for this app. They want  interact with it in the cloud in the same way that they do now.
+- Contoso doesn't want to change the ops model for this app. They want to interact with it in the cloud in the same way that they do now.
 - Contoso doesn't want to change any app functionality. Only the app location will change.
 
 ## Proposed architecture
@@ -219,7 +220,7 @@ To continue, they confirm that they have completed deployment planning, by selec
 
 ### Set up the source environment
 
-Contoso needs to configure their source environment. To do this, they download an OVF template and use it to deploy the Site Recovery configuration server as a highly available, on-premises VMware VM. After the configuration server is up and running, they register it in ths vault.
+Contoso needs to configure their source environment. To do this, they download an OVF template and use it to deploy the Site Recovery configuration server as a highly available, on-premises VMware VM. After the configuration server is up and running, they register it in the vault.
 
 The configuration server runs a number of components:
 
@@ -244,7 +245,7 @@ Contoso perform these steps as follows:
 5. In the tool, they specify a name to register the configuration server in the vault.
 6. The tool checks that the VM can connect to Azure. After the connection is established, they sign in to the Azure subscription. The credentials must have access to the vault in which they'll register the configuration server.
 
-    [Register configuration server](./media/contoso-migration-rehost-vm/config-server-register2.png)
+    ![Register configuration server](./media/contoso-migration-rehost-vm/config-server-register2.png)
 
 7. The tool performs some configuration tasks and then reboots.
 8. They sign in to the machine again, and the Configuration Server Management Wizard starts automatically.

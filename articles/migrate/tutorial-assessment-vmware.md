@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 06/19/2018
 ms.author: raynew
 ms.custom: mvc
 ---

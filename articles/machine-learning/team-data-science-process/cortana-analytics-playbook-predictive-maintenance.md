@@ -2,14 +2,12 @@
 title: Azure AI guide for predictive maintenance solutions | Microsoft Docs
 description: A comprehensive description of the data science that powers predictive maintenance solutions in multiple vertical industries.
 services: machine-learning
-documentationcenter: ''
 author: fboylu
-manager: jhubbard
-editor: cgronlun
+manager: cgronlun
+editor: 
 
 ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning
-ms.component: team-data-science-process
 ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -456,7 +454,7 @@ Microsoft Azure offers free content and training on general AI concepts and prac
 |:-------------------|--------------|
 | [AI Developer on Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
 | [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | Public |
-| [Azure AI Learning from GitHub](http://azure.github.io/learnanalytics/public) | Public |
+| [Azure AI Learning from GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
 | [Microsoft AI Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Public |

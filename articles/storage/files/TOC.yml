@@ -16,7 +16,7 @@
     href: storage-how-to-use-files-windows.md
   - name: Mount on Linux
     href: storage-how-to-use-files-linux.md
-  - name: Mount on Mac
+  - name: Mount on macOS
     href: storage-how-to-use-files-mac.md
   - name: Manage with the Azure portal
     href: storage-how-to-use-files-portal.md
@@ -103,9 +103,11 @@
     - name: Require secure transfer
       href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Shared key authentication
-      href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
+      href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
     - name: Shared access signatures (SAS)
       href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+    - name: Enable secure TLS for Azure Storage client
+      href: ../common/storage-security-tls.md
   - name: Monitor and troubleshoot
     items:
     - name: Troubleshoot Azure Files Connections - Windows
@@ -147,17 +149,17 @@
   - name: .NET
     items:
     - name: Blobs, Queues, Tables, and Files
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
     - name: Data movement
-      href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet
+      href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement
     - name: Resource Manager
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
   - name: Java
     items:
     - name: Blobs, Queues, Tables, and Files
-      href: https://docs.microsoft.com/java/api/overview/azure/storage/clientlibrary
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/client
     - name: Resource Manager
-      href: https://docs.microsoft.com/java/api/overview/azure/storage/managementapi
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/management
   - name: Node.js
     href: https://docs.microsoft.com/javascript/api/overview/azure/storage
   - name: Ruby

@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 06/28/2017
+ms.date: 06/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
@@ -41,7 +41,7 @@ This article assumes that you have a working knowledge of C# and Visual Studio. 
 
 
 ### Visual Studio
-You must have **Visual Studio 2015 or newer** to build the sample project. You can find free and trial versions of Visual Studio in the [overview of Visual Studio products][visual_studio].
+You must have **Visual Studio 2017** to build the sample project. You can find free and trial versions of Visual Studio in the [overview of Visual Studio products][visual_studio].
 
 ### *DotNetTutorial* code sample
 The [DotNetTutorial][github_dotnettutorial] sample is one of the many Batch code samples found in the [azure-batch-samples][github_samples] repository on GitHub. You can download all the samples by clicking  **Clone or download > Download ZIP** on the repository home page, or by clicking the [azure-batch-samples-master.zip][github_samples_zip] direct download link. Once you've extracted the contents of the ZIP file, you can find the solution in the following folder:
@@ -125,10 +125,7 @@ In order to interact with a Storage account and create containers, we use the [A
 
 ```csharp
 // Construct the Storage account connection string
-string storageConnectionString = String.Format(
-    "DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-    StorageAccountName,
-    StorageAccountKey);
+string storageConnectionString = $"DefaultEndpointsProtocol=https;AccountName={StorageAccountName};AccountKey={StorageAccountKey}"; 
 
 // Retrieve the storage account
 CloudStorageAccount storageAccount =
@@ -198,9 +195,9 @@ List<string> applicationFilePaths = new List<string>
 // The collection of data files that are to be processed by the tasks
 List<string> inputFilePaths = new List<string>
 {
-    @"..\..\taskdata1.txt",
-    @"..\..\taskdata2.txt",
-    @"..\..\taskdata3.txt"
+    @"taskdata1.txt",
+    @"taskdata2.txt",
+    @"taskdata3.txt"
 };
 
 // Upload the application and its dependencies to Azure Storage. This is the
@@ -250,7 +247,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 
         // Construct the SAS URL for blob
         string sasBlobToken = blobData.GetSharedAccessSignature(sasConstraints);
-        string blobSasUri = String.Format("{0}{1}", blobData.Uri, sasBlobToken);
+        string blobSasUri = $"{blobData.Uri}{sasBlobToken}";
 
         return new ResourceFile(blobSasUri, blobName);
 }
@@ -311,8 +308,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
         pool = batchClient.PoolOperations.CreatePool(
             poolId: poolId,
             targetDedicatedComputeNodes: 3,                                             // 3 compute nodes
-            virtualMachineSize: "small",                                                // single-vCPU, 1.75 GB memory, 225 GB disk
-            cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
+            virtualMachineSize: "standard_d1_v2",               cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   // Windows Server 2016
 
         // Create and assign the StartTask that will be executed when compute nodes join the pool.
         // In this case, we copy the StartTask's resource files (that will be automatically downloaded
@@ -430,10 +426,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(
     foreach (ResourceFile inputFile in inputFiles)
     {
         string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
-        string taskCommandLine = String.Format(
-            "cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 \"{1}\"",
-            inputFile.FilePath,
-            outputContainerSasUrl);
+        string taskCommandLine = $"cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {inputFile.FilePath} 3 \"{outputContainerSasUrl}\"";
 
         CloudTask task = new CloudTask(taskId, taskCommandLine);
         task.ResourceFiles = new List<ResourceFile> { inputFile };

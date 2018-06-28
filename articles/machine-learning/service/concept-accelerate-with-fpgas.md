@@ -3,7 +3,7 @@ title: What is an FPGA? – Project Brainwave – Azure Machine Learning
 description: Learn how to accelerate models and deep neural networks with FPGAs. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: service
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
@@ -59,7 +59,7 @@ The following scenarios use FPGA on Project Brainwave architecture:
 - Automated optical inspection system. See [Real-time AI: Microsoft announces preview of Project Brainwave](https://blogs.microsoft.com/ai/build-2018-project-brainwave/).
 - Land cover mapping. See [How to Use FPGAs for Deep Learning Inference to Perform Land Cover Mapping on Terabytes of Aerial Images](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/).
 
-## How to create an FPGA service?
+## How to deploy a web service to an FPGA?
 
 The high-level flow for creating an image recognition service in Azure using ResNet50 as a featurizer is as follows:
 
@@ -67,7 +67,8 @@ The high-level flow for creating an image recognition service in Azure using Res
 2. Register the model using Azure ML Model Management API with the zip file in the Blob storage.
 3. Deploy the service with the registered model using Azure ML Model Management API.
 
-For a tutorial, see [Azure ML Hardware Accelerated Models Quickstart](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/resnet50/00_QuickStart.ipynb).
+Learn more about this process in the article, [Deploy a model as a web service on an FPGA with Azure Machine Learning](how-to-deploy-fpga-web-service.md).
+
 
 ## Start using FPGA
 

@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Speech service?
+  - name: What is the Speech service?
     href: overview.md
     expanded: true
 - name: Quickstarts
@@ -12,33 +12,35 @@
   - name: Recognize speech in C#
     href: quickstart-csharp-windows.md
   - name: Recognize speech in C++ for Windows
-    href: cpp-windows.md
+    href: quickstart-cpp-windows.md
   - name: Recognize speech in C++ for Linux
-    href: cpp-linux.md
+    href: quickstart-cpp-linux.md
   - name: Get started with Speech Devices SDK
     href: speech-devices-sdk-qsg.md
+- name: Customization
+  items:
+  - name: Customize speech models
+    href: how-to-customize-speech-models.md
+  - name: Customize voice fonts
+    href: how-to-customize-voice-font.md
+  - name: Prepare transcripts
+    href: prepare-transcription.md
+  - name: Use custom audio streams
+    href: how-to-use-audio-input-streams.md
+  - name: Customize device wake word (Devices SDK)
+    href: speech-devices-sdk-create-kws.md
 - name: How-to guides
   items:
-    - name: Recognize speech
-      href: how-to-speech-to-text.md
-    - name: Customize speech models
-      href: how-to-customize-speech-models.md
-    - name: Synthesize speech
-      href: how-to-text-to-speech.md
-    - name: Customize voice fonts
-      href: how-to-customize-voice-font.md
-    - name: Translate speech
-      href: how-to-translate-speech.md
-    - name: Prepare transcripts
-      href: prepare-transcription.md
-    - name: Use custom audio streams
-      href: how-to-use-audio-input-streams.md
-    - name: Get the Speech Devices SDK
-      href: get-speech-devices-sdk.md
-    - name: Customize device wake word
-      href: speech-devices-sdk-create-kws.md
-    - name: Batch transcription (call centers)
-      href: batch-transcription.md
+  - name: Recognize speech
+    href: how-to-speech-to-text.md
+  - name: Synthesize speech
+    href: how-to-text-to-speech.md
+  - name: Translate speech
+    href: how-to-translate-speech.md
+  - name: Get the Speech Devices SDK
+    href: get-speech-devices-sdk.md
+  - name: Batch transcription (call centers)
+    href: batch-transcription.md
 - name: Samples
   items:
   - name: Download samples
@@ -65,6 +67,8 @@
   items:
   - name: Supported languages
     href: supported-languages.md
+  - name: Regions
+    href: regions.md
   - name: REST APIs
     href: rest-apis.md
 #  - name: WebSockets protocols
@@ -75,6 +79,14 @@
     href: speech-synthesis-markup.md
 - name: Resources
   items:
+  - name: FAQ
+    items:
+    - name: Speech to Text FAQ
+      href: faq-stt.md
+    - name: Text To Speech FAQ
+      href: faq-text-to-speech.md
+    - name: Translator FAQ
+      href: https://www.microsoft.com/en-us/translator/faq.aspx
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: UserVoice

@@ -24,16 +24,75 @@ ms.reviewer: hectorl
 
 Perform an on-demand backup on Azure Stack with backup in place. If you need to enable the Infrastructure Backup Service, see [Enable Backup for Azure Stack from the administration portal](azure-stack-backup-enable-backup-console.md).
 
+## Setup Rm environment and log into the operator management endpoint
+
 > [!Note]  
 >  For instructions on configuring the PowerShell environment, see [Install PowerShell for Azure Stack ](azure-stack-powershell-install.md).
 
+Edit the following PowerShell script by adding the variables for your environment. Run the updated script to set up the RM environment and log into the operator management endpoint.
+
+| Variable    | Description |
+|---          |---          |
+| $TenantName | Azure Active Directory tenant name. |
+| Operator account name        | Your Azure Stack operator account name. |
+| Azure Resource Manager Endpoint | URL to the Azure Resource Manager. |
+
+   ```powershell
+   # Specify Azure Active Directory tenant name
+    $TenantName = "contoso.onmicrosoft.com"
+    
+    # Set the module repository and the execution policy
+    Set-PSRepository `
+      -Name "PSGallery" `
+      -InstallationPolicy Trusted
+    
+    Set-ExecutionPolicy RemoteSigned `
+      -force
+    
+    # Configure the Azure Stack operator’s PowerShell environment.
+    Add-AzureRMEnvironment `
+      -Name "AzureStackAdmin" `
+      -ArmEndpoint "https://adminmanagement.seattle.contoso.com"
+    
+    Set-AzureRmEnvironment `
+      -Name "AzureStackAdmin" `
+      -GraphAudience "https://graph.windows.net/"
+    
+    $TenantID = Get-AzsDirectoryTenantId `
+      -AADTenantName $TenantName `
+      -EnvironmentName AzureStackAdmin
+    
+    # Sign-in to the operator's console.
+    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
+    
+   ```
+
 ## Start Azure Stack backup
 
-Open Windows PowerShell with an elevated prompt in the operator management environment, and run the following commands:
-
 ```powershell
+    $location = Get-AzsLocation
     Start-AzSBackup -Location $location.Name
 ```
+
+## Confirm backup completed via PowerShell
+
+```powershell
+    Get-AzsBackup -Location $location.Name | Select-Object -ExpandProperty BackupInfo
+```
+
+- The result should look like the following output:
+
+  ```powershell
+      backupDataVersion :
+      backupId          : xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx
+      roleStatus        : {@{roleName=NRP; status=Succeeded}, @{roleName=SRP; status=Succeeded}, @{roleName=CRP; status=Succeeded}, @{roleName=KeyVaultInternalControlPlane; status=Succeeded}...}
+      status            : Succeeded
+      createdDateTime   : 2018-05-03T12:16:50.3876124Z
+      timeTakenToCreate : PT22M54.1714666S
+      stampVersion      :
+      oemVersion        :
+      deploymentID      :
+  ```
 
 ## Confirm backup completed in the administration portal
 

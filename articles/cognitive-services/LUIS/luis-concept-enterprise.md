@@ -35,10 +35,10 @@ If your app is meant to predict a wide variety of user utterances, consider impl
 Schedule a periodic [review of endpoint utterances](label-suggested-utterances.md) for active learning, such as every two weeks, then retrain and republish. 
 
 ## When you need to have more than 500 intents
-For example, let's say you're developing an office assistant that has over 500 intents. If 200 intents relate to scheduling meetings, 200 are about reminders, 200 are about getting information about colleagues, and 200 are for sending email, group intents so that each group is in a single app, then create a top-level app containing each intent. Use the [dispatch tool and architecture](#dispatch-tool-and-architecture) to build the top-level app. Then change your bot to use the cascading call as show in the [dispatch tutorial][dispatcher-application-tutorial]. 
+For example, let's say you're developing an office assistant that has over 500 intents. If 200 intents relate to scheduling meetings, 200 are about reminders, 200 are about getting information about colleagues, and 200 are for sending email, group intents so that each group is in a single app, then create a top-level app containing each intent. Use the [dispatch tool and architecture](#dispatch-tool-and-model) to build the top-level app. Then change your bot to use the cascading call as show in the [dispatch tutorial][dispatcher-application-tutorial]. 
 
 ## When you need to combine several LUIS and QnA maker apps
-If you have several LUIS and QnA maker apps that need to respond to a bot, use the [dispatch tool](#dispatch-tool-and-architecture) to build the top-level app. Then change your bot to use the cascading call as show in the [dispatch tutorial][dispatcher-application-tutorial]. 
+If you have several LUIS and QnA maker apps that need to respond to a bot, use the [dispatch tool](#dispatch-tool-and-model) to build the top-level app. Then change your bot to use the cascading call as show in the [dispatch tutorial][dispatcher-application-tutorial]. 
 
 ## Dispatch tool and model
 Use the [Dispatch][dispatch-tool] command-line tool, found in [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) to combine multiple LUIS and/or QnA Maker apps into a parent LUIS app. This approach allows you to have a parent domain including all subjects and different child subject domains in separate apps. 
@@ -53,10 +53,13 @@ The chatbot receives the utterance, then sends to the parent LUIS app for predic
 
 Understand how this hierarchy of calls is made from the Bot Builder v4 [dispatcher-application-tutorial][dispatcher-application-tutorial].  
 
+### Intent limits in dispatch model
+A dispatch application has 500 dispatch sources, equivalent to 500 intents, as the maximum. 
+
 ## Next steps
 
 * Learn how to [test a batch](luis-how-to-batch-test.md)
 
-[LUIS]:luis-reference-regions.md
-[dispatcher-application-tutorial]:https://aka.ms/bot-dispatch
-[dispatch-tool]:https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
+[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch

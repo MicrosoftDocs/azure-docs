@@ -4,7 +4,7 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 06/20/2018
 ms.author: raynew
 ---
 
@@ -128,7 +128,7 @@ An assessment may not have all the data points available due to one of the follo
 After sizing recommendations are complete, Azure Migrate calculates post-migration compute and storage costs.
 
 - **Compute cost**: Using the recommended Azure VM size, Azure Migrate uses the Billing API to calculate
-the monthly cost for the VM. The calculation takes the operating system, software assurance, location, and currency settings into account. It aggregates the cost across all machines, to calculate the total monthly compute cost.
+the monthly cost for the VM. The calculation takes the operating system, software assurance, reserved instances, VM uptime, location, and currency settings into account. It aggregates the cost across all machines, to calculate the total monthly compute cost.
 - **Storage cost**: The monthly storage cost for a machine is calculated by aggregating the monthly cost of
 all disks attached to the machine. Azure Migrate calculates the total monthly storage costs by aggregating the storage costs of all machines. Currently, the calculation doesn't take offers specified in the assessment settings into account.
 

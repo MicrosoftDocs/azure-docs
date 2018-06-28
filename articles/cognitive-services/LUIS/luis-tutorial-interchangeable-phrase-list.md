@@ -29,7 +29,7 @@ For this article, you need a free [LUIS][LUIS] account in order to author your L
 
 2. As described in [Create an app](Create-new-app.md#import-new-app), import the file that you downloaded into the [LUIS][LUIS] website as a new app. The app name is "My Phrase List tutorial." It has intents, entities, and utterances. 
 
-3. [Train](luis-how-to-train.md) your app. Until it is trained, you cannot [interactively test](Train-Test.md#interactive-testing) it in the [LUIS][LUIS] website. 
+3. [Train](luis-how-to-train.md) your app. Until it is trained, you cannot [interactively test](interactive-test.md#interactive-testing) it in the [LUIS][LUIS] website. 
 
 4. On the [Publish](PublishApp.md) page, select the **Include all predicted intent scores** check box. When the check box is selected, all intents are returned. When the check box is cleared, only the top intent is returned. 
 
@@ -170,7 +170,7 @@ You must teach LUIS that *want* and *require* mean the same thing in this app do
 5. In the top navigation bar, select **Train** to train the app, but don't publish it. Now you have two models. You can compare values in the two models.
 
 ## Compare the phrase list model to the published model
-In this app, the published model is not trained with the synonyms. Only the currently edited model includes the phrase list of synonyms. To compare the models, use [interactive testing](Train-Test.md#interactive-testing). 
+In this app, the published model is not trained with the synonyms. Only the currently edited model includes the phrase list of synonyms. To compare the models, use [interactive testing](interactive-test.md#interactive-testing). 
 
 1. Open the **Test** pane, and enter the following utterance:
 
@@ -192,7 +192,7 @@ After you add the phrase list, the increased accuracy of the utterance and the *
 | Currently editing |✔| 0.92 | Hardware entity identified |
 
 > [!TIP]
-> * By using [Interactive testing](Train-Test.md#interactive-testing), you can compare the published model to any trained changes that are made after you publish. 
+> * By using [Interactive testing](interactive-test.md#interactive-testing), you can compare the published model to any trained changes that are made after you publish. 
 > * By using [Endpoint testing](PublishApp.md#test-your-published-endpoint-in-a-browser), you can view the exact LUIS response JSON. 
 
 ## Get the entity score with the endpoint test
@@ -257,8 +257,6 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 > [!div class="nextstepaction"]
 > [Get utterance prediction with endpoint query](luis-get-started-cs-get-intent.md)
 
-[LUIS]: luis-reference-regions.md
-
-  [LUIS]:luis-reference-regions.md
-  [LuisFeatures]: luis-concept-feature.md
-  [LuisSampleApp]:https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[LuisFeatures]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature
+[LuisSampleApp]: https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json

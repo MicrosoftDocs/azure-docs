@@ -1,21 +1,13 @@
 ---
-title: Archive Azure Diagnostic Logs | Microsoft Docs
+title: Archive Azure Diagnostic Logs
 description: Learn how to archive your Azure Diagnostic Logs for long-term retention in a storage account.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 3a55c73f-2ef3-45f3-8956-bcf9c0cb7e05
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-
+ms.component: logs
 ---
 # Archive Azure Diagnostic Logs
 
@@ -102,7 +94,7 @@ The `--resource-group` argument is only required if `--storage-account` is not a
 
 ## Archive diagnostic logs via the REST API
 
-[See this document](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings) for information on how you can set up a diagnostic setting using the Azure Monitor REST API.
+[See this document](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) for information on how you can set up a diagnostic setting using the Azure Monitor REST API.
 
 ## Schema of diagnostic logs in the storage account
 

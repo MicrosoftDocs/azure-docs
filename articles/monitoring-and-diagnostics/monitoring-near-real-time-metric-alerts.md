@@ -1,22 +1,13 @@
 ---
-title: Supported resources for newer Azure Monitor metric alerts | Microsoft Docs
+title: Supported resources for newer Azure Monitor metric alerts
 description: Reference on support metrics and logs for newer Azure near real-time metric alerts.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: snmuvva, vinagara
-ms.custom: 
-
+ms.author: snmuvva
+ms.component: alerts
 ---
 
 # Supported metrics and creation methods for new metric alerts

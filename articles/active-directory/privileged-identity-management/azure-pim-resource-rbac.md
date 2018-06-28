@@ -3,7 +3,7 @@ title: Overview of Azure PIM Resource RBAC | Microsoft Docs
 description: Get an overview of the RBAC feature in PIM including Terminology and notifications
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
 editor: ''
 

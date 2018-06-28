@@ -20,11 +20,11 @@ robots: noindex
 ---
 # Copy data to and from an on-premises file system by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-file-system-connector.md)
-> * [Version 2 - Preview](../connector-file-system.md)
+> * [Version 1](data-factory-onprem-file-system-connector.md)
+> * [Version 2 (current version)](../connector-file-system.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [File System connector in V2](../connector-file-system.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [File System connector in V2](../connector-file-system.md).
 
 
 This article explains how to use the Copy Activity in Azure Data Factory to copy data to/from an on-premises file system. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.

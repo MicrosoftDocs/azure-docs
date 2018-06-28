@@ -52,7 +52,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
     ![Properties Page](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Open [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window and take the following steps:
+6. Open the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) in another window and take the following steps:
 
     a. Sign in to the Graph Explorer site by using the global admin or coadmin credentials for your tenant.
 

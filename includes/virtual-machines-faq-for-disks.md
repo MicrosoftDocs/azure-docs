@@ -40,13 +40,9 @@ The pricing of premium managed disks is the same as unmanaged premium disks.
 
 Yes. You can change the storage account type of your managed disks by using the Azure portal, PowerShell, or the Azure CLI.
 
-**Is there a way that I can copy or export a managed disk to a private storage account?**
-
-Yes. You can export your managed disks by using the Azure portal, PowerShell, or the Azure CLI.
-
 **Can I use a VHD file in an Azure storage account to create a managed disk with a different subscription?**
 
-No.
+Yes.
 
 **Can I use a VHD file in an Azure storage account to create a managed disk in a different region?**
 
@@ -54,7 +50,7 @@ No.
 
 **Are there any scale limitations for customers that use managed disks?**
 
-Managed Disks eliminates the limits associated with storage accounts. However, the maximum limit, and also the default limit, is 10,000 managed disks per region and per disk type for a subscription.
+Managed Disks eliminates the limits associated with storage accounts. However, the maximum limit is 50,000 managed disks per region and per disk type for a subscription.
 
 **Can I take an incremental snapshot of a managed disk?**
 
@@ -90,7 +86,7 @@ Managed Disks supports three key default roles:
 
 **Is there a way that I can copy or export a managed disk to a private storage account?**
 
-You can get a read-only shared access signature URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage.
+You can generate a read-only shared access signature (SAS) URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage. You can use the SAS URI using the Azure portal, Azure PowerShell, the Azure CLI or [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
 **Can I create a copy of my managed disk?**
 

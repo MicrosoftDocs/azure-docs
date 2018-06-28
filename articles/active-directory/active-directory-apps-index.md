@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
 
@@ -29,7 +29,7 @@ The articles below are good starting points for those who simply want a brief ex
 |:---:| --- |
 | An introduction to the application management problems that Azure AD solves |[Managing Applications with Azure Active Directory (AD)](manage-apps/what-is-application-management.md) |
 | An overview of the various features in Azure AD related to enabling single sign-on, defining who has access to apps, and how users launch apps |[Application Access and Single Sign-on in Azure Active Directory](manage-apps/what-is-single-sign-on.md) |
-| A look at the different steps involved when integrating apps into your Azure AD |[Integrating Azure Active Directory with Applications](manage-apps/plan-an-application-integration.md)<br /><br />[Enabling Single Sign-On to SaaS Apps](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Managing Access to Apps](active-directory-managing-access-to-apps.md) |
+| A look at the different steps involved when integrating apps into your Azure AD |[Integrating Azure Active Directory with Applications](manage-apps/plan-an-application-integration.md)<br /><br />[Enabling Single Sign-On to SaaS Apps](manage-apps/configure-single-sign-on-portal.md)<br /><br />[Managing Access to Apps](manage-apps/what-is-access-management.md) |
 | A technical explanation of how apps are represented in Azure AD |[How and Why Applications are Added to Azure AD](active-directory-how-applications-are-added.md) |
 
 ## Troubleshooting Articles
@@ -39,7 +39,7 @@ This section provides quick access to relevant troubleshooting guides. More info
 |:---:| --- |
 | Federated Single Sign-On |[Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
 | Password-Based Single Sign-On |[Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
-| Application Proxy |[App Proxy Troubleshooting Guide](active-directory-application-proxy-troubleshoot.md) |
+| Application Proxy |[App Proxy Troubleshooting Guide](manage-apps/application-proxy-troubleshoot.md) |
 | Single sign-on between on-prem AD and Azure AD |[Troubleshooting Password Hash Synchronization](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Troubleshooting Password Writeback](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Dynamic Group Memberships |[Troubleshooting Dynamic Group Memberships](active-directory-accessmanagement-troubleshooting.md) |
 
@@ -50,11 +50,11 @@ Single sign-on allows users to access a variety of apps and services using only 
 | Article Guide |  |
 |:---:| --- |
 | An introduction to federation and other types of sign-on |[Single Sign-On with Azure AD](manage-apps/what-is-single-sign-on.md) |
-| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](active-directory-saas-tutorial-list.md)<br /><br />[How to Add Your App to the Azure AD App Gallery](active-directory-app-gallery-listing.md) |
-| More than 150 app tutorials on how to configure single sign-on for apps such as [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), and many more |[List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md) |
+| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps |[Getting started with the Azure AD application gallery](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](saas-apps/tutorial-list.md)<br /><br />[How to Add Your App to the Azure AD App Gallery](active-directory-app-gallery-listing.md) |
+| More than 150 app tutorials on how to configure single sign-on for apps such as [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md), and many more |[List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](saas-apps/tutorial-list.md) |
 | How to manually set up and customize your single sign-on configuration |[How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md) |
 | Troubleshooting guide for federated apps that use the SAML protocol |[Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
-| How to configure your app's certificate's expiration date, and how to renew your certificates |[Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md) |
+| How to configure your app's certificate's expiration date, and how to renew your certificates |[Managing Certificates for Federated Single Sign-On in Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 Federated single sign-on is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supports unlimited applications. If your organization has [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) or [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), then you can [use groups to assign access to federated applications](#managing-access-to-applications).
 
@@ -79,7 +79,7 @@ If you have applications in your private network that need to be accessed by use
 | Tutorials on how to configure Application Proxy and how to publish your first app |[How to Set Up Azure AD App Proxy](manage-apps/application-proxy-enable.md)<br /><br />[How to Silently Install the App Proxy Connector](manage-apps/application-proxy-register-connector-powershell.md)<br /><br />[How to Publish Applications using App Proxy](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[How to Use your own Domain Name](manage-apps/application-proxy-configure-custom-domain.md) |
 | How to enable single sign-on and conditional access for apps published with App Proxy |[Single-sign-on with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[Conditional Access and Application Proxy](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Guidance on how to use Application Proxy for the following scenarios |[How to Support Native Client Applications](manage-apps/application-proxy-configure-native-client-application.md)<br /><br />[How to Support Claims-Aware Applications](manage-apps/application-proxy-configure-for-claims-aware-applications.md)<br /><br />[How to Support Applications Published on Separate Networks and Locations](manage-apps/application-proxy-connector-groups.md) |
-| Troubleshooting guide for Application Proxy |[App Proxy Troubleshooting Guide](active-directory-application-proxy-troubleshoot.md) |
+| Troubleshooting guide for Application Proxy |[App Proxy Troubleshooting Guide](manage-apps/application-proxy-troubleshoot.md) |
 
 Application Proxy is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supports unlimited applications. If your organization has [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) or [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), then you can [use groups to assign access to applications](#managing-access-to-applications).
 
@@ -113,18 +113,13 @@ Once you set up single sign-on to your apps and resources, you can then further 
 Conditional Access is an [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) feature.
 
 ## Apps & Azure AD
-### Cloud App Discovery: Find which SaaS apps are being used in your organization
-Cloud App Discovery helps IT departments learn which SaaS apps are being used throughout the organization. It can measure app usage and popularity so that IT can determine which apps will benefit the most from being brought under IT control and being integrated with Azure AD.
+### Cloud Discovery: Find which SaaS apps are being used in your organization
+Cloud Discovery analyzes your traffic logs against Microsoft Cloud App Security's cloud app catalog of over 16,000 cloud apps that are ranked and scored based on more than 70 risk factors, to provide you with ongoing visibility into cloud use, Shadow IT, and the risk Shadow IT poses into your organization.
 
 | Article Guide |  |
 |:---:| --- |
-| A general overview of how it works |[Finding unsanctioned cloud applications with Cloud App Discovery](manage-apps/cloud-app-discovery.md) |
-| A deeper dive into how it works, with answers to questions on privacy |[Security and Privacy Considerations](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
-| Frequently Asked Questions |[FAQ for Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
-| Tutorials for deploying Cloud App Discovery |[Group Policy Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[System Center Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Installing on Proxy Servers with Custom Ports](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
-| The change log for updates to the Cloud App Discovery agent |[Change log](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx) |
+| A general overview of how it works |[Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery) |
 
-Cloud App Discovery is an [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) feature.
 
 ### Automatically provision and deprovision user accounts in SaaS apps
 Automate the creation, maintenance, and removal of user identities in SaaS applications such as Dropbox, Salesforce, ServiceNow, and more. Match and sync existing identities between Azure AD and your SaaS apps, and control access by automatically disabling accounts when users leave the organization.
@@ -133,7 +128,7 @@ Automate the creation, maintenance, and removal of user identities in SaaS appli
 |:---:| --- |
 | Learn about how it works and find answers to common questions |[Automate User Provisioning & Deprovisioning to SaaS Apps](active-directory-saas-app-provisioning.md) |
 | Configure how information is mapped between Azure AD and your SaaS app |[Customizing Attribute Mappings](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
-| How to enable automated provisioning to any app that supports the SCIM protocol |[Set up Automated User Provisioning to any SCIM-Enabled App](active-directory-scim-provisioning.md) |
+| How to enable automated provisioning to any app that supports the SCIM protocol |[Set up Automated User Provisioning to any SCIM-Enabled App](manage-apps/use-scim-to-provision-users-and-groups.md) |
 | How to report on and troubleshoot user provisioning |[Reporting on automatic user provisioning](active-directory-saas-provisioning-reporting.md)<br><br>[Troubleshooting user provisioning](active-directory-application-provisioning-content-map.md) |
 | Limit who gets provisioned to an application based on their attribute values |[Scoping Filters](active-directory-saas-scoping-filters.md) |
 
@@ -156,9 +151,9 @@ To help you manage who should have access to which resources, Azure Active Direc
 
 | Article Guide |  |
 |:---:| --- |
-| An overview of Azure AD access management features |[Introduction to Managing Access to Apps](active-directory-managing-access-to-apps.md)<br /><br />[How Access Management Works in Azure AD](active-directory-manage-groups.md)<br /><br />[How to Use Groups to Manage Access to SaaS Applications](active-directory-accessmanagement-group-saasapps.md) |
+| An overview of Azure AD access management features |[Introduction to Managing Access to Apps](manage-apps/what-is-access-management.md)<br /><br />[How Access Management Works in Azure AD](fundamentals/active-directory-manage-groups.md)<br /><br />[How to Use Groups to Manage Access to SaaS Applications](active-directory-accessmanagement-group-saasapps.md) |
 | Enable self-service management of apps and groups |[Self-Service Application Management](active-directory-self-service-application-access.md)<br /><br />[Self-Service Group Management](active-directory-accessmanagement-self-service-group-management.md) |
-| Instructions for setting up your groups in Azure AD |[How to Create Security Groups](active-directory-groups-create-azure-portal.md)<br /><br />[How to Designate Owners for a Group](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[How to Use the "All Users" Group](active-directory-accessmanagement-dedicated-groups.md) |
+| Instructions for setting up your groups in Azure AD |[How to Create Security Groups](fundamentals/active-directory-groups-create-azure-portal.md)<br /><br />[How to Designate Owners for a Group](fundamentals/active-directory-accessmanagement-managing-group-owners.md)<br /><br />[How to Use the "All Users" Group](active-directory-accessmanagement-dedicated-groups.md) |
 | Use dynamic groups to automatically populate group membership using attribute-based membership rules |[Dynamic Group Membership: Advanced Rules](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Troubleshooting Dynamic Group Memberships](active-directory-accessmanagement-troubleshooting.md) |
 
 Group-based application access management is available for [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Self-service group management, self-service application management, and dynamic groups are [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) features.
@@ -201,7 +196,7 @@ Azure Active Directory provides several reports and alerts to help you monitor y
 To see which reports are included with different editions of Azure Active Directory, [click here](active-directory-view-access-usage-reports.md).
 
 ## See also
-[What is Azure Active Directory?](active-directory-whatis.md)
+[What is Azure Active Directory?](fundamentals/active-directory-whatis.md)
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)
 

@@ -1,20 +1,13 @@
 ---
-title: Overview of Azure Diagnostic Logs | Microsoft Docs
+title: Overview of Azure Diagnostic Logs
 description: Learn what Azure diagnostic logs are and how you can use them to understand events occurring within an Azure resource.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/07/2018
-ms.author: johnkem; magoedte
-
+ms.author: johnkem
+ms.component: logs
 ---
 # Collect and consume log data from your Azure resources
 

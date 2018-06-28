@@ -2,18 +2,13 @@
 title: Receive events from Azure Event Hubs using Java | Microsoft Docs
 description: Get started receiving from Event Hubs using Java
 services: event-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: ''
 
-ms.assetid: 38e3be53-251c-488f-a856-9a500f41b6ca
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 06/12/2018
 ms.author: sethm
 
 ---
@@ -185,18 +180,14 @@ For different types of build environments, you can explicitly obtain the latest 
     {
     	private int checkpointBatchingCount = 0;
 
-    	// OnOpen is called when a new event processor instance is created by the host. In a real implementation, this
-    	// is the place to do initialization so that events can be processed when they arrive, such as opening a database
-    	// connection.
+    	// OnOpen is called when a new event processor instance is created by the host. 
     	@Override
         public void onOpen(PartitionContext context) throws Exception
         {
         	System.out.println("SAMPLE: Partition " + context.getPartitionId() + " is opening");
         }
 
-        // OnClose is called when an event processor instance is being shut down. The reason argument indicates whether the shut down
-        // is because another host has stolen the lease for this partition or due to error or host shutdown. In a real implementation,
-        // this is the place to do cleanup for resources that were opened in onOpen.
+        // OnClose is called when an event processor instance is being shut down. 
     	@Override
         public void onClose(PartitionContext context, CloseReason reason) throws Exception
         {
@@ -204,18 +195,13 @@ For different types of build environments, you can explicitly obtain the latest 
         }
     	
     	// onError is called when an error occurs in EventProcessorHost code that is tied to this partition, such as a receiver failure.
-    	// It is NOT called for exceptions thrown out of onOpen/onClose/onEvents. EventProcessorHost is responsible for recovering from
-    	// the error, if possible, or shutting the event processor down if not, in which case there will be a call to onClose. The
-    	// notification provided to onError is primarily informational.
     	@Override
     	public void onError(PartitionContext context, Throwable error)
     	{
     		System.out.println("SAMPLE: Partition " + context.getPartitionId() + " onError: " + error.toString());
     	}
 
-    	// onEvents is called when events are received on this partition of the Event Hub. The maximum number of events in a batch
-    	// can be controlled via EventProcessorOptions. Also, if the "invoke processor after receive timeout" option is set to true,
-    	// this method will be called with null when a receive timeout occurs.
+    	// onEvents is called when events are received on this partition of the Event Hub. 
     	@Override
         public void onEvents(PartitionContext context, Iterable<EventData> events) throws Exception
         {
@@ -223,8 +209,6 @@ For different types of build environments, you can explicitly obtain the latest 
             int eventCount = 0;
             for (EventData data : events)
             {
-            	// It is important to have a try-catch around the processing of each event. Throwing out of onEvents deprives
-            	// you of the chance to process any remaining events in the batch. 
             	try
             	{
 	                System.out.println("SAMPLE (" + context.getPartitionId() + "," + data.getSystemProperties().getOffset() + "," +
@@ -233,10 +217,7 @@ For different types of build environments, you can explicitly obtain the latest 
 	                
 	                // Checkpointing persists the current position in the event stream for this partition and means that the next
 	                // time any host opens an event processor on this event hub+consumer group+partition combination, it will start
-	                // receiving at the event after this one. Checkpointing is usually not a fast operation, so there is a tradeoff
-	                // between checkpointing frequently (to minimize the number of events that will be reprocessed after a crash, or
-	                // if the partition lease is stolen) and checkpointing infrequently (to reduce the impact on event processing
-	                // performance). Checkpointing every five events is an arbitrary choice for this sample.
+	                // receiving at the event after this one. 
 	                this.checkpointBatchingCount++;
 	                if ((checkpointBatchingCount % 5) == 0)
 	                {
@@ -257,12 +238,10 @@ For different types of build environments, you can explicitly obtain the latest 
     }
     ```
 
-> [!NOTE]
-> This tutorial uses a single instance of EventProcessorHost. To increase throughput, it is recommended that you run multiple instances of EventProcessorHost, preferably on separate machines.  This provides redundancy as well. In those cases, the various instances automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for EventProcessorHost instances based on the machines (or roles) in which they are deployed.
-> 
-> 
+This tutorial uses a single instance of EventProcessorHost. To increase throughput, it is recommended that you run multiple instances of EventProcessorHost, preferably on separate machines.  This provides redundancy as well. In those cases, the various instances automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for EventProcessorHost instances based on the machines (or roles) in which they are deployed.
 
 ## Next steps
+
 You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview](event-hubs-what-is-event-hubs.md)

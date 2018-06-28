@@ -1,18 +1,18 @@
 ---
-title: Azure SQL Data Sync (Preview) | Microsoft Docs
-description: This overview introduces Azure SQL Data Sync (Preview)
+title: Azure SQL Data Sync | Microsoft Docs
+description: This overview introduces Azure SQL Data Sync
 services: sql-database
-author: douglaslms
+author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: douglasl
+ms.author: xiwu
 ms.reviewer: douglasl
 ms.custom: data-sync
 ---
-# Sync data across multiple cloud and on-premises databases with SQL Data Sync (Preview)
+# Sync data across multiple cloud and on-premises databases with SQL Data Sync
 
 SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances.
 
@@ -48,15 +48,15 @@ Data Sync is useful in cases where data needs to be kept up-to-date across sever
 
 -   **Globally Distributed Applications:** Many businesses span several regions and even several countries. To minimize network latency, it's best to have your data in a region close to you. With Data Sync, you can easily keep databases in regions around the world synchronized.
 
-Data Sync is not appropriate for the following scenarios:
+Data Sync is not the best solution for the following scenarios:
 
--   Disaster Recovery
-
--   Read Scale
-
--   ETL (OLTP to OLAP)
-
--   Migration from on-premises SQL Server to Azure SQL Database
+| Scenario | Some recommended solutions |
+|----------|----------------------------|
+| Disaster Recovery | [Azure geo-redundant backups](sql-database-automated-backups.md) |
+| Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](sql-database-read-scale-out.md) |
+| ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| Migration from on-premises SQL Server to Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+|||
 
 ## How does Data Sync work? 
 
@@ -77,6 +77,8 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 
 #### Performance impact
 Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database for change tracking. These change tracking activities have an impact on your database workload. Assess your service tier and upgrade if needed.
+
+Provisioning and deprovisioning during sync group creation, update, and deletion may also impact the database performance. 
 
 ### General requirements
 
@@ -120,13 +122,13 @@ Data Sync uses insert, update, and delete triggers to track changes. It creates 
 
 ## FAQ about SQL Data Sync
 
-### How much does the SQL Data Sync (Preview) service cost?
+### How much does the SQL Data Sync service cost?
 
-During the Preview, there is no charge for the SQL Data Sync (Preview) service itself.  However, you still accrue data transfer charges for data movement in and out of your SQL Database instance. For more info, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+There is no charge for the SQL Data Sync service itself.  However, you still accrue data transfer charges for data movement in and out of your SQL Database instance. For more info, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### What regions support Data Sync?
 
-SQL Data Sync (Preview) is available in all public cloud regions.
+SQL Data Sync is available in all public cloud regions.
 
 ### Is a SQL Database account required? 
 
@@ -145,7 +147,7 @@ Yes. Create the schema manually in the new database by scripting it from the ori
 
 ### Should I use SQL Data Sync to back up and restore my databases?
 
-It is not recommended to use SQL Data Sync (Preview) to create a backup of your data. You cannot back up and restore to a specific point in time because SQL Data Sync (Preview) synchronizations are not versioned. Furthermore, SQL Data Sync (Preview) does not back up other SQL objects, such as stored procedures, and does not do the equivalent of a restore operation quickly.
+It is not recommended to use SQL Data Sync to create a backup of your data. You cannot back up and restore to a specific point in time because SQL Data Sync synchronizations are not versioned. Furthermore, SQL Data Sync does not back up other SQL objects, such as stored procedures, and does not do the equivalent of a restore operation quickly.
 
 For one recommended backup technique, see [Copy an Azure SQL database](sql-database-copy.md).
 
@@ -165,7 +167,7 @@ Yes. SQL Data Sync supports collation in the following scenarios:
 
 ### Is federation supported in SQL Data Sync?
 
-Federation Root Database can be used in the SQL Data Sync (Preview) Service without any limitation. You cannot add the Federated Database endpoint to the current version of SQL Data Sync (Preview).
+Federation Root Database can be used in the SQL Data Sync Service without any limitation. You cannot add the Federated Database endpoint to the current version of SQL Data Sync.
 
 ## Next steps
 

@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 06/06/2018
 ms.author: nolachar
 ---
-# Quickstart: Generate a Thumbnail with Node.js
+# Quickstart: Generate a thumbnail with Node.js
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 
@@ -44,7 +44,7 @@ const subscriptionKey = '<Subscription Key>';
 
 // You must use the same location in your REST call as you used to get your
 // subscription keys. For example, if you got your subscription keys from
-// westus,replace "westcentralus" in the URL below with "westus".
+// westus, replace "westcentralus" in the URL below with "westus".
 const uriBase =
     'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail';
 

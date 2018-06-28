@@ -10,9 +10,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: mbullwin; pharring
+ms.reviewer: pharring
+ms.author: mbullwin
 
 ---
 # Debug snapshots on exceptions in .NET apps

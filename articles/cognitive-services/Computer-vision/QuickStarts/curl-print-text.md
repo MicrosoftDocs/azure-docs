@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Printed Text (OCR) with Ruby
+# Quickstart: Extract printed text (OCR) with cURL
 
 In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
 
@@ -25,7 +25,7 @@ With the [OCR method](https://westus.dev.cognitive.microsoft.com/docs/services/5
 
 To run the sample, do the following steps:
 
-1. Copy the following code into an editor, such as Notepad.
+1. Copy the following code into an editor.
 1. Replace `<Subscription Key>` with your valid subscription key.
 1. Change the Request URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) to use the location where you obtained your subscription keys, if necessary.
 1. Optionally, change the image (`{\"url\":\"...`) to analyze.

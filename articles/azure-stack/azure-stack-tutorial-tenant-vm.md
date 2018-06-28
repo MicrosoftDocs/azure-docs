@@ -65,7 +65,7 @@ Offers are groups of one or more plans that providers present to users to purcha
 
 6. Select **Quotas**, and then select the first service that you want to create a quota for. For an IaaS quota, use the following example as a guide for configuring quotas for the Compute, Network, and Storage services.
 
-   - First, we'll create a quota for the Compute service. In the namespace list, select **Microsoft.Compute** and then select **Create new quota**.
+   - First, create a quota for the Compute service. In the namespace list, select **Microsoft.Compute** and then select **Create new quota**.
 
      ![Create new quota](media/azure-stack-tutorial-tenant-vm/image06.png)
 
@@ -75,7 +75,7 @@ Offers are groups of one or more plans that providers present to users to purcha
 
    - Pick **Microsoft.Compute** in the namespace list, and then select the quota that you created. This links the quota to the Compute service.
 
-      ![Select quota](media/azure-stack-tutorial-tenant-vm/image08.png)
+     ![Select quota](media/azure-stack-tutorial-tenant-vm/image08.png)
 
       Repeat these steps for the Network and Storage services. When you're finished, select **OK** in **Quotas** to save all the quotas.
 

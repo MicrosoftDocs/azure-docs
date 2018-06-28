@@ -66,7 +66,7 @@ If the feature is approved and properly registered, you should receive the "Regi
 
 ## Add or remove policies 
 
-You can add, edit, or remove a policy using Azure portal, PowerShell, REST APIs, or client tools in the following languages: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](	https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+You can add, edit, or remove a policy using Azure portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), REST APIs, or client tools in the following languages: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](	https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### Azure portal
 
@@ -117,7 +117,7 @@ Within a policy, two parameters are required:
 | Parameter name | Parameter type | Notes |
 |----------------|----------------|-------|
 | version        | A string expressed as `x.x` | The preview version number is 0.5 |
-| rules          | An array of rule objects | At least one rule is required in each policy. During preview, you can specify up to 10 rules per policy. |
+| rules          | An array of rule objects | At least one rule is required in each policy. During preview, you can specify up to 4 rules per policy. |
 
 Parameters required within a rule are:
 
@@ -165,7 +165,7 @@ Each rule definition includes a filter set and an action set. The following samp
 
 ```
 
-## Rule filters
+### Rule filters
 
 Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical `AND` is performed on all filters.
 
@@ -187,6 +187,9 @@ In preview, lifecycle management supports tiering and deletion of blob and delet
 | tierToCool    | Support blobs currently at Hot tier         | Not supported |
 | tierToArchive | Support blobs currently at Hot or Cool tier | Not supported |
 | delete        | Supported                                   | Supported     |
+
+>[!NOTE] 
+If more than one action is defined on the same blob, lifecycle management applies the least expensive action to the blob. (e.g., Action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.)
 
 In preview, the action execution conditions are based on age. Base blob uses last modified time to track age and blob snapshots uses snapshot creation time to track age.
 
@@ -258,7 +261,7 @@ Some data remains idle in the cloud and is rarely, if ever, accessed once stored
 
 ### Expire data based on age
 
-Some data is expected to expire days or months after creation to reduce costs or comply with government regulations. A lifecycle management policy can be set up to expire date by deletion based on data age. The following example shows a policy that deletes all block blobs (with no prefix specified) older than 365 days.
+Some data is expected to expire days or months after creation to reduce costs or comply with government regulations. A lifecycle management policy can be set up to expire data by deletion based on data age. The following example shows a policy that deletes all block blobs (with no prefix specified) older than 365 days.
 
 ```json
 {
