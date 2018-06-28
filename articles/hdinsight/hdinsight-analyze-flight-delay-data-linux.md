@@ -317,6 +317,7 @@ In this tutorial, you learned how to perform extract, transform, and load data o
 
 To learn more ways to work with data in HDInsight, see the following articles:
 
+* [Tutorial: Extract, transform, and load data using Apache Hive on Azure HDInsight](../data-lake-storage/tutorial-extract-transform-load-hive.md)
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Pig with HDInsight][hdinsight-use-pig]
 * [Develop Java MapReduce programs for Hadoop on HDInsight][hdinsight-develop-mapreduce]
