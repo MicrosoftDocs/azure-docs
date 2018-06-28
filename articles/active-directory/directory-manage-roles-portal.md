@@ -23,11 +23,11 @@ You can now see and manage all the members of the administrator roles in the Azu
 
 It's easy to see your own permissions as well. Click **Your role** get quick access to your user page for a list of all your active assigned roles. Click the ellipsis on the right of each row to open the detailed description of the role. When you select select **Manage in PIM** (Privileged Identity Management), Privileged Role Administrators can add or remove members, or change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have PIM, you can still select **Manage in PIM** to sign up for a trial.
 
-![list of roles in Azure AD portal](../media/directory-manage-roles-portal/role-list.png)
+![list of roles in Azure AD portal](./media/directory-manage-roles-portal/role-list.png)
 
 You can also select the entire row to view the list of assigned members.
 
-![list of members of an admin role](../media/directory-manage-roles-portal/member-list.png)
+![list of members of an admin role](./media/directory-manage-roles-portal/member-list.png)
 
 If you are a Global Administrator or a Privileged Role Administrator, you can easily add or remove members, filter the list, or select a member to go to the user page to see their active assigned roles.
 
@@ -35,11 +35,11 @@ If you are a Global Administrator or a Privileged Role Administrator, you can ea
 
 When you're viewing a role's members, select **Description** to see the complete list of permissions granted by the role assignment. The page includes links to relevant documentation to help guide you through managing directory roles.
 
-![list of permissions for an admin role](../media/directory-manage-roles-portal/role-description.png)
+![list of permissions for an admin role](./media/directory-manage-roles-portal/role-description.png)
 
 
 ## Next steps
 
 * Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 * For more about roles and Administrator role assignment, see [Assign administrator roles](active-directory-assign-admin-roles-azure-portal.md)
-* For default user permissions, see a [comparison of default guest and member user permissions](..\fundamentals\users-default-permissions.md)
+* For default user permissions, see a [comparison of default guest and member user permissions](.\fundamentals\users-default-permissions.md)
