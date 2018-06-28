@@ -25678,11 +25678,6 @@
             "source_path": "articles/multi-factor-authentication/end-user/sign-in-experience-updates.md",
             "redirect_url": "/azure/active-directory/authentication/end-user/current/sign-in-experience-updates",
             "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/multi-factor-authentication/end-user/TOC.md",
-            "redirect_url": "/azure/active-directory/authentication/end-user/current/TOC",
-            "redirect_document_id": false
-        }               
+        }            
     ]
 }
