@@ -117,7 +117,9 @@ In a dependency on a range of parent tasks, a task depends on the the completion
 To create the dependency, provide the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> When you use task ID ranges for your dependencies, the task IDs in the range *must* be string representations of integer values. Leading zeroes are not signficant, so tasks `4`, `04` and `004` will be *within* the range 1..10.
+> When you use task ID ranges for your dependencies, only tasks with IDs representing integer values will be selected by the range. So the range `1..10` will select tasks `3` and `7`, but not `5flamingoes`. 
+> 
+> Leading zeroes are not signficant when evaluating range dependencies, so tasks with string identifiers `4`, `04` and `004` will all be *within* the range and they will all be treated as task `4`, so the first one to complete will satisfy the dependency.
 > 
 > Every task in the range must satisfy the dependency, either by completing successfully or by completing with a failure that’s mapped to a dependency action set to **Satisfy**. See the [Dependency actions](#dependency-actions) section for details.
 >
