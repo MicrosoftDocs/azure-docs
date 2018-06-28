@@ -37,7 +37,7 @@ The new outbound IP address is shown in the portal before it takes effect. When 
 
 4.	Under the **Settings** header, click **Properties** in the left navigation, and find the section labeled **Outbound IP addresses**.
 
-5. Copy the IP addresses, and add them to your special handling of outbound traffic such as a filter or allowed list. Don't delete the existing IP addresses in the list until after the switch to the new ones happens.
+5. Copy the IP addresses, and add them to your special handling of outbound traffic such as a filter or allowed list. Don't delete the existing IP addresses in the list until after your app starts using the new IP addresses.
 
 ## Next steps
 
