@@ -1,21 +1,22 @@
 ---
-title: Overview of Azure Data Lake Store | Microsoft Docs
-description: Understand what is Azure Data Lake Store and the value it provides over other data stores
+title: Overview of Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Understand what Data Lake Storage Gen1 is (previously known as Azure Data Lake Store) and the value it provides over other data stores
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
 
-ms.assetid: b3475057-9427-4492-a3af-25a802a23a79
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 06/27/2018
 ms.author: nitinme
 
 ---
-# Overview of Azure Data Lake Store
+# Overview of Azure Data Lake Storage Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Azure Data Lake enables you to capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics.
 
 > [!TIP]

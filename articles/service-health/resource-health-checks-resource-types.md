@@ -58,13 +58,13 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.datalakeanalytics/accounts
 |Executed Checks|
 |---|
-|<ul><li>Can users submit jobs to Data Lake Analytics in the region?</li><li>Do basic jobs run and complete successfully in the region?</li><li>Can users list catalog items in the region?</li>|
+|<ul><li>Have users experienced problems submitting or listing their Data Lake Analytics jobs?</li><li>Are Data Lake Analytics jobs unable to complete to system errors?</li></ul>|
 
 
 ## Microsoft.datalakestore/accounts
 |Executed Checks|
 |---|
-|<ul><li>Can users upload data to Data Lake Store in the region?</li><li>Can users download data from Data Lake Store in the region?</li></ul>|
+|<ul><li>Have users experienced problems uploading data to Data Lake Store?</li><li>Have users experienced problems downloading data from Data Lake Store?</li></ul>|
 
 ## Microsoft.devices/iothubs
 
@@ -76,6 +76,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Have there been any database or collection requests not served due to an Azure Cosmos DB service unavailability?</li><li>Have there been any document requests not served due to an Azure Cosmos DB service unavailability?</li></ul>|
+
+## Microsoft.KeyVault/vaults
+|Executed Checks|
+|---|
+|<ul><li>Are requests to key vault failing due to Azure KeyVault platform issues?</li><li>Are requests to key vault being throttled due to too many requests made by customer?</li></ul>|
 
 ## Microsoft.network/connections
 |Executed Checks|

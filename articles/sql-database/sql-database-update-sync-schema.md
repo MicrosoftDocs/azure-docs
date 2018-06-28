@@ -6,7 +6,7 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
-ms.author: Xiaochen.Wu
+ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
