@@ -59,10 +59,10 @@ A group of controls for selecting a new or existing public IP address.
 ```
 
 ## Remarks
-- If `constraints.required.domainNameLabel` is set to **true**, the user must provide a domain name label when creating a new public IP address. Existing public IP addresses without a label are not available for selection.
+- If `constraints.required.domainNameLabel` is set to **true**, the user must provide a domain name label when creating a new public IP address. Existing public IP addresses without a label aren't available for selection.
 - If `options.hideNone` is set to **true**, then the option to select **None** for the public IP address is hidden. The default value is **false**.
 - If `options.hideDomainNameLabel` is set to **true**, then the text box for domain name label is hidden. The default value is **false**.
-- If `options.hideExisting` is true, then the user is not able to choose an existing public IP address. The default value is **false**.
+- If `options.hideExisting` is true, then the user isn't able to choose an existing public IP address. The default value is **false**.
 - For `zone`, only public IP addresses for the specified zone or zone resilient public IP addresses are available.
 
 ## Sample output
