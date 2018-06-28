@@ -23,7 +23,7 @@ ms.custom: "include file"
     | Subscription | Choose your subscription |  Select the Azure subscription that you want to use to test SignalR. If your account has only one subscription, it is automatically selected and the **Subscription** drop-down isn't displayed.|
     | Resource group | Create a new resource group named *SignalRTestResources*| Select or create a resource group for your SignalR resource. This group is useful for organizing multiple resources that you may want to delete at the same time by deleting the resource group. For more information, see [Using Resource groups to manage your Azure resources](../articles/azure-resource-manager/resource-group-overview.md). |
     | Location | *East US* | Use **Location** to specify the geographic location in which your SignalR resource is hosted. For the best performance, we recommend that you create the resource in the same region as other components of your application. |
-    | Pricing tier | *Basic* | Currently only **Basic** is available. |
+    | Pricing tier | *Free* | Currently there are **Free** and **Standard** options available. |
     | Pin to dashboard | ✔ | Check this box to have the resource pinned to your dashboard making it easier to find. |
 
 4. Click **Create**. The deployment may take a few minutes to complete.
