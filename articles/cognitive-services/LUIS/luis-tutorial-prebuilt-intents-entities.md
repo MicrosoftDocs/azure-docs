@@ -12,7 +12,7 @@ ms.date: 06/11/2018
 ms.author: v-geberr
 --- 
 
-# Use prebuilt intents and entities to handle common intents and data
+# Tutorial: 2. Add prebuilt intents and entities
 Add prebuilt intents and entities to the Human Resources quickstart app to quickly gain intent prediction and data extraction. 
 
 In this tutorial, you learn how to:

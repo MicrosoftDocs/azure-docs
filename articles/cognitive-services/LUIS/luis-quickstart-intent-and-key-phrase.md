@@ -14,7 +14,7 @@ ms.author: v-geberr
 
 --- 
 
-# Tutorial: Learn how to return data from keyPhrase entity 
+# Tutorial: 7. Add keyPhrase entity 
 In this tutorial, use an app that demonstrates how to extract key subject matter from utterances.
 
 <!-- green checkmark -->

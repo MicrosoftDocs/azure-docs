@@ -12,7 +12,7 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to only use intents and no entities in the app. 
 ---
 
-# Tutorial: Create app with custom domain
+# Tutorial: 1. Build app with custom domain
 In this tutorial, create an app that demonstrates how to use **intents** to determine the user's _intention_ based on the utterance (text) they submit to the app. When you're finished, you have a LUIS endpoint running in the cloud.
 
 This app is the simplest type of LUIS app because it doesn't extract data from the utterances. It only determines the user's intention of the utterance.

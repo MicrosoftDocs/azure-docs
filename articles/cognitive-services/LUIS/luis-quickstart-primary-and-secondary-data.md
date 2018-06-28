@@ -13,7 +13,7 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
 
-# Tutorial: Create app that uses simple entity
+# Tutorial: 6. Add simple entity
 In this tutorial, create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
 
 <!-- green checkmark -->

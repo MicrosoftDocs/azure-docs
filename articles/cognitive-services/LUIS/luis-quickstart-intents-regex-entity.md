@@ -13,7 +13,7 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
 
-# Tutorial: Use regular expression entity
+# Tutorial: 3. Add regular expresion entity
 In this tutorial, you create an app that demonstrates how to extract consistently formatted data from an utterance using the **Regular Expression** entity.
 
 

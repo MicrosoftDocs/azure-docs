@@ -13,7 +13,7 @@
     href: luis-get-started-create-app.md
   - name: Tutorials
   items: 
-  - name: Build custom domain app
+  - name: Build app
     items: 
     - name: 1. With custom domain
       href: luis-quickstart-intents-only.md

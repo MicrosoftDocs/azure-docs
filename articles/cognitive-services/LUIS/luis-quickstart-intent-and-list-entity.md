@@ -13,7 +13,7 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 --- 
 
-# Tutorial: Create app using a list entity
+# Tutorial: 4. Add list entity
 In this tutorial, create an app that demonstrates how to get data that matches a predefined list. 
 
 <!-- green checkmark -->
