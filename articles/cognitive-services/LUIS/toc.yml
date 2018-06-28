@@ -19,7 +19,7 @@
       href: luis-quickstart-intents-only.md
     - name: 2. Add prebuilt intents and entities
       href: luis-tutorial-prebuilt-intents-entities.md
-    - name: 3. Add regular expresion entity
+    - name: 3. Add regular expression entity
       href: luis-quickstart-intents-regex-entity.md
     - name: 4. Add list entity
       href: luis-quickstart-intent-and-list-entity.md
