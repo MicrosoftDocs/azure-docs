@@ -81,7 +81,7 @@ az storage share create --name myshare \
 
 ## Create a mount point
 
-To mount the Azure file share on your Linux computer, you need to make sure you have the **cifs-utils** package installed. For installation instructions, see [Install the cifs-utils package for your Linux distribution](storage-how-to-use-files-linux.md#install-cifs-utils).
+To mount the Azure file share on your Linux computer, you need to make sure you have the **cifs-utils** package installed. For installation instructions, see [Install the cifs-utils package for your Linux distribution](../../storage/files/storage-how-to-use-files-linux.md#install-cifs-utils).
 
 Azure Files uses SMB protocol which communicates over TCP port 445.  If you are having trouble mounting your Azure file share, make sure your firewall is not blocking TCP port 445.
 
