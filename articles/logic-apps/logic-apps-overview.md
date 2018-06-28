@@ -111,100 +111,101 @@ check out these [customer stories](https://aka.ms/logic-apps-customer-stories).
 
 Here are more details about the capabilities and benefits that you get with Logic Apps:
 
-* **Visually build workflows with easy-to-use tools**
+### Visually build workflows with easy-to-use tools
 
-  Save time and simplify complex processes with visual design tools. 
-  Build logic apps from start-to-finish by using the Logic Apps Designer through your 
-  browser in the Azure portal or in Visual Studio. Start your workflow with a trigger, 
-  and add any number of actions from the [connectors gallery](../connectors/apis-list.md).
+Save time and simplify complex processes with visual design tools. 
+Build logic apps from start-to-finish by using the Logic Apps Designer through your 
+browser in the Azure portal or in Visual Studio. Start your workflow with a trigger, 
+and add any number of actions from the [connectors gallery](../connectors/apis-list.md).
 
-* **Get started faster with logic app templates**
+### Get started faster with logic app templates
 
-  Create commonly used solutions more quickly when you choose predefined workflows 
-  from the [template gallery](../logic-apps/logic-apps-create-logic-apps-from-templates.md). 
-  Templates range from simple connectivity for software-as-a-service (SaaS) apps 
-  to advanced B2B solutions plus "just for fun" templates. Learn how to 
-  [create logic apps from prebuilt templates](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
+Create commonly used solutions more quickly when you choose predefined workflows 
+from the [template gallery](../logic-apps/logic-apps-create-logic-apps-from-templates.md). 
+Templates range from simple connectivity for software-as-a-service (SaaS) apps 
+to advanced B2B solutions plus "just for fun" templates. Learn how to 
+[create logic apps from prebuilt templates](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
-* **Connect disparate systems across different environments**
+### Connect disparate systems across different environments
 
-  Some patterns and workflows are easy to describe but hard to implement in code. 
-  Logic apps help you seamlessly connect disparate systems across on-premises 
-  and cloud environments. For example, you can connect a cloud marketing solution 
-  to an on-premises billing system, or centralize messaging across APIs and 
-  systems with an Enterprise Service Bus. Logic apps provide a fast, reliable, 
-  and consistent way to deliver reusable and reconfigurable solutions for these scenarios.
+Some patterns and workflows are easy to describe but hard to implement in code. 
+Logic apps help you seamlessly connect disparate systems across on-premises 
+and cloud environments. For example, you can connect a cloud marketing solution 
+to an on-premises billing system, or centralize messaging across APIs and 
+systems with an Enterprise Service Bus. Logic apps provide a fast, reliable, 
+and consistent way to deliver reusable and reconfigurable solutions for these scenarios.
 
-* **First-class support for enterprise integration and B2B scenarios**
+### First-class support for enterprise integration and B2B scenarios
 
-  Businesses and organizations electronically communicate 
-  with each other by using industry-standard but different 
-  message protocols and formats, such as EDIFACT, AS2, and X12. 
-  With the features in the [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md), 
-  you can build logic apps that transform message formats used by 
-  your partners into formats that your organization's systems 
-  can interpret and process. Logic apps handles these exchanges 
-  smoothly and also securely with encryption and digital signatures.
+Businesses and organizations electronically communicate 
+with each other by using industry-standard but different 
+message protocols and formats, such as EDIFACT, AS2, and X12. 
+With the features in the [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md), 
+you can build logic apps that transform message formats used by 
+your partners into formats that your organization's systems 
+can interpret and process. Logic apps handles these exchanges 
+smoothly and also securely with encryption and digital signatures.
 
-  Start small with your current systems and services, 
-  and grow incrementally at your own pace. When you're ready, 
-  Logic Apps and the EIP help you implement and scale up to more 
-  mature integration scenarios by providing these capabilities and more:
+Start small with your current systems and services, 
+and grow incrementally at your own pace. When you're ready, 
+Logic Apps and the EIP help you implement and scale up to more 
+mature integration scenarios by providing these capabilities and more:
 
-  * Build off these products and services:
+* Build off these products and services:
 
-    * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
-    * [Azure Functions](../azure-functions/functions-overview.md)
-    * [Azure API Management](../api-management/api-management-key-concepts.md)
-    * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
+  * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
+  * [Azure Functions](../azure-functions/functions-overview.md)
+  * [Azure API Management](../api-management/api-management-key-concepts.md)
+  * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-  * Process [XML messages](../logic-apps/logic-apps-enterprise-integration-xml.md)
-  * Process [flat files](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
-  * Exchange messages with [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), 
-  [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), and 
-  [X12](../logic-apps/logic-apps-enterprise-integration-x12.md) protocols
-  * Store and manage these B2B artifacts and more in one place with 
-  [integration accounts](../logic-apps/logic-apps-enterprise-integration-accounts.md):
+* Process [XML messages](../logic-apps/logic-apps-enterprise-integration-xml.md)
+* Process [flat files](../logic-apps/logic-apps-enterprise-integration-flatfile.md)
+* Exchange messages with [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md), 
+[AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), and 
+[X12](../logic-apps/logic-apps-enterprise-integration-x12.md) protocols
+* Store and manage these B2B artifacts and more in one place with 
+[integration accounts](../logic-apps/logic-apps-enterprise-integration-accounts.md):
 
-    * [Partners](../logic-apps/logic-apps-enterprise-integration-partners.md)
-    * [Agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
-    * [XML transform maps](../logic-apps/logic-apps-enterprise-integration-maps.md)
-    * [XML validation schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md)
+  * [Partners](../logic-apps/logic-apps-enterprise-integration-partners.md)
+  * [Agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md) 
+  * [XML transform maps](../logic-apps/logic-apps-enterprise-integration-maps.md)
+  * [XML validation schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md)
    
-  For example, if you're using Microsoft BizTalk Server, your logic apps 
-  can connect to and communicate with your BizTalk Server by using the 
-  [BizTalk Server connector](../connectors/apis-list.md#on-premises-connectors). 
-  You can then extend or perform BizTalk-like operations in your logic apps by using the 
-  [integration account connectors](../connectors/apis-list.md#integration-account-connectors), 
-  which are available with the Enterprise Integration Pack. 
+For example, if you're using Microsoft BizTalk Server, your logic apps 
+can connect to and communicate with your BizTalk Server by using the 
+[BizTalk Server connector](../connectors/apis-list.md#on-premises-connectors). 
+You can then extend or perform BizTalk-like operations in your logic apps by using the 
+[integration account connectors](../connectors/apis-list.md#integration-account-connectors), 
+which are available with the Enterprise Integration Pack. 
 
-  Going in the other direction, your BizTalk Server can 
-  connect to and communicate with logic apps by using the 
-  [Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). 
-  Learn how to [set up and use the BizTalk Server Adapter](https://docs.microsoft.com/biztalk/core/logic-app-adapter) 
-  in your BizTalk Server.
+Going in the other direction, your BizTalk Server can 
+connect to and communicate with logic apps by using the 
+[Microsoft BizTalk Server Adapter for Logic Apps](https://www.microsoft.com/download/details.aspx?id=54287). 
+Learn how to [set up and use the BizTalk Server Adapter](https://docs.microsoft.com/biztalk/core/logic-app-adapter) 
+in your BizTalk Server.
 
-* **Write once, reuse often**
+### Write once, reuse often
 
-  Create your logic apps as templates so that you can 
-  [deploy and reconfigure your apps](../logic-apps/logic-apps-create-deploy-template.md) 
-  across multiple environments and regions.
+Create your logic apps as templates so that you can 
+[deploy and reconfigure your apps](../logic-apps/logic-apps-create-deploy-template.md) 
+across multiple environments and regions.
 
-* **Built-in extensibility**
+### Built-in extensibility
 
-  If you don't find the connector that you want or need to run custom code, 
-  you can extend logic apps by creating and calling your own code snippets 
-  on-demand through [Azure Functions](../azure-functions/functions-overview.md). 
-  Create your own [APIs](../logic-apps/logic-apps-create-api-app.md) and 
-  [custom connectors](../logic-apps/custom-connector-overview.md) 
-  that you can call from logic apps.
+If you don't find the connector that you want or need to run custom code, 
+you can extend logic apps by creating and calling your own code snippets 
+on-demand through [Azure Functions](../azure-functions/functions-overview.md). 
+Create your own [APIs](../logic-apps/logic-apps-create-api-app.md) and 
+[custom connectors](../logic-apps/custom-connector-overview.md) 
+that you can call from logic apps.
 
-* **Pay only for what you use**
+### Pay only for what you use
   
-  Logic Apps uses consumption-based [pricing and metering](../logic-apps/logic-apps-pricing.md) 
-  unless you have logic apps previously created with App Service plans.
+Logic Apps uses consumption-based [pricing and metering](../logic-apps/logic-apps-pricing.md) 
+unless you have logic apps previously created with App Service plans.
 
 Learn more about Logic Apps with these introductory videos:
+
 * [Integration with Logic Apps - Go from zero to hero](https://channel9.msdn.com/Events/Build/2017/C9R17)
 * [Enterprise integration with Microsoft Azure Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2188)
 * [Building advanced business processes with Logic Apps](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3179)
