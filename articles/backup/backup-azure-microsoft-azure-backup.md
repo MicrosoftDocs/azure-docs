@@ -7,11 +7,11 @@ manager: shivamg
 keywords: azure backup server; protect workloads; back up workloads
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/14/2018
+ms.date: 6/27/2018
 ms.author: adigan
 ---
 
-# Preparing to back up workloads using Azure Backup Server
+# Install and configure Azure Backup Server
 > [!div class="op_single_selector"]
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
