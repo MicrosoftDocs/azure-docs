@@ -21,17 +21,18 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Create your first Machine Learning project'
+    text: 'Set up your resources for Azure Machine Learning.'
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-get-started.md">Get started</a>
+    - html: <a href="quickstart-get-started.md">Get started in the Azure portal </a>
+    - html: <a href="quickstart-get-started-with-cli.md">Get started using the Azure CLI</a>
 
 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to prepare your data, set up an experiment, and operationalize your models'
+    text: 'Learn how to prepare your data, set up an experiment, and operationalize your models.'
   - type: list
     style: ordered
     items:

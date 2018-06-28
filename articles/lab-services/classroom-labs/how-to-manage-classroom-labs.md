@@ -82,8 +82,8 @@ When you publish a template, Azure Lab Services creates VMs in the lab by using 
 2. Now, select the **Publish** button. This process may take some time depending on how many VMs are being created, which is same as the number of users allowed into the lab.
     
     > [!IMPORTANT]
-    > Once a template is publicly available, its access can't be changed to private. 
-4. Switch to the **Virtual machines** page, and confirm that you see five virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. 
+    > Once a template is published, it can't be unpublished. 
+4. Switch to the **Virtual machines** page, and confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. 
 
     ![Virtual machines](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. Wait until the VMs are created. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 

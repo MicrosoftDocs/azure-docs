@@ -1,28 +1,29 @@
 ---
-title: Get Started with Azure Machine Learning Services | Microsoft Docs
+title: Get started with Azure Machine Learning Services | Microsoft Docs
 description: In this Quickstart, you will learn how to create a workspace and a project to get started with Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-ms.author: yahajiza
-author: YasinMSFT
+author: rastala
+ms.author: roastala
 ms.date: 07/27/2018
 ---
 
-# Get Started with Azure Machine Learning Services
+# Quickstart: Get started with Azure Machine Learning Services
 
-In this quickstart, you'll create the necessary Azure resources to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md). 
+In this quickstart, you'll use the Azure portal to get started with [Azure Machine Learning Services](overview-what-is-azure-ml.md).
 
-You will:
+You'll learn how to:
 
 1. Create a workspace, which is the top-level resource for this service. This workspace is used by one or more users to store their compute resources, models, deployments, and run histories.
-2. Attach a project containing your machine learning scripts to your workspace.   A project is a local folder that contains the scripts needed to solve your machine learning problem.  
-3. Run a Python script in your project to show a few metrics and view the output.
+1. Attach a project containing your machine learning scripts to your workspace.   A project is a local folder that contains the scripts needed to solve your machine learning problem.  
+1. Run a Python script in your project to show a few metrics.
+1. View the run history.
 
- > [!NOTE]
-> For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/), [Azure storage](https://azure.microsoft.com/en-us/services/storage/), [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/), and [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
+> [!NOTE]
+> For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/en-us/services/container-registry/), [storage](https://azure.microsoft.com/en-us/services/storage/), [application insights](https://azure.microsoft.com/en-us/services/application-insights/), and [key vault](https://azure.microsoft.com/en-us/services/key-vault/).
 
 The resources you create can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
 
@@ -67,7 +68,9 @@ Select **Create** to begin the creation process.  It can take a few moments to c
 
    To check on the status of the deployment, select the Notifications icon (bell) on the toolbar.
 
-   When finished, a deployment success message appears.  Click on the **Go to resource** button. You will use some of the values at the top of this page later in this quickstart.
+   ![create workspace](./media/quickstart-get-started/notifications.png)
+
+   When finished, a deployment success message appears.  It is also present in the notifications section.   Click on the **Go to resource** button to view the new workspace. You will use some of the values at the top of this page later in this quickstart.
 
 
 ## Install the SDK
@@ -112,7 +115,6 @@ Create a configuration file for the project. Create a file called config.json in
 }
 ```
 
-
 In a Python editor, attach the project to the new workspace.
 
    ```python
@@ -126,7 +128,7 @@ In a Python editor, attach the project to the new workspace.
    helloproj = Project.attach(workspace_object=ws, history_name="myhistory")
    ```
 
-## Run scripts and view output
+## Run a script
 
 Start tracking metrics with this Python code. These metrics are stored in the run history file.
 
@@ -138,23 +140,24 @@ Start tracking metrics with this Python code. These metrics are stored in the ru
    run = Run.start_logging(workspace = ws, history_name = "myhistory")
    run.log("A single value",1.23)
    run.log_list("A list of values",[1,2,3,4,5])
- 
+
    # Save an output artifact, such as model or data file  
    with open("myOutputFile.txt","w") as f:
        f.write("My results")
        run.upload_file(name="results",path_or_stream="myOutputFile.txt")
- 
-   run.complete() 
-   
-   # Get the URL to the run history for the code you just ran. 
-   # This command outputs a web link # to your console. 
-   # Copy-paste the link into your web browser.
 
-   import helpers
-   print(helpers.get_run_history_url(run))
+   run.complete()
    ```
 
-In a web browser, visit the URL. A web portal appears with the results of the run. You can inspect the results of that run or previous runs, if they exist.
+## View history
+
+In the portal, navigate to the **History** section for your workspace.
+
+   ![navigate to history](./media/quickstart-get-started/history.png)
+
+There you will find the run results for the code you just executed.
+
+   ![view history](./media/quickstart-get-started/web-results.png)
 
 ## Clean up resources 
 

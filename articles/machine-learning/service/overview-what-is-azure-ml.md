@@ -23,11 +23,11 @@ Azure Machine Learning is a fully managed service for the end to end development
 
 Rich tools, such as [Jupyter notebooks](http://jupyter.org) or the [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) make it easy to interactively explore data, transform it, and then develop, test, and deploy models.  
 
-Azure Machine Learning lets you start training on your local machine, and then scale out to the cloud.  With native support for [Azure Batch AI](https://azure.microsoft.com/en-us/services/batch-ai/) and advanced hyperparameter tuning services (TODO for a link), you can build better models faster, using the power of the cloud.  When you have the right model, you can easily deploy with full Docker support, meaning it is simple to deploy to [Azure Container Instances](how-to-deploy-to-aci.md), [Azure Kubernetes Service](how-to-deploy-to-aks.md), or use that Docker container in your own deployments, on-premises or in the cloud. 
-
-In addition to Azure Machine Learning, there are a wide variety of options in Azure to build, deploy, and manage machine learning models. [Learn about them here.](./overview-more-machine-learning.md)
+Azure Machine Learning lets you start training on your local machine, and then scale out to the cloud.  With native support for [Azure Batch AI](https://azure.microsoft.com/services/batch-ai/) and advanced hyperparameter tuning services (TODO for a link), you can build better models faster, using the power of the cloud.  When you have the right model, you can easily deploy with full Docker support, meaning it is simple to deploy to [Azure Container Instances](how-to-deploy-to-aci.md), [Azure Kubernetes Service](how-to-deploy-to-aks.md), or use that Docker container in your own deployments, on-premises or in the cloud. 
 
 @@ INSERT ARTWORK HERE
+
+In addition to Azure Machine Learning, there are other options to build, deploy, and manage machine learning models. [Learn about them here.](./overview-more-machine-learning.md)
 
 ## What is Machine Learning?
 
@@ -37,23 +37,18 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 ## Key capabilities
 
-## Solutions that benefit from AML
-
-## Python SDK and Azure CLI
+## How can I use Azure Machine Learning Services?
 
 ## Free trial
-Azure subscribers can [provision a service in the Free tier](search-create-service-portal.md).
-
 If you aren't a subscriber, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits for trying out paid Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Alternatively, you can [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services. 
 
 ## Next steps
 
-1. Create an Azure Machine Learning Workspace using one of our quickstarts:
-   + [Create a workspace and project in Python](quickstart-set-up-in-python.md)
-   + [Create a workspace and project with the CLI](quickstart-set-up-in-cli.md)
-   + [Create a workspace in Azure portal](how-to-create-workspace-in-portal.md)
-    
-2. Step through [the tutorial](tutorial-build-train-deploy-with-azure-machine-learning.md) to learn how to train and deploy models with Azure Machine Learning Services. 
+1. Create a machine learning workspace using one of our "Get started with Azure Machine Learning Services" quickstarts:
+   + [Use Azure Portal to get started](quickstart-get-started.md) 
+   + [Use Azure CLI to get started](quickstart-get-started-with-cli.md)
+
+2. Follow the full-length [tutorial](tutorial-build-train-deploy-with-azure-machine-learning.md) to learn how to train and deploy models with Azure Machine Learning Services. 
 
 @PLACEHOLDER: In this 9-minute video, learn how BLAH BLAH BLAH can benefit your app. You'll learn about key features and what a typical workflow looks like. 
 

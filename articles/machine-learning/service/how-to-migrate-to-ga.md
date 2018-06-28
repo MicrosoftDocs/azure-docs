@@ -26,7 +26,7 @@ At a glance, you can continue to use the following assets:
 
 Resources such as the pre-GA Azure Machine Learning experimentation accounts, Azure Machine Learning model management accounts, and machine learning compute environments do not work with in the generally available version of Azure Machine Learning Services and cannot be migrated. 
 
-You can get started with the GA version by creating an Azure Machine Learning Workspace [in Python](quickstart-set-up-in-python.md), using [the CLI](quickstart-set-up-in-cli.md), or in the [Azure portal](how-to-create-workspace-in-portal.md). This workspace enables you to use all features of the generally available features of Azure Machine Learning Services. Learn more about [the new architecture](concept-azure-machine-learning-architecture.md).
+You can get started with the GA version by creating an Azure Machine Learning Workspace in the [Azure portal](quickstart-get-started.md) or using [the CLI](quickstart-get-started-with-cli.md). This workspace enables you to use all features of the generally available features of Azure Machine Learning Services. Learn more about [the new architecture](concept-azure-machine-learning-architecture.md).
 
 ## Projects
 
@@ -49,7 +49,7 @@ To migrate your projects, attach the local directory containing your scripts to 
 
 Replace the information in \<\>  brackets with the name of your workspace, file path to your local project directory, and the name for run history.
 
-Follow the longer [CLI quickstart](quickstart-set-up-in-cli.md) and [SDK quickstart](quickstart-set-up-in-python.md) to learn how to create a workspace and attach a project.
+Follow the longer [CLI quickstart](quickstart-get-started-with-cli.md) and [SDK quickstart](quickstart-get-started.md) to learn how to create a workspace and attach a project.
 
 
 ## Deployed web services
@@ -90,8 +90,8 @@ TBD ...
 ## Next steps
 
 For a quickstart showing you how to create a project, run a script, and explore the run history of the script with the generally available version of Azure Machine Learning Services, try:
-+ [Create a project with Azure Machine Learning Services SDK for Python](quickstart-set-up-in-python.md)
-+ [Create a project with Azure Machine Learning Services CLI](quickstart-set-up-in-cli.md)
++ [Get started with Azure Machine Learning Services](quickstart-get-started.md)
++ [Get started with Azure Machine Learning using the CLI extension](quickstart-get-started-with-cli.md)
 
 For a more in-depth experience of this workflow, follow the full-length tutorial that contains detailed steps for building, training, and deploying models with Azure Machine Learning Services. 
 
