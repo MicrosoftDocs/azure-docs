@@ -161,13 +161,13 @@ image: <server-name>.azurecr.io/<image-name>:<tag>
 **How do I know which container is internet accessible?**
 
 - Only one container can be open for access
-- Only port 80 and 8080 is accessible
+- Only port 80 and 8080 is accessible (exposed ports)
 
 Here are the rules for determining which container is accessible - in the order of precedence:
 
 - Application setting `WEBSITES_WEB_CONTAINER_NAME` set to the container name
 - The first container to define port 80 or 8080
-- If neither of the above is true, the first container defined in the file will be accessible
+- If neither of the above is true, the first container defined in the file will be accessible (exposed)
 
 ## Pricing and SLA
 
