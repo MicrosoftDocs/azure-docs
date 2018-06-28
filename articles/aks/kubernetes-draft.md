@@ -2,13 +2,13 @@
 title: Use Draft with AKS and Azure Container Registry
 description: Use Draft with AKS and Azure Container Registry
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
