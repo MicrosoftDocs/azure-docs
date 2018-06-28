@@ -1,71 +1,61 @@
 ---
-title: Create a Java Service Fabric application with Visual Studio Code| Microsoft Docs
-description: This article is an overview of creating Java Service Fabric applications using Visual Studio Code. 
+title: Develop Java Service Fabric applications with Visual Studio Code| Microsoft Docs
+description: This article shows how to build, deploy, and debug Java Service Fabric applications using Visual Studio Code. 
 services: service-fabric
 documentationcenter: .net
-author: peterpogorski
+author: JimacoMS
 manager: timlt
 editor: ''
 
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/06/2017
-ms.author: t-pepogo
+ms.date: 06/28/2018
+ms.author: v-jamebr
 
 ---
 
-# Creating Java Service Fabric Applications with VS Code
+# Develop Java Service Fabric applications with Visual Studio Code
 
-The [Service Fabric Reliable Services extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) makes it easy to build Java Service Fabric applications on Windows, Linux, and macOS operating systems.
+The [Service Fabric Reliable Services extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) makes it easy to build Java Service Fabric applications on Windows, Linux, and macOS operating systems.
 
 This article shows you how to build, deploy, and debug a Java Service Fabric application using Visual Studio Code.
 
+> [!IMPORTANT]
+> Service Fabric Java applications can be developed on Windows machines, but can be deployed onto Azure Linux clusters only. Debugging Java applications is not supported on Windows.
+
 ## Prerequisites
-As VS Code is a lightweight editor, a number of dependencies must be first installed before Service Fabric applications can be created using VS Code.
 
-* [Install Visual Studio Code](https://code.visualstudio.com/)
-* [Install Node.js](https://nodejs.org/)
-* [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Install git](https://git-scm.com/)
-* Install Yeoman Generators
-
-   ```sh
-   npm install -g yo
-   npm install -g generator-azuresfjava
-   npm install -g generator-azuresfcsharp
-   ```
-
-### Windows Only
-
-If you are using VS Code on Windows, a bash shell must be installed. Bash on Ubuntu (On Windows) can be installed by following these [instructions](https://msdn.microsoft.com/commandline/wsl/install_guide).
+This article assumes that you have already installed VS Code, the Service Fabric Reliable Services extension for VS Code, and any dependencies required by your development environment. To learm more, see [Getting Started](./service-fabric-with-vs-code-getting-started.md#prerequisites).
 
 ## Download the sample
-In a command window, run the following command to clone the sample app repository to your local machine.
+This article uses the Voting application in the [Service Fabric Java application quickstart sample GitHub repository](https://github.com/Azure-Samples/service-fabric-java-quickstart). 
 
-```
+To clone the repository to your development machine, run the following command from a terminal window (command window on Windows):
+
+```sh
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
-## Open the application in Visual Studio Code
+## Open the application in VS Code
 
-Open the Visual Studio Code application. Click File -> Open Folder and navigate to the directory where the application was cloned on your local machine. The workspace should contain the same files as seen in the screenshot below.
+Open VS Code. Click **File -> Open Folder** and navigate to the *Voting* directory (*./service-fabric-java-quickstart/Voting*). The workspace should contain the same files shown in the screenshot below.
 
 ![Java Voting Application in Workspace][java-voting-application]
 
-## Deploy the Voting application to a local cluster
+## Build and deploy the Voting application to a local cluster
 
-1. Press (Ctrl + Shift + p) in order to open the command prompt in Visual Studio Code.
-2. Search for the Service Fabric: Build Application command. When prompted to select a language, select Java. The output of the build process will be output in the integrated terminal.
+1. Press (Ctrl + Shift + p) to open the **Command Palette** in VS Code.
+2. Search for the **Service Fabric: Build Application** command. When prompted to select a language, select Java. The output of the build process will be output in the integrated terminal.
 
-   ![Build Application Command in Visual Studio Code][build-application]
+   ![Build Application Command in VS Code][build-application]
 
 3. Search for the Service Fabric: Deploy Application (Localhost) command. The output of the install process can be seen in the integrated terminal.
 
-   ![Deploy Application Command in Visual Studio Code][deploy-application]
+   ![Deploy Application Command in VS Code][deploy-application]
 
 4. When the deployment is complete, launch a browser and open this page: `http://localhost:8080` - the web front-end of the application.
 
@@ -73,36 +63,46 @@ Open the Visual Studio Code application. Click File -> Open Folder and navigate 
 
 5. To remove the application from the cluster, search for the Service Fabric: Remove Application command. The output of the uninstall process will be output in the integrated terminal.
 
-## Debug in Visual Studio Code
-When debugging applications in Visual Studio Code, the application must be running on a local cluster. Breakpoints can be added to the code to see what is happening in the code.
+## Debug in VS Code
+When debugging applications in VS Code, the application must be running on a local cluster. Breakpoints can be added to the code to see what is happening in the code.
 
 1. Update the entryPoint.sh file, which is located in Voting/VotingApplication/VotingDataServicePkg/Code.
 Replace the command on line 6 with the following:
 
    ```
-   java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar VotingDataService.jar
+   java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingDataService.jar
    ```
 
-2. Click the debug icon in the workspace to open the debugging view in Visual Studio Code. Select Java from the environment menu.
+2. Update the ApplicationManifest.xml file, which is located in Voting/VotingApplication. Set the **MinReplicaSetSize** and the **TargetReplicaSetSize** to 1 in the **StatefulService** element:
+   
+   ```xml
+         <StatefulService MinReplicaSetSize="1" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="1">
+   ```
 
-   ![Debug Icon in Visual Studio Code Workspace][debug-workspace]
+3. Click the debug icon in the workspace to open the debugging view in VS Code. Select Java from the environment menu.
 
-3. Open the launch.json file that is located in the explorer of Visual Studio Code. In, the configuration named **Debug (Attach)** update the port value to be **8001**.
+   ![Debug Icon in VS Code Workspace][debug-workspace]
+
+3. Open the launch.json file that is located in the explorer of VS Code. In, the configuration named **Debug (Attach)** update the port value to be **8001**.
 
    ![Debug Configuration for the launch.json][debug-config]
 
-4. Deploy the application on a local cluster by using the Service Fabric: Deploy Application (Localhost) command.
+4. Deploy the application on a local cluster by using the **Service Fabric: Deploy Application (Localhost)** command. Your application is now ready to be debugged.
 
-To look at what happens in the code, complete the following steps:
+To set a breakpoint in the code, complete the following steps:
 
-1. Open the **HttpCommunicationListener.java** file that is located in the /Voting/VotingWeb/src/statelessservice and set a breakpoint on  (line 227).
+1. Open the **VotingDataService.java** file, which is located in the /Voting/VotingDataService/src/statefulservice. Set a breakpoint on first line of code in the `try` block in the `addItem` method (line 80).
+   > [!IMPORTANT]
+   > Make sure you set breakpoints on executable lines of code. For example breakpoints set on method declarations, `try` statements, and `catch` statements will be missed by the debugger.
 2. Select the Debug (Attach) configuration from the debug menu and click the run button to begin debugging.
 
    ![Debug (Attach) Configuration][debug-attach]
 
-3. To continue execution of the program, click the run icon on the top toolbar of Visual Studio Code.
+3. In a web browser, go to http://localhost:8080. Type a new item in the text box and click **+ Add**. Your breakpoint should be hit. 
+1. To continue execution of the program, click the run icon on the Debug toolbar at the top of VS Code.
 
-4. To end the debugging session, click the plug icon on the top toolbar of Visual Studio Code.
+4. To end the debugging session, click the plug icon on the Debug toolbar at the top of VS Code.
+5. After you have finished debugging, you can use the **Service Fabric:Remove Application** command to remove the Voting application from your local cluster. 
 
 <!-- Images -->
 [debug-attach]: ./media/service-fabric-vs-code-extension/debug-attach-java.png

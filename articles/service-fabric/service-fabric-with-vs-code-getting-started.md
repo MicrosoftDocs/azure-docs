@@ -24,20 +24,20 @@ The [Service Fabric Reliable Services extension for VS Code](https://marketplace
 
 This article provides an overview of the requirements and setup of the extension as well as the usage of the various commands that are provided by the extension. 
 
-> [!NOTE]
-> Service Fabric Java applications can be developed on Windows machines, but  can be deployed onto Linux Clusters only.
+> [!IMPORTANT]
+> Service Fabric Java applications can be developed on Windows machines, but can be deployed onto Azure Linux clusters only. Debugging Java applications is not supported on Windows.
 
 ## Prerequisites
 
-The following prerequisites must be installed before you can create Service Fabric applications using VS Code.
+The following prerequisites must be installed across environments.
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Install Git](https://git-scm.com/)
-* [Install Service Fabric SDK](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
-* [Install .Net Core on Ubuntu](https://www.microsoft.com/net/learn/get-started/linuxredhat)
-* Yeoman Generators
+* [Git](https://git-scm.com/)
+* [Service Fabric SDK](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* [.NET Core](https://www.microsoft.com/net/learn/get-started) (version 2.0.0 or later)
+* Yeoman Generators -- install the appropriate generators for your application
 
    ```sh
    npm install -g yo
@@ -46,10 +46,19 @@ The following prerequisites must be installed before you can create Service Fabr
    npm install -g generator-azuresfcontainer
    npm install -g generator-azuresfguest
    ```
+The following must be installed on Windows:
 
-### Windows Only
+* [Windows Subsystem for Linux - Ubuntu distribution](https://msdn.microsoft.com/commandline/wsl/install_guide)
 
-If you are using VS Code on Windows, a bash shell must be installed. Bash on Ubuntu (On Windows) can be installed by following these [instructions](https://msdn.microsoft.com/commandline/wsl/install_guide).
+The following must be installed for Java development:
+
+* [Java SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (version 1.8)
+* [Gradle](https://gradle.org/install/)
+* [Debugger for Java VS Code extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Needed to debug Java services. Debugging Java services is supported on Linux only. You can install either through the Extensions panel in VS Code or by clicking on the install link in Marketplace.
+
+The following must be installed for .NET Core/C# development:
+
+* [C# for Visual Studio Code (powered by OmniSharp) VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Needed to debug C# services. You can install either through the Extensions panel in VS Code or by clicking on the install link in Marketplace.
 
 ## Setup
 
@@ -103,6 +112,9 @@ The **Service Fabric: Deploy Application** command deploys your Service Fabric a
 2.  View the local cluster with Service Fabric Explorer (http://localhost:19080/Explorer) to confirm that the application has been installed. This may take some time, so be patient.
 3.  You can also use **Service Fabric: Publish Application** command with no parameters set in the Cloud.json file to deploy to a local cluster.
 
+> [!NOTE]
+> Deploying to the local cluster is not supported for Java applications in a Windows development environment.
+
 ### Service Fabric: Remove Application
 The **Service Fabric: Remove Application** command removes a Service Fabric application from the cluster that it was previously deployed to using the VS Code extension. 
 
@@ -116,52 +128,6 @@ The **Service Fabric: Remove Application** command can build either Java or C# S
     and builds your application accordingly.
 2.  Select the **Service Fabric: Build Application** command.
 3.  The output of the build process is written to the integrated terminal.
-
-## Debugging
-
-Debugging is supported on the local cluster on Linux machines only. 
-
-### Java
-
-#### Prerequisites
-
-* [Install Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
-
-#### Steps
-
-1. Open a Java Service Fabric Project in VS Code.
-2. Click the debug icon in the workspace.
-3. Click the dropdown and select Add Configuration.
-4. When prompted to select environment, select Java. 
-
-6. Update entryPoint.sh for the service you want to debug so that it starts the java process with remote debug parameters. This file can be found at the following location: ApplicationName\ServiceNamePkg\Code\entrypoint.sh. In the following example, port 8001 is set for debugging: 
-
-   ```Java
-   java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar 
-   ```
-
-7.  Enter the **Service Fabric: Deploy Application** command.  
-8.  Place breakpoints to debug. 
-
-### C# 
-
-#### Prerequisites
-
-* [Install C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-
-#### Steps
-
-To debug applications in Visual Studio Code, the application must be running on a local cluster. Breakpoints can be set in the code to see what is happening in the code.
-
-To look at what happens in the code, complete the following steps:
-1. Set a breakpoint in the code file that you want to debug.
-2. Click the debug icon in the workspace to open the debugging view in Visual Studio Code. Select .NET Core Attach from the configuration menu located next to the run button.
-![Debug Icon in Visual Studio Code Workspace][debug-icon]
-3. In Visual Studio Code click the run icon beside the .Net Core Attach debug configuration. In the process selection dialog select the process that corresponds to the service that you want to debug.
-4. The breakpoint in the code file is hit when that line of code is executed.
-5. To continue execution of the program, click the run icon on the top toolbar of Visual Studio Code.
-6. To end the debugging session, click the plug icon on the top toolbar of Visual Studio Code.
-
 
   <!-- Images -->
   [debug-icon]: ./media/service-fabric-vs-code-extension/debug-icon-workspace.png
