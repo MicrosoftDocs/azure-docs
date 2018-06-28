@@ -113,4 +113,4 @@ If you no longer need the solution accelerator, delete it from the [Provisioned 
 This tutorial showed you how to use the **Dashboard** page in the Remote Monitoring solution accelerator to filter and monitor the simulated trucks. To learn how to use the solution accelerator to detect issues with your connected devices, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Detect issues with devices connected to your monitoring solution](iot-accelerators-remote-monitoring-automate.md).
+> [Detect issues with devices connected to your monitoring solution](iot-accelerators-remote-monitoring-automate.md)
