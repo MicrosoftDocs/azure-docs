@@ -36,7 +36,7 @@ wav |  Stereo  |
 
 For stereo audio streams, Batch transcription will split the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The following JSON sample shows the output of a channel.
 
-    ```
+```json
        {
         "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
         "resultsUrls": {
@@ -49,7 +49,7 @@ For stereo audio streams, Batch transcription will split the left and right chan
         "status": "Succeeded",
         "locale": "en-US"
     },
-    ```
+```
 
 > [!NOTE]
 > The Batch transcription API is using a REST service for requesting transcriptions, their status, and associated results. It is based on .NET and does not have any external dependencies. The next section describes how it is used.
@@ -78,7 +78,7 @@ Making use of the API is fairly straight forward. The sample code below needs to
 ```cs
    static async Task TranscribeAsync()
         { 
-            // Creating an Batch transcription API Client
+            // Creating a Batch transcription API Client
             var client = 
                 await CrisClient.CreateApiV1ClientAsync(
                     "<your msa>", // MSA email
@@ -89,7 +89,7 @@ Making use of the API is fairly straight forward. The sample code below needs to
             var newLocation = 
                 await client.PostTranscriptionAsync(
                     "<selected locale i.e. en-us>", // Locale 
-                    "<your subscripition key>", // Subscription Key
+                    "<your subscription key>", // Subscription Key
                     new Uri("<SAS URI to your file>")).ConfigureAwait(false);
 
             var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
@@ -142,7 +142,7 @@ The current sample code does not specify any custom models. The service will use
 If one does not wish to use baseline, one must pass model Ids for both acoustic and language models.
 
 > [!NOTE]
-> For baseline transcription the user does not have to declare the Endpoints of the baseline models. If the user wants to use custom models he would have to provide their endpoints IDs as the [Sample](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). If user wants to use an acoustic baseline with a baseline language model then he would only have to declare the custom model's endpoint ID. Internally our system will figure out the partner baseline model (be it acoustic or language) and use that to fullfill the transcription request.
+> For baseline transcription the user does not have to declare the Endpoints of the baseline models. If the user wants to use custom models he would have to provide their endpoints IDs as the [Sample](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). If user wants to use an acoustic baseline with a baseline language model then he would only have to declare the custom model's endpoint ID. Internally our system will figure out the partner baseline model (be it acoustic or language) and use that to fulfill the transcription request.
 
 ### Supported storage
 

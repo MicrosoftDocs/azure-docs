@@ -19,7 +19,7 @@ robots: noindex
 ---
 # Data Management Gateway - high availability and scalability (Preview)
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [self-hosted integration runtime in version 2](../create-self-hosted-integration-runtime.md). 
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [self-hosted integration runtime in](../create-self-hosted-integration-runtime.md). 
 
 
 This article helps you configure high availability and scalability solution with Data Management Gateway/ Integration.    
