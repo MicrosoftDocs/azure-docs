@@ -1,21 +1,19 @@
 ﻿---
-title: Use PowerShell to get started with Azure Data Lake Store | Microsoft Docs
+title: Use PowerShell to get started with Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Use Azure PowerShell to create a Data Lake Store account and perform basic operations
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
 
-ms.assetid: bf85f369-f9aa-4ca1-9ae7-e03a78eb7290
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
 
 ---
-# Get started with Azure Data Lake Store using Azure PowerShell
+# Get started with Azure Data Lake Storage Gen1 using Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -23,7 +21,9 @@ ms.author: nitinme
 >
 >
 
-Learn how to use Azure PowerShell to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
+Learn how to use Azure PowerShell to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Storage Gen1](data-lake-store-overview.md).
 
 ## Prerequisites
 

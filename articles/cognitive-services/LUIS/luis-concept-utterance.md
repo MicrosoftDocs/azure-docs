@@ -47,6 +47,9 @@ LUIS builds effective models with utterances that are selected carefully. Adding
 
 It is better to start with a few utterances, then [review endpoint utterances](label-suggested-utterances.md) for correct intent prediction and entity extraction.
 
+## Ignoring words and punctuation
+If you want to ignore specific words or punctuation in the example utterance, use a [pattern](luis-concept-patterns.md#pattern-syntax) with the _ignore_ syntax. 
+
 ## Training utterances
 Training is non-deterministic: the utterance prediction could vary slightly across versions or apps.
 

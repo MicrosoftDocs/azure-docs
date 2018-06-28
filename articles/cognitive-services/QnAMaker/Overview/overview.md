@@ -15,11 +15,9 @@ ms.author: nolachar
 
 # What is QnA Maker?
 
-[QnA Maker](https://qnamaker.ai) enables you to power a question and answer service from your semi-structured content like FAQ (Frequently Asked Questions) documents or URLs and product manuals.
+[QnA Maker](https://qnamaker.ai) enables you to power a question and answer service from your semi-structured content like FAQ (Frequently Asked Questions) documents or URLs and product manuals. You can build a model of questions and answers that is flexible to user queries, providing responses that you'll train a bot to use in a natural, conversational way.
 
-One of the basic requirements in writing your own Bot service is to seed it with questions and answers. In many cases, the questions and answers already exist in your content. With QnA Maker, users can query your application in a natural, conversational manner. QnA Maker uses machine learning to extract relevant question-answer pairs from your content. It also uses powerful matching and ranking algorithms to provide the best possible match between the user query and the questions.
-
-The easy-to-use graphical user interface enables you to create, manage, train and use your service without any developer experience.
+An easy-to-use graphical user interface enables you to create, manage, train and get your service up and running without any developer experience.
 
 ![Overview](../media/qnamaker-overview-learnabout/overview.png)
 

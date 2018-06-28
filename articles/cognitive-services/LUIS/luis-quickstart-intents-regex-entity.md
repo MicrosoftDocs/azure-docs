@@ -13,7 +13,7 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
 
-# Tutorial: Use regular expression entity
+# Tutorial: 3. Add regular expression entity
 In this tutorial, you create an app that demonstrates how to extract consistently formatted data from an utterance using the **Regular Expression** entity.
 
 
@@ -25,10 +25,10 @@ In this tutorial, you create an app that demonstrates how to extract consistentl
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
 ## Before you begin
-If you do not have the Human Resources app from the prebuilt entities [custom domain](luis-tutorial-prebuilt-intents-entities.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS][LUIS] website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github repository.
+If you do not have the Human Resources app from the [prebuilt entities](luis-tutorial-prebuilt-intents-entities.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `regex`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
@@ -239,8 +239,5 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about the KeyPhrase entity](luis-quickstart-intent-and-key-phrase.md)
+> [Learn about the list entity](luis-quickstart-intent-and-list-entity.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

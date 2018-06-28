@@ -6,7 +6,7 @@ Before writing CDN management code, you must do some preparation to enable the c
 * Apply permissions to the resource group so that only authorized users from your Azure AD tenant can interact with the CDN profile
 
 ### Creating the resource group
-1. Log into the [Azure Portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 2. Click **Create a resource**.
 3. Search for **Resource group** and in the Resource group pane, click **Create**.
 

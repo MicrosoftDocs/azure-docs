@@ -1,5 +1,5 @@
 ---
-title: Deploy an Azure IoT Central application | Microsoft Docs
+title: Create an Azure IoT Central application | Microsoft Docs
 description: Create a new Azure IoT Central application to manage refigerated vending devices. View the telemetry data generated from your simulated devices.
 author: tbhagwat3
 ms.author: tanmayb

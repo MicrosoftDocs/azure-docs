@@ -33,7 +33,7 @@ Next, you register your app with Apple, enable push notifications, and upload th
 ## Register your app for push notifications
 To be able to send push notifications to an iOS app, you must register your application with Apple and also register for push notifications.  
 
-1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to register a new app.
+1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a> at the Apple Developer Center, sign in with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to register a new app.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
       

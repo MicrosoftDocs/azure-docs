@@ -27,7 +27,7 @@ To learn about the components that enable IoT Edge, see [How Azure IoT Edge work
 If you haven't used Azure IoT Hub before, you might want to start with an [Overview of the Azure IoT Hub service][lnk-iot-hub].
 
 [lnk-deployment]: module-deployment-monitoring.md
-[lnk-overview]: how-iot-edge-works.md
+[lnk-overview]: about-iot-edge.md
 [lnk-iot-hub]: ../iot-hub/iot-hub-what-is-iot-hub.md
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
