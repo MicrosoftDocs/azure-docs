@@ -52,7 +52,7 @@ You call GenerateAnswer with an HTTP POST request. For sample code that shows ho
     - **QnAMaker endpoint** (string): The hostname of the endpoint deployed in your Azure subscription.
 - **Request headers**
     - **Content-Type** (string): The media type of the body sent to the API.
-    - **Authorization** (string): Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)
+    - **Authorization** (string): Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Request body**
     - **question** (string): A user question to be queried against your knowledge base.
     - **top** (optional, integer): The number of ranked results to include in the output. The default value is 1.
