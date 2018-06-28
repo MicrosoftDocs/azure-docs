@@ -200,10 +200,6 @@ After you complete the previous sections, you can set up monitoring.
 ## <a name="configmonitor"></a>Step 5: Configure monitors
 
 Follow the steps for the type of peering that you want to monitor, Microsoft peering or private peering.
-
->[!NOTE]
->After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available.
->
         
 ### Microsoft peering
 
@@ -214,19 +210,21 @@ For Microsoft peering, click the Microsoft peering connection(s) that you want t
   
    You can also choose to enter a custom URL/IP by clicking on the link **Use custom URL or IP Address**. This option is particularly relevant if you are using Microsoft peering to establish a connection to Azure PaaS services, such as Azure Storage, SQL databases, and Websites that are offered on public IP addresses. To do this, click **Use custom URL or IP Address**, and enter the public endpoint of your Azure PaaS service that is connected through the ExpressRoute Microsoft peering.
 
-    >[!NOTE]
-    >Make sure that only the Microsoft service endpoint is selected here. The endpoint must be connected to ExpressRoute and reachable by the on-premises agents.
-    >
+   Make sure that only the Microsoft service endpoint is selected here. The endpoint must be connected to ExpressRoute and reachable by the on-premises agents.
 3. Select the checkbox **Enable Health Monitoring for this peering**.
 4. Choose the monitoring conditions. You can set custom thresholds to generate health events by typing threshold values. Whenever the value of the condition goes above its selected threshold for the selected network/subnetwork pair, a health event is generated.
 5. Click the **Add Agents** button to add the on-premises servers from which you want to monitor the Microsoft peering connection.
 
-    >[!NOTE]
-    >Make sure that you choose only those agents which have connectivity to the Microsoft service endpoint that was specified in the previous steps. The on-premises agents must be able to reach the endpoint using the ExpressRoute connection.
+    Make sure that you choose only those agents which have connectivity to the Microsoft service endpoint that was specified in the previous steps. The on-premises agents must be able to reach the endpoint using the ExpressRoute connection.
+6. After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available.
 
 ### Private peering
 
-When the discovery completes, you see rules for unique Circuit name and VNet name. Initially, these rules are disabled. Enable the rules, then select the monitoring agents and threshold values.
+When the discovery completes, you see rules for unique Circuit name and VNet name. Initially, these rules are disabled. 
+
+1. Enable the rules.
+2. Select the monitoring agents and threshold values.
+3. After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available.
 
 ## <a name="explore"></a>Step 6: View monitoring tiles
 
