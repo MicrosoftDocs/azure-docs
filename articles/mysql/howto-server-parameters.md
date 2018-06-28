@@ -27,11 +27,11 @@ Azure Database for MySQL supports configuration of some server parameters. This 
 5. If you have saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
 ![Reset all to default](./media/howto-server-parameters/5-reset_parameters.png)
 
-## Populating the time zone table
+## Populating the time zone tables
 
 By default, the time zone on all Azure Database for MySQL servers is set to "SYSTEM", which maps to the UTC time zone.
 
-The time zone table on your server can be populated using the `az_load_timezone` stored procedure.
+The time zone tables on your server can be populated using the `az_load_timezone` stored procedure.
 
 ```sql
 CALL mysql.az_load_timezone();
@@ -48,6 +48,8 @@ Use the `SET time_zone` command to set the server's time zone parameter. The exa
 ```sql
 SET time_zone = 'Europe/Helsinki';
 ```
+
+Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
 
 ## List of configurable server parameters
 
