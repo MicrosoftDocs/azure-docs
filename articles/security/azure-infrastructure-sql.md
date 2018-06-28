@@ -21,6 +21,8 @@ ms.author: terrylan
 # Microsoft Azure SQL Database security features    
 Microsoft Azure SQL Database provides a relational database service in Azure. To protect customer data and provide strong security features that customers expect from a relational database service, SQL Database has its own sets of security capabilities. These capabilities build upon the controls that are inherited from Azure.
 
+## Security capabilities
+
 ### Usage of Tabular Data Stream (TDS) protocol
 Microsoft Azure SQL Database only supports the TDS protocol, which requires the database to be accessible only over the default port of TCP/1433.
 
