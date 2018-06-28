@@ -60,7 +60,7 @@ In the **Name** box, type **ServiceFabricApp** and in the **Location** box, set 
 
 Make sure that **Create directory for solution** is checked, and click **OK** to create the Service Fabric Mesh project. Next you'll see the **New Service Fabric Service** dialog.
 
-![Visual studio new Service Fabric Mesh project dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
+![Visual studio new Service Fabric Mesh project dialog](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
 
 ### Create the web front-end service
 
@@ -68,11 +68,11 @@ In the **New Service Fabric Service** dialog, select the **ASP.NET Core** projec
 
 Set the **Service Name** to **WebFrontEnd**. Press **OK** to create the ASP.NET Core service. Next you'll see the **New ASP.NET Core Web Application** dialog.
 
-![Visual studio new Service Fabric Mesh project dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-service-fabric-service.png)
+![Visual studio new Service Fabric Mesh project dialog](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-service-fabric-service.png)
 
 In the **New ASP.NET Core Web Application** dialog, select **Web Application** and then click **OK**.
 
-![Visual studio new ASP.NET core application](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
+![Visual studio new ASP.NET core application](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
 Now you have a Service Fabric Application. Next, create the model for to-do information.
 
@@ -180,7 +180,7 @@ The **New Service Fabric Service** dialog appears. Select the **ASP.NET Core** p
 
 Set the **Service Name** to **ToDoService**. Click **OK** to create the ASP.NET Core service. Next, the **New ASP.NET Core Web Application** dialog will appear. In that dialog select **API** and then **OK**, and a project for the service is added to the solution.
 
-![Visual studio new ASP.NET core application](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-webapi.png)
+![Visual studio new ASP.NET core application](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-webapi.png)
 
 Because the back-end service doesn't provide any UI, turn off launching the browser when the service is launched. In the **Solution Explorer**, right-click **ToDoService**, and select **Properties**. In the properties window that appears, select the **Debug** tab on the left, and uncheck **Launch browser**. Press Ctrl+S to save the change.
 
@@ -344,7 +344,7 @@ private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.G
 
 The URL is composed of the application name, the service name, and the port. All of this information is found in the service.yaml file found in the **ToDoService** project. Navigate in **Solution Explorer** to the **ToDoService** project and open **Service Resources** > **service.yaml**.
 
-![Figure 1 - The ToDoService service.yaml file](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
+![Figure 1 - The ToDoService service.yaml file](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
 * The app name (`ServiceFabricMeshApp`) is found under `application:` after `name:` See (1) in the figure above.
 * The service name (`ToDoService`) is found under `services:` after `name:` See (2) in the figure above.
@@ -365,7 +365,7 @@ In the service.yaml file, add the following variables under `environmentVariable
 
 It should look something like this (although your `ApiHostPort` value will probably be different):
 
-![Service.yaml in the WebFrontEnd project](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-envvars.png)
+![Service.yaml in the WebFrontEnd project](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-envvars.png)
 
 Now you are ready to build and deploy the image the Service Fabric app, along with the back-end web service, to your local cluster.
 
