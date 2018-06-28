@@ -19,7 +19,7 @@ ms.author: cherylmc
 ---
 # Configure Network Performance Monitor for ExpressRoute
 
-Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Log Analytics. NPM now offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use private peering or Microsoft peering. This service is also available for Azure Gov. Cloud. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate.
+Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Log Analytics. NPM now offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use private peering or Microsoft peering. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate. This service is also available for Azure Government Cloud.
 
 You can:
 
@@ -65,7 +65,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
   * OMS Workspace - Type a name for your Workspace.
   * Subscription - If you have multiple subscriptions, choose the one you want to associate with the new Workspace.
   * Resource group - Create a resource group, or use an existing one.
-  * Location - You must select a supported region. This location is used to specify where the storage account that is used for the agent connection logs is located. Any ExpressRoute circuit in the world can be monitored using NPM.
+  * Location - This location is used to specify where the storage account that is used for the agent connection logs is located. Any ExpressRoute circuit in the world can be monitored using NPM.
   * Pricing tier - Select the pricing tier.
   
     >[!NOTE]
@@ -178,7 +178,7 @@ For more information about NSG, see [Network Security Groups](../virtual-network
 >
 >
 
-## <a name="setupmonitor"></a>Step 4: Configure NPM for ExpressRoute monitoring
+## <a name="setupmonitor"></a>Step 4: Configure NPM
 
 After you complete the previous sections, you can set up monitoring.
 
@@ -199,7 +199,11 @@ After you complete the previous sections, you can set up monitoring.
 
 ## <a name="configmonitor"></a>Step 5: Configure monitors
 
-Follow the steps for the type of peering that you want to monitor, Microsoft peering or private peering. After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available. Once you see the monitoring tiles, your ExpressRoute circuits and connection resources are being monitored by NPM.
+Follow the steps for the type of peering that you want to monitor, Microsoft peering or private peering.
+
+>[!NOTE]
+>After enabling the rules and selecting the values and agents you want to monitor, there is a wait of approximately 30-60 minutes for the values to begin populating and the **ExpressRoute Monitoring** tiles to become available.
+>
         
 ### Microsoft peering
 
