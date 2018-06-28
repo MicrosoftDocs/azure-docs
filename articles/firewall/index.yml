@@ -6,7 +6,6 @@ metadata:
   meta.description: Learn how to create Azure Firewalls. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.
   services: firewall
   author: vhorne
-  manager: jeconnocfte
   ms.service: firewall
   ms.topic: landing-page
   ms.date: 7/11/2018
