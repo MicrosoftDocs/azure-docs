@@ -1,3 +1,15 @@
+---
+title: include file
+description: include file
+services: site-recovery
+author: rayne-wiselman
+manager: carmonm
+ms.service: site-recovery
+ms.topic: include
+ms.date: 06/28/2018
+ms.author: raynew
+
+---
 | Name | Commercial URL | Government URL | Description |
 |---|---|---|---|
 | AAD | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Used for access control and identity management using AAD |
