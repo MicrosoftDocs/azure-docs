@@ -64,7 +64,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 This code snippet creates a dependent task with task ID "Flowers". The "Flowers" task depends on tasks "Rain" and "Sun". Task "Flowers" will be scheduled to run on a compute node only after tasks "Rain" and "Sun" have completed successfully.
 
 > [!NOTE]
-> A task is considered to be completed successfully when it is in the **completed** state and its **exit code** is `0`. In Batch .NET, this means a [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] property value is `0`.
+> By default, a task is considered to be completed successfully when it is in the **completed** state and its **exit code** is `0`. In Batch .NET, this means a [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] property value is `0`. For how to change this, see the [Dependency actions](#dependency-actions) section.
 > 
 > 
 
@@ -117,7 +117,7 @@ In a dependency on a range of parent tasks, a task depends on the the completion
 To create the dependency, provide the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> When you use task ID ranges for your dependencies, the task IDs in the range *must* be string representations of integer values.
+> When you use task ID ranges for your dependencies, the task IDs in the range *must* be string representations of integer values. Leading zeroes are not signficant, so tasks `4`, `04` and `004` will be *within* the range 1..10.
 > 
 > Every task in the range must satisfy the dependency, either by completing successfully or by completing with a failure that’s mapped to a dependency action set to **Satisfy**. See the [Dependency actions](#dependency-actions) section for details.
 >
