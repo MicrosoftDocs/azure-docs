@@ -19,7 +19,7 @@ ms.custom: it-pro
 ---
 # View all members of an administrator role in Azure Active Directory
 
-In addition to assigning roles user by user, you can see and manage all the members of the administrator roles in the Azure Active Directory portal. If you ever wondered “What the heck do these roles do?”, you can see a detailed list of permissions for each of the Azure AD administrator roles. If you frequently manage role assignments, you will probably prefer this experience.
+You can now see and manage all the members of the administrator roles in the Azure Active Directory portal. If you frequently manage role assignments, you will probably prefer this experience. And if you ever wondered “What the heck do these roles really do?”, you can see a detailed list of permissions for each of the Azure AD administrator roles.
 
 It's easy to see your own permissions as well. Click **Your role** get quick access to your user page for a list of all your active assigned roles. Click the ellipsis on the right of each row to open the detailed description of the role. When you select select **Manage in PIM** (Privileged Identity Management), Privileged Role Administrators can add or remove members, or change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have PIM, you can still select **Manage in PIM** to sign up for a trial.
 
