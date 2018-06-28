@@ -29,8 +29,8 @@ sections:
       text: C&#35;
       href: Quickstarts/create-new-kb-csharp
     - image:
-        src: media/index/logo_gopher.svg
-      text: media/index/logo_gopher.svg
+        src: media/index/Go-Logo_Blue.png
+      text: Go
       href: Quickstarts/create-new-kb-go
     - image: 
         src: media/index/logo_java.svg
@@ -53,5 +53,4 @@ sections:
     items:
     - title: API
       html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff">QnA Maker API</a></p>
-    - title: FAQ
-      href: FAQs.md
+
