@@ -13735,6 +13735,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-hub/iot-hub-security-ground-up.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-operations.md",
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-operations",
             "redirect_document_id": false
