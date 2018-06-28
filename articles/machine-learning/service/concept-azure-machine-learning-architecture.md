@@ -40,9 +40,6 @@ vs.
 
 An **Azure Machine Learning Workspace** is the top-level resource that can be used by one or more users to store their compute resources, models, deployments, and run histories. The run history file stores each run in your project so you can monitor your model during training.  For your convenience, the following resources are added automatically to your workspace when regionally available: [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/), [Azure storage](https://azure.microsoft.com/en-us/services/storage/), [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/), and [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
 
-   
-
-
 ## Project
 A project is simply a local folder on user's computer that contains arbitrary files. It is attached to a run history under a Workspace through a configuration file `project.json` under the `aml_config` folder. When submitted for execution, the entire project folder (with some exceptions) is copied into the compute target, and the entry script is executed in a designated Python environment configured through Run Configuration.
 

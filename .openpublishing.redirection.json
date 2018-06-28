@@ -9001,7 +9001,7 @@
         },
         {
             "source_path": "articles/machine-learning/preview/quick-start-installation.md",
-            "redirect_url": "/azure/machine-learning/preview/quickstart-installation",
+            "redirect_url": "/azure/machine-learning/service/quickstart-installation",
             "redirect_document_id": false
         },
         {
@@ -22632,11 +22632,6 @@
         {
             "source_path": "articles/machine-learning/desktop-workbench/overview-what-is-azure-ml.md",
             "redirect_url": "/azure/machine-learning/service/overview-what-is-azure-ml",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/desktop-workbench/quickstart-installation.md",
-            "redirect_url": "/azure/machine-learning/service/quickstart-installation",
             "redirect_document_id": false
         },
         {
