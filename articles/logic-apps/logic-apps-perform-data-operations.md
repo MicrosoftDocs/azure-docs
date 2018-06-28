@@ -97,13 +97,13 @@ and an integer variable that stores people's ages. Here, the **Compose**
 action accepts this input:
 
 ```
-"{ "age": <ageVar>, "fullName": "<lastNameVar>, <firstNameVar>" }"
+{ "age": <ageVar>, "fullName": "<lastNameVar>, <firstNameVar>" }
 ```
 
 and creates this output:
 
 ```
-"{ "fullName": "Owens, Sophie", "age": 35 }"
+{ "age":35, "fullName": "Owens, Sophie" }
 ```
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
