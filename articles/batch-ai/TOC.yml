@@ -7,6 +7,8 @@
 - name: Get started
   expanded: true
   items:
+  - name: Create cluster - CLI
+    href: quickstart-create-cluster-cli.md
   - name: Run training job - CLI
     href: quickstart-cli.md
   - name: Run training job - Python
