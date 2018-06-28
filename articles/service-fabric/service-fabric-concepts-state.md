@@ -1,5 +1,5 @@
 ---
-title: Definine and manage state in Azure microservices| Microsoft Docs
+title: Manage state in Azure Service Fabric microservices| Microsoft Docs
 description: How to define and manage service state in Service Fabric
 services: service-fabric
 documentationcenter: .net

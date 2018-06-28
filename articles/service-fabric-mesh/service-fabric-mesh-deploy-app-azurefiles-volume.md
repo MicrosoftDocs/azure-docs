@@ -62,7 +62,7 @@ Create a resource group (RG) to deploy this example or you can use an existing r
 az group create --name <resourceGroupName> --location eastus
 ```
 
-## Deploy the ARM template
+## Deploy the template
 Create the application and related resources using one of the following commands.
 
 For Linux:
