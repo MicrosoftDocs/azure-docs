@@ -1,5 +1,5 @@
 ---
-title: Access Azure Data Lake Storage Gen2 data with DataBricks using Spark | Microsoft Docs
+title: Access Azure Data Lake Storage Gen2 Preview data with DataBricks using Spark | Microsoft Docs
 description: Learn to run Spark queries on a DataBricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 services: hdinsight,storage
 tags: azure-portal
@@ -14,9 +14,9 @@ ms.date: 6/27/2018
 ms.author: dineshm
 ---
 
-# Tutorial: Access Azure Data Lake Storage Gen2 data with DataBricks using Spark
+# Tutorial: Access Azure Data Lake Storage Gen2 Preview data with DataBricks using Spark
 
-In this tutorial, you learn how to run Spark queries on a DataBricks cluster to query data in Azure Data Lake Storage Gen2 account.
+In this tutorial, you learn how to run Spark queries on a DataBricks cluster to query data in Azure Data Lake Storage Gen2 Preview capable account.
 
 > [!div class="checklist"]
 > * Create a DataBricks cluster
@@ -45,7 +45,7 @@ Both the account name and key are required for later steps in this tutorial. Ope
 
 ## Create a DataBricks cluster
 
-The next step is to create a [DataBricks cluster](https://docs.databricks.com/) to create a data workspace.
+The next step is to create a [DataBricks cluster](https://docs.azuredatabricks.net/) to create a data workspace.
 
 1. Create a [DataBricks service](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service).
 2. Click **Launch Workspace** to open the workspace in a new browser window.
@@ -55,7 +55,7 @@ The next step is to create a [DataBricks cluster](https://docs.databricks.com/) 
 6. Select **Standard_D8s_v3** in the *Worker Type* field.
 7. Change the **Min Workers** value to *4*.
 8. Click **Create Cluster** at the top of the page (this process may take up to 5 minutes to complete).
-9. When the process completes, select **Azure DataBricks** on the top left of the nav bar.
+9. When the process completes, select **Azure Databricks** on the top left of the nav bar.
 10. Select **Notebook** under the **New** section on the bottom half of the page.
 11. Enter a name of your choice in the **Name** field.
 12. All other fields can be left as default values.
@@ -85,7 +85,7 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 Re-open DataBricks in your browser and execute the following steps:
 
-1. Select **Azure DataBricks** on the top left of the nav bar.
+1. Select **Azure Databricks** on the top left of the nav bar.
 2. Select **Notebook** under the **New** section on the bottom half of the page.
 3. Enter **CSV2Parquet** in the **Name** field.
 4. All other fields can be left as default values.

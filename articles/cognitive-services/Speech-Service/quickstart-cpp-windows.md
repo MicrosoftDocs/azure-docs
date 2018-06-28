@@ -18,7 +18,7 @@ ms.author: wolfma
 The current version of the Cognitive Services Speech SDK is `0.4.0`.
 
 We describe how to create a C++-based console application for Windows Desktop that makes use of the Speech SDK.
-The application is based on the [Microsoft Cognitive Services SDK NuGet Package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and Microsoft VisualStudio 2017.
+The application is based on the [Microsoft Cognitive Services SDK NuGet Package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and Microsoft Visual Studio 2017.
 
 > [!NOTE]
 > If you're looking for a quickstart for C++ and Linux, go [here](quickstart-cpp-linux.md).<br>

@@ -499,39 +499,9 @@ However, Update Management might still report that machine as being non-complian
 
 Deploying updates by update classification does not work on CentOS out of the box. For SUSE, selecting *only* 'Other updates' as the classification may result in some security updates also being installed if security updates related to zypper (package manager) or its dependencies are required first. This is a limitation of zypper. In some cases, you may be required to re-run the update deployment, to verify check the update log.
 
-## Troubleshooting
+## Troubleshoot
 
-This section provides information to help you troubleshoot issues with the Update Management solution.
-
-### Windows
-
-If you encounter issues when you  attempt to onboard the solution or a virtual machine, check the **Application and Services Logs\Operations Manager** event log on the local machine for events that have Event ID 4502 and event messages that contain **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. The following table highlights specific error messages and a possible resolution for each:
-
-| Message | Reason | Solution |
-|----------|----------|----------|
-| Unable to Register Machine for Patch Management,<br/>Registration Failed with Exception<br/>System.InvalidOperationException: {"Message":"Machine is already<br/>registered to a different account. "} | Machine is already onboarded to another workspace for Update Management. | Perform cleanup of old artifacts by [deleting the Hybrid Runbook group](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group).|
-| Unable to Register Machine for Patch Management, Registration Failed with Exception<br/>System.Net.Http.HttpRequestException: An error occurred while sending the request. ---><br/>System.Net.WebException: The underlying connection<br/>was closed: An unexpected error<br/>occurred on a receive. ---> System.ComponentModel.Win32Exception:<br/>The client and server cannot communicate,<br/>because they do not possess a common algorithm | Proxy/gateway/firewall is blocking communication. | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning).|
-| Unable to Register Machine for Patch Management,<br/>Registration Failed with Exception<br/>Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value. | Proxy/gateway/firewall is blocking communication. | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning).|
-| The certificate presented by the service \<wsid\>.oms.opinsights.azure.com<br/>was not issued by a certificate authority<br/>used for Microsoft services. Contact<br/>your network administrator to see if they are running a proxy that intercepts<br/>TLS/SSL communication. |Proxy/gateway/firewall is blocking communication. | [Review network requirements](automation-hybrid-runbook-worker.md#network-planning).|
-| Unable to Register Machine for Patch Management,<br/>Registration Failed with Exception<br/>AgentService.HybridRegistration.<br/>PowerShell.Certificates.CertificateCreationException:<br/>Failed to create a self-signed certificate. ---><br/>System.UnauthorizedAccessException: Access is denied. | Self-signed cert generation failure. | Verify system account has<br/>read access to folder:<br/>**C:\ProgramData\Microsoft\**<br/>**Crypto\RSA**|
-
-### Linux
-
-If update runs fail to start on a Linux machine, make a copy of the following log file and preserve it for troubleshooting purposes:
-
-```
-/var/opt/microsoft/omsagent/run/automationworker/worker.log
-```
-
-If failures occur during an update run after it starts successfully on Linux, check the job output from the affected machine in the run. You may find specific error messages from your machine's package manager that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
-
-In some cases, package updates can interfere with Update Management preventing an update deployment from completing. If you see that, you'll have to either exclude these packages from future update runs or install them manually yourself.
-
-If you cannot resolve a patching issue, make a copy of the following log file and preserve it **before** the next update deployment starts for troubleshooting purposes:
-
-```
-/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
-```
+To learn how to troubleshoot your Update Management, see [Troubleshooting Update Management](troubleshoot/update-management.md)
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: In this quickstart, learn how to deploy prebuilt code remotely to a
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/20/2018
+ms.date: 06/27/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -94,7 +94,7 @@ The IoT Edge runtime is deployed on all IoT Edge devices. It has three component
 
 The packages that you need to run the IoT Edge runtime are managed in a software repository. Configure your IoT Edge device to access this repository. 
 
-The steps in this section are for devices running Ubuntu 16.04. For other versions of Linux, see [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
+The steps in this section are for devices running **Ubuntu 16.04**. To access the software repository on other versions of Linux, see [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) or [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 1. On the machine that you're using as an IoT Edge device, install the repository configuration.
 
@@ -114,8 +114,15 @@ The steps in this section are for devices running Ubuntu 16.04. For other versio
 
 The IoT Edge runtime is a set of containers, and the logic that you deploy to your IoT Edge device is packaged as containers. Prepare your device for these components by installing a container runtime.
 
+Update **apt-get**.
+
    ```bash
    sudo apt-get update
+   ```
+
+Install Moby, a container runtime, and its CLI commands. 
+
+   ```bash
    sudo apt-get install moby-engine
    sudo apt-get install moby-cli   
    ```
@@ -189,8 +196,9 @@ Open the command prompt on the computer running your simulated device again. Con
 View the messages being sent from the tempSensor module:
 
    ```bash
-   iotedge logs tempSensor -f 
+   sudo iotedge logs tempSensor -f 
    ```
+After a logoff and login, *sudo* is not required for the above command.
 
 ![View the data from your module](./media/quickstart-linux/iotedge-logs.png)
 

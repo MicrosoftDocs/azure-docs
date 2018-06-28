@@ -19,10 +19,10 @@ Otherwise, you can delete the local configurations and the Azure resources creat
 > Deleting Azure resources and resource group is irreversible. Once deleted, the resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
 >
 
-To delete only the IoT Hub execute the following command using your hub name and resource group name:
+To delete only the IoT Hub execute the following command after replacing `<YourIoTHub>` with your hub name, and `<TestResources>` with your resource group name:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name <YourIoTHub> --resource-group <TestResources>
 ```
 
 

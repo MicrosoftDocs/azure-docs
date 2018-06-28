@@ -14,7 +14,7 @@ ms.author: v-geberr
 
 --- 
 
-# Tutorial: Create app that uses hierarchical entity
+# Tutorial: 5. Add hierarchical entity
 In this tutorial, create an app that demonstrates how to find related pieces of data based on context. 
 
 <!-- green checkmark -->

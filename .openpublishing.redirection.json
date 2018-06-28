@@ -2650,6 +2650,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-troubleshooting-automation-errors.md",
+            "redirect_url": "/azure/automation/troubleshoot/runbooks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-onboard-troubleshoot.md",
+            "redirect_url": "/azure/automation/troubleshoot/onboarding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-troubleshooting-hybrid-runbook-worker.md",
+            "redirect_url": "/azure/automation/troubleshoot/hybrid-runbook-worker",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-alert-activity-log.md",
             "redirect_url": "/azure/automation/automation-alert-metric",
             "redirect_document_id": false
@@ -24201,7 +24216,12 @@
         },
         {
             "source_path": "articles/active-directory/cloudappdiscovery-get-started.md",
-            "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery",
+            "redirect_url": "/cloud-app-security/set-up-cloud-discovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/cloud-app-discovery.md",
+            "redirect_url": "/cloud-app-security/set-up-cloud-discovery",
             "redirect_document_id": false
         },
         {
@@ -24211,7 +24231,12 @@
         },
         {
             "source_path": "articles/active-directory/cloudappdiscovery-set-up-snapshots.md",
-            "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery-create-snapshot-reports",
+            "redirect_url": "/cloud-app-security/set-up-cloud-discovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/cloud-app-discovery-create-snapshot-reports.md",
+            "redirect_url": "/cloud-app-security/set-up-cloud-discovery",
             "redirect_document_id": false
         },
         {
@@ -25558,6 +25583,21 @@
             "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started.md",
             "redirect_url": "/azure/active-directory-b2c/tutorial-create-tenant",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-app-passwords",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-first-time",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-troubleshoot",
+            "redirect_document_id": false
+        }        
     ]
 }
