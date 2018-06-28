@@ -124,7 +124,7 @@ All data is encrypted as it moves between data centers.
 #### Is the data encrypted in transit from my application to Application Insights servers?
 Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages. The only exception is data sent from plain HTTP web pages. 
 
-## Personally data stored in Application Insights
+## Personal data stored in Application Insights
 
 Our [Application Insights personal data article](app-insights-customer-data.md) discusses this topic in-depth.
 
