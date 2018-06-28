@@ -22,7 +22,7 @@ Microsoft Azure provides multiple ways to collect different types of data from V
 ## Comparing Azure Diagnostic and Log Analytics agent
 Today in Azure, there are two types of agents available to monitor an Azure VM - the Azure Diagnostics extension and Log Analytics Agent for Linux and Windows.  Fundamentally, these agents are designed to collect metrics and logs, and forward to a repository. However, that's where their similarities end.  
 
-The [Azure Diagnostics extension](azure-diagnostics.md), which has been provided for Azure Cloud Services since it became generally available in 2010, is an agent that delivers simple collection of diagnostic data from an Azure IaaS resource like a VM, and persist it to Azure storage.  Once in storage, you chose to view with one of several available tools, such as [Server Explorer in Visual Studio](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md) and [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+The [Azure Diagnostics extension](../monitoring-and-diagnostics/azure-diagnostics.md), which has been provided for Azure Cloud Services since it became generally available in 2010, is an agent that delivers simple collection of diagnostic data from an Azure IaaS resource like a VM, and persist it to Azure storage.  Once in storage, you chose to view with one of several available tools, such as [Server Explorer in Visual Studio](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md) and [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 You can choose to collect:
 
