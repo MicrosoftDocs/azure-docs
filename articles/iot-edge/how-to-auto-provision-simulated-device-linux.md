@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Create and provision a simulated TPM Edge device on a Linux virtual machine
+# Create and provision an Edge device with a virtual TPM on a Linux virtual machine
 
 Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing. 
 
@@ -28,7 +28,7 @@ The steps in this article are meant for testing purposes.
 * A Windows development machine with [Hyper-V enabled](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). This article uses Windows 10 running an Ubuntu Server VM. 
 * An active IoT Hub. 
 
-## Simulate a TPM device
+## Create a Linux virtual machine with a virtual TPM
 
 In this section, you create a new Linux virtual machine on Hyper-V that has a simulated TPM so that you can use it for testing how auto-provisioning works with IoT Edge. 
 
@@ -62,7 +62,7 @@ If you see errors while creating the new virtual switch, ensure that no other sw
 
 It may take a view minutes to create the new VM. 
 
-### Configure virtual machine
+### Enable virtual TPM
 
 1. Once your VM is created, open its settings. 
 2. Navigate to **Security**. 
