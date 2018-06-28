@@ -14,7 +14,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 06/28/2018
 ms.author: danlep
 ---
 
@@ -285,13 +285,8 @@ az batchai cluster delete
     --resource-group myResourceGroup
 ```
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, Batch AI workspace, storage account, and all related resources. Delete the resources as follows:
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group for the Batch AI and storage resources:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
 ```
-
-## Next steps
-
-In this quickstart, you learned how to run an example TensorFlow training job on a Batch AI cluster, using the Azure CLI. To learn more about using Batch AI with different training frameworks, see the [training recipes](https://github.com/Azure/BatchAI).
-
