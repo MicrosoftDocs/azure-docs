@@ -192,6 +192,12 @@ aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
 
 Once complete, the authentication token is cached. You are only reprompted to log in when the token has expired or the Kubernetes config file re-created.
 
+If you are seeing an authorization error message after signing in successfully, check that the user you are signing in as is not a Guest in the Azure AD (this is often the case if you are using a federated login from a different directory).
+```console
+error: You must be logged in to the server (Unauthorized)
+```
+
+
 ## Next Steps
 
 Learn more about securing Kubernetes clusters with RBAC with the [Using RBAC Authorization][rbac-authorization] documentation.
