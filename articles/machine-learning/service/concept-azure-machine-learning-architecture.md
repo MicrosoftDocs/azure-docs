@@ -38,13 +38,13 @@ You can create multiple workspaces, and each workspace can be shared by multiple
 
 The following diagram is a taxonomy of the workspace:
 
-![Workspace taxonomy](./media/concept-azure-machine-learning-architecture.md/taxonomy.png)
+![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/taxonomy.png)
 
 ## Architecture and workflow
 
 The following diagram shows the major components of Azure Machine learning, and illustrates the general workflow from development to production: 
 
-![Azure Machine Learning architecture and workflow](./media/concept-azure-machine-learning-architecture.md/workflow.png)
+![Azure Machine Learning architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 The workflow for developing and deploying a model with Azure Machine Learning follows these steps:
 
