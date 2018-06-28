@@ -37,7 +37,7 @@ Defining account hierarchy is a major step to use and structure Azure services w
 
 ![Account provisioning](./media/governance-in-azure/security-governance-in-azure-fig1.png)
 
-If you don't have an Enterprise Agreement, consider using [Azure tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) at the subscription level to define the hierarchy. An Azure subscription is the basic unit that contains all the resources. It also defines several limits within Azure, such as the number of cores and resources. Subscriptions can contain [resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), which can contain resources. [Role-based access control (RBAC)](https://docs.microsoft.com/azure/api-management/api-management-role-based-access-control) principles apply on those three levels.
+If you don't have an Enterprise Agreement, consider using [Azure tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) at the subscription level to define the hierarchy. An Azure subscription is the basic unit that contains all the resources. It also defines several limits within Azure, such as the number of cores and resources. Subscriptions can contain [resource groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), which can contain resources. [Role-based access control (RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) principles apply on those three levels.
 
 Every enterprise is different. For non-enterprise companies, the hierarchy of using Azure tags allows for flexibility in how Azure is organized. Before you deploy resources in Azure, you should model a hierarchy and understand the impact on billing, resource access, and complexity.
 
@@ -80,7 +80,7 @@ This hierarchy governs the following:
 
 - Account administration.
 
-- RBAC to artifacts.
+- Access to resources through RBAC.
 
 - Boundaries:
 
@@ -96,37 +96,25 @@ This hierarchy governs the following:
 
 ### Role-based access control
 
-When Azure was initially released, access controls to a subscription were basic: administrator or co-administrator. Access to a subscription in the classic model implied access to all the resources in the Azure portal. This lack of detailed control led to the proliferation of subscriptions to provide the right level of access control for an Azure enrollment.
-
-![Role-based access control](./media/governance-in-azure/security-governance-in-azure-fig3.png)
-
-This proliferation of subscriptions is no longer needed. With role-based access control, you can assign users to standard roles (such as common "reader" and "writer" types of roles). You can also define custom roles.
-
-[RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) enables detailed access management for Azure. By using RBAC, you can grant only the amount of access that users need to perform their jobs. Security-oriented companies should focus on giving employees the exact permissions that they need. Too many permissions expose an account to attackers. Too few permissions mean that employees can't get their work done efficiently. 
+[RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) enables detailed access management of resources in Azure. By using RBAC, you can grant only the amount of access that users need to perform their jobs. Companies should focus on giving employees the exact permissions that they need. Too many permissions expose an account to attackers. Too few permissions mean that employees can't get their work done efficiently. 
 
 Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions. For example, you can use RBAC to let one employee manage virtual machines in a subscription, while another employee manages SQL databases in the same subscription.
 
-RBAC in Azure has three basic roles that apply to all resource types:
+To grant access, you assign roles to users, groups, or applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource. A role assigned at a parent scope also grants access to the children contained within it. For example, a user with access to a resource group can manage all the resources that it contains, like websites, virtual machines, and subnets. Within each subscription, you can create up to 2,000 role assignments.
+
+A role is a collection of permissions, and RBAC has several built-in roles. The following built-in roles apply to all resource types:
 
 - **Owner** has full access to all resources, including the right to delegate access to others.
 
 - **Contributor** can create and manage all types of Azure resources but can't grant access to others.
 
-- **Reader** can view existing Azure resources.
+- **Reader** can view all Azure resources.
 
-The rest of the RBAC roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the virtual network or the subnet that the virtual machine connects to.
+The rest of the built-in roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. For a list of all the built-in roles and their operations, see [RBAC built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-The [RBAC built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) article lists the available roles in Azure. It specifies the operations and scope that each built-in role grants to users.
+RBAC supports management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. In most cases, RBAC can't authorize data-level operations for Azure resources. For information about how RBAC is being extended to data operations, see [Understand role definitions](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions).
 
-Grant access by assigning the appropriate RBAC role to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource. A role assigned at a parent scope also grants access to the children contained within it. For example, a user with access to a resource group can manage all the resources that it contains, like websites, virtual machines, and subnets.
-
-RBAC supports only management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. It can't authorize all data-level operations for Azure resources. For example, you can authorize someone to manage storage accounts, but not to the blobs or tables within storage accounts. Similarly, a SQL database can be managed, but not the tables within it.
-
-If you want more details about how RBAC helps you manage access, see [What is role-based access control?](https://docs.microsoft.com/azure/role-based-access-control/overview).
-
-You can also [create a custom role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) in RBAC if none of the built-in roles meet your specific access needs. You can create custom roles by using [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), and the [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Just like built-in roles, custom roles can be assigned to users, groups, and applications at the subscription, resource group, and resource scope levels.
-
-Within each subscription, you can grant up to 2,000 role assignments.
+If the built-in roles don’t meet your specific access needs, you can [create a custom role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). Just like built-in roles, custom roles can be assigned to users, groups, and applications at the subscription, resource group, and resource scope. You can create custom roles by using [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), and the [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
 ### Resource management
 
@@ -212,7 +200,7 @@ Applying **ReadOnly** can lead to unexpected results because some operations tha
 
 For another example, placing a **ReadOnly** lock on an Azure App Service resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
 
-Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Manage access using RBAC and the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions, see [Manage access using RBAC and the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources that you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
 
