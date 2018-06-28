@@ -5,10 +5,10 @@ services: service-fabric-mesh
 keywords: 
 author: chackdan
 ms.author: chackdan
-ms.date: 06/26/2018
+ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
-manager: timlt
+manager: timlt 
 ---
 # Commonly asked Service Fabric Mesh questions
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. This article has answers to commonly asked questions.

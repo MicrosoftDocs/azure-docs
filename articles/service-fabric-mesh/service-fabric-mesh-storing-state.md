@@ -1,8 +1,8 @@
 ---
-title: Storing state in Service Fabric Mesh applications on Azure | Microsoft Docs
-description: Learn about reliably storing state in Service Fabric Mesh applications running on Azure.
+title: State storage options on Azure Service Fabric Mesh | Microsoft Docs
+description: Learn about reliably storing state in Service Fabric applications running on Azure Service Fabric Mesh.
 services: service-fabric-mesh
-keywords: 
+keywords:  
 author: rwike77
 ms.author: ryanwi
 ms.date: 06/19/2018
@@ -10,14 +10,25 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
 ---
-# Storing application state in Azure Service Fabric Mesh
+# State management with Service Fabric
+Service Fabric supports many different options for state storage. For a conceptual overview of the state management patterns and Service Fabric, see [Service Fabric Concepts: State](/azure/service-fabric/service-fabric-concepts-state). All these same concepts apply whether your services run inside or outside of Service Fabric Mesh. 
 
-Service state refers to the in-memory or on-disk data that a service requires to function. It includes, for example, the data structures and member variables that the service reads and writes to do work. Depending on how the service is architected, it could also include files or other resources that are stored on disk. For example, the files a database would use to store data and transaction logs.  In microservices applications, services can be either stateless or stateful.  Stateless services persist service state to an external data store or don't persist state at all.  Stateful services manage their own state and keep their data private to that service, accessible only through it's API. Service state is typically persisted to the host.
+## State storage options in Azure Service Fabric Mesh
+With Service Fabric Mesh, you can easily deploy a new application and connect it to an existing data store hosted in Azure. Besides using any remote database, there are several options for storing data, depending on whether the service desires local or remote storage. 
 
-Stateless services can externalize or save state outside of the service. Externalization of state is typically done using an external database or other data store that runs on different machines over the network or out of process on the same machine. For example, an external data store could be a SQL database, a MongoDB database, an instance of [Azure Table storage](/azure/storage/tables/table-storage-overview), or [Azure Cosmos DB](/azure/cosmos-db/introduction). When the service moves to a different host or crashes, the required data must be fetched from the external data store when the service restarts. With Service Fabric Mesh, you can easily deploy a new application and connect it to an existing data store hosted in Azure.  External data stores can also be used by an application to optionally/periodically write data into cold data stores for offline backup or analysis.
+* Locally stored replicated data
+  * Reliable Collections (not available in preview)
+    * A library which implements data structures like queues and key-value pairs to use in the service
+    * This gives the easiest and fastest way to interact with data, while providing easy partition routing in combination with Intelligent Routing in Service Fabric Mesh
+  * Service Fabric volume driver (not available in preview)
+    * A docker volume driver to mount a local volume to a container
+    * This gives you the ultimate flexibility in storing data locally, through any API, which supports file storage.
 
-Stateful services often co-locate the code with the service state. Stateful services in [Service Fabric](/azure/service-fabric-overview) and [Service Fabric Mesh](service-fabric-mesh-overview.md) are typically built using this model. The Service Fabric runtime provides the infrastructure to ensure that this state is highly available, consistent, and durable, and that the services built this way can easily scale.  When the service moves to a different host or crashes, service state is immediately available when the service restarts.
+* Remote storage
+  * Azure Files volume driver
+    * A docker volume driver to mount an Azure Files share to a container
+    * Gives you a less performant, but also cheaper full flexible and reliable data option, through any API, which supports file storage.
 
-Service Fabric Mesh enables developers to easily build stateful services using built-in low-latency container volume drivers. The service requests a volume, backed by a specific [Azure Files](/azure/storage/files/storage-files-introduction) file share.  The file share mounts to a specific location within the containerized application and the application writes files to this location. Using the volume driver for your containers, application state is not lost when the service fails over to a new host in Azure.
+## Next steps
 
-To learn more about developing applications for Service Fabric Mesh, read about the [application model](service-fabric-mesh-application-model.md)
+For information on the application model, see [Service Fabric resources](service-fabric-mesh-service-fabric-resources.md)

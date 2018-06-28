@@ -2,7 +2,7 @@
 title: Terminology for Azure Service Fabric Mesh | Microsoft Docs
 description: Learn about common terms for Azure Service Fabric Mesh.
 services: service-fabric-mesh
-keywords: 
+keywords:  
 author: rwike77
 ms.author: ryanwi
 ms.date: 06/26/2018
@@ -20,7 +20,7 @@ Service Fabric is a distributed systems platform that makes it easy to package, 
 
 ## Frameworks
 
-Service Fabric as a platform is agnostic to the framework you choose for writing services.  For example, can write services using ASP.NET, Java, Node.js, or Python. The Service Fabric ecosystem also provides frameworks, which enable you to take advantage of platform features (such as highly available state). [Reliable services](/azure/service-fabric/service-fabric-reliable-services-introduction) and [reliable actors](/azure/service-fabric/service-fabric-reliable-actors-introduction) are specific examples of Service Fabric frameworks.
+[Service Fabric](/azure/service-fabric/service-fabric-overview) as a platform is agnostic to the framework you choose for writing services.  For example, can write services using ASP.NET, Java, Node.js, or Python. The Service Fabric ecosystem also provides frameworks, which enable you to take advantage of platform features (such as highly available state). [Reliable services](/azure/service-fabric/service-fabric-reliable-services-introduction) and [reliable actors](/azure/service-fabric/service-fabric-reliable-actors-introduction) are specific examples of Service Fabric frameworks.
 
 ## Deployment models
 

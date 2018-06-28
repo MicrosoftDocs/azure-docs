@@ -1,12 +1,12 @@
 ---
-title: Tutorial Debug an Azure Service Fabric Mesh app
-description: In this tutorial, debug an Azure Service Fabric Mesh app running on your local cluster.
+title: Tutorial Debug an Azure Service Fabric application | Microsoft Docs
+description: In this tutorial, debug an Azure Service Fabric application running on your local cluster.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
 manager: jeconnoc
 editor: ''
-ms.assetid: 
+ms.assetid:  
 ms.service: service-fabric-mesh
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -18,19 +18,19 @@ ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to debug a Service Fabric Mesh app that communicates with another service.
 ---
 
-# Tutorial: Debug an Azure Service Fabric Mesh app
+# Tutorial: Debug an Azure Service Fabric application
 
-This tutorial is part two of a series and shows you how to debug an Azure Service Fabric Mesh app on your local development cluster.
+This tutorial is part two of a series and shows you how to debug an Azure Service Fabric application on your local development cluster.
 
 In this tutorial you will learn:
 
 > [!div class="checklist"]
-> * What happens when you build an Azure Service Fabric Mesh app
+> * What happens when you build an Azure Service Fabric application
 > * How to set a breakpoint to observe a service-to-service call
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * [Build a Service Fabric Mesh app](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * [Build a Service Fabric application](service-fabric-mesh-tutorial-create-dotnetcore.md)
 > * Debug the app locally
 > * [Publish the app to Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 
@@ -76,7 +76,7 @@ After the local deployment is finished, and Visual Studio is running your app, a
 
 ### Debug in Visual Studio
 
-When you debug a Service Fabric mesh application in Visual Studio, you are using a local Service Fabric development cluster. To see how to-do items are retrieved from the back-end service, debug into the OnGet() method.
+When you debug a Service Fabric application in Visual Studio, you are using a local Service Fabric development cluster. To see how to-do items are retrieved from the back-end service, debug into the OnGet() method.
 1. In the **WebFrontEnd** project, open **Pages** > **Index.cshtml** > **Index.cshtml.cs** and set a breakpoint in the **Get** method (line 17).
 2. In the **ToDoService** project, open **TodoController.cs** and set a breakpoint in the **Get** method (line 16).
 3. Go back to the browser and refresh the page. You hit the  breakpoint in the web front end `OnGet()` method. You can inspect the `backendUrl` variable to see how the environment variables that you defined in the **service.yaml** file are combined into the URL used to contact the back-end service.
@@ -88,7 +88,7 @@ When you debug a Service Fabric mesh application in Visual Studio, you are using
 In this part of the tutorial, you learned:
 
 > [!div class="checklist"]
-> * What happens when you build an Azure Service Fabric Mesh app
+> * What happens when you build an Azure Service Fabric application
 > * How to set a breakpoint to observe a service-to-service call
 
 Advance to the next tutorial:

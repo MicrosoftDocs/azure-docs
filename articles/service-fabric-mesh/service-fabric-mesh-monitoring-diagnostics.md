@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2018
 ms.author: srrengar
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter 
 
 ---
 

@@ -1,24 +1,22 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 #Intent: I want to use my existing containers as is and deploy them to Azure. (Windows or Linux) 
-title: Quickstart - Deploy an container to Azure Service Fabric Mesh | Microsoft Docs
-description: This quickstart shows you how to deploy a container on Service Fabric Mesh.
+title: Quickstart - Deploy Hello World to Azure Service Fabric Mesh | Microsoft Docs
+description: This quickstart shows you how to deploy a application to Azure Service Fabric Mesh.
 services: service-fabric-mesh
-keywords: Don’t add or edit keywords without consulting your SEO champ.
+keywords: Don’t add or edit keywords without consulting your SEO champ. 
 author: rwike77
 ms.author: ryanwi
-ms.date: 06/15/2018
+ms.date: 06/27/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
 ---
-# Quickstart: Deploy a container to Service Fabric Mesh
+# Quickstart: Deploy Hello World to Service Fabric Mesh
 
-Service Fabric Mesh makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines. In this quickstart, you create a container in Azure and expose it to the internet. This operation is completed in a single command. Within just a couple minutes, you'll see this in your browser:
+[Service Fabric Mesh](service-fabric-mesh-overview.md) makes it easy to create and manage microservices applications in Azure, without having to provision virtual machines. In this quickstart, you will create a Hello World application in Azure and expose it to the internet. This operation is completed in a single command. Within just a couple minutes, you'll see this in your browser:
 
 ![Hello world app in the browser][sfm-app-browser]
-
-To read more about applications and Service Fabric Mesh, head over to the [Service Fabric Mesh Overview](./service-fabric-mesh-overview.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -28,111 +26,41 @@ If you don't already have an Azure account, [create a free account](https://azur
 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you're running the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
 
+## Install the Azure Service Fabric Mesh CLI
+Remove any previous install of the Azure Service Fabric Mesh CLI module.
+
+```azurecli-interactive
+az extension remove --name mesh
+```
+Install the Azure Service Fabric Mesh CLI extension module. For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI, however, at public preview it would ship as a part of the Azure CLI.
+
+```azurecli-interactive
+az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.7.0-py2.py3-none-any.whl
+```
+
 ## Create a resource group
 
 Create a resource group to deploy the application to. Alternatively, you can use an existing resource group and export rg to the name.
 
 ```azurecli-interactive
+az account set --subscription "SubscriptionID"
 export rg=myResourceGroup
 az group create --name $rg --location eastus
 ```
 
-## Deploy the container
+## Deploy the application
 
-Create your application using the following deployment command:
+Create your application using the `az mesh deployment create` command:
 
 ```azurecli-interactive
 az mesh deployment create --resource-group $rg --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-configuration/master/container-configuration.json
 ```
 
-In just over a minute, your command should return with `"provisioningState": "Succeeded"`. Given below is the output from the command when using [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
-
-```json
-{
-  "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Resources/deployments/container-configuration",
-  "name": "container-configuration",
-  "properties": {
-    "correlationId": "58ff52cf-3c99-4c8a-bda4-e7fa0b49a61a",
-    "debugSetting": null,
-    "dependencies": [
-      {
-        "dependsOn": [
-          {
-            "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/networks/helloWorldNetwork",
-            "resourceGroup": "myResourceGroup",
-            "resourceName": "helloWorldNetwork",
-            "resourceType": "Microsoft.ServiceFabric/networks"
-          }
-        ],
-        "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/applications/helloWorldApp",
-        "resourceGroup": "myResourceGroup",
-        "resourceName": "helloWorldApp",
-        "resourceType": "Microsoft.ServiceFabric/applications"
-      }
-    ],
-    "duration": "PT2M7.2777699S",
-    "mode": "Incremental",
-    "outputResources": [
-      {
-        "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/applications/helloWorldApp",
-        "resourceGroup": "myResourceGroup"
-      },
-      {
-        "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/networks/helloWorldNetwork",
-        "resourceGroup": "myResourceGroup"
-      }
-    ],
-    "outputs": null,
-    "parameters": {
-      "location": {
-        "type": "String",
-        "value": "eastus"
-      }
-    },
-    "parametersLink": null,
-    "providers": [
-      {
-        "id": null,
-        "namespace": "Microsoft.ServiceFabric",
-        "registrationState": null,
-        "resourceTypes": [
-          {
-            "aliases": null,
-            "apiVersions": null,
-            "locations": [
-              "eastus"
-            ],
-            "properties": null,
-            "resourceType": "networks"
-          },
-          {
-            "aliases": null,
-            "apiVersions": null,
-            "locations": [
-              "eastus"
-            ],
-            "properties": null,
-            "resourceType": "applications"
-          }
-        ]
-      }
-    ],
-    "provisioningState": "Succeeded",
-    "template": null,
-    "templateHash": "252151383102766848",
-    "templateLink": {
-      "contentVersion": "1.0.0.0",
-      "uri": "https://raw.githubusercontent.com/Azure-Samples/service-fabric-configuration/master/container-configuration.json"
-    },
-    "timestamp": "2018-06-15T20:43:48.626129+00:00"
-  },
-  "resourceGroup": "myResourceGroup"
-}
-```
+In just over a minute, your command should return with `"provisioningState": "Succeeded"`. 
 
 ## Check application deployment status
 
-At this point, your application has been deployed. You can check to see its status by using the `app show` command. This command provides useful information that you can follow up on.
+At this point, your application has been deployed. You can check to see its status by using the `az mesh app show` command. This command provides useful information that you can follow up on.
 
 The application name for this quickstart application is helloWorldApp, to gather the details on the application execute the following command:
 
@@ -142,9 +70,9 @@ az mesh app show --resource-group $rg --name helloWorldApp
 
 ## Browse to the application
 
-Once the application status is returned as ""provisioningState": "Succeeded", you will need the ingress endpoint of the service. To retrieve the IP address query the network resource for the container where the service is deployed, and open it on a browser.
+Once the application status is returned as `"provisioningState": "Succeeded"`, you will need the ingress endpoint of the service. To retrieve the IP address query the network resource for the application where the service is deployed, and open it on a browser.
 
-The network resource for this quickstart application is helloWorldNetwork, here is the command to get the IP address:
+The network resource for this quickstart application is helloWorldNetwork, you can use the `az mesh network show` command to get the IP address:
 
 ```azurecli-interactive
 az mesh network show --resource-group $rg --name helloWorldNetwork
@@ -167,19 +95,19 @@ From the output, copy the IP address.
 }
 ```
 
-In the example above, the service end point IP is 40.121.59.94.  Take your corresponding IP address and open it in your favorite browser.
+In the example above, the service end point IP is 40.121.47.57.  Take your corresponding IP address and open it in your favorite browser.
 
 ## See all the application you have currently deployed to your subscription
 
-You can use the "app list" command to get a list of applications you have deployed to your subscription.
+You can use the `az mesh app list` command to get a list of applications you have deployed to your subscription.
 
-```cli
+```azurecli-interactive
 az mesh app list --output table
 ```
 
 ## See the application logs
 
-Examine the logs for the deployed application:
+Examine the logs for the deployed application using the `az mesh code-package-log get` command:
 
 ```azurecli-interactive
 az mesh code-package-log get --resource-group $rg --application-name helloWorldApp --service-name helloWorldService --replica-name 0 --code-package-name helloWorldCode
@@ -187,13 +115,13 @@ az mesh code-package-log get --resource-group $rg --application-name helloWorldA
 
 ## Clean up resources
 
-When you are ready to delete the application run the following command, you'll be prompted to confirm deletion enter `y` to confirm the command.
+When you are ready to delete the application run the `az mesh app delete` command, you'll be prompted to confirm deletion enter `y` to confirm the command.
 
 ```azurecli-interactive
 az mesh app delete -g $rg -n helloWorldApp
 ```
 
-If you no longer need any of the resources you created in this quickstart, you can execute the [az group delete][az-group-delete] command to remove the resource group and all resources it contains. This command deletes the container deployed to service fabric mesh and all related resources.
+If you no longer need any of the resources you created in this quickstart, you can execute the [az group delete][az-group-delete] command to remove the resource group and all the resources it contains.
 
 ```azurecli-interactive
 az group delete --name $rg
@@ -203,11 +131,11 @@ az group delete --name $rg
 
 To learn more about Service Fabric Mesh, take a look at this tutorial.
 > [!div class="nextstepaction"]
-> [Next steps button](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> [Next steps](service-fabric-mesh-tutorial-create-dotnetcore.md)
 
 <!-- Images -->
 [sfm-app-browser]: ./media/service-fabric-mesh-quickstart-deploy-container/HelloWorld.png
 
 <!-- Links / Internal -->
 [az-group-delete]: /cli/azure/group#az_group_delete
-[azure-cli-install]: /cli/azure/install-azure-cli
+[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest

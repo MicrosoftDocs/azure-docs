@@ -16,7 +16,6 @@ ms.workload: NA
 ms.date: 04/04/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-
 ---
 # Deploy an application to Service Fabric Mesh from a template
 This article shows how to deploy a .NET Core application to Service Fabric Mesh using a template. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
@@ -29,9 +28,10 @@ You can easily create a free Azure subscription, [create a free account](https:/
 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete these steps. If you choose to install and use the CLI locally, you must install the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install]. 
 
+Also install the [Service Fabric Mesh CLI module](service-fabric-mesh-setup-developer-environment-sdk.md#install-the-service-fabric-mesh-cli) if it's not already installed.
 
 ## Deploy the application
-Login to Azure and set your subscription to the one that has been white-listed for the preview.
+Login to Azure and set your subscription.
 
 ```azurecli-interactive
 az login
@@ -44,7 +44,7 @@ Create a resource group to deploy the application to. You can use an existing re
 az group create --name MeshTest-rg --location eastus 
 ```
 
-Create your application in the resource group using the `deployment create` command:
+Create your application in the resource group using the `deployment create` command, using our [quickstart-linux.json](https://github.com/Azure/service-fabric-mesh-preview-pr/blob/master/samples/templates/votingapp/quickstart-linux.json), or [quickstart-windows.json](https://github.com/Azure/service-fabric-mesh-preview-pr/blob/master/samples/templates/votingapp/quickstart-windows.json):
 
 ```azurecli-interactive
 az mesh deployment create --resource-group MeshTest-rg --template-file C:\templates\votingapp\quickstart-linux.json
@@ -56,7 +56,7 @@ In a few seconds, your command should return with `"provisioningState": "Succeed
 Your application is now deployed. You can check the application's status using the `app show` command. The application name for the deployed application is "SbzVoting", so fetch its details. 
 
 ```azurecli-interactive
-az mesh app show --resource-group MeshTest-rg --name SbzVoting
+az mesh app show --resource-group MeshTest-rg --name VotingApp
 ```
 
 ## List the deployed applications
@@ -72,7 +72,7 @@ Once the application status is returned as ""provisioningState": "Succeeded", ge
 The network resource for the application is "SbzVotingNetwork", so fetch its details.
 
 ```azurecli-interactive
-az mesh network show --resource-group MeshTest-rg --name SbzVotingNetwork
+az mesh network show --resource-group MeshTest-rg --name VotingAppNetwork
 ```
 
 The command should now return with the following information:
