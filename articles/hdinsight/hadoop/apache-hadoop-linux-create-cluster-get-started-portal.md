@@ -77,7 +77,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
     
     |Property  |Description  |
     |---------|---------|
-    |**Primary storage type**     | For this article, select **Azure storage** to use Azure Storage Blob as the default storage account. You can also use Azure Data Lake Store as the default storage. |
+    |**Primary storage type**     | For this article, select **Azure storage** to use Azure Storage Blob as the default storage account. You can also use Azure Data Lake Storage as the default storage. |
     |**Selection method**     |  For this article, select **My subscriptions** to use a storage account from your Azure subscription. To use storage account from other subscriptions, select **Access key** and then provide the access key for that account. |
     |**Create a new storage account**     | Provide a name for the storage account.|
 
@@ -174,6 +174,7 @@ In this tutorial, you learned how to create a Linux-based HDInsight cluster usin
 If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
 
 * For information on how HDInsight uses Azure Storage, see [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+* For information on how to create an HDInsight cluster with Data Lake Storage, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * For information on how to upload data to HDInsight, see [Upload data to HDInsight](../hdinsight-upload-data.md).
 
 To learn more about analyzing data with HDInsight, see the following articles:

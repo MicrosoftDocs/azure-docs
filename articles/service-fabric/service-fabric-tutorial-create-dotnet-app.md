@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2018
+ms.date: 06/28/2018
 ms.author: ryanwi
 ms.custom: mvc
 
@@ -78,7 +78,8 @@ Open *.bowerrc* and replace the contents with the following, which indicates tha
 
 ```json
 {
- "directory": "wwwroot/lib"
+ "directory": "wwwroot/lib",
+  "registry": "https://registry.bower.io"
 }
 ```
 

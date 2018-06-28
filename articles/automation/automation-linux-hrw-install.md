@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -43,7 +43,7 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 | **Required package** | **Description** | **Minimum version**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C Library| 2.5-12 |
-|Openssl| OpenSSL Libraries | 0.9.8e or 1.0|
+|Openssl| OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported|
 |Curl | cURL web client | 7.15.5|
 |Python-ctypes | |
 |PAM | Pluggable Authentication Modules|
