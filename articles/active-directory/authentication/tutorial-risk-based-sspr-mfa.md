@@ -45,28 +45,45 @@ More information about Azure AD Identity Protection can be found in the article 
 
 ## Enable risk-based policies for SSPR and MFA
 
+Enabling the risk-based policies is a straightforward process. The steps below will guide you through a sample configuration.
 
-Sign in to the Azure portal
-Click on All services, then click on Azure AD Identity Protection
+### Enable users to register for Multi-Factor Authentication
 
-Click on MFA registration
-Set Enforce Policy to On. Setting this policy will require all of your users to register methods to prepare to use by Multi-Factor Authentication.
-Click **Save**
+Azure AD Identity Protection includes a default policy that can hep you to get your users registered for Multi-Factor Authentication and easily identigy the current registration status. Enabling this policy does not start requiring users to perform Multi-Factor Authentication but will ask them to pre-register.
 
-![Require users to register for MFA at sign-in using Azure AD Identity Protection](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Click on **All services**, then browse to **Azure AD Identity Protection**.
+1. Click on **MFA registration**.
+1. Set Enforce Policy to **On**.
+   1. Setting this policy will require all of your users to register methods to prepare to use by Multi-Factor Authentication.
+1. Click **Save**.
 
-Click on User risk policy
-Click on Conditions to select a risk level and choose "Medium and above"
-Click "Select" then "Done"
-Click on Access to select the controls to be enforced and make sure "Require password change" under allow access is selected.
-Click "Select"
-Set Enforce Policy to On.
-Click **Save**
+   ![Require users to register for MFA at sign-in using Azure AD Identity Protection](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 
-Click on Sign-in risk policy
-Click on Conditions to select a sign-in risk level and choose "Medium and above"
-Click "Select" then "Done"
-Click on Access to select the controls to be enforced and make sure "Require multi-factor authentication" under allow access is selected.
-Click "Select"
-Set Enforce Policy to On.
-Click **Save**
+### Enable risk-based password changes
+
+Microsoft works with researchers, law enforcement, various security teams at Microsoft, and other trusted sources to find username and password pairs. When one of these pairs matches an account in your environment, a risk-based password change can be triggered using the following policy.
+
+1. Click on User risk policy.
+1. Under **Conditions**, select **User risk**, then choose **Medium and above**.
+1. Click "Select" then "Done"
+1. Under **Access**, choose **Allow access**, and then select **Require password change**.
+1. Click "Select"
+1. Set Enforce Policy to **On**.
+1. Click **Save**
+
+### Enable risk-based Multi-Factor Authentication
+
+Most users have a normal behavior that can be tracked, when they fall outside of this norm it could be risky to allow them to just sign in. You may want to block that user or maybe just ask them to perform a Multi-Factor Authentication to prove that they are really who they say they are. To enable a policy requiring MFA when a risky sign-in is detected enable the following policy.
+
+1. Click on Sign-in risk policy
+1. Under **Conditions**, select **User risk**, then choose **Medium and above**.
+1. Click "Select" then "Done"
+1. Under **Access**, choose **Allow access**, and then select **Require multi-factor authentication**.
+1. Click "Select"
+1. Set Enforce Policy to **On**.
+1. Click **Save**
+
+## Clean up resources
+
+If you have completed testing and no longer want to have the risk-based policies enabled, return to each policy you want to disable, and set **Enforce Policy** to **Off**.
