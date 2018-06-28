@@ -1,23 +1,23 @@
 ---
-title: Manage your two-step verification settings | Microsoft Docs
+title: Manage two-step verification settings - Azure AD | Microsoft Docs
 description: Manage how you use Azure Multi-Factor Authentication including changing your contact information or configuring your devices.
 services: multi-factor-authentication
 keywords: multifactor authentication client, authentication problem, correlation ID
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
-
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2017
-ms.author: barlan
+ms.author: lizross
 ms.custom: end-user
 ---
+
 # Manage your settings for two-step verification
 This article answers questions about how to update settings for two-step verification or multi-factor authentication. If you are having issues signing in to your account, refer to [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for troubleshooting help.
 
@@ -26,11 +26,22 @@ Depending on how your company set up Azure Multi-Factor Authentication, there ar
 
 If your company support sent out a specific URL or steps to manage two-step verification, follow those instructions. Otherwise, the following instructions should work for everybody else. If you follow these steps but don't see the same options, that means that your work or school customized their own portal. Ask your admin for the link to your Azure Multi-Factor Authentication portal.
 
+**To go to the Additional security verification page**
+
+- Go to https://aka.ms/MFASetup.
+
+    ![Proofup](./media/multi-factor-authentication-end-user-manage/proofup.png)
+
+If clicking that link doesn't work for you, you can also get to the **Additional security verification** page by following these steps:
+
 1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com)  
-2. Select your account name in the top right, then select **profile**.  
+
+2. Select your account name in the top right, then select **profile**.
+
 3. Select **Additional security verification**.  
 
     ![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
+
 4. The Additional security verification page loads with your settings.
 
     ![Proofup](./media/multi-factor-authentication-end-user-manage/proofup.png)
@@ -39,13 +50,13 @@ If your company support sent out a specific URL or steps to manage two-step veri
 It is important to configure a secondary authentication phone number.  Because your primary phone number and your mobile app are probably on the same phone, the secondary phone number is the only way you will be able to get back into your account if your phone is lost or stolen.
 
 > [!NOTE]
-> If you don't have access to your primary phone number, and need help getting in to your account, see our help topics in [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md).  
+> If you don't have access to your primary phone number, and need help getting in to your account, see the [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) article for more help.  
 
 **To change your primary phone number:**  
 
-1. On the Additional security verification page, select the text box with your current phone number and edit it with your new phone number.  
+1. On the **Additional security verification** page, select the text box with your current phone number and edit it with your new phone number.  
 2. Select **Save**.  
-3. If this is the number that you use for your preferred verification option, you have to verify the new number before you can save it.  
+3. If this phone number is the number that you use for your preferred verification option, you must verify the new number before you can save it.  
 
 **To add a secondary phone number:**  
 

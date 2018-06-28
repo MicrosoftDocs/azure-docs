@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/10/2018
+ms.date: 06/22/2018
 ms.author: adegeo
 ---
 
 # Install .NET on Azure Cloud Services roles
 This article describes how to install versions of .NET Framework that don't come with the Azure Guest OS. You can use .NET on the Guest OS to configure your cloud service web and worker roles.
 
-For example, you can install .NET 4.6.1 on the Guest OS family 4, which doesn't come with any release of .NET 4.6. (The Guest OS family 5 does come with .NET 4.6.) For the latest information on the Azure Guest OS releases, see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md). 
+For example, you can install .NET 4.6.2 on the Guest OS family 4, which doesn't come with any release of .NET 4.6. (The Guest OS family 5 does come with .NET 4.6.) For the latest information on the Azure Guest OS releases, see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
 >The Azure SDK 2.9 contains a restriction on deploying .NET 4.6 on the Guest OS family 4 or earlier. A fix for the restriction is available on the [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) site.
@@ -31,7 +31,7 @@ To install .NET on your web and worker roles, include the .NET web installer as 
 To download the web installer for the .NET Framework, choose the version that you want to install:
 
 * [.NET 4.7.2 web installer](http://go.microsoft.com/fwlink/?LinkId=863262)
-* [.NET 4.6.1 web installer](http://go.microsoft.com/fwlink/?LinkId=671729)
+* [.NET 4.6.2 web installer](https://www.microsoft.com/download/details.aspx?id=53345)
 
 To add the installer for a *web* role:
   1. In **Solution Explorer**, under **Roles** in your cloud service project, right-click your *web* role and select **Add** > **New Folder**. Create a folder named **bin**.
@@ -43,7 +43,7 @@ To add the installer for a *worker* role:
 When files are added in this way to the role content folder, they're automatically added to your cloud service package. The files are then deployed to a consistent location on the virtual machine. Repeat this process for each web and worker role in your cloud service so that all roles have a copy of the installer.
 
 > [!NOTE]
-> You should install .NET 4.6.1 on your cloud service role even if your application targets .NET 4.6. The Guest OS includes the Knowledge Base [update 3098779](https://support.microsoft.com/kb/3098779) and [update 3097997](https://support.microsoft.com/kb/3097997). Issues can occur when you run your .NET applications if .NET 4.6 is installed on top of the Knowledge Base updates. To avoid these issues, install .NET 4.6.1 rather than version 4.6. For more information, see the [Knowledge Base article 3118750](https://support.microsoft.com/kb/3118750).
+> You should install .NET 4.6.2 on your cloud service role even if your application targets .NET 4.6. The Guest OS includes the Knowledge Base [update 3098779](https://support.microsoft.com/kb/3098779) and [update 3097997](https://support.microsoft.com/kb/3097997). Issues can occur when you run your .NET applications if .NET 4.6 is installed on top of the Knowledge Base updates. To avoid these issues, install .NET 4.6.2 rather than version 4.6. For more information, see the [Knowledge Base article 3118750](https://support.microsoft.com/kb/3118750) and [4340191](https://support.microsoft.com/kb/4340191).
 > 
 > 
 
@@ -87,27 +87,27 @@ You can use startup tasks to perform operations before a role starts. Installing
    > Use a basic text editor like Windows Notepad to create the install.cmd file. If you use Visual Studio to create a text file and change the extension to .cmd, the file might still contain a UTF-8 byte order mark. This mark can cause an error when the first line of the script is run. To avoid this error, make the first line of the script a REM statement that can be skipped by the byte order processing. 
    > 
    >
-  
+   
    ```cmd
    REM Set the value of netfx to install appropriate .NET Framework. 
    REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
    REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
-   REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****  http://go.microsoft.com/fwlink/?LinkId=671729
-   REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
+   REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" ***** http://go.microsoft.com/fwlink/?LinkId=671729
+   REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" ***** https://www.microsoft.com/download/details.aspx?id=53345
    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" ***** 
-   REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" *****  http://go.microsoft.com/fwlink/?LinkId=852095
-   REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" *****  http://go.microsoft.com/fwlink/?LinkId=863262
+   REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** http://go.microsoft.com/fwlink/?LinkId=852095
+   REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** http://go.microsoft.com/fwlink/?LinkId=863262
    set netfx="NDP472"
    
    REM ***** Set script start timestamp *****
    set timehour=%time:~0,2%
-   set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3, 2%
+   set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
    set "log=install.cmd started %timestamp%."
    
    REM ***** Exit script if running in Emulator *****
    if %ComputeEmulatorRunning%=="true" goto exit
    
-   REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an  out of disk space error *****
+   REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
    set TMP=%PathToNETFXInstall%
    set TEMP=%PathToNETFXInstall%
    
@@ -151,13 +151,13 @@ You can use startup tasks to perform operations before a role starts. Installing
    :NDP472
    set "netfxinstallfile=NDP472-KB4054531-Web.exe"
    set netfxregkey="0x70BF6"
-   goto logtimestamp   
+   goto logtimestamp
    
    :logtimestamp
    REM ***** Setup LogFile with timestamp *****
    md "%PathToNETFXInstall%\log"
    set startuptasklog="%PathToNETFXInstall%log\startuptasklog-%timestamp%.txt"
-   set  netfxinstallerlog="%PathToNETFXInstall%log\NetFXInstallerLog-%timestamp%"
+   set netfxinstallerlog="%PathToNETFXInstall%log\NetFXInstallerLog-%timestamp%"
    echo %log% >> %startuptasklog%
    echo Logfile generated at: %startuptasklog% >> %startuptasklog%
    echo TMP set to: %TMP% >> %startuptasklog%
@@ -167,18 +167,18 @@ You can use startup tasks to perform operations before a role starts. Installing
    echo Checking if .NET (%netfx%) is installed >> %startuptasklog%
    set /A netfxregkeydecimal=%netfxregkey%
    set foundkey=0
-   FOR /F "usebackq skip=2 tokens=1,2*" %%A in (`reg query  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v  Release 2^>nul`) do @set /A foundkey=%%C
-   echo Minimum required key: %netfxregkeydecimal% -- found key: %foundkey% >>  %startuptasklog%
+   FOR /F "usebackq skip=2 tokens=1,2*" %%A in (`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release 2^>nul`) do @set /A foundkey=%%C
+   echo Minimum required key: %netfxregkeydecimal% -- found key: %foundkey% >> %startuptasklog%
    if %foundkey% GEQ %netfxregkeydecimal% goto installed
    
    REM ***** Installing .NET *****
-   echo Installing .NET with commandline: start /wait %~dp0%netfxinstallfile%  /q /serialdownload /log %netfxinstallerlog%  /chainingpackage "CloudService  Startup Task" >> %startuptasklog%
-   start /wait %~dp0%netfxinstallfile% /q /serialdownload /log  %netfxinstallerlog% /chainingpackage "CloudService Startup Task" >>  %startuptasklog% 2>>&1
+   echo Installing .NET with commandline: start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog%  /chainingpackage "CloudService Startup Task" >> %startuptasklog%
+   start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog% /chainingpackage "CloudService Startup Task" >> %startuptasklog% 2>>&1
    if %ERRORLEVEL%== 0 goto installed
-       echo .NET installer exited with code %ERRORLEVEL% >> %startuptasklog%     
+       echo .NET installer exited with code %ERRORLEVEL% >> %startuptasklog%    
        if %ERRORLEVEL%== 3010 goto restart
        if %ERRORLEVEL%== 1641 goto restart
-       echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%.  Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
+       echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
    
    :restart
    echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
@@ -188,7 +188,7 @@ You can use startup tasks to perform operations before a role starts. Installing
    echo .NET (%netfx%) is installed >> %startuptasklog%
    
    :end
-   echo install.cmd completed: %date:~-4,4%%date:~-10,2%%date:~-7, 2%-%timehour: =0%%time:~3,2% >> %startuptasklog%
+   echo install.cmd completed: %date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2% >> %startuptasklog%
    
    :exit
    EXIT /B 0

@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Prepare application for Azure Kubernetes Service (AKS)
 
-In this tutorial, part one of eight, a multi-container application is prepared for use in Kubernetes. Steps completed include:
+In this tutorial, part one of seven, a multi-container application is prepared for use in Kubernetes. Steps completed include:
 
 > [!div class="checklist"]
 > * Cloning application source from GitHub

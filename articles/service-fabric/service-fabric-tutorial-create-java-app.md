@@ -593,7 +593,7 @@ The skeleton for the front-end stateless service and the backend service is now 
     }
     
     dependencies {
-        compile ('com.microsoft.servicefabric:sf-actors:1.0.0-preview1')
+        compile ('com.microsoft.servicefabric:sf-actors:1.0.0')
     }
     
     jar {

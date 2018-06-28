@@ -17,8 +17,8 @@ ms.author: douglasl
 ---
 # Use custom activities in an Azure Data Factory pipeline
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-use-custom-activities.md)
-> * [Version 2 - Preview](transform-data-using-dotnet-custom-activity.md)
+> * [Version 1](v1/data-factory-use-custom-activities.md)
+> * [Current version](transform-data-using-dotnet-custom-activity.md)
 
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 
@@ -26,10 +26,6 @@ There are two types of activities that you can use in an Azure Data Factory pipe
 - [Data transformation activities](transform-data.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning. 
 
 To move data to/from a data store that Data Factory does not support, or to transform/process data in a way that isn't supported by Data Factory, you can create a **Custom activity** with your own data movement or transformation logic and use the activity in a pipeline. The custom activity runs your customized code logic on an **Azure Batch** pool of virtual machines.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [(Custom) DotNet Activity in Data Factory version 1](v1/data-factory-use-custom-activities.md).
- 
 
 See following articles if you are new to Azure Batch service:
 
@@ -284,7 +280,7 @@ namespace SampleApp
   "failureType": ""
   "target": "MyCustomActivity"
   ```
-If you would like to consume the content of stdout.txt in downstream activities, you can get the path to the stdout.txt file in expression "@activity('MyCustomActivity').output.outputs[0]". 
+If you would like to consume the content of stdout.txt in downstream activities, you can get the path to the stdout.txt file in expression "\@activity('MyCustomActivity').output.outputs[0]". 
 
   > [!IMPORTANT]
   > - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Batch task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" path. If needed, you need to clean them up separately. 
@@ -303,7 +299,7 @@ If you would like to consume the content of stdout.txt in downstream activities,
   The following table describes the differences between the Data Factory V2 Custom Activity and the Data Factory version 1 (Custom) DotNet Activity: 
 
 
-|Differences      |version 2 Custom Activity      | version 1 (Custom) DotNet Activity      |
+|Differences      | Custom Activity      | version 1 (Custom) DotNet Activity      |
 | ---- | ---- | ---- |
 |How custom logic is defined      |By providing an executable      |By implementing a .Net DLL      |
 |Execution environment of the custom logic      |Windows or Linux      |Windows (.Net Framework 4.5.2)      |
@@ -314,7 +310,7 @@ If you would like to consume the content of stdout.txt in downstream activities,
 |Logging      |Writes directly to STDOUT      |Implementing Logger in .Net DLL      |
 
 
-  If you have existing .Net code written for a version 1 (Custom) DotNet Activity, you need to modify your code for it to work with a version 2 Custom Activity. Update your code by following these high-level guidelines:  
+  If you have existing .Net code written for a version 1 (Custom) DotNet Activity, you need to modify your code for it to work with the current version of the Custom Activity. Update your code by following these high-level guidelines:  
 
    - Change the project from a .Net Class Library to a Console App. 
    - Start your application with the `Main` method. The `Execute` method of the `IDotNetActivity` interface is no longer required. 
@@ -323,7 +319,7 @@ If you would like to consume the content of stdout.txt in downstream activities,
    - The Microsoft.Azure.Management.DataFactories NuGet package is no longer required. 
    - Compile your code, upload the executable and its dependencies to Azure Storage, and define the path in the `folderPath` property. 
 
-For a complete sample of how the end-to-end DLL and pipeline sample described in the Data Factory version 1 article [Use custom activities in an Azure Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) can be rewritten as a Data Factory v2 Custom Activity, see [Data Factory version 2 Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+For a complete sample of how the end-to-end DLL and pipeline sample described in the Data Factory version 1 article [Use custom activities in an Azure Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) can be rewritten as a Data Factory Custom Activity, see [Data Factory Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## Auto-scaling of Azure Batch
 You can also create an Azure Batch pool with **autoscale** feature. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks. 

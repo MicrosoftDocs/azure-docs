@@ -206,7 +206,7 @@ public class CreateKB {
 
 		Question q = new Question();
 		q.id = 0;
-		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa";
+		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600";
 		q.source = "Custom Editorial";
 		q.questions = new String[]{"How do I programmatically update my Knowledge Base?"};
 
@@ -515,7 +515,7 @@ public class UpdateKB {
 
 		Question q = new Question();
 		q.id = 0;
-		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa";
+		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600";
 		q.source = "Custom Editorial";
 		q.questions = new String[]{"How do I programmatically update my Knowledge Base?"};
 
@@ -859,7 +859,7 @@ public class ReplaceKB {
 
 		Question q = new Question();
 		q.id = 0;
-		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa";
+		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600";
 		q.source = "Custom Editorial";
 		q.questions = new String[]{"How do I programmatically update my Knowledge Base?"};
 
@@ -1013,7 +1013,7 @@ A successful response is returned in JSON, as shown in the following example:
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"

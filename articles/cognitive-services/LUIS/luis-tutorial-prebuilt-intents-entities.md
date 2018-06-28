@@ -12,7 +12,7 @@ ms.date: 06/11/2018
 ms.author: v-geberr
 --- 
 
-# Use prebuilt intents and entities to handle common intents and data
+# Tutorial: 2. Add prebuilt intents and entities
 Add prebuilt intents and entities to the Human Resources quickstart app to quickly gain intent prediction and data extraction. 
 
 In this tutorial, you learn how to:
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 * Query LUIS and receive prediction response
 
 ## Before you begin
-If you do not have the Human Resources app from the [custom domain](luis-quickstart-intents-only.md) quickstart, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS][LUIS] website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github repository.
+If you do not have the [Human Resources](luis-quickstart-intents-only.md) app from the previous tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website, from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `prebuilts`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
@@ -163,8 +163,6 @@ By easily and quickly adding prebuilt intents and entities, the client applicati
 
 ## Next steps
 
-[Learn more about entities](luis-concept-entity-types.md). 
+> [!div class="nextstepaction"]
+> [Add a regular expression entity to the app](luis-quickstart-intents-regex-entity.md)
 
-<!--References-->
-[LUIS]:luis-reference-regions.md#luis-website
-[LUIS-regions]:luis-reference-regions.md#publishing-regions

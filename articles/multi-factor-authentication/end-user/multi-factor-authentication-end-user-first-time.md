@@ -1,26 +1,25 @@
 ---
-title: Set up two-step verification for my work or school account | Microsoft Docs
-description: 'When your company configures Azure Multi-Factor Authentication, you will be prompted to sign up for two-step verification. Learn how to set it up. '
+title: Set up two-step verification - Azure AD | Microsoft Docs
+description: When your company configures Azure Multi-Factor Authentication, you will be prompted to sign up for two-step verification. Learn how to set it up.
 services: multi-factor-authentication
 keywords: how to use azure directory, active directory in the cloud, active directory tutorial
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
-
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: barlan
+ms.author: lizross
 ms.custom: end-user
 experimental: true
 experiment_id: 833be599-1785-4f
-
 ---
+
 # Set up my account for two-step verification
 Two-step verification is an additional security step that helps protect your account by making it harder for other people to break in. If you're reading this article, you probably got an email from your work or school admin about Multi-Factor Authentication. Or maybe you tried to sign in and got a message asking you to set up additional security verification. If that's the case, **you cannot sign in until you have completed the auto-enrollment process**.
 

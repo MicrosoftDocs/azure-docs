@@ -97,10 +97,10 @@ Approximate time to Complete: 15 minutes
 | Step | Resources |
 | --- | --- |
 | Go to Azure AD Management Portal | [Azure AD Management Portal - Company Branding](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Upload the assets for the login page (hero logo, small logo, labels, etc.). Optionally if  you have AD FS, align the same assets with ADFS login pages | [Add company branding to your sign-in and Access Panel pages: Customizable Elements](customize-branding.md) |
+| Upload the assets for the login page (hero logo, small logo, labels, etc.). Optionally if  you have AD FS, align the same assets with ADFS login pages | [Add company branding to your sign-in and Access Panel pages: Customizable Elements](fundamentals/customize-branding.md) |
 | Wait a couple of minutes for the change to fully take effect |  |
 | Log in with the POC user credential to https://myapps.microsoft.com |  |
-| Confirm the look and feel in browser | [Add company branding to your sign-in and Access Panel pages](customize-branding.md) |
+| Confirm the look and feel in browser | [Add company branding to your sign-in and Access Panel pages](fundamentals/customize-branding.md) |
 | Optionally, confirm the look and feel in other devices |  |
 
 ### Considerations
@@ -115,7 +115,7 @@ Approximate time to Complete: 10 minutes
 
 | Pre-requisite | Resources |
 | --- | --- |
-| All POC users are part of a security group (either cloud or on-premises) | [Create a group and add members in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| All POC users are part of a security group (either cloud or on-premises) | [Create a group and add members in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 
 ### Steps
 
@@ -137,16 +137,16 @@ Approximate time to Complete: 60 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | Test environment of the SaaS application available. In this guide, we use ServiceNow as an example.<br/>We strongly recommend to use a test  instance to minimize friction on navigating existing data quality and mappings. | Go to https://developer.servicenow.com/app.do#!/home to start the process of getting a test instance |
-| Admin access to the ServiceNow management console | [Tutorial: Azure Active Directory integration with ServiceNow](active-directory-saas-servicenow-tutorial.md) |
+| Admin access to the ServiceNow management console | [Tutorial: Azure Active Directory integration with ServiceNow](saas-apps/servicenow-tutorial.md) |
 | Target set of users to assign the application to. A security group containing the PoC users is recommended. <br/>If creating the group is not feasible, then assign the users to directly to the application for the PoC | [Assign a user or group to an enterprise app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### Steps
 
 | Step | Resources |
 | --- | --- |
-| Share the tutorial to all actors from Microsoft Documentation  | [Tutorial: Azure Active Directory integration with ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Set a working meeting and follow the tutorial steps with each actor. | [Tutorial: Azure Active Directory integration with ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Assign the app to the group identified in the Prerequisites. If the POC has conditional access in the scope, you can revisit that later and add MFA, and similar. <br/>Note this will kick in the provisioning process (if configured) |  [Assign a user or group to an enterprise app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Create a group and add members in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Share the tutorial to all actors from Microsoft Documentation  | [Tutorial: Azure Active Directory integration with ServiceNow](saas-apps/servicenow-tutorial.md) |
+| Set a working meeting and follow the tutorial steps with each actor. | [Tutorial: Azure Active Directory integration with ServiceNow](saas-apps/servicenow-tutorial.md) |
+| Assign the app to the group identified in the Prerequisites. If the POC has conditional access in the scope, you can revisit that later and add MFA, and similar. <br/>Note this will kick in the provisioning process (if configured) |  [Assign a user or group to an enterprise app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Create a group and add members in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Use Azure AD management Portal to add ServiceNow Application from Gallery| [Azure AD management Portal: Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[What's new in Enterprise Application management in Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | In "Single sign-on" blade of ServiceNow App enable "SAML-based Sign-on" |  |
 | Fill out "Sign on URL" and "Identifier" fields with your ServiceNow URL<br/>Check the box to "Make new certificate active"<br/>and Save settings |  |
@@ -160,7 +160,7 @@ Approximate time to Complete: 60 minutes
 
 ### Considerations
 
-1. Above [Tutorial](active-directory-saas-servicenow-tutorial.md) refers to old Azure AD management experience. But PoC is based on [Quickstart](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) experience.
+1. Above [Tutorial](saas-apps/servicenow-tutorial.md) refers to old Azure AD management experience. But PoC is based on [Quickstart](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) experience.
 2. If the target application is not present in the gallery, then you can use "Bring your own app". Learn more: [What's new in Enterprise Application management in Azure Active Directory: Add custom applications from one place](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## SaaS Password SSO Configuration
@@ -239,7 +239,7 @@ Approximate time to Complete: 20 minutes
 
 | Pre-requisite | Resources |
 | --- | --- |
-| A Microsoft Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator | [Azure Active Directory editions](active-directory-whatis.md) |
+| A Microsoft Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator | [Azure Active Directory editions](fundamentals/active-directory-whatis.md) |
 | A web application hosted on-prem that you would like to configure for remote access |  |
 | A server running Windows Server 2012 R2, or Windows 8.1 or higher, on which you can install the Application Proxy Connector | [Understand Azure AD Application Proxy connectors](manage-apps/application-proxy-connectors.md) |
 | If there is a firewall in the path, make sure that it's open so that the Connector can make HTTPS (TCP) requests to the Application Proxy | [Enable Application Proxy in the Azure portal: Application Proxy prerequisites](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
@@ -303,8 +303,8 @@ Approximate time to Complete: 10 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | SaaS application (Federated SSO or Password SSO) has been already configured | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) |
-| Cloud Group that is assigned access to the application in #1 is identified | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) <br/>[Create a group and add members in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
-| Credentials for the group owner are available | [Manage access to resources with Azure Active Directory groups](active-directory-manage-groups.md) |
+| Cloud Group that is assigned access to the application in #1 is identified | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) <br/>[Create a group and add members in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
+| Credentials for the group owner are available | [Manage access to resources with Azure Active Directory groups](fundamentals/active-directory-manage-groups.md) |
 | Credentials for the information worker accessing the apps has been identified | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -312,8 +312,8 @@ Approximate time to Complete: 10 minutes
 
 | Step | Resources |
 | --- | --- |
-| Identify the group that has been granted access to the application, and configure the owner of given group| [Manage the settings for a group in Azure Active Directory ](active-directory-groups-settings-azure-portal.md) |
-| Log in as the group owner, see the group membership in groups tab of access panel | [Azure Active Directory Groups Management page](https://account.activedirectory.windowsazure.com/r/#/groups) |
+| Identify the group that has been granted access to the application, and configure the owner of given group| [Manage the settings for a group in Azure Active Directory ](fundamentals/active-directory-groups-settings-azure-portal.md) |
+| Log in as the group owner, see the group membership in groups tab of access panel | [Azure Active Directory Groups Management page](https://account.activedirectory.windowsazure.com/r#/groups) |
 | Add the information worker you want to test |  |
 | Log in as the information worker, confirm the tile is available | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
 
@@ -328,7 +328,7 @@ If the application has provisioning enabled, you might need to wait a few minute
 | Pre-requisite | Resources |
 | --- | --- |
 | SaaS application (Federated SSO or Password SSO) has been already configured | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) |
-| Cloud Group that is assigned access to the application in #1 is identified | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) <br/>[Create a group and add members in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Cloud Group that is assigned access to the application in #1 is identified | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) <br/>[Create a group and add members in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Credentials for the information worker accessing the apps has been identified | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -336,7 +336,7 @@ If the application has provisioning enabled, you might need to wait a few minute
 
 | Step | Resources |
 | --- | --- |
-| Remove the user from the group the app is assigned to | [Manage group membership for users in your Azure Active Directory tenant](active-directory-groups-members-azure-portal.md) |
+| Remove the user from the group the app is assigned to | [Manage group membership for users in your Azure Active Directory tenant](fundamentals/active-directory-groups-members-azure-portal.md) |
 | Wait for a few minutes for de-provisioning | [Automated SaaS App User Provisioning in Azure AD: How does automated provisioning work?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
 | On a separate browser session, log in as the information worker to my apps portal and confirm that tile is missing | http://myapps.microsoft.com |
 

@@ -37,7 +37,7 @@ By using the access panel, you can edit some of your profile settings and do the
 
 - View and start cloud-based applications that the Azure AD administrator has granted you access to. 
 
-- Self-manage groups. Administrators can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](active-directory-accessmanagement-self-service-group-management.md) and [Manage your groups](active-directory-manage-groups.md).
+- Self-manage groups. Administrators can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](active-directory-accessmanagement-self-service-group-management.md) and [Manage your groups](fundamentals/active-directory-manage-groups.md).
 
 
 
@@ -212,7 +212,7 @@ For example, if an application is configured to authenticate users by using AD F
 
 - To view a list of all topics that are related to application management, see the [article index for application management in Azure Active Directory](active-directory-apps-index.md).
  
-- To learn how to integrate a SaaS app with Azure AD, see the [list of tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md).
+- To learn how to integrate a SaaS app with Azure AD, see the [list of tutorials on how to integrate SaaS apps](saas-apps/tutorial-list.md).
  
 - To learn more about managing apps with Azure AD, see the [introduction to single sign-on and managing app access with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
  

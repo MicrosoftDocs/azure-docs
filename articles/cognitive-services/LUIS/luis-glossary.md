@@ -175,7 +175,7 @@ The subscription key is the key associated with the LUIS service [you created in
 
 ## <a name="test"></a>Test
 
-[Testing](train-test.md#test-your-app) a LUIS app means passing an utterance to LUIS and viewing the JSON results.
+[Testing](interactive-test.md#test-your-app) a LUIS app means passing an utterance to LUIS and viewing the JSON results.
 
 ## <a name="timezoneoffset"></a>Timezone offset
 
@@ -206,4 +206,4 @@ An utterance is a natural language phrase such as "book 2 tickets to Seattle nex
 
 A LUIS [version](luis-how-to-manage-versions.md) is a specific data model associated with a LUIS app ID and the published endpoint. Every LUIS app has at least one version.
 
-[batch-testing]: train-test.md#batch-testing
+[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Configure Log Analytics for your Service Fabric cluster
 > * Use a Log Analytics workspace to view and query logs from your containers and nodes
-> * Configure the OMS agent to pick up container and node metrics
+> * Configure the Log Analytics agent to pick up container and node metrics
 
 ## Prerequisites
 Before you begin this tutorial, you should:
@@ -79,7 +79,7 @@ Make the following changes in your *template.json*:
     "omsSolution": "ServiceFabric"
     ```
 
-3. Add the OMS Microsoft Monitoring Agent as a virtual machine extension. Find virtual machine scale sets resource: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. Under the *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*, add the following extension description under the *ServiceFabricNode* extension: 
+3. Add the Microsoft Monitoring Agent as a virtual machine extension. Find virtual machine scale sets resource: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. Under the *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*, add the following extension description under the *ServiceFabricNode* extension: 
     
     ```json
     {
@@ -179,7 +179,7 @@ Make the following changes in your *template.json*:
     },
     ```
 
-[Here](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) is a sample template (used in part one of this tutorial) that has all of these changes that you can reference as needed. These changes will add an Log Analytics workspace to your resource group. The workspace will be configured to pick up Service Fabric platform events from the storage tables configured with the [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) agent. The OMS agent (Microsoft Monitoring Agent) has also been added to each node in your cluster as a virtual machine extension - this means that as you scale your cluster, the agent is automatically configured on each machine and hooked up to the same workspace.
+[Here](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) is a sample template (used in part one of this tutorial) that has all of these changes that you can reference as needed. These changes will add an Log Analytics workspace to your resource group. The workspace will be configured to pick up Service Fabric platform events from the storage tables configured with the [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) agent. The Log Analytics agent (Microsoft Monitoring Agent) has also been added to each node in your cluster as a virtual machine extension - this means that as you scale your cluster, the agent is automatically configured on each machine and hooked up to the same workspace.
 
 Deploy the template with your new changes to upgrade your current cluster. You should see the Log Analytics resources in your resource group once this has completed. When the cluster is ready, deploy your containerized application to it. In the next step, we will set up monitoring the containers.
 
@@ -189,7 +189,7 @@ To set up the Container solution in your workspace, search for *Container Monito
 
 ![Adding Containers solution](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-When prompted for the *Log Analytics Workspace*, select the workspace that was created in your resource group, and click **Create**. This adds a *Container Monitoring Solution* to your workspace, will automatically cause the OMS agent deployed by the template to start collecting docker logs and stats. 
+When prompted for the *Log Analytics Workspace*, select the workspace that was created in your resource group, and click **Create**. This adds a *Container Monitoring Solution* to your workspace, will automatically cause the Log Analytics agent deployed by the template to start collecting docker logs and stats. 
 
 Navigate back to your *resource group*, where you should now see the newly added monitoring solution. If you click into it, the landing page should show you the number of container images you have running. 
 
@@ -209,11 +209,11 @@ Clicking into any of these panels will take you to the Log Analytics query that 
 
 ![Container query](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
-## Configure OMS agent to pick up performance counters
+## Configure Log Analytics agent to pick up performance counters
 
-Another benefit of using the OMS agent is the ability to change the performance counters you want to pick up through the OMS UI experience, rather than having to configure the Azure diagnostics agent and do a Resource Manager template based upgrade each time. To do this, click on **OMS Workspace** on the landing page of your Container Monitoring (or Service Fabric) solution.
+Another benefit of using the Log Analytics agent is the ability to change the performance counters you want to pick up through the Log Analytics UI experience, rather than having to configure the Azure diagnostics agent and do a Resource Manager template based upgrade each time. To do this, click on **OMS Workspace** on the landing page of your Container Monitoring (or Service Fabric) solution.
 
-This will take you to your OMS Workspace, where you can view your solutions, create custom dashboards, as well as configure the OMS agent. 
+This will take you to your Log Analytics Workspace, where you can view your solutions, create custom dashboards, as well as configure the Log Analytics agent. 
 * Click on **Advanced Settings** to open the Advanced Settings menu.
 * Click on **Connected Sources** > **Windows Servers** to verify that you have *5 Windows Computers Connected*.
 * Click on **Data** > **Windows Performance Counters** to search for and add new performance counters. Here you will see a list of recommendations from Log Analytics for performance counters you can collect as well as the option to search for other counters. Verify that **Processor(_Total)\% Processor Time** and **Memory(*)\Available MBytes** counters are being collected.

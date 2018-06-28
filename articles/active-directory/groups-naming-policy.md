@@ -197,9 +197,9 @@ Office 365 admin center | Office 365 Admin center is compliant with naming polic
 ## Next steps
 These articles provide additional information on Azure AD groups.
 
-* [See existing groups](active-directory-groups-view-azure-portal.md)
+* [See existing groups](fundamentals/active-directory-groups-view-azure-portal.md)
 * [Expiration policy for Office 365 groups](active-directory-groups-lifecycle-azure-portal.md)
-* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
-* [Manage members of a group](active-directory-groups-members-azure-portal.md)
-* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
+* [Manage settings of a group](fundamentals/active-directory-groups-settings-azure-portal.md)
+* [Manage members of a group](fundamentals/active-directory-groups-members-azure-portal.md)
+* [Manage memberships of a group](fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)

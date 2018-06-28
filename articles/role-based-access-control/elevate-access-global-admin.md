@@ -217,4 +217,5 @@ When you call `elevateAccess`, you create a role assignment for yourself, so to 
 ## Next steps
 
 - [Role-based access control with REST](role-assignments-rest.md)
-- [Manage access assignments](role-assignments-users.md)
+- [Manage access to Azure resources with Privileged Identity Management](pim-azure-resource.md)
+- [Manage access to Azure management with conditional access](conditional-access-azure-management.md)
