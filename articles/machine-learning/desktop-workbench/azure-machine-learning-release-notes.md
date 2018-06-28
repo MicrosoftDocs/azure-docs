@@ -31,7 +31,7 @@ With this release of Azure Machine Learning, you can:
   + [Forecasting](../service/how-to-build-deploy-forecast-models.md)
 
 ## 2018-03 (Sprint 4)
-**Version number**: 0.1.1801.24353  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Version number**: 0.1.1801.24353  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
 Many of the following updates are made as direct results of your feedback. Please keep them coming!
@@ -88,7 +88,7 @@ Following is a list of detailed updates in each component area of Azure Machine 
 
 
 ## 2018-01 (Sprint 3) 
-**Version number**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Version number**: 0.1.1712.18263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 The following are the updates and improvements in this sprint. Many of these updates are made as direct result of user feedback. 
 
@@ -124,7 +124,7 @@ Following is a list of detailed updates in each component area of Azure Machine 
   - Enabled local environment setup for free subscriptions 
 
 ## 2017-12 (Sprint 2 QFE) 
-**Version number**: 0.1.1711.15323  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Version number**: 0.1.1711.15323  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 This is the QFE (Quick Fix Engineering) release, a minor release. It addresses several telemetry issues and helps the product team to better understand how the product is being used. The knowledge can go into future efforts for improving the product experience. 
 
@@ -134,7 +134,7 @@ In addition, there are two important updates:
 - In the command-line tool, you no longer need to be an Azure subscription owner to provision Machine Learning Compute ACS clusters. 
 
 ## 2017-12 (Sprint 2)
-**Version number**: 0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Version number**: 0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Welcome to the third update of Azure Machine Learning. This update includes improvements in the workbench app, the Command-line Interface (CLI), and the back-end services. Thank you very much for sending the smiles and frowns. Many of the following updates are made as direct results of your feedback. 
 
@@ -234,7 +234,7 @@ For more information on creating compute targets, see [Configuring Azure Machine
     - `az ml computetarget attach --type cluster` is now `az ml computetarget attach cluster`
 
 ## 2017-11 (Sprint 1) 
-**Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 In this release, we've made improvements around security, stability, and maintainability in the workbench app, the CLI, and the back-end services layer. Thanks very much for sending us smiles and frowns. Many of the below updates are made as direct results of your feedback. Keep them coming!
 
@@ -356,7 +356,7 @@ Below is a list of detailed updates in each component area of Azure Machine Lear
 
 
 ## 2017-10 (Sprint 0) 
-**Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Version number**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Welcome to the first update of Azure Machine Learning Workbench following our initial public preview at the Microsoft Ignite 2017 conference. The main updates in this release are reliability and stabilization fixes.  Some of the critical issues we addressed include:
 
