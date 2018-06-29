@@ -34,10 +34,10 @@ Commands below install both moby engine and command-line interface (CLI). The CL
 # paste in terminal. The comment lines will be ignored.
 
 # Download and install the moby-engine
-curl https://aka.ms/moby-engine-armhf-latest -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
+curl -L https://aka.ms/moby-engine-armhf-latest -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
 
 # Download and install the moby-cli
-curl https://aka.ms/moby-cli-armhf-latest -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
+curl -L https://aka.ms/moby-cli-armhf-latest -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
 
 # Run apt-get fix
 sudo apt-get install -f
@@ -51,10 +51,10 @@ sudo apt-get install -f
 # paste in terminal. The comment lines will be ignored.
 
 # Download and install the standard libiothsm implementation
-curl https://aka.ms/libiothsm-std-linux-armhf-latest -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
+curl -L https://aka.ms/libiothsm-std-linux-armhf-latest -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
 
 # Download and install the IoT Edge Security Daemon
-curl https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+curl -L https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -i ./iotedge.deb
 
 # Run apt-get fix
 sudo apt-get install -f
@@ -62,37 +62,17 @@ sudo apt-get install -f
 
 ## Configure the Azure IoT Edge Security Daemon
 
+The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml` The edge device can be configured <!--[automatically via Device Provisioning Service][lnk-dps] or--> manually using a [device connection string][lnk-dcs].
 
-The daemon can be configured using the configuration file at `/etc/iotedge/config.yaml`. The file is write-protected by default, you might need elevated permissions to edit it.
+For manual configuration, enter the device connection string in **provisioning** section of **config.yaml**
 
-```bash
-sudo nano /etc/iotedge/config.yaml
+```yaml
+provisioning:
+  source: "manual"
+  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
 ```
 
-The edge device can be configured manually using a [device connection string][lnk-dcs]<!-- or [automatically via Device Provisioning Service][lnk-dps]-->.
-
-<!--* For manual configuration, uncomment the **manual** provisioning mode. -->Update the value of **device_connection_string** with the connection string from your IoT Edge device.
-
-   ```yaml
-   provisioning:
-     source: "manual"
-     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-   ```
-<!--
-* For automatic configuration, uncomment the **dps** provisioning mode. Update the values of **scope_id** and **registration_id** with the values from your IoT Hub DPS instance and your IoT Edge device with TPM. 
-
-   ```yaml
-   # provisioning:
-   #   source: "manual"
-   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-  
-   provisioning: 
-     source: "dps"
-     global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "{scope_id}"
-     registration_id: "{registration_id}"
-   ```
--->
+*The file is write-protected by default, you might need to use `sudo` to edit it. For example `sudo nano /etc/iotedge/config.yaml`*
 
 After entering the provisioning information in the configuration, restart the daemon:
 
@@ -101,9 +81,6 @@ sudo systemctl restart iotedge
 ```
 
 ## Verify successful installation
-<!--
-If you used the **manual configuration** steps in the previous section, the IoT Edge runtime should be successfully provisioned and running on your device. If you used the **automatic configuration** steps, then you need to complete some additional steps so that the runtime can register your device with your IoT hub on your behalf. For next steps, see [Create and provision a simulated TPM Edge device on a Linux virtual machine](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
--->
 
 You can check the status of the IoT Edge Daemon using:
 
@@ -120,7 +97,7 @@ journalctl -u iotedge --no-pager --no-full
 And, list running modules with:
 
 ```cmd/sh
-iotedge list
+sudo iotedge list
 ```
 
 ## Next steps
@@ -128,8 +105,8 @@ iotedge list
 If you are having problems with the Edge runtime installing properly, checkout the [troubleshooting][lnk-trouble] page.
 
 <!-- Links -->
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
+[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
+[lnk-dps]: how-to-simulate-dps-tpm.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md
