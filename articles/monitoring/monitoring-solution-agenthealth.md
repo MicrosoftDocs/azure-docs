@@ -48,7 +48,7 @@ The following table describes the connected sources that are supported by this s
 | System Center Operations Manager management group | Yes | Heartbeat events are collected from  agents reporting to the management group every 60 seconds and then forwarded to Log Analytics. A direct connection from Operations Manager agents to Log Analytics is not required. Heartbeat event data is forwarded from the management group to the Log Analytics repository.|
 
 ## Using the solution
-When you add the solution to your OMS workspace, the **Agent Health** tile will be added to your OMS dashboard. This tile shows the total number of agents and the number of unresponsive agents in the last 24 hours.<br><br> ![Agent Health Solution tile on dashboard](./media/oms-solution-agenthealth/agenthealth-solution-tile-homepage.png)
+When you add the solution to your OMS workspace, the **Agent Health** tile will be added to your OMS dashboard. This tile shows the total number of agents and the number of unresponsive agents in the last 24 hours.<br><br> ![Agent Health Solution tile on dashboard](./media/monitoring-solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Click on the **Agent Health** tile to open the **Agent Health** dashboard.  The dashboard includes the columns in the following table. Each column lists the top ten events by count that match that column’s criteria for the specified time range. You can run a log search that provides the entire list by selecting **See all** at the right bottom of each column, or by clicking the column header.
 
@@ -63,7 +63,7 @@ Click on the **Agent Health** tile to open the **Agent Health** dashboard.  The 
 | Geo-location of Agents | A partition of the different countries where you have agents and a total count of the number of agents that have been installed in each country.|
 | Count of Gateways Installed | The number of servers that have the OMS Gateway installed, and a list of these servers.|
 
-![Agent Health Solution dashboard example](./media/oms-solution-agenthealth/agenthealth-solution-dashboard.png)  
+![Agent Health Solution dashboard example](./media/monitoring-solution-agenthealth/agenthealth-solution-dashboard.png)  
 
 ## Log Analytics records
 The solution creates one type of record in the OMS repository.  
