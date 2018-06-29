@@ -22,46 +22,46 @@ If you have an HDInsight cluster with access to Azure Data Lake Storage Gen2 Pre
 ## Prerequisites
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **An Azure Storage account with Azure Data Lake Storage (Preview) feature enabled**. For instructions on how to create one, see [TODO](quickstart-create-account.md)
+* **An Azure Storage account with Azure Data Lake Storage (Preview) feature enabled**. For instructions on how to create one, see [Create an Azure Data Lake Storage Gen2 Preview storage account](quickstart-create-account.md)
 * **Azure HDInsight cluster** with access to a Data Lake Storage account. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](use-hdi-cluster.md). Make sure you enable Remote Desktop for the cluster.
 
 ## Use Distcp from an HDInsight Linux cluster
 
-An HDInsight cluster comes with the Distcp utility, which can be used to copy data from different sources into an HDInsight cluster. If you have configured the HDInsight cluster to use Azure Blob Storage and Azure Data Lake Storage together, the Distcp utility can be used out-of-the-box to copy data between as well. In this section, we look at how to use the Distcp utility.
+An HDInsight cluster comes with the [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) utility, which can be used to copy data from different sources into an HDInsight cluster. If you have configured the HDInsight cluster to use Azure Blob Storage and Azure Data Lake Storage together, the Distcp utility can be used out-of-the-box to copy data between as well. In this section, we look at how to use the Distcp utility.
 
 1. From your desktop, use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md). Run the commands from the SSH prompt.
 
 2. Verify whether you can access the Azure Storage Blobs (WASB). Run the following command:
 
-        hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
+        hdfs dfs –ls wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/
 
     The output should provide a list of contents in the storage blob.
 
 3. Similarly, verify whether you can access the Data Lake Storage account from the cluster. Run the following command:
 
-        hdfs dfs -ls abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/
+        hdfs dfs -ls abfs://<filesystem_name>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
 
     The output should provide a list of files/folders in the Data Lake Storage account.
 
 4. Use Distcp to copy data from WASB to a Data Lake Storage account.
 
-        hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/myfolder
+        hadoop distcp wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
 
     The command copies the contents of the **/example/data/gutenberg/** folder in Blob storage to **/myfolder** in the Data Lake Storage account.
 
 5. Similarly, use Distcp to copy data from Data Lake Storage account to Blob Storage (WASB).
 
-        hadoop distcp abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
+        hadoop distcp abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg
 
     THe command copies the contents of **/myfolder** in the Data Lake Store account to **/example/data/gutenberg/** folder in WASB.
 
 ## Performance considerations while using DistCp
 
-Because DistCp’s lowest granularity is a single file, setting the maximum number of simultaneous copies is the most important parameter to optimize it against Data Lake Storage. Number of simultaneous copies is controlled by setting the number of mappers (‘m’) parameter on the command line. This parameter specifies the maximum number of mappers that are used to copy data. Default value is 20.
+Because DistCp’s lowest granularity is a single file, setting the maximum number of simultaneous copies is the most important parameter to optimize it against Data Lake Storage. Number of simultaneous copies is controlled by setting the number of mappers (`m`) parameter on the command line. This parameter specifies the maximum number of mappers that are used to copy data. Default value is 20.
 
 **Example**
 
-	hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/myfolder -m 100
+	hadoop distcp wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder -m 100
 
 ### How do I determine the number of mappers to use?
 
@@ -69,7 +69,7 @@ Here's some guidance that you can use.
 
 * **Step 1: Determine total YARN memory** - The first step is to determine the YARN memory available to the cluster where you run the DistCp job. This information is available in the Ambari portal associated with the cluster. Navigate to YARN and view the Configs tab to see the YARN memory. To get the total YARN memory, multiply the YARN memory per node with the number of nodes you have in your cluster.
 
-* **Step 2: Calculate the number of mappers** - The value of **m** is equal to the quotient of total YARN memory divided by the YARN container size. The YARN container size information is available in the Ambari portal as well. Navigate to YARN and view the Configs tab. The YARN container size is displayed in this window. The equation to arrive at the number of mappers (**m**) is
+* **Step 2: Calculate the number of mappers** - The value of **m** is equal to the quotient of total YARN memory divided by the YARN container size. The YARN container size information is available in the Ambari portal as well. Navigate to YARN and view the Configs tab. The YARN container size is displayed in this window. The equation to arrive at the number of mappers (`m`) is
 
 		m = (number of nodes * YARN memory for each node) / YARN container size
 
