@@ -80,10 +80,11 @@ This tutorial uses a simplified network configuration for easy deployment. For p
 First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, and test servers.
 
 ### Create a resource group
+1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 1. On the Azure portal home page, click **Resource groups**, then click **Add**.
 2. For **Resource group name**, type **Test-FW-RG**.
 3. For **Subscription**, select your subscription.
-4. For **Resource group location**, select **East US**.
+4. For **Resource group location**, select **West Central US**.
 5. Click **Create**.
 
 
@@ -98,9 +99,9 @@ First, create a resource group to contain the resources needed to deploy the fir
 1. For **Subscription**, select your subscription.
 2. For **Resource group**, select **Use existing**, and then select **Test-FW-RG**.
 3. For **Location**, select **East US**.
-4. Under **Subnet**, for **Name** type **FW-SN**.
+4. Under **Subnet**, for **Name** type **AzureFirewallSubnet**.
 
-   This firewall will be in this subnet.
+   This firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
 10. For **Address range**, type **10.0.1.0/24**.
 11. Use the other default settings, and then click **Create**.
 
@@ -110,7 +111,7 @@ Next, create subnets for the jump server, and a subnet for the workload servers.
 
 1. On the Azure portal home page, click **Resource groups**, then click **Test-FW-RG**.
 2. Click the **Test-FW-VN** virtual network.
-3. Click **Subnets**, and then click **Subnet**.
+3. Click **Subnets**, and then click **+Subnet**.
 4. For **Name**, type **Workload-SN**.
 5. For **Address range**, type **10.0.2.0/24**.
 6. Click **OK**.
@@ -130,8 +131,8 @@ Now create the jump and workload virtual machines, and place them in the appropr
 1. For **Name**, type **Srv-Jump**.
 5. Type a username and password.
 6. For **Subscription**, select your subscription.
-7. For **Resource group**, select **Use existing**, and then select **Test-FW-RG**.
-8. For **Location**, select **East US**.
+7. For **Resource group**, click **Use existing**, and then select **Test-FW-RG**.
+8. For **Location**, select **West Central US**.
 9. Click **OK**.
 
 **Size**
@@ -158,36 +159,37 @@ Use the information in the following table to configure the **Settings** for the
 |Setting  |Value  |
 |---------|---------|
 |**Subnet**|**Workload-SN**|
-|**Public IP address**|**None**|
 |**Select public inbound ports**|**No public inbound ports**|
 
 
 ## Create the firewall
 
-<!--- the following procedure is created from sceenshots, not actual UI and still needs to verified --->
-
-[//]: # (Need steps showing how to get to the Create an Azure Firewall page)
-
-1. On the **Create an Azure Firewall** page, use the following table to configure the firewall:
+1. From the portal home page, click **Create a resource**.
+2. Click **Networking**, and after **Featured**, click **See all**.
+3. Click **Firewall**, and then click **Create**. 
+4. On the **Create a Firewall** page, use the following table to configure the firewall:
    
    |Setting  |Value  |
    |---------|---------|
    |Name     |Test-FW01|
    |Subscription     |\<your subscription\>|
    |Resource group     |**Use existing**: Test-FW-RG |
-   |Location     |East US|
+   |Location     |West Central US|
    |Choose a virtual network     |**Use existing**: Test-FW-VN|
-   |Subnet     |FW-SN|
    |Public IP address     |**Create new**|
 
-2. Click **Review + create** to create the firewall.
+2. Click **Review + create**.
+3. Review the summary, and then click **Create** to create the firewall.
 
+   This will take a few minutes to deploy.
+4. After deployment completes, go to the **Test-FW-RG** resource group, and click the **Test-FW01** firewall.
+6. Note the private IP address. You'll use it later when you create the default route.
 
-[//]: # (Remember to note the public IP for the firewall.)
+[//]: # (Remember to note the private IP for the firewall.)
 
 ## Create a default route
 
-On the **Workload-SN** subnet, the outbound traffic default route will go through the firewall.
+For the **Workload-SN** subnet, you configure the outbound default route to go through the firewall.
 
 1. From the Azure portal home page, click **All services**.
 2. Under **Networking**, click **Route tables**.
@@ -195,48 +197,50 @@ On the **Workload-SN** subnet, the outbound traffic default route will go throug
 4. For **Name**, type **Firewall-route**.
 5. For **Subscription**, select your subscription.
 6. For **Resource group**, select **Use existing**, and select **Test-FW-RG**.
-7. Click **Create**.
-8. Click **Refresh**, and then click the **Firewall-route** route table.
-9. Click **Subnets**, and then click **Associate**.
-10. Click **Virtual network**, and then select **Test-FW-VN**.
-11. For **Subnet**, click **Workload-SN**.
-12. Click **OK**.
-13. Click **Routes**, and then click **Add**.
-14. For **Route name**, type **FW-DG**.
-15. For **Address prefix**, type **0.0.0.0/0**.
-16. For **Next hop type**, select **Virtual appliance**.
-17. For **Next hop address**, type the public IP address for the firewall that you noted previously.
-18. Click **OK**.
+7. For **Location**, select **West Central US**.
+8. Click **Create**.
+9. Click **Refresh**, and then click the **Firewall-route** route table.
+10. Click **Subnets**, and then click **Associate**.
+11. Click **Virtual network**, and then select **Test-FW-VN**.
+12. For **Subnet**, click **Workload-SN**.
+13. Click **OK**.
+14. Click **Routes**, and then click **Add**.
+15. For **Route name**, type **FW-DG**.
+16. For **Address prefix**, type **0.0.0.0/0**.
+17. For **Next hop type**, select **Virtual appliance**.
+18. For **Next hop address**, type the private IP address for the firewall that you noted previously.
+19. Click **OK**.
 
 
 ## Configure application rules
 
-<!--- the following procedure is created from sceenshots, not actual UI and still needs to verified --->
 
-1. From the **Firewalls** page, under **Settings**, click **Rules**.
+1. Open the **Test-FW-RG**, and click the Test-FW01** firewall.
+1. On the **Test-FW01** page, under **Settings**, click **Rules**.
 2. Click **Add application rule collection**.
 3. For **Name**, type **App-Coll01**.
 1. For **Priority**, type **200**.
 2. For **Action**, select **Allow**.
 
-6. Under **Rules**, for **Name**, type **AllowAWS**.
+6. Under **Rules**, for **Name**, type **AllowGH**.
 7. For **Source Addresses**, type **10.0.2.0/24**.
-8. For **Target FQDNS**, type **github.com**
+8. For **Protocol:port**, type **http, https**. 
+9. For **Target FQDNS**, type **github.com**
+10. Click **Add**.
 
 ## Configure network rules
 
-<!--- the following procedure is created from sceenshots, not actual UI and still needs to verified --->
-
-1. From the **Firewalls** page, under **Settings**, click **Rules**.
-2. Click **Add network rule collection**.
-3. For **Name**, type **Net-Coll01**.
-4. For **Priority**, type **200**.
-5. For **Action**, select **Allow**.
+1. Click **Add network rule collection**.
+2. For **Name**, type **Net-Coll01**.
+3. For **Priority**, type **200**.
+4. For **Action**, select **Allow**.
 
 6. Under **Rules**, for **Name**, type **AllowDNS**.
-8. For **Protocol**, select **DNS**.
-9. For Destination address, type **209.244.0.3, 209.244.0.4**
-10. For **Destination Ports**, verify it is set to **53**.
+8. For **Protocol**, select **TCP**.
+9. For **Source Addresses**, type **10.0.2.0/24**.
+10. For Destination address, type **209.244.0.3, 209.244.0.4**
+11. For **Destination Ports**, type **53**.
+12. Click **Add**.
 
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
 
