@@ -22,8 +22,8 @@ Learn how to deploy and manage Azure Active Directory self-service password rese
 
 |     |     |     |
 | :---: | :---: | :---: |
-|[![Configure password reset](./media/index/i_protect.png)](quickstart-sspr.md)|   |[![Configure password reset](./media/index/i_identity-protection.png)](quickstart-sspr.md)|
-|Learn how to [configure password reset](quickstart-sspr.md) | | Learn how to [require Multi-Factor Authentication](quickstart-sspr.md) |
+|[![Configure password reset](./media/index/i_protect.png)](quickstart-sspr.md)|   |[![Configure Multi-Factor Authentication](./media/index/i_identity-protection.png)](quickstart-mfa.md)|
+|Learn how to [configure password reset](quickstart-sspr.md) | | Learn how to [require Multi-Factor Authentication](quickstart-mfa.md) |
 |     |     |     |
 
 ## Step-by-step tutorials
