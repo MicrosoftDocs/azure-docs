@@ -48,7 +48,7 @@ You can specify **columnMappings** in the **typeProperties** section of the Copy
 
 #### Explicit column mapping example
 
-In this sample, the input table has a structure and it points to a table in an on-premise SQL database.
+In this sample, the input table has a structure and it points to a table in an on-premises SQL database.
 
 ```json
 {

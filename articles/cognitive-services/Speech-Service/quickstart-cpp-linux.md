@@ -76,7 +76,9 @@ Place it into a file named `quickstart-linux.cpp`:
 
 [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Linux/quickstart-linux/quickstart-linux.cpp#code)]
 
-Replace the subscription key in the code with the one you obtained.
+> [!IMPORTANT]
+> Replace the subscription key with the one that you obtained. <br>
+> Replace the [region](regions.md) with the one associated with the subscription, for example, replace with `westus` for the free trial subscription.
 
 ## Building
 
