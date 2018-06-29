@@ -4,7 +4,7 @@ description: AD FS management with Azure AD Connect and customization of user AD
 keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, O365, federation, relying party
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 
