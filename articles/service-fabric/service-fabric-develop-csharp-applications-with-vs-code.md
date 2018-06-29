@@ -1,6 +1,6 @@
 ---
-title: Develop .NET Core Service Fabric applications with Visual Studio Code | Microsoft Docs
-description: This article shows how to build, deploy, and debug .NET Core Azure Service Fabric applications using Visual Studio Code. 
+title: Develop .NET Core Azure Service Fabric applications with Visual Studio Code | Microsoft Docs
+description: This article shows how to build, deploy, and debug .NET Core Service Fabric applications using Visual Studio Code. 
 services: service-fabric
 documentationcenter: .net
 author: JimacoMS2

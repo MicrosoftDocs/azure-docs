@@ -1,6 +1,6 @@
 ---
-title: Develop Java Service Fabric applications with Visual Studio Code | Microsoft Docs
-description: This article shows how to build, deploy, and debug Java Azure Service Fabric applications using Visual Studio Code. 
+title: Develop Azure Java Service Fabric applications with Visual Studio Code | Microsoft Docs
+description: This article shows how to build, deploy, and debug Java Service Fabric applications using Visual Studio Code. 
 services: service-fabric
 documentationcenter: .net
 author: JimacoMS
