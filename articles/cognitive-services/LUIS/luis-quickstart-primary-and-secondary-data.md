@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/26/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
@@ -42,7 +42,7 @@ This app demonstrates how to pull data out of an utterance. Consider the followi
 |Please submit my resume for the engineering position.|engineering|
 |Fill out application for job 123456|123456|
 
-This tutorial adds a new entity to extract the job name. The ability to extract a specific job number is shown in the regular expression [tutorial](luis-quickstart-intents-regex-entity.md). 
+This tutorial adds a new entity to extract the job name. 
 
 ## Purpose of the simple entity
 The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of jobs in any utterance across all intents.  
