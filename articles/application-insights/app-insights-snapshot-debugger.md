@@ -31,7 +31,7 @@ The following environments are supported:
 * Azure Cloud Service running OS family 4 or later.
 * Azure Service Fabric services running on Windows Server 2012 R2 or later.
 * Azure Virtual Machines running Windows Server 2012 R2 or later.
-* On-premise virtual or physical machines running Windows Server 2012 R2 or later.
+* On-premises virtual or physical machines running Windows Server 2012 R2 or later.
 
 > [!NOTE]
 > Client applications (for example, WPF, Windows Forms or UWP) are not supported.
