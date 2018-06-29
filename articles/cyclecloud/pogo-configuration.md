@@ -62,9 +62,6 @@ your own key(s).
 | tenant_id           | Your Azure Tenant ID, e.g. 66666666-6666-6666-6666-666666666666                                                                                                                                               |
 | application_id      | Your Azure Application ID, e.g. 77777777-7777-7777-7777-777777777777                                                                                                                                          |
 | application_secret  | Your Azure Application Secret, e.g. U3VjaCBhbiBpbnF1aXNpdGl2ZSBtaW5kIQ==                                                                                                                                      |
-| certificate_file    | A file containing the PEM formatted subscription certificate, e.g. ~/myazurefiles/subscription.pem                                                                                                            |
-| certificate         | A string-escaped version of the PEM formatted subscription certificate, e.g. —–BEGIN RSA PRIVATE KEY—–nMIIEG8konNbv7FQ==n—–END RSA PRIVATE KEY—–n—–BEGIN CERTIFICATE—–nMIICe4RTnBgNVVh/7n—–END CERTIFICATE—–n |
-| storage_account     | The name of the Azure storage account being accessed. Only necessary when using access_key authentication.                                                                                                    |
 | access_key          | The Azure storage account access key, e.g. Q29uZ3JhdHVsYXRpb25zISBZb3VyIGN1cmlvc2l0eSBrbm93cyBubyBib3VuZHMh                                                                                                   |
 
 >[!Note]

@@ -1,6 +1,6 @@
 # Azure CycleCloud Overview
 
-Azure CycleCloud makes it easy to create HPC clusters in the cloud, orchestrating workloads from the user to overcome the challenges typically associated with cloud HPC. CycleCloud works with VPC so it can run inside your firewall (on-site or cloud based). It includes support for GridEngine and HTCondor, and clusters can be configured with the same cluster-init specification. It imports cluster definitions from PBSPro and Singularity, and includes a RESTful API and command-line tools to manage compute clusters.
+Azure CycleCloud makes it easy to create HPC clusters in the cloud, orchestrating workloads from the user to overcome the challenges typically associated with cloud HPC. CycleCloud works with VPC so it can run inside your firewall (on-site or cloud based). It includes support for the GridEngine and HTCondor schedulers, and clusters can be configured with the same cluster-init specification. It imports cluster definitions from PBSPro and Singularity, and includes a RESTful API and command-line tools to manage compute clusters.
 
 Azure CycleCloud manages compute resources (such as virtual machines or cloud instances) that can be acquired on demand. These resources are called *nodes*, which are grouped into *clusters*. Nodes in a cluster are logically related, but each node can be configured completely independently. A node specifies the cloud provider, operating system, and machine type to use, the region or location to run in, and the software to install on the node when it starts.
 

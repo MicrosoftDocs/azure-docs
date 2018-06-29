@@ -1,20 +1,28 @@
-# CycleCloud CLI
+# Azure CycleCloud CLI
 
 In addition to the web interface, Azure CycleCloud can be controlled via the command line. CycleCloud's command-line interface (CLI) tool can be used to create, configure and manage clusters controlled by CycleCloud. It is highly recommended that you install these tools to make cluster management and configuration easier.
 
-The CycleCloud CLI is distributed as a standard installable Python package for v2.4+.
-It can be used on the same server that CycleCloud is installed on or on remote clients. The command line tools are a separate download, with pre-built binaries for Linux and Windows.
+The Azure CycleCloud CLI is distributed as a standard installable Python package for v2.7, and included with the Azure CycleCloud 7.3.0 installer with pre-built binaries for Windows and Linux. It can be used on the same server that CycleCloud is installed on or on remote clients.
 
-To begin, copy the CycleCloud binary to a location in your $PATH (for example, /usr/local/bin on Linux).
+> [!NOTE]
+> Azure CycleCloud CLI is not compatible with Python 3.
 
->[!Note]
->CLI credentials are stored like SSH keys. Ensure that your `~/.cycle` directory is locked down.
+## Windows Installation
 
-## Installing Command-Line Tools
+Run the install script:
 
-The CycleCloud CLI is distributed as a Linux binary (cyclecloud-cli-|version|.linux64.tar.gz),
-a Windows binary (cyclecloud-cli-|version|.win64.zip), and as source (cyclecloud-cli-|version|.tar.gz).
-The binaries can be used once untarred. The source tarball can be installed just like any Python package.
+    \install.ps1
+
+The install script updates the Windows system PATH so that the cyclecloud.exe and pogo.exe commands are available in new Powershell sessions.
+
+## Linux and Mac OS X Installation
+
+Run the install script:
+
+    ./install.sh
+
+The Linux/OS X installation script installs the CycleCloud command-line tools into
+~/bin, but does not update your PATH. That is left to the user.
 
 ### Using Pip
 
@@ -29,12 +37,12 @@ Using easy_install is another easy way to install the CycleCloud CLI package alo
     easy_install cyclecloud-cli-|version|.tar.gz
 
 If you have multiple versions of python installed, you can select which version to install on by using
-version-specific pip or easy_install tools. For example, for python 2.6 you may have a pip installer with
-the name ``pip-2.6`` or ``easy_install-2.6``.
+version-specific pip or easy_install tools. For example, you may have a pip installer with
+the name `pip-2.7` or `easy_install-2.7`.
 
 ### Using setup.py
 
-If you do not have pip or easy_install configured on your system, you can also use the standard ``setup.py install`` method:
+If you do not have pip or easy_install configured on your system, you can also use the standard `setup.py install` method:
 
     tar -xzvf cyclecloud-cli-|version|.tar.gz
 
@@ -44,13 +52,13 @@ If you do not have pip or easy_install configured on your system, you can also u
 
 ## Install Permissions
 
-If you get a 'permission denied' error when installing, you may need to run the install command with ``sudo`` since packages will be written to your system level Python install:
+If you get a 'permission denied' error when installing, you may need to run the install command with `sudo` since packages will be written to your system level Python install:
 
     $ sudo easy_install cyclecloud-cli-|version|.tar.gz
 
 ## Test the Install
 
-To make sure that your CLI has been installed correctly, you can run the ``cyclecloud`` command with no options. You should receive a help message like the following::
+To make sure that your CLI has been installed correctly, you can run the `cyclecloud` command with no options. You should receive a help message like the following::
 
     $ cyclecloud
     Usage: cyclecloud COMMAND [options]
@@ -66,13 +74,13 @@ If you see this, you have successfully installed the CycleCloud CLI tool.
 
 Before configuring the CycleCloud CLI, make sure that CycleCloud is running and accessible
 from the machine you are installing on. If you installed CycleCloud on the same
-machine you are installing the CLI tools on, you should be able to access ``http://localhost:8080``
+machine you are installing the CLI tools on, you should be able to access `http://localhost:8080`
 using your web browser. If you installed CycleServer on a different machine, make sure you can access it via your web browser.
 
 ## Initialize the CLI
 
-First, run the ``initialize`` command. This will ask you a few questions about how to connect to your
-CycleServer instance. If this is your first time configuring CycleCloud, you must provide
+Run the `initialize` command. This will ask you a few questions about how to connect to your
+Cycle instance. If this is your first time configuring CycleCloud, you must provide
 some information about your Azure account. CycleCloud uses this information
 to start compute clusters and to store data to Azure Storage:
 
@@ -96,23 +104,23 @@ to start compute clusters and to store data to Azure Storage:
 
 The first set of questions to answer are the URL pointing back to the CycleServer
 instance you have set up. If you are installing the CLI tools on the same machine, the default of
-``localhost`` should be sufficient. Next, you have to specify the user name and password
+`localhost` should be sufficient. Next, you have to specify the user name and password
 you created when setting up CycleServer for the first time.
 
-Several example cluster templates will be written to the ``~/.cycle`` directory for future reference.
+Several example cluster templates will be written to the `~/.cycle` directory for future reference.
 
 You will have to provide some information so that CycleCloud can access your Azure account.
-If the ``ACCESS_KEY`` and ``SECRET_KEY`` environment variables are defined,
+If the `ACCESS_KEY` and `SECRET_KEY` environment variables are defined,
 the CLI tools will ask to use them. If not, you must provide them. You will also
 asked to provide a default region to use when starting clusters.
 
-Finally, on first configuration you will be asked to give the name you wish to use for a container. This container will be used to store run-time configuration for your compute clusters. The container will be named 'az://[account]/[container]' where [container] is the value you specify. CycleCloud will only access this container, so if you need to limit access for security reasons this container is the only one that needs read/write permission.
+Finally, on first configuration you will be asked to give the name you wish to use for a container. This container will be used to store run-time configuration for your compute clusters. The container will be named `az://[account]/[container]` where [container] is the value you specify. CycleCloud will only access this container, so if you need to limit access for security reasons this container is the only one that needs read/write permission.
 
-Your configuration information is saved in your home directory at ``~/.cycle/config.ini``. If you need to reconfigure your account, you can edit or remove this file and re-run the initialize command. Alternately, you can rerun ``cyclecloud initialize`` with the ``--force`` option.
+Your configuration information is saved in your home directory at `~/.cycle/config.ini`. If you need to reconfigure your account, you can edit or remove this file and re-run the initialize command. Alternately, you can rerun `cyclecloud initialize` with the `--force` option.
 
 ### Test Your Configuration
 
-You can test your configuration by running the ``show_cluster`` command, which will return the details of all the clusters currently being managed by CycleCloud. If it is your first configuration, this list is likely to be empty. If you have configured the CLI tools correctly, the following command should not generate an error:
+You can test your configuration by running the `show_cluster` command, which will return the details of all the clusters currently being managed by CycleCloud. If it is your first configuration, this list is likely to be empty. If you have configured the CLI tools correctly, the following command should not generate an error:
 
     $ cyclecloud show_cluster
 

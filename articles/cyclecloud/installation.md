@@ -1,11 +1,37 @@
-# Installing CycleCloud
+# Manual Installation
+
+Azure CycleCloud can be installed using an ARM template, but for production instances of CycleCloud, we recommend installing the product manually as outlined below.
 
 ## A Note on Names
 
 It is worth noting that the names CycleCloud and CycleServer are sometimes used interchangeably, but this
 confuses the distinction between them. CycleServer is the platform that underlies CycleCloud.
-It handles data storage, plugin management, logging, monitoring, and alerting among other functions. CycleCloud is a plugin to CycleServer, which manages the creation of clusters across multiple cloud providers. While CycleCloud is the official name of the product,
-you will find CycleServer referenced in many commands and directory names.
+It handles data storage, plugin management, logging, monitoring, and alerting among other functions. CycleCloud is a plugin to CycleServer, which manages the creation of clusters across multiple cloud providers. While Azure CycleCloud is the official name of the product, you will find CycleServer referenced in many commands and directory names.
+
+## System Requirements
+
+To install CycleCloud, you must have administrator rights. In addition, your system needs to meet the following minimum requirements:
+
+* A 32-bit or 64-bit Linux distribution or Windows Server 2008 or newer
+* Java Runtime Environment (version 8 or higher)
+* At least 8GB of RAM
+* Two or more CPU cores
+* At least 50GB of free disk space
+* Administrator (root) privileges
+* Phraseless SSH key
+* Active Microsoft Azure Subscription
+
+> [!NOTE]
+> CycleCloud may be installed on physical or virtualized hardware.
+
+## SSH Key
+
+You will need to generate your own SSH key for use in CycleCloud. This
+key is used by the cycle\_server user, and must be accessible to that
+account.
+
+> [!WARNING]
+> Use a phraseless SSH key. If you enter a passphrase when generating your SSH key, the return proxy feature of CycleCloud will not work, which may cause node reporting and autoscaling to fail.
 
 ## Installation
 
@@ -20,10 +46,10 @@ On Linux systems, the install.sh script supports several options for customizati
 
 Option | Definition
 ------ | ----------
-``--batch``| Install without any prompts
-``--installdir`` | Install to a directory other than /opt/cycle_server
-``--force``      | Install to the specified directory even if it is not empty
-``--nostart``    | Do not start the processes after the installation is complete
+`--batch`| Install without any prompts
+`--installdir` | Install to a directory other than /opt/cycle_server
+`--force`      | Install to the specified directory even if it is not empty
+`--nostart`    | Do not start the processes after the installation is complete
 
 > [!NOTE]
 >You must have write permission to the /opt directory. The CycleCloud installer will create a cycle_server user and unix group, install into the /opt/cycle_server directory by default, and assign cycle_server:cycle_server ownership to the directory.
@@ -39,15 +65,14 @@ Do not install CycleCloud on a shared drive, or any drive in which non-admin use
 
 ## Upgrading CycleCloud
 
-To upgrade an existing CycleCloud installation, save the install bundle to the server’s local drive. The upgrade script will unpack the bundle and install the new package. On Linux, the upgrade script is ``$CS_HOME/util/upgrade.sh``. On Windows, the upgrade script is ``C:\Program Files\CycleServer\util\upgrade.cmd``. Both scripts take the path to the install bundle as an argument. For example:
+To upgrade an existing CycleCloud installation, save the install bundle to the server’s local drive. The upgrade script will unpack the bundle and install the new package. On Linux, the upgrade script is `$CS_HOME/util/upgrade.sh`. On Windows, the upgrade script is `C:\Program Files\CycleServer\util\upgrade.cmd`. Both scripts take the path to the install bundle as an argument. For example:
 
-  ``/opt/cycle_server/util/upgrade.sh /tmp/cyclecloud-6.6.0.tar.gz``
+      /opt/cycle_server/util/upgrade.sh /tmp/cyclecloud-6.6.0.tar.gz
 
 To upgrade the cyclecloud command line tool, copy the new binary over the old. In most cases, upgrades within a release series (e.g. 5.x) do not typically require CLI upgrades.
 
 > [!NOTE]
 >As of version 6.6.0, Java Runtime Environment is no longer packaged in the installation. JRE version 8 or higher is required.
-
 
 ## Installing Multiple Instances of CycleCloud on the Same Machine
 
@@ -56,32 +81,24 @@ To upgrade the cyclecloud command line tool, copy the new binary over the old. I
 
 Running multiple instances of CycleCloud on the same machine is supported, but requires some slight
 modifications to the configuration files before starting CycleCloud for the first time.
-During the install step, make sure to use the ``--nostart`` flag to keep the server from starting,
-and the ``--installdir`` flag to specify an alternate install directory. For example:
+During the install step, make sure to use the `--nostart` flag to keep the server from starting,
+and the `--installdir` flag to specify an alternate install directory. For example:
 
-  ``./install.sh --nostart --installdir /mnt/second_cycle_server``
+      /install.sh --nostart --installdir /mnt/second_cycle_server
 
-After the installer finishes, edit ``$CS_HOME/config/cycle_server.properties`` and change the
+After the installer finishes, edit `$CS_HOME/config/cycle_server.properties` and change the
 following port numbers to an unused port (incrementing each default port number by one usually works well):
 
-```cyclecloud_installation-interactive
-commandPort=6400
+      commandPort=6400
+      webServerPort=8080
+      webServerSslPort=8443
+      tomcat.shutdownPort=8007
+      brokerPort=5672
+      brokerJmxPort=9099
+      url=jdbc:derby://localhost:1527/cycle_server
 
-webServerPort=8080
-
-webServerSslPort=8443
-
-tomcat.shutdownPort=8007
-
-brokerPort=5672
-
-brokerJmxPort=9099
-
-url=jdbc:derby://localhost:1527/cycle_server
-```
-
-Next, edit ``$CS_HOME/data/derby.properties`` and modify ``derby.drda.portNumber``
-so that it matches the port specified in the ``url=`` line of cycle_server.properties
+Next, edit `$CS_HOME/data/derby.properties` and modify `derby.drda.portNumber`
+so that it matches the port specified in the `url=` line of cycle_server.properties.
 
 Finally, copy /etc/init.d/cycle_server to a new file and edit the CS_HOME path
 to point to the new CycleServer install, then start CycleServer using the new init script.
@@ -120,21 +137,3 @@ the account's user ID is "admin".
 * Contain at least one lower case letter
 * Contain at least one number
 * Contain at least one special character: @ # $ % ^ & * - _ ! + = [ ] { } | \ : ' , . ?
-
-## Licensing
-
-CycleCloud will check for existing licenses using the Cycle Computing Portal credentials you
-provided in Step 1. If a license is found for the internally-generated Node ID of your
-installation, the license will be installed automatically. If a license has not been assigned
-to this instance, you will be presented with a list of your available licenses. Click **Claim**
-to select the desired license and it will be installed automatically.
-
-If there are no available licenses associated with your Cycle Computing Portal credentials, please
-contact your sales representative. If you need to manually enter a license (for example, if your
-CycleCloud installation is in an air-gapped environment), your sales representative will send an
-email with a license. Copy the license string from the email and paste
-it into the form. Click **Install License** to continue.
-
-![Enter License screen](~/images/setup-license.png)
-
-You will see confirmation that the license has been successfully installed.

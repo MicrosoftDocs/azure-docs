@@ -38,7 +38,7 @@ Azure uses a subscription ID and authentication certificate for account validati
 3. Click on **App Registrations**, then **+ New Application Registration**
 4. Give your application a unique name (i.e. "MyAzureApplication")
 5. Choose "Web App/API" as the Type
-6. The Sign-on URL is a required field, but not used by CycleCloud. Enter ``http://localhost`` so the form will accept your request.
+6. The Sign-on URL is a required field, but not used by CycleCloud. Enter `http://localhost` so the form will accept your request.
 7. Click **Create**
 8. Once your application has been created, click on it to load the app information. From here, click on **Settings**, then **Keys**.
 
@@ -65,6 +65,9 @@ To give CycleCloud the required access to your Azure Application Registration, y
 
 4. Click **+ Add**. On the new panel that appears, click on **Contributor** to set the role.
 5. In Step 2, search for "MyAzureApplication" and select the appropriate item. Click **Select**.
+
+> [!NOTE]
+>You must be the owner or have owner rights of the subscription to assign the Contributor role. 
 
 ### Creating a Network Security Group
 
