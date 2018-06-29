@@ -34,15 +34,15 @@ This section shows you how to create a telemetry rule. This example uses a conne
 
 1. If you haven’t created any rules yet, you see the following screen:
 
-    ![No rules yet](media\howto-create-telemetry-rules\image1.png)
+    ![No rules yet](media/howto-create-telemetry-rules/image1.png)
 
 1. On the **Rules** tab, choose **+ New Rule** to see the types of rules you can create.
 
-    ![Rule types](media\howto-create-telemetry-rules\image2.png)
+    ![Rule types](media/howto-create-telemetry-rules/image2.png)
 
 1. Choose the **Telemetry** tile to open the form to create the rule.
 
-    ![Telemetry rule](media\howto-create-telemetry-rules\image3.png)
+    ![Telemetry rule](media/howto-create-telemetry-rules/image3.png)
 
 1. Choose a name that helps you to identify the rule in this device template.
 
@@ -56,7 +56,7 @@ This section shows you how to add a condition to monitor the temperature telemet
 
 1. Choose the **Temperature** telemetry type from the dropdown. Then choose the operator and provide a threshold value. You can add multiple telemetry conditions. When multiple conditions are specified, all the conditions must be met for the rule to trigger.
 
-    ![Add Telemetry Condition](media\howto-create-telemetry-rules\image4.png)
+    ![Add Telemetry Condition](media/howto-create-telemetry-rules/image4.png)
 
     > [!NOTE]
     > Select at least one telemetry measurement when you define a telemetry rule condition.
@@ -72,14 +72,14 @@ his section shows you how to add an action to a rule. This shows how to add the 
 
 1. Choose the **+** next to **Actions**. Here you see the list of available actions.
 
-    ![Add Action](media\howto-create-telemetry-rules\image5.png)
+    ![Add Action](media/howto-create-telemetry-rules/image5.png)
 
 1. Choose the **Email** action, enter a valid email address in the **To** field, and provide a note to appear in the body of the email when the rule triggers.
 
     > [!NOTE]
     > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md) in Azure IoT Central.
 
-   ![Configure Action](media\howto-create-telemetry-rules\image6.png)
+   ![Configure Action](media/howto-create-telemetry-rules/image6.png)
 
 1. Click **Save**. The rule goes live within a few minutes and starts monitoring telemetry being sent to your application. When the condition specified in the rule matches, the rule triggers the configured email action.
 
