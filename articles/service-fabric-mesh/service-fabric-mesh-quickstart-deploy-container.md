@@ -97,7 +97,7 @@ From the output, copy the IP address.
 
 In the example above, the service end point IP is 40.121.47.57.  Take your corresponding IP address and open it in your favorite browser.
 
-## See all the application you have currently deployed to your subscription
+## See all the applications you have currently deployed to your subscription
 
 You can use the `az mesh app list` command to get a list of applications you have deployed to your subscription.
 
