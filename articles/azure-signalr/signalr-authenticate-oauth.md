@@ -84,9 +84,10 @@ To complete this tutorial, you must have the following prerequisites:
 
 ### Update the Startup class to support GitHub authentication
 
-1. Add a reference to the latest *Microsoft.AspNetCore.Authentication.Cookies* package and restore all packages.
+1. Add a reference to the latest *Microsoft.AspNetCore.Authentication.Cookies* and *AspNet.Security.OAuth.GitHub* packages and restore all packages.
 
         dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+        dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
         dotnet restore
 
 1. Open *Startup.cs*, and add `using` statements for the following namespaces:

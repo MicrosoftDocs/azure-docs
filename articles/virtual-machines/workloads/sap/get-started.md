@@ -477,7 +477,7 @@ Updated: June 2017
 ### Using Azure Site Recovery for SAP workload
 Title: SAP NetWeaver: Building a Disaster Recovery Solution with Azure Site Recovery
 
-Summary: This document describes the way how Azure Site Recovery services can be used for the purpose of handling disaster recovery scenarios. Cases where Azure is used as disaster recovery location for an on-premise SAP landscape using Azure Site Recovery Services. Another scenario described in the document is the Aure-to-Azure (A2A) disaster recovery case and how it is managed with Azure Site Recovery.  
+Summary: This document describes the way how Azure Site Recovery services can be used for the purpose of handling disaster recovery scenarios. Cases where Azure is used as disaster recovery location for an on-premises SAP landscape using Azure Site Recovery Services. Another scenario described in the document is the Aure-to-Azure (A2A) disaster recovery case and how it is managed with Azure Site Recovery.  
 
 Updated: August 2017
 
