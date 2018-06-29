@@ -65,7 +65,8 @@ import com.google.gson.reflect.TypeToken;
  *	  javac CreateKB.java -cp .;<GSON> -encoding UTF-8
  * 3. Run *:
  *    java -cp .;<GSON> CreateKB
- * *replace <GSON> with the name of the current Google GSON library .jar file, for example gson-2.8.5.jar
+ * *replace <GSON> with the name of the current Google GSON library .jar file,
+ * for example: gson-2.8.5.jar
 */
 
 public class CreateKB {
@@ -109,7 +110,7 @@ public class CreateKB {
         String fileUri;
     }
 
-    // This class has the HTTP response headers and body that is returned 
+    // This class has the HTTP response headers and body that is returned
     // by the HTTP request.
     public static class Response {
         Map<String, List<String>> Headers;
