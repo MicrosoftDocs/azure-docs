@@ -19,9 +19,10 @@ In this quickstart, you generate a thumbnail from an image using the Computer Vi
 ## Prerequisites
 
 * To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
 * The [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
 
-## Get Thumbnail request
+## GenerateThumbnailAsync method
 
 The `GenerateThumbnailAsync` and `GenerateThumbnailInStreamAsync` methods wrap the [Get Thumbnail API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) for remote and local images, respectively.  You can use these methods to generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the region of interest and generate cropping coordinates based on that region.
 
@@ -103,7 +104,6 @@ namespace ImageThumbnail
 
             // Save the thumbnail to the users %TEMP% folder,
             // using the original name with the suffix "_thumb".
-            // Note: This will overwrite an existing file of the same name.
             SaveThumbnail(thumbnail, thumbnailFilePath);
         }
 
@@ -128,12 +128,12 @@ namespace ImageThumbnail
 
                 // Save the thumbnail to the same folder as the original image,
                 // using the original name with the suffix "_thumb".
-                // Note: This will overwrite an existing file of the same name.
                 SaveThumbnail(thumbnail, thumbnailFilePath);
             }
         }
 
-        // Save the thumbnail locally
+        // Save the thumbnail locally.
+        // NOTE: This will overwrite an existing file of the same name.
         private static void SaveThumbnail(Stream thumbnail, string thumbnailFilePath)
         {
             using (Stream file = File.Create(thumbnailFilePath))
@@ -146,7 +146,7 @@ namespace ImageThumbnail
 }
 ```
 
-## Get Thumbnail response
+## GenerateThumbnailAsync response
 
 A successful response saves the thumbnail for each image locally and displays the thumbnail's location, for example:
 

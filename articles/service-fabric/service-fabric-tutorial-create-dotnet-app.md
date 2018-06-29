@@ -1,5 +1,5 @@
 ---
-title: Create a .NET application for Service Fabric | Microsoft Docs
+title: Create a .NET app on Service Fabric in Azure | Microsoft Docs
 description: In this tutorial, you learn how to create an application with an ASP.NET Core front-end and a reliable service stateful back-end and deploy the application to a cluster.
 services: service-fabric
 documentationcenter: .net
@@ -18,8 +18,8 @@ ms.author: ryanwi
 ms.custom: mvc
 
 ---
+# Tutorial: Create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
 
-# Tutorial: create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
 This tutorial is part one of a series.  You will learn how to create an Azure Service Fabric application with an ASP.NET Core Web API front end and a stateful back-end service to store your data. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a stateful back-end service in the cluster. If you don't want to manually create the voting application, you can [download the source code](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) for the completed application and skip ahead to [Walk through the voting sample application](#walkthrough_anchor).  If you prefer, you can also watch a [video walk-through](https://channel9.msdn.com/Events/Connect/2017/E100) of this tutorial.
 
 ![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
@@ -40,12 +40,14 @@ In this tutorial series you learn how to:
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Prerequisites
+
 Before you begin this tutorial:
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Install Visual Studio 2017](https://www.visualstudio.com/) version 15.5 or later with the **Azure development** and **ASP.NET and web development** workloads.
-- [Install the Service Fabric SDK](service-fabric-get-started.md)
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Install Visual Studio 2017](https://www.visualstudio.com/) version 15.5 or later with the **Azure development** and **ASP.NET and web development** workloads.
+* [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 ## Create an ASP.NET Web API service as a reliable service
+
 First, create the web front-end of the voting application using ASP.NET Core. ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. 
 To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article. For now, you can follow this tutorial to get started quickly. To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/).
 
@@ -112,6 +114,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 ```
 
 ### Update the Index.cshtml file
+
 Open **Views/Home/Index.cshtml**, the view specific to the Home controller.  Replace its contents with the following, then save your changes.
 
 ```html
@@ -175,7 +178,9 @@ Open **Views/Home/Index.cshtml**, the view specific to the Home controller.  Rep
 ```
 
 ### Update the _Layout.cshtml file
+
 Open **Views/Shared/_Layout.cshtml**, the default layout for the ASP.NET app.  Replace its contents with the following, then save your changes.
+
 
 ```html
 <!DOCTYPE html>
@@ -206,9 +211,10 @@ Open **Views/Shared/_Layout.cshtml**, the default layout for the ASP.NET app.  R
 ```
 
 ### Update the VotingWeb.cs file
-Open **VotingWeb.cs**, which creates the ASP.NET Core WebHost inside the stateless service using the WebListener web server.  
 
-Add the `using System.Net.Http;` directive to the top of the file.  
+Open the *VotingWeb.cs* file, which creates the ASP.NET Core WebHost inside the stateless service using the WebListener web server.
+
+Add the `using System.Net.Http;` directive to the top of the file.
 
 Replace the `CreateServiceInstanceListeners()` function with the following code, then save your changes.
 
@@ -253,6 +259,7 @@ internal static Uri GetVotingDataServiceName(ServiceContext context)
 ```
 
 ### Add the VotesController.cs file
+
 Add a controller, which defines voting actions. Right-click on the **Controllers** folder, then select **Add->New item->Visual C#->ASP.NET Core->Class**. Name the file **VotesController.cs**, then click **Add**.  
 
 Replace the *VotesController.cs* file contents with the following, then save your changes.  Later, in [Update the VotesController.cs file](#updatevotecontroller_anchor), this file is modified to read and write voting data from the back-end service.  For now, the controller returns static string data to the view.
@@ -298,6 +305,7 @@ namespace VotingWeb.Controllers
 ```
 
 ### Configure the listening port
+
 When the VotingWeb front-end service is created, Visual Studio randomly selects a port for the service to listen on.  The VotingWeb service acts as the front-end for this application and accepts external traffic, so let's bind that service to a fixed and well-know port.  The [service manifest](service-fabric-application-and-service-manifests.md) declares the service endpoints.
 
 In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find the **Endpoint** element in the **Resources** section and change the **Port** value to **8080**. To deploy and run the application locally, the application listening port must be open and available on your computer.
@@ -330,6 +338,7 @@ After the Voting application has been deployed to your local Service Fabric clus
 To stop debugging the application, go back to Visual Studio and press **Shift+F5**.
 
 ## Add a stateful back-end service to your application
+
 Now that an ASP.NET Web API service is running in the application, go ahead and add a stateful reliable service to store some data in the application.
 
 Service Fabric allows you to consistently and reliably store your data right inside your service by using reliable collections. Reliable collections are a set of highly available and reliable collection classes that are familiar to anyone who has used C# collections.
@@ -437,6 +446,7 @@ namespace VotingData.Controllers
 ```
 
 ## Connect the services
+
 In this next step, connect the two services and make the front-end Web application get and set voting information from the back-end service.
 
 Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services that are accessible via TCP. Other services that might be accessible via an HTTP REST API and still other services could be accessible via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with services](service-fabric-connect-and-communicate-with-services.md).
@@ -467,6 +477,7 @@ To view the HttpApplicationGatewayEndpoint element in the local Service Fabric c
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
 ### Update the VotesController.cs file
+
 In the **VotingWeb** project, open the *Controllers/VotesController.cs* file.  Replace the `VotesController` class definition contents with the following, then save your changes. If the reverse proxy port you discovered in the pervious step is not 19081, change the port used in the GetProxyAddress method from 19081 to the port that you discovered.
 
 ```csharp
@@ -579,16 +590,20 @@ public class VotesController : Controller
     }
 }
 ```
+
 <a id="walkthrough" name="walkthrough_anchor"></a>
 
 ## Walk through the voting sample application
+
 The voting application consists of two services:
-- Web front-end service (VotingWeb)- An ASP.NET Core web front-end service, which serves the web page and exposes web APIs to communicate with the backend service.
-- Back-end service (VotingData)- An ASP.NET Core web service, which exposes an API to store the vote results in a reliable dictionary persisted on disk.
+
+* Web front-end service (VotingWeb)- An ASP.NET Core web front-end service, which serves the web page and exposes web APIs to communicate with the backend service.
+* Back-end service (VotingData)- An ASP.NET Core web service, which exposes an API to store the vote results in a reliable dictionary persisted on disk.
 
 ![Application Diagram](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 When you vote in the application the following events occur:
+
 1. A JavaScript sends the vote request to the web API in the web front-end service as an HTTP PUT request.
 
 2. The web front-end service uses a proxy to locate and forward an HTTP PUT request to the back-end service.
@@ -596,9 +611,11 @@ When you vote in the application the following events occur:
 3. The back-end service takes the incoming request, and stores the updated result in a reliable dictionary, which gets replicated to multiple nodes within the cluster and persisted on disk. All the application's data is stored in the cluster, so no database is needed.
 
 ## Debug in Visual Studio
+
 When debugging application in Visual Studio, you are using a local Service Fabric development cluster. You have the option to adjust your debugging experience to your scenario. In this application, store data in the back-end service using a reliable dictionary. Visual Studio removes the application per default when you stop the debugger. Removing the application causes the data in the back-end service to also be removed. To persist the data between debugging sessions, you can change the **Application Debug Mode** as a property on the **Voting** project in Visual Studio.
 
 To look at what happens in the code, complete the following steps:
+
 1. Open the **VotingWeb\VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 63).
 
 2. Open the **VotingData\VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 53).
@@ -607,8 +624,9 @@ To look at what happens in the code, complete the following steps:
 
 4. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front-end's api controller.
     
+
     1. This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
-    
+
     ![Add Vote Front-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
     2. First construct the URL to the ReverseProxy for the back-end service **(1)**.
@@ -617,7 +635,7 @@ To look at what happens in the code, complete the following steps:
 
 5. Press **F5** to continue.
     1. You are now at the break point in the back-end service.
-    
+
     ![Add Vote Back-End Service](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
     2. In the first line in the method **(1)** use the `StateManager` to get or add a reliable dictionary called `counts`.
@@ -627,8 +645,8 @@ To look at what happens in the code, complete the following steps:
 
 To stop the debugging session, press **Shift+F5**.
 
-
 ## Next steps
+
 In this part of the tutorial, you learned how to:
 
 > [!div class="checklist"]
