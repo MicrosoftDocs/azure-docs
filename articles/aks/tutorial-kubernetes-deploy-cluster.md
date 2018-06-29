@@ -30,7 +30,7 @@ In previous tutorials, a container image was created and uploaded to an Azure Co
 
 ## Create a service principal
 
-To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. This service principal can be automatically created by the Azure CLI or portal, or you can pre-create one and assign additional permissions. In this tutorial, let's create a service principal, grant access to the Azure Container Registry (ACR) instance created in the previous tutorial, then create an AKS cluster.
+To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. This service principal can be automatically created by the Azure CLI or portal, or you can pre-create one and assign additional permissions. In this tutorial, you create a service principal, grant access to the Azure Container Registry (ACR) instance created in the previous tutorial, then create an AKS cluster.
 
 Create a service principal with [az ad sp create-for-rbac][]. The `--skip-assignment` parameter limits any additional permissions from being assigned.
 
@@ -50,39 +50,39 @@ The output is similar to the following example:
 }
 ```
 
-Make a note of the *appId* and *password*. These values are used when you create an AKS cluster in a following step.
+Make a note of the *appId* and *password*. These values are used in the following steps.
 
 ## Configure ACR authentication
 
-Authentication must be configured between the AKS cluster and the ACR instance. This process involves granting the AKS service principal the correct rights to pull images from ACR.
+To access images stored in ACR, you must grant the AKS service principal the correct rights to pull images from ACR.
 
-Get the ACR resource ID with [az acr show][]. Update the *<acrName>* registry name to that of your ACR instance and the resource group where the ACR instance is located.
+First, get the ACR resource ID with [az acr show][]. Update the `<acrName>` registry name to that of your ACR instance and the resource group where the ACR instance is located.
 
 ```azurecli
 az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv
 ```
 
-To grant the correct access for the AKS cluster to use images stored in ACR, create a role assignment. Replace `<appID`> and `<acrID>` with the values gathered in the previous two steps.
+To grant the correct access for the AKS cluster to use images stored in ACR, create a role assignment with [az role assignment create][]. Replace `<appId`> and `<acrId>` with the values gathered in the previous two steps.
 
 ```azurecli
-az role assignment create --assignee <appID> --role Reader --scope <acrID>
+az role assignment create --assignee <appId> --role Reader --scope <acrId>
 ```
 
 ## Create Kubernetes cluster
 
-Now create an AKS cluster with [az aks create][]. The following example creates a cluster named `myAKSCluster` in a resource group named `myResourceGroup`. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr]. Provide your own *<appId>* and *<password>* from the previous step where you created the service principal.
+Now create an AKS cluster with [az aks create][]. The following example creates a cluster named *myAKSCluster* in a resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr]. Provide your own `<appId>` and `<password>` from the previous step where you created the service principal.
 
 ```azurecli
 az aks create \
-    --resource-group myResourceGroup \
     --name myAKSCluster \
+    --resource-group myResourceGroup \
     --node-count 1 \
     --generate-ssh-keys \
     --service-principal <appId> \
     --client-secret <password>
 ```
 
-After several minutes, the deployment completes, and returns json formatted information about the AKS deployment.
+After several minutes, the deployment completes, and returns JSON-formatted information about the AKS deployment.
 
 ## Install the kubectl CLI
 
@@ -99,7 +99,7 @@ az aks install-cli
 To configure kubectl to connect to your Kubernetes cluster, use [az aks get-credentials][]. The following example gets credentials for the AKS cluster name *myAKSCluster* in the *myResourceGroup*:
 
 ```azurecli
-az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+az aks get-credentials --name myAKSCluster --resource-group myResourceGroup \
 ```
 
 To verify the connection to your cluster, run the [kubectl get nodes][kubectl-get] command.
@@ -120,6 +120,7 @@ aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.6
 In this tutorial, a Kubernetes cluster was deployed in AKS. The following steps were completed:
 
 > [!div class="checklist"]
+> * Created a service principal for resource interactions
 > * Deployed a Kubernetes AKS cluster
 > * Installed the Kubernetes CLI (kubectl)
 > * Configured kubectl
@@ -139,6 +140,7 @@ Advance to the next tutorial to learn about running application on the cluster.
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [az ad sp create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az acr show]: /cli/azure/acr#az-acr-show
+[az role assignment create]: /cli/azure/role/assignment#az-role-assignment-create
 [az aks create]: /cli/azure/aks#az-aks-create
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
