@@ -50,9 +50,9 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 ## Release notes
 
 ### <a name="1.16.2"/>1.16.2
-* Added Streaming Fail Over support.
+* Added streaming fail over support.
 * Added support for custom metadata.
-* Improved Session handling logic.
+* Improved session handling logic.
 * Fixed a bug in partition key range cache.
 * Fixed a NPE bug in direct mode.
 
@@ -201,7 +201,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.16.2](#1.16.2) |JUne 29, 2018 |--- |
+| [1.16.2](#1.16.2) |June 29, 2018 |--- |
 | [1.16.1](#1.16.1) |May 16, 2018 |--- |
 | [1.16.0](#1.16.0) |March 15, 2018 |--- |
 | [1.15.0](#1.15.0) |Nov 14, 2017 |--- |
