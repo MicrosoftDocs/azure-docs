@@ -2,7 +2,7 @@
 title: Azure AD Connect - Update the SSL certificate for an AD FS farm | Microsoft Docs
 description: This document details the steps to update the SSL certificate of an AD FS farm by using Azure AD Connect.
 services: active-directory
-manager: mtillman\
+manager: mtillman
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
 ms.service: active-directory  
