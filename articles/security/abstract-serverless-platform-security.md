@@ -2,7 +2,7 @@
 
 title: Abstract-Azure Functions and Serverless Platform Security
 description: Abstract for the Azure Functions and Serverless Platform Security white paper.
-author: 
+author: TomShinder
 ms.author: TomSh
 ms.date: 06/21/2018
 ms.topic: article
