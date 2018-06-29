@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/07/2017
+ms.date: 06/29/2018
 ms.author: mbullwin
 
 ---
@@ -124,7 +124,7 @@ All data is encrypted as it moves between data centers.
 #### Is the data encrypted in transit from my application to Application Insights servers?
 Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages. The only exception is data sent from plain HTTP web pages.
 
-## How do I configure the data I send to Application Insights to use TLS 1.2?
+## How do I send data to Application Insights using TLS 1.2?
 
 To insure the security of data in transit to the Application Insights endpoints, we strongly encourage customers to configure their application to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**, and the industry is quickly moving to abandon support for these older protocols. 
 
@@ -145,8 +145,24 @@ We do not recommend explicitly setting your application to only use TLS 1.2 unle
 | Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
 | Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 and Windows Server 2008 R2 SP1 | Supported, but not enabled by default. | See the [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) page for details on how to enable.  |
-| Windows Server 2008 SP2 | Support for TLS 1.2 requires an update. | See [Update to add support for TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) in Windows Server 2008 SP2 |
+| Windows Server 2008 SP2 | Support for TLS 1.2 requires an update. | See [Update to add support for TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) in Windows Server 2008 SP2. |
 |Windows Vista | Not Supported. | N/A
+
+### Check what version of OpenSSL your Linux distribution is running
+
+To check what version of OpenSSL you have installed, open the terminal and run:
+
+```terminal
+openssl version -a
+```
+
+### Run a test TLS 1.2 transaction on Linux
+
+To run a basic preliminary test to see if your Linux system can communicate over TLS 1.2. Open the terminal and run:
+
+```terminal
+openssl s_client -connect bing.com:443 -tls1_2
+```
 
 ## Personal data stored in Application Insights
 
