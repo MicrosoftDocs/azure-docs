@@ -38,6 +38,28 @@ In this tutorial, you'll learn how to:
 
 To complete this tutorial, you need experience with [Docker Compose](https://docs.docker.com/compose/) or [Kubernetes](https://kubernetes.io/).
 
+## Download the sample
+
+For this tutorial, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress).
+
+[!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
+
+In the Cloud Shell, create a tutorial directory and then change to it.
+
+```bash
+mkdir tutorial
+
+cd tutorial
+```
+
+Next, run the following command to clone the sample app repository to your tutorial directory. Then change to the `multicontainerwordpress` directory.
+
+```bash
+git clone https://github.com/Azure-Samples/multicontainerwordpress
+
+cd multicontainerwordpress
+```
+
 ## Create a resource group
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
@@ -113,16 +135,12 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 ### Docker Compose with WordPress and MySQL containers
 
-Copy and paste the following YAML locally to a file named `compose-wordpress.yml`.
-
-[!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
-
 ## Create a Docker Compose app
 
 In your Cloud Shell, create a multi-container [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _\<app_name>_ with a unique app name.
 
 ```bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
 ```
 
 When the web app has been created, Cloud Shell shows output similar to the following example:
@@ -164,7 +182,7 @@ In the following command, substitute your MySQL server name where you see the _&
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
 ```
 
-When the MySQL server is created, Cloud Shell shows information similar to the following example:
+Creating the server may take a few minutes to complete. When the MySQL server is created, Cloud Shell shows information similar to the following example:
 
 ```json
 {
@@ -270,7 +288,7 @@ The following changes have been made for Redis (to be used in a later section):
 * [Adds Redis Object Cache 1.3.8 WordPress plugin.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [Uses App Setting for Redis host name in WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-To use the custom image, you'll update your compose-wordpress.yml file. Change the `image: wordpress` to use `image: microsoft/multicontainerwordpress`. You no longer need the database container. Remove the  `db`, `environment`, `depends_on`, and `volumes` section from the configuration file. Your file should look like the following code:
+To use the custom image, you'll update your docker-compose-wordpress.yml file. Change the `image: wordpress` to use `image: microsoft/multicontainerwordpress`. You no longer need the database container. Remove the  `db`, `environment`, `depends_on`, and `volumes` section from the configuration file. Your file should look like the following code:
 
 ```yaml
 version: '3.3'
@@ -288,7 +306,7 @@ services:
 In Cloud Shell, reconfigure your multi-container [web app](app-service-linux-intro.md) with the [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) command. Don't forget to replace _\<app_name>_ with the name of the web app you created earlier.
 
 ```bash
-az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
+az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
 ```
 
 When the app has been reconfigured, Cloud Shell shows information similar to the following example:
@@ -340,7 +358,7 @@ When the app setting has been created, Cloud Shell shows information similar to 
 
 ### Modify configuration file
 
-Open *compose-wordpress.yml* again.
+In the Cloud Shell, type `nano docker-compose-wordpress.yml` to open the nano text editor.
 
 The `volumes` option maps the file system to a directory within the container. `${WEBAPP_STORAGE_HOME}` is an environment variable in App Service that is mapped to persistent storage for your app. You'll use this environment variable in the volumes option so that the WordPress files are installed into persistent storage instead of the container. Make the following modifications to the file:
 
@@ -364,7 +382,7 @@ services:
 In Cloud Shell, reconfigure your multi-container [web app](app-service-linux-intro.md) with the [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) command. Don't forget to replace _\<app_name>_ with a unique app name.
 
 ```bash
-az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
+az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
 ```
 
 After your command runs, it shows output similar to the following example:
@@ -398,7 +416,7 @@ The custom image is based on the 'official image' of [WordPress from Docker Hub]
 * [Adds PHP extension for Redis v4.0.2.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/Dockerfile#L35)
 * [Adds unzip needed for file extraction.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L71)
 * [Adds Redis Object Cache 1.3.8 WordPress plugin.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
-* [Uses App Seting for Redis host name in WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
+* [Uses App Setting for Redis host name in WordPress wp-config.php.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
 Add the redis container to the bottom of the configuration file so it looks like the following example:
 
@@ -499,9 +517,9 @@ In this section, you'll learn how to use a Kubernetes configuration to deploy mu
 >Any other Kubernetes options not explicitly called out aren't supported in Public Preview.
 >
 
-### Create configuration file
+### Kubernetes configuration file
 
-Save the following YAML to a file called *kubernetes-wordpress.yml*.
+You'll use *kubernetes-wordpress.yml* for this portion of the tutorial. It is displayed here for your reference:
 
 [!code-yml[Main](../../../azure-app-service-multi-container/kubernetes-wordpress.yml)]
 

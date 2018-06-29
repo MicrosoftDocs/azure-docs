@@ -31,7 +31,7 @@ You'll complete this quickstart in Cloud Shell, but you can also run these comma
 
 ## Download the sample
 
-For this quickstart, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you'll modify it include Azure Database for MySQL, persistent storage, and Redis. The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress).
+For this quickstart, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project). The configuration file can be found at [Azure Samples](https://github.com/Azure-Samples/multicontainerwordpress).
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
