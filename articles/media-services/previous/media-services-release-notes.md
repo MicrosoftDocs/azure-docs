@@ -166,7 +166,6 @@ The Azure SDK team published a new release of the [Azure SDK for PHP](http://git
 
 For more information, see:
 
-* The [Media Services SDK for PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) blog.
 * The following [code samples](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) help you to get started quickly:
   * **vodworkflow_aes.php**: This PHP file shows how to use AES-128 dynamic encryption and the key delivery service. It's based on the .NET sample explained in [Use AES-128 dynamic encryption and the key delivery service](media-services-protect-with-aes128.md).
   * **vodworkflow_aes.php**: This PHP file shows how to use PlayReady dynamic encryption and the license delivery service. It's based on the .NET sample explained in [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md).
@@ -205,9 +204,7 @@ For more information, see [this blog](https://azure.microsoft.com/blog/azure-med
 
 ## <a id="august_changes_15"></a>August 2015 release
 * The Media Services SDK for the Java version 0.8.0 release and new samples are now available. For more information, see:
-  
-  * [This blog post](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
-  * [The Java samples repository](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+    
 * The Azure Media Player was updated with multi-audio stream support. For more information, see [this blog post](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
 ## <a id="july_changes_15"></a>July 2015 release
@@ -365,7 +362,7 @@ The following bug fixes were made for the Azure Media Services Packager and Encr
 
 ## <a id="may_changes_14"></a>May 2014 release
 ### <a id="may_14_changes"></a>General Media Services updates
-You can now use [dynamic packaging] to stream HLS version 3. To stream HLS version 3, add the following format to the origin locator path: * .ism/manifest(format=m3u8-aapl-v3). For more information, see [this blog](http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/).
+You can now use [dynamic packaging] to stream HLS version 3. To stream HLS version 3, add the following format to the origin locator path: * .ism/manifest(format=m3u8-aapl-v3). For more information, see [this forum](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
 Dynamic packaging now also supports delivering HLS (version 3 and version 4) encrypted with PlayReady based on Smooth Streaming statically encrypted with PlayReady. For information on how to encrypt Smooth Streaming with PlayReady, see [Protect Smooth Streaming with PlayReady](http://msdn.microsoft.com/library/azure/dn189154.aspx).
 

@@ -46,7 +46,7 @@ Create ‘Membership’ table with SSN column used to store social security numb
 
 ```sql
 CREATE TABLE Membership   
-  (MemberID int IDENTITY PRIMARY KEY,   
+  (MemberID int IDENTITY,   
    FirstName varchar(100) NULL,   
    SSN char(9) NOT NULL, 
    LastName varchar(100) NOT NULL,   

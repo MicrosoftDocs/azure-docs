@@ -2,13 +2,13 @@
 title: Integrate Azure Active Directory with Azure Kubernetes Service
 description: How to create Azure Active Directory-enabled Azure Kubernetes Service clusters.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 6/17/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -163,8 +163,8 @@ roleRef:
   name: cluster-admin
 subjects:
 - apiGroup: rbac.authorization.k8s.io
-  kind: Group
-  name: "kubernetes-admin"
+   kind: Group
+   name: "kubernetes-admin"
 ```
 
 For more information on securing a Kubernetes cluster with RBAC, see [Using RBAC Authorization][rbac-authorization].

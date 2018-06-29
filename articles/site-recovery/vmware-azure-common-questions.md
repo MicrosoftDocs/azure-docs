@@ -5,8 +5,8 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/15/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
 
 ---
@@ -24,7 +24,7 @@ During replication, data is replicated to Azure storage, and you don't pay any V
 
 ### What can I do with VMware to Azure replication?
 - **Disaster recovery**: You can set up full disaster recovery. In this scenario, you replicate on-premises VMware VMs to Azure storage. Then, if your on-premises infrastructure is unavailable, you can fail over to Azure. When you fail over, Azure VMs are created using the replicated data. You can access apps and workloads on the Azure VMs, until your on-premises datacenter is available again. Then, you can fail back from Azure to your on-premises site.
-- **Migration**: You can use Site Recovery to migrate on-premises VMware VMs to Azure. In this scenario you replicate on-premises VMware VMs to Azure storage. Then, you fail over from on-premises to Azure. After failover, you're apps and workloads are available and running on Azure VMs.
+- **Migration**: You can use Site Recovery to migrate on-premises VMware VMs to Azure. In this scenario you replicate on-premises VMware VMs to Azure storage. Then, you fail over from on-premises to Azure. After failover, your apps and workloads are available and running on Azure VMs.
 
 
 
@@ -36,7 +36,7 @@ You need an Azure subscription, a Recovery Services vault, a storage account, an
 You need an LRS or GRS storage account. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. Premium storage is supported.
 
 ### Does my Azure account need permissions to create VMs?
-If you're a subscription adminstrator, you have the replication permissions you need. If you're not, you need permissions to create an Azure VM in the resource group and virtual network you specify when you configure Site Reocvery, and permissions to write to the selected storage accout. [Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+If you're a subscription administrator, you have the replication permissions you need. If you're not, you need permissions to create an Azure VM in the resource group and virtual network you specify when you configure Site Recovery, and permissions to write to the selected storage account. [Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 
 

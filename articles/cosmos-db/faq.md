@@ -277,9 +277,6 @@ You can use the [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azu
 
 Tools with the flexibility to take a connection string in the format specified previously can support the new Table API. A list of table tools is provided on the [Azure Storage Client Tools](../storage/common/storage-explorers.md) page. 
 
-### Do PowerShell or Azure CLI work with the Table API?
-There is support for [PowerShell](table-powershell.md). Azure CLI support is not currently available.
-
 ### Is the concurrency on operations controlled?
 Yes, optimistic concurrency is provided via the use of the ETag mechanism. 
 
@@ -406,7 +403,7 @@ None. There is no change in price for existing Azure Table storage customers.
 ### How is the price calculated for the Table API? 
 The price depends on the allocated TableThroughput. 
 
-### How do I handle any throttling on the tables in Table API offering? 
+### How do I handle any rate limiting on the tables in Table API offering? 
 If the request rate exceeds the capacity of the provisioned throughput for the underlying container or a set of containers, you get an error, and the SDK retries the call by applying the retry policy.
 
 ### Why do I need to choose a throughput apart from PartitionKey and RowKey to take advantage of the Table API offering of Azure Cosmos DB?

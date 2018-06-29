@@ -2,13 +2,13 @@
 title: Use Azure Disk with AKS
 description: Use Azure Disks with AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: nepeters
+ms.author: iainfou
 ---
 
 # Persistent volumes with Azure disks
@@ -114,6 +114,6 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
-[azure-disk-volume]: azure-disk-volume.md 
+[azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md
