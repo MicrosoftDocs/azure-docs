@@ -1,6 +1,6 @@
 ---
 title: Find LUIS region with Node.js in Language Understanding (LUIS) boundaries | Microsoft Docs
-description: Programmatically find publish region with subscription key and application ID for LUIS.
+description: Programmatically find publish region with endpoint key and application ID for LUIS.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
@@ -19,19 +19,19 @@ If you have the LUIS app ID and the LUIS subscription ID, you can find which reg
 ## LUIS endpoint query strategy
 Each LUIS endpoint query requires:
 
-* A subscription key
+* A endpoint key
 * An app ID
 * A region
 
-If the LUIS endpoint query uses the correct subscription key and app ID but the wrong region, the response code is 401. The 401 request is not counted toward the subscription quota. Turn this request into a strategy to poll all regions to find the correct region. The correct region is the only request that returns a 2xx status code. 
+If the LUIS endpoint query uses the correct endpoint key and app ID but the wrong region, the response code is 401. The 401 request is not counted toward the subscription quota. Turn this request into a strategy to poll all regions to find the correct region. The correct region is the only request that returns a 2xx status code. 
 
 |Response code|Parameters|
 |--|--|
-|2xx|correct subscription key<br>correct app ID<br>correct host region|
-|401|correct subscription key<br>correct app ID<br>_incorrect_ host region|
+|2xx|correct endpoint key<br>correct app ID<br>correct host region|
+|401|correct endpoint key<br>correct app ID<br>_incorrect_ host region|
 
 ## Node.js code to find region
-The console application takes the LUIS app ID and the subscription key and returns all regions associated with it. Currently, a subscription key is created by region so only one region should return.
+The console application takes the LUIS app ID and the endpoint key and returns all regions associated with it. Currently, a endpoint key is created by region so only one region should return.
 
 Include the NPM dependencies:
 
@@ -49,7 +49,7 @@ Call the `searchRegions` function and return single region:
 
 [!code-javascript[Call the function](~/samples-luis/documentation-samples/find-region/nodejs/index.js?range=39-43 "Call the function")]
 
-When the application is run, the terminal shows the region for the app ID and subscription key.
+When the application is run, the terminal shows the region for the app ID.
 
 ![Screenshot of console app showing LUIS region](./media/find-region-nodejs/console.png)
 
