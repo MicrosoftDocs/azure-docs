@@ -1,4 +1,4 @@
-﻿---
+---
 title: Microsoft Trust Center and Azure security information | Microsoft Docs
 description: The Microsoft Trust center provides you the information you need to be confident that the Azure platform on which you run your services is secure.
 services: security

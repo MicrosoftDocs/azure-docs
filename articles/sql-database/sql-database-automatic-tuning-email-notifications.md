@@ -1,4 +1,4 @@
-﻿---
+---
 title: Automatic tuning email notifications how-to guide - Azure SQL Database | Microsoft Docs
 description: Azure SQL Database analyzes SQL query and automatically adapts to user workload.
 services: sql-database

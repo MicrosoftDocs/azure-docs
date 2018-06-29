@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure diagnostic logs | Microsoft Docs
 description: Customer can enable log analysis for Azure CDN.
 services: cdn

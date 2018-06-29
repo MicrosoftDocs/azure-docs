@@ -1,4 +1,4 @@
-﻿---
+---
 title: ' Manage the configuration server for physical server disaster recovery with Azure Site Recovery | Microsoft Docs'
 description: This article describes how to manage an existing configuration server for physical server disaster recovery to Azure, with the Azure Site Recovery service.
 services: site-recovery

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Collect Azure service logs and metrics for Log Analytics | Microsoft Docs
 description: Configure diagnostics on Azure resources to write logs and metrics to Log Analytics.
 services: log-analytics

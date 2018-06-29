@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create, change, or delete an Azure virtual network peering | Microsoft Docs
 description: Learn how to create, change, or delete a virtual network peering.
 services: virtual-network

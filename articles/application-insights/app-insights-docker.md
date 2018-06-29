@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor Docker applications in Azure Application Insights | Microsoft Docs
 description: Docker perf counters, events and exceptions can be displayed on Application Insights, along with the telemetry from the containerized apps.
 services: application-insights

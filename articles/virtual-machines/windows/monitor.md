@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor your Windows VMs in Azure | Microsoft Docs
 description: Learn about monitoring options for Windows virtual machines in Azure.
 services: virtual-machines-windows

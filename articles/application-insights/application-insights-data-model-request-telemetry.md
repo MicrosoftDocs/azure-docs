@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights Telemetry Data Model - Request Telemetry | Microsoft Docs
 description: Application Insights data model for request telemetry
 services: application-insights

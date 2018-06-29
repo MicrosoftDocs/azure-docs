@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Scale the service instance | Microsoft Docs
 description: Azure PowerShell Script Sample - Scale the service instance
 services: api-management

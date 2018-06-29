@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Azure Cost Management | Microsoft Docs
 description: Azure Cost Management is a multi-cloud cost management solution that helps you use Azure and other cloud resources.
 services: cost-management

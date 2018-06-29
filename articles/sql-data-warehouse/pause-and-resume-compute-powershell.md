@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Quickstart: Pause and resume compute in Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
 description: Use PowerShell to pause compute in Azure SQL Data Warehouse to save costs. Resume compute when you are ready to use the data warehouse.
 services: sql-data-warehouse

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Replicate Hyper-V VMs in Virtual Machine Manager clouds to a secondary site with PowerShell (Azure Resource Manager) | Microsoft Docs
 description: Describes how to replicate Hyper-V VMs in Virtual Machine Manager clouds to a secondary Virtual Machine Manager site by using PowerShell (Resource Manager)
 services: site-recovery

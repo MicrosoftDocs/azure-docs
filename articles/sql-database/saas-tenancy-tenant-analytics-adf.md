@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Run analytics queries against tenant databases using Azure SQL Data Warehouse | Microsoft Docs"
 description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases."
 keywords: "sql database tutorial"

@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Troubleshoot an Azure Windows classic VM by attaching the OS disk to a recovery VM| Microsoft Docs
 description: Learn how to troubleshoot an Azure Windows classic VM by attaching the OS disk to a recovery VM

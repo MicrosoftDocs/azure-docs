@@ -1,4 +1,4 @@
-﻿---
+---
 title: Secure your Internet of Things (IoT) in Azure | Microsoft Docs
 description: " Azure internet of things (IoT) services offer a broad range of capabilities. This article helps you understand how to secure your IoT solutions in Azure. "
 services: security

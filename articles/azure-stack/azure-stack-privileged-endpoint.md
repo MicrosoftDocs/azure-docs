@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using the privileged endpoint in Azure Stack | Microsoft Docs
 description: Shows how to use the privileged endpoint (PEP) in Azure Stack (for an Azure Stack operator).
 services: azure-stack

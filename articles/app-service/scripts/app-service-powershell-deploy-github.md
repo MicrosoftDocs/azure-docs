@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Create a web app and deploy code from GitHub | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a web app and deploy code from GitHub
 services: app-service\web

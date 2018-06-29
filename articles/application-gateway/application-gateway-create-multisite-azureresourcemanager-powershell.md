@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an application gateway with multiple site hosting - Azure PowerShell | Microsoft Docs
 description: Learn how to create an application gateway that hosts multiple sites using Azure Powershell.
 services: application-gateway

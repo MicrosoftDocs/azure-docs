@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an application gateway with HTTP to HTTPS redirection - Azure PowerShell | Microsoft Docs
 description: Learn how to create an application gateway with redirected traffic from HTTP to HTTPS using Azure PowerShell.
 services: application-gateway

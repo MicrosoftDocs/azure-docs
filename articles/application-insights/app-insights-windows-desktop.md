@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitoring usage and performance for Windows desktop apps
 description: Analyze usage and performance of your Windows desktop app with Application Insights.
 services: application-insights

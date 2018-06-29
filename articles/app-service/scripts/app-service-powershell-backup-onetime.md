@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Back up a web app | Microsoft Docs
 description: Azure PowerShell Script Sample - Back up a web app
 services: app-service\web

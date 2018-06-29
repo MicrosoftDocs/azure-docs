@@ -1,4 +1,4 @@
-﻿---
+---
 title: Install and use the CLI for top tasks - Azure Machine Learning
 description: Learn how to install and use the CLI for the most common machine learning tasks in Azure Machine Learning.
 services: machine-learning

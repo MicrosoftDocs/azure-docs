@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Media Services - Signaling Timed Metadata in Live Streaming | Microsoft Docs
 description: This specification outlines two modes that are supported by Media Services for signaling timed metadata within live streaming. This includes support for generic timed metadata signals, as well as SCTE-35 signaling for ad splice insertion. 
 services: media-services

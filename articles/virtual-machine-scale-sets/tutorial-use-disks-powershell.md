@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tutorial - Create and use disks for scale sets with Azure PowerShell | Microsoft Docs
 description: Learn how to use Azure PowerShell to create and use Managed Disks with virtual machine scale sets, including how to add, prepare, list, and detach disks.
 services: virtual-machine-scale-sets

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Create a scheduled backup for a web app | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a scheduled backup for a web app
 services: app-service\web

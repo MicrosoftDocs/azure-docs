@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights Funnels
 description: Learn how you can use Funnels to discover how customers are interacting with your application.
 services: application-insights

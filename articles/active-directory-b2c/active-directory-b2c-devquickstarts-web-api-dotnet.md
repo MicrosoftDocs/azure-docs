@@ -1,4 +1,4 @@
-﻿---
+---
 title: Call a secured ASP.NET web api in Azure Active Directory B2C | Microsoft Docs
 description: How to build a .NET Web app and call a web api using Azure Active Directory B2C and OAuth 2.0 access tokens.
 services: active-directory-b2c

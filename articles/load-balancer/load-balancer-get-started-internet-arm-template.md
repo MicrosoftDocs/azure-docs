@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a public load balancer - Azure template | Microsoft Docs
 description: Learn how to create a public load balancer in Resource Manager using a template
 services: load-balancer

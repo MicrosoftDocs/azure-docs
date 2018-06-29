@@ -1,4 +1,4 @@
-﻿---
+---
 title: Report Azure Stack usage data to Azure | Microsoft Docs
 description: Learn how to set up usage data reporting in Azure Stack.
 services: azure-stack

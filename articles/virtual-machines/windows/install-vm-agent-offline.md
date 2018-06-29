@@ -1,4 +1,4 @@
-﻿---
+---
 title: Install the Azure VM Agent in offline mode | Microsoft Docs
 description: Learn how to install the Azure VM Agent in offline mode.
 services: virtual-machines-windows

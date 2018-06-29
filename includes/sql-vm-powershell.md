@@ -1,4 +1,4 @@
-﻿
+
 ## Start your PowerShell session
 First you need to have the latest [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: PowerShell example-copy-Azure SQL database-new server | Microsoft Docs
 description: Azure PowerShell example script to copy a SQL database to a new server
 services: sql-database

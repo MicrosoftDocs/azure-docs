@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Government Documentation - Tutorials, API Reference | Microsoft Docs
 description: 
 services: Azure-government

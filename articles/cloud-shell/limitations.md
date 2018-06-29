@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Cloud Shell limitations | Microsoft Docs
 description: Overview of limitations of Azure Cloud Shell
 services: azure

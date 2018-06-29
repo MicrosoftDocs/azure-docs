@@ -1,4 +1,4 @@
-﻿---
+---
 title: Collecting Log Analytics data with a runbook in Azure Automation | Microsoft Docs
 description: Step by step tutorial that walks through creating a runbook in Azure Automation to collect data into the OMS repository for analysis by Log Analytics.  
 services: log-analytics

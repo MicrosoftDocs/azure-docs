@@ -1,4 +1,4 @@
-﻿---
+---
 title: Export Resource Manager template with Azure PowerShell | Microsoft Docs
 description: Use Azure Resource Manager and Azure PowerShell to export a template from a resource group.
 services: azure-resource-manager

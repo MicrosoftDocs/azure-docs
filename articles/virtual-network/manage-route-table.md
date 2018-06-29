@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create, change, or delete an Azure route table | Microsoft Docs
 description: Learn how to create, change, or delete a route table.
 services: virtual-network

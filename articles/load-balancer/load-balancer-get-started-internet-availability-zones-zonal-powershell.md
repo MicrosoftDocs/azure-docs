@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a public Load Balancer Standard with zonal Public IP address frontend using Azure PowerShell | Microsoft Docs
 description: Learn how to create public Load Balancer Standard with a zonal Public IP address frontend using Azure PowerShell 
 services: load-balancer

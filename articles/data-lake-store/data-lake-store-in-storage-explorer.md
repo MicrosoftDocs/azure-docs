@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Manage Azure Data Lake Store resources in Azure Storage Explorer'
 description: Learn how to access and manage your Azure Data Lake Store data and resources in Azure Storage Explorer
 Keywords: Azure Data Lake Store, Azure Storage Explorer

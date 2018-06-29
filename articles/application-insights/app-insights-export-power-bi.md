@@ -1,4 +1,4 @@
-﻿---
+---
 title: Export to Power BI from Azure Application Insights | Microsoft Docs
 description: Analytics queries can be displayed in Power BI.
 services: application-insights

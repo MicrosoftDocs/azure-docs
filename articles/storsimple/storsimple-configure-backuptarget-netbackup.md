@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple 8000 series as backup target with NetBackup | Microsoft Docs
 description: Describes the StorSimple backup target configuration with Veritas NetBackup.
 services: storsimple

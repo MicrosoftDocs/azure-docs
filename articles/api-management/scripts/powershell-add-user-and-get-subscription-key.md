@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Add a user | Microsoft Docs
 description: Azure PowerShell Script Sample - Add a user
 services: api-management

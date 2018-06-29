@@ -1,4 +1,4 @@
-﻿---
+---
 title: Communicate with any endpoint over HTTP - Azure Logic Apps | Microsoft Docs
 description: Create logic apps that can communicate with any endpoint over HTTP
 services: logic-apps

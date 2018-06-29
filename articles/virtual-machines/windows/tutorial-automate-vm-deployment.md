@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tutorial - Install applications on a Windows VM in Azure | Microsoft Docs
 description: In this tutorial, you learn how to use the Custom Script Extension to run scripts and deploy applications to Windows virtual machines in Azure  
 services: virtual-machines-windows

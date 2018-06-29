@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Log Integration with Azure Active Directory audit logs | Microsoft Docs
 description: Learn how to install the Azure Log Integration service and integrate logs from Azure audit logs
 services: security

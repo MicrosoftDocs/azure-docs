@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an application gateway - Azure PowerShell | Microsoft Docs
 description: Learn how to create an application gateway by using Azure PowerShell.
 services: application-gateway

@@ -1,4 +1,4 @@
-﻿---
+---
 title: PowerShell example-restore-backup-Azure SQL database | Microsoft Docs
 description: Azure PowerShell example script to restore an Azure SQL database from geo-redundant backups
 services: sql-database

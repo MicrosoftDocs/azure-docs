@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Payment Processing Blueprint - Physical access requirements
 description: PCI DSS Requirement 9

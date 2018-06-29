@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure database security checklist| Microsoft Docs
 description: This article provides a set of checklist for Azure database security.

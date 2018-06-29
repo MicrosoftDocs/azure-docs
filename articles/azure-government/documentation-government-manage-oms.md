@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Government Log Analytics | Microsoft Docs
 description: This article describes how Log Analytics is applicable to US Government agencies and solution providers
 services: azure-government

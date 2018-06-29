@@ -1,4 +1,4 @@
-﻿---
+---
 title: Application lifecycle in Service Fabric | Microsoft Docs
 description: Describes developing, deploying, testing, upgrading, maintaining, and removing Service Fabric applications.
 services: service-fabric

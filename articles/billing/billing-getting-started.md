@@ -1,4 +1,4 @@
-﻿---
+---
 title: Prevent unexpected costs, manage billing in Azure | Microsoft Docs
 description: Learn how to avoid unexpected charges on your Azure bill. Use cost-tracking and management features for a Microsoft Azure subscription.
 services: ''

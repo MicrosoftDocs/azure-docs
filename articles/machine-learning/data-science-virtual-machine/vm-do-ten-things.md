@@ -1,4 +1,4 @@
-﻿---
+---
 title: Ten things you can do on the Data Science Virtual Machine on Azure | Microsoft Docs
 description: Perform various data exploration and modeling task on the Data science Virtual Machine.
 services: machine-learning

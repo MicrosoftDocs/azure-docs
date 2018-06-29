@@ -1,4 +1,4 @@
-﻿---
+---
 title: Run Azure Batch jobs end-to-end without writing code (Preview) | Microsoft Docs
 description: Create template files for the Azure CLI to create Batch pools, jobs, and tasks. 
 services: batch

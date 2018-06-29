@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create, change, or delete an Azure network interface | Microsoft Docs
 description: Learn what a network interface is and how to create, change settings for, and delete one.
 services: virtual-network

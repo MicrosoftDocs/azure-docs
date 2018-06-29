@@ -1,4 +1,4 @@
-﻿---
+---
 title: PowerShell example-create an Azure SQL database | Microsoft Docs
 description: Azure PowerShell example script to create a Azure SQL database
 services: sql-database

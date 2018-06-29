@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Run a Databricks Notebook with the Databricks Notebook activity in Azure Data Factory"
 description: "Learn how you can use the Databricks Notebook Activity in an Azure data factory to run a Databricks notebook against the databricks jobs cluster."
 services: data-factory

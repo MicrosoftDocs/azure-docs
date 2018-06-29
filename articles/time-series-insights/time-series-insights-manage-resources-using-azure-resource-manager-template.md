@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to manage your Azure Time Series Insights environment using Azure Resource Manager templates| Microsoft Docs
 description: This article describes how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
 ms.service: time-series-insights

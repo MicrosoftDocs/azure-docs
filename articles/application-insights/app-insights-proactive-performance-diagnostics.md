@@ -1,4 +1,4 @@
-﻿---
+---
 title: Smart Detection - performance anomalies | Microsoft Docs
 description: Application Insights performs smart analysis of your app telemetry and warns you of potential problems. This feature needs no setup.
 services: application-insights

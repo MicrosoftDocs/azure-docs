@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Monitor a web app with web server logs | Microsoft Docs
 description: Azure PowerShell Script Sample - Monitor a web app with web server logs
 services: app-service\web

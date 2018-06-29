@@ -1,4 +1,4 @@
-﻿---
+---
 title: Explore Java trace logs in Azure Application Insights | Microsoft Docs
 description: Search Log4J or Logback traces in Application Insights
 services: application-insights

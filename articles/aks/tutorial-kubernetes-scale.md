@@ -1,4 +1,4 @@
-﻿---
+---
 title: Kubernetes on Azure tutorial  - Scale Application
 description: AKS tutorial - Scale Application
 services: container-service

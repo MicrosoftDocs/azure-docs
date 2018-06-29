@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Event Grid security and authentication
 description: Describes Azure Event Grid and its concepts.
 services: event-grid

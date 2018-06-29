@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Connect a computer to an Azure virtual network using Point-to-Site and native Azure certificate authentication: PowerShell | Microsoft Docs'
 description: Connect Windows and Mac OS X clients securely to Azure virtual network using P2S and self-signed or CA issued certificates. This article uses PowerShell.
 services: vpn-gateway

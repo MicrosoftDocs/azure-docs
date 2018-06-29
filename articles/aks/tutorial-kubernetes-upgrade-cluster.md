@@ -1,4 +1,4 @@
-﻿---
+---
 title: Kubernetes on Azure tutorial - update cluster
 description: Kubernetes on Azure tutorial - update cluster
 services: container-service

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshoot deploying Linux virtual machine issues in Azure | Microsoft Docs
 description: Troubleshoot deploying Linux virtual machine issues in Azurethe Resource Manager deployment model.
 services: virtual-machines-windows

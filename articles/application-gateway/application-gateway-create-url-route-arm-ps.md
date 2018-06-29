@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an application gateway with URL path-based routing rules - Azure PowerShell | Microsoft Docs
 description: Learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using Azure PowerShell.
 services: application-gateway

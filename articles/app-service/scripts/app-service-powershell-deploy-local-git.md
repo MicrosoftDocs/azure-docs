@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Create a web app and deploy code from a local Git repository | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a web app and deploy code from a local Git repository
 services: app-service\web

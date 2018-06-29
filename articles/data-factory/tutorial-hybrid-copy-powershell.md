@@ -1,4 +1,4 @@
-﻿---
+---
 title: Copy data from SQL Server to Blob storage by using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from an on-premises data store to the Azure cloud by using a self-hosted integration runtime in Azure Data Factory.
 services: data-factory

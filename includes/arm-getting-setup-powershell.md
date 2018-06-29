@@ -1,4 +1,4 @@
-﻿## Setting up PowerShell for Resource Manager templates
+## Setting up PowerShell for Resource Manager templates
 Before you can use Azure PowerShell with Resource Manager, you will need to have the right Windows PowerShell and Azure PowerShell versions.
 
 ### Verify PowerShell versions

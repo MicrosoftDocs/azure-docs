@@ -1,4 +1,4 @@
-﻿
+
 # Azure Resiliency
 ## [Azure Resiliency feature page](http://azure.microsoft.com/features/resiliency)
 ## [Design resilient applications for Azure](https://docs.microsoft.com/azure/architecture/resiliency/)

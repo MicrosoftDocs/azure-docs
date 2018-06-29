@@ -1,4 +1,4 @@
-﻿---
+---
 title: How do I ... in Azure Application Insights | Microsoft Docs
 description: FAQ in Application Insights.
 services: application-insights

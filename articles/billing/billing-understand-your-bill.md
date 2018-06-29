@@ -1,4 +1,4 @@
-﻿---
+---
 title: Understand your bill for Azure | Microsoft Docs
 description: Learn how to read and understand your usage and bill for your Azure subscription
 services: ''

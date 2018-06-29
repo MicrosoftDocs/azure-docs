@@ -1,4 +1,4 @@
-﻿---
+---
 title: Scheduler PowerShell Cmdlets Reference
 description: Scheduler PowerShell Cmdlets Reference
 services: scheduler

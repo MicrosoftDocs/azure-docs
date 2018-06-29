@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create Windows VM using simplified New-AzureRMVM cmdlet in Azure Cloud Shell| Microsoft Docs
 description: Quickly learn to create Windows virtual machines with the simplified New-AzureRMVM cmdlet in Azure Cloud Shell.
 services: virtual-machines-windows

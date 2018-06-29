@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Deploy application to a cluster| Microsoft Docs
 description: Azure PowerShell Script Sample - Deploy an application to a Service Fabric cluster.
 services: service-fabric

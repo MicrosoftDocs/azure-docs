@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Upload files to a web app using FTP | Microsoft Docs
 description: Azure PowerShell Script Sample - Upload files to a web app using FTP
 services: app-service\web

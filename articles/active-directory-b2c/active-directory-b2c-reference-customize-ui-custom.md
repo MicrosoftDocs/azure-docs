@@ -1,4 +1,4 @@
-﻿---
+---
 title: Customize the UI of a user journey with custom policies | Microsoft Docs
 description: Learn about Azure Active Directory B2C custom policies.
 services: active-directory-b2c

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tutorial - Create a virtual machine scale set for Windows in Azure | Microsoft Docs
 description: In this tutorial, you learn how to use Azure PowerShell to create and deploy a highly available application on Windows VMs using a virtual machine scale set
 services: virtual-machine-scale-sets

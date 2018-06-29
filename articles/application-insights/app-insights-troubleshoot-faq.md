@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights FAQ | Microsoft Docs
 description: Frequently asked questions about Application Insights.
 services: application-insights

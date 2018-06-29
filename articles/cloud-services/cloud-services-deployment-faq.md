@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deployment issues for Microsoft Azure Cloud Services FAQ| Microsoft Docs
 description: This article lists the frequently asked questions about deployment for Microsoft Azure Cloud Services.
 services: cloud-services

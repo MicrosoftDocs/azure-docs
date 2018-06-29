@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple 8000 series as backup target with Backup Exec | Microsoft Docs
 description: Describes the StorSimple backup target configuration with Veritas Backup Exec.
 services: storsimple

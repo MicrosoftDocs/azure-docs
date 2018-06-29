@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Make Virtual Machine Scale Sets available in Azure Stack | Microsoft Docs'
 description: Learn how a cloud operator can add Virtual Machine Scale Sets to the Azure Stack Marketplace
 services: azure-stack

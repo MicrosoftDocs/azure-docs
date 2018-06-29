@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure stack storage differences and considerations | Microsoft Docs
 description: Understand the differences between Azure stack storage and Azure storage, along with Azure Stack deployment considerations.
 services: azure-stack

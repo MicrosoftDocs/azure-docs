@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Payment Processing Blueprint - Testing requirements 
 description: PCI DSS Requirement 11

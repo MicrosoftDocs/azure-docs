@@ -1,4 +1,4 @@
-﻿---
+---
 title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with the application map
 services: application-insights

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure Application Gateway - templates | Microsoft Docs
 description: This page provides instructions to create an Azure application gateway by using the Azure Resource Manager template
 documentationcenter: na

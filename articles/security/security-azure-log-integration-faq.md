@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Log Integration FAQ | Microsoft Docs
 description: This article answers questions about Azure Log Integration.
 services: security

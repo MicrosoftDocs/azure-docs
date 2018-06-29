@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Route traffic for high availability of applications | Microsoft Docs
 description: Azure PowerShell Script Sample - Route traffic for high availability of applications
 services: traffic-manager

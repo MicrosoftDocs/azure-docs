@@ -1,4 +1,4 @@
-﻿---
+---
 title: Provisioning guide for SQL Server VMs with Azure PowerShell | Microsoft Docs
 description: Provides steps and PowerShell commands for creating an Azure VM with SQL Server virtual machine gallery images.
 services: virtual-machines-windows

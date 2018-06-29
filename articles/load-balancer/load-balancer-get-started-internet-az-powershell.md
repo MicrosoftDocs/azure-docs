@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a public Load Balancer Standard with zone-redundant Public IP address frontend using PowerShell | Microsoft Docs
 description: Learn how to create public Load Balancer Standard with a zone-redundant Public IP address frontend using PowerShell 
 services: load-balancer

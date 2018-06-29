@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights Telemetry Data Model - Event Telemetry | Microsoft Docs
 description: Application Insights data model for event telemetry
 services: application-insights

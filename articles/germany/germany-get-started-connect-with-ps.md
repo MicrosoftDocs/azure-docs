@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect to Azure Germany by using PowerShell | Microsoft Docs
 description: Information on managing your subscription in Azure Germany by using PowerShell
 services: germany
