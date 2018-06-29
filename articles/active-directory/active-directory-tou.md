@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.component: compliance-reports
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: rolyon
 
 ---
@@ -175,13 +175,16 @@ A: Yes.  Currently there are 18 different languages an administrator can configu
 A: The Terms of use is triggered during the sign-in experience.
 
 **Q: What applications can I target a Terms of use to?**</br>
-A: You can create a conditional access policy on the enterprise applications using modern authentication.  For more information, see [enterprise applications](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
+A: You can create a conditional access policy on the enterprise applications using modern authentication.  For more information, see [enterprise applications](./manage-apps/view-applications-portal.md).
 
 **Q: Can I add multiple Terms of use to a given user or app?**</br>
 A: Yes, by creating multiple conditional access policies targeting those groups or applications. If a user falls in scope of multiple Terms of use, they agree to one Terms of use at a time.
  
 **Q: What happens if a user declines the Terms of use?**</br>
 A: The user is blocked from getting access to the application. The user would have to sign-in again and agree to the terms in order to get access.
+ 
+**Q: Is is possible to unaccept Terms of use that were previously accepted?**</br>
+A: You can [review previously accepted Terms of use](#how-users-can-review-their-terms-of-use), but currently there isn't a way to unaccept.
  
 **Q: How long is information stored?**</br>
 A: The user counts and who accepted/declined are stored for the life of the Terms of use. The audit logs are stored for 30 days.
