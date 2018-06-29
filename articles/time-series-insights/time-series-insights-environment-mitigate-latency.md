@@ -47,8 +47,8 @@ From there, you can configure alerts using the following metrics:
 |**Ingress Received Messages**   | Count of messages read from all Event Hubs or IoT Hubs event sources.        |
 |**Ingress Stored Bytes**     | Total size of events stored and available for query. Size is computed only on the property value.        |
 |**Ingress Stored Events**     |   Count of flattened events stored and available for query.      |
-|**Ingress Recieved Message Time Lag**    |  Difference between the time that the message is enqueued in the event source and the time it is processed in Ingress.      |
-|**Ingress Recieved Message Count Lag**    |  Difference between the sequence number of last enqueued message in the event source partition and sequence number of message being processed in Ingress.      |
+|**Ingress Received Message Time Lag**    |  Difference between the time that the message is enqueued in the event source and the time it is processed in Ingress.      |
+|**Ingress Received Message Count Lag**    |  Difference between the sequence number of last enqueued message in the event source partition and sequence number of message being processed in Ingress.      |
 
 
 ![Latency](media/environment-mitigate-latency/latency.png)
