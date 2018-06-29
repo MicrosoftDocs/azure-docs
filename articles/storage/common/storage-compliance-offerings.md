@@ -19,7 +19,7 @@ ms.author: fryu
 
 # Azure Storage compliance offerings
 
-To help organizations comply with national, regional, and industry-specific requirements governing the collection and use of individuals’ data, Microsoft Azure & Azure Storage offers the most comprehensive set of certifications and attestations of any cloud service provider.
+To help organizations comply with national, regional, and industry-specific requirements governing the collection and use of individuals’ data, Microsoft Azure & Azure Storage offer the most comprehensive set of certifications and attestations of any cloud service provider.
 
 You can find below compliance offerings on Azure Storage to ensure your service regulated in using Azure Storage service.
 
