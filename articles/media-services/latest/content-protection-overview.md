@@ -44,9 +44,7 @@ To successfully complete your "content protection" system/application design, yo
   The following articles show steps for encrypting content with Media Services:
 
   * [Protect with AES encryption](protect-with-aes128.md)
-  * [Protect with PlayReady and/or Widevine](protect-with-playready-widevine.md)
-  * [Protect HLS with FairPlay](protect-with-fairplay.md)
-
+ 
 2. Player with AES or DRM client. A video player app based on a player SDK (either native or browser-based) needs to meet the following requirements:
   * The player SDK supports the needed DRM clients
   * The player SDK supports the required streaming protocols: Smooth, DASH, and/or HLS

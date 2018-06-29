@@ -76,11 +76,7 @@
   - name: Protect content
     items:
     - name: With AES-128 - .NET
-      href: protect-with-aes128.md
-    - name: With PlayReady and Widevine - .NET
-      href: protect-with-playready-widevine.md
-    - name: Protect HLS with Fairplay - .NET
-      href: protect-with-fairplay.md        
+      href: protect-with-aes128.md     
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
