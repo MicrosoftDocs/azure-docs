@@ -69,10 +69,15 @@ The implied performance cost of not co-locating compute clusters and storage res
 There are several benefits associated with storing the data in Azure storage instead of HDFS:
 
 * **Data reuse and sharing:** The data in HDFS is located inside the compute cluster. Only the applications that have access to the compute cluster can use the data by using HDFS APIs. The data in Azure storage can be accessed either through the HDFS APIs or through the [Blob Storage REST APIs][blob-storage-restAPI]. Thus, a larger set of applications (including other HDInsight clusters) and tools can be used to produce and consume the data.
+
 * **Data archiving:** Storing data in Azure storage enables the HDInsight clusters used for computation to be safely deleted without losing user data.
+
 * **Data storage cost:** Storing data in the native HDFS for the long term is more costly than storing the data in Azure storage because the cost of a compute cluster is higher than the cost of Azure storage. In addition, because the data does not have to be reloaded for every compute cluster generation, you are also saving data loading costs.
+
 * **Elastic scale-out:** Although HDFS provides you with a scaled-out file system, the scale is determined by the number of nodes that you create for your cluster. Changing the scale can become a more complicated process than relying on the elastic scaling capabilities that you get automatically in Azure storage.
-* **Geo-replication:** Your Azure storage daa can be geo-replicated. Although this ability gives you geographic recovery and data redundancy, supporting a failover to the geo-replicated location severely impacts your performance and may result in additional costs. Therefore, choose geo-replication carefully and only if the value of the data is worth the additional cost.
+
+* **Geo-replication:** Your Azure storage data can be geo-replicated. Although this ability gives you geographic recovery and data redundancy, supporting a failover to the geo-replicated location severely impacts your performance and may result in additional costs. Therefore, choose geo-replication carefully and only if the value of the data is worth the additional cost.
+
 * **Data lifecycle management:** All data in any file system goes through its own lifecycle. Data often starts off being very valuable and frequently accessed, transitions to being less valuable and requiring less access, and ultimately requires archive or deletion. Azure Storage provides data tiering and lifecycle management policies that tier data appropriately for its lifecycle stage.
 
 Certain MapReduce jobs and packages may create intermediate results that you don't really want to store in Azure storage. In that case, you can elect to store the data in the local HDFS. In fact, HDInsight uses the native HDFS implementation (which is referred to as DFS) for several of these intermediate results in Hive jobs and other processes.
@@ -140,15 +145,15 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
 
 If you have [installed and configured the Azure CLI](../../cli-install-nodejs.md), the following command can be used to a storage account and container.
 
-    ```bash
-    az storage account create \
-        --name <STORAGE_ACCOUNT_NAME> \
-        --resource-group <RESOURCE_GROUP_NAME> \
-        --location westus2 \
-        --sku Standard_LRS \
-        --kind StorageV2 \
-        --Enable-hierarchical-namespace true
-    ```
+```bash
+az storage account create \
+    --name <STORAGE_ACCOUNT_NAME> \
+    --resource-group <RESOURCE_GROUP_NAME> \
+    --location westus2 \
+    --sku Standard_LRS \
+    --kind StorageV2 \
+    --Enable-hierarchical-namespace true
+```
 
 > [!NOTE]
 > During the public preview of Data Lake Storage Gen2 only `--sku Standard_LRS` is supported.
