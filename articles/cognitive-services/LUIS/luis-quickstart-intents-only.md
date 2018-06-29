@@ -135,7 +135,7 @@ Return to the browser tab for the LUIS website and create a new intention to app
 
     | Example utterances|
     |--|
-    |I want to apply for the new account job|
+    |I want to apply for the new accounting job|
     |Fill out application for Job 123456|
     |Submit resume for engineering position|
     |Here is my c.v. for position 654234|
