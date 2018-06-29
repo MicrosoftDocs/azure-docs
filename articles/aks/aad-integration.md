@@ -65,7 +65,7 @@ The first Azure AD application is used to get a users Azure AD group membership.
 
   ![Set application graph permissions](media/aad-integration/delegated-permissions.png)
 
-7. Select **Done** and **Grant Permissions** to complete this step. This step will fail if the current account is not a tenant admin.
+7. Select **Done**, choose *Microsoft Graph* from the list of APIs, then select **Grant Permissions**. This step will fail if the current account is not a tenant admin.
 
   ![Set application graph permissions](media/aad-integration/grant-permissions.png)
 
