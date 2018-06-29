@@ -99,14 +99,14 @@ v2 endpoint success response:
 ```
 
 ## Key management no longer in API
-The subscription key APIs are deprecated, returning 410 GONE.
+The subscription endpoint key APIs are deprecated, returning 410 GONE.
 
 | version | route |
 |--|--|
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [subscription keys](luis-how-to-azure-subscription.md) are generated in the Azure portal. You assign the key to a LUIS app on the **[Publish](manage-keys.md)** page. You do not need to know the actual key value. LUIS uses the subscription name to make the assignment. 
+Azure [endpoint keys](luis-how-to-azure-subscription.md) are generated in the Azure portal. You assign the key to a LUIS app on the **[Publish](manage-keys.md)** page. You do not need to know the actual key value. LUIS uses the subscription name to make the assignment. 
 
 ## New versioning route
 The v2 model is now contained in a [version](luis-how-to-manage-versions.md). A version name is 10 characters in the route. The default version is "0.1".
