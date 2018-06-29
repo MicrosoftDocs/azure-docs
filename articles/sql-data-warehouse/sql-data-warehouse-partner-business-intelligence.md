@@ -133,7 +133,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 <!--Twitter links-->
 [birst_twitter]:https://twitter.com/BirstBI
 [clearstory_twitter]:https://twitter.com/ClearStoryData
-[dell_statistica_twitter]:https://twitter.com/DellStatistica
+[dell_statistica_twitter]:https://twitter.com/hashtag/DellStatistica
 [dundas_bi_twitter]:https://twitter.com/dundasdata
 [jinfonet_twitter]:https://twitter.com/Jinfonet
 [logianalytics_twitter]:https://twitter.com/LogiAnalytics
