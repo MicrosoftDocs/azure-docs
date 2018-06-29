@@ -28,9 +28,9 @@ This parameter enables you to specify an ID that will be associated with the vid
 
 Use this parameter if raw or external recordings contain background noise. This parameter is used to configure the indexing process. You can specify the following values:
 
-•	Default – Index and extract insights using both audio and video
-•	AudioOnly – Index and extract insights using audio only (ignoring video)
-•	DefaultWithNoiseReduction – Index and extract insights from both audio and video, while applying noise reduction algorithms on audio stream
+- `Default` – Index and extract insights using both audio and video
+- `AudioOnly` – Index and extract insights using audio only (ignoring video)
+- `DefaultWithNoiseReduction` – Index and extract insights from both audio and video, while applying noise reduction algorithms on audio stream
 
 Price depends on the selected indexing option.  
 
