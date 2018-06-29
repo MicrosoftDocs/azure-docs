@@ -38,7 +38,7 @@ To start hosting your web application on Azure Storage, you can configure the fe
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
-Upload your web assets to the "$web" container that was created as a part of static website enablement. You can do this directly in Azure Portal, or you can take advantage of [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload entire directory structures. Make sure to include an index document with the name you configured. In this example, the document's name is "index.html".
+Upload your web assets to the "$web" container that was created as a part of static website enablement. You can do this directly in Azure Portal, or you can take advantage of [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload entire directory structures. Make sure to include an index document with the name you configured. In this example, the document's name is "index.html". Note: the document's name is case sensitive and therefore needs to match the name of the file in storage exactly.
 
 Finally, navigate to your web endpoint to test your website.
 
