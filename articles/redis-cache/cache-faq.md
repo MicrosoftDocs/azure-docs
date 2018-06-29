@@ -388,7 +388,10 @@ How to configure this setting:
   > The value specified in this configuration element is a *per-core* setting. For example, if you have a 4 core machine and want your minIOThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
   >
 
-* Outside of ASP.NET, use the [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+* Outside ASP.NET, and Azure WebSites global.asax, use the [ThreadPool.SetMinThreads (...)] (https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+
+  > [!NOTE]
+  > The value specified by this API is a global setting, affecting the whole AppDomain. If you have a 4 core machine, and want to set minWorkerThreads and minIOThreads to 50 per CPU during run-time, you would use ThreadPool.SetMinThreads (200, 200).
 
 <a name="server-gc"></a>
 

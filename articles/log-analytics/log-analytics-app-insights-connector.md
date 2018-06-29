@@ -11,8 +11,8 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/18/2017
+ms.topic: article
+ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: na
 ---
@@ -20,6 +20,9 @@ ms.component: na
 # Application Insights Connector management solution (Preview)
 
 ![Application Insights symbol](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
+
+>[!NOTE]
+> With the support of [cross-resource queries](log-analytics-cross-workspace-search.md), the Application Insights connector management solution is no longer required and will be deprecated. Starting July, you will not be able to link new Application Insights resources to Log Analytics workspaces. Existing links and dashboards will continue to function until November 2018. For more information, see [OMS portal moving to Azure](log-analytics-oms-portal-transition.md).
 
 The Applications Insights Connector solution helps you diagnose performance issues and understand what users do with your app when it is monitored with [Application Insights](../application-insights/app-insights-overview.md). Views of the same application telemetry that developers see in Application Insights are available in Log Analytics. However, when you integrate your Application Insights apps with Log Analytics, visibility of your applications is increased by having operation and application data in one place. Having the same views helps you to collaborate with your app developers. The common views can help reduce the time to detect and resolve both application and platform issues.
 
