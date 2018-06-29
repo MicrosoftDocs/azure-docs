@@ -19,7 +19,7 @@ robots: noindex
 ---
 # Azure Data Factory - JSON Scripting Reference
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA).
+> This article applies to version 1 of Data Factory.
 
 
 This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).  
@@ -1941,7 +1941,7 @@ To define an Oracle linked service, set the **type** of the linked service to **
 | --- | --- | --- |
 | driverType | Specify which driver to use to copy data from/to Oracle Database. Allowed values are **Microsoft** or **ODP** (default). See [Supported version and installation](#supported-versions-and-installation) section on driver details. | No |
 | connectionString | Specify information needed to connect to the Oracle Database instance for the connectionString property. | Yes |
-| gatewayName | Name of the gateway that that is used to connect to the on-premises Oracle server |Yes |
+| gatewayName | Name of the gateway that is used to connect to the on-premises Oracle server |Yes |
 
 #### Example
 ```json
@@ -2973,7 +2973,7 @@ If you are copying data from Cassandra, set the **source type** of the copy acti
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | query |Use the custom query to read data. |SQL-92 query or CQL query. See [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>When using SQL query, specify **keyspace name.table name** to represent the table you want to query. |No (if tableName and keyspace on dataset are defined). |
-| consistencyLevel |The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. See [Configuring data consistency](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) for details. |No. Default value is ONE. |
+| consistencyLevel |The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. See [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) for details. |No. Default value is ONE. |
 
 #### Example
   

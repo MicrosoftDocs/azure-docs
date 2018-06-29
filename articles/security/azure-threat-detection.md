@@ -376,10 +376,10 @@ Web Application Firewall provides the following benefits:
 
 -	Accelerates the delivery of web application contents, using capabilities such as caching, compression, and other traffic optimizations.
 
-For examples of web application firewalls that are available in the Azure Marketplace, see [Barracuda web application firewall, Brocade virtual web application firewall, Imperva SecureSphere, and ThreatSTOP IP firewall](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/).
+For examples of web application firewalls that are available in the Azure Marketplace, see [Barracuda WAF, Brocade virtual web application firewall (vWAF), Imperva SecureSphere, and the ThreatSTOP IP firewall](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf).
 
 ## Next steps
 
-- [Azure Security Center detection capabilities](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): Helps identify active threats targeting your Microsoft Azure resources and provides you with the insights you need to respond quickly.
+- [Azure Security Center detection capabilities](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.
 
-- [Azure SQL Database Threat Detection](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): Helps you address your concerns about potential threats to your databases.
+- [Azure SQL Database Threat Detection](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): Helps address your concerns about potential threats to your databases.

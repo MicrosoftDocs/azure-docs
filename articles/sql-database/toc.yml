@@ -50,7 +50,7 @@
     href: sql-database-design-first-database.md
   - name: 2 - Design DB using .NET
     href: sql-database-design-first-database-csharp.md
-  - name: 3 - Migrate to SQL Server DB using DMS
+  - name: 3 - Migrate to SQL Server DB using DMA
     href: sql-database-migrate-your-sql-server-database.md
   - name: 4 - Secure your SQL DB
     href: sql-database-security-tutorial.md
@@ -74,9 +74,9 @@
     href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
-  - name: Service tiers and resources
+  - name: Purchasing models and resources
     items: 
-    - name: Service tiers
+    - name: Purchasing models
       href: sql-database-service-tiers.md
     - name: vCore-based model
       href: sql-database-service-tiers-vcore.md

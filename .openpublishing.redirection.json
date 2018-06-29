@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-speech-models.md",
+            "redirect_url": "/azure/cognitive-services/Speech-Service/how-to-customize-acoustic-models",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
+            "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
             "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
             "redirect_document_id": true
@@ -751,8 +761,48 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-edge/sql-storage.md",
+            "redirect_url": "/azure/iot-edge/tutorial-store-data-sql-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/tutorial-create-deployment-with-cli-iot-extension.md",
+            "redirect_url": "/azure/iot-edge/how-to-register-device-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-edge/how-to-create-gateway-device.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-vscode-debug-csharp-module.md",
+            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-vscode-debug-azure-function.md",
+            "redirect_url": "/azure/iot-edge/how-to-develop-csharp-function",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/tutorial-simulate-device-linux.md",
+            "redirect_url": "/azure/iot-edge/quickstart-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/tutorial-simulate-device-windows.md",
+            "redirect_url": "/azure/iot-edge/quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-iot-edge-works.md",
+            "redirect_url": "/azure/iot-edge/about-iot-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/tutorial-multiple-modules-in-vscode.md",
+            "redirect_url": "/azure/iot-edge/how-to-develop-multiple-modules-vscode",
             "redirect_document_id": false
         },
         {
@@ -833,6 +883,96 @@
         {
             "source_path": "articles/active-directory/active-directory-users-work-info-azure-portal.md",
             "redirect_url": "/azure/active-directory/active-directory-users-profile-azure-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/dockerextension-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/capture-image-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/capture-image",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/change-vm-size-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/change-vm-size",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/copy-vm-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/copy-vm",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/create-ssh-secured-vm-from-template-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/create-ssh-secured-vm-from-template",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/encrypt-disks-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/encrypt-disks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/expand-disks-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/expand-disks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/install-mongodb-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/install-mongodb",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/key-vault-setup-cli-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/key-vault-setup-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/multiple-nics-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/nsg-quickstart-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/nsg-quickstart",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/static-dns-name-resolution-for-linux-on-azure-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/static-dns-name-resolution-for-linux-on-azure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/tag-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/tag",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/troubleshoot-recovery-disks-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/troubleshoot-recovery-disks",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/upload-vhd-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/upload-vhd",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/using-cloud-init-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/using-cloud-init",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/using-vmaccess-extension-nodejs.md",
+            "redirect_url": "/azure/virtual-machines/linux/using-vmaccess-extension",
             "redirect_document_id": true
         },
         {
@@ -942,7 +1082,7 @@
         },
         {
             "source_path": "articles/cloud-services/cloud-services-dotnet-diagnostics-storage.md",
-            "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-storage.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-storage",
             "redirect_document_id": false
         },
         {
@@ -1980,7 +2120,6 @@
             "redirect_url": "/azure/app-service/containers/tutorial-ruby-postgres-app",
             "redirect_document_id": false
         },
-        
         {
             "source_path": "articles/app-service/app-service-move-resources.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations",
@@ -1989,11 +2128,6 @@
         {
             "source_path": "articles/app-service/app-service-web-tutorial-content-delivery-network.md",
             "redirect_url": "/azure/cdn/cdn-add-to-web-app",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/app-service-logic/app-service-logic-arm-provision.md",
-            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates",
             "redirect_document_id": false
         },
         {
@@ -2009,6 +2143,16 @@
         {
             "source_path": "articles/app-service-logic/app-service-logic-connector-azure-resource.md",
             "redirect_url": "/azure/logic-apps/logic-apps-arm-provision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service-logic/app-service-logic-arm-provision.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/logic-apps/logic-apps-arm-provision.md",
+            "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates",
             "redirect_document_id": false
         },
         {
@@ -2512,6 +2656,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-troubleshooting-automation-errors.md",
+            "redirect_url": "/azure/automation/troubleshoot/runbooks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-onboard-troubleshoot.md",
+            "redirect_url": "/azure/automation/troubleshoot/onboarding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-troubleshooting-hybrid-runbook-worker.md",
+            "redirect_url": "/azure/automation/troubleshoot/hybrid-runbook-worker",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-alert-activity-log.md",
             "redirect_url": "/azure/automation/automation-alert-metric",
             "redirect_document_id": false
@@ -2558,7 +2717,7 @@
         },
         {
             "source_path": "articles/automation/automation-update-account-powershell.md",
-            "redirect_url": "https://docs.microsoft.com/azure/automation/automation-create-runas-accounts",
+            "redirect_url": "https://docs.microsoft.com/azure/automation/automation-create-runas-account",
             "redirect_document_id": false
         },
         {
@@ -2648,7 +2807,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-nodejs-sails-cli-nodejs.md",
-            "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app",
+            "redirect_url": "/azure/app-service/containers/tutorial-nodejs-mongodb-app",
             "redirect_document_id": false
         },
         {
@@ -2992,8 +3151,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/app-service/app-service-high-density-hosting.md",
-            "redirect_url": "/azure/app-service/environment/app-service-high-density-hosting",
+            "source_path": "articles/app-service/environment/app-service-high-density-hosting.md",
+            "redirect_url": "/azure/app-service/app-service-high-density-hosting",
             "redirect_document_id": false
         },
         {
@@ -6553,7 +6712,7 @@
         },
         {
             "source_path": "articles/azure-stack/user/sql-server-vm-considerations.md",
-            "redirect_url": "/azure/azure-stack/azure-stack-sql-server-vm-considerations",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-sql-server-vm-considerations",
             "redirect_document_id": false
         },
         {
@@ -6704,6 +6863,36 @@
         {
             "source_path": "articles/cosmos-db/welcome-documentdb-customers.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/faq#moving-to-cosmos-db",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/graph-sdk-dotnet.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-api-cpp-get-started.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-develop-graph-dotnet.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-functions-http-trigger.md",
+            "redirect_url": "https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/spark-connector-graph.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/spark-connector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-global-distribution-graph.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/distribute-data-globally",
             "redirect_document_id": false
         },
         {
@@ -7313,7 +7502,7 @@
         },
         {
             "source_path": "articles/guidance/guidance-elasticsearch-configuring-resilience-and-recovery.md",
-            "redirect_url": "/azure/architecture/elasticsearch/resilience-and-recovery",
+            "redirect_url": "https://docs.microsoft.com/azure/architecture/resiliency/failure-mode-analysis#elasticsearch",
             "redirect_document_id": false
         },
         {
@@ -7528,17 +7717,17 @@
         },
         {
             "source_path": "articles/guidance/guidance-web-apps-basic.md",
-            "redirect_url": "/azure/architecture/reference-architectures/managed-web-app/basic-web-app",
+            "redirect_url": "https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/guidance/guidance-web-apps-multi-region.md",
-            "redirect_url": "/azure/architecture/reference-architectures/managed-web-app/multi-region-web-app",
+            "redirect_url": "https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/guidance/guidance-web-apps-scalability.md",
-            "redirect_url": "/azure/architecture/reference-architectures/managed-web-app/scalable-web-app",
+            "redirect_url": "https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app",
             "redirect_document_id": false
         },
         {
@@ -7753,7 +7942,7 @@
         },
         {
             "source_path": "articles/event-hubs/event-hubs-pulling-public-data.md",
-            "redirect_url": "https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb",
+            "redirect_url": "https://github.com/Azure-Samples/event-hubs-dotnet-import-from-sql",
             "redirect_document_id": false
         },
         {
@@ -7943,7 +8132,7 @@
         },
         {
             "source_path": "articles/documentdb/documentdb-cpp-get-started.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/documentdb-cpp-get-started.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/documentdb-cpp-get-started",
             "redirect_document_id": false
         },
         {
@@ -8128,7 +8317,7 @@
         },
         {
             "source_path": "articles/documentdb/documentdb-monitor-accounts.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/monitor-accounts.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/monitor-accounts",
             "redirect_document_id": false
         },
         {
@@ -8686,17 +8875,17 @@
             "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts",
             "redirect_document_id": false
         },
-		{
+        {
             "source_path": "articles/log-analytics/log-analytics-alerts-actions.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage",
             "redirect_document_id": false
         },
-		{
+        {
             "source_path": "articles/log-analytics/log-analytics-alerts-webhooks.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook",
             "redirect_document_id": false
         },
-		{
+        {
             "source_path": "articles/log-analytics/log-analytics-alerts-creating.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage",
             "redirect_document_id": false
@@ -8723,7 +8912,7 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-apps-text-analytics.md",
-            "redirect_url": "../cognitive-services/cognitive-services-text-analytics-quick-start",
+            "redirect_url": "/azure/cognitive-services/cognitive-services-text-analytics-quick-start",
             "redirect_document_id": false
         },
         {
@@ -9683,7 +9872,7 @@
         },
         {
             "source_path": "articles/mobile-engagement/mobile-engagement-send-personalized-notifications.md",
-            "redirect_url": "/azure/mobile-engagement/mobile-engagement-overview",
+            "redirect_url": "/azure/azure-subscription-service-limits#mobile-engagement-limits",
             "redirect_document_id": false
         },
         {
@@ -9698,7 +9887,7 @@
         },
         {
             "source_path": "articles/mysql/reference-sync-data-store-procedures.md",
-            "redirect_url": "/azure/mysql/reference-data-in-store-procedures",
+            "redirect_url": "/azure/mysql/reference-data-in-stored-procedures",
             "redirect_document_id": false
         },
         {
@@ -9722,19 +9911,19 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/search/search-api-2017-11-11-preview.md",
-            "redirect_url": "/azure/search/search-api-preview",
-            "redirect_document_id": true
+            "source_path": "articles/search/search-api-2015-02-28-preview.md",
+            "redirect_url": "https://docs.microsoft.com/azure/search/search-api-preview",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/search/search-api-2016-09-01-preview.md",
-            "redirect_url": "/azure/search/search-api-2017-11-11-preview",
-            "redirect_document_id": true
+            "redirect_url": "https://docs.microsoft.com/azure/search/search-api-preview",
+            "redirect_document_id": false
         },
         {
-            "source_path": "articles/search/search-api-2015-02-28-preview.md",
-            "redirect_url": "articles/search/search-api-2016-09-01-preview.md",
-            "redirect_document_id": false
+            "source_path": "articles/search/search-api-2017-11-11-preview.md",
+            "redirect_url": "https://docs.microsoft.com/azure/search/search-api-preview",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/search/search-api-indexers-2015-02-28-preview.md",
@@ -10023,7 +10212,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-saas-tutorial-adhoc-analytics.md",
-            "redirect_url": "/azure/sql-database/saas-tenancy-adhoc-analytics",
+            "redirect_url": "/azure/sql-database/saas-tenancy-tenant-analytics",
             "redirect_document_id": false
         },
         {
@@ -10223,7 +10412,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-develop-php-simple.md",
-            "redirect_url": "/azure/sql-database/sql-database-conect-query-php",
+            "redirect_url": "/azure/sql-database/sql-database-connect-query-php",
             "redirect_document_id": false
         },
         {
@@ -10353,12 +10542,12 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-get-started-backup-recovery-portal.md",
-            "redirect_url": "/azure/sql-database/sql-database-sql-database-long-term-backup-retention-configure",
+            "redirect_url": "/azure/sql-database/sql-database-long-term-backup-retention-configure",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-get-started-backup-recovery-powershell.md",
-            "redirect_url": "/azure/sql-database/sql-database-sql-database-long-term-backup-retention-configure",
+            "redirect_url": "/azure/sql-database/sql-database-long-term-backup-retention-configure",
             "redirect_document_id": false
         },
         {
@@ -10503,7 +10692,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-restore-database-powershell.md",
-            "redirect_url": "/azure/sql-database/scripts/sql-database-recovery-using-backups",
+            "redirect_url": "/azure/sql-database/sql-database-recovery-using-backups",
             "redirect_document_id": false
         },
         {
@@ -10513,7 +10702,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-restore-deleted-database-powershell.md",
-            "redirect_url": "/azure/sql-database/scripts/sql-database-recovery-using-backups",
+            "redirect_url": "/azure/sql-database/sql-database-recovery-using-backups",
             "redirect_document_id": false
         },
         {
@@ -10528,12 +10717,12 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-scale-up-powershell.md",
-            "redirect_url": "/azure/sql-database/scripts/sql-database-manage-single-databases-powershell",
+            "redirect_url": "/azure/sql-database/sql-database-single-database-scale",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-scale-up.md",
-            "redirect_url": "/azure/sql-database/sql-database-manage-single-databases-portal",
+            "redirect_url": "/azure/sql-database/sql-database-single-database-scale",
             "redirect_document_id": false
         },
         {
@@ -11382,6 +11571,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/stream-analytics/stream-analytics-resource-health.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshooting-guide",
+            "redirect_document_id": false
+
+        },
+        {
             "source_path": "articles/stream-analytics/stream-analytics-get-started.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
             "redirect_document_id": false
@@ -11428,7 +11623,7 @@
         },
         {
             "source_path": "articles/cognitive-services/cognitive-services-text-analytics-quick-start.md",
-            "redirect_url": "text-analytics/quick-start",
+            "redirect_url": "/azure/cognitive-services/text-analytics/overview",
             "redirect_document_id": false
         },
         {
@@ -12113,7 +12308,7 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-overview.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-options",
+            "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
             "redirect_document_id": false
         },
         {
@@ -12314,6 +12509,16 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-enable-azure-disk-encryption-linux.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-enable-azure-disk-encryption-windows.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-portal",
             "redirect_document_id": false
         },
         {
@@ -12833,17 +13038,17 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-deploy-with-powershell-resource-manager.md",
-            "redirect_url": "hyper-v-powershell-resource-manager",
+            "redirect_url": "/azure/site-recovery/hyper-v-vmm-powershell-resource-manager",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/site-recovery-deploy-with-powershell.md",
-            "redirect_url": "hyper-v-powershell-resource-manager",
+            "redirect_url": "/azure/site-recovery/hyper-v-vmm-powershell-resource-manager",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/tutorial-hyper-v-to-azure-failover-failback.md",
-            "redirect_url": "hyper-v-failover-failback-tutorial",
+            "redirect_url": "/azure/site-recovery/hyper-v-azure-failover-failback-tutorial",
             "redirect_document_id": false
         },
         {
@@ -13103,12 +13308,12 @@
         },
         {
             "source_path": "articles/site-recovery/site-recovery-vmware-setup-azure-ps-classic.md",
-            "redirect_url": "vmware-azure-set-up-process-server",
+            "redirect_url": "/azure/site-recovery/vmware-azure-set-up-process-server-azure",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/site-recovery/site-recovery-vmware-setup-azure-ps-resource-manager.md",
-            "redirect_url": "vmware-azure-set-up-process-server-azure",
+            "redirect_url": "/azure/site-recovery/vmware-azure-set-up-process-server-azure",
             "redirect_document_id": false
         },
         {
@@ -13392,13 +13597,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-aadconnect-pass-through-authentication.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication",
+            "source_path": "articles/active-directory/active-directory-aadconnect-ports.md",
+            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-ports",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/active-directory-aadconnect-ports.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-ports",
+            "source_path": "articles/active-directory/active-directory-aadconnect-pass-through-authentication.md",
+            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication",
             "redirect_document_id": false
         },
         {
@@ -13493,7 +13698,12 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-powershell.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-connector-powershell",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-connector-powershell.md",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell",
             "redirect_document_id": false
         },
         {
@@ -13540,6 +13750,11 @@
             "source_path": "articles/active-directory/active-directory-aadconnectsync-implement-password-synchronization.md",
             "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-security-ground-up.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-operations.md",
@@ -13708,27 +13923,27 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-faq.md",
-            "redirect_url": "/azure/active-directory/active-directory-device-registration-faq",
+            "redirect_url": "/azure/active-directory/device-management-faq",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-get-started.md",
-            "redirect_url": "/azure/active-directory/active-directory-device-registration-get-started",
+            "redirect_url": "/azure/active-directory/device-management-introduction",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md",
-            "redirect_url": "/azure/active-directory/active-directory-device-registration-troubleshoot-windows-legacy",
+            "redirect_url": "/azure/active-directory/device-management-troubleshoot-hybrid-join-windows-legacy",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md",
-            "redirect_url": "/azure/active-directory/active-directory-device-registration-troubleshoot-windows",
+            "redirect_url": "/azure/active-directory/device-management-troubleshoot-hybrid-join-windows-current",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-conditional-access-device-registration-overview.md",
-            "redirect_url": "/azure/active-directory/active-directory-device-registration-overview",
+            "redirect_url": "/azure/active-directory/device-management-azure-portal",
             "redirect_document_id": false
         },
         {
@@ -13898,12 +14113,12 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-java-authenticate-users-access-control-eclipse.md",
-            "redirect_url": "/azure/active-directory/develop/active-directory-java-authenticate-users-access-control-eclipse",
+            "redirect_url": "/azure/active-directory/develop/active-directory-authentication-libraries",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-java-view-saml-returned-by-access-control.md",
-            "redirect_url": "/azure/active-directory/develop/active-directory-java-view-saml-returned-by-access-control",
+            "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
             "redirect_document_id": false
         },
         {
@@ -14188,7 +14403,7 @@
         },
         {
             "source_path": "articles/active-directory/msi-how-to-get-access-token-using-msi.md",
-            "redirect_url": "msi-how-to-use-vm-msi-token",
+            "redirect_url": "/azure/active-directory/managed-service-identity/how-to-use-vm-token",
             "redirect_document_id": false
         },
         {
@@ -14228,7 +14443,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-agent-user-guide.md",
-            "redirect_url": "/azure/virtual-machines/linux/agent-user-guide",
+            "redirect_url": "/azure/virtual-machines/extensions/agent-linux",
             "redirect_document_id": false
         },
         {
@@ -14288,22 +14503,22 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-about-images.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/about-images",
+            "redirect_url": "/azure/virtual-machines/linux/cli-ps-findimage",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-agents-and-extensions.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/agents-and-extensions",
+            "redirect_url": "/azure/virtual-machines/linux/classic/agents-and-extensions-classic",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/attach-disk",
+            "redirect_url": "/azure/virtual-machines/linux/classic/attach-disk-classic",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-capture-image.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/capture-image",
+            "redirect_url": "/azure/virtual-machines/linux/classic/capture-image-classic",
             "redirect_document_id": false
         },
         {
@@ -14318,47 +14533,47 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-configure-availability.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/configure-availability",
+            "redirect_url": "/azure/virtual-machines/linux/classic/configure-availability-classic",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-connect-vms.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/connect-vms",
+            "redirect_url": "/azure/virtual-machines/linux/overview",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-create-custom.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/create-custom",
+            "redirect_url": "/azure/virtual-machines/linux/classic/create-custom-classic",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/create-upload-vhd",
+            "redirect_url": "/azure/virtual-machines/linux/classic/create-upload-vhd-classic",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-createportal.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/createportal",
+            "redirect_url": "/azure/virtual-machines/linux/classic/createportal-classic",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-detach-disk.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/detach-disk",
+            "redirect_url": "/azure/virtual-machines/linux/classic/detach-disk-classic",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/diagnostic-extension",
+            "redirect_url": "/azure/virtual-machines/linux/classic/diagnostic-extension-v2",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-faq.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/faq",
+            "redirect_url": "/azure/virtual-machines/linux/classic/faq-classic",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-freebsd-create-upload-vhd.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/freebsd-create-upload-vhd",
+            "redirect_url": "/azure/virtual-machines/linux/freebsd-intro-on-azure",
             "redirect_document_id": false
         },
         {
@@ -14392,18 +14607,28 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/classic/inject-custom-data.md",
+            "redirect_url": "/azure/virtual-machines/linux/tutorial-automate-vm-deployment",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-lamp-script.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/lamp-script",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-lamp",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-manage-extensions.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/manage-extensions",
+            "redirect_url": "/azure/virtual-machines/linux/classic/manage-extensions-classic",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md",
             "redirect_url": "/azure/virtual-machines/linux/classic/manage-visual-studio",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/classic/manage-visual-studio.md",
+            "redirect_url": "/azure/virtual-machines/windows/csharp",
             "redirect_document_id": false
         },
         {
@@ -14427,6 +14652,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/linux/classic/oracle-images.md",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-considerations",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md",
             "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": false
@@ -14438,12 +14668,12 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-remote-desktop.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/remote-desktop",
+            "redirect_url": "/azure/virtual-machines/linux/classic/remote-desktop-classic",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-reset-access.md",
-            "redirect_url": "/azure/virtual-machines/linux/classic/reset-access",
+            "redirect_url": "/azure/virtual-machines/linux/classic/reset-access-classic",
             "redirect_document_id": false
         },
         {
@@ -14474,6 +14704,11 @@
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-classic-web-app-visual-studio.md",
             "redirect_url": "/azure/virtual-machines/linux/classic/web-app-visual-studio",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/classic/web-app-visual-studio.md",
+            "redirect_url": "/azure/app-service/",
             "redirect_document_id": false
         },
         {
@@ -14678,7 +14913,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-dockerextension-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/dockerextension-nodejs",
+            "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": false
         },
         {
@@ -14768,7 +15003,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-extensions-oms.md",
-            "redirect_url": "/articles/virtual-machines/linux/extensions-oms.md",
+            "redirect_url": "/azure/virtual-machines/linux/extensions-oms",
             "redirect_document_id": false
         },
         {
@@ -14968,7 +15203,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-planned-maintenance-schedule.md",
-            "redirect_url": "/azure/virtual-machines/linux/planned-maintenance-schedule",
+            "redirect_url": "/azure/virtual-machines/linux/planned-maintenance",
             "redirect_document_id": false
         },
         {
@@ -15188,7 +15423,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-unique-vm-id.md",
-            "redirect_url": "/azure/virtual-machines/linux/unique-vm-id",
+            "redirect_url": "/azure/virtual-machines/linux/overview",
             "redirect_document_id": false
         },
         {
@@ -15228,7 +15463,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-using-cloud-init-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/using-cloud-init-nodejs",
+            "redirect_url": "/azure/virtual-machines/linux/using-cloud-init",
             "redirect_document_id": false
         },
         {
@@ -15403,7 +15638,7 @@
         },
         {
             "source_path": "articles/azure-stack/prepare-pki-certs.md",
-            "redirect_url": "/azure/azure-stack/user/azure-stack-prepare-pki-certs",
+            "redirect_url": "/azure/azure-stack/azure-stack-prepare-pki-certs",
             "redirect_document_id": false
         },
         {
@@ -15908,7 +16143,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-expand-data-disks.md",
-            "redirect_url": "/azure/virtual-machines/windows/expand-data-disks",
+            "redirect_url": "/azure/virtual-machines/windows/expand-os-disk",
             "redirect_document_id": false
         },
         {
@@ -16188,6 +16423,11 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-planned-maintenance-schedule.md",
+            "redirect_url": "/azure/virtual-machines/windows/planned-maintenance-schedule",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/classic/planned-maintenance-schedule.md",
             "redirect_url": "/azure/virtual-machines/windows/planned-maintenance-schedule",
             "redirect_document_id": false
         },
@@ -16623,7 +16863,7 @@
         },
         {
             "source_path": "articles/virtual-machines/linux/classic/diagnostic-extension.md",
-            "redirect_url": "/azure/virtual-machines/linux/diagnostic-extension.md",
+            "redirect_url": "/azure/virtual-machines/linux/diagnostic-extension",
             "redirect_document_id": false
         },
         {
@@ -16658,22 +16898,22 @@
         },
         {
             "source_path": "articles/virtual-machines/windows/sap-cal-ides-erp6-ehp7-sp3-sql.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-cal-ides-erp6-ehp7-sp3-sql.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-cal-ides-erp6-ehp7-sp3-sql",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/windows/sap-high-availability-guide.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-high-availability-guide.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/high-availability-guide",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/windows/sap-high-availability-multi-sid.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-high-availability-multi-sid.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-high-availability-multi-sid",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/windows/classic/configure-oracle-data-guard.md",
-            "redirect_url": "/azure/virtual-machines/workloads/oracle/configuring-oracle-dataguard",
+            "redirect_url": "/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard",
             "redirect_document_id": false
         },
         {
@@ -17138,7 +17378,7 @@
         },
         {
             "source_path": "articles/active-directory/secure-email-deploy-recommended-policies.md",
-            "redirect_url": "https://docs.microsoft.com/microsoft-365-enterprise/secure-email-deploy-recommended-policies",
+            "redirect_url": "https://docs.microsoft.com/microsoft-365-enterprise/secure-email-recommended-policies",
             "redirect_document_id": false
         },
         {
@@ -17163,7 +17403,7 @@
         },
         {
             "source_path": "articles/vpn-gateway/vpn-gateway-site-to-site-create.md",
-            "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic",
+            "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal",
             "redirect_document_id": false
         },
         {
@@ -17868,7 +18108,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-point-in-time-restore-powershell.md",
-            "redirect_url": "/azure/sql-database/scripts/sql-database-recovery-using-backups",
+            "redirect_url": "/azure/sql-database/sql-database-recovery-using-backups",
             "redirect_document_id": false
         },
         {
@@ -18388,8 +18628,8 @@
         },
         {
             "source_path": "articles/storage/storage-nodejs-use-table-storage-cloud-service-app.md",
-            "redirect_url": "/azure/cosmos-db/table-storage-cloud-service-nodejs",
-            "redirect_document_id": true
+            "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-nodejs",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-geo-replication-transact-sql.md",
@@ -18419,7 +18659,7 @@
         {
             "source_path": "articles/storage/storage-php-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-php",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/storage/storage-powershell-guide-full.md",
@@ -19173,7 +19413,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-windows-agent-user-guide.md",
-            "redirect_url": "/azure/virtual-machines/windows/agent-user-guide",
+            "redirect_url": "/azure/virtual-machines/extensions/agent-windows",
             "redirect_document_id": false
         },
         {
@@ -19438,7 +19678,7 @@
         },
         {
             "source_path": "articles/machine-learning/services.md",
-            "redirect_url": "/azure/machine-learning/preview/index.yml",
+            "redirect_url": "/azure/machine-learning/index",
             "redirect_document_id": false
         },
         {
@@ -20003,7 +20243,7 @@
         },
         {
             "source_path": "articles/power-bi-embedded-troubleshooting.md",
-            "redirect_url": "/azure/power-bi-workspace-collections/troubleshooting",
+            "redirect_url": "/azure/power-bi-workspace-collections/faq",
             "redirect_document_id": false
         },
         {
@@ -20433,7 +20673,7 @@
         },
         {
             "source_path": "articles/hdinsight/hdinsight-hadoop-use-interactive-hive.md",
-            "redirect_url": "/azure/hdinsight/interactive-query/apache-interactive-query-get-started.md",
+            "redirect_url": "/azure/hdinsight/interactive-query/apache-interactive-query-get-started",
             "redirect_document_id": true
         },
         {
@@ -21058,7 +21298,7 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-gateway-kit-get-started-sensortag.md",
-            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-gateway-kit-get-started-sensortag.md",
+            "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/connect_to_preconfigured_solutions/iot-suite-v1-gateway-kit-get-started-sensortag.md",
             "redirect_document_id": false
         },
         {
@@ -21073,7 +21313,12 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators",
+            "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md",
+            "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
             "redirect_document_id": false
         },
         {
@@ -21477,7 +21722,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/virtual-machines/windows/classic/planned-maintenance-schedule.md",
+            "source_path": "articles/virtual-machines/windows/planned-maintenance-schedule.md",
             "redirect_url": "/azure/virtual-machines/windows/maintenance-and-updates",
             "redirect_document_id": true
         },
@@ -22093,7 +22338,7 @@
         },
         {
             "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization.md",
-            "redirect_url": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization",
+            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization",
             "redirect_document_id": false
         },
         {
@@ -22107,7 +22352,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/azure-stack-manage-windows-azure-pack.md", 
+            "source_path": "articles/azure-stack/azure-stack-manage-windows-azure-pack.md",
             "redirect_url": "/azure/azure-stack/",
             "redirect_document_id": false
         },
@@ -23803,7 +24048,7 @@
         },
         {
             "source_path": "articles/security/blueprints/fedramp-contingency-planning-controls.md",
-            "redirect_url": "/azure/security/blueprints/cfedramp-iaaswa-ontingency-planning-controls",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-contingency-planning-controls",
             "redirect_document_id": true
         },
         {
@@ -24033,7 +24278,12 @@
         },
         {
             "source_path": "articles/active-directory/cloudappdiscovery-get-started.md",
-            "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery",
+            "redirect_url": "/cloud-app-security/set-up-cloud-discovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/cloud-app-discovery.md",
+            "redirect_url": "/cloud-app-security/set-up-cloud-discovery",
             "redirect_document_id": false
         },
         {
@@ -24043,7 +24293,12 @@
         },
         {
             "source_path": "articles/active-directory/cloudappdiscovery-set-up-snapshots.md",
-            "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery-create-snapshot-reports",
+            "redirect_url": "/cloud-app-security/set-up-cloud-discovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/cloud-app-discovery-create-snapshot-reports.md",
+            "redirect_url": "/cloud-app-security/set-up-cloud-discovery",
             "redirect_document_id": false
         },
         {
@@ -24167,11 +24422,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/QnAMaker/index.md",
-            "redirect_url": "/azure/cognitive-services/QnAMaker/overview/overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/Recommendations/index.md",
             "redirect_url": "/azure/cognitive-services/Recommendations/overview",
             "redirect_document_id": false
@@ -24292,6 +24542,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout.md",
+            "redirect_url": "/azure/active-directory/authentication/howto-password-smart-lockout",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/application-proxy-understand-connectors.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connectors",
             "redirect_document_id": false
@@ -24365,42 +24620,42 @@
             "source_path": "articles/iot-accelerators/iot-security-architecture.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
             "redirect_document_id": false
-        },   
+        },
         {
             "source_path": "articles/iot-hub/iot-hub-security-architecture.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path": "articles/iot-accelerators/iot-security-best-practices.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/iot-hub/iot-hub-security-best-practices.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path": "articles/iot-accelerators/iot-accelerators-security-deployment.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-deployment",
             "redirect_document_id": false
-        },  
+        },
         {
             "source_path": "articles/iot-hub/iot-hub-security-deployment.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-deployment",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/iot-accelerators/securing-iot-groud-up.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
             "redirect_document_id": false
-        },   
+        },
         {
             "source_path": "articles/iot-hub/iot-hub-security-groud-up.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
             "redirect_document_id": false
-        },         
+        },
         {
             "source_path": "articles/iot-suite/index.md",
             "redirect_url": "/azure/iot-accelerators",
@@ -24433,17 +24688,22 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-deploy.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy",
+            "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-suite/iot-suite-what-are-solution-accelerators.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators",
+            "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md",
+            "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-what-is-azure-iot.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-what-is-azure-iot",
+            "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-introduction",
             "redirect_document_id": false
         },
         {
@@ -24458,7 +24718,12 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-explore.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore",
+            "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md",
+            "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
             "redirect_document_id": false
         },
         {
@@ -24603,7 +24868,12 @@
         },
         {
             "source_path": "articles/iot-suite/iot-suite-options.md",
-            "redirect_url": "/azure/iot-accelerators/iot-accelerators-options",
+            "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-accelerators/iot-accelerators-options.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies",
             "redirect_document_id": false
         },
         {
@@ -25122,6 +25392,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory/migrate-adfs-apps-to-azure.md",
+            "redirect_url": "/azure/active-directory/manage-apps/active-directory/migrate-adfs-apps-to-azure",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
             "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": true
@@ -25311,7 +25586,7 @@
             "redirect_url": "/azure/cognitive-services/LUIS/interactive-test",
             "redirect_document_id": true
         },
-		        {
+        {
             "source_path": "articles/active-directory/active-directory-application-access-content-map.md",
             "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
             "redirect_document_id": true
@@ -25379,6 +25654,76 @@
         {
             "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started.md",
             "redirect_url": "/azure/active-directory-b2c/tutorial-create-tenant",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-app-passwords",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-first-time",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.experimental.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/multi-factor-authentication-end-user-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/microsoft-authenticator-app-backup-and-recovery.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/microsoft-authenticator-app-backup-and-recovery",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/microsoft-authenticator-app-faq.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/microsoft-authenticator-app-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/microsoft-authenticator-app-phone-signin-faq.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/microsoft-authenticator-app-phone-signin-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-app-passwords",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-signin.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-signin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/sign-in-experience-updates.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/sign-in-experience-updates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-troubleshoot",
             "redirect_document_id": false
         }
     ]

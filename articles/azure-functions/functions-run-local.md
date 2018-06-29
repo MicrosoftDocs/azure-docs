@@ -1,6 +1,6 @@
 ---
-title: Develop and run Azure functions locally | Microsoft Docs
-description: Learn how to code and test Azure functions on your local computer before you run them on Azure Functions.
+title: Work with Azure Functions Core Tools | Microsoft Docs
+description: Learn how to code and test Azure functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -13,25 +13,29 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/03/2018
+ms.date: 06/26/2018
 ms.author: glenga
 
 ---
-# Code and test Azure Functions locally
+# Work with Azure Functions Core Tools
 
-While the [Azure portal] provides a full set of tools for developing and testing Azure Functions, many developers prefer a local development experience. Azure Functions makes it easy to use your favorite code editor and local development tools to develop and test your functions on your local computer. Your functions can trigger on events in Azure, and you can debug your C# and JavaScript functions on your local computer. 
+Azure Functions Core Tools lets you develop and test your functions on your local computer from the command prompt or terminal. Your local functions can connect to live Azure services, and you can debug your functions on your local computer using the full Functions runtime. You can even deploy a function app to your Azure subscription.
 
-If you are a Visual Studio C# developer, Azure Functions also [integrates with Visual Studio 2017](functions-develop-vs.md).
+[!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
 
->[!IMPORTANT]  
-> Do not mix local development with portal development in the same function app. When you create and publish functions from a local project, you should not try to maintain or modify project code in the portal.
+## Core Tools versions
+
+There are two versions of Azure Functions Core Tools. The version you use depends on your local development environment, choice of language, and level of support required:
+
++ [Version 1.x](#v1): supports version 1.x of the runtime, which is Generally Available (GA). This version of the tools is only supported on Windows computers and is installed from an [npm package](https://docs.npmjs.com/getting-started/what-is-npm). With this version, you can create functions in experimental languages that are not officially supported. For more information, see [Supported languages in Azure Functions](supported-languages.md)
+
++ [Version 2.x](#v2): supports version 2.x of the runtime. This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or npm for installation. Like the 2.x runtime, this version of the core tools is currently in preview.
+
+Unless otherwise noted, the examples in this article are for version 2.x.
 
 ## Install the Azure Functions Core Tools
 
-[Azure Functions Core Tools] is a local version of the Azure Functions runtime that you can run on your local development computer. It's not an emulator or simulator. It's the same runtime that powers Functions in Azure. There are two versions of Azure Functions Core Tools:
-
-+ [Version 1.x](#v1): supports version 1.x of the runtime. This version is only supported on Windows computers and is installed from an [npm package](https://docs.npmjs.com/getting-started/what-is-npm).
-+ [Version 2.x](#v2): supports version 2.x of the runtime. This version supports [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). Uses platform-specific package managers or npm for installation. 
+[Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
 ### <a name="v1"></a>Version 1.x
 
@@ -111,23 +115,11 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     sudo apt-get install azure-functions-core-tools
     ```
 
-## Run Azure Functions Core Tools
-
-Azure Functions Core Tools adds the following command aliases:
-
-+ **func**
-+ **azfun**
-+ **azurefunctions**
-
-Any of these aliases can be used where `func` is shown in the examples.
-
-```bash
-func init MyFunctionProj
-```
-
 ## Create a local Functions project
 
-When running locally, a Functions project is a directory that has the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file). This directory is the equivalent of a function app in Azure. To learn more about the Azure Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
+A functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file), along subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
+
+Version 2.x requires you to select a default language for your project when it is initialized, and all functions added use default language templates. In version 1.x, you specify the language each time you create a function.
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
@@ -135,14 +127,23 @@ In the terminal window or from a command prompt, run the following command to cr
 func init MyFunctionProj
 ```
 
-The output looks like the following example:
+In version 2.x, when you run the command you must choose a runtime for your project. If you plan to develop JavaScript functions, choose **node**:
 
 ```output
+Select a worker runtime:
+dotnet
+node
+```
+
+Use the up/down arrow keys to choose a language, then press Enter. The output looks like the following example for a JavaScript project:
+
+```output
+Select a worker runtime: node
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
-Created launch.json
-Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
+Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
+Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 To create the project without a local Git repository, use the `--no-source-control [-n]` option.
@@ -161,15 +162,15 @@ The file local.settings.json stores app settings, connection strings, and settin
 
 ```json
 {
-  "IsEncrypted": false,   
+  "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage": "<connection-string>", 
+    "AzureWebJobsStorage": "<connection-string>",
     "AzureWebJobsDashboard": "<connection-string>",
     "MyBindingConnection": "<binding-connection-string>"
   },
   "Host": {
-    "LocalHttpPort": 7071, 
-    "CORS": "*" 
+    "LocalHttpPort": 7071,
+    "CORS": "*"
   },
   "ConnectionStrings": {
     "SQLConnectionString": "Value"
@@ -180,7 +181,7 @@ The file local.settings.json stores app settings, connection strings, and settin
 | Setting      | Description                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | When set to **true**, all values are encrypted using a local machine key. Used with `func settings` commands. Default value is **false**. |
-| **Values** | Collection of application settings and connection strings used when running locally. These correspond to app settings in your function app in Azure, such as **AzureWebJobsStorage** and **AzureWebJobsDashboard**. Many triggers and bindings have a property that refers to a connection string app setting, such as **Connection** for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the **Values** array. <br/>**AzureWebJobsStorage** is a required app setting for triggers other than HTTP. When you have the [Azure storage emulator](../storage/common/storage-use-emulator.md) installed locally, you can set **AzureWebJobsStorage** to `UseDevelopmentStorage=true` and Core Tools uses the emulator. This is useful during development, but you should test with an actual storage connection before deployment. |
+| **Values** | Collection of application settings and connection strings used when running locally. These values correspond to app settings in your function app in Azure, such as **AzureWebJobsStorage** and **AzureWebJobsDashboard**. Many triggers and bindings have a property that refers to a connection string app setting, such as **Connection** for the [Blob storage trigger](functions-bindings-storage-blob.md#trigger---configuration). For such properties, you need an application setting defined in the **Values** array. <br/>**AzureWebJobsStorage** is a required app setting for triggers other than HTTP. When you have the [Azure storage emulator](../storage/common/storage-use-emulator.md) installed locally, you can set **AzureWebJobsStorage** to `UseDevelopmentStorage=true` and Core Tools uses the emulator. This is useful during development, but you should test with an actual storage connection before deployment. |
 | **Host** | Settings in this section customize the Functions host process when running locally. |
 | **LocalHttpPort** | Sets the default port used when running the local Functions host (`func host start` and `func run`). The `--port` command-line option takes precedence over this value. |
 | **CORS** | Defines the origins allowed for [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origins are supplied as a comma-separated list with no spaces. The wildcard value (\*) is supported, which allows requests from any origin. |
@@ -225,37 +226,63 @@ Even when using the storage emulator for development, you may want to test with 
     func azure storage fetch-connection-string <StorageAccountName>
     ```
     
-    Both commands require you to first sign in to Azure.
+    When you are not already signed in to Azure, you are prompted to do so.
 
-<a name="create-func"></a>
-## Create a function
+## <a name="create-func"></a>Create a function
 
 To create a function, run the following command:
 
 ```bash
 func new
-``` 
-`func new` supports the following optional arguments:
-
-| Argument     | Description                            |
-| ------------ | -------------------------------------- |
-| **`--language -l`** | The template programming language, such as C#, F#, or JavaScript. |
-| **`--template -t`** | The template name. |
-| **`--name -n`** | The function name. |
-
-For example, to create a JavaScript HTTP trigger, run:
-
-```bash
-func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
-To create a queue-triggered function, run:
+In version 2.x, when you run `func new` you are prompted to choose a template in the default language of your function app, then you are also prompted to choose a name for your function. In version 1.x, you are also prompted to choose the language.
+
+```output
+Select a language: Select a template:
+Blob trigger
+Cosmos DB trigger
+Event Grid trigger
+HTTP trigger
+Queue trigger
+SendGrid
+Service Bus Queue trigger
+Service Bus Topic trigger
+Timer trigger
+```
+
+Function code is generated in a subfolder with the provided function name, as you can see in the following queue trigger output:
+
+```output
+Select a language: Select a template: Queue trigger
+Function name: [QueueTriggerJS] MyQueueTrigger
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\index.js
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\readme.md
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\sample.dat
+Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
+```
+
+You can also specify these options in the command using the following arguments:
+
+| Argument     | Description                            |
+| ------------------------------------------ | -------------------------------------- |
+| **`--language -l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x, do not use this option or choose the default language of your project. |
+| **`--template -t`** | The template name, which can be one of the  values:<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--name -n`** | The function name. |
+
+For example, to create a JavaScript HTTP trigger in a single command, run:
 
 ```bash
-func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
+func new --template "Http Trigger" --name MyHttpTrigger
+```
+
+To create a queue-triggered function in a single command, run:
+
 ```bash
-<a name="start"></a>
-## Run functions locally
+func new --template "Queue Trigger" --name QueueTriggerJS
+```
+
+## <a name="start"></a>Run functions locally
 
 To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
 
@@ -268,13 +295,13 @@ func host start
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 |**`--port -p`** | The local port to listen on. Default value: 7071. |
-| **`--debug <type>`** | The options are `VSCode` and `VS`. |
+| **`--debug <type>`** | Starts the host with the debug port open so that you can attach to the **func.exe** process from [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) or [Visual Studio 2017](functions-dotnet-class-library.md). The *\<type\>* options are `VSCode` and `VS`.  |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
 | **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. |
 | **`--debugLevel -d`** | The console trace level (off, verbose, info, warning, or error). Default: Info.|
 | **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
-| **`--useHttps`** | Bind to https://localhost:{port} rather than to http://localhost:{port}. By default, this option creates a trusted certificate on your computer.|
-| **`--pause-on-error`** | Pause for additional input before exiting the process. Useful when launching Azure Functions Core Tools from an integrated development environment (IDE).|
+| **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
+| **`--pause-on-error`** | Pause for additional input before exiting the process. Used when launching Core Tools from Visual Studio or VS Code.|
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 
@@ -286,28 +313,9 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### <a name="vs-debug"></a>Debug in VS Code or Visual Studio
-
-To attach a debugger, pass the `--debug` argument. To debug JavaScript functions, use Visual Studio Code. For C# functions, use Visual Studio.
-
-To debug C# functions, use `--debug vs`. You can also use [Azure Functions Visual Studio 2017 Tools](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/). 
-
-To launch the host and set up JavaScript debugging, run:
-
-```bash
-func host start --debug vscode
-```
-
-> [!IMPORTANT]
-> For debugging, only Node.js 8.x is supported. Node.js 9.x is not supported. 
-
-Then, in Visual Studio Code, in the **Debug** view, select **Attach to Azure Functions**. You can attach breakpoints, inspect variables, and step through code.
-
-![JavaScript debugging with Visual Studio Code](./media/functions-run-local/vscode-javascript-debugging.png)
-
 ### Passing test data to a function
 
-To test your functions locally, you [start the Functions host](#start) and call endpoints on the local server using HTTP requests. The endpoint you call depends on the type of function. 
+To test your functions locally, you [start the Functions host](#start) and call endpoints on the local server using HTTP requests. The endpoint you call depends on the type of function.
 
 >[!NOTE]  
 > Examples in this topic use the cURL tool to send HTTP requests from the terminal or a command prompt. You can use a tool of your choice to send HTTP requests to the local server. The cURL tool is available by default on Linux-based systems. On Windows, you must first download and install the [cURL tool](https://curl.haxx.se/).
@@ -336,6 +344,7 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 You can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use cURL, Fiddler, Postman, or a similar HTTP testing tool.  
 
 #### Non-HTTP triggered functions
+
 For all kinds of functions other than HTTP triggers and webhooks, you can test your functions locally by calling an administration endpoint. Calling this endpoint with an HTTP POST request on the local server triggers the function. You can optionally pass test data to the execution in the body of the POST request. This functionality is similar to the **Test** tab in the Azure portal.  
 
 You call the following administrator endpoint to trigger non-HTTP functions:
@@ -348,8 +357,9 @@ To pass test data to the administrator endpoint of a function, you must supply t
 {
     "input": "<trigger_input>"
 }
-```` 
-The `<trigger_input>` value contains data in a format expected by the function. The following cURL example is a POST to a `QueueTriggerJS` function. In this case, the input is a string that is equivalent to the message expected to be found in the queue.      
+````
+
+The `<trigger_input>` value contains data in a format expected by the function. The following cURL example is a POST to a `QueueTriggerJS` function. In this case, the input is a string that is equivalent to the message expected to be found in the queue.
 
 ```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
@@ -403,7 +413,8 @@ The `publish` command uploads the contents of the Functions project directory. I
 
 >[!IMPORTANT]  
 > When you create a function app in Azure, it uses version 1.x of the Function runtime by default. To make the function app use version 2.x of the runtime, add the application setting `FUNCTIONS_EXTENSION_VERSION=beta`.  
-Use the following Azure CLI code to add this setting to your function app: 
+Use the following Azure CLI code to add this setting to your function app:
+
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
@@ -413,7 +424,7 @@ az functionapp config appsettings set --name <function_app> \
 ## Next steps
 
 Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli).  
-To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues). 
+To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->
 
