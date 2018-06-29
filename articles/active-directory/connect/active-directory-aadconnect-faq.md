@@ -36,7 +36,7 @@ Yes. After you install the agent, you can complete the registration process by u
 **Q: Does Azure AD Connect support syncing from two domains to on Azure AD?**  
 Yes, this scenario is supported. Refer to [Multiple Domains](active-directory-aadconnect-multiple-domains.md).
  
-**Q: Can you have multiple connectors for the same Active Directory domain in Azure AD connect?**  
+**Q: Can you have multiple connectors for the same Active Directory domain in Azure AD Connect?**  
 No, multiple connectors for the same AD domain are not supported. 
 
 **Q: Can I move the Azure AD Connect database from the local database to a remote SQL Server instance?**   
@@ -49,7 +49,7 @@ The simplest way to do this is to use SQL Server Management Studio installed on 
 3. Install Azure AD Connect against the existing [remote SQL database](active-directory-aadconnect-existing-database.md).
    The article demonstrates how to migrate to using a local SQL database. If you are migrating to using a remote SQL database, in step 5 of the process you must also enter an existing service account that the Windows Sync service will run as. This sync engine service account is described here:
    
-      **Use an existing service account**: By default, Azure AD Connect uses a virtual service account for the synchronization services to use. If you use a remote SQL server instance or use a proxy that requires authentication, use a managed service account or a service account in the domain, and know the password. In those cases, enter the account to use. Make sure that users who are running the installation are system administrators in SQL so that login credentials for the service account can be created. For more information, see [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). 
+      **Use an existing service account**: By default, Azure AD Connect uses a virtual service account for the synchronization services to use. If you use a remote SQL Server instance or use a proxy that requires authentication, use a managed service account or a service account in the domain, and know the password. In those cases, enter the account to use. Make sure that users who are running the installation are system administrators in SQL so that login credentials for the service account can be created. For more information, see [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). 
    
       With the latest build, provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights. For more information, see [Install Azure AD Connect by using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md).
 
@@ -120,7 +120,7 @@ We are advising all customers to enable auto upgrade for their Azure AD Connect 
 
 The auto-upgrade process always first establishes whether an installation is eligible for auto upgrade. If it is eligible, the upgrade is performed and tested. The process also includes looking for custom changes to rules and specific environmental factors. If the tests show that an upgrade is unsuccessful, the previous version is automatically restored.
 
-Depending on the size of the environment, the process can take a couple of hours. While the upgrade is in progress, no sync between Windows Server AD and Azure AD happens.
+Depending on the size of the environment, the process can take a couple of hours. While the upgrade is in progress, no sync between Windows Server Active Directory and Azure AD happens.
 
 **Q: I received an email telling me that my auto upgrade no longer works and I need to install a new version. Why do I need to do this?**  
 Last year, we released a version of Azure AD Connect that, under certain circumstances, might have disabled the auto-upgrade feature on your server. We have fixed the issue in Azure AD Connect version 1.1.750.0. If you have been affected by the issue, you can mitigate it by running a PowerShell script to repair it or by manually upgrading to the latest version of Azure AD Connect. 
@@ -141,7 +141,7 @@ Yes, you still need to upgrade to version 1.1.750.0 or later. Enabling the auto-
 **Q: I want to upgrade to a newer version but I’m not sure who installed Azure AD Connect, and we do not have the username and password. Do we need this?**
 You don’t need to know the username and password that was initially used to upgrade Azure AD Connect. Use any Azure AD account that has the Global Administrator role.
 
-**Q: How can I find which version of Azure AD Connect I am using?**.  
+**Q: How can I find which version of Azure AD Connect I am using?**  
 To verify which version of Azure AD Connect is installed on your server, go to Control Panel and look up the installed version of Microsoft Azure AD Connect by selecting **Programs** > **Programs and Features**, as shown here:
 
 ![Azure AD Connect version in Control Panel](media/active-directory-aadconnect-faq/faq1.png)
@@ -159,7 +159,7 @@ The time needed to upgrade depends on your tenant size. For larger organizations
 The Office team is working to get the Office portal updates to reflect the current product name. It does not reflect which sync tool you are using.
 
 **Q: My auto-upgrade status says, “Suspended." Why is it suspended? Should I enable it?**  
-A bug was introduced in a previous version that, under certain circumstances, leaves the auto-upgrade status set to “Suspended.” Manually enabling it is technically possible but would require several complex steps. The best thing you can do is install the latest version of Azure AD Connect
+A bug was introduced in a previous version that, under certain circumstances, leaves the auto-upgrade status set to “Suspended.” Manually enabling it is technically possible but would require several complex steps. The best thing you can do is install the latest version of Azure AD Connect.
 
 **Q: My company has strict change-management requirements, and I want to control when it’s pushed out. Can I control when auto upgrade is launched?**  
 No, there is no such feature today. The feature is being evaluated for a future release.
@@ -177,10 +177,10 @@ Yes, auto upgrade also upgrades Azure AD Connect Health.
 Yes, you can auto-upgrade an Azure AD Connect server that is in staging mode.
 
 **Q: If auto upgrade fails and my Azure AD Connect server does not start, what should I do?**  
-In rare cases, the Azure AD Connect service does not start after you perform the upgrade. In these cases, rebooting the server usually fixes the issue. If the Azure AD Connect service still does not start, open a support ticket. For more information, see [Create a service request to contact Office 365 support?](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/). 
+In rare cases, the Azure AD Connect service does not start after you perform the upgrade. In these cases, rebooting the server usually fixes the issue. If the Azure AD Connect service still does not start, open a support ticket. For more information, see [Create a service request to contact Office 365 support](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/). 
 
 **Q: I’m not sure what the risks are when I upgrade to a newer version of Azure AD Connect. Can you call me to help me with the upgrade?**  
-If you need help upgrading to a newer version of Azure AD Connect, open a support ticket at [Create a service request to contact Office 365 support?](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
+If you need help upgrading to a newer version of Azure AD Connect, open a support ticket at [Create a service request to contact Office 365 support](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
 
 ## Troubleshooting
 **Q: How can I get help with Azure AD Connect?**
