@@ -59,9 +59,9 @@ LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](lu
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 (less than 50%) does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
 
 ### Why don't I see my endpoint hits in my app's Dashboard?
-The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS Subscription key in the Azure portal are updated more frequently. 
+The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS endpoint key in the Azure portal are updated more frequently. 
 
-If you don't see updated endpoint hits in the Dashboard, log in to the Azure portal, and find the resource associated with your LUIS subscription key, and open **Metrics** to select the **Total Calls** metric. If the subscription key is used for more than one LUIS app, the metric in the Azure portal shows the aggregate number of calls from all LUIS apps that use it.
+If you don't see updated endpoint hits in the Dashboard, log in to the Azure portal, and find the resource associated with your LUIS endpoint key, and open **Metrics** to select the **Total Calls** metric. If the endpoint key is used for more than one LUIS app, the metric in the Azure portal shows the aggregate number of calls from all LUIS apps that use it.
 
 ### My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it? 
 Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) in the next FAQ to create a LUIS endpoint key and assign it to the app. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -109,8 +109,9 @@ In Azure, a tenant represents the client or organization that's associated with 
 
 ![Tenant ID in the Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
-### Why are there more subscription keys on my app's publish page than I assigned to the app? 
-Each LUIS app has the authoring/starter key. LUIS subscription keys created during the GA time frame are visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS subscription keys do not appear on the publish page. 
+<a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+### Why are there more endpoint keys on my app's publish page than I assigned to the app? 
+Each LUIS app has the authoring/starter key. LUIS endpoint keys created during the GA time frame are visible on your publish page, regardless if you added them to the app. This was done to make GA migration easier. Any new LUIS endpoint keys do not appear on the publish page. 
 
 ## App management
 
@@ -147,7 +148,7 @@ If you are using your log for prediction analysis, do not capture test utterance
 ## App notification
 
 ### Why did I get an email saying I'm almost out of quota?
-Your authoring/starter key is only allowed 1000 endpoint queries a month. Create a LUIS subscription key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
+Your authoring/starter key is only allowed 1000 endpoint queries a month. Create a LUIS endpoint key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there. 
 
 ## Integrating LUIS
 
@@ -161,7 +162,7 @@ If you select a LUIS template, and select the **Select** button in the template 
 
 ## LUIS service 
 
-### Is LUIS available on-premise or in private cloud?
+### Is LUIS available on-premises or in private cloud?
 No. 
 
 ## Changes to the Docs

@@ -48,13 +48,6 @@ sections:
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
       - href:
-    - title: Custom Vision - Build an image classifier
-      values:
-      - href:
-      - href:
-      - href:
-      - href:
-      - href: /azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier
     - title: Speech Service - Recognize speech
       values: 
       - href: /azure/cognitive-services/speech-service/quickstart-csharp-windows
@@ -62,13 +55,6 @@ sections:
       - href: 
       - href:
       - href: /azure/cognitive-services/speech-service/get-started 
-    - title: Translator Speech - Translate spoken words
-      values: 
-      - href: /azure/cognitive-services/translator-speech/quickstarts/csharp
-      - href: /azure/cognitive-services/translator-speech/quickstarts/java
-      - href: /azure/cognitive-services/translator-speech/quickstarts/nodejs
-      - href: /azure/cognitive-services/translator-speech/quickstarts/python
-      - href:
     - title: LUIS - Use prebuilt home automation 
       values:
       - href: 
@@ -76,12 +62,12 @@ sections:
       - href: 
       - href:
       - href: /azure/cognitive-services/luis/luis-get-started-create-app
-    - title: Translator Text - Translate one language to another
+    - title: Text Analytics- Detect language, analyze sentiment
       values:
-      - href: Translator/quickstart-csharp-translate
-      - href: Translator/quickstart-java-translate
-      - href: Translator/quickstart-nodejs-translate
-      - href: Translator/quickstart-python-translate
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/csharp
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/java
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/nodejs
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/python
       - href: 
     - title: Bing Web Search - Get relevant web queries
       values: 
