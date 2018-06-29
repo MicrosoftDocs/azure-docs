@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 06/20/2018
 ms.author: barclayn
 
 ---
@@ -255,7 +255,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 |----------------------------------|--------------------|--------------------|--------------------|--------------------|
 |                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed in Key Vault**             |  **Server-Side Using Customer-Managed On-premises**                  | **Client Using Client-Managed**      |
 | **Storage and Databases**        |                    |                    |                    |                    |                    |
-| Disk (IaaS)                      | -                  | Yes, RSA 2048-bit  | Yes*               | -                  |
+| Disk (IaaS)                      | -                  | Yes, RSA 2048-bit  | Yes               | -                  |
 | SQL Server (IaaS)                | Yes                | Yes, RSA 2048-bit  | Yes                | Yes                |
 | Azure SQL Database (PaaS)        | Yes                | Yes, RSA 2048-bit  | -                  | Yes                |
 | Azure Storage (Block/Page Blobs) | Yes                | Yes, RSA 2048-bit  | -                  | Yes                |

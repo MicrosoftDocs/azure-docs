@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/15/2018
 ms.author: jeedes
 
 ---
@@ -101,31 +101,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_samlbase.png)
 
-3. On the **Hightail Domain and URLs** section, perform the following steps:
+3. On the **Hightail Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
 	![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_url.png)
 
-	 In the **Reply URL** textbox, type the URL as: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+	In the **Reply URL** textbox, type the URL as: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
-	> [!NOTE] 
-	> The preceding value is not real value. You will update the value with the actual Reply URL, which is explained later in the tutorial.
- 
-4. On the **Hightail Domain and URLs** section, If you wish to configure the application in **SP initiated mode**, perform the following steps:
-	
+	> [!NOTE]
+	> The Reply URL value is not real value. You will update the Reply URL value with the actual Reply URL, which is explained later in the tutorial.
+
+4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
 	![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_url1.png)
 
-	a. Click the **Show advanced URL settings**.
-
-    b. In the **Sign On URL** textbox, type the URL as: `https://www.hightail.com/loginSSO`
+	In the **Sign On URL** textbox, type the URL as: `https://www.hightail.com/loginSSO`
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_certificate.png) 
 
-5. Hightail application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. 
+5. Hightail application expects the SAML assertions in a specific format. Please configure the following claims for this application. You can manage the values of these attributes from the **"Attribute"** tab of the application. The following screenshot shows an example for this. 
 
     ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_attribute.png) 
 
@@ -149,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	c. From the **Value** list, type the attribute value shown for that row.
 
 	d. Leave the **Namespace** blank.
-	
+
 	e. Click **Ok**.
 
 7. Click **Save** button.
@@ -158,41 +156,32 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 8. On the **Hightail Configuration** section, click **Configure Hightail** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_configure.png) 
+	![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_configure.png)
 
-    >[!NOTE] 
+    >[!NOTE]
     >Before configuring the Single Sign On at Hightail app, please white list your email domain with Hightail team so that all the users who are using this domain can use Single Sign On functionality.
 
+9. In another browser window, open the **Hightail** admin portal.
 
-9. To get SSO configured for your application, you need to sign-on to your Hightail tenant as an administrator.
-   
-    a. In the menu on the top, click the **Account** tab and select **Configure SAML**.
- 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_001.png) 
+10. Click on **User icon** from the top right corner of the page. 
 
-    b. Select the checkbox of **Enable SAML Authentication**.
+	![Configure Single Sign-On](./media/hightail-tutorial/configure1.png)
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_002.png) 
+11. Click **View Admin Console** tab.
 
-    c. Open your base-64 encoded certificate in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **SAML Token Signing Certificate** textbox.
+	![Configure Single Sign-On](./media/hightail-tutorial/configure2.png)
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_003.png) 
+12. In the menu on the top, click the **SAML** tab and perform the following steps:
 
-    d. In the **SAML Authority (Identity Provider)** textbox, paste the value of **SAML Single Sign-On Service URL** copied from Azure portal.
+	![Configure Single Sign-On](./media/hightail-tutorial/configure3.png)
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_004.png)
+	a. In the **Login URL** textbox, paste the value of **SAML Single Sign-On Service URL** copied from Azure portal.
 
-    e. If you wish to configure the application in **IDP initiated mode** select **"Identity Provider (IdP) initiated log in"**. If **SP initiated mode** select **"Service Provider (SP) initiated log in"**.
+    b. Open your base-64 encoded certificate in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **SAML Certificate** textbox.
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_006.png)
+	c. Click **COPY** to copy the SAML consumer URL for your instance and paste it in **Reply URL** textbox in **Hightail Domain and URLs** section on Azure portal.
 
-    f. Copy the SAML consumer URL for your instance and paste it in **Reply URL** textbox in **Hightail Domain and URLs** section on Azure portal.
-    
-    g. Click **Save**.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. Click **Save Configurations**.
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -252,7 +241,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+	![Assign User][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
@@ -263,7 +252,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Testing single sign-on
 
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
@@ -275,8 +264,6 @@ When you click the Hightail tile in the Access Panel, you should get automatical
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 

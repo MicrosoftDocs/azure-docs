@@ -8,6 +8,7 @@ manager: femila
 
 ms.assetid: eedebb76-e78c-428f-9cf0-5891852e79fb
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -37,7 +38,7 @@ ms.author: jeedes
     ![Adding application](./media/openidoauth-tutorial/addfromgallery.png)
 
     > [!NOTE]
-    > For Open ID Connect and OAuth apps the Add button is disabled by default. Here the tenant admin should click on the **sign-up** button and provide the consent to the application. With that that the application will get added into the customer tenant, no need to add explicitly, and do the configurations.
+    > For Open ID Connect and OAuth apps the Add button is disabled by default. Here the tenant admin should click on the **sign-up** button and provide the consent to the application. With that the application will get added into the customer tenant, no need to add explicitly, and do the configurations.
 
     ![Add button](./media/openidoauth-tutorial/addbutton.png)
 

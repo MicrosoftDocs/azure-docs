@@ -2,13 +2,13 @@
 title: Run virtual kubelet in an Azure Kubernetes Service (AKS) cluster
 description: Use virtual kubelet to run Kubernetes containers on Azure Container Instances.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 06/12/2018
-ms.author: nepeters
+ms.author: iainfou
 ---
 
 # Virtual Kubelet with AKS
@@ -27,6 +27,8 @@ This document details configuring the Virtual Kubelet for container instances on
 This document assumes that you have an AKS cluster. If you need an AKS cluster, see the [Azure Kubernetes Service (AKS) quickstart][aks-quick-start].
 
 You also need the Azure CLI version **2.0.33** or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+
+[Helm](https://docs.helm.sh/using_helm/#installing-helm) is also required in order to install the Virtual Kubelet.
 
 ## Installation
 
@@ -171,7 +173,7 @@ Read more about Virtual Kubelet at the [Virtual Kubelet Github projet][vk-github
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
 
 <!-- LINKS - external -->
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#get
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/

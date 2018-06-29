@@ -201,12 +201,23 @@ The following differences apply to Table storage in the emulator:
 There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
+
+### Version 5.5
+* The storage emulator now supports version 2017-11-09 of the storage services on Blob, Queue, and Table service endpoints.
+* Support has been added for the blob **Created** property, which returns the blob's creation time.
+
+### Version 5.4
+To improve installation stability, the emulator no longer attempts to reserve ports at install time. If port reservations are desired, use the *-reserveports* option of the **init** command to specify them.
+
+### Version 5.3
+The storage emulator now supports version 2017-07-29 of the storage services on Blob, Queue, and Table service endpoints.
+
 ### Version 5.2
 * The storage emulator now supports version 2017-04-17 of the storage services on Blob, Queue, and Table service endpoints.
 * Fixed a bug where table property values were not being properly encoded.
 
 ### Version 5.1
-* Fixed a bug where the storage emulator was returning the `DataServiceVersion` header in some responses where the service was not.
+Fixed a bug where the storage emulator was returning the `DataServiceVersion` header in some responses where the service was not.
 
 ### Version 5.0
 * The storage emulator installer no longer checks for existing MSSQL and .NET Framework installs.

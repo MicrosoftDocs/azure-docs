@@ -380,4 +380,4 @@ Entity testing is diferrent than intents. An utterance will have only one top sc
 > [!div class="nextstepaction"]
 > [Learn more about example utterances](luis-how-to-add-example-utterances.md)
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

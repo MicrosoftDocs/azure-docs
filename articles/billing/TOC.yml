@@ -41,12 +41,6 @@
       href: billing-understand-reserved-instance-usage-ea.md
     - name: Manage reserved instances
       href: billing-manage-reserved-vm-instance.md
-  - name: REST Examples
-    items:
-    - name: Review enterprise costs
-      href: billing-review-enterprise-billing.md
-    - name: Review subscription use
-      href: billing-review-subscription-billing.md
 - name: Manage account
   items:
   - name: Free account 
@@ -117,6 +111,22 @@
     href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
   - name: Contact support
     href: ../azure-supportability/how-to-create-azure-support-request.md
+- name: Samples
+  items:
+  - name: REST API
+    items:
+    - name: Review enterprise costs
+      href: billing-review-enterprise-billing.md
+    - name: Review subscription use
+      href: billing-review-subscription-billing.md
+  - name: .NET samples
+    items:
+    - name: Invoice API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
+    - name: Usage API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-usage-api
+    - name: RateCard API code sample
+      href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
 - name: Reference
   items:
   - name: Billing Automation Scenarios
@@ -142,12 +152,5 @@
     items:
       - name: Enterprise reporting REST API
         href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-  - name: Billing code samples
-    items: 
-      - name: Invoice API code sample
-        href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
-      - name: Usage API code sample
-        href: https://github.com/Azure-Samples/billing-dotnet-usage-api
-      - name: RateCard API code sample
-        href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
+
 

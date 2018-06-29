@@ -47,6 +47,8 @@
     href: search-semi-structured-data.md
   - name: Add synonyms in .NET
     href: search-synonyms-tutorial-sdk.md
+  - name: Add auto-complete in .NET
+    href: search-autocomplete-tutorial.md
   - name: Portal walkthrough
     href: search-get-started-portal.md
 - name: Samples
@@ -143,7 +145,7 @@
       href: search-faceted-navigation.md
     - name: Relevance tuning
       href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
-    - name: Synonyms (Preview)
+    - name: Synonyms
       href: search-synonyms.md
   - name: Indexing data
     items:
