@@ -1,6 +1,6 @@
 ---
 title: Develop .NET Core Service Fabric applications with Visual Studio Code | Microsoft Docs
-description: This article shows how to build, deploy, and debug .NET Core Service Fabric applications using Visual Studio Code. 
+description: This article shows how to build, deploy, and debug .NET Core Azure Service Fabric applications using Visual Studio Code. 
 services: service-fabric
 documentationcenter: .net
 author: JimacoMS2
@@ -100,11 +100,15 @@ To set a breakpoint and debug, complete the following steps:
 
    ![Debug Values](./media/service-fabric-develop-csharp-applications-with-vs-code/breakpoint-hit.png)
 
-6. To end the debugging session, click the plug icon on the top toolbar of VS Code.
+6. To end the debugging session, click the plug icon on the Debug toolbar at the top of VS Code..
    
    ![Disconnect from debugger](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-bar-disconnect.png)
        
-7. When you've finished debugging, you can use the **Service Fabric: Remove Application** command to remove the Voting application from your local cluster. 
+7. When you've finished debugging, you can use the **Service Fabric: Remove Application** command to remove the CounterService application from your local cluster. 
+
+## Next steps
+
+* Learn how to [develop and debug Java Service Fabric applications with VS Code](./service-fabric-develop-java-applications-with-vs-code.md).
 
 
 

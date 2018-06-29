@@ -1,6 +1,6 @@
 ---
 title: Develop Java Service Fabric applications with Visual Studio Code | Microsoft Docs
-description: This article shows how to build, deploy, and debug Java Service Fabric applications using Visual Studio Code. 
+description: This article shows how to build, deploy, and debug Java Azure Service Fabric applications using Visual Studio Code. 
 services: service-fabric
 documentationcenter: .net
 author: JimacoMS
@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2018
+ms.date: 06/29/2018
 ms.author: v-jamebr
 
 ---
@@ -126,3 +126,6 @@ To set a breakpoint, complete the following steps:
        
 5. When you've finished debugging, you can use the **Service Fabric: Remove Application** command to remove the Voting application from your local cluster. 
 
+## Next steps
+
+* Learn how to [develop and debug C# Service Fabric applications with VS Code](./service-fabric-develop-csharp-applications-with-vs-code.md).

@@ -1,6 +1,6 @@
 ---
 title: Service Fabric with VS Code Getting Started | Microsoft Docs
-description: This article is an overview of creating Service Fabric applications using Visual Studio Code. 
+description: This article is an overview of creating Azure Service Fabric applications using Visual Studio Code. 
 services: service-fabric
 documentationcenter: .net
 author: JimacoMS2
@@ -131,7 +131,7 @@ The **Service Fabric: Clean Application** command deletes all jar files and nati
 2.  Select the **Service Fabric: Clean Application** command.
 3.  The output of the clean process is written to the integrated terminal.
 
-## Next Steps
+## Next steps
 
 * Learn how to [develop and debug C# Service Fabric applications with VS Code](./service-fabric-develop-csharp-applications-with-vs-code.md).
 * Learn how to [develop and debug Java Service Fabric applications with VS Code](./service-fabric-develop-java-applications-with-vs-code.md).
