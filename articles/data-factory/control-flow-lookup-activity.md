@@ -78,7 +78,7 @@ The lookup result is returned in the `output` section of the activity run result
     }
     ```
 
-* **When `firstRowOnly` is set to `false`**, the output format is as shown in the following code. A `count` field indicates how many records are returned. Detailed values are displayed under a fixed `value` array. In such a case, the Lookup activity is followed by a [Foreach activity](control-flow-for-each-activity.md). You pass the `value` array to the ForEach activity `items` field by using the pattern of `@activity('MyLookupActivity').output.value`. To access elements in the `value` array, use the following syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Here's an example: `@{activity('lookupActivity').output.value[0].tablename}`.
+* **When `firstRowOnly` is set to `false`**, the output format is as shown in the following code. A `count` field indicates how many records are returned. Detailed values are displayed under a fixed `value` array. In such a case, the Lookup activity is followed by a [Foreach activity](control-flow-for-each-activity.md). You pass the `value` array to the ForEach activity `items` field by using the pattern of `@activity('MyLookupActivity').output.value`. To access elements in the `value` array, use the following syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. An example is `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -97,7 +97,7 @@ The lookup result is returned in the `output` section of the activity run result
     ```
 
 ### Copy Activity example
-In this example, Copy Activity copies data from a SQL table in your Azure SQL Database instance to Azure Blob Storage. The name of the SQL table is stored in a JSON file in Blob Storage. The Lookup activity looks up the table name at runtime. This approach allows JSON to be modified dynamically. You don't need to redeploy pipelines or datasets. 
+In this example, Copy Activity copies data from a SQL table in your Azure SQL Database instance to Azure Blob Storage. The name of the SQL table is stored in a JSON file in Blob Storage. The Lookup activity looks up the table name at runtime. JSON is modified dynamically by using this approach. You don't need to redeploy pipelines or datasets. 
 
 This example demonstrates lookup for the first row only. For lookup for all rows and to chain the results with ForEach activity, see the samples in [Copy multiple tables in bulk by using Azure Data Factory](tutorial-bulk-copy.md).
 
