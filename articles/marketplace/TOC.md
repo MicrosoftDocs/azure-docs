@@ -7,6 +7,7 @@
 #### [Grow your business with AppSource](./grow-your-business-with-appsource.md)  
 ##### [Build Your Landing Page](./build-your-landing-page.md)  
 ##### [Enable lead sharing](./enable-lead-sharing.md)  
+##### [Preferred Solutions](./preferred-solutions.md)
 ##### [GTM Benefits on the marketplace](./gtm-benefits.md)  
 ##### [Promote Your Business with Microsoft](./promote-your-business-with-microsoft.md)  
 #### [Grow your business with Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  

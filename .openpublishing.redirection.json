@@ -11570,6 +11570,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/stream-analytics/stream-analytics-resource-health.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshooting-guide",
+            "redirect_document_id": false
+
+        },
+        {
             "source_path": "articles/stream-analytics/stream-analytics-get-started.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
             "redirect_document_id": false
@@ -12502,6 +12508,16 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-enable-azure-disk-encryption-linux.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-enable-azure-disk-encryption-windows.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-portal",
             "redirect_document_id": false
         },
         {
