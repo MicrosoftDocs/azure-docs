@@ -35,7 +35,7 @@ This topic provides a reference for the following API Management policies. For i
 ### Policy statement  
   
 ```xml  
-<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="True">  
+<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="true">  
     <value>Value1</value>  
     <value>Value2</value>  
 </check-header>  
