@@ -262,8 +262,9 @@ To run the application from the console, navigate to the project folder and comp
 
 Running `mvn package` downloads the latest Azure Cosmos DB library from Maven and produces `GetStarted-0.0.1-SNAPSHOT.jar`. Then run the app by running:
 
+```
    mvn exec:java -DACCOUNT_HOST=<YOUR_COSMOS_DB_HOSTNAME> -DACCOUNT_KEY= <YOUR_COSMOS_DB_MASTER_KEY>
-
+```
 Congratulations! You've completed this NoSQL tutorial and have a working Java console application!
 
 ## Next steps
