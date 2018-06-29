@@ -541,10 +541,6 @@
           href: service-fabric-cluster-creation-via-arm.md
         - name: Cluster using certificate common name
           href: service-fabric-create-cluster-using-cert-cn.md
-        - name: Enable Disk Encryption for Windows
-          href: service-fabric-enable-azure-disk-encryption-windows.md
-        - name: Enable Disk Encryption for Linux
-          href: service-fabric-enable-azure-disk-encryption-linux.md
       - name: Scale
         items:
         - name: Manually scale out
