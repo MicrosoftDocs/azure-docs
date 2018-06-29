@@ -1,5 +1,5 @@
 ---
-title: How to prepare for an inbound IP address change
+title: How to prepare for an inbound IP address change - Azure
 description: If your inbound IP address is going to be changed, learn what to do so that your app continues to work after the change.
 services: app-service\web
 author: tdykstra
@@ -15,7 +15,7 @@ ms.author: tdykstra
 
 # How to prepare for an inbound IP address change
 
-If you received a notification that the inbound IP address of your App Service app is changing, follow the instructions in this article.
+If you received a notification that the inbound IP address of your Azure App Service app is changing, follow the instructions in this article.
 
 ## Determine if you have to do anything
 

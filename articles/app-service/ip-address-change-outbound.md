@@ -1,5 +1,5 @@
 ---
-title: How to prepare for an outbound IP address change
+title: How to prepare for an outbound IP address change - Azure
 description: If your outbound IP address is going to be changed, learn what to do so that your app continues to work after the change.
 services: app-service\web
 author: tdykstra
@@ -15,7 +15,7 @@ ms.author: tdykstra
 
 # How to prepare for an outbound IP address change
 
-If you received a notification that the outbound IP addresses of your App Service app are changing, follow the instructions in this article.
+If you received a notification that the outbound IP addresses of your Azure App Service app are changing, follow the instructions in this article.
 
 ## Determine if you have to do anything
 
