@@ -22,7 +22,9 @@ manager: timlt
 
 # Build workflows with the IoT Central connector in Microsoft Flow
 
-Use Microsoft Flow to automate workflows across the many applications and services that business users rely on. Using the IoT Central connector in Microsoft Flow, you can trigger workflows when a rule is fired in IoT Central. In a workflow triggered by IoT Central or any other application, you can use the actions in the IoT Central connector to create a device, update a device's properties and settings, or delete a device.
+Use Microsoft Flow to automate workflows across the many applications and services that business users rely on. Using the IoT Central connector in Microsoft Flow, you can trigger workflows when a rule is fired in IoT Central. In a workflow triggered by IoT Central or any other application, you can use the actions in the IoT Central connector to create a device, update a device's properties and settings, or delete a device. Check out [these Microsoft Flow templates](https://aka.ms/iotcentralflowtemplates) that connect IoT Central to other services such as mobile notifications and Microsoft Teams.
+
+[!NOTE] You will need to sign into Microsoft Flow with a Microsoft personal or work or school account. Learn more about Microsoft Flow plans [here](https://aka.ms/microsoftflowplans).
 
 ## Trigger a workflow when a rule is fired
 
@@ -57,7 +59,7 @@ You can always start building a workflow using the IoT Central connector in Micr
 
 ## Create a device in a workflow
 
-This section shows you how to to create a new device in IoT Central at the push of a button on a mobile device using the Microsoft Flow mobile app.
+This section shows you how to to create a new device in IoT Central at the push of a button on a mobile device using the Microsoft Flow mobile app. You can use this action in Flow to integrate ERP systems like Dynamics with IoT Central by creating a new device when a device is added elsewhere.
 
 1. Start by creating a blank workflow in Microsoft Flow.
 
