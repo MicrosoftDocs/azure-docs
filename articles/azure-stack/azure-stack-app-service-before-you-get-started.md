@@ -58,13 +58,13 @@ Open an elevated PowerShell session on a computer that can reach the privileged 
 
 Run the *Get-AzureStackRootCert.ps1* script from the folder where you extracted the helper scripts. The script creates a root certificate in the same folder as the script that App Service needs for creating certificates.
 
-When you run the following PowerShell command you'll have to provide the privileged endpoint and the credentials for the AzureStack\CloudAdmin
+When you run the following PowerShell command you'll have to provide the privileged endpoint and the credentials for the AzureStack\CloudAdmin.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
 ```
 
-**Get-AzureStackRootCert.ps1 script parameters.**
+#### Get-AzureStackRootCert.ps1 script parameters
 
 | Parameter | Required or optional | Default value | Description |
 | --- | --- | --- | --- |
@@ -87,14 +87,9 @@ To create the certificates, follow these steps:
 1. Sign in to the Azure Stack Development Kit host using the AzureStack\AzureStackAdmin account.
 2. Open an elevated PowerShell session.
 3. Run the *Create-AppServiceCerts.ps1* script from the folder where you extracted the helper scripts. This script creates four certificates in the same folder as the script that App Service needs for creating certificates.
+4. Enter a password to secure the .pfx files, and make a note of it. You'll have to enter it in the App Service on Azure Stack installer.
 
-```PowerShell
-    Create-AppServiceCerts.ps1
-```
-
- 4. Enter a password to secure the .pfx files, and make a note of it. You'll have to enter it in the App Service on Azure Stack installer.
-
-**Create-AppServiceCerts.ps1 script parameters.**
+#### Create-AppServiceCerts.ps1 script parameters
 
 | Parameter | Required or optional | Default value | Description |
 | --- | --- | --- | --- |
