@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Ethereum solution template
-description: Use custom solution templates to deploy and configure a consortium Ethereum network on Azure Stack
+title: Azure Stack Ethereum blockchain solution template
+description: Use custom solution templates to deploy and configure a consortium Ethereum blockchain network on Azure Stack
 services: azure-stack
 keywords: 
 author: PatAltimore
@@ -11,9 +11,9 @@ ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
 ---
-# Azure Stack Ethereum solution templates
+# Azure Stack Ethereum blockchain solution templates
 
-The Ethereum solution template is designed to make it easier and quicker to deploy and configure a multi-member consortium Ethereum network with minimal Azure and Ethereum knowledge.
+The Ethereum solution template is designed to make it easier and quicker to deploy and configure a multi-member consortium Ethereum blockchain network with minimal Azure and Ethereum knowledge.
 
 With a handful of user inputs and a single-click deployment through the Azure Stack administrator portal, each member can provision their network footprint. Each member's network footprint consists of a set of load-balanced transaction nodes with which an application or user can interact to submit transactions, a set of mining nodes to record transactions, and a Network Virtual Appliance (NVA) . A subsequent connection step connects the NVAs to create a fully configured multi-member blockchain network.
 
@@ -44,7 +44,7 @@ The template can deploy Ethereum consortium for leader and member join in a vari
 
 The consortium leader template configures the first member's footprint in the network. 
 
-1. Download the [leader template from GitHub](https://raw.githubusercontent.com/seyadava/AzureStack-QuickStart-Templates-1/blockchain_nva/eth/marketplace/ConsortiumLeader/mainTemplate.json)
+1. Download the [leader template from GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ ethereum-consortium-blockchain /marketplace/ConsortiumLeader/mainTemplate.json)
 2. In the Azure Stack Administration portal, select **New > Template deployment** to deploy from a custom template.
 3. Select **Edit template** to edit the new custom template.
 4. In the editing pane on the right, copy and paste the leader template JSON you previously downloaded.
@@ -99,7 +99,7 @@ To verify leader’s deployment, browse leader’s admin site. You can find admi
 
 ### Joining consortium member deployment
 
-1. Download the [consortium member template from GitHub](https://raw.githubusercontent.com/seyadava/AzureStack-QuickStart-Templates-1/blockchain_nva/eth/marketplace/JoiningMember/mainTemplate.json)
+1. Download the [consortium member template from GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)
 2. In the Azure Stack Administration portal, select **New > Template deployment** to deploy from a custom template.
 3. Select **Edit template** to edit the new custom template.
 4. In the editing pane on the right, copy and paste the leader template JSON you downloaded previously.
@@ -151,7 +151,7 @@ As shown in the picture, member’s nodes status is **Not running**. This is bec
 
 This template creates a connection from the leader to a remote member. 
 
-1. Download the [connect member and leader template from GitHub](https://raw.githubusercontent.com/seyadava/AzureStack-QuickStart-Templates-1/blockchain_nva/eth/marketplace/Connection/mainTemplate.json)
+1. Download the [connect member and leader template from GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)
 2. In the Azure Stack Administration portal, select **New > Template deployment** to deploy from a custom template.
 3. Select **Edit template** to edit the new custom template.
 4. In the editing pane on the right, copy and paste the leader template JSON you downloaded previously.
