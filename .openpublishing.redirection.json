@@ -1,6 +1,6 @@
 {
     "redirections": [
-		{
+        {
             "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-speech-models.md",
             "redirect_url": "/azure/cognitive-services/Speech-Service/how-to-customize-acoustic-models",
             "redirect_document_id": true
@@ -9,7 +9,8 @@
             "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
             "redirect_document_id": true
-        },        {
+        },
+        {
             "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
             "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
             "redirect_document_id": true
@@ -803,7 +804,8 @@
             "source_path": "articles/iot-edge/tutorial-multiple-modules-in-vscode.md",
             "redirect_url": "/azure/iot-edge/how-to-develop-multiple-modules-vscode",
             "redirect_document_id": false
-        },        {
+        },
+        {
             "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
             "redirect_url": "/azure/cognitive-services/recommendations/overview",
             "redirect_document_id": false
@@ -888,87 +890,87 @@
             "redirect_url": "/azure/virtual-machines/linux/dockerextension",
             "redirect_document_id": false
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/capture-image-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/capture-image",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/change-vm-size-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/change-vm-size",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/copy-vm-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/copy-vm",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/create-ssh-secured-vm-from-template-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/create-ssh-secured-vm-from-template",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/encrypt-disks-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/encrypt-disks",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/expand-disks-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/expand-disks",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/install-mongodb-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/install-mongodb",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/key-vault-setup-cli-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/key-vault-setup-cli",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/multiple-nics-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/nsg-quickstart-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/nsg-quickstart",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/static-dns-name-resolution-for-linux-on-azure-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/static-dns-name-resolution-for-linux-on-azure",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/tag-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/tag",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/troubleshoot-recovery-disks-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/troubleshoot-recovery-disks",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/upload-vhd-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/upload-vhd",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/using-cloud-init-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/using-cloud-init",
             "redirect_document_id": true
         },
-		{
+        {
             "source_path": "articles/virtual-machines/linux/using-vmaccess-extension-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/using-vmaccess-extension",
             "redirect_document_id": true
@@ -2118,7 +2120,6 @@
             "redirect_url": "/azure/app-service/containers/tutorial-ruby-postgres-app",
             "redirect_document_id": false
         },
-        
         {
             "source_path": "articles/app-service/app-service-move-resources.md",
             "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources#app-service-limitations",
@@ -8874,17 +8875,17 @@
             "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts",
             "redirect_document_id": false
         },
-		{
+        {
             "source_path": "articles/log-analytics/log-analytics-alerts-actions.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage",
             "redirect_document_id": false
         },
-		{
+        {
             "source_path": "articles/log-analytics/log-analytics-alerts-webhooks.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook",
             "redirect_document_id": false
         },
-		{
+        {
             "source_path": "articles/log-analytics/log-analytics-alerts-creating.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage",
             "redirect_document_id": false
@@ -15462,7 +15463,7 @@
         },
         {
             "source_path": "articles/virtual-machines/virtual-machines-linux-using-cloud-init-nodejs.md",
-            "redirect_url": "/azure/virtual-machines/linux/using-cloud-init", 
+            "redirect_url": "/azure/virtual-machines/linux/using-cloud-init",
             "redirect_document_id": false
         },
         {
@@ -21316,9 +21317,9 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md",
-          "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
-          "redirect_document_id": false
+            "source_path": "articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md",
+            "redirect_url": "/azure/iot-accelerators/about-iot-accelerators",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
@@ -22351,7 +22352,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/azure-stack/azure-stack-manage-windows-azure-pack.md", 
+            "source_path": "articles/azure-stack/azure-stack-manage-windows-azure-pack.md",
             "redirect_url": "/azure/azure-stack/",
             "redirect_document_id": false
         },
@@ -24619,42 +24620,42 @@
             "source_path": "articles/iot-accelerators/iot-security-architecture.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
             "redirect_document_id": false
-        },   
+        },
         {
             "source_path": "articles/iot-hub/iot-hub-security-architecture.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path": "articles/iot-accelerators/iot-security-best-practices.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/iot-hub/iot-hub-security-best-practices.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-best-practices",
             "redirect_document_id": false
-        }, 
+        },
         {
             "source_path": "articles/iot-accelerators/iot-accelerators-security-deployment.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-deployment",
             "redirect_document_id": false
-        },  
+        },
         {
             "source_path": "articles/iot-hub/iot-hub-security-deployment.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-deployment",
             "redirect_document_id": false
-        },    
+        },
         {
             "source_path": "articles/iot-accelerators/securing-iot-groud-up.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
             "redirect_document_id": false
-        },   
+        },
         {
             "source_path": "articles/iot-hub/iot-hub-security-groud-up.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
             "redirect_document_id": false
-        },         
+        },
         {
             "source_path": "articles/iot-suite/index.md",
             "redirect_url": "/azure/iot-accelerators",
@@ -24691,9 +24692,9 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md",
-          "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
-          "redirect_document_id": false
+            "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md",
+            "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-what-is-azure-iot.md",
@@ -24701,9 +24702,9 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md",
-          "redirect_url": "/azure/iot-fundamentals/iot-introduction",
-          "redirect_document_id": false
+            "source_path": "articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
@@ -24721,9 +24722,9 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md",
-          "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
-          "redirect_document_id": false
+            "source_path": "articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md",
+            "redirect_url": "/azure/iot-accelerators/quickstart-remote-monitoring-deploy",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-remote-monitoring-maintain.md",
@@ -24871,9 +24872,9 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-accelerators/iot-accelerators-options.md",
-          "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies",
-          "redirect_document_id": false
+            "source_path": "articles/iot-accelerators/iot-accelerators-options.md",
+            "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-permissions.md",
@@ -25585,7 +25586,7 @@
             "redirect_url": "/azure/cognitive-services/LUIS/interactive-test",
             "redirect_document_id": true
         },
-		        {
+        {
             "source_path": "articles/active-directory/active-directory-application-access-content-map.md",
             "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
             "redirect_document_id": true
@@ -25714,6 +25715,16 @@
             "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-signin.md",
             "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-signin",
             "redirect_document_id": false
-        }        
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/sign-in-experience-updates.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/sign-in-experience-updates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md",
+            "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-troubleshoot",
+            "redirect_document_id": false
+        }
     ]
 }
