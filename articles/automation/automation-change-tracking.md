@@ -119,12 +119,10 @@ The following table shows the data collection frequency for the types of changes
 | Windows registry | 50 minutes |
 | Windows file | 30 minutes |
 | Linux file | 15 minutes |
-| Windows services | 30 minutes (default) <sup>1</sup> |
+| Windows services | 10 seconds to 30 minutes</br> Default: 30 minutes |
 | Linux daemons | 5 minutes |
 | Windows software | 30 minutes |
 | Linux software | 5 minutes |
-
-<sup>1</sup> Windows services collection frequency is configurable from 10 seconds to 30 minutes.
 
 ### Windows service tracking
 
