@@ -34,10 +34,10 @@ Commands below install both moby engine and command-line interface (CLI). The CL
 # paste in terminal. The comment lines will be ignored.
 
 # Download and install the moby-engine
-curl https://aka.ms/moby-engine-armhf-latest -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
+curl -L https://aka.ms/moby-engine-armhf-latest -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
 
 # Download and install the moby-cli
-curl https://aka.ms/moby-cli-armhf-latest -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
+curl -L https://aka.ms/moby-cli-armhf-latest -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
 
 # Run apt-get fix
 sudo apt-get install -f
@@ -51,10 +51,10 @@ sudo apt-get install -f
 # paste in terminal. The comment lines will be ignored.
 
 # Download and install the standard libiothsm implementation
-curl https://aka.ms/libiothsm-std-linux-armhf-latest -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
+curl -L https://aka.ms/libiothsm-std-linux-armhf-latest -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
 
 # Download and install the IoT Edge Security Daemon
-curl https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+curl -L https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -i ./iotedge.deb
 
 # Run apt-get fix
 sudo apt-get install -f
@@ -97,7 +97,7 @@ journalctl -u iotedge --no-pager --no-full
 And, list running modules with:
 
 ```cmd/sh
-iotedge list
+sudo iotedge list
 ```
 
 ## Next steps

@@ -8,13 +8,13 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 06/27/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand key subject matter in a user's utterances. 
 
 --- 
 
-# Tutorial: Learn how to return data from keyPhrase entity 
+# Tutorial: 7. Add keyPhrase entity 
 In this tutorial, use an app that demonstrates how to extract key subject matter from utterances.
 
 <!-- green checkmark -->
@@ -28,7 +28,7 @@ In this tutorial, use an app that demonstrates how to extract key subject matter
 For this article, you can use the free [LUIS](luis-reference-regions.md#publishing-regions) account in order to author your LUIS application.
 
 ## Before you begin
-If you don't have the Human Resources app from the [hierarchical entities](luis-quickstart-intent-and-hier-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [simple entity](luis-quickstart-primary-and-secondary-data.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `keyphrase`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
@@ -53,7 +53,7 @@ Add keyPhrase prebuilt entity to extract subject matter from utterances.
 
 2. Select **Entities** from the left menu.
 
-    [ ![Screenshot of Entities highlighted in left nav of Build section](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities.png)](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities.png#lightbox)
+    [ ![Screenshot of Entities highlighted in left nav of Build section](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-key-phrase/hr-select-entities-button.png#lightbox)
 
 3. Select **Manage prebuilt entities**.
 
@@ -204,5 +204,5 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create app that returns sentiment along with intent prediction](luis-quickstart-intent-and-sentiment-analysis.md)
+> [Add sentiment analysis to app](luis-quickstart-intent-and-sentiment-analysis.md)
 

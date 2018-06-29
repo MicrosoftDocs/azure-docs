@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
@@ -50,7 +50,7 @@ LinkedIn account connections functionality is on by default for your entire tena
   * Select **Yes** to enable LinkedIn account connections for all users in your tenant
   * Select **Selected** to enable LinkedIn account connections for only selected tenant users
   * Select **No** to disable LinkedIn account connections for all users
-  ![Enabling LinkedIn account connections](./media/linkedin-integration/LinkedIn-integration.png)
+  ![Enabling LinkedIn account connections](./media/linkedin-integration/linkedin-integration.png)
 5. Save your settings when you're done by selecting **Save**.
 
 ### Enable or disable LinkedIn account connections for your organization's Office 2016 apps using Group Policy
@@ -61,7 +61,7 @@ LinkedIn account connections functionality is on by default for your entire tena
 4. Create a Group Policy Object with the following setting: **User Configuration** > **Administrative Templates** > **Microsoft Office 2016** > **Miscellaneous** > **Show LinkedIn features in Office applications**.
 5. Select **Enabled** or **Disabled**.
   * When the policy is **Enabled**, the **Show LinkedIn features in Office applications** setting found in the Office 2016 Options dialog is enabled. This also means that users in your organization can use LinkedIn features in their Office applications.
-  * When the policy is **Disabled**, the **Show LinkedIn features in Office applications** setting found in the Office 2016 Options dialog is set to the disabled state, and end users can't change this setting. Users in your organization can't use LinkedIn features in their Office 2016 applications. 
+  * When the policy is **Disabled**, the **Show LinkedIn features in Office applications** setting found in the Office 2016 Options dialog is set to the disabled state, and end users can't change this setting. Users in your organization can't use LinkedIn features in their Office 2016 applications.
 
 This group policy affects only Office 2016 apps for a local computer. Users can see LinkedIn features in profile cards throughout Office 365 even if they disable LinkedIn in their Office 2016 apps. 
 
