@@ -7,13 +7,13 @@ manager: kaiqb
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: tutorial
+ms.date: 06/29/2018
 ms.author: v-geberr
 --- 
 
 # Tutorial: 2. Add prebuilt intents and entities
-Add prebuilt intents and entities to the Human Resources quickstart app to quickly gain intent prediction and data extraction. 
+Add prebuilt intents and entities to the Human Resources tutorial app to quickly gain intent prediction and data extraction. 
 
 In this tutorial, you learn how to:
 
@@ -48,8 +48,9 @@ LUIS provides several prebuilt intents to help with common user intentions.
     * Utilities.Cancel
     * Utilities.Confirm
     * Utilities.Help
-    * Utilities.Stop
     * Utilities.StartOver
+    * Utilities.Stop
+
 
 ## Add prebuilt entities
 LUIS provides several prebuilt entities for common data extraction. 
@@ -75,9 +76,11 @@ LUIS provides several prebuilt entities for common data extraction.
 
     ![Trained status bar](./media/luis-quickstart-intents-only/trained.png)
 
-2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. The production slot is selected by default. Select the **Publish** button by the production slot choice. Publishing is complete when you see the green status bar at the top of the website confirming success.
+2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. 
 
-    You do not have to create a LUIS key in the Azure portal before you publish or before you test the endpoint URL. Every LUIS app has a free starter key for authoring. It gives you unlimited authoring and a [few endpoint hits](luis-boundaries.md#key-limits). 
+3. The production slot is selected by default. Select the **Publish** button by the production slot choice. Publishing is complete when you see the green status bar at the top of the website confirming success.
+
+    You do not have to create a LUIS endpoint key in the Azure portal before you publish or before you test the endpoint URL. Every LUIS app has a free starter key for authoring. It gives you unlimited authoring and a [few endpoint hits](luis-boundaries.md#key-limits). 
 
 ## Query endpoint with an utterance
 On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `I want to cancel on March 3`. The last query string parameter is `q`, the utterance **query**. 
@@ -159,7 +162,12 @@ The result predicted the Utilities.Cancel intent and extracted the date of March
     }
     ```
 
+There are two values for March 3 because the utterance didn't state if March 3 is in the past or in the future. It is up to the LUIS-calling application to make an assumption or ask for clarification, if that is needed. 
+
 By easily and quickly adding prebuilt intents and entities, the client application can add conversation management and extract common datatypes. 
+
+## Clean up resources
+When no longer needed, delete the LUIS app. To do so, select **My apps** from the top left menu. Select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
