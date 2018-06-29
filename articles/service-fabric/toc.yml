@@ -428,6 +428,8 @@
         href: service-fabric-securing-containers.md
       - name: Set up gMSA for Windows containers 
         href: service-fabric-setup-gmsa-for-windows-containers.md
+      - name: Configure certificates on Linux
+        href: service-fabric-configure-certificates-linux.md
     - name: Configure periodic backups (Clusters on Azure)
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: Configure periodic backups (Standalone Clusters)
@@ -458,6 +460,13 @@
       href: service-fabric-debugging-your-application-java.md
     - name: Monitor and diagnose locally
       href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+  - name: Work in a VS Code environment
+    href: service-fabric-get-started-vs-code.md
+    items:
+    - name: Develop C# Service Fabric applications with VS Code
+      href: service-fabric-develop-csharp-applications-with-vs-code.md
+    - name: Develop Java Service Fabric applications with VS Code
+      href: service-fabric-develop-java-applications-with-vs-code.md
   - name: Migrate from Cloud Services
     items:
     - name: Compare Cloud Services with Service Fabric
@@ -532,10 +541,6 @@
           href: service-fabric-cluster-creation-via-arm.md
         - name: Cluster using certificate common name
           href: service-fabric-create-cluster-using-cert-cn.md
-        - name: Enable Disk Encryption for Windows
-          href: service-fabric-enable-azure-disk-encryption-windows.md
-        - name: Enable Disk Encryption for Linux
-          href: service-fabric-enable-azure-disk-encryption-linux.md
       - name: Scale
         items:
         - name: Manually scale out

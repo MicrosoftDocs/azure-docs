@@ -131,7 +131,7 @@ Each numbered area in the preceding image is described in detail in the followin
     Use Amortization in Cost Allocation reports to view non-usage based service fees or one-time payable costs and spread their cost over time evenly during their lifespan. Examples of one-time fees might include:
     - Annual support fees
     - Annual security components fees
-    - Reserved Instances purchase fees
+    - Reserved instances purchase fees
     - Some Azure Marketplace items.
 
   Under Amortization, select **Amortized cost** or **Actual Cost**.

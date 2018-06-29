@@ -1,5 +1,5 @@
 ---
-title: 'Create a zone-redundant virtual network gateway in Azure Availabilty Zones - Preview | Microsoft Docs'
+title: 'Create a zone-redundant virtual network gateway in Azure Availability Zones - Preview | Microsoft Docs'
 description: Deploy VPN Gateway and ExpressRoute gateways in Availability Zones - Preview.
 services: vpn-gateway
 documentationcenter: na
@@ -8,7 +8,7 @@ Customer intent: As someone with a basic network background, I want to understan
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 06/28/2018
 ms.author: cherylmc
 
 ---
@@ -173,7 +173,7 @@ In this step, choose the instructions that apply to the gateway that you want to
 Request a public IP address with a **Standard** PublicIpaddress SKU and do not specify any zone. In this case, the Standard public IP address created will be a zone-redundant public IP.   
 
 ```azurepowershell-interactive
-$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Standard
+$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
 ```
 
 ### <a name="ipzonalgw"></a>For zonal gateways
@@ -181,7 +181,7 @@ $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Nam
 Request a public IP address with a **Standard** PublicIpaddress SKU. Specify the zone (1, 2 or 3). All gateway instances will be deployed in this zone.
 
 ```azurepowershell-interactive
-$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Standard -Zone 1
+$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
 ```
 
 ### <a name="ipregionalgw"></a>For regional gateways

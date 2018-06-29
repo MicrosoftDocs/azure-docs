@@ -30,7 +30,7 @@ robots: noindex
 
 
 > [!NOTE]
-> This article applies to version 1 of Azure Data Factory, which is generally available. If you use version 2 of the Data Factory service, which is in preview, see [Quickstart: Create a data factory by using Data Factory version 2](../quickstart-create-data-factory-dot-net.md).
+> This article applies to version 1 of Azure Data Factory, which is generally available. If you use the current version of the Data Factory service, see [Quickstart: Create a data factory by using Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 In this article, you learn how to use the [Azure portal](https://portal.azure.com/) to create your first data factory. To do the tutorial by using other tools/SDKs, select one of the options from the drop-down list. 
 
