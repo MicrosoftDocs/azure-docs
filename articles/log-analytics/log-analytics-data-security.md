@@ -3,7 +3,7 @@ title: Log Analytics data security | Microsoft Docs
 description: Learn about how Log Analytics protects your privacy and secures your data.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
@@ -11,10 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: magoedte
-
+ms.component: na
 ---
 # Log Analytics data security
 This document is intended to provide Azure Log Analytics specific information to supplement the information on [Azure Trust Center](../security/security-microsoft-trust-center.md).  
