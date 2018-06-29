@@ -1,4 +1,4 @@
-﻿---
+---
 title: Log Analytics Features for Service Providers | Microsoft Docs
 description: Log Analytics can help Managed Service Providers (MSPs), Large Enterprises, Independent Sofware Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
 services: log-analytics
@@ -6,17 +6,17 @@ documentationcenter: ''
 author: richrundmsft
 manager: jochan
 editor: ''
-
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/22/2016
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: meirm
-
+ms.component: na
 ---
+
 # Log Analytics features for Service Providers
 Log Analytics can help managed service providers (MSPs), large enterprises, independent software vendors (ISVs), and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure. 
 
