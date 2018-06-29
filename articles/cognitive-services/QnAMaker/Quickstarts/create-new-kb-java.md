@@ -14,9 +14,9 @@ ms.author: nolachar
 
 # Create a new knowledge base in Java
 
-This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
+This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 
-Two sample FAQ URLs are given below ('urls' in the string kb). QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
+Two sample FAQ URLs are given below ('urls' in the string kb) that will provide content. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
 
 ## Prerequisites
 
@@ -32,8 +32,8 @@ The following code creates a new knowledge base, using the [Create](https://west
 
 1. Create a new Java project in your favorite IDE.
 1. Add the [Google GSON library](https://github.com/google/gson) to your Java project, either by manually [creating](https://stackoverflow.com/questions/5258159/how-to-make-an-executable-jar-file) & importing the .jar file or adding a dependency to your preferred project management tool, such as Maven.
-1. Add the code provided below.
-1. Replace the `key` value with your valid subscription key.
+1. Copy/paste the code provided below.
+1. Replace the `subscriptionKey` value with your valid subscription key.
 1. Run the program.
 
 ```java
@@ -43,7 +43,7 @@ import java.net.*;
 import java.util.*;
 import javax.net.ssl.HttpsURLConnection;
 
-/*
+/**
  * Gson: https://github.com/google/gson
  * Maven info:
  *    <dependency>
@@ -59,13 +59,13 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
-/* NOTE: To compile and run this code without an IDE:
-1. Save this file as CreateKB.java
-2. Run *:
-	javac CreateKB.java -cp .;<GSON> -encoding UTF-8
-3. Run *:
-	java -cp .;<GSON> CreateKB
-* replace <GSON> with the name of the current Google GSON library .jar file, for example gson-2.8.5.jar
+/** NOTE: To compile and run this code without an IDE:
+ * 1. Save this file as CreateKB.java
+ * 2. Run *:
+ *	  javac CreateKB.java -cp .;<GSON> -encoding UTF-8
+ * 3. Run *:
+ *    java -cp .;<GSON> CreateKB
+ * *replace <GSON> with the name of the current Google GSON library .jar file, for example gson-2.8.5.jar
 */
 
 public class CreateKB {
@@ -109,7 +109,8 @@ public class CreateKB {
         String fileUri;
     }
 
-    // This class has the HTTP response headers and body that is returned by the HTTP request.
+    // This class has the HTTP response headers and body that is returned 
+    // by the HTTP request.
     public static class Response {
         Map<String, List<String>> Headers;
         String Response;
@@ -214,7 +215,8 @@ public class CreateKB {
     }
 
     /**
-     *  Returns a sample request to create a knowledge base. To understand this 'kb' object, refer to the <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/concepts/knowledge-base">Knowledge base</a> concept page.
+     * Sends a sample request to create a knowledge base. To understand
+     * this 'kb' object, refer to the <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/concepts/knowledge-base">Knowledge base</a> concept page.
      * @return A new knowledge base.
      */
     public static KB GetKB () {
@@ -253,7 +255,8 @@ public class CreateKB {
                 Type type = new TypeToken<Map<String, String>>(){}.getType();
                 Map<String, String> fields = new Gson().fromJson(response.Response, type);
                 String state = fields.get ("operationState");
-                // If the request is still running, the server tells us how long to wait before checking the status again.
+                // If the request is still running, the server tells us how
+                // long to wait before checking the status again.
                 if (state.equals("Running") || state.equals("NotStarted")) {
                     String wait = response.Headers.get ("Retry-After").get(0);
                     System.out.println ("Waiting " + wait + " seconds...");
@@ -270,7 +273,7 @@ public class CreateKB {
 }
 ```
 
-## The create knowledge base response
+## Understanding what QnA Maker returns
 
 A successful response is returned in JSON, as shown in the following example. Your results may differ slightly. If the final call returns a "Succeeded" state, your knowledge base was created successfully. To troubleshoot refer to the [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) of the QnA Maker API.
 
