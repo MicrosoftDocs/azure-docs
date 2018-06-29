@@ -25,11 +25,11 @@ It's easy to see your own permissions as well. Click **Your role** get quick acc
 
 ![list of roles in Azure AD portal](./media/directory-manage-roles-portal/role-list.png)
 
-You can also select the entire row to view the list of assigned members.
+You can also select the entire row to view the list of assigned members. When you select select **Manage in PIM** (Privileged Identity Management), Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have PIM, you can still select **Manage in PIM** to sign up for a trial.
 
 ![list of members of an admin role](./media/directory-manage-roles-portal/member-list.png)
 
-If you are a Global Administrator or a Privileged Role Administrator, you can easily add or remove members, filter the list, or select a member to go to the user page to see their active assigned roles. When you select select **Manage in PIM** (Privileged Identity Management), Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have PIM, you can still select **Manage in PIM** to sign up for a trial.
+If you are a Global Administrator or a Privileged Role Administrator, you can easily add or remove members, filter the list, or select a member to go to the user page to see their active assigned roles. 
 
 ## Role details in the portal
 
