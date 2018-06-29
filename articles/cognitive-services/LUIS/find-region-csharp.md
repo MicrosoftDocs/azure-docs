@@ -19,7 +19,7 @@ If you have the LUIS app ID and the LUIS subscription ID, you can find which reg
 ## LUIS endpoint query strategy
 Each LUIS endpoint query requires:
 
-* A endpoint key
+* An endpoint key
 * An app ID
 * A region
 
@@ -31,7 +31,7 @@ If the LUIS endpoint query uses the correct endpoint key and app ID but the wron
 |401|correct endpoint key<br>correct app ID<br>_incorrect_ host region|
 
 ## C# class code to find region
-The console application takes the LUIS app ID and the endpoint key and returns all regions associated with it. Currently, a endpoint key is created by region so only one region should return.
+The console application takes the LUIS app ID and the endpoint key and returns all regions associated with it. Currently, an endpoint key is created by region so only one region should return.
 
 Include the .Net library dependencies:
 
