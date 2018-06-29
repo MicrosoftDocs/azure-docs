@@ -54,15 +54,17 @@ Additionally, deploy the required file server and SQL Server instances in a high
 
 ### Azure Resource Manager root certificate for Azure Stack
 
-Open an elevated PowerShell session running as **AzureStack\CloudAdmin** on a computer that can reach the privileged endpoint on the Azure Stack Integrated System or Azure Stack Development Kit Host.
+Open an elevated PowerShell session on a computer that can reach the privileged endpoint on the Azure Stack Integrated System or Azure Stack Development Kit Host.
 
 Run the *Get-AzureStackRootCert.ps1* script from the folder where you extracted the helper scripts. The script creates a root certificate in the same folder as the script that App Service needs for creating certificates.
 
-#### Get-AzureStackRootCert.ps1 parameters
+When you run the following PowerShell command you'll have to provide the privileged endpoint and the credentials for the AzureStack\CloudAdmin
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
 ```
+
+**Get-AzureStackRootCert.ps1 script parameters.**
 
 | Parameter | Required or optional | Default value | Description |
 | --- | --- | --- | --- |
@@ -85,13 +87,14 @@ To create the certificates, follow these steps:
 1. Sign in to the Azure Stack Development Kit host using the AzureStack\AzureStackAdmin account.
 2. Open an elevated PowerShell session.
 3. Run the *Create-AppServiceCerts.ps1* script from the folder where you extracted the helper scripts. This script creates four certificates in the same folder as the script that App Service needs for creating certificates.
-4. Enter a password to secure the .pfx files, and make a note of it. You'll have to enter it in the App Service on Azure Stack installer.
-
-#### Create-AppServiceCerts.ps1 parameters
 
 ```PowerShell
     Create-AppServiceCerts.ps1
 ```
+
+ 4. Enter a password to secure the .pfx files, and make a note of it. You'll have to enter it in the App Service on Azure Stack installer.
+
+**Create-AppServiceCerts.ps1 script parameters.**
 
 | Parameter | Required or optional | Default value | Description |
 | --- | --- | --- | --- |
