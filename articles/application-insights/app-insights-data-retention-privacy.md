@@ -122,19 +122,22 @@ Not inside the servers at present.
 All data is encrypted as it moves between data centers.
 
 #### Is the data encrypted in transit from my application to Application Insights servers?
-Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages. The only exception is data sent from plain HTTP web pages. 
+Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages. The only exception is data sent from plain HTTP web pages.
+
+## How do I configure my application to use the latest version of TLS?
+
+To insure the security of data in transit to the Application Insights endpoints, we strongly encourage customers to configure their application to use at least TLS 1.2. Older versions of TLS/SSL have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**, and the industry is quickly moving to drop support for these older protocols. Once Azure drops legacy support, if your application cannot communicate over at least TLS 1.2 you would not be able to send data to Application Insights. The approach you take to test and validate your application's TLS support will vary depending on the operating system/platform as well as the language/framework your application uses.
+
+We do not recommend explicitly setting your application to only use TLS 1.2 unless absolutely necessary as this can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols like TLS 1.3 as support is added.
 
 ## Personal data stored in Application Insights
 
-Our [Application Insights personal data article](app-insights-customer-data.md) discusses this topic in-depth.
+Our [Application Insights personal data article](app-insights-customer-data.md) discusses this issue in-depth.
 
 #### Can my users turn off Application Insights?
 Not directly. We don't provide a switch that your users can operate to turn off Application Insights.
 
 However, you can implement such a feature in your application. All the SDKs include an API setting that turns off telemetry collection. 
-
-#### My application is unintentionally collecting sensitive information. Can Application Insights scrub this data so it isn't retained?
-Application Insights does not filter or delete your data. You should manage the data appropriately and avoid sending such data to Application Insights.
 
 ## Data sent by Application Insights
 The SDKs vary between platforms, and there are several components that you can install. (Refer to [Application Insights - overview][start].) Each component sends different data.
