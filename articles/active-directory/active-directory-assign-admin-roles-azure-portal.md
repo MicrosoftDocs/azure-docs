@@ -261,7 +261,7 @@ Can create and manage all aspects of app registrations and enterprise apps excep
 | microsoft.aad.supporttickets/AllEntities/AllActions | Create and manage Office 365 support tickets. |
 
 ### Company Administrator
-Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities.
+Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities. In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Company Administrator". It is "Global Administrator" in the [Azure portal](https://portal.azure.com).
 
   > [!NOTE]
   > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
