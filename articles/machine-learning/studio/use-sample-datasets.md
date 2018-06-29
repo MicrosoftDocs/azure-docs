@@ -147,7 +147,7 @@ Labels from the KDD Cup 2009 customer relationship prediction challenge (<a href
 <tr>
   <td>CRM Dataset Shared</td>
   <td>
-This data comes from the KDD Cup 2009 customer relationship prediction challenge (<a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange_small_train.data.zip">orange_small_train.data.zip</a>).
+This data comes from the KDD Cup 2009 customer relationship prediction challenge (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train.data.zip</a>).
 <p></p>
 The dataset contains 50K customers from the French Telecom company Orange. Each customer has 230 anonymized features, 190 of which are numeric and 40 are categorical. The features are very sparse.
   </td>

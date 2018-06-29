@@ -24,8 +24,6 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For detail
 
 Sign in to the Azure portal at http://portal.azure.com.
 
-
-
 ## Create AKS cluster
 
 Choose **Create a resource** > select **Kubernetes Service** > **Create**.

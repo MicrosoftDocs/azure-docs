@@ -25,9 +25,9 @@ We’re updating our sign-in experience for Microsoft’s online services, such 
 
 Check out the existing UI compared to the new UI. The new UI is more streamlined and focused, with a more updated look and feel.
 
-![old Microsoft sign-in experience](media/microsoft-sign-in-experience-old.jpg)
+![old Microsoft sign-in experience](./media/sign-in-experience-updates/microsoft-sign-in-experience-old.jpg)
 
-![new Microsoft sign-in experience](media/microsoft-sign-in-experience-new.jpg)
+![new Microsoft sign-in experience](./media/sign-in-experience-updates/microsoft-sign-in-experience-new.jpg)
 
 ## When will the new UI appear?
 
