@@ -242,7 +242,7 @@ The `portalStyles` folder contains configuration and style sheets for developer 
 The `products` folder contains a folder for each product defined in the service instance.
 
 * `products\<product name>\configuration.json` - this is the configuration for the product. This is the same information that would be returned if you were to call the [Get a specific product](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) operation.
-* `products\<product name>\product.description.html` - this is the description of the product and corresponds to the `description` property of the [product entity](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) in the REST API.
+* `products\<product name>\product.description.html` - this is the description of the product and corresponds to the `description` property of the [product entity](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) in the REST API.
 
 ### templates
 The `templates` folder contains configuration for the [email templates](api-management-howto-configure-notifications.md) of the service instance.
