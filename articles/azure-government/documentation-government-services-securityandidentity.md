@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 06/27/2018
+ms.date: 06/29/2018
 ms.author: gsacavdm
 
 ---
@@ -43,10 +43,19 @@ The following variations and limitations are present in the Azure Security Cente
     - Application whitelisting is not available in Azure Government. Other cloud defense capabilities such as just-time-access (JIT) are available.
 -  **Specific detections**
     - Detections based on VM logs, Azure core router network logs, threat intelligence reports, and detections for app services are not available in Azure Government.  
+- **Specific RBAC roles**
+    - The specific Security Center roles of “security reader” and “security administrator” roles are not available in Azure Government.
+- **Azure activity logs**
+    -  Auditing insights from Azure activity logs are not available in Azure Government.
+- **Baseline content server details**
+    - Recommendations and details, such as the potential impact and countermeasures for baseline configuration vulnerabilities, are not available in Azure Government.
 
 ### Azure Security Center FAQs
  
 For Azure Security Center FAQs, see [Azure Security Center frequently asked questions public documentation](../security-center/security-center-faq.md). Additional FAQs for Azure Security Center in Azure Government are listed below. 
+
+
+**What will customers be charged for Azure Security Center in Azure Government?** </br>While in public preview, customers will not be charged for free or standard tier features in Security Center. When Security Center is Generally Available, customers using features in the standard tier will be charged in accordance with the Azure Government pricing schedule.  
 
 **What features are available for Azure Security Center government customers?**</br>A detailed list of feature variations in the Azure Security Center government offering can found in the [variations section](#bkmk_ASCVariations) of this article. All other Azure Security Center capabilities can be referenced in the [Azure Security Center public documentation](../security-center/index.yml).  
 
