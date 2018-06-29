@@ -27,9 +27,13 @@ If you have multiple CDN profiles, you can further improve availability and perf
 This article provides guidance and an example of how to set up failover with **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles.
 
 ## Set up Azure CDN 
-1.	Create two or more Azure CDN profiles and endpoints with different providers by following the steps in [Quickstart: Create a profile and endpoint](cdn-create-new-endpoint.md). 
+Create two or more Azure CDN profiles and endpoints with different providers.
 
+1. Create an **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profile by following the steps in [Create a new CDN profile](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
+ 
    ![CDN multiple profiles](./media/cdn-traffic-manager/cdn-multiple-profiles.png)
+
+2. In each of the new profiles, create at least one endpoint by following the steps in [Create a new CDN endpoint](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
 
 ## Set up Azure Traffic Manager
 Create an Azure Traffic Manager profile and set up load balancing across your CDN endpoints. 
