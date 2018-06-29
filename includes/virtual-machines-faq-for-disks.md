@@ -204,11 +204,11 @@ No.
 
 **Is Storage Service Encryption only available in specific regions?**
 
-No. It's available in all the regions where Managed Disks are available. Managed Disks is available in all public regions and Germany.
+No. It's available in all the regions where Managed Disks are available. Managed Disks is available in all public regions and Germany. It is also available in China, however, only for Microsoft managed keys, not customer managed keys.
 
 **How can I find out if my managed disk is encrypted?**
 
-You can find out the time when a managed disk was created from the Azure portal, the Azure CLI, and PowerShell. If the time is after June 9, 2017, then your disk is encrypted. 
+You can find out the time when a managed disk was created from the Azure portal, the Azure CLI, and PowerShell. If the time is after June 9, 2017, then your disk is encrypted.
 
 **How can I encrypt my existing disks that were created before June 10, 2017?**
 
