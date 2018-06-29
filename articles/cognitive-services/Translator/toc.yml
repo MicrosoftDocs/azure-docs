@@ -21,6 +21,20 @@
         href: quickstart-csharp-languages.md
       - name: Get sentence lengths in text
         href: quickstart-csharp-sentences.md
+    - name: Go
+      items:
+      - name: Translate text
+        href: quickstart-go-translate.md
+      - name: Convert text script
+        href: quickstart-go-transliterate.md
+      - name: Identify language from text
+        href: quickstart-go-detect.md
+      - name: Get alternate translations
+        href: quickstart-go-dictionary.md
+      - name: Get supported languages
+        href: quickstart-go-languages.md
+      - name: Get sentence lengths in text
+        href: quickstart-go-sentences.md
     - name: Java
       items:
       - name: Translate text
