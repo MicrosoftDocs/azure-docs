@@ -91,7 +91,7 @@ To remove a group, you first need to remove the Hybrid Runbook Worker from every
 
 For the Hybrid Runbook Worker to connect to and register with Log Analytics, it must have access to the port number and the URLs that are described in this section. This access is in addition to the [ports and URLs required for Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) to connect to Log Analytics.
 
-If you use a proxy server for communication between the agent and the Log Analytics service, ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the internet, you must configure your firewall to permit access.
+If you use a proxy server for communication between the agent and the Log Analytics service, ensure that the appropriate resources are accessible. If you use the OMS gateway as a proxy, ensure it is configured for [hybrid workers](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers). If you use a firewall to restrict access to the internet, you must configure your firewall to permit access.
 
 The following port and URLs are required for the Hybrid Runbook Worker role to communicate with Automation:
 
@@ -135,6 +135,9 @@ In addition to the standard addresses and ports that the Hybrid Runbook Worker r
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+
+### Using an OMS gateway
+When using an OMS gateway to connect machines to OMS, the OMS gateway needs to be configured for hybrid workers to function correctly. [Find the configuration steps here](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers)
 
 ## Troubleshoot
 
