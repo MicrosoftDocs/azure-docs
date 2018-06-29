@@ -3,7 +3,7 @@ title: Connect Windows computers to Azure Log Analytics | Microsoft Docs
 description: This article describes how to connect Windows computers hosted in other clouds or on-premises to Log Analytics with the Microsoft Monitoring Agent (MMA).
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -11,9 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
+ms.component: na
 ---
 
 # Connect Windows computers to the Log Analytics service in Azure

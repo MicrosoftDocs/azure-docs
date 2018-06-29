@@ -14,6 +14,7 @@ ms.topic: tutorial
 ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
+ms.component: na
 ---
 
 # View or analyze data collected with Log Analytics log search

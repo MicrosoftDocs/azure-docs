@@ -12,10 +12,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: bwren
-
+ms.component: na
 ---
 
 # Send data to Log Analytics with the HTTP Data Collector API (public preview)
