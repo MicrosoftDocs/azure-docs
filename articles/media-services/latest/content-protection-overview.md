@@ -41,9 +41,7 @@ To successfully complete your "content protection" system/application design, yo
   > [!NOTE]
   > You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
   
-  The following articles show steps for encrypting content with Media Services:
-
-  * [Protect with AES encryption](protect-with-aes128.md)
+  The following article show steps for encrypting content with AES: [Protect with AES encryption](protect-with-aes128.md)
  
 2. Player with AES or DRM client. A video player app based on a player SDK (either native or browser-based) needs to meet the following requirements:
   * The player SDK supports the needed DRM clients
@@ -52,7 +50,9 @@ To successfully complete your "content protection" system/application design, yo
   
     You can create a player by using the [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
 
-    You can use [this test player](http://aka.ms/amtest) to play your encrypted video. The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, MS Edge/IE11 for PlayReady, Safari on maOS for FairPlay.
+    For testing AES or CENC (Widevine + PlayReady encrypted content, you can use [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Make sure you click on "Advanced options" and check AES and provide the token.
+
+    If you want to test FairPlay encrypted content, use [this test player](http://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, MS Edge/IE11 for PlayReady, Safari on maOS for FairPlay.
 
 3. Secure Token Service (STS), which issues JSON Web Token (JWT) as access token for backend resource access. You can use the AMS license delivery services as the backend resource. An STS has to define the following:
 
