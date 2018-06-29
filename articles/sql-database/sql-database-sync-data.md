@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 06/28/2018
 ms.author: xiwu
 ms.reviewer: douglasl
 ms.custom: data-sync
@@ -105,6 +105,14 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 -   XMLSchemaCollection (XML supported)
 
 -   Cursor, Timestamp, Hierarchyid
+
+#### Unsupported column types
+
+Data Sync can't sync read-only or system-generated columns. For example:
+
+-   Computed columns.
+
+-   System-generated columns for temporal tables.
 
 #### Limitations on service and database dimensions
 

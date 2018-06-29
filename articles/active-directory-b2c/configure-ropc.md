@@ -60,7 +60,7 @@ Use your favorite API development application to generate an API call, and revie
 - Replace *\<B2C_1A_ROPC_Auth>* with the full name of your resource owner password credentials policy.
 - Replace *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* with the Application ID from your registration.
 
-`https://te.cpim.windows.net/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
+`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
 | Key | Value |
 | --- | ----- |
@@ -77,7 +77,7 @@ The actual POST request looks like the following:
 
 ```
 POST /yourtenant.onmicrosoft.com/B2C_1A_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
-Host: te.cpim.windows.net
+Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -100,7 +100,7 @@ A successful response with offline-access looks like the following example:
 
 Construct a POST call like the one shown here with the information in the following table as the body of the request:
 
-`https://te.cpim.windows.net/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
+`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/<B2C_1A_ROPC_Auth>/oauth2/v2.0/token`
 
 | Key | Value |
 | --- | ----- |
