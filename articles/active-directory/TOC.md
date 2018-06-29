@@ -52,6 +52,7 @@
 ### [Add guest users from another directory (B2B)](b2b/what-is-b2b.md)
 #### [Admins adding B2B users](b2b/add-users-administrator.md)
 #### [Information workers adding B2B users](b2b/add-users-information-worker.md)
+#### [Enforce multi-factor authentication](b2b-tutorial-require-mfa.md)
 #### [API and customization](b2b/customize-invitation-api.md)
 #### [Code and Azure PowerShell samples](b2b/code-samples.md)
 #### [Self-service sign-up portal sample](b2b/self-service-portal.md)

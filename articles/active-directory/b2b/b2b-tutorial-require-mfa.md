@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Enforce multi-factor authentication for B2B guest users'
+title: 'Tutorial: Enforce multi-factor authentication for Azure AD B2B guest users'
 description: Learn how to require multi-factor authentication (MFA) when you use Azure AD B2B to collaborate with external users and partner organizations.
 
 services: active-directory
@@ -14,6 +14,8 @@ manager: mtillman
 ms.reviewer: sasubram
 
 ---
+
+# Tutorial: Enforce multi-factor authentication for B2B guest users
 
 When collaborating with external B2B guest users, it’s a good idea to protect your apps with multi-factor authentication (MFA) policies. This way, external users will need more than just a user name and password to access your resources. In Azure Active Directory (Azure AD), you can accomplish this goal with a conditional access policy that requires MFA for access. MFA policies are always enforced at your organization, regardless of whether the partner has MFA capabilities, so you’ll need to make sure you have sufficient Azure AD Premium licenses for your guest users. MFA policies can be enforced at the tenant, app, or individual guest user level, the same way that they are enabled for members of your own organization.
 
@@ -50,7 +52,7 @@ To complete the scenario in this tutorial, you need:
 ## Create a test guest user in Azure AD
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
-2. In the navigation pane, select **Azure Active Directory**.
+2. In the left pane, select **Azure Active Directory**.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-1.png)
 
@@ -96,11 +98,11 @@ To complete the scenario in this tutorial, you need:
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-5.png)
 
-7.	On the **Users and groups** page, choose **Select users and groups**, select the **Users and groups** checkbox, and then choose **Select**.
+7.	On the **Users and groups** page, choose **Select users and groups**, select the **Users and groups** check box, and then choose **Select**.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 
-8.	On the **Select** page, select the checkbox next to your test user account, and then choose **Select**.
+8.	On the **Select** page, select the check box next to your test user account, and then choose **Select**.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-7.png)
 
@@ -125,7 +127,7 @@ To complete the scenario in this tutorial, you need:
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-12.png)
 
-15.	On the **Grant** page, choose **Grant access**, select the **Require multi-factor authentication** checkbox, and then choose **Select**.
+15.	On the **Grant** page, choose **Grant access**, select the **Require multi-factor authentication** check box, and then choose **Select**.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-13.png)
 
@@ -150,7 +152,7 @@ To complete the scenario in this tutorial, you need:
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 
-5.	On the cloud apps page, select **Done**.
+5.	On the **Cloud apps** page, select **Done**.
 6.	Select **What If**, and verify that your new policy appears under **Evaluation results** on the **Policies that will apply** tab.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
@@ -163,13 +165,13 @@ To complete the scenario in this tutorial, you need:
 
 ## Clean up resources
 1.	Sign in to the Azure portal as an Azure AD administrator.
-2.	In the navigation pane, select **Azure Active Directory**.
+2.	In the left pane, select **Azure Active Directory**.
 3.	Under **Manage**, select **Users**.
 4.	Select the test user, and then select **Delete user**.
 
     ![Select Azure Active Directory](media/tutorial-mfa/tutorial-mfa-cleanup-1.png)
 
-5.	In the navigation pane, select **Azure Active Directory**.
+5.	In the left pane, select **Azure Active Directory**.
 6.	Under **Security**, select **Conditional Access**.
 7.	In the **Policy Name** list, select the context menu (…) for your test policy, and then select **Delete**.
 
