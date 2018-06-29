@@ -91,18 +91,14 @@ such as string variables that store people's first names and last names,
 and an integer variable that stores people's ages. Here, the **Compose** 
 action accepts these inputs:
 
-```
-{ "age": <ageVar>, "fullName": "<lastNameVar>, <firstNameVar>" }
-```
+`{ "age": <ageVar>, "fullName": "<lastNameVar>, <firstNameVar>" }`
 
 and creates this output:
 
-```
-{ "age":35, "fullName": "Owens,Sophie" }
-```
+`{"age":35,"fullName":"Owens,Sophie"}`
 
-To build this example in the Logic App Designer, follow these steps. 
-If you're comfortable working with the underlying definitions in 
+To try an example, follow these steps by using the Logic App Designer. 
+Or, if you're comfortable working with the underlying definitions in 
 the code view editor, see [Compose example - action definitions](#compose-example-definitions).
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
@@ -178,11 +174,11 @@ select **Output**.
 
 ### Compose example - action definitions
 
-If you prefer working in the code view editor, 
-you can copy and paste these **Compose** and 
-**Initialize variable** action definitions from 
-the example into your own logic app workflow 
-definition and have them appear in the designer. 
+If you prefer working in the code view editor, you can copy 
+and paste these **Compose** and **Initialize variable** action 
+definitions from the example into your own logic app workflow 
+definition and have them appear in the Logic App Designer and 
+in the correct sequence. 
 
 ```json
 "actions": {
