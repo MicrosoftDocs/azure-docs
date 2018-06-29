@@ -53,7 +53,7 @@ Do not use the following characters in intent and entity names:
 |`\`|Backslash|
 
 ## Key limits
-The authoring key has different limits for authoring and endpoint. The LUIS service subscription key is only valid for endpoint queries.
+The authoring key has different limits for authoring and endpoint. The LUIS service endpoint key is only valid for endpoint queries.
 
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|

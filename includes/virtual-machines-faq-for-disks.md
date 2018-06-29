@@ -97,7 +97,7 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
 
-**If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (512 GB)?**
+**If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (256 GB)?**
 
 Yes.
 
@@ -204,11 +204,11 @@ No.
 
 **Is Storage Service Encryption only available in specific regions?**
 
-No. It's available in all the regions where Managed Disks are available. Managed Disks is available in all public regions and Germany.
+No. It's available in all the regions where Managed Disks are available. Managed Disks is available in all public regions and Germany. It is also available in China, however, only for Microsoft managed keys, not customer managed keys.
 
 **How can I find out if my managed disk is encrypted?**
 
-You can find out the time when a managed disk was created from the Azure portal, the Azure CLI, and PowerShell. If the time is after June 9, 2017, then your disk is encrypted. 
+You can find out the time when a managed disk was created from the Azure portal, the Azure CLI, and PowerShell. If the time is after June 9, 2017, then your disk is encrypted.
 
 **How can I encrypt my existing disks that were created before June 10, 2017?**
 

@@ -45,7 +45,7 @@ HDInsight provides access to the distributed file system that is locally attache
 
 In addition, HDInsight allows you to access data that is stored in Azure Data Lake Storage. The syntax is:
 
-    abfs[s]://<file_system>@<accountname>.dfs.core.widows.net/<path>
+    abfs[s]://<file_system>@<accountname>.dfs.core.windows.net/<path>
 
 Here are some considerations when using an Azure Storage account with HDInsight clusters.
 
