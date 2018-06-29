@@ -81,7 +81,7 @@ The following snippets are all taken from the `MongoService` class, found at the
     MongoClient mongoClient = new MongoClient(settings);
     ```
 
-* Retrieve a reference to the database and collection.
+* Retrieve a reference to the database and collection. The MongoDB .NET SDK will automatically create both the database and collection if they do not already exist.
     ```cs
     string dbName = "MyTasks";
     string collectionName = "TaskList";
