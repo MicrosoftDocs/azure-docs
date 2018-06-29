@@ -130,3 +130,8 @@ The **Service Fabric: Clean Application** command deletes all jar files and nati
 1.  Make sure you are in the application root folder before executing this command. 
 2.  Select the **Service Fabric: Clean Application** command.
 3.  The output of the clean process is written to the integrated terminal.
+
+## Next Steps
+
+* Learn how to [develop and debug C# Service Fabric applications with VS Code](./service-fabric-develop-csharp-applications-with-vs-code.md).
+* Learn how to [develop and debug Java Service Fabric applications with VS Code](./service-fabric-develop-java-applications-with-vs-code.md).
