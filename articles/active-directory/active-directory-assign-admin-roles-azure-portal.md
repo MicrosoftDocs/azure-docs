@@ -260,7 +260,7 @@ Can create and manage all aspects of app registrations and enterprise apps excep
 | microsoft.aad.servicehealth/AllEntities/AllActions | Read and configure Office 365 Service Health. |
 | microsoft.aad.supporttickets/AllEntities/AllActions | Create and manage Office 365 support tickets. |
 
-### Company Administrator
+### <a href="#global-administrator">Company Administrator</a>
 Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities.
 
   > [!NOTE]
