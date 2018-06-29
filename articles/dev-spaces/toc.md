@@ -16,6 +16,7 @@
 ###[Manage secrets](how-to/manage-secrets.md)
 ###[Use a custom NuGet feed](how-to/use-custom-nuget-feed.md)
 ###[Use kubectl with Azure Dev Spaces](how-to/use-kubectl-with-azure-dev-spaces.md)
+###[Upgrade Azure Dev Spaces tools](how-to/upgrade-tools.md)
 
 ## [Troubleshooting](troubleshooting.md)
 
