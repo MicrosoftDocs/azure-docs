@@ -66,6 +66,16 @@ class MyService : StatelessService, IMyService
     }
 }
 ```
+
+To use remoting in a stateful service, we would rely on the extension method provided, and add the following call within the generated `CreateServiceReplicaListeners` method:
+
+```csharp
+protected override IEnumerable<ServiceReplicaListener> CreateServiceInstanceListeners()
+{
+    return this.CreateServiceRemotingReplicaListeners();
+}
+```
+
 > [!NOTE]
 > The arguments and the return types in the service interface can be any simple, complex, or custom types, but they must be serializable by the .NET [DataContractSerializer](https://msdn.microsoft.com/library/ms731923.aspx).
 >
