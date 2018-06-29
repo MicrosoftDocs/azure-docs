@@ -194,9 +194,20 @@ az storage account create \
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-
 ### Set default Azure storage account environment variables
+
 You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
+
+First, display your storage account keys by using the [az storage account keys list](/cli/azure/storage/account/keys#list) command:
+
+```azurecli-interactive
+az storage account keys list \
+    --account-name <account_name> \
+    --resource-group <resource_group> \
+    --output table
+```
+
+Now that you have the key, you can define it and the account name as environment variables:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
