@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 06/28/2018
 ms.author: jeedes
 
 ---
@@ -57,14 +57,14 @@ To configure the integration of Coupa into Azure AD, you need to add Coupa from 
 
 **To add Coupa from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
 	![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
@@ -100,21 +100,33 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Single sign-on dialog box](./media/coupa-tutorial/tutorial_coupa_samlbase.png)
 
 3. On the **Coupa Domain and URLs** section, perform the following steps:
 
 	![Coupa Domain and URLs single sign-on information](./media/coupa-tutorial/tutorial_coupa_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `http://<companyname>.Coupa.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.coupahost.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `<companyname>.coupahost.com`
+    > [!NOTE]
+	> The Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Coupa Client support team](https://success.coupa.com/Support/Contact_Us?) to get this value.
 
-    c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<companyname>.coupahost.com/sp/ACS.saml2`
+	b. In the **Identifier** textbox, type the URL:
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL. Contact [Coupa Client support team](https://success.coupa.com/Support/Contact_Us?) to get these values. you will get the Reply URL value from the metadata, which is explained later in the tutorial.
+    | Environment  | URL |
+    |:-------------|----|
+    | Sandbox | `devsso35.coupahost.com`|
+    | Production | `prdsso40.coupahost.com`|
+    | | |
+
+    c. In the **Reply URL** textbox, type the URL:
+
+    | Environment | URL |
+    |------------- |----|
+    | Sandbox | `https://devsso35.coupahost.com/sp/ACS.saml2`|
+    | Production | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | | |
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -127,24 +139,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. Sign on to your Coupa company site as an administrator.
 
 7. Go to **Setup \> Security Control**.
-   
+
    ![Security Controls](./media/coupa-tutorial/ic791900.png "Security Controls")
 
 8. In the **Log in using Coupa credentials** section, perform the following steps:
 
     ![Coupa SP metadata](./media/coupa-tutorial/ic791901.png "Coupa SP metadata")
-    
-    a. Select **Log in using SAML**.
-    
-    b. To download the Coupa metadata file to your computer, click **Download and import SP metadata**. open the metadata and copy the **AssertionConsumerService index/URL** value, paste the value into the **Reply URL** textbox in the **Coupa Domain and URLs** section. 
-    
-    c. Click **Browse** to upload the metadata downloaded from the Azure portal.
-    
-    d. Click **Save**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. Select **Log in using SAML**.
+
+    b. Click **Browse** to upload the metadata downloaded from the Azure portal.
+
+    c. Click **Save**.
 
 ### Create an Azure AD test user
 
@@ -177,7 +183,7 @@ The objective of this section is to create a test user in the Azure portal calle
     c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
     d. Click **Create**.
- 
+
 ### Create a Coupa test user
 
 In order to enable Azure AD users to log into Coupa, they must be provisioned into Coupa.  
@@ -189,39 +195,39 @@ In order to enable Azure AD users to log into Coupa, they must be provisioned in
 1. Log in to your **Coupa** company site as administrator.
 
 2. In the menu on the top, click **Setup**, and then click **Users**.
-   
+
    ![Users](./media/coupa-tutorial/ic791908.png "Users")
 
 3. Click **Create**.
-   
+
    ![Create Users](./media/coupa-tutorial/ic791909.png "Create Users")
 
 4. In the **User Create** section, perform the following steps:
-   
+
    ![User Details](./media/coupa-tutorial/ic791910.png "User Details")
-   
+
    a. Type the **Login**, **First name**, **Last Name**, **Single Sign-On ID**, **Email** attributes of a valid Azure Active Directory account you want to provision into the related textboxes.
 
-   b. Click **Create**.   
-   
+   b. Click **Create**.
+
    >[!NOTE]
-   >The Azure Active Directory account holder will get an email with a link to confirm the account before it becomes active. 
-   > 
+   >The Azure Active Directory account holder will get an email with a link to confirm the account before it becomes active.
+   >
 
 >[!NOTE]
->You can use any other Coupa user account creation tools or APIs provided by Coupa to provision AAD user accounts. 
+>You can use any other Coupa user account creation tools or APIs provided by Coupa to provision AAD user accounts.
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Coupa.
 
-![Assign the user role][200] 
+![Assign the user role][200]
 
 **To assign Britta Simon to Coupa, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
 2. In the applications list, select **Coupa**.
 
@@ -240,13 +246,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Coupa tile in the Access Panel, you should get automatically signed-on to your Coupa application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
@@ -266,4 +272,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/coupa-tutorial/tutorial_general_201.png
 [202]: ./media/coupa-tutorial/tutorial_general_202.png
 [203]: ./media/coupa-tutorial/tutorial_general_203.png
-
