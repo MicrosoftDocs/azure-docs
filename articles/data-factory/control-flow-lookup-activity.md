@@ -18,14 +18,14 @@ ms.author: shlo
 ---
 # Lookup activity in Azure Data Factory
 
-Lookup activity can be used to retrieve a dataset from any of the Azure Data Factory-supported data sources. It can be used in the following scenario:
+Lookup activity can retrieve a dataset from any of the Azure Data Factory-supported data sources. Use it in the following scenario:
 - Dynamically determine which objects to operate on in a subsequent activity, instead of hard coding the object name. Some object examples are files and tables.
 
-Lookup activity can read and return the content of a configuration file, a configuration table, or the result of executing a query or stored procedure. The output from Lookup activity can be used in a subsequent copy or transformation activity if it's a singleton value. The output can be used in a ForEach activity if it's an array of attributes.
+Lookup activity reads and returns the content of a configuration file or table. It also returns the result of executing a query or stored procedure. The output from Lookup activity can be used in a subsequent copy or transformation activity if it's a singleton value. The output can be used in a ForEach activity if it's an array of attributes.
 
 ## Supported capabilities
 
-The following data sources are supported for Lookup activity. The maximum number of rows that can be returned by Lookup activity is **5,000**, up to **2 MB** in size. Currently, the maximum duration for Lookup activity before timeout is one hour.
+The following data sources are supported for Lookup activity. The largest number of rows that can be returned by Lookup activity is 5,000, up to 2 MB in size. Currently, the longest duration for Lookup activity before timeout is one hour.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -78,7 +78,7 @@ The lookup result is returned in the `output` section of the activity run result
     }
     ```
 
-* **When `firstRowOnly` is set to `false`**, the output format is as shown in the following code. A `count` field indicates how many records are returned. Detailed values are displayed under a fixed `value` array. In such a case, the Lookup activity is usually followed by a [Foreach activity](control-flow-for-each-activity.md). You can pass the `value` array to the ForEach activity `items` field by using the pattern of `@activity('MyLookupActivity').output.value`. To access elements in the `value` array, use the following syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Here's an example: `@{activity('lookupActivity').output.value[0].tablename}`.
+* **When `firstRowOnly` is set to `false`**, the output format is as shown in the following code. A `count` field indicates how many records are returned. Detailed values are displayed under a fixed `value` array. In such a case, the Lookup activity is usually followed by a [Foreach activity](control-flow-for-each-activity.md). You pass the `value` array to the ForEach activity `items` field by using the pattern of `@activity('MyLookupActivity').output.value`. To access elements in the `value` array, use the following syntax: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Here's an example: `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -105,7 +105,7 @@ This example demonstrates lookup for the first row only. For lookup for all rows
 This pipeline contains two activities: *lookup* and *copy*. 
 
 - The Lookup activity is configured to use **LookupDataset**, which refers to a location in Azure Blob Storage. The Lookup activity reads the name of the SQL table from a JSON file in this location. 
-- Copy Activity uses the output of the Lookup activity, which is the name of the SQL table. The **tableName** property in the **SourceDataset** is configured to use the output from the Lookup activity. Copy Activity copies data from the SQL table to a location in Azure Blob Storage specified by the **SinkDataset** property. 
+- Copy Activity uses the output of the Lookup activity, which is the name of the SQL table. The **tableName** property in the **SourceDataset** is configured to use the output from the Lookup activity. Copy Activity copies data from the SQL table to a location in Azure Blob Storage. The location is specified by the **SinkDataset** property. 
 
 ```json
 {
@@ -186,7 +186,7 @@ The **lookup** dataset is the *sourcetable.json* file in the Azure Storage looku
 ```
 
 ### **Source** dataset for Copy Activity
-The **source** dataset uses the output of the Lookup activity, which is the name of the SQL table. Copy Activity copies data from this SQL table to a location in Azure Blob Storage specified by the **sink** dataset. 
+The **source** dataset uses the output of the Lookup activity, which is the name of the SQL table. Copy Activity copies data from this SQL table to a location in Azure Blob Storage. The location is specified by the **sink** dataset. 
 
 ```json
 {
@@ -205,7 +205,7 @@ The **source** dataset uses the output of the Lookup activity, which is the name
 ```
 
 ### **Sink** dataset for Copy Activity
-Copy Activity copies data from the SQL table to the **filebylookup.csv** file in the **csv** folder in Azure Storage specified by the **AzureStorageLinkedService** property. 
+Copy Activity copies data from the SQL table to the **filebylookup.csv** file in the **csv** folder in Azure Storage. The file is specified by the **AzureStorageLinkedService** property. 
 
 ```json
 {
