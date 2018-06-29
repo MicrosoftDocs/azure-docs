@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<path-to-application>/SamlReply.aspx`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Nimblex Client support team](mailto:support@ebms.com.au) to get these values.
+	> These values are not real. Update these values with the actual Sign-On URL,Identifier and Reply URL. Contact [Nimblex Client support team](mailto:support@ebms.com.au) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
