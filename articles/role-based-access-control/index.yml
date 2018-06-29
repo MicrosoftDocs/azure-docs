@@ -37,7 +37,6 @@ sections:
   - type: list
     style: unordered
     items: 
-    - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-user-powershell">Grant access for a user - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Grant access for a group - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Create a custom role - PowerShell</a>
     - html: <a href="/azure/role-based-access-control/tutorial-custom-role-cli">Create a custom role - CLI</a>

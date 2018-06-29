@@ -30,7 +30,6 @@
   - name: Conditional access for Azure management
     href: conditional-access-azure-management.md
 - name: How-to guides
-  expanded: true
   items:
   - name: Manage access
     items:
