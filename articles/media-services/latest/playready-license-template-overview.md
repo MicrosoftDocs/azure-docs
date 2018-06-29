@@ -308,4 +308,4 @@ For an example of the protection levels that Silverlight supports, see [Silverli
 
 ## Next steps
 
-[Protect with PlayReady and/or Widevine](protect-with-playready-widevine.md)
+[Overview](content-protection-overview.md)

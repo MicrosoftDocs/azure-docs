@@ -126,4 +126,4 @@ Generally, you should clean up everything except objects that you are planning t
 
 ## Next steps
 
-[Protect with PlayReady and/or Widevine](protect-with-playready-widevine.md)
+[Overview](content-protection-overview.md)
