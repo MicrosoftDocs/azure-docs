@@ -175,7 +175,7 @@ To enable the administrative account for the first time, you must provide admini
 
 1. You will be presented with a window similar to the one below. Click **Accept**.
     
-    ![Admin consent](media/monitoringsolution-office-365/admin-consent.png)
+    ![Admin consent](media/monitoring-solution-office-365/admin-consent.png)
 
 ### Subscribe to Log Analytics workspace
 The last step is to subscribe the application to your Log Analytics workspace. You also do this with a PowerShell script.
