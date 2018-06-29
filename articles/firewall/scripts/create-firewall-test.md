@@ -22,11 +22,11 @@ You can run the script from the Azure [Cloud Shell](https://shell.azure.com/powe
 
 ## Sample script
 
-
+<!---
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/firewall/create-fw-test.ps1  "Create a firewall test environment")]
 
-
+-->
 
 ## Clean up deployment 
 
