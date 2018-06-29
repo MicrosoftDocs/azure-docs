@@ -83,18 +83,13 @@ as the first step in your logic app
 ## Compose action
 
 To construct a single output, such as a JSON object, from multiple inputs, 
-you can use the **Data Operations - Compose** action. These inputs can 
-have various types, such as integers, Booleans, arrays, JSON objects, 
-and any other native type that Azure Logic Apps supports, for example, 
-binary and XML. You can then use the output in actions that follow 
-after the **Compose** action. The **Compose** action can also save 
-you from entering the same inputs repeatedly while building your 
-logic app's workflow.  
+you can use the **Data Operations - Compose** action. These inputs can have various types, such as integers, Booleans, arrays, JSON objects, and any 
+other native type that Azure Logic Apps supports, for example, binary and XML. You can then use the output in actions that follow after the **Compose** action. The **Compose** action can also save you from entering the same inputs repeatedly while building your logic app's workflow. 
 
-For example, you can construct a JSON message from various variables, 
+For example, you can construct a JSON message from multiple variables, 
 such as string variables that store people's first names and last names, 
 and an integer variable that stores people's ages. Here, the **Compose** 
-action accepts this input:
+action accepts these inputs:
 
 ```
 { "age": <ageVar>, "fullName": "<lastNameVar>, <firstNameVar>" }
@@ -103,8 +98,12 @@ action accepts this input:
 and creates this output:
 
 ```
-{ "age":35, "fullName": "Owens, Sophie" }
+{ "age":35, "fullName": "Owens,Sophie" }
 ```
+
+To build this example in the Logic App Designer, follow these steps. 
+If you're comfortable working with the underlying definitions in 
+the code view editor, see [Compose example - action definitions](#compose-example-definitions).
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 or Visual Studio, open your logic app in Logic App Designer. 
@@ -150,7 +149,7 @@ From the actions list, select this action: **Data Operations - Compose**
 
 For more information about this action in 
 your underlying workflow definition, see the 
-[Compose action](../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action).
+[Compose action](../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action). 
 
 ### Test your logic app
 
@@ -174,6 +173,80 @@ select **Output**.
    Based on the email connector you used, here are the results you get:
 
    ![Email with "Compose" action results](./media/logic-apps-perform-data-operations/compose-email-results.png)
+
+<a name="compose-example-definitions"></a>
+
+### Compose example - action definitions
+
+If you prefer working in the code view editor, 
+you can copy and paste these **Compose** and 
+**Initialize variable** action definitions from 
+the example into your own logic app workflow 
+definition and have them appear in the designer. 
+
+```json
+"actions": {
+  "Compose": {
+    "type": "Compose",
+    "inputs": {
+      "age": "@variables('ageVar')",
+      "fullName": "@{variables('lastNameVar')}, @{variables('firstNameVar')}"
+    },
+    "runAfter": {
+      "Initialize_variable_-_ageVar": [
+          "Succeeded"
+      ]
+    }
+  },
+  "Initialize_variable_-_firstNameVar": {
+    "type": "InitializeVariable",
+    "inputs": {
+      "variables": [
+        {
+          "name": "firstNameVar",
+          "type": "String",
+          "value": "Sophie "
+        }
+      ]
+    },
+    "runAfter": {}
+  },
+  "Initialize_variable_-_lastNameVar": {
+    "type": "InitializeVariable",
+    "inputs": {
+      "variables": [
+        {
+          "name": "lastNameVar",
+          "type": "String",
+          "value": "Owen"
+        }
+      ]
+    },
+    "runAfter": {
+      "Initialize_variable_-_firstNameVar": [
+        "Succeeded"
+      ]
+    }
+  },
+  "Initialize_variable_-_ageVar": {
+    "type": "InitializeVariable",
+    "inputs": {
+      "variables": [
+        {
+          "name": "ageVar",
+          "type": "Integer",
+          "value": 35
+        }
+      ]
+    },
+    "runAfter": {
+      "Initialize_variable_-_lastNameVar": [
+        "Succeeded"
+      ]
+    }
+  }
+},
+```
 
 <a name="create-csv-table-action"></a>
 
