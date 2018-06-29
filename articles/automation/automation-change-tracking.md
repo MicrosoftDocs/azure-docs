@@ -134,7 +134,7 @@ The default collection frequency for Windows services is 30 minutes. To configur
 
 The agent only tracks changes, this optimizes the performance of the agent. By setting too high of a threshold changes may be missed if the service reverted to their original state. Setting the frequency to a smaller value allows you to catch changes that may be missed otherwise.
 
-> ![NOTE]
+> [!NOTE]
 > While the agent can track changes down to a 10 second interval, the data still takes a few minutes to be displayed in the portal.
   
 ### Registry key change tracking
