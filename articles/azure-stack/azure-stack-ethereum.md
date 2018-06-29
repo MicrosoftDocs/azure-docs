@@ -15,7 +15,7 @@ manager: femila
 
 The Ethereum solution template is designed to make it easier and quicker to deploy and configure a multi-member consortium Ethereum blockchain network with minimal Azure and Ethereum knowledge.
 
-With a handful of user inputs and a single-click deployment through the Azure Stack administrator portal, each member can provision their network footprint. Each member's network footprint consists of a set of load-balanced transaction nodes with which an application or user can interact to submit transactions, a set of mining nodes to record transactions, and a Network Virtual Appliance (NVA) . A subsequent connection step connects the NVAs to create a fully configured multi-member blockchain network.
+With a handful of user inputs and a single-click deployment through the Azure Stack tenant portal, each member can provision their network footprint. Each member's network footprint consists of a set of load-balanced transaction nodes with which an application or user can interact to submit transactions, a set of mining nodes to record transactions, and a Network Virtual Appliance (NVA) . A subsequent connection step connects the NVAs to create a fully configured multi-member blockchain network.
 
 ## Prerequisites
 
