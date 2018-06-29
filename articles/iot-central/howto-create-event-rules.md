@@ -34,15 +34,15 @@ This section shows you how to create an event rule. This example uses a refriger
 
 1. If you haven’t created any rules yet, you see the following screen:
 
-    ![No rules yet](media\howto-create-event-rules\image1.png)
+    ![No rules yet](media/howto-create-event-rules/image1.png)
 
 1. On the **Rules** tab, choose **+ New Rule** to see the types of rules you can create.
 
-    ![Rule types](media\howto-create-event-rules\image2.png)
+    ![Rule types](media/howto-create-event-rules/image2.png)
 
 1. Click on **Event** to open the form to create the rule.
 
-    ![Event rule](media\howto-create-event-rules\image3.png)
+    ![Event rule](media/howto-create-event-rules/image3.png)
 
 1. Choose a name that helps you to identify the rule in this device template.
 
@@ -58,7 +58,7 @@ This section shows you how to add a condition to monitor the Fan motor error eve
 
 1. Optionally you can also provide a value in case you want to monitor a specific value of the event being reported by the device. For instance, if the device reports the same event with different error codes then providing the error code as a value in the rule's condition will ensure that the rule triggers only when the device sends that specific value as the event payload. Leaving this blank will mean that the rule will trigger whenever the device sends the event regardless of the event value.
 
-    ![Add Event Condition](media\howto-create-event-rules\image4.png)
+    ![Add Event Condition](media/howto-create-event-rules/image4.png)
 
     > [!NOTE]
     > You must select at least one event measurement when defining an event rule condition.
@@ -74,14 +74,14 @@ This section shows you how to add an action to a rule. This shows how to add the
 
 1. Choose the **+** next to **Actions**. Here you see the list of available actions.
 
-    ![Add Action](media\howto-create-event-rules\image5.png)
+    ![Add Action](media/howto-create-event-rules/image5.png)
 
 1. Choose the **Email** action, enter a valid email address in the **To** field, and provide a note to appear in the body of the email when the rule triggers.
 
     > [!NOTE]
     > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md) in Azure IoT Central.
 
-   ![Configure Action](media\howto-create-event-rules\image6.png)
+   ![Configure Action](media/howto-create-event-rules/image6.png)
 
 1. Click **Save**. The rule goes live within a few minutes and starts monitoring the events being sent to your application. When the condition specified in the rule matches, the rule triggers the configured email action.
 
