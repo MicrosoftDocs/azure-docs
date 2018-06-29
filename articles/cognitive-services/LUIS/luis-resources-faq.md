@@ -161,7 +161,7 @@ If you select a LUIS template, and select the **Select** button in the template 
 
 ## LUIS service 
 
-### Is LUIS available on-premise or in private cloud?
+### Is LUIS available on-premises or in private cloud?
 No. 
 
 ## Changes to the Docs

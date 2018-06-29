@@ -1,5 +1,5 @@
 ---
-title: Understand Azure Reserved Instance usage for your Pay-As-You-Go subscription - Azure Billing | Microsoft Docs
+title: Understand Azure reserved instance usage for your Pay-As-You-Go subscription | Microsoft Docs
 description: Learn how to read your usage to understand how the Azure Reserved VM Instance for your Pay-As-You-Go subscription is applied.
 services: 'billing'
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.date: 05/09/2018
 ms.author: manshuk
 
 ---
-# Understand Reserved Instance usage for your Pay-As-You-Go subscription
+# Understand reserved instance usage for your Pay-As-You-Go subscription
 
-Understand the utilization of an Azure Reserved VM Instance by using the ReservationId from [Reservation page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and the usage file from the [Azure Accounts portal](https://account.azure.com).
+Understand the usage of an Azure Reserved VM Instance by using the ReservationId from [Reservation page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and the usage file from the [Azure Accounts portal](https://account.azure.com).
 
 
 >[!NOTE]
@@ -37,7 +37,7 @@ For the following section, assume that you are running a Standard_DS1_v2 Windows
 
 ## Reserved instance application
 
-The hardware portion of the VM is covered because the deployed VM matches the Reserved Instance attributes. To see what Windows software isn't covered by the Reserved Instance, go to [Azure Reserve VM Instances Windows software costs.](billing-reserved-instance-windows-software-costs.md)
+The hardware portion of the VM is covered because the deployed VM matches the reserved instance attributes. To see what Windows software isn't covered by the Reserved Instance, go to [Azure Reserve VM Instances Windows software costs.](billing-reserved-instance-windows-software-costs.md)
 
 ### Statement section of csv
 This section of your csv shows the total  usage for your reserved instance. Apply the filter on Meter Subcategory field that contains "Reservation-" and your data looks like the following screenshot:
@@ -59,9 +59,9 @@ Filter on additional info and type in your **Reservation ID**. The following scr
 ## Next steps
 To learn more about reserved instances, see the following articles:
 
-- [Save money on virtual machines with Azure Reserved Instances](billing-save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Reserved Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage reserved instances](billing-manage-reserved-vm-instance.md)
+- [What are Azure Reserved VM Instances?](billing-save-compute-costs-reservations.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Manage reserved instances in Azure](billing-manage-reserved-vm-instance.md)
 - [Understand how the reserved instance discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reserved instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with reserved instances](billing-reserved-instance-windows-software-costs.md)
