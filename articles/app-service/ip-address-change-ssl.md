@@ -15,7 +15,7 @@ ms.author: tdykstra
 
 # How to prepare for an SSL IP address change
 
-If you received a notification that the SSL IP address of your App Service app is changing, follow the instructions in this article to release existing SSL IP addresses and assign new ones.
+If you received a notification that the SSL IP address of your App Service app is changing, follow the instructions in this article to release existing SSL IP address and assign a new one.
 
 ## Release SSL IP addresses and assign new ones
 
@@ -31,11 +31,11 @@ If you received a notification that the SSL IP address of your App Service app i
 
 6.	In the **SSL bindings** section, again select the same host name record with the certificate. In the editor that opens, this time choose **IP Based SSL** on the **SSL Type** drop-down menu and click **Add Binding**. When you see the operation success message, you’ve acquired a new IP address.
 
-7.	If an A record (DNS record pointing directly to your IP address) is configured in your Domain Registration Portal (third party DNS Provider or Azure DNS), replace the existing IP address with the newly generated Virtual IP address. You can find the Virtual IP address by following the instructions in the next section.
+7.	If an A record (DNS record pointing directly to your IP address) is configured in your Domain Registration Portal (third party DNS Provider or Azure DNS), replace the existing IP address with the newly generated one. You can find the new IP address by following the instructions in the next section.
 
 ## Find the new SSL IP address in the Azure Portal
 
-1.	Open the [Azure portal](https://portal.azure.com).
+1.	Wait a few minutes, and then open the [Azure portal](https://portal.azure.com).
 
 2.	In the left-hand navigation menu, select **App Services**.
 

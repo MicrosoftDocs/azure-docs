@@ -23,13 +23,13 @@ If you received a notification that the inbound IP address of your App Service a
 
 * Option 2: If only a CNAME record (DNS record pointing to a URI) is configured in your Domain Registration Portal (third party DNS Provider or Azure DNS), no action is required.
 
-* Option 3: If an A record (DNS record pointing directly to your IP address) is configured in your Domain Registration Portal (third party DNS Provider or Azure DNS), replace the existing IP address with your app's Virtual IP address. You can find the Virtual IP address by following the instructions in the next section.
+* Option 3: If an A record (DNS record pointing directly to your IP address) is configured in your Domain Registration Portal (third party DNS Provider or Azure DNS), replace the existing IP address with the new one. You can find the new IP address by following the instructions in the next section.
 
-* Option 4: If your application is behind a load balancer, IP Filter, or any other IP mechanism that requires your app's IP address, replace the existing IP address with your app's Virtual IP address.  You can find the Virtual IP address by following the instructions in the next section.
+* Option 4: If your application is behind a load balancer, IP Filter, or any other IP mechanism that requires your app's IP address, replace the existing IP address with the new one. You can find the new IP address by following the instructions in the next section.
 
-## Find the inbound IP Address in the Azure portal
+## Find the new inbound IP Address in the Azure portal
 
-The new inbound IP address that is being given to your app is in the portal in the **Virtual IP address** field. Both this new IP address and the old one are connected to your app now, and later the old one will be disconnected. 
+The new inbound IP address that is being given to your app is in the portal in the **Virtual IP address** field. Both this new IP address and the old one are connected to your app now, and later the old one will be disconnected.
 
 1.	Open the [Azure portal](https://portal.azure.com).
 
@@ -40,7 +40,6 @@ The new inbound IP address that is being given to your app is in the portal in t
 4.	Under the **Settings** header, click **Properties** in the left navigation, and find the section labeled **Virtual IP address**.
 
 5. Copy the IP address and reconfigure your domain record or IP mechanism.
-
 
 ## Next steps
 
