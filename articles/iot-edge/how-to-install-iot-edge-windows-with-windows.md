@@ -175,6 +175,8 @@ Start-Service iotedge
 
 ## Verify successful installation
 
+If you used the **manual configuration** steps in the previous section, the IoT Edge runtime should be successfully provisioned and running on your device. If you used the **automatic configuration** steps, then you need to complete some additional steps so that the runtime can register your device with your IoT hub on your behalf. For next steps, see [Create and provision a simulated TPM Edge device on Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
+
 You can check the status of the IoT Edge service by: 
 
 ```powershell

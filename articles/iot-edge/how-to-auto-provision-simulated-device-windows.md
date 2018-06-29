@@ -38,8 +38,11 @@ Create a simulated TPM device on your Windows development machine. Retrieve the 
 
 When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-monitor.md). 
 
-Choose the SDK language that you want to use to create the simulated device, and follow the steps until you create the individual enrollment. When you create the individual enrollment, select **Enable** to declare that this virtual machine is an IoT Edge device.
+Choose the SDK language that you want to use to create the simulated device, and follow the steps until you create the individual enrollment. 
 
+When you create the individual enrollment, select **Enable** to declare that this virtual machine is an **IoT Edge device**.
+
+Simulated device and individual enrollment guides: 
 * [C](../iot-dps/quick-create-simulated-device.md)
 * [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
 * [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
@@ -63,7 +66,7 @@ On the machine running your simulated device, modify the **iotedge** service reg
 
 1. From the **Start** menu, open **regedit**. 
 2. Navigate to **Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iotedge**. 
-3. Select **Edge** > **New** > **Multi-String Value**. 
+3. Select **Edit** > **New** > **Multi-String Value**. 
 4. Enter the name **Environment**. 
 5. Double-click the new variable and set the value data to **IOTEDGE_USE_TPM_DEVICE=ON**. 
 6. Click **OK** to save your changes. 
