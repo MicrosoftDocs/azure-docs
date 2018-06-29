@@ -34,7 +34,7 @@ Azure MFA and Azure AD self-service password reset give administrators control o
 
 ## Self-service password reset
 
-SSPR provides your users the ability to reset their password, with no administrator intervention, when and where they need to.
+Self-service password reset provides your users the ability to reset their password, with no administrator intervention, when and where they need to.
 
 > [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
 
