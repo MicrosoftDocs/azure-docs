@@ -29,7 +29,7 @@ In this guide, you will learn how to:
 1. Install the latest version of [Visual Studio 2017](https://www.visualstudio.com/vs/)
 1. In the Visual Studio installer make sure the following Workload is selected:
     * ASP.NET and web development
-1. Install the [Visual Studio extension for Azure Dev Spaces](https://aka.ms/get-azds-visualstudio)
+1. Install [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio)
 
 ## Create a web app running in a container
 

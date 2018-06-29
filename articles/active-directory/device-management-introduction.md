@@ -90,7 +90,7 @@ Implementing Azure AD joined devices provides you with the following benefits:
 
 - **Restriction of access** to apps from only devices that meet compliance policy.
 
-- **Seamless access to on-premise resources** when the device has line of sight to the on-premises domain controller. 
+- **Seamless access to on-premises resources** when the device has line of sight to the on-premises domain controller. 
 
 
 While Azure AD join is primarily intended for organizations that do not have an on-premises Windows Server Active Directory infrastructure, you can certainly use it in scenarios where:

@@ -3,7 +3,7 @@ title: Collect data from your environment with Azure Log Analytics  | Microsoft 
 description: This topic helps you understand how to collect data and monitor computers hosted in your on-premises or other cloud environment with Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: magoedte
-
+ms.component: na
 ---
+
 # Collect data from computers in your environment with Log Analytics
 
 Azure Log Analytics can collect and act on data from Windows or Linux computers residing in:

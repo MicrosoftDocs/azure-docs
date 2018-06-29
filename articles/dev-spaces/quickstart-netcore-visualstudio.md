@@ -33,7 +33,7 @@ In this guide, you will learn how to:
 
 ## Set up Azure Dev Spaces
 
-Install the [Visual Studio extension for Azure Dev Spaces](https://aka.ms/get-azds-visualstudio).
+Install [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio).
 
 ## Connect to a cluster
 

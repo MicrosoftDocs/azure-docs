@@ -27,7 +27,6 @@ The following steps assist you in registering as a publisher in the storefronts 
 | 2 | Create a Microsoft ID | 15 minutes | [Create a Microsoft ID](#create-a-microsoft-id) |  
 | 3 | Submit the marketplace nomination form | 1-3 days | [Submit the marketplace nomination form](#submit-the-marketplace-nomination-form) |  
 | 4 | Register in Microsoft Developer Center (Dev Center) | 5-10 days | [Register in Dev Center](#register-in-dev-center) |  
-| 5 | Sign into AppSource | 15 minutes | [Sign into AppSource](#sign-into-appSource) |  
 | 5 |  Sign into Cloud Partner Portal | 15 minutes | [Sign into Cloud Partner Portal](#sign-into-cloud-partner-portal) |  
 
 ## Register in Microsoft Partner Network  
@@ -79,18 +78,6 @@ A Dev Center account is required for publishing apps that have Transact listing 
 >[!Important]
 >Before you try to create a Dev Center account, verify that your company does not already have a Dev Center account. 
 >*   For more information, visit the [How to Register in Dev Center](#how-to-register-in-dev-center) section.  
-
----  
-
-## Sign into AppSource  
-| 15 minutes |  
-After your Nomination is approved and you have registered in both the MPN and Dev Center, your marketplace account is created with access to AppSource. First-time sign-in credentials are sent in your Nomination approval email. 
-*   To access the MPN, visit the Membership page located at [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
-*   To access Dev Center, visit the Windows Dev Center page located at [dev.windows.com](https://dev.windows.com).  
-*   To access AppSource, visit the AppSource page located at [appsource.microsoft.com](https://appsource.microsoft.com).  
-*   To access the Microsoft Cloud Partner Portal, visit the Cloud Partner Portal page located at [cloudpartner.azure.com](https://cloudpartner.azure.com).  
-*   For more information about using Cloud Partner Portal, visit the Learn section located at [cloudpartner.azure.com/#Learn](https://cloudpartner.azure.com/#Learn).  
-*   For documentation about Cloud Partner Portal, visit the Documentation section located at [cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation).  
 
 ---  
 
