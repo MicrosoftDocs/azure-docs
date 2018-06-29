@@ -114,5 +114,5 @@ If your question wasn't answered here, we want to hear from you. Go to the [Micr
 
 ### Related topics
 * [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) for Microsoft accounts
-* [Having trouble with two-step verification](../../../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
+* [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
 * [Use the Microsoft Authenticator to sign in from your phone](microsoft-authenticator-app-phone-signin-faq.md)
