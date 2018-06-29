@@ -2,13 +2,13 @@
 title: Kubernetes on Azure tutorial  - Deploy Cluster
 description: AKS tutorial - Deploy Cluster
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 06/13/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 

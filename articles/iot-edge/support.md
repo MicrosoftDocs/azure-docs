@@ -13,7 +13,7 @@ services: iot-edge
 # Azure IoT Edge Support
 There are a variety of ways to seek support for the Azure IoT Edge product.
 
-**Reporting bugs** – The majority of development that goes into the Azure IoT Edge product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/azure/iot-edge/issues) of the project. Fixes rapidly make their way from the project in to product updates.
+**Reporting bugs** – The majority of development that goes into the Azure IoT Edge product happens in the IoT Edge open-source project. Bugs can be reported on the [issues page](https://github.com/azure/iotedge/issues) of the project. Fixes rapidly make their way from the project in to product updates.
 
 **Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
