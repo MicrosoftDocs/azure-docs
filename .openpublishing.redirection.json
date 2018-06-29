@@ -22116,14 +22116,30 @@
         },
         {
             "source_path": "articles/operations-management-suite/oms-security-web-baseline-assessment.md",
-            "redirect_url": "/azure/security-center/security-center-customize-os-security-config ",
+            "redirect_url": "/azure/security-center/security-center-customize-os-security-config",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/operations-management-suite/oms-security-data-security.md",
-            "redirect_url": "/azure/security-center/security-center-data-security ",
+            "redirect_url": "/azure/security-center/security-center-data-security",
             "redirect_document_id": false
         },
+
+
+
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-overview.md",
+            "redirect_url": "/azure/monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-architecture.md",
+            "redirect_url": "/azure/monitoring",
+            "redirect_document_id": false
+        },
+
+
+
         {
             "source_path": "articles/log-analytics/log-analytics-log-search-upgrade.md",
             "redirect_url": "/azure/log-analytics/log-analytics-log-search",
