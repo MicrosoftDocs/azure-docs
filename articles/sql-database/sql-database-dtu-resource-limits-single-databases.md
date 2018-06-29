@@ -2,12 +2,12 @@
 title: Azure SQL Database DTU-based resource limits single databases| Microsoft Docs
 description: This page describes some common DTU-based resource limits for single databases in Azure SQL Database.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/28/2018
 ms.author: carlrab
 
 ---
@@ -67,7 +67,7 @@ For single databases, the following tables show the resources available for a si
 
 
 > [!IMPORTANT]
-> More than 1 TB of storage in the Premium tier is currently available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast,  China North, US Gov East. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> More than 1 TB of storage in the Premium tier is currently available in all regions except the following: West Central US, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, Germany Northeast,  China North. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## Single database: Change storage size
 
