@@ -426,7 +426,7 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 
 The WSFC IP address also needs to be on the load balancer. 
 
-1. In the portal, add a new Frontend IP configuration for the WSFC. Use the IP Address you configured for the WSFC in the cluster core resources. Set the Ip address as static. 
+1. In the portal, add a new Frontend IP configuration for the WSFC. Use the IP Address you configured for the WSFC in the cluster core resources. Set the IP address as static. 
 
 1. Click the load balancer, click **Health probes**, and click **+Add**.
 
