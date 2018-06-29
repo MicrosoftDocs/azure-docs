@@ -1,27 +1,29 @@
 ---
-title: Tutorial learning how to call a Language Understanding (LUIS) app using Node.js | Microsoft Docs
-description: In this tutorial, you learn to call a LUIS app using Node.js.
+title: Quickstart learning how to call a Language Understanding (LUIS) app using Node.js | Microsoft Docs
+description: In this quickstart, you learn to call a LUIS app using Node.js.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
+ms.topic: quickstart
+ms.date: 06/28/2018
 ms.author: v-geberr
 #Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using Javascript. 
 ---
 
-# Tutorial: Call a LUIS endpoint using JavaScript
-Pass utterances to a LUIS endpoint and get intent and entities back.
+# Quickstart: Call a LUIS endpoint using JavaScript
+In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
 
 <!-- green checkmark -->
+<!--
 > [!div class="checklist"]
 > * Create LUIS subscription and copy key value for later use
 > * View LUIS endpoint results from browser to public sample IoT app
 > * Create Visual Studio C# console app to make HTTPS call to LUIS endpoint
+-->
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
 ## Create LUIS subscription key
 You need a Cognitive Services API key to make calls to the sample LUIS app used in this walkthrough. 
@@ -58,12 +60,13 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
 You can use JavaScript to access the same results you saw in the browser window in the previous step. 
 1. Copy the code that follows and save it into an HTML file:
 
-   [!code-javascript[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/javascript/call-endpoint.html)]
-2. Replace `"YOUR SUBSCRIPTION KEY"` with your subscription key in this line of code: `xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","YOUR SUBSCRIPTION KEY");`
+   [!code-html[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/javascript/call-endpoint.html)]
 
-3. Open the file you saved using a web browser.  An alert window should pop up that says `Detected the following intent: TurnOn`.
+2. Open the file in a browser. Enter your LUIS endpoint key in the form and select **Submit**.
 
-![Popup that says TurnOn](./media/luis-get-started-node-get-intent/popup-turn-on.png)
+    ![Html sample displayed in browser with LUIS results for Home Automation app](./media/luis-get-started-js-get-intent/html-results.png)
+
+    The result display under the form. 
 
 ## Clean up resources
 The two resources created in this tutorial are the LUIS subscription key and the C# project. Delete the LUIS subscription key from the Azure portal. Close the Visual Studio project and remove the directory from the file system. 
@@ -71,5 +74,3 @@ The two resources created in this tutorial are the LUIS subscription key and the
 ## Next steps
 > [!div class="nextstepaction"]
 > [Add utterances](luis-get-started-javascript-add-utterance.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

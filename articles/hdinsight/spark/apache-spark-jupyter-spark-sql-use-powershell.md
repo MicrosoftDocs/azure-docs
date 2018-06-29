@@ -19,7 +19,7 @@ ms.custom: mvc
 # Quickstart: Create a Spark cluster in HDInsight using PowerShell
 Learn how to create Apache Spark cluster in Azure HDInsight, and how to run Spark SQL queries against Hive tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark on HDInsight, see [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md).
 
-In this quickstart, you use Azure PowerShell to create an HDInsight Spark cluster. The cluster uses Azure Storage Blobs as the cluster storage.
+In this quickstart, you use Azure PowerShell to create an HDInsight Spark cluster. The cluster uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 > [!IMPORTANT]
 > Billing for HDInsight clusters is prorated per minute, whether you are using them or not. Be sure to delete your cluster after you have finished using it. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
