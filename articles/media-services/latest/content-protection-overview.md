@@ -84,7 +84,7 @@ You can use Media Services to deliver your content encrypted dynamically with AE
 
 ## Dynamic encryption
 
-In Media Services v3, a content key is associated with StreamingLocator. If using the Media Services key delivery service, you should auto generate the content key. If you are using you own key delivery service, you should generate the content key yourself.
+In Media Services v3, a content key is associated with StreamingLocator (see [this example](protect-with-aes128.md)). If using the Media Services key delivery service, you should auto generate the content key. You should generate the content key yourself if you are using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two datacenters.
 
 When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service or the key delivery service you specified. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
@@ -112,7 +112,7 @@ Media Services provides a key delivery service for delivering DRM (PlayReady, Wi
 
 ## Control content access
 
-You can control who has access to your content by configuring the content key policy. Media Services supports multiple ways of authenticating users who make key requests. You must configure the content key policy. The client (player) must meet the policy before the key can be delivered to the client. The content key policy can have **open** or **token** restriction. The **token** restriction should be used in production.
+You can control who has access to your content by configuring the content key policy. Media Services supports multiple ways of authenticating users who make key requests. You must configure the content key policy. The client (player) must meet the policy before the key can be delivered to the client. The content key policy can have **open** or **token** restriction. 
 
 With a token-restricted content key policy, the content key is sent only to a client that presents a valid JSON Web Token (JWT) or simple web token (SWT) in the key/license request. This token must be issued by a security token service (STS). You can use Azure Active Directory as an STS or deploy a custom STS. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service returns the requested key/license to the client if the token is valid and the claims in the token match those configured for the key/license.
 
