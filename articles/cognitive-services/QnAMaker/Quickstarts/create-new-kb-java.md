@@ -20,7 +20,7 @@ Two sample FAQ URLs are given below ('urls' in the string kb). QnA Maker automat
 
 ## Prerequisites
 
-You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice (for .
+You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will work okay.
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **QnA Maker** chosen as your resource. You'll need a paid subscription key from your new API account in your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices). Either key will work for this quickstart.
 
@@ -272,7 +272,7 @@ public class CreateKB {
 
 ## The create knowledge base response
 
-A successful response is returned in JSON, as shown in the following example. Your results may differ slightly. If the final call returns a "Succeeded" state... your knowledge base was created successfully. To troubleshoot refer to the [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) of the QnA Maker API.
+A successful response is returned in JSON, as shown in the following example. Your results may differ slightly. If the final call returns a "Succeeded" state, your knowledge base was created successfully. To troubleshoot refer to the [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) of the QnA Maker API.
 
 ```json
 {
