@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: service-bus-messaging
+ author: sethmanheim
+ ms.service: service-bus-messaging
+ ms.topic: include
+ ms.date: 06/29/2018
+ ms.author: sethm
+ ms.custom: include file
+---
+
 Please ensure that you have already created a Service Bus namespace, as shown [here][namespace-how-to].
 
 1. Sign in to the [Azure portal][azure-portal].
