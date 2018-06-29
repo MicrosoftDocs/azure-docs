@@ -1,5 +1,5 @@
 ---
-title: Media Services PlayReady license template overview
+title: Azure Media Services with PlayReady license template 
 description: This topic gives an overview of a PlayReady license template that is used to configure PlayReady licenses.
 author: juliako
 manager: cfowler

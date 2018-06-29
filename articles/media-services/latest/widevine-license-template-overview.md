@@ -1,5 +1,5 @@
 ---
-title: Widevine license template overview | Microsoft Docs
+title: Azure Media Services with Widevine license template overview | Microsoft Docs
 description: This topic gives an overview of a Widevine license template that is used to configure Widevine licenses.
 author: juliako
 manager: cfowler
