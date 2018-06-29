@@ -11571,7 +11571,7 @@
         },
         {
             "source_path": "articles/stream-analytics/stream-analytics-resource-health.md",
-            "redirect_url": "azure/stream-analytics/stream-analytics-troubleshooting-guide",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshooting-guide",
             "redirect_document_id": false
 
         },
