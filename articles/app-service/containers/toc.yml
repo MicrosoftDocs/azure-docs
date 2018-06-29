@@ -23,7 +23,7 @@
     href: quickstart-ruby.md
   - name: Create Docker/Go app
     href: quickstart-docker-go.md
-  - name: Create multicontainer app
+  - name: Create multi-container app
     href: quickstart-multi-container.md
 - name: Tutorials
   items:
@@ -39,7 +39,7 @@
       href: tutorial-nodejs-mongodb-app.md
     - name: Python custom container with Postgres
       href: tutorial-docker-python-postgresql-app.md
-  - name: Multicontainer app
+  - name: Multi-container app
     href: tutorial-multi-container-app.md
   - name: Custom Docker image
     href: tutorial-custom-docker-image.md
