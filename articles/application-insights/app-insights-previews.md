@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set preview preferences for Azure Application Insights | Microsoft Docs
 description: The Azure Application Insights development team rolls out new experiences. You can set which new experiences you want to preview in the Azure portal.
 services: application-insights

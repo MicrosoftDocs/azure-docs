@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Virtual Network FAQ | Microsoft Docs
 description: Answers to the most frequently asked questions about Microsoft Azure virtual networks.
 services: virtual-network

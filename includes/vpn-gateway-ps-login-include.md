@@ -1,4 +1,4 @@
-﻿---
+---
  title: include file
  description: include file
  services: vpn-gateway

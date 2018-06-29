@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Payment Processing Blueprint - Monitoring requirements
 description: PCI DSS Requirement 10

@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Payment Processing Blueprint - Identity requirements
 description: PCI DSS Requirement 8

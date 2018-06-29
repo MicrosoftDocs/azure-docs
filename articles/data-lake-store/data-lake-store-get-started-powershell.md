@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use PowerShell to get started with Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Use Azure PowerShell to create a Data Lake Store account and perform basic operations
 services: data-lake-store

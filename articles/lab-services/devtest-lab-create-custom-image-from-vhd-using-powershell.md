@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure DevTest Labs custom image from a VHD file using PowerShell | Microsoft Docs
 description: Automate creation of a custom image in Azure DevTest Labs from a VHD file using PowerShell
 services: devtest-lab,virtual-machines,lab-services

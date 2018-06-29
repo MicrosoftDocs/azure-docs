@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure Active Directory Domain Services: Troubleshooting Network Security Group configuration | Microsoft Docs'
 description: Troubleshooting NSG configuration for Azure AD Domain Services
 services: active-directory-ds

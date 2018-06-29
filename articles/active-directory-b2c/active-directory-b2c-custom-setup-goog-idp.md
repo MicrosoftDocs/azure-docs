@@ -1,4 +1,4 @@
-﻿---
+---
 title: Add Google+ as an OAuth2 identity provider using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Sample using Google+ as identity provider using OAuth2 protocol.
 services: active-directory-b2c

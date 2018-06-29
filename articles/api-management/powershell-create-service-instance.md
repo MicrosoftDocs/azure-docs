@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure API Management instance using PowerShell | Microsoft Docs
 description: Follow the steps of this tutorial to create a new Azure API Management instance.
 services: api-management

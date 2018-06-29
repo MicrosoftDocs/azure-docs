@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure Active Directory Domain Services: Troubleshoot alerts | Microsoft Docs'
 description: Troubleshoot alerts for Azure AD Domain Services
 services: active-directory-ds

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Enable Azure Active Directory Domain Services using PowerShell | Microsoft Docs'
 description: Enable Azure Active Directory Domain Services using PowerShell
 services: active-directory-ds

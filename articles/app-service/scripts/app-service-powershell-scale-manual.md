@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Scale a web app manually | Microsoft Docs
 description: Azure PowerShell Script Sample - Scale a web app manually
 services: app-service\web

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Add tenants for usage and billing to Azure Stack | Microsoft Docs
 description: The steps required add an end user to Azure Stack managed by a Cloud Service Provider.
 services: azure-stack

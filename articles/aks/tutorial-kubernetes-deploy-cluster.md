@@ -1,4 +1,4 @@
-﻿---
+---
 title: Kubernetes on Azure tutorial  - Deploy Cluster
 description: AKS tutorial - Deploy Cluster
 services: container-service

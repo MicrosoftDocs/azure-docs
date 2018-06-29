@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Stack for Azure Government Customers | Microsoft Docs
 description: Provides guidance on what features and capabilities are available for Azure Stack on Azure Government
 services: azure-government

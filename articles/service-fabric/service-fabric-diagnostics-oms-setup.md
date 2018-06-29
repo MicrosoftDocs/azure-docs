@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Service Fabric - Set up monitoring with Log Analytics | Microsoft Docs
 description: Learn how to set up Log Analytics for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
 services: service-fabric

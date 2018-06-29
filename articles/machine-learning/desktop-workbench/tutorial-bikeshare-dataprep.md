@@ -1,4 +1,4 @@
-﻿---
+---
 title: Bike-share tutorial - Advanced data preparation with Azure Machine Learning Workbench
 description: In this tutorial, you perform an end-to-end data preparation task by using Azure Machine Learning Workbench
 services: machine-learning

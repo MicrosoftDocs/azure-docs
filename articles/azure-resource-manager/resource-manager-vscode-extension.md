@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Resource Manager template with VS Code extension | Microsoft Docs
 description: Use the Azure Resource Manager tools extension to work on Resource Manager templates.
 services: azure-resource-manager

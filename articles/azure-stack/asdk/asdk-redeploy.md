@@ -1,4 +1,4 @@
-﻿---
+---
 title: Redeploy the Azure Stack Development Kit (ASDK) | Microsoft Docs
 description: In this article, you learn how to reinstall the ASDK.
 services: azure-stack

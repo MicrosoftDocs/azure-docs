@@ -1,4 +1,4 @@
-﻿---
+---
 title: Common parameters and headers 
 description: The parameters and headers common to all operations that you might do related to Key Vault resources.
 services: key-vault

@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Payment Processing Blueprint - Access requirements
 description: PCI DSS Requirement 7

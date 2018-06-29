@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy your first app to Cloud Foundry on Microsoft Azure | Microsoft Docs
 description: Deploy an application to Cloud Foundry on Azure
 services: virtual-machines-linux

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set up a standalone Azure Service Fabric cluster | Microsoft Docs
 description: Create a development standalone cluster with three nodes running on the same computer. After completing this setup, you will be ready to create a multi-machine cluster.
 services: service-fabric

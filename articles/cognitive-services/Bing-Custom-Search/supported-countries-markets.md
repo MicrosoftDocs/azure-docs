@@ -1,4 +1,4 @@
-﻿---
+---
 title: Supported countries and languages for Bing Custom Search API on Azure | Microsoft Docs
 description: Find out which countries and languages are supported by the Bing Custom Search API.
 services: cognitive-services

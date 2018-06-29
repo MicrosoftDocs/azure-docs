@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor a SharePoint site with Application Insights
 description: Start monitoring a new application with a new instrumentation key
 services: application-insights

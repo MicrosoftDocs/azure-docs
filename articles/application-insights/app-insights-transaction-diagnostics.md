@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights Transaction Diagnostics | Microsoft Docs
 description: Application Insights end-to-end transaction diagnostics
 services: application-insights

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Create a Service Fabric cluster | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a three-node test Service Fabric cluster.
 services: service-fabric

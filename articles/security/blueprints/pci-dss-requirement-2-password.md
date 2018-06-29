@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Payment Processing Blueprint - Password requirements
 description: PCI DSS Requirement 2

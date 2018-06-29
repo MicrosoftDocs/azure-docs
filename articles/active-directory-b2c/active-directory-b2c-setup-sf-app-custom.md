@@ -1,4 +1,4 @@
-﻿---
+---
 title: Adding a Salesforce SAML provider by using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Learn about how to create and manage Azure Active Directory B2C custom policies.
 services: active-directory-b2c

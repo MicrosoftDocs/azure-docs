@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Payment Processing Blueprint - Secure system requirements
 description: PCI DSS Requirement 6

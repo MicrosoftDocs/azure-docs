@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure DevTest Labs FAQ | Microsoft Docs
 description: Find answers to common questions about Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services

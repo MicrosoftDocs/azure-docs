@@ -1,4 +1,4 @@
-﻿---
+---
 title: Country/Region hierarchy used by Azure Traffic Manager Geographic routing type| Microsoft Docs
 description: This article lists Country/Region hierarchy used by Azure Traffic Manager Geographic routing type
 services: traffic-manager

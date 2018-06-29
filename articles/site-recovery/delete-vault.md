@@ -1,4 +1,4 @@
-﻿---
+---
 title: Delete a Site Recovery vault
 description: Learn how to delete an Azure Site Recovery vault, based on the Site Recovery scenario.
 service: site-recovery

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure network security best practices | Microsoft Docs
 description: Learn some of the key features available in Azure to help create secure network environments
 services: virtual-network

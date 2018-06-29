@@ -1,4 +1,4 @@
-﻿---
+---
 title: "PowerShell for Virtual Network service endpoints and rules in Azure SQL | Microsoft Docs"
 description: "Provides PowerShell scripts to create and manage Virtual Service endpoints for your Azure SQL Database and SQL Data Warehouse."
 services: sql-database

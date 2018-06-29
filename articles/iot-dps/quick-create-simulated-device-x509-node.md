@@ -1,4 +1,4 @@
-﻿---
+---
 title: Provision a simulated X.509 device to Azure IoT Hub using Node.js | Microsoft Docs
 description: Create and provision a simulated X.509 device using Node.js device SDK for Azure IoT Hub Device Provisioning Service
 author: bryanla

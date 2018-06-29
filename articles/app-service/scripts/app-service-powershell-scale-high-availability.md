@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Scale a web app worldwide with a high-availability architecture | Microsoft Docs
 description: Azure PowerShell Script Sample - Scale a web app worldwide with a high-availability architecture
 services: app-service\web

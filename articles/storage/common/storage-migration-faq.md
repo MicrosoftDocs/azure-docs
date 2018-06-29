@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Storage migration FAQ | Microsoft Docs
 description: Answers to common questions about migrating Azure Storage
 services: storage

@@ -1,4 +1,4 @@
-﻿---
+---
 title: PowerShell example - Update SQL Data Sync sync schema | Microsoft Docs
 description: Azure PowerShell example script to update the sync schema for SQL Data Sync
 services: sql-database

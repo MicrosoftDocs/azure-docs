@@ -1,4 +1,4 @@
-﻿---
+---
 title: Migrate a Classic VM to an ARM Managed Disk VM | Microsoft Docs
 description: Migrate a single Azure VM from the classic deployment model to Managed Disks in the Resource Manager deployment model.
 services: virtual-machines-windows

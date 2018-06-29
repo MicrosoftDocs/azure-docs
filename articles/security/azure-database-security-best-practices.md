@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure database security best practices| Microsoft Docs
 description: This article provides a set of best practices for Azure database security.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Database for PostgreSQL Migration Partners | Microsoft Docs
 description: Lists of third-party migration partners with solutions that support Azure Database for PostgreSQL.
 services: mysql

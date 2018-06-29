@@ -1,4 +1,4 @@
-﻿---
+---
 title: Release notes for Azure Application Insights | Microsoft Docs
 description: The latest updates for Application Insights SDKs.
 services: application-insights

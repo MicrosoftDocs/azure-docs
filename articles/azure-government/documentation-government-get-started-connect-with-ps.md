@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Government Connect with PowerShell | Microsoft Docs
 description: Information on connecting your subscription in Azure Government with PowerShell
 services: azure-government

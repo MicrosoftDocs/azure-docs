@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Storage metrics in Azure Monitor | Microsoft Docs
 description: Learn about the new metrics offered from Azure Monitor.
 services: storage

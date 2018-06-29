@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set up direct sign-in using Azure Active Directory B2C | Microsoft Docs
 description: Learn how to prepopulate the sign-in name or redirect straight to a social identity provider.
 services: active-directory-b2c

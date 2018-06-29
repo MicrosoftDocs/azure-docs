@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use Azure PowerShell to enable diagnostics on a Windows VM | Microsoft Docs
 services: virtual-machines-windows
 documentationcenter: ''

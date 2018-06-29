@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an application gateway with internal redirection - Azure PowerShell | Microsoft Docs
 description: Learn how to create an application gateway that redirects internal web traffic to the appropriate backend pool of servers using Azure Powershell.
 services: application-gateway

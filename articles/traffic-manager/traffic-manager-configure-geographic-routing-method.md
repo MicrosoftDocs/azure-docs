@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure geographic traffic routing method using Azure Traffic Manager | Microsoft Docs
 description: This article explains how to configure the geographic traffic routing method using Azure Traffic Manager
 services: traffic-manager

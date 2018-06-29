@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Connect a web app to a SQL database | Microsoft Docs
 description: Azure PowerShell Script Sample - Connect a web app to a SQL database
 services: app-service\web

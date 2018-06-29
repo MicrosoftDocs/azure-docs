@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple Support terms | Microsoft Docs
 description: Describes support options for StorSimple 8000 series enterprise storage customers. 
 services: storsimple

@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Payment Processing Blueprint - CHD requirements
 description: PCI DSS Requirement 3

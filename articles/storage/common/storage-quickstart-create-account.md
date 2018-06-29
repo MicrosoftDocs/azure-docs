@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Quickstart - Create a storage account | Microsoft Docs
 description: Quickly learn to create a new storage account using the Azure portal, Azure PowerShell, or the Azure CLI.
 services: storage

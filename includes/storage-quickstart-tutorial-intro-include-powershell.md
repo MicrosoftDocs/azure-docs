@@ -1,4 +1,4 @@
-﻿## Sign in to Azure
+## Sign in to Azure
 
 Sign in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 

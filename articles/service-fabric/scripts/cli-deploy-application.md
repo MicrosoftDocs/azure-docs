@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Service Fabric CLI (sfctl) Script Deploy Sample
 description: Deploy an application to an Azure Service Fabric cluster using the Azure Service Fabric CLI
 services: service-fabric

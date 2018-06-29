@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure operational security checklist| Microsoft Docs
 description: This article provides a set of checklist for Azure operational security.

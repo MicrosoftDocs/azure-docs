@@ -1,4 +1,4 @@
-﻿---
+---
 title: Add Microsoft Account (MSA) as an identity provider using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Sample using Microsoft as identity provider using OpenID Connect (OIDC) protocol.
 services: active-directory-b2c

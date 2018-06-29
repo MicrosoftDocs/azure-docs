@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a cloud service container with PowerShell | Microsoft Docs
 description: This article explains how to create a cloud service container with PowerShell. The container hosts web and worker roles.
 services: cloud-services

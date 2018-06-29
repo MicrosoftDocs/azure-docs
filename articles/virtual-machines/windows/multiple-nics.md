@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and manage Windows VMs in Azure that use multiple NICs | Microsoft Docs
 description: Learn how to create and manage a Windows VM that has multiple NICs attached to it by using Azure PowerShell or Resource Manager templates.
 services: virtual-machines-windows

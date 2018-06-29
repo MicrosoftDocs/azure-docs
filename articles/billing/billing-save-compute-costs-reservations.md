@@ -1,4 +1,4 @@
-﻿---
+---
 title: What are Azure reserved instances? | Microsoft Docs
 description: Learn about Azure Reserved VM Instances and VM pricing to save on your virtual machines costs and get the best effective price.
 services: 'billing'

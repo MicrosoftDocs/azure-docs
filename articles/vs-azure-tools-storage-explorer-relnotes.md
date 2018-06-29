@@ -1,4 +1,4 @@
-﻿---
+---
 title: Microsoft Azure Storage Explorer release notes
 description: Release notes for Microsoft Azure Storage Explorer
 services: storage

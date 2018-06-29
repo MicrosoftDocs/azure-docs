@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Key Vault Logging | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Key Vault logging.
 services: key-vault

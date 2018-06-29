@@ -1,4 +1,4 @@
-﻿---
+---
 title: Add Azure Automation runbooks to recovery plans in Azure Site Recovery | Microsoft Docs
 description: Learn how Azure Site Recovery can help you extend recovery plans by using Azure Automation. Learn how to complete complex tasks during recovery to Azure.
 services: site-recovery

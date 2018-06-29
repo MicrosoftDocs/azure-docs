@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Monitor VPN gateways with Azure Network Watcher troubleshooting | Microsoft Docs
 description: This article describes how diagnose On-premises connectivity with Azure Automation and Network Watcher

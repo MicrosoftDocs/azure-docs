@@ -1,4 +1,4 @@
-﻿---
+---
 layout: HubPage
 hide_bc: true
 experimental: true

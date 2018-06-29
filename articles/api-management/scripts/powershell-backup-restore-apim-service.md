@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Backup and restore service | Microsoft Docs
 description: Azure PowerShell Script Sample - Backup and restore service
 services: api-management

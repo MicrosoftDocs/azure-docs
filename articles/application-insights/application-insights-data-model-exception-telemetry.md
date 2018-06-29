@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights Telemetry Data Model - Exception Telemetry | Microsoft Docs
 description: Application Insights data model for exception telemetry
 services: application-insights

@@ -1,4 +1,4 @@
-﻿---
+---
 title: LinkedIn configuration in Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to consumers with LinkedIn accounts in your applications that are secured by Azure Active Directory B2C.
 services: active-directory-b2c

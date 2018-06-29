@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using Azure Import/Export to transfer data to Azure Files | Microsoft Docs
 description: Learn how to create import jobs in the Azure portal to transfer data to Azure Files.
 author: alkohli

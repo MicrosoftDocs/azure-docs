@@ -1,4 +1,4 @@
-﻿---
+---
 title: Integrate LUIS with a bot using the Bot Builder SDK for Node.js in Azure | Microsoft Docs
 description: Build a bot integrated with a LUIS application using the Bot Framework.
 services: cognitive-services

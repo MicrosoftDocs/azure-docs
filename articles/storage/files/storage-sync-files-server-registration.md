@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage registered servers with Azure File Sync (preview) | Microsoft Docs
 description: Learn how to register and unregister a Windows Server with an Azure File Sync Storage Sync Service.
 services: storage

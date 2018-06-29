@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use PowerShell to create an Azure AD app to access the Azure Media Services API | Microsoft Docs
 description: Learn how to use PowerShell to create an Azure Active Directory (Azure AD) app and set it up to access the Azure Media Services API.
 services: media-services

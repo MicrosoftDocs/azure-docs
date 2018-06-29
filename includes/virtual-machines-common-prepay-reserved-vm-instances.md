@@ -1,4 +1,4 @@
-﻿---
+---
 ms.topic: include
 ---
 # Prepay for Virtual Machines with Azure Reserved VM Instances

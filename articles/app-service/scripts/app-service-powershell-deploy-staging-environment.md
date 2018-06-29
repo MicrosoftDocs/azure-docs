@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Create a web app and deploy code to a staging environment | Microsoft Docs
 description: Azure PowerShell Script Sample - Create a web app and deploy code to a staging environment
 services: app-service\web

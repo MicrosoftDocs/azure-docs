@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to use Azure CLI 2.0 and the IoT extension to manage device provisioning services | Microsoft Docs
 description: Learn how to use Azure CLI 2.0 and the IoT extension to manage device provisioning services
 author: chrissie926

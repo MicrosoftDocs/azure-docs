@@ -1,4 +1,4 @@
-﻿---
+---
 title: What is Azure Stack? | Microsoft Docs
 description: Azure Stack lets you to run Azure services in your datacenter.  
 services: azure-stack

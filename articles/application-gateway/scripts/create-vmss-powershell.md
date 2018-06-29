@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Manage web traffic | Microsoft Docs
 description: Azure PowerShell Script Sample - Manage web traffic with an application gateway and a virtual machine scale set.
 services: application-gateway

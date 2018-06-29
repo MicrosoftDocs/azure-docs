@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Add application cert to a cluster| Microsoft Docs
 description: Azure PowerShell Script Sample - Add an application certificate to a Service Fabric cluster.
 services: service-fabric

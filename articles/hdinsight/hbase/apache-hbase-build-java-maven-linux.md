@@ -1,4 +1,4 @@
-﻿---
+---
 title: Java HBase client - Azure HDInsight | Microsoft Docs
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to HBase on Azure HDInsight.
 services: hdinsight

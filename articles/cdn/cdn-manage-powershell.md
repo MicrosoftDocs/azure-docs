@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure CDN with PowerShell | Microsoft Docs
 description: Learn how to use the Azure PowerShell cmdlets to manage Azure CDN.
 services: cdn

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Secure and use policies on your Windows VMs in Azure | Microsoft Docs
 description: Learn about security and policies for Windows and virtual machines in Azure.
 services: virtual-machines-windows

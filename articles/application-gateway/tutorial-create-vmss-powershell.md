@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an application gateway with a virtual machine scale set - Azure PowerShell | Microsoft Docs
 description: Learn how to create an application gateway with a virtual machine scale set using Azure PowerShell.
 services: application-gateway

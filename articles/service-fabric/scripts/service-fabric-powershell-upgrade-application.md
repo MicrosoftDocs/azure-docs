@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Upgrade a Service Fabric application | Microsoft Docs
 description: Azure PowerShell Script Sample - Upgrade a Service Fabric application.
 services: service-fabric

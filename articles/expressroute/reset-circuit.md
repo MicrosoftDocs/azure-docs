@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Reset a failed Azure ExpressRoute circuit: PowerShell | Microsoft Docs'
 description: This article helps you reset an ExpressRoute circuit that is in a failed state.
 documentationcenter: na

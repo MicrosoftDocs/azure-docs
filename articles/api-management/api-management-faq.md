@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure API Management FAQ | Microsoft Docs
 description: Learn the answers to frequently asked questions (FAQ), patterns, and best practices in Azure API Management.
 services: api-management

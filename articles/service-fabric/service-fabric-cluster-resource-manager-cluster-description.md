@@ -1,4 +1,4 @@
-﻿---
+---
 title: Cluster Resource Manager Cluster Description | Microsoft Docs
 description: Describing a Service Fabric cluster by specifying Fault Domains, Upgrade Domains, node properties, and node capacities for the Cluster Resource Manager.
 services: service-fabric

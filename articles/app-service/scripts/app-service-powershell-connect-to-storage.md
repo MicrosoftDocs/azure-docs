@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Connect a web app to a storage account | Microsoft Docs
 description: Azure PowerShell Script Sample - Connect a web app to a storage account
 services: app-service\web

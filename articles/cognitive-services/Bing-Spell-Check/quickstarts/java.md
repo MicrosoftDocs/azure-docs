@@ -1,4 +1,4 @@
-﻿---
+---
 title: Java Quickstart for Bing Spell Check API - Azure Cognitive Services | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Bing Spell Check API in Microsoft Cognitive Services on Azure.
 services: cognitive-services

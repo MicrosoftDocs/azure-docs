@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Payment Processing Blueprint - Encryption requirements
 description: PCI DSS Requirement 4

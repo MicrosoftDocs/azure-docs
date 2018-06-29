@@ -1,4 +1,4 @@
-﻿---
+---
 title: IP addresses used by Application Insights and Log Analytics | Microsoft Docs
 description: Server firewall exceptions required by Application Insights
 services: application-insights
