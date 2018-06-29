@@ -76,7 +76,7 @@ For a list of storage types and their SLAs in IOPS and storage throughput, revie
 
 ### Configuring the Storage for Azure virtual machines
 
-So far as you bought SAP HANA appliances for on-premise, you never had to care about the I/O subsystems and its capabilities because the appliance vendor needs to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you also should be aware of some of those requirements to also understand the configuration requirements we suggest in the following sections. Or for cases where you are configuring the Virtual Machines you want run SAP HANA on. Some of the characteristics that are asked are resulting in the need to:
+So far as you bought SAP HANA appliances for on-premises, you never had to care about the I/O subsystems and its capabilities because the appliance vendor needs to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you also should be aware of some of those requirements to also understand the configuration requirements we suggest in the following sections. Or for cases where you are configuring the Virtual Machines you want run SAP HANA on. Some of the characteristics that are asked are resulting in the need to:
 
 - Enable read/write volume on /hana/log of a 250MB/sec at minimum with 1MB I/O sizes
 - Enable read activity of at least 400MB/sec for /hana/data for 16MB and 64MB I/O sizes

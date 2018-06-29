@@ -55,19 +55,21 @@ The first Azure AD application is used to get a users Azure AD group membership.
 
 4. Return to the Azure AD application, select **Settings** > **Required permissions** > **Add** > **Select an API** > **Microsoft Graph** > **Select**.
 
-  Under **APPLICATION PERMISSIONS** place a check next to **Read directory data**.
+  ![Select graph API](media/aad-integration/graph-api.png)
+
+5. Under **APPLICATION PERMISSIONS** place a check next to **Read directory data**.
 
   ![Set application graph permissions](media/aad-integration/read-directory.png)
 
-5. Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**. Save the updates once done.
+6. Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**. Save the updates once done.
 
   ![Set application graph permissions](media/aad-integration/delegated-permissions.png)
 
-6. Select **Done** and **Grant Permissions** to complete this step. This step will fail if the current account is not a tenant admin.
+7. Select **Done** and **Grant Permissions** to complete this step. This step will fail if the current account is not a tenant admin.
 
   ![Set application graph permissions](media/aad-integration/grant-permissions.png)
 
-7. Return to the application and take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Server application ID`.
+8. Return to the application and take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Server application ID`.
 
   ![Get application ID](media/aad-integration/application-id.png)
 
@@ -191,6 +193,12 @@ aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
 ```
 
 Once complete, the authentication token is cached. You are only reprompted to log in when the token has expired or the Kubernetes config file re-created.
+
+If you are seeing an authorization error message after signing in successfully, check that the user you are signing in as is not a Guest in the Azure AD (this is often the case if you are using a federated login from a different directory).
+```console
+error: You must be logged in to the server (Unauthorized)
+```
+
 
 ## Next Steps
 
