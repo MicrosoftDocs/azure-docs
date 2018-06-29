@@ -44,7 +44,7 @@ The template can deploy Ethereum consortium for leader and member join in a vari
 
 The consortium leader template configures the first member's footprint in the network. 
 
-1. Download the [leader template from GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ ethereum-consortium-blockchain /marketplace/ConsortiumLeader/mainTemplate.json)
+1. Download the [leader template from GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)
 2. In the Azure Stack Administration portal, select **New > Template deployment** to deploy from a custom template.
 3. Select **Edit template** to edit the new custom template.
 4. In the editing pane on the right, copy and paste the leader template JSON you previously downloaded.
