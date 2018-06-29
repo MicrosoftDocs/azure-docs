@@ -57,6 +57,11 @@ Get-AzureRmProviderFeature -FeatureName AllowRegionalGatewayManagerForSecureGate
 
 Get-AzureRmProviderFeature -FeatureName AllowAzureFirewall -ProviderNamespace Microsoft.Network
 ```
+After the registration is complete, run the following command:
+
+```PowerShell
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
 
 The examples in the Azure Firewall articles assume that you have already installed the public preview.
 
