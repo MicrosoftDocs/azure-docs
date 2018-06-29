@@ -61,8 +61,8 @@ You can obtain your `publishingusername` and `publishingpwd` by downloading the 
 
 To add a webhook, follow the steps in these guides:
 
-[Azure Container Registry webhooks](../../container-registry/container-registry-webhook.md) using the webhook URL
-[Webhooks for Docker Hub](https://docs.docker.com/docker-hub/webhooks/)
+- [Azure Container Registry](../../container-registry/container-registry-webhook.md) using the webhook URL
+- [Webhooks for Docker Hub](https://docs.docker.com/docker-hub/webhooks/)
 
 ## Next steps
 
