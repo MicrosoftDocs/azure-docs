@@ -384,9 +384,14 @@ or Visual Studio, open your logic app in Logic App Designer.
    This example uses the Azure portal and a logic app with a 
    **Recurrence** trigger and an **Initialize variable** action. 
    The action is set up for creating a variable whose initial 
-   value is an array that has some sample integers. When you test 
-   your logic app later, you can manually run your app 
-   without waiting for the trigger to fire.
+   value is an array that has some sample integers. 
+   When you test your logic app later, you can manually 
+   run your app without waiting for the trigger to fire.
+
+   > [!NOTE]
+   > Although this example uses a simple integer array, 
+   > this action is especially useful for JSON object arrays where 
+   > you can filter based on the objects' properties and values.
 
    ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-filter-array-action.png)
 
