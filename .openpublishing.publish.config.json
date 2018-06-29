@@ -143,7 +143,12 @@
       "branch": "master",
       "branch_mapping": {}
     },
-    
+    {
+      "path_to_root": "api-management-policy-samples",
+      "url": "https://github.com/Azure/api-management-policy-snippets",
+      "branch": "master",
+      "branch_mapping": {}
+    },
     {
       "path_to_root": "WebApp-OpenIdConnect-DotNet",
       "url": "https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet",

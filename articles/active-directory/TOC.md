@@ -151,6 +151,7 @@
 ### [SSPR Customization](authentication/concept-sspr-customization.md)
 ### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR Reporting](authentication/howto-sspr-reporting.md)
+### [Smart lockout](authentication/howto-password-smart-lockout.md)
 ### [Eliminate weak passwords](authentication/concept-password-ban-bad.md)
 ### [Configure the banned password list](authentication/howto-password-ban-bad.md)
 ### [On-premises integration](authentication/concept-password-ban-bad-on-premises.md)
@@ -184,12 +185,6 @@
 ### [Overview](manage-apps/what-is-application-management.md)
 ### [Getting started](manage-apps/plan-an-application-integration.md)
 ### [SaaS app integration tutorials](saas-apps/tutorial-list.md)
-
-
-### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
-#### [Create snapshot reports](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
-#### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 ### [User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md) 
 #### [App integration tutorials](saas-apps/tutorial-list.md) 
@@ -388,11 +383,10 @@
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](fundamentals/users-default-permissions.md)
-### [Securing administrator roles](admin-roles-best-practices.md)  
+### [Harden administrator role security](admin-roles-best-practices.md)  
 #### [Create emergency access administrator accounts](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
-### [Securing privileged roles](admin-roles-best-practices.md)
 
 ## Access reviews
 ### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)

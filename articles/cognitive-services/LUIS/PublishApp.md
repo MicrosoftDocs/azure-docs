@@ -44,7 +44,7 @@ In the **External services settings**, the **Enable Speech Priming** checkbox al
 Once this feature is enabled, publish your app. When you publish your LUIS app, your app model is sent to your own Speech service to prime the Speech service. Your model information is **not** used outside of your own service. 
 
 In order to complete the use of Speech priming, you need the following information to use in the [Speech SDK](../speech-service/speech-sdk-reference.md):
-* A LUIS subscription key.
+* A LUIS endpoint key.
 * The LUIS app ID.
 * An endpoint domain, referred to as "Hostname" in Speech SDK, such as "westus.api.cognitive.microsoft.com," where the first subdomain is the region where the app is published.
 

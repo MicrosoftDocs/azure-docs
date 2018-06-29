@@ -167,7 +167,7 @@ Explore the following areas of technologies and solutions, or see the Table of C
 [lnk-iot-edge-land]: /azure/iot-edge/index.yml
 [lnk-iot-hub-land]: /azure/iot-hub/index.md
 [lnk-iot-maps-land]: /azure/maps/index.yml
-[lnk-iot-sa-land]: ../iot-accelerators/index.md
+[lnk-iot-sa-land]: ../iot-accelerators/index.yml
 [lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
 
 [lnk-iot-hub]: ../iot-hub/about-iot-hub.md

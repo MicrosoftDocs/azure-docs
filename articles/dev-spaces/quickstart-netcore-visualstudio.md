@@ -33,7 +33,7 @@ In this guide, you will learn how to:
 
 ## Set up Azure Dev Spaces
 
-Install the [Visual Studio extension for Azure Dev Spaces](https://aka.ms/get-azds-visualstudio).
+Install [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio).
 
 ## Connect to a cluster
 
@@ -79,9 +79,34 @@ While you wait for the dev space to be created, look at the files that have been
 ## Debug a container in Kubernetes
 Once the dev space is successfully created, you can debug the application. Set a breakpoint in the code, for example on line 20 in the file `HomeController.cs` where the `Message` variable is set. Click **F5** to start debugging. 
 
-Visual Studio will communicate with the dev space to build and deploy the application and then open a browser with the web app running. It might seem like the container is running locally, but actually it's running in the dev space in Azure. The reason for the localhost address is because Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure.
+Visual Studio will communicate with the dev space to build and deploy the application and then open a browser with the web app running. It might seem like the container is running locally, but actually it's running in the dev space in Azure. The reason for the localhost address is because Azure Dev Spaces creates a temporary SSH tunnel to the container running in AKS.
 
 Click on the **About** link at the top of the page to trigger the breakpoint. You have full access to debug information just like you would if the code was executing locally, such as the call stack, local variables, exception information, and so on.
+
+
+## Iteratively develop code
+
+Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
+
+### Update a content file
+1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change line 70 that reads `<h2>Application uses</h2>` to something like: `<h2>Hello k8s in Azure!</h2>`
+1. Save the file.
+1. Go to your browser and refresh the page. You should see the web page display the updated HTML.
+
+What happened? Edits to content files, like HTML and CSS, don't require recompilation in a .NET Core web app, so an active F5 session automatically syncs any modified content files into the running container in AKS, so you can see your content edits right away.
+
+### Update a code file
+Updating code files requires a little more work, because a .NET Core app needs to rebuild and produce updated application binaries.
+
+1. Stop the debugger in Visual Studio.
+1. Open the code file named `Controllers/HomeController.cs`, and edit the message that the About page will display: `ViewData["Message"] = "Your application description page.";`
+1. Save the file.
+1. Press **F5** to start debugging again. 
+
+Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will incrementally recompile code within the existing container to provide a faster edit/debug loop.
+
+Refresh the web app in the browser, and go to the About page. You should see your custom message appear in the UI.
+
 
 ## Next steps
 
