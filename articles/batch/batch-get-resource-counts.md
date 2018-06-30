@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 06/29/2018
 ms.author: danlep
 
 ---
@@ -78,12 +78,45 @@ The List Pool Node Counts operation counts compute nodes by the following states
 - **Unusable** - A node that can't be used for task execution because of errors.
 - **WaitingForStartTask** - A node on with the start task started running, but `waitForSuccess` is set and the start task has not completed.
 
-The following C# snippet shows how to retrieve node counts by state:
+The following C# snippet shows how to list node counts for all pools in thte current account:
 
 ```csharp
-var nodeCounts = batchClient.PoolOperations.ListPoolNodeCounts();
-[ADD CODE SNIP HERE]
-...
+foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
+{
+    Console.WriteLine("Pool Id: {0}", nodeCounts.PoolId);
+
+    Console.WriteLine("Total dedicated node count: {0}", nodeCounts.Dedicated.Total);
+
+    // Get dedicated node counts in Idle and Offline states; you can get additional states.
+    Console.WriteLine("Dedicated node count in Idle state: {0}", nodeCounts.Dedicated.Idle);
+    Console.WriteLine("Dedicated node count in Offline state: {0}", nodeCounts.Dedicated.Offline);
+
+    Console.WriteLine("Total low priority node count: {0}", nodeCounts.LowPriority.Total);
+
+    // Get low-priority node counts in Running and Preempted states; you can get additional states.
+    Console.WriteLine("Low-priority node count in Running state: {0}", nodeCounts.LowPriority.Running);
+    Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
+}
+```
+The following C# snippet shows how to  list node counts for a given pool in the current account.
+
+```csharp
+foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODATADetailLevel(filterClause: "poolId eq 'testpool'")))
+{
+    Console.WriteLine("Pool Id: {0}", nodeCounts.PoolId);
+
+    Console.WriteLine("Total dedicated node count: {0}", nodeCounts.Dedicated.Total);
+
+    // Get dedicated node counts in Idle and Offline states; you can get additional states.
+    Console.WriteLine("Dedicated node count in Idle state: {0}", nodeCounts.Dedicated.Idle);
+    Console.WriteLine("Dedicated node count in Offline state: {0}", nodeCounts.Dedicated.Offline);
+
+    Console.WriteLine("Total low priority node count: {0}", nodeCounts.LowPriority.Total);
+
+    // Get low-priority node counts in Running and Preempted states; you can get additional states.
+    Console.WriteLine("Low-priority node count in Running state: {0}", nodeCounts.LowPriority.Running);
+    Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
+}
 ```
 You can use a similar pattern for REST and other supported languages to get node counts for pools.
  
