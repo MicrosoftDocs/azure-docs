@@ -158,8 +158,9 @@ Use the information in the following table to configure the **Settings** for the
 
 |Setting  |Value  |
 |---------|---------|
-|**Subnet**|**Workload-SN**|
-|**Select public inbound ports**|**No public inbound ports**|
+|Subnet|Workload-SN|
+|Pubic IP address|None|
+|Select public inbound ports|No public inbound ports|
 
 
 ## Create the firewall
@@ -176,7 +177,7 @@ Use the information in the following table to configure the **Settings** for the
    |Resource group     |**Use existing**: Test-FW-RG |
    |Location     |West Central US|
    |Choose a virtual network     |**Use existing**: Test-FW-VN|
-   |Public IP address     |**Create new**|
+   |Public IP address     |Create new|
 
 2. Click **Review + create**.
 3. Review the summary, and then click **Create** to create the firewall.
