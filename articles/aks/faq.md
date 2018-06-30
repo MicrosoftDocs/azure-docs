@@ -2,13 +2,13 @@
 title: Frequently asked questions for Azure Kubernetes Service
 description: Provides answers to some of the common questions about Azure Kubernetes Service.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 6/25/2018
-ms.author: nepeters
+ms.author: iainfou
 ---
 
 # Frequently asked questions about Azure Kubernetes Service (AKS)
@@ -54,7 +54,7 @@ AKS supports the following [admission controllers][admission-controllers]:
 * ServiceAccount
 * DefaultStorageClass
 * DefaultTolerationSeconds
-* MutatingAdmissionWebhook 
+* MutatingAdmissionWebhook
 * ValidatingAdmissionWebhook
 * ResourceQuota
 * DenyEscalatingExec

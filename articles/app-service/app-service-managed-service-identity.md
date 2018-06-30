@@ -225,7 +225,7 @@ Content-Type: application/json
 ```
 
 ### Code examples
-To make this request in C#:
+<a name="token-csharp"></a>To make this request in C#:
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -236,7 +236,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 > [!TIP]
 > For .NET languages, you can also use [Microsoft.Azure.Services.AppAuthentication](#asal) instead of crafting this request yourself.
 
-In Node.JS:
+<a name="token-js"></a>In Node.JS:
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -251,7 +251,7 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
-In PowerShell:
+<a name="token-powershell"></a>In PowerShell:
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
