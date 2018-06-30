@@ -133,4 +133,8 @@ The following considerations apply:
 
 ## Next steps
 
-[Protect with AES encryption](protect-with-aes128.md)
+[How to protect with AES encryption in Media Services v3](protect-with-aes128.md)
+
+Additional information can be found in [DRM reference design and implementation](../previous/media-services-cenc-with-multidrm-access-control.md)
+
+
