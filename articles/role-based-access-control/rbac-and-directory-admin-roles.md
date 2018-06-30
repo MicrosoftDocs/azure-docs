@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 06/29/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
@@ -86,9 +86,9 @@ Azure AD administrator roles are used to manage Azure AD resources in a director
 
 | Azure AD administrator role | Permissions | Notes |
 | --- | --- | --- |
-| [Global administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) | <ul><li>Manage access to all administrative features in Azure Active Directory, as well as services that federate to Azure Active Directory</li><li>Assign administrator roles to others</li><li>Reset the password for any user and all other administrators</li></ul> | The person who signs up for the Azure Active Directory tenant becomes a Global administrator. |
+| [Global administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#company-administrator) | <ul><li>Manage access to all administrative features in Azure Active Directory, as well as services that federate to Azure Active Directory</li><li>Assign administrator roles to others</li><li>Reset the password for any user and all other administrators</li></ul> | The person who signs up for the Azure Active Directory tenant becomes a Global administrator. |
 | [User administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#user-account-administrator) | <ul><li>Create and manage all aspects of users and groups</li><li>Manage support tickets</li><li>Monitor service health</li><li>Change passwords for users, Helpdesk administrators, and other User administrators</li></ul> |  |
-| [Password administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#password-administrator--helpdesk-administrator) | <ul><li>Change passwords for users and other Helpdesk administrators</li><li>Manage service requests</li><li>Monitor service health</li></ul> |  |
+| [Helpdesk administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#helpdesk-administrator) | <ul><li>Change passwords for users and other Helpdesk administrators</li><li>Manage service requests</li><li>Monitor service health</li></ul> |  |
 | [Billing administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#billing-administrator) | <ul><li>Make purchases</li><li>Manage subscriptions</li><li>Manage support tickets</li><li>Monitors service health</li></ul> |  |
 
 For a list of all the Azure AD administrator roles, see [Assigning administrator roles in Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
