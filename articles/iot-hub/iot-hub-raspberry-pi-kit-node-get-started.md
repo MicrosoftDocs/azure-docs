@@ -67,6 +67,7 @@ The following items are optional:
 Prepare the microSD card for installation of the Raspbian image.
 
 1. Download Raspbian.
+
    a. [Download Raspbian Stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (the .zip file).
 
    > [!WARNING]
@@ -75,17 +76,25 @@ Prepare the microSD card for installation of the Raspbian image.
    b. Extract the Raspbian image to a folder on your computer.
 
 2. Install Raspbian to the microSD card.
+
    a. [Download and install the Etcher SD card burner utility](https://etcher.io/).
+
    b. Run Etcher and select the Raspbian image that you extracted in step 1.
+
    c. Select the microSD card drive. Etcher may have already selected the correct drive.
+
    d. Click Flash to install Raspbian to the microSD card.
+
    e. Remove the microSD card from your computer when installation is complete. It's safe to remove the microSD card directly because Etcher automatically ejects or unmounts the microSD card upon completion.
+
    f. Insert the microSD card into Pi.
 
 ### Enable SSH and I2C
 
 1. Connect Pi to the monitor, keyboard, and mouse. 
+
 2. Start Pi and then log in Raspbian by using `pi` as the user name and `raspberry` as the password.
+
 3. Click the Raspberry icon > **Preferences** > **Raspberry Pi Configuration**.
 
    ![The Raspbian Preferences menu](media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
@@ -140,6 +149,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    **Windows Users**
   
    a. Download and install [PuTTY](http://www.putty.org/) for Windows. 
+
    b. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
    
    ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
@@ -147,6 +157,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    **Mac and Ubuntu Users**
    
    Use the built-in SSH client on Ubuntu or macOS. You might need to run `ssh pi@<ip address of pi>` to connect Pi via SSH.
+
    > [!NOTE] 
    > The default username is `pi` and the password is `raspberry`.
 
@@ -178,7 +189,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    sudo npm install
    ```
    > [!NOTE] 
-   It might take several minutes to finish this installation process depending on your network connection.
+   >It might take several minutes to finish this installation process depending on your network connection.
 
 ### Configure the sample application
 
