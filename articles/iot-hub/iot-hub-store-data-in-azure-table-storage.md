@@ -14,7 +14,7 @@ ms.author: rangv
 
 # Save IoT hub messages that contain sensor data to your Azure blob storage
 
-![End-to-end diagram](media/iot-hub-store-data-in-azure-table-storage/1_route-to-storage.png)
+![End-to-end diagram](./media/iot-hub-store-data-in-azure-table-storage/1_route-to-storage.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -36,13 +36,25 @@ You learn how to create an Azure storage account and an Azure function app to st
 
 ## Create an Azure storage account
 
-1. In the [Azure portal](https://portal.azure.com/), click **Create a resource** > **Storage** > **Storage account** > **Create**.
+1. In the [Azure portal](https://portal.azure.com/), click **Create a resource** > **Storage** > **Storage account**.
 
 2. Enter the necessary information for the storage account:
 
-   ![Create a storage account in the Azure portal](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
+   ![Create a storage account in the Azure portal](./media/iot-hub-store-data-in-azure-table-storage/1_azure-portal-create-storage-account.png)
 
    * **Name**: The name of the storage account. The name must be globally unique.
+
+   * **Account Kind**: Choose `Storage (general purpose v1)`.
+
+   * **Location**: Choose the same location that your IoT hub uses.
+
+   * **Replication**: Choose `Locally-redundant storage (LRS)`.
+
+   * **Performance**: Choose `Standard`.
+
+   * **Secure transfer required**: Choose `Disabled`.
+
+   * **Subscription**: Select your Azure subscription.
 
    * **Resource group**: Use the same resource group that your IoT hub uses.
 
@@ -64,7 +76,7 @@ IoT Hub natively supports routing messages to Azure storage as blobs. To know mo
 
 4. Use the picker to select the storage account you created in the previous section. Create a storage container and select it, then click **OK**.
 
-   ![Create a custom endpoint in IoT Hub](media\iot-hub-store-data-in-azure-table-storage\2_custom-storage-endpoint.png)
+   ![Create a custom endpoint in IoT Hub](./media/iot-hub-store-data-in-azure-table-storage/2_custom-storage-endpoint.png)
 
 ### Add a route to route data to storage
 
@@ -74,7 +86,7 @@ IoT Hub natively supports routing messages to Azure storage as blobs. To know mo
 
 3. Enter `true` as the query string, then click **Save**.
 
-   ![Create a route in IoT Hub](media\iot-hub-store-data-in-azure-table-storage\3_create-route.png)
+   ![Create a route in IoT Hub](./media/iot-hub-store-data-in-azure-table-storage/3_create-route.png)
   
 ### Add a route for hot path telemetry (optional)
 
@@ -89,7 +101,7 @@ By default, IoT Hub routes all messages which do not match any other routes to t
 
 3. Enter `true` as the query string, then click **Save**.
 
-  ![Create a hot-path route in IoT Hub](media\iot-hub-store-data-in-azure-table-storage\4_hot-path-route.png)
+  ![Create a hot-path route in IoT Hub](./media/iot-hub-store-data-in-azure-table-storage/4_hot-path-route.png)
 
 ## Verify your message in your storage container
 
@@ -118,7 +130,7 @@ In this tutorial, you added a storage account, and then added routing for messag
 
 4. In the IoT Hub pane, click **Routes**. Click the checkbox next to the routing rule you added, then click **Delete**. When asked if you're sure you want to delete that route, click **Yes**.
 
-   ![Remove routing rule](media\iot-hub-store-data-in-azure-table-storage\cleanup-remove-routing.png)
+   ![Remove routing rule](./media/iot-hub-store-data-in-azure-table-storage/cleanup-remove-routing.png)
 
    Close the Routing pane. You are returned to the Resource Group pane.
 
@@ -126,7 +138,7 @@ In this tutorial, you added a storage account, and then added routing for messag
 
 6. In the IoT Hub pane, click **Endpoints**. Click the checkbox next to the endpoint you added for the storage container, then click **Delete**. 
 
-    ![Remove endpoint](media\iot-hub-store-data-in-azure-table-storage\cleanup-remove-endpoint.png)
+    ![Remove endpoint](./media/iot-hub-store-data-in-azure-table-storage/cleanup-remove-endpoint.png)
 
     Close the Endpoints pane. You are returned to the Resource Group pane. 
 
