@@ -343,7 +343,7 @@ Example:
 |id|The face ID.|
 |name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
-|description|If it is a celebrity, its description might be: "Satya Nadella was born at...". |
+|description|A description of the celebrity. |
 |thumbnalId|The ID of the thumbnail of that face.|
 |knownPersonId|If it is a known person, its internal ID.|
 |referenceId|If it is a Bing celebrity, its Bing ID.|
