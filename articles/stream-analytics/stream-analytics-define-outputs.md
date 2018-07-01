@@ -78,93 +78,19 @@ Blob storage offers a cost-effective and scalable solution for storing large amo
 
 The table below lists the property names and their description for creating a blob output.
 
-<table>
-   <tbody>
-      <tr>
-        <th>Property name</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-         <th>Output Alias</th>
-         <td>A friendly name used in queries to direct the query output to this blob storage.</td>
-      </tr>
-      <tr>
-         <th>Storage Account</th>
-         <td>The name of the storage account where you are sending your output.</td>
-      </tr>
-      <tr>
-         <th>Storage Account Key</th>
-         <td>The secret key associated with the storage account.</td>
-      </tr>
-      <tr>
-         <th>Storage Container</th>
-         <td>Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob.</td>
-      </tr>
-      <tr>
-         <th>Path Pattern</th>
-         <td>Optional. The file path pattern used to write your blobs within the specified container.
-
-In the path pattern, you may choose to use one or more instances of the date time variables to specify the frequency that blobs are written: <br /> {date}, {time} 
-
-If you are signed up for the [preview](https://aka.ms/ASAPreview), you may also specify one custom {field} name from your event data to partition blobs by, where the field name is alphanumeric and can include spaces, hyphens, and underscores. Restrictions on custom fields include the following: 
-<ul>
-   <li>Case insensitivity (cannot differentiate between column "ID" and column "id")</li>
-   <li>Nested fields are not permitted (instead use an alias in the job query to "flatten" the field)</li><li>Expressions cannot be used as a field name.</li>
-</ul> 
-
-Also enabled by the preview is the use of custom date/time format specifier configurations in the path. Custom date and time formats must be specified one at a time, enclosed by the {datetime:\<specifier>} keyword. Allowable inputs \<specifier> are yyyy, MM, M, dd, d, HH, H, mm, m, ss, or s. The {datetime:\<specifier>} keyword may be used multiple times in the path to form custom date/time configurations. 
-
-Examples: 
-<ul>
-   <li>Example 1: cluster1/logs/{date}/{time}</li>
-   <li>Example 2: cluster1/logs/{date}</li>
-   <li>Example 3 (preview): cluster1/{client_id}/{date}/{time}</li>
-   <li>Example 4 (preview): cluster1/{datetime:ss}/{myField} where the query is: SELECT data.myField AS myField FROM Input;</li>
-   <li>Example 5 (preview): cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}
-</ul>
-
-The timestamp of the folder structure created follows UTC and not local time.
-
-File naming follows the following convention: 
-
-{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension
-
-Example output files: 
-
-<ul>
-   <li>Myoutput/20170901/00/45434_gguid_1.csv</li>
-   <li>Myoutput/20170901/01/45434_gguid_1.csv</li>
-</ul>
-</td>
-</tr>
-<tr>
-   <th>Date format</th>
-   <td>Optional. If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD</td>
-   </tr>
-   <tr>
-   <th>Time format</th>
-   <td>Optional. If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH.</td>
-   </tr>
-   <tr>
-   <th>Event serialization format</th>
-   <td>Serialization format for output data.  JSON, CSV, and Avro are supported.</td>
-   </tr>
-   <tr>
-   <th>Encoding</th>
-   <td>If using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.</td>
-   </tr>
-   <tr>
-   <th>Delimiter</th>
-   <td>Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab, and vertical bar.</td>
-   </tr>
-   <tr>
-   <th>Format</th>
-   <td>
-      Only applicable for JSON serialization. Line separated specifies that the output is formatted by having each JSON object separated by a new line. Array specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to.
-   </td>
-   </tr>
-</tbody>
-</table>
+| Property name       | Description                                                                      |
+| ------------------- | ---------------------------------------------------------------------------------|
+| Output Alias        | A friendly name used in queries to direct the query output to this blob storage. |
+| Storage Account     | The name of the storage account where you are sending your output.               |
+| Storage Account Key | The secret key associated with the storage account.                              |
+| Storage Container   | Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob. |
+| Path Pattern | Optional. The file path pattern used to write your blobs within the specified container. <br /><br /> In the path pattern, you may choose to use one or more instances of the date time variables to specify the frequency that blobs are written: <br /> {date}, {time} <br /><br />If you are signed up for the [preview](https://aka.ms/ASAPreview), you may also specify one custom {field} name from your event data to partition blobs by, where the field name is alphanumeric and can include spaces, hyphens, and underscores. Restrictions on custom fields include the following: <ul><li>Case insensitivity (cannot differentiate between column "ID" and column "id")</li><li>Nested fields are not permitted (instead use an alias in the job query to "flatten" the field)</li><li>Expressions cannot be used as a field name.</li></ul> <br /><br /> Also enabled by the preview is the use of custom date/time format specifier configurations in the path. Custom date and time formats must be specified one at a time, enclosed by the {datetime:\<specifier>} keyword. Allowable inputs \<specifier> are yyyy, MM, M, dd, d, HH, H, mm, m, ss, or s. The {datetime:\<specifier>} keyword may be used multiple times in the path to form custom date/time configurations. <br /><br />Examples: <ul><li>Example 1: cluster1/logs/{date}/{time}</li><li>Example 2: cluster1/logs/{date}</li><li>Example 3 (preview): cluster1/{client_id}/{date}/{time}</li><li>Example 4 (preview): cluster1/{datetime:ss}/{myField} where the query is: SELECT data.myField AS myField FROM Input;</li><li>Example 5 (preview): cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br /><br />The timestamp of the folder structure created follows UTC and not local time.<br /><br/>File naming follows the following convention: <br /><br />{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension<br /><br />Example output files:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> |
+| Date format | Optional. If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD |
+| Time format | Optional. If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH. |
+| Event serialization format | Serialization format for output data.  JSON, CSV, and Avro are supported. |
+| Encoding    | If using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time. |
+| Delimiter   | Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab, and vertical bar. |
+| Format      | Only applicable for JSON serialization. Line separated specifies that the output is formatted by having each JSON object separated by a new line. Array specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to. |
 
 When using blob storage as output, a new file is created in the blob in the following cases:
 
