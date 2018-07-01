@@ -108,7 +108,7 @@ This section shows the summary of the insights.
 |processingProgress|The processing progress during processing (for example, 20%).|
 |failureCode|The failure code if failed to process (for example, 'UnsupportedFileType').|
 |failureMessage|The failure message if failed to process.|
-|externalId|The video's external id (if specified by the user).|
+|externalId|The video's external ID (if specified by the user).|
 |externalUrl|The video's external url (if specified by the user).|
 |metadata|The video's external metadata (if specified by the user).|
 |isAdult|Whether the video was manually reviewed and identified as an adult video.|
@@ -292,7 +292,7 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The keyword id.|
+|id|The keyword ID.|
 |text|The keyword text.|
 |confidence|The keyword's recognition confidence.|
 |language|The keyword language (when translated).|
@@ -344,7 +344,7 @@ Example:
 |name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
 |description|If it is a celebrity, its description might be: "Satya Nadella was born at...". |
-|thumbnalId|The id of the thumbnail of that face.|
+|thumbnalId|The ID of the thumbnail of that face.|
 |knownPersonId|If it is a known person, its internal ID.|
 |referenceId|If it is a Bing celebrity, its Bing ID.|
 |referenceType|Currently just Bing.|
