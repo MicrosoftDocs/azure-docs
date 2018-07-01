@@ -59,7 +59,7 @@ The disadvantages of this architecture are:
 * It will be hard to separate the data between the customers. The only good method to do so is to use the computer's domain name.
 * All data from all customers will be stored in the same region with a single bill and same retention and configuration settings.
 * Azure fabric and PaaS services such as Azure Diagnostics and Azure Auditing requires the workspace to be in the same tenant as the resource thus they cannot send the logs to the central workspace.
-* All VM agents from all customers will be authenticated to the cental workspace using the same workspace ID and key. There is no method to block logs from a specific customer without intrupting to other customers.
+* All VM agents from all customers will be authenticated to the cental workspace using the same workspace ID and key. There is no method to block logs from a specific customer without interrupting other customers.
 
 
 ### 3. Hybrid - Logs are stored in workspace located in the customer's tenant and some of them are pulled to a central location.
