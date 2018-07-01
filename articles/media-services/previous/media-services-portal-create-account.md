@@ -27,7 +27,7 @@ ms.author: juliako
 > 
 > 
 
-The Azure portal provides a way to quickly create an Azure Media Services (AMS) account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure. At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account.
+The Azure portal provides a way to quickly create an Azure Media Services (AMS) account. You can use your account to access Media Services that enable you to store, encrypt, encode, manage, and stream media content in Azure. At the time you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account. Media Services supports General Purpose v1 or General Purpose v2 storage accounts as the primary. Currently, the Azure portal only allows picking v1 but you can add v2 when creating you account using the API or Powershell.  
 
 This article explains some common concepts and shows how to create a Media Services account with the Azure portal.
 
