@@ -54,7 +54,7 @@ Use service principal authentication by specifying the following properties:
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Specify the application's client ID.     | Yes      |
 | **servicePrincipalKey** | Specify the application's key.           | Yes      |
-| **tenant**              | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes      |
+| **tenant**              | Specify the tenant information (tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes      |
 
 **Example: Service principal authentication**
 ```json
