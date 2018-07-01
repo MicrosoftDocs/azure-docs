@@ -44,10 +44,11 @@ ms.author: rkarlin
 
 
 
-## Next steps
+## See also
+To learn more about Security Center, see the following:
 
-- To get started with Security Center, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
 - Security Center’s Free pricing tier is enabled with your Azure subscription. To take advantage of advanced security management and threat detection capabilities, you must upgrade to the Standard pricing tier. The Standard tier is free for the first 60 days. See the [Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
 - If you’re ready to enable Security Center Standard now, the [Quickstart: Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through the steps.
 
+- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
 
