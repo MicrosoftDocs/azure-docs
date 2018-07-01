@@ -161,6 +161,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |transcript|The [transcript](#transcript) dimension.|
 |ocr|The [ocr](#ocr) dimension.|
 |keywords|The [keywords](#keywords) dimension.|
+| blocks|May contain one or more [blocks](#blocks)|
 |faces|The [faces](#faces) dimension.|
 |labels|The [labels](#labels) dimension.|
 |shots|The [shots](#shots) dimension.|
@@ -190,6 +191,21 @@ Example:
   "textualConentModeration": ...
 }
 ```
+
+#### blocks
+
+Attribute | Description
+---|---
+id|ID of the block.
+lines|May contain one or more [lines](#lines)
+sentimentIds|The **sentimentIds** attribute is reserved for future use.
+thumbnailIds|The **thumbnailIds** attribute is reserved for future use.
+sentiment|The sentiment in the block (0-1, negative to positive).
+faces|May contain one or more [faces](#faces).
+ocrs|May contain one or more [ocrs](#ocrs).
+audioEffectInstances|May contain one or more [audioEffectInstances](#audioEffectInstances).
+scenes|May contain one or more [scenes](#scenes).
+annotations|May contain zero or more [annotations](#annotations).
 
 #### transcript
 
