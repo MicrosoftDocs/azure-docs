@@ -55,7 +55,7 @@ This issue can occur with version 1.x agent and if the IIS website default name 
 
 <a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
 If a server is not listed under **Registered servers** for a Storage Sync Service:
-1. Log in to the server that you want to register.
+1. Sign in to the server that you want to register.
 2. Open File Explorer, and then go to the Storage Sync Agent installation directory (the default location is C:\Program Files\Azure\StorageSyncAgent). 
 3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
 
@@ -124,18 +124,25 @@ This issue can occur if a management operation on the server endpoint fails. If 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 # Get the server endpoint id based on the server endpoint DisplayName property
-Get-AzureRmStorageSyncServerEndpoint -SubscriptionId mysubguid -ResourceGroupName myrgname -StorageSyncServiceName storagesvcname -SyncGroupName mysyncgroup
+Get-AzureRmStorageSyncServerEndpoint `
+    -SubscriptionId mysubguid `
+    -ResourceGroupName myrgname `
+    -StorageSyncServiceName storagesvcname `
+    -SyncGroupName mysyncgroup
 
 # Update the free space percent policy for the server endpoint
-Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -VolumeFreeSpacePercent 60
+Set-AzureRmStorageSyncServerEndpoint `
+    -Id serverendpointid `
+    -CloudTiering true `
+    -VolumeFreeSpacePercent 60
 ```
 
 ## Sync
 ### How do I monitor sync health?
-#### Method 1 - Azure Portal
+#### Method 1 - Azure portal
 Within each sync group, you can drill down into its individual server endpoints to see the status of the last completed sync sessions. A green Health column and a Files Not Syncing value of 0 indicate that sync is working as expected. If this is not the case, see below for a list of common sync errors and how to handle files that are not syncing. 
 
-![A screenshot of the Azure Portal](media/storage-sync-files-troubleshoot/portal-sync-health.png)
+![A screenshot of the Azure portal](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
 #### Method 2 - Server
 Go to the server's telemetry logs, which can be found in the Event Viewer at `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Event 9102 corresponds to a completed sync session; for the latest status of sync, look for the most recent event with ID 9102. SyncDirection tells you if it this session was an upload or download. If the HResult is 0, then the sync session was successful. A non-zero HResult means that there was an error during sync; see below for a list of common errors. If the PerItemErrorCount is greater than 0, this means that some files or folders did not sync properly. Note that it is possible to have an HResult of 0 but a PerItemErrorCount that is greater than 0.
@@ -167,7 +174,7 @@ TransferredFiles: 0, TransferredBytes: 0, FailedToTransferFiles: 0, FailedToTran
 Sometimes sync sessions fail overall or have a non-zero PerItemErrorCount but still make forward progress, with some files syncing successfully. This can be seen in the Applied* fields (AppliedFileCount, AppliedDirCount, AppliedTombstoneCount, and AppliedSizeBytes), which tell you how much of the session is succeeding. If you see multiple sync sessions in a row that are failing but have an increasing Applied* count, then you should give sync time to try again before opening a support ticket.
 
 ### How do I monitor the progress of a current sync session?
-#### Method 1 - Azure Portal
+#### Method 1 - Azure portal
 For each server in a given sync group, make sure:
 1. The timestamps for the Last Attempted Sync for both upload and download are recent.
 2. The status is green for both upload and download.
@@ -175,13 +182,13 @@ For each server in a given sync group, make sure:
 4. The Files Not Syncing field is 0 for both upload and download.
 
 #### Method 2 - Server
-Look at the completed sync sessions, which are marked by 9102 events in the telemetry event log on each server (in the Event Viewer, go to `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`). 
+Look at the completed sync sessions, which are marked by 9102 events in the telemetry event log for each server (in the Event Viewer, go to `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`). 
 
 1. On any given server, you want to make sure the latest upload and download sessions completed successfully. To do this, check that the HResult and PerItemErrorCount are 0 for both upload and download (the SyncDirection field indicates if a given session is an upload or download session). Note that if you do not see a recently completed sync session, it is likely a sync session is currently in progress, which is to be expected if you just added or modified a large amount of data.
-2. When a server is fully up to date with the cloud and has no changes to sync in either direction, you will see empty sync sessions. These are indicated by upload and download events in which all the Sync* fields (SyncFileCount, SyncDirCount, SyncTombstoneCount, and SyncSizeBytes) are zero, meaning there was nothing to sync. Note that these empty sync sessions may not occur on high-churn servers as there is always something new to sync. If there is no sync activity, they should occur every 30 minutes. 
-3. If all servers are up to date with the cloud, meaning their recent upload and download sessions are empty sync sessions, you can say with reasonable certainty that the system as a whole is in sync. 
+2. When a server is fully up-to-date with the cloud and has no changes to sync in either direction, you will see empty sync sessions. These are indicated by upload and download events in which all the Sync* fields (SyncFileCount, SyncDirCount, SyncTombstoneCount, and SyncSizeBytes) are zero, meaning there was nothing to sync. Note that these empty sync sessions may not occur on high-churn servers as there is always something new to sync. If there is no sync activity, they should occur every 30 minutes. 
+3. If all servers are up-to-date with the cloud, meaning their recent upload and download sessions are empty sync sessions, you can say with reasonable certainty that the system as a whole is in sync. 
 	
-Note that if you made changes directly in your Azure file share, Azure File Sync will not detect this change until change enumeration runs, which happens once every 24 hours. It is possible that a server will say it is up to date with the cloud when it is in fact missing recent changes made directly in the Azure file share. 
+Note that if you made changes directly in your Azure file share, Azure File Sync will not detect this change until change enumeration runs, which happens once every 24 hours. It is possible that a server will say it is up-to-date with the cloud when it is in fact missing recent changes made directly in the Azure file share. 
 
 ### How do I see if there are specific files or folders that are not syncing?
 If your PerItemErrorCount on the server or Files Not Syncing count in the portal are greater than 0 for any given sync session, that means some items are failing to sync. Files and folders can have characteristics that prevent them from syncing. These characteristics can be persistent and require explicit action to resume sync, for example removing unsupported characters from the file or folder name. They can also be transient, meaning the file or folder will automatically resume sync; for example, files with open handles will automatically resume sync when the file is closed. When the Azure File Sync engine detects such a problem, an error log is produced that can be parsed to list the items currently not syncing properly.
@@ -204,7 +211,7 @@ To see these errors, run the "FileSyncErrorsReport.ps1" PowerShell script (locat
 **Telemetry log - overall sync sessions errors**  
 | HRESULT | HRESULT (decimal) | Error string | Issue | Remediation |
 |---------|-------------------|--------------|-------|-------------|
-| 0x800704c7 | -2147023673 | ERROR_CANCELLED | The sync session was cancelled. | Sync sessions can be cancelled for various reasons that include the server being restarted, or VSS snapshots being taken. This error can be ignored unless they persist for longer than a couple hours. |
+| 0x800704c7 | -2147023673 | ERROR_CANCELLED | The sync session was canceled. | Sync sessions can be canceled for various reasons that include the server being restarted, or VSS snapshots being taken. This error can be ignored unless they persist for longer than a couple hours. |
 | 0x80072ee7 | -2147012889 | WININET_E_NAME_NOT_RESOLVED | A connection with the service could not be established. | <ol><li>Check to make sure your server is online.</li><li>Verify that the service 'FileSyncSvc.exe' is not blocked by your firewall.</li><li>Verify that port 443 is open to outgoing connections.</li><li>Contact your network administrator for additional assistance.</li></ol> |
 | 0x80c8004c | -2134376372 | ECS_E_USER_REQUEST_THROTTLED | The user request was throttled by the service. | No action is required; the server will try again. Only if this error persists for longer than a couple hours, create a support request. |
 | 0x80c8305f | -2134364065 | ECS_E_CANNOT_ACCESS_EXTERNAL_STORAGE_ACCOUNT (CannotAccessExternalStorageAccount) | Sync can't access the Azure file share specified in the Cloud Endpoint. | <ol><li>Make sure the Azure file share still exists.</li><li>Ensure the Azure subscription containing the file share is not suspended.</li><li>Ensure access from all networks to the storage account is allowed. Azure File Sync does not yet support firewalls and virtual networks for a storage account.</li><li>Ensure Azure File Sync has access to the storage account. You can check this in the 'Access Control (IAM)' tab within the storage account. Microsoft.StorageSync must be assigned to the "reader and data access" role for this storage account.</li></ol> |
@@ -281,7 +288,7 @@ This issue is expected if you create a cloud endpoint and use an Azure file shar
 > [!NOTE]
 > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
     
-We currently do not support resource move to another subscription or, moving to a different Azure AD tenant.  If the subscription moves to a different tenant, the Azure file share becomes inaccessible to our service based on the change in ownership. If the tenant is changed, you will need to delete the server endpoints and the cloud endpoint (see Sync Group Management section for instructions how to clean the Azure file share to be re-used) and recreate the sync group.
+We currently do not support resource move to another subscription or, moving to a different Azure AD tenant. If the subscription moves to a different tenant, the Azure file share becomes inaccessible to our service based on the change in ownership. If the tenant is changed, you will need to delete the server endpoints and the cloud endpoint (see Sync Group Management section for instructions how to clean the Azure file share to be re-used) and recreate the sync group.
 
 <a id="cannot-resolve-storage"></a>**Sync fails, with this error: ": 0x80C83060 - error -2134364064 The storage account name used could not be resolved**
 This error can occur for two possible reasons:
@@ -293,7 +300,7 @@ This error can occur for two possible reasons:
 2. Under the Access Control (IAM) tab on the storage account, make sure the built-in user **Hybrid File Sync Service** is assigned to the built-in role **Reader and Data Access** and then verify sync is working.
 
 <a id="doesnt-have-enough-free-space"></a>**This PC doesn't have enough free space error**  
-If the portal shows the status "This PC doesn't have enough free space" the issue could be that less than 1 GB of free space remains on the volume.  For example, if there is a 1.5GB volume, sync will only be able to utilize .5GB   If you hit this issue, please expand the size of the volume being used for the server endpoint.
+If the portal shows the status "This PC doesn't have enough free space" the issue could be that less than 1 GB of free space remains on the volume. For example, if there is a 1.5 GB volume, sync will only be able to utilize 5 GB. If you hit this issue, please expand the size of the volume being used for the server endpoint.
 
 ## Cloud tiering 
 There are two paths for failures in cloud tiering:
