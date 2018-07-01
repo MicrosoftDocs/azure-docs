@@ -55,11 +55,11 @@ If the feature is approved and properly registered, you should receive the "Regi
 
 To submit a request: 
 ```cli
-az feature register –-namespace Microsoft.Storage –-name DLM
+az feature register --namespace Microsoft.Storage --name DLM
 ```
 You can check the registration approval status with the following command:
 ```cli
--az feature show –-namespace Microsoft.Storage –-name DLM
+az feature show --namespace Microsoft.Storage --name DLM
 ```
 If the feature is approved and properly registered, you should receive the "Registered" state. 
 
