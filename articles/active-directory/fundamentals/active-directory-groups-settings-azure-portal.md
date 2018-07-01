@@ -1,24 +1,21 @@
 ---
-
-title: Manage group properties in Azure Active Directory | Microsoft Docs
+title: Manage group properties in Azure AD | Microsoft Docs
 description: How to edit the properties and other configuration settings for a group in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/01/2017
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: krbain
-
 ms.custom: it-pro
-
 ---
+
 # Manage the settings for a group in Azure Active Directory
 This article explains how to change the settings for a group in Azure Active Directory (Azure AD).
 

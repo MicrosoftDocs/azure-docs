@@ -31,9 +31,7 @@ When using Microsoft Cloud Germany, you must be aware of the following:
   * *.windows.net
   * * Certificate Revocation Lists
 * When you sign in to your Azure AD directory, you must use an account in the onmicrosoft.de domain.
-* The following features are not available:
-  * Azure AD Connect Health
-  * Automatic updates
+
  
 ## Download
 You can download Azure AD Connect from the Azure AD Connect blade within the portal.  Use the instructions below to locate the Azure AD Connect blade.

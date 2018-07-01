@@ -12,6 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: protection
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim

@@ -1,22 +1,21 @@
 ---
-title: 'How to get support for Azure Active Directory | Microsoft Docs'
+title: Get support for Azure AD | Microsoft Docs
 description: How to get support for Azure Active Directory
 services: active-directory
 documentationcenter: na
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.component: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-
 ---
+
 # How to get support for Azure Active Directory
 
 

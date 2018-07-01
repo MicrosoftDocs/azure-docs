@@ -22,7 +22,7 @@ To build this example, you need the Custom Vision SDK NuGet Packages:
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-You can download the images along with the [C# Samples](https://github.com/areddish/cognitive-services-dotnet-sdk-samples).
+You can download the images along with the [C# Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
 
 ## Get the training and prediction keys
 
@@ -99,7 +99,12 @@ For object detection projects we need to identify the region of the object using
 ```csharp
     Dictionary<string, double[]> fileToRegionMap = new Dictionary<string, double[]>()
     {
-        // FileName, Left, Top, Width, Height
+        // The bounding box is specified in normalized coordinates.
+        //  Normalized Left = Left / Width (in Pixels)
+        //  Normalized Top = Top / Height (in Pixels)
+        //  Normalized Bounding Box Width = (Right - Left) / Width (in Pixels)
+        //  Normalized Bounding Box Height = (Bottom - Top) / Height (in Pixels)
+        // FileName, Left, Top, Width, Height of the bounding box.
         {"scissors_1", new double[] { 0.4007353, 0.194068655, 0.259803921, 0.6617647 } },
         {"scissors_2", new double[] { 0.426470578, 0.185898721, 0.172794119, 0.5539216 } },
         {"scissors_3", new double[] { 0.289215684, 0.259428144, 0.403186262, 0.421568632 } },

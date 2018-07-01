@@ -1,21 +1,20 @@
 ---
-title: Sign up for Azure Active Directory Premium | Microsoft Docs
+title: Sign up for Azure AD Premium | Microsoft Docs
 description: Explains how to sign up for Azure Active Directory Premium edition
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
-
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.date: 09/07/2017
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro;
-
 ---
+
 # Quickstart: Sign up for Azure Active Directory Premium
 To get started with Azure Active Directory (Azure AD) Premium, you can purchase licenses and associate them with your Azure subscription. If you create a new Azure subscription, you also need to activate your licensing plan and Azure AD service access as described in the following sections. 
 
@@ -42,7 +41,7 @@ You can get started with Azure AD via EMS licenses using one of the following li
 ### Microsoft volume licensing
 Azure Active Directory Premium is available through a [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 or more licenses) or the [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licenses) program.
 
-You can learn more about volume licensing purchase options on the [How to purchase through Volume Licensing](https://www.microsoft.com/licensing/how-to-buy/how-to-buy.aspx) page.
+You can learn more about volume licensing purchase options on the [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/Licensing/how-to-buy/how-to-buy.aspx) page.
 
 > [!NOTE]
 > Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).

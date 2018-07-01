@@ -3,7 +3,7 @@ title: 'Example: Create a custom skill in cognitive search pipeline (Azure Searc
 description: Demonstrates using the Text Translate API in custom skill mapped to a cognitive search indexing pipeline in Azure Search.
 manager: pablocas
 author: luiscabrer
-
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual

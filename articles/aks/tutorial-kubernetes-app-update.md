@@ -2,13 +2,13 @@
 title: Kubernetes on Azure tutorial - Update application
 description: AKS tutorial - Update Application
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -16,15 +16,13 @@ ms.custom: mvc
 
 After an application has been deployed in Kubernetes, it can be updated by specifying a new container image or image version. When doing so, the update is staged so that only a portion of the deployment is concurrently updated. This staged update enables the application to keep running during the update. It also provides a rollback mechanism if a deployment failure occurs.
 
-In this tutorial, part six of eight, the sample Azure Vote app is updated. Tasks that you complete include:
+In this tutorial, part six of seven, the sample Azure Vote app is updated. Tasks that you complete include:
 
 > [!div class="checklist"]
 > * Updating the front-end application code
 > * Creating an updated container image
 > * Pushing the container image to Azure Container Registry
 > * Deploying the updated container image
-
-In subsequent tutorials, Log Analytics is configured to monitor the Kubernetes cluster.
 
 ## Before you begin
 
