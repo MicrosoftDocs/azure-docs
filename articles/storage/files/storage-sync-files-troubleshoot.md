@@ -12,7 +12,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/01/2018
 ms.author: jeffpatt
 ---
 
@@ -33,14 +33,6 @@ This article is designed to help you troubleshoot and resolve issues that you mi
 If you do a resource move from one subscription to another subscription, file sync (Storage Sync Service) resources will be blocked from being moved. 
 
 ## Agent installation and server registration
-### During server registration, get the error "The term 'find-AzureRMResource' is not recognized as the name..."
-The issue is that the cmdlet find-AzureRMResource was changed in AzureRM v6.  The next version of the Sync agent will be fixed to support AzureRM v6.  Until then, you can work around this issue by:
-1. Stop the current ServerRegistration.exe via taskmgr
-2. Bring up a PowerShell command prompt as Administrator
-3. PS C:\> Uninstall-Module AzureRM
-4. PS C:\> install-module -name AzureRM -RequiredVersion 5.7.0
-5. Start C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
-
 <a id="agent-installation-failures"></a>**Troubleshoot agent installation failures**  
 If the Azure File Sync agent installation fails, at an elevated command prompt, run the following command to turn on logging during agent installation:
 
@@ -66,8 +58,6 @@ If a server is not listed under **Registered servers** for a Storage Sync Servic
 1. Log in to the server that you want to register.
 2. Open File Explorer, and then go to the Storage Sync Agent installation directory (the default location is C:\Program Files\Azure\StorageSyncAgent). 
 3. Run ServerRegistration.exe, and complete the wizard to register the server with a Storage Sync Service.
-
-
 
 <a id="server-already-registered"></a>**Server Registration displays the following message during Azure File Sync agent installation: "This server is already registered"** 
 
@@ -141,6 +131,137 @@ Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -Vo
 ```
 
 ## Sync
+### How do I monitor sync health?
+#### Method 1 - Azure Portal
+Within each sync group, you can drill down into its individual server endpoints to see the status of the last completed sync sessions. A green Health column and a Files Not Syncing value of 0 indicate that sync is working as expected. If this is not the case, see below for a list of common sync errors and how to handle files that are not syncing. 
+
+![A screenshot of the Azure Portal](media/storage-sync-files-troubleshoot/portal-sync-health.png)
+
+#### Method 2 - Server
+Go to the server's telemetry logs, which can be found in the Event Viewer at `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Event 9102 corresponds to a completed sync session; for the latest status of sync, look for the most recent event with ID 9102. SyncDirection tells you if it this session was an upload or download. If the HResult is 0, then the sync session was successful. A non-zero HResult means that there was an error during sync; see below for a list of common errors. If the PerItemErrorCount is greater than 0, this means that some files or folders did not sync properly. Note that it is possible to have an HResult of 0 but a PerItemErrorCount that is greater than 0.
+
+Below is an example of a successful upload. For the sake of brevity, only some of the values contained in each 9102 event are listed below. 
+
+```
+Replica Sync session completed.
+SyncDirection: Upload,
+HResult: 0, 
+SyncFileCount: 2, SyncDirectoryCount: 0,
+AppliedFileCount: 2, AppliedDirCount: 0, AppliedTombstoneCount 0, AppliedSizeBytes: 0.
+PerItemErrorCount: 0,
+TransferredFiles: 2, TransferredBytes: 0, FailedToTransferFiles: 0, FailedToTransferBytes: 0.
+```
+
+Conversely, an unsuccessful upload might look like this:
+
+```
+Replica Sync session completed.
+SyncDirection: Upload,
+HResult: -2134364065,
+SyncFileCount: 0, SyncDirectoryCount: 0, 
+AppliedFileCount: 0, AppliedDirCount: 0, AppliedTombstoneCount 0, AppliedSizeBytes: 0.
+PerItemErrorCount: 0, 
+TransferredFiles: 0, TransferredBytes: 0, FailedToTransferFiles: 0, FailedToTransferBytes: 0.
+```
+
+Sometimes sync sessions fail overall or have a non-zero PerItemErrorCount but still make forward progress, with some files syncing successfully. This can be seen in the Applied* fields (AppliedFileCount, AppliedDirCount, AppliedTombstoneCount, and AppliedSizeBytes), which tell you how much of the session is succeeding. If you see multiple sync sessions in a row that are failing but have an increasing Applied* count, then you should give sync time to try again before opening a support ticket.
+
+### How do I monitor the progress of a current sync session?
+#### Method 1 - Azure Portal
+For each server in a given sync group, make sure:
+1. The timestamps for the Last Attempted Sync for both upload and download are recent.
+2. The status is green for both upload and download.
+3. The Sync Activity field shows very few or no files remaining to sync.
+4. The Files Not Syncing field is 0 for both upload and download.
+
+#### Method 2 - Server
+Look at the completed sync sessions, which are marked by 9102 events in the telemetry event log on each server (in the Event Viewer, go to `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`). 
+
+1. On any given server, you want to make sure the latest upload and download sessions completed successfully. To do this, check that the HResult and PerItemErrorCount are 0 for both upload and download (the SyncDirection field indicates if a given session is an upload or download session). Note that if you do not see a recently completed sync session, it is likely a sync session is currently in progress, which is to be expected if you just added or modified a large amount of data.
+2. When a server is fully up to date with the cloud and has no changes to sync in either direction, you will see empty sync sessions. These are indicated by upload and download events in which all the Sync* fields (SyncFileCount, SyncDirCount, SyncTombstoneCount, and SyncSizeBytes) are zero, meaning there was nothing to sync. Note that these empty sync sessions may not occur on high-churn servers as there is always something new to sync. If there is no sync activity, they should occur every 30 minutes. 
+3. If all servers are up to date with the cloud, meaning their recent upload and download sessions are empty sync sessions, you can say with reasonable certainty that the system as a whole is in sync. 
+	
+Note that if you made changes directly in your Azure file share, Azure File Sync will not detect this change until change enumeration runs, which happens once every 24 hours. It is possible that a server will say it is up to date with the cloud when it is in fact missing recent changes made directly in the Azure file share. 
+
+### How do I see if there are specific files or folders that are not syncing?
+If your PerItemErrorCount on the server or Files Not Syncing count in the portal are greater than 0 for any given sync session, that means some items are failing to sync. Files and folders can have characteristics that prevent them from syncing. These characteristics can be persistent and require explicit action to resume sync, for example removing unsupported characters from the file or folder name. They can also be transient, meaning the file or folder will automatically resume sync; for example, files with open handles will automatically resume sync when the file is closed. When the Azure File Sync engine detects such a problem, an error log is produced that can be parsed to list the items currently not syncing properly.
+
+To see these errors, run the "FileSyncErrorsReport.ps1" PowerShell script (located in the agent installation directory of the Refresh 2 Azure File Sync agent) to identify files that failed to sync because of open handles, unsupported characters, or other issues. The ItemPath field tells you the location of the file in relation to the root sync directory. See the list of common sync errors below for remediation steps.
+
+### Common sync errors
+**ItemResults log - individual file and directory errors**  
+| HRESULT | HRESULT (decimal) | Error string | Issue | Remediation |
+|---------|-------------------|--------------|-------|-------------|
+| 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | The file has produced persistent errors during sync and so will only be attempted to sync once per day. The underlying error can be found in an earlier event log. | In agents R2 (2.0) and above, the original error rather than this one is surfaced. You should upgrade to the latest agent to see the underlying error, or look at earlier event logs to find the cause of the original error. |
+| 0x7b | 123 | ERROR_INVALID_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Azure Files naming guidelines](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) and the list of unsupported characters below. |
+| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Azure Files naming guidelines](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) and the list of unsupported characters below. |
+| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | A file has changed, but the change has not yet been detected by sync. Sync will recover after this change is detected. | No action required. |
+| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
+| 0x20 | 32 | ERROR_SHARING_VIOLATION | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
+| 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | A file or directory change can't be synced yet because a dependent folder is not yet synced. This item will sync after the dependent changes are synced. | No action required. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | A file was changed during sync, so it needs to be synced again. | No action required. |
+
+**Telemetry log - overall sync sessions errors**  
+| HRESULT | HRESULT (decimal) | Error string | Issue | Remediation |
+|---------|-------------------|--------------|-------|-------------|
+| 0x800704c7 | -2147023673 | ERROR_CANCELLED | The sync session was cancelled. | Sync sessions can be cancelled for various reasons that include the server being restarted, or VSS snapshots being taken. This error can be ignored unless they persist for longer than a couple hours. |
+| 0x80072ee7 | -2147012889 | WININET_E_NAME_NOT_RESOLVED | A connection with the service could not be established. | <ol><li>Check to make sure your server is online.</li><li>Verify that the service 'FileSyncSvc.exe' is not blocked by your firewall.</li><li>Verify that port 443 is open to outgoing connections.</li><li>Contact your network administrator for additional assistance.</li></ol> |
+| 0x80c8004c | -2134376372 | ECS_E_USER_REQUEST_THROTTLED | The user request was throttled by the service. | No action is required; the server will try again. Only if this error persists for longer than a couple hours, create a support request. |
+| 0x80c8305f | -2134364065 | ECS_E_CANNOT_ACCESS_EXTERNAL_STORAGE_ACCOUNT (CannotAccessExternalStorageAccount) | Sync can't access the Azure file share specified in the Cloud Endpoint. | <ol><li>Make sure the Azure file share still exists.</li><li>Ensure the Azure subscription containing the file share is not suspended.</li><li>Ensure access from all networks to the storage account is allowed. Azure File Sync does not yet support firewalls and virtual networks for a storage account.</li><li>Ensure Azure File Sync has access to the storage account. You can check this in the 'Access Control (IAM)' tab within the storage account. Microsoft.StorageSync must be assigned to the "reader and data access" role for this storage account.</li></ol> |
+| 0x80C83060 | -2134364064 | ECS_E_STORAGE_ACCOUNT_NAME_UNRESOLVED (RemoteNameUnresolved) | The storage account name used could not be resolved. | <ol><li>Make sure the storage account still exists.</li><li>Ensure the storage sync service role has access to the storage account. You can check this in the 'Access Control (IAM)' tab within the storage account. The scope for 'Hybrid File Sync Service' must be set to 'This Resource'.</li></ol> |
+| 0x8e5e044e | -1906441138 | JET_errWriteConflict | Sync failed due to a problem with the sync database. | Create a support request and we will contact you to help you resolve this issue. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | You reached the Azure file share storage limit. | <ol><li>Azure file shares have a limited size. Check if there is a quota set that restricts the file share below the current maximum size.</li><li>Consider making each subfolder you are currently syncing a server endpoint in a separate sync group. This way each subfolder will sync to individual Azure file shares.</li></ol> |
+| 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | The Azure file share cannot be found. | <ol><li>Make sure the Azure file share still exists.</li><li>If the Azure file share was deleted, you need to create a new file share and then recreate the sync group.</li></ol> | 
+| 0x80C83076 | -2134364042 | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION | Sync is paused while this Azure subscription is suspended. | Take the necessary steps to reactivate this Azure subscription. | 
+| 0x80c8306c | -2134364052 | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED | The storage account has a firewall or virtual networks configured. | Ensure access from all networks to the storage account is allowed. Azure File Sync does not yet support firewalls and virtual networks for a storage account. |
+| 0x80c80219 | -2134375911 | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT | Sync failed due to a problem with the sync database. | This error usually resolves itself. It can happen if there are: <ul><li>A high number of file changes across servers in the sync group.<li><li>A large number of errors on individual files and directories.</li></ul> |
+| 0x800b0109 | -2146762487 | CERT_E_UNTRUSTEDROOT | The server failed to establish a secure connection. The cloud service received an unexpected certificate. | This can happen if your organization is using an SSL terminating proxy or if a malicious entity is intercepting the traffic between your server and the cloud service. If you are certain this is expected, you can set the following registry value: <ol><li>Create the SkipVerifyingPinnedRootCertificate registry value (DWORD value set to 1) under `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync`.</li><li>Restart the sync service (FileSyncSvc) on the registered server</li><ol><br /><br />By setting this registry value, the Azure File Sync agent will accept any locally trusted SSL certificate when transferring data between the server and the cloud service. |
+| 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | A connection with the service could not be established. | <ol><li>Check to make sure your server is online.<li><li>Verify that the service 'FileSyncSvc.exe' is not blocked by your firewall.</li><li>Verify that port 443 is open to outgoing connections.</li><li>Contact your network administrator for additional assistance.</li></ol> | 
+| 0x80c80300 | -2134375680 | ECS_E_SERVER_CREDENTIAL_NEEDED | Sync failed due to a problem with authentication. | Verify the server time is correct. |
+| 0x8e5e0211 | -1906441711 | JET_errLogDiskFull | The volume where the server endpoint is located is low on disk space. | Free disk space on the volume where the server endpoint is located. |
+| 0x80c8300f | -2134364145 | ECS_E_REPLICA_NOT_READY | The service is not yet ready to sync with this server endpoint. | Once change detection completes on the Azure file share, sync will commence. Change detection can take longer than 24 hours to complete, and is proportional to the number of files and directories on your Azure file share. | 
+| 0x80c8031a | -2134375654 | ECS_E_NOT_ENOUGH_LOCAL_STORAGE | The volume where the server endpoint is located is low on disk space. | Free disk space on the volume where the server endpoint is located. |
+| 0x80c8023b | -2134375877 | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED | Sync failed due to problems with many individual files. | See above on how to handle errors for specific files and folders. Sync will resume when these errors are resolved. |
+| 0x80c8021c | -2134375908 | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED | Sync failed due to problems with many individual files. | See above on how to handle errors for specific files and folders. Sync will resume when these errors are resolved. | 
+| 0x80c80253 | -2134375853 | ECS_E_TOO_MANY_PER_ITEM_ERRORS | Sync failed due to problems with many individual files. | See above on how to handle errors for specific files and folders. Sync will resume when these errors are resolved. |
+| 0x80c80019 | -2134376423 | ECS_E_SYNC_INVALID_PATH | Sync failed due to a problem with the server endpoint path. | Ensure the path exists, is on a local NTFS volume, and is not a reparse point or existing server endpoint. | 
+| 0x80c8004b | -2134376373 | ECS_E_SERVICE_UNAVAILABLE | The service is currently unavailable. | |
+| 0x80c8020e | -2134375922 | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST | Sync failed due to a transient problem with the sync database. | Sync will automatically retry. |
+
+### Handling unsupported characters
+If the FileSyncErrorsReport.ps1 PowerShell script shows failures due to unsupported characters (error codes 0x7b and 0x8007007b), you should remove or rename the characters at fault from the respective files. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding.
+
+The table below contains all of the characters Azure File Sync does not yet support.
+
+**Unsupported characters (Unicode code points)**  
+| Character set | Character count |
+|---------------|-----------------|
+| <ul><li>0x0000009D (osc operating system command)</li><li>0x00000090 (dcs device control string)</li><li>0x0000008F (ss3 single shift three)</li><li>0x00000081 (high octet preset)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverse line feed)</li></ul> | 6 |
+| <ul><li>0x0000200F (right-to-left mark)</li><li>0x0000200E (‎left-to-right mark)</li><li>0x0000202E (right-to-left override)</li><li>0x0000202D (left-to-right override)</li><li>0x0000202C (pop directional formatting)</li><li>0x0000202B (right-to-left embedding)</li><li>0x0000202A (left-to-right embedding)</li></ul> | 7 |
+| 0x0000FDD0 - 0x0000FDEF (Arabic presentation forms-a) | 32 |
+| 0x0000FFF0 - 0x0000FFFF (specials) | 16 |
+| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2 (noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2 (noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2 (noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2 (noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2 (noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2 (noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2 (noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2 (undefined)</li><li>0x000FFFFE - 0x000FFFFF = 2 (supplementary private use area)</li></ul> | 30 |
+| 0x0010FFFE, 0x0010FFFF | 2 |
+
+### How do I prevent users from creating files containing unsupported characters on the server?
+You can use [File Server Resource Manager (FSRM) File Screens](https://docs.microsoft.com/windows-server/storage/fsrm/file-screening-management) to block files with unsupported characters in their names from being created on the server. You may have to do this using PowerShell as most of the unsupported characters are not printable and so you need to cast their hexadecimal representations as characters first.
+
+To do this, first create an FSRM File Group using the [New-FsrmFileGroup cmdlet](https://docs.microsoft.com/powershell/module/fileserverresourcemanager/new-fsrmfilegroup). In this example, we are defining the group to contain only two of the unsupported characters, but you can include as many of the characters as necessary in your file group.
+
+```PowerShell
+New-FsrmFileGroup -Name "Unsupported characters" -IncludePattern @(("*"+[char]0x00000090+"*"),("*"+[char]0x0000008F+"*"))
+```
+
+Once you have defined an FSRM File Group, you can create an FSRM File Screen using the New-FsrmFileScreen cmdlet.
+
+```PowerShell
+New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported characters" -IncludeGroup "Unsupported characters"
+```
+
+> [!Important]  
+> Note that file screens should only be used to block the creation of characters not supported by Azure File Sync. If file screens are used in other scenarios, sync will continually try to download the files from the Azure file share to the server and will be blocked due to the file screen, resulting in high data egress. 
+
+### Other common sync issues
 <a id="afs-change-detection"></a>**If I created a file directly in my Azure file share over SMB or through the portal, how long does it take for the file to sync to servers in the sync group?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
