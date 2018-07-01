@@ -4,7 +4,9 @@
   items:
   - name: About Security Center
     href: security-center-intro.md
-
+  - name: What's new
+    href: security-center-whats-new.md
+    
 - name: Quickstarts
   expanded: true
   items:
