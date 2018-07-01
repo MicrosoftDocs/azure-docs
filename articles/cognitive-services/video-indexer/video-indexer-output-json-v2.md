@@ -43,9 +43,9 @@ This article examines the JSON content returned by the  **Get Video Index** API.
 |created|The playlist's creation time.|
 |privacyMode|The playlist’s privacy mode (Private/Public).|
 |state|The playlist’s (uploaded, processing, processed, failed, quarantined).|
-|isOwned|Whether the playlist was created by the current user.|
-|isEditable|Whether the current user is authorized to edit the playlist.|
-|isBase|Whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
+|isOwned|Indicates whether the playlist was created by the current user.|
+|isEditable|Indicates whether the current user is authorized to edit the playlist.|
+|isBase|Indicates whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
 |durationInSeconds|The total duration of the playlist.|
 |summarizedInsights|Contains one [summarizedInsights](#summarizedinsights).
 |videos|A list of [videos](#videos) constructing the playlist.<br/>If this playlist of constructed of time ranges of other videos (derived), the videos in this list will contain only data from the included time ranges.|
@@ -111,7 +111,7 @@ This section shows the summary of the insights.
 |externalId|The video's external ID (if specified by the user).|
 |externalUrl|The video's external url (if specified by the user).|
 |metadata|The video's external metadata (if specified by the user).|
-|isAdult|Whether the video was manually reviewed and identified as an adult video.|
+|isAdult|Indicates whether the video was manually reviewed and identified as an adult video.|
 |insights|The insights object.|
 |thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').|
 |publishedUrl|A url to stream the video.|
