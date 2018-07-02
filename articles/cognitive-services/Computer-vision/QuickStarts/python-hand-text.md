@@ -12,9 +12,13 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Handwritten Text with Python
+# Quickstart: Extract handwritten text with Python
 
 In this quickstart, you extract handwritten text from an image using Computer Vision.
+
+You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 ## Prerequisites
 
@@ -37,6 +41,15 @@ The following code uses the Python `requests` library to call the Computer Visio
 ## Recognize Text request
 
 ```python
+import requests
+import time
+# If you are using a Jupyter notebook, uncomment the following line.
+#%matplotlib inline
+import matplotlib.pyplot as plt
+from matplotlib.patches import Polygon
+from PIL import Image
+from io import BytesIO
+
 # Replace <Subscription Key> with your valid subscription key.
 subscription_key = "<Subscription Key>"
 assert subscription_key
@@ -50,18 +63,17 @@ assert subscription_key
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
 
-text_recognition_url = vision_base_url + "RecognizeText"
+text_recognition_url = vision_base_url + "recognizeText"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" + \
     "Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg"
 
-import requests
-headers  = {'Ocp-Apim-Subscription-Key': subscription_key}
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
 # Note: The request parameter changed for APIv2.
 # For APIv1, it is 'handwriting': 'true'.
-params   = {'mode': 'Handwritten'}
-data     = {'url': image_url}
+params  = {'mode': 'Handwritten'}
+data    = {'url': image_url}
 response = requests.post(
     text_recognition_url, headers=headers, params=params, json=data)
 response.raise_for_status()
@@ -73,7 +85,6 @@ response.raise_for_status()
 operation_url = response.headers["Operation-Location"]
 
 # The recognized text isn't immediately available, so poll to wait for completion.
-import time
 analysis = {}
 while "recognitionResult" not in analysis:
     response_final = requests.get(
@@ -86,14 +97,9 @@ polygons = [(line["boundingBox"], line["text"])
     for line in analysis["recognitionResult"]["lines"]]
 
 # Display the image and overlay it with the extracted text.
-from matplotlib.patches import Polygon
-from PIL import Image
-from io import BytesIO
-import matplotlib.pyplot as plt
-
 plt.figure(figsize=(15, 15))
-image  = Image.open(BytesIO(requests.get(image_url).content))
-ax     = plt.imshow(image)
+image = Image.open(BytesIO(requests.get(image_url).content))
+ax = plt.imshow(image)
 for polygon in polygons:
     vertices = [(polygon[0][i], polygon[0][i+1])
         for i in range(0, len(polygon[0]), 2)]

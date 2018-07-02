@@ -12,11 +12,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Reference guide to View Designer visualization parts in Log Analytics
 By using View Designer in Azure Log Analytics, you can create custom views in the Azure portal that present a variety of data visualizations from your Log Analytics workspace. This article is a reference guide to the settings for the visualization parts that are available in your custom views.
 

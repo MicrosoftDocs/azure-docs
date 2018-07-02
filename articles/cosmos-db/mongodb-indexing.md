@@ -7,6 +7,7 @@ manager: kfile
 editor: ''
 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
@@ -98,3 +99,4 @@ Currently, creating unique indexes is possible only when the collection contains
 ## Next steps
 * [How does Azure Cosmos DB index data?](../cosmos-db/indexing-policies.md)
 * [Expire data in Azure Cosmos DB collections automatically with time to live](../cosmos-db/time-to-live.md)
+* [Expire data in Azure Cosmos DB MongoDB API](../cosmos-db/mongodb-ttl.md)

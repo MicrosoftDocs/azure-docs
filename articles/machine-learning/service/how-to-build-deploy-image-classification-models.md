@@ -29,7 +29,7 @@ When building and deploying this model with AMLPCV, you go through the following
 7. Web service Deployment
 8. Web service Load Testing
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
 
 Consult the [package reference documentation](https://aka.ms/aml-packages/vision) for the detailed reference for each module and class.
 
@@ -428,7 +428,7 @@ Operationalization is the process of publishing models and code as web services 
 
 Once your model is trained, you can deploy that model as a web service for consumption using [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster. Using ACS, you can scale your web service manually or use the autoscaling functionality.
 
-**Log in with Azure CLI**
+**Sign in with Azure CLI**
 
 Using an [Azure](https://azure.microsoft.com/) account with a valid subscription, log in using the following CLI command:
 <br>`az login`

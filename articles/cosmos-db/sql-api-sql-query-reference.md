@@ -6,6 +6,7 @@ author: LalithaMV
 manager: kfile
 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: na 
 ms.topic: reference
 ms.date: 10/18/2017

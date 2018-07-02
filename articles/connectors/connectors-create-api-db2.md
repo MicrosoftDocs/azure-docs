@@ -3,7 +3,7 @@
 title: Connect to DB2 - Azure Logic Apps | Microsoft Docs
 description: Manage resources with DB2 REST APIs and Azure Logic Apps
 author: gplarsen
-manager: cfowler
+manager: jeconnoc
 ms.author: plarsen
 ms.date: 09/26/2016
 ms.topic: article

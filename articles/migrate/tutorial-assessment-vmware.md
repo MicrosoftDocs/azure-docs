@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/28/2018
+ms.date: 06/19/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -243,3 +243,4 @@ An assessment may not have all the data points available due to one of the follo
 - Learn how to create high-confidence assessment groups using [machine dependency mapping](how-to-create-group-machine-dependencies.md)
 - [Learn more](concepts-assessment-calculation.md) about how assessments are calculated.
 - [Learn](how-to-scale-assessment.md) how to discover and assess a large VMware environment.
+- [Learn more](resources-faq.md) about the FAQs on Azure Migrate

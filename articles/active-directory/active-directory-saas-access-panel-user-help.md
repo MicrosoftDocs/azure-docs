@@ -1,23 +1,22 @@
 ---
-title: Get help with accessing and using the My Apps portal in Azure Active Directory | Microsoft Docs
+title: Get help with accessing and using the My Apps portal in Azure AD | Microsoft Docs
 description: Get help with signing in to and performing common tasks in the access panel.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: japere
-
 ---
+
 # Troubleshoot issues with accessing and using the My Apps portal
 
 If you're experiencing issues with signing in to or using the My Apps portal, try these troubleshooting tips before you contact helpdesk or your administrator for help.

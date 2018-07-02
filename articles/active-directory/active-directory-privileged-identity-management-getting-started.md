@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.component: protection
 ms.topic: get-started-article
 ms.workload: identity
 ms.date: 09/17/2017

@@ -2,13 +2,13 @@
 title: Quickstart - Azure Kubernetes cluster for Linux
 description: Quickly learn to create a Kubernetes cluster for Linux containers in AKS with the Azure CLI.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/14/2018
-ms.author: nepeters
+ms.date: 06/13/2018
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
 
@@ -24,23 +24,11 @@ This quickstart assumes a basic understanding of Kubernetes concepts, for detail
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Enabling AKS preview
-
-Ensure that the needed Azure service providers are enabled with the `az provider register` command.
-
-```azurecli-interactive
-az provider register -n Microsoft.Network
-az provider register -n Microsoft.Storage
-az provider register -n Microsoft.Compute
-az provider register -n Microsoft.ContainerService
-```
-
-After registering, you are now ready to create a Kubernetes cluster with AKS.
-
 ## Create a resource group
 
 Create a resource group with the [az group create][az-group-create] command. An Azure resource group is a logical group in which Azure resources are deployed and managed.
-When creating a resource group you are asked to specify a location, this is where your resources will live in Azure. While AKS is in preview, only some location options are available. These are `eastus, westeurope, centralus, canadacentral, canadaeast`.
+
+When creating a resource group you are asked to specify a location, this is where your resources will live in Azure.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -65,7 +53,7 @@ Output:
 
 ## Create AKS cluster
 
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node.
+Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. When deploying an AKS cluster, the container health monitoring solution can also be enabled. For more information on enabling the container health monitoring solution, see [Monitor Azure Kubernetes Service health][aks-monitor].
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -245,6 +233,8 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
+[aks-monitor]: ../monitoring/monitoring-container-health.md
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
@@ -252,5 +242,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 

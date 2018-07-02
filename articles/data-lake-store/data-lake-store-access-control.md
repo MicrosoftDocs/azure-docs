@@ -10,9 +10,7 @@ editor: cgronlun
 ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
 
@@ -323,7 +321,7 @@ No, but Default ACLs can be used to set ACLs for child files and folder newly cr
 
 ### Where can I learn more about POSIX access control model?
 
-* [POSIX Access Control Lists on Linux](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)
+* [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
 
 * [HDFS permission guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 

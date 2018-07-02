@@ -20,9 +20,6 @@ ms.author: jingwang
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Microsoft Dynamics 365 or Microsoft Dynamics CRM. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you use version 1 of Data Factory, which is generally available, see [Copy Activity in version 1](v1/data-factory-data-movement-activities.md).
-
 ## Supported capabilities
 
 You can copy data from Dynamics 365 (Common Data Service) or Dynamics CRM to any supported sink data store. You also can copy data from any supported source data store to Dynamics 365 (Common Data Service) or Dynamics CRM. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
@@ -46,7 +43,7 @@ Other application types e.g. Operations and Finance, Talent, etc. are not suppor
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Dynamics.
 
@@ -321,24 +318,24 @@ Configure the corresponding Data Factory data type in a dataset structure based 
 
 | Dynamics data type | Data Factory interim data type | Supported as source | Supported as sink |
 |:--- |:--- |:--- |:--- |
-| AttributeTypeCode.BigInt | Long | ? | ? |
-| AttributeTypeCode.Boolean | Boolean | ? | ? |
-| AttributeType.Customer | Guid | ? | |	
-| AttributeType.DateTime | Datetime | ? | ? |
-| AttributeType.Decimal | Decimal | ? | ? |
-| AttributeType.Double | Double | ? | ? |
-| AttributeType.EntityName | String | ? | ? |
-| AttributeType.Integer | Int32 | ? | ? |
-| AttributeType.Lookup | Guid | ? | ? |
-| AttributeType.ManagedProperty | Boolean | ? | |
-| AttributeType.Memo | String | ? | ? |
-| AttributeType.Money | Decimal | ? | ? |
-| AttributeType.Owner | Guid | ? | |
-| AttributeType.Picklist | Int32 | ? | ? |
-| AttributeType.Uniqueidentifier | Guid | ? | ? |
-| AttributeType.String | String | ? | ? |
-| AttributeType.State | Int32 | ? | ? |
-| AttributeType.Status | Int32 | ? | ? |
+| AttributeTypeCode.BigInt | Long | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
+| AttributeType.Customer | Guid | ✓ | |	
+| AttributeType.DateTime | Datetime | ✓ | ✓ |
+| AttributeType.Decimal | Decimal | ✓ | ✓ |
+| AttributeType.Double | Double | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
+| AttributeType.Integer | Int32 | ✓ | ✓ |
+| AttributeType.Lookup | Guid | ✓ | ✓ |
+| AttributeType.ManagedProperty | Boolean | ✓ | |
+| AttributeType.Memo | String | ✓ | ✓ |
+| AttributeType.Money | Decimal | ✓ | ✓ |
+| AttributeType.Owner | Guid | ✓ | |
+| AttributeType.Picklist | Int32 | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
+| AttributeType.State | Int32 | ✓ | ✓ |
+| AttributeType.Status | Int32 | ✓ | ✓ |
 
 
 > [!NOTE]

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configuration FAQs for Azure web apps | Microsoft Docs
 description: Get answers to frequently asked questions about configuration and management issues for the Web Apps feature of Azure App Service.
 services: app-service\web

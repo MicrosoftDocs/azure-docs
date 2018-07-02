@@ -2,7 +2,7 @@
 title: Monitor B2B transactions and set up logging - Azure Logic Apps | Microsoft Docs
 description: Monitor AS2, X12, and EDIFACT messages, start diagnostics logging for your integration account
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''

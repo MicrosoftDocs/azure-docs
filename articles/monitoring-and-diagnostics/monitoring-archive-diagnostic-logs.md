@@ -1,21 +1,13 @@
 ---
-title: Archive Azure Diagnostic Logs | Microsoft Docs
+title: Archive Azure Diagnostic Logs
 description: Learn how to archive your Azure Diagnostic Logs for long-term retention in a storage account.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 3a55c73f-2ef3-45f3-8956-bcf9c0cb7e05
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/30/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/07/2018
 ms.author: johnkem
-
+ms.component: logs
 ---
 # Archive Azure Diagnostic Logs
 
@@ -24,6 +16,9 @@ In this article, we show how you can use the Azure portal, PowerShell Cmdlets, C
 ## Prerequisites
 
 Before you begin, you need to [create a storage account](../storage/storage-create-storage-account.md) to which you can archive your diagnostic logs. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving your Activity Log and diagnostic metrics to a storage account, it may make sense to use that storage account for your diagnostic logs as well to keep all monitoring data in a central location. The storage account you use must be a general purpose storage account, not a blob storage account.
+
+> [!NOTE]
+>  You cannot currently archive data to a storage account that behind a secured virtual network.
 
 ## Diagnostic settings
 
@@ -99,7 +94,7 @@ The `--resource-group` argument is only required if `--storage-account` is not a
 
 ## Archive diagnostic logs via the REST API
 
-[See this document](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings) for information on how you can set up a diagnostic setting using the Azure Monitor REST API.
+[See this document](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) for information on how you can set up a diagnostic setting using the Azure Monitor REST API.
 
 ## Schema of diagnostic logs in the storage account
 

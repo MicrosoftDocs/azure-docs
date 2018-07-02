@@ -10,6 +10,8 @@
     href: stream-analytics-quick-create-portal.md
   - name: Create a job - PowerShell
     href: stream-analytics-quick-create-powershell.md
+  - name: Create a job - Visual Studio
+    href: stream-analytics-quick-create-vs.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a job
@@ -54,11 +56,11 @@
       href: stream-analytics-login-credentials-inputs-outputs.md
     - name: Configure alerts
       href: stream-analytics-set-up-alerts.md
-    - name: Test your job
+    - name: Test a job
       href: stream-analytics-test-query.md
     - name: View results on a dashboard
       href: stream-analytics-power-bi-dashboard.md
-    - name: Clean up your job
+    - name: Clean up a job
       href: stream-analytics-clean-up-your-job.md
     - name: Pair jobs for reliability
       href: stream-analytics-job-reliability.md
@@ -125,8 +127,6 @@
       href: stream-analytics-job-diagram-with-metrics.md
     - name: Diagnostic logs
       href: stream-analytics-job-diagnostic-logs.md
-    - name: Check resource health
-      href: stream-analytics-resource-health.md
     - name: SELECT INTO statement
       href: stream-analytics-select-into.md
     - name: Event Hub receivers

@@ -2,7 +2,7 @@
 title: Monitor and get insights about your logic app runs using Log Analytics - Azure Logic Apps | Microsoft Docs
 description: Monitor your logic app runs with Log Analytics to get insights and richer debugging details for troubleshooting and diagnostics
 author: divyaswarnkar
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/9/2017
+ms.date: 06/19/2018
 ms.author: LADocs; divswa
 ---
 
@@ -29,7 +29,7 @@ you get aggregated status for your logic app runs and
 specific details like status, execution time, 
 resubmission status, and correlation IDs.
 
-This topic shows how to turn on Log Analytics so you can 
+This article shows how to turn on Log Analytics so you can 
 view runtime events and data for your logic app run.
 
  > [!TIP]
@@ -83,18 +83,17 @@ and choose **Log Analytics** as shown:
 
    ![Select your Log Analytics workspace](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
-3. Under **Management**, choose **OMS Portal**.
+3. Under **Management**, choose **Overview**.
 
-   ![Choose "OMS Portal"](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
+   ![Choose "OMS Portal"](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
-4. Under **All solutions**, find and choose the tile 
-for the **Logic Apps Management** solution.
+4. On the Overview page, choose **Add** to open the Management Solutions tile. 
 
-   ![Choose "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
+   ![Choose "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-5. To install the solution in your Log Analytics workspace, choose **Add**.
+5. Scroll through the list of **Management Solutions**, choose **Logic Apps Management** solution, and choose **Create** to install it to the Overview page.
 
-   ![Choose "Add" for "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![Choose "Add" for "Logic Apps Management"](media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 

@@ -385,7 +385,7 @@ As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage a
 
 2. Specify a temporary folder that will be used while moving data between Azure Databricks and Azure SQL Data Warehouse.
 
-        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
+        val tempDir = "wasbs://" + blobContainer + "\@" + blobStorage +"/tempDirs"
 
 3. Run the following snippet to store Azure Blob storage access keys in the configuration. This ensures that you do not have to keep the access key in the notebook in plain text.
 

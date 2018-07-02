@@ -1,19 +1,19 @@
 ﻿---
 title: Explore the Azure Time Series Insights JavaScript client library
 description: Learn about the Azure Time Series Insights JavaScript client library and the related programming model.
-author: BryanLa
+author: ashannon7
 manager: timlt
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 06/05/2018
 ms.author: bryanla
 # Customer intent: As a developer, I want to learn about the TSI JavaScript client library, so I can use the APIs in my own applications.
 ---
 
 # Tutorial: Explore the Azure Time Series Insights JavaScript client library
 
-To help developers query and visualize data that's stored in Azure Time Series Insights (TSI), we developed a JavaScript D3-based control library that makes this work easy. This tutorial uses a sample web application to guide you through an exploration of the TSI JavaScript client library and the related programming model.
+To help web developers query and visualize data stored in Time Series Insights (TSI), the JavaScript D3-based TSI Client library was developed.  Using a sample web application, this tutorial will guide you through an exploration of the TSI Client library, and the related programming model.
 
 The topics in this tutorial provide you with opportunities to experiment with the library, to gain an understanding of how to access TSI data and use chart controls to render and visualize data. The goal is to provide you with enough details, so that you can use the library in your own web application.
 
@@ -272,9 +272,9 @@ In this tutorial, you learned how to:
 > * Use APIs in the TSI JavaScript client library.
 > * Use JavaScript to create and populate chart controls with TSI data.
 
-As discussed, the TSI sample application uses a demo data set. To learn more about how you can create your own TSI environment and data set, advance to the following article:
+As discussed, the TSI Sample application uses a demo data set. To learn how you can create your own TSI environment and data set, advance to the following article:
 
 > [!div class="nextstepaction"]
-> [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md).
+> [Tutorial: Create an Azure Time Series Insights environment](tutorial-create-populate-tsi-environment.md)
 
 

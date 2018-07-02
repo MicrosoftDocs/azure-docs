@@ -3,7 +3,7 @@
 title: Connect to SAP systems - Azure Logic Apps | Microsoft Docs
 description: How to access and manage SAP resources by automating workflows with Azure Logic Apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 05/31/2018
 ms.topic: article
@@ -149,7 +149,7 @@ so you can set up your SAP action.
 
    **Create on-premises SAP connection**
 
-   1. For **Gateways**, select **Connect via on-premise data gateway** 
+   1. For **Gateways**, select **Connect via on-premises data gateway** 
    so that the on-premises connection properties appear.
 
    2. Provide the connection information for your SAP server. 

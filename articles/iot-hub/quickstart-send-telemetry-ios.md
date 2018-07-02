@@ -131,9 +131,7 @@ If you get an error when you run the iothub-explorer command, double check that 
 
 ## Clean up resources
 
-If you plan to continue testing IoT Hub with other articles, leave the your resource group and IoT hub and reuse them later.
-
-If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the resource group that contains your IoT hub and click **Delete**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## Next steps
 
@@ -145,7 +143,7 @@ To learn how to control your simulated device from a back-end application, conti
 > [Quickstart: Control a device connected to an IoT hub](quickstart-control-device-node.md)
 
 <!-- Links -->
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-process-d2c-tutorial]: tutorial-routing.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

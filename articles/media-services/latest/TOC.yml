@@ -17,6 +17,10 @@
       href: stream-files-tutorial-with-api.md
     - name: With REST
       href: stream-files-tutorial-with-rest.md
+  - name: Stream live
+    items:
+    - name: With .NET Core
+      href: stream-live-tutorial-with-api.md
   - name: Analyze your video
     items:
     - name: With .NET
@@ -31,12 +35,18 @@
   items:
   - name: Assets
     href: assets-concept.md
+  - name: Content protection
+    items:
+    - name: Overview
+      href: content-protection-overview.md
   - name: Encoding  
     items:
     - name: Overview
       href: encoding-concept.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md
+  - name: Live streaming
+    href: live-streaming-overview.md
   - name: Media intelligence
     href: intelligence-concept.md
   - name: Reacting to events
@@ -53,23 +63,25 @@
     href: create-account-cli-how-to.md  
   - name: Access APIs - CLI
     href: access-api-cli-how-to.md
-  - name: Job state events - CLI
+  - name: Monitor job state events - CLI
     href: job-state-events-cli-how-to.md    
-  - name: Upload content - .NET
+  - name: Customize Transform presets - .NET Core
+    href: customize-encoder-presets-how-to.md
+  - name: Upload content 
     items:
-    - name: From HTTP(s)
+    - name: From HTTP(s) - .NET
       href: job-input-from-http-how-to.md
-    - name: From a local file
-      href: job-input-from-local-file-how-to.md    
-  - name: Customize Transform presets
+    - name: From a local file - .NET
+      href: job-input-from-local-file-how-to.md  
+  - name: Protect content
     items:
-    - name: With .NET Core
-      href: customize-encoder-presets-how-to.md
+    - name: With AES-128 - .NET
+      href: protect-with-aes128.md     
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
     href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview  
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest
   - name: REST
     href: https://go.microsoft.com/fwlink/p/?linkid=873030
@@ -79,8 +91,16 @@
     href: https://docs.microsoft.com/java/api/overview/azure/mediaservices
   - name: Python
     href: https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python
+  - name: Node .js
+    href: https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest
   - name: Event schemas
     href: media-services-event-schemas.md
+  - name: DRM license schemas
+    items:
+    - name: PlayReady license template
+      href: playready-license-template-overview.md
+    - name: Widevine license template
+      href: widevine-license-template-overview.md
 - name: Resources
   items:
   - name: Azure Roadmap

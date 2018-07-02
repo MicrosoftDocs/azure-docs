@@ -12,7 +12,7 @@ ms.author: v-geberr;
 ---
 
 # Data extraction
-LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action.
+LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chatbot to take action.
 
 In the following sections, learn what data is returned from intents and entities with examples of JSON. The hardest data to extract is the machine-learned data because it is not an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you are confident you receive the data you expect. 
 
@@ -21,7 +21,7 @@ LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint).
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you are editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you are learning LUIS, it is important to change the subscription key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits). The `timezoneOffset` unit is minutes.
+The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you are editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you are learning LUIS, it is important to change the endpoint key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits). The `timezoneOffset` unit is minutes.
 
 The **HTTPS response** contains all the intent and entity information LUIS can determine based on the current published model of either the staging or production endpoint. The endpoint URL is found on the [LUIS][LUIS] website **Publish** page. 
 
@@ -43,7 +43,7 @@ The primary data is the top scoring **intent name**. Using the `MyStore` [quicks
 |--|--|--|--|
 |Intent|String|topScoringIntent.intent|"GetStoreInfo"|
 
-If your chat bot or LUIS-calling app makes a decision based on more than one intent score, return all the intents' scores by setting the querystring parameter, `verbose=true`. The endpoint response is:
+If your chatbot or LUIS-calling app makes a decision based on more than one intent score, return all the intents' scores by setting the querystring parameter, `verbose=true`. The endpoint response is:
 
 ```JSON
 {
@@ -107,7 +107,7 @@ If you add prebuilt domains, the intent name indicates the domain, such as `Util
 
 
 ## Data from entities
-Most chat bots and applications need more than the intent name. This additional, optional data comes from entities discovered in the utterance. Each type of entity returns different information about the match. 
+Most chatbots and applications need more than the intent name. This additional, optional data comes from entities discovered in the utterance. Each type of entity returns different information about the match. 
 
 A single word or phrase in an utterance can match more than one entity. In that case, each matching entity is returned with its score. 
 
@@ -572,7 +572,7 @@ The key phrase extraction entity returns key phrases in the utterance, provided 
 ```
 
 ## Data matching multiple entities
-LUIS returns all entities discovered in the utterance. As a result, your chat bot may need to make decision based on the results. An utterance can have many entities in an utterance:
+LUIS returns all entities discovered in the utterance. As a result, your chatbot may need to make decision based on the results. An utterance can have many entities in an utterance:
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
@@ -706,4 +706,4 @@ The LUIS endpoint can discover the same data in different entities:
 
 See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
 
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

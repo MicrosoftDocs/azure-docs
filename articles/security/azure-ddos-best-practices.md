@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
+ms.date: 06/06/2018
 ms.author: barclayn
 
 ---
@@ -296,18 +296,9 @@ In this architecture, traffic destined to the HDInsight cluster from the interne
 For more information on this reference architecture, see the [Extend Azure HDInsight using an Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json)
 documentation.
 
-### Azure API Management
-
-This reference architecture helps protect the public endpoint of the [Azure API Management](../api-management/api-management-key-concepts.md) resource publishing APIs to customers outside the organization. Deploy API Management in an external virtual network to enable DDoS Protection.
-
-![Diagram of the reference architecture for API Management](media/azure-ddos-best-practices/image15.png)
-
-When you configure the external virtual network, the API Management gateway and developer portal are accessible from the public internet via a public load balancer. In this architecture, DDoS Protection Standard is enabled on the external virtual network for API Management. Traffic is routed from the internet to the public IP address of API Management, which is protected against network attacks on Layer 3 and 4. To protect against Layer 7 HTTP/HTTPS attacks, you can configure Application Gateway in WAF mode.
-
-For a list of additional services that are deployed in a virtual network and can be configured for DDoS Protection Standard, see [this article](../virtual-network/virtual-network-for-azure-services.md). DDoS Protection Standard supports only Azure Resource Manager resources. 
 
 > [!NOTE]
-> Injected deployment of App Service Environment for PowerApps in a virtual network with a public IP is not natively supported. For details on protecting App Service Environment, see this section.
+> Azure App Service Environment for PowerApps or API management in a virtual network with a public IP are both not natively supported.
 
 ## Next steps
 

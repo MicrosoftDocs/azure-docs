@@ -1,20 +1,14 @@
 ---
-title: Monitoring usage and estimated costs in Azure Monitor | Microsoft Docs
+title: Monitoring usage and estimated costs in Azure Monitor
 description: Overview of the process of using Azure Monitor usage and estimated costs page
 author: dalekoetke
-manager: carmonmills
-editor: mrbullwinkle
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/31/2018
-ms.author: Dale.Koetke;mbullwin
-
+ms.author: mbullwin
+ms.reviewer: Dale.Koetke
+ms.component: ""
 ---
 # Monitoring usage and estimated costs
 

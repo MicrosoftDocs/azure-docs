@@ -14,9 +14,9 @@ ms.author: v-geberr;
 
 
 # Publish your trained app
-When you finish building and testing your LUIS app, publish it. After the app is published, the Publish page shows all associated HTTP [endpoints](luis-glossary.md#endpoint). These endpoints, per [region](luis-reference-regions.md) and per [key](Manage-Keys.md), are then integrated into any client, chat bot, or backend application. 
+When you finish building and testing your LUIS app, publish it. After the app is published, the Publish page shows all associated HTTP [endpoints](luis-glossary.md#endpoint). These endpoints, per [region](luis-reference-regions.md) and per [key](luis-how-to-manage-keys.md), are then integrated into any client, chatbot, or backend application. 
 
-You can always [test](train-test.md) your app before publishing it. 
+You can always [test](interactive-test.md) your app before publishing it. 
 
 ## Production and staging slots
 You can publish your app to the **Staging slot** or the **Production Slot**. By using two publishing slots, this allows you to have two different versions with published endpoints or the same version on two different endpoints. 
@@ -37,14 +37,14 @@ Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) 
 For more information about the JSON endpoint response with sentiment analysis, see [Sentiment analysis](luis-concept-data-extraction.md#sentiment-analysis)
 
 ### Enable speech priming 
-In the **External services settings**, the **Enable Speech Priming** checkbox allows you to have a single endpoint to get a spoken utterance from a chat bot or LUIS-calling application and receive a LUIS prediction response. The Speech priming uses the Cognitive service [Speech API](../Speech-Service/rest-apis.md). 
+In the **External services settings**, the **Enable Speech Priming** checkbox allows you to have a single endpoint to get a spoken utterance from a chatbot or LUIS-calling application and receive a LUIS prediction response. The Speech priming uses the Cognitive service [Speech API](../Speech-Service/rest-apis.md). 
 
 ![Image of Speech priming confirmation dialog](./media/luis-how-to-publish-app/speech-prime-modal.png)
 
 Once this feature is enabled, publish your app. When you publish your LUIS app, your app model is sent to your own Speech service to prime the Speech service. Your model information is **not** used outside of your own service. 
 
 In order to complete the use of Speech priming, you need the following information to use in the [Speech SDK](../speech-service/speech-sdk-reference.md):
-* A LUIS subscription key.
+* A LUIS endpoint key.
 * The LUIS app ID.
 * An endpoint domain, referred to as "Hostname" in Speech SDK, such as "westus.api.cognitive.microsoft.com," where the first subdomain is the region where the app is published.
 
@@ -61,7 +61,7 @@ Part of the slot choice is the time zone selection. This timezone setting allows
 ### Include all predicted intent scores
 The **Include all predicted intent scores** checkbox allows the endpoint query response to include the prediction score for each intent. 
 
-This setting allows your chat bot or LUIS-calling application to make a programmatic decision based on the scores of the returned intents. Generally the top two intents are the most interesting. If the top score is the None intent, your chat bot can choose to ask a follow-up question that makes a definitive choice between the None intent and the other high-scoring intent. 
+This setting allows your chatbot or LUIS-calling application to make a programmatic decision based on the scores of the returned intents. Generally the top two intents are the most interesting. If the top score is the None intent, your chatbot can choose to ask a follow-up question that makes a definitive choice between the None intent and the other high-scoring intent. 
 
 The intents and their scores are also included the endpoint logs. You can [export](create-new-app.md#export-app) those logs and analyze the scores. 
 
@@ -114,7 +114,7 @@ When your app is successfully published, a green success notification appears at
 
 ## Assign key
 
-If you want to use a key other than the free Starter_Key shown, click the **Add Key** button. This action opens a dialog that allows you to select an existing endpoint key to assign to the app. For more information on how to create and add endpoint keys to your LUIS app, see [Manage your keys](Manage-Keys.md).
+If you want to use a key other than the free Starter_Key shown, click the **Add Key** button. This action opens a dialog that allows you to select an existing endpoint key to assign to the app. For more information on how to create and add endpoint keys to your LUIS app, see [Manage your keys](luis-how-to-manage-keys.md).
 
 To see endpoints and keys associated with other regions, use the radio buttons to switch regions. Each row in the **Resources and Keys** table lists Azure resources associated with your account and the endpoint keys associated with that resource.
 
@@ -135,7 +135,7 @@ The following query string parameters can be used with the endpoint URL:
 |Query string|Type|Example value|Purpose|
 |--|--|--|--|
 |verbose|boolean|true|Include [all intent scores](#include-all-predicted-intent-scores) for utterance|
-|timezoneOffset|number (unit is minutes)|60|Set [timezone offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) for [datetimeV2 prebuilt entities](luis-reference-prebuilt-entities.md#builtindatetimev2)|
+|timezoneOffset|number (unit is minutes)|60|Set [timezone offset](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) for [datetimeV2 prebuilt entities](luis-reference-prebuilt-datetimev2.md)|
 |spellCheck|boolean|true|[correct spelling](#enable-bing-spell-checker) of utterance -- used in conjunction with bing-spell-check-subscription-key query string parameter|
 |bing-spell-check-subscription-key|subscription ID||used in conjunction with spellCheck query string parameter|
 |staging|boolean|false|select staging or production endpoint|
@@ -149,5 +149,5 @@ Test your published endpoint by selecting the URL in the **Endpoint** column. Th
 
 ## Next steps
 
-* See [Manage keys](./Manage-Keys.md) to add keys to your LUIS app, and learn about how keys map to regions.
-* See [Train and test your app](Train-Test.md) for instructions on how to test your published app in the test console.
+* See [Manage keys](./luis-how-to-manage-keys.md) to add keys to your LUIS app, and learn about how keys map to regions.
+* See [Train and test your app](interactive-test.md) for instructions on how to test your published app in the test console.
