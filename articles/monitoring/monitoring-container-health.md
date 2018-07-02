@@ -242,7 +242,7 @@ After monitoring is enabled, it can take around 15 minutes before you are able t
 ## Verify agent deployed successfully
 
 ### Agent version 06072018 and higher
-1. To verify the OMS agent version *microsoft/oms:ciprod06072018* or higher is deployed properly, run the following commands: 
+1. To verify the OMS agent version *06072018* or higher is deployed properly, run the following commands: 
 
     `kubectl get ds omsagent --namespace=kube-system`
 
@@ -267,7 +267,7 @@ After monitoring is enabled, it can take around 15 minutes before you are able t
 
 ### Agent version earlier than 06072018
 
-To verify the OMS agent version released before 06072018 is deployed properly, run the following command: 
+To verify the OMS agent version released before *06072018* is deployed properly, run the following command: 
 
     `kubectl get ds omsagent --namespace=kube-system`
 
@@ -513,7 +513,7 @@ If container health was successfully enabled and configured but you are not seei
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```  
-2. Check the status of the deployment for agent version 06072018 or higher by running the following command:
+2. Check the status of the deployment for agent version *06072018* or higher by running the following command:
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 
