@@ -17,7 +17,7 @@ ms.author: v-jerkin
 
 To customize **Speech to Text** or **Text to Speech**, you must provide text along with speech. Each line in the text corresponds to a single utterance. The text should match the speech as exactly as possible. The text is called a *transcript*, and you must create it in a specific format.
 
-The Speech service performs some normalizations for you in order to make your text consistent. Other normalization tasks must be performed before the text is submitted for training. 
+The Speech service performs some normalizations in order to make your text consistent. Other normalization tasks must be performed before the text is submitted for training. 
 
 This article describes both types of normalizations. The guidelines vary slightly for various languages.
 
@@ -45,12 +45,11 @@ Here are some examples
 
 | Original Text | After Normalization |
 |----- | ----- |
-| Starbucks Coffee | starbucks coffee |
 | "Holy cow!" said Batman. | holy cow said batman |
-| "What?" said Batman's sidekick, Robin. | what said batman's sidekick robin |
+| "What?" said Batman's side kick, Robin. | what said batman's side kick robin |
 | Go get -em! | go get em |
-| I'm double-jointed | i'm double jointed |
-| 104 Main Street | one oh four main street |
+| I'm double-jointed | I'm double jointed |
+| 104 Elm Street | one oh four Elm street |
 | Tune to 102.7 | tune to one oh two point seven |
 | Pi is about 3.14 | pi is about three point one four |
 | It costs $3.14 | it costs three fourteen |
@@ -82,7 +81,7 @@ Here are some examples:
 
 ## Chinese (zh-CN)
 
-Text data uploaded to the Custom Speech Service should use UTF-8 encoding with byte-order marker. Each line of the file should contain the text for a single utterance.
+Text data uploaded to the Custom Speech Service should use UTF-8 encoding with byte-order marker. Each line of the file should contain a single utterance.
 
 It is important to avoid the use of half-width punctuation characters. These characters can be included inadvertently when preparing the data in a word-processing program or scraping data from web pages. Replace them with appropriate full-width substitutions. For example:
 
