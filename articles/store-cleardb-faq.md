@@ -2,24 +2,24 @@
 title: FAQ for ClearDB MySql databases with Azure App Service | Microsoft Docs
 description: Answers to common questions about using ClearDB MySQL databases with Azure App Service.
 documentationcenter: php
-services: ''
+services: mysql
 author: sunbuild
 manager: yochayk
-editor: ''
 tags: mysql
-
-ms.assetid: c2ed5e78-6d7d-4d0c-b7ee-a52ae41ceab8
 ms.service: multiple
 ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-
 ---
 # FAQ for ClearDB MySql databases with Azure App Service
 This FAQ answers common questions about using and purchasing ClearDB MySQL databases for Azure Web Apps.
+
+> [!IMPORTANT]
+> As of June 13, 2018, ClearDB transitioned Azure-based customers currently billed by Microsoft to a direct billing model with ClearDB. The information in this article is now out of date. You will no longer be able to create or upgrade a ClearDB database that was created in Azure.
+>
+> For more details and next steps, see [Changes to ClearDB service plans](http://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
+
 
 ## What options do I have for MySQL on Azure?
 You have several options:

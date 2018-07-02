@@ -3,7 +3,7 @@ title: Use the Azure Stack API | Microsoft Docs
 description: Learn how to retrieve an authentication from Azure to make API requests to Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: cblackuk
 manager: femila
 
 ms.service: azure-stack
@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/02/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 

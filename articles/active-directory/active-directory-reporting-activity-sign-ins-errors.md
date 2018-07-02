@@ -101,7 +101,7 @@ The following section provides you with a complete overview of all possible erro
 |50120|Issue with JWT header. Contact the tenant admin.|
 |50124|Claims Transformation contains invalid input parameter. Contact the tenant admin to update the policy.|
 |50125|Sign-in was interrupted due to a password reset or password registration entry|
-|50126|Invalid username or password or Invalid on-premise username or password.|
+|50126|Invalid username or password or Invalid on-premises username or password.|
 |50127|User needs to install a broker app to gain access to this content.|
 |50128|Invalid domain name - No tenant-identifying information found in either the request or implied by any provided credentials|
 |50129|Device is not Workplace joined - Workplace join is required to register the device.|

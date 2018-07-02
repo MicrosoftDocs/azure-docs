@@ -11,32 +11,6 @@
   items: 
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
-- name: Tutorials
-  items: 
-  - name: Build app
-    items: 
-    - name: 1. With custom domain
-      href: luis-quickstart-intents-only.md
-    - name: 2. Add prebuilt intents and entities
-      href: luis-tutorial-prebuilt-intents-entities.md
-    - name: 3. Add regular expression entity
-      href: luis-quickstart-intents-regex-entity.md
-    - name: 4. Add list entity
-      href: luis-quickstart-intent-and-list-entity.md
-    - name: 5. Add hierarchical entity
-      href: luis-quickstart-intent-and-hier-entity.md
-    - name: 6. Add simple entity and phrase list
-      href: luis-quickstart-primary-and-secondary-data.md
-    - name: 7. Add keyPhrase entity
-      href: luis-quickstart-intent-and-key-phrase.md
-    - name: 8. Add sentiment analysis
-      href: luis-quickstart-intent-and-sentiment-analysis.md
-  - name: Improve prediction 
-    items: 
-    - name: With patterns
-      href: luis-tutorial-pattern.md
-    - name: With a phrase list
-      href: luis-tutorial-interchangeable-phrase-list.md
   - name: Use APIs
     items: 
     - name: Get utterance prediction with endpoint query
@@ -71,7 +45,32 @@
         href: luis-get-started-php-add-utterance.md
       - name: Ruby
         href: luis-get-started-ruby-add-utterance.md
-
+- name: Tutorials
+  items: 
+  - name: Build app
+    items: 
+    - name: 1. With custom domain
+      href: luis-quickstart-intents-only.md
+    - name: 2. Add prebuilt intents and entities
+      href: luis-tutorial-prebuilt-intents-entities.md
+    - name: 3. Add regular expression entity
+      href: luis-quickstart-intents-regex-entity.md
+    - name: 4. Add list entity
+      href: luis-quickstart-intent-and-list-entity.md
+    - name: 5. Add hierarchical entity
+      href: luis-quickstart-intent-and-hier-entity.md
+    - name: 6. Add simple entity and phrase list
+      href: luis-quickstart-primary-and-secondary-data.md
+    - name: 7. Add keyPhrase entity
+      href: luis-quickstart-intent-and-key-phrase.md
+    - name: 8. Add sentiment analysis
+      href: luis-quickstart-intent-and-sentiment-analysis.md
+  - name: Improve prediction 
+    items: 
+    - name: With patterns
+      href: luis-tutorial-pattern.md
+    - name: With a phrase list
+      href: luis-tutorial-interchangeable-phrase-list.md
 - name: Samples
   items:
   - name: Code samples
@@ -209,7 +208,7 @@
     - name: Create keys
       href: luis-how-to-azure-subscription.md
     - name: Add keys in LUIS 
-      href: Manage-Keys.md
+      href: luis-how-to-manage-keys.md
     - name: View endpoint usage with PowerShell
       href: luis-how-to-manage-from-cloud-shell.md
     - name: Manage versions
@@ -284,6 +283,10 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
     - name: Node.js
       href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
+    - name: Go 
+      href: https://aka.ms/luis-sdk-go
+    - name: Java
+      href: https://aka.ms/luis-java-sdk
     - name: Python
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
     - name: .Net Endpoint
