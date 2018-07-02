@@ -33,7 +33,7 @@ The spoken form must be lowercase, which can be forced during the import. In add
 
 Each .txt file can have several entries. For example, see the following screenshot:
 
-![Screenshot of Notepad with several entries for acronym pronunciation](../../../media/cognitive-services/custom-speech-service/custom-speech-pronunciation-file.png)
+![Screenshot of Notepad with several entries for acronym pronunciation](media/stt/custom-speech-pronunciation-file.png)
 
 The spoken form is the phonetic sequence of the display form. It is composed of letters, words, or syllables. Currently, there is no further guidance or set of standards to help you formulate the spoken form. 
 
@@ -59,4 +59,4 @@ The size of the .txt file containing the pronunciation entries is limited to 1 M
 
 ## Next steps
 * Improve recognition accuracy by creating a [custom acoustic model](how-to-customize-acoustic-models.md)
-* Improve recognition accuracy by creating a [custom language model](how-to-customize-language-models.md)
+* Improve recognition accuracy by creating a [custom language model](how-to-customize-language-model.md)
