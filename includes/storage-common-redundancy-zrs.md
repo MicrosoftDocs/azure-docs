@@ -23,6 +23,7 @@ ZRS currently supports [**standard, general-purpose v2 (GPv2)**](../articles/sto
 ZRS is **generally available** in the following regions:
 
 - US East 2
+- US West 2
 - US Central
 - North Europe
 - West Europe
