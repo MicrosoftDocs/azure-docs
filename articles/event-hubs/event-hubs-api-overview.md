@@ -48,7 +48,7 @@ The [Node.js library](https://github.com/Azure/azure-event-hubs-node) is current
 
 ## Management APIs
 
-The following is a listing of all currently available management specific libraries. None of these libraries contain runtime operations, and are for the sole purpose of managing Event Hubs entities.
+The following is a listing of all currently available management-specific libraries. None of these libraries contain runtime operations, and are for the sole purpose of managing Event Hubs entities.
 
 | Language/Platform | Management package | Repository |
 | --- | --- | --- | --- |
