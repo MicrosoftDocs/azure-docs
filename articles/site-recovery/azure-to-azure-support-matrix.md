@@ -165,8 +165,8 @@ Temporary disk | Always excluded from replication | Temporary disk is excluded f
 Data change rate on the disk | Maximum of 10 MBps per disk for Premium storage and 2 MBps per disk for Standard storage | If the average data change rate on the disk is beyond 10 MBps (for Premium) and 2 MBps (for Standard) continuously, replication will not catch up. However, if it is an occasional data burst and the data change rate is greater than 10 MBps (for Premium) and 2 MBps (for Standard)  for some time and comes down, replication will catch up. In this case, you might see slightly delayed recovery points.
 Disks on standard storage accounts | Supported |
 Disks on premium storage accounts | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk to ensure you have the same storage configuration in target region
-Standard Managed disks | Supported in Azure regions in which Azure Site Recovery is supported. Government clouds are not currently supported.  |  
-Premium Managed disks | Supported in Azure regions in which Azure Site Recovery is supported. Government clouds are not currently supported. |
+Standard Managed disks | Supported in Azure regions in which Azure Site Recovery is supported. |  
+Premium Managed disks | Supported in Azure regions in which Azure Site Recovery is supported. |
 Storage spaces | Supported |   	 	 
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.	 
 Azure Disk Encryption (ADE) | Not supported |

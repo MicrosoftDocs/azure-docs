@@ -131,36 +131,10 @@ The following considerations apply:
   * **cbcs-aapl**: For FairPlay (AES CBC encryption)
   * **cbc**: For AES envelope encryption
 
-## Troubleshooting tips
-
-Use the following troubleshooting information for help with implementation issues.
-
-* The issuer URL must end with "/". The audience must be the player application client ID. Also, add "/" at the end of the issuer URL.
-
-  ```
-  <add key="ida:audience" value="[Application Client ID GUID]" />
-  <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
-  ```
-
-* Add permissions to the application in Azure AD on the **Configure** tab of the application. Permissions are required for each application, both local and deployed versions.
-* Use the correct issuer when you set up dynamic CENC protection.
-
-  ```
-  <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
-  ```
-
-  The following doesn't work:
-
-  ```
-  <add key="ida:issuer" value="https://username.onmicrosoft.com/" />
-  ```
-
-  The GUID is the Azure AD tenant ID. The GUID can be found in the **Endpoints** pop-up menu in the Azure portal.
-
-* Grant group membership claims privileges. Make sure the following is in the Azure AD application manifest file: 
-
-    "groupMembershipClaims": "All"    (the default value is null)
-
 ## Next steps
 
-[Protect with AES encryption](protect-with-aes128.md)
+[How to protect with AES encryption in Media Services v3](protect-with-aes128.md)
+
+Additional information can be found in [DRM reference design and implementation](../previous/media-services-cenc-with-multidrm-access-control.md)
+
+
