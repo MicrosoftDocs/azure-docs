@@ -11,7 +11,7 @@ ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 06/29/2018
-ms.author: moderakh
+ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
 ---
