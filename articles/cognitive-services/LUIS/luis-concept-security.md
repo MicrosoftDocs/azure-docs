@@ -57,6 +57,8 @@ A user who is not an owner or collaborator, can only access a public app if give
 ## Microsoft user accounts
 Authors and collaborators can add keys to LUIS on the Publish page. The Microsoft user account that creates the LUIS key in the Azure portal needs to either the app owner or an app collaborator. 
 
+See [Azure Active Directory tenant user](luis-how-to-account-settings.md#azure-active-directory-tenant-user) to learn more about Active Directory user accounts. 
+
 <!--
 ### Individual consent
 If the Microsoft user account is part of an Azure Active Directory (AAD), and the active directory doesn't allow users to give consent, then you can provide individual consent as part of the login process. 

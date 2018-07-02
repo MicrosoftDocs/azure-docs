@@ -44,6 +44,9 @@ sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 # Install Microsoft GPG public key
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+
+# Perform apt upgrade
+sudo apt-get upgrade
 ```
 
 ## Install the container runtime 
