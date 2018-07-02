@@ -107,8 +107,6 @@ Attach the folder as a project to the workspace. The `--history` argument specif
    az ml project attach --history my_history -w my_workspace -g my_resource_group
    ```
 
-[!INCLUDE [aml-create-script-pi](../../../includes/aml-create-script-pi.md)]
-
 Run the script on your local computer.
 
    ```azurecli
@@ -121,7 +119,7 @@ In a web browser, visit the URL. A web portal appears with the results of the ru
 
    ![view history](./media/quickstart-get-started/web-results.png)
 
-## Clean up resources 
+## Clean up resources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
