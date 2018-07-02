@@ -24,9 +24,9 @@ This article describes the set of available API clients you can use for managing
 
 ## Runtime APIs
 
-The following is a description of all currently available Azure Event Hubs runtime clients. While some of these libraries also include limited management functionality, there are also [specific libraries](#management-apis) dedicated to management operations. The core focus of these libraries is to send and receive messages from an event hub.
+The following section describes all currently available Azure Event Hubs runtime clients. While some of these libraries also include limited management functionality, there are also [specific libraries](#management-apis) dedicated to management operations. The core focus of these libraries is to send and receive messages from an event hub.
 
-See [additional information](#additional-information) for more details on the current status of each runtime library.
+For more information about the current status of each runtime library, see [additional information](#additional-information).
 
 | Language/Platform | Client package | EventProcessorHost package | Repository |
 | --- | --- | --- | --- |
@@ -48,7 +48,7 @@ The [Node.js library](https://github.com/Azure/azure-event-hubs-node) is current
 
 ## Management APIs
 
-The following is a listing of all currently available management-specific libraries. None of these libraries contain runtime operations, and are for the sole purpose of managing Event Hubs entities.
+The following table lists all currently available management-specific libraries. None of these libraries contain runtime operations, and are for the sole purpose of managing Event Hubs entities.
 
 | Language/Platform | Management package | Repository |
 | --- | --- | --- | --- |
