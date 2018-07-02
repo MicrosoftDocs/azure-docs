@@ -72,33 +72,33 @@ There are many ways to upload data to the storage associated with an HDInsight c
 1. Open a command prompt and use the following command to upload the .zip file to the HDInsight cluster head node:
 
     ```bash
-    scp <FILENAME>.zip <SSH-USERNAME>@<CLUSTERNAME>-ssh.azurehdinsight.net:<FILENAME.zip>
+    scp <FILE_NAME>.zip <SSH_USER_NAME>@<CLUSTER_NAME>-ssh.azurehdinsight.net:<FILE_NAME.zip>
     ```
 
-    Replace *FILENAME* with the name of the .zip file. Replace *USERNAME* with the SSH login for the HDInsight cluster. Replace *CLUSTERNAME* with the name of the HDInsight cluster.
+    Replace *FILE_NAME* with the name of the .zip file. Replace *SSH_USER_NAME* with the SSH login for the HDInsight cluster. Replace *CLUSTER_NAME* with the name of the HDInsight cluster.
 
    > [!NOTE]
-   > If you use a password to authenticate your SSH login, you're prompted for the password. If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+   > If you use a password to authenticate your SSH login, you're prompted for the password. If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILE_NAME.zip USER_NAME@CLUSTER_NAME-ssh.azurehdinsight.net:`.
 
 2. After the upload has finished, connect to the cluster by using SSH. On the command prompt, enter the following command:
 
     ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ssh <SSH_USER_NAME>@<CLUSTER_NAME>-ssh.azurehdinsight.net
     ```
 
 3. Use the following command to unzip the .zip file:
 
     ```bash
-    unzip FILENAME.zip
+    unzip <FILE_NAME>.zip
     ```
 
-    This command extracts a .csv file that is roughly 60 MB.
+    This command extracts a *.csv* file that is roughly 60 MB.
 
 4. Use the following commands to create a directory, and copy the *.csv* file to the directory:
 
     ```bash
     hdfs dfs -mkdir -p abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data
-    hdfs dfs -put <FILENAME>.csv abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data/
+    hdfs dfs -put <FILE_NAME>.csv abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data/
     ```
 
 5. Create the Data Lake Storage Gen2 file system.
