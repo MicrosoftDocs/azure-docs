@@ -206,7 +206,7 @@ with the `xpath()` and `xml()` functions.
 ## Other content types
 
 Logic Apps works with and supports other content types, 
-but might require that you manually get the message body 
+but might require that you manually get the message 
 body by decoding the `$content` variable.
 
 For example, suppose your logic app gets triggered by a request 
