@@ -6,7 +6,7 @@
     href: overview.md
     expanded: true
   - name: Speech Scenarios
-    href: how-to-speech-to-text.md
+    href: speech-scenarios.md
 - name: Quickstarts
   items:
   - name: Try the Speech service for free # OK
