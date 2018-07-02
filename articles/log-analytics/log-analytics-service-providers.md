@@ -1,5 +1,5 @@
 ---
-title: Log Analytics Features for Service Providers | Microsoft Docs
+title: Log Analytics for Service Providers | Microsoft Docs
 description: Log Analytics can help Managed Service Providers (MSPs), Large Enterprises, Independent Sofware Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
 services: log-analytics
 documentationcenter: ''
@@ -59,6 +59,8 @@ The disadvantages of this architecture are:
 * It will be hard to separate the data between the customers. The only good method to do so is to use the computer's domain name.
 * All data from all customers will be stored in the same region with a single bill and same retention and configuration settings.
 * Azure fabric and PaaS services such as Azure Diagnostics and Azure Auditing requires the workspace to be in the same tenant as the resource thus they cannot send the logs to the central workspace.
+* All VM agents from all customers will be authenticated to the cental workspace using the same workspace ID and key. There is no method to block logs from a specific customer without interrupting other customers.
+
 
 ### 3. Hybrid - Logs are stored in workspace located in the customer's tenant and some of them are pulled to a central location.
 
@@ -68,7 +70,7 @@ There are two options to implement the central location in Log Analytics:
 
 1. Central workspace: The service provider can create a workspace in its tenant and use a script that utilizes the [Query API](https://dev.loganalytics.io/) with the [Data Collection API](log-analytics-data-collector-api.md) to bring the data from the various workspaces to this central location. Another option, other than script is to use [Azure Logic App](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
 
-2. PowerBI as a central location: Power BI can act as the central location when the various workspaces export data to it using the integration between Log Analytics and [Power BI](log-analytics-powerbi.md). 
+2. Power BI as a central location: Power BI can act as the central location when the various workspaces export data to it using the integration between Log Analytics and [Power BI](log-analytics-powerbi.md). 
 
 
 ## Next Steps
