@@ -1,6 +1,6 @@
 ---
 title: View the members of an administrator role in Azure Active Directory | Microsoft Docs
-description: You can now see and manage members of an Azure AD administrator roles in the portal. For those who frequently manage role assignments.
+description: You can now see and manage members of an Azure AD administrator role in the portal. For those who frequently manage role assignments.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -40,6 +40,6 @@ When you're viewing a role's members, select **Description** to see the complete
 
 ## Next steps
 
-* Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
-* For more about roles and Administrator role assignment, see [Assign administrator roles](active-directory-assign-admin-roles-azure-portal.md)
-* For default user permissions, see a [comparison of default guest and member user permissions](./fundamentals/users-default-permissions.md)
+* Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+* For more about roles and Administrator role assignment, see [Assign administrator roles](active-directory-assign-admin-roles-azure-portal.md).
+* For default user permissions, see a [comparison of default guest and member user permissions](./fundamentals/users-default-permissions.md).
