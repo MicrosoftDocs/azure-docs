@@ -44,8 +44,6 @@ Use [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.htm
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
 ### Silverlight Players
-#### Monitoring
-[http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
 
 #### PlayReady with Token
 [http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
