@@ -513,7 +513,7 @@ If container health was successfully enabled and configured but you are not seei
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```  
-2. Check the status of the deployment by running the following command:
+2. Check the status of the deployment for agent version 06072018 or higher by running the following command:
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 
