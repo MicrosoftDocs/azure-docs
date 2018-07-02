@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 06/12/2018
 ms.author: lakasa
 
 ---
@@ -17,7 +17,7 @@ Microsoft Azure is committed to helping you protect and safeguard your data to m
 
 You can use Microsoft-managed encryption keys with SSE or you can use your own encryption keys. This article describes how to use your own encryption keys. For more information about using Microsoft-managed keys, or about SSE in general, see [Storage Service Encryption for Data at Rest](storage-service-encryption.md).
 
-SSE for Blob and File storage is integrated with Azure Key Vault, so that you can use a key vault to manage your encryption keys. You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault’s APIs to generate encryption keys. With Azure Key Vault, you can manage and control your keys and also audit your key usage.
+SSE for Blob and File storage is integrated with Azure Key Vault, so that you can use a key vault to manage your encryption keys. You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can manage and control your keys and also audit your key usage.
 
 Why create your own keys? Custom keys give you more flexibility, so that you can create, rotate, disable, and define access controls. Custom keys also enable you to audit the encryption keys used to protect your data.
 
@@ -108,7 +108,7 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 
 ### Step 5: Copy data to storage account
 
-To transfer data into your new storage account so that it’s encrypted. For more information see [FAQ for Storage Service Encryption](storage-service-encryption.md#faq-for-storage-service-encryption).
+To transfer data into your new storage account so that it's encrypted. For more information see [FAQ for Storage Service Encryption](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### Step 6: Query the status of the encrypted data
 
@@ -144,9 +144,9 @@ A: No. When you first create the storage account, only Microsoft-managed keys ar
 
 A: No, you cannot disable encryption. Encryption is enabled by default for all services – Blob, File, Table and Queue storage. You can optionally switch from using Microsoft-managed keys to using customer-managed keys, and vice versa.
 
-**Q: Is SSE enabled by default when I create a new storage account?**
+**Q: Is SSE enabled when I create a new storage account?**
 
-A: SSE is enabled by default for all storage accounts and for all services – Blob, File, Table, and Queue storage.
+A: SSE is enabled for all storage accounts and for all services – Blob, File, Table, and Queue storage.
 
 **Q: I can't enable SSE using customer-managed keys on my storage account.**
 

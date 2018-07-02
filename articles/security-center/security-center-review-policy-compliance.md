@@ -1,7 +1,6 @@
 ---
 title: Reviewing Security Center policy compliance with Azure REST API | Microsoft Docs
 description: Learn how to use Azure REST APIs to review current compliance with Security Center policies.
-# As an administrator or developer, I want to review policy compliance with my current Security Center policies.
 services: security-center
 documentationcenter: na
 author: lleonard-msft
@@ -16,6 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: alleonar
+
+# As an administrator or developer, I want to review policy compliance with my current Security Center policies.
 
 ---
 

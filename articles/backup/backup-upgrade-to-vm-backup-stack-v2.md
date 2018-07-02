@@ -1,5 +1,5 @@
 ---
-title: Upgrade to the Azure Resource Manager deployment model for Azure VM backup stack
+title: Upgrade to the Azure VM Backup Stack V2
 description: Upgrade process and FAQs for VM backup stack, Resource Manager deployment model
 services: backup, virtual-machines
 author: trinadhk
@@ -11,7 +11,7 @@ ms.date: 03/08/2018
 ms.author: trinadhk
 --- 
 
-# Upgrade to the Azure Resource Manager deployment model for Azure VM backup stack
+# Upgrade to Azure VM Backup stack V2
 The Resource Manager deployment model for the upgrade to virtual machine (VM) backup stack provides the following feature enhancements:
 * Ability to see snapshots taken as part of a backup job that's available for recovery without waiting for data transfer to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore. Also, this ability eliminates the additional storage requirement for backing up premium VMs, except for the first backup.  
 
@@ -44,7 +44,7 @@ By default, snapshots are kept for seven days. This feature allows the restore t
 
 * If you do a restore from a snapshot recovery point for a premium VM, you see a temporary storage location that is used while the VM is created as part of the restore.
 
-* For premium storage accounts, the snapshots that are taken for instant recovery occupy 10 TB of allocated space.
+* For premium storage accounts, the snapshots that are taken for instant recovery will count towards the limit of 10 TB of allocated space.
 
 ## Upgrade
 ### The Azure portal

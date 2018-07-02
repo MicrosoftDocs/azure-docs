@@ -113,7 +113,7 @@
   - name: Batch AI
     tocHref: /azure/batch-ai/
     topicHref: /azure/batch-ai/
-  - name: Billing
+  - name: Billing + cost management
     tocHref: /azure/billing/
     topicHref: /azure/billing/
   - name: Biztalk Services
@@ -271,7 +271,7 @@
   - name: Data Lake Analytics
     tocHref: /azure/data-lake-analytics/
     topicHref: /azure/data-lake-analytics/
-  - name: Data Lake Store
+  - name: Data Lake Storage Gen1
     tocHref: /azure/data-lake-store/
     topicHref: /azure/data-lake-store/
   - name: Devtest Lab
@@ -311,7 +311,7 @@
       - name: Enterprise Security
         tocHref: /azure/hdinsight/domain-joined
         topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
-      - name: R Server
+      - name: ML Services
         tocHref: /azure/hdinsight/r-server
         topicHref: /azure/hdinsight/r-server-overview
       - name: Spark
@@ -337,8 +337,8 @@
       tocHref: /azure/iot-dps/
       topicHref: /azure/iot-dps/
     - name: IoT solution accelerators
-      tocHref: /azure/iot-suite/
-      topicHref: /azure/iot-suite/   
+      tocHref: /azure/iot-accelerators/
+      topicHref: /azure/iot-accelerators/
     - name: IoT Central
       tocHref: /azure/iot-central/
       topicHref: /azure/iot-central/         
@@ -378,7 +378,7 @@
         topicHref: /azure/machine-learning/team-data-science-process/overview
       - name: Data Science Virtual Machine
         tocHref: /azure/machine-learning/data-science-virtual-machine
-        topicHref: /azure/machine-learning/data-science-virtual-machine/virtual-machine-overview
+        topicHref: /azure/machine-learning/data-science-virtual-machine/
   - name: Marketplace Consumer
     tocHref: /azure/marketplace-consumer/
     topicHref: /azure/marketplace-consumer/
@@ -469,6 +469,9 @@
   - name: Resiliency
     tocHref: /azure/resiliency/
     topicHref: /azure/resiliency/
+  - name: Role-based access control
+    tocHref: /azure/role-based-access-control/
+    topicHref: /azure/role-based-access-control/
   - name: Service Health
     tocHref: /azure/service-health/
     topicHref: /azure/service-health/
@@ -515,6 +518,9 @@
       - name: Blobs
         tocHref: /azure/storage/blobs/
         topicHref: /azure/storage/blobs/storage-blobs-introduction
+      - name: Data Lake Storage Gen2
+        tocHref: /azure/storage/data-lake-storage-gen2/
+        topicHref: /azure/storage/data-lake-storage/introduction
       - name: Files
         tocHref: /azure/storage/files/
         topicHref: /azure/storage/files/storage-files-introduction 

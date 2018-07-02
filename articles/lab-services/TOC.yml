@@ -75,6 +75,12 @@
         href: devtest-lab-use-resource-manager-template.md
       - name: Restart a VM
         href: devtest-lab-restart-vm.md
+      - name: Resize a VM
+        href: devtest-lab-resize-vm.md
+      - name: Redeploy a VM
+        href: devtest-lab-redeploy-vm.md
+      - name: Import a VM
+        href: devtest-lab-import-vm.md                
     - name: Use environments in a lab
       items:
       - name: Create an environment

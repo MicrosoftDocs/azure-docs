@@ -72,9 +72,9 @@ Azure Cosmos DB supports three indexing modes that you can configure via the ind
 
 Consistent indexing supports consistent queries at the cost of a possible reduction in write throughput. This reduction is a function of the unique paths that need to be indexed and the “consistency level.” Consistent indexing mode is designed for “write quickly, query immediately” workloads.
 
-**Lazy**:  The index is updated asynchronously when an Azure Cosmos DB collection is quiescent, that is, when the collection’s throughput capacity is not fully utilized to serve user requests. The Lazy indexing mode might be suitable for "ingest now, query later" workloads that require document ingestion. Note that you might get inconsistent results because data is ingested and indexed slowly. This means that your COUNT queries or specific query results might not be consistent or repeatable at any given time. 
+**Lazy**:  The index is updated asynchronously when an Azure Cosmos DB collection is quiescent, that is, when the collection’s throughput capacity is not fully utilized to serve user requests.  Note that you might get inconsistent results because data is ingested and indexed slowly. This means that your COUNT queries or specific query results might not be consistent or repeatable at  given time. 
 
-The index is generally in catch-up mode with ingested data. With Lazy indexing, time to live (TTL) changes result in the index being dropped and re-created. This makes the COUNT and query results inconsistent for a period of time. Because of this, most Azure Cosmos DB accounts should use the Consistent indexing mode.
+The index is generally in catch-up mode with ingested data. With Lazy indexing, time to live (TTL) changes result in the index being dropped and re-created. This makes the COUNT and query results inconsistent for a period of time. Most Azure Cosmos DB accounts should use the Consistent indexing mode.
 
 **None**: A collection that has a None index mode has no index associated with it. This is commonly used if Azure Cosmos DB is used as a key-value storage, and documents are accessed only by their ID property. 
 
@@ -223,11 +223,11 @@ The following example shows how to increase the precision for Range indexes in a
 
 Similarly, you can completely exclude paths from indexing. The next example shows how to exclude an entire section of the documents (a *subtree*) from indexing by using the \* wildcard operator.
 
-    var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
+    var excluded = new DocumentCollection { Id = "excludedPathCollection" };
+    excluded.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+    excluded.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
 
 

@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: mbullwin
 
@@ -31,7 +31,6 @@ You need to open some outgoing ports in your server's firewall to allow the Appl
 | --- | --- | --- | --- |
 | Telemetry |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
 | Live Metrics Stream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
-| Internal Telemetry |breeze.aimon.applicationinsights.io |52.161.11.71 |443 |
 
 ## Status Monitor
 Status Monitor Configuration - needed only when making changes.

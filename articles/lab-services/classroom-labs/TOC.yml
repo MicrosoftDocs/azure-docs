@@ -4,6 +4,8 @@
   items:
   - name: About classroom labs
     href: classroom-labs-overview.md
+  - name: Compare lab types
+    href: ../compare-lab-types.md    
 - name: Tutorials
   items:
   - name: 1. Set up a lab account

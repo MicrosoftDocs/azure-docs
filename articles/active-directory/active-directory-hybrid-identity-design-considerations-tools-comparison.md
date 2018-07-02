@@ -12,6 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/27/2018
+ms.component: hybrid
+ms.date: 05/31/2018
 ms.author: billmath
 
 ---
@@ -34,7 +36,7 @@ FR = Future Release
 PP = Public Preview  
 
 ## On-Premises to Cloud Synchronization
-| Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services (AAD Sync) | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services (AAD Sync) - NO LONGER SUPPORTED | Azure Active Directory Synchronization Tool (DirSync) - NO LONGER SUPPORTED | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Connect to single on-premises AD forest |● |● |● |● |● |
 | Connect to multiple on-premises AD forests |● |● | |● |● |
@@ -49,7 +51,7 @@ PP = Public Preview
 
 
 ## Cloud to On-Premises Synchronization
-| Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services- NO LONGER SUPPORTED  | Azure Active Directory Synchronization Tool (DirSync)- NO LONGER SUPPORTED  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Writeback of devices |● | |● | | |
 | Attribute writeback (for Exchange hybrid deployment ) |● |● |● |● |● |
@@ -57,15 +59,17 @@ PP = Public Preview
 | Writeback of passwords (from self-service password reset (SSPR) and password change) |● |● | | | |
 
 ## Authentication Feature Support
-| Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services- NO LONGER SUPPORTED  | Azure Active Directory Synchronization Tool (DirSync)- NO LONGER SUPPORTED  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
-| Password Sync for single on-premises AD forest |● |● |● | | |
-| Password Sync for multiple on-premises AD forests |● |● | | | |
+| Password Hash Sync for single on-premises AD forest |●|●|● | | |
+| Password Hash Sync for multiple on-premises AD forests |●|● | | | |
+| Pass-Through Authentication for single on-premises AD forests |●| | | | |
 | Single Sign-on with Federation |● |● |● |● |● |
+| Seamless Single Sign-on|● |||||
 | Writeback of passwords (from SSPR and password change) |● |● | | | |
 
 ## Set-up and Installation
-| Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Microsoft Identity Manager 2016 (MIM) |
+| Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services- NO LONGER SUPPORTED  | Azure Active Directory Synchronization Tool (DirSync)- NO LONGER SUPPORTED  | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Supports installation on a Domain Controller |● |● |● | |
 | Supports installation using SQL Express |● |● |● | |
@@ -76,7 +80,7 @@ PP = Public Preview
 | Support for Windows Server 2012 and Windows Server 2012 R2 |● |● |● |● |
 
 ## Filtering and Configuration
-| Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services | Azure Active Directory Synchronization Tool (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Feature | Azure Active Directory Connect | Azure Active Directory Synchronization Services- NO LONGER SUPPORTED  | Azure Active Directory Synchronization Tool (DirSync)- NO LONGER SUPPORTED  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Filter on Domains and Organizational Units |● |● |● |● |● |
 | Filter on objects’ attribute values |● |● |● |● |● |

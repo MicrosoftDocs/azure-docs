@@ -15,7 +15,7 @@ ms.author: rimman
 
 # Multi-master at global scale with Azure Cosmos DB 
  
-Developing globally distributed applications that respond with local latencies while maintaining consistent views of data worldwide is a challenging problem. Customers use globally distributed databases, because they need to improve data access latency, achieve high data availability, and ensure guaranteed disaster recovery and, (4) to meet their business requirements. Multi-master in Azure Cosmos DB provides high levels of availability (99.999%), single-digit millisecond latency to write data and scalability with built-in comprehensive and flexible conflict resolution support. These features significantly simplifies development of globally distributed applications. For globally distributed applications, multi-master support is crucial. 
+Developing globally distributed applications that respond with local latencies while maintaining consistent views of data worldwide is a challenging problem. Customers use globally distributed databases, because they need to improve data access latency, achieve high data availability, ensure guaranteed disaster recovery, and to meet their business requirements. Multi-master in Azure Cosmos DB provides high levels of availability (99.999%), single-digit millisecond latency to write data and scalability with built-in comprehensive and flexible conflict resolution support. These features significantly simplify development of globally distributed applications. For globally distributed applications, multi-master support is crucial. 
 
 ![Multi-master architecture](./media/multi-region-writers/multi-master-architecture.png)
 
@@ -32,7 +32,7 @@ If you already have an Azure subscription, you can sign up to join the multi-mas
 
 2. In the New Account page, provide a name for your Azure Cosmos DB account, choose the API, Subscription, Resource Group and Location.  
 
-3. Next select **Sign up to preview today** under the Multi Mater Preview field.  
+3. Next select **Sign up to preview today** under the Multi Master Preview field.  
 
    ![Sign up for multi-master preview](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
 

@@ -58,4 +58,4 @@ See how to add [versioning](luis-how-to-manage-versions.md) on the app settings 
 
 Learn how to design [intents](luis-concept-intent.md) into the model.
 
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

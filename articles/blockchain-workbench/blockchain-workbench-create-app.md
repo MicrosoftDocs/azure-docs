@@ -371,7 +371,7 @@ Before exiting the function, call the `ContractUpdated()` function. The function
 To add a blockchain application to Blockchain Workbench, you upload the configuration and smart contract files to define the application.
 
 1. In a web browser, navigate to the Blockchain Workbench web address. For example, `https://{workbench URL}.azurewebsites.net/` The web application is created when you deploy Blockchain Workbench. For information on how to find your Blockchain Workbench web address, see [Blockchain Workbench Web URL](blockchain-workbench-deploy.md#blockchain-workbench-web-url)
-2. Sign in as a Blockchain Workbench administrator. For more information on managing users, see [Manage Users in Azure Blockchain Workbench](blockchain-workbench-manage-users.md).
+2. Sign in as a [Blockchain Workbench administrator](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 3. Select **Applications** > **New**. The **New application** pane is displayed.
 4. Select **Upload the contract configuration** > **Browse** to locate the **HelloBlockchain.json** configuration file you created. The configuration file is automatically validated. Select the **Show** link to display validation errors. Fix validation errors before you deploy the application.
 5. Select **Upload the contract code** > **Browse** to locate the **HelloBlockchain.sol** smart contract code file. The code file is automatically validated. Select the **Show** link to display validation errors. Fix validation errors before you deploy the application.

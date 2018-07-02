@@ -18,7 +18,7 @@ ms.author: dobett
 In this tutorial, you create two Java console apps:
 
 * **add-tags-query**, a Java back-end app that adds tags and queries device twins.
-* **simulated-device**, a Java device app that that connects to your IoT hub and reports its connectivity condition using a reported property.
+* **simulated-device**, a Java device app that connects to your IoT hub and reports its connectivity condition using a reported property.
 
 > [!NOTE]
 > The article [Azure IoT SDKs](iot-hub-devguide-sdks.md) provides information about the Azure IoT SDKs that you can use to build both device and back-end apps.

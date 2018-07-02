@@ -3,7 +3,7 @@ title: Collect data from your environment with Azure Log Analytics  | Microsoft 
 description: This topic helps you understand how to collect data and monitor computers hosted in your on-premises or other cloud environment with Log Analytics.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/18/2018
+ms.topic: conceptual
+ms.date: 06/07/2018
 ms.author: magoedte
-
+ms.component: na
 ---
+
 # Collect data from computers in your environment with Log Analytics
 
 Azure Log Analytics can collect and act on data from Windows or Linux computers residing in:
@@ -61,18 +62,19 @@ The following Linux distributions are officially supported.  However, the Linux 
 ## Network firewall requirements
 The information below list the proxy and firewall configuration information required for the Linux and Windows agent to communicate with Log Analytics.  
 
-### Linux
+|Agent Resource|Ports |Direction |Bypass HTTPS inspection|
+|------|---------|--------|--------|   
+|*.ods.opinsights.azure.com |Port 443 |Inbound and outbound|Yes |  
+|*.oms.opinsights.azure.com |Port 443 |Inbound and outbound|Yes |  
+|*.blob.core.windows.net |Port 443 |Inbound and outbound|Yes |  
+|*.azure-automation.net |Port 443 |Inbound and outbound|Yes |  
 
-|Agent Resource| Ports | Direction |  
-|------|---------|--------|  
-|*.ods.opinsights.azure.com | Port 443 | Inbound and outbound|  
-|*.oms.opinsights.azure.com | Port 443 | Inbound and outbound|  
-|*.blob.core.windows.net | Port 443 | Inbound and outbound|  
-|*.azure-automation.net | Port 443 | Inbound and outbound|  
 
-The Linux agent supports communicating either through a proxy server or OMS Gateway to the Log Analytics service using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  The proxy server can be specified during installation or by modifying the proxy.conf configuration file after installation.  
+If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
-The proxy configuration value has the following syntax:
+The Windows and Linux agent supports communicating either through a proxy server or OMS Gateway to the Log Analytics service using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  For the Windows agent connected directly to the service, the proxy configuration is specified during installation or [after deployment](log-analytics-agent-manage.md#update-proxy-settings) from Control Panel or  with PowerShell.  
+
+For the Linux agent, the proxy server is specified during installation or [after installation](/log-analytics-agent-manage.md#update-proxy-settings) by modifying the proxy.conf configuration file.  The Linux agent proxy configuration value has the following syntax:
 
 `[protocol://][user:password@]proxyhost[:port]`
 
@@ -91,17 +93,7 @@ For example:
 `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> If you use special characters such as “@” in your password, you receive a proxy connection error because value is parsed incorrectly.  To work around this issue, encode the password in the URL using a tool such as [URLDecode](https://www.urldecoder.org/).  
-
-### Windows
-The information below list the proxy and firewall configuration information required for the  Windows agent to communicate with Log Analytics. Traffic is outbound from your network to the Log Analytics service. 
-
-| Agent Resource | Ports | Bypass HTTPS inspection|
-|----------------|-------|------------------------|
-|*.ods.opinsights.azure.com |443 | Yes |
-|*.oms.opinsights.azure.com | 443 | Yes | 
-|*.blob.core.windows.net | 443 | Yes | 
-|*.azure-automation.net | 443 | Yes | 
+> If you use special characters such as “\@” in your password, you receive a proxy connection error because value is parsed incorrectly.  To work around this issue, encode the password in the URL using a tool such as [URLDecode](https://www.urldecoder.org/).  
 
 ## Install and configure agent 
 Connecting your on-premises computers directly with Log Analytics can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best in your organization.

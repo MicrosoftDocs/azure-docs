@@ -38,7 +38,7 @@ Once you [subscribe](video-indexer-get-started.md) to the **Authorization** API,
 
 When calling the **Operations** APIs, the subscription key won't be used anymore. Instead, you will pass the access tokens obtained by the **Authorization** API. 
 
-Each request should have a valid token, matching the access level of the API you are calling. For example, operations on your user, such as getting your accounts, require a user access token. Operations on the account level, such as list all videos, require an account access token. Operations on videos, such as reindex video, require a video access token.
+Each request should have a valid token, matching the access level of the API you are calling. For example, operations on your user, such as getting your accounts, require a user access token. Operations on the account level, such as list all videos, require an account access token. Operations on videos, such as reindex video, require either an account access token or a video access token.
 
 To make things easier, you can use **Authorization** API > **GetAccounts** to get your accounts without obtaining a user token first. You can also ask to get the accounts with valid tokens, enabling you to skip an additional call to get an account token.
 
@@ -68,6 +68,12 @@ The Video Indexer API definitions were updated accordingly and are available to 
 
 ### V1 vs V2 examples
 
+The new V2 APIs involve 3 main parameters:
+
+1. [LOCATION] - As described above. Either trial, westus2, northeurope or eastasia.
+2. [YOUR_ACCOUNT_ID] - A Guid id of your account. Retrieved when getting all accounts (described below).
+3. [YOUR_VIDEO_ID] - The id of your video (e.g. "d4fa369abc"). Returned when uploading a video or when searching for videos.
+
 #### Uploading a video in V1:
 
 ```
@@ -78,38 +84,66 @@ https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns?name=some
 
 1. Get an access token for the upload request:
 
-  ```
-  https://api.videoindexer.ai/auth/westus2/Accounts/YOUR_ACCOUNT_ID/AccessToken?allowEdit=true
-  ```
+  You can either get all accounts and their access tokens:
+
+    ```
+    https://api.videoindexer.ai/auth/[LOCATION]/Accounts?generateAccessTokens=true&allowEdit=true
+    ```
+
+  Or get the specific account access token:
   
+  ```
+  https://api.videoindexer.ai/auth/[LOCATION]/Accounts/[YOUR_ACCOUNT_ID]/AccessToken?allowEdit=true
+  ```
 2. Upload a video:
 
   ```
-  https://api.videoindexer.ai/westus2/Accounts/YOUR_ACCOUNT_ID/Videos?accessToken=YOUR_ACCESS_TOKEN&name=my-video&description=my-video-description&language=English&videoUrl=http://url-to-the-video&indexingPreset=Default&streamingPreset=Default&privacy=Private
+  POST https://api.videoindexer.ai/[LOCATION]/Accounts/[YOUR_ACCOUNT_ID]/Videos?name=MySample&description=MySampleDescription&videoUrl=[URL_ENCODED_VIDEO_URL]&accessToken=eyJ0eXAiOiJ...
   ```
-  
 
 #### Getting insights in V1:
 
 ```
-https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns/VIDEO_ID
+https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns/[VIDEO_ID]
 ```
   
 #### Getting insights in V2:
 
-1. Get a video level access token:
+1. Either use the account access token, or get a video level access token:
 
   ```
-  https://api.videoindexer.ai/auth/westus2/Accounts/YOUR_ACCOUNT_ID/Videos/VIDEO_ID/AccessToken
+  https://api.videoindexer.ai/auth/[LOCATION]/Accounts/[YOUR_ACCOUNT_ID]/Videos/[VIDEO_ID]/AccessToken
   ```
   
 2. Get insights:
 
   ```
-  https://api.videoindexer.ai/westus2/Accounts/YOUR_ACCOUNT_ID/Videos/VIDEO_ID/Index?accessToken=ACCESS_TOKEN&language=English
+  https://api.videoindexer.ai/trial/[LOCATION]/[YOUR_ACCOUNT_ID]/Videos/[VIDEO_ID]/Index?accessToken=eyJ0eXA...
+  ```
+
+#### Getting video processing state in V1:
+
+```
+https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns/[VIDEO_ID]/State
+```
+  
+#### Getting video processing state in V2:
+
+In API v2, the processing state is returned as part of the Get Video Index API.
+
+1. Either use the account access token, or get a video level access token:
+
+  ```
+  https://api.videoindexer.ai/trial/[LOCATION]/[YOUR_ACCOUNT_ID]/Videos/[VIDEO_ID]/Index?accessToken=eyJ0eXA...
+  ```
+  
+2. Get insights:
+
+  ```
+  https://api.videoindexer.ai/trial/[LOCATION]/[YOUR_ACCOUNT_ID]/Videos/[VIDEO_ID]/Index?accessToken=eyJ0eXA...
   ```
 
 ## Next steps
 
-[Examine the Video Indexer output produced by the v2 API](video-indexer-output-json-v2.md)
+[Use Azure Video Indexer API](video-indexer-use-apis.md)
 

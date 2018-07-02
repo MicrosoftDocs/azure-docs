@@ -3,7 +3,7 @@
 title: Connect to Azure blob storage - Azure Logic Apps | Microsoft Docs
 description: Create and manage blobs in Azure storage with Azure Logic Apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 05/21/2018
 ms.topic: article
@@ -136,7 +136,7 @@ provide the necessary information for the action.
   
       ![Select folder](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
-   2. Browse until you find the file that you want and select that file.
+   2. Find and select the file you want based on the blob's **Id** number. You can find this **Id** number in the blob's metadata that is returned by the previously-described blob storage trigger.
 
 5. When you're done, on the designer toolbar, choose **Save**.
 To test your logic app, make sure that the selected folder contains a blob.

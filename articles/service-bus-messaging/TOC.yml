@@ -6,6 +6,7 @@
     href: service-bus-messaging-overview.md
   - name: Compare messaging services
     href: ../event-grid/compare-messaging-services.md
+    maintainContext: true
 - name: Quickstarts
   items:
   - name: Send messages - PowerShell
@@ -28,8 +29,6 @@
     href: service-bus-samples.md
 - name: Concepts
   items:
-  - name: Service Bus architecture
-    href: service-bus-architecture.md
   - name: Managed Service Identity (preview)
     href: service-bus-managed-service-identity.md
   - name: Role-Based Access Control (preview)
@@ -82,8 +81,6 @@
       href: service-bus-ruby-how-to-use-topics-subscriptions.md      
   - name: Develop
     items:
-    - name: Build a multi-tier Service Bus application
-      href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
     - name: Message handling
       items:
       - name: Queues, topics, and subscriptions
@@ -129,6 +126,10 @@
         href: service-bus-amqp-request-response.md
     - name: Advanced features
       items:
+      - name: IP connection filters
+        href: service-bus-ip-filtering.md
+      - name: Virtual Network service endpoints
+        href: service-bus-service-endpoints.md
       - name: Dead-letter queues
         href: service-bus-dead-letter-queues.md
       - name: Prefetch messages

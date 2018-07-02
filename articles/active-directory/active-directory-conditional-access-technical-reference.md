@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,6 +16,8 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
+
+#Customer intent: As a IT admin, I need to understand the conditional access settings so that  I can set them according to my business needs
 
 ---
 # Azure Active Directory conditional access settings reference
@@ -232,7 +235,7 @@ This setting applies to the following client apps:
 
 ## Next steps
 
-- For an overview of conditional access, see [conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+- For an overview of conditional access, see [What is conditional access in Azure Active Directory?](active-directory-conditional-access-azure-portal.md)
 - If you are ready to configure conditional access policies in your environment, see the [recommended practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md).
 
 

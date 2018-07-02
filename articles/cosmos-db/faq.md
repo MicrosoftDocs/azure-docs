@@ -55,6 +55,9 @@ There is no limit to the total amount of data that a container can store in Azur
 ### What are the throughput limits of Azure Cosmos DB?
 There is no limit to the total amount of throughput that a container can support in Azure Cosmos DB. The key idea is to distribute your workload roughly evenly among a sufficiently large number of partition keys.
 
+### Are Direct and Gateway connectivity modes encrypted ? 
+Yes both modes are always fully encrypted. 
+
 ### How much does Azure Cosmos DB cost?
 For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container. The term *containers* here refers to the SQL API collection, Graph API graph, MongoDB API collection, and Table API tables. 
 
@@ -152,10 +155,15 @@ To use optimistic concurrency in .NET, use the [AccessCondition](https://msdn.mi
 The SQL API supports language-integrated transactions via JavaScript-stored procedures and triggers. All database operations inside scripts are executed under snapshot isolation. If it is a single-partition collection, the execution is scoped to the collection. If the collection is partitioned, the execution is scoped to documents with the same partition-key value within the collection. A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds. If the JavaScript throws an error, the transaction is rolled back. For more information, see [Server-side JavaScript programming for Azure Cosmos DB](programming.md).
 
 ### How can I bulk-insert documents into Cosmos DB?
-You can bulk-insert documents into Azure Cosmos DB in either of two ways:
+You can bulk-insert documents into Azure Cosmos DB in one of the following ways:
 
+* The bulk executor tool, as described in [Using bulk executor .NET library](bulk-executor-dot-net.md) and [Using bulk executor Java library](bulk-executor-java.md)
 * The data migration tool, as described in [Database migration tool for Azure Cosmos DB](import-data.md).
 * Stored procedures, as described in [Server-side JavaScript programming for Azure Cosmos DB](programming.md).
+
+### I have setup my collection to use lazy indexing, I see that my queries do not return expected results. 
+As explained in the indexing section, lazy indexing can result in this behavior. You should always use consistent indexing for all the applications. 
+
 
 ### Does the SQL API support resource link caching?
 Yes, because Azure Cosmos DB is a RESTful service, resource links are immutable and can be cached. SQL API clients can specify an "If-None-Match" header for reads against any resource-like document or collection and then update their local copies after the server version has changed.
@@ -165,6 +173,11 @@ Yes. The [Azure Cosmos DB Emulator](local-emulator.md) provides a high-fidelity 
 
 ### Why are long floating-point values in a document rounded when viewed from data explorer in the portal. 
 This is limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in IEEE 754 and it can safely represent numbers between -(253 - 1) and 253-1 (i.e., 9007199254740991) only.
+
+### Where are permissions allowed in the object hierarchy?
+
+Creating permissions by using ResourceTokens is allowed at the collection level and its descendants (such as documents, attachments). This implies that trying to create a permission at the database or an account level is not currently allowed.
+
 
 ## Develop against the API for MongoDB
 ### What is the Azure Cosmos DB API for MongoDB?
@@ -263,9 +276,6 @@ You can use the Azure portal to browse the data. You can also use the Table API 
 You can use the [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
 Tools with the flexibility to take a connection string in the format specified previously can support the new Table API. A list of table tools is provided on the [Azure Storage Client Tools](../storage/common/storage-explorers.md) page. 
-
-### Do PowerShell or Azure CLI work with the Table API?
-There is support for [PowerShell](table-powershell.md). Azure CLI support is not currently available.
 
 ### Is the concurrency on operations controlled?
 Yes, optimistic concurrency is provided via the use of the ETag mechanism. 
@@ -393,7 +403,7 @@ None. There is no change in price for existing Azure Table storage customers.
 ### How is the price calculated for the Table API? 
 The price depends on the allocated TableThroughput. 
 
-### How do I handle any throttling on the tables in Table API offering? 
+### How do I handle any rate limiting on the tables in Table API offering? 
 If the request rate exceeds the capacity of the provisioned throughput for the underlying container or a set of containers, you get an error, and the SDK retries the call by applying the retry policy.
 
 ### Why do I need to choose a throughput apart from PartitionKey and RowKey to take advantage of the Table API offering of Azure Cosmos DB?

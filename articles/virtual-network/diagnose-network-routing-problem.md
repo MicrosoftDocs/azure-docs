@@ -40,7 +40,7 @@ The steps that follow assume you have an existing VM to view the effective route
 
      ![View effective routes](./media/diagnose-network-routing-problem/effective-routes.png)
 
-    If there are multiple network interfaces attached to the VM, you can view the effective routes for any network interface by selecting it. All network interfaces attached to a VM are in the same subnet. As a result, effective routes are the same for all network interfaces in a subnet.
+    If there are multiple network interfaces attached to the VM, you can view the effective routes for any network interface by selecting it. Since each network interface can be in a different subnet, each network interface can have different effective routes.
 
     In the example shown in the previous picture, the listed routes are default routes that Azure creates for each subnet. Your list has at least these routes, but may have additional routes, depending on capabilities you may have enabled for your virtual network such as it being peered with another virtual network or connected to your on-premises network through an Azure VPN gateway. To learn more about each of the routes, and other routes you may see for your network interface, see [Virtual network traffic routing](virtual-networks-udr-overview.md). If your list has a large number of routes, you may find it easier to select **Download**, to download a .csv file with the list of routes.
 
@@ -61,7 +61,7 @@ Get-AzureRmEffectiveRouteTable `
   | Format-Table
 ```
 
-To understand the information returned in the output, see [Routing overview](virtual-networks-udr-overview.md). Output is only returned if the VM is in the running state. If you're still having a communication problem, see [additional diagnosis](#additional-diagnosis) and [considerations](#considerations).
+To understand the information returned in the output, see [Routing overview](virtual-networks-udr-overview.md). Output is only returned if the VM is in the running state. If there are multiple network interfaces attached to the VM, you can review the effective routes for each network interface. Since each network interface can be in a different subnet, each network interface can have different effective routes. If you're still having a communication problem, see [additional diagnosis](#additional-diagnosis) and [considerations](#considerations).
 
 If you don't know the name of a network interface, but do know the name of the VM the network interface is attached to, the following commands return the IDs of all network interfaces attached to a VM:
 
@@ -93,7 +93,7 @@ az network nic show-effective-route-table \
   --resource-group myResourceGroup
 ```
 
-Output is returned in json format. To understand the information returned in the output, see [Routing overview](virtual-networks-udr-overview.md). Output is only returned if the VM is in the running state. If you're still having a communication problem, see [additional diagnosis](#additional-diagnosis) and [considerations](#considerations).
+To understand the information returned in the output, see [Routing overview](virtual-networks-udr-overview.md). Output is only returned if the VM is in the running state. If there are multiple network interfaces attached to the VM, you can review the effective routes for each network interface. Since each network interface can be in a different subnet, each network interface can have different effective routes. If you're still having a communication problem, see [additional diagnosis](#additional-diagnosis) and [considerations](#considerations).
 
 If you don't know the name of a network interface, but do know the name of the VM the network interface is attached to, the following commands return the IDs of all network interfaces attached to a VM:
 
@@ -126,6 +126,7 @@ Consider the following points when troubleshooting communication problems:
 - For virtual network peering traffic to work correctly, a system route with a next hop type of *VNet Peering* must exist for the peered virtual network's prefix range. If such a route doesn’t exist, and the virtual network peering link is **Connected**:
     - Wait a few seconds, and retry. If it's a newly established peering link, it occasionally takes longer to propagate routes to all the network interfaces in a subnet. To learn more about virtual network peering, see [Virtual network peering overview](virtual-network-peering-overview.md) and [manage virtual network peering](virtual-network-manage-peering.md).
     - Network security group rules may be impacting communication. For more information, see [Diagnose a virtual machine network traffic filter problem](diagnose-network-traffic-filter-problem.md).
+- Though Azure assigns default routes to each Azure network interface, if you have multiple network interfaces attached to the VM, only the primary network interface is assigned a default route (0.0.0.0/0), or gateway, within the VM's operating system. Learn how to create a default route for secondary network interfaces attached to a [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) or [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) VM. Learn more about [primary and secondary network  interfaces](virtual-network-network-interface-vm.md#constraints).
 
 ## Additional diagnosis
 

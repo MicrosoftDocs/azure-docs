@@ -38,7 +38,7 @@ To install the preview extension for Azure CLI:
 2. Run the following command to install the preview extension: 
 
     ```azurecli
-    az extension add -n storage-preview`
+    az extension add -n storage-preview
     ```
 
 The preview extension adds a new `--auth-mode` parameter to supported commands:
@@ -75,7 +75,7 @@ To use Azure PowerShell to sign in with an Azure AD identity:
 4. Install the preview module:
 
     ```powershell
-    Install-Module-Name Azure.Storage-RequiredVersion 4.4.0-AllowPrerelease –AllowClobber -Repository PSGallery -Force 
+    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber 
     ```
 
 5. Call the [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) cmdlet to create a context, and include the `-UseConnectedAccount` parameter. 

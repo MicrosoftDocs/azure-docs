@@ -3,16 +3,16 @@ title: How to perform an access review | Microsoft Docs
 description: Learn how to perform a review with the Azure Privileged Identity Management application.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
-ms.date: 06/06/2017
-ms.author: curtand
+ms.component: protection
+ms.date: 06/21/2018
+ms.author: rolyon
 ms.custom: pim
 ---
 # How to perform an access review in Azure AD Privileged Identity Management
@@ -20,7 +20,7 @@ Azure Active Directory (AD) Privileged Identity Management simplifies how enterp
 
 If you are assigned to an administrative role, your organization's privileged role administrator may ask you to regularly confirm that you still need that role for your job. You might get an email that includes a link, or you can go straight to the [Azure portal](https://portal.azure.com). Follow the steps in this article to perform a self-review of your assigned roles.
 
-If you're a privileged role administrator interested in access reviews, get more details at [How to start an access review](active-directory-privileged-identity-management-how-to-start-security-review.md).
+If you're a privileged role administrator or global administrator interested in access reviews, get more details at [How to start an access review](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 ## Add the Privileged Identity Management application
 You can use the Azure AD Privileged Identity Management (PIM) application in the [Azure portal](https://portal.azure.com/) to perform your review.  If you don't have the Azure AD Privileged Identity Management application on your portal, follow these steps to get started.

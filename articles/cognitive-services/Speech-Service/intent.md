@@ -9,7 +9,7 @@ manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 06/07/2018
 ms.author: wolfma
 ---
 
@@ -19,7 +19,7 @@ ms.author: wolfma
 > For instructions to download this sample and others, see [Samples for Speech SDK](samples.md).
 
 > [!NOTE]
-> Please obtain a subscription key first. In contrast to other services supported by the Cognitive Service Speech SDK, the Intent Recognition services requires a specific subscribtion key. [Here](https://www.luis.ai) you can find additional information about the intent recognition technology, as well as information on how to acquire a subscription key. Replace your own subscription key, the region of the service, as well as the AppId of your intent model in the appropriate place in the samples.
+> Please obtain a subscription key first. In contrast to other services supported by the Cognitive Service Speech SDK, the Intent Recognition services requires a specific subscription key. [Here](https://www.luis.ai) you can find additional information about the intent recognition technology, as well as information about how to acquire a subscription key. Replace your own subscription key, the [region of your subscription](regions.md), and the AppId of your intent model in the appropriate places in the samples.
 
 > [!NOTE]
 > For all samples below the following top-level declarations should be in place:
@@ -50,7 +50,7 @@ The following code snippet recognizes intent from an audio file in the default l
 
 [!include[Sample Audio](includes/sample-audio.md)]
 
-[!code-cpp[Intent Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp?IntentRecognitionWithFile)]
+[!code-cpp[Intent Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithFile)]
 
 - - -
 
@@ -64,7 +64,7 @@ The code snippet shows how to recognize intent in a continuous way. This code al
 
 ## Sample source code
 
-The latest version of the samples and even more advanced samples are in a dedicated [GitHub repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 ## Next steps
 

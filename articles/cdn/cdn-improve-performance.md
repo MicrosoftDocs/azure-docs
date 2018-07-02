@@ -4,7 +4,7 @@ description: Learn how to improve file transfer speed and increase page-load per
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
-ms.author: mazha
+ms.date: 06/11/2018
+ms.author: v-deasim
 
 ---
 # Improve performance by compressing files in Azure CDN
@@ -22,14 +22,14 @@ File compression is a simple and effective method to improve file transfer speed
 
 There are two ways to enable file compression:
 
-- Enable compression on your origin server. In this case, the CDN passes along the compressed files and delivers them to clients that request them.
-- Enable compression directly on the CDN POP servers ("compression on the fly"). In this case, the CDN compresses the files and serves them to the end users, even if they were not compressed by the origin server.
+- Enable compression on your origin server. In this case, Azure CDN passes along the compressed files and delivers them to clients that request them.
+- Enable compression directly on the CDN POP servers (*compression on the fly*). In this case, the CDN compresses the files and serves them to the end users, even if they were not compressed by the origin server.
 
 > [!IMPORTANT]
-> CDN configuration changes can take some time to propagate through the network: 
-- For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in ten minutes. 
+> Azure CDN configuration changes can take some time to propagate through the network: 
+- For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
 - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
-- For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
+- For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes in 10 minutes. 
 >
 > If you're setting up compression for the first time for your CDN endpoint, consider waiting 1-2 hours before you troubleshoot to ensure the compression settings have propagated to the POPs.
 > 
@@ -72,7 +72,7 @@ The standard and premium CDN tiers provide the same compression functionality, b
 
 1. From the CDN profile page, select **Manage**.
    
-    ![CDN manage selection](./media/cdn-file-compression/cdn-manage-btn.png)
+    ![CDN Manage select](./media/cdn-file-compression/cdn-manage-btn.png)
    
     The CDN management portal opens.
 2. Hover over the **HTTP Large** tab, then hover over the **Cache Settings** flyout. Select **Compression**.

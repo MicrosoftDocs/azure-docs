@@ -4,7 +4,7 @@ description: This tutorial describes options for authoring and configuring a bas
 services: app-service
 documentationcenter: python
 tags: python
-author: huguesv
+author: cephalin
 manager: erikre
 editor: ''
 
@@ -346,8 +346,11 @@ Contents of `ptvs_virtualenv_proxy.py`:
 ## Troubleshooting - Virtual Environment
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
+## Troubleshooting - Startup Errors
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
+
 ## Next steps
-For more information, see the [Python Developer Center](/develop/python/).
+For more information, see the [Python Developer Center](/python/azure/).
 
 > [!NOTE]
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
