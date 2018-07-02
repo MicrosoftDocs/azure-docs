@@ -283,6 +283,10 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
     - name: Node.js
       href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
+    - name: Go 
+      href: https://aka.ms/luis-sdk-go
+    - name: Java
+      href: https://aka.ms/luis-java-sdk
     - name: Python
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
     - name: .Net Endpoint
