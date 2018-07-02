@@ -31,7 +31,7 @@ and can specify content types such as these examples:
 
 * [application/json](#application-json) (native content type)
 * [text/plain](#text-plain) (native content type)
-* [application/xml and application/octet-stream]
+* [application/xml and application/octet-stream](#application-xml-octet-stream)
 * [Other content types](#other-content-types)
 
 <a name="application-json"></a>
@@ -138,7 +138,7 @@ reference and use those properties more easily in your logic app's workflow.
 ## "text/plain content" type
 
 When your logic app receives HTTP messages that 
-have the "Content-Type" header set to "text/plain", 
+have the `Content-Type` header set to `text/plain`, 
 your logic app stores those messages in raw form. 
 If you include these messages in subsequent actions without casting, 
 requests go out with the `Content-Type` header set to `text/plain`. 
@@ -158,6 +158,8 @@ but didn't specify a header, you can manually cast that data to text by using th
 such as this expression: 
 
 `@string(triggerBody())`
+
+<a name="application-xml-octet-stream"></a>
 
 ## "application/xml" and "application/octet-stream"
 
