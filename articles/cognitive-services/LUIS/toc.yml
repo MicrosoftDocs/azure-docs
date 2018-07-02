@@ -196,7 +196,7 @@
   - name: Use prebuilt models
     items: 
     - name: Use prebuilt entities
-      href: Pre-builtEntities.md
+      href: luis-prebuilt-entities.md
     - name: Use prebuilt domains
       href: luis-how-to-use-prebuilt-domains.md
     - name: Use the Cortana prebuilt app

@@ -130,7 +130,7 @@ A [prebuilt domain](luis-how-to-use-prebuilt-domains.md) is a LUIS app configure
 
 ## <a name="prebuilt-entity"></a>Prebuilt entity
 
-A [prebuilt entity](pre-builtentities.md) is an entity LUIS provides for common types of information such as number, URL, and email. You choose to add a prebuilt entity to your application. 
+A [prebuilt entity](luis-prebuilt-entities.md) is an entity LUIS provides for common types of information such as number, URL, and email. You choose to add a prebuilt entity to your application. 
 
 ## <a name="precision"></a>Precision
 In [batch testing][batch-testing], precision (also called positive predictive value) is the fraction of relevant utterances among the retrieved utterances.
