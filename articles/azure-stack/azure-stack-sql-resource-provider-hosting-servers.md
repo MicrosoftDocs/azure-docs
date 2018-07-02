@@ -61,7 +61,7 @@ You can create an administrative user with lower privileges than a SQL sysadmin.
 The following information provides additional security guidance:
 
 * All Azure Stack storage is encrypted using BitLocker, so any SQL instance on Azure Stack will use encrypted blob storage.
-* The SQL Resource Provider fully supports TLS 1.2; support for TLS 1.1 and TLS 1.0 will be removed in the next release. Ensure that any SQL Server that is managed through the SQL RP is configured for TLS 1.2 _only_ and the RP will default to that. All supported versions of SQL Server support TLS 1.2, see [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
+* The SQL Resource Provider fully supports TLS 1.2. Ensure that any SQL Server that is managed through the SQL RP is configured for TLS 1.2 _only_ and the RP will default to that. All supported versions of SQL Server support TLS 1.2, see [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 * Use SQL Server Configuration Manager to set the **ForceEncryption** option to ensure all communications to the SQL server are always encrypted. See [To configure the server to force encrypted connections](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections).
 * Ensure any client application is also communicating over an encrypted connection.
 * The RP is configured to trust the certificates used by the SQL Server instances.

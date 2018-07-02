@@ -64,9 +64,9 @@ As you add servers, assign them to a new or existing SKU to differentiate servic
 
 The following information applies to the RP and MySQL hosting servers:
 
-* Ensure that all hosting servers are configured for communication using TLS 1.2. Support for TLS 1.1 and TLS 1.0 will be removed in a future release of the Resource Provider. See [Configuring MySQL to Use Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
+* Ensure that all hosting servers are configured for communication using TLS 1.2. See [Configuring MySQL to Use Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
 * Employ [Transparent Data Encryption](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html).
-* The MySQL RP does not support caching_sha2_password authentication; that will be added in the next release.
+* The MySQL RP does not support caching_sha2_password authentication.
 
 ## Increase backend database capacity
 
