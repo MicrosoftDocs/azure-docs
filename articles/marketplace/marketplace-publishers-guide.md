@@ -45,7 +45,7 @@ Our goal is to connect Microsoft customers with the best solutions that our part
 
 Take advantage of the capabilities on the marketplace to grow your business: 
 
-### Expand to new markets and segments and generate new sales opportunities. 
+### Expand to new markets and segments and generate new sales opportunities
 
 Use marketplace as channel to access new markets, segments, and Microsoft cloud users with your portfolio of solutions. Generate new marketing leads and nurture these to sales opportunities. Benefit from joint marketing and sales activities to get more customers.  
 
@@ -57,7 +57,7 @@ Upsell and cross-sell your solutions by addressing customer problems after you m
 
 Get insights on the performance of your listings through insights and analytics made available to you. Get more information about campaign performance, orders and payouts, and how to maximize campaign activities of your solution.  
 
-### Marketplace Go-To-Market Benefits 
+### Marketplace Go-To-Market benefits 
 
 New listings on the marketplace are eligible for diversified set of free benefits to help partners grow their business in the marketplace. These benefits fall into the following categories: 
 
@@ -106,7 +106,7 @@ Become a publisher in the storefronts on the marketplace in three easy steps.
 
 ---   
 
-## Publishing Checklists  
+## Publishing checklists  
 *   Visit the [Publishing Checklist for AppSource](publishing-checklist-appsource.md) page.  
 *   Visit the [Publishing Checklist for Azure Marketplace on Cloud Partner Portal](./publishing-checklist-azure-marketplace.md) page.  
 *   Visit the [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md) page.  
