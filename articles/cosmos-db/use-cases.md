@@ -48,7 +48,7 @@ Bursts of data can be ingested by Azure Event Hubs as it offers high throughput 
 
 For a sample IoT solution using Azure Cosmos DB, EventHubs and Storm, see the [hdinsight-storm-examples repository on GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-For more information on Azure offerings for IoT, see [Create the Internet of Your Things](http://www.microsoft.com/server-cloud/internet-of-things.aspx). 
+For more information on Azure offerings for IoT, see [Create the Internet of Your Things](https://www.microsoft.com/en-us/internet-of-things). 
 
 ## Retail and marketing
 Azure Cosmos DB is used extensively in Microsoft's own e-commerce platforms, that run the Windows Store and XBox Live. It is also used in the retail industry for storing catalog data and for event sourcing in order processing pipelines.
