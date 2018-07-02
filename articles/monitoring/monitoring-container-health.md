@@ -242,7 +242,7 @@ After monitoring is enabled, it can take around 15 minutes before you are able t
 ## Verify agent deployed successfully
 
 ### Agent version 06072018 and higher
-1. To verify the OMS agent version *microsoft/oms:ciprod06072018* or higher is deployed properly, run the following commands to verify the agent is properly deployed: 
+1. To verify the OMS agent version *microsoft/oms:ciprod06072018* or higher is deployed properly, run the following commands: 
 
     `kubectl get ds omsagent --namespace=kube-system`
 
@@ -265,9 +265,9 @@ After monitoring is enabled, it can take around 15 minutes before you are able t
     omsagent   1         1         1            1            3h
     ```
 
-### Agent version 04202018
+### Agent version earlier than 06072018
 
-To verify the OMS agent version *microsoft/oms:ciprod04202018* is deployed properly, run the following command to verify the agent is properly deployed: 
+To verify the OMS agent version released before 06072018 is deployed properly, run the following command: 
 
     `kubectl get ds omsagent --namespace=kube-system`
 
