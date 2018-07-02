@@ -22193,12 +22193,62 @@
         },
         {
             "source_path": "articles/operations-management-suite/oms-security-web-baseline-assessment.md",
-            "redirect_url": "/azure/security-center/security-center-customize-os-security-config ",
+            "redirect_url": "/azure/security-center/security-center-customize-os-security-config",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/operations-management-suite/oms-security-data-security.md",
-            "redirect_url": "/azure/security-center/security-center-data-security ",
+            "redirect_url": "/azure/security-center/security-center-data-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/index.md",
+            "redirect_url": "/azure/monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-overview.md",
+            "redirect_url": "/azure/monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-architecture.md",
+            "redirect_url": "/azure/monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-integration.md",
+            "redirect_url": "/azure/monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-runbook-datacollect.md",
+            "redirect_url": "/azure/monitoring/monitoring-runbook-datacollect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-solution-office-365.md",
+            "redirect_url": "/azure/monitoring/monitoring-solution-office-365",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/oms-solution-agenthealth.md",
+            "redirect_url": "/azure/monitoring/monitoring-solution-agenthealth",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-monitoring-alerts.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-monitoring-product-comparison.md",
+            "redirect_url": "/azure/monitoring/monitoring-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-sdk.md",
+            "redirect_url": "/azure/monitoring",
             "redirect_document_id": false
         },
         {
@@ -25740,6 +25790,21 @@
             "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md",
             "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-troubleshoot",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/Manage-Keys.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-manage-keys",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/PublishApp.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-publish-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/Pre-builtEntities.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-prebuilt-entities",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/batch/batch-get-task-counts.md",

@@ -19,7 +19,7 @@ Use the app authoring process to build your LUIS app.
 * Test from endpoint 
 * Add features
 
-Once your app is [published](publishapp.md), use the authoring cycle of add features, publish, and test from endpoint. Do not begin the next authoring cycle by adding more example utterances. That does not let LUIS learn your model with real-world user utterances. 
+Once your app is [published](luis-how-to-publish-app.md), use the authoring cycle of add features, publish, and test from endpoint. Do not begin the next authoring cycle by adding more example utterances. That does not let LUIS learn your model with real-world user utterances. 
 
 In order for LUIS to be efficient at its job of learning, do not expand the utterances until the current set of both example and endpoint utterances are returning confident, high prediction scores. Improve scores using active learning, [patterns](luis-concept-patterns.md), and [phrase lists](luis-concept-feature.md). 
 

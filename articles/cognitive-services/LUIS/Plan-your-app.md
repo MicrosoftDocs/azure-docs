@@ -56,7 +56,7 @@ A composite entity is made up of other entities that form parts of a whole.
 See [Data Extraction](luis-concept-data-extraction.md#composite-entity-data) to learn more about extracting the composite entity from the endpoint JSON query response. Try the composite entity [tutorial](luis-tutorial-composite-entity.md) to learn more about how to use a composite entity.
 
 ### Prebuilt entity
-LUIS provides [prebuilt entities](Pre-builtEntities.md) for common types like `Number`, which you can use for the number of tickets in a ticket order.
+LUIS provides [prebuilt entities](luis-prebuilt-entities.md) for common types like `Number`, which you can use for the number of tickets in a ticket order.
 
 ![Number prebuilt entity](./media/luis-plan-your-app/number-entity.png)
 

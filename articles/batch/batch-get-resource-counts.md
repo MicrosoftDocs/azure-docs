@@ -78,7 +78,7 @@ The List Pool Node Counts operation counts compute nodes by the following states
 - **Unusable** - A node that can't be used for task execution because of errors.
 - **WaitingForStartTask** - A node on with the start task started running, but `waitForSuccess` is set and the start task has not completed.
 
-The following C# snippet shows how to list node counts for all pools in thte current account:
+The following C# snippet shows how to list node counts for all pools in the current account:
 
 ```csharp
 foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
