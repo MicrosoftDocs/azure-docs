@@ -38,9 +38,9 @@ If your app addresses a specific domain, (say chemistry, biology or special diet
 
 Call centers accumulate large quantities of audio. Hidden within those audio files lies value that can be obtained though transcription. The duration of the call, the sentiment, the satisfaction of the customer and the general value the call provided to the caller can be discovered by obtaining call transcripts.
 
-The best starting point is the [Batch transcription API](batch-transcritpion.md) along with related [Sample](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+The best starting point is the [Batch transcription API](batch-transcription.md) along with related [Sample](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
-You will need to first obtain an [Azure Subscription key](https://azure.microsoft.com/try/cognitive-services/) and then you will need to consult the [documentation]([Batch transcription API](batch-transcritpion.md))
+You will need to first obtain an [Azure Subscription key](https://azure.microsoft.com/try/cognitive-services/) and then you will need to consult the [documentation]([Batch transcription API](batch-transcription.md))
 
 ### Transcribe Call center audio calls with baseline models
 
@@ -52,7 +52,7 @@ If you plan to use a custom model, then you will need the ID of that model along
 
 ## Voice Bots
 
-Developer can empower their application with voice output. The Speech Service can synthetize speech for a number of [languages](supported-languages.ms) and provides the [endpoints](rest-apis.md) for accessing and adding that capability to your app.
+Developer can empower their application with voice output. The Speech Service can synthetize speech for a number of [languages](supported-languages.md) and provides the [endpoints](rest-apis.md) for accessing and adding that capability to your app.
 
 In addition, for users that want to add more personality and uniqueness to their bots, the Speech Service enables developers to customize a unique voice font. Similar to customizing speech recognition models voice fonts require user data. Developers are upload that data in our [voice adaptation portal](https://customspeech.ai) and start building your unique brand of voice for your bot. Details are described [here](how-to-text-to-speech.md) as well as the [FAQ](faq-text-to-speech.md) pages 
 
