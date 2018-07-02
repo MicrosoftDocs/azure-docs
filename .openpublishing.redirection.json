@@ -25730,6 +25730,11 @@
             "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md",
             "redirect_url": "/azure/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-troubleshoot",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/Manage-Keys.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-manage-keys",
+            "redirect_document_id": true
         }
     ]
 }
