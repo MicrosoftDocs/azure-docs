@@ -22,7 +22,7 @@ You can turn your business logic into modules for Azure IoT Edge. This article s
 This tutorial assumes you use a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device. Or you can simulate your IoT Edge device on your development machine.
 
 > [!NOTE]
-> This debugging tutorial describes how to attach a process in a module container and debug it with VS Code. You can only debug C# functions in Linux amd64 containers. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
+> This debugging tutorial demonstrates how to attach a process in a module container and debug it with VS Code. You can only debug C# functions in Linux amd64 containers. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
 
 Because this article uses Visual Studio Code as the main development tool, install VS Code. Then add the necessary extensions:
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -32,7 +32,7 @@ Because this article uses Visual Studio Code as the main development tool, insta
 
 To create a module, you need .NET to build the project folder, Docker to build the module image, and a container registry to hold the module image:
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
-* [Docker CE](https://docs.docker.com/install/) on your development machine. 
+* [Docker Community Edition](https://docs.docker.com/install/) on your development machine. 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
    > [!TIP]
@@ -54,21 +54,21 @@ Take these steps to create an IoT Edge module based on .NET Core 2.0 using Visua
 6. Enter a name for your solution. 
 7. Select **C# Module** as the template for the first module in the solution.
 8. Enter a name for your module. Choose a name that's unique within your container registry. 
-9. Provide the name of the module's image repository. VS Code autopopulates the module name with **localhost:5000**. Replace it with your own registry information. If you use a local Docker Trusted Registry (Docker) for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**.
+9. Provide the name of the module's image repository. VS Code autopopulates the module name with **localhost:5000**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**.
 
 VS Code takes the information you provided, creates an IoT Edge solution, and then loads it in a new window.
 
    ![View IoT Edge solution](./media/how-to-develop-csharp-module/view-solution.png)
 
-There are three items within the solution: 
+There are four items within the solution: 
 * A **.vscode** folder contains debug configurations.
 * A **modules** folder has subfolders for each module. At this point, you only have one. But you can add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**. 
 * An **.env** file lists your environment variables. If Azure Container Registry is your registry, you'll have an Azure Container Registry username and password in it. 
-* A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+* A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md). 
 
 ## Build and deploy your module for debugging
 
-In each module folder, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. Currently, C# modules only support debugging in Linux amd64 containers.
+In each module folder, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. Currently, C# modules support debugging only in Linux amd64 containers.
 
 1. In VS Code, navigate to the `deployment.template.json` file. Update your function image URL by adding **.debug** to the end.
 
