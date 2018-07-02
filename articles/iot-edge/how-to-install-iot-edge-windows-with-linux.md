@@ -107,30 +107,32 @@ Get the name of edge device using `hostname` command in PowerShell and set it as
   hostname: "edgedevice-1"
 ```
 
-Next, we'll need to provide the ip address and port for **workload_uri** and **management_uri** in the **connect:** section of the configuration.
+Next, provide the IP address and port for **workload_uri** and **management_uri** in the **connect:** and **listen:** sections of the configuration.
 
-For the ip address, enter `ipconfig` in your PowerShell window and select the ip address of the **vEthernet (DockerNAT)**` interface as shown in the example below (the ip address on your system may be different):
+To retrieve your IP address, enter `ipconfig` in your PowerShell window. Copy the IP address of the **vEthernet (DockerNAT)**` interface as shown in the following example (the ip address on your system may be different):
 
 ![DockerNat][img-docker-nat]
 
+Update the **workload_uri** and **management_uri** in the **connect:** section of the configuration file. Replace **\<GATEWAY_ADDRESS\>** with the IP address that you copied. 
+
 ```yaml
 connect:
-  management_uri: "http://10.0.75.1:15580"
-  workload_uri: "http://10.0.75.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Enter the same addresses in the **listen:** section of the configuration. For example:
+Enter the same addresses in the **listen:** section of the configuration, using your IP address as the gateway address.
 
 ```yaml
 listen:
-  management_uri: "http://10.0.75.1:15580"
-  workload_uri: "http://10.0.75.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-In the PowerShell window, create an environment variable **IOTEDGE_HOST** with the **management_uri** address, example:
+In the PowerShell window, create an environment variable **IOTEDGE_HOST** with the **management_uri** address.
 
 ```powershell
-[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://10.0.75.1:15580")
+[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
 ```
 
 Finally, ensure the **network:** setting under **moby_runtime:** is uncommented and set to **azure-iot-edge**
