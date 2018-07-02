@@ -174,7 +174,7 @@ namespace ImageHandText
 
 A successful response displays the lines of recognized text for each image.
 
-See [API Quickstarts: Extract handwritten text with C#](../QuickStarts/CSharp-hand-text#recognize-text-response) for an example of raw JSON output.
+See [API Quickstarts: Extract handwritten text with C#](../QuickStarts/CSharp-hand-text.md#recognize-text-response) for an example of raw JSON output.
 
 ```cmd
 Calling GetHandwritingRecognitionOperationResultAsync()
