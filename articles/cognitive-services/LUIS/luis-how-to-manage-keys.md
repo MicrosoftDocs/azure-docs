@@ -33,7 +33,7 @@ On the **Publish app** page, there is already a key in the **Resources and Keys*
  
 2. In order to add the LUIS key created in the previous step, click the **Add Key** button to open the **Assign a key to your app** dialog. 
 
-    ![Assign a key to your app](./media/luis-manage-keys/assign-key.png)
+    ![Assign a key to your app](./media/luis-luis-how-to-manage-keys/assign-key.png)
 3. Select a Tenant in the dialog. 
  
     > [!Note]
@@ -43,7 +43,7 @@ On the **Publish app** page, there is already a key in the **Resources and Keys*
 
 5. Select the Azure LUIS account. The region of the account is displayed in parentheses. 
 
-    ![Choose the key](./media/luis-manage-keys/assign-key-filled-out.png)
+    ![Choose the key](./media/luis-luis-how-to-manage-keys/assign-key-filled-out.png)
 
 6. After you assign this endpoint key, use it in all endpoint queries. 
 
@@ -59,7 +59,7 @@ Learn more about publishing [regions](luis-reference-regions.md) including publi
 
 * In the **Resources and Keys list**, click the trash bin icon next to the entity you want to unassign. Then, click **OK** in the confirmation message to confirm deletion.
  
-    ![Unassign Entity](./media/luis-manage-keys/unassign-key.png)
+    ![Unassign Entity](./media/luis-luis-how-to-manage-keys/unassign-key.png)
 
 > [!NOTE]
 > Unassigning the LUIS key does not delete it from your Azure subscription.

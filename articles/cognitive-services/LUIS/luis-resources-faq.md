@@ -53,7 +53,7 @@ Either add the different variations as example utterances to the intent or add t
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### How do I create and assign a LUIS endpoint key?
-[Create the endpoint key](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](Manage-keys.md#assign-endpoint-key) on the **[Publish](publishapp.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
+[Create the endpoint key](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) on the **[Publish](publishapp.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### How do I interpret LUIS scores? 
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 (less than 50%) does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the score of the most-likely intent.
@@ -107,7 +107,7 @@ See [Prediction differences between copies of same app](luis-concept-prediction-
 ### What is the tenant ID in the "Add a key to your app" window?
 In Azure, a tenant represents the client or organization that's associated with a service. Find your tenant ID in the Azure portal in the **Directory ID** box by selecting **Azure Active Directory** > **Manage** > **Properties**.
 
-![Tenant ID in the Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
+![Tenant ID in the Azure portal](./media/luis-luis-how-to-manage-keys/luis-assign-key-tenant-id.png)
 
 <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
 ### Why are there more endpoint keys on my app's publish page than I assigned to the app? 
