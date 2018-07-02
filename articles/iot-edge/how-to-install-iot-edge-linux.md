@@ -46,18 +46,6 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
-### Debian 9
-
-```cmd/sh
-# Install repository configuration
-curl https://packages.microsoft.com/config/debian/9/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-
-# Install Microsoft GPG public key
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
 ## Install the container runtime 
 
 Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime (e.g. Docker). If you already have Docker CE/EE installed on your Edge device, you can continue to use it for development and testing with Azure IoT Edge. 
@@ -149,7 +137,7 @@ journalctl -u iotedge --no-pager --no-full
 And, list running modules with:
 
 ```cmd/sh
-iotedge list
+sudo iotedge list
 ```
 
 ## Next steps

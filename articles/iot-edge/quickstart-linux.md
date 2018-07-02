@@ -169,8 +169,10 @@ The security daemon installs as a system service so that the IoT Edge runtime st
 6. View the modules running on your device: 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+
+   After a logoff and login, *sudo* is not required for the above command.
 
    ![View one module on your device](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -188,16 +190,18 @@ In this quickstart, you created a new IoT Edge device and installed the IoT Edge
 Open the command prompt on the computer running your simulated device again. Confirm that the module deployed from the cloud is running on your IoT Edge device:
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+   After a logoff and login, *sudo* is not required for the above command.
 
    ![View three modules on your device](./media/quickstart-linux/iotedge-list-2.png)
 
 View the messages being sent from the tempSensor module:
 
    ```bash
-   iotedge logs tempSensor -f 
+   sudo iotedge logs tempSensor -f 
    ```
+After a logoff and login, *sudo* is not required for the above command.
 
 ![View the data from your module](./media/quickstart-linux/iotedge-logs.png)
 

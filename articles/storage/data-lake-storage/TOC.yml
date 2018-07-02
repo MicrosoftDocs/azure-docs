@@ -50,8 +50,12 @@
         href: use-distcp.md
       - name: Copy data into Data Lake Storage Gen2 using Azure Data Factory
         href: ../../data-factory/load-azure-data-lake-storage-gen2.md
-  - name: Connect to Azure DataBricks
+  - name: Connect to Azure Databricks
     href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
+- name: Reference
+  items:
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
 - name: Resources
   items:
   - name: Azure Roadmap

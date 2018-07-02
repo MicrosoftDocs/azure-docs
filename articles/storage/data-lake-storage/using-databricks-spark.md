@@ -1,5 +1,5 @@
 ---
-title: Access Azure Data Lake Storage Gen2 data with DataBricks using Spark | Microsoft Docs
+title: Access Azure Data Lake Storage Gen2 Preview data with DataBricks using Spark | Microsoft Docs
 description: Learn to run Spark queries on a DataBricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 services: hdinsight,storage
 tags: azure-portal
@@ -14,9 +14,9 @@ ms.date: 6/27/2018
 ms.author: dineshm
 ---
 
-# Tutorial: Access Azure Data Lake Storage Gen2 data with DataBricks using Spark
+# Tutorial: Access Azure Data Lake Storage Gen2 Preview data with DataBricks using Spark
 
-In this tutorial, you learn how to run Spark queries on a DataBricks cluster to query data in Azure Data Lake Storage Gen2 account.
+In this tutorial, you learn how to run Spark queries on a DataBricks cluster to query data in Azure Data Lake Storage Gen2 Preview capable account.
 
 > [!div class="checklist"]
 > * Create a DataBricks cluster
@@ -55,9 +55,9 @@ The next step is to create a [DataBricks cluster](https://docs.azuredatabricks.n
 6. Select **Standard_D8s_v3** in the *Worker Type* field.
 7. Change the **Min Workers** value to *4*.
 8. Click **Create Cluster** at the top of the page (this process may take up to 5 minutes to complete).
-9. When the process completes, select **Azure DataBricks** on the top left of the nav bar.
+9. When the process completes, select **Azure Databricks** on the top left of the nav bar.
 10. Select **Notebook** under the **New** section on the bottom half of the page.
-11. Enter a name of your choice in the **Name** field.
+11. Enter a name of your choice in the **Name** field and select **Python** as the language.
 12. All other fields can be left as default values.
 13. Select **Create**.
 14. Paste the following code into the **Cmd 1** cell, replace the values with the values you preserved from your storage account.
@@ -85,14 +85,14 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 Re-open DataBricks in your browser and execute the following steps:
 
-1. Select **Azure DataBricks** on the top left of the nav bar.
+1. Select **Azure Databricks** on the top left of the nav bar.
 2. Select **Notebook** under the **New** section on the bottom half of the page.
 3. Enter **CSV2Parquet** in the **Name** field.
 4. All other fields can be left as default values.
 5. Select **Create**.
 6. Paste the following code into the **Cmd 1** cell (this code auto-saves in the editor).
 
-    ```
+    ```python
     #mount Azure Blob Storage as an HDFS file system to your databricks cluster
     #you need to specify a storage account and container to connect to. 
     #use a SAS token or an account key to connect to Blob Storage.  
