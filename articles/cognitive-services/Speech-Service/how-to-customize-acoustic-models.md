@@ -103,11 +103,11 @@ Click the “Import” button in the "Acoustic Datasets" row, and the site displ
 
 Enter a _Name_ and _Description_ in the appropriate text boxes. Friendly descriptions are useful for keeping track of various data sets you upload. Next, click “Choose File" for the “Transcription File” and “WAV files” and select your plaint-text transcription file and zip archive of WAV files, respectively. When preparation is complete, click “Import” to upload your data. Your data will then be uploaded. For larger data sets, this may take several minutes.
 
-When the upload is complete, you will return to the "Acoustic Datasets" table and will see an entry that corresponds to your acoustic data set. Notice that it has been assigned a unique ID (GUID). The data will also have a status that reflects its current state. Its status will be “Waiting” while it is being queued for processing, “Processing” while it is going through validation, and “Complete” when the data is ready for use.
+When the upload is complete, you will return to the "Acoustic Datasets" table and will see an entry that corresponds to your acoustic data set. Notice that it has been assigned a unique ID (GUID). The data will also have a status that reflects its current state. Its status will be "NotStarted" while it is being queued for processing, “Running” while it is going through validation, and “Complete” when the data is ready for use.
 
 Data validation includes a series of checks on the audio files to verify the file format, length, and sampling rate, and on the transcription files to verify the file format and perform some text normalization.
 
-When the status is “Complete”, you can click “Details” to see the acoustic data verification report. The number of utterances that passed and failed verification will be shown, along with details about the failed utterances. In the example below, two WAV files failed verification because of improper audio format (in this data set, one had an incorrect sampling rate and one was the incorrect file format).
+When the status is “Succeeded”, you can click “Details” to see the acoustic data verification report. The number of utterances that passed and failed verification will be shown, along with details about the failed utterances. In the example below, two WAV files failed verification because of improper audio format (in this data set, one had an incorrect sampling rate and one was the incorrect file format).
 
 ![try](media/stt/speech-acoustic-datasets-report.png)
 
