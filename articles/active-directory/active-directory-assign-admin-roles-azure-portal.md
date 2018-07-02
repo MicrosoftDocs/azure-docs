@@ -189,7 +189,7 @@ Can create and manage all aspects of app registrations and enterprise apps.
 | microsoft.aad.supporttickets/AllEntities/AllActions | Create and manage Office 365 support tickets. |
 
 ### Application Developer
-Can create application registrations independent of the �Users can register applications� setting.
+Can create application registrations independent of the **Users can register applications** setting.
 
   > [!NOTE]
   > This role inherits additional permissions from the [User role](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
@@ -386,7 +386,7 @@ Members of this role are added to the local administrators group on Azure AD-joi
 | **Actions** | **Description** |
 | --- | --- |
 
-### Directory Readers
+### Directory Reader
 Can read basic directory information. For granting access to applications
 
   > [!NOTE]
@@ -477,7 +477,7 @@ Only used by Azure AD Connect service.
 | microsoft.aad.directory/Organization/Update/DirSync | Update Organizations.DirSync property in Azure Active Directory. |
 | microsoft.aad.directorysync/AllEntities/AllActions | Perform all actions in Azure AD Connect. |
 
-### Directory Writers
+### Directory Writer
 Can read & write basic directory information. For granting access to applications
 
   > [!NOTE]
