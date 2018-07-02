@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 07/02/2018
 ms.author: sethm
 
 ---
@@ -39,11 +39,12 @@ See [additional information](#additional-information) for more details on the cu
 ### Additional information
 
 #### .NET
-The .NET ecosystem has multiple runtimes, hence there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information on .NET Frameworks, see [framework versions](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
+
+The .NET ecosystem has multiple runtimes, so there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information about .NET Framework versions, see [framework versions](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
 
 #### Node
 
-The Node.js library is currently in preview and is maintained as a side project by Microsoft employees and external contributors. All contributions including source code are welcome and will be reviewed.
+The [Node.js library](https://github.com/Azure/azure-event-hubs-node) is currently in preview and is maintained as a side project by Microsoft employees and external contributors. All contributions including source code are welcome and will be reviewed.
 
 ## Management APIs
 
