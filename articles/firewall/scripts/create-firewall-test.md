@@ -14,7 +14,11 @@ ms.author: victorh
 
 # Create an Azure Firewall test environment sample 
 
-This script sample creates ...
+This script sample creates a firewall and a test network environment. The network has one VNet, with three subnets: an AzureFirewallSubnet, and ServersSubnet, and a JumpboxSubnet. The ServersSubnet and JumpboxSubnet each have one 2-core Windows Server in them.
+
+The firewall is in the AzureFirewallSubnet and is configured with an Application Rule Collection with a single rule that allows access to www.microsoft.com.
+
+A user defined route is created that points the network traffic from the ServersSubnet through the firewall, where the firewall rules are applied.
 
 You can run the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
@@ -27,6 +31,8 @@ You can run the script from the Azure [Cloud Shell](https://shell.azure.com/powe
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/firewall/create-fw-test.ps1  "Create a firewall test environment")]
 
 -->
+
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/application-gateway/create-vmss/create-vmss.ps1  "Create a firewall test environment")]
 
 ## Clean up deployment 
 

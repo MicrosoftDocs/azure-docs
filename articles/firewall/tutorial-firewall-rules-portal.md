@@ -216,7 +216,7 @@ For the **Workload-SN** subnet, you configure the outbound default route to go t
 ## Configure application rules
 
 
-1. Open the **Test-FW-RG**, and click the Test-FW01** firewall.
+1. Open the **Test-FW-RG**, and click the **Test-FW01** firewall.
 1. On the **Test-FW01** page, under **Settings**, click **Rules**.
 2. Click **Add application rule collection**.
 3. For **Name**, type **App-Coll01**.
