@@ -45,7 +45,7 @@ A private app's endpoint is only available to the following:
 |--|--|--|
 |Owner's authoring key| Up to 1000 endpoint hits|
 |Collaborators' authoring keys| Up to 1000 endpoint hits|
-|Endpoint keys added from **[Publish](publishapp.md)** page|Owner and collaborators can add endpoint keys|
+|Endpoint keys added from **[Publish](luis-how-to-publish-app.md)** page|Owner and collaborators can add endpoint keys|
 
 Other authoring or endpoint keys have **no** access.
 

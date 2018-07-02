@@ -25745,6 +25745,11 @@
             "source_path": "articles/cognitive-services/LUIS/Manage-Keys.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-manage-keys",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/PublishApp.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-publish-app",
+            "redirect_document_id": true
         }
     ]
 }

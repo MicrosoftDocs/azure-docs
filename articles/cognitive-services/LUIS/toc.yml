@@ -192,7 +192,7 @@
     - name: Improve accuracy with batch testing
       href: luis-tutorial-batch-testing.md
   - name: Publish your app
-    href: PublishApp.md
+    href: luis-how-to-publish-app.md
   - name: Use prebuilt models
     items: 
     - name: Use prebuilt entities
