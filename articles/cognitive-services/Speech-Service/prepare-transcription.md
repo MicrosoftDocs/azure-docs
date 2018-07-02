@@ -147,10 +147,8 @@ Here are some examples
 | Original Text | After Normalization |
 |----- | ----- |
 | Frankfurter Ring | frankfurter ring |
-| "Hallo, Mama!" sagt die Tochter. | hallo mama sagt die tochter |
 | ¡Eine Frage! | eine frage |
 | wir, haben | wir haben |
-| Das macht $10 | das macht zehn dollars |
 
 ### Text normalization you must perform
 
@@ -169,10 +167,8 @@ Here are some examples.
 | Original Text | After user's normalization | After system normalization
 |--------  | ----- | -------- |
 | Es ist 12.23Uhr | Es ist 12:23Uhr | es ist zwölf uhr drei und zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf |
-| 3 < 5 | 3 kleiner als 5 | drei kleiner als vier |
+| {12.45} | {12,45} | zwölf komma vier fünf ||
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
-| Das macht 12€ | Das macht 12 Euros | das macht zwölf euros |
 
 ## Next steps
 
