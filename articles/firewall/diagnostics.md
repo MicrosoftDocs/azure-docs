@@ -6,7 +6,7 @@ author: vhorne
 ms.service: firewall
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 7/12/2018
+ms.date: 7/11/2018
 ms.author: victorh
 ---
 # Monitor Azure Firewall logs
@@ -21,7 +21,7 @@ You can access some of these logs through the portal. All logs can be extracted 
 
 The following logs are available for Azure Firewall:
 
-* Activity log
+* **Activity log**
 
    You can use [Azure activity logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription. Activity log entries are collected by default, and you can view them in the Azure portal.
 
@@ -74,7 +74,8 @@ You have three options for storing your logs:
 
 ## Enable logging through the Azure portal
 
-1. In the Azure portal, find your resource and click **Diagnostic logs**.
+1. In the Azure portal, open your firewall resource group and click the firewall.
+2. Under **Monitoring**, click **Diagnostic logs**.
 
    For Azure Firewall, two service-specific logs are available:
 
