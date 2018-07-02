@@ -1,6 +1,6 @@
 ---
 title: View the members of an administrator role in Azure Active Directory | Microsoft Docs
-description: 
+description: You can now see and manage members of an Azure AD administrator roles in the portal. For those who frequently manage role assignments.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 07/02/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
