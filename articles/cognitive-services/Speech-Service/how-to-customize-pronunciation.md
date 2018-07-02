@@ -1,6 +1,6 @@
 ---
-title: Use custom pronunciation with Custom Speech Service on Azure | Microsoft Docs
-description: Learn how to create a language model with the Custom Speech Service in Cognitive Services.
+title: Azure Cognitive Services Speech Service | Microsoft Docs
+description: Learn how to customize pronunciation with the Speech Service Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -46,13 +46,13 @@ Custom Pronunciation is currently supported for English (en-US) and German (de-d
 | German (de-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
 
 >[NOTE]
-A term's display form (in a pronunciation file) should be written the same way in a language adaptation data set.
+>A term's display form (in a pronunciation file) should be written the same way in a language adaptation data set.
 
 ## Requirements for the display form
 A display form can only be a custom word, term, acronym, or compound words that combine existing words. You can also enter alternative pronunciations for common words. 
 
 >[!NOTE]
-We do not recommend using this feature to reformulate common words or to modify the spoken form. It is better to run the decoder to see if some unusual words (such as abbreviations, technical words, and foreign words) are not correctly decoded. If they are, add them to the custom pronunciation file. In the Language Model, you should always and only use the display form of a word. 
+>We do not recommend using this feature to reformulate common words or to modify the spoken form. It is better to run the decoder to see if some unusual words (such as abbreviations, technical words, and foreign words) are not correctly decoded. If they are, add them to the custom pronunciation file. In the Language Model, you should always and only use the display form of a word. 
 
 ## Requirements for the file size
 The size of the .txt file containing the pronunciation entries is limited to 1 MB. Typically, you do not need to upload large amounts of data through this file. Most custom pronunciation files are likely to be just a few KBs in size. The encoding of the .txt file for all locales should be UTF-8 BOM. For the English locale, ANSI is also acceptable.

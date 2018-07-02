@@ -1,5 +1,5 @@
 ---
-title: Speech Scenarios | Azure Microsoft Docs
+title: Azure Cognitive Services Speech Scenarios | Azure Microsoft Docs
 description: Scenarios
 services: cognitive-services
 author: PanosPeriorellis
@@ -32,7 +32,7 @@ If your app is going to be used by the general public in environments where the 
 
 ### Voice Triggered Apps with custom models
 
-If your app addresses a specific domain, (say chemistry, biology or special dietary needs) then you may want to consider to adapt a [language model](how-to-customize-language-model.md). Adapting a language model will teach the decoder about the most common phrases and words used by your app. The decoder will be able to more accurately transcribe a voice input with a custom language model for a particular domain rather than the baseline model. Similarly if the background noise where your app is going to be used is prominent you may want to adapt an acoustic model. Explore the documentation for other cases under which [language adaptation](how-to-customize-language-model.md) and [acoustic adaptation](how-to-customize-acoustic-models.md) provide value and visit our [adaptation portal](https://customspeech.ai) for kick stating the model creation experience. Similar to baseline models, custom models are called via our [Speech SDK](speech-sdk.md) and following the relevant [Samples](quickstart-csharp-windows.md)
+If your app addresses a specific domain, (say chemistry, biology or special dietary needs) then you may want to consider to adapt a [language model](how-to-customize-language-model.md). Adapting a language model will teach the decoder about the most common phrases and words used by your app. The decoder will be able to more accurately transcribe a voice input with a custom language model for a particular domain rather than the baseline model. Similarly if the background noise where your app is going to be used is prominent you may want to adapt an acoustic model. Explore the documentation for other cases under which [language adaptation](how-to-customize-language-model.md) and [acoustic adaptation](how-to-customize-acoustic-models.md) provide value and visit our [adaptation portal](https://customspeech.ai) for kick stating the model creation experience. Similar to baseline models, custom models are called via our [Speech SDK](speech-sdk.md) and following the relevant [Samples](quickstart-csharp-windows.md).
 
 ## Transcribe Call center audio calls
 
@@ -40,7 +40,7 @@ Call centers accumulate large quantities of audio. Hidden within those audio fil
 
 The best starting point is the [Batch transcription API](batch-transcription.md) along with related [Sample](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
-You will need to first obtain an [Azure Subscription key](https://azure.microsoft.com/try/cognitive-services/) and then you will need to consult the [documentation]([Batch transcription API](batch-transcription.md))
+You will need to first obtain an [Azure Subscription key](https://azure.microsoft.com/try/cognitive-services/) and then you will need to consult the [documentation]([Batch transcription API](batch-transcription.md)).
 
 ### Transcribe Call center audio calls with baseline models
 
@@ -48,7 +48,7 @@ The decision that needs to be made is whether you will use the internal baseline
 
 ### Transcribe Call center audio calls with custom models
 
-If you plan to use a custom model, then you will need the ID of that model along with the API key. The Model ID is obtained from the [adaptation portal](https://customspeech.ai). This is not the Endpoint ID that you find on the 'Endpoint Details' view but the model ID which you can retrieve when you click on the 'Details' of that model
+If you plan to use a custom model, then you will need the ID of that model along with the API key. The Model ID is obtained from the [adaptation portal](https://customspeech.ai). This is not the Endpoint ID that you find on the 'Endpoint Details' view but the model ID which you can retrieve when you click on the 'Details' of that model.
 
 ## Voice Bots
 

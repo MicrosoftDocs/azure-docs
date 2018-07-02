@@ -52,7 +52,7 @@ For stereo audio streams, Batch transcription will split the left and right chan
 ```
 
 > [!NOTE]
-> The Batch transcription API is using a REST service for requesting transcriptions, their status, and associated results. The API can be usedfrom any language. The next section describes how it is used.
+> The Batch transcription API is using a REST service for requesting transcriptions, their status, and associated results. The API can be used from any language. The next section describes how it is used.
 
 ## Authorization token
 

@@ -46,7 +46,7 @@ Here are some examples
 | Original Text | After Normalization |
 |----- | ----- |
 | "Holy cow!" said Batman. | holy cow said batman |
-| "What?" said Batman's side kick, Robin. | what said batman's side kick robin |
+| "What?" said Batman's sidekick, Robin. | what said batman's sidekick robin |
 | Go get -em! | go get em |
 | I'm double-jointed | I'm double jointed |
 | 104 Elm Street | one oh four Elm street |

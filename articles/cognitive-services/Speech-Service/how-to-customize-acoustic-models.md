@@ -84,12 +84,12 @@ The transcriptions for all WAV files should be contained in a single plain-text 
   speech02.wav  the quick brown fox jumped all over the place
   speech03.wav  the lazy dog was not amused
 ```
-[!NOTE]
+> [!NOTE]
 > Transcription should be encoded as UTF-8 Bom
 
 The transcriptions will be text-normalized so they can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. Consult the section on [transcription guidelines](prepare-transcription.md) for the appropriate language when preparing your transcriptions.
 
-The following steps are done using the [Speech Service Portal](https://customspeech.ai). 
+The following steps are done using the [Speech Service Portal](https://customspeech.ai).
 
 ## Import the acoustic data set
 
