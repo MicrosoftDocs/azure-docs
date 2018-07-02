@@ -1,5 +1,5 @@
 ---
-title: Understand the different roles in Azure | Microsoft Docs
+title: Understand classic subscription administrator, Azure RBAC, and Azure AD administrator roles in Azure | Microsoft Docs
 description: Explains the different roles in Azure - Classic subscription administrator roles, Azure role-based access control (RBAC) roles, and Azure Active Directory (Azure AD) administrator roles 
 services: active-directory
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.reviewer: bagovind
 ms.custom: it-pro;
 ---
 
-# Understand the different roles in Azure
+# Understand classic subscription administrator, Azure RBAC, and Azure AD administrator roles in Azure
 
 If you are new to Azure, you may find it challenging to understand all the different roles in Azure. This article helps explain the following roles and when you would use each:
 - Classic subscription administrator roles
