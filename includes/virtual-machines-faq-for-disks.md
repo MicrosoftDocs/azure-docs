@@ -128,6 +128,13 @@ Standard SSD disks are standard disks backed by solid-state media, optimized as 
 
 <a id="standard-ssds-azure-regions"></a>**What are the regions currently supported for Standard SSD disks (Preview)?**
 * North Europe
+* France Central
+* East US 2
+* Central US
+* Canada Central
+* East Asia
+* Korea South
+* Australia East
 
 **How do I create Standard SSD disks?**
 Currently, you can create Standard SSD disks using Azure Resource Manager templates. Below are the parameters needed in the Resource Manager template to create Standard SSD Disks:
@@ -151,8 +158,15 @@ The following example shows the *properties.storageProfile.osDisk* section for a
 
 For a complete template example of how to create a Standard SSD disk with a template, see [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
+**Can I convert my existing disks to Standard SSD?**
+Yes, you can. Refer to [Convert Azure managed disks storage from standard to premium, and vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) for the general guidelines for converting Managed Disks. And, use the following value to update the disk type to Standard SSD.
+    -AccountType StandardSSD_LRS
+
 **Can I use Standard SSDs as Unmanaged Disks?**
 No, Standard SSDs disks are only available as Managed Disks.
+
+**Do Standard SSD Disks support "single instance VM SLA"?**
+No, Standard SSDs do not have single instance VM SLA. Use Premium SSD disks for single instance VM SLA.
 
 ## Migrate to Managed Disks 
 
