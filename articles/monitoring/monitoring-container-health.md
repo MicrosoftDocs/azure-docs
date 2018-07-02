@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2018
+ms.date: 07/02/2018
 ms.author: magoedte
 ---
 
@@ -240,28 +240,44 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster.  
 
 ## Verify agent deployed successfully
-To verify the OMS agent deployed properly, run the following command to verify the agent is properly deployed: 
 
-`kubectl get ds omsagent --namespace=kube-system`
+### Agent version 06072018 and higher
+1. To verify the OMS agent version *microsoft/oms:ciprod06072018* or higher is deployed properly, run the following commands to verify the agent is properly deployed: 
 
-The output should resemble the following indicating it did deploy properly:
+    `kubectl get ds omsagent --namespace=kube-system`
 
-```
-User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
-NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
-To verify a new deployment, run the following command:
+    The output should resemble the following indicating it did deploy properly:
 
-`kubectl get deployment omsagent-rs -n=kube-system`
+    ```
+    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
+    NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
+    omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+    ```  
+    To verify a new deployment, run the following command:
 
-The output should resemble the following indicating it did deploy properly:
+    `kubectl get deployment omsagent-rs -n=kube-system`
 
-```
-User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
-NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
-omsagent   1         1         1            1            3h
-```
+    The output should resemble the following indicating it did deploy properly:
+
+    ```
+    User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
+    NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
+    omsagent   1         1         1            1            3h
+    ```
+
+### Agent version 04202018
+
+To verify the OMS agent version *microsoft/oms:ciprod04202018* is deployed properly, run the following command to verify the agent is properly deployed: 
+
+    `kubectl get ds omsagent --namespace=kube-system`
+
+    The output should resemble the following indicating it did deploy properly:
+
+    ```
+    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
+    NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
+    omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+    ```  
 
 ## View performance utilization
 When you open container health, the page immediately presents the performance utilization of your cluster nodes.  Viewing information about your AKS cluster is organized into three perspectives:
