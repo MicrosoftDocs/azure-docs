@@ -18,6 +18,7 @@ ms.author: gsacavdm
 
 ---
 # Azure Government Security + Identity
+This article outlines the security and identity services variations and considerations for the Azure Government environment.
 
 ## Azure Security Center
 
@@ -31,7 +32,7 @@ The following variations and limitations are present in the Azure Security Cente
 
 - **Windows Defender Advanced Threat Protection (WDATP) alerts**
     - WDATP installation on Windows VMs via Security Center and the associated alerts are not available in Azure Government.  
-- **Security Incidents**
+- **Security incidents**
     - The aggregation of alerts for a resource, known as a security incident, is not available in Azure Government.
 -  **Custom alerts**
     - The ability to create custom alerts from raw data is not available in Azure Government.
@@ -83,7 +84,7 @@ The URLs for accessing Key Vault in Azure Government are different:
 | Service Principal ID| cfa8b339-82a2-471a-a3c9-0fc0be7a4093 | 7e7c393b-45d0-48b1-a35e-2905ddf8183c | 
 | Service Principal Name | Azure Key Vault | Azure Key Vault |
 
-### Data Considerations
+### Data considerations
 The following information identifies the Azure Government boundary for Azure Key Vault:
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
