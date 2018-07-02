@@ -219,6 +219,14 @@ Check to see that the IoT Edge runtime is running.
    sudo systemctl status iotedge
    ```
 
+If you see provisioning errors, it may be that the configuration changes haven't taken effect yet. Try restarting the IoT Edge daemon gain. 
+
+   ```bash
+   sudo systemctl daemon-reload
+   ```
+   
+Or, try restarting your virtual machine to see if the changes take effect on a fresh start. 
+
 ## Verify successful installation
 
 If the runtime started successfully, you can go into your IoT Hub and see that your new device was automatically provisioned and is ready to run IoT Edge modules. 
