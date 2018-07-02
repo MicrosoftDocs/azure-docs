@@ -36,7 +36,7 @@ and can specify content types such as these examples:
 
 <a name="application-json"></a>
 
-## "application/json" content type
+## application/json
 
 Logic Apps stores and handles any request with the *application/json* 
 content type as a JavaScript Notation (JSON) object. 
@@ -135,7 +135,7 @@ reference and use those properties more easily in your logic app's workflow.
 
 <a name="text-plain"></a>
 
-## "text/plain content" type
+## text/plain
 
 When your logic app receives HTTP messages that 
 have the `Content-Type` header set to `text/plain`, 
@@ -161,7 +161,7 @@ such as this expression:
 
 <a name="application-xml-octet-stream"></a>
 
-## "application/xml" and "application/octet-stream"
+## application/xml and application/octet-stream
 
 Logic Apps always preserves the `Content-Type` in a received HTTP request or response. 
 So if your logic app receives content with `Content-Type` set to `application/octet-stream`, 
