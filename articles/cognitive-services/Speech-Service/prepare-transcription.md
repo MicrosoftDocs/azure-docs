@@ -81,7 +81,7 @@ Here are some examples:
 
 Text data uploaded to the Custom Speech Service should use UTF-8 encoding with byte-order marker. The file should be written one utterance per line.
 
-It is important to avoid the use of half-width punctuation characters. These characters can be included inadvertently when preparing the data in a word-processing program or scraping data from web pages. Replace them with appropriate full-width substitutions. For example:
+Avoid the use of half-width punctuation characters. These characters can be included inadvertently when preparing the data in a word-processing program or scraping data from web pages. Replace them with appropriate full-width substitutions. For example:
 
 | Characters to avoid | Substitution |
 |----- | ----- |
@@ -105,14 +105,14 @@ Here are some examples.
 | ￥3.5 | 三 元 五 角 |
 | w f y z | W F Y Z |
 | 1992年8月8日 | 一 九 九 二 年 八 月 八 日 |
-| 你吃饭了吗 ? | 你 吃饭 了 吗 |
+| 你吃饭了吗? | 你 吃饭 了 吗 |
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
 Apply the following normalization to your text before importing it.
 
-*   Abbreviations should be written out in words to reflect spoken form
-*   It is more reliable to write out numeric strings in spoken form.
+*   Abbreviations should be written out in words (as in spoken form)
+*   Write out numeric strings in spoken form.
 
 Here are some examples.
 
@@ -134,7 +134,7 @@ The Speech service carries out the following normalization rules.
 
 *   Lower-casing all text
 *   Removing all punctuation including various types of quotes ("test", 'test', "test„ or «test» are ok)
-*   Discarding any row containing any special character from the set  ¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬
+*   Discarding rows with any special character from the set  ¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬
 *   Expansion of numbers to word form, including dollar or euro amounts
 *   Umlauts are accepted only for a, o, u; others will be replaced by "th" or be discarded
 
@@ -148,7 +148,7 @@ Here are some examples
 
 Apply the following normalization to your text before importing it.
 
-*   Decimal point should be "," and not ".": 2,3% and not 2.3%
+*   Decimal point should be "," and not "."
 *   Time separator between hours and minutes should be ":" and not ".": 12:00 Uhr
 *   Abbreviations such as 'ca.' aren't replaced. We recommend you use the full form.
 *   The five main mathematical operators are removed: +, -, \*, /. We recommend replacing them with their literal form: plus, minus, mal, geteilt.
