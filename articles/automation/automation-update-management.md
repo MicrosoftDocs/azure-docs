@@ -110,6 +110,9 @@ If your System Center Operations Manager management group is connected to a Log 
 
 For more information about how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
+> [!NOTE]
+> To be able to be fully managed by Update Management, Operations Manger Agents need to be updated to the Microsoft Monitoring Agent. To learn how to update the agent, see [How to upgrade an Operations Manager agent](/system-center/scom/deploy-upgrade-agents.md).
+
 ### Confirm that non-Azure machines are onboarded
 
 To confirm that directly connected machines are communicating with Log Analytics, after a few minutes, you can run one the following log searches.
