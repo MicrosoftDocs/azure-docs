@@ -38,7 +38,7 @@
   - name: Customize language models
     href: how-to-customize-language-model.md
   - name: Customize pronunciation
-    href: how-to-customize-language-model.md
+    href: how-to-customize-pronunciation.md
   - name: Customize Voice Fonts (Bot Brand Voice)
     href: how-to-customize-voice-font.md
   - name: Prepare transcripts
