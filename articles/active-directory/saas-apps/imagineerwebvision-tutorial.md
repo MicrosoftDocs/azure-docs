@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/02/2018
 ms.author: jeedes
 
 ---
@@ -112,6 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Imagineer WebVision Client support team](mailto:support@itgny.com) to get these values.
 
 4. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+
 	![The Certificate download link](./media/imagineerwebvision-tutorial/tutorial_imagineerwebvision_certificate.png) 
 
 5. Click **Save** button.
