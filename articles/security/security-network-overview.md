@@ -21,7 +21,7 @@ ms.author: terrylan
 
 Azure includes a robust networking infrastructure to support your application and service connectivity requirements. Network connectivity is possible between resources located in Azure, between on-premises and Azure hosted resources, and to and from the internet and Azure.
 
-The goal of this article is to explain what Azure offers in the area of network security. In addition to basic explanations about core network security concepts and requirements, you can learn about:
+The goal of this article is to go over some of the options that Azure offers in the area of network security. You can learn about:
 
 * Azure networking
 * Network access control
