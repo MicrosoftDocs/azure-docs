@@ -23,7 +23,7 @@ This article describes both types of normalizations. The guidelines vary slightl
 
 ## US English (en-US)
 
-Text data should be written in plain text, using only the ASCII character set. The file should contain only one utterance per line.
+Text data should be written one utterance per line, in plain text, using only the ASCII character set.
 
 Avoid the use of extended (Latin-1) or Unicode punctuation characters. These characters can be included inadvertently when preparing the data in a word-processing program or scraping data from web pages. Replace these characters with appropriate ASCII substitutions. For example:
 
@@ -33,9 +33,9 @@ Avoid the use of extended (Latin-1) or Unicode punctuation characters. These cha
 | John’s day (right single quotation mark) | John's day (apostrophe) |
 | it was good—no, it was great! (em dash) | it was good--no, it was great! (hyphens) |
 
-### Text normalization rules
+### Text normalization rules for English
 
-The Speech service carried out the following normalization rules.
+The Speech service carries out the following normalization rules.
 
 *   Lower-casing all text
 *   Removing all punctuation except word-internal apostrophes
@@ -53,8 +53,6 @@ Here are some examples
 | Tune to 102.7 | tune to one oh two seven |
 | Pi is about 3.14 | pi is about three point one four |
 | It costs $3.14 | it costs three fourteen |
-
-### Text normalization you take care
 
 Apply the following normalization to your text transcripts.
 
@@ -81,7 +79,7 @@ Here are some examples:
 
 ## Chinese (zh-CN)
 
-Text data uploaded to the Custom Speech Service should use UTF-8 encoding with byte-order marker. Each line of the file should contain a single utterance.
+Text data uploaded to the Custom Speech Service should use UTF-8 encoding with byte-order marker. Teh file should be written one utterance per line.
 
 It is important to avoid the use of half-width punctuation characters. These characters can be included inadvertently when preparing the data in a word-processing program or scraping data from web pages. Replace them with appropriate full-width substitutions. For example:
 
@@ -90,9 +88,9 @@ It is important to avoid the use of half-width punctuation characters. These cha
 | "你好" (open and close double quotes) | "你好" (double quotes) |
 | 需要什么帮助? (question mark) | 需要什么帮助？ |
 
-### Text normalization performed by the service
+### Text normalization rules for Chinese
 
-The Speech service performs the following text normalization on text transcripts.
+The Speech service carries out the following normalization rules.
 
 *   Removing all punctuation
 *   Expanding numbers to spoken form
@@ -111,8 +109,6 @@ Here are some examples.
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
-### Text normalization you must perform
-
 Apply the following normalization to your text before importing it.
 
 *   Abbreviations should be written out in words to reflect spoken form
@@ -127,14 +123,14 @@ Here are some examples.
 
 ## Other languages
 
-Text data uploaded to the **Speech to Text** service must use UTF-8 encoding with byte-order marker. Each line of the file should contain the text for a single utterance.
+Text data uploaded to the **Speech to Text** service must use UTF-8 encoding with byte-order marker. The file should be written one utterance per line.
 
 > [!NOTE]
 > These examples use German. However, these guidelines apply to all languages that are not US English or Chinese.
 
-### Text normalization performed by the service
+### Text normalization rules for German
 
-The Speech service performs the following text normalization on text transcripts.
+The Speech service carries out the following normalization rules.
 
 *   Lower-casing all text
 *   Removing all punctuation including various types of quotes ("test", 'test', "test„ or «test» are ok)
@@ -149,8 +145,6 @@ Here are some examples
 | Frankfurter Ring | frankfurter ring |
 | ¡Eine Frage! | eine frage |
 | wir, haben | wir haben |
-
-### Text normalization you must perform
 
 Apply the following normalization to your text before importing it.
 
