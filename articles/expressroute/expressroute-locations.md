@@ -46,9 +46,6 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **Australia Government** | Australia Central, Australia Central 2 |Canberra, Canberra2 | 
 | **India** |India West, India Central, India South |Chennai, Mumbai |
 | **South Korea** |Korea Central, Korea South |Busan, Seoul |
-| **South Africa** |South Africa West+, South Africa North+ |Cape Town, Johannesburg |
-
-**+** denotes coming soon
 
 ### Regions and geopolitical boundaries for national clouds
 The table below provides information on regions and geopolitical boundaries for national clouds.
