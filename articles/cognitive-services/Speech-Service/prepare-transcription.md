@@ -17,15 +17,15 @@ ms.author: v-jerkin
 
 To customize **Speech to Text** or **Text to Speech**, you must provide text along with speech. Each line in the text corresponds to a single utterance. The text should match the speech as exactly as possible. The text is called a *transcript*, and you must create it in a specific format.
 
-The Speech service performs some normalizations in order to make your text consistent. Other normalization tasks must be performed before the text is submitted for training. 
+The Speech service normalizes the input to keep text consistent. 
 
 This article describes both types of normalizations. The guidelines vary slightly for various languages.
 
 ## US English (en-US)
 
-Text data uploaded to this service should be written in plain text using only the ASCII character set. Each line of the file should contain the text for a single utterance.
+Text data should be written in plain text, using only the ASCII character set. The file should contain only one utterance per line.
 
-It is important to avoid the use of extended (Latin-1) or Unicode punctuation characters. These characters can be included inadvertently when preparing the data in a word-processing program or scraping data from web pages. Replace these characters with appropriate ASCII substitutions. For example:
+Avoid the use of extended (Latin-1) or Unicode punctuation characters. These characters can be included inadvertently when preparing the data in a word-processing program or scraping data from web pages. Replace these characters with appropriate ASCII substitutions. For example:
 
 | Characters to avoid | Substitution |
 |----- | ----- |
@@ -33,9 +33,9 @@ It is important to avoid the use of extended (Latin-1) or Unicode punctuation ch
 | John’s day (right single quotation mark) | John's day (apostrophe) |
 | it was good—no, it was great! (em dash) | it was good--no, it was great! (hyphens) |
 
-### Text normalization performed by the service
+### Text normalization rules
 
-The Speech service performs the following text normalization on text transcripts.
+The Speech service carried out the following normalization rules.
 
 *   Lower-casing all text
 *   Removing all punctuation except word-internal apostrophes
@@ -50,18 +50,18 @@ Here are some examples
 | Go get -em! | go get em |
 | I'm double-jointed | I'm double jointed |
 | 104 Elm Street | one oh four Elm street |
-| Tune to 102.7 | tune to one oh two point seven |
+| Tune to 102.7 | tune to one oh two seven |
 | Pi is about 3.14 | pi is about three point one four |
 | It costs $3.14 | it costs three fourteen |
 
-### Text normalization you must perform
+### Text normalization you take care
 
 Apply the following normalization to your text transcripts.
 
-*   Abbreviations should be written out in words to reflect spoken form
+*   Abbreviations should be written out in words
 *   Non-standard numeric strings (such as some date or accounting forms) should be written out in words
 *   Words with non-alphabetic characters or mixed alphanumeric characters should be transcribed as pronounced
-*   Leave abbreviations pronounced as words untouched. For example, radar, laser, RAM, NATO, and Mr.
+*   Leave abbreviations pronounced as words untouched. For example, radar, laser, RAM, NATO.
 *   Write abbreviations pronounced as separate letters, with letters separated by spaces. For example, IBM, CPU, FBI, TBD, NaN. 
 
 Here are some examples:
@@ -69,8 +69,8 @@ Here are some examples:
 | Original Text | After Normalization |
 |----- | ----- |
 | 14 NE 3rd Dr. | fourteen northeast third drive |
-| Dr. Strangelove | Doctor Strangelove |
-| James Bond 007 | James Bond double oh seven |
+| Dr. Bruce Banner | Doctor Bruce Banner |
+| James Bond, 007 | James Bond, double oh seven |
 | Ke$ha | Kesha |
 | How long is the 2x4 | How long is the two by four |
 | The meeting goes from 1-3pm | The meeting goes from one to three pm |
@@ -116,7 +116,7 @@ Here are some examples.
 Apply the following normalization to your text before importing it.
 
 *   Abbreviations should be written out in words to reflect spoken form
-*   This service does not cover all numeric quantities. It is more reliable to write out numeric strings in spoken form.
+*   It is more reliable to write out numeric strings in spoken form.
 
 Here are some examples.
 
@@ -158,7 +158,7 @@ Apply the following normalization to your text before importing it.
 
 *   Decimal point should be "," and not ".": 2,3% and not 2.3%
 *   Time separator between hours and minutes should be ":" and not ".": 12:00 Uhr
-*   Abbreviations such as 'ca.', 'bzw.' are not replaced. We recommend you use the full form.
+*   Abbreviations such as 'ca.' aren't replaced. We recommend you use the full form.
 *   The five main mathematical operators are removed: +, -, \*, /. We recommend replacing them with their literal form: plus, minus, mal, geteilt.
 *   Same applies for comparison operators (=, <, >) - gleich, kleiner als, grösser als
 *   Use fractions, such as 3/4, in word form (such as 'drei viertel' instead of ¾)
