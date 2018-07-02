@@ -79,7 +79,7 @@ Here are some examples:
 
 ## Chinese (zh-CN)
 
-Text data uploaded to the Custom Speech Service should use UTF-8 encoding with byte-order marker. Teh file should be written one utterance per line.
+Text data uploaded to the Custom Speech Service should use UTF-8 encoding with byte-order marker. The file should be written one utterance per line.
 
 It is important to avoid the use of half-width punctuation characters. These characters can be included inadvertently when preparing the data in a word-processing program or scraping data from web pages. Replace them with appropriate full-width substitutions. For example:
 
