@@ -150,7 +150,7 @@ subjects:
   name: "user@contoso.com"
 ```
 
-A role binding can also be created for all members of an Azure AD group. Azure AD groups are specified using the group opbejct ID.
+A role binding can also be created for all members of an Azure AD group. Azure AD groups are specified using the group object ID.
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
