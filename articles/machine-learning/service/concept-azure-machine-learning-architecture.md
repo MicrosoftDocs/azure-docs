@@ -17,7 +17,7 @@ The __Azure Machine Learning workspace__ is the top-level resource for Azure Mac
 It's a logical container for artifacts used by Azure Machine Learning.
 In addition to resources in the Azure cloud, it also references things from your local development environment.
 For example, files on your development environment can be used to create a __project__ in a workspace.
-The workspace also defines your local develoment environment as one of the __compute targets__ for training a model.
+The workspace also defines your local development environment as one of the __compute targets__ for training a model.
  
 
 The following diagram shows the major components of Azure Machine Learning, and illustrates the general workflow when using Azure Machine Learning: 
@@ -30,7 +30,7 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 2. Configure a __local__ or __cloud__ environment (__compute target__) to use when training the model.
 3. Submit the scripts to __run__ in that environment.
 4. Examine the __run history__ for information about this run of your training scripts.
-    If the model does not perform as desired, loop back to step 1 and itereate on your scripts.
+    If the model does not perform as desired, loop back to step 1 and iterate on your scripts.
 5. Register the model in the __model registry__.
 6. Deploy the model and the scoring scripts as a __web service__ in Azure.
 
@@ -39,10 +39,10 @@ The workflow for developing and deploying a model with Azure Machine Learning fo
 
 The workspace provides a list of environments (compute targets) that can be used to train your model.
 It also keeps a history of the training runs, including logs, metrics, output, and a snapshot of your project.
-These can be used to determine which version of the model is the best.
+This information can be used to determine which version of the model is the best.
 
 Once you've determined the best model, you can register it with the workspace.
-This creates a Docker image, which can be used to deploy the model as a web service.
+Registering a model creates a Docker image, which can be used to deploy the model as a web service.
 The web service is hosted on Azure Container Instances or Azure Kubernetes Service.
 
 You can create multiple workspaces, and each workspace can be shared by multiple people.
@@ -54,10 +54,13 @@ When sharing a workspace, you can assign the following roles to users:
 
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
 
-* [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
+* [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) - Registers docker containers that are used during training and when deploying a model.
 * [Azure Storage](https://azure.microsoft.com/en-us/services/storage/) - Used as the default datastore for the workspace.
-* [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/)
-* [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/)
+* [Azure Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) - Stores monitoring information about your models.
+* [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) - Stores secrets used by compute targets and other sensitive information needed by the workspace.
+
+> [!NOTE]
+> Instead of creating new versions, you can use existing Azure services. For more information, see [TBD].
 
 The following diagram is a taxonomy of the workspace:
 
@@ -73,7 +76,7 @@ For an example of how to attach a project to a workspace, see one of the followi
 * [Create a workspace with Azure CLI TBD]()
 
 When you submit a project for training, the folder is copied to the compute target.
-The entry script is ran in the Python environment configured through the __run configuration__.
+The entry script is run in the Python environment configured through the __run configuration__.
 
 ## Model
 
