@@ -365,11 +365,11 @@ For information about SQL Server Agent, see [SQL Server Agent](https://docs.micr
 The following are not supported: 
 - `FILESTREAM` 
 - `FILETABLE` 
-- `EXTERNAL TABLE` 
+- `EXTERNAL TABLE`
 - `MEMORY_OPTIMIZED`  
 
 For information about creating and altering tables, see [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) and [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
- 
+
 ## <a name="Changes"></a> Behavior changes 
  
 The following variables, functions, and views return different results:  
