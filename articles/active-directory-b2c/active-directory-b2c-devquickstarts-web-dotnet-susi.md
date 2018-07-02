@@ -27,19 +27,21 @@ This tutorial shows you how to:
 - You must connect your B2C Tenant to an Azure account. You can create a free Azure account [here](https://azure.microsoft.com/).
 - You need [Microsoft Visual Studio](https://www.visualstudio.com/) or a similar program to view and modify the sample code.
 
-## Create an Azure AD B2C directory
+## Create an Azure AD B2C tenant
 
-Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, create a B2C directory before you continue in this guide.
+Before you can use Azure AD B2C, you must create a tenant. A tenant is a container for all your users, apps, groups, and more. If you don't have one already, create a B2C tenant before you continue in this guide.
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
 > [!NOTE]
 > 
-> You need to connect the B2C Tenant to your Azure subscription. After selecting **Create**, select the **Link an existing Azure AD B2C Tenant to my Azure subscription** option, and then in the **Azure AD B2C Tenant** drop down, select the tenant you want to associate.
+> You need to connect the Azure AD B2C tenant to your Azure subscription. After selecting **Create**, select the **Link an existing Azure AD B2C Tenant to my Azure subscription** option, and then in the **Azure AD B2C Tenant** drop down, select the tenant you want to associate.
 
 ## Create and register an application
 
-Next, you need to create and register the app in your B2C directory. This provides information that Azure AD B2C needs to securely communicate with your app. 
+Next, you need to create and register the app in your Azure AD B2C tenant. This provides information that Azure AD B2C needs to securely communicate with your app. 
+
+Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**. You should now be using the tenant that you created in the previous tutorial.
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
