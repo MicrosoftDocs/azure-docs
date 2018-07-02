@@ -15,7 +15,7 @@ ms.author: v-jerkin
 
 # Transcription guidelines for using Speech service
 
-To customize **Speech to Text** or **Text to Speech**, you must provide text along with speech. Each line in the text corresponds to a single utterance. The text is called a *transcript*, and you must create it in a specific format.
+To customize **Speech to Text** or **Text to Speech**, you must provide text along with speech. Each line in the text corresponds to a single utterance. The text should match the speech as exactly as possible. The text is called a *transcript*, and you must create it in a specific format.
 
 The Speech service performs some normalizations for you in order to make your text consistent. Other normalization tasks must be performed before the text is submitted for training. 
 
@@ -139,7 +139,7 @@ The Speech service performs the following text normalization on text transcripts
 
 *   Lower-casing all text
 *   Removing all punctuation including various types of quotes ("test", 'test', "test„ or «test» are ok)
-*   Discarding any row containing any special character from the set ^ ¢ £ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬
+*   Discarding any row containing any special character from the set  ¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬
 *   Expansion of numbers to word form, including dollar or euro amounts
 *   Umlauts are accepted only for a, o, u; others will be replaced by "th" or be discarded
 
