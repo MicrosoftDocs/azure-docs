@@ -26,11 +26,11 @@ This article describes how Logic Apps handles content types and
 how you can correctly cast or convert these types when necessary.
 
 To determine the appropriate way for handling content types, 
-Logic Apps relies on the `Content-Type` header in HTTP calls 
-and can specify content types such as these examples:
+Logic Apps relies on the `Content-Type` header value in HTTP calls, 
+for example:
 
-* [application/json](#application-json) (native content type)
-* [text/plain](#text-plain) (native content type)
+* [application/json](#application-json) (native type)
+* [text/plain](#text-plain) (native type)
 * [application/xml and application/octet-stream](#application-xml-octet-stream)
 * [Other content types](#other-content-types)
 
