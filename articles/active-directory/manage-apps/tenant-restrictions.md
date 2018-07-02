@@ -112,7 +112,7 @@ Tenant Restrictions is currently supported by Office 365 browser-based applicati
 
 Outlook and Skype for Business clients that support modern authentication may still able to use legacy protocols against tenants where modern authentication is not enabled, effectively bypassing Tenant Restrictions. Applications that use legacy protocols may be blocked by Tenant Restrictions if they contact login.microsoftonline.com, login.microsoft.com, or login.windows.net during authentication.
 
-For Outlook on Windows, customers may choose to implement restrictions preventing end users from adding non-approved mail accounts to their profiles. For example, see the [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) group policy setting. For Outlook on non-Windows platforms, and for Skype for Business on all platforms, full support for Tenant Restrictions is not currently available.
+For Outlook on Windows, customers may choose to implement restrictions preventing end users from adding non-approved mail accounts to their profiles. For example, see the [Prevent adding non-default Exchange accounts](http://gpsearch.azurewebsites.net/default.aspx?ref=1) group policy setting.
 
 ## Testing
 
