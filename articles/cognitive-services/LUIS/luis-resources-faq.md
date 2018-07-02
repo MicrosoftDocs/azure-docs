@@ -107,7 +107,7 @@ See [Prediction differences between copies of same app](luis-concept-prediction-
 ### What is the tenant ID in the "Add a key to your app" window?
 In Azure, a tenant represents the client or organization that's associated with a service. Find your tenant ID in the Azure portal in the **Directory ID** box by selecting **Azure Active Directory** > **Manage** > **Properties**.
 
-![Tenant ID in the Azure portal](./media/luis-how-to-manage-keys/luis-assign-key-tenant-id.png)
+![Tenant ID in the Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
 <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
 ### Why are there more endpoint keys on my app's publish page than I assigned to the app? 
