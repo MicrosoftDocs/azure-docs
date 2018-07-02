@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/02/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 
@@ -51,9 +51,19 @@ Make sure you have the credentials for an account with system admin privileges. 
    >Special characters, including spaces and periods, aren't supported in **Name** or **Tier** when you create a SKU for the MySQL resource provider.
 
 6. Select **OK** to create the SKU.
+> [!NOTE]
+> SKUs can take up to an hour to be visible in the portal. You can't create a database until the SKU is deployed and running.
+
 7. Under **Add a MySQL Hosting Server**, select **Create**.
 
 As you add servers, assign them to a new or existing SKU to differentiate service offerings. For example, you can have a MySQL enterprise instance that provides increased database and automatic backups. You can reserve this high-performance server for different departments in your organization.
+
+## Security considerations for MySQL
+
+The following information applies to the RP and MySQL hosting servers:
+
+* Ensure that all hosting servers are configured for communication using TLS 1.2. Support for TLS 1.1 and TLS 1.0 will be removed in a future release of the Resource Provider. See [Configuring MySQL to Use Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
+* Employ [Transparent Data Encryption](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html)
 
 ## Increase backend database capacity
 
