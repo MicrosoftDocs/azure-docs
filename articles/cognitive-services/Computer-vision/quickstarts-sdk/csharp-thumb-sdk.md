@@ -81,11 +81,11 @@ namespace ImageThumbnail
             // Specify the Azure region
             computerVision.AzureRegion = AzureRegions.Westcentralus;
 
+            Console.WriteLine("Images being analyzed ...");
             var t1 = GetRemoteThumbnailAsync(computerVision, remoteImageUrl);
             var t2 = GetLocalThumbnailAsnc(computerVision, localImagePath);
 
-            Task.WhenAll(t1, t2).Wait();
-
+            Task.WhenAll(t1, t2).Wait(5000);
             Console.WriteLine("Press any key to exit");
             Console.ReadLine();
         }
@@ -94,6 +94,13 @@ namespace ImageThumbnail
         private static async Task GetRemoteThumbnailAsync(
             ComputerVisionAPI computerVision, string imageUrl)
         {
+            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
+            {
+                Console.WriteLine(
+                    "\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
+                return;
+            }
+
             Stream thumbnail = await computerVision.GenerateThumbnailAsync(
                 thumbnailWidth, thumbnailHeight, imageUrl, true);
 
@@ -114,7 +121,7 @@ namespace ImageThumbnail
             if (!File.Exists(imagePath))
             {
                 Console.WriteLine(
-                    "\n{0} doesn't exist or you don't have read permission\n", imagePath);
+                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
                 return;
             }
 
