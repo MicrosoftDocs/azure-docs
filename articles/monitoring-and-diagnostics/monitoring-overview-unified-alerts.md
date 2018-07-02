@@ -62,7 +62,7 @@ Unified alerts provide a single place to view and manage all your Azure alerts. 
  ![alerts-overview](./media/monitoring-overview-unified-alerts/alerts-preview-overview2.png) 
 
 ### Alert rules management
-**Rules** is a single page to manage all alert rules across your Azure subscriptions. It lists all alert rules and can be sorted based on target resources, resource groups, rule name, or status. Alert rules can also be edited nd enabled or disabled from this page.
+**Rules** is a single page to manage all alert rules across your Azure subscriptions. It lists all alert rules and can be sorted based on target resources, resource groups, rule name, or status. Alert rules can also be edited and enabled or disabled from this page.
 
  ![alerts-rules](./media/monitoring-overview-unified-alerts/alerts-preview-rules.png)
 
