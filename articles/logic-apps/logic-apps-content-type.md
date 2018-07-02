@@ -17,55 +17,121 @@ ms.suite: integration
 
 # Handle content types in Azure Logic Apps
 
-A logic app can have many content types flow through 
-Many different types of content can flow through a logic app, including JSON, XML, flat files, and binary data. 
-While the Logic Apps Engine supports all content types, some are natively understood by the Logic Apps Engine. 
-Others might require casting or conversions as necessary. 
-This article describes how the engine handles different content types and how to correctly handle these types when necessary.
+Various content types can flow through a logic app, 
+for example, JSON, XML, flat files, and binary data. 
+While Logic Apps supports all content types, some have native 
+support and don't require casting or conversion in your logic apps. 
+Other types might require casting or conversion as necessary. 
+This article describes how Logic Apps handles content types and 
+how you can correctly cast or convert these types when necessary.
 
-## Content-Type header
+To determine the appropriate way for handling content types, 
+Logic Apps relies on the `Content-Type` header in HTTP calls 
+and can specify content types such as these examples:
 
-To start basically, let's look at the two `Content-Types` that don't require conversion or casting 
-that you can use in a logic app: `application/json` and `text/plain`.
+* [application/json](#application-json) (native content type)
+* [text/plain](#text-plain) (native content type)
+* [application/xml and application/octet-stream]
+* [Other content types](#other-content-types)
+
+<a name="application-json"></a>
 
 ## "application/json" content type
 
-The workflow engine relies on the `Content-Type` header from HTTP calls to determine the appropriate handling. 
-Any request with the content type `application/json` is stored and handled as a JSON Object. 
-Also, JSON content can be parsed by default without needing any casting. 
+Logic Apps stores and handles any request with the *application/json* 
+content type as a JavaScript Notation (JSON) object. 
+By default, you can parse JSON content without any casting. 
+To parse a request that has a header with the "application/json" content type, 
+you can use an expression. This example returns the value `dog` from the 
+`animal-type` array without casting: 
+ 
+`@body('myAction')['animal-type'][0]` 
+  
+  ```json
+  {
+    "name": "Fido",
+    "animal-type": [ "dog", "cat", "rabbit", "snake" ]
+  }
+  ```
 
-For example, you could parse a request that has the content type header `application/json ` in a workflow 
-by using an expression like `@body('myAction')['foo'][0]` to get the value `bar` in this case:
+If you're working with JSON data that doesn't specify a header, 
+you can manually cast that data to JSON by using the 
+[json() function](../logic-apps/workflow-definition-language-functions-reference.md#json), 
+for example: 
+  
+`@json(triggerBody())['animal-type']`
 
-```
-{
-    "data": "a",
-    "foo": [
-        "bar"
-    ]
-}
-```
+### Create tokens for JSON properties
 
-No additional casting is needed. If you are working with data that is JSON but didn't have a header specified, 
-you can manually cast it to JSON using the `@json()` function, for example: `@json(triggerBody())['foo']`.
+Logic Apps provides the capability for you to generate user-friendly 
+tokens that represent the properties in JSON content so you can 
+reference and use those properties more easily in your logic app's workflow.
 
-### Schema and schema generator
+* **Request trigger**
 
-The **Request** trigger lets you to enter a JSON schema for the payload you expect to receive. 
-This schema lets the designer generate tokens so you can consume the content of the request. 
-If you don't have a schema ready, select **Use sample payload to generate schema**, 
-so you can generate a JSON schema from a sample payload.
+  When you use this trigger in the Logic App Designer, you can provide 
+  a JSON schema that describes the payload you expect to receive. 
+  The designer parses JSON content by using this schema and generates 
+  user-friendly tokens that represent the properties in your JSON content. 
+  You can then easily reference and use those properties throughout your 
+  logic app's workflow. 
+  
+  If you don't have a schema, you can generate the schema. 
+  
+  1. In the Request trigger, select **Use sample payload to generate schema**.  
+  
+  2. Under **Enter or paste a sample JSON payload**, provide a sample payload 
+  and then choose **Done**. For example: 
 
-![Schema](./media/logic-apps-http-endpoint/manualtrigger.png)
+     ![Provide sample JSON payload](./media/logic-apps-content-type/request-trigger.png)
 
-### Parse JSON action
+     The generated schema now appears in your trigger.
 
-The **Parse JSON** action lets you parse JSON content into friendly tokens 
-for logic app consumption. Similar to the Request trigger, this action 
-lets you enter or generate a JSON schema for the content you want to parse. 
-This tool makes consuming data from Service Bus, Azure Cosmos DB, and so on, much easier.
+     ![Provide sample JSON payload](./media/logic-apps-content-type/generated-schema.png)
 
-![Parse JSON](./media/logic-apps-content-type/ParseJSON.png)
+     Here is the underlying definition for your Request trigger in the code view editor:
+
+     ```json
+     "triggers": { 
+        "manual": {
+           "type": "Request",
+           "kind": "Http",
+           "inputs": { 
+              "schema": {
+                 "type": "object",
+                 "properties": {
+                    "animal-type": {
+                       "type": "array",
+                       "items": {
+                          "type": "string"
+                       },
+                    },
+                    "name": {
+                       "type": "string"
+                    }
+                 }
+              }
+           }
+        }
+     }
+     ```
+
+  3. In your request, make sure you include a `Content-Type` header 
+  and set the header's value to `application/json`.
+
+* **Parse JSON action**
+
+  When you use this action in the Logic App Designer, 
+  you can parse JSON output and generate user-friendly tokens 
+  that represent the properties in your JSON content. 
+  You can then easily reference and use those properties 
+  throughout your logic app's workflow. Similar to the Request trigger, 
+  you can provide or generate a JSON schema that describes the JSON content you want to parse. 
+  This capability makes consuming data from Azure Service Bus, Azure Cosmos DB, and so on, much easier.
+
+  ![Parse JSON](./media/logic-apps-content-type/ParseJSON.png)
+
+<a name="application-json"></a>
 
 ## text/plain content type
 
