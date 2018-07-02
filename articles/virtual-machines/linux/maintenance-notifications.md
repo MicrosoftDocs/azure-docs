@@ -3,8 +3,7 @@ title: Handling maintenance notifications for Linux VMs in Azure | Microsoft Doc
 description: View maintenance notifications for Linux virtual machines running in Azure and start self-service maintenance.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zivraf
-manager: jeconnoc
+author: shants123
 editor: ''
 tags: azure-service-management,azure-resource-manager
 
@@ -14,8 +13,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: zivr
+ms.date: 07/02/2018
+ms.author: shants
 
 ---
 
@@ -40,17 +39,13 @@ The goal in having two windows is to give you enough time to start maintenance a
 
 You can use the Azure portal, PowerShell, REST API, and CLI to query for the maintenance windows for your VMs and start self-service maintenance.
 
- > [!NOTE]
- > If you try to start maintenance and the request fails, Azure marks your VM as **skipped**. You will no longer be able to use the Customer Initiated Maintenance option. Your VM will have to be rebooted by Azure during the scheduled maintenance phase.
-
-
  
 ## Should you start maintenance using during the self-service window?  
 
 The following guidelines should help you to decide whether you should use this capability and start maintenance at your own time.
 
 > [!NOTE] 
-> Self-service maintenance might not be available for all of your VMs. To determine if proactive redeploy is available for your VM, look for the **Start now** in the maintenance status. Self-service maintenance is currently not available for Cloud Services (Web/Worker Role), Service Fabric, and Virtual Machine Scale Sets.
+> Self-service maintenance might not be available for all of your VMs. To determine if proactive redeploy is available for your VM, look for the **Start now** in the maintenance status. Self-service maintenance is currently not available for Cloud Services (Web/Worker Role) and Service Fabric.
 
 
 Self-service maintenance is not recommended for deployments using **availability sets** since these are highly available setups, where only one update domain is impacted at any given time. 
@@ -160,9 +155,13 @@ For more information about high availability, see [Regions and availability for 
 
 **A:**  Depending on the size of your VM, reboot may take up to several minutes during the self-service maintenance window. During the Azure initiated reboots in the scheduled maintenance window, the reboot will typically take about 25 minutes. Note that in case you use Cloud Services (Web/Worker Role), Virtual Machine Scale Sets, or availability sets, you will be given 30 minutes between each group of VMs (UD) during the scheduled maintenance window.
 
-**Q: What is the experience in the case of Cloud Services (Web/Worker Role), Service Fabric, and Virtual Machine Scale Sets?**
+**Q: What is the experience in the case of Virtual Machine Scale Sets?**
 
-**A:** While these platforms are impacted by planned maintenance, customers using these platforms are considered safe given that only VMs in a single Upgrade Domain (UD) will be impacted at any given time. Self-service maintenance is currently not available for Cloud Services (Web/Worker Role), Service Fabric, and Virtual Machine Scale Sets.
+**A:** Planned maintenance is now available for Virtual Machine Scale Sets (VMSS). For instructions on how to initiate self-service maintenance for VMSS inctances please refer "How To->Mange->Planned Maintenance" section in VMSS docs.
+
+**Q: What is the experience in the case of Cloud Services (Web/Worker Role) and Service Fabric?**
+
+**A:** While these platforms are impacted by planned maintenance, customers using these platforms are considered safe given that only VMs in a single Upgrade Domain (UD) will be impacted at any given time. Self-service maintenance is currently not available for Cloud Services (Web/Worker Role) and Service Fabric.
 
 **Q: I have received an email about hardware decommissioning, is this the same as planned maintenance?**
 
@@ -180,13 +179,8 @@ For more information about high availability, see [Regions and availability for 
 **A:** There are several use cases where you will see your VM scheduled for maintenance after you have already completed your maintenance-redeploy:
 1.	We have canceled the maintenance wave and restarted it with a different payload. It could be that we've detected faulted payload and we simply need to deploy an additional payload.
 2.	Your VM was *service healed* to another node due to a hardware fault
-3.	You have selected to stop (deallocate) and restart the  VM
+3.	You have selected to stop (deallocate) and restart the VM
 4.	You have **auto shutdown** turned on for the VM
-
-
-**Q: Maintenance of my availability set takes a long time, and I now see “skipped” status on some of my availability set instances. Why?** 
-
-**A:** If you have clicked to update multiple instances in an availability set in short succession, Azure will queue these requests and starts to update only the VMs in one update domain (UD) at a time. However, since there might be a pause between update domains, the update might appear to take longer. If the update queue takes longer than 60 minutes, some instances will show the **skipped** state even if they have been updated successfully. To avoid this incorrect status, update your availability sets by clicking only on instance within one availability set and wait for the update on that VM to complete before clicking on the next VM in a different update domain.
 
 
 ## Next Steps
