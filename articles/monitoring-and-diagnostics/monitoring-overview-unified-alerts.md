@@ -48,7 +48,7 @@ The unified alerts experience uses the following concepts to separate alert rule
 | Target Resource | Defines the specific resources and signals available for alerting. A target can be any Azure resource.<br>Examples: virtual machine, storage account, virtual machine scale set, Log Analytics workspace, Application Insights resource |
 | Signal | Source of data emitted by the Target resource. Supported signal types are *Metric*, *Activity log*, *Application Insights*, and *Log*. |
 | Criteria | Combination of _signal_ and _logic_ applied on a target resource.<br>Examples: Percentage CPU > 70%, Server Response Time > 4 ms, Result count of a log query > 100 etc. |
-| Logic | User-defined logic to check if the signal is within expected range/values. |
+| Logic | User-defined logic to check if the signal is within expected range/values. |
 | Action | Action to perform when the alert is fired. Multiple actions may occur when an alert fires. These alerts support action groups.<br>Examples: emailing an email address, calling a webhook URL. |
 | Monitor Condition | Indicates whether the condition that created a metric alert has subsequently been resolved. Metric alert rules sample a particular metric at regular intervals. If the criteria in the alert rule is met, then a new alert is created with a condition of Fired.  When the metric is sampled again, if the criteria is still met then nothing happens.  If the criteria is not met though, then the condition of the alert is changed to Resolved. The next time that the criteria is met, then a another alert is created with a condition of Fired. |
 
@@ -59,7 +59,7 @@ Unified alerts provide a single place to view and manage all your Azure alerts. 
 ### Alerts overview page
 **Alerts** overview page shows an aggregated summary of all fired alerts, and the total enabled alert rules. Changing the subscriptions or filter parameters updates the aggregates and the alerts fired list.
 
- ![alerts-overview](./media/monitoring-overview-unified-alerts/alerts-preview-overview2.png) 
+ ![alerts-overview](./media/monitoring-overview-unified-alerts/alerts-preview-overview2.png) 
 
 ### Alert rules management
 **Rules** is a single page to manage all alert rules across your Azure subscriptions. It lists all alert rules and can be sorted based on target resources, resource groups, rule name, or status. Alert rules can also be edited nd enabled or disabled from this page.
@@ -69,7 +69,7 @@ Unified alerts provide a single place to view and manage all your Azure alerts. 
 
 ## Creating an alert rule
 Alerts can be authored in a consistent manner regardless of the monitoring service or signal type. All fired alerts and related details are available in single page.
- 
+ 
 You create a new alert rule with the following three steps:
 1. Pick the _target_ for the alert.
 1. Select the _signal_ from the available signals for the target.
@@ -81,19 +81,19 @@ You can learn more on how to create alert rules in [Create, view, and manage ale
 
 Alerts are available across several Azure monitoring services. For information on how and when to use each of these services, see [Monitoring Azure applications and resources](./monitoring-overview.md). The following table provides a listing of the types of alert rules available across Azure and what's currently supported by the unified alert experience.
 
-| **Monitor Source** | **Signal Type**  | **Description** | 
+| **Monitor Source** | **Signal Type**  | **Description** | 
 |-------------|----------------|-------------|
-| Azure monitor | Metric  | Also called [near-real-time metric alerts](monitoring-near-real-time-metric-alerts.md), they support evaluating metric conditions as frequently as 1 minute and allow for multi-metric and multi-dimensional metric rules. A list of supported resource types is available in [Newer metric alerts for Azure services in the Azure portal](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).<br>[Classic metric alerts](monitoring-overview-alerts.md) are not supported in the new alerts experience. You can find them under Alerts (Classic) in the Azure portal. The classic alerts support some metrics types that have not yet been moved to the newer alerts. For a full list, see [supported metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics). |
-| Log Analytics | Logs  | Receive notifications or run automated actions when a Log search query meets certain criteria. Alerts in Log Analytics are [being copied into the new experience](monitoring-alerts-extend.md). A [preview of *Log Analytics logs as metrics*](monitoring-alerts-extend-tool.md) is available. The preview allows you to take some types of logs and convert them to metrics, where you can then alert on them using the new alerting experience. The preview is useful if you have non-Azure logs that you want to get alongside native Azure Monitor metrics. |
+| Azure monitor | Metric  | Also called [near-real-time metric alerts](monitoring-near-real-time-metric-alerts.md), they support evaluating metric conditions as frequently as 1 minute and allow for multi-metric and multi-dimensional metric rules. A list of supported resource types is available in [Newer metric alerts for Azure services in the Azure portal](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).<br>[Classic metric alerts](monitoring-overview-alerts.md) are not supported in the new alerts experience. You can find them under Alerts (Classic) in the Azure portal. The classic alerts support some metrics types that have not yet been moved to the newer alerts. For a full list, see [supported metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics). |
+| Log Analytics | Logs  | Receive notifications or run automated actions when a Log search query meets certain criteria. Alerts in Log Analytics are [being copied into the new experience](monitoring-alerts-extend.md). A [preview of *Log Analytics logs as metrics*](monitoring-alerts-extend-tool.md) is available. The preview allows you to take some types of logs and convert them to metrics, where you can then alert on them using the new alerting experience. The preview is useful if you have non-Azure logs that you want to get alongside native Azure Monitor metrics. |
 | Activity Logs | Activity Log | Contains the records of all Create, Update, and Delete actions created by the selected target. |
-| Service Health | Activity Log  | Not supported in unified alerts. See [Create activity log alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md).  |
-| Application Insights | Logs  | Contains logs with the performance details of your application. Using analytics query, you can define the conditions for the actions to be taken based on application data. |
+| Service Health | Activity Log  | Not supported in unified alerts. See [Create activity log alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md).  |
+| Application Insights | Logs  | Contains logs with the performance details of your application. Using analytics query, you can define the conditions for the actions to be taken based on application data. |
 | Application Insights | Metric | Not supported in unified alerts. See [Metric alerts].(../application-insights/app-insights-alerts.md) |
-| Application Insights | Web Availability Tests | Not supported in unified alerts.  See [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md). Available to any website instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
+| Application Insights | Web Availability Tests | Not supported in unified alerts.  See [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md). Available to any website instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
 
 ## Enhanced unified alerts (Public Preview)
 
-An enhanced unified alerts experience was released in public preview for Azure Monitor on June 1, 2018. This experience builds on the benefits of [unified alerts](#overview) released March 2018 and provides the ability to manage and aggregate individual alerts in addition to modifying alert state. This section describes the new features and how to navigate the new alert pages in the Azure portal.
+An enhanced unified alerts experience was released in public preview for Azure Monitor on June 1, 2018. This experience builds on the benefits of [unified alerts](#overview)?released March 2018 and provides the ability to manage and aggregate individual alerts in addition to modifying alert state. This section describes the new features and how to navigate the new alert pages in the Azure portal.
 
 ### Features enhanced unified alerts
 
