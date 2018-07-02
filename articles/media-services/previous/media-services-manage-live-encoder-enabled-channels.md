@@ -179,7 +179,7 @@ You can get the preview URL when you create the channel. To get the URL, the cha
 Once the Channel starts ingesting data, you can preview your stream.
 
 > [!NOTE]
-> Currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure portal to view your stream.
+> Currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type.  You can use a player hosted in the Azure portal to view your stream.
 > 
 > 
 
