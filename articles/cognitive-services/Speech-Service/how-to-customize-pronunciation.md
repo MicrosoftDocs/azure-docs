@@ -45,8 +45,8 @@ Custom Pronunciation is currently supported for English (en-US) and German (de-d
 | English (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
 | German (de-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
 
->[NOTE]
->A term's display form (in a pronunciation file) should be written the same way in a language adaptation data set.
+> [!NOTE]
+> A term's display form (in a pronunciation file) should be written the same way in a language adaptation data set.
 
 ## Requirements for the display form
 A display form can only be a custom word, term, acronym, or compound words that combine existing words. You can also enter alternative pronunciations for common words. 
