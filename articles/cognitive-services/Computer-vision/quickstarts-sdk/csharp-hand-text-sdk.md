@@ -172,7 +172,9 @@ namespace ImageHandText
 
 ## RecognizeTextAsync response
 
-A successful response displays the lines of recognized text for each image, for example:
+A successful response displays the lines of recognized text for each image.
+
+See [API Quickstarts: Extract handwritten text with C#](../QuickStarts/CSharp-hand-text#recognize-text-response) for an example of raw JSON output.
 
 ```cmd
 Calling GetHandwritingRecognitionOperationResultAsync()
