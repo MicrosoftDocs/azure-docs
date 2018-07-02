@@ -18,7 +18,7 @@ ms.author: bwren
 ---
 # Office 365 management solution in Azure (Preview)
 
-![Office 365 logo](media/oms-solution-office-365/icon.png)
+![Office 365 logo](media/monitoring-solution-office-365/icon.png)
 
 The Office 365 management solution allows you to monitor your Office 365 environment in Log Analytics.
 
@@ -40,7 +40,7 @@ The following is required prior to this solution being installed and configured.
 This solution does not install any management packs in [connected management groups](../log-analytics/log-analytics-om-agents.md).
   
 ## Install and configure
-Start by adding the [Office 365 solution to your subscription](/monitoring/monitoring-solutions.md#install-a-management-solution). Once it's added, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
+Start by adding the [Office 365 solution to your subscription](monitoring-solutions.md#install-a-management-solution). Once it's added, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
 
 ### Required information
 Before you start this procedure, gather the following information.
@@ -65,37 +65,37 @@ The first step is to create an application in Azure Active Directory that the ma
 1. Select **Azure Active Directory** and then **App registrations**.
 1. Click **New application registration**.
 
-    ![Add app registration](media/oms-solution-office-365/add-app-registration.png)
+    ![Add app registration](media/monitoring-solution-office-365/add-app-registration.png)
 1. Enter an application **Name** and **Sign-on URL**.  The name should be descriptive.  Use _http://localhost_ for the URL, and keep _Web app / API_ for the **Application type**
     
-    ![Create application](media/oms-solution-office-365/create-application.png)
+    ![Create application](media/monitoring-solution-office-365/create-application.png)
 1. Click **Create** and validate the application information.
 
-    ![Registered app](media/oms-solution-office-365/registered-app.png)
+    ![Registered app](media/monitoring-solution-office-365/registered-app.png)
 
 ### Configure application for Office 365
 
 1. Click **Settings** to open the **Settings** menu.
 1. Select **Properties**. Change **Multi-tenanted** to _Yes_.
 
-    ![Settings multitenant](media/oms-solution-office-365/settings-multitenant.png)
+    ![Settings multitenant](media/monitoring-solution-office-365/settings-multitenant.png)
 
 1. Select **Required permissions** in the **Settings** menu and then click **Add**.
 1. Click **Select an API** and then **Office 365 Management APIs**. click **Office 365 Management APIs**. Click **Select**.
 
-    ![Select API](media/oms-solution-office-365/select-api.png)
+    ![Select API](media/monitoring-solution-office-365/select-api.png)
 
 1. Under **Select permissions** select the following options for both **Application permissions** and **Delegated permissions**:
     - Read service health information for your organization
     - Read activity data for your organization
     - Read activity reports for your organization
 
-    ![Select API](media/oms-solution-office-365/select-permissions.png)
+    ![Select API](media/monitoring-solution-office-365/select-permissions.png)
 
 1. Click **Select** and then **Done**.
 1. Click **Grant permissions** and then click **Yes** when asked for verification.
 
-    ![Grant permissions](media/oms-solution-office-365/grant-permissions.png)
+    ![Grant permissions](media/monitoring-solution-office-365/grant-permissions.png)
 
 ### Add a key for the application
 
@@ -103,7 +103,7 @@ The first step is to create an application in Azure Active Directory that the ma
 1. Type in a **Description** and **Duration** for the new key.
 1. Click **Save** and then copy the **Value** that's generated.
 
-    ![Keys](media/oms-solution-office-365/keys.png)
+    ![Keys](media/monitoring-solution-office-365/keys.png)
 
 ### Add admin consent
 To enable the administrative account for the first time, you must provide administrative consent for the application. You can do this with a PowerShell script. 
@@ -175,7 +175,7 @@ To enable the administrative account for the first time, you must provide admini
 
 1. You will be presented with a window similar to the one below. Click **Accept**.
     
-    ![Admin consent](media/oms-solution-office-365/admin-consent.png)
+    ![Admin consent](media/monitoring-solution-office-365/admin-consent.png)
 
 ### Subscribe to Log Analytics workspace
 The last step is to subscribe the application to your Log Analytics workspace. You also do this with a PowerShell script.
@@ -500,11 +500,11 @@ It may take a few hours for data to initially be collected. Once it starts colle
 
 ## Using the solution
 When you add the Office 365 solution to your Log Analytics workspace, the **Office 365** tile will be added to your dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
-![Office 365 Summary Tile](media/oms-solution-office-365/tile.png)  
+![Office 365 Summary Tile](media/monitoring-solution-office-365/tile.png)  
 
 Click on the **Office 365** tile to open the **Office 365** dashboard.
 
-![Office 365 Dashboard](media/oms-solution-office-365/dashboard.png)  
+![Office 365 Dashboard](media/monitoring-solution-office-365/dashboard.png)  
 
 The dashboard includes the columns in the following table. Each column lists the top ten alerts by count matching that column's criteria for the specified scope and time range. You can run a log search that provides the entire list by clicking See all at the bottom of the column or by clicking the column header.
 
