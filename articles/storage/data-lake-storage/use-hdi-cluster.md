@@ -41,11 +41,11 @@ The following diagram provides an abstract view of the HDInsight storage archite
 
 HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed by using the fully qualified URI, for example:
 
-    hdfs://<namenodehost>/<path>
+    hdfs://<NAME_NODE_HOST>/<PATH>
 
 In addition, HDInsight allows you to access data that is stored in Azure Data Lake Storage. The syntax is:
 
-    abfs[s]://<file_system>@<accountname>.dfs.core.windows.net/<path>
+    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<path>
 
 Here are some considerations when using an Azure Storage account with HDInsight clusters.
 
