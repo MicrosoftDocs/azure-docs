@@ -137,6 +137,7 @@ Domain names | Ports | Description
 *.servicebus.windows.net | 443, 80 | Used for communication with Data Movement Service backend
 *.core.windows.net | 443 | Used for Staged copy using Azure Blob (if configured)
 *.frontend.clouddatahub.net | 443 | Used for communication with Data Movement Service backend
+download.microsoft.com | 443 | Used for downloading the updates
 
 At **Windows firewall** level (machine level), these outbound ports are normally enabled. If not, you can configure the domains and ports accordingly on self-hosted integration runtime machine.
 

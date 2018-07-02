@@ -208,7 +208,7 @@
     - name: Create keys
       href: luis-how-to-azure-subscription.md
     - name: Add keys in LUIS 
-      href: Manage-Keys.md
+      href: luis-how-to-manage-keys.md
     - name: View endpoint usage with PowerShell
       href: luis-how-to-manage-from-cloud-shell.md
     - name: Manage versions
