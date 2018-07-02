@@ -32,7 +32,7 @@ The following variations and limitations are present in the Azure Security Cente
 - **Windows Defender Advanced Threat Protection (WDATP) alerts**
     - WDATP installation on Windows VMs via Security Center and the associated alerts are not available in Azure Government.  
 - **Security Incidents**
-    - The aggregation of alerts for a resource, known as a security incident, is not available in Azure Government. Users can conduct investigations directly through single alerts.  
+    - The aggregation of alerts for a resource, known as a security incident, is not available in Azure Government.
 -  **Custom alerts**
     - The ability to create custom alerts from raw data is not available in Azure Government.
 -  **Vulnerability assessments**
@@ -49,13 +49,18 @@ The following variations and limitations are present in the Azure Security Cente
     -  Auditing insights from Azure activity logs are not available in Azure Government.
 - **Baseline content server details**
     - Recommendations and details, such as the potential impact and countermeasures for baseline configuration vulnerabilities, are not available in Azure Government.
+- **Security playbooks**
+    - Playbooks for automated orchestration and response are not available in Azure Government.  
+-  **Investigation**
+    - The investigation feature linking security alerts, users, computers, and incidents is not available in Azure Government.
+
 
 ### Azure Security Center FAQs
  
 For Azure Security Center FAQs, see [Azure Security Center frequently asked questions public documentation](../security-center/security-center-faq.md). Additional FAQs for Azure Security Center in Azure Government are listed below. 
 
 
-**What will customers be charged for Azure Security Center in Azure Government?** </br>While in public preview, customers will not be charged for free or standard tier features in Security Center. When Security Center is Generally Available, customers using features in the standard tier will be charged in accordance with the Azure Government pricing schedule.  
+**What will customers be charged for Azure Security Center in Azure Government?** </br>The Standard tier of Azure Security Center is free for the first 60 days. Should you choose to continue to use public preview or generally available Standard features beyond 60 days, we automatically start to charge for the service.
 
 **What features are available for Azure Security Center government customers?**</br>A detailed list of feature variations in the Azure Security Center government offering can found in the [variations section](#bkmk_ASCVariations) of this article. All other Azure Security Center capabilities can be referenced in the [Azure Security Center public documentation](../security-center/index.yml).  
 
