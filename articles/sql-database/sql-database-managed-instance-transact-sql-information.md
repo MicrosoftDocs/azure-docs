@@ -261,7 +261,7 @@ External tables referencing the files in HDFS or Azure blob storage are not supp
 
 ### Replication 
  
-Replication is not yet supported. For information about Replication, see [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication).
+Replication is supported on Managed Instance. For information about Replication, see [SQL Server Replication](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### RESTORE statement 
  
