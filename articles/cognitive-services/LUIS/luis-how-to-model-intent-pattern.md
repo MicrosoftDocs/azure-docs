@@ -128,7 +128,7 @@ You can create a pattern from an existing utterance on either the **Intent** or 
     ![Screenshot of filtered patterns by entity](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
 
 ## Train your app after changing model with patterns
-After you add, edit, remove, or reassign a pattern, [train](luis-how-to-train.md) and [publish](PublishApp.md) your app for your changes to affect endpoint queries. 
+After you add, edit, remove, or reassign a pattern, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
 
 ## Next steps
 

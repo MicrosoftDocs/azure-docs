@@ -47,7 +47,7 @@ Have the following prerequisites on your development machine:
 
 To disable process identification, you'll need to provide the ip address and port for **workload_uri** and **management_uri** in the **connect** section of the IoT Edge daemon configuration.
 
-Get the ip address first. Enter `ifconfig` in your command line and copy the ip address of the **docker0** interface.
+Get the IP address first. Enter `ifconfig` in your command line and copy the IP address of the **docker0** interface.
 
 Edit the IoT Edge daemon configuration file:
 
@@ -55,7 +55,7 @@ Edit the IoT Edge daemon configuration file:
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Update the **connect** section of the configuration. For example:
+Update the **connect** section of the configuration with your IP address. For example:
 ```yaml
 connect:
   management_uri: "http://172.17.0.1.1:15580"
@@ -120,7 +120,7 @@ Check that your container image was successfully created and stored in the Azure
 1. If you've previously deployed the tempSensor module to your IoT Edge device, it may autopopulate. If it's not already in your list of modules, add it.
 
     1. Click **Add** and select **IoT Edge Module**.
-    2. In the **Name** field, enter `tempsensor`.
+    2. In the **Name** field, enter `tempSensor`.
     3. In the **Image URI** field, enter `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`.
     4. Select **Save**.
 

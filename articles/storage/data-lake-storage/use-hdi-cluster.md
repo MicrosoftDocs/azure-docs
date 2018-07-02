@@ -41,11 +41,11 @@ The following diagram provides an abstract view of the HDInsight storage archite
 
 HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed by using the fully qualified URI, for example:
 
-    hdfs://<namenodehost>/<path>
+    hdfs://<NAME_NODE_HOST>/<PATH>
 
 In addition, HDInsight allows you to access data that is stored in Azure Data Lake Storage. The syntax is:
 
-    abfs[s]://<file_system>@<accountname>.dfs.core.widows.net/<path>
+    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<path>
 
 Here are some considerations when using an Azure Storage account with HDInsight clusters.
 
@@ -58,7 +58,7 @@ Here are some considerations when using an Azure Storage account with HDInsight 
  
 * **Private file systems in storage accounts that are NOT connected to a cluster** do not allow access files in the file system unless you define the storage account when you submit the WebHCat jobs. Reasons for this restriction are explained later in this article.
 
-The storage accounts that are defined in the creation process and their keys are stored in %HADOOP_HOME%/conf/core-site.xml on the cluster nodes. The default behavior of HDInsight is to use the storage accounts defined in the core-site.xml file. You can modify this setting using [Ambari](/hdinsight/hdinsight-hadoop-manage-ambari.md)
+The storage accounts that are defined in the creation process and their keys are stored in *%HADOOP_HOME%/conf/core-site.xml* on the cluster nodes. The default behavior of HDInsight is to use the storage accounts defined in the *core-site.xml* file. You can modify this setting using [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md)
 
 Multiple WebHCat jobs, including Hive, MapReduce, Hadoop streaming, and Pig, can carry a description of storage accounts and metadata with them. (This approach currently works for Pig with storage accounts, but not for metadata.) For more information, see [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
@@ -69,16 +69,21 @@ The implied performance cost of not co-locating compute clusters and storage res
 There are several benefits associated with storing the data in Azure storage instead of HDFS:
 
 * **Data reuse and sharing:** The data in HDFS is located inside the compute cluster. Only the applications that have access to the compute cluster can use the data by using HDFS APIs. The data in Azure storage can be accessed either through the HDFS APIs or through the [Blob Storage REST APIs][blob-storage-restAPI]. Thus, a larger set of applications (including other HDInsight clusters) and tools can be used to produce and consume the data.
-* **Data archiving:** Storing data in Azure storage enables the HDInsight clusters used for computation to be safely deleted without losing user data.
-* **Data storage cost:** Storing data in DFS for the long term is more costly than storing the data in Azure storage because the cost of a compute cluster is higher than the cost of Azure storage. In addition, because the data does not have to be reloaded for every compute cluster generation, you are also saving data loading costs.
-* **Elastic scale-out:** Although HDFS provides you with a scaled-out file system, the scale is determined by the number of nodes that you create for your cluster. Changing the scale can become a more complicated process than relying on the elastic scaling capabilities that you get automatically in Azure storage.
-* **Geo-replication:** Your Azure storage can be geo-replicated. Although this gives you geographic recovery and data redundancy, a failover to the geo-replicated location severely impacts your performance, and it may incur additional costs. So the recommendation is to choose the geo-replication wisely and only if the value of the data is worth the additional cost.
-* **Data lifecycle management:** All data in any file system goes through its own lifecycle of being very valuable and frequently accessed through less value, less accessed through to archive or deletion. Azure Storage provides data tiering and lifecycle management policies that tier data appropriately for its lifecycle stage.
 
-Certain MapReduce jobs and packages may create intermediate results that you don't really want to store in Azure storage. In that case, you can elect to store the data in the local HDFS. In fact, HDInsight uses DFS for several of these intermediate results in Hive jobs and other processes.
+* **Data archiving:** Storing data in Azure storage enables the HDInsight clusters used for computation to be safely deleted without losing user data.
+
+* **Data storage cost:** Storing data in the native HDFS for the long term is more costly than storing the data in Azure storage because the cost of a compute cluster is higher than the cost of Azure storage. In addition, because the data does not have to be reloaded for every compute cluster generation, you are also saving data loading costs.
+
+* **Elastic scale-out:** Although HDFS provides you with a scaled-out file system, the scale is determined by the number of nodes that you create for your cluster. Changing the scale can become a more complicated process than relying on the elastic scaling capabilities that you get automatically in Azure storage.
+
+* **Geo-replication:** Your Azure storage data can be geo-replicated. Although this ability gives you geographic recovery and data redundancy, supporting a failover to the geo-replicated location severely impacts your performance and may result in additional costs. Therefore, choose geo-replication carefully and only if the value of the data is worth the additional cost.
+
+* **Data lifecycle management:** All data in any file system goes through its own lifecycle. Data often starts off being very valuable and frequently accessed, transitions to being less valuable and requiring less access, and ultimately requires archive or deletion. Azure Storage provides data tiering and lifecycle management policies that tier data appropriately for its lifecycle stage.
+
+Certain MapReduce jobs and packages may create intermediate results that you don't really want to store in Azure storage. In that case, you can elect to store the data in the local HDFS. In fact, HDInsight uses the native HDFS implementation (which is referred to as DFS) for several of these intermediate results in Hive jobs and other processes.
 
 > [!NOTE]
-> Most HDFS commands (for example, `ls`, `copyFromLocal` and `mkdir`) still work as expected. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS), such as `fschk` and `dfsadmin`, show different behavior in Azure storage.
+> Most HDFS commands (for example, `ls`, `copyFromLocal` and `mkdir`) still work as expected. Only the commands that are specific to the DFS, such as `fschk` and `dfsadmin`, show different behavior in Azure storage.
 
 ## Create an Data Lake Storage file system
 
@@ -86,7 +91,7 @@ To use the file system, you first create an [Azure Storage account][azure-storag
 
 Wherever it lives, each blob you create belongs to a file system in your Azure Data Lake Storage account. 
 
-The default Data Lake Storage file system stores cluster-specific information such as job history and logs. Don't share a default Data Lake Storage file system with multiple HDInsight clusters. This might corrupt job history. It is recommended to use a different file system for each cluster and put shared data on a linked storage account specified in deployment of all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Create HDInsight clusters][hdinsight-creation]. However you can reuse a default storage file system after the original HDInsight cluster has been deleted. For HBase clusters, you can actually retain the HBase table schema and data by creating a new HBase cluster using the default blob container that is used by an HBase cluster that has been deleted.
+The default Data Lake Storage file system stores cluster-specific information such as job history and logs. Don't share a default Data Lake Storage file system with multiple HDInsight clusters. This might corrupt job history. It is recommended to use a different file system for each cluster and put shared data on a linked storage account specified in deployment of all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Create HDInsight clusters][hdinsight-creation]. However, you can reuse a default storage file system after the original HDInsight cluster has been deleted. For HBase clusters, you can retain the HBase table schema and data by creating a new HBase cluster using the default blob container that is used by a deleted HBase cluster that has been deleted.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -140,20 +145,28 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
 
 If you have [installed and configured the Azure CLI](../../cli-install-nodejs.md), the following command can be used to a storage account and container.
 
-    azure storage account create <storageaccountname> --type LRS --is-hns-enabled true
+```bash
+az storage account create \
+    --name <STORAGE_ACCOUNT_NAME> \
+    --resource-group <RESOURCE_GROUP_NAME> \
+    --location westus2 \
+    --sku Standard_LRS \
+    --kind StorageV2 \
+    --Enable-hierarchical-namespace true
+```
 
 > [!NOTE]
-> During the public preview of Data Lake Storage Gen2 only `--type LRS` is supported. Additional redundancy options will become available throughout the preview program.
+> During the public preview of Data Lake Storage Gen2 only `--sku Standard_LRS` is supported.
 
 You are prompted to specify the geographic region that the storage account is created in. Create the storage account in the same region that you plan on creating your HDInsight cluster.
 
 Once the storage account is created, use the following command to retrieve the storage account keys:
 
-    azure storage account keys list <storageaccountname>
+    azure storage account keys list <STORAGE_ACCOUNT_NAME>
 
 To create a container, use the following command:
 
-    azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
+    azure storage container create <CONTAINER_NAME> --account-name <STORAGE_ACCOUNT_NAME> --account-key <STORAGE_ACCOUNT_KEY>
 
 > [!NOTE]
 > Creating a container is synonymous with creating a file system in Azure Data Lake Storage.
@@ -162,31 +175,30 @@ To create a container, use the following command:
 
 The URI scheme for accessing files in Azure storage from HDInsight is:
 
-    abfs[s]://<FileSystem>@<AccountName>.dfs.core.widows.net/<path>
+    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>
 
 The URI scheme provides unencrypted access (with the *abfs:* prefix) and SSL encrypted access (with *abfss*). We recommend using *abfss* wherever possible, even when accessing data that lives inside the same region in Azure.
 
-The &lt;FileSystem&gt; identifies the path of the file system Azure Data Lake Storage.
-The &lt;AccountName&gt; identifies the Azure Storage account name. A fully qualified domain name (FQDN) is required.
+* &lt;FILE_SYSTEM_NAME&gt; identifies the path of the file system Azure Data Lake Storage.
+* &lt;ACCOUNT_NAME&gt; identifies the Azure Storage account name. A fully qualified domain name (FQDN) is required.
 
-If values for &lt;FileSystem&gt; nor &lt;AccountName&gt; have been specified, the default file system is used. For the files on the default file system, you can use a relative path or an absolute path. For example, the *hadoop-mapreduce-examples.jar* file that comes with HDInsight clusters can be referred to by using one of the following paths:
-
-    abfs://myfilesystempath@myaccount.dfs.core.widows.net/example/jars/hadoop-mapreduce-examples.jar
-    abfs:///example/jars/hadoop-mapreduce-examples.jar
-    /example/jars/hadoop-mapreduce-examples.jar
+    If values for &lt;FILE_SYSTEM_NAME&gt; nor &lt;ACCOUNT_NAME&gt; have been specified, the default file system is used. For the files on the default file system, you can use a relative path or an absolute path. For example, the *hadoop-mapreduce-examples.jar* file that comes with HDInsight clusters can be referred to by using one of the following paths:
+    
+        abfs://myfilesystempath@myaccount.dfs.core.widows.net/example/jars/hadoop-mapreduce-examples.jar
+        abfs:///example/jars/hadoop-mapreduce-examples.jar
+        /example/jars/hadoop-mapreduce-examples.jar
 
 > [!NOTE]
 > The file name is *hadoop-examples.jar* in HDInsight versions 2.1 and 1.6 clusters.
 
-The &lt;path&gt; is the file or directory HDFS path name.
+* The &lt;PATH&gt; is the file or directory HDFS path name.
 
 > [!NOTE]
 > When working with files outside of HDInsight, most utilities do not recognize the ABFS format and instead expect a basic path format, such as `example/jars/hadoop-mapreduce-examples.jar`.
-> 
-
+ 
 ## Use additional storage accounts
 
-While creating an HDInsight cluster, you specify the Azure Storage account you want to associate with it. In addition to this storage account, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process or after a cluster has been created. For instructions about adding additional storage accounts, see [Create HDInsight clusters](/hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
+While creating an HDInsight cluster, you specify the Azure Storage account you want to associate with it. In addition to this storage account, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process or after a cluster has been created. For instructions about adding additional storage accounts, see [Create HDInsight clusters](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
@@ -203,9 +215,9 @@ For more information, see:
 * [Ingest data into Azure Data Lake Storage using distcp](use-distcp.md)
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[hdinsight-creation]: /hdinsight/hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
-[azure-storage-create]: /storage/common/storage-create-storage-account.md
+[azure-storage-create]: ../common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/use-hdi-cluster/HDI.PowerShell.BlobCommands.png
