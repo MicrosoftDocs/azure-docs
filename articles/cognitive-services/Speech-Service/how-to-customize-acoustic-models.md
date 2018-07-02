@@ -119,7 +119,7 @@ Once the status of your acoustic data set is “Complete”, it can be used to c
 
 To create a new model, click “Create New” under the table title. As before, enter a name and description to help you identify this model. For example, the "Description" field can be used to record which starting model and acoustic data set were used to create the model. Next, select a “Base Acoustic Model” from the drop-down menu. The base model is the model that is the starting point for your customization. There are two base acoustic models to choose from. The _Microsoft Search and Dictation AM_ are appropriate for speech directed at an application, such as commands, search queries, or dictation. The _Microsoft Conversational model_ is appropriate for recognizing speech spoken in a conversational style. This type of speech is typically directed at another person and occurs in call center or meetings. Latency for partial results in Conversational models is higher than in Search and Dictation models.
 
-[!NOTE]
+> [!NOTE]
 > We are currently rolling out our new Universal model that aims to address all scenarios. The aforementioned models will also remain publicly available.
 
 Next, select the acoustic data you wish to use to perform the customization using the drop-down menu.
