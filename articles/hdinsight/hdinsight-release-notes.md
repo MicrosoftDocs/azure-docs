@@ -39,7 +39,7 @@ The new updates and capabilities fall in to the following categories:
 
 2.  ***Update R Server 9.1 to Machine Learning Services 9.3*** – With this release, we are providing data scientists and engineers with the best of open source enhanced with algorithmic innovations and ease of operationalization, all available in their preferred language with the speed of Apache Spark. This release expands upon the capabilities offered in R Server with added support for Python, leading to the cluster name change from R Server to ML Services. 
 
-3.  ***Support for Azure Data Lake Storage Gen2***– HDInsight will support the Preview release of Azure Data Lake Storage Gen2. In the available regions, customers will be able to choose an ADLS Gen2 account as the Primary or Secondary store for their HDInsight clusters.
+3.  ***Support for Azure Data Lake Storage Gen2*** – HDInsight will support the Preview release of Azure Data Lake Storage Gen2. In the available regions, customers will be able to choose an ADLS Gen2 account as the Primary or Secondary store for their HDInsight clusters.
 
 4.  ***HDInsight Enterprise Security Package Updates (Preview)*** – (Preview) [Virtual Network Service Endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) support for Azure Blob Storage, ADLS Gen1, Cosmos DB, and Azure DB.
 
@@ -1319,7 +1319,12 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
 -   **Enterprise Security Package**
 
-    -   Spark Thrift Server does not accept connections from ODBC clients.
+    - Spark Thrift Server does not accept connections from ODBC clients.
+      Workaround steps:
+      1. Wait for about 15 minutes after cluster creation.
+      2. Check ranger UI for existence of hivesampletable_policy.
+      3. Restart Spark service.
+         STS connection should work now.
 
 -   **Workaround for Ranger service check failure**
 
