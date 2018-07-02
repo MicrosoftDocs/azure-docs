@@ -150,7 +150,7 @@ subjects:
   name: "user@contoso.com"
 ```
 
-A role binding can also be created for all members of an Azure AD group. The following manifest gives all members of the `kubernetes-admin` group admin access to the cluster.
+A role binding can also be created for all members of an Azure AD group. Azure AD groups are specified using the group opbejct ID.
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -164,7 +164,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
    kind: Group
-   name: "kubernetes-admin"
+   name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
 ```
 
 For more information on securing a Kubernetes cluster with RBAC, see [Using RBAC Authorization][rbac-authorization].
