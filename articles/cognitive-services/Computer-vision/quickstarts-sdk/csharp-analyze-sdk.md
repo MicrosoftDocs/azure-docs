@@ -152,7 +152,9 @@ namespace ImageAnalyze
 
 ## AnalyzeImageAsync response
 
-A successful response displays the most relevant caption for each image, for example:
+A successful response displays the most relevant caption for each image.
+
+See [API Quickstarts: Analyze a local image with C#](../QuickStarts/CSharp-analyze.md#analyze-image-response) for an example of raw JSON output.
 
 ```cmd
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
