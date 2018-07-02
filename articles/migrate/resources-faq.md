@@ -4,7 +4,7 @@ description: Addresses frequently asked questions on Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 06/20/2018
 ms.author: snehaa
 ---
 
@@ -16,7 +16,7 @@ This article includes frequently asked questions about Azure Migrate. If you hav
 
 ### How is Azure Migrate different from Azure Site Recovery?
 
-Azure Migrate is an assessment service that helps you discover your on-premises workloads and plan your migration to Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), along with being a disaster recovery solution, helps you migrate on-premises workloads to IaaS VMs in Azure. 
+Azure Migrate is an assessment service that helps you discover your on-premises workloads and plan your migration to Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), along with being a disaster recovery solution, helps you migrate on-premises workloads to IaaS VMs in Azure.
 
 ### How is Azure Migrate different from Azure Site Recovery Deployment Planner?
 
@@ -31,6 +31,10 @@ Azure Migrate is a migration planning tool and Azure Site Recovery Deployment Pl
 ### Does Azure Migrate need vCenter Server to discover a VMware environment?
 
 Yes, Azure Migrate requires vCenter Server to discover a VMware environment. It does not support discovery of ESXi hosts that are not managed by a vCenter Server.
+
+### Which Azure regions are supported by Azure Migrate?
+
+Azure Migrate currently supports East US and West Central US as project locations. Note that even though you can only create migration projects in West Central US and East US, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project location is only used to store the discovered data.
 
 ## Discovery
 

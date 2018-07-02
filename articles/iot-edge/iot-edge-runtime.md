@@ -4,13 +4,13 @@ description: Learn about the Azure IoT Edge runtime and how it empowers your edg
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 
-# Understand the Azure IoT Edge runtime and its architecture - preview
+# Understand the Azure IoT Edge runtime and its architecture
 
 The IoT Edge runtime is a collection of programs that need to be installed on a device for it to be considered an IoT Edge device. Collectively, the components of the IoT Edge runtime enable IoT Edge devices to receive code to run at the edge, and communicate the results. 
 
@@ -35,12 +35,12 @@ Both the Edge agent and the Edge hub are modules, just like any other module run
 The Edge hub is one of two modules that make up the Azure IoT Edge runtime. It acts as a local proxy for IoT Hub by exposing the same protocol endpoints as IoT Hub. This consistency means that clients (whether devices or modules) can connect to the IoT Edge runtime just as they would to IoT Hub. 
 
 >[!NOTE]
-> During public preview Edge Hub only supports clients that connect using MQTT.
+>Edge Hub supports clients that connect using MQTT or AMQP. It does not support clients that use HTTP. 
 
 The Edge hub is not a full version of IoT Hub running locally. There are some things that the Edge hub silently delegates to IoT Hub. For example, Edge hub forwards authentication requests to IoT Hub when a device first tries to connect. After the first connection is established, security information is cached locally by Edge hub. Subsequent connections from that device are allowed without having to authenticate to the cloud. 
 
 >[!NOTE]
-> During public preview the runtime must be connected every time it tries to authenticate a device.
+>The runtime must be connected every time it tries to authenticate a device.
 
 To reduce the bandwidth your IoT Edge solution uses, the Edge hub optimizes how many actual connections are made to the cloud. Edge hub takes logical connections from clients like modules or leaf devices and combines them for a single physical connection to the cloud. The details of this process are transparent to the rest of the solution. Clients think they have their own connection to the cloud even though they are all being sent over the same connection. 
 
@@ -85,10 +85,10 @@ To begin execution of the Edge agent, run the azure-iot-edge-runtime-ctl.py star
 
 Each item in the modules dictionary contains specific information about a module and is used by the Edge agent for controlling the module’s lifecycle. Some of the more interesting properties are: 
 
-* **settings.image** – The container image that the Edge agent uses to start the module. The Edge agent must be configured with credentials for the container registry if the image is protected by a password. To configure the Edge agent, use the following command: 
-   `azure-iot-edge-runtime-ctl.py –configure`
+* **settings.image** – The container image that the Edge agent uses to start the module. The Edge agent must be configured with credentials for the container registry if the image is protected by a password. To configure the Edge agent, update the `config.yaml` file. In Linux, use the following command: 
+   `sudo nano /etc/iotedge/config.yaml`
 * **settings.createOptions** – A string that is passed directly to the Docker daemon when starting a module’s container. Adding Docker options in this property allows for advanced options like port forwarding or mounting volumes into a module’s container.  
-* **status** – The state in which the Edge agent places the module. This value is usually set to *running* as most people want the Edge agent to immediately start all modules on the device. However, you could specify the initial state of a module to be stopped and wait for a future time to tell the Edge agent to start a module. The Edge agent reports the status of each module back to the cloud in the reported properties. A difference between the desired property and the reported property is an indicator or a misbehaving device. The supported statuses are:
+* **status** – The state in which the Edge agent places the module. This value is usually set to *running* as most people want the Edge agent to immediately start all modules on the device. However, you could specify the initial state of a module to be stopped and wait for a future time to tell the Edge agent to start a module. The Edge agent reports the status of each module back to the cloud in the reported properties. A difference between the desired property and the reported property is an indicator of a misbehaving device. The supported statuses are:
    * Downloading
    * Running
    * Unhealthy
@@ -100,7 +100,7 @@ Each item in the modules dictionary contains specific information about a module
    * Unhealthy - If the module crashes or is deemed unhealthy, the Edge agent restarts it.
    * Always - If the module crashes, is deemed unhealthy, or shuts down in any way, the Edge agent restarts it. 
 
-IoT Edge agent sends runtime response to IoT Hub. Here is a list of possible responses:
+The IoT Edge agent sends runtime response to IoT Hub. Here is a list of possible responses:
   * 200	- OK
   * 400	- The deployment configuration is malformed or invalid.
   * 417	- The device does not have a deployment configuration set.
@@ -110,7 +110,7 @@ IoT Edge agent sends runtime response to IoT Hub. Here is a list of possible res
 
 ### Security
 
-The IoT Edge agent plays a critical role in the security of an IoT Edge device. For example, it performs actions like verifying a module’s image before starting it. These features will be added at general availability of V2 features. 
+The IoT Edge agent plays a critical role in the security of an IoT Edge device. For example, it performs actions like verifying a module’s image before starting it. These features will be added at general availability. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 

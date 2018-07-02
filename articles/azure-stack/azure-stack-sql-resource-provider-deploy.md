@@ -12,12 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 06/25/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
 
-# Use SQL databases on Microsoft Azure Stack
+# Deploy the SQL Server resource provider on Azure Stack
 
 Use the Azure Stack SQL Server resource provider to expose SQL databases as an Azure Stack service. The SQL resource provider runs as a service on a Windows Server 2016 Server Core virtual machine (VM).
 
@@ -26,10 +26,10 @@ Use the Azure Stack SQL Server resource provider to expose SQL databases as an A
 There are several prerequisites that need to be in place before you can deploy the Azure Stack SQL resource provider. To meet these requirements, complete the following steps on a computer that can access the privileged endpoint VM:
 
 - If you haven't already done so, [register Azure Stack](.\azure-stack-registration.md) with Azure so you can download Azure marketplace items.
-- Add the required Windows Server core VM to the Azure Stack marketplace by downloading the **Windows Server 2016 Datacenter - Server Core** image.
+- Add the required Windows Server core VM to the Azure Stack marketplace by downloading the **Windows Server 2016 Datacenter - Server Core** image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). Make sure you select the core option when you run the script.
 
->[!NOTE]
->If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, SQL resource provider installation will fail.
+  >[!NOTE]
+  >If you need to install an update, you can place a single MSU package in the local dependency path. If more than one MSU file is found, SQL resource provider installation will fail.
 
 - Download the SQL resource provider binary and then run the self-extractor to extract the contents to a temporary directory. The resource provider has a minimum corresponding Azure Stack build. Make sure you download the correct binary for the version of Azure Stack that you're running.
 
@@ -39,8 +39,10 @@ There are several prerequisites that need to be in place before you can deploy t
     |Version 1802 (1.0.180302.1)|[SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
     |Version 1712 (1.0.180102.3, 1.0.180103.2 or 1.0.180106.1 (integrated systems))|[SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712)|
     |     |     |
-- For integrated systems installations only.
-  You must provide the SQL PaaS PKI certificate described in the optional PaaS certificates section of [Azure Stack deployment PKI requirements](.\azure-stack-pki-certs.md#optional-paas-certificates). Place the .pfx file in the location specified by the **DependencyFilesLocalPath** parameter.
+
+### Certificates
+
+For integrated systems installations only. You must provide the SQL PaaS PKI certificate described in the optional PaaS certificates section of [Azure Stack deployment PKI requirements](.\azure-stack-pki-certs.md#optional-paas-certificates). Place the .pfx file in the location specified by the **DependencyFilesLocalPath** parameter.
 
 ## Deploy the SQL resource provider
 
@@ -120,13 +122,13 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change to the directory If folder where you extracted the installation files.
 # Then adjust the endpoints.
-$tempDir\DeploySQLProvider.ps1 `
+. $tempDir\DeploySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
     -PrivilegedEndpoint $privilegedEndpoint `
     -DefaultSSLCertificatePassword $PfxPass `
-    -DependencyFilesLocalPath $tempDir\cert `
+    -DependencyFilesLocalPath $tempDir\cert
 
  ```
 
@@ -139,9 +141,11 @@ You can use the following steps verify that the SQL resource provider is success
 1. Sign in to the admin portal as the service administrator.
 2. Select **Resource Groups**.
 3. Select the **system.\<location\>.sqladapter** resource group.
-4. The message under **Deployments** should be **4 Succeeded**.
+4. The message under **Deployments**, shown in the next screen capture, should be **4 Succeeded**.
 
       ![Verify deployment of the SQL resource provider](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+
+5. You can get more detailed information about the resource provider deployment under **SETTINGS**. Select **Deployments** to get information such as: STATUS, TIMESTAMP, and DURATION for each deployment.
 
 ## Next steps
 

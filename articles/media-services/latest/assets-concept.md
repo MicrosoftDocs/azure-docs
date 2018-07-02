@@ -104,7 +104,7 @@ while (currentPage.NextPageLink != null)
 For REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list)
 
 
-### Storage side encryption
+## Storage side encryption
 
 To protect your Assets at rest, the assets should be encrypted by the storage side encryption. The following table shows how the storage side encryption works in Media Services:
 
