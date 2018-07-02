@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/18/2018
+ms.date: 07/02/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -90,13 +90,8 @@ The following diagram shows an example of a role assignment. In this example, th
 
 You can create role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs. You can have up to 2000 role assignments in each subscription. To create and remove role assignments, you must have `Microsoft.Authorization/roleAssignments/*` permission. This permission is granted through the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
 
-## Azure RBAC vs. classic subscription administrators
-[Classic subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md) have full access to the Azure subscription. They can manage resources using the Azure portal, Azure Resource Manager APIs, and the classic deployment model APIs. In the RBAC model, classic subscription administrators have the equivalent access of a user who is assigned the Owner role at the subscription scope.
-
-Only the Azure portal and the Azure Resource Manager APIs support Azure RBAC. Users and applications that are assigned RBAC roles cannot use the [Azure classic deployment model APIs](../azure-resource-manager/resource-manager-deployment-model.md).
-
 ## Next steps
 
 - [Quickstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
-- [Tutorial: Grant access for a user using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 - [Manage access using RBAC and the Azure portal](role-assignments-portal.md)
+- [Understand the different roles in Azure](rbac-and-directory-admin-roles.md)
