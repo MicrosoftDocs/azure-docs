@@ -85,11 +85,9 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 | Canada Central | https://kailani-cac.one.microsoft.com | Canada East | https://tm-kailani-cac.one.microsoft.com |
 | Canada East | https://kailani-cae.one.microsoft.com | Canada Central | https://tm-kailani.cae.one.microsoft.com |
 | Central US | https://kailani-cus.one.microsoft.com | East US 2 | https://tm-kailani-cus.one.microsoft.com |
-| Central US EUAP | https://kailani-euap.one.microsoft.com | East US 2 EUAP | https://tm-kailani-euap.one.microsoft.com |
 | East Asia | https://kailani11.one.microsoft.com | Southeast Asia | https://tm-kailani11.one.microsoft.com |
 | East US | https://kailani1.one.microsoft.com | West US | https://tm-kailani1.one.microsoft.com |
 | East US 2 | https://kailani-ess.one.microsoft.com | Central US | https://tm-kailani-ess.one.microsoft.com |
-| East US 2 EUAP | https://kailani-cuap.one.microsoft.com | Central US EUAP | https://tm-kailani-cuap.one.microsoft.com |
 | North Europe | https://kailani7.one.microsoft.com | West Europe | https://tm-kailani7.one.microsoft.com |
 | Southeast Asia | https://kailani10.one.microsoft.com | East Asia | https://tm-kailani10.one.microsoft.com |
 | UK South | https://kailani-uks.one.microsoft.com | UK West | https://tm-kailani-uks.one.microsoft.com |
