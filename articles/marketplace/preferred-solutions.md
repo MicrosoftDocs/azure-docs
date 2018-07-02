@@ -18,7 +18,7 @@ ms.author: ellacroi
 
 ---  
 
-#Preferred Solutions in Azure Marketplace and AppSource
+# Preferred Solutions in Azure Marketplace and AppSource
 
 A Microsoft Preferred Solution is a cloud application selected for its quality, performance, and ability to address customer needs in a certain industry vertical or solution area. A team of Microsoft industry and sales experts selects solutions from Microsoft Partner Network [Gold membership](https://partner.microsoft.com/en-us/membership/core-benefits) partners. These solutions are eligible for featuring in our cloud marketplace storefronts. Customers will find many of the industry preferred solutions featured on AppSource industry pages, while workload preferred solutions may be featured in Azure Marketplace. 
 
