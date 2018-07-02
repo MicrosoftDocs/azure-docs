@@ -25,7 +25,7 @@ This article provides information about the **most recent** Azure HDInsight rele
 
 ## Summary
 
-The June 2018 release of HDInsight is shaping up to be a significant release with a lot of new updates and capabilities for our customers as outlined below.
+Azure HDInsight is one of the most popular services among enterprise customers for open-source Hadoop and Spark analytics on Azure. With the [plus 50 percent price cut on HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), customers moving to the cloud are reaping more savings than ever.
 
 ## New features
 
@@ -37,11 +37,11 @@ The new updates and capabilities fall in to the following categories:
 
     b.  [**New features in Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
 
-2.  ***Update R Server 9.1 to Machine Learning Services 9.3*** – This is a much awaited update for the R community which introduces dedicated session pooling, improved operationalization support so you can easily deploy your models. Learn more on how to use Machine Learning Services on HDInsight.
+2.  ***Update R Server 9.1 to Machine Learning Services 9.3*** – With this release, we are providing data scientists and engineers with the best of open source enhanced with algorithmic innovations and ease of operationalization, all available in their preferred language with the speed of Apache Spark. This release expands upon the capabilities offered in R Server with added support for Python, leading to the cluster name change from R Server to ML Services. 
 
-3.  ***Support for Azure Data Lake Storage Gen2 s***– HDInsight will support the Preview release of Azure Data Lake Storage Gen2. In the available regions, customers will be able to choose an ADLS(Gen2) account as the Primary or Secondary store for their HDInsight clusters.
+3.  ***Support for Azure Data Lake Storage Gen2***– HDInsight will support the Preview release of Azure Data Lake Storage Gen2. In the available regions, customers will be able to choose an ADLS Gen2 account as the Primary or Secondary store for their HDInsight clusters.
 
-4.  ***HDInsight Enterprise Security Package Updates (Preview)*** – (Preview) [Virtual Network Service Endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) support for ADLS Gen2, Cosmos DB and Azure DB.
+4.  ***HDInsight Enterprise Security Package Updates (Preview)*** – (Preview) [Virtual Network Service Endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) support for Azure Blob Storage, ADLS Gen1, Cosmos DB, and Azure DB.
 
 ## Component versions
 
