@@ -136,7 +136,7 @@ In this tutorial, you added a storage account, and then added routing for messag
 
 5. Click on the IoT hub again. 
 
-6. In the IoT Hub pane, click **Endpoints**. Click the checkbox next to the endpoint you added for the storage container, then click **Delete**. 
+6. In the IoT Hub pane, click **Endpoints**. Click the checkbox next to the endpoint you added for the storage container, then click **Delete**. When asked if you're sure you want to delete the selected endpoint, click **Yes**.
 
     ![Remove endpoint](./media/iot-hub-store-data-in-azure-table-storage/cleanup-remove-endpoint.png)
 
@@ -145,6 +145,8 @@ In this tutorial, you added a storage account, and then added routing for messag
 7.  Click on the storage account you set up for this tutorial. 
 
 8.  On the Storage account pane, click **Delete** to remove the storage account. You are taken to the **Delete storage account** pane.
+
+   ![Remove storage account](./media/iot-hub-store-data-in-azure-table-storage/cleanup-remove-storageaccount.png)
 
 8.  Type in the storage account name, then click **Delete** at the bottom of the pane. 
 
