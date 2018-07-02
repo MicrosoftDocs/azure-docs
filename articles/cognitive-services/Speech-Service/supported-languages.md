@@ -21,7 +21,7 @@ Different languages are supported for different Speech services functions. The t
 The Microsoft speech recognition API supports the following languages. 
 
 | Code | Language | Acoustic Adaptation | Language Adaptation | Pronunciation Adaptation
-|-----|-----|-----|-----|
+|-----|-----|-----|-----
 | ar-EG | Arabic (Egypt), modern standard | No | Yes | No
 | It-IT | Italian (Italy) | No | Yes | No 
 | de-DE | German (Germany) | No | Yes | Yes
