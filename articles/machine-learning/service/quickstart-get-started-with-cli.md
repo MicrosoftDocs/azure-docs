@@ -44,6 +44,10 @@ On your computer, open a command-line editor and install [the machine learning e
 az extension add azureml-sdk
 ```
 
+## Install the SDK
+
+[!INCLUDE [aml-install-sdk](../../../includes/aml-install-sdk.md)]
+
 ## Create a resource group
 
 A resource group is a container that holds related resources for an Azure solution. Using Azure CLI, sign into Azure, specify the subscription, and create a resource group.
@@ -60,7 +64,7 @@ List the available Azure subscriptions, and specify the one you want to use:
    az account set --subscription <your-subscription-id>
    az account show
    ```
-   where \<your-subscription-id\> is ID value for the subscription you want to use that was output by az account list. Do not include the brackets.
+   where \<your-subscription-id\> is ID value for the subscription you wish to use. Do not include the brackets.
 
 Create a resource group to hold your workspace.
    In this quickstart:
@@ -71,7 +75,7 @@ Create a resource group to hold your workspace.
    az group create -n my_resource_group -l eastus2
    ```
 
-## Create a workspace and attach a project
+## Create a workspace and a project folder
 
 In the command-line window, create an Azure Machine Learning Workspace under the resource group.
 
@@ -91,40 +95,19 @@ In the command-line window, create a folder on your local machine for your Azure
    cd myproject
    ```
 
+## Create a Python script
+
+[!INCLUDE [aml-create-script-pi](../../../includes/aml-create-script-pi.md)]
+
+## Attach the project and run the script
+
 Attach the folder as a project to the workspace. The `--history` argument specifies a name for the run history file that captures the metrics for each run.
 
    ```azurecli
    az ml project attach --history my_history -w my_workspace -g my_resource_group
    ```
 
-## Run scripts and view output
-
-In your local project directory, create a script and name it `pi.py`.
-
-Copy the following code into that script:
-    
-   ```python
-   import random, math
-   from azureml.core import Run
-    
-   run = Run.get_submitted_run()
-    
-   pi_counter = 0
-   n_iter = 100000
-   run.log("Number of iterations",n_iter)
-    
-   for i in range(1,n_iter):
-       x = random.random()
-       y = random.random()
-       if x*x + y*y < 1.0:
-           pi_counter += 1
-       pi_value = 4.0*pi_counter / i
-       if i%10000==0:
-           error = math.pi-pi_value
-           print(i, pi_value, error)
-           run.log_row("Pi estimate",iteration=i,pi_value=pi_value)
-           run.log_row("Error",iteration=i,error=error)
-   ```
+[!INCLUDE [aml-create-script-pi](../../../includes/aml-create-script-pi.md)]
 
 Run the script on your local computer.
 
