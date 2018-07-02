@@ -82,19 +82,19 @@ You have three options for storing your logs:
    * Application rule log
    * Network rule log
 
-2. To start collecting data, click **Turn on diagnostics**.
+3. To start collecting data, click **Turn on diagnostics**.
 
 <!---   ![Turning on diagnostics][1] -->
 
-3. The **Diagnostics settings** blade provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. Click **Configure** under **Log Analytics** to configure your workspace. You can also use event hubs and a storage account to save the diagnostic logs.
+4. The **Diagnostics settings** blade provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. Click **Configure** under **Log Analytics** to configure your workspace. You can also use event hubs and a storage account to save the diagnostic logs.
 
 <!---   ![Starting the configuration process][2] -->
 
-4. Choose an existing Log Analytics workspace or create a new one. This example uses an existing one.
+5. Choose an existing Log Analytics workspace or create a new one. This example uses an existing one.
 
 <!---   ![Options for Log Analytics workspaces][3] -->
 
-5. Confirm the settings and click **Save**.
+6. Confirm the settings and click **Save**.
 
 <!---   ![Diagnostics settings blade with selections][4] -->
 
@@ -107,13 +107,13 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
    You can use any storage account in your subscription. You can use the Azure portal to find this information.
 
-<!---    ![Portal: resource ID for storage account](./media/diagnostics/diagnostics1.png)-->
+<!---    ![Portal: resource ID for storage account](./media/diagnostics/diagnostics1.png) -->
 
 2. Note your Firewall's resource ID for which logging is enabled. This value is of the form: */subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/azureFirewalls/\<Firewall name\>*.
 
    You can use the portal to find this information.
 
-<!---    ![Portal: resource ID for Firewall](./media/diagnostics/diagnostics2.png)-->
+<!---    ![Portal: resource ID for Firewall](./media/diagnostics/diagnostics2.png) -->
 
 3. Enable diagnostic logging by using the following PowerShell cmdlet:
 
