@@ -50,7 +50,7 @@ The main requirements for the language data are summarized in the following tabl
 |----------|-------|
 | Text Encoding | UTF-8 BOM|
 | # of Utterances per line | 1 |
-| Maximum File Size | 200 MB |
+| Maximum File Size | 1.5 GB |
 | Remarks | avoid repeating characters more often than four times, for example 'aaaaa'|
 | Remarks | no special characters like '\t' or any other UTF-8 character above U+00A1 in [Unicode characters table](http://www.utf8-chartable.de/)|
 | Remarks | URIs will also be rejected since there is no unique way to pronounce a URI|
@@ -65,11 +65,11 @@ Click for Full list of [Supported-languages](supported-languages.md)
 
 ## Import the language data set
 
-Click the “Import” button in the "Acoustic Datasets" row, and the site displays a page for uploading a new data set.
+Click the “Import” button in the "Language Datasets" row, and the site displays a page for uploading a new data set.
 
 When you are ready to import your language data set, log into the [Speech Service Portal](https://customspeech.ai).  Then click the “Custom Speech” drop-down menu on the top ribbon and select “Adaptation Data”. The first time one attempts to upload data to the Speech Service, you will see an empty table called “Datasets”.
 
-To import a new data set, click the “Import” button in the "Language Datasets" row, and the site displays a page for uploading a new data set. Enter a Name and Description to help you identify the data set in the future. Next, use the “Choose File” button to locate the text file of language data. After that, click “Import” and the data set will be uploaded. Depending on the size of the data set, import may take several minutes.
+To import a new data set, click the “Import” button in the "Language Datasets" row, and the site displays a page for uploading a new data set. Enter a Name and Description to help you identify the data set in the future and choose the locale. Next, use the “Choose File” button to locate the text file of language data. After that, click “Import” and the data set will be uploaded. Depending on the size of the data set, import may take several minutes.
 
 ![try](media/stt/speech-language-datasets-import.png)
 
@@ -89,7 +89,8 @@ Once your language data is ready, click “Language Models” from the “Menu�
 
 The appropriate locale must be selected before taking any action. The current locale is indicated in the table title on all data, model, and deployment pages. To change the locale, click the “Change Locale” button located under the table’s title which will take you to a locale confirmation page. Click “OK” to return to the table.
 
-On the "Create Language Model" page, enter a "Name" and "Description" to help you keep track of pertinent information about this model, such as the data set used. Next, select the “Base Language Model” from the drop-down menu. This model will be the starting point for your customization. There are two base language models to choose from. The _Microsoft Search and Dictation LM_ is appropriate for speech directed at an application, such as commands, search queries, or dictation. The _Microsoft Conversational LM_ is appropriate for recognizing speech spoken in a conversational style. This type of speech is typically directed at another person and occurs in call centers or meetings.
+On the "Create Language Model" page, enter a "Name" and "Description" to help you keep track of pertinent information about this model, such as the data set used. Next, select the “Base Language Model” from the drop-down menu. This model will be the starting point for your customization. There are two base language models to choose from. The Search and Dictation model is appropriate for speech directed at an application, such as commands, search queries, or dictation. Teh Conversational model is appropriate for recognizing speech spoken in a conversational style. This type of speech is typically directed at another person and occurs in call centers or meetings. A new model called "Universal" is also publicly availabe. Universal aims to tackle all scenario and eventually replace the Search and Dictation and the Conversational models.
+
 5.	In the example below
 After you have specified the base language model, select the language data set you wish to use for the customization using the “Language Data” drop-down menu
 

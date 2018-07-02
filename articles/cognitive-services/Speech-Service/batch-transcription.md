@@ -52,7 +52,7 @@ For stereo audio streams, Batch transcription will split the left and right chan
 ```
 
 > [!NOTE]
-> The Batch transcription API is using a REST service for requesting transcriptions, their status, and associated results. It is based on .NET and does not have any external dependencies. The next section describes how it is used.
+> The Batch transcription API is using a REST service for requesting transcriptions, their status, and associated results. The API can be usedfrom any language. The next section describes how it is used.
 
 ## Authorization token
 
@@ -73,7 +73,7 @@ As with all features of the Unified Speech Service, the user needs to create a s
 
 ## Sample code
 
-Making use of the API is fairly straight forward. The sample code below needs to be customized with a subscription key and an API key, which in turns allows the developer to obtain a bearer token, as the code following code snippet shows:
+Making use of the API is fairly straight forward. The sample code below needs to be customized with a subscription key and an API key, which in turn allows the developer to obtain a bearer token, as the following code snippet shows:
 
 ```cs
     public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
@@ -152,7 +152,7 @@ Once the token is obtained the developer must specifiy the SAS Uri pointing to t
 > The subscription key mentioned in the above code snippet is the key from the Speech(Preview) resource that you create on Azure portal. Keys obtained from the Custom Speech Service resource will not work.
 
 
-Notice the asynchronous setup for posting audio and receiving transcription status. The client created is a NET Http client. There is a `PostTranscriptions` method for sending the audio file details, and a `GetTranscriptions` method to receive the results. `PostTranscriptions` returns a handle, and  `GetTranscriptions` method is using this handle to create a handle to obtain the transcription status.
+Notice the asynchronous setup for posting audio and receiving transcription status. The client created is a .NET Http client. There is a `PostTranscriptions` method for sending the audio file details, and a `GetTranscriptions` method to receive the results. `PostTranscriptions` returns a handle, and  `GetTranscriptions` method is using this handle to create a handle to obtain the transcription status.
 
 The current sample code does not specify any custom models. The service will use the baseline models for transcribing the file(s). If the user wishes to specify the models, one can pass on the same method the modelIDs for the acoustic and the language model. 
 
