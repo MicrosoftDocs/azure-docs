@@ -41,7 +41,7 @@ Before you can use Azure AD B2C, you must create a tenant. A tenant is a contain
 
 Next, you need to create and register the app in your Azure AD B2C tenant. This provides information that Azure AD B2C needs to securely communicate with your app. 
 
-Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**. You should now be using the tenant that you created in the previous tutorial.
+Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**. You should now be using the tenant that you previously created.
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
