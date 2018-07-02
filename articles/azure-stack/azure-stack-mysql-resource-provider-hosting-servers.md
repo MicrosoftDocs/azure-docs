@@ -21,6 +21,8 @@ ms.reviewer: jeffgo
 
 You can host a MySQL instance on a virtual machine (VM) in [Azure Stack](azure-stack-poc.md), or on a VM outside your Azure Stack environment, as long as the MySQL resource provider can connect to the instance.
 
+MySQL versions 5.6, 5.7 and 8.0 may be used for your hosting servers. The MySQL RP does not support caching_sha2_password authentication; that will be added in the next release. MySQL 8.0 servers must be configured to use mysql_native_password. MariaDB is also supported.
+
 ## Connect to a MySQL hosting server
 
 Make sure you have the credentials for an account with system admin privileges. To add a hosting server, follow these steps:
@@ -63,7 +65,8 @@ As you add servers, assign them to a new or existing SKU to differentiate servic
 The following information applies to the RP and MySQL hosting servers:
 
 * Ensure that all hosting servers are configured for communication using TLS 1.2. Support for TLS 1.1 and TLS 1.0 will be removed in a future release of the Resource Provider. See [Configuring MySQL to Use Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
-* Employ [Transparent Data Encryption](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html)
+* Employ [Transparent Data Encryption](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html).
+* The MySQL RP does not support caching_sha2_password authentication; that will be added in the next release.
 
 ## Increase backend database capacity
 
@@ -71,9 +74,7 @@ You can increase backend database capacity by deploying more MySQL servers in th
 
 ## Make MySQL database servers available to your users
 
-Create plans and offers to make MySQL database servers available to users. Add the Microsoft.MySqlAdapter service to the plan, and then add the default Quota, or create a new Quota.
-
-![Create plans and offers for databases](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
+Create plans and offers to make MySQL database servers available to users. Add the Microsoft.MySqlAdapter service to the plan and create a new quota. MySQL does not allow limiting the size of databases.
 
 ## Next steps
 

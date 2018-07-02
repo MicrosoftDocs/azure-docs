@@ -101,23 +101,6 @@ To add a standalone hosting server that's already set up, follow these steps:
 
      ![Create a SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
-      SKUs can take up to an hour to be visible in the portal. Users can't create a database until the SKU is fully created.
-
-### SKU notes
-
-You can use SKUs to differentiate service offerings. For example, you can have a SQL Enterprise instance that has the following characteristics:
-  
-* high capacity
-* high-performance
-* high availability
-
-You can create a SKU for the preceding example, limiting  access to specific groups that need a high-performance database.
-
->[!TIP]
->Use a SKU name that reflects describes the capabilities of the servers in the SKU, such as capacity and performance. The name serves as an aid to help users deploy their databases to the appropriate SKU.
-
-As a best practice, all the hosting servers in a SKU should have the same resource and performance characteristics.
-
 ## Provide high availability using SQL Always On Availability Groups
 
 Configuring SQL Always On instances requires additional steps and requires three VMs (or physical machines.) This article assumes that you already have a solid understanding of Always On availability groups. For more information, see the following articles:
@@ -180,11 +163,26 @@ Use these commands to set the contained database authentication server option fo
    > [!IMPORTANT]
    > You can't mix standalone servers with Always On instances in the same SKU. Attempting to mix types after adding the first hosting server results in an error.
 
+## SKU notes
+
+You can use SKUs to differentiate service offerings. For example, you can have a SQL Enterprise instance that has the following characteristics:
+  
+* high capacity
+* high-performance
+* high availability
+
+SKUs can't be assigned to specific users or groups in this release.
+
+ SKUs can take up to an hour to be visible in the portal. Users can't create a database until the SKU is fully created.
+
+>[!TIP]
+>Use a SKU name that reflects describes the capabilities of the servers in the SKU, such as capacity and performance. The name serves as an aid to help users deploy their databases to the appropriate SKU.
+
+As a best practice, all the hosting servers in a SKU should have the same resource and performance characteristics.
+
 ## Make the SQL databases available to users
 
-Create plans and offers to make SQL databases available for users. Add the **Microsoft.SqlAdapter** service to the plan, and add the default Quota, or create a new Quota.
-
-![Create plans and offers to include databases](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
+Create plans and offers to make SQL databases available for users. Add the **Microsoft.SqlAdapter** service to the plan and create a new quota.
 
 ## Next steps
 
