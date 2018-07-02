@@ -244,7 +244,9 @@ After monitoring is enabled, it can take around 15 minutes before you are able t
 ### Agent version 06072018 and higher
 1. To verify the OMS agent version *06072018* or higher is deployed properly, run the following commands: 
 
-    `kubectl get ds omsagent --namespace=kube-system`
+    ```
+    kubectl get ds omsagent --namespace=kube-system
+    ```
 
     The output should resemble the following indicating it did deploy properly:
 
@@ -255,7 +257,9 @@ After monitoring is enabled, it can take around 15 minutes before you are able t
     ```  
     To verify a new deployment, run the following command:
 
-    `kubectl get deployment omsagent-rs -n=kube-system`
+    ```
+    kubectl get deployment omsagent-rs -n=kube-system
+    ```
 
     The output should resemble the following indicating it did deploy properly:
 
@@ -269,7 +273,9 @@ After monitoring is enabled, it can take around 15 minutes before you are able t
 
 To verify the OMS agent version released before *06072018* is deployed properly, run the following command: 
 
-    `kubectl get ds omsagent --namespace=kube-system`
+    ```
+    kubectl get ds omsagent --namespace=kube-system
+    ```
 
     The output should resemble the following indicating it did deploy properly:
 
