@@ -25750,6 +25750,11 @@
             "source_path": "articles/cognitive-services/LUIS/PublishApp.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-publish-app",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/Pre-builtEntities.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-prebuilt-entities",
+            "redirect_document_id": true
         }
     ]
 }
