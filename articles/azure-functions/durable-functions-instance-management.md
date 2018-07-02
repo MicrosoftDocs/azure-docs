@@ -76,6 +76,7 @@ The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/a
 * **CustomStatus**: Custom orchestration status in JSON format. 
 * **Output**: The output of the function as a JSON value (if the function has completed). If the orchestrator function failed, this property will include the failure details. If the orchestrator function was terminated, this property will include the provided reason for the termination (if any).
 * **RuntimeStatus**: One of the following values:
+    * **Pending**: The instance has been scheduled but has not yet started running.
     * **Running**: The instance has started running.
     * **Completed**: The instance has completed normally.
     * **ContinuedAsNew**: The instance has restarted itself with a new history. This is a transient state.

@@ -53,14 +53,14 @@ Do not use the following characters in intent and entity names:
 |`\`|Backslash|
 
 ## Key limits
-The authoring key has different limits for authoring and endpoint. The LUIS service subscription key is only valid for endpoint queries.
+The authoring key has different limits for authoring and endpoint. The LUIS service endpoint key is only valid for endpoint queries.
 
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|
 |Authoring/Starter|1 million/month, 5/second|1 thousand/month, 5/second|Authoring your LUIS app|
 |[Subscription][pricing] - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
 |[Subscription][pricing] - S0 - Basic tier|invalid|50/second|Querying your LUIS endpoint|
-|[Sentiment analysis integration](publishapp.md#enable-sentiment-analysis)|invalid|no charge|Adding sentiment information including key phrase data extraction |
+|[Sentiment analysis integration](luis-how-to-publish-app.md#enable-sentiment-analysis)|invalid|no charge|Adding sentiment information including key phrase data extraction |
 |Speech integration|invalid|$5.50 USD/1 thousand endpoint requests|Convert spoken utterance to text utterance and return LUIS results|
 
 ## Keyboard controls
