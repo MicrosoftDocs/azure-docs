@@ -28,7 +28,7 @@ sections:
     - image: 
         src: media/index/logo_Csharp.svg
       text: C&#35;
-      href: QuickStarts/CSharp-analyze
+      href: quickstarts-sdk/csharp-analyze-sdk
     - image: 
         src: media/index/logo_java.svg
       text: Java
