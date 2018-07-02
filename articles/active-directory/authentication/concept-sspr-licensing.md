@@ -16,7 +16,9 @@ ms.reviewer: sahenry
 ---
 # Licensing requirements for Azure AD self-service password reset
 
-Azure Active Directory (Azure AD) comes in four editions—Free, Basic, Premium P1, and Premium P2. There are several different features that make up self-service password reset, including change, reset, unlock, and writeback, that are available in the different editions of Azure AD. This article tries to explain the differences. More details of the features included in each Azure AD edition can be found on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory (Azure AD) comes in four editions: Free, Basic, Premium P1, and Premium P2. There are several different features that make up self-service password reset, including change, reset, unlock, and writeback, that are available in the different editions of Azure AD. This article tries to explain the differences. More details of the features included in each Azure AD edition can be found on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
+
+## Compare editions and features
 
 * Self-Service Password Change for cloud users
    * I am a **cloud-only user** and know my password.
@@ -30,7 +32,7 @@ Azure Active Directory (Azure AD) comes in four editions—Free, Basic, Premium 
 
 * Self-Service Password Reset/Change/Unlock **with on-premises writeback**
    * I am a **hybrid user** my on-premises Active Directory user account is synchronized with my Azure AD account using Azure AD Connect. I would like to change my password, have forgotten my password, or been locked out.
-      * I would like to change my password or reset it to something I know, or unlock my account, and have that change synchronized back to on-premises Active Directory.
+      * I would like to change my password or reset it to something I know, or unlock my account, **and** have that change synchronized back to on-premises Active Directory.
    * This functionality is included in Azure AD Premium P1, or Premium P2 editions.
 
 > [!WARNING]
@@ -43,7 +45,6 @@ Additional licensing information, including costs, can be found on the following
 * [Azure Active Directory features and capabilities](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
-
 
 ## Enable group or user-based licensing
 

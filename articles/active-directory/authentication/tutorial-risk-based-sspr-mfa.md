@@ -15,7 +15,7 @@ ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I utilize Azure AD Identity Protection to better protect the sign-in process.
 ---
-# Tutorial: Enable risk-based Multi-Factor Authentication and password changes
+# Tutorial: Use risk events to trigger Multi-Factor Authentication and password changes
 
 In this tutorial, you will enable features of Azure Active Directory (Azure AD) Identity Protection, an Azure AD Premium P2 feature that is more than just a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to risky behaviors. These policies, can either automatically block or initiate remediation, including requiring password changes and enforcing Multi-Factor Authentication.
 

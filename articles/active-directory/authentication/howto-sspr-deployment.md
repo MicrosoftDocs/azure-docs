@@ -20,45 +20,19 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
 
 > [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
 
-1. From your Azure AD tenant, on the Azure Portal under Azure Active Directory select Password reset.
-2. Start with a pilot group by enabling self-service password for a subset of users in your organization.
-   - From the **Properties** page, under the option **Self Service Password Reset Enabled**, choose **Selected** and pick a pilot group.
-      * Only members of the specific Azure AD group that you choose can use the SSPR functionality. We recommend that you define a group of users and use this setting when you deploy this functionality for a proof of concept. Nesting of security groups is supported here.
-      * Ensure the users in the group you picked have been appropriately licensed.
-3. On the **Authentication methods** page
-   - Choose the **Number of methods required to reset**
-   - Choose which **Methods availalbe to users** your organization wants to allow. For more information about the various authentication methods available for SSPR see the article [What are authentication methods](concept-authentication-methods.md).
-4. On the **Registration** page
-   - It is reccomended if you do not prepopulate data for your users to select **Yes** for **Require users to register when signing in**.
-   - Specify the **Number of days before users are asked to reconfirm their authentication information**. Never reconfirm is 0 and can be as long as 730 days.
-5. On the **Notifications** page
-   - If you want your users to get a notification when their password is changes se the **Notify users on password resets** option to **Yes**.
-   - Microsoft reccomends that you set **Notify all admins when other admins reset their password** to **Yes**.
-6. On the **Customization page
-   - Microsoft reccomends that you set **Customize helpdesk link** to **Yes** and provide either an email address or web page URL where your users can get additional help from your organization in the **Custom helpdesk email or URL** field.
-7. Optional Step: If you want to write password changes back to an on-premises directory:
-   - Configure password writeback using the information in the article [How-to: Configure password writeback](howto-sspr-writeback.md).
-   - On the **On-premises integration** tab
-       - Set **Write back passwords to your on-premises directory** to **Yes**.
-       - Optionally set **Allow users to unlock accounts without resetting their password** to **Yes** so users can unlock their account if they get locked out.
-8. Review your company branding of Azure AD. You can find details on how to configure company branding in the article [Add company branding to your sign-in page in Azure AD](../customize-branding.md).
-   - This branding will appear when your users attempt to register for or reset their passwords and will appear in email communications.
-9. Conduct your pilot rollout.
-   - Train your users to register and reset
-      * Self-service password reset registration [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
-      * Self-service password reset [https://aka.ms/sspr](https://aka.ms/sspr)
-   - We have [sample training and communication materials](howto-sspr-deployment.md#email-communication).
+Step 1:  Complete a pilot roll out with a small subset of your organization. 
+   * Information on how to pilot can be found in the [Tutorial: Complete an Azure AD self-service password reset pilot roll out](tutorial-sspr-pilot.md).
 
-   > [!IMPORTANT]
-   > Test SSPR with a user, rather than an administrator, as Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](concept-sspr-policy.md) article.
+Step 2:  Educate your helpdesk:
+   * How will they help your users? 
+   * Will you force users to use SSPR and not allow your helpdesk to assist users?
+   * Have you provided them the URLs for registration and reset?
+      * Registration:  https://aka.ms/ssprsetup
+      * Reset: https://aka.ms/sspr
 
-10. OPTIONALLY: Enable Windows 10 users to [reset their passwords from the locon screen](tutorial-sspr-windows.md).
-11. [Review reports to see details about the use of SSPR in your organization over time.](howto-sspr-reporting.md)
-12. As your pilot phase comes to a close review any feedback from your users and make the appropriate changes to any of the options previously selected.
-13. When you're ready, enable password reset for all users by setting the **Self Service Password Reset Enabled** switch to **All**.
-
-   > [!NOTE]
-   > Changing this option from a selected group to everyone does not invalidate existing authentication data that a user has registered as part of a test group. Users who are configured and have valid authentication data registered continue to function.
+Step 3:  Educate your users
+   * This document goes over sample emails, password portals, enforcing registration, and populating authentication data. 
+   * The Azure Active Directory product group has created a [step-by-step deployment plan](https://aka.ms/SSPRDeploymentPlan) that organizations can use in parallel with the documentation found on this site to make a business case and plan for deployment of self-service password reset.
 
 ## Email communication
 
@@ -80,10 +54,6 @@ Many customers choose to host a webpage and create a root DNS entry, like https:
 * Other organization-specific information
 
 In any email communications or fliers you send out you can include a branded, memorable URL that users can go to when they need to use the services. For your benefit, we have created a [sample password reset page](https://github.com/ajamess/password-reset-page) that you can use and customize to your organization’s needs.
-
-## Step-by-step deployment plan
-
-The Azure Active Directory product group has created a [step-by-step deployment plan](https://aka.ms/SSPRDeploymentPlan) that organizations can use in parallel with the documentation found on this site to make a business case and plan for deployment of self-service password reset.
 
 ## Use enforced registration
 
