@@ -79,6 +79,7 @@ SQL Data Sync has the following limitations on autoprovisioning:
 -   CHECK constraints aren't provisioned.  
 -   Existing triggers on the source tables aren't provisioned.  
 -   Views and stored procedures aren't created on the destination database.
+-   ON DELETE CASCADE actions on foreign key constraints aren't recreated in the destination tables.
 
 #### Recommendations
 
