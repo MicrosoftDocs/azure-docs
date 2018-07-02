@@ -7,13 +7,17 @@ manager: jpconnock
 
 ms.service: firewall
 ms.topic: article
-ms.date: 6/18/2018
+ms.date: 7/11/2018
 ms.author: victorh
 ---
 
 # Deploy Azure Firewall using a template
 
-Intro...
+This template creates a firewall and a test network environment. The network has one VNet, with three subnets: an AzureFirewallSubnet, and ServersSubnet, and a JumpboxSubnet. The ServersSubnet and JumpboxSubnet each have one 2-core Windows Server in them.
+
+The firewall is in the AzureFirewallSubnet and is configured with an Application Rule Collection with a single rule that allows access to www.microsoft.com.
+
+A user defined route is created that points the network traffic from the ServersSubnet through the firewall, where the firewall rules are applied.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -26,8 +30,6 @@ You need to always create resources in a resource group. Create an Azure resourc
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 ```
-
-
 
 ## Test the firewall
 
