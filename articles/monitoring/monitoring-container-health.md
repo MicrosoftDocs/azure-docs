@@ -242,48 +242,49 @@ After monitoring is enabled, it can take around 15 minutes before you are able t
 ## Verify agent deployed successfully
 
 ### Agent version 06072018 and higher
-1. To verify the OMS agent version *06072018* or higher is deployed properly, run the following commands: 
+To verify the OMS agent version *06072018* or higher is deployed properly, run the following commands: 
 
-    ```
-    kubectl get ds omsagent --namespace=kube-system
-    ```
+```
+kubectl get ds omsagent --namespace=kube-system
+```
 
-    The output should resemble the following indicating it did deploy properly:
+The output should resemble the following indicating it did deploy properly:
 
-    ```
-    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
-    NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-    omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-    ```  
-    To verify a new deployment, run the following command:
+```
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
+NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
+omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+```  
 
-    ```
-    kubectl get deployment omsagent-rs -n=kube-system
-    ```
+To verify a new deployment, run the following command:
 
-    The output should resemble the following indicating it did deploy properly:
+```
+kubectl get deployment omsagent-rs -n=kube-system
+```
 
-    ```
-    User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
-    NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
-    omsagent   1         1         1            1            3h
-    ```
+The output should resemble the following indicating it did deploy properly:
+
+```
+User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
+NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
+omsagent   1         1         1            1            3h
+```
 
 ### Agent version earlier than 06072018
 
-To verify the OMS agent version released before *06072018* is deployed properly, run the following command: 
+To verify the OMS agent version released before *06072018* is deployed properly, run the following command:  
 
-    ```
-    kubectl get ds omsagent --namespace=kube-system
-    ```
+```
+kubectl get ds omsagent --namespace=kube-system
+```
 
-    The output should resemble the following indicating it did deploy properly:
+The output should resemble the following indicating it did deploy properly:  
 
-    ```
-    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
-    NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-    omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-    ```  
+```
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
+NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
+omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+```  
 
 ## View performance utilization
 When you open container health, the page immediately presents the performance utilization of your cluster nodes.  Viewing information about your AKS cluster is organized into three perspectives:
