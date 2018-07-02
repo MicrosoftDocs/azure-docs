@@ -42,44 +42,48 @@ The following steps walk you through the process of creating the certificates an
    * Download and install any [third-party OpenSSL binaries](https://wiki.openssl.org/index.php/Binaries), for example, from [this project on SourceForge](https://sourceforge.net/projects/openssl/).
    
    * Download the OpenSSL source code and build the binaries on your machine by yourself or do this via [vcpkg](https://github.com/Microsoft/vcpkg). The instructions listed below use vcpkg to download source code, compile and install OpenSSL on your Windows machine all in very easy to use steps.
+
+      1. Navigate to a directory where you want to install vcpkg. From here on we'll refer to this as $VCPKGDIR. Follow the instructions to download and install [vcpkg](https://github.com/Microsoft/vcpkg).
    
-     1. Navigate to a directory where you want to install vcpkg. From here on we'll refer to this as $VCPKGDIR. Follow the instructions to download and install [vcpkg](https://github.com/Microsoft/vcpkg).
-   
-     1. Once vcpkg is installed, from a powershell prompt, run the following command to install the OpenSSL package for Windows x64. This typically takes about 5 mins to complete.
-     
-     ```PowerShell
-     .\vcpkg install openssl:x64-windows
-     ```
-     
-     3. Add `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl` to your `PATH` environment variable so that the `openssl.exe` file is available for invocation.
+      1. Once vcpkg is installed, from a powershell prompt, run the following command to install the OpenSSL package for Windows x64. This typically takes about 5 mins to complete.
+
+         ```PowerShell
+         .\vcpkg install openssl:x64-windows
+         ```
+      1. Add `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl` to your `PATH` environment variable so that the `openssl.exe` file is available for invocation.
 
 1. Navigate to the directory in which you want to work. From here on we'll refer to this as $WRKDIR.  All files will be created in this directory.
-
-   cd $WRKDIR
    
+   cd $WRKDIR
+
 1.	Obtain the scripts to generate the required non-production certificates with the following command. These scripts help you create the necessary certificates to set up a transparent gateway.
 
-   ```PowerShell
-   git clone https://github.com/Azure/azure-iot-sdk-c.git
-   ```
+      ```PowerShell
+      git clone https://github.com/Azure/azure-iot-sdk-c.git
+      ```
 
-1. Copy config and script files into your working directory.
+1. Copy configuration and script files into your working directory. Additionally, set env variable OPENSSL_CONF to use the openssl_root_ca.cnf configuration file.
+
    ```PowerShell
    copy azure-iot-sdk-c\tools\CACertificates\*.cnf .
    copy azure-iot-sdk-c\tools\CACertificates\ca-certs.ps1 .
    $env:OPENSSL_CONF = "$PWD\openssl_root_ca.cnf"
    ```
+
 1. Enable PowerShell to run the scripts by running the following command
+
    ```PowerShell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
    ```
 
 1. Bring the functions, used by the scripts, into PowerShell's global namespace by dot-sourcing with the following command
+   
    ```PowerShell
    . .\ca-certs.ps1
    ```
 
 1. Verify OpenSSL has been installed correctly and make sure there won't be name collisions with existing certificates by running the following command. If there are problems, the script should describe how to fix these on your system.
+
    ```PowerShell
    Test-CACertsPrerequisites
    ```
@@ -87,30 +91,18 @@ The following steps walk you through the process of creating the certificates an
 ## Certificate creation
 1.	Create the owner CA certificate and one intermediate certificate. These are all placed in `$WRKDIR`.
 
-   ```PowerShell
-   New-CACertsCertChain rsa
-   ```
-
-   The outputs of the script execution are the following certificates and keys:
-   * Certificates
-      * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
-      * `$WRKDIR\certs\azure-iot-test-only.intermediate.cert.pem`
-   * Keys
-      * `$WRKDIR\private\azure-iot-test-only.root.ca.key.pem`
-      * `$WRKDIR\private\azure-iot-test-only.intermediate.key.pem`
+      ```PowerShell
+      New-CACertsCertChain rsa
+      ```
 
 1.	Create the Edge device CA certificate and private key with the command below.
 
    >[!NOTE]
    > **DO NOT** use a name that is the same as the gateway's DNS host name. Doing so will cause client certification against these certificates to fail.
 
-      ```PowerShell
-      New-CACertsEdgeDevice "<gateway device name>"
-      ```
-
-   The outputs of the script execution are the following certificates and key:
-   * `$WRKDIR\certs\new-edge-device.*`
-   * `$WRKDIR\private\new-edge-device.key.pem`
+   ```PowerShell
+   New-CACertsEdgeDevice "<gateway device name>"
+   ```
 
 ## Certificate chain creation
 Create a certificate chain from the owner CA certificate, intermediate certificate, and Edge device CA certificate with the command below. Placing it in a chain file allows you to easily install it on your Edge device acting as a transparent gateway.
@@ -118,6 +110,11 @@ Create a certificate chain from the owner CA certificate, intermediate certifica
    ```PowerShell
    Write-CACertsCertificatesForEdgeDevice "<gateway device name>"
    ```
+
+   The output of the script execution are the following certificates and key:
+   * `$WRKDIR\certs\new-edge-device.*`
+   * `$WRKDIR\private\new-edge-device.key.pem`
+   * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
 
 ## Installation on the gateway
 1.	Copy the following files from $WRKDIR anywhere on your Edge device, we'll refer to that as $CERTDIR. If you generated the certificates on your Edge device skip this step.
