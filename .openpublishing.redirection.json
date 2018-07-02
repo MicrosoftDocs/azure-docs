@@ -22190,7 +22190,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/operations-management-suite/runbook-datacollect.md",
+            "source_path": "articles/operations-management-suite/operations-management-suite-runbook-datacollect.md",
             "redirect_url": "/azure/monitoring/monitoring-runbook-datacollect",
             "redirect_document_id": false
         },
