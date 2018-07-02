@@ -4,6 +4,7 @@
   items:
   - name: What is the Speech service?
     href: overview.md
+    expanded: true
     name: Speech Scenarios
     href: overview.md
     expanded: true
