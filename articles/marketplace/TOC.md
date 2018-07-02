@@ -26,10 +26,9 @@
 #### [Publishing Checklist for Azure Marketplace](./publishing-checklist-azure-marketplace.md)  
 
 ### Support  
-#### [Support for AppSource](./support-appsource.md)  
-#### [Support for Azure Marketplace](./support-azure-marketplace.md)  
+#### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)  
 
-### Guides  
+### Publishing Guides  
 #### [Azure Marketplace Consulting Service](consulting-services.md)  
 #### [Azure Marketplace SaaS app technical publishing guide](marketplace-saas-applications-technical-publishing-guide.md) 
 
