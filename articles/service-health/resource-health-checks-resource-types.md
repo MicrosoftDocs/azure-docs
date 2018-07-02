@@ -77,10 +77,15 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Have there been any database or collection requests not served due to an Azure Cosmos DB service unavailability?</li><li>Have there been any document requests not served due to an Azure Cosmos DB service unavailability?</li></ul>|
 
+## Microsoft.KeyVault/vaults
+|Executed Checks|
+|---|
+|<ul><li>Are requests to key vault failing due to Azure KeyVault platform issues?</li><li>Are requests to key vault being throttled due to too many requests made by customer?</li></ul>|
+
 ## Microsoft.network/connections
 |Executed Checks|
 |---|
-|<ul><li>Is the VPN tunnel connected?</li><li>Are there configuration conflicts in the connection?</li><li>Are the pre-shared keys properly configured?</li><li>Is the VPN on-premise device reachable?</li><li>Are there mismatches in the IPSec/IKE security policy?</li><li>Is the S2S VPN connection properly provisioned or in a failed state?</li><li>Is the VNET-to-VNET connection properly provisioned or in a failed state?</li></ul>|
+|<ul><li>Is the VPN tunnel connected?</li><li>Are there configuration conflicts in the connection?</li><li>Are the pre-shared keys properly configured?</li><li>Is the VPN on-premises device reachable?</li><li>Are there mismatches in the IPSec/IKE security policy?</li><li>Is the S2S VPN connection properly provisioned or in a failed state?</li><li>Is the VNET-to-VNET connection properly provisioned or in a failed state?</li></ul>|
 
 ## Microsoft.network/virtualNetworkGateways
 |Executed Checks|

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: jeffgilb
 
 ---
@@ -22,20 +22,24 @@ You can host a SQL instance on a virtual machine (VM) in [Azure Stack](azure-sta
 
 ## Overview
 
-The general requirements for SQL hosting servers are:
+Before you add a SQL hosting server, review the following mandatory and general requirements.
 
-* The SQL instance must be dedicated for use by the resource provider and user workloads. You can't use a SQL instance that's being used by any other consumer. This restriction also applies to App Services.
-* The SQL resource provider VM isn't domain joined and can only connect using SQL authentication.
-* You must configure an account with appropriate privileges for use by the resource provider.
-* The resource provider and users, such as Web Apps, use the user network, so connectivity to the SQL instance on this network is required. This requirement typically means the IP for your SQL instances must be on a public network.
-* Management of the SQL instances and their hosts is up to you. For example, the resource provider doesn't apply updates, handle backups, or handle credential rotation.
-* You can use SKUs that support different classes of SQL abilities, such as performance and high availability using AlwaysOn.
+**Mandatory requirements**
+
+* Enable SQL authentication on the SQL Server instance. Because the SQL resource provider VM isn't domain joined, it can only connect to a hosting server using SQL authentication.
+* Configure the IP addresses for the SQL instances as Public. The resource provider, and users, such as Web Apps, communicate over the user network, so connectivity to the SQL instance on this network is required.
+
+**General requirements**
+
+* Dedicate the SQL instance for use by the resource provider and user workloads. You can't use a SQL instance that's being used by any other consumer. This restriction also applies to App Services.
+* Configure an account with the appropriate privilege levels for the resource provider.
+* You're are responsible for managing the SQL instances and their hosts.  For example, the resource provider doesn't apply updates, handle backups, or handle credential rotation.
 
 ### SQL Server virtual machine images
 
 SQL IaaS virtual machine images are available through the Marketplace Management feature. These images are the same as the SQL VMs that are available in Azure.
 
-Make sure you always download the latest version of the **SQL IaaS Extension** before you deploy a VM using a Marketplace item.  The IaaS extension and corresponding portal enhancements provide additional features such as automatic patching and backup.
+Make sure you always download the latest version of the **SQL IaaS Extension** before you deploy a SQL VM using a Marketplace item. The IaaS extension and corresponding portal enhancements provide additional features such as automatic patching and backup. For more information about this extension, see [Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 There are other options for deploying SQL VMs, including templates in the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -44,18 +48,18 @@ There are other options for deploying SQL VMs, including templates in the [Azure
 
 ### Required Privileges
 
-You can create an administrative user with lower privileges that a SQL sysadmin. The user only needs permissions for the following operations:
+You can create an administrative user with lower privileges than a SQL sysadmin. The user only needs permissions for the following operations:
 
-- Database: Create, Alter, With Containment (for Always On only), Drop, Backup
-- Availability Group: Alter, Join, Add/Remove Database
-- Login: Create, Select, Alter, Drop, Revoke
-- Select Operations: \[master\].\[sys\].\[availability_group_listeners\] (AlwaysOn), sys.availability_replicas (AlwaysOn), sys.databases, \[master\].\[sys\].\[dm_os_sys_memory\], SERVERPROPERTY, \[master\].\[sys\].\[availability_groups\] (AlwaysOn), sys.master_files
+* Database: Create, Alter, With Containment (for Always On only), Drop, Backup
+* Availability Group: Alter, Join, Add/Remove Database
+* Login: Create, Select, Alter, Drop, Revoke
+* Select Operations: \[master\].\[sys\].\[availability_group_listeners\] (AlwaysOn), sys.availability_replicas (AlwaysOn), sys.databases, \[master\].\[sys\].\[dm_os_sys_memory\], SERVERPROPERTY, \[master\].\[sys\].\[availability_groups\] (AlwaysOn), sys.master_files
 
 ## Provide capacity by connecting to a standalone hosting SQL server
 
 You can use standalone (non-HA) SQL servers using any edition of SQL Server 2014 or SQL Server 2016. Make sure you have the credentials for an account with sysadmin privileges.
 
-To add a standalone hosting server that is already set up, follow these steps:
+To add a standalone hosting server that's already set up, follow these steps:
 
 1. Sign in to the Azure Stack operator portal as a service administrator.
 
@@ -67,36 +71,45 @@ To add a standalone hosting server that is already set up, follow these steps:
 
    ![SQL Adapter dashboard](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
 
-3. Fill the form with the connection details of your SQL Server instance.
+3. On **Add a SQL Hosting Server**, provide the connection details for your SQL Server instance.
 
    ![Add a SQL Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
-    You can optionally include an instance name, and specify a port number if the instance isn't assigned to the default port of 1433.
+    Optionally, provide an instance name, and specify a port number if the instance isn't assigned to the default port of 1433.
 
    > [!NOTE]
    > As long as the SQL instance can be accessed by the user and admin Azure Resource Manager, it can be placed under control of the resource provider. The SQL instance __must__ be allocated exclusively to the resource provider.
 
-4. As you add servers, you must assign them to a new or existing SKU to differentiate service offerings. For example, you can have a SQL Enterprise instance that provides:
+4. As you add servers, you must assign them to an existing SKU or create a new SKU. Under **Add a Hosting Server**, select **SKUs**.
+
+   * To use an existing SKU, choose an available SKU and then select **Create**.
+   * To create a SKU, select **+ Create new SKU**. In **Create SKU**, enter the required information, and then select **OK**.
+
+     > [!IMPORTANT]
+     > Special characters, including spaces and periods, aren't supported in **Name** field. Use the examples in the following screen capture to enter values for the **Family**, **Tier**, and **Edition** fields.
+
+     ![Create a SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+
+      SKUs can take up to an hour to be visible in the portal. Users can't create a database until the SKU is fully created.
+
+### SKU notes
+
+You can use SKUs to differentiate service offerings. For example, you can have a SQL Enterprise instance that has the following characteristics:
   
-   - database capacity
-   - automatic backup
-   - reserve high-performance servers for individual departments
+* high capacity
+* high-performance
+* high availability
 
-   All the hosting servers in a SKU should have the same capabilities. The **Name** should reflect the properties of the SKU so users can deploy their databases to the appropriate SKU.
+You can create a SKU for the preceding example, limiting  access to specific groups that need a high-performance database.
 
-   > [!IMPORTANT]
-   > Special characters, including spaces and periods, are not supported in the **Family** or **Tier** names when you create a SKU for the SQL and MySQL resource providers.
+>[!TIP]
+>Use a SKU name that reflects describes the capabilities of the servers in the SKU, such as capacity and performance. The name serves as an aid to help users deploy their databases to the appropriate SKU.
 
-   For example:
-
-   ![Create SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
-
-   >[!NOTE]
-   > SKUs can take up to an hour to be visible in the portal. Users cannot create a database until the SKU is fully created.
+As a best practice, all the hosting servers in a SKU should have the same resource and performance characteristics.
 
 ## Provide high availability using SQL Always On Availability Groups
 
-Configuring SQL Always On instances requires additional steps and requires a minimum of three VMs (or physical machines.) This article assumes that you already have a solid understanding of Always On availability groups. For more information, see:
+Configuring SQL Always On instances requires additional steps and requires three VMs (or physical machines.) This article assumes that you already have a solid understanding of Always On availability groups. For more information, see the following articles:
 
 * [Introducing SQL Server Always On availability groups on Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
 * [Always On Availability Groups (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
@@ -104,7 +117,8 @@ Configuring SQL Always On instances requires additional steps and requires a min
 > [!NOTE]
 > The SQL adapter resource provider _only_ supports SQL 2016 SP1 Enterprise or later instances for Always On. This adapter configuration requires new SQL features such as automatic seeding.
 
-In addition to the preceding list of requirements you must enable [Automatic Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) on each availability group for each instance of SQL Server.
+### Automatic seeding
+You must enable [Automatic Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) on each availability group for each instance of SQL Server.
 
 To enable automatic seeding on all instances, edit and then run the following SQL command for each instance:
 
@@ -122,13 +136,25 @@ On the secondary instances, edit and then run the following SQL command for each
   GO
   ```
 
+### Configure contained database authentication
+Before adding a contained database to an availability group, ensure that the contained database authentication server option is set to 1 on every server instance that hosts an availability replica for the availability group. For more information, see [contained database authentication Server Configuration Option](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+
+Use these commands to set the contained database authentication server option for each instance:
+
+  ```
+  EXEC sp_configure 'contained database authentication', 1
+  GO
+  RECONFIGURE
+  GO
+  ```
+
 ### To add SQL Always On hosting servers
 
 1. Sign in to the Azure Stack Administration portal as a service admin.
 
 2. Select **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers** &gt; **+Add**.
 
-   Under **SQL Hosting Servers** you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
+   Under **SQL Hosting Servers**, you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
 3. Fill out the form with the connection details for your SQL Server instance. Make sure that you use the FQDN address of the Always On Listener (and optional port number.) Provide the information for the account you configured with sysadmin privileges.
 

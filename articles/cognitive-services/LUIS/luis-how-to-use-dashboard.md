@@ -64,7 +64,7 @@ To select a period to view on the chart:
 2. Select a period from the list and then click the back arrow ![Back Arrow](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) to display the chart.
 
 ### Key usage
-The number of hits consumed from the application's subscription key. For more information about subscription keys, see [Keys in LUIS](luis-concept-keys.md). 
+The number of hits consumed from the application's endpoint key. For more information about endpoint keys, see [Keys in LUIS](luis-concept-keys.md). 
   
 ## Intent breakdown
 The **Intent Breakdown** displays a breakdown of intents based on labeled utterances or endpoint hits. This summary graph shows the relative importance of each intent in the app. When you hover your mouse pointer over a slice, you see the intent name and the percentage it represents of the total count of labeled utterances/endpoint hits. 

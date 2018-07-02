@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 06/28/2018
 ms.author: juliako
 ---
 
@@ -29,6 +29,9 @@ This tutorial shows you how to:
 > * Run the app
 > * Examine the output
 > * Clean up resources
+
+> [!Note]
+> Use the Azure portal, as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md), to set your Media Services account to 10 S3 Media Reserved Units.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
