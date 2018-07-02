@@ -1,32 +1,36 @@
 ﻿---
-title: Kubernetes on Azure tutorial  - Deploy Cluster
-description: AKS tutorial - Deploy Cluster
+title: Kubernetes on Azure tutorial - Deploy a cluster
+description: In this Azure Kubernetes Service (AKS) tutorial, you create an AKS cluster and use kubectl to connect to the Kubernetes master node.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/02/2018
 ms.author: iainfou
 ms.custom: mvc
+
+#Customer intent: As a developer or IT pro, I want to learn how to create an Azure Kubernetes Service (AKS) cluster so that I can deploy and run my own applications.
 ---
 
 # Tutorial: Deploy an Azure Kubernetes Service (AKS) cluster
 
-Kubernetes provides a distributed platform for containerized applications. With AKS, you can quickly provision a production ready Kubernetes cluster. In this tutorial, part three of seven, a Kubernetes cluster is deployed in AKS. Steps completed include:
+Kubernetes provides a distributed platform for containerized applications. With AKS, you can quickly provision a production ready Kubernetes cluster. In this tutorial, part three of seven, a Kubernetes cluster is deployed in AKS. You learn how to:
 
 > [!div class="checklist"]
-> * Creating a service principal for resource interactions
-> * Deploying a Kubernetes AKS cluster
-> * Installation of the Kubernetes CLI (kubectl)
-> * Configuration of kubectl
+> * Create a service principal for resource interactions
+> * Deploy a Kubernetes AKS cluster
+> * Install the Kubernetes CLI (kubectl)
+> * Configure kubectl to connect to your AKS cluster
 
 In subsequent tutorials, the Azure Vote application is deployed to the cluster, scaled, and updated.
 
 ## Before you begin
 
 In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
+
+This tutorial requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Create a service principal
 
@@ -68,9 +72,9 @@ To grant the correct access for the AKS cluster to use images stored in ACR, cre
 az role assignment create --assignee <appId> --role Reader --scope <acrId>
 ```
 
-## Create Kubernetes cluster
+## Create a Kubernetes cluster
 
-Now create an AKS cluster with [az aks create][]. The following example creates a cluster named *myAKSCluster* in a resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr]. Provide your own `<appId>` and `<password>` from the previous step where you created the service principal.
+Now create an AKS cluster with [az aks create][]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr]. Provide your own `<appId>` and `<password>` from the previous step where you created the service principal.
 
 ```azurecli
 az aks create \
@@ -84,19 +88,19 @@ az aks create \
 
 After several minutes, the deployment completes, and returns JSON-formatted information about the AKS deployment.
 
-## Install the kubectl CLI
+## Install the Kubernetes CLI
 
-To connect to the Kubernetes cluster from your client computer, use [kubectl][kubectl], the Kubernetes command-line client.
+To connect to the Kubernetes cluster from your client computer, you use [kubectl][kubectl], the Kubernetes command-line client.
 
-If you use the Azure Cloud Shell, kubectl is already installed. You can also install it locally with [az aks install-cli][]:
+If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally with [az aks install-cli][]:
 
 ```azurecli
 az aks install-cli
 ```
 
-## Connect with kubectl
+## Connect to cluster with kubectl
 
-To configure kubectl to connect to your Kubernetes cluster, use [az aks get-credentials][]. The following example gets credentials for the AKS cluster name *myAKSCluster* in the *myResourceGroup*:
+To configure `kubectl` to connect to your Kubernetes cluster, use [az aks get-credentials][]. The following example gets credentials for the AKS cluster name *myAKSCluster* in the *myResourceGroup*:
 
 ```azurecli
 az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
@@ -108,7 +112,7 @@ To verify the connection to your cluster, run the [kubectl get nodes][kubectl-ge
 kubectl get nodes
 ```
 
-Output:
+The following example output shows one node in the cluster:
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
@@ -117,15 +121,15 @@ aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.6
 
 ## Next steps
 
-In this tutorial, a Kubernetes cluster was deployed in AKS. The following steps were completed:
+In this tutorial, a Kubernetes cluster was deployed in AKS, and you configured `kubectl` to connect to it. You learned how to:
 
 > [!div class="checklist"]
-> * Created a service principal for resource interactions
-> * Deployed a Kubernetes AKS cluster
-> * Installed the Kubernetes CLI (kubectl)
-> * Configured kubectl
+> * Create a service principal for resource interactions
+> * Deploy a Kubernetes AKS cluster
+> * Install the Kubernetes CLI (kubectl)
+> * Configure kubectl to connect to your AKS cluster
 
-Advance to the next tutorial to learn about running application on the cluster.
+Advance to the next tutorial to learn how to deploy an application to the cluster.
 
 > [!div class="nextstepaction"]
 > [Deploy application in Kubernetes][aks-tutorial-deploy-app]
