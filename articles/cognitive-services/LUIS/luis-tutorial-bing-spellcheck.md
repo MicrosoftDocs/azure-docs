@@ -23,7 +23,7 @@ Your [first Bing Spell Check API v7 key](https://azure.microsoft.com/try/cogniti
 
 <a name"create-subscription-key"></a>
 ## Create Endpoint key
-If your free key expired, create a endpoint key.
+If your free key expired, create an endpoint key.
 
 1. Log in to the [Azure portal](https://portal.azure.com). 
 

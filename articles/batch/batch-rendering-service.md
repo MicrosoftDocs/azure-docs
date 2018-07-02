@@ -1,5 +1,5 @@
 ---
-title: Azure Batch Rendering service - cloud-scale rendering | Microsoft Docs
+title: Azure Batch Rendering - cloud-scale rendering | Microsoft Docs
 description: Render jobs on Azure virtual machines directly from Maya and on a pay-per-use basis.
 services: batch
 author: dlepow
@@ -11,16 +11,16 @@ ms.date: 05/10/2018
 ms.author: danlep
 ---
 
-# Get started with the Batch Rendering service
+# Get started with Batch Rendering 
 
-The Azure Batch Rendering service offers cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service handles job scheduling and queueing, managing failures and retries, and auto-scaling for your render jobs. The Batch Rendering service supports rendering apps including [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview), and [V-Ray](https://www.chaosgroup.com/vray/maya). The Batch plug-in for Maya 2017 makes it easy to start a rendering job on Azure right from your desktop.
+Azure Batch Rendering offers cloud-scale rendering capabilities on a pay-per-use basis. Batch Rendering handles job scheduling and queueing, managing failures and retries, and auto-scaling for your render jobs. Batch Rendering supports rendering apps including [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview), and [V-Ray](https://www.chaosgroup.com/vray/maya). The Batch plug-in for Maya 2017 makes it easy to start a rendering job on Azure right from your desktop.
 
 With Maya and 3ds Max, you can run jobs using the [BatchLabs](https://github.com/Azure/BatchLabs) desktop application or the [Batch Templates CLI](batch-cli-templates.md). Using the Azure Batch CLI, you can run Batch jobs without writing code. Instead, you can use template files to create Batch pools, jobs, and tasks. For more information, see [Use Azure Batch CLI Templates and File Transfer](batch-cli-templates.md).
 
 
 ## Supported applications
 
-The Batch Rendering service currently supports the following applications:
+Batch Rendering currently supports the following applications:
 
 On CentOS 7 rendering nodes:
 - Autodesk Maya I/O 2017 Update 5 (cut 201708032230)
@@ -45,7 +45,7 @@ On Windows Server 2016 rendering nodes:
 
 ## Prerequisites
 
-To use the Batch Rendering service, you need:
+To use Batch Rendering, you need:
 
 - [Azure account](https://azure.microsoft.com/free/).
 - **Azure Batch account.** For guidance on creating a Batch account in the Azure portal, see [Create a Batch account with the Azure portal](batch-account-create-portal.md).
@@ -60,7 +60,7 @@ To use the Batch plug-in for Maya, you need:
 
 ## Basic Batch concepts
 
-Before you begin using the Batch Rendering service, it's helpful to be familiar with a few Batch concepts, including compute nodes, pools, and jobs. To learn more about Azure Batch in general, see [Run intrinsically parallel workloads with Batch](batch-technical-overview.md).
+Before you begin using Batch Rendering, it's helpful to be familiar with a few Batch concepts, including compute nodes, pools, and jobs. To learn more about Azure Batch in general, see [Run intrinsically parallel workloads with Batch](batch-technical-overview.md).
 
 ### Pools
 
@@ -100,7 +100,7 @@ Azure Batch allows you to provide your own custom image. Using this option, you 
 
 ## Options for submitting a render job
 
-Depending on the 3D application you use, there are various options for submitting render jobs to the service:
+Depending on the 3D application you use, there are various options for submitting render jobs:
 
 ### Maya
 
@@ -117,14 +117,14 @@ With 3ds Max, you can use:
 - [BatchLabs](https://azure.github.io/BatchLabs) desktop application (see [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) for guidance on using 3ds Max BatchLabs templates)
 - [Batch Templates CLI](batch-cli-templates.md)
 
-The 3ds Max Batch Labs templates allow you to render VRay and Arnold scenes using the Azure Batch Rendering Service. There are two variations of the template for VRay and Arnold, one for standard scenes and one for more complex scenes that require a 3ds Max path file to assets and textures (.mxp file). For more information on the 3ds Max Batch Labs templates, see the [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) repo on GitHub.
+The 3ds Max Batch Labs templates allow you to render VRay and Arnold scenes using the Batch Rendering. There are two variations of the template for VRay and Arnold, one for standard scenes and one for more complex scenes that require a 3ds Max path file to assets and textures (.mxp file). For more information on the 3ds Max Batch Labs templates, see the [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) repo on GitHub.
 
-Additionally, you can use the [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial) to integrate the rendering service with your existing pipeline.
+Additionally, you can use the [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial) to integrate rendering with your existing pipeline.
 
 
 ## Use the Batch plug-in for Maya to submit a render job
 
-With the Batch plug-in for Maya, you can submit a job to the Batch Rendering service right from Maya. The following sections describe how to configure the job from the plug-in and then submit it. 
+With the Batch plug-in for Maya, you can submit a job to Batch Rendering right from Maya. The following sections describe how to configure the job from the plug-in and then submit it. 
 
 ### Load the Batch plug-in for Maya
 

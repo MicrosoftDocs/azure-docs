@@ -1,4 +1,4 @@
-﻿---
+---
 title: Network Performance Monitor solution in Azure | Microsoft Docs
 description: Network Performance Monitor in Azure helps you monitor the performance of your networks, in near real time, to detect and locate network performance bottlenecks.
 services: log-analytics
@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-
+ms.component: na
 ---
+
 # Network Performance Monitor solution in Azure
 
 ![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
