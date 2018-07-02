@@ -30,7 +30,7 @@ ZRS is **generally available** in the following regions:
 - France Central
 - Southeast Asia
 
-Microsoft continues to enable ZRS in other Azure regions and will update this list when that occurs. We will also make such announcements through the standard channels such as the [Azure Service Updates](https://azure.microsoft.com/en-us/updates/) page and email notifications to Azure subscription owners and administrators.
+Microsoft continues to enable ZRS in other Azure regions and will update this list when that occurs. We will also make such announcements through the standard channels such as the [Azure Service Updates](https://azure.microsoft.com/updates/) page and email notifications to Azure subscription owners and administrators.
 
 ## What happens when a zone becomes unavailable?
 
