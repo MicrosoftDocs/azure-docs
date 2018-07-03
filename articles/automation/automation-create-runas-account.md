@@ -14,7 +14,7 @@ manager: carmonm
 # Update your Automation account authentication with Run As accounts 
 You can update your existing Automation account from the Azure portal or use PowerShell if:
 
-* You create an Automation account but decline to create the Run As account.
+* You create an Automation account but do not create the Run As account.
 * You already use an Automation account to manage Resource Manager resources and you want to update the account to include the Run As account for runbook authentication.
 * You already use an Automation account to manage classic resources and you want to update it to use the Classic Run As account instead of creating a new account and migrating your runbooks and assets to it.   
 
