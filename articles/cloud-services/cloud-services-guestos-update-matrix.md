@@ -86,7 +86,7 @@ October Guest OS has released.
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.12_201806-01 |July 3, 2018 |Post 5.22 |TBD |
+| WA-GUEST-OS-5.20_201806-01 |July 3, 2018 |Post 5.22 |TBD |
 | WA-GUEST-OS-5.19_201805-01 |June 1, 2018 |Post 5.21 |TBD |
 |~~WA-GUEST-OS-5.18_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
 |~~WA-GUEST-OS-5.17_201803-01~~ |April 6, 2018 |June 1, 2018|TBD |
