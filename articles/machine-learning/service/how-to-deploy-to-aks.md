@@ -1,6 +1,6 @@
 ---
 title: Migrate to Azure Machine Learning, general availability
-description: Learn how to upgrade or migrate to the generally available version of Azure Machine Learning Services.
+description: Learn how to upgrade or migrate to the latest version of Azure Machine Learning Services.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
