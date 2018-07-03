@@ -1,6 +1,6 @@
 ---
-title: DSC Extension for Linux | Microsoft Docs
-description: Installs OMI and DSC packages to allow VM to be configured using DSC.
+title: Azure DSC Extension for Linux | Microsoft Docs
+description: Installs OMI and DSC packages to allow an Azure Linux VM to be configured using Desired State Configuration.
 services: virtual-machines-linux 
 documentationcenter: ''
 author: balukambala
@@ -28,7 +28,7 @@ DSCForLinux Extension is published and supported by Microsoft. The extension ins
 
 - Register the Linux VM to Azure Automation account in order to pull configurations from Azure Automation service (Register ExtensionAction)
 - Push MOF configurations to the Linux VM (Push ExtensionAction)
-- Applies Meta MOF configuration to the Linux VM to configure Pull Server in order to pull Node Configuration (Pull ExtensionAction)
+- Apply Meta MOF configuration to the Linux VM to configure Pull Server in order to pull Node Configuration (Pull ExtensionAction)
 - Install custom DSC modules to the Linux VM (Install ExtensionAction)
 - Remove custom DSC modules to the Linux VM (Remove ExtensionAction)
 
@@ -68,7 +68,9 @@ Here are all the supported public configuration parameters:
 * `ConfigurationMode`: (optional, string) Specifies how DSC should apply the configuration. Valid values are: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (optional, int) Specifies how often (in minutes) DSC ensures that the configuration is in the desired state.
 
-> **NOTE:** If you are using a version < 2.3, mode parameter is same as ExtensionAction. Mode seems to be a overloaded term. Therefore to avoid the confusion, ExtensionAction is being used from 2.3 version onwards. For backward compatibility, the extension supports both mode and ExtensionAction. 
+> [!NOTE]
+> If you are using a version < 2.3, mode parameter is same as ExtensionAction. Mode seems to be a overloaded term. Therefore to avoid the confusion, ExtensionAction is being used from 2.3 version onwards. For backward compatibility, the extension supports both mode and ExtensionAction. 
+>
 
 ### 1.2 Protected configuration
 
@@ -80,9 +82,9 @@ Here are all the supported protected configuration parameters:
 * `RegistrationKey`: (optional, string) the access key of the Azure Automation account
 
 
-## 3. Scenarios
+## Scenarios
 
-### 3.1 Register to Azure Automation account
+### Register to Azure Automation account
 protected.json
 ```json
 {
@@ -117,7 +119,7 @@ $publicConfig = '{
 }'
 ```
 
-### 3.2 Apply a MOF configuration file (in Azure Storage Account) to the VM
+### Apply a MOF configuration file (in Azure Storage Account) to the VM
 
 protected.json
 ```json
@@ -149,7 +151,7 @@ $publicConfig = '{
 ```
 
 
-### 3.3. Apply a MOF configuration file (in public storage) to the VM
+### Apply a MOF configuration file (in public storage) to the VM
 
 public.json
 ```json
@@ -165,7 +167,7 @@ $publicConfig = '{
 }'
 ```
 
-### 3.4. Apply a meta MOF configuration file (in Azure Storage Account) to the VM
+### Apply a meta MOF configuration file (in Azure Storage Account) to the VM
 
 protected.json
 ```json
@@ -196,7 +198,7 @@ $publicConfig = '{
 }'
 ```
 
-### 3.5. Apply a meta MOF configuration file (in public storage) to the VM
+### Apply a meta MOF configuration file (in public storage) to the VM
 public.json
 ```json
 {
@@ -212,7 +214,7 @@ $publicConfig = '{
 }'
 ```
 
-### 3.6. Install a custom resource module (ZIP file in Azure Storage Account) to the VM
+### Install a custom resource module (ZIP file in Azure Storage Account) to the VM
 protected.json
 ```json
 {
@@ -241,7 +243,7 @@ $publicConfig = '{
 }'
 ```
 
-### 3.7. Install a custom resource module (ZIP file in public storage) to the VM
+### Install a custom resource module (ZIP file in public storage) to the VM
 public.json
 ```json
 {
@@ -257,7 +259,7 @@ $publicConfig = '{
 }'
 ```
 
-### 3.8. Remove a custom resource module from the VM
+### Remove a custom resource module from the VM
 public.json
 ```json
 {
@@ -316,8 +318,9 @@ $ azure vm extension set <resource-group> <vm-name> \
 DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
-
-> **NOTE:** In Azure Resource Manager mode, `azure vm extension list` is not available for now.
+> [!NOTE]
+> In Azure Resource Manager mode, `azure vm extension list` is not available for now.
+>
 
 ### 2.2. Using [**Azure PowerShell**][azure-powershell]
 
