@@ -222,7 +222,7 @@ The `apis` folder contains a folder for each API in the service instance which c
 The `groups` folder contains a folder for each group defined in the service instance.
 
 * `groups\<group name>\configuration.json` - this is the configuration for the group. This is the same information that would be returned if you were to call the [Get a specific group](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) operation.
-* `groups\<group name>\description.html` - this is the description of the group and corresponds to the `description` property of the [group entity](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
+* `groups\<group name>\description.html` - this is the description of the group and corresponds to the `description` property of the [group entity](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### policies folder
 The `policies` folder contains the policy statements for your service instance.
