@@ -94,10 +94,10 @@
 #### [Migrate individual licensed users to group-based licensing](active-directory-licensing-group-migration-azure-portal.md)
 #### [Migrate users between product licenses](active-directory-licensing-group-product-migration.md)
 #### [Additional scenarios for group-based licensing](active-directory-licensing-group-advanced.md)
-#### [Azure PowerShell examples for group-based licensing](active-directory-licensing-ps-examples.md)
+#### [Azure PowerShell examples for group-based licensing](users-groups-roles/licensing-ps-examples.md)
 #### [Reference for products and service plans in Azure AD](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Set up Office 365 groups expiration](active-directory-groups-lifecycle-azure-portal.md)
-### [Enforce a naming policy for groups](groups-naming-policy.md)
+### [Enforce a naming policy for groups](users-groups-roles/groups-naming-policy.md)
 ### [View all groups](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
 ### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
@@ -365,10 +365,10 @@
 #### [Quickstart](fundamentals/add-custom-domain.md)
 #### [Add custom domain names](active-directory-domains-manage-azure-portal.md)
 ### [Administer your directory](fundamentals/active-directory-administer.md)
-### [Delete a directory](directory-delete-howto.md)
+### [Delete a directory](users-groups-roles/directory-delete-howto.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md)
-### [Self-service signup](active-directory-self-service-signup.md)
-### [Take over an unmanaged directory](domains-admin-takeover.md)
+### [Self-service signup](users-groups-roles/directory-self-service-signup.md)
+### [Take over an unmanaged directory](users-groups-roles/domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Enable](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
@@ -384,7 +384,7 @@
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](fundamentals/users-default-permissions.md)
-### [Harden administrator role security](admin-roles-best-practices.md)  
+### [Harden administrator role security](users-groups-roles/directory-admin-roles-secure.md)  
 #### [Create emergency access administrator accounts](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
@@ -447,7 +447,7 @@
 ### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
 ## Integrate other services with Azure AD 
-### [Integrate LinkedIn with Azure AD](linkedin-integration.md)
+### [Integrate LinkedIn with Azure AD](users-groups-roles/linkedin-integration.md)
 
 ## [Deploy AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
@@ -467,7 +467,7 @@
 ## [Azure PowerShell cmdlets](/powershell/azure/overview)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
-## [Service limits and restrictions](active-directory-service-limits-restrictions.md)
+## [Service limits and restrictions](users-groups-roles/directory-service-limits-restrictions.md)
 
 # Related
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)

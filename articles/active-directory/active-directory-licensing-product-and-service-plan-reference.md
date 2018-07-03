@@ -1,4 +1,4 @@
-﻿---
+---
 
   title: Product names and service plan identifiers for licensing in Azure Active Directory | Microsoft Docs
   description: Identifier map to manage Azure AD licensing in the Azure portal, the Office 365 portal, PowerShell, or Microsoft Graph
@@ -199,4 +199,4 @@ The following service plans cannot be assigned together:
 
 To learn more about the feature set for license management through groups, see the following:
 
-* [PowerShell examples for group-based licensing in Azure AD](active-directory-licensing-ps-examples.md)
+* [PowerShell examples for group-based licensing in Azure AD](users-groups-roles/licensing-ps-examples.md)
