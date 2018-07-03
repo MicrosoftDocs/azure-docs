@@ -280,7 +280,7 @@ Scripts used to customize a cluster needs to be stored in one of the following l
 
 * A __publicly readable URI__. For example, a URL to data stored on OneDrive, Dropbox, or other file hosting service.
 
-* An __Azure Data Lake Store account__ that is associated with the HDInsight cluster. For more information on using Azure Data Lake Store with HDInsight, see [Create an HDInsight cluster with Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* An __Azure Data Lake Store account__ that is associated with the HDInsight cluster. For more information on using Azure Data Lake Store with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]
     > The service principal HDInsight uses to access Data Lake Store must have read access to the script.

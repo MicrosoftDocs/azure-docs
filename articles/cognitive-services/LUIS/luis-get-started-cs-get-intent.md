@@ -1,26 +1,27 @@
 ---
-title: Tutorial learning how to call a Language Understanding (LUIS) app using C# | Microsoft Docs
-description: In this tutorial, you learn to call a LUIS app using C#.
+title: Quickstart learning how to call a Language Understanding (LUIS) app using C# | Microsoft Docs
+description: In this quickstart, you learn to call a LUIS app using C#.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
+ms.topic: quickstart
+ms.date: 06/27/2018
 ms.author: v-geberr
 #Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using C#. 
 ---
 
-# Tutorial: Call a LUIS endpoint using C#
-
-Pass utterances to a LUIS endpoint and get intent and entities back.
+# Quickstart: Call a LUIS endpoint using C#
+In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
 
 <!-- green checkmark -->
+<!--
 > [!div class="checklist"]
 > * Create LUIS subscription and copy key value for later use
 > * View LUIS endpoint results from browser to public sample IoT app
 > * Create Visual Studio C# console app to make HTTPS call to LUIS endpoint
+-->
 
 <!-- link to free account -->
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.

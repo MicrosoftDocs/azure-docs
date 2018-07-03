@@ -5797,6 +5797,32 @@ s" alt="" />
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    Database Migration Tools
+                                                </h3>
+                                                <p>
+                                                    <a href="https://aka.ms/dma">Data Migration Assistant (DMA)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://aka.ms/ssma">SQL Server Migration Assistant (SSMA)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://aka.ms/dea-tool">Database Experimentation Assistant (DEA)</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li> <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="media/index/AzureDevSpaceController_50x.svg" alt="" />
                                                 </div>
                                             </div>
