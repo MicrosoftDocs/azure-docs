@@ -112,11 +112,27 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ## FAQ
 
-1. Can I use the VM where Configuration server is installed for different purposes? **No**, Configuration server must be a single purpose server and using it as a shared server is unsupported.
-2. Can I switch the vault already registered in the configuration server with a newly created vault? **No**, once a vault is registered with configuration server, it cannot be changed.
-3. Can I use the same configuration server for protecting both physical and virtual machines? **Yes**, same configuration server can be used for replicating physical and virtual machines. However, failback to a Physical machine isn't supported.
-4. Where will Configuration server be used? Refer to our Azure Site Recovery architecture [here](vmware-azure-architecture.md) to learn more about configuration server and its functionalities.
-5. Where can I find the latest version of Configuration server? You can directly download it from [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Refer to the article on steps to upgrade configuration server [here](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+1. Can I use the VM, where Configuration server is installed, for different purposes?
+
+    **No**, we recommend you to use the VM for sole purpose of configuration server. Ensure to follow all the specifications mentioned in the [previous section](vmware-azure-deploy-configuration-server.md#Prerequisites) for efficient management of disaster recovery.
+2. Can I switch the vault already registered in the configuration server with a newly created vault?
+
+    **No**, once a vault is registered with configuration server, it cannot be changed.
+3. Can I use the same configuration server for protecting both physical and virtual machines?
+
+    **Yes**, same configuration server can be used for replicating physical and virtual machines. However, physical machine can be failed back only to a VMware VM.
+4. What is the purpose of a Configuration server and where is it used?
+
+    Refer to our Azure Site Recovery architecture [here](vmware-azure-architecture.md) to learn more about configuration server and its functionalities.
+5. Where can I find the latest version of Configuration server?
+
+    Refer to the article on steps to upgrade the configuration server [through portal](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). You can also directly download it from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+6. Where can I download the passphrase for configuration server?
+
+    Refer to [this article](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) to download the passphrase.
+7. Where can I download vault registration keys?
+
+    In the **Recovery Services Vault**, **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**. In Servers, select **Download registration key** to download the vault credentials file.
 
 ## Upgrade the configuration server
 

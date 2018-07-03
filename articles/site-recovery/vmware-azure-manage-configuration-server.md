@@ -22,7 +22,7 @@ You can access the configuration server as follows:
    
 ### Modify VMware server settings
 
-1. To associate a different VMware server with the configuration server, after sign in, select **Add vCenter Server/vSphere ESXi server**.
+1. To associate a different VMware server with the configuration server, after sign-in, select **Add vCenter Server/vSphere ESXi server**.
 2. Enter the details, and then select **OK**.
 
 
@@ -91,21 +91,16 @@ Upgrade the server as follows:
 
 1. In the vault, go to **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
 2. If an update is available, a link appears in the **Agent Version** > column.
-
     ![Update](./media/vmware-azure-manage-configuration-server/update2.png)
-
-1. Download the update installer file to the configuration server.
+3. Download the update installer file to the configuration server.
 
     ![Update](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Double-click to run the installer.
-2. The installer detects the current version running on the machine. Click **Yes** to start the upgrade. 
-3. When the upgrade completes the server configuration validates.
-
-    ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
-
-4. Click **Finish** to close the installer.
-
+5. The installer detects the current version running on the machine. Click **Yes** to start the upgrade.
+6. When the upgrade completes the server configuration validates.
+    ![Update](./media/vmware-azure-manage-configuration-server/update3.png
+7. Click **Finish** to close the installer.
 
 ## Delete or unregister a configuration server
 
@@ -145,7 +140,12 @@ You can optionally delete the configuration server by using PowerShell.
 > [!NOTE]
 > You can use the **-Force** option in Remove-AzureRmSiteRecoveryFabric for forced deletion of the configuration server.
  
+## Generate configuration server Passphrase
 
+1. Sign in to your configuration server, and then open a command prompt window as an administrator.
+2. To change the directory to the bin folder, execute the command **cd %ProgramData%\ASR\home\svsystems\bin**
+3. To generate the passphrase file, execute **genpassphrase.exe -v > MobSvc.passphrase**.
+4. Your passphrase will be stored in the file located at **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
 ## Renew SSL certificates
 

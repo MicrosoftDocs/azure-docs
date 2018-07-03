@@ -19,8 +19,7 @@ This tutorial presumes that you've completed the first three tutorials:
     - In the [first tutorial](tutorial-prepare-azure.md), we set up the Azure components needed for VMware disaster recovery.
     - In the [second tutorial](vmware-azure-tutorial-prepare-on-premises.md) , we prepared on-premises components for disaster recovery, and reviewed prerequisites.
     - In the [third tutorial](vmware-azure-tutorial.md) we set up and enabled replication for our on-premises VMware VM.
-- Tutorials are designed to show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. 
-All of the tutorials set up Site Recovery with the simplest settings, using defaults where appropriate. If you want to learn about the test failover steps in more detail, read the [How To Guide](site-recovery-test-failover-to-azure.md).
+    - Tutorials are designed to show you the **simplest deployment path for a scenario**. They use default options where possible, and don't show all possible settings and paths. If you want to learn about the test failover steps in more detail, read the [How To Guide](site-recovery-test-failover-to-azure.md).
 
 In this tutorial, learn how to:
 
@@ -49,7 +48,7 @@ When you run a test failover, the following happens:
 
 1. A prerequisites check runs to make sure all of the conditions required for failover are in
    place.
-2. Failover processes the data, so that an Azure VM can be created. If select the latest recovery
+2. Failover processes the data, so that an Azure VM can be created. If you select the latest recovery
    point, a recovery point is created from the data.
 3. An Azure VM is created using the data processed in the previous step.
 
