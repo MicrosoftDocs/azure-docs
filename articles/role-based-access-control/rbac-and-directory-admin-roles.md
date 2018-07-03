@@ -1,6 +1,6 @@
 ---
-title: Understand the different roles in Azure | Microsoft Docs
-description: Explains the different roles in Azure - Classic subscription administrator roles, Azure role-based access control (RBAC) roles, and Azure Active Directory (Azure AD) administrator roles 
+title: Classic subscription administrator roles vs. Azure RBAC roles vs. Azure AD administrator roles | Microsoft Docs
+description: Describes the different roles in Azure - Classic subscription administrator roles, Azure role-based access control (RBAC) roles, and Azure Active Directory (Azure AD) administrator roles 
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,29 +12,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/29/2018
+ms.date: 07/02/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
 ---
 
-# Understand the different roles in Azure
+# Classic subscription administrator roles vs. Azure RBAC roles vs. Azure AD administrator roles
 
-If you are new to Azure, you may find it challenging to understand all the different roles in Azure. This article helps explain the following roles and when you would use each:
+If you are new to Azure, you may find it a little challenging to understand all the different roles in Azure. This article helps explain the following roles and when you would use each:
 - Classic subscription administrator roles
 - Azure role-based access control (RBAC) roles
 - Azure Active Directory (Azure AD) administrator roles
 
 ## How the roles are related
 
-To better understand roles in Azure, it helps to know some of the history. When Azure was initially released, access to resources was managed with just three administrator roles: Account Administrator, Service Administrator, and Co-Administrator. Later, role-based access control (RBAC) for Azure resources was added. Azure RBAC is a newer authorization system built on [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) that provides fine-grained access management to Azure resources. RBAC includes many built-in roles, can be assigned at different scopes, and allows you to create your own custom roles. To manage resources in Azure AD, such as users, groups, and domains, there are several Azure AD administrator roles.
+To better understand roles in Azure, it helps to know some of the history. When Azure was initially released, access to resources was managed with just three administrator roles: Account Administrator, Service Administrator, and Co-Administrator. Later, role-based access control (RBAC) for Azure resources was added. Azure RBAC is a newer authorization system that provides fine-grained access management to Azure resources. RBAC includes many built-in roles, can be assigned at different scopes, and allows you to create your own custom roles. To manage resources in Azure AD, such as users, groups, and domains, there are several Azure AD administrator roles.
 
 The following diagram is a high-level view of how the classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles are related.
 
 ![The different roles in Azure](./media/rbac-and-directory-admin-roles/rbac-admin-roles.png)
 
 
-## Classic subscription administrators
+## Classic subscription administrator roles
 
 Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure. Classic subscription administrators have full access to the Azure subscription. They can manage resources using the Azure portal, Azure Resource Manager APIs, and the classic deployment model APIs. The account that is used to sign up for Azure is automatically set as both the Account Administrator and Service Administrator. Then, additional Co-Administrators can be added. The Service Administrator and the Co-Administrators have the equivalent access of users who have been assigned the Owner role (an Azure RBAC role) at the subscription scope. The following table describes the differences between these three classic subscription administrative roles.
 
@@ -59,7 +59,7 @@ Azure subscriptions help you organize access to Azure resources. They also help 
 Accounts and subscriptions are managed in the [Azure Account Center](https://account.azure.com/Subscriptions).
 ## Azure RBAC roles
 
-Azure RBAC is a system that provides fine-grained access management to Azure resources, such as compute and storage. Azure RBAC includes over 60 built-in roles. There are four fundamental RBAC roles. The first three apply to all resource types:
+Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) that provides fine-grained access management to Azure resources, such as compute and storage. Azure RBAC includes over 60 built-in roles. There are four fundamental RBAC roles. The first three apply to all resource types:
 
 | Azure RBAC role | Permissions | Notes |
 | --- | --- | --- |
@@ -72,7 +72,7 @@ The rest of the built-in roles allow management of specific Azure resources. For
 
 Only the Azure portal and the Azure Resource Manager APIs support RBAC. Users, groups, and applications that are assigned RBAC roles cannot use the [Azure classic deployment model APIs](../azure-resource-manager/resource-manager-deployment-model.md).
 
-In the Azure portal, role assignments using RBAC appear in the **Access control (IAM)** blade. This blade can found throughout the portal, such as subscriptions, resource groups, and various resources.
+In the Azure portal, role assignments using RBAC appear on the **Access control (IAM)** blade. This blade can found throughout the portal, such as subscriptions, resource groups, and various resources.
 
 ![Access control (IAM) blade in the Azure portal](./media/rbac-and-directory-admin-roles/access-control.png)
 
@@ -88,12 +88,11 @@ Azure AD administrator roles are used to manage Azure AD resources in a director
 | --- | --- | --- |
 | [Global Administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#company-administrator) | <ul><li>Manage access to all administrative features in Azure Active Directory, as well as services that federate to Azure Active Directory</li><li>Assign administrator roles to others</li><li>Reset the password for any user and all other administrators</li></ul> | The person who signs up for the Azure Active Directory tenant becomes a Global Administrator. |
 | [User Administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#user-account-administrator) | <ul><li>Create and manage all aspects of users and groups</li><li>Manage support tickets</li><li>Monitor service health</li><li>Change passwords for users, Helpdesk administrators, and other User Administrators</li></ul> |  |
-| [Helpdesk Administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#helpdesk-administrator) | <ul><li>Change passwords for users and other Helpdesk administrators</li><li>Manage service requests</li><li>Monitor service health</li></ul> |  |
 | [Billing Administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#billing-administrator) | <ul><li>Make purchases</li><li>Manage subscriptions</li><li>Manage support tickets</li><li>Monitors service health</li></ul> |  |
 
 For a list of all the Azure AD administrator roles, see [Assigning administrator roles in Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
-In the Azure portal, you can assign the Azure AD administrator roles in the **Azure Active Directory** blade.
+In the Azure portal, you can see the list of Azure AD administrator roles on the **Roles and administrators** blade.
 
 ![Azure AD administrator roles in the Azure portal](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
