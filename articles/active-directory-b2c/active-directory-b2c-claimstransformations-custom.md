@@ -198,25 +198,26 @@ As the name dictates, this provider does nothing. This provider can be used for 
 ---
 ### FormatStringClaim
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
+The FormatStringClaim transformation formats a claim defined in the policy schema by using a format string defined as an input parameter.  The format string is applied using the .NET System.String Format method. The formatted claim is returned as the transformation’s output claim.
 
 | Variable | Paramater | Description 
 | - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
+| **Input Claims** | inputClaim (String) | The claim whose value is to be formatted |
+| **Input Paramaters** | formatString (string) |A string in which ‘{0}’ will be replaced by the value of the claim being formatted| 
+| **Output Claims** | outputClaim (string) | The formatted claim | 
 
-
+The example below defines a ClaimsTransformation of the ‘FormatStringClaim’ type called ‘CreateUserPrincipalName’. A claim called ‘userId’ in the policy Schema is formatted using a format string in which {0} will be replaced the claim being formatted .  The result will be returned in the ‘userPrincipalName’ claim from the policy schema.
 
 ```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
+<ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="userId" TransformationClaimType="inputClaim" />
   </InputClaims>
+  <InputParameters>
+    <InputParameter Id="formatString" DataType="string" Value="cpim_{0}@mydomain.com.au" />
+  </InputParameters>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
+    <OutputClaim ClaimTypeReferenceId="userPrincipalName" TransformationClaimType="outputClaim" />
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -248,27 +249,74 @@ As the name dictates, this provider does nothing. This provider can be used for 
 ```
 
 ---
-### CreateAlternativeSecurityId
+### FormatStringMultipleClaims
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
+A FormatStringMultipleClaims transformation formats two claims defined in the policy schema by using a format string defined as an input parameter. The format string is applied using the .NET System.String Format method. The formatted result is returned as the transformation’s output claim.
 
 | Variable | Paramater | Description 
 | - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
+| **Input Claims** | inputClaim1 (String) | The first claim whose value is to be formatted |
+| | inputClaim2 (string) | The second claim whose value is to be formatted |
+| **Input Paramaters** | formatString (string) | A string in which ‘{0}’ will be replaced by the value of ‘inputClaim1’, and ‘{1}’ will be replaced by the value of ‘inputClaim2’ | 
+| **Output Claims** | outputClaim (string) | The formatted claim | 
 
-
+The example below defines a ClaimsTransformation of the ‘FormatStringMultipleClaims’ type called ‘CreateDisplayName’. A policy schema’s  ‘givenName’ and ‘surname’ claims are formatted using a format string in which ‘{0}’ will be replaced by ‘givenName’ and ‘{1}’ will be replaced by ‘surname’ . The result will be returned in the ‘displayName’ claim from the policy schema.
 
 ```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
+<ClaimsTransformation Id="CreateDisplayName" TransformationMethod="FormatStringMultipleClaims">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="inputClaim1" />
+    <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="inputClaim2" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="formatString" DataType="string" Value="{0} {1}" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="displayName" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+---
+### CreateAlternativeSecurityId
+
+A CreateAlternativeSecurityId transformation is used to create an ‘AlternativeSecurityId’ – a two-part identifier widely used in AAD and consisting of:
+the name of an identity provider; and
+a unique naming claim identifying objects within that identity provider’s namespace.
+An example would be Microsoft Account (MSA) as an identity provider and ‘john@hotmail.com’ as a unique name (called a ‘key’) inside the MSA’s namespace.  Although its actual encoding would be different, one can think of it as being:
+```
+{
+"identityProvider" : "MSA",
+"key" : "john@hotmail.com"
+"type" : 6
+}
+```
+This construct is important because John might, for example, use his email address at Hotmail or Google as his account name at facebook…  The AlternativeSecurityIds would then distinguish the various accounts, since in the facebook case the AlternativeSecurityId can be thought of as:
+```
+{
+"identityProvider" : "facebook",
+"key" : "john@hotmail.com"
+"type" : 6
+}
+```
+
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | key (String) | The unique account name within the identity provider’s namespace |
+| | identityProvider (string) | The identity provider asserting an account name |
+| **Input Paramaters** | N/A | | 
+| **Output Claims** | collection (string) | The encoded alternativeSecurityId | 
+
+The example below defines a ClaimsTransformation of the ‘CreateAlternativeSecurityId’ type called ‘CreateALternativeSecurityId’ . The policy schema’s ‘userId’ and ‘identityProvider’ claims are transformed into an encoded AlternativeSecurityId which is returned as alternativeSecurityId claim.
+
+```XML
+<ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="userId" TransformationClaimType="key" />
+    <InputClaim ClaimTypeReferenceId="identityProvider" TransformationClaimType="identityProvider" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
+    <OutputClaim ClaimTypeReferenceId="alternativeSecurityId" TransformationClaimType="alternativeSecurityId" />
   </OutputClaims>
 </ClaimsTransformation>
 ```
