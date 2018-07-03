@@ -26,6 +26,9 @@ At a glance, you can continue to use the following assets:
 
 Also see the article "[What happened to Workbench?](overview-what-happened-to-workbench.md)"
 
+>[!Warning]
+>You cannot migrate assets from Azure Machine Learning **Studio** to Azure Machine Learning **Services**.
+
 ## Azure resources
 
 Resources such as your experimentation account and model management account, and machine learning compute environments cannot be carried over to the latest version of Azure Machine Learning Services. 
@@ -42,7 +45,7 @@ To migrate your projects, attach the local directory containing your scripts to 
 
 Attach your existing local project directory to the workspace using one of these methods.
 + Using [the CLI](reference-azure-machine-learning-cli.md):
-  ```CLI
+  ```azurecli
   az ml project attach -w <my_workspace_name> -p <proj_dir_path> --history <run_history_name>
   ```
 
@@ -61,16 +64,14 @@ Follow the complete [CLI quickstart](quickstart-get-started-with-cli.md) and [Po
 
 ## Deployed web services
 
-When [support for the previous CLI ends](overview-what-happened-to-workbench.md#timeline), you won't be able to manage the web services you deployed with your Model Management account. However, those web services will continue to work for as long as Azure Container Service (ACS) is still supported.
-
-In the newer version of Azure Machine Learning Services, models are deployed as web services to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS) clusters. 
-
-To migrate your web services, redeploy your models using the new SDK or CLI to the new targets, ACI, or AKS. There is no need to change your original scoring file, model file dependencies files, environment file, and schema files. 
+To migrate your web services, you must redeploy your models using the new SDK or CLI to the new deployment targets. In the latest version, models are deployed as web services to [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) or [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS) clusters. There is no need to change your original scoring file, model file dependencies files, environment file, and schema files. 
 
 Learn more in these articles:
-+ [How to deploy to ACI](how-to-deploy-to-aci.md)
-+ [How to deploy to AKS](how-to-deploy-to-aks.md)
++ [Deploy to ACI](how-to-deploy-to-aci.md)
++ [Deploy to AKS](how-to-deploy-to-aks.md)
 + [Tutorial: build, train, and deploy models with Azure Machine Learning Serivces](tutorial-build-train-deploy-with-azure-machine-learning.md)
+
+When [support for the previous CLI ends](overview-what-happened-to-workbench.md#timeline), you won't be able to manage the web services you originally deployed with your Model Management account. However, those web services will continue to work for as long as Azure Container Service (ACS) is still supported.
 
 ## Run history records
 
@@ -78,7 +79,7 @@ While you can't continue adding to your existing run histories under the old wor
 
 To export the run history with previous CLI:
 
-```CLI
+```azurecli
 #list all runs
 az ml history list
 
@@ -89,10 +90,8 @@ az ml history info
 az ml history download
 ```
 
-## Data Prep files
-TBD ...
-
-
+## Data preparation files
+TBD .. @@@
 
 ## Next steps
 
