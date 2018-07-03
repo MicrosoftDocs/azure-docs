@@ -28,6 +28,7 @@ In this document, we show how you can set up CI/CD pipeline for U-SQL jobs and U
 #### Project migration
 
 Before setting up build task for U-SQL project, make sure you are using the latest version of U-SQL project. Open the U-SQL project file in editor and check if you have below import items:
+    
     <!-- check for SDK Build target in current path then in USQLSDKPath-->
     <Import Project="UsqlSDKBuild.targets" Condition="Exists('UsqlSDKBuild.targets')" />
     <Import Project="$(USQLSDKPath)\UsqlSDKBuild.targets" Condition="!Exists('UsqlSDKBuild.targets') And '$(USQLSDKPath)' != '' And Exists('$(USQLSDKPath)\UsqlSDKBuild.targets')" />
