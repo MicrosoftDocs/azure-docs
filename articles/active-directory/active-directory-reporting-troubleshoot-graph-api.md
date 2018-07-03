@@ -1,6 +1,6 @@
 ---
 
-title: 'Troubleshooting Graph API errors | Microsoft Docs'
+title: 'Troubleshoot errors in Azure Active Directory reporting API | Microsoft Docs'
 description: Provides you with a resolution to errors while calling Azure Active Directory Reporting APIs.
 services: active-directory
 documentationcenter: ''
@@ -18,9 +18,10 @@ ms.component: compliance-reports
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
+
 ---
 
-# Troubleshooting Graph API errors
+# Troubleshoot errors in Azure Active Directory reporting API
 
 This article lists the common error messages you may run into while accessing activity reports using the MS Graph API and steps for their resolution.
 

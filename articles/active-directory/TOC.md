@@ -127,11 +127,13 @@
 #### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
-
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Azure Active Directory Activity logs content pack errors](active-directory-reporting-troubleshoot-content-pack.md)
+#### [Errors in Azure Active Directory Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
+
+
 ###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Audit samples](active-directory-reporting-api-audit-samples.md)
