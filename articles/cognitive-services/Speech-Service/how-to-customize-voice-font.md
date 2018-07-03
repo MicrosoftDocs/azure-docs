@@ -23,17 +23,7 @@ Voice customization is available for US English (en-US) and mainland Chinese (zh
 
 The Text to Speech voice customization feature is currently in private preview. [Fill out the application form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) to be considered for access.
 
-You also need:
-
-* An Azure account ([sign up for free](https://azure.microsoft.com/free/ai/) if you don't yet have one).
-
-* A subscription to the Speech service. [Create one](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) if you haven't already.
-
-    ![Create panel](media/custom-voice/create-panel.png)
-
-After creating your subscription, you can find two subscription keys on the Quickstart panel or the Overview panel of the new subscription. You may use either key.
-
-Finally, connect your subscription to the Custom Voice portal as follows.
+You also need an Azure account and a subscription to the Speech service. [Create one] (https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) if you haven't already. Connect your subscription to the Custom Voice portal as follows.
 
 1. Log on to the [Custom Voice portal](https://customvoice.ai) using the same Microsoft account you used to apply for access.
 
@@ -45,7 +35,7 @@ Finally, connect your subscription to the Custom Voice portal as follows.
 
      ![Connect existing subscription](media/custom-voice/connect-existing-sub.png)
 
-4. Paste your subscription key into the table, as shown below.
+4. Paste your subscription key into the table, as shown below. Each subscription has two keys and you may use either of them.
 
      ![Add Subscription](media/custom-voice/add-subscription.png)
 
