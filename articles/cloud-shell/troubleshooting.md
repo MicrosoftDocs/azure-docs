@@ -130,6 +130,8 @@ Azure Cloud Shell takes your personal data seriously, the data captured and stor
 ### Export
 In order to **export** the user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands.
 
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+
 1. Launch Bash in Cloud Shell
 2. Run the following commands:
 ```
