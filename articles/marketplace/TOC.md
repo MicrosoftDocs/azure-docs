@@ -5,7 +5,6 @@
 ### Storefronts  
 #### [Comparing AppSource and Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
 #### [Grow your business with AppSource](./grow-your-business-with-appsource.md) 
-#### [Preferred Solutions](./preferred-solutions.md)
 ##### [Build Your Landing Page](./build-your-landing-page.md)  
 ##### [Enable lead sharing](./enable-lead-sharing.md)  
 ##### [GTM Benefits on the marketplace](./gtm-benefits.md)  
@@ -19,7 +18,8 @@
 ### How to Publish in the storefronts on the marketplace  
 #### [Determine the Listing Type for Your Solution](./determine-your-listing-type.md)  
 #### [Become a Publisher in the storefronts on the marketplace](./become-publisher.md)  
-#### [Requirements by Listing Type](./listing-type-requirements.md)  
+#### [Requirements by Listing Type](./listing-type-requirements.md) 
+#### [Preferred Solutions](./preferred-solutions.md) 
 
 ### Publishing Checklists  
 #### [Publishing Checklist for AppSource](./publishing-checklist-appsource.md)  
