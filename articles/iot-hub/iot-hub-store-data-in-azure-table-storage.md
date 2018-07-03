@@ -123,8 +123,8 @@ In this tutorial, you added a storage account, and then added routing for messag
 
 2. Click **Resource groups** and select the resource group you used. The list of resources in the group is displayed. 
 
-> [!NOTE]
-> If you want to remove all of the resources in the resource group, click **Delete** to delete the resource group, then follow the directions. This will remove everything in that resource group, so you're finished cleaning up the resources and can skip to the next section.
+   > [!NOTE]
+   > If you want to remove all of the resources in the resource group, click **Delete** to delete the resource group, then follow the directions. This will remove everything in that resource group, so you're finished cleaning up the resources and can skip to the next section.
 
 3. Click on the IoT hub you used for this tutorial. 
 
