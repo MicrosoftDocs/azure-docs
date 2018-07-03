@@ -174,11 +174,11 @@ For more information about high availability, see [Regions and availability for 
 
 **A:** There are several use cases where you will see your VM scheduled for maintenance after you have already completed your maintenance-redeploy:
 1.	We have canceled the maintenance wave and restarted it with a different payload. It could be that we've detected faulted payload and we simply need to deploy an additional payload.
-2.	Your VM was *service healed* to another node due to a hardware fault
-3.	You have selected to stop (deallocate) and restart the VM
-4.	You have **auto shutdown** turned on for the VM
+2.	Your VM was *service healed* to another node due to a hardware fault.
+3.	You have selected to stop (deallocate) and restart the VM.
+4.	You have **auto shutdown** turned on for the VM.
 
 
-## Next Steps
+## Next steps
 
 Learn how you can register for maintenance events from within the VM using [Scheduled Events](scheduled-events.md).
