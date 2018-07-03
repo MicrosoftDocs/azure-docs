@@ -12,30 +12,24 @@ ms.date: 07/27/2018
 
 # How to migrate to the latest version of Azure Machine Learning Services 
 
-**If you have installed the Workbench application and/or have experimentation and model management accounts, use this article to migrate to the latest version.**  If you don't have Workbench installed or an experimentation account, you don't need to migrate to use Azure Machine Learning Services.
+**If you have installed the Workbench application and/or have experimentation and model management accounts, use this article to migrate to the latest version.**  If you don't have Workbench installed or an experimentation account, you don't need to migrate anything.
 
 Most of the artifacts created in the earlier version of Azure Machine Learning Services are stored in your own local or cloud storage. So the migration path largely involves re-registering them with the new Azure Machine Learning offering. 
 
-You can continue to use the previous version and the following assets for some time ([see transition support timeline](overview-what-happened-to-workbench.md#timeline)):
-+ Your Azure subscription and resource group
-+ Your scoring files
-+ Your model file dependencies, environment, and schema files
-+ Deployed web services
+The following table and article explains what you can do with your existing assets and resources before or after moving over to the latest version of Azure Machine Learning Services. You can continue to use the previous version and your assets for some time ([see transition support timeline](overview-what-happened-to-workbench.md#timeline)).
 
-The following table and article explains what you can do with your existing assets and resources before or after moving over to the latest version of Azure Machine Learning Services.
-
-|Previous asset or resource|Can I migrate?|How?|
+|Previous asset or resource|Can I migrate?|What to do?|
 |-----------------|:-------------:|-------------|
-|Model management account|No|Create a workspace instead.|
-|Experimentation account|No|Create a workspace  instead.|
-|Machine learning CLI|No|Use the new one for new work.|
-|Machine learning SDK|No|Use the new one for new work.|
-|Projects|Yes|Attach the local folder to new workspace.|
 |Models|Yes|None. Works as before.|
 |Model dependencies <br/> and schemas|Yes|None. Works as before.|
+|Projects|Yes|Attach the local folder to new workspace.|
 |Run histories|No|Downloadable for a while.|
+|Machine learning CLI|No|Use the new one for new work.|
+|Machine learning SDK|No|Use the new one for new work.|
 |Compute targets|No|Register them again in new workspace.|
-|Web services|No|None. They continue to work as-is or redeploy models using latest version.|
+|Web services|No|None. They continue to work as-is <br/>or redeploy models using latest version.|
+|Model management account|No|Create a workspace instead.|
+|Experimentation account|No|Create a workspace  instead.|
 
 Learn more about the changes to Azure Machine Learning Services in the article "[What happened to Workbench](overview-what-happened-to-workbench.md)"?
 
