@@ -20332,11 +20332,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/hdinsight/hdinsight-release-notes-archive.md",
-            "redirect_url": "/azure/hdinsight/hdinsight-release-notes",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/hdinsight/apache-kafka-log-analytics-operations-management.md",
             "redirect_url": "/azure/hdinsight/kafka/apache-kafka-log-analytics-operations-management",
             "redirect_document_id": true
@@ -24968,7 +24963,7 @@
         },
         {
             "source_path": "articles/iot-suite/securing-iot-ground-up.md",
-            "redirect_url": "/azure/iot-accelerators/securing-iot-ground-up",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
             "redirect_document_id": false
         },
         {
@@ -25804,6 +25799,11 @@
         {
             "source_path": "articles/cognitive-services/LUIS/Pre-builtEntities.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-prebuilt-entities",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/Plan-your-app.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-plan-your-app",
             "redirect_document_id": true
         }
     ]

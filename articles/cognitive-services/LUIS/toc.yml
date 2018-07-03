@@ -138,7 +138,7 @@
 - name: How-to guides
   items: 
   - name: Plan your app
-    href: Plan-your-app.md
+    href: luis-how-plan-your-app.md
   - name: Start a new app
     href: Create-new-app.md
   - name: Build Model
@@ -311,6 +311,8 @@
     href: https://azure.microsoft.com/services/cognitive-services/spell-check/
   - name: Text Analytics 
     href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
+  - name: Recognizers-Text
+    href: https://github.com/Microsoft/Recognizers-Text
 - name: Resources
   items: 
   - name: Azure Roadmap
