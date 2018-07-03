@@ -84,6 +84,4 @@ Patterns.any is a variable-length placeholder used only in a [pattern's](luis-co
 
 
 ## Next steps
-* See [Create your first Language Understanding Intelligent Services (LUIS) app][luis-get-started-create-app] for a quick walkthrough of how to create a LUIS app.
-
-[luis-get-started-create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app
+* See [Create your first Language Understanding Intelligent Services (LUIS) app](luis-get-started-create-app.md) for a quick walkthrough of how to create a LUIS app.

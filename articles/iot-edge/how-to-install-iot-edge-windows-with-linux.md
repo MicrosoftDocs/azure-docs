@@ -157,6 +157,12 @@ In the PowerShell window, create an environment variable **IOTEDGE_HOST** with t
 [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
 ```
 
+Persist the environment variable across reboots.
+
+```powershell
+SETX /M IOTEDGE_HOST "http://<GATEWAY_ADDRESS>:15580"
+```
+
 Finally, ensure the **network:** setting under **moby_runtime:** is uncommented and set to **azure-iot-edge**
 
 ```yaml
