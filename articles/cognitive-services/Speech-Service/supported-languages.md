@@ -20,13 +20,18 @@ Different languages are supported for different Speech services functions. The t
 
 The Microsoft speech recognition API supports the following languages. 
 
-| Code | Language | Code | Language |
-|-----|-----|-----|-----|
-| ar-EG | Arabic (Egypt), modern standard | It-IT | Italian (Italy) |
-| de-DE | German (Germany) | ja-JP | Japanese (Japan) |
-| en-US | English (United States) | pt-BR | Portuguese (Brazil) |
-| es-ES | Spanish (Spain) | ru-RU | Russian (Russia) |
-| fr-FR | French (France) | zh-CN | Chinese (Mandarin, simplified) |
+  Code | Language | Acoustic Adaptation | Language Adaptation | Pronunciation Adaptation
+ ------|----------|---------------------|---------------------|-------------------------
+ ar-EG | Arabic (Egypt), modern standard | No | Yes | No
+ It-IT | Italian (Italy) | No | Yes | No 
+ de-DE | German (Germany) | No | Yes | Yes
+ ja-JP | Japanese (Japan) | No | Yes | No
+ en-US | English (United States) | Yes | Yes | Yes
+ pt-BR | Portuguese (Brazil) | No | Yes | No
+ es-ES | Spanish (Spain) | No | Yes | No
+ ru-RU | Russian (Russia) | No | Yes | No
+ fr-FR | French (France) | No | Yes | No
+ zh-CN | Chinese (Mandarin, simplified) | No | Yes | No
 
 ## Text to Speech
 
