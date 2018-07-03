@@ -39,7 +39,7 @@ Before you upgrade a cluster, use the [az aks get-upgrades][] command to check w
 az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-In the following example, the current node version is *1.9.6*, and the available versions are shown under the *Upgrades* column.
+In the following example, the current version is *1.9.6*, and the available versions are shown under the *Upgrades* column.
 
 ```
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
@@ -49,7 +49,7 @@ default  myResourceGroup  1.9.6            1.9.6              1.10.3
 
 ## Upgrade a cluster
 
-Use the [az aks upgrade][] command to upgrade the cluster nodes. The following example upgrades the cluster to version *1.10.3*.
+Use the [az aks upgrade][] command to upgrade the AKS cluster. The following example upgrades the cluster to Kubernetes version *1.10.3*.
 
 ```azurecli
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.10.3
@@ -82,7 +82,7 @@ The following condensed example output shows the *kubernetesVersion* now reports
 
 ## Validate an upgrade
 
-Confirm that the upgrade was successful with the [az aks show][] command.
+Confirm that the upgrade was successful using the [az aks show][] command as follows:
 
 ```azurecli
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table
@@ -119,3 +119,4 @@ Follow this link to learn more about AKS.
 [az aks show]: /cli/azure/aks#az-aks-show
 [az aks get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az aks upgrade]: /cli/azure/aks#az-aks-upgrade
+[azure-cli-install]: /cli/azure/install-azure-cli

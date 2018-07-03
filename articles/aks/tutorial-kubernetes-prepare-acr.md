@@ -66,7 +66,7 @@ To see a list of your current local images, use the [docker images][docker-image
 docker images
 ```
 
-The following example output shows the container images created in the previous tutorial.
+The following example output shows the container images created in the previous tutorial:
 
 ```
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -98,11 +98,11 @@ docker images
 The following example output now shows an image tagged with the ACR instance address and a version number:
 
 ```
-REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-front                                     latest              eaf2b9c57e5e        8 minutes ago       716 MB
-mycontainerregistry.azurecr.io/azure-vote-front      v1                  eaf2b9c57e5e        8 minutes ago       716 MB
-redis                                                latest              a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask                           flask               788ca94b2313        8 months ago        694 MB
+REPOSITORY                                           TAG           IMAGE ID            CREATED             SIZE
+azure-vote-front                                     latest        eaf2b9c57e5e        8 minutes ago       716 MB
+mycontainerregistry.azurecr.io/azure-vote-front      v1            eaf2b9c57e5e        8 minutes ago       716 MB
+redis                                                latest        a1b99da73d05        7 days ago          106MB
+tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313        8 months ago        694 MB
 ```
 
 ## Push images to registry
@@ -117,13 +117,13 @@ It may take a few minutes to complete the image push to ACR.
 
 ## List images in registry
 
-To return a list of images that have been pushed to your ACR instance, user the [az acr repository list][az-acr-repository-list] command. Provide your own `<acrName>` as follows:
+To return a list of images that have been pushed to your ACR instance, use the [az acr repository list][az-acr-repository-list] command. Provide your own `<acrName>` as follows:
 
 ```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
-The following example output list the *azure-vote-front* image as available in the registry:
+The following example output lists the *azure-vote-front* image as available in the registry:
 
 ```
 Result

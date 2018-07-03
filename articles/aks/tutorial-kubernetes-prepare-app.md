@@ -41,7 +41,7 @@ Azure Cloud Shell does not include the Docker components required to complete ev
 
 The sample application used in this tutorial is a basic voting app. The application consists of a front-end web component and a back-end Redis instance. The web component is packaged into a custom container image. The Redis instance uses an unmodified image from Docker Hub.
 
-Use [git][] to download a copy of the sample application to your development environment:
+Use [git][] to clone the sample application to your development environment:
 
 ```console
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
@@ -71,7 +71,7 @@ When completed, use the [docker images][docker-images] command to see the create
 docker images
 ```
 
-Three images have been downloaded or created. The `azure-vote-front` image contains the application and uses the `nginx-flask` image as a base. The `redis` image is used to start a Redis instance.
+Three images have been downloaded or created. The `azure-vote-front` image contains the front-end application and uses the `nginx-flask` image as a base. The `redis` image is used to start a Redis instance.
 
 ```
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -104,7 +104,7 @@ To see the running application, enter http://localhost:8080 in a local web brows
 
 Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images - in the next tutorial, the `azure-vote-front` image is uploaded to an Azure Container Registry instance
 
-Stop and remove the container instances and resources with the [docker-compose down][docker-compose-down] command.
+Stop and remove the container instances and resources with the [docker-compose down][docker-compose-down] command:
 
 ```console
 docker-compose down

@@ -30,13 +30,13 @@ In this tutorial, part six of seven, the sample Azure Vote app is updated. You l
 
 In previous tutorials, an application was packaged into a container image, the image uploaded to Azure Container Registry (ACR), and a Kubernetes cluster created. The application was then run on the Kubernetes cluster.
 
-An application repository was also cloned which includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo, and that you have changed directories into the cloned directory. If you haven't completed these steps, and want to follow along, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
+An application repository was also cloned that includes the application source code, and a pre-created Docker Compose file used in this tutorial. Verify that you have created a clone of the repo, and that you have changed directories into the cloned directory. If you haven't completed these steps, and want to follow along, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
 This tutorial requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Update an application
 
-Let's make a change to the sample application, then update the application already deployed to the Kubernetes cluster. The sample application source code can be found inside of the *azure-vote* directory. Open the *config_file.cfg* file with an editor, such as *vi*:
+Let's make a change to the sample application, then update the version already deployed to your AKS cluster. The sample application source code can be found inside of the *azure-vote* directory. Open the *config_file.cfg* file with an editor, such as *vi*:
 
 ```console
 vi azure-vote/azure-vote/config_file.cfg
@@ -68,6 +68,8 @@ To verify that the updated container image shows your changes, open a local web 
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
+The updated color values provided in the *config_file.cfg* file are displayed on your running application.
+
 ## Tag and push the image
 
 To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list](/cli/azure/acr#az_acr_list) command as follows:
@@ -76,7 +78,7 @@ To correctly use the updated image, tag the *azure-vote-front* image with the lo
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Use [docker tag][docker-tag] to tag the image. Replace `<acrLoginServer>` with your ACR login server name or public registry hostname, and update the image version to *v2*:
+Use [docker tag][docker-tag] to tag the image. Replace `<acrLoginServer>` with your ACR login server name or public registry hostname, and update the image version to *:v2*:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
@@ -90,7 +92,7 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 ## Deploy the updated application
 
-To ensure maximum uptime, multiple instances of the application pod must be running. Verify the number of running frontend instances with the [kubectl get pod][kubectl-get] command:
+To ensure maximum uptime, multiple instances of the application pod must be running. Verify the number of running front-end instances with the [kubectl get pod][kubectl-get] command:
 
 ```console
 kubectl get pod
@@ -106,7 +108,7 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-If you do not have multiple frontend pods, scale the *azure-vote-front* deployment as follows:
+If you do not have multiple front-end pods, scale the *azure-vote-front* deployment as follows:
 
 ```console
 kubectl scale --replicas=3 deployment/azure-vote-front
@@ -156,7 +158,7 @@ In this tutorial, you updated an application and rolled out this update to a Kub
 > * Push the container image to Azure Container Registry
 > * Deploy the updated container image
 
-Advance to the next tutorial to learn how to upgrade Kubernetes to a new version.
+Advance to the next tutorial to learn how to upgrade an AKS cluster to a new version of Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Upgrade Kubernetes][aks-tutorial-upgrade]
@@ -171,4 +173,5 @@ Advance to the next tutorial to learn how to upgrade Kubernetes to a new version
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
-[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[azure-cli-install]: /cli/azure/install-azure-cli

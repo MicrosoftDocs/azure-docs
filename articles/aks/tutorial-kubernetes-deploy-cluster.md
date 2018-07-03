@@ -74,7 +74,7 @@ az role assignment create --assignee <appId> --role Reader --scope <acrId>
 
 ## Create a Kubernetes cluster
 
-Now create an AKS cluster using [az aks create][]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr]. Provide your own `<appId>` and `<password>` from the previous step where you created the service principal.
+Now create an AKS cluster using [az aks create][]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr]. Provide your own `<appId>` and `<password>` from the previous step where the service principal was created.
 
 ```azurecli
 az aks create \
@@ -90,7 +90,7 @@ After several minutes, the deployment completes, and returns JSON-formatted info
 
 ## Install the Kubernetes CLI
 
-To connect to the Kubernetes cluster from your client computer, you use [kubectl][kubectl], the Kubernetes command-line client.
+To connect to the Kubernetes cluster from your local computer, you use [kubectl][kubectl], the Kubernetes command-line client.
 
 If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [az aks install-cli][] command:
 
@@ -148,3 +148,4 @@ Advance to the next tutorial to learn how to deploy an application to the cluste
 [az aks create]: /cli/azure/aks#az-aks-create
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[azure-cli-install]: /cli/azure/install-azure-cli

@@ -16,7 +16,7 @@ ms.custom: mvc
 
 # Tutorial: Run applications in Azure Kubernetes Service (AKS)
 
-In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. You learn how to:
+Kubernetes provides a distributed platform for containerized applications. You build and deploy your own applications and services into a Kubernetes cluster, and let the cluster manage the availability and connectivity. In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. You learn how to:
 
 > [!div class="checklist"]
 > * Update a Kubernetes manifest files
@@ -35,23 +35,23 @@ To complete this tutorial, you need the pre-created `azure-vote-all-in-one-redis
 
 This tutorial requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Update manifest file
+## Update the manifest file
 
-An Azure Container Registry (ACR) instance stores the container image for the sample application. Before you can deploy the application, you must update the image name in the Kubernetes manifest file to include the ACR login server name.
+In these tutorials, an Azure Container Registry (ACR) instance stores the container image for the sample application. To deploy the application, you must update the image name in the Kubernetes manifest file to include the ACR login server name.
 
-Get the ACR login server name with the [az acr list][az-acr-list] command as follows:
+Get the ACR login server name using the [az acr list][az-acr-list] command as follows:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-The sample manifest file clone in the first tutorial uses the login server name of `microsoft`. Open the file with a text editor, such as *vi*:
+The sample manifest file from the git repo cloned in the first tutorial uses the login server name of `microsoft`. Open this manifest file with a text editor, such as *vi*:
 
 ```console
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Replace `microsoft` with your ACR login server name. This value is found on line **47** of the manifest file. The following example shows the default image name:
+Replace `microsoft` with your ACR login server name. The image name is found on line **47** of the manifest file. The following example shows the default image name:
 
 ```yaml
 containers:
@@ -69,15 +69,15 @@ containers:
 
 Save and close the file.
 
-## Deploy application
+## Deploy the application
 
-To deploy your application, use the [kubectl apply][kubectl-apply] command. This command parses the manifest file and creates the defined Kubernetes objects.
+To deploy your application, use the [kubectl apply][kubectl-apply] command. This command parses the manifest file and creates the defined Kubernetes objects:
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-The following example output shows the *azure-vote-back* and *azure-vote-front* services are deployed:
+The following example output shows that the *azure-vote-back* and *azure-vote-front* services are deployed into your AKS cluster:
 
 ```
 deployment "azure-vote-back" created
@@ -86,11 +86,9 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## Test application
+## Test the application
 
-A [Kubernetes service][kubernetes-service] is created which exposes the application to the internet. This process can take a few minutes.
-
-To monitor progress, use the [kubectl get service][kubectl-get] command with the `--watch` argument:
+A [Kubernetes service][kubernetes-service] is created which exposes the application to the internet. This process can take a few minutes. To monitor progress, use the [kubectl get service][kubectl-get] command with the `--watch` argument:
 
 ```console
 kubectl get service azure-vote-front --watch
@@ -108,7 +106,7 @@ When the *EXTERNAL-IP* address changes from *pending* to an actual public IP add
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 
-To see the application, open a web browser to the external IP address.
+To see the application in action, open a web browser to the external IP address.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
@@ -139,3 +137,4 @@ Advance to the next tutorial to learn how to scale a Kubernetes application and 
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
 [az-acr-list]: /cli/azure/acr#list
+[azure-cli-install]: /cli/azure/install-azure-cli
