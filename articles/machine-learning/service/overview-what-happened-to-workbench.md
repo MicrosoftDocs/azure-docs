@@ -41,13 +41,13 @@ Support for these resources will be incrementally deprecated over the next 6 - 8
 
 1. Support for the remaining APIs and the desktop Workbench will end last. End of support is expected this Winter. 
 
-[Start migrating](how-to-migrate-to-ga.md) today. All features and capabilities (except Data Preparation) are available in the latest version through the new SDK, CLI, and portal.
+[Start migrating](how-to-migrate.md) today. All features and capabilities (except Data Preparation) are available in the latest version through the new SDK, CLI, and portal.
 
 For now, you can still find the documentation for the desktop Workbench and old CLI and SDKs at the bottom of this [table of contents](../desktop-workbench/tutorial-classifying-iris-part-1.md).
 
 ## How do I migrate?
 
-Generally speaking, most of the artifacts created in the pre-GA version of Azure Machine Learning Services are stored in your own local or cloud storage. So the migration path largely involves re-registering them with the new Azure Machine Learning offering. Learn how to [start migrating](how-to-migrate-to-ga.md)  to the latest Azure Machine Learning Services.
+Generally speaking, most of the artifacts created in the pre-GA version of Azure Machine Learning Services are stored in your own local or cloud storage. So the migration path largely involves re-registering them with the new Azure Machine Learning offering. Learn how to [start migrating](how-to-migrate.md)  to the latest Azure Machine Learning Services.
 
 ## Will projects persist?
 
@@ -55,7 +55,7 @@ You won't lose any code or work. In the older version, projects are cloud entiti
 
 Since much of the project contents was already on your local machine, you just need to register the local project directory with your new workspace. Learn how to create a new project [in Python with the new SDK](quickstart-get-started.md) or with [the updated CLI](quickstart-get-started-with-cli.md).
 
-With a few lines of code, your pre-existing project files will continue to work in the latest version. [Learn how migrate your projects.](how-to-migrate-to-ga.md#projects)
+With a few lines of code, your pre-existing project files will continue to work in the latest version. [Learn how migrate your projects.](how-to-migrate.md#projects)
 
 ## What about web services?
 
@@ -81,7 +81,7 @@ Additionally, you can use the updated Azure CLI extension for machine learning, 
 @@@Service and workflow continue to work the same.
 
 ## Can I still prepare data?
-(Short answer followed by links to Quickstarts and tutorials that help someone get started with GA functionality)
+(Short answer followed by links to Quickstarts and tutorials that help someone get started with latest functionality)
 
 @@@@@@ Pendleton availability? WHat's the story???
 
@@ -89,4 +89,4 @@ Data Prep UX in the Workbench desktop client is not going to be available in new
  
 
 ## What about VSCode Tools for AI?
-With this GA release, the Visual Studio Code Tools for AI extension is also updated to work with the above new features.
+With this latest release, the Visual Studio Code Tools for AI extension is also updated to work with the above new features.

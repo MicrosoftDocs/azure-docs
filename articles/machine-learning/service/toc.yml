@@ -10,7 +10,7 @@
   - name: What happened to Workbench?
     href: overview-what-happened-to-workbench.md
   - name: How to migrate
-    href: how-to-migrate-to-ga.md
+    href: how-to-migrate.md
 - name: Quickstarts
   items:
   - name: Get started - Portal
