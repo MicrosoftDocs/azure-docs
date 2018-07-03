@@ -3,7 +3,7 @@ title: Azure AD Connect Health Version History
 description: This document describes the releases for Azure AD Connect Health and what has been included in those releases.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 editor: curtand
 
@@ -25,8 +25,15 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 * Azure AD Connect Health for Sync - Diagnose and remediate duplicated attribute sync errors from the portal 
 
 **Agent Update:** 
+*  Azure AD Connect Health agent for AD DS (version 3.1.7.0)    
+   1. Hotfix for high CPU issue of monitoring agent with .NET Framework KB releases
+
+*	Azure AD Connect Health agent for AD FS (version 3.1.7.0)  
+   1. Hotfix for high CPU issue of monitoring agent with .NET Framework KB releases  
+   2. Test results fixes on ADFS Server 2016 secondary server
+   
 *	Azure AD Connect Health agent for AD FS (version 3.1.2.0)  
-   1. Bug fixes and improvement for alerts 
+   1. Hotfix for agent memory management and related alerts specifically for version 3.0.244.0
 
 
 ## May 2018

@@ -140,7 +140,7 @@ ACU: 180 - 240
 <br>
 
 
-## DSv2-series 
+## DSv2-series 11-15
 
 ACU: 210 - 250 <sup>1</sup>
 
@@ -163,7 +163,7 @@ ACU: 210 - 250 <sup>1</sup>
 
 <br>
 
-## Dv2-series
+## Dv2-series 11-15
 
 ACU: 210 - 250
 

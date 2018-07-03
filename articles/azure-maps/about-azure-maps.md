@@ -72,27 +72,9 @@ The Azure Maps API is currently unavailable in some countries. Check your curren
 * Pakistan
 * South Korea
 
-## Relationship With Bing Maps
-The maps described in this document are distinct from those provided by Bing Maps. Although they share much of the same functionality, the two services are different and not related. This Azure service does not impact the Bing Maps product offering or roadmap.
-
-Microsoft’s goal is to provide choice to the developer community in terms of location service offerings. The following table contains guidance for developers who are deciding which service to use: 
-
-| Scenario | Use Azure Maps when… | Use Bing Maps when… |
-| ------------- | ------------- | ------------- |
-| Development environment | Building in or coordinating with other Azure services | Using a third-party cloud or other developer environment |
-| Development stage  | Azure Maps is optimized for early stage testing and Proof of Concept development | An enterprise grade SLA is required for a production environment |
-| Pricing options | Preliminary developer pricing options suffice | Customized enterprise grade pricing is required |
-| Use case environment | In-vehicle usage is required | In-vehicle usage is not required |
-| Geographic coverage | India, China, Japan, and South Korea are not required | India, China, Japan, and South Korean map coverage are required |
-| Mapping content | Standard surface maps are sufficient | Satellite, aerial, and street side imagery are required |
-| Underlying map source | TomTom mapping data is preferred | HERE mapping data is preferred |
-
-Sign up for an [Azure Maps account today](http://aka.ms/azurelbsportal).
-
 ## Next steps
 
 You now have an overview of Azure Maps. The next step is to try out a sample app showcasing the service.
 
 > [!div class="nextstepaction"]
 > [Launch a demo interactive search map](quick-demo-map-app.md)
-

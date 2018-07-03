@@ -184,7 +184,7 @@ Run the failover as follows:
 
 ## Reprotect on-premises machines to Azure
 
-Data should now be back on your on-premise site, but it isn't replicating to Azure. You can start
+Data should now be back on your on-premises site, but it isn't replicating to Azure. You can start
 replicating to Azure again as follows:
 
 1. In the vault > **Settings** >**Replicated Items**, select the failed back VMs that have failed

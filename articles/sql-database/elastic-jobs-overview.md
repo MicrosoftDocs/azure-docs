@@ -97,6 +97,10 @@ A *target group* defines the set of databases a job step will execute on. A targ
 - **Single database** - specify one or more individual databases to be part of the group.
 - **Shardmap** - databases of a shardmap.
 
+> [!TIP]
+> At the moment of job execution, *dynamic enumeration* re-evaluates the set of databases in target groups that include servers or pools. Dynamic enumeration ensures that **jobs run across all databases that exist in the server or pool at the time of job execution**. Re-evaluating the list of databases at runtime is specifically useful for scenarios where pool or server membership changes frequently.
+
+
 Pools and single databases can be specified as included or excluded from the group. This enables creating a target group with any combination of databases. For example, you can add a server to a target group, but exclude specific databases in an elastic pool (or exclude an entire pool).
 
 A target group can include databases in multiple subscriptions, and across multiple regions. Note that cross-region executions have higher latency than executions within the same region.
@@ -177,7 +181,7 @@ To ensure resources aren't overburdened when running jobs against databases in a
 
 ##	Differences between Elastic Jobs and SQL Server Agent
 
-It is worth noting a couple of differences between SQL Server Agent (available on-premise and as part of SQL Database Managed Instance), and the Azure SQL Database Elastic Job agent (now available for SQL Database and SQL Data Warehouse).
+It is worth noting a couple of differences between SQL Server Agent (available on-premises and as part of SQL Database Managed Instance), and the Azure SQL Database Elastic Job agent (now available for SQL Database and SQL Data Warehouse).
 
 
 |  |Elastic Jobs  |SQL Server Agent |

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/02/2018
 ms.author: carlrab
 
 ---
@@ -22,10 +22,11 @@ This article provides an overview of the Azure SQL Database resource limits and 
 | Databases per server | 5000 |
 | Default number of servers per subscription in any region | 20 |
 | Max number of servers per subscription in any region | 200 |
+| DTU / eDTU quota per server | 54,000 |
 |||
 
 > [!NOTE]
-> To obtain more server quota than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”.
+> To obtain more DTU /eDTU quota or more servers than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”. The DTU / eDTU quota and database limit per server constrains the number of elastic pools per server. 
 
 > [!IMPORTANT]
 > As the number of databases approaches the limit per server, the following can occur:
@@ -67,5 +68,5 @@ When encountering high session or worker utilization, mitigation options include
 
 - See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-- For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-what-is-a-dtu.md).
+- For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - For information about tempdb size limits, see https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

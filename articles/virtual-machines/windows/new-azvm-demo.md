@@ -43,11 +43,11 @@ New-AzureRMVm -Name myVM
 
 You are asked to create a username and password for the VM, which will be used when you connect to the VM later in this topic. The password must be 12-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character.
 
-It takes a minute to create the VM and the associated resources. When finished, you can see all of the resources that were created using the [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet.
+It takes a minute to create the VM and the associated resources. When finished, you can see all of the resources that were created using the [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet.
 
 ```azurepowershell-interactive
-Find-AzureRmResource `
-	-ResourceGroupNameEquals myVMResourceGroup | Format-Table Name
+Get-AzureRmResource `
+	-ResourceGroupName myVMResourceGroup | Format-Table Name
 ```
 
 ## Connect to the VM
