@@ -29,9 +29,9 @@ Azure Migrate is a migration planning tool and Azure Site Recovery Deployment Pl
 
 **Migration from VMware to Azure**: If you intend to migrate your on-premises workloads to Azure, use Azure Migrate for migration planning. Azure Migrate assesses on-premises workloads and provides guidance, insights, and mechanisms to assist you in migrating to Azure. Once you are ready with your migration plan, you can use services such as Azure Site Recovery and Azure Database Migration Service to migrate the machines to Azure.
 
-**Migration from Hyper-V to Azure**: Azure Migrate currently only supports assessment of VMware virtual machines for migration to Azure. Support for Hyper-V is on the roadmap for Azure Migrate. In the interim, you can use ASR Deployment Planner. Once Hyper-V support is enabled in Azure Migrate, you can use Azure Migrate for planning migration of Hyper-V workloads.
+**Migration from Hyper-V to Azure**: Azure Migrate currently only supports assessment of VMware virtual machines for migration to Azure. Support for Hyper-V is on the roadmap for Azure Migrate. In the interim, you can use Site Recovery Deployment Planner. Once Hyper-V support is enabled in Azure Migrate, you can use Azure Migrate for planning migration of Hyper-V workloads.
 
-**Disaster Recovery from VMware/Hyper-V to Azure**: If you intend to do disaster recovery (DR) on Azure using Azure Site Recovery (ASR), use ASR Deployment Planner for DR planning. ASR Deployment Planner does a deep, ASR-specific assessment of your on-premises environment. It provides recommendations that are required by ASR for successful DR operations such as replication, failover of your virtual machines.  
+**Disaster Recovery from VMware/Hyper-V to Azure**: If you intend to do disaster recovery (DR) on Azure using Azure Site Recovery (Site Recovery), use Site Recovery Deployment Planner for DR planning. Site Recovery Deployment Planner does a deep, ASR-specific assessment of your on-premises environment. It provides recommendations that are required by Site Recovery for successful DR operations such as replication, failover of your virtual machines.  
 
 ### Does Azure Migrate need vCenter Server to discover a VMware environment?
 
@@ -69,9 +69,9 @@ The appliance-based discovery collects metadata about the on-premises VMs, the c
 - Memory usage
 - For each disk attached to the VM:
   - Disk read throughput
-  - Disk write throughput
+  - Disk writes throughput
   - Disk read operations per sec
-  - Disk write operations per sec
+  - Disk writes operations per sec
 - For each network adapter attached to the VM:
   - Network in
   - Network out
@@ -82,7 +82,7 @@ The agent-based discovery is an option available on top of the appliance-based d
 
 The data collected by the collector appliance is stored in the Azure location that you specify while creating the migration project. The data is securely stored in a Microsoft subscription and is deleted when the user deletes the Azure Migrate project.
 
-For dependency visualization, if you install agents on the VMs, the data collected by the dependency agents is stored in the US in an OMS workspace created in user’s subscription. This data is deleted once the user deletes the OMS workspace in her or his subscription. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+For dependency visualization, if you install agents on the VMs, the data collected by the dependency agents is stored in the US in an OMS workspace created in user’s subscription. This data is deleted when you delete the OMS workspace in your subscription. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
 ### How does the collector communicate with the vCenter Server and the Azure Migrate service?
 
@@ -90,11 +90,11 @@ The collector appliance connects to the vCenter Server (port 443) using the cred
 
 ### Can I connect to multiple vCenter servers?
 
-You need to set up a connector appliance for each server.
+You need a connector appliance set up for each server.
 
 ### Is the .OVA template used by Site Recovery integrated with the .OVA used by Azure Migrate?
 
-Currently there is no integration. The .OVA in Site Recovery is used to set up a Site Recovery configuration server for VMware VM/physical server replication. The .OVA used by Azure Migrate is used to discover VMware VMs managed by a vCenter server, for the purposes of migration assessment.
+Currently there is no integration. The .OVA template in Site Recovery is used to set up a Site Recovery configuration server for VMware VM/physical server replication. The .OVA used by Azure Migrate is used to discover VMware VMs managed by a vCenter server, for the purposes of migration assessment.
 
 ### I changed my machine size. Can I rerun the assessment?
 
