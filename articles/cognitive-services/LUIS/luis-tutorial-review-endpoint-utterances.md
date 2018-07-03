@@ -65,9 +65,9 @@ If LUIS doesn't predict custom entities, prebuilt entities will be labeled. Sinc
     
     |Utterance|Correct intent|Missing entities|
     |:--|:--|:--|
-    |I'm looking for a job with Natual Language Processing|GetJobInfo|Job - "Natural Language Process"|
+    |I'm looking for a job with Natural Language Processing|GetJobInfo|Job - "Natural Language Process"|
 
-    This utterance is not in the correct intent. The **ApplyForJob** intent has 21 utterances compared to the 7 utterances in **GetJobInformation**. Along with aligning the endpoint utterance correctly, more utterances should be added to the **GetJobInformation** intent. That will be left as an exercise for you to complete on your own. Each intent, except for the **None** intent, should have roughly the same number of example utterances. The **None** intent should have 10% of the total utterances in the app. 
+    This utterance is not in the correct intent and has a score less than 50%. The **ApplyForJob** intent has 21 utterances compared to the 7 utterances in **GetJobInformation**. Along with aligning the endpoint utterance correctly, more utterances should be added to the **GetJobInformation** intent. That will be left as an exercise for you to complete on your own. Each intent, except for the **None** intent, should have roughly the same number of example utterances. The **None** intent should have 10% of the total utterances in the app. 
 
 3. For the intent `I'm looking for a job with Natual Language Processing`, select the correct intent, **GetJobInformation** in the **Aligned intent** column. 
 
@@ -80,6 +80,8 @@ If LUIS doesn't predict custom entities, prebuilt entities will be labeled. Sinc
 5. On the same line, select the circled checkmark in the **Add to aligned intent** column. 
 
     [ ![Screenshot of finalizing utterance alignment in intent](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
+
+    This action moves the utterance from the **Review endpoint utterances** to the **GetJobInformation** intent. The endpoint utterance is now an example utterance for that intent. 
 
 6. Review the remaining utterances in this intent, labeling utterances and correcting the **Aligned intent**, if these are incorrect.
 
@@ -115,103 +117,102 @@ In order to get the updated model of the LUIS app in a chatbot or other applicat
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with an utterance
+Try the utterance that was corrected. 
 
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-2. Go to the end of the URL in the address and enter `does form hrf-123456 cover the new dental benefits and medical plan`. The last querystring parameter is `q`, the utterance **query**. 
+2. Go to the end of the URL in the address and enter `I'm looking for a job with Natural Language Processing`. The last querystring parameter is `q`, the utterance **query**. 
 
-```
+```JSON
 {
-  "query": "does form hrf-123456 cover the new dental benefits and medical plan",
+  "query": "I'm looking for a job with Natural Language Processing",
   "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.9300641
+    "intent": "GetJobInformation",
+    "score": 0.9092416
   },
   "intents": [
     {
-      "intent": "FindForm",
-      "score": 0.9300641
+      "intent": "GetJobInformation",
+      "score": 0.9092416
     },
     {
       "intent": "ApplyForJob",
-      "score": 0.0359598845
+      "score": 0.0481389128
     },
     {
-      "intent": "GetJobInformation",
-      "score": 0.0141798034
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.0112197418
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00507669244
-    },
-    {
-      "intent": "None",
-      "score": 0.00238501839
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00202810857
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00102957746
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.0008688423
+      "intent": "EmployeeFeedback",
+      "score": 0.00855329
     },
     {
       "intent": "Utilities.Confirm",
-      "score": 3.557994E-05
+      "score": 0.00533996429
+    },
+    {
+      "intent": "None",
+      "score": 0.00476739649
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00442132354
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00259294664
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00255334447
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00194117648
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00159457081
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.0009164306
     }
   ],
   "entities": [
     {
-      "entity": "hrf-123456",
-      "type": "HRF-number",git 
-      "startIndex": 10,
-      "endIndex": 19
+      "entity": "natural language processing",
+      "type": "Job",
+      "startIndex": 27,
+      "endIndex": 53,
+      "score": 0.8488714
     },
     {
-      "entity": "new dental benefits",
+      "entity": "job",
       "type": "builtin.keyPhrase",
-      "startIndex": 31,
-      "endIndex": 49
+      "startIndex": 18,
+      "endIndex": 20
     },
     {
-      "entity": "medical plan",
+      "entity": "natural language processing",
       "type": "builtin.keyPhrase",
-      "startIndex": 55,
-      "endIndex": 66
-    },
-    {
-      "entity": "hrf",
-      "type": "builtin.keyPhrase",
-      "startIndex": 10,
-      "endIndex": 12
-    },
-    {
-      "entity": "-123456",
-      "type": "builtin.number",
-      "startIndex": 13,
-      "endIndex": 19,
-      "resolution": {
-        "value": "-123456"
-      }
+      "startIndex": 27,
+      "endIndex": 53
     }
-  ]
-}
-```
+  ],
+  "sentimentAnalysis": {
+    "label": "neutral",
+    "score": 0.5
+  }
+}```
 
+The prediction score is at 90% and the job entity is detected as natural language processing. 
+
+## Can reviewing be replaced by adding more utterances? 
+You may wonder why not add more example utterances. What is the purpose of reviewing endpoint utterances? In a real-world LUIS app, the endpoint utterances are from users with word choice and arrangement you haven't used yet. If you had used the same word choice and arrangement, the prediction would have a higher percentage. 
+
+## Why is the top intent on the utterance list? 
+Some of the endpoint utterances will have a high percentage in the review list. You still need to review and verify those utterances. They are on the list because the next highest intent had a score too close to the top intent score. 
 
 ## What has this tutorial accomplished?
-This app, with keyPhrase entity detection, identified a natural language query intention and returned the extracted data including the main subject matter. 
-
-Your chatbot now has enough information to determine the next step in the conversation. 
+This app prediction accuracy has increased by reviewing utterances from the endpoint. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. Select **My apps** in the top left menu. Select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
@@ -219,4 +220,4 @@ When no longer needed, delete the LUIS app. Select **My apps** in the top left m
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [XXX](XXX.md)
+> [Learn how to use patterns](luis-tutorial-patterns.md)
