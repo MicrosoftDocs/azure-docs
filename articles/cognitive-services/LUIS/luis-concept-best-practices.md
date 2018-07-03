@@ -107,6 +107,4 @@ Add 10 or 15 utterances before training and publishing. That allows you to see t
 
 ## Next steps
 
-* Learn how to [plan your app](plan-your-app.md) in your LUIS app.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* Learn how to [plan your app](luis-how-plan-your-app.md) in your LUIS app.
