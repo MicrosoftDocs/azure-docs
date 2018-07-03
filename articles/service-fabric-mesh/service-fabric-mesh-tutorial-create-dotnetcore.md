@@ -82,7 +82,7 @@ For simplicity, the to-do items are stored in a list in memory. Create a class l
 
 In the **New Project** dialog, type **C# .net core class** into the **Search** box at the top. Select the **Class Library (.NET Core)** template.
 
-In the **Name** box, type **Model** and in the **Location** box, set the folder path to where the files for the project will be stored. Click **OK** to create the class library.
+In the **Name** box, type **Model**. Click **OK** to create the class library.
 
 In the Solution explorer, under **Model**, right-click **Class1.cs** and choose **Rename**. Rename the class **ToDoItem.cs**. A prompt will appear asking whether to rename all references to `Class1`. Click **Yes**.
 
@@ -219,11 +219,11 @@ The minimal data context populates some sample to-do items and provides access t
 
 ### Add a controller
 
-Also part of the MVC pattern is a controller that handles the HTTP requests and creates the HTTP response. A default controller was provided by the template when the **ToDoService** project was created. In the **Solution Explorer**, open the **Controllers** folder to see the **ValuesController.cs** file. 
+Also part of the MVC pattern is a controller that handles the HTTP requests and creates the HTTP response. A default controller was provided by the template when the **ToDoService** project was created. In the **Solution Explorer**, under **ToDoService**, open the **Controllers** folder to see the **ValuesController.cs** file. 
 
-Modify that file to be the to-do items controller. Right-click **ValuesController.cs** and then **Rename**. Rename the file to  `ToDoController.cs`. A prompt to rename all references will appear, click **Yes**.
+Right-click **ValuesController.cs** and then **Rename**. Rename the file to  `ToDoController.cs`. A prompt to rename all references will appear, click **Yes**.
 
-Add `using Microsoft.AspNetCore.Mvc;` to the top of the file and replace the contents of `class ToDoController` with:
+Open the **ToDoController.cs** file and replace the contents of `class ToDoController` with:
 
 ```csharp
 [Route("api/[controller]")]
@@ -305,7 +305,7 @@ Replace the contents of the entire file with the following HTML that defines a s
 </div>
 ```
 
-Open the code for the Index page in the **Solution Explorer**. Double-click on **Index.cshtml** and open **Index.cshtml.cs**. 
+Open the code for the Index page in the **Solution Explorer** by opening **Index.cshtml** and then opening **Index.cshtml.cs**. 
 At the top of **Index.cshtml.cs**, add `using System.Net.Http;`
 
 Replace the contents of `public class IndexModel` with:
@@ -335,7 +335,7 @@ public class IndexModel : PageModel
 
 ### Create environment variables
 
-To communicate with the back-end service requires the URL for that service. For the purpose of this tutorial, the following code (defined above as part of the `IndexModel`) reads environment variables that will be defined in a moment to compose the URL:
+To communicate with the back-end service requires the URL for that service. For the purpose of this tutorial, the following code (defined above as part of the IndexModel) reads environment variables that will be defined in a moment to compose the URL:
 
 ```csharp
 private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}.{Environment.GetEnvironmentVariable("AppName")}";
@@ -346,13 +346,15 @@ The URL is composed of the application name, the service name, and the port. All
 
 ![Figure 1 - The ToDoService service.yaml file](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
-* The app name (`ServiceFabricMeshApp`) is found under `application:` after `name:` See (1) in the figure above.
-* The service name (`ToDoService`) is found under `services:` after `name:` See (2) in the figure above.
-* The port (`20006`) is found under `endpoints:` after `port:` See (3) in the figure above.
+* The app name, `ServiceFabricMeshApp`, is found under `application:` after `name:` See (1) in the figure above.
+* The service name, `ToDoService`, is found under `services:` after `name:` See (2) in the figure above.
+* The port, `20006`, is found under `endpoints:` after `port:` See (3) in the figure above.
 
 With the app name, service name, and port number, environment variables can be defined that the app will use to communicate with the back-end service. In **Solution Explorer**, navigate  to **WebFrontEnd** > **Service Resources** > **service.yaml** to define the variables that specify the back-end service address.
 
-In the service.yaml file, add the following variables under `environmentVariables`. Use spaces, not tabs, when you indent these variables or the file won't compile.
+In the service.yaml file, add the following variables under `environmentVariables`.
+
+> [!IMPORTANT] Spaces, not tabs, must be used to indent the variables or the file won't compile. Visual Studio may insert tabs as you create new lines. Replace the tabs at the start of the line with spaces. You'll see errors in the Error List when you compile but the app will still run--although it won't work until you convert the tabs to spaces.
 
 ``` xml
 - name: AppName
@@ -363,7 +365,7 @@ In the service.yaml file, add the following variables under `environmentVariable
   value: ToDoService
 ```
 
-It should look something like this (although your `ApiHostPort` value will probably be different):
+Your **WebFrontEnd** project's **service.yaml** file should look something like this although your `ApiHostPort` value will probably be different:
 
 ![Service.yaml in the WebFrontEnd project](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-envvars.png)
 
