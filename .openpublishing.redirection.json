@@ -6,6 +6,46 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-licensing-ps-examples.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/licensing-ps-examples",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-self-service-signup.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-self-service-signup",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-service-limits-restrictions.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-service-limits-restrictions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/admin-roles-best-practices.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-admin-roles-secure.md",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/directory-delete-howto",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-delete-howto",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/domains-admin-takeover.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/domains-admin-takeover",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/groups-naming-policy.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/groups-naming-policy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/linkedin-integration.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/linkedin-integration",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
             "redirect_document_id": true
