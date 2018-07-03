@@ -192,7 +192,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### Find resources by tag
 
-To find resources with a tag name and value, use the [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) command:
+To find resources with a tag name and value, use the [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) command:
 
 ```azurepowershell-interactive
 (Get-AzureRmResource -Tag @{ Environment="Test"}).Name

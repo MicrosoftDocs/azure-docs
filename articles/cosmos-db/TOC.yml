@@ -35,6 +35,8 @@ items:
         href: create-mongodb-golang.md
       - name: Python
         href: create-mongodb-flask.md
+      - name: Xamarin
+        href: create-mongodb-xamarin.md
     - name: Graph
       items:
       - name: .NET

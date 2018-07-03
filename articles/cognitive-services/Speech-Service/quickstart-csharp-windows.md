@@ -58,7 +58,7 @@ In this section, you add a new platform to the configuration that matches your p
 
 ## Add the sample code
 
-1. In the `Program.cs` for your Visual Studio project, replace the body of the `Program` class with the following. Make sure you replace the subscription key and region with one that you obtained for the service.
+1. In the `Program.cs` file in your Visual Studio project, replace the body of the `Program` class with the following. Make sure you replace the subscription key with your own, and change the [region](regions.md) to the one that's associated with the subscription (for example, `westus` for the free trial subscription).
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-csharp/Program.cs#code)]
 
