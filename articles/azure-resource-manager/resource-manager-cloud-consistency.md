@@ -14,6 +14,8 @@ ms.date: 07/03/2018
 ms.author: mavane
 ---
 
+# Develop Azure Resource Manager templates for cloud consistency
+
 A key benefit of Azure is consistency. Development investments for one location are reusable in another. A template makes your deployments consistent and repeatable across environments, including the global Azure, Azure sovereign clouds, and Azure Stack. To reuse templates across clouds, however, you need to consider cloud-specific dependencies as this guide explains.
 
 Microsoft offers intelligent, enterprise-ready cloud services in many locations, including:
@@ -421,7 +423,7 @@ The API profile isn't a required element in a template. Even if you add the elem
 
 Resources can have references to other services on the platform. For example, a public IP can have a public DNS name assigned to it. The public cloud, the sovereign clouds, and Azure Stack solutions have their own distinct endpoint namespaces. In most cases, a resource requires only a prefix as input in the template. During runtime, Azure Resource Manager appends the endpoint value to it. Some endpoint values need to be explicitly specified in the template. 
 
-[!NOTE] To develop templates for cloud consistency, don't hardcode endpoint namespaces.
+> [!NOTE] To develop templates for cloud consistency, don't hardcode endpoint namespaces.
 
 The following two examples are common endpoint namespaces that need to be explicitly specified when creating a resource:
 
