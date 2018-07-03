@@ -24963,7 +24963,7 @@
         },
         {
             "source_path": "articles/iot-suite/securing-iot-ground-up.md",
-            "redirect_url": "/azure/iot-accelerators/securing-iot-ground-up",
+            "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
             "redirect_document_id": false
         },
         {
