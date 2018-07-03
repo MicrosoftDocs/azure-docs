@@ -67,7 +67,7 @@ Edit the app.config file so that it contains a configuration setting with a conn
 ### Generate a shared access signature URI for a container
 To begin with, we add a method to generate a shared access signature on a new container. In this case, the signature is not associated with a stored access policy, so it carries on the URI the information indicating its expiry time and the permissions it grants.
 
-First, add code to the **Main()** method to authenticate access to your storage account and create a new container:
+First, add code to the **Main()** method to authorize access to your storage account and create a new container:
 
 ```csharp
 static void Main(string[] args)

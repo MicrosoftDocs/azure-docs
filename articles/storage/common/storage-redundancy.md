@@ -28,14 +28,14 @@ When you create a storage account, you can select one of the following replicati
 
 The following table provides a quick overview of the scope of durability and availability that each replication strategy will provide you for a given type of event (or event of similar impact).
 
-| Scenario | LRS | ZRS | GRS | RA-GRS |
-|:--- |:--- |:--- |:--- |:--- |
-| Node unavailability within a data center |Yes |Yes |Yes |Yes
-| An entire data center (zonal or non-zonal) becomes unavailable |No |Yes |Yes |Yes |
-| A region-wide outage |No |No |Yes |Yes |
-| Read access to your data (in a remote, geo-replicated region) in the event of region-wide unavailability |No |No |No |Yes |
-| Designed to provide ___ durability of objects over a given year |at least 99.999999999% (11 9's)|at least 99.9999999999% (12 9's)|at least 99.99999999999999% (16 9's)|at least 99.99999999999999% (16 9's)|
-| Available in ___ storage account types |GPv1, GPv2, Blob |GPv2 |GPv1, GPv2, Blob |GPv1, GPv2, Blob
+| Scenario                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
+| Node unavailability within a data center                                                                 | Yes                             | Yes                              | Yes                                  | Yes                                  |
+| An entire data center (zonal or non-zonal) becomes unavailable                                           | No                              | Yes                              | Yes                                  | Yes                                  |
+| A region-wide outage                                                                                     | No                              | No                               | Yes                                  | Yes                                  |
+| Read access to your data (in a remote, geo-replicated region) in the event of region-wide unavailability | No                              | No                               | No                                   | Yes                                  |
+| Designed to provide ___ durability of objects over a given year                                          | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
+| Supported storage account types                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
 
 See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information on the different redundancy options.
 
@@ -43,10 +43,10 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 > Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md).
 
 ## Changing replication strategy
-We allow you to change your storage account's replication strategy by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the many [Azure client libraries](https://docs.microsoft.com/en-us/azure/index?view=azure-dotnet#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
+We allow you to change your storage account's replication strategy by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the many [Azure client libraries](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
 
    > [!NOTE]
-   > Currently, you cannot use the Portal or API to convert your account to ZRS. However, we plan to support migrating to ZRS from LRS, GRS, and RA-GRS after ZRS is generally available. See [Zone-redundant storage (ZRS)](storage-redundancy-zrs.md) for details.
+   > Currently, you cannot use the Portal or API to convert your account to ZRS. If you want to convert your account's replication to ZRS, see [Zone-redundant storage (ZRS)](storage-redundancy-zrs.md) for details.
     
 ### Are there any costs to changing my account's replication strategy?
 It depends on your conversion path. Ordering from cheapest to the most expensive redundancy offering we have LRS, ZRS, GRS, and RA-GRS. For example, going *from* LRS to anything will incur additional charges because you are going to a more sophisticated redundancy level. Going *to* GRS or RA-GRS will incur an egress bandwidth charge because your data (in your primary region) is being replicated to your remote secondary region. This is a one-time charge at initial setup. After the data is copied, there are no further conversion charges. You will only be charged for replicating any new or updates to existing data. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).

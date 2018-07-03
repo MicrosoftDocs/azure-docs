@@ -1,14 +1,13 @@
 ---
-title: Support localization using LUIS apps in Azure | Microsoft Docs 
+title: Support localization using LUIS apps in Azure | Microsoft Docs
 description: Learn about the languages that LUIS supports.
 services: cognitive-services
 author: cahann
 manager: hsalama
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/19/2017
+ms.date: 06/04/2017
 ms.author: cahann
 ---
 
@@ -17,26 +16,26 @@ ms.author: cahann
 A LUIS app is culture-specific and cannot be changed once it is set. 
 
 ## Multi-language LUIS apps
-If you need a multi-language LUIS client application such as a chat bot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use [Microsoft Translator API](../Translator/translator-info-overview.md) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
+If you need a multi-language LUIS client application such as a chatbot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use [Microsoft Translator API](../Translator/translator-info-overview.md) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
 
 ## Languages supported
 LUIS understands utterances in the following languages:
 
 
-| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions |
-| --|  ------- |  :------: |  :------: |   :------:  |
-| American English |`en-US` | ✔ | ✔  |✔|
-| Canadian French |`fr-CA` |-|   -   |-|
-| *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|
-| Dutch |`nl-NL` |-|  -   |-|
-| French (France) |`fr-FR` |-| ✔ |✔ |
-| German |`de-DE` |-| ✔ |✔ |
-| Italian |`it-IT` |-| ✔ |✔|
-| *[Japanese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|
-| Korean |`ko-KR` |-|   -   |-|
-| Portuguese (Brazil) |`pt-BR` |-| ✔ |✔ |
-| Spanish (Spain) |`es-ES` |-| ✔ |✔|
-| Spanish (Mexico)|`es-MX` |-|  -   |✔|
+| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | 
+|--|--|:--:|:--:|:--:|:--:|
+| American English |`en-US` | ✔ | ✔  |✔|✔|
+| Canadian French |`fr-CA` |-|   -   |-|✔|
+| *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
+| Dutch |`nl-NL` |-|  -   |-|✔|
+| French (France) |`fr-FR` |-| ✔ |✔ |✔|
+| German |`de-DE` |-| ✔ |✔ |✔|
+| Italian |`it-IT` |-| ✔ |✔|✔|
+| *[Japanese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Key phrase only|
+| Korean |`ko-KR` |-|   -   |-|Key phrase only|
+| Portuguese (Brazil) |`pt-BR` |-| ✔ |✔ |not all sub-cultures|
+| Spanish (Spain) |`es-ES` |-| ✔ |✔|✔|
+| Spanish (Mexico)|`es-MX` |-|  -   |✔|✔|
 
 
 Language support varies for [prebuilt entities](luis-reference-prebuilt-entities.md) and [prebuilt domains](luis-reference-prebuilt-domains.md). 
@@ -54,8 +53,20 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
      - でございます is not the same as です. 
      - です is not the same as だ. 
 
+### **Text analytics support notes
+Only Portuguese is supported for subcultures: `pt-PT` and `pt-BR`. All other cultures are supported at the primary culture level. Learn more about Text Analytics [supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). 
+
+### Speech API supported languages
+See Speech [Supported languages](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) for Speech dictation mode languages.
+
+### Bing Spell Check supported languages
+See Bing Spell Check [Supported languages](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) for a list of supported languages and status.
+
 ## Rare or foreign words in an application
-In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](Add-Features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature. This phrase list should be marked non-interchangeable, to indicate that the set of rare words form a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.
+In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](luis-how-to-add-features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature. This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.
+
+### Hybrid languages
+Hybrid languages combine words from two cultures such as English and Chinese. These languages are not supported in LUIS because an app is based on a single culture.
 
 ## Tokenization
 To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossary.md#token) based on culture. 
@@ -74,3 +85,5 @@ To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossar
 |Portuguese (Brazil)|✔||||
 |Spanish (es-ES)|✔||||
 |Spanish (es-MX)|✔||||
+
+ 

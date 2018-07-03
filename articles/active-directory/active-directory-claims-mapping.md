@@ -231,7 +231,7 @@ Restricted claims cannot be modified by using policy. The data source cannot be 
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## Claims mapping policy properties
-Use the properties of a claims mapping policy to control which claims are emitted, and where the data is sourced from. If no policy is set, the system issues tokens containing the core claim set, the basic claim set, and any optional claims that the application has chosen to receive.
+Use the properties of a claims mapping policy to control which claims are emitted, and where the data is sourced from. If no policy is set, the system issues tokens containing the core claim set, the basic claim set, and any [optional claims](develop/active-directory-optional-claims.md) that the application has chosen to receive.
 
 ### Include basic claim set
 
@@ -465,7 +465,7 @@ In this example, you create a policy that adds the EmployeeID and TenantCountry 
 	1. To create the policy, run this command:  
 	 
 	 ``` powershell
-	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
+	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
 	```
 	
 	2. To see your new policy, and to get the policy ObjectId, run the following command:

@@ -5,9 +5,8 @@ description: Learn how to use the Face API with the Python SDK to detect human f
 services: cognitive-services
 author: SteveMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: face
+ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles
@@ -29,7 +28,7 @@ To use the tutorial, you will need to do the following:
 pip install cognitive_face
 ```
 
-- Obtain a [subscription key](https://azure.microsoft.com/en-us/try/cognitive-services/) for Microsoft Cognitive Services. You can use either your primary or your secondary key in this tutorial. (Note that to use any Face API, you must have a valid subscription key.)
+- Obtain a [subscription key](https://azure.microsoft.com/try/cognitive-services/) for Microsoft Cognitive Services. You can use either your primary or your secondary key in this tutorial. (Note that to use any Face API, you must have a valid subscription key.)
 
 ## <a name="sdk-example"></a> Detect a Face in an Image
 
@@ -38,8 +37,6 @@ import cognitive_face as CF
 
 KEY = '<Subscription Key>'  # Replace with a valid subscription key (keeping the quotes in place).
 CF.Key.set(KEY)
-# If you need to, you can change your base API url with:
-#CF.BaseUrl.set('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/')
 
 BASE_URL = 'https://westus.api.cognitive.microsoft.com/face/v1.0/'  # Replace with your regional Base URL
 CF.BaseUrl.set(BASE_URL)
@@ -58,7 +55,7 @@ Below is an example result. It's a `list` of detected faces. Each item in the li
 
 ## Draw rectangles around the faces
 
-Using the json coordinates that you received from the previous command, you can draw rectangles on the image to visually represent each face. At the top of the file, add the following:
+Using the json coordinates that you received from the previous command, you can draw rectangles on the image to visually represent each face. You will need to `pip install Pillow` to use the `PIL` imaging module.  At the top of the file, add the following:
 
 ```python
 import requests
@@ -93,7 +90,7 @@ img.show()
 
 ## <a name='further'></a> Further Exploration
 
-To help you further explore the Face API, this tutorial provides a GUI sample. To run it, first install [wxPython](https://wxpython.org/) then run the commands below.
+To help you further explore the Face API, this tutorial provides a GUI sample. To run it, first install [wxPython](https://wxpython.org/pages/downloads/) then run the commands below.
 
 ```bash
 git clone https://github.com/Microsoft/Cognitive-Face-Python.git

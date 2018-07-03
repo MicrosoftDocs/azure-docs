@@ -4,7 +4,7 @@ description: Describes how to create an assessment using machine dependencies wi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/25/2017
+ms.date: 06/19/2018
 ms.author: raynew
 ---
 
@@ -30,8 +30,8 @@ To install the agent on a Windows machine:
 1. Double-click the downloaded agent.
 2. On the **Welcome** page, click **Next**. On the **License Terms** page, click **I Agree** to accept the license.
 3. In **Destination Folder**, keep or modify the default installation folder > **Next**. 
-4. In **Agent Setup Options**, select **Azure Log Analytics (OMS)** > **Next**. 
-5. Click **Add** to add a new OMS workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
+4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**. 
+5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
 
 To install the agent on a Linux machine:
@@ -48,7 +48,7 @@ To install the agent on a Linux machine:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Learn more](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) about operating systems supported by the Dependency agent. 
+[Learn more](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) about operating systems supported by the Dependency agent. 
 
 ## Create a group
 

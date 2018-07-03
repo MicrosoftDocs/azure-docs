@@ -4,12 +4,11 @@ description: Learn how to use versions to manage changes in Language Understandi
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/13/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Versions
@@ -26,7 +25,7 @@ To [set a version](luis-how-to-manage-versions.md#set-active-version) as the act
 
 The name of the currently active version is displayed in the top, left panel after the app name. 
 
-![Change active version](./media/luis-concept-version/version-in-nav-bar.png)
+[ ![Change active version](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## Versions and publishing slots
 You publish to either the stage and product slots. Each slot can have a different version or the same version. This is useful for verifying changes between model versions via the endpoint, which is available to bots or other LUIS calling applications. 
@@ -37,24 +36,26 @@ Clone a version to create a copy of an existing version and save it as a new ver
 ## Import and export a version
 You can import a version at the app level. That version becomes the active version and used the version ID in the "versionId" property of the app file. You can also import at the version level into an existing app. The new version becomes the active version. 
 
-You can export a version at the app level or you can export a version at the version level. The only different is that the app-level exported version is the currently active version while at the version level, you can choose any version to export on the **[Settings](luis-how-to-manage-versions.md)** page. 
+You can export a version at the app level or you can export a version at the version level. The only difference is that the app-level exported version is the currently active version while at the version level, you can choose any version to export on the **[Settings](luis-how-to-manage-versions.md)** page. 
 
-The exported file does not contain machine-learned information because the app is retrained after it is imported. The exported file does not contain collaborators -- you will need to add these back once the version is imported into the new app.
+The exported file does not contain machine-learned information because the app is retrained after it is imported. The exported file does not contain collaborators -- you need to add these back once the version is imported into the new app.
 
 ## Export each version as app backup
 In order to back up your LUIS app, export each version on the **[Settings](luis-how-to-manage-versions.md)** page.
 
 ## Delete a version
-You can delete all versions except the active version. 
+You can delete all versions except the active version from the Versions list on Settings page. 
 
 ## Version availability at the endpoint
-Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](PublishApp.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you up to two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID.
+Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](luis-how-to-publish-app.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you up to two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID.
 
 ## Collaborators
 The owner and all [collaborators](luis-how-to-collaborate.md) have full access to all versions of the app.
 
 ## Next steps
 
-See [Add entities](Add-entities.md) to learn more about how to add entities to your LUIS app.
+See how to add [versioning](luis-how-to-manage-versions.md) on the app settings page. 
 
-[LUIS]:luis-reference-regions.md
+Learn how to design [intents](luis-concept-intent.md) into the model.
+
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

@@ -89,7 +89,7 @@ When you're deleting a service instance, be aware of the following:
 
 [//]: # (Start of RBAC section)
 ## Manage access with Role-Based Access Control
-[Role-Based Access Control (RBAC)](../role-based-access-control-configure.md) for Azure AD Connect Health provides access to users and groups other than global administrators. RBAC assigns roles to the intended users and groups, and provides a mechanism to limit the global administrators within your directory.
+[Role-Based Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) for Azure AD Connect Health provides access to users and groups other than global administrators. RBAC assigns roles to the intended users and groups, and provides a mechanism to limit the global administrators within your directory.
 
 ### Roles
 Azure AD Connect Health supports the following built-in roles:
@@ -117,7 +117,7 @@ To allow a user access at the *all service instances* level within Azure AD Conn
 
 #### Step 2: Add users and groups, and assign roles
 1. From the **Configure** section, click **Users**.<br>
-   ![Screenshot of Azure AD Connect Health RBAC main blade, with Users highlighted](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+   ![Screenshot of Azure AD Connect Health resource sidebar](./media/active-directory-aadconnect-health/startRBAC.png)
 2. Select **Add**.
 3. In the **Select a role** pane, select a role (for example, **Owner**).<br>
    ![Screenshot of Azure AD Connect Health RBAC Users window](./media/active-directory-aadconnect-health/RBAC_add.png)

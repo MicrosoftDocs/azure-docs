@@ -1,13 +1,12 @@
 ---
-title: API Migrate guide from v1 to v2 | Microsoft Docs 
+title: API Migrate guide from v1 to v2 | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to migration to the latest API set.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
@@ -100,14 +99,14 @@ v2 endpoint success response:
 ```
 
 ## Key management no longer in API
-The subscription key APIs are deprecated, returning 410 GONE.
+The subscription endpoint key APIs are deprecated, returning 410 GONE.
 
 | version | route |
 |--|--|
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [subscription keys](azureibizasubscription.md) are generated in the Azure portal. You assign the key to a LUIS app on the **[Publish](manage-keys.md)** page. You do not need to know the actual key value. LUIS uses the subscription name to make the assignment. 
+Azure [endpoint keys](luis-how-to-azure-subscription.md) are generated in the Azure portal. You assign the key to a LUIS app on the **[Publish](luis-how-to-manage-keys.md)** page. You do not need to know the actual key value. LUIS uses the subscription name to make the assignment. 
 
 ## New versioning route
 The v2 model is now contained in a [version](luis-how-to-manage-versions.md). A version name is 10 characters in the route. The default version is "0.1".
@@ -151,7 +150,7 @@ LUIS suggests utterances from existing [endpoint utterances](label-suggested-utt
 The exported 1.x app's JSON has some areas that you need to change before importing into [LUIS][LUIS] 2.0. 
 
 ### Prebuilt entities 
-The [prebuilt entities](Pre-builtEntities.md) have changed. Make sure you are using the V2 prebuilt entities. This includes using [datetimeV2](pre-builtentities.md?#use-a-prebuilt-datetimev2-entity), instead of datetime. 
+The [prebuilt entities](luis-prebuilt-entities.md) have changed. Make sure you are using the V2 prebuilt entities. This includes using [datetimeV2](luis-prebuilt-entities.md#use-a-prebuilt-datetimev2-entity), instead of datetime. 
 
 ### Actions
 The actions property is no longer valid. It should be an empty 
@@ -160,22 +159,10 @@ The actions property is no longer valid. It should be an empty
 V1 allowed labeled utterances to include spaces at the beginning or end of the word or phrase. Removed the spaces. 
 
 ## Common reasons for HTTP response status codes
-The following table lists some of the most common HTTP response status codes for the [authoring](https://aka.ms/luis-authoring-apis) and [endpoint](https://aka.ms/luis-endpoint-apis) APIs:
-
-|Code|API|Explanation|
-|:--|--|--|
-|400|Authoring, Endpoint|request's parameters are incorrect meaning the required parameters are missing, malformed, or too large|
-|400|Authoring, Endpoint|request's body is incorrect meaning the JSON is missing, malformed, or too large|
-|401|Authoring|used endpoint subscription key, instead of authoring key|
-|401|Authoring, Endpoint|invalid, malformed, or empty key|
-|401|Authoring, Endpoint| key doesn't match region|
-|401|Authoring|you are not the owner or collaborator|
-|401|Authoring|invalid order of API calls|
-|403|Authoring, Endpoint|total monthly key quota limit exceeded|
-|429|Authoring, Endpoint|Rate limit is exceeded (requests/second)|
+See [LUIS API response codes](luis-reference-response-codes.md).
 
 ## Next steps
 
 Use the v2 API documentation to update existing REST calls to LIUS [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

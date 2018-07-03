@@ -4,7 +4,7 @@ description: Provides an overview of the Collector appliance and how to configur
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 06/19/2018
 ms.author: ruturajd
 services: azure-migrate
 ---
@@ -85,7 +85,7 @@ The Collector should be in sync with the internet time server to ensure the requ
 
 The Azure Migrate Collector service should be running on the machine. This service is started automatically when the machine boots. If the service is not running, you can start the *Azure Migrate Collector* service via control panel. The Collector service is responsible to connect to the vCenter server, collect the machine metadata and performance data, and send it to the service.
 
-### VMware PowerCLI 6.5 
+### VMware PowerCLI 6.5
 
 The VMware PowerCLI powershell module needs to be installed so that the Collector can communicate with the vCenter server and query for the machine details and their performance data. The powershell module is automatically downloaded and installed as part of the pre-requisite check. Automatic download requires a few URLs whitelisted, failing which you need either provide access by whitelisting them, or installing the module manually.
 
@@ -99,7 +99,7 @@ Install the module manually using the following steps:
 
 The Collector should connect to the vCenter Server and be able to query for the virtual machines, their metadata, and their performance counters. This data is used by the project to calculate an assessment.
 
-1. To connect to the vCenter Server, a read-only account with permissions as given in the following table can be used to run the discovery. 
+1. To connect to the vCenter Server, a read-only account with permissions as given in the following table can be used to run the discovery.
 
     |Task  |Required role/account  |Permissions  |
     |---------|---------|---------|
@@ -114,15 +114,15 @@ The Collector should connect to the vCenter Server and be able to query for the 
 > Only vCenter Server versions 5.5, 6.0 and 6.5 are officially supported.
 
 > [!IMPORTANT]
-> We recommend that you set the highest common level (3) for the statistics level so that all the counters are collected correctly. If you have vCenter set at a lower level, only a few counters might be collected completely, with the rest set to 0. The assessment might then show incomplete data. 
+> We recommend that you set the highest common level (3) for the statistics level so that all the counters are collected correctly. If you have vCenter set at a lower level, only a few counters might be collected completely, with the rest set to 0. The assessment might then show incomplete data.
 
 ### Selecting the scope for discovery
 
 Once connected to the vCenter, you can select a scope to discover. Selecting a scope discovers all the virtual machines from the specified vCenter inventory path.
 
-1. The scope can be either a datacenter, a folder, or a ESXi host. 
+1. The scope can be either a datacenter, a folder, or a ESXi host.
 2. You can only select one scope at a time. To select more virtual machines, you can complete one discovery, and restart the discovery process with a new scope.
-3. You can only select a scope that has *less than 1000 virtual machines*. If you select a scope that has more than 1000 virtual machines, you need to split the scope into smaller units by creating folders. Next, you need to run independent discoveries of the smaller folders.
+3. You can only select a scope that has *less than 1500 virtual machines*.
 
 ## Specify migration project
 
@@ -137,15 +137,16 @@ Once the discovery starts, the vCenter virtual machines are discovered, and thei
 
 ### What data is collected?
 
-The collection job discovers the following static metadata about the selected virtual machines. 
+The collection job discovers the following static metadata about the selected virtual machines.
 
 1. VM Display name (on vCenter)
 2. VM’s inventory path (host/folder in vCenter)
 3. IP address
 4. MAC address
+5. Operating system
 5. Number of cores, disks, NICs
-6. RAM, Disk sizes
-7. And performance counters of the VM, Disk and Network as listed in the table below.
+6. Memory size, Disk sizes
+7. And performance counters of the VM, disk and network as listed in the table below.
 
 The following table lists the performance counters that are collected, and also lists the assessment results that are impacted if a particular counter is not collected.
 
@@ -182,27 +183,37 @@ We also recommend the following steps to secure your appliance
 
 You can upgrade the Collector to the latest version without downloading the OVA once again.
 
-1. Download the latest [upgrade package](https://aka.ms/migrate/col/latestupgrade).
+1. Download the latest [upgrade package](https://aka.ms/migrate/col/upgrade_9_11) (version 1.0.9.11).
 2. To ensure that the downloaded hotfix is secure, open Administrator command window and run the following command to generate the hash for the ZIP file. The generated hash should match with the hash mentioned against the specific version:
 
 	```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-	
-	(example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+
+	(example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
 3. Copy the zip file to the Azure Migrate collector virtual machine (collector appliance).
 4. Right-click on the zip file and select Extract All.
 5. Right-click on Setup.ps1 and select Run with PowerShell and follow the instructions on screen to install the update.
 
 ### List of updates
 
-#### Upgrade to version 1.0.9.5
+#### Upgrade to version 1.0.9.11
 
-For Upgrade to version 1.0.9.5 download [package](https://aka.ms/migrate/col/upgrade_9_5)
+Hash values for upgrade [package 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)
 
 **Algorithm** | **Hash value**
 --- | ---
-MD5 | d969ebf3bdacc3952df0310d8891ffdf
-SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
-SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
+MD5 | 0e36129ac5383b204720df7a56b95a60
+SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
+SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
+
+#### Upgrade to version 1.0.9.7
+
+Hash values for upgrade [package 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | 01ccd6bc0281f63f2a672952a2a25363
+SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
+SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: R Server on HDInsight
+- name: ML Services on HDInsight
   items:
   - name: Overview
     href: r-server-overview.md
@@ -9,7 +9,7 @@
     maintainContext: true  
 - name: Get started
   items:
-  - name: Start with R Server
+  - name: Start with ML Services
     href: r-server-get-started.md
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
@@ -19,11 +19,11 @@
     maintainContext: true
 - name: How to
   items:
-  - name: Use R Server
+  - name: Use ML Services
     items:
-    - name: Manage R Server cluster
+    - name: Manage ML Services cluster
       href: r-server-hdinsight-manage.md
-    - name: Operationalize R Server cluster
+    - name: Operationalize ML Services cluster
       href: r-server-operationalize.md
     - name: Storage options
       href: r-server-storage.md
@@ -276,13 +276,10 @@
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitoring using OMS
+  - name: Monitoring using Log Analytics
     items:
     - name: Use Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Cluster-specific dashboards
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Use queries with Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md

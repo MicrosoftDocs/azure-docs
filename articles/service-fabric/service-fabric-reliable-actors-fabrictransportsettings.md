@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 
@@ -49,6 +49,10 @@ The following example shows how to change the default value of FabricTransport O
 ## Config package
 
 You can use a [config package](service-fabric-application-and-service-manifests.md) to modify the default configuration.
+
+> [!IMPORTANT]
+> On Linux nodes, certificates must be PEM-formatted. To learn more about locating and configuring certificates for Linux, see [Configure certificates on Linux](./service-fabric-configure-certificates-linux.md). 
+> 
 
 ### Configure FabricTransport settings for the actor service
 

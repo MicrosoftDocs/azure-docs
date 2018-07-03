@@ -47,11 +47,26 @@ To create an App Service mobile backend, either follow the [Quickstart tutorial]
 Back in the *Get started* blade, under **Create a table API**, choose **C#** as your **Backend language**. Click **Download**, extract the
 compressed project files to your local computer, and open the solution in Visual Studio.
 
-### Create a .NET backend using Visual Studio 2013 and Visual Studio 2015
+### Create a .NET backend using Visual Studio 2017
+
+Install the Azure workload via the Visual Studio Installer to publish to Azure Mobile Apps project from Visual Studio. Once you
+have installed the SDK, create an ASP.NET application using the following steps:
+
+1. Open the **New Project** dialog (from **File** > **New** > **Project...**).
+2. Expand **Visual C#** and select **Web**.
+3. Select **ASP.NET Web Application (.NET Framework)**.
+4. Fill in the project name. Then click **OK**.
+5. Select **Azure Mobile App** from the list of templates.
+6. Click **OK** to create the solution.
+7. Right-click on the project in the **Solution Explorer** and choose **Publish...**, then choose **App Service** as the publishing target.
+8. Follow the prompts to authenticate and choose a new or existing Azure App Service to publish.
+
+### Create a .NET backend using Visual Studio 2015
+
 Install the [Azure SDK for .NET][4] (version 2.9.0 or later) to create an Azure Mobile Apps project in Visual Studio. Once you
 have installed the SDK, create an ASP.NET application using the following steps:
 
-1. Open the **New Project** dialog (from *File* > **New** > **Project...**).
+1. Open the **New Project** dialog (from **File** > **New** > **Project...**).
 2. Expand **Templates** > **Visual C#**, and select **Web**.
 3. Select **ASP.NET Web Application**.
 4. Fill in the project name. Then click **OK**.

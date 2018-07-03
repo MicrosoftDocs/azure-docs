@@ -4,7 +4,7 @@ description: Create web APIs & REST APIs to  call your APIs, services, or system
 keywords: web APIs, REST APIs, workflows, system integrations
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 

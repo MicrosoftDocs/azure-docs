@@ -1,25 +1,17 @@
 ---
-title: Use Stream Analytics Visual Studio tools to set up the continuous integration and deployment process | Microsoft Docs
-description: Tutorial to develop Stream Analytics tools for Visual Studio to author, debug, and create your Stream Analytics Edge jobs.
-keywords: visual studio, NuGet, DevOps, Edge jobs, Stream analytics
-documentationcenter: ''
+title: Edge jobs in Azure Stream Analytics tools for Visual Studio 
+description: This article describes how to author, debug, and create your Stream Analytics Edge jobs using the Stream Analytics tools for Visual Studio.
 services: stream-analytics
 author: su-jie
-manager: 
-
-
-ms.assetid: 
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/13/2018
 ms.author: sujie
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/13/2018
 --- 
 
-# Develop Stream Analytics Edge jobs by using Visual Studio tools
+# Develop Stream Analytics Edge jobs using Visual Studio tools
 
 In this tutorial, you learn how to use Stream Analytics tools for Visual Studio to author, debug, and create your Stream Analytics Edge jobs. After you create and test the job, you can go to the Azure portal to deploy it to your devices. 
 
@@ -126,6 +118,6 @@ The job view window provides you with operations such as refreshing the job, del
 
 ## Next steps
 
-* [More information on Azure Iot Edge](../iot-edge/how-iot-edge-works.md)
+* [More information on Azure Iot Edge](../iot-edge/about-iot-edge.md)
 * [ASA on IoT Edge tutorial](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 

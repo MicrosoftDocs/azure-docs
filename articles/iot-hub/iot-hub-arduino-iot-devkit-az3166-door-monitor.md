@@ -1,21 +1,14 @@
 ---
-title: 'Receive an email when door is opened using SendGrid service and Azure Functions | Microsoft Docs'
+title: Receive an email when door is opened using SendGrid service and Azure Functions | Microsoft Docs
 description: Monitor the magnetic sensor to detect when a door is opened and use Azure Functions to send an email notification.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
-
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-
 ---
 
 # Door Monitor          
@@ -42,7 +35,7 @@ Finish the [Getting Started Guide]({{"/docs/get-started/" | absolute_url }}) to:
 
 An active Azure subscription. If you do not have one, you can register via one of these methods:
 
-* Activate a [free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html).
+* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/free/).
 * Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are an MSDN or Visual Studio subscriber.
 
 ## Deploy SendGrid service in Azure
@@ -67,7 +60,7 @@ You then see the following page.
 
 Complete the sign-up form:
 
-  * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
+  * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
   * **Name**: The name for your SendGrid service. Choose a unique name, differing from other services you may have.
 
@@ -109,7 +102,7 @@ You then see the following page.
 
 Complete the sign-up form:
 
-  * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
+  * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
   * **Iot Hub Name**: The name for your IoT hub. Choose a unique name, differing from other services you may have.
 
@@ -130,10 +123,6 @@ Complete the sign-up form:
 - Start VS Code.
 - Connect the DevKit to your computer.
 
-VS Code will automatically detect your DevKit and open an introduction page:
-
-![VSCode](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-start.png)
-
 > [!NOTE]
 > When you launch VS Code, you may receive an error message stating that it cannot find the Arduino IDE or related board package. If you receive this error, close VS Code, launch the Arduino IDE again, and VS Code should locate the Arduino IDE path correctly.
 
@@ -143,7 +132,8 @@ Expand the left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCH
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
+> [!NOTE]
+> You can also open example from command palette. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
 ### Provision Azure services
 
@@ -212,7 +202,7 @@ If you encounter problems, refer to [FAQs](https://microsoft.github.io/azure-iot
 
 ## Next steps
 
-You have learned how to connect a DevKit device to your Azure IoT Suite and use the SendGrid service to send an email. Here are the suggested next steps:
+You have learned how to connect a DevKit device to your Azure IoT Remote Monitoring solution accelerator and use the SendGrid service to send an email. Here are the suggested next steps:
 
-* [Azure IoT Suite overview](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT Remote Monitoring solution accelerator overview](https://docs.microsoft.com/azure/iot-suite/)
+* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

@@ -4,7 +4,7 @@ title: Azure Payment Processing Blueprint - Encryption requirements
 description: PCI DSS Requirement 4
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
+ms.author: jomolesk
 
 ---
 

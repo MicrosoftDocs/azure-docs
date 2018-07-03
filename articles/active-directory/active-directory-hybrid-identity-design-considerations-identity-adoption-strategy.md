@@ -6,14 +6,14 @@ services: active-directory
 author: billmath
 manager: mtillman
 editor: ''
-
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ---
@@ -28,7 +28,7 @@ In this task, you define the hybrid identity adoption strategy for your hybrid i
 The first task addresses determining the organizations business needs.  This can be very broad and scope creep can occur if you are not careful.  In the beginning, keep it simple but always remember to plan for a design that will accommodate and facilitate change in the future.  Regardless of whether it is a simple design or an extremely complex one, Azure Active Directory is the Microsoft Identity platform that supports Office 365, Microsoft Online Services, and cloud aware applications.
 
 ## Define an integration strategy
-Microsoft has three main integration scenarios which are cloud identities, synchronized identities, and federated identities.  You should plan on adopting one of these integration strategies.  The strategy you choose can vary and the decisions in choosing one may include, what type of user experience you want to provide, do you have some of the existing infrastructure already in-place, and what is the most cost effective.  
+Microsoft has three main integration scenarios which are cloud identities, synchronized identities, and federated identities.  You should plan on adopting one of these integration strategies.  The strategy you choose can vary and the decisions in choosing one may include, what type of user experience you want to provide, do you have an existing infrastructure, and what is the most cost effective.  
 
 ![](./media/hybrid-id-design-considerations/integration-scenarios.png)
 
@@ -47,7 +47,7 @@ The following table helps in determining the advantages and disadvantages of eac
 
 | Strategy | Advantages | Disadvantages |
 | --- | --- | --- |
-| **Cloud identities** |Easier to manage for small organization. <br> Nothing to install on-premises- No additional hardware needed<br>Easily disabled if the user leaves the company |Users will need to sign in when accessing workloads in the cloud <br> Passwords may or may not be the same for cloud and on-premises identities |
+| **Cloud identities** |Easier to manage for small organization. <br> Nothing to install on-premises. No additional hardware needed<br>Easily disabled if the user leaves the company |Users will need to sign in when accessing workloads in the cloud <br> Passwords may or may not be the same for cloud and on-premises identities |
 | **Synchronized** |On-premises password authenticates both on-premises and cloud directories <br>Easier to manage for small, medium, or large organizations <br>Users can have single sign-on (SSO) for some resources <br> Microsoft preferred method for synchronization <br> Easier to manage |Some customers may be reluctant to synchronize their directories with the cloud due specific company’s police |
 | **Federated** |Users can have single sign-on (SSO) <br>If a user is terminated or leaves, the account can be immediately disabled and access revoked,<br> Supports advanced scenarios that cannot be accomplished with synchronized |More steps to set up and configure <br> Higher maintenance <br> May require additional hardware for the STS infrastructure <br> May require additional hardware to install the federation server. Additional software is required if AD FS is used <br> Require extensive setup for SSO <br> Critical point of failure if the federation server is down, users won’t be able to authenticate |
 
@@ -61,7 +61,7 @@ The strategy that you use will dictate the user sign-in experience.  The followi
 | Web Browsers |Forms-based authentication |single sign-on, sometimes required to supply organization ID |
 | Outlook |Prompt for credentials |Prompt for credentials |
 | Skype for Business (Lync) |Prompt for credentials |single sign-on for Lync, prompted credentials for Exchange |
-| Skydrive Pro |Prompt for credentials |single sign-on |
+| OneDrive for Business |Prompt for credentials |single sign-on |
 | Office Pro Plus Subscription |Prompt for credentials |single sign-on |
 
 **External or untrusted  sources**:
@@ -69,7 +69,7 @@ The strategy that you use will dictate the user sign-in experience.  The followi
 |  | Synchronized Identity | Federated Identity |
 | --- | --- | --- |
 | Web Browsers |Forms-based authentication |Forms-based authentication |
-| Outlook, Skype for Business (Lync), Skydrive Pro, Office subscription |Prompt for credentials |Prompt for credentials |
+| Outlook, Skype for Business (Lync), OneDrive for Business, Office subscription |Prompt for credentials |Prompt for credentials |
 | Exchange ActiveSync |Prompt for credentials |single sign-on for Lync, prompted credentials for Exchange |
 | Mobile apps |Prompt for credentials |Prompt for credentials |
 
@@ -118,7 +118,7 @@ It is common for large and even small organizations to have multiple forests, as
 
 Multi-Forest Scenario
 
-If this the case then the multi-forest-single Azure AD topology should be considered if the following items are true:
+If this is the case, then the multi-forest single Azure AD topology should be considered if the following items are true:
 
 * Users have only 1 identity across all forests – the uniquely identifying users section below describes this in more detail.
 * The user authenticates to the forest in which their identity is located
@@ -148,7 +148,7 @@ It is possible and supported to connect one on-premises instance of Active Direc
 
 **Single-forest filtering scenario**
 
-In order to do this the following must be true:
+To do this, the following must be true:
 
 * Azure AD Connect sync servers must be configured for filtering so they each have a mutually exclusive set of objects.  This done, for example, by scoping each server to a particular domain or OU.
 * A DNS domain can only be registered in a single Azure AD directory so the UPNs of the users in the on-premises AD must use separate namespaces
@@ -195,7 +195,7 @@ Even though you may have settled on a solution for your strategy, you still need
 | On-premises AD |Multi-Factor Authentication Server |
 
 > [!NOTE]
-> You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design.  For more information read [Choose the multi-factor security solution for you](../multi-factor-authentication/multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
+> You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design.  For more information read [Choose the multi-factor security solution for you](authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
 > 
 > 
 

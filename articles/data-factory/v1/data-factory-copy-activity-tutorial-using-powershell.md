@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Create a pipeline to move data by using Azure PowerShell | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with Copy Activity by using Azure PowerShell.
 services: data-factory
@@ -30,7 +30,7 @@ robots: noindex
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-powershell.md). 
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-powershell.md). 
 
 In this article, you learn how to use PowerShell to create a data factory with a pipeline that copies data from an Azure blob storage to an Azure SQL database. If you are new to Azure Data Factory, read through the [Introduction to Azure Data Factory](data-factory-introduction.md) article before doing this tutorial.   
 
@@ -77,7 +77,7 @@ A data factory can have one or more pipelines. A pipeline can have one or more a
 	Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
 
 	```PowerShell
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```   
    
 	Run the following command to view all the subscriptions for this account:

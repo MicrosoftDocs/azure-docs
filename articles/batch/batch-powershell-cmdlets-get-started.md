@@ -30,9 +30,9 @@ This article is based on cmdlets in Azure PowerShell version 3.0.0. We recommend
 Perform the following operations to use Azure PowerShell to manage your Batch resources.
 
 * [Install and configure Azure PowerShell](/powershell/azure/overview)
-* Run the **Login-AzureRmAccount** cmdlet to connect to your subscription (the Azure Batch cmdlets ship in the Azure Resource Manager module):
+* Run the **Connect-AzureRmAccount** cmdlet to connect to your subscription (the Azure Batch cmdlets ship in the Azure Resource Manager module):
   
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 * **Register with the Batch provider namespace**. This operation only needs to be performed **once per subscription**.
   
     `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`

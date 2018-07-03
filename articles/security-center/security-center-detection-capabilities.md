@@ -3,8 +3,8 @@ title: Detection capabilities in Azure Security Center | Microsoft Docs
 description: This document helps you to understand how Azure Security Center detection capabilities work.
 services: security-center
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: terrylan
+manager: mbaldwin
 editor: ''
 
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0

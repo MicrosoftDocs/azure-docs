@@ -1,23 +1,14 @@
-
 ---
-title: Azure Backup FAQ | Microsoft Docs
+title: Azure Backup FAQ
 description: 'Answers to common questions about: Azure Backup features including Recovery Services vaults, what it can back up, how it works, encryption, and limits. '
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: backup and disaster recovery; backup service
-
-ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 7/21/2017
-ms.author: markgal;arunak;trinadhk;sogup;
-
+ms.topic: conceptual
+ms.date: 5/9/2018
+ms.author: markgal
 ---
 # Questions about the Azure Backup service
 This article answers common questions about the Azure Backup components. In some of the answers, there are links to the articles that have comprehensive information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -28,10 +19,10 @@ To quickly scan the sections in this article, use the links to the right, under 
 ## Recovery services vault
 
 ### Is there any limit on the number of vaults that can be created in each Azure subscription? <br/>
-Yes. As of January 2018, you can create up to 25 Recovery Services vaults, per supported region of Azure Backup, per subscription. If you need additional vaults, create an additional subscription.
+Yes. You can create as many as 500 Recovery Services vaults, per supported region of Azure Backup, per subscription. If you need additional vaults, create an additional subscription.
 
 ### Are there limits on the number of servers/machines that can be registered against each vault? <br/>
-You can register upto 200 Azure Virtual machines per vault. If you are using MAB Agent you can register upto 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
+You can register upto 1000 Azure Virtual machines per vault. If you are using MAB Agent, you can register upto 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
 
 ### If my organization has one vault, how can I isolate one server's data from another server when restoring data?<br/>
 All servers that are registered to the same vault can recover the data backed up by other servers *that use the same passphrase*. If you have servers whose backup data you want to isolate from other servers in your organization, use a designated passphrase for those servers. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.
@@ -65,12 +56,19 @@ Yes.
 ### Can I Register my DPM Server to multiple vaults? <br/>
 No. A DPM or MABS server can be registered to only one vault.
 
-### Which version of System Center Data Protection Manager is supported? <br/>
-We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azure Backup agent on the latest update rollup (UR) for System Center Data Protection Manager (DPM). As of August 2016, Update Rollup 11 is the latest update.
+### Which version of System Center Data Protection Manager is supported?
 
-### I have installed Azure Backup agent to protect my files and folders. Can I now install System Center DPM to work with Azure Backup agent to protect on-premises application/VM workloads to Azure? <br/>
-To use Azure Backup with System Center Data Protection Manager (DPM), install DPM first and then install Azure Backup agent. Installing the Azure Backup components in this order ensures the Azure Backup agent works with DPM. Installing the Azure Backup agent before installing DPM is not advised or supported.
+We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azure Backup agent on the latest update rollup (UR) for System Center Data Protection Manager (DPM). 
+- For System Center DPM 2012 R2, [Update Rollup 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) is the latest update.
+- For System Center DPM 2016, [Update Rollup 2](https://support.microsoft.com/en-us/help/3209593) is the latest update.
 
+### I have installed Azure Backup agent to protect my files and folders. Can I install System Center DPM to protect on-premises application/VM workloads to Azure?
+
+Yes. However, to use Azure Backup with System Center Data Protection Manager (DPM), install DPM first and then install Azure Backup agent. Installing the Azure Backup components in this order ensures the Azure Backup agent works with DPM. Installing the Azure Backup agent before installing DPM is not advised or supported.
+
+### Can I use DPM to back up apps in Azure Stack?
+
+No. Though you can use Azure Backup to protect Azure Stack, Azure Backup does not currently support using DPM to back up apps in Azure Stack.
 
 ## How Azure Backup works
 ### If I cancel a backup job once it has started, is the transferred backup data deleted? <br/>
@@ -79,13 +77,13 @@ No. All data transferred into the vault, before the backup job was canceled, sta
 If you cancel a backup job for an Azure VM, any transferred data is ignored. The next backup job transfers incremental data from the last successful backup job.
 
 ### Are there limits on when or how many times a backup job can be scheduled?<br/>
-Yes. You can run backup jobs on Windows Server or Windows workstations up to three times/day. You can run backup jobs on System Center DPM up to twice a day. You can run a backup job for IaaS VMs once a day. You can use the scheduling policy for Windows Server or Windows workstation to specify daily or weekly schedules. Using System Center DPM, you can specify daily, weekly, monthly, and yearly schedules.
+Yes. You can run backup jobs on Windows Server or Windows workstations up to three times/day. You can run backup jobs on System Center DPM up to two times a day. You can run a backup job for IaaS VMs once a day. Use the scheduling policy for Windows Server or Windows workstation to specify daily or weekly schedules. With System Center DPM, you can specify daily, weekly, monthly, and yearly schedules.
 
 ### Why is the size of the data transferred to the Recovery Services vault smaller than the data I backed up?<br/>
  All the data that is backed up from Azure Backup Agent or SCDPM or Azure Backup Server, is compressed and encrypted before being transferred. Once the compression and encryption is applied, the data in the Recovery Services vault is 30-40% smaller.
 
 ## What can I back up
-### Which operating systems do Azure Backup support? <br/>
+### Which operating systems does Azure Backup support? <br/>
 Azure Backup supports the following list of operating systems for backing up: files and folders, and workload applications protected using Azure Backup Server and System Center Data Protection Manager (DPM).
 
 | Operating System | Platform | SKU |
@@ -110,7 +108,7 @@ Azure Backup supports the following list of operating systems for backing up: fi
 
 
 ### Is there a limit on the size of each data source being backed up? <br/>
-There is no limit on the amount of data you can back up to a vault. Azure Backup restricts the maximum size for the data source, however, these limits are large. As of August 2015, the maximum size for a data source for the supported operating systems is:
+Azure Backup enforces a maximum size for a data source, however, the limits for the source are large. As of August 2015, the maximum size for a data source for the supported operating systems is:
 
 | S.No | Operating system | Maximum size of data source |
 |:---:|:--- |:--- |
@@ -130,13 +128,16 @@ The following table explains how each data source size is determined.
 | Microsoft Exchange |Sum of all Exchange databases in an Exchange server being backed up |
 | BMR/System State |Each individual copy of BMR or system state of the machine being backed up |
 
-For Azure VM backup, each VM can have up to 16 data disks with each data disk being of size 4095GB or less. <br>
+For Azure IaaS VM backup, each VM can have up to 16 data disks, and each data disk can be up to 4095 GB.
+
+### Is there a limit on the amount of data held in a Recovery Services vault?
+There is no limit on the amount of data you can back up to a Recovery Services vault.
 
 ## Retention policy and recovery points
 ### Is there a difference between the retention policy for DPM and Windows Server/client (that is, on Windows Server without DPM)?<br/>
 No, both DPM and Windows Server/client have daily, weekly, monthly, and yearly retention policies.
 
-### Can I configure my retention policies selectively – i.e. configure weekly and daily but not yearly and monthly?<br/>
+### Can I configure my retention policies selectively – that is, configure weekly and daily but not yearly and monthly?<br/>
 Yes, the Azure Backup retention structure allows you to have full flexibility in defining the retention policy as per your requirements.
 
 ### Can I “schedule a backup” at 6pm and specify retention policies at a different time?<br/>

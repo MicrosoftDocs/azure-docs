@@ -4,9 +4,8 @@ description: Learn how the Linguistic Analysis API uses its naming structure for
 services: cognitive-services
 author: RichardSunMS
 manager: wkwok
-
 ms.service: cognitive-services
-ms.technology: linguistic-analysis-api
+ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 03/23/2016
 ms.author: lesun

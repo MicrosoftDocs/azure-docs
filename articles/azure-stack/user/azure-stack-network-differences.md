@@ -1,14 +1,16 @@
 ---
-title: 'Azure Stack Networking: Differences and considerations'
+title: Azure Stack networking Differences and considerations | Microsoft Docs
 description: Learn about differences and considerations when working with networking in Azure Stack.
 services: azure-stack
 keywords: 
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 02/28/2018
+ms.date: 05/21/2018
 ms.topic: article
 ms.service: azure-stack
+ms.author: mabrigg
+ms.reviewer: scottnap
 
 ---
 
@@ -16,11 +18,9 @@ ms.service: azure-stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Networking in Azure Stack provides many of the features you find in Azure, with some differences you should understand before you start deploying.
+Azure Stack networking has many of the features provided by Azure networking. However, there are some key differences that you should understand before deploying an Azure Stack network.
 
-
-This article provides an overview of the unique considerations for Networking and its features in Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
-
+This article provides an overview of the unique considerations for Azure Stack networking and its features. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
 
 ## Cheat sheet: Networking differences
 
@@ -30,7 +30,7 @@ This article provides an overview of the unique considerations for Networking an
 | |DNS AAAA records|Supported|Not supported|
 | |DNS zones per subscription|100 (default)<br>Can be increased on request.|100|
 | |DNS record sets per zone|5000 (default)<br>Can be increased on request.|5000|
-||Name servers for zone delegation|Azure provide four name servers for each user (tenant) zone that is created.|Azure Stack provides two name servers for each user (tenant) zone that is created.|
+||Name servers for zone delegation|Azure provides four name servers for each user (tenant) zone that is created.|Azure Stack provides two name servers for each user (tenant) zone that is created.|
 | Virtual network|Virtual network peering|Connect two virtual networks in the same region through the Azure backbone network.|Not yet supported|
 | |IPv6 addresses|You can assign an IPv6 address as part of the [Network Interface Configuration](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Only IPv4 is supported.|
 |VPN gateways|Point-to-Site VPN Gateway|Supported|Not yet supported|

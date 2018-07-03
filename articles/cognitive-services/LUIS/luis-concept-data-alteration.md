@@ -4,12 +4,11 @@ description: Learn how data can be changed before predictions in Language Unders
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Data alterations
@@ -18,7 +17,7 @@ LUIS provides ways to manipulate the utterance before or during the prediction.
 ## Correct spelling errors in utterance
 LUIS uses [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) to correct spelling errors in the utterance. LUIS needs the key associated with that service. Create the key, then add the key as a querystring parameter at the [endpoint](https://aka.ms/luis-endpoint-apis). 
 
-You can also correct spelling errors in the **Test** panel by [entering the key](train-test.md#view-bing-spell-check-corrections-in-test-panel). The key is kept as a session variable in the browser for the Test panel. Add the key to the Test panel in each browser session you want spelling corrected. 
+You can also correct spelling errors in the **Test** panel by [entering the key](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key is kept as a session variable in the browser for the Test panel. Add the key to the Test panel in each browser session you want spelling corrected. 
 
 Usage of the key in the test panel and at the endpoint count toward the [key usage](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/) quota. LUIS implements Bing Spell Check limits for text length. 
 
@@ -27,7 +26,7 @@ The endpoint requires two params for spelling corrections to work:
 |Param|Value|
 |--|--|
 |`spellCheck`|boolean|
-|`bing-spell-check-subscription-key`|[Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) subscription key|
+|`bing-spell-check-subscription-key`|[Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) endpoint key|
 
 When [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) detects an error, the original utterance, and the corrected utterance are returned along with predictions from the endpoint.
 
@@ -86,4 +85,4 @@ int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 > [!div class="nextstepaction"]
 > [Correct spelling mistakes with this tutorial](luis-tutorial-bing-spellcheck.md)
 
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

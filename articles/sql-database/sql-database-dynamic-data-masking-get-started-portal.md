@@ -6,8 +6,8 @@ author: ronitr
 manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
-ms.date: 11/22/2016
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: ronitr
 
 ---

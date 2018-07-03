@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-image-search
+ms.component: bing-image-search
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: v-gedod
@@ -15,6 +15,8 @@ ms.author: v-gedod
 # Image Search SDK C# quickstart
 
 The Bing Image Search SDK contains the functionality of the REST API for image requests and parsing results. 
+
+The [source code for C# Bing Image Search SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) is available on Git Hub.
 
 ## Application dependencies
 

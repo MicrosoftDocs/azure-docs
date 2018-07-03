@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
+ms.component: hybrid
 ms.author: billmath
 ---
 
@@ -35,7 +36,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](a
 - *Great user experience*
   - Users use the same passwords to sign into both on-premises and cloud-based applications.
   - Users spend less time talking to the IT helpdesk resolving password-related issues.
-  - Users can complete [self-service password management](../active-directory-passwords-overview.md) tasks in the cloud.
+  - Users can complete [self-service password management](../authentication/active-directory-passwords-overview.md) tasks in the cloud.
 - *Easy to deploy & administer*
   - No need for complex on-premises deployments or network configuration.
   - Needs just a lightweight agent to be installed on-premises.
@@ -43,7 +44,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](a
 - *Secure*
   - On-premises passwords are never stored in the cloud in any form.
   - The agent only makes outbound connections from within your network. Therefore, there is no requirement to install the agent in a perimeter network, also known as a DMZ.
-  - Protects your user accounts by working seamlessly with [Azure AD Conditional Access policies](../active-directory-conditional-access-azure-portal.md), including Multi-Factor Authentication (MFA), and by [filtering out brute force password attacks](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
+  - Protects your user accounts by working seamlessly with [Azure AD Conditional Access policies](../active-directory-conditional-access-azure-portal.md), including Multi-Factor Authentication (MFA), and by [filtering out brute force password attacks](../authentication/howto-password-smart-lockout.md).
 - *Highly available*
   - Additional agents can be installed on multiple on-premises servers to provide high availability of sign-in requests.
 
@@ -52,18 +53,18 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](a
 - Supports user sign-in into all web browser-based applications and into Microsoft Office client applications that use [modern authentication](https://aka.ms/modernauthga).
 - Sign-in usernames can be either the on-premises default username (`userPrincipalName`) or another attribute configured in Azure AD Connect (known as `Alternate ID`).
 - The feature works seamlessly with [conditional access](../active-directory-conditional-access-azure-portal.md) features such as Multi-Factor Authentication (MFA) to help secure your users.
-- Integrated with cloud-based [self-service password management](../active-directory-passwords-overview.md), including password writeback to on-premises Active Directory and password protection by banning commonly used passwords.
+- Integrated with cloud-based [self-service password management](../authentication/active-directory-passwords-overview.md), including password writeback to on-premises Active Directory and password protection by banning commonly used passwords.
 - Multi-forest environments are supported if there are forest trusts between your AD forests and if name suffix routing is correctly configured.
 - It is a free feature, and you don't need any paid editions of Azure AD to use it.
 - It can be enabled via [Azure AD Connect](active-directory-aadconnect.md).
 - It uses a lightweight on-premises agent that listens for and responds to password validation requests.
 - Installing multiple agents provides high availability of sign-in requests.
-- It [protects](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) your on-premises accounts against brute force password attacks in the cloud.
+- It [protects](../authentication/howto-password-smart-lockout.md) your on-premises accounts against brute force password attacks in the cloud.
 
 ## Next steps
 
 - [**Quick Start**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - Get up and running Azure AD Pass-through Authentication.
-- [**Smart Lockout**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) - Configure Smart Lockout capability on your tenant to protect user accounts.
+- [**Smart Lockout**](../authentication/howto-password-smart-lockout.md) - Configure Smart Lockout capability on your tenant to protect user accounts.
 - [**Current limitations**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - Learn which scenarios are supported and which ones are not.
 - [**Technical Deep Dive**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - Understand how this feature works.
 - [**Frequently Asked Questions**](active-directory-aadconnect-pass-through-authentication-faq.md) - Answers to frequently asked questions.

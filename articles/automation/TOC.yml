@@ -21,7 +21,7 @@
     href: automation-tutorial-update-management.md
   - name: Onboard update and change tracking by runbook
     href: automation-onboard-solutions.md
-  - name: Identify software on a VM
+  - name: Identify software in your environment
     href: automation-tutorial-installed-software.md
   - name: Troubleshoot changes on a VM
     href: automation-tutorial-troubleshoot-changes.md
@@ -29,6 +29,8 @@
   items:
     - name: Onboarding
       items:
+      - name: Onboard multiple VMs from the portal
+        href: automation-onboard-solutions-from-browse.md
       - name: Onboard from an Azure VM
         href: automation-onboard-solutions-from-vm.md
       - name: Onboard from Automation account
@@ -115,16 +117,14 @@
           href: automation-pass-json-string.md
     - name: Hybrid Runbook Worker
       items:
-        - name: Deploy Hybrid Runbook Worker
+        - name: Hybrid Runbook Worker overview
           href: automation-hybrid-runbook-worker.md
-        - name: Azure Automation Windows Hybrid Runbook Worker
+        - name: Deploy Windows Hybrid Runbook Worker
           href: automation-windows-hrw-install.md
-        - name: Azure Automation Linux Hybrid Runbook Worker
+        - name: Deploy Linux Hybrid Runbook Worker
           href: automation-linux-hrw-install.md
-        - name: Run runbooks on worker
+        - name: Run runbooks on a Hybrid Runbook Worker
           href: automation-hrw-run-runbooks.md
-        - name: Remove Azure Automation Hybrid Runbook Workers
-          href: automation-remove-hrw.md
     - name: Deploy configuration management (DSC)
       items:
         - name: Desired State Configuration (DSC) overview
@@ -161,12 +161,12 @@
       items:
         - name: Runbook gallery
           href: automation-runbook-gallery.md
+        - name: Monitor runbooks with metric alerts
+          href: automation-alert-metric.md
         - name: Start a runbook from Azure alerts
           href: automation-create-alert-triggered-runbook.md 
         - name: Create Amazon Web Service VM
           href: automation-scenario-aws-deployment.md
-        - name: Remediate Azure VM alert
-          href: automation-azure-vm-alert-integration.md
         - name: Start/stop VMs during off-hours
           href: automation-solution-vm-management.md
         - name: Remove resource group
@@ -179,6 +179,8 @@
           href: automation-invoke-runbook-from-omsla-alert.md
         - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
           href: automation-deploy-template-runbook.md
+        - name: Integrate Azure Automation with Event Grid and Microsoft Teams
+          href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
     - name: Monitor
       items:
         - name: Forward Azure Automation job data to Log Analytics
@@ -193,10 +195,16 @@
           href: automation-migrate-account-subscription.md
     - name: Troubleshoot
       items:
-        - name: Troubleshoot common errors
-          href: automation-troubleshooting-automation-errors.md
-        - name: Troubleshoot Hybrid Runbook Worker
-          href: automation-troubleshooting-hybrid-runbook-worker.md
+        - name: Onboarding
+          href: troubleshoot/onboarding.md
+        - name: Runbooks
+          href: troubleshoot/runbooks.md
+        - name: Desired State Configuration (DSC)
+          href: troubleshoot/desired-state-configuration.md
+        - name: Hybrid Runbook Worker
+          href: troubleshoot/hybrid-runbook-worker.md
+        - name: Update Management
+          href: troubleshoot/update-management.md
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -213,16 +221,12 @@
   items:
   - name: Automation introduction video
     href: https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/
-  - name: Azure Automation training
-    href: https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/automation/
+    href: https://azure.microsoft.com/roadmap/?category=management-tools&query=automation
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation) 
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/automation/) 
+    href: https://azure.microsoft.com/pricing/details/automation/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Release notes

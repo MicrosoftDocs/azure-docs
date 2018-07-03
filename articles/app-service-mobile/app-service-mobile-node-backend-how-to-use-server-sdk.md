@@ -934,7 +934,7 @@ of the Mobile Apps back end. The system property names are:
 * deleted
 * version
 
-You can even edit table operations by using App Service Editor. When you select **Easy tables** in your back-end site 
+You can even edit table operations by using App Service Editor. When you select **Easy tables** in your back-end site
 settings, you can add, modify, or delete a table. You can also see data in the table.
 
 ![Work with Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)

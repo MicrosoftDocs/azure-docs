@@ -3,13 +3,12 @@ title: Batch test your LUIS app - Azure | Microsoft Docs
 description: Use Language Understanding (LUIS) batch testing to find utterances with incorrect intents and entities.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Batch testing
@@ -26,7 +25,7 @@ ms.author: v-geberr;
 
     ![Import Dataset File](./media/luis-how-to-batch-test/batchtest-importset.png)
 
-    Import errors are reported in a red notification bar at the top of the browser. When an import has errors, no dataset is created. See [Common errors](luis-concept-batch-test.md#common-errors-importing-a-batch) for more information.
+    Import errors are reported in a red notification bar at the top of the browser. When an import has errors, no dataset is created. For more information, see [Common errors](luis-concept-batch-test.md#common-errors-importing-a-batch).
 
 3. In the **Dataset Name** field, enter a name for your dataset file. The dataset file includes an **array of utterances** including the *labeled intent* and *entities*. Review the [example batch file](luis-concept-batch-test.md#batch-file-format) for syntax. 
 
@@ -105,15 +104,15 @@ The two sections of the chart in green did match the expected prediction.
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's performance by labeling more utterances or adding features. 
 
 * [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
-* [Use features to improve your LUIS app's performance](Add-Features.md) 
+* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 
 * [Understand batch testing with this tutorial](luis-tutorial-batch-testing.md)
 * [Learn batch testing concepts](luis-concept-batch-test.md).
 
-[true-positive]:luis-glossary.md#true-positive
-[true-negative]:luis-glossary.md#true-negative
-[false-positive]:luis-glossary.md#false-positive
-[false-negative]:luis-glossary.md#false-negative
-[f-measure]:luis-glossary.md#f-measure
-[recall]: luis-glossary.md#recall
-[precision]: luis-glossary.md#precision
+[true-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-positive
+[true-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-negative
+[false-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-positive
+[false-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-negative
+[f-measure]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#f-measure
+[recall]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#recall
+[precision]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#precision
 

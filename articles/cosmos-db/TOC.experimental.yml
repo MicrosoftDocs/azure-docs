@@ -1,15 +1,13 @@
 metadata:
   experimental: false
-  experiment_id: "662dc5fd-886f-4a"
+  experiment_id: "d1c17cc0-2ae0-4b"
 items:
   - name: Azure Cosmos DB Documentation
-    href: index.experimental.yml
+    href: index.yml
   - name: Overview
     items:
     - name: About Azure Cosmos DB
       href: introduction.md
-    - name: Documentation experiment
-      href: experiment.experimental.md
   - name: Quickstarts
     expanded: true
     items:
@@ -75,14 +73,16 @@ items:
     items:
     - name: Global distribution
       href: distribute-data-globally.md
-    - name: Consistency
-      href: consistency-levels.md
+    - name: Multi-master setup
+      href: multi-region-writers.md
     - name: Partitioning
       href: partition-data.md
     - name: Throughput
       href: request-units.md
-    - name: TCO
-      href: https://aka.ms/cosmosdb-tco-paper
+    - name: Consistency
+      href: consistency-levels.md
+    - name: Unique keys
+      href: unique-keys.md
     - name: Serverless database
       href: serverless-computing-database.md
     - name: Security
@@ -90,8 +90,6 @@ items:
       items:
         - name: Encryption at rest
           href: database-encryption-at-rest.md
-        - name: Firewall support
-          href: firewall-support.md
         - name: Securing access to data
           href: secure-access-to-data.md
     - name: Use cases
@@ -122,8 +120,6 @@ items:
               href: sql-api-java-get-started.md
             - name: Node.js
               href: sql-api-nodejs-get-started.md
-            - name: C++
-              href: sql-api-cpp-get-started.md
           - name: Build a web app
             items:
             - name: .NET
@@ -148,10 +144,6 @@ items:
             href: local-emulator.md
           - name: Export certificates
             href: local-emulator-export-ssl-certificates.md
-        - name: 6 - Integrate with Functions
-          items:
-          - name: HTTP trigger
-            href: tutorial-functions-http-trigger.md
       - name: Samples
         items:
         - name: Azure CLI
@@ -172,10 +164,14 @@ items:
           href: sql-api-resources.md
         - name: Model document data
           href: modeling-data.md
-        - name: Multi-master setup
-          href: multi-region-writers.md
       - name: How To Guides
         items:
+        - name: BulkExecutor - .NET
+          href: bulk-executor-dot-net.md
+        - name: BulkExecutor - Java
+          href: bulk-executor-java.md
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md          
         - name: Query
           items:
           - name: Perform SQL queries
@@ -184,14 +180,12 @@ items:
             href: sql-api-sql-query-metrics.md
         - name: Index
           href: indexing-policies.md
-        - name: Partition data
+        - name: SQL data partitioning
           href: sql-api-partition-data.md
         - name: Stored procedures, triggers, and UDFs
           href: programming.md
         - name: Change feed
           href: change-feed.md
-        - name: Unique keys
-          href: unique-keys.md
         - name: Data types
           items:
           - name: DateTimes
@@ -215,17 +209,17 @@ items:
           - name: Connect to Spark
             href: spark-connector.md
           - name: Streaming with Kafka and Spark on HDInsight
-            href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+            href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
           - name: Deploy a website with Azure App Service
             href: create-website.md
           - name: Application logging with Logic Apps
-            href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
+            href: https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json
           - name: Bind to Azure Functions
-            href: ../azure-functions/functions-bindings-cosmosdb.md
+            href: https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json
           - name: Integrate with Azure Search
-            href: ../search/search-howto-index-cosmosdb.md
+            href: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json
           - name: Move data with Azure Data Factory
-            href: ../data-factory/connector-azure-cosmos-db.md
+            href: https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json
           - name: Analyze real-time data with Azure Stream Analytics
             href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
           - name: Get changed HL7 FHIR record using Logic Apps
@@ -237,7 +231,7 @@ items:
           - name: Leverage the ODBC driver for data visualization
             href: odbc-driver.md
           - name: Use Spring Boot Starter with SQL APIs
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+            href: https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: Reference
         items:
         - name: Async Java
@@ -254,6 +248,10 @@ items:
           href: sql-api-sdk-node.md
         - name: Python
           href: sql-api-sdk-python.md
+        - name: BulkExecutor - .NET
+          href: sql-api-sdk-bulk-executor-dot-net.md
+        - name: BulkExecutor - Java
+          href: sql-api-sdk-bulk-executor-java.md
         - name: REST
           href: /rest/api/cosmos-db/
         - name: REST Resource Provider
@@ -262,12 +260,12 @@ items:
           href: sql-api-sql-query-reference.md
       - name: Resources
         items:
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
-        - name: Schema agnostic indexing paper
-          href: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
         - name: SQL playground
-          href: https://aka.ms/cosmos-db-playground
+          href: https://aka.ms/cosmos-db-playground          
     - name: MongoDB API Docs
       items: 
       - name: Overview
@@ -326,10 +324,12 @@ items:
           href: mongodb-indexing.md
         - name: Visualize your data with Power BI
           href: powerbi-visualize.md
-        - name: Unique keys
-          href: unique-keys.md
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
       - name: Resources
         items:
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Graph API Docs
@@ -342,24 +342,18 @@ items:
           href: gremlin-support.md
       - name: Tutorials
         items:
-        - name: 1 - Create
-          href: tutorial-develop-graph-dotnet.md
-        - name: 2 - Query
+        - name: 1 - Query
           href: tutorial-query-graph.md
-        - name: 3 - Distribute globally
-          href: tutorial-global-distribution-graph.md
       - name: How To Guides
         items:
-        - name: Integrate
-          items:
-          - name: Connect to Spark GraphX
-            href: spark-connector-graph.md 
-      - name: Reference
-        items:
-          - name: .NET
-            href: graph-sdk-dotnet.md
+        - name: Graph partitioning
+          href: graph-partitioning.md
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
       - name: Resources
         items:
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Table API Docs
@@ -380,14 +374,14 @@ items:
           href: tutorial-query-table.md
         - name: 4 - Distribute globally
           href: tutorial-global-distribution-table.md
+        - name: 5 - Serverless app - Node.js
+          href: https://docs.microsoft.com/learn/build-serverless-app/index 
       - name: Samples
         items:
         - name: .NET
           href: table-storage-how-to-use-dotnet.md
         - name: F#
-          href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
-        - name: Node.js 
-          href: table-storage-cloud-service-nodejs.md
+          href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
         - name: Java
           href: table-storage-how-to-use-java.md
         - name: Node.js
@@ -400,8 +394,6 @@ items:
           href: table-storage-how-to-use-python.md
         - name: Ruby
           href: table-storage-how-to-use-ruby.md
-        - name: PowerShell
-          href: table-storage-how-to-use-powershell.md
       - name: Reference
         items:
           - name: .NET
@@ -414,6 +406,8 @@ items:
             href: table-sdk-python.md  
       - name: Resources
         items:
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Table storage overview
           href: table-storage-overview.md
         - name: Table storage design guide
@@ -438,6 +432,10 @@ items:
       href: manage-account.md
     - name: Throughput
       href: set-throughput.md
+    - name: Firewall support
+      href: firewall-support.md
+    - name: Setup virtual network service endpoint
+      href: vnet-service-endpoint.md
     - name: Metrics
       href: use-metrics.md
     - name: Monitor SLAs
@@ -448,14 +446,22 @@ items:
       href: regional-failover.md
     - name: Diagnostic logging
       href: logging.md
+    - name: BulkExecutor overview
+      href: bulk-executor-overview.md
     - name: Cost-effective reads and writes
       href: key-value-store-cost.md
     - name: Expire data automatically
       href: time-to-live.md
+    - name: Manage using PowerShell
+      href: manage-account-with-powershell.md
+    - name: Manage using Storage Explorer
+      href: storage-explorer.md
   - name: Resources
     items:
     - name: Query cheat sheet
       href: query-cheat-sheet.md
+    - name: Manage using Storage Explorer
+      href: storage-explorer.md 
     - name: 20 days of tips
       href: 20-days-of-tips.md
     - name: Videos
@@ -470,5 +476,5 @@ items:
       href: faq.md
     - name: Data consistency explained through baseball
       href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
-    - name: Troubleshoot Azure Cosmos DB
-      href: troubleshoot-azure-cosmosdb.md
+    - name: Whitepapers
+      href: whitepapers.md

@@ -6,14 +6,14 @@ documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: ''
-
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -53,7 +53,8 @@ The following settings are configured by Azure AD Connect and cannot be modified
 | DeviceWriteback |[Azure AD Connect: Enabling device writeback](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect sync: Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Allows an attribute to be quarantined when it is a duplicate of another object rather than failing the entire object during export. |
-| PasswordSync |[Implementing password synchronization with Azure AD Connect sync](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| Password Hash Sync |[Implementing password hash synchronization with Azure AD Connect sync](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+|Pass-through Authentication|[User sign-in with Azure Active Directory Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)|
 | UnifiedGroupWriteback |[Preview: Group writeback](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Not currently supported. |
 
@@ -85,7 +86,7 @@ Historically, updates to the UserPrincipalName attribute using the sync service 
 
 For more details, see [User names in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/kb/2523192).
 
-Enabling this feature allows the sync engine to update the userPrincipalName when it is changed on-premises and you use password sync. If you use federation, this feature is not supported.
+Enabling this feature allows the sync engine to update the userPrincipalName when it is changed on-premises and you use password hash sync. If you use federation, this feature is not supported.
 
 This feature is on by default for newly created Azure AD directories. You can see if this feature is enabled for you by running:  
 

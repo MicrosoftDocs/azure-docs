@@ -3,7 +3,7 @@ title: Overview of Azure PIM Resource RBAC | Microsoft Docs
 description: Get an overview of the RBAC feature in PIM including Terminology and notifications
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
+ms.author: rolyon
 
 ---
 # PIM for Azure resources
@@ -40,7 +41,7 @@ Azure AD PIM can manage the built-in Azure Resource roles, as well as custom (RB
 - Security Manager, and more
 
 >[!NOTE]
-Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD are Resource Administrators. These administrators may assign roles, configure role settings, and review access using PIM for Azure Resources. View the list of [built-in roles for Azure resources](../role-based-access-built-in-roles.md).
+Users or members of a group assigned to the Owner or User Access Administrator roles, and Global Administrators that enable subscription management in Azure AD are Resource Administrators. These administrators may assign roles, configure role settings, and review access using PIM for Azure Resources. View the list of [built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
 ## Tasks
 
@@ -191,6 +192,6 @@ Select My roles from the left navigation menu and choose the appropriate role to
 
 ## Next steps
 
-- [Built-in roles for Azure resources](../role-based-access-built-in-roles.md)
+- [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md)
 - Learn about [activating Azure AD roles here](../active-directory-privileged-identity-management-how-to-activate-role.md)
 - [PIM approval workflows](azure-ad-pim-approval-workflow.md)
