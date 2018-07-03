@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -41,11 +41,11 @@ Log in to the Azure portal at https://portal.azure.com.
 
 5. Choose to **Create new** resource group, then provide a name, such as *myResourceGroup*. Choose your desired **Location**, then select **OK**.
 
-4. Select a size for the VM. You can filter by *Compute type* or *Disk type*, for example. A suggested VM size is *D2s_v3*.
+4. Select a size for the VM. You can filter by *Compute type* or *Disk type*, for example. A suggested VM size is *D2s_v3*. Click **Select** after you have choosen a size.
 
     ![Screenshot that shows VM sizes](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
 
-5. Under **Settings**, leave the defaults and select **OK**.
+5. On the **Settings** page, in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **RDP (3389)** from the drop-down. Leave the defaults and select **OK**.
 
 6. On the summary page, select **Create** to start the VM deployment.
 
@@ -77,14 +77,6 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 When done, close the RDP connection to the VM.
 
-## Open port 80 for web traffic
-
-A Network Security Group (NSG) secures inbound and outbound traffic. When a VM is created from the Azure portal, an inbound rule is created on port 3389 for RDP connections. Because this VM hosts a web server, an NSG rule needs to be created for port 80.
-
-1. On the VM overview page, select **Networking**.
-2. The list of existing inbound and outbound rules are shown. Choose to **Add inbound port rule**.
-3. Select the **Basic** option across the top, then choose *HTTP* from the list of available services. Port 80, a priority, and name, are provided for you.
-4. To create the rule, select **Add**.
 
 ## View the IIS welcome page
 
