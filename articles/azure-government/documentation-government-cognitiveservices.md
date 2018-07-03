@@ -36,7 +36,7 @@ In order to access any of the Cognitive Services APIs, you must first provision 
 > 
 
 1. Make sure that you have the **Cognitive Services resource provider registered on your account**. 
-You can do this by **running the following Powershell command:**
+You can do this by **running the following PowerShell command:**
 
    ```PowerShell
    Get-AzureRmResourceProvider
@@ -45,7 +45,7 @@ You can do this by **running the following Powershell command:**
    ```PowerShell
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.CognitiveServices
    ```
-2. In the Powershell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
+2. In the PowerShell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
 
    Replace the "type of API" tag with any of the three following APIs you want to access:
        * ComputerVision
@@ -71,7 +71,7 @@ You can do this by **running the following Powershell command:**
 
 You must retrieve an account key to access the specific API. 
 
-In the Powershell command below, replace the "youraccountname" tag with the name that you gave the Account that you created above. Replace the 'rg-name' tag with the name of your resource group.
+In the PowerShell command below, replace the "youraccountname" tag with the name that you gave the Account that you created above. Replace the 'rg-name' tag with the name of your resource group.
 
 ```PowerShell
 Get-AzureRmCognitiveServicesAccountKey -Name <youraccountname> -ResourceGroupName 'rg-name'
