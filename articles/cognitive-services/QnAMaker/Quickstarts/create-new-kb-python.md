@@ -20,7 +20,7 @@ Two sample FAQ URLs are given below (in the **req** dictionary item 'urls'). QnA
 
 ## Prerequisites
 
-You will need [Python 3.x](https://www.python.org/downloads/) to run this code.
+You'll need [Python 3.x](https://www.python.org/downloads/) to run this code.
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **QnA Maker** chosen as your resource. You'll need a paid subscription key from your [Azure dashboard](https://ms.portal.azure.com/). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. Either key will work for this quickstart.
 
@@ -32,7 +32,7 @@ The following code creates a new knowledge base, using the [Create](https://west
 
 1. Create a new Python project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `subscriptionKey` value with your valid subscription key.
 4. Run the program.
 
 ```python
@@ -167,7 +167,7 @@ while False == done:
 
 ## Understand what QnA Maker returns
 
-A successful response is returned in JSON, as shown in the following example. Your results may differ slightly. If the final call returns a "Succeeded" state... your knowledge base was created successfully. To troubleshoot refer to the [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) of the QnA Maker API.
+A successful response is returned in JSON, as shown in the following example. Your results may differ slightly. If the final call returns a "Succeeded" state, your knowledge base was created successfully. To troubleshoot refer to the [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) of the QnA Maker API.
 
 ```json
 Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create.
