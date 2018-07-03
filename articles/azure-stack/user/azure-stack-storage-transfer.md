@@ -314,7 +314,7 @@ In the Azure Stack development Kit, the blobEndpoint should be `myaccount.blob.l
 
 Please be aware that accountKey and sasToken can only be configured one at a time. When storage account key is given, the credentials configuration file is in the following format: 
 
-```Bash  
+```  
     accountName myaccount 
     accountKey myaccesskey== 
     containerName mycontainer 
@@ -323,7 +323,7 @@ Please be aware that accountKey and sasToken can only be configured one at a tim
 
 When shared access token is given, the credentials configuration file is in the following format:
 
-```Bash  
+```  
     accountName myaccount 
     sasToken ?mysastoken 
     containerName mycontainer 
