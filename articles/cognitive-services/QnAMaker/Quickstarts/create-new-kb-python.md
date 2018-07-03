@@ -14,15 +14,15 @@ ms.author: nolachar
 
 # Create a new knowledge base in Python
 
-This quickstart walks you through creating a sample QnA maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
+This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 
-Two sample FAQ URLs are given below ('urls' in the string kb). QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
+Two sample FAQ URLs are given below (in the **req** dictionary item 'urls'). QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
 
 ## Prerequisites
 
 You will need [Python 3.x](https://www.python.org/downloads/) to run this code.
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with with **QnA Maker** chosen as your resource. You will need a paid subscription key from your [Azure dashboard](https://ms.portal.azure.com/). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. Either key will work for this quickstart.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **QnA Maker** chosen as your resource. You'll need a paid subscription key from your [Azure dashboard](https://ms.portal.azure.com/). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. Either key will work for this quickstart.
 
 ![Azure dashboard service key](../media/sub-key.png)
 
@@ -32,7 +32,7 @@ The following code creates a new knowledge base, using the [Create](https://west
 
 1. Create a new Python project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
+3. Replace the `subscriptionKey` value with an access key valid for your subscription.
 4. Run the program.
 
 ```python
@@ -175,7 +175,7 @@ Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/
   "operationState": "NotStarted",
   "createdTimestamp": "2018-04-13T01:52:30Z",
   "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
+  "userId": "2280ef5917tb4ebfa1aae41fb1cebb4a",
   "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
 }
 Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
@@ -183,7 +183,7 @@ Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d4
   "operationState": "Running",
   "createdTimestamp": "2018-04-13T01:52:30Z",
   "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
+  "userId": "2280ef5917bt4ebha1aae41fb1cebb4a",
   "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
 }
 Waiting 30 seconds...
@@ -193,7 +193,7 @@ Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d4
   "createdTimestamp": "2018-04-13T01:52:30Z",
   "lastActionTimestamp": "2018-04-13T01:52:46Z",
   "resourceLocation": "/knowledgebases/b0288f33-27b9-4258-a304-8b9f63427dad",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
+  "userId": "2280ef5917bt4ebfa1aae40fb1cebb4a",
   "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
 }
 Press any key to continue.
