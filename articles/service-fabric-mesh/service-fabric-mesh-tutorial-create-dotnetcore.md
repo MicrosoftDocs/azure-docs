@@ -56,7 +56,7 @@ Run Visual Studio and select **File** > **New** > **Project...**
 
 In the **New Project** dialog, type **mesh** into the **Search** box at the top. Select the **Service Fabric Mesh Application** template.  (If you don't see the template, make sure that you installed the Mesh SDK and the VS tools preview as described in [set up your development environment](service-fabric-mesh-setup-developer-environment-sdk.md).  
 
-In the **Name** box, type **ServiceFabricApp** and in the **Location** box, set the folder path to where the files for the project will be stored.
+In the **Name** box, type **ServiceFabricMeshApp** and in the **Location** box, set the folder path to where the files for the project will be stored.
 
 Make sure that **Create directory for solution** is checked, and click **OK** to create the Service Fabric Mesh project. Next you'll see the **New Service Fabric Service** dialog.
 
