@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Azure Virtual Datacenter: A Network Perspective | Microsoft Docs"
+title: Azure Virtual Datacenter - A Network Perspective | Microsoft Docs
 description: Learn how to build your virtual data center in Azure
 services: networking
 author: tracsman
@@ -14,7 +14,7 @@ ms.date: 04/3/2018
 ms.author: jonor
 ---
 
-# Microsoft Azure Virtual Datacenter: A Network Perspective
+# Azure Virtual Datacenter: A Network Perspective
 **Microsoft Azure**: Move faster, Save money, Integrate on-premises apps and data
 
 ## Overview
