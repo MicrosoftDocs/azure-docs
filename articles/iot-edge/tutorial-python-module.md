@@ -179,7 +179,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
    This file tells the **$edgeAgent** to deploy two modules: **tempSensor**, which simulates device data, and **PythonModule**. The **PythonModule.image** value is set to a Linux amd64 version of the image. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-   This file also contains your registry credentials. In the template file, your username and password are filled in with placeholders. When you generate the deployment manifest, the fields are updated with the values that you added to the .env file. 
+   This file also contains your registry credentials. In the template file, your user name and password are filled in with placeholders. When you generate the deployment manifest, the fields are updated with the values that you added to the .env file. 
 
 3. Add the **PythonModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **moduleContent** section, after the **$edgeHub** module twin: 
     ```json
@@ -194,13 +194,13 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 5. In the VS Code explorer, right-click the deployment.template.json file and select **Build IoT Edge solution**. 
 
-When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a deployment.json file in a new folder named **config**. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the Python code, and then push it to the container registry that you specified when you initialized the solution. 
+When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a deployment.json file in a new folder named **config**. Then it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the Python code, and then push the code to the container registry that you specified when you initialized the solution. 
 
 You can see the full container image address with tag in the `docker build` command that runs in the VS Code integrated terminal. The image address is built from information in the module.json file with the format \<repository\>:\<version\>-\<platform\>. For this tutorial, it should look like registryname.azurecr.io/pythonmodule:0.0.1-amd64.
 
 ## Deploy and run the solution
 
-You could use the Azure portal to deploy your Python module to an IoT Edge device like you did in the quickstarts. You can also deploy and monitor modules from within Visual Studio Code. The following sections use the Azure IoT Edge extension for VS Code that was listed in the prerequisites. Install the extension now, if you didn't already. 
+You can use the Azure portal to deploy your Python module to an IoT Edge device like you did in the quickstarts. You can also deploy and monitor modules from within Visual Studio Code. The following sections use the Azure IoT Edge extension for VS Code that was listed in the prerequisites. Install the extension now, if you didn't already. 
 
 1. Open the VS Code command palette by selecting **View** > **Command Palette**.
 
@@ -214,7 +214,7 @@ You could use the Azure portal to deploy your Python module to an IoT Edge devic
 
 6. Right-click the name of your IoT Edge device, then select **Create Deployment for IoT Edge device**. 
 
-7. Browse to the solution folder that contains **PythonModule**. Open the config folder, select the deployment.json file, and then select **Select Edge Deployment Manifest**.
+7. Browse to the solution folder that contains the **PythonModule**. Open the config folder, select the deployment.json file, and then choose **Select Edge Deployment Manifest**.
 
 8. Refresh the **Azure IoT Hub Devices** section. You should see the new **PythonModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
 
@@ -235,7 +235,7 @@ If you plan to continue to the next recommended article, you can keep the resour
 Otherwise, you can delete the local configurations and the Azure resources that are created in this article to avoid charges. 
 
 > [!IMPORTANT]
-> Deleting Azure resources and resource groups is irreversible. When these items are deleted, the resource group and all of the resources that are contained in it are permanently deleted. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the IoT hub inside an existing resource group that contains resources that you want to keep, delete only the IoT Hub resource itself, instead of deleting the resource group.
+> Deleting Azure resources and resource groups is irreversible. When these items are deleted, the resource group and all of the resources that are contained in it are permanently deleted. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the IoT hub inside an existing resource group that has resources that you want to keep, delete only the IoT hub resource itself, instead of deleting the resource group.
 >
 
 To delete only the IoT hub, execute the following command by using your hub name and resource group name:
@@ -249,7 +249,7 @@ To delete the entire resource group by name:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
 
-2. In the **Filter by name** textbox, type the name of the resource group that contains your IoT Hub. 
+2. In the **Filter by name** textbox, enter the name of the resource group that contains your IoT hub. 
 
 3. To the right of your resource group in the result list, select the ellipsis **...**, and then select **Delete resource group**.
 
@@ -257,10 +257,10 @@ To delete the entire resource group by name:
 
 ## Next steps
 
-In this tutorial, you created an IoT Edge module that contains code to filter raw data that's generated by your IoT Edge device. You can continue on to the next tutorials to learn other ways that Azure IoT Edge can help you turn data into business insights at the edge.
+In this tutorial, you created an IoT Edge module with code to filter raw data that's generated by your IoT Edge device. You can continue on to the next tutorials to learn other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Function as a module](tutorial-deploy-function.md)
+> [Deploy Azure functions as a module](tutorial-deploy-function.md)
 > [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
 
 
