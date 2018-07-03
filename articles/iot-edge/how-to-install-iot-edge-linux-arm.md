@@ -126,8 +126,10 @@ And, list running modules with:
 ```cmd/sh
 sudo iotedge list
 ```
->[!NOTE
+>[!NOTE]
 >On resource constrained devices like RaspberryPi, it is highly recommended that *OptimizeForPerformance* environment variable is set to *false* as per instructions in the [troubleshooting guide.][lnk-trouble]
+
+
 ## Next steps
 
 If you are having problems with the Edge runtime installing properly, checkout the [troubleshooting][lnk-trouble] page.
