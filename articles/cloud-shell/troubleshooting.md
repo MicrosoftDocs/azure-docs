@@ -123,7 +123,7 @@ Using PowerShell cmdlets, users can not create files under the Azure drive. When
 
 If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Connect-AzureRmAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## GDPR compliance for Cloud Shell
+## Personal data in Cloud Shell
 
 Azure Cloud Shell takes your personal data seriously, the data captured and stored by the Azure Cloud Shell service are used to provide defaults for your experience such as your most recently used shell, preferred font size, preferred font type, and file share details that back cloud drive. Should you wish to export or delete this data, we have included the following instructions.
 
