@@ -80,19 +80,17 @@ The table below and subsequent section outline a list of Claims Trasnformation M
 | [ConvertNumberToStringClaim](#ConvertNumberToStringClaim) | Claims | Converts a number based claim to a string based claim.  |
 | [GetClaimFromJSON](#GetClaimFromJSON)| Claims | Extracts a claim from a json objects key value pairs.   |
 | [Hash](#Hash)| Claims | Creates a Hash of a plain text claim using the supplied salt and secret.  |
-| [Equality](#Equality)| Claims | ***NOT SUPPORTED*** Compares a claims value to a static value and then returns a True or False. |
-| [ClaimToClaimEquality](#ClaimToClaimEquality)| Claims | ***NOT SUPPORTED*** |
 | [AddParameterToStringCollection](#AddParameterToStringCollection) | Claims | Add the provided string parameter to a claim that contains collection of strings |
 | [ChangeCase](#ChangeCase)| Claims | Converts a claims value to either upper case or lower case. |
 | [NullClaim](#NullClaim)| Claims | Removes a value from a claim. |
-| [CompareClaimToValue](#CompareClaimToValue) | Claims |  |
-| [CompareClaims](#CompareClaims) | Claims |  |
-| [CreateRandomString](#CreateRandomString) | Claims |  |
-| [GetAgeGroupAndConsentProvided](#GetAgeGroupAndConsentProvided) | Claims |  |
-| [SetClaimsIfStringsMatch](#SetClaimsIfStringsMatch) | Claims |  |
+| [CompareClaimToValue](#CompareClaimToValue) | Claims | Compares a claims value to a static value and then returns a True or False. |
+| [CompareClaims](#CompareClaims) | Claims | Compares two claims and then returns a True or False if they are the same or not. |
+| [CreateRandomString](#CreateRandomString) | Claims | Creates a random GUID or integer and returns it to a String Claim. |
+| [GetAgeGroupAndConsentProvided](#GetAgeGroupAndConsentProvided) | Claims | Takes a Date of Birth, Country code and if consent is provided fro Minors and returns and age group, if consent is required by regulations (eg GDPR)   |
+| [SetClaimsIfStringsMatch](#SetClaimsIfStringsMatch) | Claims | Sets a string claim to a static value and a boolean identifying if the input cliam matched a static value. |
 | [GetMappedValueFromLocalizedCollection](#GetMappedValueFromLocalizedCollection) | Claims |  |
 | [DoesClaimExist](#DoesClaimExist)| Claims |  || Claims |  |
-| [GetCurrentDateTime](#GetCurrentDateTime)| Claims |  |
+| [GetCurrentDateTime](#GetCurrentDateTime)| Claims | Returns an output claim of type DateTime with the current date and time.  |
 | [IsTermsOfUseConsentRequired](#IsTermsOfUseConsentRequired) | Claims |  |
 
 
