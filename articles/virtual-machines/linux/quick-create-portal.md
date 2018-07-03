@@ -59,7 +59,7 @@ Log in to the Azure portal at http://portal.azure.com
 
     ![Screenshot that shows VM sizes](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-5. On the **Settings** page, in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the defaults and select **OK**.
+5. On the **Settings** page, in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the rest of the defaults and select **OK**.
 
 6. On the summary page, select **Create** to start the VM deployment.
 
