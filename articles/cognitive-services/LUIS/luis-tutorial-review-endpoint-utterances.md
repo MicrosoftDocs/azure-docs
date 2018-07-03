@@ -29,7 +29,7 @@ In this tutorial, improve app predictions by verifying or correcting utterances 
 For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account to author your LUIS application.
 
 ## Before you begin
-If you don't have the Human Resources app from the [sentiment](luis-quickstart-intent-and-sentiment-analysis.md) tutorial, import the app from [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json) Github repository. If you use this tutorial from this imported app, you will also need to train, publish, then add the [utterances](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/endpoint-utterances-Human-Resources.json) to the endpoint with a [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) or from the endpoint in a browser. 
+If you don't have the Human Resources app from the [sentiment](luis-quickstart-intent-and-sentiment-analysis.md) tutorial, import the app from [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json) Github repository. If you use this tutorial from this imported app, you also need to train, publish, then add the [utterances](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/endpoint-utterances-Human-Resources.json) to the endpoint with a [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) or from the endpoint in a browser. 
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `review`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
@@ -41,11 +41,11 @@ The utterances submitted to the app over time, as you progressed through the tut
 If you have all the versions of the app, through the tutorials, you may be surprised to see that the **Review endpoint utterances** list doesn't change, based on the version. There is a single pool of utterances to review, regardless of which version the utterance you are actively editing or which version of the app was published at the endpoint. 
 
 ## Remove the prebuilt entities
-If LUIS doesn't predict custom entities, prebuilt entities will be labeled. Since prebuilt entities can't be removed individually, remove all the prebuilt entities before starting the review process.
+If LUIS doesn't predict custom entities, prebuilt entities are labeled. Since prebuilt entities can't be removed individually, remove all the prebuilt entities before starting the review process.
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-tutorial-review-endpoint-utterances/first-image.png)](./media/luis-tutorial-review-endpoint-utterances/first-image.png#lightbox)
+    [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-tutorial-review-endpoint-utterances/first-image.png)](./media/luis-tutorial-review-endpoint-utterances/first-image.png#lightbox)
 
 2. Select **Entities** from the left navigation.
 
@@ -67,7 +67,7 @@ If LUIS doesn't predict custom entities, prebuilt entities will be labeled. Sinc
     |:--|:--|:--|
     |I'm looking for a job with Natural Language Processing|GetJobInfo|Job - "Natural Language Process"|
 
-    This utterance is not in the correct intent and has a score less than 50%. The **ApplyForJob** intent has 21 utterances compared to the 7 utterances in **GetJobInformation**. Along with aligning the endpoint utterance correctly, more utterances should be added to the **GetJobInformation** intent. That will be left as an exercise for you to complete on your own. Each intent, except for the **None** intent, should have roughly the same number of example utterances. The **None** intent should have 10% of the total utterances in the app. 
+    This utterance is not in the correct intent and has a score less than 50%. The **ApplyForJob** intent has 21 utterances compared to the seven utterances in **GetJobInformation**. Along with aligning the endpoint utterance correctly, more utterances should be added to the **GetJobInformation** intent. That is left as an exercise for you to complete on your own. Each intent, except for the **None** intent, should have roughly the same number of example utterances. The **None** intent should have 10% of the total utterances in the app. 
 
 3. For the intent `I'm looking for a job with Natual Language Processing`, select the correct intent, **GetJobInformation** in the **Aligned intent** column. 
 
@@ -89,7 +89,7 @@ If LUIS doesn't predict custom entities, prebuilt entities will be labeled. Sinc
 
     [ ![Screenshot of finalizing remaining utterances to aligned intent](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-8. The list should no longer have those utterances. Continue to work through the list, correcting intents and labeling any missing entities, until it is empty. Select the next intent in the Filter list, then continue correcting utterances and labeling entities. Remember the last step of each utterance is to either select **Add to aligned intent** on the utterance row or check the box by each intent and select **Add selected** above the table. This is a very small app. The review process will take a few minutes only.
+8. The list should no longer have those utterances. Continue to work through the list, correcting intents and labeling any missing entities, until it is empty. Select the next intent in the Filter list, then continue correcting utterances and labeling entities. Remember the last step of each utterance is to either select **Add to aligned intent** on the utterance row or check the box by each intent and select **Add selected** above the table. This is a very small app. The review process takes a few minutes only.
 
 ## Add the prebuilt entities
 Add the prebuilt entities back to the app.
