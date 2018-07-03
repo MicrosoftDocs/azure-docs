@@ -45,11 +45,13 @@ If LUIS doesn't predict custom entities, prebuilt entities will be labeled. Sinc
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
-    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png#lightbox)
+    [ ![Screenshot of LUIS app with Build hightlighted in top, right navigation bar](./media/luis-tutorial-review-endpoint-utterances/first-image.png)](./media/luis-tutorial-review-endpoint-utterances/first-image.png#lightbox)
 
 2. Select **Entities** from the left navigation.
 
 3. Select the three dots (...) menu, then select **Delete** for the following prebuilt entities: **datetimeV2**, **keyPhrase**, and **number**.
+
+    [ ![Screenshot of deleting prebuilt entities](./media/luis-tutorial-review-endpoint-utterances/delete-prebuilt-entities.png)](./media/luis-tutorial-review-endpoint-utterances/delete-prebuilt-entities.png#lightbox)
 
     After the utterances are reviewed and corrected, the prebuilt entities are added back to the model and trained. 
 
@@ -57,23 +59,33 @@ If LUIS doesn't predict custom entities, prebuilt entities will be labeled. Sinc
 
 1. Select **Review endpoint utterances** from the left navigation. The list is filtered for the **ApplyForJob** intent. 
 
+    [ ![Screenshot of Review endpoint utterances button in left navigation](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png)](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png#lightbox)
+
 2. Toggle the **Entities view** to see the labeled entities. 
     
     |Utterance|Correct intent|Missing entities|
     |:--|:--|:--|
     |I'm looking for a job with Natual Language Processing|GetJobInfo|Job - "Natural Language Process"|
 
-    One of the utterances is not correct correct. The **ApplyForJob** intent has 21 utterances compared to the 7 utterances in **GetJobInformation**. Along with aligning the endpoint utterance correctly, more utterances should be added to the **GetJobInformation** intent. That will be left as an exercise for you to complete on your own. Each intent, except for the **None** intent, should have roughly the same number of example utterances. The **None** intent should have 10% of the total utterances in the app. 
+    This utterance is not in the correct intent. The **ApplyForJob** intent has 21 utterances compared to the 7 utterances in **GetJobInformation**. Along with aligning the endpoint utterance correctly, more utterances should be added to the **GetJobInformation** intent. That will be left as an exercise for you to complete on your own. Each intent, except for the **None** intent, should have roughly the same number of example utterances. The **None** intent should have 10% of the total utterances in the app. 
 
 3. For the intent `I'm looking for a job with Natual Language Processing`, select the correct intent, **GetJobInformation** in the **Aligned intent** column. 
 
+    [ ![Screenshot of Review endpoint utterances aligning utterance to intent](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
+
 4. In the same utterance, select `Natual Language Processing` then select the **Job** entity from the list.
 
+    [ ![Screenshot of Review endpoint utterances labeling entity in utterance](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
+
 5. On the same line, select the circled checkmark in the **Add to aligned intent** column. 
+
+    [ ![Screenshot of finalizing utterance alignment in intent](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
 6. Review the remaining utterances in this intent, labeling utterances and correcting the **Aligned intent**, if these are incorrect.
 
 7. When all the utterances are correct, select the checkbox on each row, then select **Add selected** to align the utterances correctly. 
+
+    [ ![Screenshot of finalizing remaining utterances to aligned intent](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
 8. The list should no longer have those utterances. Continue to work through the list, correcting intents and labeling any missing entities, until it is empty. Select the next intent in the Filter list, then continue correcting utterances and labeling entities. Remember the last step of each utterance is to either select **Add to aligned intent** on the utterance row or check the box by each intent and select **Add selected** above the table. This is a very small app. The review process will take a few minutes only.
 
@@ -87,32 +99,24 @@ Add the prebuilt entities back to the app.
 3. Select **Number**, **datetimeV2**, **keyPhrase** then select **Done**.
 
 ## Train the LUIS app
-LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
+LUIS doesn't know about the changes until it is trained. 
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
-    ![Train the app](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
-
 2. Training is complete when you see the green status bar at the top of the website confirming success.
 
-    ![Training succeeded](./media/luis-quickstart-intent-and-hier-entity/trained.png)
-
 ## Publish the app to get the endpoint URL
-In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
+In order to get the updated model of the LUIS app in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
 2. Select the Production slot and the **Publish** button.
-
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with an utterance
 
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
-
-    ![Screenshot of Publish page with endpoint url highlighted](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
 
 2. Go to the end of the URL in the address and enter `does form hrf-123456 cover the new dental benefits and medical plan`. The last querystring parameter is `q`, the utterance **query**. 
 
