@@ -88,10 +88,10 @@ The table below and subsequent section outline a list of Claims Trasnformation M
 | [CreateRandomString](#CreateRandomString) | Claims | Creates a random GUID or integer and returns it to a String Claim. |
 | [GetAgeGroupAndConsentProvided](#GetAgeGroupAndConsentProvided) | Claims | Takes a Date of Birth, Country code and if consent is provided fro Minors and returns and age group, if consent is required by regulations (eg GDPR)   |
 | [SetClaimsIfStringsMatch](#SetClaimsIfStringsMatch) | Claims | Sets a string claim to a static value and a boolean identifying if the input cliam matched a static value. |
-| [GetMappedValueFromLocalizedCollection](#GetMappedValueFromLocalizedCollection) | Claims |  |
-| [DoesClaimExist](#DoesClaimExist)| Claims |  || Claims |  |
+| [GetMappedValueFromLocalizedCollection](#GetMappedValueFromLocalizedCollection) | Claims | Returns the value from a claims restriction enumeration based off the text value passed in from a claim. |
+| [DoesClaimExist](#DoesClaimExist)| Claims |  Returns a boolean value depending on if the claim has a value or not.  |
 | [GetCurrentDateTime](#GetCurrentDateTime)| Claims | Returns an output claim of type DateTime with the current date and time.  |
-| [IsTermsOfUseConsentRequired](#IsTermsOfUseConsentRequired) | Claims |  |
+| [IsTermsOfUseConsentRequired](#IsTermsOfUseConsentRequired) | Claims | Returns True or False depending on if the input claims datetime value is less than the provided statis datetime value |
 
 
 For more information on Claims transformation please see 
