@@ -134,7 +134,19 @@ For information on changing the SSH user account password, see the __Change pass
 
 ## <a id="domainjoined"></a>Authentication: Domain-joined HDInsight
 
-If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
+If you are using a __domain-joined HDInsight cluster__, you must use the `kinit` command after connecting with SSH local user. This command prompts you for a domain user and password, and authenticates your session with the Azure Active Directory domain associated with the cluster.
+
+You can also enable Kerberos Authentication on each domain joined node (e.g. head node, edge node) in order to ssh using the domain account. To do this edit sshd config file:
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+uncommnet and change `KerberosAuthentication` to `yes`
+
+```bash
+sudo service sshd restart
+```
+
+At any time, in order to verify whether the Kerberos authentication was successful or not, use `klist` command.
 
 For more information, see [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md).
 
