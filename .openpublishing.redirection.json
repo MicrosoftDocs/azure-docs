@@ -25805,6 +25805,11 @@
             "source_path": "articles/cognitive-services/LUIS/Pre-builtEntities.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-prebuilt-entities",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/Plan-your-app.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-how-plan-your-app",
+            "redirect_document_id": true
         }
     ]
 }
