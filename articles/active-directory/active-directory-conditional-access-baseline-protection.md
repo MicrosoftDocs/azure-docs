@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2018
+ms.date: 07/02/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -63,9 +63,9 @@ While baseline policies are in preview, they are by default not activated. You n
 
     ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/02.png)
 
-3. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
+3. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
 
-    ![Conditional access](./media/active-directory-conditional-access-baseline-protection/03.png)
+    ![Conditional access](./media/active-directory-conditional-access-baseline-protection/05.png)
 
 4. In the list of policies, click a policy that starts with **Baseline policy:**. 
 

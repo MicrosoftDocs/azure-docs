@@ -5,6 +5,8 @@
   - name: What is the Speech service?
     href: overview.md
     expanded: true
+  - name: Speech Scenarios
+    href: speech-scenarios.md
 - name: Quickstarts
   items:
   - name: Try the Speech service for free # OK
@@ -25,16 +27,18 @@
     href: how-to-text-to-speech.md
   - name: Translate speech
     href: how-to-translate-speech.md
-  - name: Get the Speech Devices SDK
-    href: get-speech-devices-sdk.md
   - name: Batch transcription
     href: batch-transcription.md
+  - name: Get the Speech Devices SDK
+    href: get-speech-devices-sdk.md
 - name: Customization
   items:
   - name: Customize acoustic models
     href: how-to-customize-acoustic-models.md
   - name: Customize language models
     href: how-to-customize-language-model.md
+  - name: Customize pronunciation
+    href: how-to-customize-pronunciation.md
   - name: Customize Voice Fonts (Bot Brand Voice)
     href: how-to-customize-voice-font.md
   - name: Prepare transcripts
