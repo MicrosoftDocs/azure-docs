@@ -20332,11 +20332,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/hdinsight/hdinsight-release-notes-archive.md",
-            "redirect_url": "/azure/hdinsight/hdinsight-release-notes",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/hdinsight/apache-kafka-log-analytics-operations-management.md",
             "redirect_url": "/azure/hdinsight/kafka/apache-kafka-log-analytics-operations-management",
             "redirect_document_id": true
