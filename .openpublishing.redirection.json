@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/machine-learning/service/quickstart-installation.md",
+            "redirect_url": "/azure/machine-learning/service/quickstart-get-started",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-speech-models.md",
             "redirect_url": "/azure/cognitive-services/Speech-Service/how-to-customize-acoustic-models",
             "redirect_document_id": true
@@ -108,7 +113,7 @@
         {
             "source_path": "articles/machine-learning/preview/quickstart-installation.md",
             "redirect_url": "/azure/machine-learning/service/quickstart-installation",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/machine-learning/preview/scenario-aerial-image-classification.md",
