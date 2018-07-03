@@ -23,7 +23,7 @@ Voice customization is available for US English (en-US) and mainland Chinese (zh
 
 The Text to Speech voice customization feature is currently in private preview. [Fill out the application form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) to be considered for access.
 
-You also need and Azure account and a subscription to the Speech service. [Create one] (https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) if you haven't already. Connect your subscription to the Custom Voice portal as follows.
+You also need an Azure account and a subscription to the Speech service. [Create one] (https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) if you haven't already. Connect your subscription to the Custom Voice portal as follows.
 
 1. Log on to the [Custom Voice portal](https://customvoice.ai) using the same Microsoft account you used to apply for access.
 
