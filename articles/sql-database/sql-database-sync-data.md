@@ -2,13 +2,13 @@
 title: Azure SQL Data Sync | Microsoft Docs
 description: This overview introduces Azure SQL Data Sync
 services: sql-database
-author: douglaslms
+author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: conceptual
-ms.date: 04/10/2018
-ms.author: douglasl
+ms.date: 07/01/2018
+ms.author: xiwu
 ms.reviewer: douglasl
 ms.custom: data-sync
 ---
@@ -16,15 +16,17 @@ ms.custom: data-sync
 
 SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances.
 
+## Architecture of SQL Data Sync
+
 Data Sync is based around the concept of a Sync Group. A Sync Group is a group of databases that you want to synchronize.
 
 A Sync Group has the following properties:
 
 -   The **Sync Schema** describes which data is being synchronized.
 
--   The **Sync Direction** can be bi-directional or can flow in only one direction. That is, the Sync Direction can be *Hub to Member* or *Member to Hub*, or both.
+-   The **Sync Direction** can be bi-directional or can flow in only one direction. That is, the Sync Direction can be *Hub to Member*, or *Member to Hub*, or both.
 
--   The **Sync Interval** is how often synchronization occurs.
+-   The **Sync Interval** describes how often synchronization occurs.
 
 -   The **Conflict Resolution Policy** is a group level policy, which can be *Hub wins* or *Member wins*.
 
@@ -34,7 +36,7 @@ Data Sync uses a hub and spoke topology to synchronize data. You define one of t
 -   The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
 
 > [!NOTE]
-> If you're using an on premises database, you have to [configure a local agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
+> If you're using an on premises database as a member database, you have to [install and configure a local sync agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Sync data between databases](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -68,9 +70,27 @@ Data Sync is not the best solution for the following scenarios:
     -   If you select *Hub wins*, the changes in the hub always overwrite changes in the member.
     -   If you select *Member wins*, the changes in the member overwrite changes in the hub. If there's more than one member, the final value depends on which member syncs first.
 
-## <a name="sync-req-lim"></a> Requirements and limitations
+## Get started with SQL Data Sync
 
-### General considerations
+### Set up Data Sync in the Azure portal
+
+-   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+
+### Set up Data Sync with PowerShell
+
+-   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
+
+-   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+### Review the best practices for Data Sync
+
+-   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+
+### Did something go wrong?
+
+-   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+
+## Consistency and performance
 
 #### Eventual consistency
 Since Data Sync is trigger-based, transactional consistency is not guaranteed. Microsoft guarantees that all changes are made eventually and that Data Sync does not cause data loss.
@@ -79,6 +99,8 @@ Since Data Sync is trigger-based, transactional consistency is not guaranteed. M
 Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database for change tracking. These change tracking activities have an impact on your database workload. Assess your service tier and upgrade if needed.
 
 Provisioning and deprovisioning during sync group creation, update, and deletion may also impact the database performance. 
+
+## <a name="sync-req-lim"></a> Requirements and limitations
 
 ### General requirements
 
@@ -106,6 +128,14 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 
 -   Cursor, Timestamp, Hierarchyid
 
+#### Unsupported column types
+
+Data Sync can't sync read-only or system-generated columns. For example:
+
+-   Computed columns.
+
+-   System-generated columns for temporal tables.
+
 #### Limitations on service and database dimensions
 
 | **Dimensions**                                                      | **Limit**              | **Workaround**              |
@@ -124,7 +154,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 
 ### How much does the SQL Data Sync service cost?
 
-During the Preview, there is no charge for the SQL Data Sync service itself.  However, you still accrue data transfer charges for data movement in and out of your SQL Database instance. For more info, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+There is no charge for the SQL Data Sync service itself.  However, you still accrue data transfer charges for data movement in and out of your SQL Database instance. For more info, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### What regions support Data Sync?
 
@@ -142,7 +172,8 @@ Yes. You can sync between SQL Databases that belong to resource groups owned by 
 -   If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
 -   Otherwise, you have to use PowerShell to add the sync members that belong to different subscriptions.
    
-### Can I use Data Sync to seed data from my production database to an empty database, and then keep them synchronized? 
+### Can I use Data Sync to seed data from my production database to an empty database, and then sync them?
+
 Yes. Create the schema manually in the new database by scripting it from the original. After you create the schema, add the tables to a sync group to copy the data and keep it synced.
 
 ### Should I use SQL Data Sync to back up and restore my databases?
@@ -171,20 +202,30 @@ Federation Root Database can be used in the SQL Data Sync Service without any li
 
 ## Next steps
 
-For more info about SQL Data Sync, see:
+### Update the schema of a synced database
 
--   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
--   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+Do you have to update the schema of a database in a sync group? Schema changes are not automatically replicated. For some solutions, see the following articles:
+
+-   [Automate the replication of schema changes in Azure SQL Data Sync](sql-database-update-sync-schema.md)
+
+-   [Use PowerShell to update the sync schema in an existing sync group](scripts/sql-database-sync-update-schema.md)
+
+### Monitor and troubleshoot
+
+Is SQL Data Sync performing as expected? To monitor activity and troubleshoot issues, see the following articles:
+
 -   [Monitor Azure SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+
 -   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
--   Complete PowerShell examples that show how to configure SQL Data Sync:
-    -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+### Learn more about Azure SQL Database
 
--   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
-
-For more info about SQL Database, see:
+For more info about SQL Database, see the following articles:
 
 -   [SQL Database Overview](sql-database-technical-overview.md)
+
 -   [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
+
+### Developer reference
+
+-   [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

@@ -65,7 +65,7 @@ To configure kubectl to connect to your Kubernetes cluster, run the [az acs kube
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster
 ```
 
-To verify the connection to your cluster, run the [kubectl get nodes](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) command.
+To verify the connection to your cluster, run the [kubectl get nodes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command.
 
 ```azurecli-interactive
 kubectl get nodes

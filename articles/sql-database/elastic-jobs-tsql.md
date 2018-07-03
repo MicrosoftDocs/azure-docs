@@ -262,7 +262,7 @@ SELECT * FROM jobs.jobs
 -- View the steps of the current version of all jobs
 SELECT js.* FROM jobs.jobsteps js
 JOIN jobs.jobs j 
-  ON j.job_id = js.job_id AND j.current_job_version_number = js.job_version_number
+  ON j.job_id = js.job_id AND j.job_version = js.job_version
 
 -- View the steps of all versions of all jobs
 select * from jobs.jobsteps
@@ -393,14 +393,14 @@ The following stored procedures are in the [jobs database](elastic-jobs-overview
 
 |Stored procedure  |Description  |
 |---------|---------|
-|[sp_add_job](#spaddjob)     |     Add a new job.    |
-|[sp_update_job ](#spupdatejob)    |      Update an existing job.   |
-|[sp_delete_job](#spdeletejob)     |      Delete an existing job.   |
-|[sp_add_jobstep](#spaddjobstep)    |    Add a step to a job.     |
-|[sp_update_jobstep](#spupdatejobstep)     |     Update a job step.    |
-|[sp_delete_jobstep](#spdeletejobstep)     |     Delete a job step.    |
-|[sp_start_job](#spstartjob)    |  Start executing a job.       |
-|[sp_stop_job](#spstopjob)     |     Stop job execution.   |
+|[sp_add_job](#spaddjob)     |     Adds a new job.    |
+|[sp_update_job ](#spupdatejob)    |      Updates an existing job.   |
+|[sp_delete_job](#spdeletejob)     |      Deletes an existing job.   |
+|[sp_add_jobstep](#spaddjobstep)    |    Adds a step to a job.     |
+|[sp_update_jobstep](#spupdatejobstep)     |     Updates a job step.    |
+|[sp_delete_jobstep](#spdeletejobstep)     |     Deletes a job step.    |
+|[sp_start_job](#spstartjob)    |  Starts executing a job.       |
+|[sp_stop_job](#spstopjob)     |     Stops a job execution.   |
 |[sp_add_target_group](#spaddtargetgroup)    |     Adds a target group.    |
 |[sp_delete_target_group](#spdeletetargetgroup)     |    Deletes a target group.     |
 |[sp_add_target_group_member](#spaddtargetgroupmember)     |    Adds a database or group of databases to a target group.     |
@@ -602,7 +602,7 @@ Adds a step to a job.
      [ , [ @output_schema_name = ] 'output_schema_name' ]   
      [ , [ @output_table_name = ] 'output_table_name' ]
      [ , [ @job_version = ] job_version OUTPUT ]
-     [ , [ @max_parallelism = ] 'max_parallelism' ]
+     [ , [ @max_parallelism = ] max_parallelism ]
 ```
 
 #### Arguments
@@ -679,7 +679,7 @@ If not null, the name of the table that the command’s first result set will be
 [ **@job_version =** ] job_version OUTPUT  
 Output parameter that will be assigned the new job version number. job_version is int.
 
-[ **@max_parallelism =** ] 'max_parallelism' OUTPUT  
+[ **@max_parallelism =** ] max_parallelism OUTPUT  
 The maximum level of parallelism per elastic pool. If set, then the job step will be restricted to only run on a maximum of that many databases per elastic pool. This applies to each elastic pool that is either directly included in the target group or is inside a server that is included in the target group. max_parallelism is int.
 
 
@@ -727,7 +727,7 @@ Updates a job step.
      [ , [ @output_schema_name = ] 'output_schema_name' ]   
      [ , [ @output_table_name = ] 'output_table_name' ]   
      [ , [ @job_version = ] job_version OUTPUT ]
-     [ , [ @max_parallelism = ] 'max_parallelism' ]
+     [ , [ @max_parallelism = ] max_parallelism ]
 ```
 
 #### Arguments
@@ -803,7 +803,7 @@ If not null, the name of the table that the command’s first result set will be
 [ **@job_version =** ] job_version OUTPUT  
 Output parameter that will be assigned the new job version number. job_version is int.
 
-[ **@max_parallelism =** ] 'max_parallelism' OUTPUT  
+[ **@max_parallelism =** ] max_parallelism OUTPUT  
 The maximum level of parallelism per elastic pool. If set, then the job step will be restricted to only run on a maximum of that many databases per elastic pool. This applies to each elastic pool that is either directly included in the target group or is inside a server that is included in the target group. To reset the value of max_parallelism back to null, set this parameter's value to -1. max_parallelism is int.
 
 
@@ -1185,18 +1185,20 @@ The following views are available in the [jobs database](elastic-jobs-overview.m
 
 |View  |Description  |
 |---------|---------|
-|[jobs_executions](#jobsexecutions-view)     |   Returns information about jobs used by Job agent to perform automated activities in Azure SQL Database.      |
-|[jobs](#jobs-view)     |   Returns information about jobs that are used by Elastic jobs to perform automated activities in Azure SQL Database.      |
-|[jobsteps](#jobsteps-view)     |     Returns information for the steps in a job used by Job agent to perform automated activities.    |
-|[target_groups](#targetgroups-view)     |      Lists all target groups.   |
-|[target_group_members](#targetgroups-view)     |   Lists all target group members in the specified group. If no group is specified, Job agent returns information about all target group members.      |
+|[jobs_executions](#jobsexecutions-view)     |  Shows job execution history.      |
+|[jobs](#jobs-view)     |   Shows all jobs.      |
+|[job_versions](#jobversions-view)     |   Shows all job versions.      |
+|[jobsteps](#jobsteps-view)     |     Shows all steps in the current version of each job.    |
+|[jobstep_versions](#jobstepversions-view)     |     Shows all steps in all versions of each job.    |
+|[target_groups](#targetgroups-view)     |      Shows all target groups.   |
+|[target_group_members](#targetgroups-view)     |   Shows all members of all target groups.      |
 
 
 ### jobs_executions view
 
 [jobs].[jobs_executions]
 
-Returns information about jobs used by Job agent to perform automated activities in Azure SQL Database.
+Shows job execution history.
 
 
 |Column name|	Data type	|Description|
@@ -1204,7 +1206,7 @@ Returns information about jobs used by Job agent to perform automated activities
 |**job_execution_id**	|uniqueidentifier|	Unique ID of an instance of a job execution.
 |**job_name**	|nvarchar(128)	|Name of the job.
 |**job_id**	|uniqueidentifier|	Unique ID of the job.
-|**job_version_number**	|int	|Version of the job (automatically updated each time the job is modified).
+|**job_version**	|int	|Version of the job (automatically updated each time the job is modified).
 |**step_id**	|int|	Unique (for this job) identifier for the step. NULL indicates this is the parent job execution.
 |**is_active**|	bit	|Indicates whether information is active or inactive. 1 indicates active jobs, and 0 indicates inactive.
 |**lifecycle**|	nvarchar(50)|Value indicating the status of the job:‘Created’,‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’,'SucceededWithSkipped’|
@@ -1225,31 +1227,46 @@ Returns information about jobs used by Job agent to perform automated activities
 
 [jobs].[jobs]
 
-Returns information about jobs that are used by Elastic jobs to perform automated activities in Azure SQL Database. 
+Shows all jobs.
 
 |Column name|	Data type|	Description|
 |------|------|-------|
 |**job_name**|	nvarchar(128)	|Name of the job.|
 |**job_id**|	uniqueidentifier	|Unique ID of the job.|
-|**current_job_version_number**	|int	|Version of the job (automatically updated each time the job is modified).|
+|**job_version**	|int	|Version of the job (automatically updated each time the job is modified).|
 |**description**	|nvarchar(512)|	Description for the job. enabled bit	Indicates whether the job is enabled or disabled. 1 indicates enabled jobs, and 0 indicates disabled jobs.|
 |**schedule_interval_type**	|nvarchar(50)	|Value indicating when the job is to be executed:'Once', 'Minutes', 'Hours', 'Days', 'Weeks', 'Months'
 |**schedule_interval_count**|	int|	Number of schedule_interval_type periods to occur between each execution of the job.|
 |**schedule_start_time**	|datetime2(7)|	Date and time the job was last started execution.|
 |**schedule_end_time**|	datetime2(7)|	Date and time the job was last completed execution.|
 
+
+### job_versions view
+
+[jobs].[job_verions]
+
+Shows all job versions.
+
+|Column name|	Data type|	Description|
+|------|------|-------|
+|**job_name**|	nvarchar(128)	|Name of the job.|
+|**job_id**|	uniqueidentifier	|Unique ID of the job.|
+|**job_version**	|int	|Version of the job (automatically updated each time the job is modified).|
+
+
 ### jobsteps view
 
 [jobs].[jobsteps]
 
-Returns information for the steps in a job used by Job agent to perform automated activities.
+Shows all steps in the current version of each job.
 
 |Column name	|Data type|	Description|
 |------|------|-------|
 |**job_name**	|nvarchar(128)|	Name of the job.|
 |**job_id**	|uniqueidentifier	|Unique ID of the job.|
-|**job_version_number**|	int|	Version of the job (automatically updated each time the job is modified).|
+|**job_version**|	int|	Version of the job (automatically updated each time the job is modified).|
 |**step_id**	|int	|Unique (for this job) identifier for the step.|
+|**step_name**	|nvarchar(128)	|Unique (for this job) name for the step.|
 |**command_type**	|nvarchar(50)	|Type of command to execute in the job step. For v1, value must equal to and defaults to ‘TSql’.|
 |**command_source**	|nvarchar(50)|	Location of the command. For v1, ‘Inline’ is the default and only accepted value.|
 |**command**|	nvarchar(max)|	The commands to be executed by Elastic jobs through command_type.|
@@ -1269,7 +1286,14 @@ Returns information for the steps in a job used by Job agent to perform automate
 |**output_database_name**	|nvarchar(128)|	Name of the destination database for the results set.|
 |**output_schema_name**	|nvarchar(max)|	Name of the destination schema. Defaults to dbo, if not specified.|
 |**output_table_name**|	nvarchar(max)|	Name of the table to store the results set from the query results. Table will be created automatically based on the schema of the results set if it doesn’t already exist. Schema must match the schema of the results set.|
+|**max_parallelism**|	int|	The maximum number of databases per elastic pool that the job step will be run on at a time. The default is NULL, meaning no limit. |
 
+
+### jobstep_versions view
+
+[jobs].[jobstep_versions]
+
+Shows all steps in all versions of each job. The schema is identical to [jobsteps](#jobsteps-view).
 
 ### target_groups view
 
@@ -1286,14 +1310,14 @@ Lists all target groups.
 
 [jobs].[target_groups_members]
 
-Lists all target group members in the specified group. If no group is specified, Job agent returns information about all target group members.
+Shows all members of all target groups.
 
 |Column name|Data type|	Description|
 |-----|-----|-----|
 |**target_group_name**	|nvarchar(128|The name of the target group, a collection of databases. |
 |**target_group_id**	|uniqueidentifier	|Unique ID of the target group.|
 |**membership_type**	|int|	Specifies if the target group member is included or excluded in the target group. Valid values for target_group_name are ‘Include’ or ‘Exclude’.|
-|**target_type**	|nvarchar(128)|	Type of target database or collection of databases including all databases in a server, all databases in an Elastic pool or a database. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’ or ‘SqlDatabase’.|
+|**target_type**	|nvarchar(128)|	Type of target database or collection of databases including all databases in a server, all databases in an Elastic pool or a database. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’, or ‘SqlShardMap’.|
 |**target_id**	|uniqueidentifier|	Unique ID of the target group member.|
 |**refresh_credential_name**	|nvarchar(128)	|Name of the database scoped credential used to connect to the target group member.|
 |**subscription_id**	|uniqueidentifier|	Unique ID of the subscription.|
@@ -1301,7 +1325,7 @@ Lists all target group members in the specified group. If no group is specified,
 |**server_name**	|nvarchar(128)	|Name of the logical server contained in the target group. Specified only if target_type is ‘SqlServer’. |
 |**database_name**	|nvarchar(128)	|Name of the database contained in the target group. Specified only when target_type is ‘SqlDatabase’.|
 |**elastic_pool_name**	|nvarchar(128)|	Name of the Elastic pool contained in the target group. Specified only when target_type is ‘SqlElasticPool’.|
-
+|**shard_map_name**	|nvarchar(128)|	Name of the shard map contained in the target group. Specified only when target_type is ‘SqlShardMap’.|
 
 
 ## Resources

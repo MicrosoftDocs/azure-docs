@@ -17,8 +17,8 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-
 ---
+
 # Optional claims in Azure AD (preview)
 
 This feature is used by application developers to specify which claims they want in tokens sent to their application. You can use optional claims to:
