@@ -307,7 +307,7 @@ Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d4
 }
 Press any key to continue.
 ```
-
+   
 ## Next steps
 
 > [!div class="nextstepaction"]
