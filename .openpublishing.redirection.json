@@ -25855,6 +25855,16 @@
             "source_path": "articles/cognitive-services/LUIS/Cortana-Prebuilt-App.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app",
             "redirect_document_id": true
+        },
+        {        
+            "source_path": "articles/cloud-shell/features-powershell.md",
+            "redirect_url": "/azure/cloud-shell/features",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-shell/persisting-shell-storage-powershell.md",
+            "redirect_url": "/azure/cloud-shell/persisting-shell-storage",
+            "redirect_document_id": false
         }
     ]
 }
