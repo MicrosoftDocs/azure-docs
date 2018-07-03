@@ -66,7 +66,7 @@ The session should look similar to this screen:
 
 2. Make note of the Application ID, and the thumbprint of the certificate you have registered with your application.
 
-  ![App Registration Certificate](./media/active-directory-report-api-with-certificates/reportingapidemo-appreg-cert.png)
+  ![App Registration Certificate](./media/active-directory-reporting-api-with-certificates/appreg-cert.png)
 
   
 ## Get an access token for MS Graph API
@@ -77,16 +77,16 @@ To get an access token for the MS Graph API, use the **Get-MSCloudIdMSGraphAcces
 >You need to use the Application ID (also known as ClientID), and the certificate thumbprint of the certificate with the private key installed in your computer's certificate store (CurrentUser or LocalMachine certificate store).
 >
 
- ![Azure portal](./media/active-directory-report-api-with-certificates/resportingapidem-cert-getaccesstoken.png)
+ ![Azure portal](./media/active-directory-reporting-api-with-certificates/getaccesstoken.png)
 
 ## Use the access token to call the Graph API
 
 Now, you can create the script using the access token retrieved. Below is an example using the **Invoke-MSCloudIdMSGraphQuery** cmdlet from the MSCloudIDUtils to enumerate the signins or diectoryAudits endpoint. This cmdlet handles multi-paged results, and then sends those results to the PowerShell pipeline.
 ### Query the DirectoryAudits endpoint
- ![Azure portal](./media/active-directory-report-api-with-certificates/query-directoryAudits.png)
+ ![Azure portal](./media/active-directory-reporting-api-with-certificates/query-directoryAudits.png)
 
  ### Query the SignIns endpoint
- ![Azure portal](./media/active-directory-report-api-with-certificates/query-signins.png)
+ ![Azure portal](./media/active-directory-reporting-api-with-certificates/query-signins.png)
 
 You are now ready to export to a CSV and save to a SIEM system. You can also wrap your script in a scheduled task to get Azure AD data from your tenant periodically without having to store application keys in the source code. 
 
