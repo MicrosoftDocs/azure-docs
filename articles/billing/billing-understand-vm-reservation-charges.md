@@ -1,10 +1,10 @@
-﻿---
+---
 title: Understand Azure reserved instances discount | Microsoft Docs
 description: Learn how Azure Reserved VM Instance discount is applied to running virtual machines. 
 services: 'billing'
 documentationcenter: ''
-author: yashesvi
-manager: yashar
+author: manish-shukla01
+manager: manshuk
 editor: ''
 
 ms.service: billing
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
-ms.author: yashar
+ms.date: 07/02/2018
+ms.author: manshuk
 ---
 # Understand how the reserved instance discount is applied
 After you buy a Azure Reserved VM Instance, the reserved instance discount is automatically applied to virtual machines matching the attributes and quantity of the reserved instance. A reserved instance covers the infrastructure costs of your virtual machines. The following table illustrates the costs for your virtual machine after you purchase a reserved instance. In all cases, you are charged for storage and networking at the normal rates.
@@ -40,6 +40,27 @@ To understand and view the application of your Azure reserved instances in billi
 
 ## Application of reserved instance discount to Windows VMs
 When you are running Windows VM instances, the reserved instance is applied to cover the infrastructure costs. The application of the reserved instance to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You are charged separately for Windows software on a per vCPU basis. See [Windows software costs with reserved instances](https://go.microsoft.com/fwlink/?linkid=862756). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+
+## Application of reserved instance discount with Instance Size Flexibility
+
+Consider the VM Group and Virtual machines that are there in this group.
+
+![Screenshot of one Reserved Instance VM Group]
+(media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-instancesize-flexibility-1.png)
+
+For all the VM Groups and different VMs in the groups, see [here.](http://aka.ms/riallocation)
+
+If you have instance size flexibility turned on for your reserved VM instances, then any virtual machine in the VM group can get benefit of Reserved VM Instances. If you purchase one Reserved Instance of DS2 V2 and deploy any virtual machine in the Dv2 series, it can get benefit of the purchased Reserved Instances:
+![Screenshot of  Reserved Instance applied to more than one type of VM within a VM Group]
+(media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-instancesize-flexibility-2.png)
+
+1. In hour 1, DS2 virtual machine ran for just 30 minutes. Remaining 30 min of Reserved Instance for DS2 were used for DS1 machine for full hour. If the instance size flexibility was set to off, 30 minutes of Reserved Instances would have gone unused.
+2. In hour 2 and hour 3, the reserved instances is utilized by the DS2 machine.
+3. In hour 4, 2 DS1 V2 machines ran for one hour each and they both got benefit of Reserved Instances.
+
+When Instance Size Flexibility is set to on, Microsoft billing system does give preference to any specific type of VM within the VM group. Billing system makes sure that your reserved instances is fully utilized so you can save maximum amount of money without management overhead.
+
+
 
 ## Next steps
 To learn more about reserved instances, see the following articles:
