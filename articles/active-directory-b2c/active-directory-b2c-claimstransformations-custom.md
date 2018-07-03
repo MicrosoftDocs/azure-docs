@@ -67,11 +67,11 @@ The table below and subsequent section outline a list of Claims Trasnformation M
 
 | Method | Type | Description |
 | --- | --- | --- |
-| [AddItemToStringCollection](#AddItemToStringCollection) | Claims |   |
-| [GetSingleItemFromStringCollection](#GetSingleItemFromStringCollection) | Claims |  |
-| [AssertBooleanClaimIsEqualToValue](#AssertBooleanClaimIsEqualToValue)  | Assert |   |
-| [CreateRandomString](#CreateRandomString) | Claims |  |
-| [FormatStringClaim](#FormatStringClaim) | Claims |  |
+| [AddItemToStringCollection](#AddItemToStringCollection) | Claims |  Adds a single value claim to a collection based claim. |
+| [GetSingleItemFromStringCollection](#GetSingleItemFromStringCollection) | Claims | Gets a single claim from a Collection based claim.  |
+| [AssertBooleanClaimIsEqualToValue](#AssertBooleanClaimIsEqualToValue)  | Assert | Compare two claims, and throws an exception if they are not equal according to the specified comparison  |
+| [CreateRandomString](#CreateRandomString) | Claims | Creates a random string using the random number generator used |
+| [FormatStringClaim](#FormatStringClaim) | Claims | Format a given claim according to the provided format string. |
 | [CreateStringClaim](#CreateStringClaim) | Claims |  |
 | [CreateAlternativeSecurityId](#CreateAlternativeSecurityId) | Claims |  |
 | [FormatStringMultipleClaims](#FormatStringMultipleClaims) | Claims |  |
