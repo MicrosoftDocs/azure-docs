@@ -61,7 +61,7 @@ You can also create [Premium namespaces using Azure Resource Manager templates](
 
 ## Next steps
 
-To learn more about Service Bus Messaging, see the following topics.
+To learn more about Service Bus Messaging, see the following links:
 
 * [Introducing Azure Service Bus Premium Messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
