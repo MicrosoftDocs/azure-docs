@@ -10,17 +10,17 @@ ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
 ---
-# Track changes in your environment with the Change Tracking solution
+# View contents of a file that is being tracked with Change Tracking
 
 File content tracking allows you to view the contents of a file before and after a change that is being tracked with Change Tracking. To do this, it saves the file contents to a storage account after each change occurs.
 
 ## Requirements
 
-* A standard storage account using the Resource Manager deployment model is required. Premium and service management storage accounts should not be used. For more information on storage accounts, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md)
+* A standard storage account using the Resource Manager deployment model is required for storing file content. Premium and classic deployment model storage accounts should not be used. For more information on storage accounts, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md)
 
-* A storage account used for store file contents for Change Tracking can only have 1 Automation Account connected.
+* The storage account used can only have 1 Automation Account connected.
 
-* [Change Tracking](automation-change-tracking.md) needs to be enabled.
+* [Change Tracking](automation-change-tracking.md) is enabled in your Automation Account.
 
 ## Enable file content tracking
 
@@ -34,7 +34,7 @@ File content tracking allows you to view the contents of a file before and after
 
    ![set storage account](./media/change-tracking-file-contents/storage-account.png)
 
-5. Once enabled, the storage account and the SAS Uris are shown. the SAS Uris expire after 1 year, and can be recreated by clicking the **Regenerate** button.
+5. Once enabled, the storage account and the SAS Uris are shown. The SAS Uris expire after 1 year, and can be recreated by clicking the **Regenerate** button.
 
    ![list account keys](./media/change-tracking-file-contents/account-keys.png)
 
@@ -42,9 +42,9 @@ File content tracking allows you to view the contents of a file before and after
 
 The following steps walk you through turning on change tracking for a file:
 
-1. On the **Change Tracking** page, select either **Windows Files** or **Linux Files**, and click **Add**
+1. On the **Edit Settings** page of **Change Tracking**, select either **Windows Files** or **Linux Files** tab, and click **Add**
 
-1. Fill out the information for the file path and select **True** under **Upload file content for all settings**. This enables file content tracking for that file path only.
+1. Fill out the information for the file path and select **True** under **Upload file content for all settings**. This setting enables file content tracking for that file path only.
 
    ![add a linux file](./media/change-tracking-file-contents/add-linux-file.png)
 
