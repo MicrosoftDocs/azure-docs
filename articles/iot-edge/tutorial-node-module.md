@@ -88,7 +88,7 @@ The environment file stores the credentials for your container repository and sh
 
 ### Update the module with custom code
 
-Each template comes with sample code included, which takes simulates sensor data from the **tempSensor** module and routes it to IoT Hub. In this section, add code to have NodeModule analyze the messages before sending them. 
+Each template comes with sample code included, which takes simulated sensor data from the **tempSensor** module and routes it to IoT Hub. In this section, add code to have NodeModule analyze the messages before sending them. 
 
 1. In the VS Code explorer, open **modules** > **NodeModule** > **app.js**.
 
