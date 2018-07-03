@@ -62,7 +62,7 @@ Formats and indents JSON for display.
 '''
 def pretty_print (content):
   # Note: We convert content to and from an object so we can pretty-print it.
-	return json.dumps(json.loads(content), indent=4)
+  return json.dumps(json.loads(content), indent=4)
 
 '''
 Sends the POST request to create the knowledge base.
@@ -74,18 +74,18 @@ Sends the POST request to create the knowledge base.
 :rtype: string, string
 '''
 def create_kb (path, content):
-	print ('Calling ' + host + path + '.')
-	headers = {
-		'Ocp-Apim-Subscription-Key': subscriptionKey,
-		'Content-Type': 'application/json',
-		'Content-Length': len (content)
-	}
-	conn = http.client.HTTPSConnection(host)
-	conn.request ("POST", path, content, headers)
-	response = conn.getresponse ()
+  print ('Calling ' + host + path + '.')
+  headers = {
+    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Content-Type': 'application/json',
+    'Content-Length': len (content)
+  }
+  conn = http.client.HTTPSConnection(host)
+  conn.request ("POST", path, content, headers)
+  response = conn.getresponse ()
   # /knowledgebases/create returns an HTTP header named Location that contains a URL
   # to check the status of the operation in creating the knowledge base.
-	return response.getheader('Location'), response.read ()
+  return response.getheader('Location'), response.read ()
 
 '''
 Checks the status of the request to create the knowledge base.
@@ -95,14 +95,14 @@ Checks the status of the request to create the knowledge base.
 :rtype: string, string
 '''
 def check_status (path):
-	print ('Calling ' + host + path + '.')
-	headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-	conn = http.client.HTTPSConnection(host)
-	conn.request ("GET", path, None, headers)
-	response = conn.getresponse ()
+  print ('Calling ' + host + path + '.')
+  headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+  conn = http.client.HTTPSConnection(host)
+  conn.request ("GET", path, None, headers)
+  response = conn.getresponse ()
   # If the operation is not finished, /operations returns an HTTP header named Retry-After
   # that contains the number of seconds to wait before we query the operation again.
-	return response.getheader('Retry-After'), response.read ()
+  return response.getheader('Retry-After'), response.read ()
 
 '''
 Dictionary that holds the knowledge base.
@@ -149,20 +149,20 @@ Once state is no longer "Running" or "NotStarted", the loop ends.
 '''
 done = False
 while False == done:
-	path = service + operation
+  path = service + operation
   # Gets the status of the operation.
-	wait, status = check_status (path)
+  wait, status = check_status (path)
   # Print status checks in JSON with presentable formatting
-	print (pretty_print(status))
+  print (pretty_print(status))
 
   # Convert the JSON response into an object and get the value of the operationState field.
-	state = json.loads(status)['operationState']
+  state = json.loads(status)['operationState']
   # If the operation isn't finished, wait and query again.
-	if state == 'Running' or state == 'NotStarted':
-		print ('Waiting ' + wait + ' seconds...')
-		time.sleep (int(wait))
-	else:
-		done = True # request has been processed, if successful, knowledge base is created
+  if state == 'Running' or state == 'NotStarted':
+    print ('Waiting ' + wait + ' seconds...')
+    time.sleep (int(wait))
+  else:
+    done = True # request has been processed, if successful, knowledge base is created
 ```
 
 ## Understand what QnA Maker returns
