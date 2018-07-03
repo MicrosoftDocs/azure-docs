@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/06/2018
 ms.author: mabrigg
 
 ---
@@ -28,8 +28,12 @@ In Azure Stack, there are two security posture layers that coexist. The first la
 ## Security approach
 Azure Stack was designed with a security posture to defend against modern threats, and was built to meet the requirements from the major compliance standards. As a result, the security posture of the Azure Stack infrastructure is built on two pillars:
 
- - **Assume Breach.** Starting from the assumption that the system has already been breached, focus on *detecting and limiting the impact of breaches* versus only trying to prevent attacks. 
- - **Hardened by Default.**  Since the infrastructure runs on well-defined hardware and software, *enable, configure, and validate security features* that are left to customers to implement.
+ - **Assume Breach.**  
+Starting from the assumption that the system has already been breached, focus on *detecting and limiting the impact of breaches* versus only trying to prevent attacks. 
+ - **Hardened by Default.**  
+Since the infrastructure runs on well-defined hardware and software, we *enable, configure, and validate all the security features* by default.
+
+
 
 Because Azure Stack is delivered as an integrated system, the security posture of the Azure Stack infrastructure is defined by Microsoft. Just like in Azure, tenants are responsible for defining the security posture of their tenant workloads. This document provides foundational knowledge on the security posture of the Azure Stack infrastructure.
 
@@ -60,6 +64,8 @@ Another Windows Server 2016 security feature in Azure Stack is Windows Defender 
 
 ## Antimalware
 Every component in Azure Stack (both Hyper-V hosts and Virtual Machines) is protected with Windows Defender Antivirus.
+
+In connected scenarios, antivirus definition and engine updates are applied multiple times a day. In disconnected scenarios, antimalware updates are applied as part of monthly Azure Stack updates. See [update Windows Defender Antivirus on Azure Stack](azure-stack-security-av.md) for more information.
 
 ## Constrained administration model
 Administration in Azure Stack is controlled through the use of three entry points, each with a specific purpose: 

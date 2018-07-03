@@ -12,12 +12,10 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/29/2018
 ms.author: nitinme
 
-
 ---
-
 # Use Databricks CLI from Azure Cloud Shell
 
 Learn how to use the Databricks CLI from Azure Cloud Shell to perform operations on Databricks.
@@ -83,7 +81,7 @@ For a complete reference on commands, see [Databricks CLI](https://docs.azuredat
 ## Next steps
 
 * To learn more about Azure CLI, see [Azure CLI overview](../cloud-shell/overview.md)
-* To see a list of commands for Azure CLI, see [Azure CLI reference](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+* To see a list of commands for Azure CLI, see [Azure CLI reference](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)
 * To see a list of commands for Databricks CLI, see [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)
 
 

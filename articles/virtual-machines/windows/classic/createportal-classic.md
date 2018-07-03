@@ -4,7 +4,7 @@ description: Learn how to create a custom Windows virtual machine from the Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX

@@ -1,16 +1,15 @@
 ---
-title: Build a LUIS app programmatically using Node.js | Microsoft Docs 
+title: Build a LUIS app programmatically using Node.js | Microsoft Docs
 titleSuffix: Azure
-description: Learn how to build a LUIS app programmatically from preexisting data in CSV format using the LUIS Authoring API. 
+description: Learn how to build a LUIS app programmatically from preexisting data in CSV format using the LUIS Authoring API.
 services: cognitive-services
 author: DeniseMak
 manager: rstand
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Build a LUIS app programmatically using Node.js
@@ -19,7 +18,7 @@ LUIS provides a programmatic API that does everything that the [LUIS][LUIS] webs
 
 ## Prerequisites
 
-* Log in to the [LUIS][LUIS] website and find your [authoring key](manage-keys.md#authoring-key) in Account Settings. You use this key to call the Authoring APIs.
+* Log in to the [LUIS][LUIS] website and find your [authoring key](luis-concept-keys.md#authoring-key) in Account Settings. You use this key to call the Authoring APIs.
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * This tutorial starts with a CSV for a hypothetical company's log files of user requests. Download it [here](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv).
 * Install the latest Node.js with NPM. Download it from [here](https://nodejs.org/en/download/).
@@ -107,7 +106,7 @@ Install the Node.js dependencies from NPM in the terminal/command line.
 ````
 
 ### Change Configuration Settings
-In order to use this application, you need to change the values in the index.js file to your own subscription key, and provide the name you want the app to have. You can also set the app's culture or change the version number.
+In order to use this application, you need to change the values in the index.js file to your own endpoint key, and provide the name you want the app to have. You can also set the app's culture or change the version number.
 
 Open the index.js file, and change these values at the top of the file.
 
@@ -167,7 +166,7 @@ Once the script completes, you can log in to [LUIS][LUIS] and see the LUIS app y
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Test and train your app in LUIS website](Train-Test.md)
+> [Test and train your app in LUIS website](interactive-test.md)
 
 ## Additional resources
 
@@ -177,5 +176,5 @@ This sample application uses the following LUIS APIs:
 - [add entities](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
 - [add utterances](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 

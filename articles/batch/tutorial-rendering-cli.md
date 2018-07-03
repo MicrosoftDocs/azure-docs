@@ -7,14 +7,14 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: tutorial
-ms.date: 02/05/2018
+ms.date: 04/19/2018
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # Tutorial: Render a scene with Azure Batch 
 
-Azure Batch provides cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service supports Autodesk Maya, 3ds Max, Arnold, and V-Ray. This tutorial shows you the steps to render a small scene with Batch using the Azure Command-Line Interface. You learn how to:
+Azure Batch provides cloud-scale rendering capabilities on a pay-per-use basis. The Batch Rendering service supports rendering apps including Autodesk Maya, 3ds Max, Arnold, and V-Ray. This tutorial shows you the steps to render a small scene with Batch using the Azure Command-Line Interface. You learn how to:
 
 > [!div class="checklist"]
 > * Upload a scene to Azure storage
@@ -47,7 +47,7 @@ az group create \
     --location eastus2
 ```
 
-Create a general-purpose storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. For this tutorial, you use the storage account to store an input 3ds Max scene and the rendered output.
+Create an Azure Storage account in your resource group with the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. For this tutorial, you use the storage account to store an input 3ds Max scene and the rendered output.
 
 ```azurecli-interactive
 az storage account create \
@@ -120,7 +120,7 @@ Create a Batch pool for rendering using the [az batch pool create](/cli/azure/ba
       "publisher": "batch",
       "offer": "rendering-windows2016",
       "sku": "rendering",
-      "version": "latest"
+      "version": "1.2.1"
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },
@@ -210,7 +210,7 @@ Modify the `blobSource` and `containerURL` elements in the JSON file so that the
 ```json
 {
   "id": "myrendertask",
-  "commandLine": "cmd /c \"3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 MotionBlur-DragonFlying.max\"",
+  "commandLine": "cmd /c \"%3DSMAX_2018%3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 MotionBlur-DragonFlying.max\"",
   "resourceFiles": [
     {
         "blobSource": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",

@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/09/2018
 ms.author: raynew
 ---
 
@@ -26,7 +26,7 @@ Failover and failback has four stages:
 
 ## Verify server properties
 
-Verify the server properties, and make sure that it complies with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) for Azure VMs.
+Verify the server properties, and make sure that it complies with [Azure requirements](vmware-physical-azure-support-matrix.md#replicated-machines) for Azure VMs.
 
 1. In **Protected Items**, click **Replicated Items**, and select the machine.
 
@@ -130,7 +130,7 @@ Run the failover as follows:
 
 ## Reprotect on-premises machines to Azure
 
-Data should now be back on your on-premise site, but it isn't replicating to Azure. You can start
+Data should now be back on your on-premises site, but it isn't replicating to Azure. You can start
 replicating to Azure again as follows:
 
 1. In the vault > **Settings** >**Replicated Items**, select the failed back VMs that have failed

@@ -4,9 +4,8 @@ description: Use text moderation for possible unwanted text, PII, and custom lis
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sajagtap
@@ -14,15 +13,13 @@ ms.author: sajagtap
 
 # Text moderation
 
-Use Content Moderator’s machine-assisted text moderation and [human-in-the-loop](Review-Tool-User-Guide/human-in-the-loop.md) capabilities to moderate text content.
+Use Content Moderator’s machine-assisted text moderation and [human review](Review-Tool-User-Guide/human-in-the-loop.md) capabilities to moderate text content.
 
-Businesses use the text moderation service to either block, approve, or review the content based on their policies and thresholds. It is used to moderate environments that require partners, employees, and consumers to generate text content. These include chat rooms, discussion boards, chatbots, eCommerce catalogs, documents, and more. 
-
-The API scans the incoming text (maximum 1024 characters) for profanity, classifies for possible undesired text (preview), autocorrects text, and detects potential Personally Identifiable Information (PII). It also matches against custom lists of terms. The autocorrection feature helps catch deliberately misspelled words. After content is processed, the service returns a detailed response. You use the response to either create a human review in the review tool or take it down, etc.
+You either block, approve or review the content based on your policies and thresholds. Use it to augment human moderation of environments where partners, employees and consumers generate text content. These include chat rooms, discussion boards, chatbots, eCommerce catalogs, and documents. 
 
 The service response includes the following information:
 
-- Profanity: term-based matching with built-in list of profane terms in multiple languages
+- Profanity: term-based matching with built-in list of profane terms in various languages
 - Classification: machine-assisted classification into three categories
 - Personally Identifiable Information (PII)
 - Auto-corrected text
@@ -46,14 +43,11 @@ If the API detects any profane terms in any of the [supported languages](Text-Mo
 >
 > For **profanity terms** detection, use the [ISO 639-3 code](http://www-01.sil.org/iso639-3/codes.asp) of the supported languages listed in this article, or leave it empty.
 
-## Classification (preview)
+## Classification
 
-Content Moderator’s machine-assisted **text classification feature (preview)** supports **English only**, and helps detect potentially undesired content. The flagged content may be deemed as inappropriate depending on context. In addition to conveying the likelihood of each category, it may recommend a human review of the content. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words. 
+Content Moderator’s machine-assisted **text classification feature** supports **English only**, and helps detect potentially undesired content. The flagged content may be assessed as inappropriate depending on context. It conveys the likelihood of each category and may recommend a human review. The feature uses a trained model to identify possible abusive, derogatory or discriminatory language. This includes slang, abbreviated words, offensive, and intentionally misspelled words for review. 
 
 The following extract in the JSON extract shows an example output:
-
-> [!NOTE]
-> The machine-assisted 'Classification' feature is in preview.
 
 	"Classification": {
     	"ReviewRecommended": true,
@@ -70,12 +64,11 @@ The following extract in the JSON extract shows an example output:
 
 ### Explanation
 
-- `Category1` represents the potential presence of language that may be considered sexually explicit or adult in certain situations.
-- `Category2` represents the potential presence of language that may be considered sexually suggestive or mature in certain situations.
-- `Category3` represents the potential presence of language that may be considered offensive in certain situations.
-- `Score` range is between 0 and 1. The higher the score, higher the likelihood of the category being applicable.
-- `ReviewRecommended` is either true or false depending on the internal score thresholds. Customers are recommended to either use this value or decide on custom thresholds based on their content policies. In the preceding example, `ReviewRecommended` is `true` because of the high score assigned to `Category3`.
-
+- `Category1` refers to potential presence of language that may be considered sexually explicit or adult in certain situations.
+- `Category2` refers to potential presence of language that may be considered sexually suggestive or mature in certain situations.
+- `Category3` refers to potential presence of language that may be considered offensive in certain situations.
+- `Score` is between 0 and 1. The higher the score, the higher the model is predicting that the category may be applicable. This preview relies on a statistical model rather than manually coded outcomes. We recommend testing with your own content to determine how each category aligns to your requirements.
+- `ReviewRecommended` is either true or false depending on the internal score thresholds. Customers should assess whether to use this value or decide on custom thresholds based on their content policies.
 
 ## Personally Identifiable Information (PII)
 
@@ -148,7 +141,7 @@ If you ask for auto-correction, the response contains the corrected version of t
 
 ## Creating and managing your custom lists of terms
 
-While the default, global list of terms works great for most cases, you may want to screen against terms that are specific to your business needs. For example, you may want to filter out any competitive brand names from posts by users. Your threshold of permitted text content may be different from the default list.
+While the default, global list of terms works great for most cases, you may want to screen against terms that are specific to your business needs. For example, you may want to filter out any competitive brand names from posts by users.
 
 > [!NOTE]
 > There is a maximum limit of **5 term lists** with each list to **not exceed 10,000 terms**.
@@ -168,4 +161,4 @@ The Content Moderator provides a [Term List API](https://westus.dev.cognitive.mi
 
 ## Next steps
 
-Test drive the [Text moderation API console](try-text-api.md) and use the REST API code samples. Also check out the [Text moderation .NET quickstart](text-moderation-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
+Test drive the [Text moderation API console](try-text-api.md) and use the REST API code samples. Also check out the [Text moderation .NET quickstart](text-moderation-quickstart-dotnet.md) if you're familiar with Visual Studio and C#.

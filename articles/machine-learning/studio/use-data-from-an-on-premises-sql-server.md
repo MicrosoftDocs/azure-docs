@@ -3,18 +3,19 @@ title: Use an on-premises SQL Server in Azure Machine Learning | Microsoft Docs
 description: Use data from an on-premises SQL Server database to perform advanced analytics with Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.author: garye;krishnan
 
 ---
 # Perform advanced analytics with Azure Machine Learning using data from an on-premises SQL Server database
@@ -74,7 +75,7 @@ Consider the following when setting up and using a Data Management Gateway:
 
 You can find detailed information on installation prerequisites,
 installation steps, and troubleshooting tips in the article [Data Management
-Gateway](../../data-factory/v1/data-factory-data-management-gateway.md).
+Gateway](../../data-factory/create-self-hosted-integration-runtime.md).
 
 ## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingress data from your on-premises SQL Server database into Azure Machine Learning
 In this walkthrough, you will set up a Data Management Gateway in an Azure
@@ -115,7 +116,7 @@ on-premises SQL database.
     downloaded and installed the Microsoft Data Management Gateway, then
     click **Download data management gateway**. This takes you to the
     Microsoft Download Center where you can select the gateway version
-    you need, download it, and install it. You can find detailed information on installation prerequisites, installation steps, and troubleshooting tips in the beginning sections of the article [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md).
+    you need, download it, and install it. You can find detailed information on installation prerequisites, installation steps, and troubleshooting tips in the beginning sections of the article [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 7. After the gateway is installed, the Data Management Gateway
     Configuration Manager will open and the **Register gateway** dialog
     is displayed. Paste the **Gateway Registration Key** that you copied
@@ -184,7 +185,7 @@ to your test data sources during development, and a different gateway
 for your production data sources. Azure Machine Learning gives you the
 flexibility to set up multiple gateways depending upon your corporate
 environment. Currently you can’t share a gateway between workspaces and
-only one gateway can be installed on a single computer. For more information, see [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md).
+only one gateway can be installed on a single computer. For more information, see [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### Step 2: Use the gateway to read data from an on-premises data source
 After you set up the gateway, you can add an **Import Data** module to

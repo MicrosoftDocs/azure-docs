@@ -5,16 +5,16 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2018
-ms.topic: article
+ms.date: 06/07/2018
+ms.topic: troubleshooting
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom:
 ---
 
 # Frequently asked questions for Azure Cost Management
 
-This article addresses some common questions about Azure Cost Management (also known as Cloudyn). If you have questions about Cost Management, you can ask them at [FAQs for Azure Cost Management by Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+This article addresses some common questions about Azure Cost Management (also known as Cloudyn). If you have questions about Cost Management, you can ask them at [FAQs for Azure Cost Management](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
 ## How can I resolve common indirect enterprise setup problems?
 
@@ -67,16 +67,20 @@ After you complete the preceding steps, you can view Optimizer recommendations w
 
 ## How do I enable suspended or locked-out users?
 
+First, let's look at the most common scenario that causes user accounts to get *initiallySuspended*.
+
+> Admin1 might be Microsoft Cloud Solution Provider or Enterprise Agreement user. His organization is ready to start using Cost Management.  He registers through the Azure portal and signs into the Cloudyn portal. As the person who registers the Cost Management service and signs into the Cloudyn portal, he becomes the *primary administrator*. Admin1 does not create any user accounts. However, using the Cloudyn portal, he does create Azure accounts and sets up an entity hierarchy. Admin1 informs Admin2, a tenant administrator, that he needs to register with Cost Management and sign in to the Cloudyn portal.
+
+> Admin2 registers through the Azure portal. However when he tries to sign in to the Cloudyn portal, he gets an error saying his account is **suspended**. The primary administrator, Admin1, is notified of the account suspension. Admin1 needs to activate Admin2’s account and grant *admin entity access* for the appropriate entities and allows user management access and active the user account.
+
+
 If you receive an alert with a request to allow access for a user, you need to activate the user account.
 
 To activate the user account:
 
 1. Sign in to Cloudyn by using the Azure administrative user account that you used to set up Cloudyn. Or, sign in with a user account that was granted administrator access.
-
 2. Select the gear symbol in the upper right, and select **User Management**.
-
 3. Find the user, select the pencil symbol, and then edit the user.
-
 4. Under **User status**, change the status from **Suspended** to **Active**.
 
 Cloudyn user accounts connect by using single sign-on from Azure. If a user mistypes their password, they might get locked out of Cloudyn, even though they can still access Azure.
@@ -144,4 +148,4 @@ No. Agents are not used. Azure virtual machine metric data for VMs is gathered f
 
 ## Do Cloudyn reports show more than one AD tenant per report?
 
-Yes. You can [create a corresponding cloud account entity](tutorial-user-access.md#create-entities) for each AD tenant that you have. Then you can view all of your Azure AD tenant data and other cloud platform providers including Amazon Web Services and Google Cloud Platform.
+Yes. You can [create a corresponding cloud account entity](tutorial-user-access.md#create-and-manage-entities) for each AD tenant that you have. Then you can view all of your Azure AD tenant data and other cloud platform providers including Amazon Web Services and Google Cloud Platform.

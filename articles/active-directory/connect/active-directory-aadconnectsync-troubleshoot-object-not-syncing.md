@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ---
 # Troubleshoot an object that is not synchronizing to Azure AD
@@ -106,7 +107,7 @@ You can inspect the object and which rule applied for a particular attribute flo
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)
 
 ### Log
-The Log page is used to see the password sync status and history. For more information, see [Troubleshoot password synchronization](active-directory-aadconnectsync-troubleshoot-password-synchronization.md).
+The Log page is used to see the password sync status and history. For more information, see [Troubleshoot password hash synchronization](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 
 ## Metaverse object properties
 It is usually better to start searching from the source Active Directory [connector space](#connector-space). But you can also start searching from the metaverse.
@@ -135,7 +136,7 @@ You should have a connector to:
 - Each Active Directory forest the user is represented in. This representation can include foreignSecurityPrincipals and Contact objects.
 - A connector in Azure AD.
 
-If you are missing the connector to Azure AD, then read [MV attributes](#MV-attributes) to verify the criteria for being provisioned to Azure AD.
+If you are missing the connector to Azure AD, then read [MV attributes](#mv-attributes) to verify the criteria for being provisioned to Azure AD.
 
 This tab also allows you to navigate to the [connector space object](#connector-space-object-properties). Select a row and click **Properties**.
 

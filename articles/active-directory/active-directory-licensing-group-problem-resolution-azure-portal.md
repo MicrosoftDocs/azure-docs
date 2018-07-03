@@ -9,11 +9,9 @@
   manager: mtillman
   editor: ''
 
-  ms.assetid:
   ms.service: active-directory
-  ms.devlang: na
+  ms.component: users-groups-roles
   ms.topic: article
-  ms.tgt_pltfrm: na
   ms.workload: identity
   ms.date: 06/05/2017
   ms.author: curtand
@@ -162,6 +160,6 @@ For example, if you free up some licenses by removing direct license assignments
 To learn more about other scenarios for license management through groups, see the following:
 
 * [Assigning licenses to a group in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
-* [What is group-based licensing in Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Azure Active Directory?](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
 * [Azure Active Directory group-based licensing additional scenarios](active-directory-licensing-group-advanced.md)

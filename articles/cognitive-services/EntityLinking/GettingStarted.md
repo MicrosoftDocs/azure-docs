@@ -4,9 +4,8 @@ description: Analyze text and link named entities to relevant entries in a knowl
 services: cognitive-services
 author: DavidLiCIG
 manager: wkwok
-
 ms.service: cognitive-services
-ms.technology: entitylinking
+ms.component: entity-linking-intelligence
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: davl

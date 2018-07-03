@@ -3,19 +3,14 @@ title: Connecting Apache Spark to Azure Cosmos DB | Microsoft Docs
 description: Use this tutorial to learn about the Azure Cosmos DB Spark connector that enables you to connect Apache Spark to Azure Cosmos DB to perform distributed aggregations and data sciences on the multi-tenant globally distributed database system from Microsoft that's designed for the cloud.
 keywords: apache spark
 services: cosmos-db
-documentationcenter: ''
-author: dennyglee
-manager: jhubbard
-editor: ''
+author: tknandu
+manager: kfile
 
-ms.assetid: c4f46007-2606-4273-ab16-29d0e15c0736
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/08/2018
-ms.author: denlee
+ms.author: ramkris
 
 ---
 
@@ -26,8 +21,6 @@ The Spark to Azure Cosmos DB connector enables Azure Cosmos DB to act as an inpu
 Learn more in this video with Azure Cosmos DB Principal Program Manager Denny Lee. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
-
-For working with Spark GraphX and the Gremlin graph APIs of Azure Cosmos DB, see [Perform graph analytics using Spark and Apache TinkerPop Gremlin](spark-connector-graph.md).
 
 ## Download
 

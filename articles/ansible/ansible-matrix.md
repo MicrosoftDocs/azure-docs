@@ -6,7 +6,7 @@ keywords: ansible, roles, matrix, version, azure, devops
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/19/2018
+ms.date: 03/25/2018
 ms.topic: article
 ---
 
@@ -16,7 +16,7 @@ ms.topic: article
 Ansible ships with a number of modules that can be executed directly on remote hosts or through playbooks.
 This article lists the Ansible modules for Azure that can provision Azure cloud resources such as virtual machine, networking, and container services. You can get these modules from the official release of Ansible or from the following playbook roles published by Microsoft.
 
-| Ansible module for Azure                   |  Ansible 2.4 |  Playbook Role [azure_module](#introduction-to-azuremodule) |  Playbook Role [azure_preview_module](#introduction-to-azurepreviewmodule) | 
+| Ansible module for Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Playbook Role [azure_preview_module](#introduction-to-azurepreviewmodule) | 
 |---------------------------------------------|--------------|-----------------------------|-------------------------------------| 
 | **Compute**                    |           |                          |                                  | 
 | azure_rm_availabilityset                    | Yes          | Yes                         | Yes                                 | 
@@ -50,7 +50,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_appgwroute_facts                   | -            | -                           | Yes                                 |
 | azure_rm_appgwroutetable                    | -            | -                           | Yes                                 |
 | azure_rm_securitygroup                      | Yes          | Yes                         | Yes                                 | 
-| azure_rm_appgwroutetable_facts              | Yes          | Yes                         | Yes                                 | 
+| azure_rm_appgwroutetable_facts              | -            | -                           | Yes                                 | 
 | **Storage**                    |           |                          |                                  | 
 | azure_rm_storageaccount                     | Yes          | Yes                         | Yes                                 | 
 | azure_rm_storageaccount_facts               | Yes          | Yes                         | Yes                                 | 
@@ -72,7 +72,7 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_functionapp_facts                  | Yes          | Yes                         | Yes                                 | 
 | **Databases**                    |           |                          |                                  | 
 | azure_rm_sqlserver                          | -            | Yes                         | Yes                                 | 
-| azure_rm_sqlserver_facts                    | -            | -                           | Yes                                 | 
+| azure_rm_sqlserver_facts                    | -            | Yes                         | Yes                                 | 
 | azure_rm_sqldatabase                        | -            | Yes                         | Yes                                 | 
 | azure_rm_sqldatabase_facts                  | -            | -                           | Yes                                 | 
 | azure_rm_sqlelasticpool                     | -            | -                           | Yes                                 | 
@@ -96,17 +96,13 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_postgresqlconfiguration            | -            | -                           | Yes                                 | 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Yes                                 | 
 | **Key Vault**                    |           |                          |                                  | 
-| azure_rm_keyvault                           | -            | -                           | Yes                                 |
+| azure_rm_keyvault                           | -            | Yes                         | Yes                                 |
 | azure_rm_keyvault_facts                     | -            | -                           | Yes                                 |
-| azure_rm_keyvaultkey                        | -            | -                           | Yes                                 |
-| azure_rm_keyvaultsecret                     | -            | -                           | Yes                                 |
+| azure_rm_keyvaultkey                        | -            | Yes                         | Yes                                 |
+| azure_rm_keyvaultsecret                     | -            | Yes                         | Yes                                 |
 
-## Introduction to azure_module
-The [azure_module playbook role](https://galaxy.ansible.com/Azure/azure_modules/) includes the latest changes and bug fixes for Azure modules from the [devel branch of the Ansible repository](https://github.com/ansible/ansible/tree/devel). If you cannot wait for Ansible's next release, installing the azure_module role is a good choice.
 
-The azure_module playbook role is released every three weeks.
-
-## Introduction to azure_preview_module
+## Introduction to playbook role for Azure
 The [azure_preview_module playbook role](https://galaxy.ansible.com/Azure/azure_preview_modules/) is the most complete role and includes all the latest Azure modules. The updates and bug fixes are done in a more timely manner than the official Ansible release. If you use Ansible for Azure resource provisioning purposes, you're encouraged to install the azure_preview_module role.
 
 The azure_preview_module playbook role is released every three weeks.

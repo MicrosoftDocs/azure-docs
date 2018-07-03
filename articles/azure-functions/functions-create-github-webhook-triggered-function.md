@@ -14,9 +14,9 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function triggered by a GitHub webhook
 
@@ -28,8 +28,6 @@ Learn how to create a function that is triggered by an HTTP webhook request with
 
 + A GitHub account with at least one project.
 + An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## Create an Azure Function app
 
@@ -65,11 +63,15 @@ Next, you create a webhook in your GitHub repository.
 
 1. In GitHub, navigate to a repository that you own. You can also use any repository that you have forked. If you need to fork a repository, use <https://github.com/Azure-Samples/functions-quickstart>.
 
-1. Click **Settings**, then click **Webhooks**, and  **Add webhook**.
+2. Choose **Settings** > **Options** and make sure that **Issues** is enabled under **Features**.
+
+   ![Enable Issues](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook.png)
+
+1. In **Settings**, choose **Webhooks** > **Add webhook**.
 
     ![Add a GitHub webhook](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-1. Use settings as specified in the table, then click **Add webhook**.
+1. Use settings as specified in the following table, then click **Add webhook**:
 
     ![Set the webhook URL and secret](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 

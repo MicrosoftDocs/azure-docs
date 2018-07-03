@@ -3,33 +3,27 @@ title: Node.js tutorial for the SQL API for Azure Cosmos DB | Microsoft Docs
 description: A Node.js tutorial that creates a Cosmos DB with the SQL API. 
 keywords: node.js tutorial, node database
 services: cosmos-db
-documentationcenter: node.js
-author: AndrewHoh
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: monicar
 
-ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: node
-ms.topic: article
+ms.component: cosmosdb-sql
+ms.devlang: nodejs
+ms.topic: tutorial
 ms.date: 08/14/2017
-ms.author: anhoh
+ms.author: sngun
 
 ---
 # Node.js tutorial: Use the SQL API in Azure Cosmos DB to create a Node.js console application
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js for MongoDB](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
->  
-> 
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Welcome to the Node.js tutorial for the Azure Cosmos DB Node.js SDK! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
@@ -52,6 +46,7 @@ After you've completed the Node.js tutorial, please use the voting buttons at th
 Now let's get started!
 
 ## Prerequisites for the Node.js tutorial
+
 Please make sure you have the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/). 
@@ -61,11 +56,13 @@ Please make sure you have the following:
 * [Node.js](https://nodejs.org/) version v0.10.29 or higher.
 
 ## Step 1: Create an Azure Cosmos DB account
+
 Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Set up your Node.js application](#SetupNode). If you are using the Azure Cosmos DB Emulator, please follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to setup the emulator and skip ahead to [Set up your Node.js application](#SetupNode).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupNode"></a>Step 2: Set up your Node.js application
+
 1. Open your favorite terminal.
 2. Locate the folder or directory where you'd like to save your Node.js application.
 3. Create two empty JavaScript files with the following commands:
@@ -81,6 +78,7 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 Great! Now that you've finished setting up, let's start writing some code.
 
 ## <a id="Config"></a>Step 3: Set your app's configurations
+
 Open ```config.js``` in your favorite text editor.
 
 Then, copy and paste the code snippet below and set properties ```config.endpoint``` and ```config.primaryKey``` to your Azure Cosmos DB endpoint uri and primary key. Both these configurations can be found in the [Azure portal](https://portal.azure.com).
@@ -164,7 +162,6 @@ Copy and paste the ```database id```, ```collection id```, and ```JSON documents
         }
     };
 
-
 The database, collection, and document definitions will act as your Azure Cosmos DB ```database id```, ```collection id```, and documents' data.
 
 Finally, export your ```config``` object, so that you can reference it within the ```app.js``` file.
@@ -178,19 +175,19 @@ Finally, export your ```config``` object, so that you can reference it within th
     module.exports = config;
 
 ## <a id="Connect"></a> Step 4: Connect to an Azure Cosmos DB account
+
 Open your empty ```app.js``` file in the text editor. Copy and paste the code below to import the ```documentdb``` module and your newly created ```config``` module.
 
     // ADD THIS PART TO YOUR CODE
     "use strict";
 
     var documentClient = require("documentdb").DocumentClient;
+    const uriFactory = require('documentdb').UriFactory;
     var config = require("./config");
-    var url = require('url');
 
 Copy and paste the code to use the previously saved ```config.endpoint``` and ```config.primaryKey``` to create a new DocumentClient.
 
     var config = require("./config");
-    var url = require('url');
 
     // ADD THIS PART TO YOUR CODE
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
@@ -198,30 +195,29 @@ Copy and paste the code to use the previously saved ```config.endpoint``` and ``
 Now that you have the code to initialize the Azure Cosmos DB client, let's take a look at working with Azure Cosmos DB resources.
 
 ## Step 5: Create a Node database
-Copy and paste the code below to set the HTTP status for Not Found, the database url, and the collection url. These urls are how the Azure Cosmos DB client will find the right database and collection.
+
+Copy and paste the code below to set the HTTP status for Not Found, the database id, and the collection id. These ids are how the Azure Cosmos DB client will find the right database and collection.
 
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
     // ADD THIS PART TO YOUR CODE
     var HttpStatusCodes = { NOTFOUND: 404 };
-    var databaseUrl = `dbs/${config.database.id}`;
-    var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
+    var databaseId = config.database.id;
+    var collectionId = config.collection.id;
 
-A [database](sql-api-resources.md#databases) can be created by using the [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) function of the **DocumentClient** class. A database is the logical container of document storage partitioned across collections.
+A [database](sql-api-resources.md#databases) can be created by using the [createDatabase](/javascript/api/documentdb/documentclient) function of the **DocumentClient** class. A database is the logical container of document storage partitioned across collections.
 
-Copy and paste the **getDatabase** function for creating your new database in the app.js file with the ```id``` specified in the ```config``` object. The function will check if the database with the same ```FamilyRegistry``` id does not already exist. If it does exist, we'll return that database instead of creating a new one.
-
-    var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
+Copy and paste the **getDatabase** function for creating your new database in the app.js file with the ```databaseId``` specified from the ```config``` object. The function will check if the database with the same ```FamilyRegistry``` id does not already exist. If it does exist, we'll return that database instead of creating a new one.
 
     // ADD THIS PART TO YOUR CODE
     function getDatabase() {
-        console.log(`Getting database:\n${config.database.id}\n`);
-
+        console.log(`Getting database:\n${databaseId}\n`);
+        let databaseUrl = uriFactory.createDatabaseUri(databaseId);
         return new Promise((resolve, reject) => {
             client.readDatabase(databaseUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
-                        client.createDatabase(config.database, (err, created) => {
+                        client.createDatabase({ id: databaseId }, (err, created) => {
                             if (err) reject(err)
                             else resolve(created);
                         });
@@ -233,7 +229,7 @@ Copy and paste the **getDatabase** function for creating your new database in th
                 }
             });
         });
-    }
+    };
 
 Copy and paste the code below where you set the **getDatabase** function to add the helper function **exit** that will print the exit message and the call to **getDatabase** function.
 
@@ -251,7 +247,7 @@ Copy and paste the code below where you set the **getDatabase** function to add 
         process.stdin.setRawMode(true);
         process.stdin.resume();
         process.stdin.on('data', process.exit.bind(process, 0));
-    }
+    };
 
     getDatabase()
     .then(() => { exit(`Completed successfully`); })
@@ -262,31 +258,31 @@ In your terminal, locate your ```app.js``` file and run the command: ```node app
 Congratulations! You have successfully created an Azure Cosmos DB database.
 
 ## <a id="CreateColl"></a>Step 6: Create a collection
+
 > [!WARNING]
 > **createCollection** will create a new collection, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
-> 
-> 
 
-A [collection](sql-api-resources.md#collections) can be created by using the [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) function of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
+A [collection](sql-api-resources.md#collections) can be created by using the [createCollection](/javascript/api/documentdb/documentclient) function of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
 
-Copy and paste the **getCollection** function underneath the **getDatabase** function in the app.js file to create your new collection with the ```id``` specified in the ```config``` object. Again, we'll check to make sure a collection with the same ```FamilyCollection``` id does not already exist. If it does exist, we'll return that collection instead of creating a new one.
+Copy and paste the **getCollection** function underneath the **getDatabase** function in the app.js file to create your new collection with the ```collectionId``` specified from the ```config``` object. Again, we'll check to make sure a collection with the same ```FamilyCollection``` id does not already exist. If it does exist, we'll return that collection instead of creating a new one.
 
                 } else {
                     resolve(result);
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function getCollection() {
-        console.log(`Getting collection:\n${config.collection.id}\n`);
-
+        console.log(`Getting collection:\n${collectionId}\n`);
+        let collectionUrl = uriFactory.createDocumentCollectionUri(databaseId, collectionId);
         return new Promise((resolve, reject) => {
             client.readCollection(collectionUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
-                        client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
+                        let databaseUrl = uriFactory.createDatabaseUri(databaseId);
+                        client.createCollection(databaseUrl, { id: collectionId }, { offerThroughput: 400 }, (err, created) => {
                             if (err) reject(err)
                             else resolve(created);
                         });
@@ -298,7 +294,7 @@ Copy and paste the **getCollection** function underneath the **getDatabase** fun
                 }
             });
         });
-    }
+    };
 
 Copy and paste the code below the call to **getDatabase** to execute the **getCollection** function.
 
@@ -316,7 +312,8 @@ In your terminal, locate your ```app.js``` file and run the command: ```node app
 Congratulations! You have successfully created an Azure Cosmos DB collection.
 
 ## <a id="CreateDoc"></a>Step 7: Create a document
-A [document](sql-api-resources.md#documents) can be created by using the [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) function of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. You can now insert a document into Azure Cosmos DB.
+
+A [document](sql-api-resources.md#documents) can be created by using the [createDocument](/javascript/api/documentdb/documentclient) function of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. You can now insert a document into Azure Cosmos DB.
 
 Copy and paste the **getFamilyDocument** function underneath the **getCollection** function for creating the documents containing the JSON data saved in the ```config``` object. Again, we'll check to make sure a document with the same id does not already exist.
 
@@ -325,17 +322,17 @@ Copy and paste the **getFamilyDocument** function underneath the **getCollection
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function getFamilyDocument(document) {
-        let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Getting document:\n${document.id}\n`);
-
+        let documentUrl = uriFactory.createDocumentUri(databaseId, collectionId, document.id);
         return new Promise((resolve, reject) => {
             client.readDocument(documentUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
+                        let collectionUrl = uriFactory.createDocumentCollectionUri(databaseId, collectionId);
                         client.createDocument(collectionUrl, document, (err, created) => {
                             if (err) reject(err)
                             else resolve(created);
@@ -379,12 +376,12 @@ Copy and paste the **queryCollection** function underneath the **getFamilyDocume
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function queryCollection() {
-        console.log(`Querying collection through index:\n${config.collection.id}`);
-
+        console.log(`Querying collection through index:\n${collectionId}`);
+        let collectionUrl = uriFactory.createDocumentCollectionUri(databaseId, collectionId);
         return new Promise((resolve, reject) => {
             client.queryDocuments(
                 collectionUrl,
@@ -402,7 +399,6 @@ Copy and paste the **queryCollection** function underneath the **getFamilyDocume
             });
         });
     };
-
 
 The following diagram illustrates how the Azure Cosmos DB SQL query syntax is called against the collection you created.
 
@@ -437,14 +433,13 @@ Copy and paste the **replaceFamilyDocument** function underneath the **queryColl
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function replaceFamilyDocument(document) {
-        let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Replacing document:\n${document.id}\n`);
+        let documentUrl = uriFactory.createDocumentUri(databaseId, collectionId, document.id);
         document.children[0].grade = 6;
-
         return new Promise((resolve, reject) => {
             client.replaceDocument(documentUrl, document, (err, result) => {
                 if (err) reject(err);
@@ -474,6 +469,7 @@ In your terminal, locate your ```app.js``` file and run the command: ```node app
 Congratulations! You have successfully replaced an Azure Cosmos DB document.
 
 ## <a id="DeleteDocument"></a>Step 10: Delete a document
+
 Azure Cosmos DB supports deleting JSON documents.
 
 Copy and paste the **deleteFamilyDocument** function underneath the **replaceFamilyDocument** function.
@@ -487,9 +483,8 @@ Copy and paste the **deleteFamilyDocument** function underneath the **replaceFam
 
     // ADD THIS PART TO YOUR CODE
     function deleteFamilyDocument(document) {
-        let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Deleting document:\n${document.id}\n`);
-
+        let documentUrl = uriFactory.createDocumentUri(databaseId, collectionId, document.id);
         return new Promise((resolve, reject) => {
             client.deleteDocument(documentUrl, (err, result) => {
                 if (err) reject(err);
@@ -518,6 +513,7 @@ In your terminal, locate your ```app.js``` file and run the command: ```node app
 Congratulations! You have successfully deleted an Azure Cosmos DB document.
 
 ## <a id="DeleteDatabase"></a>Step 11: Delete the Node database
+
 Deleting the created database will remove the database and all children resources (collections, documents, etc.).
 
 Copy and paste the **cleanup** function underneath the **deleteFamilyDocument** function to remove the database and all the children resources.
@@ -531,15 +527,15 @@ Copy and paste the **cleanup** function underneath the **deleteFamilyDocument** 
 
     // ADD THIS PART TO YOUR CODE
     function cleanup() {
-        console.log(`Cleaning up by deleting database ${config.database.id}`);
-
+        console.log(`Cleaning up by deleting database ${databaseId}`);
+        let databaseUrl = uriFactory.createDatabaseUri(databaseId);
         return new Promise((resolve, reject) => {
             client.deleteDatabase(databaseUrl, (err) => {
                 if (err) reject(err)
                 else resolve(null);
             });
         });
-    }
+    };
 
 Copy and paste the code below the call to **deleteFamilyDocument** to execute the **cleanup** function.
 
@@ -553,6 +549,7 @@ Copy and paste the code below the call to **deleteFamilyDocument** to execute th
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 ## <a id="Run"></a>Step 12: Run your Node.js application all together!
+
 Altogether, the sequence for calling your functions should look like this:
 
     getDatabase()
@@ -604,6 +601,7 @@ You should see the output of your get started app. The output should match the e
 Congratulations! You've created you've completed the Node.js tutorial and have your first Azure Cosmos DB console application!
 
 ## <a id="GetSolution"></a>Get the complete Node.js tutorial solution
+
 If you didn't have time to complete the steps in this tutorial, or just want to download the code, you can get it from [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started).
 
 To run the GetStarted solution that contains all the samples in this article, you will need the following:

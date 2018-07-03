@@ -135,8 +135,54 @@ Controls the [sampling feature in Application Insights](functions-monitoring.md#
 
 |Property  |Default | Description |
 |---------|---------|---------| 
-|isEnabled|false|Enables or disables sampling.| 
+|isEnabled|true|Enables or disables sampling.| 
 |maxTelemetryItemsPerSecond|5|The threshold at which sampling begins.| 
+
+## durableTask
+
+Configuration settings for [Durable Functions](durable-functions-overview.md).
+
+```json
+{
+  "durableTask": {
+    "HubName": "MyTaskHub",
+    "ControlQueueBatchSize": 32,
+    "PartitionCount": 4,
+    "ControlQueueVisibilityTimeout": "00:05:00",
+    "WorkItemQueueVisibilityTimeout": "00:05:00",
+    "MaxConcurrentActivityFunctions": 10,
+    "MaxConcurrentOrchestratorFunctions": 10,
+    "AzureStorageConnectionStringName": "AzureWebJobsStorage",
+    "TraceInputsAndOutputs": false,
+    "LogReplayEvents": false,
+    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+    "EventGridKeySettingName":  "EventGridKey",
+    "EventGridPublishRetryCount": 3,
+    "EventGridPublishRetryInterval": "00:00:30"
+  }
+}
+```
+
+Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](durable-functions-task-hubs.md).
+
+|Property  |Default | Description |
+|---------|---------|---------|
+|HubName|DurableFunctionsHub|Alternate [task hub](durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if they are using the same storage backend.|
+|ControlQueueBatchSize|32|The number of messages to pull from the control queue at a time.|
+|PartitionCount |4|The partition count for the control queue. May be a positive integer between 1 and 16.|
+|ControlQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued control queue messages.|
+|WorkItemQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued work item  queue messages.|
+|MaxConcurrentActivityFunctions |10X the number of processors on the current machine|The maximum number of activity functions that can be processed concurrently on a single host instance.|
+|MaxConcurrentOrchestratorFunctions |10X the number of processors on the current machine|The maximum number of activity functions that can be processed concurrently on a single host instance.|
+|AzureStorageConnectionStringName |AzureWebJobsStorage|The name of the app setting that has the Azure Storage connection string used to manage the underlying Azure Storage resources.|
+|TraceInputsAndOutputs |false|A value indicating whether to trace the inputs and outputs of function calls. The default behavior when tracing function execution events is to include the number of bytes in the serialized inputs and outputs for function calls. This provides minimal information about what the inputs and outputs look like without bloating the logs or inadvertently exposing sensitive information to the logs. Setting this property to true causes the default function logging to log the entire contents of function inputs and outputs.|
+|LogReplayEvents|false|A value indicating whether to write orchestration replay events to Application Insights.|
+|EventGridTopicEndpoint ||The URL of an Azure Event Grid custom topic endpoint. When this property is set, orchestration life cycle notification events are published to this endpoint. This property supports App Settings resolution.|
+|EventGridKeySettingName ||The name of the app setting containing the key used for authenticating with the Azure Event Grid custom topic at `EventGridTopicEndpoint`.|
+|EventGridPublishRetryCount|0|The number of times to retry if publishing to the Event Grid Topic fails.|
+|EventGridPublishRetryInterval|5 minutes|The Event Grid publish retry interval in the *hh:mm:ss* format.|
+
+Many of these are for optimizing performance. For more information, see [Performance and scale](durable-functions-perf-and-scale.md).
 
 ## eventHub
 
@@ -146,7 +192,7 @@ Configuration settings for [Event Hub triggers and bindings](functions-bindings-
 
 ## functions
 
-A list of functions that the job host will run.  An empty array means run all functions.  Intended for use only when [running locally](functions-run-local.md). In function apps, use the *function.json* `disabled` property rather than this property in *host.json*.
+A list of functions that the job host will run. An empty array means run all functions. Intended for use only when [running locally](functions-run-local.md). In function apps, use the *function.json* `disabled` property rather than this property in *host.json*.
 
 ```json
 {
@@ -197,6 +243,9 @@ Configuration settings for [http triggers and bindings](functions-bindings-http-
 ## id
 
 The unique ID for a job host. Can be a lower case GUID with dashes removed. Required when running locally. When running in Azure Functions, an ID is generated automatically if `id` is omitted.
+
+If you share a Storage account across multiple function apps, make sure that each function app has a different `id`. You can omit the `id` property or manually set each function app's `id` to a different value. The timer trigger uses a storage lock to ensure that there will be only one timer instance when a function app scales out to multiple instances. If two function apps share the same `id` and each uses a timer trigger, only one timer will run.
+
 
 ```json
 {
@@ -292,21 +341,6 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
     "watchDirectories": [ "Shared" ]
 }
 ```
-
-## durableTask
-
-[Task hub](durable-functions-task-hubs.md) name for [Durable Functions](durable-functions-overview.md).
-
-```json
-{
-  "durableTask": {
-    "HubName": "MyTaskHub"
-  }
-}
-```
-
-Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](durable-functions-task-hubs.md).
-
 
 ## Next steps
 

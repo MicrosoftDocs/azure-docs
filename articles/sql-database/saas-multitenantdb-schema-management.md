@@ -3,17 +3,11 @@ title: Manage Azure SQL Database schema in a multi-tenant app | Microsoft Docs
 description: "Manage Schema for multiple tenants in a multi-tenant application that uses Azure SQL Database"
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: ''
 author: MightyPen
 manager: craigg
-editor: ''
-
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
@@ -173,5 +167,5 @@ In this tutorial you learned how to:
 > * Update reference data in all tenant databases
 > * Create an index on a table in all tenant databases
 
-Next, try the [Ad-hoc reporting tutorial] (saas-multitenantdb-adhoc-reporting.md) to explore running distributed queries across tenant databases.
+Next, try the [Ad-hoc reporting tutorial](saas-multitenantdb-adhoc-reporting.md) to explore running distributed queries across tenant databases.
 

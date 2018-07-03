@@ -99,7 +99,7 @@ Asynchronous programming is a recommended best practice. However, always avoid r
 
 ### Receive messages in batch whenever possible
 
-Some triggers like Event Hub enable receiving a batch of messages on a single invocation.  Batching messages has much better performance.  You can configure the max batch size in the `functions.json` file as detailed in the [host.json reference documentation](functions-host-json.md)
+Some triggers like Event Hub enable receiving a batch of messages on a single invocation.  Batching messages has much better performance.  You can configure the max batch size in the `host.json` file as detailed in the [host.json reference documentation](functions-host-json.md)
 
 For C# functions you can change the type to a strongly-typed array.  For example, instead of `EventData sensorEvent` the method signature could be `EventData[] sensorEvent`.  For other languages you'll need to explicitly set the cardinality property in your `function.json` to `many` in order to enable batching [as shown here](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
@@ -116,7 +116,8 @@ Settings in the hosts file apply across all functions within the app, within a *
 Other host configuration options can be found [in the host configuration document](functions-host-json.md).
 
 ## Next steps
+
 For more information, see the following resources:
 
-Because Azure Functions uses Azure App Service, you should also be aware of  App Service guidelines.
-* [Patterns and Practices HTTP Performance Optimizations](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
+* [How to manage connections in Azure Functions](manage-connections.md)
+* [Azure App Service best practices](../app-service/app-service-best-practices.md)

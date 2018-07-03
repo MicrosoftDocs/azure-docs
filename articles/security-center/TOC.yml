@@ -52,13 +52,15 @@
       href: security-center-customize-os-security-config.md
     - name: Security policy using Azure policy
       href: security-center-azure-policy.md
+    - name: Tenant-wide visibility
+      href: security-center-management-groups.md  
   
   - name: Implement security recommendations
     href: security-center-recommendations.md
   - name: Monitor security health
     href: security-center-monitoring.md
     items:
-    - name: Compute security
+    - name: Compute & apps security
       href: security-center-virtual-machine-recommendations.md
       items:
       - name: Apply disk encryption
@@ -79,6 +81,10 @@
         href: security-center-update-os-version.md
       - name: Vulnerability assessment not installed
         href: security-center-vulnerability-assessment-recommendations.md
+      - name: Add a web application firewall
+        href: security-center-add-web-application-firewall.md
+      - name: Finalize application protection
+        href: security-center-add-web-application-firewall.md#finalize-application-protection
   
     - name: Network security
       href: security-center-network-recommendations.md
@@ -100,15 +106,7 @@
       - name: Enable auditing and threat detection on SQL servers
         href: security-center-enable-auditing-on-sql-servers.md
       - name: Enable Transparent Data Encryption
-        href: security-center-enable-transparent-data-encryption.md
-  
-    - name: Application security
-      href: security-center-application-recommendations.md
-      items:
-      - name: Add a web application firewall
-        href: security-center-add-web-application-firewall.md
-      - name: Finalize application protection
-        href: security-center-add-web-application-firewall.md#finalize-application-protection
+        href: security-center-enable-transparent-data-encryption.md     
  
     - name: Identity and Access
       href: security-center-identity-access.md  
@@ -119,16 +117,26 @@
       href: security-center-just-in-time.md
     - name: Adaptive application controls
       href: security-center-adaptive-application.md
+    - name: File integrity monitoring
+      href: security-center-file-integrity-monitoring.md
   
   - name: Manage security solutions
     href: security-center-partner-integration.md
     items:
     - name: Connected solutions
       href: security-center-partner-solutions.md
+    - name: Discovered solutions
+      href: security-center-partner-integration.md#discovered-solutions
+    - name: Connect external solutions
+      href: quick-security-solutions.md
+    - name: Connect Application Gateway
+      href: security-center-connect-application-gateway.md
     - name: Connect Microsoft ATA
       href: security-center-ata-integration.md
     - name: Connect Azure AD Identity Protection
       href: security-center-aadip-integration.md
+    - name: Data export to SIEM
+      href: security-center-export-data-to-siem.md
   
   - name: Investigate threats
     href: security-center-detection-capabilities.md
@@ -149,6 +157,8 @@
       href: security-center-threat-intel.md
     - name: Investigation
       href: security-center-investigation.md
+    - name: Manage investigation user data
+      href: security-center-investigation-user-data.md
   
   - name: Automate security workflows
     items:
@@ -158,12 +168,10 @@
       href: security-center-events-dashboard.md
     - name: Search
       href: security-center-search.md
-  
-  - name: Azure log integration
-    href: security-center-integrating-alerts-with-log-integration.md
-  - name: Data export to SIEM
-    href: security-center-export-data-to-siem.md
-  
+    - name: Review compliance (REST)
+      href: security-center-review-policy-compliance.md
+
+ 
   - name: Scenarios
     items:
     - name: Incident response
@@ -181,6 +189,8 @@
 
 - name: Resources
   items:
+  - name: Manage user data
+    href: security-center-privacy.md
   - name: FAQ
     href: security-center-faq.md
   - name: Supported platforms

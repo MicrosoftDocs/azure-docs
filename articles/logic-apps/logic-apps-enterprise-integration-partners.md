@@ -3,8 +3,8 @@ title: Create partners for business-to-business (B2B) messages - Azure Logic App
 description: Learn how to add partners to your integration account with the Enterprise Integration Pack and Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
-manager: anneta
+author: divyaswarnkar
+manager: jeconnoc
 editor: 
 
 ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873

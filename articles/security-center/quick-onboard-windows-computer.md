@@ -59,7 +59,7 @@ You must now install the downloaded file on the target computer.
 2. On the **Welcome** page, select **Next**.
 3. On the **License Terms** page, read the license and then select **I Agree**.
 4. On the **Destination Folder** page, change or keep the default installation folder and then select **Next**.
-5. On the **Agent Setup Options** page, choose to connect the agent to Azure Log Analytics (OMS) and then select **Next**.
+5. On the **Agent Setup Options** page, choose to connect the agent to Azure Log Analytics and then select **Next**.
 6. On the **Azure Log Analytics** page, paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad in the previous procedure.
 7. If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** form the **Azure Cloud** dropdown list.  If the computer needs to communicate through a proxy server to the Log Analytics service, select **Advanced** and provide the URL and port number of the proxy server.
 8. Select **Next** once you have completed providing the necessary configuration settings.

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 03/28/2018
 ms.author: ganesr
 
 ---
@@ -63,6 +63,7 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 ### IP addresses used for Microsoft peering
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries.
 
+* The IPs listed in the portal for Advertised Public Prefixes for Microsoft Peering will create ACLs for the Microsoft core routers to allow inbound traffic from these IPs. 
 * You must use a unique /29 (IPv4) or /125 (IPv6) subnet or two /30 (IPv4) or /126 (IPv6) subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one).
 * If a /29 subnet is used, it is split into two /30 subnets.
 * The first /30 subnet is used for the primary link and the second /30 subnet will be used for the secondary link.
@@ -104,7 +105,7 @@ Make sure that your IP address and AS number are registered to you in one of the
 
 If your prefixes and AS number are not assigned to you in the preceding registries, you need to open a support case for manual validation of your prefixes and ASN. Support requires documentation, such as a Letter of Authorization, that proves you are allowed to use the resources.
 
-A Private AS Number is allowed with Microsoft Peering, but will also require manual validation.
+A Private AS Number is allowed with Microsoft Peering, but will also require manual validation. In addition, we remove private AS numbers in the AS PATH for the received prefixes. As a result, you can't append private AS numbers in the AS PATH to [influence routing for Microsoft Peering](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
 > Public IP addresses advertised to Microsoft over ExpressRoute must not be advertised to the Internet. This may break connectivity to other Microsoft services. However, Public IP addresses used by servers in your network that communicate with O365 endpoints within Microsoft may be advertised over ExpressRoute. 
@@ -115,7 +116,7 @@ A Private AS Number is allowed with Microsoft Peering, but will also require man
 Routing exchange will be over eBGP protocol. EBGP sessions are established between the MSEEs and your routers. Authentication of BGP sessions is not a requirement. If required, an MD5 hash can be configured. See the [Configure routing](expressroute-howto-routing-classic.md) and [Circuit provisioning workflows and circuit states](expressroute-workflows.md) for information about configuring BGP sessions.
 
 ## Autonomous System numbers
-Microsoft uses AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported. We require a publicly registered ASN only for the Microsoft peering. Both private and public peering can use private ASNs.
+Microsoft uses AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported.
 
 There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging you. Route metrics are not required to be identical.
 
@@ -182,6 +183,9 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | **Australia** | |
 | Australia East | 12076:51015 |
 | Australia Southeast | 12076:51016 |
+| **Australia Government** | |
+| Australia Central | 12076:51032 |
+| Australia Central 2 | 12076:51033 |
 | **India** | |
 | India South | 12076:51019 |
 | India West | 12076:51018 |
@@ -194,7 +198,7 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
 > [!IMPORTANT]
-> Global prefixes are tagged with an appropriate community value and will be advertised only when ExpressRoute premium add-on is enabled.
+> Global prefixes are tagged with an appropriate community value.
 > 
 > 
 

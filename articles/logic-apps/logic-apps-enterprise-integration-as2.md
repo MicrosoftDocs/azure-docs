@@ -3,8 +3,8 @@ title: AS2 messages for B2B enterprise integration - Azure Logic Apps | Microsof
 description: Exchange AS2 messages for B2B enterprise integration with Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
-manager: anneta
+author: divyaswarnkar
+manager: jeconnoc
 editor:
 
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
-ms.author: LADocs; mandia
+ms.author: LADocs; divswa
 
 ---
 # Exchange AS2 messages for enterprise integration with logic apps

@@ -4,9 +4,8 @@ description: How to get started with Azure Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: sajagtap
@@ -17,7 +16,8 @@ ms.author: sajagtap
 You get started with Content Moderator APIs and the review tool in the following ways:
 
 - [Start with the review tool](#start-with-the-review-tool) to create both the API keys and a review team. Explore the review tool and learn how to integrate by using the Content Moderator APIs.
-- [Start with the APIs](#start-with-the-apis) by subscribing in the Azure portal. You still need to sign up online to create a review team.
+- [Subscribe to Content Moderator](#start-with-the-apis) in the Azure portal. You still need to sign up online to create a review team.
+- [Use the Flow connector and templates](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/) to check out a wide range of integrations with an easy-to-use designer.
 
 Regardless of the option you choose, see the [Managing credentials](review-tool-user-guide/credentials.md) article to find your API credentials.
 
@@ -50,9 +50,7 @@ Learn how to use all the [review tool's features](Review-Tool-User-Guide/human-i
 
 ### Use the APIs
 
-Now that you have explored the content moderation and review tool experience, learn how to integrate Content Moderator with your business applications. Use the following section to learn more and fast-track your understanding with the [SDKs and samples](sdk-and-samples.md).
-
-
+Now that you've explored the content moderation and review tool experience, learn how to integrate Content Moderator with your business applications. Use the following section to learn more and fast-track your understanding with the SDKs and samples.
 
 ## Start with the APIs
 

@@ -1,48 +1,40 @@
 ---
-title: Deploy Azure Stream Analytics with Azure IoT Edge | Microsoft Docs 
-description: Deploy Azure Stream Analytics as a module to an edge device
-services: iot-edge
-keywords: 
-author: msebolt
+title: Tutorial - Deploy ASA jobs to Azure IoT Edge devices | Microsoft Docs 
+description: Deploy Azure Stream Analytics as a module to an Iot Edge device
+author: kgremban
 manager: timlt
-
-ms.author: v-masebo
-ms.date: 11/28/2017
-ms.topic: article
+ms.author: kgremban
+ms.date: 06/25/2018
+ms.topic: tutorial
 ms.service: iot-edge
+services: iot-edge
+ms.custom: mvc
 ---
 
-# Deploy Azure Stream Analytics as an IoT Edge module - preview
+# Tutorial: Deploy Azure Stream Analytics as an IoT Edge module - preview
 
-IoT devices can produce large quantities of data. To reduce the amount of uploaded data or to eliminate the round-trip latency of an actionable insight, the data must sometimes be analyzed or processed before it reaches the cloud.
+Many IoT solutions use analytics services to gain insight about data as it arrives in the cloud from the IoT devices. With Azure IoT Edge, you can take [Azure Stream Analytics][azure-stream] logic and move it onto the device itself. By processing telemetry streams at the edge, you can reduce the amount of uploaded data and reduce the time it takes to react to actionable insights.
 
-Azure IoT Edge takes advantage of pre-built Azure service IoT Edge modules for quick deployment. [Azure Stream Analytics][azure-stream] is one such module. You can create an Azure Stream Analytics job from its portal and then go to the Azure IoT Hub portal to deploy it as an IoT Edge module. 
+Azure IoT Edge and Azure Stream Analytics are integrated so that you can create an Azure Stream Analytics job in the Azure portal and then deploy it as an IoT Edge module with no additional code.  
 
 Azure Stream Analytics provides a richly structured query syntax for data analysis both in the cloud and on IoT Edge devices. For more information about Azure Stream Analytics on IoT Edge, see [Azure Stream Analytics documentation](../stream-analytics/stream-analytics-edge.md).
 
-This tutorial walks you through creating an Azure Stream Analytics job and deploying it on an IoT Edge device. Doing so lets you process a local telemetry stream directly on the device and generate alerts that drive immediate action on the device. 
-
-The tutorial presents two modules: 
-* A simulated temperature sensor module (tempSensor) that generates temperature data from 20 to 120 degrees, incremented by 1 every 5 seconds. 
-* A Stream Analytics module that resets the tempSensor when the 30-second average reaches 70. In a production environment, you might use this functionality to shut off a machine or take preventative measures when the temperature reaches dangerous levels. 
+The Stream Analytics module in this tutorial calculates the average temperature over a rolling 30-second window. When that average reaches 70, the module sends and alert for the device to take action. In this case, that action is to reset the simulated temperature sensor. In a production environment, you might use this functionality to shut off a machine or take preventative measures when the temperature reaches dangerous levels. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Stream Analytics job to process data on the edge.
 > * Connect the new Azure Stream Analytics job with other IoT Edge modules.
-> * Deploy the Azure Stream Analytics job to an IoT Edge device.
+> * Deploy the Azure Stream Analytics job to an IoT Edge device from the Azure portal.
+
+>[!NOTE]
+>Azure Stream Analytics modules for IoT Edge are in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
-* An IoT hub. 
-* The device that you created and configured in the quickstart or in the articles about deploying Azure IoT Edge on a simulated device in [Windows][lnk-tutorial1-win] or in [Linux][lnk-tutorial1-lin]. You need to know the device connection key and the device ID. 
-* Docker running on your IoT Edge device.
-    * [Install Docker on Windows][lnk-docker-windows].
-    * [Install Docker on Linux][lnk-docker-linux].
-* Python 2.7.x on your IoT Edge device.
-    * [Install Python 2.7 on Windows][lnk-python].
-    * Most Linux distributions, including Ubuntu, already have Python 2.7 installed. To ensure that pip is installed, use the following command: `sudo apt-get install python-pip`.
+* An IoT hub
+* The IoT Edge device that you created and configured in the quickstart for [Windows][lnk-quickstart-win] or [Linux][lnk-quickstart-lin]. 
 
 ## Create an Azure Stream Analytics job
 
@@ -50,65 +42,53 @@ In this section, you create an Azure Stream Analytics job to take data from your
 
 ### Create a storage account
 
-An Azure Storage account is required to provide an endpoint to be used as an output in your Azure Stream Analytics job. The example in this section uses the Blob storage type. For more information, see the "Blobs" section of the [Azure Storage documentation][azure-storage].
+An Azure Storage account is required for Azure Stream Analytics jobs, to act as an endpoint for the job output. The example in this section uses the Blob storage type. For more information, see the "Blobs" section of the [Azure Storage documentation][azure-storage].
 
 1. In the Azure portal, go to **Create a resource**, enter **Storage account** in the search box, and then select **Storage account - blob, file, table, queue**.
 
-2. In the **Create storage account** pane, enter a name for your storage account, select the same location where your IoT hub is stored, and then select **Create**. Note the name for later use.
+2. In the **Create storage account** pane, enter a name for your storage account, select the same location where your IoT hub is stored, select the same resource group as your IoT hub, and then select **Create**. Note the name for later use.
 
     ![Create a storage account][1]
 
-3. Go to the storage account that you just created, and then select **Browse blobs**. 
-
-4. Create a new container for the Azure Stream Analytics module to store data, set the access level to **Container**, and then select **OK**.
-
-    ![Storage settings][10]
 
 ### Create a Stream Analytics job
 
 1. In the Azure portal, go to **Create a resource** > **Internet of Things**, and then select **Stream Analytics Job**.
 
-2. In the **New Stream Analytics Job** pane, do the following:
+2. In the **New Stream Analytics Job** pane, perform the following steps:
 
-    a. In the **Job name** box, type a job name.
+   1. In the **Job name** box, type a job name.
+   
+   2. Use the same **Resource group** and **Location** as your IoT hub. 
+
+      > [!NOTE]
+      > Currently, Azure Stream Analytics jobs on IoT Edge aren't supported in the West US 2 region. 
+
+   3. Under **Hosting environment**, select **Edge**.
     
-    b. Under **Hosting environment**, select **Edge**.
-    
-    c. In the remaining fields, use the default values.
-
-    > [!NOTE]
-    > Currently, Azure Stream Analytics jobs on IoT Edge aren't supported in the West US 2 region. 
-
 3. Select **Create**.
 
-4. In the created job, under **Job Topology**, select **Inputs**, and then select **Add**.
-
-5. In the **New input** pane, do the following:
-
-    a. In the **Input alias** box, enter **temperature**.
-    
-    b. In the **Source Type** box, select **Data stream**.
-    
-    c. In the remaining fields, use the default values.
+4. In the created job, under **Job Topology**, open **Inputs**.
 
    ![Azure Stream Analytics input](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-6. Select **Create**.
+5. Select **Add stream input**, then select **Edge Hub**.
 
-7. Under **Job Topology**, select **Outputs**, and then select **Add**.
+6. In the **New input** pane, enter **temperature** as the input alias. 
 
-8. In the **New output** pane, do the following:
+7. Select **Save**.
 
-    a. In the **Output alias** box, type **alert**.
-    
-    b. In the remaining fields, use the default values. 
-    
-    c. Select **Create**.
+8. Under **Job Topology**, open **Outputs**.
 
    ![Azure Stream Analytics output](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
+9. Select **Add**, then select **Edge Hub**.
 
-9. Under **Job Topology**, select **Query**, and then replace the default text with the following query:
+10. In the **New output** pane, enter **alert** as the output alias. 
+
+11. Select **Save**.
+
+12. Under **Job Topology**, select **Query**, and then replace the default text with the following query that creates an alert if the average machine temperature in a 30 second window reaches 70 degrees:
 
     ```sql
     SELECT  
@@ -121,59 +101,60 @@ An Azure Storage account is required to provide an endpoint to be used as an out
     HAVING Avg(machine.temperature) > 70
     ```
 
-10. Select **Save**.
+13. Select **Save**.
+
+14. Under **Configure**, select **IoT Edge settings**.
+
+15. Select your **Storage account** from the drop-down menu.
+
+16. For the **Container** field, select **Create new** and provide a name for the storage container. 
+
+17. Select **Save**. 
+
 
 ## Deploy the job
 
 You are now ready to deploy the Azure Stream Analytics job on your IoT Edge device.
 
-1. In the Azure portal, in your IoT hub, go to **IoT Edge (preview)**, and then open the details page for your IoT Edge device.
+1. In the Azure portal, in your IoT hub, go to **IoT Edge**, and then open the details page for your IoT Edge device.
 
 2. Select **Set modules**.  
-    If you previously deployed the tempSensor module on this device, it might autopopulate. If it does not, add the module by doing the following:
 
-   a. Select **Add IoT Edge Module**.
+   If you previously deployed the tempSensor module on this device, it might autopopulate. If it does not, add the module the following steps:
 
-   b. For the name, type **tempSensor**.
-    
-   c. For the image URI, enter **microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview**. 
+   1. Click **Add** and select **IoT Edge Module**.
+   2. For the name, type **tempSensor**.
+   3. For the image URI, enter **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**. 
+   4. Leave the other settings unchanged.
+   5. Select **Save**.
 
-   d. Leave the other settings unchanged.
-   
-   e. Select **Save**.
+3. Add your Azure Stream Analytics Edge job with the following steps:
 
-3. To add your Azure Stream Analytics Edge job, select **Import Azure Stream Analytics IoT Edge Module**.
+   1. Click **Add** and select **Azure Stream Analytics Module**.
+   2. Select your subscription and the Azure Stream Analytics Edge job that you created. 
+   3. Select **Save**.
 
-4. Select your subscription and the Azure Stream Analytics Edge job that you created. 
+4. Select **Next**.
 
-5. Select your subscription and the storage account that you created, and then select **Save**.
-
-    ![Set module][6]
-
-6. Copy the name of your Azure Stream Analytics module. 
-
-    ![Temperature module][11]
-
-7. To configure routes, select **Next**.
-
-8. Copy the following code to **Routes**. Replace _{moduleName}_ with the module name that you copied:
+5. Replace the default value in **Routes** with the following code. Update _{moduleName}_ with the name of your Azure Stream Analytics module. The module should have the same name as the job that it was created from. 
 
     ```json
     {
-        "routes": {                                                               
-          "telemetryToCloud": "FROM /messages/modules/tempSensor/* INTO $upstream", 
-          "alertsToCloud": "FROM /messages/modules/{moduleName}/* INTO $upstream", 
-          "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")", 
-          "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")" 
+        "routes": {
+            "telemetryToCloud": "FROM /messages/modules/tempSensor/* INTO $upstream",
+            "alertsToCloud": "FROM /messages/modules/{moduleName}/* INTO $upstream",
+            "alertsToReset": "FROM /messages/modules/{moduleName}/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")",
+            "telemetryToAsa": "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/{moduleName}/inputs/temperature\")"
         }
     }
     ```
 
-9. Select **Next**.
+6. Select **Next**.
 
-10. In the **Review Template** step, select **Submit**.
+7. In the **Review Deployment** step, select **Submit**.
 
-11. Return to the device details page, and then select **Refresh**.  
+8. Return to the device details page, and then select **Refresh**.  
+
     You should see the new Stream Analytics module running, along with the IoT Edge agent module and the IoT Edge hub.
 
     ![Module output][7]
@@ -185,25 +166,56 @@ Now you can go to your IoT Edge device to check out the interaction between the 
 1. Check that all the modules are running in Docker:
 
    ```cmd/sh
-   docker ps  
+   iotedge list  
    ```
-
+<!--
    ![Docker output][8]
-
+-->
 2. View all system logs and metrics data. Use the Stream Analytics module name:
 
    ```cmd/sh
-   docker logs -f {moduleName}  
+   iotedge logs -f {moduleName}  
    ```
 
 You should be able to watch the machine's temperature gradually rise until it reaches 70 degrees for 30 seconds. Then the Stream Analytics module triggers a reset, and the machine temperature drops back to 21. 
 
    ![Docker log][9]
 
+## Clean up resources 
+
+<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+
+If you will be continuing to the next recommended article, you can keep the resources and configurations you've already created and reuse them.
+
+Otherwise, you can delete the local configurations and the Azure resources created in this article to avoid charges. 
+
+> [!IMPORTANT]
+> Deleting Azure resources and resource group is irreversible. Once deleted, the resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
+>
+
+To delete only the IoT Hub execute the following command using your hub name and resource group name:
+
+```azurecli-interactive
+az iot hub delete --name MyIoTHub --resource-group TestResources
+```
+
+
+To delete the entire resource group by name:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+
+2. In the **Filter by name...** textbox, type the name of the resource group containing your IoT Hub. 
+
+3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
+
+<!--
+   ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
+-->
+4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
 
-In this tutorial, you configured an Azure storage container and a Streaming Analytics job to analyze data from your IoT Edge device. You then loaded a custom Azure Stream Analytics module to move data from your device, through the stream, into a blob for download. To see how Azure IoT Edge can create more solutions for your business, continue on to the other tutorials.
+In this tutorial, you configured an Azure Streaming Analytics job to analyze data from your IoT Edge device. You then loaded this Azure Stream Analytics module on your IoT Edge device to process and react to temperature increase locally, as well as sending the aggregated data stream to the cloud. To see how Azure IoT Edge can create more solutions for your business, continue on to the other tutorials.
 
 > [!div class="nextstepaction"] 
 > [Deploy an Azure Machine Learning model as a module][lnk-ml-tutorial]
@@ -213,7 +225,7 @@ In this tutorial, you configured an Azure storage container and a Streaming Anal
 [4]: ./media/tutorial-deploy-stream-analytics/add_device.png
 [5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
 [6]: ./media/tutorial-deploy-stream-analytics/set_module.png
-[7]: ./media/tutorial-deploy-stream-analytics/module_output.png
+[7]: ./media/tutorial-deploy-stream-analytics/module_output2.png
 [8]: ./media/tutorial-deploy-stream-analytics/docker_output.png
 [9]: ./media/tutorial-deploy-stream-analytics/docker_log.png
 [10]: ./media/tutorial-deploy-stream-analytics/storage_settings.png
@@ -228,11 +240,8 @@ In this tutorial, you configured an Azure storage container and a Streaming Anal
 [azure-storage]: https://docs.microsoft.com/azure/storage/
 [azure-stream]: https://docs.microsoft.com/azure/stream-analytics/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
+[lnk-quickstart-win]: quickstart.md
+[lnk-quickstart-lin]: quickstart-linux.md
 [lnk-module-tutorial]: tutorial-csharp-module.md
 [lnk-ml-tutorial]: tutorial-deploy-machine-learning.md
 
-[lnk-docker-windows]: https://docs.docker.com/docker-for-windows/install/ 
-[lnk-docker-linux]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
-[lnk-python]: https://www.python.org/downloads/

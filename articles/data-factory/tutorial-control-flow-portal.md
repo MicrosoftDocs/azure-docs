@@ -4,8 +4,8 @@ description: 'Learn how to control flow of data in Azure Data Factory by branchi
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -17,9 +17,6 @@ ms.author: shlo
 ---
 # Branching and chaining activities in a Data Factory pipeline
 In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, the pipeline sends details of the successful copy operation (such as the amount of data written) in a success email. If the copy activity fails, the pipeline sends details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 A high-level overview of the scenario:
 ![Overview](media/tutorial-control-flow-portal/overview.png)
@@ -144,7 +141,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
       - Select **Create new**, and enter the name of a resource group.   
          
         To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2 (Preview)** for the **version**.
+4. Select **V2** for the **version**.
 5. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 6. Select **Pin to dashboard**.     
 7. Click **Create**.      
@@ -238,7 +235,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
         - Message – Passing value of `@{activity('Copy1').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of dataWritten. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
         - Data Factory Name – Passing value of `@{pipeline().DataFactory}` This is a system variable, allowing you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
         - Pipeline Name – Passing value of `@{pipeline().Pipeline}`. This is also a system variable, allowing you to access the corresponding pipeline name. 
-        - Receiver – Passing value of "@pipeline().parameters.receiver"). Accessing the pipeline parameters.
+        - Receiver – Passing value of "\@pipeline().parameters.receiver"). Accessing the pipeline parameters.
     
         ![Settings for the first Web activity](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Connect the **Copy** activity to the **Web** activity by dragging the green button next to the Copy activity and dropping on the Web activity. 
@@ -306,7 +303,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 3. In the **Pipeline Run** window, do the following steps: 
 
     1. Enter **adftutorial/dummy/input** for the **sourceBlobContainer** parameter. Ensure that the dummy folder does not exist in the adftutorial container. 
-    2. Enter **adftutorial/dummy/inputt** for the **sinkBlobContainer** parameter. 
+    2. Enter **adftutorial/dummy/output** for the **sinkBlobContainer** parameter. 
     3. Enter an **email address** of the **receiver**. 
     4. Click **Finish**.
 

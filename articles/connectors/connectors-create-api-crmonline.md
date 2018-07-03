@@ -1,21 +1,19 @@
 ---
-title: Connect to Dynamics 365 (online) from Azure Logic Apps | Microsoft Docs
-description: Create logic app workflows that manage Dynamics 365 (online) entities through the API provided by the Dynamics 365 connector
-services: logic-apps
-cloud: Azure Stack
+# required metadata
+title: Connect to Dynamics 365 - Azure Logic Apps | Microsoft Docs
+description: Create and manage records with Dynamics 365 (online) REST APIs and Azure Logic Apps
 author: Mattp123
-manager: anneta
-documentationcenter:
-tags: connectors
-
-ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+manager: jeconnoc
+ms.author: matp
 ms.date: 02/10/2017
-ms.author: matp; LADocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
 
 # Connect to Dynamics 365 from logic app workflows

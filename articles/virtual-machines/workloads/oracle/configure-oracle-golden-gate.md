@@ -4,7 +4,7 @@ description: Quickly get an Oracle Golden Gate up and running in your Azure envi
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 
@@ -47,7 +47,7 @@ The following is a summary of the environment configuration:
 
 ### Sign in to Azure 
 
-Sign in to your Azure subscription with the [az login](/cli/azure/#az_login) command. Then follow the on-screen directions.
+Sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az_login) command. Then follow the on-screen directions.
 
 ```azurecli
 az login

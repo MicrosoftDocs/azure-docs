@@ -4,7 +4,7 @@ description: Learn about using the Azure Batch service for large-scale parallel 
 services: batch
 documentationcenter: ''
 author: mscurrell
-manager: jkabat
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 
@@ -57,7 +57,7 @@ Higher-level, workload-specific capabilities are also available for Azure Batch:
 * Batch supports large-scale [rendering workloads](batch-rendering-service.md) with rendering tools including Autodesk Maya, 3ds Max, Arnold, and V-Ray. 
 * R users can install the [doAzureParallel R package](https://github.com/Azure/doAzureParallel) to easily scale out the execution of R algorithms on Batch pools.
 
-You can also run Batch jobs as part of a larger Azure workflow to transform data, managed by tools such as [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md).
+You can also run Batch jobs as part of a larger Azure workflow to transform data, managed by tools such as [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md).
 
 
 ## How it works
@@ -82,7 +82,7 @@ The following diagram shows steps in a common Batch workflow, with a client appl
 
 Keep in mind this is just one way to use Batch, and this scenario describes just some of its features. For example, you can execute [multiple tasks in parallel](batch-parallel-node-tasks.md) on each compute node. Or, use [job preparation and completion tasks](batch-job-prep-release.md) to prepare the nodes for your jobs, then clean up afterward. 
 
-See the [Batch feature overview for developers](batch-api-basics.md) for more detailed information about pools, nodes, jobs, and tasks, and the many API features that you can use while building your Batch application. 
+See the [Batch feature overview for developers](batch-api-basics.md) for more detailed information about pools, nodes, jobs, and tasks, and the many API features that you can use while building your Batch application. Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
 
 ## Next steps
 

@@ -6,7 +6,7 @@ author: mswutao
 ms.author: wuta
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
@@ -227,4 +227,4 @@ mysqli_close($conn);
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Connect to Azure Database for MySQL via SSL] (howto-configure-ssl.md)
+> [Connect to Azure Database for MySQL via SSL](howto-configure-ssl.md)

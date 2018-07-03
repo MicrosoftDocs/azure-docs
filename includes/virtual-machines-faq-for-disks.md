@@ -1,6 +1,18 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: roygara
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 06/03/2018
+ ms.author: rogarana
+ ms.custom: include file
+---
+
 # Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks
 
-This article answers some frequently asked questions about Azure Managed Disks and Azure Premium Storage.
+This article answers some frequently asked questions about Azure Managed Disks and Azure Premium SSD disks.
 
 ## Managed Disks
 
@@ -28,13 +40,9 @@ The pricing of premium managed disks is the same as unmanaged premium disks.
 
 Yes. You can change the storage account type of your managed disks by using the Azure portal, PowerShell, or the Azure CLI.
 
-**Is there a way that I can copy or export a managed disk to a private storage account?**
-
-Yes. You can export your managed disks by using the Azure portal, PowerShell, or the Azure CLI.
-
 **Can I use a VHD file in an Azure storage account to create a managed disk with a different subscription?**
 
-No.
+Yes.
 
 **Can I use a VHD file in an Azure storage account to create a managed disk in a different region?**
 
@@ -42,11 +50,11 @@ No.
 
 **Are there any scale limitations for customers that use managed disks?**
 
-Managed Disks eliminates the limits associated with storage accounts. However, the number of managed disks per subscription is limited to 2,000 by default. You can call support to increase this number.
+Managed Disks eliminates the limits associated with storage accounts. However, the maximum limit is 50,000 managed disks per region and per disk type for a subscription.
 
 **Can I take an incremental snapshot of a managed disk?**
 
-No. The current snapshot capability makes a full copy of a managed disk. However, we are planning to support incremental snapshots in the future.
+No. The current snapshot capability makes a full copy of a managed disk.
 
 **Can VMs in an availability set consist of a combination of managed and unmanaged disks?**
 
@@ -66,7 +74,7 @@ Depending on the region where the availability set that uses Managed Disks is lo
 
 **How is the standard storage account for diagnostics set up?**
 
-You set up a private storage account for VM diagnostics. In the future, we plan to switch diagnostics to Managed Disks as well.
+You set up a private storage account for VM diagnostics.
 
 **What kind of Role-Based Access Control support is available for Managed Disks?**
 
@@ -78,7 +86,7 @@ Managed Disks supports three key default roles:
 
 **Is there a way that I can copy or export a managed disk to a private storage account?**
 
-You can get a read-only shared access signature URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage.
+You can generate a read-only shared access signature (SAS) URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage. You can use the SAS URI using the Azure portal, Azure PowerShell, the Azure CLI or [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
 **Can I create a copy of my managed disk?**
 
@@ -86,10 +94,10 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 
 **Are unmanaged disks still supported?**
 
-Yes. We support unmanaged and managed disks. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
+Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
 
-**If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (512 GB)?**
+**If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (256 GB)?**
 
 Yes.
 
@@ -113,6 +121,53 @@ No. You can't update the computer name property. The new VM inherits it from the
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## Standard SSD disks (Preview)
+
+**What are Azure Standard SSD disks?**
+Standard SSD disks are standard disks backed by solid-state media, optimized as cost effective storage for workloads that need consistent performance at lower IOPS levels. In preview, they are available in a limited number of regions, with limited manageability (available through Resource Manager templates).
+
+<a id="standard-ssds-azure-regions"></a>**What are the regions currently supported for Standard SSD disks (Preview)?**
+* North Europe
+* France Central
+* East US 2
+* Central US
+* Canada Central
+* East Asia
+* Korea South
+* Australia East
+
+**How do I create Standard SSD disks?**
+Currently, you can create Standard SSD disks using Azure Resource Manager templates. Below are the parameters needed in the Resource Manager template to create Standard SSD Disks:
+
+* *apiVersion* for Microsoft.Compute must be set as `2018-04-01` (or later)
+* Specify *managedDisk.storageAccountType* as `StandardSSD_LRS`
+
+The following example shows the *properties.storageProfile.osDisk* section for a VM that uses Standard SSD Disks:
+
+```json
+"osDisk": {
+    "osType": "Windows",
+    "name": "myOsDisk",
+    "caching": "ReadWrite",
+    "createOption": "FromImage",
+    "managedDisk": {
+        "storageAccountType": "StandardSSD_LRS"
+    }
+}
+```
+
+For a complete template example of how to create a Standard SSD disk with a template, see [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
+
+**Can I convert my existing disks to Standard SSD?**
+Yes, you can. Refer to [Convert Azure managed disks storage from standard to premium, and vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) for the general guidelines for converting Managed Disks. And, use the following value to update the disk type to Standard SSD.
+    -AccountType StandardSSD_LRS
+
+**Can I use Standard SSDs as Unmanaged Disks?**
+No, Standard SSDs disks are only available as Managed Disks.
+
+**Do Standard SSD Disks support "single instance VM SLA"?**
+No, Standard SSDs do not have single instance VM SLA. Use Premium SSD disks for single instance VM SLA.
+
 ## Migrate to Managed Disks 
 
 **What changes are required in a pre-existing Azure Backup service configuration prior/after migration to Managed Disks?**
@@ -127,9 +182,9 @@ Yes, backups work seamlessly.
 
 No changes are required. 
 
-**Is automated migration of an existing VM Scale Sets (VMSS) from unmanaged disks to Managed Disks supported?**
+**Is automated migration of an existing virtual machine scale sets from unmanaged disks to Managed Disks supported?**
 
-No. You can create a new VMSS with Managed Disks using the image from your old VMSS with unmanaged disks. 
+No. You can create a new scale set with Managed Disks using the image from your old scale set with unmanaged disks. 
 
 **Can I create a Managed Disk from a page blob snapshot taken before migrating to Managed Disks?**
 
@@ -139,9 +194,9 @@ No. You can export a page blob snapshot as a page blob and then create a Managed
 
 Yes, you can choose to failover to a VM with Managed Disks.
 
-**Is there any impact of migration on Azure VMs protected by Azure Site Recovery (ASR) via Azure to Azure replication?**
+**Is there any impact of migration on Azure VMs protected by Azure Site Recovery via Azure to Azure replication?**
 
-Yes. Currently, ASR Azure to Azure protection for VMs with Managed Disks is only available as a public preview service.
+Yes. Currently, Azure Site Recovery Azure to Azure protection for VMs with Managed Disks is only available as a public preview service.
 
 **Can I migrate VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
 
@@ -163,11 +218,11 @@ No.
 
 **Is Storage Service Encryption only available in specific regions?**
 
-No. It's available in all the regions where Managed Disks is available. Managed Disks is available in all public regions and Germany.
+No. It's available in all the regions where Managed Disks are available. Managed Disks is available in all public regions and Germany. It is also available in China, however, only for Microsoft managed keys, not customer managed keys.
 
 **How can I find out if my managed disk is encrypted?**
 
-You can find out the time when a managed disk was created from the Azure portal, the Azure CLI, and PowerShell. If the time is after June 9, 2017, then your disk is encrypted. 
+You can find out the time when a managed disk was created from the Azure portal, the Azure CLI, and PowerShell. If the time is after June 9, 2017, then your disk is encrypted.
 
 **How can I encrypt my existing disks that were created before June 10, 2017?**
 
@@ -190,19 +245,19 @@ No. But if you export a VHD to an encrypted storage account from an encrypted ma
 
 ## Premium disks: Managed and unmanaged
 
-**If a VM uses a size series that supports Premium Storage, such as a DSv2, can I attach both premium and standard data disks?** 
+**If a VM uses a size series that supports Premium SSD disks, such as a DSv2, can I attach both premium and standard data disks?** 
 
 Yes.
 
-**Can I attach both premium and standard data disks to a size series that doesn't support Premium Storage, such as D, Dv2, G, or F series?**
+**Can I attach both premium and standard data disks to a size series that doesn't support Premium SSD disks, such as D, Dv2, G, or F series?**
 
-No. You can attach only standard data disks to VMs that don't use a size series that supports Premium Storage.
+No. You can attach only standard data disks to VMs that don't use a size series that supports Premium SSD disks.
 
 **If I create a premium data disk from an existing VHD that was 80 GB, how much will that cost?**
 
 A premium data disk created from an 80-GB VHD is treated as the next-available premium disk size, which is a P10 disk. You're charged according to the P10 disk pricing.
 
-**Are there transaction costs to use Premium Storage?**
+**Are there transaction costs to use Premium SSD disks?**
 
 There is a fixed cost for each disk size, which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage).
 
@@ -226,7 +281,7 @@ The partition type that Azure supports for an operating system disk is the maste
 
 **What is the largest page blob size that's supported?**
 
-The largest page blob size that Azure supports is 8 TB (8,191 GB). We don't support page blobs larger than 4 TB (4,095 GB) attached to a VM as data or operating system disks.
+The largest page blob size that Azure supports is 8 TB (8,191 GB). The maxmium page blog size when attached to a VM as data or operating system disks is 4 TB (4,095 GB).
 
 **Do I need to use a new version of Azure tools to create, attach, resize, and upload disks larger than 1 TB?**
 

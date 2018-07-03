@@ -12,9 +12,7 @@ ms.assetid: 4208deca-d64a-45e1-8948-2673d5d7678c
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
 
@@ -69,7 +67,7 @@ It can take up to 20 minutes to create a cluster.
 
 You can also create an HDInsight configuration object using `New-AzureRmHDInsightClusterConfig` cmdlet. You can then modify this configuration object to enable additional configuration options for your cluster. Finally, use the `-Config` parameter of the `New-AzureRmHDInsightCluster` cmdlet to use the configuration.
 
-The following script creates a configuration object to configure an R Server on HDInsight cluster type. The configuration enables an edge node, RStudio, and an additional storage account.
+The following script creates a configuration object to configure an ML Services on HDInsight cluster type. The configuration enables an edge node, RStudio, and an additional storage account.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 

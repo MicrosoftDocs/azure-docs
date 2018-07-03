@@ -4,7 +4,7 @@ description: Learn how to create a Linux virtual machine with the Azure CLI 1.0 
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX

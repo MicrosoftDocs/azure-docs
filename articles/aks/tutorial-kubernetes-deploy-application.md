@@ -1,33 +1,33 @@
----
+﻿---
 title: Kubernetes on Azure tutorial  - Deploy Application
 description: AKS tutorial - Deploy Application
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Run applications in Azure Container Service (AKS)
+# Tutorial: Run applications in Azure Kubernetes Service (AKS)
 
-In this tutorial, part four of eight, a sample application is deployed into a Kubernetes cluster. Steps completed include:
+In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 
 > [!div class="checklist"]
 > * Update Kubernetes manifest files
 > * Run application in Kubernetes
 > * Test the application
 
-In subsequent tutorials, this application is scaled out, updated, and Operations Management Suite configured to monitor the Kubernetes cluster.
+In subsequent tutorials, this application is scaled out and updated.
 
 This tutorial assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation][kubernetes-documentation].
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into a container image, this image was uploaded to Azure Container Registry, and a Kubernetes cluster was created. 
+In previous tutorials, an application was packaged into a container image, this image was uploaded to Azure Container Registry, and a Kubernetes cluster was created.
 
 To complete this tutorial, you need the pre-created `azure-vote-all-in-one-redis.yaml` Kubernetes manifest file. This file was downloaded with the application source code in a previous tutorial. Verify that you have cloned the repo, and that you have changed directories into the cloned repo.
 
@@ -43,16 +43,10 @@ Get the ACR login server name with the [az acr list][az-acr-list] command.
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-The manifest file has been pre-created with a login server name of `microsoft`. Open the file with any text editor. In this example, the file is opened with `vi`.
+The manifest file has been pre-created with a login server name of `microsoft`. Open the file with any text editor. In this example, the file is opened with `nano`.
 
 ```console
-vi azure-vote-all-in-one-redis.yaml
-```
-
-Alternatively, if you are working in Windows, you can use Visual Studio Code.
-
-```console
-code azure-vote-all-in-one-redis.yaml
+nano azure-vote-all-in-one-redis.yaml
 ```
 
 Replace `microsoft` with the ACR login server name. This value is found on line **47** of the manifest file.
@@ -75,10 +69,10 @@ Save and close the file.
 
 ## Deploy application
 
-Use the [kubectl create][kubectl-create] command to run the application. This command parses the manifest file and creates the defined Kubernetes objects.
+Use the [kubectl apply][kubectl-apply] command to run the application. This command parses the manifest file and creates the defined Kubernetes objects.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yaml
+kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
 Output:
@@ -92,7 +86,7 @@ service "azure-vote-front" created
 
 ## Test application
 
-A [Kubernetes service][kubernetes-service] is created which exposes the application to the internet. This process can take a few minutes. 
+A [Kubernetes service][kubernetes-service] is created which exposes the application to the internet. This process can take a few minutes.
 
 To monitor progress, use the [kubectl get service][kubectl-get] command with the `--watch` argument.
 
@@ -101,12 +95,12 @@ kubectl get service azure-vote-front --watch
 ```
 
 Initially the *EXTERNAL-IP* for the *azure-vote-front* service appears as *pending*.
-  
+
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, use `CTRL-C` to stop the kubectl watch process. 
+Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, use `CTRL-C` to stop the kubectl watch process.
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
@@ -118,23 +112,24 @@ To see the application, browse to the external IP address.
 
 If the application did not load, it might be due to an authorization problem with your image registry.
 
-Please follow these steps to [allow access via a Kubernetes secret](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+Please follow these steps to [allow access via a Kubernetes secret](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
 
 ## Next steps
 
-In this tutorial, the Azure vote application was deployed to a Kubernetes cluster in AKS. Tasks completed include:  
+In this tutorial, the Azure vote application was deployed to a Kubernetes cluster in AKS. Tasks completed include:
 
 > [!div class="checklist"]
 > * Download Kubernetes manifest files
 > * Run the application in Kubernetes
 > * Tested the application
 
-Advance to the next tutorial to learn about scaling both a Kubernetes application and the underlying Kubernetes infrastructure. 
+Advance to the next tutorial to learn about scaling both a Kubernetes application and the underlying Kubernetes infrastructure.
 
 > [!div class="nextstepaction"]
 > [Scale Kubernetes application and infrastructure][aks-tutorial-scale]
 
 <!-- LINKS - external -->
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-documentation]: https://kubernetes.io/docs/home/

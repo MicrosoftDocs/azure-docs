@@ -4,37 +4,30 @@ description: Learn how to use lookup activity to look up a value from an externa
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: shlo
 
 ---
 # Lookup activity in Azure Data Factory
-You can use lookup activity to read or look up a record, table name, or value from any external source. This output can further be referenced by succeeding activities. 
 
-Lookup activity is helpful when you want to dynamically retrieve a list of files, records, or tables from a configuration file or a data source. The output from the activity can be further used by other activities to perform specific processing on those items only.
+Lookup activity can be used to retrieve a dataset from any of the ADF-supported data source.  It can be used in the following scenario:
+- Dynamically determine which objects (files, tables, etc) to operate on in a subsequent activity, instead of hard-coding the object name
 
-> [!NOTE]
-> This article applies to version 2 of Azure Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
+Lookup activity can read and return the content of a configuration file, a configuration table, or the result of executing a query or stored procedure.  The output from Lookup activity can be used in a subsequent copy or transformation activity if it is a singleton value, or used in a ForEach activity if it is an array of attributes.
 
 ## Supported capabilities
 
-The following data sources are currently supported for lookup:
-- JSON file in Azure Blob storage
-- JSON file in File System
-- Azure SQL Database (JSON data converted from query)
-- Azure SQL Data Warehouse (JSON data converted from query)
-- SQL Server (JSON data converted from query)
-- Azure Table storage (JSON data converted from query)
+The following data sources are supported for lookup. The maximum number of rows can be returned by Lookup activity is **5000**, and up to **2MB** in size. And currently the max duration for Lookup activity before timeout is one hour.
 
-The maximum number of rows returned by Lookup activity is **5000**, and up to **10MB** in size.
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
 ## Syntax
 
@@ -59,9 +52,15 @@ The maximum number of rows returned by Lookup activity is **5000**, and up to **
 ## Type properties
 Name | Description | Type | Required?
 ---- | ----------- | ---- | --------
-dataset | Provides the dataset reference for the lookup. Currently, the supported dataset types are:<ul><li>`AzureBlobDataset` for [Azure Blob storage](connector-azure-blob-storage.md#dataset-properties) as source</li><li>`FileShareDataset` for [File System](connector-file-system.md#dataset-properties) as source</li><li>`AzureSqlTableDataset` for [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) or [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) as source</li><li>`SqlServerTable` for [SQL Server](connector-sql-server.md#dataset-properties) as source</li><li>`AzureTableDataset` for [Azure Table storage](connector-azure-table-storage.md#dataset-properties) as source</li> | Key/value pair | Yes
+dataset | Provides the dataset reference for the lookup. Get details from the "Dataset properties" section in each corresponding connector article. | Key/value pair | Yes
 source | Contains dataset-specific source properties, the same as the copy activity source. Get details from the "Copy activity properties" section in each corresponding connector article. | Key/value pair | Yes
 firstRowOnly | Indicates whether to return only the first row or all rows. | Boolean | No. Default is `true`.
+
+**Note the following points:**
+
+1. Source column with ByteArray type is not supported.
+2. Structure is not supported in dataset definition. For text format files specifically, you can use the header row to provide the column name.
+3. If your lookup source is a JSON file(s), the `jsonPathDefinition` setting for re-shaping the JSON object is not supported, the entire objects will be retrieved.
 
 ## Use the lookup activity result in a subsequent activity
 
@@ -273,11 +272,11 @@ This Azure SQL Database instance contains the data to be copied to Blob storage.
 ```json
 {
   "Id": "1",
-  "tableName": "Table1",
+  "tableName": "Table1"
 }
 {
    "Id": "2",
-  "tableName": "Table2",
+  "tableName": "Table2"
 }
 ```
 
@@ -287,11 +286,11 @@ This Azure SQL Database instance contains the data to be copied to Blob storage.
 [ 
     {
         "Id": "1",
-          "tableName": "Table1",
-    }
+        "tableName": "Table1"
+    },
     {
         "Id": "2",
-        "tableName": "Table2",
+        "tableName": "Table2"
     }
 ]
 ```

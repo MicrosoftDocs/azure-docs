@@ -3,18 +3,19 @@ title: Reference for multi-factor authentication reporting in the Azure portal |
 description: Reference information for multi-factor authentication reporting in the Azure portal 
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 03/16/2018
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
@@ -92,17 +93,9 @@ This section lists the possible values for MFA result status string.
 
     - satisfied by claim in the token 
 
-    - satisfied by claim in the token 
-
-    - satisfied by claim in the token 
-
-    - satisfied by claim in the token 
-
     - satisfied by claim provided by external provider 
 
     - satisfied by strong authentication 
-
-    - skipped as flow exercised was Windows broker logon flow 
 
     - skipped as flow exercised was Windows broker logon flow 
 

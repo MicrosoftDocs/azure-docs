@@ -2,6 +2,7 @@
 |----------|--------------|------------|
 | Storage Sync Services per subscription | 15 Storage Sync Services | No |
 | Sync groups per Storage Sync Service | 30 sync groups | Yes |
+| Registered servers per Storage Sync Service | 99 servers | Yes |
 | Cloud endpoints per Sync Group | 1 cloud endpoint | Yes |
 | Server endpoints per Sync Group | 50 server endpoints | No |
 | Server endpoints per server | 33-99 server endpoints | Yes, but varies based on configuration |

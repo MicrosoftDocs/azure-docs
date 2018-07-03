@@ -4,7 +4,7 @@ description: How to redeploy Windows virtual machines in Azure to mitigate RDP c
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: genlin
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager,top-support-issue
 
 ms.assetid: 0ee456ee-4595-4a14-8916-72c9110fc8bd
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
 
 ---

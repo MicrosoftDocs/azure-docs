@@ -1,21 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Get started With custom policies | Microsoft Docs'
-description: How to get started with Azure Active Directory B2C custom policies
+title: Get started with custom policies in Azure Active Directory B2C | Microsoft Docs
+description: How to get started with Azure Active Directory B2C custom policies.
 services: active-directory-b2c
-documentationcenter: ''
-author: rojasja
+author: davidmu1
 manager: mtillman
-editor: rojasja
 
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: joroja;parahk;gsacavdm
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Get started with custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]

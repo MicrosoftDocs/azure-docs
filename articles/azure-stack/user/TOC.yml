@@ -21,17 +21,27 @@
     href: azure-stack-quick-create-vm-linux-cli.md
 - name: Tutorials
   items:
-  - name: 'Deploy apps to Azure & Azure Stack'
+  - name: Deploy apps to Azure and Azure Stack
     href: azure-stack-solution-pipeline.md
+  - name: Configure hybrid cloud identity
+    href: azure-stack-solution-hybrid-identity.md
+  - name: Configure hybrid cloud connectivity
+    href: azure-stack-solution-hybrid-connectivity.md
+  - name: Subscribe to an offer
+    href: azure-stack-subscribe-services.md
+  - name: Create a VM from a template
+    href: azure-stack-create-vm-template.md
 - name: How-to guides
   items:
   - name: Use the Azure Stack Portal
     href: azure-stack-use-portal.md
+  - name: Use the Azure Stack API
+    href: azure-stack-rest-api-use.md
   - name: Security & compliance
     items:
-    - name: Manage RBAC
+    - name: Use role-based access control
       href: azure-stack-manage-permissions.md
-    - name: Create service principals
+    - name: Use service principals
       href: Azure-stack-create-service-principals.md
   - name: Use services
     items:
@@ -48,7 +58,9 @@
       - name: Manage VM disks
         href: azure-stack-manage-vm-disks.md
       - name: Protect VMs
-        href: azure-stack-manage-vm-backup.md
+        href: azure-stack-manage-vm-protect.md
+      - name: SQL Server VM considerations
+        href: azure-stack-sql-server-vm-considerations.md
     - name: Storage
       items:
       - name: Overview
@@ -85,6 +97,12 @@
         href: azure-stack-kv-push-secret-into-vm.md
       - name: KeyVault sample app
         href: azure-stack-kv-sample-app.md
+    - name: Solution templates
+      items:
+      - name: Deploy a Service Fabric cluster
+        href: azure-stack-solution-template-service-fabric-cluster.md
+      - name: Deploy a Kubernetes cluster
+        href: azure-stack-solution-template-kubernetes-deploy.md
   - name: Build apps
     items:
     - name: Develop for Azure Stack
@@ -92,24 +110,35 @@
     - name: Set up development environment
       items:
       - name: Install Azure Stack PowerShell
-        href: azure-stack-powershell-install.md
-      - name: Download tools
+        href: https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install
+      - name: Download Azure Stack tools
         href: azure-stack-powershell-download.md
       - name: Configure PowerShell - User
         href: azure-stack-powershell-configure-user.md
-      - name: Install and configure the Azure Stack CLI
-        href: azure-stack-connect-cli.md
       - name: Install Visual Studio
         href: azure-stack-install-visual-studio.md
-      - name: Manage API version profiles
+      - name: Using API version profiles
         href: azure-stack-version-profiles.md
-    - name: Use policy module
+        items:
+        - name: PowerShell
+          href: azure-stack-version-profiles-powershell.md
+        - name: Azure CLI 2.0
+          href: azure-stack-version-profiles-azurecli2.md
+        - name: GO
+          href: azure-stack-version-profiles-go.md
+        - name: Ruby
+          href: azure-stack-version-profiles-ruby.md
+        - name: Python
+          href: azure-stack-version-profiles-python.md
+        - name: Resource provider APIs supported by profiles
+          href: azure-stack-profiles-azure-resource-manager-versions.md
+    - name: Use the Azure Stack Policy module
       href: azure-stack-policy-module.md
     - name: Use templates
       items:
       - name: Template overview
         href: azure-stack-arm-templates.md
-      - name: Develop templates
+      - name: Template considerations
         href: azure-stack-develop-templates.md
       - name: Check templates
         href: azure-stack-validate-templates.md
@@ -119,16 +148,20 @@
         href: azure-stack-deploy-template-powershell.md
       - name: Deploy with Visual Studio
         href: azure-stack-deploy-template-visual-studio.md
+  - name: Enable a Cloud Service Provider
+    href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Reference
   items:
   - name: Azure Stack PowerShell
     href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
   - name: Azure Stack CLI
-    href: /cli/azure/?view=azure-cli-2017-03-09-profile
+    href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
 - name: Related
   items:
   - name: Azure Stack Operator Documentation
     href: /azure/azure-stack/
+  - name: ASDK Documentation
+    href: /azure/azure-stack/asdk/
 - name: Resources
   items:
   - name: Azure Stack roadmap

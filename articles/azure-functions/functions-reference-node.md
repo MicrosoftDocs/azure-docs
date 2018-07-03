@@ -20,7 +20,6 @@ ms.author: tdykstra
 
 ---
 # Azure Functions JavaScript developer guide
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 The JavaScript experience for Azure Functions makes it easy to export a function, which is passed as a `context` object for communicating with the runtime and for receiving and sending data via bindings.
 
@@ -268,7 +267,7 @@ The following table shows the Node.js version used by each major version of the 
 | Functions version | Node.js version | 
 |---|---|
 | 1.x | 6.11.2 (locked by the runtime) |
-| 2.x  |>=8.4.0 with current LTS 8.9.4 recommended. Set the version by using the WEBSITE_DEFAULT_NODE_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  |>=8.4.0 with current LTS 8.9.4 recommended. Set the version by using the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 You can see the current version that the runtime is using by printing `process.version` from any function.
 
@@ -300,7 +299,7 @@ module.exports = function(context) {
 You should define a `package.json` file at the root of your function app. Defining the file lets all functions in the app share the same cached packages, which gives the best performance. If a version conflict arises, you can resolve it by adding a `package.json` file in the folder of a specific function.  
 
 ## Environment variables
-To get an environment variable or an app setting value, use `process.env`, as shown in the following code example:
+To get an environment variable or an app setting value, use `process.env`, as shown here in the `GetEnvironmentVariable` function:
 
 ```javascript
 module.exports = function (context, myTimer) {

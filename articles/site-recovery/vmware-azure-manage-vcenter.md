@@ -1,19 +1,17 @@
 ---
 title: ' Manage VMware vCenter servers in Azure Site Recovery | Microsoft Docs'
 description: This article describes how add and manage VMware vCenter in Azure Site Recovery.
-services: site-recovery
 author: AnoopVasudavan
-manager: gauravd
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: anoopkv
 ---
 
 # Manage VMware vCenter servers 
 
-This article discusses the various Site Recovery operations that can be performed on a VMware vCenter. Verify the [prerequisites](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers)s before you start.
+This article discusses the various Site Recovery operations that can be performed on a VMware vCenter. Verify the [prerequisites](vmware-physical-azure-support-matrix.md#replicated-machines) before you start.
 
 
 ## Set up an account for automatic discovery

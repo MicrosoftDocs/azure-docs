@@ -4,7 +4,7 @@ description: This article provides an overview of components and architecture us
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/27/2017
+ms.date: 03/09/2018
 ms.author: raynew
 ---
 
@@ -23,7 +23,7 @@ The following table and graphic provide a high-level view of the components used
 **Configuration server** | A single on-premises physical machine or VMware VM is deployed to run all of the on-premises Site Recovery components. The VM runs the configuration server, process server, and master target server. | The configuration server coordinates communications between on-premises and Azure, and manages data replication.
  **Process server**:  | Installed by default together with the configuration server. | Acts as a replication gateway. Receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure storage.<br/><br/> The process server also installs the Mobility service on servers you want to replicate.<br/><br/> As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic.
  **Master target server** | Installed by default together with the configuration server. | Handles replication data during failback from Azure.<br/><br/> For large deployments, you can add an additional, separate master target server for failback.
-**Replicated servers** | The Mobility service is installed on each server you replicate. | We recommend you allow automatic installation from the process server. Alternatively you can install the service manually, or use an automated deployment method such as System Center Configuration Manager. 
+**Replicated servers** | The Mobility service is installed on each server you replicate. | We recommend you allow automatic installation from the process server. Alternatively you can install the service manually, or use an automated deployment method such as System Center Configuration Manager.
 
 **Physical to Azure architecture**
 

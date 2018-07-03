@@ -3,26 +3,28 @@ title: Azure AD AngularJS Getting Started | Microsoft Docs
 description: How to build an AngularJS single-page application that integrates with Azure AD for sign-in and calls Azure AD-protected APIs by using OAuth.
 services: active-directory
 documentationcenter: ''
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-
 ---
+
 # Azure AD AngularJS getting started
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (Azure AD) makes it simple and straightforward for you to add sign-in, sign-out, and secure OAuth API calls to your single-page apps.  It enables your apps to authenticate users with their Windows Server Active Directory accounts and consume any web API that Azure AD helps protect, such as the Office 365 APIs or the Azure API.
+Azure Active Directory (Azure AD) makes it simple and straightforward for you to add sign-in, sign-out, and secure OAuth API calls to your single-page apps. It enables your apps to authenticate users with their Windows Server Active Directory accounts and consume any web API that Azure AD helps protect, such as the Office 365 APIs or the Azure API.
 
 For JavaScript applications running in a browser, Azure AD provides the Active Directory Authentication Library (ADAL), or adal.js. The sole purpose of adal.js is to make it easy for your app to get access tokens. To demonstrate just how easy it is, here we'll build an AngularJS To Do List application that:
 
@@ -49,13 +51,13 @@ To enable your app to authenticate users and get tokens, you first need to regis
 4. Click **App registrations**, and then select **Add**.
 5. Follow the prompts and create a new web application and/or web API:
   * **Name** describes your application to users.
-  * **Redirect Uri** is the location to which Azure AD will return tokens. The default location for this sample is `https://localhost:44326/`.
-6. After you finish registration, Azure AD assigns a unique application ID to your app.  You'll need this value in the next sections, so copy it from the application tab.
+  * **Sign-on URL** is the location to which Azure AD will return tokens. The default location for this sample is `https://localhost:44326/`.
+6. After you finish registration, Azure AD assigns a unique application ID to your app. You'll need this value in the next sections, so copy it from the application tab.
 7. Adal.js uses the OAuth implicit flow to communicate with Azure AD. You must enable the implicit flow for your application:
   1. Click the application and select **Manifest** to open the inline manifest editor.
   2. Locate the `oauth2AllowImplicitFlow` property. Set its value to `true`.
   3. Click **Save** to save the manifest.
-8. Grant permissions across your tenant for your application. Go to **Settings** > **Properties** > **Required Permissions**, and click the **Grant Permissions** button on the top bar. Click **Yes** to confirm.
+8. Grant permissions across your tenant for your application. Go to **Settings** > **Required Permissions**, and click the **Grant Permissions** button on the top bar. Click **Yes** to confirm.
 
 ## Step 2: Install ADAL and configure the single-page app
 Now that you have an application in Azure AD, you can install adal.js and write your identity-related code.
@@ -115,11 +117,11 @@ Adal.js integrates with AngularJS route and HTTP providers, so you can help secu
     ```
 
 ## Summary
-You now have a secure single-page app that can sign in users and issue bearer-token-protected requests to its back-end API. When a user clicks the **TodoList** link, adal.js will automatically redirect to Azure AD for sign-in if necessary. In addition, adal.js will automatically attach an access token to any Ajax requests that are sent to the app's back end.  
+You now have a secure single-page app that can sign in users and issue bearer-token-protected requests to its back-end API. When a user clicks the **TodoList** link, adal.js will automatically redirect to Azure AD for sign-in if necessary. In addition, adal.js will automatically attach an access token to any Ajax requests that are sent to the app's back end. 
 
 The preceding steps are the bare minimum necessary to build a single-page app by using adal.js. But a few other features are useful in single-page app:
 
-* To explicitly issue sign-in and sign-out requests, you can define functions in your controllers that invoke adal.js.  In `App/Scripts/homeCtrl.js`:
+* To explicitly issue sign-in and sign-out requests, you can define functions in your controllers that invoke adal.js. In `App/Scripts/homeCtrl.js`:
 
     ```js
     ...
@@ -140,7 +142,7 @@ The preceding steps are the bare minimum necessary to build a single-page app by
     ...
     ```
 
-* There are many scenarios in which you'll want to know if the user is signed in or not. You can also use the `userInfo` object to gather this information.  For instance, in `index.html`, you can show either the **Login** or **Logout** button based on authentication status:
+* There are many scenarios in which you'll want to know if the user is signed in or not. You can also use the `userInfo` object to gather this information. For instance, in `index.html`, you can show either the **Login** or **Logout** button based on authentication status:
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>
