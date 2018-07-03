@@ -28,7 +28,7 @@ If you do not have an Azure subscription, create a [free account](https://azure.
 
 ## Create a Kafka enabled Event Hubs namespace
 
-1. Log on to the [Azure portal][Azure portal], and click **Create a resource** at the top left of the screen.
+1. Sign in to the [Azure portal][Azure portal], and click **Create a resource** at the top left of the screen.
 
 2. Search for Event Hubs and select the options shown here:
     
