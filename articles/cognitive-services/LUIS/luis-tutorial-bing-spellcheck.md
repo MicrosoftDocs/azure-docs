@@ -86,7 +86,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription
 If you don't want to use the Bing Spell Check API v7 service, you can label utterances that have spelling mistakes so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort than using a spell checker.
 
 ## Publishing page
-The [publishing](publishapp.md) page has an **Enable Bing spell checker** checkbox. This is a convenience to create the key and understand how the endpoint URL changes. You still have to use the correct endpoint parameters in order to have spelling corrected for each utterance. 
+The [publishing](luis-how-to-publish-app.md) page has an **Enable Bing spell checker** checkbox. This is a convenience to create the key and understand how the endpoint URL changes. You still have to use the correct endpoint parameters in order to have spelling corrected for each utterance. 
 
 > [!div class="nextstepaction"]
 > [Learn more about example utterances](luis-how-to-add-example-utterances.md)
