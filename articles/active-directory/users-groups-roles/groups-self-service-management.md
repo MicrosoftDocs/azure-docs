@@ -44,7 +44,7 @@ You can also use **Group that can manage security groups** or **Group that can m
 These articles provide additional information on Azure Active Directory.
 
 * [Manage access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
-* [Azure Active Directory cmdlets for configuring group settings](users-groups-roles/groups-settings-cmdlets.md)
+* [Azure Active Directory cmdlets for configuring group settings](groups-settings-cmdlets.md)
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 * [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 * [Integrate your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
