@@ -138,6 +138,7 @@ Open the **AndroidManifest.xml** file and insert the following `<receiver>` elem
 8. Add the following using statements to **MyFirebaseIIDService.cs**:
    
     ```csharp
+    using Android.App;
     using Android.Util;
     using WindowsAzure.Messaging;
     using Firebase.Iid;
@@ -179,6 +180,7 @@ Open the **AndroidManifest.xml** file and insert the following `<receiver>` elem
 12. Add the following using statements to **MyFirebaseMessagingService.cs**.
     
     ```csharp
+        using Android.App;
         using Android.Util;
         using Firebase.Messaging;
     ```
