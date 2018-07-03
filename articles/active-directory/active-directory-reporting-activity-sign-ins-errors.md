@@ -173,7 +173,7 @@ The following section provides you with a complete overview of all possible erro
 |81007|Tenant is not enabled for Seamless SSO|
 |90014| A required field for a protocol message was missing, contact the application owner. If you are the application owner, ensure that you have all the necessary parameters for the login request. 
 |90072| The account needs to be added as an external user in the tenant first. Sign-out and sign-in again with a different Azure AD account.|
-|90094| The grant requires admininistrator permissions. Ask your tenant administrator to provide consent for this application.
+|90094| The grant requires administrator permissions. Ask your tenant administrator to provide consent for this application.
 
 ## Next steps
 
