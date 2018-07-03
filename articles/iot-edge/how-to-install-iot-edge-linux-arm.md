@@ -126,7 +126,8 @@ And, list running modules with:
 ```cmd/sh
 sudo iotedge list
 ```
-
+>[!NOTE
+>On resource constrained devices like RaspberryPi, it is highly recommended that *OptimizeForPerformance* environment variable is set to *false* as per instructions in the [troubleshooting guide.][lnk-trouble]
 ## Next steps
 
 If you are having problems with the Edge runtime installing properly, checkout the [troubleshooting][lnk-trouble] page.
@@ -134,6 +135,7 @@ If you are having problems with the Edge runtime installing properly, checkout t
 <!-- Links -->
 [lnk-dcs]: how-to-register-device-portal.md
 [lnk-dps]: how-to-auto-provision-simulated-device-linux.md
+[lnk-trouble]: troubleshoot.md#stability-issues-on-resource-constrained-devices
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md

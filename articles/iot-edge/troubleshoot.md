@@ -231,8 +231,8 @@ When you see this error, you can resolve it by configuring the DNS name of your 
       notepad C:\ProgramData\iotedge\config.yaml
       ```
 
-## Stability issues on constrained devices like Raspberry Pi, especially when used as a gateway
-Symptoms may include out of memory exceptions in the edge hub module, downstream devices cannot connect the Edge gateway or the device stops sending telemetry message after a few hours.
+## Stability issues on resource constrained devices 
+You may encounter stability problems on constrained devices like the Raspberry Pi, especially when used as a gateway. Symptoms include out of memory exceptions in the edge hub module, downstream devices cannot connect or the device stops sending telemetry message after a few hours.
 
 ### Root cause
 The edge hub, which is part of the edge runtime, is optimized for performance by default and attempts to allocate large chunks of memory. This is not ideal for constrained edge devices and can cause stability problems.
