@@ -195,7 +195,6 @@
     - name: PaaS web application
       href: ./blueprints/fedramp-paaswa-overview.md
   - name: PCI DSS
-    href: ./blueprints/payment-processing-blueprint.md
     items:
     - name: Data analytics
       href: ./blueprints/pcidss-analytics-overview.md
