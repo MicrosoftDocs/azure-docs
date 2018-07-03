@@ -186,12 +186,6 @@
 ### [Getting started](manage-apps/plan-an-application-integration.md)
 ### [SaaS app integration tutorials](saas-apps/tutorial-list.md)
 
-
-### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
-#### [Create snapshot reports](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
-#### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-
 ### [User provisioning and deprovisioning to SaaS apps](active-directory-saas-app-provisioning.md) 
 #### [App integration tutorials](saas-apps/tutorial-list.md) 
 #### [Automate provisioning to SCIM-enabled apps](manage-apps/use-scim-to-provision-users-and-groups.md) 
@@ -386,6 +380,7 @@
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## Delegate access to resources
+### [View members of an admin role](directory-manage-roles-portal.md)
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](fundamentals/users-default-permissions.md)

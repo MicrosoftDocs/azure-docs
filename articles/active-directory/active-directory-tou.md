@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.component: compliance-reports
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: rolyon
 
 ---
@@ -44,7 +44,7 @@ To use and configure Azure AD Terms of use, you must have:
 
 ## Terms of use document
 
-Azure AD Terms of use uses the PDF format to present content. The PDF file can be any content, such as existing contract documents, allowing you to collect end-user agreements during user sign-in. The recommended font size in the PDF is 24.
+Azure AD Terms of use uses the PDF format to present content. The PDF file can be any content, such as existing contract documents, allowing you to collect end-user agreements during user sign in. The recommended font size in the PDF is 24.
 
 ## Add Terms of use
 Once you have finalized your Terms of use document, use the following procedure to add it.
@@ -94,7 +94,7 @@ The Terms of use blade shows a count of the users who have accepted and declined
     ![Audit Event](media/active-directory-tou/accepted-tou.png)
 
 ## View audit logs
-If you want to view additional activity, Azure AD Terms of use includes audit logs. Each user consent triggers an event in the audit logs that are stored for 30 days. You can view these logs in the portal or download as a .csv file.
+If you want to view additional activity, Azure AD Terms of use includes audit logs. Each user consent triggers an event in the audit logs that is stored for 30 days. You can view these logs in the portal or download as a .csv file.
 
 To get started with audit logs, use the following procedure:
 
@@ -111,7 +111,7 @@ To get started with audit logs, use the following procedure:
 1. You can also click **Download** to download the information in a .csv file for use locally.
 
 ## What Terms of use looks like for users
-Once a Terms of use is created and enforced, users, who are in scope, will see the following screen during sign-in.
+Once a Terms of use is created and enforced, users, who are in scope, will see the following screen during sign in.
 
 ![Audit Event](media/active-directory-tou/user-tou.png)
 
@@ -122,7 +122,7 @@ The following screen shows how Terms of use looks on mobile devices.
 ### How users can review their Terms of use
 Users can review and see the Terms of use that they have accepted by using the following procedure.
 
-1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 1. In the upper right corner, click your name and select **Profile** from the drop-down.
 
@@ -153,7 +153,7 @@ You can delete old Terms of use using the following procedure.
 By default, a deleted user is in a deleted state in Azure AD for 30 days, during which time they can be restored by an administrator if necessary.  After 30 days, that user is permanently deleted.  In addition, using the Azure Active Directory portal, a Global administrator can explicitly [permanently delete a recently deleted user](fundamentals/active-directory-users-restore.md) before that time period is reached.  One a user has been permanently deleted, subsequent data about that user will be removed from the active Terms of use.  Audit information about deleted users remains in the audit log.
 
 ## Policy changes
-Conditional access policies take effect immediately. When this happens the administrator will start to see “sad clouds” or "Azure AD token issues". The administrator must sign-out and sign-in again in order to satisfy the new policy.
+Conditional access policies take effect immediately. When this happens, the administrator will start to see “sad clouds” or "Azure AD token issues". The administrator must sign out and sign in again in order to satisfy the new policy.
 
 >[!IMPORTANT]
 > Users in scope will need to sign-out and sign-in in order to satisfy a new policy if:
@@ -163,10 +163,10 @@ Conditional access policies take effect immediately. When this happens the admin
 ## Frequently asked questions
 
 **Q: How do I see when/if a user has accepted a Terms of use?**</br>
-A: You can click the number under accepted next to your Terms of use.  For more information, see [View who has accepted and declined](#view-who-has-accepted-and-declined).  Also, a user accepting the Terms of use is written to the audit log. You can search the Azure AD audit log to see the results.  
+A: On the Terms of use blade, click the number under **Accepted**. You can also view or search the accept activity in the audit logs. For more information, see [View who has accepted and declined](#view-who-has-accepted-and-declined) and [View audit logs](#view-audit-logs).
 
-**Q: If you change the Terms of use terms does it require users to accept again?**</br>
-A: Yes, an administrator can change the Terms of use terms and it requires reaccepting the new terms.
+**Q: If you change the Terms of use terms, does it require users to accept again?**</br>
+A: Yes, an administrator can change the Terms of use terms and it requires users to reaccept the new terms.
 
 **Q: Can a Terms of use support multiple languages?**</br>
 A: Yes.  Currently there are 18 different languages an administrator can configure for a single Terms of use. 
@@ -175,13 +175,16 @@ A: Yes.  Currently there are 18 different languages an administrator can configu
 A: The Terms of use is triggered during the sign-in experience.
 
 **Q: What applications can I target a Terms of use to?**</br>
-A: You can create a conditional access policy on the enterprise applications using modern authentication.  For more information, see [enterprise applications](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
+A: You can create a conditional access policy on the enterprise applications using modern authentication.  For more information, see [enterprise applications](./manage-apps/view-applications-portal.md).
 
 **Q: Can I add multiple Terms of use to a given user or app?**</br>
 A: Yes, by creating multiple conditional access policies targeting those groups or applications. If a user falls in scope of multiple Terms of use, they agree to one Terms of use at a time.
  
 **Q: What happens if a user declines the Terms of use?**</br>
-A: The user is blocked from getting access to the application. The user would have to sign-in again and agree to the terms in order to get access.
+A: The user is blocked from getting access to the application. The user would have to sign in again and agree to the terms in order to get access.
+ 
+**Q: Is it possible to unaccept Terms of use that were previously accepted?**</br>
+A: You can [review previously accepted Terms of use](#how-users-can-review-their-terms-of-use), but currently there isn't a way to unaccept.
  
 **Q: How long is information stored?**</br>
 A: The user counts and who accepted/declined are stored for the life of the Terms of use. The audit logs are stored for 30 days.

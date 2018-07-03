@@ -260,5 +260,7 @@ As before, make sure the `FetchTokenUri` value matches your subscription region.
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to customize a speech model](how-to-customize-speech-models.md)
+- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Customize acoustic models](how-to-customize-acoustic-models.md)
+- [Customize language models](how-to-customize-language-model.md)
+

@@ -14,7 +14,7 @@ ms.author: v-geberr
 
 --- 
 
-# Tutorial: Create app that returns sentiment along with intent prediction
+# Tutorial: 8.  Add sentiment analysis
 In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances.
 
 <!-- green checkmark -->
@@ -25,10 +25,10 @@ In this tutorial, create an app that demonstrates how to extract positive, negat
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response 
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
 ## Before you begin
-If you don't have the Human Resources app from the [keyPhrase entities](luis-quickstart-intent-and-key-phrase.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [prebuilt keyPhrase entity](luis-quickstart-intent-and-key-phrase.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `sentiment`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
@@ -210,13 +210,10 @@ Your chatbot now has enough information to determine the next step in the conver
 LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the sentiment data from the utterance to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS app. Select **My apps** from the top left menu. Select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
 > [!div class="nextstepaction"] 
 > [Call LUIS endpoint API with C#](luis-get-started-cs-get-intent.md) 
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

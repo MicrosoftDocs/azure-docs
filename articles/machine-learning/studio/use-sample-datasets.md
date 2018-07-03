@@ -147,7 +147,7 @@ Labels from the KDD Cup 2009 customer relationship prediction challenge (<a href
 <tr>
   <td>CRM Dataset Shared</td>
   <td>
-This data comes from the KDD Cup 2009 customer relationship prediction challenge (<a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange_small_train.data.zip">orange_small_train.data.zip</a>).
+This data comes from the KDD Cup 2009 customer relationship prediction challenge (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train.data.zip</a>).
 <p></p>
 The dataset contains 50K customers from the French Telecom company Orange. Each customer has 230 anonymized features, 190 of which are numeric and 40 are categorical. The features are very sparse.
   </td>
@@ -408,7 +408,7 @@ Topic assignments for news articles in the RCV1-V2 Reuters news dataset. A news 
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-This data comes from the KDD Cup 2010 Student performance evaluation challenge (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). The data used is the Algebra_2008_2009 training set (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Challenge dataset from KDD Cup 2010 Educational Data Mining Challenge. Find it at <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
+This data comes from the KDD Cup 2010 Student performance evaluation challenge (<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). The data used is the Algebra_2008_2009 training set (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Challenge dataset from KDD Cup 2010 Educational Data Mining Challenge. Find it at <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 The dataset was downloaded and stored in Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) and contains log files from a student tutoring system. The supplied features include problem ID and its brief description, student ID, timestamp, and how many attempts the student made before solving the problem in the right way. The original dataset has 8.9M records; this dataset has been down-sampled to the first 100K rows. The dataset has 23 tab-separated columns of various types: numeric, categorical, and timestamp.
   </td>
