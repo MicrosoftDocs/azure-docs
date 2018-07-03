@@ -3,7 +3,7 @@ title: Automatic OS upgrades with Azure virtual machine scale sets | Microsoft D
 description: Learn how to automatically upgrade the OS on VM instances in an scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: yeki
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
-ms.author: negat
+ms.date: 07/03/2018
+ms.author: yeki
 
 ---
 # Azure virtual machine scale set automatic OS upgrades
