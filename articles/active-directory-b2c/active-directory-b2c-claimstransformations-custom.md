@@ -66,9 +66,9 @@ The table below and subsequent section outline a list of Claims Trasnformation M
 | [AddItemToStringCollection](#AddItemToStringCollection) | Claims |  Adds a single value claim to a collection based claim. |
 | [GetSingleItemFromStringCollection](#GetSingleItemFromStringCollection) | Claims | Gets a single claim from a Collection based claim.  |
 | [AssertBooleanClaimIsEqualToValue](#AssertBooleanClaimIsEqualToValue)  | Assert | Compare two claims, and throws an exception if they are not equal according to the specified comparison  |
-| [CreateRandomString](#CreateRandomString) | Claims | Creates a random GUID or integer and returns it to a String Claim. |
-| [FormatStringClaim](#FormatStringClaim) | Claims | Format a given claim according to the provided format string. |
-| [CreateStringClaim](#CreateStringClaim) | Claims | Creates a string claim from a specified string value. |
+| [CreateRandomString](#createrandomstring) | Claims | Creates a random GUID or integer and returns it to a String Claim. |
+| [FormatStringClaim](#formatstringclaim) | Claims | Format a given claim according to the provided format string. |
+| [CreateStringClaim](#createstringclaim) | Claims | Creates a string claim from a specified string value. |
 | [CreateAlternativeSecurityId](#CreateAlternativeSecurityId) | Claims |Creates a JSON representation of the user’s alternativeSecurityId property that can be used in calls to Graph API  |
 | [FormatStringMultipleClaims](#FormatStringMultipleClaims) | Claims | Used to combine two claims according to the provided format string. |
 | [AssertStringClaimsAreEqual](#AssertStringClaimsAreEqual) | Assert | Compares two claims according to the specifieds comparison paramaater and throws an error if they are not the same  |
