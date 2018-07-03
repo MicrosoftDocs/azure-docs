@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: role-based-access-control
 ms.devlang:
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 06/28/2018
