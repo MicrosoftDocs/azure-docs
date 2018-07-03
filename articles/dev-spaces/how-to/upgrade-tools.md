@@ -1,12 +1,12 @@
 ---
-title: "How to manage secrets when working with an Azure Dev Space | Microsoft Docs"
+title: "How to upgrade Azure Dev Spaces tools | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: "ghogen"
 ms.author: "ghogen"
-ms.date: "05/11/2018"
+ms.date: "07/03/2018"
 ms.topic: "article"
 ms.technology: "azds-kubernetes"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
@@ -29,7 +29,7 @@ You don't need to uninstall the previous version, just find the appropriate down
 Run the following command:
 
 ```cmd
-az aks use-dev-spaces --update -n <AKS-cluster-name> -g <resource-group>
+az extension update --name=dev-spaces-preview
 ```
 
 ## Update azds command line tools
@@ -37,8 +37,8 @@ az aks use-dev-spaces --update -n <AKS-cluster-name> -g <resource-group>
 In the browser, navigate to:
 
 - On Windows, http://aka.ms/get-azds-windows
-- On the Mac, http://aka.ms/get-azds-mac
-- On Linux, http://aka.ms/get-azds-linux
+- On the Mac, `curl -L https://aka.ms/get-azds-mac`
+- On Linux, `curl -L https://aka.ms/get-azds-linux`
 
 ## Update the VS Code extension
 
@@ -56,6 +56,13 @@ Install the new Azure Dev Spaces extension.
 
 ## Update the Visual Studio extension
 
-Uninstall the old version of the Azure Dev Spaces extension. In Visual Studio, navigate to **Tools > Extensions and Updates**. Look for **Visual Studio Tools for Kubernetes**, and uninstall it.
+1. Uninstall the old version of the Azure Dev Spaces extension. In Visual Studio, navigate to **Tools > Extensions and Updates**. Look for **Visual Studio Tools for Kubernetes**, and uninstall it.
 
-Install the new Azure Dev Spaces extension. In the **Extensions and Updates** dialog box, choose Online to search for online extensions, and search for **Visual Studio Tools for Kubernetes**.
+1. Install the new Azure Dev Spaces extension. In the **Extensions and Updates** dialog box, choose Online to search for online extensions, and search for **Visual Studio Tools for Kubernetes**.
+
+## Next steps
+
+Test out the new tools by creating a new cluster. If you've used Azure Dev Spaces on previous clusters, you won't necessarily be using the most recent bits as clusters will not be immediately patched. Try the quickstarts and tutorials at [Azure Dev Spaces](/azure/dev-spaces).
+
+> [!WARNING]
+> Azure Dev Spaces on existing clusters will not be immediately patched, so to be sure you are using the most recent version on all your Azure deployments, create a new cluster.
