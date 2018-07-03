@@ -365,10 +365,10 @@
       href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
   - name: Java
     items:
-    - name: Blobs, Queues, Tables, and Files
-      href: https://docs.microsoft.com/java/api/overview/azure/storage/client
-    - name: Resource Manager
-      href: https://docs.microsoft.com/java/api/overview/azure/storage/management
+    - name: Blobs, Queues, Tables, and Files (v7)
+      href: https://docs.microsoft.com/java/api/storage/client?view=azure-java-stable
+    - name: Blob SDK (v10)
+      href: https://docs.microsoft.com/java/api/storage/client?view=azure-java-preview
   - name: Node.js
     href: https://docs.microsoft.com/javascript/api/overview/azure/storage
   - name: Ruby

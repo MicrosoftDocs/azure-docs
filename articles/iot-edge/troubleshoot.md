@@ -232,4 +232,4 @@ When you see this error, you can resolve it by configuring the DNS name of your 
       ```
 
 ## Next steps
-Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iot-edge/issues) so that we can continue to improve. 
+Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve. 
