@@ -83,8 +83,8 @@
 ## [Manage groups and members](fundamentals/active-directory-manage-groups.md)
 ### Manage groups
 #### [Azure portal](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure AD PowerShell for Graph (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [Manage group members](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [Manage group owners](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Manage group membership](fundamentals/active-directory-groups-membership-azure-portal.md)
@@ -99,13 +99,13 @@
 ### [Set up Office 365 groups expiration](active-directory-groups-lifecycle-azure-portal.md)
 ### [Enforce a naming policy for groups](groups-naming-policy.md)
 ### [View all groups](fundamentals/active-directory-groups-view-azure-portal.md)
-### [Add group access to SaaS apps](active-directory-accessmanagement-group-saasapps.md)
+### [Add group access to SaaS apps](users-groups-roles/groups-saasapps.md)
 ### [Restore a deleted Office 365 group](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Manage group settings](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Create advanced rules
 #### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
-### [Set up self-service groups](active-directory-accessmanagement-self-service-group-management.md)
-### [Troubleshoot](active-directory-accessmanagement-troubleshooting.md)
+### [Set up self-service groups](users-groups-roles/groups-self-service-management.md)
+### [Troubleshoot](users-groups-roles/groups-troubleshooting.md)
 
 ## [Manage reports](active-directory-reporting-azure-portal.md)
 ### [Sign-ins activity](active-directory-reporting-activity-sign-ins.md)
@@ -363,7 +363,7 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Custom domain names
 #### [Quickstart](fundamentals/add-custom-domain.md)
-#### [Add custom domain names](active-directory-domains-manage-azure-portal.md)
+#### [Add custom domain names](users-groups-roles/domains-manage.md)
 ### [Administer your directory](fundamentals/active-directory-administer.md)
 ### [Delete a directory](directory-delete-howto.md)
 ### [Multiple directories](active-directory-licensing-directory-independence.md)
@@ -381,12 +381,12 @@
 
 ## Delegate access to resources
 ### [View members of an admin role](directory-manage-roles-portal.md)
-### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
+### [Administrator roles](users-groups-roles/directory-assign-admin-roles.md)
 #### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](fundamentals/users-default-permissions.md)
 ### [Harden administrator role security](admin-roles-best-practices.md)  
-#### [Create emergency access administrator accounts](active-directory-admin-manage-emergency-access-accounts.md)
-### [Administrative units](active-directory-administrative-units-management.md)
+#### [Create emergency access administrator accounts](users-groups-roles/directory-emergency-access.md)
+### [Administrative units](users-groups-roles/directory-administrative-units.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
 ## Access reviews
