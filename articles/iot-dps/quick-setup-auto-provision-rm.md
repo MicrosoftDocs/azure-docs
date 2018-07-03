@@ -3,7 +3,7 @@ title: Set up Device Provisioning using an Azure Resource Manager template | Mic
 description: Azure Quickstart - Set up the Azure IoT Hub Device Provisioning Service using a template
 author: bryanla
 ms.author: bryanla
-ms.date: 02/26/2018
+ms.date: 06/18/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -148,7 +148,8 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
                 "iotHubs": [
                     {
                         "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                        "location": "[parameters('hubLocation')]"
+                        "location": "[parameters('hubLocation')]",
+                        "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
                     }
                 ]
             },
@@ -216,7 +217,8 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
                    "iotHubs": [
                        {
                            "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                           "location": "[parameters('hubLocation')]"
+                           "location": "[parameters('hubLocation')]",
+                           "name": "[concat(parameters('iotHubName'),'.azure-devices.net')]"
                        }
                    ]
                },

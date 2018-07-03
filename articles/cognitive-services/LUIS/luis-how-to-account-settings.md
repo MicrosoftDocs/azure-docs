@@ -41,7 +41,9 @@ First, the user signs into LUIS, and sees the pop-up dialog needing admin approv
 
 Second, the tenant admin signs into LUIS, and sees a consent flow pop-up dialog. This is the dialog the admin needs to give permission for the user. Once the admin accepts the permission, the user is able to continue with LUIS.
 
-If the tenant admin will not sign in to LUIS, the admin can access [consent](https://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=65920ba3-ab61-4a9b-9b10-505e5ce61b58) for LUIS. 
+If the tenant admin will not sign in to LUIS, the admin can access [consent](https://account.activedirectory.windowsazure.com/r#/applications) for LUIS. 
+
+![Azure active directory permission by app website](./media/luis-how-to-account-settings/tenant-permissions.png)
 
 If the tenant admin only wants certain users to use LUIS, refer to this [identity blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
 
@@ -53,4 +55,4 @@ If you add collaborators to a LUIS app, you are specifying the exact email addre
 
 Learn more about your [authoring key](luis-concept-keys.md#authoring-key). 
 
-[LUIS](luis-reference-regions.md)
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

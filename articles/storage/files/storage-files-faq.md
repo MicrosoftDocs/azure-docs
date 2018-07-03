@@ -87,7 +87,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-region-availability"></a>
 **What regions are supported for Azure File Sync (preview)?**  
-    Currently, Azure File Sync is available in Australia East, Canada Central, East US, Southeast Asia, UK South, West Europe and West US. Support for more regions will be added as we work toward general availability. For more information, see [Region availability](storage-sync-files-planning.md#region-availability).
+    Currently, Azure File Sync is available in Australia East, Australia Southeast, Canada Central, Canada East, Central US, East Asia, East US, East US2, North Europe, Southeast Asia, UK South, UK West, West Europe and West US. Support for more regions will be added as we work toward general availability. For more information, see [Region availability](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **Can I have domain-joined and non-domain-joined servers in the same sync group?**  
@@ -223,7 +223,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="data-compliance-policies"></a>
 **What data compliance policies does Azure Files support?**  
-   Azure Files runs on top of the same storage architecture that's used in other storage services in Azure Storage. Azure Files applies the same data compliance policies that are used in other Azure storage services. For more information about Azure Storage data compliance, you can download and refer to the [Microsoft Azure Data Protection document](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409), and go to the [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
+   Azure Files runs on top of the same storage architecture that's used in other storage services in Azure Storage. Azure Files applies the same data compliance policies that are used in other Azure storage services. For more information about Azure Storage data compliance, you can download and refer to the [Microsoft Azure Data Protection document](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409), and go to the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## On-premises access
 * <a id="expressroute-not-required"></a>

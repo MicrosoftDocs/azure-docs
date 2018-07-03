@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 8db80d6e-3275-419f-aa39-6115a7bc9800
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -221,7 +222,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel. 
-Click the LCVista tile in the Access Panel, you will be redirected to Organization sign on page. After successful login, you will be signed-on to your LCVista application. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
+Click the LCVista tile in the Access Panel, you will be redirected to Organization sign on page. After successful login, you will be signed-on to your LCVista application. For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

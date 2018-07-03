@@ -2,7 +2,7 @@
 title: Create an Azure Time Series Insights environment
 description: Learn how to create a Time Series Insights environment, populated with data from simulated devices.
 services: time-series-insights
-author: BryanLa
+author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018

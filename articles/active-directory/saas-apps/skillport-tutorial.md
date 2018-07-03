@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 4df349b2-a73f-4b88-a077-ec0fbfc26527
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -206,7 +207,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Skillport tile in the Access Panel, you should get automatically signed-on to your Skillport application.
-For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 

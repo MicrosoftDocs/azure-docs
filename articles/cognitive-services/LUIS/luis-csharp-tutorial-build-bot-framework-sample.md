@@ -67,7 +67,7 @@ The bot responds by saying "You have reached Greeting. You said: hello".  This r
 
 ## Connect your LUIS app to the bot
 
-Open **Application Settings** and edit the **LuisAppId** field to contain the application ID of your LUIS app. If you created your HomeAutomation LUIS app in a region other than West US, you need to change the **LuisAPIHostName** as well. The **LuisAPIKey** is currently set to your authoring key. You change this to your subscription key when your traffic exceeds the free tier quota. 
+Open **Application Settings** and edit the **LuisAppId** field to contain the application ID of your LUIS app. If you created your HomeAutomation LUIS app in a region other than West US, you need to change the **LuisAPIHostName** as well. The **LuisAPIKey** is currently set to your authoring key. You change this to your endpoint key when your traffic exceeds the free tier quota. 
 
   ![Update the LUIS app ID in Azure](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 
@@ -75,7 +75,7 @@ Open **Application Settings** and edit the **LuisAppId** field to contain the ap
 > If you don't have the LUIS app ID of the [Home Automation app](luis-get-started-create-app.md), log in to the [LUIS](luis-reference-regions.md) website using the same account you use to log in to Azure. 
 > 1. Click on **My apps**. 
 > 2. Find the LUIS app you previously created, that contains the intents and entities from the HomeAutomation domain.
-> 3. In the **Settings** page for the LUIS app, find and copy the app ID. Make sure it is [trained](interactive-test.md) and [published](PublishApp.md). 
+> 3. In the **Settings** page for the LUIS app, find and copy the app ID. Make sure it is [trained](interactive-test.md) and [published](luis-how-to-publish-app.md). 
 
     > [!WARNING]
     > If you delete your app ID or LUIS key, the bot will stop working.
@@ -157,15 +157,17 @@ Add the LUIS intents and Bot service dialogs for handling **Help**, **Cancel**, 
 > [!div class="nextstepaction"]
 > [Add intents](./luis-how-to-add-intents.md)
 > [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
+
+
 <!-- Links -->
-[Github-BotFramework-Emulator-Download](https://aka.ms/bot-framework-emulator)
-[Github-LUIS-Samples](https://github.com/Microsoft/LUIS-Samples)
-[Github-LUIS-Samples-cs-hotel-bot](https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/csharp)
-[Github-LUIS-Samples-cs-hotel-bot-readme](https://github.com/Microsoft/LUIS-Samples/blob/master/bot-integration-samples/hotel-finder/csharp/README.md)
-[BFPortal](https://dev.botframework.com/)
-[RegisterInstructions](https://docs.microsoft.com/bot-framework/portal-register-bot)
-[BotFramework](https://docs.microsoft.com/bot-framework/)
-[AssignedEndpointDoc](https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys)
-[VisualStudio](https://www.visualstudio.com/)
-[LUIS](luis-reference-regions.md)
+[Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
+[Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
+[Github-LUIS-Samples-cs-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/csharp
+[Github-LUIS-Samples-cs-hotel-bot-readme]: https://github.com/Microsoft/LUIS-Samples/blob/master/bot-integration-samples/hotel-finder/csharp/README.md
+[BFPortal]: https://dev.botframework.com/
+[RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
+[BotFramework]: https://docs.microsoft.com/bot-framework/
+[AssignedEndpointDoc]: https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-manage-keys
+[VisualStudio]: https://www.visualstudio.com/
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 <!-- tested on Win10 -->

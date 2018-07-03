@@ -57,7 +57,7 @@ The following sections show how to assign a role scoped to the storage account o
 
 To assign a built-in role granting access to all containers or queues in the storage account in the Azure portal:
 
-1. In the [Azure portal](https://azure.portal.com/), navigate to your storage account.
+1. In the [Azure portal](https://portal.azure.com), navigate to your storage account.
 2. Select your storage account, then select **Access Control (IAM)** to display access control settings for the account. Click the **Add** button to add a new role.
 
     ![Screen shot showing storage access control settings](media/storage-auth-aad-rbac/portal-access-control.png)
@@ -74,7 +74,7 @@ To assign a built-in role granting access to all containers or queues in the sto
 
 The steps for assigning a built-in role scoped to a container or to a queue are similar. The procedure shown here assigns a role scoped to a container, but you can follow the same steps to assign a role scoped to a queue: 
 
-1. In the [Azure portal](https://azure.portal.com/), navigate to your storage account and display the **Overview** for the account.
+1. In the [Azure portal](https://portal.azure.com), navigate to your storage account and display the **Overview** for the account.
 2. Under Blob Service, select **Browse Blobs**. 
 3. Locate the container for which you want to assign a role, and display the container's settings. 
 4. Select **Access Control (IAM)** to display access control settings for the container.

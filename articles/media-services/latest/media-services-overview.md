@@ -68,15 +68,19 @@ For more information about Azure Resource Manager naming, see: [Naming requireme
 
 ## How can I get started with v3?
 
-As a developer, you can use Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows. Microsoft generates and supports the following client libraries: 
+As a developer, you can use Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows. You can find REST Postman example [here](https://github.com/Azure-Samples/media-services-v3-rest-postman). You can also use [Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates).
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [.NET languages](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)
-* [.NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (Choose the **.NET CLI** tab)
-* [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)
-* [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)
-* [Python](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)
-* [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)
+Microsoft generates and supports the following client libraries: 
+
+|Client library|Samples|
+|---|---|
+|[Azure CLI SDK](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)|[Azure CLI samples](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
+|[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[.NET samples](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
+|[.NET Core SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (Choose the **.NET CLI** tab)|[.NET Core samples](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
+|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/mediaservices)||
+|[Node.js SDK](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Node.js samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
+|[Python SDK](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)||
+|[Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)||
 
 Media Services provides [Swagger files](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) that you can use to generate SDKs for your preferred language/technology.  
 

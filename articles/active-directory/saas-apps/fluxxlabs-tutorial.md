@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/20/2018
 ms.author: jeedes
 
 ---
@@ -63,7 +63,7 @@ To configure the integration of Fluxx Labs into Azure AD, you need to add Fluxx 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
@@ -99,7 +99,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Single sign-on dialog box](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_samlbase.png)
 
 3. On the **Fluxx Labs Domain and URLs** section, perform the following steps:
@@ -119,8 +119,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	|-------------|------------|
 	| Production | `https://<subdomain>.fluxx.io/auth/saml/callback` |
 	| Pre production | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-		
-	> [!NOTE] 
+
+	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Fluxx Labs support team](mailto:travis@fluxxlabs.com) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/fluxxlabs-tutorial/tutorial_general_400.png)
 
-6. On the **Fluxx Labs Configuration** section, click **Configure Fluxx Labs** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. On the **Fluxx Labs Configuration** section, click **Configure Fluxx Labs** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_configure.png)
 
@@ -144,9 +144,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 9. In the Admin Panel, Select **Plug-ins** > **Integrations** and then select **SAML SSO-(Disabled)**
 
 	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config2.png)
-	
+
 10. In the attribute section, perform the following steps:
-	
+
 	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config3.png)
 
 	a. Select the **SAML SSO** checkbox.
@@ -155,15 +155,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. In the **Callback Path** textbox, type **/auth/saml/callback**.
 
-	d. In the **Assertion Consumer Service Url(Single Sign-On URL)** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from the Azure portal.
+	d. In the **Assertion Consumer Service Url(Single Sign-On URL)** textbox, enter the **Reply URL** value, which you have entered in the Azure portal.
 
-	e. In the **Audience(SP Entity ID)** textbox, paste the value of **SAML Entity ID**, which you have copied from the Azure portal.
+	e. In the **Audience(SP Entity ID)** textbox, enter the **Identifier** value, which you have entered in the Azure portal.
 
-	f. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity Provider Certificate** textbox.
+	f. In the **Identity Provider SSO Target URL** textbox, paste the **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal.
 
-	g. In **Name identifier Format** textbox, enter the value `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+	g. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity Provider Certificate** textbox.
 
-	h. Click **Save**.
+	h. In **Name identifier Format** textbox, enter the value `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+
+	i. Click **Save**.
 
 	> [!NOTE]
 	> Once the content saved, the field will appear blank for security, but the value has been saved in the configuration.
@@ -217,7 +219,7 @@ To enable Azure AD users to log in to Fluxx Labs, they must be provisioned into 
     ![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config4.png)
 
 4. On the **NEW PEOPLE** section, perform the following steps:
-	
+
 	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config5.png)
 
 	a. Fluxx Labs use email as the unique identifier for SSO logins. Populate the **SSO UID** field with the user’s email address, that matches the email address, which they are using as login with SSO.
@@ -228,7 +230,7 @@ To enable Azure AD users to log in to Fluxx Labs, they must be provisioned into 
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Fluxx Labs.
 
-![Assign the user role][200] 
+![Assign the user role][200]
 
 **To assign Britta Simon to Fluxx Labs, perform the following steps:**
 
@@ -253,7 +255,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.

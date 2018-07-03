@@ -3,10 +3,12 @@ title: Scale discovery and assessment by using Azure Migrate | Microsoft Docs
 description: Describes how to assess large numbers of on-premises machines by using the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.topic: article
-ms.date: 06/04/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: raynew
 ---
+
+
 
 # Discover and assess a large VMware environment
 

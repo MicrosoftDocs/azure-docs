@@ -41,4 +41,4 @@ For the purposes of data retention and deletion, an inactive LUIS app may at _Mi
 > [!div class="nextstepaction"]
 > [Learn about exporting and deleting an app](create-new-app.md)
 
-[LUIS](luis-reference-regions.md)
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

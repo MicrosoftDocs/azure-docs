@@ -1,9 +1,9 @@
-﻿---
+---
 title: Automated script to create Service Manager Web app to connect with IT Service Management Connector in Azure | Microsoft Docs
 description: Create a Service Manager Web app using an automated script to connect with IT Service Management Connector in Azure, and centrally monitor and manage the ITSM work items.  
 services: log-analytics
 documentationcenter: ''
-author: JYOTHIRMAISURI
+author: jyothirmaisuri 
 manager: riyazp
 editor: ''
 ms.assetid: 879e819f-d880-41c8-9775-a30907e42059
@@ -11,10 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
-
+ms.component: na
 ---
 
 # Create Service Manager Web app using the automated script

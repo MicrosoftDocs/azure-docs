@@ -85,7 +85,7 @@ When your provider's access token expires, you need to reauthenticate the user. 
 
 - **Google**: Append an `access_type=offline` query string parameter to your `/.auth/login/google` API call. If using the Mobile Apps SDK, you can add the parameter to one of the `LogicAsync` overloads (see [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Doesn't provide refresh tokens. Long-lived tokens expire in 60 days (see [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/docs/basics/authentication/guides/oauth-faq)).
+- **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
 - **Microsoft Account**: When [configuring Microsoft Account Authentication Settings](app-service-mobile-how-to-configure-microsoft-authentication.md), select the `wl.offline_access` scope.
 - **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
     1. At the top of the page, select **Read/Write**.
