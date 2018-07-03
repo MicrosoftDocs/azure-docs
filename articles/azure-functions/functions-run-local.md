@@ -117,7 +117,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 ## Create a local Functions project
 
-A functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file), along subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
+A functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file), along with subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
 Version 2.x requires you to select a default language for your project when it is initialized, and all functions added use default language templates. In version 1.x, you specify the language each time you create a function.
 
@@ -133,6 +133,7 @@ In version 2.x, when you run the command you must choose a runtime for your proj
 Select a worker runtime:
 dotnet
 node
+java
 ```
 
 Use the up/down arrow keys to choose a language, then press Enter. The output looks like the following example for a JavaScript project:
@@ -147,6 +148,9 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 To create the project without a local Git repository, use the `--no-source-control [-n]` option.
+
+> [!IMPORTANT]
+> By default, version 2.x of the Core Tools creates function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with [Visual Studio 2017](functions-develop-vs.md), are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you call `func init` and with subsequent commands.
 
 ## Register extensions
 
