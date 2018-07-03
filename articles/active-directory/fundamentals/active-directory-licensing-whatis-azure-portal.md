@@ -56,7 +56,7 @@ If you have feedback or feature requests, please share them with us using [the A
 
 To learn more about other scenarios for license management through group-based licensing, see:
 
-* [Assigning licenses to a group in Azure Active Directory](../active-directory-licensing-group-assignment-azure-portal.md)
-* [Identifying and resolving license problems for a group in Azure Active Directory](../active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](../active-directory-licensing-group-migration-azure-portal.md)
-* [Azure Active Directory group-based licensing additional scenarios](../active-directory-licensing-group-advanced.md)
+* [Assigning licenses to a group in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+* [Identifying and resolving license problems for a group in Azure Active Directory](../users-groups-roles/licensing-groups-resolve-problems.md)
+* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](../users-groups-roles/licensing-groups-migrate-users.md)
+* [Azure Active Directory group-based licensing additional scenarios](../users-groups-roles/licensing-group-advanced.md)
