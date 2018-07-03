@@ -44,4 +44,4 @@ Select **Create** to begin the creation process.  It can take a few moments to c
 
    ![create workspace](./media/aml-create-in-portal/notifications.png)
 
-   When finished, a deployment success message appears.  It is also present in the notifications section.   Click on the **Go to resource** button to view the new workspace. You will use some of the values at the top of this page later in this quickstart.
+   When finished, a deployment success message appears.  It is also present in the notifications section.   Click on the **Go to resource** button to view the new workspace.
