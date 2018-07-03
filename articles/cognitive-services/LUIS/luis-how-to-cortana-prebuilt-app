@@ -7,7 +7,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 07/03/2018
 ms.author: v-geberr
 ---
 
@@ -38,23 +38,33 @@ You can access the Cortana prebuilt app using the following endpoints:
 |    Italian| https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/30a0fddc-36f4-4488-b022-03de084c1633|
 
 
-> [!NOTE]
-> The endpoint URLs are also available from the [apps - Get personal assistant applications](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c32) API.
+The endpoint URLs are also available from the [apps - Get personal assistant applications](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c32) API.
 
 ## Try out the personal assistant app
-To call the endpoint, you can append your endpoint key argument and query string to the endpoint. 
-
 For example, if the utterance you want to interpret is "create an appointment for team meeting", then you can append that utterance to the endpoint URL. 
 
 ```
-https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/c413b2ef-382c-45bd-8ff0-f76d60e2a821?subscription-key={YOUR-SUBSCRIPTION-KEY}&q=create an appointment for team meeting
+https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/c413b2ef-382c-45bd-8ff0-f76d60e2a821?subscription-key=YOUR-SUBSCRIPTION-KEY&q=create%20an%20appointment%20for%20team%20meeting
 ```
 
-You can paste the URL into a web browser, and substitute your endpoint key for the `{YOUR-SUBSCRIPTION-KEY}` field.
+You can paste the URL into a web browser, and substitute your endpoint key for the `YOUR-SUBSCRIPTION-KEY` field.
 
 In the browser you can see that the Cortana prebuilt app identifies `builtin.intent.calendar.create_calendar_entry` as the intent, and `builtin.calendar.title` as the entity type, and for the utterance `create an appointment for team meeting`.
 
-![Use Cortana prebuilt app](./media/luis-how-to-prebuilt-cortana/luis-prebuilt-cortana-browser.png)
+```JSON
+{
+  "query": "create an appointment for team meeting",
+  "topScoringIntent": {
+    "intent": "builtin.intent.calendar.create_calendar_entry"
+  },
+  "entities": [
+    {
+      "entity": "team meeting",
+      "type": "builtin.calendar.title"
+    }
+  ]
+}
+```
 
 ## Next steps
 > [!div class="nextstepaction"]
