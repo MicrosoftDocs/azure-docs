@@ -3,7 +3,7 @@ title: Understand Azure reserved instances discount | Microsoft Docs
 description: Learn how Azure Reserved VM Instance discount is applied to running virtual machines. 
 services: 'billing'
 documentationcenter: ''
-author: manshuk
+author: manish-shukla01
 manager: manshuk
 editor: ''
 
