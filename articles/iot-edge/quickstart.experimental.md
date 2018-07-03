@@ -31,7 +31,7 @@ In this quickstart you learn how to:
 The module that you deploy in this quickstart is a simulated sensor that generates temperature, humidity, and pressure data. The other Azure IoT Edge tutorials build upon the work you do here by deploying modules that analyze the simulated data for business insights. 
 
 >[!NOTE]
->The IoT Edge runtime on Windows is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>The IoT Edge runtime on Windows is in now [generally available](https://azure.microsoft.com/en-us/blog/azure-iot-edge-generally-available-for-enterprise-grade-scaled-deployments/).
 
 If you don't have an active Azure subscription, create a [free account][lnk-account] before you begin.
 
