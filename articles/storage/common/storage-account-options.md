@@ -261,9 +261,9 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 
 ## Migrating existing data
 
-A GPv1 account can be easily upgraded to GPv2 with no downtime or API changes, and without the need to migrate data. For this reason, it's strongly recommended that you migrate GPv1 accounts to GPv2 accounts, instead of to Blob storage accounts.
+A GPv1 or Blob storage account can be easily upgraded to GPv2 with no downtime or API changes, and without the need to migrate data. For this reason, it's strongly recommended that you migrate GPv1 accounts to GPv2 accounts, instead of to Blob storage accounts. For more information on upgrading to GPv2, see [upgrade-a-storage-account-to-gpv2](#upgrade-a-storage-account-to-gpv2).
 
-However, if you need to migrate to a Blob storage account and are unable to use GPv2 accounts, you can use the following instructions. 
+However, if you need to migrate from GPv1 to a Blob storage account and are unable to use GPv2 accounts, you can use the following instructions. 
 
 A Blob storage account is specialized for storing only block and append blobs. Existing general-purpose storage
 accounts, which allow you to store tables, queues, files, and disks, as well as blobs, cannot be converted to Blob storage accounts. To use the storage tiers, you need to create new Blob storage accounts and migrate your existing data into the newly created accounts. 
