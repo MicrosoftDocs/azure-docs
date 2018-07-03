@@ -60,7 +60,7 @@
     href: event-hubs-dotnet-framework-getstarted-send.md
   - name: Receive events using .NET Framework
     href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-  - name: Apache Kafka integration
+  - name: Event Hubs for Kafka
     items:
       - name: Event Hubs for Kafka ecosystems overview
         href: event-hubs-for-kafka-ecosystem-overview.md
