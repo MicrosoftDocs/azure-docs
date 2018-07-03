@@ -1,5 +1,5 @@
 ---
-title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight Domain Joined Clusters | Microsoft Docs
+title: Hadoop Oozie workflows in HDInsight Domain Joined Clusters
 description: Use Hadoop Oozie in Linux-based HDInsight Domain Joined Enterprise Security Package. Learn how to define an Oozie workflow and submit an Oozie job.
 services: hdinsight
 author: omidm1
@@ -30,13 +30,13 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
     > [!NOTE]
     > To see detailed instructions for using Oozie on non-domain joined clusters see [this](../hdinsight-use-oozie-linux-mac.md)
 
-##Connecting to domain joined cluster:
+##Connecting to domain joined cluster
 For more info on SSH see [Authentication: Domain-joined HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 - Connect to the HDInsight cluster using SSH:
      ```bash
 	ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
     ```
-To verify if Kerberos authentication was successful use `klist` command. If not, use `kinit` to initiate Kerberos authentication.
+To verify if Kerberos authentication was successful, use `klist` command. If not, use `kinit` to initiate Kerberos authentication.
 
 - Log in to HDInsight gateway to register the oAuth token required for accessing Azure Data Lake Store (ADLS)
      ```bash
@@ -45,7 +45,7 @@ To verify if Kerberos authentication was successful use `klist` command. If not,
 
     A status response code of _200 OK_ indicates successful registration. Check for the username and password if an unauthorized response is received (401).
 
-## Define the workflow:
+## Define the workflow
 Oozie workflow definitions are written in Hadoop Process Definition Language (hPDL), which is an XML process definition language. Use the following steps to define the workflow:
 
 -	Setting up domain user’s workspace:
@@ -169,7 +169,7 @@ To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
 The workflow is divided into two parts:
 *	Credential Section: The credential section takes in the credentials that will be used for authenticating oozie actions:
 
-    In this example, authentication for Hive actions is used. To learn more see [this]( https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
+    In this example, authentication for Hive actions is used. To learn more, see [this]( https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
 
     The credential service allows oozie actions to impersonate the user for accessing Hadoop services.
 
@@ -188,7 +188,7 @@ The workflow is divided into two parts:
 
     Replace `domainuser` with your username for the domain.
 
-## Define the properties file for the Oozie job:
+## Define the properties file for the Oozie job
 
 1.	Use the following statement to create and edit a new file for job properties:
      ```bash
@@ -197,21 +197,21 @@ The workflow is divided into two parts:
 
 2.	 After the nano editor opens, use the following XML as the contents of the file:
 
-```bash
-    nameNode=adl://home
-    jobTracker=headnodehost:8050
-    queueName=default
-    examplesRoot=examples
-    oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
-    hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
-    hiveScript2=${nameNode}/user/${user.name}/countrowshive1.hql
-    oozie.use.system.libpath=true
-    user.name=[domainuser]
-    jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
-    jdbcURL=[jdbcurlvalue]
-    hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
-    hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
-```
+    ```bash
+        nameNode=adl://home
+        jobTracker=headnodehost:8050
+        queueName=default
+        examplesRoot=examples
+        oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
+        hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
+        hiveScript2=${nameNode}/user/${user.name}/countrowshive1.hql
+        oozie.use.system.libpath=true
+        user.name=[domainuser]
+        jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
+        jdbcURL=[jdbcurlvalue]
+        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
+        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
+    ```
     
 
    * Replace `domainuser` with your username for the domain.
@@ -222,7 +222,7 @@ The workflow is divided into two parts:
 
    * This properties file needs to be present locally when running oozie jobs
 
-## Creating custom hive scripts for the Oozie job:
+## Creating custom hive scripts for the Oozie job
 The 2 hive scripts for hive server 1 and hive server 2 can be created as following:
 -	Hive Server 1 file:
 1.	Use the following statement to create and edit a file for hive server 1 action:
@@ -260,12 +260,12 @@ The 2 hive scripts for hive server 1 and hive server 2 can be created as followi
     hdfs dfs -put countrowshive2.hql countrowshive2.hql
     ```
 
-## Submission of Oozie jobs:
+## Submission of Oozie jobs
 Submitting oozie jobs for domain joined clusters is similar to submitting oozie jobs in non-domain joined clusters.
 
 For more info please see [submit and manage the job](../hdinsight-use-oozie-linux-mac.md).
 
-## Results from Oozie job submission:
+## Results from Oozie job submission
 Since oozie jobs are run on-behalf of the user, both Yarn and Ranger audit logs show the jobs being executed as the impersonated user. The CLI output of the oozie job look like below:
 
 
@@ -302,8 +302,8 @@ Since oozie jobs are run on-behalf of the user, both Yarn and Ranger audit logs 
 
 *    The Ranger audit logs for hive server 2 actions shows oozie executing the action on behalf of the user. The ranger and Yarn view is only visible to the cluster admin.
 
-## Configuration of User Authorization in Oozie:
-Oozie by itself has a User Authorization configuration which can block users from stopping, killing other user’s jobs. This is enabled by setting the "oozie.service.AuthorizationService.security.enabled" to true. 
+## Configuration of User Authorization in Oozie
+Oozie by itself has a User Authorization configuration, which can block users from stopping, killing other user’s jobs. This is enabled by setting the `oozie.service.AuthorizationService.security.enabled` to `true`. 
 
 More details on this can be found in Oozie documentation section- [User Authorization Configuration]( https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html):
 
@@ -315,3 +315,8 @@ The Oozie web UI provides a web-based view into the status of Oozie jobs on the 
 1. Add an [edge node](../hdinsight-apps-use-edge-node.md) and enable [SSH Kerberos authentication](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. Follow the [Oozie web UI](../hdinsight-use-oozie-linux-mac.md) steps to enable SSH tunneling to the edge node and access the web UI.
+
+## Next steps
+* [Use Oozie with Hadoop to define and run a workflow on Linux-based Azure HDInsight](../hdinsight-use-oozie-linux-mac.md)
+* [Use time-based Oozie coordinator](../hdinsight-use-oozie-coordinator-time.md)
+* [Running Hive queries using SSH on Domain-joined HDInsight clusters](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
