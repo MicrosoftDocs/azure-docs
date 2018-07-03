@@ -127,10 +127,10 @@ If the user runs a command that would create a Windows dialog box, such as `Conn
 
 Azure Cloud Shell takes your personal data seriously, the data captured and stored by the Azure Cloud Shell service are used to provide defaults for your experience such as your most recently used shell, preferred font size, preferred font type, and file share details that back cloud drive. Should you wish to export or delete this data, we have included the following instructions.
 
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+
 ### Export
 In order to **export** the user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands.
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 1. Launch Bash in Cloud Shell
 2. Run the following commands:
