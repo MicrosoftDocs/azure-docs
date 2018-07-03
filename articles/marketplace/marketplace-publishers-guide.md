@@ -3,8 +3,8 @@ title: Azure Marketplace and AppSource publisher guide | Azure
 description: Overview of what Azure Marketplace and AppSource are for app and service publishers
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor:
 
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
@@ -20,74 +20,56 @@ ms.author: ellacroi
 
 # Azure Marketplace and AppSource Publisher Guide  
 
-## Overview  
-Welcome to the publisher guide for the storefronts on the marketplace.
-*  AppSource  
-*  Azure Marketplace  
+## Overview 
 
-New and existing publishers (you) learn more about the following topics using this guide. 
-*   How to use Azure Marketplace and AppSource storefronts
-*   How to publish your apps and offers  
-*   How to grow your business partnering with Microsoft  
+Welcome to the Marketplace Publisher Guide. This guide is designed to help aspiring and existing publishers understand how to use the Azure Marketplace (www.azuremarketplace.com) and AppSource (www.appsource.com) storefronts to grow their business in partnership with Microsoft by listing their applications and services.  
 
-You get a better understanding of the following topics.
-*   What are the benefits for listing in the storefronts on the marketplace  
-*   How to use the storefronts  
-*   Which storefront is right for your offers and services  
-*   What kinds of apps and offers that you may publish  
-*   What the technical and business requirements are for each publishing option  
-*   How to create a pre-publishing asset checklist  
-*   How to become a publisher  
-*   Where to create and publish offers  
-*   How to optimize a listing and use go-to-market resources to drive impact  
-*   Where to get help and support  
+This guide will cover the following topics: 
+*   What is the marketplace and how it works 
+*   What is the difference between Azure Marketplace and AppSource storefronts 
+*   Benefits you can gain by participating in the marketplace 
+*   How to become a publisher and list your application or service 
+*   How to grow your business 
 
-For questions and comments about the marketplace or the publishing guide, send an email to [cloudmarketplace@microsoft.com](mailto:cloudmarketplace@microsoft.com).  
+This guide contains both technical and business information about the steps you need to understand before listing your applications and services. Use the navigation bar located on the left of this page to jump to different sections of this guide and navigate directly to key topics.   
+
+For additional questions about Azure Marketplace and AppSource send us a message under Problem Type > Marketplace Onboarding. Our Marketplace Publisher Onboarding Team will be happy to help! 
 
 ---  
 
-## Benefits  
+## Benefits of participating in the marketplace 
 
-### Benefits of participating on the marketplace  
-The storefronts on the marketplace are launchpads for joint Go-To-Market (GTM) activities with Microsoft.  
-*   AppSource  
-*   Azure Marketplace  
+Marketplace is the launch pad for joint go-to-market activities with Microsoft to accelerate your business growth. Using launch promotion, demand generation, and joint sales and marketing, your marketplace offers can be the centerpiece of your cloud business engine. There are no fees for participating in the marketplace.  
 
-The storefronts are doorways to Co-sell Ready partnership opportunities. You may choose to use your app or offer in one of the following roles.  
-*   The centerpiece for your cloud business engine  
-*   The flywheel for your business growth 
+Our goal is to connect Microsoft customers with the best solutions that our partner ecosystem offers. To do that, we support you throughout your journey from onboarding to publishing and growth. 
 
-You may choose to grow your business with the following capabilities on the marketplace.  
-*    Launch promotion  
-*    Demand generation  
-*    Joint sales and marketing  
+Take advantage of the capabilities on the marketplace to grow your business: 
 
-There are no fees for participating in the storefronts on the marketplace. Microsoft is focused on connecting you to the best solutions and services that are provided by the Microsoft partners. 
+### Expand to new markets and segments and generate new sales opportunities
 
-You may take advantage of the capabilities on the marketplace to grow your business.  
+Use marketplace as channel to access new markets, segments, and Microsoft cloud users with your portfolio of solutions. Generate new marketing leads and nurture these to sales opportunities. Benefit from joint marketing and sales activities to get more customers.  
 
-#### Generate leads and sales opportunities.  
-Enter new markets with an expanded portfolio of solutions in the storefronts on the marketplace. Upsell and cross-sell marketplace offerings.  
+### Enhance business value and increase deal size with existing and new customers 
 
-#### Enhance business value and increase deal size with existing and new customers  
-Grow deal size and address customer problems after you move workloads to Azure. Reduce sales cycles and increase deal profitability by selling complete solutions that target specific workloads and industry scenarios.  
+Upsell and cross-sell your solutions by addressing customer problems after you move workloads to the cloud. If you sell or deploy through marketplace, you can reduce sales cycles, accelerate projects, and increase deal profitability by selling complete solutions that target specific workloads and industry scenarios. 
+  
+### Get actionable insights 
 
-#### Get actionable insights  
-Your success is mutual success. Get insights on the performance of your listings using Cloud Partner Portal. Get more information about performance, leads, and how to maximize campaign activities of your app.  
+Get insights on the performance of your listings through insights and analytics made available to you. Get more information about campaign performance, orders and payouts, and how to maximize campaign activities of your solution.  
 
->[!NOTE]
->Apps that extend Office must access insights through the publishing process for Office apps.  
+### Marketplace Go-To-Market benefits 
 
-### Go-To-Market Benefits  
-The storefronts enable you to showcase your solutions to millions of customers. New listings on the marketplace are automatically offered a set of free GTM benefits to help drive awareness of your offer on the marketplace.  
+New listings on the marketplace are eligible for diversified set of free benefits to help partners grow their business in the marketplace. These benefits fall into the following categories: 
 
- Your launchpad for joint GTM activities with Microsoft begins with publishing your offer in the storefronts.  The storefronts are doorways to Co-sell-Ready partnership opportunities. All new apps and offers are automatically provided a set of no cost GTM benefits to help drive awareness of your app or offer to Microsoft customers. The GTM benefits deliver several co-marketing and co-sell activities.  The co-marketing and co-sell activities are designed to help you use the following to drive awareness of your solution and to generate sales.
-*   Microsoft brand  
-*   Microsoft channels  
-*   Microsoft customers and partners  
+*   Technical: Everything you need to get your application ready for launch. From technical support, application design, and architecture design up to Azure credits for development and testing. 
 
-You do not have to take any additional action. After you publish your offer, Microsoft GTM team contacts you to begin delivery.  
-*   For more information about Microsoft GTM benefits and ways to grow your business on the marketplace, visit the Microsoft Go-To-Market Services page located at [partner.microsoft.com/reach-customers/gtm](https://partner.microsoft.com/reach-customers/gtm).  
+*   Co-Marketing: Everything you need to launch your offer. Access free Go-to-Market Launch Fundamentals to help launch and promote your solution. You may also be eligible for additional Microsoft marketing campaign inclusion and includes opportunities to be featured in marketplace.  
+
+*   Co-Selling: Begin or accelerate your journey to selling with Microsoft through marketplace. Access programs and support to drive joint sales with Microsoft teams.  
+
+Once you [submit your solution](https://azuremarketplace.microsoft.com/sell/signup) to the marketplace, our onboarding team contacts you to support your publishing experience.  
+
+For more information about Microsoft go-to-market benefits and ways to grow your business on the marketplace, visit the [Microsoft Go-To-Market Services page](https://partner.microsoft.com/reach-customers/gtm).
 
 ---  
 
@@ -115,7 +97,7 @@ Each storefront provides specialized options to help you maximize your publishin
 ---   
 
 ## How to Publish in the storefronts on the marketplace  
-The following sections help you navigate the publishing options in AppSource and Azure Marketplace.  
+The following pages help you navigate the publishing options in AppSource and Azure Marketplace.  
 
 Become a publisher in the storefronts on the marketplace in three easy steps.  
 1.  Visit the [Determine the Listing Type for Your Solution](./determine-your-listing-type.md) page.  
@@ -124,7 +106,7 @@ Become a publisher in the storefronts on the marketplace in three easy steps.
 
 ---   
 
-## Publishing Checklists  
+## Publishing checklists  
 *   Visit the [Publishing Checklist for AppSource](publishing-checklist-appsource.md) page.  
 *   Visit the [Publishing Checklist for Azure Marketplace on Cloud Partner Portal](./publishing-checklist-azure-marketplace.md) page.  
 *   Visit the [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md) page.  
@@ -132,7 +114,6 @@ Become a publisher in the storefronts on the marketplace in three easy steps.
 ---  
 
 ## Support  
-
 *   Visit the [Support for AppSource](./support-appsource.md) page.  
 *   Visit the [Support for Azure Marketplace](./support-azure-marketplace.md) page.  
 
@@ -144,6 +125,7 @@ Become a publisher in the storefronts on the marketplace in three easy steps.
 
 ## Guidelines  
 *   Visit the [Guidelines](./guidelines.md) page.  
+    *   Visit the [Guidelines for creating a Microsoft ID to manage a marketplace account](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) section.  
 *   Visit the [Register in Dev Center](./register-dev-center.md) page.  
 *   Visit the [Add Bank and Tax Information](./add-bank-tax-info.md) page.  
 *   Visit the [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md) page.  

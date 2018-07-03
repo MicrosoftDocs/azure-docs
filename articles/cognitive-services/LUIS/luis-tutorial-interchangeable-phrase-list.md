@@ -31,9 +31,9 @@ For this article, you need a free [LUIS][LUIS] account in order to author your L
 
 3. [Train](luis-how-to-train.md) your app. Until it is trained, you cannot [interactively test](interactive-test.md#interactive-testing) it in the [LUIS][LUIS] website. 
 
-4. On the [Publish](PublishApp.md) page, select the **Include all predicted intent scores** check box. When the check box is selected, all intents are returned. When the check box is cleared, only the top intent is returned. 
+4. On the [Publish](luis-how-to-publish-app.md) page, select the **Include all predicted intent scores** check box. When the check box is selected, all intents are returned. When the check box is cleared, only the top intent is returned. 
 
-5. [Publish](PublishApp.md) the app. Publishing the app allows you to test it by using the HTTPS endpoint. 
+5. [Publish](luis-how-to-publish-app.md) the app. Publishing the app allows you to test it by using the HTTPS endpoint. 
 
 ## Test a trained utterance
 Use the published endpoint to query an utterance that the app already knows. Because LUIS already knows the utterance, the score is high and the entity is detected.
@@ -193,10 +193,10 @@ After you add the phrase list, the increased accuracy of the utterance and the *
 
 > [!TIP]
 > * By using [Interactive testing](interactive-test.md#interactive-testing), you can compare the published model to any trained changes that are made after you publish. 
-> * By using [Endpoint testing](PublishApp.md#test-your-published-endpoint-in-a-browser), you can view the exact LUIS response JSON. 
+> * By using [Endpoint testing](luis-how-to-publish-app.md#test-your-published-endpoint-in-a-browser), you can view the exact LUIS response JSON. 
 
 ## Get the entity score with the endpoint test
-To view the entity score, [publish the model](PublishApp.md) and query the endpoint. 
+To view the entity score, [publish the model](luis-how-to-publish-app.md) and query the endpoint. 
 
 `I require a computer replacement`
 
@@ -257,8 +257,6 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 > [!div class="nextstepaction"]
 > [Get utterance prediction with endpoint query](luis-get-started-cs-get-intent.md)
 
-[LUIS]: luis-reference-regions.md
-
-  [LUIS]: luis-reference-regions.md
-  [LuisFeatures]: luis-concept-feature.md
-  [LuisSampleApp]: https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[LuisFeatures]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature
+[LuisSampleApp]: https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json

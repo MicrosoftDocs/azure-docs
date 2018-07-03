@@ -2,13 +2,13 @@
 title: Introduction to Azure Kubernetes Service
 description: Azure Kubernetes Service makes it simple to deploy and manage container-based applications on Azure.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: overview
 ms.date: 06/13/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -100,7 +100,7 @@ Azure Kubernetes Service (AKS) has been CNCF certified as Kubernetes conformant.
 
 ## Regulatory compliance
 
-Azure Kubernetes Service (AKS) is compliant with SOC and ISO/HIPPA/HITRUST.
+Azure Kubernetes Service (AKS) is compliant with SOC and ISO/HIPAA/HITRUST.
 
 ## Next steps
 

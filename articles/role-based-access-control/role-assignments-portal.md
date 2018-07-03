@@ -1,6 +1,6 @@
 ---
 title: Manage access using RBAC and the Azure portal | Microsoft Docs
-description: Get started with role-based access control (RBAC) in the Azure portal. Use RBAC to manage access for users, groups, and applications.
+description: Learn how to manage access for users, groups, and applications, using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,7 +9,7 @@ manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/13/2018
@@ -19,9 +19,9 @@ ms.reviewer: bagovind
 
 # Manage access using RBAC and the Azure portal
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you use RBAC to manage access for users, groups, and applications in the Azure portal.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and the Azure portal.
 
-## List role definitions
+## List roles
 
 A role definition is a collection of permissions that you use for role assignments. Azure has over 60 [built-in roles](built-in-roles.md).
 
@@ -43,7 +43,7 @@ A role definition is a collection of permissions that you use for role assignmen
 
 ## List access
 
-When managing access, you want to know who has access, what are their permissions, and at what level.
+When managing access, you want to know who has access, what are their permissions, and at what level. To list access, you list the role assignments.
 
 ### List role assignments for a subscription
 

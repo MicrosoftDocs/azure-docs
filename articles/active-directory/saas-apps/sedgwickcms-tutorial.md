@@ -9,6 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 957931e0-e426-47e7-9904-3ed98d3f504c
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -119,7 +120,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://claimlookup.com/Voe/sso` |
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Sedgwick CMS support team](https://www.sedgwick.com/contact/Pages/contactform.aspx) to get these values.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Sedgwick CMS support team](https://www.sedgwick.com/help) to get these values.
  
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.

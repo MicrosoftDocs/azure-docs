@@ -31,7 +31,7 @@ In this article we’ll accomplish the task of resizing the OS drive using resou
 
 Open your Powershell ISE or Powershell window in administrative mode and follow the steps below:
 
-1. Sign-in to your Microsoft Azure account in resource management mode and select your subscription as follows:
+1. Sign in to your Microsoft Azure account in resource management mode and select your subscription as follows:
    
    ```Powershell
    Connect-AzureRmAccount
@@ -74,7 +74,7 @@ Open your Powershell ISE or Powershell window in administrative mode and follow 
 
 Open your Powershell ISE or Powershell window in administrative mode and follow the steps below:
 
-1. Sign-in to your Microsoft Azure account in resource management mode and select your subscription as follows:
+1. Sign in to your Microsoft Azure account in resource management mode and select your subscription as follows:
    
    ```Powershell
    Connect-AzureRmAccount

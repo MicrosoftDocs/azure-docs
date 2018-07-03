@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 9fe951fd-1530-4d33-a1a4-390385b99ce9
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -129,7 +130,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/tutorial_general_400.png)
 	
-7. In a different web browser window, log in to your FishEye/Crucible on premise server as an administrator.
+7. In a different web browser window, log in to your FishEye/Crucible on-premises server as an administrator.
 
 8. Hover on cog and click the **Add-ons**.
 
@@ -257,7 +258,7 @@ To enable Azure AD users to log in to FishEye/Crucible, they must be provisioned
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your Crucible on premise server as an administrator.
+1. Log in to your Crucible on-premises server as an administrator.
 
 2. Hover on cog and click the **Users**.
 

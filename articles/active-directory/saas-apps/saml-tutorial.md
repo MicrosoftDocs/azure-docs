@@ -9,11 +9,12 @@ ms.reviewer: joflore
 
 ms.assetid: ced1d88d-0e48-40d5-9aea-ef991cd9d270
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/20/2018
 ms.author: jeedes
 
 ---
@@ -196,7 +197,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the SAML 1.1 Token enabled LOB App tile in the Access Panel, you should get automatically signed-on to your SAML 1.1 Token enabled LOB App application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
@@ -218,4 +219,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/saml-tutorial/tutorial_general_201.png
 [202]: ./media/saml-tutorial/tutorial_general_202.png
 [203]: ./media/saml-tutorial/tutorial_general_203.png
-

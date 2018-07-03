@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: e238b574-9e9b-43b7-ab98-d2a87ff89d48
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -129,7 +130,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/kantegassoforbamboo-tutorial/tutorial_general_400.png)
 	
-7. In a different web browser window, log in to your Bamboo  on premise server as an administrator.
+7. In a different web browser window, log in to your Bamboo  on-premises server as an administrator.
 
 8. Hover on cog and click the **Add-ons**.
 
@@ -253,7 +254,7 @@ To enable Azure AD users to log in to Bamboo, they must be provisioned into Bamb
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your Bamboo on premise server as an administrator.
+1. Log in to your Bamboo on-premises server as an administrator.
 
 2. Hover on cog and click the **User management**.
 

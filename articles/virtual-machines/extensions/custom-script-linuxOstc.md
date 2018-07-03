@@ -30,7 +30,7 @@ There are two Linux Custom Script Extensions:
 * Version 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 * Version 2 - Microsoft.Azure.Extensions.CustomScript
 
-Please switch new and existing deployments to use the new version ([Microsoft.Azure.Extensions.CustomScript](\custom-script-linux.md)) instead. The new version is intended to be a drop-in replacement. Therefore, the migration is as easy as changing the name and version, you do not need to change your extension configuration.
+Please switch new and existing deployments to use the new version ([Microsoft.Azure.Extensions.CustomScript](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-linux)) instead. The new version is intended to be a drop-in replacement. Therefore, the migration is as easy as changing the name and version, you do not need to change your extension configuration.
 
  
 

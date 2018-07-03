@@ -83,7 +83,7 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 
    ![Cluster Properties](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Select **Static IP Address** and specify an available address from the Automatic Private IP Addressing (APIPA) range: 169.254.0.1 to 169.254.255.254 in the Address text box. For this example you can use any address in that range. For example `169.254.0.1`. Then, click **OK**.
+3. Select **Static IP Address** and specify an available address from the same subnet as your virtual machines.
 
 4. In the **Cluster Core Resources** section, right-click cluster name and click **Bring Online**. Then, wait until both resources are online. When the cluster name resource comes online, it updates the DC server with a new AD computer account. Use this AD account to run the Availability Group clustered service later.
 
@@ -338,7 +338,7 @@ At this point, you have an Availability Group with replicas on two instances of 
 
 ## Create an Azure load balancer
 
-On Azure virtual machines, a SQL Server Availability Group requires a load balancer. The load balancer holds the IP address for the Availability Group listener. This section summarizes how to create the load balancer in the Azure portal.
+On Azure virtual machines, a SQL Server Availability Group requires a load balancer. The load balancer holds the IP addresses for the Availability Group listeners and the Windows Server Failover Cluster. This section summarizes how to create the load balancer in the Azure portal.
 
 1. In the Azure portal, go to the resource group where your SQL Servers are and click **+ Add**.
 2. Search for **Load Balancer**. Choose the load balancer published by Microsoft.
@@ -367,7 +367,7 @@ On Azure virtual machines, a SQL Server Availability Group requires a load balan
 
 To configure the load balancer, you need to create a backend pool, a probe, and set the load balancing rules. Do these in the Azure portal.
 
-### Add backend pool
+### Add backend pool for the availability group listener
 
 1. In the Azure portal, go to your availability group. You might need to refresh the view to see the newly created load balancer.
 
@@ -410,9 +410,49 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
    | **Name** | Text | SQLAlwaysOnEndPointListener |
    | **Frontend IP address** | Choose an address |Use the address that you created when you created the load balancer. |
    | **Protocol** | Choose TCP |TCP |
-   | **Port** | Use the port for the SQL Server instance | 1433 |
-   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 1433 |
+   | **Port** | Use the port for the availability group listener | 1435 |
+   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 1435 |
    | **Probe** |The name you specified for the probe | SQLAlwaysOnEndPointProbe |
+   | **Session Persistence** | Drop down list | **None** |
+   | **Idle Timeout** | Minutes to keep a TCP connection open | 4 |
+   | **Floating IP (direct server return)** | |Enabled |
+
+   > [!WARNING]
+   > Direct server return is set during creation. It cannot be changed.
+
+1. Click **OK** to set the load balancing rules.
+
+### Add the front end IP address for the WSFC
+
+The WSFC IP address also needs to be on the load balancer. 
+
+1. In the portal, add a new Frontend IP configuration for the WSFC. Use the IP Address you configured for the WSFC in the cluster core resources. Set the IP address as static. 
+
+1. Click the load balancer, click **Health probes**, and click **+Add**.
+
+1. Set the health probe as follows:
+
+   | Setting | Description | Example
+   | --- | --- |---
+   | **Name** | Text | WSFCEndPointProbe |
+   | **Protocol** | Choose TCP | TCP |
+   | **Port** | Any unused port | 58888 |
+   | **Interval**  | The amount of time between probe attempts in seconds |5 |
+   | **Unhealthy threshold** | The number of consecutive probe failures that must occur for a virtual machine to be considered unhealthy  | 2 |
+
+1. Click **OK** to set the health probe.
+
+1. Set the load balancing rules. Click **Load balancing rules**, and click **+Add**.
+
+1. Set the load balancing rules as follows.
+   | Setting | Description | Example
+   | --- | --- |---
+   | **Name** | Text | WSFCPointListener |
+   | **Frontend IP address** | Choose an address |Use the address that you created when you configured the WSFC IP address. |
+   | **Protocol** | Choose TCP |TCP |
+   | **Port** | Use the port for the availability group listener | 58888 |
+   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 58888 |
+   | **Probe** |The name you specified for the probe | WSFCEndPointProbe |
    | **Session Persistence** | Drop down list | **None** |
    | **Idle Timeout** | Minutes to keep a TCP connection open | 4 |
    | **Floating IP (direct server return)** | |Enabled |
