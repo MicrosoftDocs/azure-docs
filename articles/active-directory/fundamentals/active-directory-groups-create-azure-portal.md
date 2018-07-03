@@ -19,7 +19,7 @@ ms.custom: it-pro
 # Create a group and add members in Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Azure portal](active-directory-groups-create-azure-portal.md)
-> * [PowerShell](../active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+> * [PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)
 
 This article explains how to create and populate a new group in Azure Active Directory. Use a group to perform management tasks such as assigning licenses or permissions to a number of users or devices at once.
 

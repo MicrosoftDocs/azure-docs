@@ -41,7 +41,7 @@ This section provides quick access to relevant troubleshooting guides. More info
 | Password-Based Single Sign-On |[Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Application Proxy |[App Proxy Troubleshooting Guide](manage-apps/application-proxy-troubleshoot.md) |
 | Single sign-on between on-prem AD and Azure AD |[Troubleshooting Password Hash Synchronization](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Troubleshooting Password Writeback](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
-| Dynamic Group Memberships |[Troubleshooting Dynamic Group Memberships](active-directory-accessmanagement-troubleshooting.md) |
+| Dynamic Group Memberships |[Troubleshooting Dynamic Group Memberships](users-groups-roles/groups-troubleshooting.md) |
 
 ## Single Sign-On (SSO)
 ### Federated Single Sign-On: Sign into many apps using one identity
@@ -151,10 +151,10 @@ To help you manage who should have access to which resources, Azure Active Direc
 
 | Article Guide |  |
 |:---:| --- |
-| An overview of Azure AD access management features |[Introduction to Managing Access to Apps](manage-apps/what-is-access-management.md)<br /><br />[How Access Management Works in Azure AD](fundamentals/active-directory-manage-groups.md)<br /><br />[How to Use Groups to Manage Access to SaaS Applications](active-directory-accessmanagement-group-saasapps.md) |
-| Enable self-service management of apps and groups |[Self-Service Application Management](active-directory-self-service-application-access.md)<br /><br />[Self-Service Group Management](active-directory-accessmanagement-self-service-group-management.md) |
+| An overview of Azure AD access management features |[Introduction to Managing Access to Apps](manage-apps/what-is-access-management.md)<br /><br />[How Access Management Works in Azure AD](fundamentals/active-directory-manage-groups.md)<br /><br />[How to Use Groups to Manage Access to SaaS Applications](users-groups-roles/groups-saasapps.md) |
+| Enable self-service management of apps and groups |[Self-Service Application Management](active-directory-self-service-application-access.md)<br /><br />[Self-Service Group Management](users-groups-roles/groups-self-service-management.md) |
 | Instructions for setting up your groups in Azure AD |[How to Create Security Groups](fundamentals/active-directory-groups-create-azure-portal.md)<br /><br />[How to Designate Owners for a Group](fundamentals/active-directory-accessmanagement-managing-group-owners.md)<br /><br />[How to Use the "All Users" Group](active-directory-accessmanagement-dedicated-groups.md) |
-| Use dynamic groups to automatically populate group membership using attribute-based membership rules |[Dynamic Group Membership: Advanced Rules](users-groups-roles/groups-dynamic-membership.md)<br /><br />[Troubleshooting Dynamic Group Memberships](active-directory-accessmanagement-troubleshooting.md) |
+| Use dynamic groups to automatically populate group membership using attribute-based membership rules |[Dynamic Group Membership: Advanced Rules](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Troubleshooting Dynamic Group Memberships](users-groups-roles/groups-troubleshooting.md) |
 
 Group-based application access management is available for [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Self-service group management, self-service application management, and dynamic groups are [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) features.
 
