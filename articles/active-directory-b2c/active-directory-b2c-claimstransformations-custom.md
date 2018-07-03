@@ -17,7 +17,6 @@ ms.component: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-<a name="top"></a>
 
 This article describes how to configure and use Claims transformations within Azure AD B2C Policies.
 
@@ -351,7 +350,7 @@ As the name dictates, this provider does nothing. This provider can be used for 
 </ClaimsTransformation>
 ```
 
-<div style="text-align: right"><a href="#top">To Top</a></div>
+[To Top](#top)
 
 ---
 ### GetClaimFromJSON
