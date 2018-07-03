@@ -304,7 +304,7 @@ Microsoft Azure storage explorer is a standalone app from Microsoft. It allows y
 
 ## Blobfuse 
 
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. Azure Blob Storage is an object storage service and therefore does not have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the use of forward-slash `/` as a delimiter. Blobfuse works on both Azure and Azure Stack. 
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. Azure Blob Storage is an object storage service and therefore does not have a hierarchical namespace. Blobfuse provides this namespace using the virtual direcectory scheme with the use of forward-slash `/` as a delimiter. Blobfuse works on both Azure and Azure Stack. 
 
 To learn more about mounting Blob storage as a file system with Blobfuse on Linux, see [How to mount Blob storage as a file system with Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). 
 
@@ -314,7 +314,7 @@ In the Azure Stack development Kit, the blobEndpoint should be `myaccount.blob.l
 
 Please be aware that accountKey and sasToken can only be configured one at a time. When storage account key is given, the credentials configuration file is in the following format: 
 
-```  
+```text  
     accountName myaccount 
     accountKey myaccesskey== 
     containerName mycontainer 
@@ -323,7 +323,7 @@ Please be aware that accountKey and sasToken can only be configured one at a tim
 
 When shared access token is given, the credentials configuration file is in the following format:
 
-```  
+```text  
     accountName myaccount 
     sasToken ?mysastoken 
     containerName mycontainer 
