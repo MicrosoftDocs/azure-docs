@@ -86,7 +86,7 @@ Run the [docker ps][docker-ps] command to see the running containers:
 docker ps
 ```
 
-The following example output shows the front-end and back-end containers::
+The following example output shows the front-end and back-end containers:
 
 ```
 CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS                           NAMES
