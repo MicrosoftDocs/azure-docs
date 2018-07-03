@@ -17,7 +17,7 @@ ms.date: 06/25/2018
 ms.author: daveba
 ---
 
-# Configure Managed Identity on an Azure VM using CURL to make REST API calls
+# Configure Managed Identity on an Azure VM using REST API calls
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

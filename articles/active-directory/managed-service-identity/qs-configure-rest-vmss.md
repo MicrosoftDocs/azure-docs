@@ -17,7 +17,7 @@ ms.date: 06/25/2018
 ms.author: daveba
 ---
 
-# Configure Managed Identity on a Virtual Machine Scale Set using CURL to make REST API calls
+# Configure Managed Identity on a Virtual Machine Scale Set using REST API calls
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 

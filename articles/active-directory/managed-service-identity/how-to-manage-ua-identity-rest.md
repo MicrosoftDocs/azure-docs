@@ -1,6 +1,6 @@
 ---
 title: How to manage a user assigned identities using REST
-description: Step by step instructions on how to create, list and delete a user assigned manage identity using CURL to make REST API calls.
+description: Step by step instructions on how to create, list and delete a user assigned managed identity to make REST API calls.
 services: active-directory
 documentationcenter: 
 author: daveba
@@ -16,7 +16,7 @@ ms.date: 06/26/2018
 ms.author: daveba
 ---
 
-# Create, list or delete a user assigned identity using CURL to make REST API calls
+# Create, list or delete a user assigned identity using REST API calls
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
