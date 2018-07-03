@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Set up GPU drivers for N-series VMs running Windows 
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows, NVIDIA GPU drivers must be installed. The [Azure Extension for NVIDIA GPU Drivers](https://docs.microsoft.com/azure/virtual-machines/extensions/hpccompute-gpu-windows) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [Azure Extension for NVIDIA GPU Drivers documentation](https://docs.microsoft.com/azure/virtual-machines/extensions/hpccompute-gpu-windows) for supported operating systems and deployment steps.
+To take advantage of the GPU capabilities of Azure N-series VMs running Windows, NVIDIA GPU drivers must be installed. The [NVIDIA GPU Driver Extension](../extensions/hpccompute-gpu-windows.md) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as Azure PowerShell or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](../extensions/hpccompute-gpu-windows.md) for supported operating systems and deployment steps.
 
 If you choose to install GPU drivers manually, this article provides supported operating systems, drivers, and installation and verification steps. Manual driver setup information is also available for [Linux VMs](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
