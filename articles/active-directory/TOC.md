@@ -406,6 +406,7 @@
 #### Quickstarts
 ##### [Configure per cloud app MFA](active-directory-conditional-access-app-based-mfa.md)
 ##### [Require terms of use to be accepted](active-directory-conditional-access-tou.md)
+##### [Block access when a session risk is detected](active-directory-conditional-access-app-sign-in-risk.md)
 #### Tutorials
 ##### [Migrate classic MFA policy](active-directory-conditional-access-migration-mfa.md)
 #### Concepts
