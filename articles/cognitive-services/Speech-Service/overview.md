@@ -42,7 +42,7 @@ The [Speech to Text](speech-to-text.md) (STT), or speech recognition, API transc
 
 Speech to Text has been separately optimized for interactive, conversation, and dictation scenarios. The following are common use cases for the Speech to Text API. 
 
-* Recognize brief a utterance, such as a command, without interim results
+* Recognize a brief utterance, such as a command, without interim results
 * Transcribe a long, previously-recorded utterance, such as a voicemail message
 * Transcribe streaming speech in real-time, with partial results, for dictation
 * Determine what users want to do based on a spoken natural-language request
@@ -79,6 +79,8 @@ Use cases for Speech Translation include the following.
 With the introduction of the unified Speech service, Microsoft and its partners offer an integrated hardware/software platform optimized for developing speech-enabled devices: the [Speech Devices SDK](speech-devices-sdk.md). This SDK is suitable for developing smart speech devices for all types of applications.
 
 The Speech Devices SDK allows you to build your own ambient devices with a customized wake word, so that the cue that triggers audio capture is unique to your brand. It also provides superior audio processing from multi-channel sources for more accurate speech recognition, including noise suppression, far-field voice, and beamforming.
+
+The SDK is based on web sockets using port 443.
 
 ## Next steps
 
