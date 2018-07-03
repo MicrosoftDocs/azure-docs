@@ -53,7 +53,7 @@ In a command-line window, create a folder and subfolder on your local machine fo
    mkdir aml_config
    ```
 
-Create a configuration file for the project. Create a file called config.json in the aml_config folder.  Copy the following code into that file, using the code you see in the portal.  It will look like:
+Create a configuration file for the project. Create a file called config.json in the aml_config folder.  Go back to the workspace page in the portal to find the configuration code for your workspace and copy it into the file.  It will look something like:
 
 ```json
 {
