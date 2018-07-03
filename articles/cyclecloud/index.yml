@@ -20,7 +20,21 @@ sections:
 - title: Quickstarts
   items:
   - type: paragraph
-    text: 'Here is some text about our quickstarts (that do not yet exist)'
+    text: New to Azure CycleCloud? Start with these four simple labs that cover the basics of installing, configuring, using CycleCloud.
+  - type: list
+    style: ordered
+    items:
+    - title: CycleCloud QuickStart Overview
+      html: quickstart-overview.md
+    - title: Install Azure CycleCloud via ARM template
+      html: quickstart-install-cyclecloud.md
+    - title: Create and Run a Simple HPC Cluster
+      html: quickstart-create-and-run-cluster.md
+    - title: Smoke Test and Auto Scale
+      html: quickstart-smoke-test.md
+    - title: CycleCloud
+    - title: Clean Up Resources
+      html: quickstart-clean-up-resources.md
 - title: Concepts
   items:
   - type: paragraph
@@ -49,4 +63,3 @@ sections:
   - title: Resources
     items:
     - type: list
-    

@@ -4,16 +4,18 @@
   items:
   - name: About Azure CycleCloud
     href: overview.md
-- name: Quickstarts
+- name: QuickStarts
   items:
-  - name: Install CycleCloud
-    href: quickstart1.md
-  - name: Create a Simple HPC Cluster
-    href: quickstart2.md
-  - name: Run Jobs on your HPC Cluster
-    href: quickstart3.md
+  - name: Overview
+    href: quickstart-overview.md
+  - name: Install and Setup Azure CycleCloud
+    href: quickstart-install-cyclecloud.md
+  - name: Create and Run a Simple HPC Cluster
+    href: quickstart-create-and-run-cluster.md
+  - name: Smoke Test and Auto Scale
+    href: quickstart-smoke-test.md
   - name: Clean Up Resources
-    href: quickstart4.md
+    href: quickstart-clean-up-resources.md
 - name: Tutorials
   items:
   - name: Start to Finish How-To Specific Task
