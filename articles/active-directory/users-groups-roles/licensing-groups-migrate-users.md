@@ -38,11 +38,11 @@ The most important thing to keep in mind is that you should avoid a situation wh
 
   - You can spot check individual users by looking at their license details. You will see that they have the same licenses assigned “directly” and “inherited” from groups.
 
-  - You can run a PowerShell script to [verify how licenses are assigned to users](active-directory-licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
+  - You can run a PowerShell script to [verify how licenses are assigned to users](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
 
   - When the same product license is assigned to the user both directly and through a group, only one license is consumed by the user. Hence no additional licenses are required to perform migration.
 
-5. Verify that no license assignments failed by checking each group for users in error state. For more information, see [Identifying and resolving license problems for a group](active-directory-licensing-group-problem-resolution-azure-portal.md).
+5. Verify that no license assignments failed by checking each group for users in error state. For more information, see [Identifying and resolving license problems for a group](licensing-groups-resolve-problems.md).
 
 6. Consider removing the original direct assignments; you may want to do it gradually, in “waves”, to monitor the outcome on a subset of users first.
 
@@ -66,24 +66,24 @@ Here is what the migration process could look like:
 
   - This is the expected user state during migration:
 
-      ![expected user state](media/active-directory-licensing-group-migration-azure-portal/expected-user-state.png)
+      ![expected user state](./media/licensing-groups-migrate-users/expected-user-state.png)
 
   This confirms that the user has both direct and inherited licenses. We see that both **EMS** and **E3** are assigned.
 
   - Select each license to show details about the enabled services. This can be used to check if the direct and group licenses enable exactly the same service plans for the user.
 
-      ![check service plans](media/active-directory-licensing-group-migration-azure-portal/check-service-plans.png)
+      ![check service plans](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. After confirming that both direct and group licenses are equivalent, you can start removing direct licenses from users. You can test this by removing them for individual users in the portal and then run automation scripts to have them removed in bulk. Here is an example of the same user with the direct licenses removed through the portal. Notice that the license state remains unchanged, but we no longer see direct assignments.
 
-  ![direct licenses removed](media/active-directory-licensing-group-migration-azure-portal/direct-licenses-removed.png)
+  ![direct licenses removed](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 
 ## Next steps
 
 To learn more about other scenarios for license management through groups, read
 
-* [Assigning licenses to a group in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
-* [What is group-based licensing in Azure Active Directory?](fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Identifying and resolving license problems for a group in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [Azure Active Directory group-based licensing additional scenarios](active-directory-licensing-group-advanced.md)
+* [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
+* [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
+* [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md)

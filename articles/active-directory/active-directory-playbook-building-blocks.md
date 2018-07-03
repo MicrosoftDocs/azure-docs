@@ -122,11 +122,11 @@ Approximate time to Complete: 10 minutes
 | Step | Resources |
 | --- | --- |
 | Go to licenses blade in Azure AD Management Portal | [Azure AD Management Portal: Licensing](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) |
-| Assign the licenses to the security group with POC users. | [Assign licenses to a group of users in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md) |
+| Assign the licenses to the security group with POC users. | [Assign licenses to a group of users in Azure Active Directory](users-groups-roles/licensing-groups-assign.md) |
 
 ### Considerations
 
-In case of any issues, go to [Scenarios, limitations, and known issues with using groups to manage licensing in Azure Active Directory](active-directory-licensing-group-advanced.md)
+In case of any issues, go to [Scenarios, limitations, and known issues with using groups to manage licensing in Azure Active Directory](users-groups-roles/licensing-group-advanced.md)
 
 ## SaaS Federated SSO Configuration
 
