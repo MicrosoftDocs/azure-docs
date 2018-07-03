@@ -9,28 +9,50 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Route Blob storage events - Azure CLI
+  - name: Blob storage events - Azure CLI
     href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
-  - name: Route Blob storage events - Azure PowerShell
+  - name: Blob storage events - PowerShell
     href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
-  - name: Create custom event - Azure CLI
+  - name: Blob storage events - Portal
+    href: blob-event-quickstart-portal.md
+  - name: Custom events - Azure CLI
     href: custom-event-quickstart.md
-  - name: Create custom event - Azure PowerShell
+  - name: Custom events - PowerShell
     href: custom-event-quickstart-powershell.md
-  - name: Create custom event - Azure portal
+  - name: Custom events - portal
     href: custom-event-quickstart-portal.md
+  - name: Send events to Queue storage
+    href: custom-event-to-queue-storage.md
+  - name: Send events to Event Hubs
+    href: custom-event-to-eventhub.md
 - name: Tutorials
   items:
-  - name: Monitor VM changes with logic apps
+  - name: Email when VM changes
     href: monitor-virtual-machine-changes-event-grid-logic-app.md
   - name: Resize uploaded images
     href: resize-images-on-storage-blob-upload-event.md
   - name: Trigger Automation runbook
     href: ensure-tags-exists-on-new-virtual-machines.md
+  - name: Email when IoT Hub device added
+    href: publish-iot-hub-events-to-logic-apps.md
+  - name: Respond to Service Bus events
+    href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - name: Stream data from Event Hubs
+    href: event-grid-event-hubs-integration.md
+  - name: Route Media Services events
+    href: ../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - name: Route to Hybrid Connection
+    href: custom-event-to-hybrid-connection.md
 - name: Samples
   items:
+  - name: Azure CLI
+    href: cli-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
   - name: Resource Manager templates
     href: template-samples.md
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid
 - name: Concepts
   items:
   - name: Event Grid concepts
@@ -39,22 +61,26 @@
     href: security-authentication.md
   - name: Delivery and retry
     href: delivery-and-retry.md
+  - name: Event sources
+    href: event-sources.md
+  - name: Event handlers
+    href: event-handlers.md
 - name: How-to guides
   items:
   - name: Post to custom topic
     href: post-to-custom-topic.md
-  - name: Receive events to an HTTP endpoint
+  - name: Receive events at HTTP endpoint
     href: receive-events.md
-  - name: Stream data from Event Hubs to data warehouse
-    href: event-grid-event-hubs-integration.md
-  - name: Send notifications about IoT Hub events
-    href: publish-iot-hub-events-to-logic-apps.md
-  - name: Listen to Service Bus events with Functions and Logic Apps
-    href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - name: Manage event delivery
+    href: manage-event-delivery.md
   - name: Monitor event delivery
     href: monitor-event-delivery.md
   - name: Query event subscriptions
     href: query-event-subscriptions.md
+  - name: Map custom fields to schema
+    href: input-mappings.md
+  - name: Use CloudEvents schema
+    href: cloudevents-schema.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -63,6 +89,12 @@
     href: /powershell/module/azurerm.eventgrid
   - name: REST
     href: /rest/api/eventgrid
+  - name: Template resources
+    items:
+    - name: Event subscriptions
+      href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+    - name: Topics
+      href: /azure/templates/microsoft.eventgrid/topics
   - name: SDKs
     href: sdk-overview.md
   - name: Subscription schema
@@ -78,8 +110,12 @@
       href: event-schema-event-hubs.md
     - name: IoT Hub
       href: event-schema-iot-hub.md
+    - name: Media Services
+      href: ../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Resource groups
       href: event-schema-resource-groups.md
+    - name: Service Bus
+      href: event-schema-service-bus.md
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -4,7 +4,7 @@ description: Describes a real use case about advanced exception handling and err
 keywords: ''
 services: logic-apps
 author: hedidin
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 

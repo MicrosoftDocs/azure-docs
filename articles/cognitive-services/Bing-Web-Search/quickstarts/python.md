@@ -4,7 +4,7 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
-ms.technology: bing-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 9/18/2017
 ms.author: v-jerkin
@@ -14,7 +14,7 @@ ms.author: v-jerkin
 
 The Bing Web Search API provides an experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
 
-Refer to the [API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) for technical details about the APIs.
+Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) for technical details about the APIs.
 
 You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
 
@@ -48,7 +48,7 @@ Set `search_term` to query Bing for Microsoft Cognitive Services.
 search_term = "Microsoft Cognitive Services"
 ```
 
-The following block uses the `requests` library in Python to call out to the Bing search APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, refer to the [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation.
+The following block uses the `requests` library in Python to call out to the Bing search APIs and return the results as a JSON object. Observe that we pass in the API key via the `headers` dictionary and the search term via the `params` dictionary. To see the full list of options that can be used to filter search results, refer to the [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation.
 
 
 ```python

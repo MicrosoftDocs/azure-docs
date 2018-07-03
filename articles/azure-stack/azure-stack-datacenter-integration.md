@@ -13,11 +13,11 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ---
-
+ 
 # Datacenter integration considerations for Azure Stack integrated systems
 If you’re interested in an Azure Stack integrated system, you should understand some of the major planning considerations around deployment and how the system fits into your datacenter. This article provides a high-level overview of these considerations to help you make important infrastructure decisions for your Azure Stack multi-node system. An understanding of these considerations helps when working with your OEM hardware vendor as they deploy Azure Stack to your datacenter.  
 
@@ -47,7 +47,9 @@ When a higher level of access is needed for troubleshooting issues that aren’t
 ## Identity considerations
 
 ### Choose identity provider
-You'll need to consider which identity provider you want to use for Azure Stack deployment, either Azure AD or AD FS. You can’t switch identity providers after deployment without full system redeployment.
+You'll need to consider which identity provider you want to use for Azure Stack deployment, either Azure AD or AD FS. You can’t switch identity providers after deployment without full system redeployment. If you do not own the Azure AD account and are using an account provided to you by your Cloud Service Provider, and if you decide to switch provider and use a different Azure AD account, at this point you will have to contact your solution provider to redeploy the solution for you at your cost.
+
+
 
 Your identity provider choice has no bearing on tenant virtual machines, the identity system, and accounts they use, whether they can join an Active Directory domain, etc. This is separate.
 
@@ -129,9 +131,9 @@ The following table summarizes the hybrid connectivity scenarios, with the pros,
 
 | Scenario | Connectivity Method | Pros | Cons | Good For |
 | -- | -- | --| -- | --|
-| Single tenant Azure Stack, intranet deployment | Outbound NAT | Better bandwidth for faster transfers. Simple to implement; no gateways required. | Traffic not encrypted; no isolation or encryption beyond the TOR. | Enterprise deployments where all tenants are equally trusted.<br><br>Enterprises that have an Azure ExpressRoute circuit to Azure. |
+| Single tenant Azure Stack, intranet deployment | Outbound NAT | Better bandwidth for faster transfers. Simple to implement; no gateways required. | Traffic not encrypted; no isolation or encryption outside the stack. | Enterprise deployments where all tenants are equally trusted.<br><br>Enterprises that have an Azure ExpressRoute circuit to Azure. |
 | Multi-tenant Azure Stack, intranet deployment | Site-to-site VPN | Traffic from the tenant VNet to destination is secure. | Bandwidth is limited by site-to-site VPN tunnel.<br><br>Requires a gateway in the virtual network and a VPN device on the destination network. | Enterprise deployments where some tenant traffic must be secured from other tenants. |
-| Single tenant Azure Stack, internet deployment | Outbound NAT | Better bandwidth for faster transfers. | Traffic not encrypted; no isolation or encryption beyond the TOR. | Hosting scenarios where the tenant gets their own Azure Stack deployment and a dedicated circuit to the Azure Stack environment. For example, ExpressRoute and Multiprotocol Label Switching (MPLS).
+| Single tenant Azure Stack, internet deployment | Outbound NAT | Better bandwidth for faster transfers. | Traffic not encrypted; no isolation or encryption outside the stack. | Hosting scenarios where the tenant gets their own Azure Stack deployment and a dedicated circuit to the Azure Stack environment. For example, ExpressRoute and Multiprotocol Label Switching (MPLS).
 | Multi-tenant Azure Stack, internet deployment | Site-to-site VPN | Traffic from the tenant VNet to destination is secure. | Bandwidth is limited by site-to-site VPN tunnel.<br><br>Requires a gateway in the virtual network and a VPN device on the destination network. | Hosting scenarios where the provider wants to offer a multi-tenant cloud, where the tenants don’t trust each other and traffic must be encrypted.
 |  |  |  |  |  |
 

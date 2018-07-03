@@ -1,23 +1,21 @@
 ---
-title: Learn how to use the FTP connector in logic apps| Microsoft Docs
-description: Create logic apps with Azure App service. Connect to FTP server to manage your files. You can perform various actions such as upload, update, get, and delete files in FTP server.
-services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
-editor: ''
-tags: connectors
-
-ms.assetid: d83c55fe-eb59-4b7b-a5ec-afac5c772616
-ms.service: logic-apps
-ms.devlang: multiple
+# required metadata
+title: Connect to FTP server - Azure Logic Apps | Microsoft Docs
+description: Create, monitor, and manage files on an FTP server with Azure Logic Apps
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
+ms.date: 07/22/2016 
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 07/22/2016
-ms.author: mandia; ladocs
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the FTP connector
 Use the FTP connector to monitor, manage and create files on an  FTP server. 
 

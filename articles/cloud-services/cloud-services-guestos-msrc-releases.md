@@ -13,12 +13,46 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/6/2018
+ms.date: 6/1/2018
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## May Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-05 | [4103721], [4103727], [4103723] |Windows 10 Security |5.19 |May 8, 2018 |
+| Rel 18-05 | [4103712] |Windows Security only |2.74 |May 8, 2018 |
+| Rel 18-05 | [4103726] |Windows Security only |3.61 |May 8, 2018 |
+| Rel 18-05 | [4103715] |Windows Security only |4.54 |May 8, 2018 |
+| Rel 18-05 | [4095514], [4095519] |.NET 3.5, 4.x Security |2.74 |May 8, 2018 |
+| Rel 18-05 | [4095512], [4095518], [4096235] |.NET 3.5, 4.x, 4.5x Security |3.61 |May 8, 2018 |
+| Rel 18-05 | [4095515], [4095517], [4096236] |.NET 3.5, 4.x, 4.5x Security |4.74|May 8, 2018 |
+| Rel 18-05 | [4054856] |.NET 4.7x Security |5.19 |May 8, 2018 |
+| Rel 18-05 | [4103768] |Internet Explorer |2.74, 3.61, 4.74 |May 8, 2018 |
+| Rel 18-05 | [4103729] |Flash |3.61, 4.74, 5.19 |May 8, 2018 |
+| N/A | [4093118] |April non-security rollup |2.73 |April 10, 2018 |
+| N/A | [4093123] |April non-security rollup |3.61 |April 10, 2018 |
+| N/A | [4093114] |April non-security rollup |4.74 |April 10, 2018 |
+| N/A | [4093137] |April SSU |5.19 |April 10, 2018 |
+| N/A | [4093753] |Timezone update |2.74, 3.61, 4.74 |April 10, 2018 |
+
+
+## April Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-04 | [4093119] |Windows 10 Security |5.18 |April 10, 2018 |
+| Rel 18-04 | [4093108] |Windows Security only |2.73 |April 10, 2018 |
+| Rel 18-04 | [4093122] |Windows Security only |3.60 |April 10, 2018 |
+| Rel 18-04 | [4093115] |Windows Security only |4.53 |April 10, 2018 |
+| Rel 18-04 | [4092946] |Internet Explorer |2.73, 3.60, 4.53 |April 10, 2018 |
+| Rel 18-04 | [4093110] |Flash |3.60, 4.53, 5.18 |April 10, 2018 |
+| N/A | [4088875] |March non-security rollup |2.73 |March 13, 2018 |
+| N/A | [4099950] |March non-security rollup pre-requisite|2.73 |March 13, 2018 |
+| N/A | [4088877] |March non-security rollup |3.60 |March 13, 2018 |
+| N/A | [4088876] |March non-security rollup |4.53 |March 13, 2018 |
 
 ## March Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -611,6 +645,40 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 
+[4103721]: http://support.microsoft.com/kb/4103721
+[4103727]: http://support.microsoft.com/kb/4103727 
+[4103723]: http://support.microsoft.com/kb/4103723
+[4103712]: http://support.microsoft.com/kb/4103712
+[4103726]: http://support.microsoft.com/kb/4103726
+[4103715]: http://support.microsoft.com/kb/4103715
+[4095514]: http://support.microsoft.com/kb/4095514
+[4095519]: http://support.microsoft.com/kb/4095519
+[4095512]: http://support.microsoft.com/kb/4095512
+[4095518]: http://support.microsoft.com/kb/4095518
+[4096235]: http://support.microsoft.com/kb/4096235
+[4095515]: http://support.microsoft.com/kb/4095515
+[4095517]: http://support.microsoft.com/kb/4095517
+[4096236]: http://support.microsoft.com/kb/4096236
+[4054856]: http://support.microsoft.com/kb/4054856
+[4103768]: http://support.microsoft.com/kb/4103768
+[4103729]: http://support.microsoft.com/kb/4103729
+[4093118]: http://support.microsoft.com/kb/4093118
+[4093123]: http://support.microsoft.com/kb/4093123
+[4093114]: http://support.microsoft.com/kb/4093114
+[4093137]: http://support.microsoft.com/kb/4093137
+[4093753]: http://support.microsoft.com/kb/4093753
+
+[4093119]: http://support.microsoft.com/kb/4093119
+[4093108]: http://support.microsoft.com/kb/4093108 
+[4093122]: http://support.microsoft.com/kb/4093122
+[4093115]: http://support.microsoft.com/kb/4093115
+[4092946]: http://support.microsoft.com/kb/4092946
+[4093110]: http://support.microsoft.com/kb/4093110
+[4088875]: http://support.microsoft.com/kb/4088875
+[4099950]: http://support.microsoft.com/kb/4099950
+[4088877]: http://support.microsoft.com/kb/4088877
+[4088876]: http://support.microsoft.com/kb/4088876
+
 [4088787]: http://support.microsoft.com/kb/4088787
 [4088776]: http://support.microsoft.com/kb/4088776 
 [4088878]: http://support.microsoft.com/kb/4088878
@@ -787,9 +855,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4014567]: http://support.microsoft.com/kb/4014567
 [4015550]: http://support.microsoft.com/kb/4015550
 [4013418]: http://support.microsoft.com/kb/4013418
-[4022345]: https://technet.microsoft.com/en-us/library/security/4022345.aspx
-[4022344]: https://technet.microsoft.com/en-us/library/security/4022344.aspx
-[4021279]: https://technet.microsoft.com/en-us/library/security/4021279.aspx
+[4022345]: https://technet.microsoft.com/library/security/4022345.aspx
+[4022344]: https://technet.microsoft.com/library/security/4022344.aspx
+[4021279]: https://technet.microsoft.com/library/security/4021279.aspx
 
 
 [4015217]: http://support.microsoft.com/kb/4015217

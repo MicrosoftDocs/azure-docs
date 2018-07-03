@@ -5,7 +5,7 @@ services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.custom: scale out apps
 ms.workload: "On Demand"
 ms.date: 04/01/2018

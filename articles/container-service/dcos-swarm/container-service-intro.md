@@ -3,7 +3,7 @@ title: Docker container hosting in Azure cloud
 description: Azure Container Service provides a way to simplify the creation, configuration, and management of a cluster of virtual machines that are preconfigured to run containerized applications.
 services: container-service
 author: rgardler
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: overview

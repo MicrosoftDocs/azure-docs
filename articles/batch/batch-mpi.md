@@ -12,7 +12,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
-ms.date: 5/22/2017
+ms.date: 06/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ---
@@ -58,8 +58,8 @@ CloudPool myCloudPool =
     myBatchClient.PoolOperations.CreatePool(
         poolId: "MultiInstanceSamplePool",
         targetDedicatedComputeNodes: 3
-        virtualMachineSize: "small",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
@@ -69,10 +69,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 > [!NOTE]
 > If you try to run a multi-instance task in a pool with internode communication disabled, or with a *maxTasksPerNode* value greater than 1, the task is never scheduled--it remains indefinitely in the "active" state. 
->
-> Multi-instance tasks can execute only on nodes in pools created after 14 December 2015.
->
->
+
 
 ### Use a StartTask to install MPI
 To run MPI applications with a multi-instance task, you first need to install an MPI implementation (MS-MPI or Intel MPI, for example) on the compute nodes in the pool. This is a good time to use a [StartTask][net_starttask], which executes whenever a node joins a pool, or is restarted. This code snippet creates a StartTask that specifies the MS-MPI setup package as a [resource file][net_resourcefile]. The start task's command line is executed after the resource file is downloaded to the node. In this case, the command line performs an unattended install of MS-MPI.
@@ -280,7 +277,7 @@ The [MultiInstanceTasks][github_mpi] code sample on GitHub demonstrates how to u
 
 ### Execution
 1. Download the [azure-batch-samples][github_samples_zip] from GitHub.
-2. Open the MultiInstanceTasks **solution** in Visual Studio 2015 or newer. The `MultiInstanceTasks.sln` solution file is located in:
+2. Open the MultiInstanceTasks **solution** in Visual Studio 2017. The `MultiInstanceTasks.sln` solution file is located in:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Enter your Batch and Storage account credentials in `AccountSettings.settings` in the **Microsoft.Azure.Batch.Samples.Common** project.

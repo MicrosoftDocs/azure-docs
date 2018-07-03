@@ -3,7 +3,7 @@ title: Security Center Planning and Operations Guide | Microsoft Docs
 description: This document helps you to plan before adopting Azure Security Center and considerations regarding daily operations.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 
@@ -72,7 +72,7 @@ Security Center enables these individuals to meet these various responsibilities
 * Investigate attacks
 * Work with Cloud Workload Owner to apply remediation 
 
-Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Security Center, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two specific Security Center roles:
+Security Center uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Security Center, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two specific Security Center roles:
 
 - **Security reader**: a user that belongs to this role is able to view only Security Center configurations, which include recommendations, alerts, policy, and health, but it won't be able to make changes.
 - **Security admin**: same as security reader but it can also update the security policy, dismiss recommendations and alerts.
@@ -122,7 +122,7 @@ A security policy defines the desired configuration of your workloads and helps 
 
 Security Center policies contain the following components:
 - [Data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): agent provisioning and data collection settings.
-- [Security policy](https://docs.microsoft.com/azure/security-center/security-center-policies): an [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) that determines which controls are monitored and recommended by Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across Management Groups.
+- [Security policy](https://docs.microsoft.com/azure/security-center/security-center-policies): an [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) that determines which controls are monitored and recommended by Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across management groups.
 - [Email notifications](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): security contacts and notification settings.
 - [Pricing tier](https://docs.microsoft.com/azure/security-center/security-center-pricing): free or standard pricing selection, which determine which Security Center features are available for resources in scope (can be specified for subscriptions, resource groups and workspaces).
 

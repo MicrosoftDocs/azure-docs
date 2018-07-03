@@ -10,9 +10,7 @@ editor: cgronlun
 ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
 
@@ -147,7 +145,7 @@ In Azure, a Data Lake Store account has several Azure roles, including:
 * Contributors
 * Readers
 
-Everyone in the **Owners** role for a Data Lake Store account is automatically a super-user for that account. To learn more, see [Role-based access control](../active-directory/role-based-access-control-configure.md).
+Everyone in the **Owners** role for a Data Lake Store account is automatically a super-user for that account. To learn more, see [Role-based access control](../role-based-access-control/role-assignments-portal.md).
 If you want to create a custom role-based-access control (RBAC) role that has super-user permissions, it needs to have the following permissions:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -181,7 +179,7 @@ The owning group can be changed by:
 * The owning user, if the owning user is also a member of the target group.
 
 > [!NOTE]
-> The owning group *cannot* change the ACLs of a file or folder.
+> The owning group *cannot* change the ACLs of a file or folder.  While the owning group is set to the user who created the account in the case of the root folder, **Case 1** above, a single user account is not valid for providing permissions via the owning group.  You can assign this permission to a valid user group if applicable.
 
 ## Access check algorithm
 
@@ -323,7 +321,7 @@ No, but Default ACLs can be used to set ACLs for child files and folder newly cr
 
 ### Where can I learn more about POSIX access control model?
 
-* [POSIX Access Control Lists on Linux](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)
+* [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux)
 
 * [HDFS permission guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 

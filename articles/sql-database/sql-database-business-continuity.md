@@ -7,9 +7,9 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.workload: "On Demand"
-ms.date: 04/04/2018
+ms.date: 06/27/2018
 ms.author: sashan
 ms.reviewer: carlrab
 
@@ -33,14 +33,14 @@ The following table compares the ERT and RPO for each service tier for the three
 
 ### Use point-in-time restore to recover a database
 
-SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five - ten minutes to protect your business from data loss. These backups are stored in RA-GRS storage for 35 days for databases in the Standard and Premium service tiers and 7 days for databases in the Basic service tier. In the General purpose and Business critical service tiers (preview), the backups retention is configurable up to 35 days. For more information, see [service tiers](sql-database-service-tiers.md). If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-service-tiers.md). The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage. For more information, see [automatic database backups](sql-database-automated-backups.md).
+SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five - ten minutes to protect your business from data loss. If you're using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), then these backups are stored in RA-GRS storage for 35 days for databases in the Standard and Premium service tiers and 7 days for databases in the Basic service tier. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-single-database-scale.md). If you're using the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md), the backups retention is configurable up to 35 days in the General purpose and Business critical tiers. The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage. For more information, see [automatic database backups](sql-database-automated-backups.md).
 
-If the maximum supported PITR retention period is not sufficient for your application, you can extend it by configuring a long-term retention (LTR) policy for the database(s). For more information, see [Long-term retention](sql-database-long-term-retention.md).
+If the maximum supported point-in-time restore (PITR) retention period is not sufficient for your application, you can extend it by configuring a long-term retention (LTR) policy for the database(s). For more information, see [Automated Backups](sql-database-automated-backups.md) and [Long-term backup retention](sql-database-long-term-retention.md).
 
-You can use these automatic database backups to recover a database from various disruptive events, both within your data center and to another data center. Using automatic database backups, the estimated time of recovery depends on several factors including the total number of databases recovering in the same region at the same time, the database size, the transaction log size, and network bandwidth. The recovery time is usually less than 12 hours. When recovering to another data region, the potential data loss is limited to 1 hour by the geo-redundant storage of hourly differential database backups.
+You can use these automatic database backups to recover a database from various disruptive events, both within your data center and to another data center. Using automatic database backups, the estimated time of recovery depends on several factors including the total number of databases recovering in the same region at the same time, the database size, the transaction log size, and network bandwidth. The recovery time is usually less than 12 hours. It may take longer to recover a very large or active database. For more details about recovery time, see [database recovery time](sql-database-recovery-using-backups.md#recovery-time). When recovering to another data region, the potential data loss is limited to 1 hour by the geo-redundant storage of hourly differential database backups.
 
 > [!IMPORTANT]
-> To recover using automated backups, you must be a member of the SQL Server Contributor role or the subscription owner - see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). You can recover using the Azure portal, PowerShell, or the REST API. You cannot use Transact-SQL.
+> To recover using automated backups, you must be a member of the SQL Server Contributor role or the subscription owner - see [RBAC: Built-in roles](../role-based-access-control/built-in-roles.md). You can recover using the Azure portal, PowerShell, or the REST API. You cannot use Transact-SQL.
 >
 
 Use automated backups as your business continuity and recovery mechanism if your application:
@@ -93,8 +93,7 @@ For more information and for detailed steps for restoring a deleted database usi
 
 > [!IMPORTANT]
 > If the logical server is deleted, you cannot recover a deleted database.
->
->
+
 
 ### Restore backups from long-term retention
 

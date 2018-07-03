@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 
@@ -44,7 +45,7 @@ Yes. Pass-through Authentication supports `Alternate ID` as the username when co
 
 No. Pass-through Authentication _does not_ automatically failover to password hash synchronization. It only acts as a fallback for [scenarios that Pass-through Authentication doesn't support today](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
-## Can I install an [Azure AD Application Proxy](../active-directory-application-proxy-get-started.md) connector on the same server as a Pass-through Authentication Agent?
+## Can I install an [Azure AD Application Proxy](../manage-apps/application-proxy.md) connector on the same server as a Pass-through Authentication Agent?
 
 Yes. The rebranded versions of the Pass-through Authentication Agent, version 1.5.193.0 or later, support this configuration.
 
@@ -60,7 +61,7 @@ If you have not configured password writeback for a specific user or if the user
 
 ## How does Pass-through Authentication protect you against brute-force password attacks?
 
-Read [Azure Active Directory Pass-through Authentication: Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) for more information.
+Read [Azure Active Directory Pass-through Authentication: Smart Lockout](../authentication/howto-password-smart-lockout.md) for more information.
 
 ## What do Pass-through Authentication Agents communicate over ports 80 and 443?
 
@@ -127,7 +128,7 @@ If you uninstall a Pass-through Authentication Agent from a server, it causes th
 ## Next steps
 - [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md): Learn which scenarios are supported and which ones are not.
 - [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
-- [Smart Lockout](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
+- [Smart Lockout](../authentication/howto-password-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
 - [Technical deep dive](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Understand how the Pass-through Authentication feature works.
 - [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security deep dive](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.

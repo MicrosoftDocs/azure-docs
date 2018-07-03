@@ -7,10 +7,9 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 06/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
@@ -21,6 +20,9 @@ In this article, you can learn how to manage LinkedIn account connections for yo
 
 > [!IMPORTANT]
 > LinkedIn account connections functionality is currently being rolled out to Azure AD tenants. When it is rolled out to your tenant, it is enabled by default. It is not available for United States government customers, and organizations with Exchange Online mailboxes hosted in Australia, Canada, China, France, Germany, India, South Korea, United Kingdom, Japan, and South Africa. Support for these mailbox locations is coming soon.  For an up-to-date view of rollout information, see the [Office 365 Roadmap](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) page.
+
+## Benefit to users
+After users connect their LinkedIn account, LinkedIn information is used to show personalized information and features in various Microsoft apps or services. Users can see insights about the people they work with in the Microsoft profile card, even if those people outside your organization. Over time, their LinkedIn experience will also become more relevant and tailored to their work. For example, LinkedIn can suggest new connections based on who users work with, or surface insights about people on their calendar that day.
 
 ## How LinkedIn account connections appear to the user
 LinkedIn account connections allow users to see public LinkedIn profile information within some of their Microsoft apps. Users in your tenant can choose to connect their LinkedIn and Microsoft work or school accounts to see additional LinkedIn profile information. For more information, see [LinkedIn information and features in Microsoft apps and services](https://go.microsoft.com/fwlink/?linkid=850740).
@@ -48,7 +50,7 @@ LinkedIn account connections functionality is on by default for your entire tena
   * Select **Yes** to enable LinkedIn account connections for all users in your tenant
   * Select **Selected** to enable LinkedIn account connections for only selected tenant users
   * Select **No** to disable LinkedIn account connections for all users
-  ![Enabling LinkedIn account connections](./media/linkedin-integration/LinkedIn-integration.png)
+  ![Enabling LinkedIn account connections](./media/linkedin-integration/linkedin-integration.png)
 5. Save your settings when you're done by selecting **Save**.
 
 ### Enable or disable LinkedIn account connections for your organization's Office 2016 apps using Group Policy
@@ -59,7 +61,7 @@ LinkedIn account connections functionality is on by default for your entire tena
 4. Create a Group Policy Object with the following setting: **User Configuration** > **Administrative Templates** > **Microsoft Office 2016** > **Miscellaneous** > **Show LinkedIn features in Office applications**.
 5. Select **Enabled** or **Disabled**.
   * When the policy is **Enabled**, the **Show LinkedIn features in Office applications** setting found in the Office 2016 Options dialog is enabled. This also means that users in your organization can use LinkedIn features in their Office applications.
-  * When the policy is **Disabled**, the **Show LinkedIn features in Office applications** setting found in the Office 2016 Options dialog is set to the disabled state, and end users can't change this setting. Users in your organization can't use LinkedIn features in their Office 2016 applications. 
+  * When the policy is **Disabled**, the **Show LinkedIn features in Office applications** setting found in the Office 2016 Options dialog is set to the disabled state, and end users can't change this setting. Users in your organization can't use LinkedIn features in their Office 2016 applications.
 
 This group policy affects only Office 2016 apps for a local computer. Users can see LinkedIn features in profile cards throughout Office 365 even if they disable LinkedIn in their Office 2016 apps. 
 

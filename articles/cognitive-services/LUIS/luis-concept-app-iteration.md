@@ -4,12 +4,11 @@ description: LUIS apps require design iterations to train LUIS to get the best d
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 # Authoring cycle
 LUIS learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries. 
@@ -35,7 +34,7 @@ Do not add features such as a [phrase list](luis-concept-feature.md) feature in 
 Once you have 10 to 15 different utterances in each intent, with the required entities labeled, you train LUIS, then publish to get your endpoints. Make sure to create your app and publish your app so that it is available in the [endpoint regions](luis-reference-regions.md) you need. 
 
 ## HTTPS endpoint testing
-You can test your LUIS app from the HTTPS endpoint listed on the **[Publish](publishapp.md)** page. Testing from the endpoint allows LUIS to choose any utterances with low-confidence for review.  
+You can test your LUIS app from the HTTPS endpoint listed on the **[Publish](luis-how-to-publish-app.md)** page. Testing from the endpoint allows LUIS to choose any utterances with low-confidence for review.  
 
 ## Recycle
 When you are done with a cycle of authoring, you can begin again. Start with reviewing endpoint utterances LUIS marked with low-confidence. Check these utterances for both intent and entity. Once you review utterances, the review list should be empty.  
@@ -45,6 +44,6 @@ Batch testing is a way to see how many example utterances are scored by LUIS. Th
 
 ## Next steps
 
-See [Intents in LUIS](luis-concept-intent.md) to learn more about intents in your LUIS app.
+Learn concepts about [collaboration](luis-concept-collaborator.md).
 
-[luis-reference-prebuilt-domains]:luis-reference-prebuilt-domains.md
+[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains

@@ -60,6 +60,7 @@ ms.author: jonbeck
 - [Memory optimized](../virtual-machines-windows-sizes-memory.md)
 - [Storage optimized](../virtual-machines-windows-sizes-storage.md)
 - [GPU optimized](sizes-gpu.md)
+- [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
 

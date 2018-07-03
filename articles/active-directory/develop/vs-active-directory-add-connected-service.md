@@ -1,18 +1,15 @@
 ---
-title: Adding an Azure Active Directory by using Connected Services in Visual Studio | Microsoft Docs
+title: Adding an Azure Active Directory by using Connected Services in Visual Studio
 description: Add an Azure Active Directory by using the Visual Studio Add Connected Services dialog box
-services: visual-studio-online
-documentationcenter: na
+services: active-directory
 author: ghogen
 manager: douge
-editor: ''
-
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
-ms.service: active-directory
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 
@@ -28,6 +25,7 @@ At present, the Active Directory connected service does not support ASP.NET Core
 ## Prerequisites
 
 - Azure account: if you don't have an Azure account, you can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+- **Visual Studio 2015** or later. [Download Visual Studio 2017 now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ### Connect to Azure Active Directory using the Connected Services dialog
 

@@ -10,11 +10,11 @@ editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
-ms.author: dugill;tomfitz
+ms.author: dugill
 
 ---
 # Use Resource Manager authentication API to access subscriptions
@@ -202,7 +202,7 @@ An example of the response to get user's permissions on subscription is:
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-The permissions API returns multiple permissions. Each permission consists of allowed actions (**actions**) and disallowed actions (**notactions**). If an action is present in the allowed actions of any permission and not present in the disallowed actions of that permission, the user is allowed to perform that action. **microsoft.authorization/roleassignments/write** is the action that that grants access management rights. Your application must parse the permissions result to look for a regex match on this action string in the **actions** and **notactions** of each permission.
+The permissions API returns multiple permissions. Each permission consists of allowed actions (**actions**) and disallowed actions (**notactions**). If an action is present in the allowed actions of any permission and not present in the disallowed actions of that permission, the user is allowed to perform that action. **microsoft.authorization/roleassignments/write** is the action that grants access management rights. Your application must parse the permissions result to look for a regex match on this action string in the **actions** and **notactions** of each permission.
 
 ## Get app-only access token
 Now, you know if the user can assign access to the Azure subscription. The next steps are:

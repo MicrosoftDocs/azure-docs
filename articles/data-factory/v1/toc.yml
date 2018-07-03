@@ -1,5 +1,7 @@
 - name: Data Factory V1 Documentation
   href: 
+- name: Switch to current version documentation
+  href: ../introduction.md
 - name: Overview
   items:
   - name: Introduction to Azure Data Factory

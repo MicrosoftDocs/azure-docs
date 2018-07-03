@@ -11,10 +11,8 @@ tags: azure-portal
 ms.assetid: 8c61c70f-fe7f-4f0f-a4ab-0cccee5668c9
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: jgao
 

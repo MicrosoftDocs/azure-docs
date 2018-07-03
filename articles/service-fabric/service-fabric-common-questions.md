@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
@@ -23,6 +23,12 @@ ms.author: chackdan
 There are many commonly asked questions about what Service Fabric can do and how it should be used. This document covers many of those common questions and their answers.
 
 ## Cluster setup and management
+
+### How do I rollback my Service Fabric cluster certificate?
+
+Rolling back any upgrade to your application requires health failure detection prior to your Service Fabric cluster quorum committing the change; committed changes can only be rolled forward. Escalation engineer’s through Customer Support Services, may be required to recover your cluster, if an unmonitored breaking certificate change has been introduced.  [Service Fabric’s application upgrade](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade?branch=master) applies [Application upgrade parameters](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), and delivers zero downtime upgrade promise.  Following our recommended application upgrade monitored mode, automatic progress through update domains is based upon health checks passing, rolling back automatically if updating a default service fails.
+ 
+If your cluster is still leveraging the classic Certificate Thumbprint property in your Resource Manager template, its recommended you [Change cluster from certificate thumbprint to common name](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), to leverage modern secrets management features.
 
 ### Can I create a cluster that spans multiple Azure regions or my own datacenters?
 
@@ -87,7 +93,7 @@ While we're working on an improved experience, today, you are responsible for th
 ### Can I encrypt attached data disks in a cluster node type (virtual machine scale set)?
 Yes.  For more information, see [Create a cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), and [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-### What are the directories and processes that I need to exclude when running an anti-virus program in my cluster ?
+### What are the directories and processes that I need to exclude when running an anti-virus program in my cluster?
 
 | **Antivirus Excluded directories** |
 | --- |

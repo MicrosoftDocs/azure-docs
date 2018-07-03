@@ -1,17 +1,16 @@
 ---
-title: 'Azure Active Directory B2C: Add LinkedIn as an OAuth2 identity provider by using custom policies'
-description: A How-To article about setting up a LinkedIn application by using the OAuth2 protocol and custom policies
+title: Add LinkedIn as an OAuth2 identity provider by using custom policies in Azure Active Directory B2C | Microsoft Docs
+description: A How-To article about setting up a LinkedIn application by using the OAuth2 protocol and custom policies.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: davidmu
+ms.component: B2C
 ---
 
 # Azure Active Directory B2C: Add LinkedIn as an identity provider by using custom policies
@@ -23,7 +22,7 @@ This article shows you how to enable sign-in for users of a LinkedIn account by 
 Complete the steps in the [Get started with custom policies](active-directory-b2c-get-started-custom.md) article.
 
 ## Step 1: Create a LinkedIn account application
-To use LinkedIn as an identity provider in Azure Active Directory B2C (Azure AD B2C), you must create a LinkedIn application and supply it with the right parameters. You can register a LinkedIn application by going to the [LinkedIn sign-up page](https://LinkedIn.com/signup).
+To use LinkedIn as an identity provider in Azure Active Directory B2C (Azure AD B2C), you must create a LinkedIn application and supply it with the right parameters. You can register a LinkedIn application by going to the [LinkedIn sign-up page](https://www.linkedin.com/start/join).
 
 1. Go to the [LinkedIn application management](https://www.linkedin.com/secure/developer?newapp=) website, sign in with your LinkedIn account credentials, and then select **Create Application**.
 

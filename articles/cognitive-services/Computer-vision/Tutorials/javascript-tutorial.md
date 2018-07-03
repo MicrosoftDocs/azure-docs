@@ -4,9 +4,8 @@ description: Explore a basic JavaScript app that uses the Computer Vision API in
 services: cognitive-services
 author: KellyDF
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: kefre

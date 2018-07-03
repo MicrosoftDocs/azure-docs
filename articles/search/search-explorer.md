@@ -1,19 +1,13 @@
 ---
 title: "Query an index (portal - Azure Search) | Microsoft Docs"
 description: Issue a search query in the Azure Portal's Search Explorer.
+manager: cgronlun
+author: HeidiSteen
 services: search
-manager: jhubbard
-documentationcenter: ''
-author: ashmaka
-
-ms.assetid: 8e524188-73a7-44db-9e64-ae8bf66b05d3
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 07/10/2017
-ms.author: ashmaka
+ms.author: heidist
 
 ---
 # Query an Azure Search index using Search Explorer in the Azure Portal

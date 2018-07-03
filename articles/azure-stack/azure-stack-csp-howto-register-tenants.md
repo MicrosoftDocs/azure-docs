@@ -1,4 +1,4 @@
----
+﻿---
 title: Add tenants for usage and billing to Azure Stack | Microsoft Docs
 description: The steps required add an end user to Azure Stack managed by a Cloud Service Provider.
 services: azure-stack
@@ -56,12 +56,12 @@ Update your registration with the new customer’s subscription. Azure reports t
 > To carry out this step, you must have [registered Azure Stack](azure-stack-register.md).
 
 1. Open Windows PowerShell with an elevated prompt, and run:  
-    `Login-AzureRmAccount`
+    `Add-AzureRmAccount`
 2. Type your Azure credentials.
 3. In the PowerShell session, run:
 
 ```powershell
-    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
 ```
 ### New-AzureRmResource PowerShell parameters
 | Parameter | Description |
@@ -70,6 +70,7 @@ Update your registration with the new customer’s subscription. Azure reports t
 | customerSubscriptionID | The Azure subscription (not Azure Stack) belonging to the customer to be registered. Must be created in the CSP offer; in practice, this means through Partner Center. If a customer has more than one Azure Active Directory tenant, this subscription must be created in the tenant that will be used to log into Azure Stack.
 | resourceGroup | The resource group in Azure in which your registration is stored. 
 | registrationName | The name of the registration of your Azure Stack. It is an object stored in Azure. | 
+| Properties | Specifies properties for the resource. Use this parameter to specify the values of properties that are specific to the resource type.
 
 
 > [!Note]  

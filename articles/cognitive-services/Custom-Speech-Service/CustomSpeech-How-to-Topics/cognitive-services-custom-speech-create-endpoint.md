@@ -4,9 +4,8 @@ description: Learn how to create a custom speech-to-text endpoint with the Custo
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
-
 ms.service: cognitive-services
-ms.technology: custom-speech-service
+ms.component: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper

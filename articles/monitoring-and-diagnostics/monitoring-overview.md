@@ -1,21 +1,13 @@
 ---
-title: Monitoring Azure applications and resources | Microsoft Docs
+title: Monitoring Azure applications and resources
 description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications.
-author: robb
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: rboucher
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: overview
 ms.date: 03/05/2018
 ms.author: robb,bwren
-
+ms.component: ""
 ---
 
 # Monitoring Azure applications and resources
@@ -58,7 +50,7 @@ Core monitoring provides fundamental, required monitoring across Azure resources
 
 Metrics are available that provide performance statistics for different resources and even the operating system inside a virtual machine. You can view this data with one of the explorers in the Azure portal and create alerts based on these metrics. Azure Monitor provides the fastest metrics pipeline (5 minute down to 1 minute), so you should use it for time critical alerts and notifications.
 
-You can also send these metrics and logs Azure Log Analytics for trending and detailed analysis, or create additional alert rules to proactively notify you of critical issues as a result of that analysis.  
+You can also send these metrics and logs to Azure Log Analytics for trending and detailed analysis, or create additional alert rules to proactively notify you of critical issues as a result of that analysis.  
 
 > [!NOTE]
 > Sending multi-dimensional metrics to Log Analytics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
@@ -115,9 +107,9 @@ There are several tools that work together to monitor various aspects of your ne
 
 [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) provides scenario-based monitoring and diagnostics for different network scenarios in Azure. It stores data in Azure metrics and diagnostics for further analysis. It works with the following solutions for monitoring various aspects of your network.
 
-[Network Performance Monitor (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) is a cloud-based network monitoring solution that monitors connectivity across public clouds, datacenters, and on-premises environments.
+[Network Performance Monitor (NPM)](../log-analytics/log-analytics-network-performance-monitor.md) is a cloud-based network monitoring solution that monitors connectivity across public clouds, datacenters, and on-premises environments.
 
-[ExpressRoute Monitor](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) is an  NPM capability that monitors the end-to-end connectivity and performance over Azure ExpressRoute circuits.
+[ExpressRoute Monitor](../expressroute/how-to-npm.md) is an  NPM capability that monitors the end-to-end connectivity and performance over Azure ExpressRoute circuits.
 
 [DNS Analytics](../log-analytics/log-analytics-dns.md) is a solution that provides security, performance, and operations-related insights, based on your DNS servers.
 
@@ -159,6 +151,6 @@ After a reported outage, you use Service Map to perform forensics to identify th
 ## Next steps
 Learn more about:
 
-* [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/) to get started with core monitoring metrics and alerts.
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/) to get started with core monitoring metrics and alerts.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you're trying to diagnose problems in your App Service web app.
 * [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) for analyzing collected monitoring data and logs.

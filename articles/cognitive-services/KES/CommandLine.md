@@ -4,9 +4,8 @@ description: Use the KES command-line interface to build index and grammar files
 services: cognitive-services
 author: bojunehsu
 manager: stesp
-
 ms.service: cognitive-services
-ms.technology: kes
+ms.component: knowledge-exploration
 ms.topic: article
 ms.date: 03/24/2016
 ms.author: paulhsu

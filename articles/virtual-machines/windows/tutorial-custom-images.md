@@ -1,6 +1,6 @@
 ---
-title: Create custom VM images with the Azure PowerShell | Microsoft Docs
-description: Tutorial - Create a custom VM image using the Azure PowerShell.
+title: Tutorial - Create custom VM images with Azure PowerShell | Microsoft Docs
+description: In this tutorial, you learn how to use Azure PowerShell to create a custom virtual machine image in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -11,15 +11,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
+
+#Customer intent: As an IT administrator, I want to learn about how to create custom VM images to minimize the number of post-deployment configuration tasks.
 ---
 
-# Create a custom image of an Azure VM using PowerShell
+# Tutorial: Create a custom image of an Azure VM with Azure PowerShell
 
 Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. In this tutorial, you create your own custom image of an Azure virtual machine. You learn how to:
 
@@ -30,7 +32,6 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * List all the images in your subscription
 > * Delete an image
 
-
 ## Before you begin
 
 The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create new VM instances.
@@ -39,7 +40,7 @@ To complete the example in this tutorial, you must have an existing virtual mach
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the AzureRM module version 5.6.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+If you choose to install and use the PowerShell locally, this tutorial requires the AzureRM module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Prepare VM
 
@@ -98,7 +99,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## Create VMs from the image
 
-Now that you have an image, you can create one or more new VMs from the image. Creating a VM from a custom image is very similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to provide the information about the image, image provider, offer, SKU and version. Using the simplified parameter set for the [New-AzureRMVM]() cmdlet, you just need to provide the name of the custom image as long as it is in the same resource group. 
+Now that you have an image, you can create one or more new VMs from the image. Creating a VM from a custom image is similar to creating a VM using a Marketplace image. When you use a Marketplace image, you have to provide the information about the image, image provider, offer, SKU, and version. Using the simplified parameter set for the [New-AzureRMVM]() cmdlet, you just need to provide the name of the custom image as long as it is in the same resource group. 
 
 This example creates a VM named *myVMfromImage* from the *myImage*, in the *myResourceGroup*.
 

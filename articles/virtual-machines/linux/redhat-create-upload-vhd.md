@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/04/2018
 ms.author: szark
 
 ---
@@ -156,7 +156,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 5. Ensure that the network service will start at boot time by running the following command:
 
-		# sudo chkconfig network on
+		# sudo systemctl enable network
 
 6. Register your Red Hat subscription to enable the installation of packages from the RHEL repository by running the following command:
 
@@ -408,7 +408,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 6. Ensure that the network service will start at boot time by running the following command:
 
-		# chkconfig network on
+		# sudo systemctl enable network
 
 7. Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
@@ -662,7 +662,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 3. Ensure that the network service will start at boot time by running the following command:
 
-		# sudo chkconfig network on
+		# sudo systemctl enable network
 
 4. Register your Red Hat subscription to enable the installation of packages from the RHEL repository by running the following command:
 

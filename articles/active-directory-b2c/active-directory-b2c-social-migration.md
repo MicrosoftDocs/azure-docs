@@ -1,17 +1,16 @@
 ---
-title: 'Azure Active Directory B2C: Migrate users with social identities'
-description: 'Discuss core concepts on the migration of users with social identities into Azure AD B2C using Graph API'
+title: Migrate users with social identities in Azure Active Directory B2C | Microsoft Docs
+description: Discuss core concepts on the migration of users with social identities into Azure AD B2C using Graph API.
 services: active-directory-b2c
-documentationcenter: ''
-author: davidmu
+author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: davidmu
+ms.component: B2C
 ---
 
 # Azure Active Directory B2C: Migrate users with social identities
@@ -44,7 +43,7 @@ This article is a continuation of the user migration article, and focuses on soc
 
 ## Use Graph API to migrate users
 You create the Azure AD B2C user account via [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). 
-To communicate with the Graph API, you first must have a service account with administrative privileges. In Azure AD, you register an application and authentication to Azure AD. The application credentials are Application ID and Application Secret. The application acts as itself, not as a user, to call the Graph API. Follow the instructions in step 1 in [User migration](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) article.
+To communicate with the Graph API, you first must have a service account with administrative privileges. In Azure AD, you register an application and authentication to Azure AD. The application credentials are Application ID and Application Secret. The application acts as itself, not as a user, to call the Graph API. Follow the instructions in step 1 in [User migration](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) article.
 
 ## Required properties
 The following list shows the properties that are required when you create a user.

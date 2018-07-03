@@ -1,72 +1,73 @@
 ---
-title: Azure Policy definition structure | Microsoft Docs
-description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what action to take.
+title: Azure Policy definition structure
+description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
 services: azure-policy
-keywords:
-author: bandersmsft
-ms.author: banders
-ms.date: 01/17/2018
-ms.topic: article
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 05/24/2018
+ms.topic: conceptual
 ms.service: azure-policy
-ms.custom:
+manager: carmonm
 ---
-
 # Azure Policy definition structure
 
-Resource policy definition used by Azure Policy enables you to establish conventions for resources in your organization by describing when the policy is enforced and what action to take. By defining conventions, you can control costs and more easily manage your resources. For example, you can specify that only certain types of virtual machines are allowed. Or, you can require that all resources have a particular tag. Policies are inherited by all child resources. So, if a policy is applied to a resource group, it is applicable to all the resources in that resource group.
+Resource policy definition used by Azure Policy enables you to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take. By defining conventions, you can control costs and more easily manage your resources. For example, you can specify that only certain types of virtual machines are allowed. Or, you can require that all resources have a particular tag. Policies are inherited by all child resources. So, if a policy is applied to a resource group, it is applicable to all the resources in that resource group.
+
+The schema used by Azure Policy can be found here: [https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
-* mode
-* parameters
-* display name
-* description
-* policy rule
-  * logical evaluation
-  * effect
+- mode
+- parameters
+- display name
+- description
+- policy rule
+  - logical evaluation
+  - effect
 
 For example, the following JSON shows a policy that limits where resources are deployed:
 
 ```json
 {
-  "properties": {
-    "mode": "all",
-    "parameters": {
-      "allowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that can be specified when deploying resources",
-          "strongType": "location",
-          "displayName": "Allowed locations"
+    "properties": {
+        "mode": "all",
+        "parameters": {
+            "allowedLocations": {
+                "type": "array",
+                "metadata": {
+                    "description": "The list of locations that can be specified when deploying resources",
+                    "strongType": "location",
+                    "displayName": "Allowed locations"
+                }
+            }
+        },
+        "displayName": "Allowed locations",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+        "policyRule": {
+            "if": {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters('allowedLocations')]"
+                }
+            },
+            "then": {
+                "effect": "deny"
+            }
         }
-      }
-    },
-    "displayName": "Allowed locations",
-    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "not": {
-          "field": "location",
-          "in": "[parameters('allowedLocations')]"
-        }
-      },
-      "then": {
-        "effect": "deny"
-      }
     }
-  }
 }
 ```
 
-All Azure Policy template samples are at [Templates for Azure Policy](json-samples.md).
+All Azure Policy samples are at [Policy samples](json-samples.md).
 
 ## Mode
 
 The **mode** determines which resource types will be evaluated for a policy. The supported modes are:
-* `all`: evaluate resource groups and all resource types 
-* `indexed`: only evaluate resource types that support tags and location
 
-We recommend that you set **mode** to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you need to specify the **mode** parameter manually. If the policy definition does not contain a **mode** value it defaults to `indexed` for backwards compatibility.
+- `all`: evaluate resource groups and all resource types
+- `indexed`: only evaluate resource types that support tags and location
+
+We recommend that you set **mode** to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode** parameter manually. If the policy definition does not contain a **mode** value it defaults to `all` in Azure PowerShell and to `null` in Azure CLI, which is equivalent to `indexed`, for backwards compatibility.
 
 `indexed` should be used when creating policies that will enforce tags or locations. This isn't required but it will prevent resources that don't support tags and locations from showing up as non-compliant in the compliance results. The one exception to this is **resource groups**. Policies that are attempting to enforce location or tags on a resource group should set **mode** to `all` and specifically target the `Microsoft.Resources/subscriptions/resourceGroup` type. For an example, see [Enforce resource group tags](scripts/enforce-tag-rg.md).
 
@@ -76,30 +77,29 @@ Parameters help simplify your policy management by reducing the number of policy
 
 For example, you could define a policy for a resource property to limit the locations where resources can be deployed. In this case, you would declare the following parameters when you create your policy:
 
-
 ```json
 "parameters": {
-  "allowedLocations": {
-    "type": "array",
-    "metadata": {
-      "description": "The list of allowed locations for resources.",
-      "displayName": "Allowed locations",
-      "strongType": "location"
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+            "description": "The list of allowed locations for resources.",
+            "displayName": "Allowed locations",
+            "strongType": "location"
+        }
     }
-  }
 }
 ```
 
 The type of a parameter can be either string or array. The metadata property is used for tools like the Azure portal to display user-friendly information.
 
-Within the metadata property you can use **strongType** to provide a multi-select list of options within the Azure portal.  Allowed values for **strongType** currently include:
+Within the metadata property, you can use **strongType** to provide a multi-select list of options within the Azure portal.  Allowed values for **strongType** currently include:
 
-* `"location"`
-* `"resourceTypes"`
-* `"storageSkus"`
-* `"vmSKUs"`
-* `"existingResourceGroups"`
-* `"omsWorkspace"`
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 In the policy rule, you reference parameters with the following syntax:
 
@@ -110,9 +110,18 @@ In the policy rule, you reference parameters with the following syntax:
 }
 ```
 
+## Definition location
+
+While creating an initiative or policy definition, it is important that you specify the definition location.
+
+The definition location determines the scope to which the initiative or policy definition can be assigned to. The location can be specified as a management group or a subscription.
+
+> [!NOTE]
+> If you plan to apply this policy definition to multiple subscriptions, the location must be a management group that contains the subscriptions you will assign the initiative or policy to.
+
 ## Display name and description
 
-You can use **displayName** and **description** to identify the policy definition, and provide context for when it is used.
+You can use **displayName** and **description** to identify the policy definition and provide context for when it is used.
 
 ## Policy rule
 
@@ -122,12 +131,12 @@ In the **Then** block, you define the effect that happens when the **If** condit
 
 ```json
 {
-  "if": {
-    <condition> | <logical operator>
-  },
-  "then": {
-    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
-  }
+    "if": {
+        <condition> | <logical operator>
+    },
+    "then": {
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+    }
 }
 ```
 
@@ -135,9 +144,9 @@ In the **Then** block, you define the effect that happens when the **If** condit
 
 Supported logical operators are:
 
-* `"not": {condition  or operator}`
-* `"allOf": [{condition or operator},{condition or operator}]`
-* `"anyOf": [{condition or operator},{condition or operator}]`
+- `"not": {condition  or operator}`
+- `"allOf": [{condition or operator},{condition or operator}]`
+- `"anyOf": [{condition or operator},{condition or operator}]`
 
 The **not** syntax inverts the result of the condition. The **allOf** syntax (similar to the logical **And** operation) requires all conditions to be true. The **anyOf** syntax (similar to the logical **Or** operation) requires one or more conditions to be true.
 
@@ -145,18 +154,17 @@ You can nest logical operators. The following example shows a **not** operation 
 
 ```json
 "if": {
-  "allOf": [
-    {
-      "not": {
-        "field": "tags",
-        "containsKey": "application"
-      }
-    },
-    {
-      "field": "type",
-      "equals": "Microsoft.Storage/storageAccounts"
-    }
-  ]
+    "allOf": [{
+            "not": {
+                "field": "tags",
+                "containsKey": "application"
+            }
+        },
+        {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+        }
+    ]
 },
 ```
 
@@ -164,42 +172,47 @@ You can nest logical operators. The following example shows a **not** operation 
 
 A condition evaluates whether a **field** meets certain criteria. The supported conditions are:
 
-* `"equals": "value"`
-* `"notEquals": "value"`
-* `"like": "value"`
-* `"notLike": "value"`
-* `"match": "value"`
-* `"notMatch": "value"`
-* `"contains": "value"`
-* `"notContains": "value"`
-* `"in": ["value1","value2"]`
-* `"notIn": ["value1","value2"]`
-* `"containsKey": "keyName"`
-* `"notContainsKey": "keyName"`
-* `"exists": "bool"`
+- `"equals": "value"`
+- `"notEquals": "value"`
+- `"like": "value"`
+- `"notLike": "value"`
+- `"match": "value"`
+- `"notMatch": "value"`
+- `"contains": "value"`
+- `"notContains": "value"`
+- `"in": ["value1","value2"]`
+- `"notIn": ["value1","value2"]`
+- `"containsKey": "keyName"`
+- `"notContainsKey": "keyName"`
+- `"exists": "bool"`
 
-When using the **like** and **notLike** conditions, you can provide a wildcard (*) in the value.
+When using the **like** and **notLike** conditions, you can provide a wildcard `*` in the value.
+The value should not contain more than one wildcard `*`.
 
-When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Approved VM images](scripts/allowed-custom-images.md).
+When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a
+letter, and any other character to represent that actual character. For examples, see [Allow
+multiple name patterns](scripts/allow-multiple-name-patterns.md).
 
 ### Fields
+
 Conditions are formed by using fields. A field represents properties in the resource request payload that is used to describe the state of the resource.  
 
 The following fields are supported:
 
-* `name`
-* `fullName`
-  * Returns the full name of the resource, including any parents (e.g. "myServer/myDatabase")
-* `kind`
-* `type`
-* `location`
-* `tags`
-* `tags.tagName`
-* `tags[tagName]`
-  * This bracket syntax supports tag names that contain periods
-* property aliases - for a list, see [Aliases](#aliases).
+- `name`
+- `fullName`
+  - Returns the full name of the resource. The full name of a resource is the resource name prepended by any parent resource names (for example "myServer/myDatabase").
+- `kind`
+- `type`
+- `location`
+- `tags`
+- `tags.tagName`
+- `tags[tagName]`
+  - This bracket syntax supports tag names that contain periods
+- property aliases - for a list, see [Aliases](#aliases).
 
 ### Alternative Accessors
+
 **Field** is the primary accessor used in policy rules. It directly inspects the resource that is being evaluated. However, policy supports one other accessor, **source**.
 
 ```json
@@ -209,27 +222,26 @@ The following fields are supported:
 
 **Source** only supports one value, **action**. Action returns the authorization action of the request that is being evaluated. Authorization actions are exposed in the authorization section of the [Activity Log](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
 
-When policy is evaluating existing resources in the background it sets **action** to a `/write` authorization action on the resource's type.
+When policy is evaluating existing resources in the background, it sets **action** to a `/write` authorization action on the resource's type.
 
 ### Effect
+
 Policy supports the following types of effect:
 
-* **Deny**: generates an event in the audit log and fails the request
-* **Audit**: generates a warning event in audit log but does not fail the request
-* **Append**: adds the defined set of fields to the request
-* **AuditIfNotExists**: enables auditing if a resource does not exist
-* **DeployIfNotExists**: deploys a resource if it does not already exist. Currently, this effect is only supported through built-in policies.
+- **Deny**: generates an event in the audit log and fails the request
+- **Audit**: generates a warning event in audit log but does not fail the request
+- **Append**: adds the defined set of fields to the request
+- **AuditIfNotExists**: enables auditing if a resource does not exist
+- **DeployIfNotExists**: deploys a resource if it does not already exist. Currently, this effect is only supported through built-in policies.
 
 For **append**, you must provide the following details:
 
 ```json
 "effect": "append",
-"details": [
-  {
+"details": [{
     "field": "field name",
     "value": "value of the field"
-  }
-]
+}]
 ```
 
 The value can be either a string or a JSON format object.
@@ -237,132 +249,73 @@ The value can be either a string or a JSON format object.
 With **AuditIfNotExists** and **DeployIfNotExists** you can evaluate the existence of a related resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks.
 For an example of auditing when a virtual machine extension is not deployed, see [Audit if extension does not exist](scripts/audit-ext-not-exist.md).
 
+For complete details on each effect, order of evaluation, properties, and examples, see [Understanding Policy Effects](policy-effects.md).
 
 ## Aliases
 
 You use property aliases to access specific properties for a resource type. Aliases enable you to restrict what values or conditions are permitted for a property on a resource. Each alias maps to paths in different API versions for a given resource type. During policy evaluation, the policy engine gets the property path for that API version.
 
-**Microsoft.Cache/Redis**
+The list of aliases is always growing. To discover what aliases are currently supported by Azure Policy, use one of the following methods:
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Cache/Redis/enableNonSslPort | Set whether the non-ssl Redis server port (6379) is enabled. |
-| Microsoft.Cache/Redis/shardCount | Set the number of shards to be created on a Premium Cluster Cache.  |
-| Microsoft.Cache/Redis/sku.capacity | Set the size of the Redis cache to deploy.  |
-| Microsoft.Cache/Redis/sku.family | Set the SKU family to use. |
-| Microsoft.Cache/Redis/sku.name | Set the type of Redis Cache to deploy. |
+- Azure PowerShell
 
-**Microsoft.Cdn/profiles**
+  ```azurepowershell-interactive
+  # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.CDN/profiles/sku.name | Set the name of the pricing tier. |
+  $azContext = Get-AzureRmContext
+  $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+  $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+  $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
+  $authHeader = @{
+      'Content-Type'='application/json'
+      'Authorization'='Bearer ' + $token.AccessToken
+  }
 
-**Microsoft.Compute/disks**
+  # Invoke the REST API
+  $response = Invoke-RestMethod -Uri 'https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases' -Method Get -Headers $authHeader
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
+  # Create an Array List to hold discovered aliases
+  $aliases = New-Object System.Collections.ArrayList
 
+  foreach ($ns in $response.value) {
+      foreach ($rT in $ns.resourceTypes) {
+          if ($rT.aliases) {
+              foreach ($obj in $rT.aliases) {
+                  $alias = [PSCustomObject]@{
+                      Namespace       = $ns.namespace
+                      resourceType    = $rT.resourceType
+                      alias           = $obj.name
+                  }
+                  $aliases.Add($alias) | Out-Null
+              }
+          }
+      }
+  }
 
-**Microsoft.Compute/virtualMachines**
+  # Output the list, sort, and format. You can customize with Where-Object to limit as desired.
+  $aliases | Sort-Object -Property Namespace, resourceType, alias | Format-Table
+  ```
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | Set the identifier of the image used to create the virtual machine. |
-| Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/licenseType | Set that the image or disk is licensed on-premises. This value is only used for images that contain the Windows Server operating system.  |
-| Microsoft.Compute/virtualMachines/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/virtualMachines/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/virtualMachines/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/virtualMachines/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/virtualMachines/osDisk.Uri | Set the vhd URI. |
-| Microsoft.Compute/virtualMachines/sku.name | Set the size of the virtual machine. |
-| Microsoft.Compute/virtualMachines/availabilitySet.id | Sets the availability set id for the virtual machine. |
+- Azure CLI
 
-**Microsoft.Compute/virtualMachines/extensions**
+  ```azurecli-interactive
+  # Login first with az login if not using Cloud Shell
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Compute/virtualMachines/extensions/publisher | Set the name of the extension’s publisher. |
-| Microsoft.Compute/virtualMachines/extensions/type | Set the type of extension. |
-| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Set the version of the extension. |
+  # Get Azure Policy aliases for a specific Namespace
+  az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+  ```
 
-**Microsoft.Compute/virtualMachineScaleSets**
+- REST API / ARMClient
 
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | Set the identifier of the image used to create the virtual machine. |
-| Microsoft.Compute/imageOffer | Set the offer of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imagePublisher | Set the publisher of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageSku | Set the SKU of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/imageVersion | Set the version of the platform image or marketplace image used to create the virtual machine. |
-| Microsoft.Compute/licenseType | Set that the image or disk is licensed on-premises. This value is only used for images that contain the Windows Server operating system. |
-| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | Set the computer name prefix for all  the virtual machines in the scale set. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | Set the blob URI for user image. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | Set the container URLs that are used to store operating system disks for the scale set. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.name | Set the size of virtual machines in a scale set. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Set the tier of virtual machines in a scale set. |
-
-**Microsoft.Network/applicationGateways**
-
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Network/applicationGateways/sku.name | Set the size of the gateway. |
-
-**Microsoft.Network/virtualNetworkGateways**
-
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Network/virtualNetworkGateways/gatewayType | Set the type of this virtual network gateway. |
-| Microsoft.Network/virtualNetworkGateways/sku.name | Set the gateway SKU name. |
-
-**Microsoft.Sql/servers**
-
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Sql/servers/version | Set the version of the server. |
-
-**Microsoft.Sql/databases**
-
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Sql/servers/databases/edition | Set the edition of the database. |
-| Microsoft.Sql/servers/databases/elasticPoolName | Set the name of the elastic pool the database is in. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | Set the configured service level objective ID of the database. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | Set the name of the configured service level objective of the database.  |
-
-**Microsoft.Sql/elasticpools**
-
-| Alias | Description |
-| ----- | ----------- |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Set the total shared DTU for the database elastic pool. |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Set the edition of the elastic pool. |
-
-**Microsoft.Storage/storageAccounts**
-
-| Alias | Description |
-| ----- | ----------- |
-| Microsoft.Storage/storageAccounts/accessTier | Set the access tier used for billing. |
-| Microsoft.Storage/storageAccounts/accountType | Set the SKU name. |
-| Microsoft.Storage/storageAccounts/enableBlobEncryption | Set whether the service encrypts the data as it is stored in the blob storage service. |
-| Microsoft.Storage/storageAccounts/enableFileEncryption | Set whether the service encrypts the data as it is stored in the file storage service. |
-| Microsoft.Storage/storageAccounts/sku.name | Set the SKU name. |
-| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Set to allow only https traffic to storage service. |
-| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Check whether Virtual Network Service Endpoint is enabled. |
+  ```http
+  GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
+  ```
 
 ## Initiatives
 
-Initiatives enable you group several related policy definitions to simplify assignments and management because you work with a group as a single item. For example, you can group all related tagging policy definitions in a single initiative. Rather than assigning each policy individually, you apply the initiative.
+Initiatives enable you to group several related policy definitions to simplify assignments and management because you work with a group as a single item. For example, you can group all related tagging policy definitions in a single initiative. Rather than assigning each policy individually, you apply the initiative.
 
 The following example illustrates how to create an initiative for handling two tags: `costCenter` and `productName`. It uses two built-in policies to apply the default tag value.
-
 
 ```json
 {
@@ -384,8 +337,7 @@ The following example illustrates how to create an initiative for handling two t
                 }
             }
         },
-        "policyDefinitions": [
-            {
+        "policyDefinitions": [{
                 "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
                 "parameters": {
                     "tagName": {
@@ -439,4 +391,4 @@ The following example illustrates how to create an initiative for handling two t
 
 ## Next steps
 
-- Review the Azure Policy template samples at [Templates for Azure Policy](json-samples.md).
+- Review more examples at [Azure Policy samples](json-samples.md).

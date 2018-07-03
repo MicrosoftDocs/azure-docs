@@ -9,10 +9,9 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm:
-ms.devlang:
+ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 05/21/2018
 ms.author: curtand                   
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
@@ -188,7 +187,7 @@ School Data Sync (SDS) | Groups created through SDS comply with naming policy, b
 Outlook Customer Manager (OCM) | Outlook Customer Manager is compliant with the naming policy, which is automatically applied to the group created in Outlook Customer Manager. If a custom blocked word is detected, group creation in OCM is blocked, and the user is blocked from using the OCM app.
 Classroom app | Groups created in Classroom app comply with the naming policy, but the naming policy isn't applied automatically, and the naming policy preview isn't shown to the users while entering a classroom group name. Users must enter the enforced classroom group name with prefixes and suffixes. If not, the classroom group create or edit operation fails with errors.
 Power BI | Power BI workspaces are compliant with the naming policy.    
-Yammer | Yammer connected groups don't enforce the configured naming policy. For organizations with naming policy enabled, Yammer creates legacy Yammer groups that aren't connected to Office 365 for groups that won't conform to the naming policy.
+Yammer | When a user signed in to Yammer with their Azure Active Directory account creates a group or edits a group name, the group name will comply with naming policy. This applies both to Office 365 connected groups and all other Yammer groups.<br>If an Office 365 connected group was created before the naming policy is in place, the group name will not automatically follow the naming policies. When a user edits the group name, they will be prompted to add the prefix and suffix.
 StaffHub  | StaffHub teams do not follow the naming policy, but the underlying Office 365 group does. StaffHub team name does not apply the prefixes and suffixes and does not check for custom blocked words. But StaffHub does apply the prefixes and suffixes and removes blocked words from the underlying Office 365 group.
 Exchange PowerShell | Exchange PowerShell cmdlets are compliant with the naming policy. Users receive appropriate error messages with suggested prefixes and suffixes and for custom blocked words if they don't follow the naming policy in the group name and group alias (mailNickname).
 Azure Active Directory PowerShell cmdlets | Azure Active Directory PowerShell cmdlets are compliant with naming policy. Users receive appropriate error messages with suggested prefixes and suffixes and for custom blocked words if they don't follow the naming convention in group names and group alias.
@@ -198,9 +197,9 @@ Office 365 admin center | Office 365 Admin center is compliant with naming polic
 ## Next steps
 These articles provide additional information on Azure AD groups.
 
-* [See existing groups](active-directory-groups-view-azure-portal.md)
+* [See existing groups](fundamentals/active-directory-groups-view-azure-portal.md)
 * [Expiration policy for Office 365 groups](active-directory-groups-lifecycle-azure-portal.md)
-* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
-* [Manage members of a group](active-directory-groups-members-azure-portal.md)
-* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
+* [Manage settings of a group](fundamentals/active-directory-groups-settings-azure-portal.md)
+* [Manage members of a group](fundamentals/active-directory-groups-members-azure-portal.md)
+* [Manage memberships of a group](fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)

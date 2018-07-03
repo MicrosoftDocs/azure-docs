@@ -4,19 +4,18 @@ description: Use Language Understanding (LUIS) to continuously work on your appl
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Testing in LUIS
 
 Testing is the process of providing sample utterances to LUIS and getting a response of LUIS-recognized intents and entities. 
 
-You can [test](Train-Test.md) LUIS interactively, one utterance at a time, or provide a [batch](luis-concept-batch-test.md) of utterances. With testing, you compare the current [active](luis-concept-version.md#active-version) model to the published model. 
+You can [test](interactive-test.md) LUIS interactively, one utterance at a time, or provide a [batch](luis-concept-batch-test.md) of utterances. With testing, you compare the current [active](luis-concept-version.md#active-version) model to the published model. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -48,14 +47,11 @@ Any utterances LUIS is unsure of are listed in the **[Review endpoint utterances
 ## Remember to train
 Remember to [train](luis-how-to-train.md) LUIS after you make changes to the model. Changes to the LUIS app are not seen in testing until the app is trained. 
 
-## Best practice - test at the endpoint
-Developers should start testing their LUIS application with real traffic by sending utterances to the endpoint. These utterances are used to improve the performance of the intents and entities with [Review utterances](label-suggested-utterances.md). 
-
-## Best practice - three sets of data
-Developers should have three sets of test data. The first is for building the model, the second is for testing the model at the endpoint. The third is used in [batch testing](train-test.md#batch-testing). The first set is not used in training the application nor sent on the endpoint. 
+## Best practices
+Learn [best practices](luis-concept-best-practices.md).
 
 ## Next steps
 
-* Learn more about [testing](Train-Test.md) your utterances.
+* Learn more about [testing](interactive-test.md) your utterances.
 
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

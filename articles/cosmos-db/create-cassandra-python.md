@@ -2,15 +2,12 @@
 title: 'Quickstart: Cassandra API with Python - Azure Cosmos DB | Microsoft Docs'
 description: This quickstart shows how to use the Azure Cosmos DB's Apache Cassandra API to create a profile application  with Python
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 4ebc883e-c512-4e34-bd10-19f048661159
 ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
 ms.custom: quick start connect, mvc
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
@@ -44,13 +41,19 @@ Before you can create a document database, you need to create a Cassandra accoun
 
 Now let's clone a Cassandra API app from github, set the connection string, and run it. You see how easy it is to work with data programmatically. 
 
-1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
+1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started.git
@@ -58,7 +61,7 @@ Now let's clone a Cassandra API app from github, set the connection string, and 
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `pyquickstart.py` file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the pyquickstart.py file. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
 * User name and password is set using the connection string page in the Azure portal. You replace the path\to\cert with the path to your X509 certificate.
 
@@ -139,7 +142,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     Line 10 should now look similar to 
 
-    `'contactPoint': 'cosmos-db-quickstarts.documents.azure.com:10350'`
+    `'contactPoint': 'cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350'`
 
 4. Copy the USERNAME value from the portal and paste it over `<FILLME>` on line 6.
 

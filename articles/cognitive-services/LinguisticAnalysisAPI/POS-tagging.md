@@ -4,9 +4,8 @@ description: Learn how Part-of-Speech Tagging in Microsoft Cognitive Services id
 services: cognitive-services
 author: RichardSunMS
 manager: wkwok
-
 ms.service: cognitive-services
-ms.technology: linguistic-analysis-api
+ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: lesun
@@ -73,4 +72,4 @@ For some words, the part-of-speech is unambiguous (for instance, *quagmire* is r
 
 ## Specification
 
-As for tokenization, we rely on the specification from the [Penn Treebank](https://www.cis.upenn.edu/~treebank/).
+As for tokenization, we rely on the specification from the [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).

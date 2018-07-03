@@ -1,17 +1,23 @@
----
-title: "PowerShell for Virtual Network service endpoints and rules in SQL | Microsoft Docs"
-description: "Provides PowerShell scripts to create and manage Virtual Service endpoints for your Azure SQL Database."
+﻿---
+title: "PowerShell for Virtual Network service endpoints and rules in Azure SQL | Microsoft Docs"
+description: "Provides PowerShell scripts to create and manage Virtual Service endpoints for your Azure SQL Database and SQL Data Warehouse."
 services: sql-database
 author: MightyPen
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: "VNet Service endpoints"
-ms.topic: article
-ms.date: 02/05/2018
-ms.reviewer: genemi
+ms.topic: conceptual
+ms.date: 06/13/2018
+ms.reviewer: genemi, carlrab
 ms.author: dmalik
 ---
-# Use PowerShell to create a Virtual Service endpoint and rule for Azure SQL Database
+# Use PowerShell to create a Virtual Service endpoint and rule for Azure SQL Database and SQL Data Warehouse
+
+Both Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) support Virtual Service endpoints. 
+
+> [!NOTE]
+> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
 This article provides and explains a PowerShell script that takes the following actions:
 
@@ -45,6 +51,10 @@ The following list shows the sequence of other *major* cmdlets that you must run
 - You can already log in to Azure, such as through the [Azure portal][http-azure-portal-link-ref-477t].
 - You can already run PowerShell scripts.
 
+> [!NOTE]
+> Please ensure that service endpoints are turned on for the Vnet/Subnet that you want to add to your Server otherwise creation of the 
+> Vnet Firewall Rule will fail.
+
 #### One script divided into four chunks
 
 Our demonstration PowerShell script is divided into a sequence of smaller scripts. The division eases learning and provides flexibility. The scripts must be run in their indicated sequence. If you do not have time now to run the scripts, our actual test output is displayed after script 4.
@@ -74,7 +84,7 @@ This first PowerShell script assigns values to variables. The subsequent scripts
 ###########################################################
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 ###########################################################
 ##  Assignments to variables used by the later scripts.  ##
@@ -514,7 +524,7 @@ This PowerShell script does not update anything, unless you respond yes if is as
 ### 1. LOG into to your Azure account, needed only once per PS session.  Assign variables.
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount; }
 
 # Assignments to variables used by the later scripts.
 # You can EDIT these values, if necessary.

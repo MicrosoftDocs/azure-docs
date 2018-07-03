@@ -34,7 +34,7 @@ This sample monitors a location's current weather conditions and alerts a user b
 * Monitors can terminate when some condition is met or be terminated by another process.
 * Monitors can take parameters. The sample shows how the same weather-monitoring process can be applied to any requested location and phone number.
 * Monitors are scalable. Because each monitor is an orchestration instance, multiple monitors can be created without having to create new functions or define more code.
-* Monitors integrate easily into larger workflows. A monitor can be one section of a more complex orchestration function, or a [sub-orchestration](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-sub-orchestrations).
+* Monitors integrate easily into larger workflows. A monitor can be one section of a more complex orchestration function, or a [sub-orchestration](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
 
 ## Configuring Twilio integration
 

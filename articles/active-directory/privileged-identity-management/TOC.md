@@ -5,7 +5,7 @@
 ## [PIM for Azure Resources](azure-pim-resource-rbac.md)
 ## [PIM approval workflow](azure-ad-pim-approval-workflow.md)
 ## [Roles](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Privileged Identity Management Approval workflows](azure-ad-pim-approval-workflow.md)
+
 
 
 # Get started
@@ -55,7 +55,7 @@
 
 # Related
 ## [Azure Active Directory](/azure/active-directory/)
-## [Role-Based Access Control](../role-based-access-control-what-is.md)
+## [Role-Based Access Control](../../role-based-access-control/overview.md)
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

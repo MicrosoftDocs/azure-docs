@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -22,6 +23,9 @@ Azure AD Connect will integrate your on-premises directories with Azure Active D
 
 > [!IMPORTANT]
 > [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated are no longer supported as of April 13, 2017.](active-directory-aadconnect-dirsync-deprecated.md)  Also:
+
+
+
 > 
 > - Synchronizing users to Azure AD is a **free feature** and doesn’t require customers to have any paid subscription.
 >- Synchronized users are **not automatically granted** *any* license. Admins still have total control on the license assignment. 
@@ -47,13 +51,17 @@ Azure Active Directory Connect is made up of three primary components: the synch
 * Health Monitoring - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. For additional information, see [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 ## Install Azure AD Connect
+
+> [!IMPORTANT]
+> Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the actions that are formally documented. Any of these actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
+
 You can find the download for Azure AD Connect on [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Solution | Scenario |
 | --- | --- |
 | Before you start - [Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) |<li>Steps to complete before you start to install Azure AD Connect.</li> |
 | [Express settings](active-directory-aadconnect-get-started-express.md) |<li>If you have a single forest AD then this is the recommended option to use.</li> <li>User sign in with the same password using password synchronization.</li> |
-| [Customized settings](active-directory-aadconnect-get-started-custom.md) |<li>Used when you have multiple forests. Supports many on-premises [topologies](active-directory-aadconnect-topologies.md).</li> <li>Customize your sign-in option, such as ADFS for federation or use a 3rd party identity provider.</li> <li>Customize synchronization features, such as filtering and writeback.</li> |
+| [Customized settings](active-directory-aadconnect-get-started-custom.md) |<li>Used when you have multiple forests. Supports many on-premises [topologies](active-directory-aadconnect-topologies.md).</li> <li>Customize your sign-in option, such as pass-through authentication, ADFS for federation or use a 3rd party identity provider.</li> <li>Customize synchronization features, such as filtering and writeback.</li> |
 | [Upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>Used when you have an existing DirSync server already running.</li> |
 | [Upgrade from Azure AD Sync or Azure AD Connect](active-directory-aadconnect-upgrade-previous-version.md) |<li>There are several different methods depending on your preference.</li> |
 
@@ -86,7 +94,7 @@ Azure AD Connect comes with several features you can optionally turn on or are e
 
 [Password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) synchronizes the password hash in Active Directory to Azure AD. The  end-user can use the same password on-premises and in the cloud but only manage it in one location. Since it uses your on-premises Active Directory as the authority, you can also use your own password policy.
 
-[Password writeback](../active-directory-passwords-getting-started.md) will allow your users to change and reset their passwords in the cloud and have your on-premises password policy applied.
+[Password writeback](../authentication/quickstart-sspr.md) will allow your users to change and reset their passwords in the cloud and have your on-premises password policy applied.
 
 [Device writeback](active-directory-aadconnect-feature-device-writeback.md) will allow a device registered in Azure AD to be written back to on-premises Active Directory so it can be used for conditional access.
 
@@ -99,7 +107,7 @@ The [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent
 | --- | --- |
 |Configure filtering | [Azure AD Connect sync: Configure filtering](active-directory-aadconnectsync-configure-filtering.md)|
 |Password hash synchronization | [Azure AD Connect sync: Implement password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
-|Password writeback | [Getting started with password management](../active-directory-passwords-getting-started.md)|
+|Password writeback | [Getting started with password management](../authentication/quickstart-sspr.md)|
 |Device writeback | [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |Prevent accidental deletes | [Azure AD Connect sync: Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |Automatic upgrade | [Azure AD Connect: Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)|
@@ -135,7 +143,7 @@ Azure AD Connect provides several features that simplify federating with Azure A
 
 ADFS can be configured to support [multiple domains](active-directory-aadconnect-multiple-domains.md). For example you might have multiple top domains you need to use for federation.
 
-if your ADFS server has not been configured to automatically update certificates from Azure AD or if you use a non-ADFS solution, then you will be notified when you have to [update certificates](active-directory-aadconnect-o365-certs.md).
+If your ADFS server has not been configured to automatically update certificates from Azure AD or if you use a non-ADFS solution, then you will be notified when you have to [update certificates](active-directory-aadconnect-o365-certs.md).
 
 ### Next steps to configure federation features
 |Topic |Link|  

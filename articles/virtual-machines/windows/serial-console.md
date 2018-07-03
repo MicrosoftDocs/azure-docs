@@ -30,8 +30,9 @@ The virtual machine serial console on Azure provides access to a text-based cons
 
 ## Prerequisites 
 
+* You must be using the resource management deployment model. Classic deployments are not supported. 
 * Virtual machine  MUST have [boot diagnostics](boot-diagnostics.md) enabled 
-* The account using the serial console must have [Contributor role](../../active-directory/role-based-access-built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
+* The account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
 
 ## Open the serial console
 serial console for virtual machines is only accessible via [Azure portal](https://portal.azure.com). Below are the steps to access the serial console for virtual machines via portal 
@@ -49,7 +50,7 @@ The serial console functionality can be deactivated for specific VMs by disablin
 ## Serial console security 
 
 ### Access security 
-Access to Serial console is limited to users who have [VM Contributors](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) or above access to the virtual machine. If your AAD tenant requires Multi-Factor Authentication then access to the serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
+Access to Serial console is limited to users who have [VM Contributors](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) or above access to the virtual machine. If your AAD tenant requires Multi-Factor Authentication then access to the serial console will also need MFA as its access is via [Azure portal](https://portal.azure.com).
 
 ### Channel security
 All data is sent back and forth is encrypted on the wire.
@@ -108,7 +109,7 @@ If you need to enable Windows boot loader prompts to show in the serial console,
 
 This section includes example commands for performing common tasks in scenarios where you may need to use SAC to access the VM, such as when you need to troubleshoot RDP connection failures.
 
-SAC has been included in all versions of Windows since Windows Server 2003 but is disabled by default. SAC relies on the `sacdrv.sys` kernel driver, the `Special Administration Console Helper` service (`sacsvr`), and the `sacsess.exe` process. For more information, see [Emergency Management Services Tools and Settings](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
+SAC has been included in all versions of Windows since Windows Server 2003 but is disabled by default. SAC relies on the `sacdrv.sys` kernel driver, the `Special Administration Console Helper` service (`sacsvr`), and the `sacsess.exe` process. For more information, see [Emergency Management Services Tools and Settings](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
 
 SAC allows you to connect to your running OS via serial port. When you launch CMD from SAC, `sacsess.exe` launches `cmd.exe` within your running OS. You can see that in Task Manager if you RDP to your VM at the same time you are connected to SAC via the serial console feature. The CMD you access via SAC is the same `cmd.exe` you use when connected via RDP. All the same commands and tools are available, including the ability to launch PowerShell from that CMD instance. That is a major difference between SAC and the Windows Recovery Environment (WinRE) in that SAC is letting you manage your running OS, where WinRE boots into a different, minimal OS. While Azure VMs do not support the ability to access WinRE, with the serial console feature, Azure VMs can be managed via SAC.
 
@@ -265,11 +266,11 @@ This example returns the file version of the virtual NIC driver, which is netvsc
 #### Scan for system file corruption
 `sfc /scannow`
 
-See also [Repair a Windows Image](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image).
+See also [Repair a Windows Image](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
 #### Scan for system file corruption
 `dism /online /cleanup-image /scanhealth`
 
-See also [Repair a Windows Image](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image).
+See also [Repair a Windows Image](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
 #### Export file permissions to text file
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 #### Save file permissions to ACL file
@@ -515,7 +516,7 @@ You can query Azure instance metadata from within your Azure VM to view details 
 
 Querying instance metadata requires healthy guest network connectivity, because it makes a REST call through the Azure host to the instance metadata service. So if you are able to query instance metadata, that tells you the guest is able to communicate over the network to an Azure-hosted service.
 
-For more information, see [Azure Instance Metadata service](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service).
+For more information, see [Azure Instance Metadata service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
 
 #### Instance metadata
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

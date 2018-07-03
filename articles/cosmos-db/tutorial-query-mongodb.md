@@ -2,20 +2,15 @@
 title: 'Azure Cosmos DB: How to query using the MongoDB API? | Microsoft Docs'
 description: Learn to query with the MongoDB API for Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
-tags: ''
+author: SnehaGunda
+manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 03/29/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
 
 ---

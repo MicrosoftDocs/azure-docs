@@ -22,7 +22,8 @@ This article shows you how to customize [authentication and authorization in App
 
 To get started quickly, see one of the following tutorials:
 
-* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](app-service-web-tutorial-auth-aad.md)
+* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)
 * [How to configure your app to use Azure Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [How to configure your app to use Facebook login](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [How to configure your app to use Google login](app-service-mobile-how-to-configure-google-authentication.md)
@@ -41,7 +42,7 @@ In the sign-in page, or the navigation bar, or any other location of your web ap
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
-<a href="/.auth/login/microsoft">Log in with Microsoft Account</a> 
+<a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>
@@ -84,7 +85,7 @@ When your provider's access token expires, you need to reauthenticate the user. 
 
 - **Google**: Append an `access_type=offline` query string parameter to your `/.auth/login/google` API call. If using the Mobile Apps SDK, you can add the parameter to one of the `LogicAsync` overloads (see [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Doesn't provide refresh tokens. Long-lived tokens expire in 60 days (see [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/docs/basics/authentication/guides/oauth-faq)).
+- **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
 - **Microsoft Account**: When [configuring Microsoft Account Authentication Settings](app-service-mobile-how-to-configure-microsoft-authentication.md), select the `wl.offline_access` scope.
 - **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
     1. At the top of the page, select **Read/Write**.
@@ -98,7 +99,7 @@ When your provider's access token expires, you need to reauthenticate the user. 
 
     1. Click **Put**. 
 
-Once your provider is configured, you can see if refresh tokens are in the token store by calling `/.auth/me`. 
+Once your provider is configured, you can [find the refresh token and the expiration time for the access token](#retrieve-tokens-in-app-code) in the token store. 
 
 To refresh your access token at anytime, just call `/.auth/refresh` in any language. The following snippet uses jQuery to refresh your access tokens from a JavaScript client.
 
@@ -145,4 +146,5 @@ Click **Edit**, modify the following property, and then click **Put**. Be sure t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Authenticate and authorize users end-to-end](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Authenticate and authorize users end-to-end (Windows)](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Authenticate and authorize users end-to-end (Linux)](containers/tutorial-auth-aad.md)

@@ -23,9 +23,9 @@ This quickstart runs an Azure Batch job from a C# application built on the Azure
 
 ## Prerequisites
 
-* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 or a more recent version). 
+* [Visual Studio 2017](https://www.visualstudio.com/vs). 
 
-* A Batch account and a linked general-purpose storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
+* A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
 
 ## Sign in to Azure
 
@@ -118,9 +118,9 @@ The app uses the `blobClient` reference to create a container in the storage acc
 ```csharp
 List<string> inputFilePaths = new List<string>
 {
-    @"..\..\taskdata0.txt",
-    @"..\..\taskdata1.txt",
-    @"..\..\taskdata2.txt"
+    @"taskdata0.txt",
+    @"taskdata1.txt",
+    @"taskdata2.txt"
 };
 
 List<ResourceFile> inputFiles = new List<ResourceFile>();

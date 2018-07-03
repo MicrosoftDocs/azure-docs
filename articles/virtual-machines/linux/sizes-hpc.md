@@ -72,7 +72,7 @@ Additional system configuration is needed to run MPI jobs on clustered VMs. For 
 - [Memory optimized](sizes-memory.md)
 - [Storage optimized](sizes-storage.md)
 - [GPU](../windows/sizes-gpu.md)
-
+- [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
 

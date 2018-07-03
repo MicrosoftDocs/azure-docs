@@ -2,21 +2,23 @@
 title: Learn how to provide optional claims to your Azure AD application | Microsoft Docs
 description: A guide for adding custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory. 
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/15/2018
-ms.author: hirsin
+ms.date: 04/24/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-
 ---
+
 # Optional claims in Azure AD (preview)
 
 This feature is used by application developers to specify which claims they want in tokens sent to their application. You can use optional claims to:
@@ -62,7 +64,9 @@ The set of optional claims available by default for applications to use are list
 | `fwd`                      | IP address.  Adds the original IPv4 address of the requesting client (when inside a VNET)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | User’s country                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | Resource tenant’s country                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
+| `acct`    | Users account status in tenant.  If the user is a member of the tenant, the value is `0`.  If they are a guest, the value is `1`.  | JWT, SAML | | |
 | `upn`                      | UserPrincipalName claim.  Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case. | JWT, SAML  |           | Additional properties: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+
 ### V2.0 optional claims
 These claims are always included in v1.0 tokens, but are removed from v2.0 tokens unless requested.  These claims are only applicable for  JWTs (ID tokens and Access Tokens).  
 

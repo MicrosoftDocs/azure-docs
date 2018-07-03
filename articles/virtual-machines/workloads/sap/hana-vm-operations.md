@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2017
+ms.date: 04/24/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
 
@@ -76,7 +76,7 @@ For a list of storage types and their SLAs in IOPS and storage throughput, revie
 
 ### Configuring the Storage for Azure virtual machines
 
-So far as you bought SAP HANA appliances for on-premise, you never had to care about the I/O subsystems and its capabilities because the appliance vendor needs to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you also should be aware of some of those requirements to also understand the configuration requirements we suggest in the following sections. Or for cases where you are configuring the Virtual Machines you want run SAP HANA on. Some of the characteristics that are asked are resulting in the need to:
+So far as you bought SAP HANA appliances for on-premises, you never had to care about the I/O subsystems and its capabilities because the appliance vendor needs to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you also should be aware of some of those requirements to also understand the configuration requirements we suggest in the following sections. Or for cases where you are configuring the Virtual Machines you want run SAP HANA on. Some of the characteristics that are asked are resulting in the need to:
 
 - Enable read/write volume on /hana/log of a 250MB/sec at minimum with 1MB I/O sizes
 - Enable read activity of at least 400MB/sec for /hana/data for 16MB and 64MB I/O sizes
@@ -103,7 +103,6 @@ The following table shows a configuration of VM types that customers commonly us
 > For production scenarios, check whether a certain VM type is supported for SAP HANA by SAP in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
 
 
-
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data and /hana/log<br /> striped with LVM or MDADM | /hana/shared | /root volume | /usr/sap | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | -- |
 | DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
@@ -111,6 +110,9 @@ The following table shows a configuration of VM types that customers commonly us
 | E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
 | E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
 | GS5 | 448 GiB | 2000 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| M32ts | 192 GiB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| M32ls | 256 GiB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 |1 x S30 |
 | M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
 | M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
 | M128s | 2000 GiB | 2000 MB/s |3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S40 |
@@ -137,6 +139,9 @@ If you want to benefit from [Azure virtual machine single VM SLA](https://azure.
 | E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P20 |
 | E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
 | GS5 | 448 GiB | 2000 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
+| M32ts | 192 GiB | 500 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P20 |
+| M32ls | 256 GiB | 500 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P20 |
+| M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
 | M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
 | M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
 | M128s | 2000 GiB | 2000 MB/s |3 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P40 |
@@ -161,6 +166,9 @@ The recommended configurations look like:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data | /hana/log | /hana/shared | /root volume | /usr/sap | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
+| M32ts | 192 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
+| M32ls | 256 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
+| M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P30 |
 | M64s | 1000 GiB | 1000 MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
 | M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
 | M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P40 |
@@ -174,8 +182,9 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by A
 
 - 16 VHDs for an M128xx VM
 - 8 VHDs for an M64xx VM
+- 4 VHDs for an M32xx VM
 
-More detailed instructions on how to enable Azure Write Accelerator can be found in the article [Azure Write Accelerator for SAP deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator).
+More detailed instructions on how to enable Azure Write Accelerator can be found in the article [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 Details and restrictions for Azure Write Accelerator can be found in the same documentation.
 

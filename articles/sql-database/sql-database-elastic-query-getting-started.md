@@ -2,11 +2,11 @@
 title: Report across scaled-out cloud databases (horizontal partitioning) | Microsoft Docs
 description: Use cross database database queries to report across multiple databases.
 services: sql-database
-manager: jhubbard
+manager: craigg
 author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mlandzic
 

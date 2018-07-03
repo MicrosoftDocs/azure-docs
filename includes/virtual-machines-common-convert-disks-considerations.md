@@ -3,7 +3,7 @@
 
 * The conversion is not reversible. 
 
-* Be aware that any users with the [Virtual Machine Contributor](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) role will not be able to change the VM size (as they could pre-conversion). This is because VMs with managed disks require the user to have the Microsoft.Compute/disks/write permission on the OS disks.
+* Be aware that any users with the [Virtual Machine Contributor](../articles/role-based-access-control/built-in-roles.md#virtual-machine-contributor) role will not be able to change the VM size (as they could pre-conversion). This is because VMs with managed disks require the user to have the Microsoft.Compute/disks/write permission on the OS disks.
 
 * Be sure to test the conversion. Migrate a test virtual machine before you perform the migration in production.
 
