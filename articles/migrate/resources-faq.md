@@ -1,10 +1,10 @@
 ---
 title: Azure Migrate - Frequently Asked Questions (FAQ) | Microsoft Docs
-description: Addresses frequently asked questions on Azure Migrate
+description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/03/2018
 ms.author: snehaa
 ---
 
@@ -17,6 +17,11 @@ This article includes frequently asked questions about Azure Migrate. If you hav
 ### How is Azure Migrate different from Azure Site Recovery?
 
 Azure Migrate is an assessment service that helps you discover your on-premises workloads and plan your migration to Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), along with being a disaster recovery solution, helps you migrate on-premises workloads to IaaS VMs in Azure.
+
+### What's the difference between using Azure Migrate for assessments and the Map Toolkit?
+
+[Azure Migrate](migrate-overview.md) provides migration assessment specifically to assist with migration readiness and evaluation of on-premises workloads into Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) has other functionality. For example, migration planning for newer versions of Windows client and server operating systems, software usage tracking etc. For those scenarios, continue to use the MAP Toolkit.
+
 
 ### How is Azure Migrate different from Azure Site Recovery Deployment Planner?
 
@@ -34,9 +39,16 @@ Yes, Azure Migrate requires vCenter Server to discover a VMware environment. It 
 
 ### Which Azure regions are supported by Azure Migrate?
 
-Azure Migrate currently supports East US and West Central US as project locations. Note that even though you can only create migration projects in West Central US and East US, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project location is only used to store the discovered data.
+### How does the on-premises site connect to Azure Migrate?
 
-## Discovery
+The connection can be over the internet or use ExpressRoute with public peering.
+
+### Can I harden the VM set up with the .OVA template?
+
+Additional components (for example anti-virus) can be added into the .OVA template as long as the communication and firewall rules required for the Azure Migrate appliance to work are left as is.   
+
+
+## Discovery and assessment
 
 ### What data is collected by Azure Migrate?
 
@@ -75,6 +87,18 @@ For dependency visualization, if you install agents on the VMs, the data collect
 ### How does the collector communicate with the vCenter Server and the Azure Migrate service?
 
 The collector appliance connects to the vCenter Server (port 443) using the credentials provided by the user in the appliance. It queries the vCenter Server using VMware PowerCLI to collect metadata about the VMs managed by vCenter Server. It collects both configuration data about VMs (cores, memory, disks, NIC etc.) as well as performance history of each VM for the last one month from vCenter Server. The collected metadata is then sent to the Azure Migrate service (over internet via https) for assessment. [Learn more](concepts-collector.md)
+
+### Can I connect to multiple vCenter servers?
+
+You need to set up a connector appliance for each server.
+
+### Is the .OVA template used by Site Recovery integrated with the .OVA used by Azure Migrate?
+
+Currently there is no integration. The .OVA in Site Recovery is used to set up a Site Recovery configuration server for VMware VM/physical server replication. The .OVA used by Azure Migrate is used to discover VMware VMs managed by a vCenter server, for the purposes of migration assessment.
+
+### I changed my machine size. Can I rerun the assessment?
+
+If you change the settings on a VM you want to assess, trigger discover again using the collector appliance. In the appliance, use the **Start collection again** option to do this. After the collection is done, select the **Recalculate** option for the assessment in the portal, to get updated assessment results.
 
 ### Is the data encrypted at rest and while in transit?
 

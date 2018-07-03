@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 07/03/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -44,6 +44,7 @@ Azure Migrate needs access to VMware servers to automatically discover VMs for a
 - Permissions: Data Center object –> Propagate to Child Object, role=Read-only
 - Details: User assigned at datacenter level, and has access to all the objects in the datacenter.
 - To restrict access, assign the No access role with the Propagate to child object, to the child objects (vSphere hosts, datastores, VMs and networks).
+
 
 ## Log in to the Azure portal
 
@@ -157,6 +158,8 @@ will be hosted.
 
 > [!NOTE]
 > The collector only supports "English (United States)" as the operating system language and the collector interface language. Support for more languages is coming soon.
+> If you change the settings on a mahcine you want to assess, trigger discover again before you run the assessment. In the collector, use the **Start collection again** option to do this. After the collection is done, select the **Recalculate** option for the assessment in the portal, to get updated assessment results.
+
 
 
 ### Verify VMs in the portal
