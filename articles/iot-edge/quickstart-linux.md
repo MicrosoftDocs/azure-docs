@@ -108,6 +108,8 @@ Install and start the Azure IoT Edge runtime on your device.
 
 The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub. 
 
+Complete the following steps in the Linux machine or VM that you prepared for this quickstart. 
+
 ### Register your device to use the software repository
 
 The packages that you need to run the IoT Edge runtime are managed in a software repository. Configure your IoT Edge device to access this repository. 
@@ -138,11 +140,16 @@ Update **apt-get**.
    sudo apt-get update
    ```
 
-Install Moby, a container runtime, and its CLI commands. 
+Install **Moby**, a container runtime.
 
    ```bash
    sudo apt-get install moby-engine
-   sudo apt-get install moby-cli   
+   ```
+
+Install the CLI commands for Moby. 
+
+   ```bash
+   sudo apt-get install moby-cli
    ```
 
 ### Install and configure the IoT Edge security daemon
@@ -162,15 +169,19 @@ The security daemon installs as a system service so that the IoT Edge runtime st
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. Add the IoT Edge device connection string that you copied when you registered your device. Replace the value of the variable **device_connection_string** that you copied earlier in this quickstart.
+3. Add the IoT Edge device connection string. Find the variable **device_connection_string** and update its value with the string that you copied after registering your device.
 
-4. Restart the Edge Security Daemon:
+4. Save and close the file. 
+
+   `CTRL + X`, `Y`, `Enter`
+
+4. Restart the IoT Edge security daemon.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-5. Check to see that the Edge Security Daemon is running as a system service:
+5. Check to see that the Edge Security Daemon is running as a system service.
 
    ```bash
    sudo systemctl status iotedge
@@ -184,13 +195,14 @@ The security daemon installs as a system service so that the IoT Edge runtime st
    journalctl -u iotedge
    ```
 
-6. View the modules running on your device: 
+6. View the modules running on your device. 
+
+   >[!TIP]
+   >You need to use *sudo* to run `iotedge` commands at first. Sign out of your machine and sign back in to update permissions, then you can run `iotedge` commands without elevated privileges. 
 
    ```bash
    sudo iotedge list
    ```
-
-   After a logoff and login, *sudo* is not required for the above command.
 
    ![View one module on your device](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -230,7 +242,22 @@ You can also view the telemetry the device is sending by using the [IoT Hub expl
 
 ## Clean up resources
 
-If you want to continue on to the IoT Edge tutorials, you can use the device that you registered and set up in this quickstart. If you want to remove the installations from your device, use the following commands.  
+If you want to continue on to the IoT Edge tutorials, you can use the device that you registered and set up in this quickstart. Otherwise, you can delete the Azure resources that you created and remove the IoT Edge runtime from your device. 
+
+### Delete Azure resources
+
+If you created your virtual machine and IoT hub in a new resource group, you can delete that group and all the associated resources. If there's anything in that resource group that you want to keep, then just delete the individual resources that you want to clean up. 
+
+To remove a resource group, follow these steps: 
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+2. In the **Filter by name...** textbox, type the name of the resource group containing your IoT Hub. 
+3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
+4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
+
+### Remove the IoT Edge runtime
+
+If you want to remove the installations from your device, use the following commands.  
 
 Remove the IoT Edge runtime.
 
@@ -238,22 +265,24 @@ Remove the IoT Edge runtime.
    sudo apt-get remove --purge iotedge
    ```
 
-Delete the containers that were created on your device. 
+When the IoT Edge runtime is removed, the containers that it created are stopped, but still exist on your device. View all containers.
 
    ```bash
-   sudo docker rm -f $(sudo docker ps -aq)
+   sudo docker ps -a
+   ```
+
+Delete the containers that were created on your device by the IoT Edge runtime. Change the name of the tempSensor container if you called it something different. 
+
+   ```bash
+   sudo docker rm -f tempSensor
+   sudo docker rm -f edgeHub
+   sudo docker rm -f edgeAgent
    ```
 
 Remove the container runtime.
 
    ```bash
    sudo apt-get remove --purge moby
-   ```
-
-When you no longer need the Azure resources that you created, you can use the following command to delete the resource group that you created and any resources associated with it:
-
-   ```azurecli-interactive
-   az group delete --name TestResources
    ```
 
 ## Next steps
