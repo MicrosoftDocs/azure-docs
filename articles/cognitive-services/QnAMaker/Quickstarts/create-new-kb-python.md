@@ -162,7 +162,7 @@ while False == done:
 		print ('Waiting ' + wait + ' seconds...')
 		time.sleep (int(wait))
 	else:
-		done = True #request has been processed, if successful, knowledge base is created
+		done = True # request has been processed, if successful, knowledge base is created
 ```
 
 ## Understand what QnA Maker returns
