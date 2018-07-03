@@ -231,5 +231,38 @@ When you see this error, you can resolve it by configuring the DNS name of your 
       notepad C:\ProgramData\iotedge\config.yaml
       ```
 
+## Stability issues on constrained devices like Raspberry Pi, especially when used as a gateway
+Symptoms may include out of memory exceptions in the edge hub module, downstream devices cannot connect the Edge gateway or the device stops sending telemetry message after a few hours.
+
+### Root cause
+The edge hub, which is part of the edge runtime, is optimized for performance by default and attempts to allocate large chunks of memory. This is not ideal for constrained edge devices and can cause stability problems.
+
+### Resolution
+For the edge hub set an environment variable **OptimizeForPerformance** to **false**. There are two ways to do this:
+
+In the UI: 
+In the portal from *Device Details*->*Set Modules*->*Configure advanced Edge Runtime settings*, create an environment variable called *OptimizeForPerformance* that is set to *false* for the *Edge Hub*.
+
+![optimizeforperformance][img-optimize-for-perf]
+
+In the deployment manifest:
+
+```json
+  "edgeHub": {
+    "type": "docker",
+    "settings": {
+      "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+      "createOptions": <snipped>
+    },
+    "env": {
+      "OptimizeForPerformance": {
+          "value": "false"
+      }
+    },
+```
+
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? Please, [submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve. 
+
+<!-- Images -->
+[img-optimize-for-perf]: ./media/troubleshoot/OptimizeForPerformanceFalse.png
