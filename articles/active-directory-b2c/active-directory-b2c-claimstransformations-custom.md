@@ -176,6 +176,7 @@ The example below defines a ClaimsTransformation of the ‘AssertBooleanClaimIsE
   </InputParameters>
 </ClaimsTransformation>
 ```
+
 ---
 ### CreateRandomString
 
@@ -237,12 +238,31 @@ The example below defines a ClaimsTransformation of the ‘FormatStringClaim’ 
 ---
 ### CreateStringClaim
 
-***[TODO: Still need to complete this transform]***
+The CreateStringClaim transformation will copy the value from the "value" input paramater to a claim defined in the policy schema.
+
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | | |
+| **Input Paramaters** | value (string) | A string value parmater to copy to the claim |
+| **Output Claims** | outputClaim (string) | The destination claim | 
+
+The example below defines a ClaimsTransformation of the ‘CreateStringClaim’ type called ‘CreateSubjectClaimFromObjectID’. A policy schema’s  ‘sub’ claim will be set to the value "Not supported currently. Use oid claim.".
+
+```XML
+<ClaimsTransformation Id="CreateSubjectClaimFromObjectID" TransformationMethod="CreateStringClaim">
+  <InputParameters>
+    <InputParameter Id="value" DataType="string" Value="Not supported currently. Use oid claim." />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="sub" TransformationClaimType="createdClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
 
 ---
 ### FormatStringMultipleClaims
 
-A FormatStringMultipleClaims transformation formats two claims defined in the policy schema by using a format string defined as an input parameter. The format string is applied using the .NET System.String Format method. The formatted result is returned as the transformation’s output claim.
+The FormatStringMultipleClaims transformation formats two claims defined in the policy schema by using a format string defined as an input parameter. The format string is applied using the .NET System.String Format method. The formatted result is returned as the transformation’s output claim.
 
 | Variable | Paramater | Description 
 | - | - | - |
@@ -315,7 +335,32 @@ The example below defines a ClaimsTransformation of the ‘CreateAlternativeSecu
 ---
 ### AssertStringClaimsAreEqual
 
-***[TODO: Still need to complete this transform]***
+The AssertStringClaimsAreEqual transformation will compare two string claim from the policy schema based on the string comparison type specified.
+
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | inputClaim1 (string) | A string claim to compare. |
+|| inputClaim2 (string) | The string claim to compare to. |
+| **Input Paramaters** | stringComparison (string) | The type of compare method (ordinal or ordinalIgnoreCase). |
+| **Output Claims** | N/A |  | 
+
+
+The example below defines a ClaimsTransformation of the ‘AssertStringClaimsAreEqual’ type called ‘AssertEmailAndStrongAuthenticationEmailAddressAreEqual’. The value from the policy schema’s ‘strongAuthenticationEmailAddress’ claim will be compared to the  policy schema’s ‘email’ claim. If the claims are equal then the user will continue on the user journey. If the values are not equal an exception will be thrown. 
+
+>[!NOTE]
+> This claim will throw an error value based on the  `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata item.
+
+```XML
+<ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="strongAuthenticationEmailAddress" TransformationClaimType="inputClaim1" />
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim2" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringComparison" DataType="string" Value="ordinalIgnoreCase" />
+  </InputParameters>
+</ClaimsTransformation>
+```
 
 
 ---
