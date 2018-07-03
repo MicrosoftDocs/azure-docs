@@ -3,8 +3,8 @@ title: Understand Azure reserved instances discount | Microsoft Docs
 description: Learn how Azure Reserved VM Instance discount is applied to running virtual machines. 
 services: 'billing'
 documentationcenter: ''
-author: yashesvi
-manager: yashar
+author: Manish
+manager: manshuk
 editor: ''
 
 ms.service: billing
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
-ms.author: yashar
+ms.date: 07/02/2018
+ms.author: manshuk
 ---
 # Understand how the reserved instance discount is applied
 After you buy a Azure Reserved VM Instance, the reserved instance discount is automatically applied to virtual machines matching the attributes and quantity of the reserved instance. A reserved instance covers the infrastructure costs of your virtual machines. The following table illustrates the costs for your virtual machine after you purchase a reserved instance. In all cases, you are charged for storage and networking at the normal rates.
