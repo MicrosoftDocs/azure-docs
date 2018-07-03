@@ -160,11 +160,14 @@ Extension execution output is logged to the following file:
 | 0 | Operation successful |
 | 1 | Incorrect usage of extension. | Contact support with execution output log. |
 | 10 | Linux Integration Services for Hyper-V and Azure not available or installed. | Check output of lspci. |
-| 11 | NVIDIA GPU not found on this VM size. | Use a [supported VM size and OS](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/n-series-driver-setup). |
+| 11 | NVIDIA GPU not found on this VM size. | Use a [supported VM size and OS](../linux/n-series-driver-setup.md). |
 | 14 | Operation unsuccessful | |
 | 21 | Update failed on Ubuntu | Check output of "sudo apt-get update" |
 
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+
+## Next steps
+For more information about extensions, see [Virtual machine extensions and features for Linux](features-linux.md).

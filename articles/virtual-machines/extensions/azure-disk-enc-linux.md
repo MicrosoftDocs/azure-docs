@@ -26,16 +26,16 @@ Azure Disk Encryption leverages the dm-crypt subsystem in Linux to provide full 
 ## Prerequisites
 
 For a full list of prerequisites, see [Azure Disk Encryption Prerequisites](
-https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption#prerequisites).
+../../security/azure-security-disk-encryption.md#prerequisites).
 
 ### Operating system
 
-Azure Disk Encryption is currently supported on select distributions and versions.  See the [Azure Disk Encryption FAQ](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-faq#what-linux-distributions-does-azure-disk-encryption-support) for the list of Linux distributions that are supported.
+Azure Disk Encryption is currently supported on select distributions and versions.  See the [Azure Disk Encryption FAQ](../../security/azure-security-disk-encryption-faq.md#what-linux-distributions-does-azure-disk-encryption-support) for the list of Linux distributions that are supported.
 
 ### Internet connectivity
 
 Azure Disk Encryption for Linux requires Internet connectivity for access to Active Directory, Key Vault, Storage, and package management endpoints.  For more information, see [Azure Disk Encryption Prerequisites](
-https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption#prerequisites).
+../../security/azure-security-disk-encryption.md#prerequisites).
 
 ## Extension schema
 
@@ -93,14 +93,18 @@ For an example of template deployment, see [Enable Encryption on a running Linux
 
 ## Azure CLI deployment
 
-Instructions can be found in the latest [Azure CLI documentation](https://docs.microsoft.com/en-us/cli/azure/vm/encryption?view=azure-cli-latest). 
+Instructions can be found in the latest [Azure CLI documentation](/cli/azure/vm/encryption?view=azure-cli-latest). 
 
 ## Troubleshoot and support
 
 ### Troubleshoot
 
-For troubleshooting, refer to the [Azure Disk Encryption troubleshooting guide](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg).
+For troubleshooting, refer to the [Azure Disk Encryption troubleshooting guide](../../security/azure-security-disk-encryption-tsg.md).
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/en-us/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/en-us/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/en-us/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+
+## Next steps
+
+For more information about VM extensions, see [Virtual machine extensions and features for Linux](features-linux.md).

@@ -17,7 +17,7 @@ ms.date: 06/12/2018
 ms.author: danis
 
 ---
-# DSCForLinux Extension (extension name)
+# DSC Extension for Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
 ## Overview
 
@@ -279,7 +279,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. Templ
 
 The sample Resource Manager template is [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) and [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
-For more details about Azure Resource Manager template, visit [Authoring Azure Resource Manager templates](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/).
+For more details about Azure Resource Manager template, visit [Authoring Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md).
 
 
 ## Azure CLI deployment
@@ -317,7 +317,7 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
 
-> **NOTE:** In ARM mode, `azure vm extension list` is not available for now.
+> **NOTE:** In Azure Resource Manager mode, `azure vm extension list` is not available for now.
 
 ### 2.2. Using [**Azure PowerShell**][azure-powershell]
 
@@ -368,7 +368,7 @@ You can log in to your Azure account (Azure Resource Manager mode) by running:
 Login-AzureRmAccount
 ```
 
-Click [**HERE**](https://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/) to learn more about how to use Azure PowerShell with Azure Resource Manager.
+Click [**HERE**](../../azure-resource-manager/powershell-azure-resource-manager.md) to learn more about how to use Azure PowerShell with Azure Resource Manager.
 
 You can deploy DSCForLinux Extension by running:
 
@@ -425,4 +425,7 @@ In some cases, DSC Linux extension fails to install OMI when higher version of O
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/en-us/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/en-us/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/en-us/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+
+## Next steps
+For more information about extensions, see [Virtual machine extensions and features for Linux](features-linux.md).
