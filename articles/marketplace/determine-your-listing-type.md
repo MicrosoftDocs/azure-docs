@@ -1,5 +1,5 @@
 ---  
-title: Determine your listing type in Azure Marketplace | Azure
+title: Determine Your Publishing Option in Azure Marketplace | Azure
 description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
@@ -18,11 +18,11 @@ ms.author: ellacroi
 
 ---  
 
-# Determine the Listing Type for Your Solution  
-Azure Marketplace and AppSource support its own listing types and offer types publishing options. Select an offer type that best represents your solution and service details. All publishing options provide you access to lead sharing.   
+# Determine the Publishing Option For Your Solution  
+Azure Marketplace and AppSource support its own publishing option and offer types publishing options. Select an offer type that best represents your solution and service details. All publishing options provide you access to lead sharing.   
 
-## AppSource Storefront And Listing Type
-| Storefront | Listing type | Offer type and Guidelines |
+## AppSource Storefront And Publishing Option
+| Storefront | Publishing Option | Offer type and Guidelines |
 |:--- |:--- |:--- |
 | AppSource | [List](#list) | [Consulting Service](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |   
 | AppSource | [List](#list) |  | [Cortana Intelligence](docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)|  
@@ -32,10 +32,10 @@ Azure Marketplace and AppSource support its own listing types and offer types pu
 | AppSource | [List](#list) | | [Power BI](https://docs.microsoft.com/power-bi/developer/office-store) | 
 |
 
-## AppSource Publishing by Product  
+## AppSource Publishing Option By Product  
 The following table provides more information about the specific requirements for AppSource apps that extend Office, Dynamics, and Power BI.  
 
-| Storefront| List type | Offer type and guidelines |  
+| Storefront | Publishing Option | Offer type and guidelines |  
 |:--- |:--- |:--- |
 | AppSource |  [List](#list) | [Consulting service](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
 | AppSource | [Cortana Intelligence](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide) |  
@@ -45,8 +45,8 @@ The following table provides more information about the specific requirements fo
 | AppSource  | [Power BI](https://docs.microsoft.com/power-bi/developer/office-store) |  
 
 
-## Azure Marketplace Storefront And Listing Type
-| Storefront | Listing type | Offer type and guidelines |
+## Azure Marketplace Publishing Option
+| Storefront | Publishing Option | Offer type and guidelines |
 |:--- |:--- |:--- |  
 | Azure Marketplace | [List](#list) | [Consulting service](#requirements-azure-marketplace-list-consulting-service) | [](#) |  
 | Azure Marketplace | [List](#list) | [Contact Me](#requirements-azure-marketplace-list-contact-me) | [](#) |  
@@ -57,13 +57,13 @@ The following table provides more information about the specific requirements fo
 | Azure Marketplace | [Transact](#transact) | [Virtual machine](#requirements-azure-marketplace-transact-virtual-machine) |  [](#) |
 | Azure Marketplace | [Transact](#transact) | [Azure apps: Managed app](https://docs.microsoft.com/azure/managed-applications/overview) |   
 
-## Azure Marketplace Publishing by Product  
+## Azure Marketplace Publishing Option By Product  
 
 ![](./media/marketplace-publishers-guide/workflow-azure-marketplace.png)  
 
 The following table provides more information about the specific requirements for Azure Marketplace offers.  
 
-| Listing type | Offer type |  
+| Publishing Option | Offer type |  
 |:--- |:--- | 
 | [List](#list) | [Consulting service](#requirements-azure-marketplace-list-consulting-service) | [](#) |  
 | [List](#list) | [Contact Me](#requirements-azure-marketplace-list-contact-me) | [](#) |  
@@ -89,11 +89,11 @@ The certification program provides the following.
 
 ---   
 
-## Non-transact Listings  
-This section describes all offers that do not use the Transact listing type. 
+## Non-transact Publishing Option
+This section describes all offers that do not use the Transact publishing option. 
 
 ### List  
-The List listing type includes the following Offer types on the storefronts in the marketplace.  
+The List publishing option includes the following Offer types on the storefronts in the marketplace.  
 
 | Offer type | Storefront | Details |  
 |:---        |:---        |:---     |  
@@ -117,10 +117,10 @@ When the offer consists primarily of professional services, for example, assessm
 | Requirements | Details |  
 |:--- |:--- |  
 | Service offer characteristics | Your consulting service must meet the following criteria.<ul> <li>Deliver a fixed-scope, fixed-duration, fixed-price (or free) engagement.</li> <li>Orient primarily for pre-sales.</li> <li>Limit to a single customer.</li> <li>Conduct on site.</li> </ul> |  
-| Partner requirements for Consulting Services | You must have silver or gold in one of the following competencies in the relevant area for your service. <table><tr><th>Solution Area</th><th>Competency</th></tr><td>Cloud Platform and Infrastructure</td><td>Cloud Platform<br />Data Center</td><tr><td>Application Development and ISV</td><td>Application Development<br />Application Integration<br />DevOps</td></tr><tr><td>Data Management and Analytics</td><td>Data Analytics<br />Data Platform</td></tr></table><ul> <li>For more information about competencies, visit the Competencies Through Microsoft Partner Network page located at [partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies).</li> <li>For more information about listing, visit the Azure Marketplace Consulting Services page located at [docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services).</li></ul> |  
+| Partner requirements for Consulting Services | You must have silver or gold in one of the following competencies in the relevant area for your service. <table><tr><th>Solution Area</th><th>Competency</th></tr><td>Cloud Platform and Infrastructure</td><td>Cloud Platform<br />Data Center</td><tr><td>Application Development and ISV</td><td>Application Development<br />Application Integration<br />DevOps</td></tr><tr><td>Data Management and Analytics</td><td>Data Analytics<br />Data Platform</td></tr></table><ul> <li>For more information about competencies, visit the Competencies Through Microsoft Partner Network page located at [partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies).</li> <li>For more information about publishing, visit the Azure Marketplace Consulting Services page located at [docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services).</li></ul> |  
  
 ### List  
-The List listing type includes the following Offer types on the storefronts in the marketplace.  
+The List publishing option includes the following Offer types on the storefronts in the marketplace.  
 
 | Offer type | Storefront | Details |  
 |:---        |:---        |:---     |  
@@ -130,27 +130,27 @@ The List listing type includes the following Offer types on the storefronts in t
 | Contact Me | Azure Marketplace | [Requirements: AppSource: List: Contact Me](#requirements-azure-marketplace-list-contact-me) |
 
 #### Contact Me  
-Use Contact Me offer type when using trial or transact listing type is not feasible. The benefit of Contact Me offer type is that you to able to immediately receive leads with an in-market solution. Your leads should be nurtured into the foundational deals to start your business flywheel. The drawback is that customer engagement is limited, when compared with other offer types.  
+Use Contact Me offer type when using trial or transact publishing option is not feasible. The benefit of Contact Me offer type is that you to able to immediately receive leads with an in-market solution. Your leads should be nurtured into the foundational deals to start your business flywheel. The drawback is that customer engagement is limited, when compared with other offer types.  
 
 >[!IMPORTANT]
->Customer engagement is best with Trial and Transact offer types. The value of Contact Me listing type is the lead that you receive. If you choose the Contact Me listing type, then you must verify that your lead destination is configured and you are ready to maximize your lead.  
+>Customer engagement is best with Trial and Transact offer types. The value of Contact Me publishing option is the lead that you receive. If you choose the Contact Me publishing option, then you must verify that your lead destination is configured and you are ready to maximize your lead.  
 
 ---   
 
 ### Trial  
-Providing a trial experience increases the engagement level provided to your customers. An increased engagement level causes richer exposure to your solution. A trial offer type enables customers to explore your solution before buying. With the trial listing type, you have a higher chance of promotion in the storefronts. You should also expect more and richer leads from customer engagements.  
+Providing a trial experience increases the engagement level provided to your customers. An increased engagement level causes richer exposure to your solution. A trial offer type enables customers to explore your solution before buying. With the trial publishing option, you have a higher chance of promotion in the storefronts. You should also expect more and richer leads from customer engagements.  
 
-Your app or offer using the Trial listing type is deployed to your trial environment, Azure subscription, or both. Other listing types would be deployed to the environment or Azure subscription of your customer. Your app or offer should be customer led without additional requirements to buy. Your app or offer should be minimal, if any, additional configuration to complete a use-case. Your app or offer must include free support at least for the duration of the trial period. Your customers should be nurtured and monitored along a deliberate evaluation path for best results. You are encouraged to use leads provided on the marketplace and from your own in-app intelligence. Your leads should be used to monitor and manage your customers.  
+Your app or offer using the Trial publishing option is deployed to your trial environment, Azure subscription, or both. Other publishing options would be deployed to the environment or Azure subscription of your customer. Your app or offer should be customer led without additional requirements to buy. Your app or offer should be minimal, if any, additional configuration to complete a use-case. Your app or offer must include free support at least for the duration of the trial period. Your customers should be nurtured and monitored along a deliberate evaluation path for best results. You are encouraged to use leads provided on the marketplace and from your own in-app intelligence. Your leads should be used to monitor and manage your customers.  
 
-The Trial listing type includes the following Offer types on the storefronts in the marketplace.  
+The Trial publishing option includes the following Offer types on the storefronts in the marketplace.  
 
 | Offer type | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Free / SaaS trial | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements-trial) |  
+| Free / SaaS trial | AppSource | [Publishing Option Requirements: Trial](#listing-type-requirements-trial) |  
 | Free / SaaS trial | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Free trial / SaaS trial](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| Interactive demo | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements-trial) |  
+| Interactive demo | AppSource | [Publishing Option Requirements: Trial](#listing-type-requirements-trial) |  
 | Interactive demo | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Interactive demo](#requirements-azure-marketplace-trial-interactive-demo) |  
-| Test drive | AppSource | [Listing Type Requirements: Trial](#listing-type-requirements-trial) |  
+| Test drive | AppSource | [Publishing Option Requirements: Trial](#listing-type-requirements-trial) |  
 | Test drive | Azure Marketplace | [Requirements: Azure Marketplace: Trial: Test drive](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### Requirements for Trial  
@@ -176,7 +176,7 @@ You provide a guided experience of your solution to your customers by using an i
 |:--- |:--- |  
 | Enables your customers to see your solution in action without the complexity of setting up. | Your solution requires complex settings that would be hard to achieve within the trial period. |  
 
-#### Requirements for Trial: Test drive  
+#### Requirements for Trial: Test Drive  
 You deploy one or more virtual machines through infrastructure-as-a-service(IaaS) or SaaS apps. A benefit of the Test drive offer type is the automated provisioning of a virtual machine or entire solution led by a partner-hosted guided tour. A test drive provides an evaluation at no additional cost to your customer. Your customer does not need to be an existing Azure customer to help generate higher-quality leads.  
 
 | Benefit | Requirement |  
@@ -186,10 +186,10 @@ You deploy one or more virtual machines through infrastructure-as-a-service(IaaS
 ---
 
 ## Transact-specific Listings
-This section describes all offers that use the Transact listing type.
+This section describes all offers that use the Transact publishing option.
 
 ### Transact in Azure Marketplace 
-The Transact listing type includes the following Offer types on the storefronts in the marketplace.  
+The Transact publishing option includes the following Offer types on the storefronts in the marketplace.  
 
 | Offer type | Storefront | Details |   
 |:---        |:---        | :--- |  
@@ -252,7 +252,7 @@ Use the Virtual machine offer type when you deploy a virtual appliance to the su
 >At this time, the monetary commitments associated with an Enterprise Agreement are able to be used against the Azure usage of your VM, but not against your software licensing fees.  
 
 >[!NOTE]
->You are able to restrict the discovery and deployment of your VM to a specific set of customers by listing the image and pricing as a Private offer. Private offers unlock the ability for you to create exclusive offers for your closest customers and offer customized software and terms. The customized terms enable you to highlight a variety of scenarios, including field-led deals with specialized pricing and terms as well as early access to limited release software. Private offers enable you to give specific pricing or products to a limited set of customers by creating a new SKU with those details.  
+>You are able to restrict the discovery and deployment of your VM to a specific set of customers by publishing the image and pricing as a Private offer. Private offers unlock the ability for you to create exclusive offers for your closest customers and offer customized software and terms. The customized terms enable you to highlight a variety of scenarios, including field-led deals with specialized pricing and terms as well as early access to limited release software. Private offers enable you to give specific pricing or products to a limited set of customers by creating a new SKU with those details.  
 *   For more information about Private Offers, visit the Private Offers on Azure Marketplace page located at [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 
 | Requirement | Details |  
