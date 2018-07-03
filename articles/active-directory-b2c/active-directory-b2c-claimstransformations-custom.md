@@ -63,30 +63,30 @@ The table below and subsequent section outline a list of Claims Trasnformation M
 
 | Method | Type | Description |
 | --- | --- | --- |
-| [AddItemToStringCollection](#AddItemToStringCollection) | Claims |  Adds a single value claim to a collection based claim. |
-| [GetSingleItemFromStringCollection](#GetSingleItemFromStringCollection) | Claims | Gets a single claim from a Collection based claim.  |
-| [AssertBooleanClaimIsEqualToValue](#AssertBooleanClaimIsEqualToValue)  | Assert | Compare two claims, and throws an exception if they are not equal according to the specified comparison  |
+| [AddItemToStringCollection](#additemtostringcollection) | Claims |  Adds a single value claim to a collection based claim. |
+| [GetSingleItemFromStringCollection](#getsingleitemfromstringcollection) | Claims | Gets a single claim from a Collection based claim.  |
+| [AssertBooleanClaimIsEqualToValue](#assertbooleanclaimisequaltovalue)  | Assert | Compare two claims, and throws an exception if they are not equal according to the specified comparison  |
 | [CreateRandomString](#createrandomstring) | Claims | Creates a random GUID or integer and returns it to a String Claim. |
 | [FormatStringClaim](#formatstringclaim) | Claims | Format a given claim according to the provided format string. |
 | [CreateStringClaim](#createstringclaim) | Claims | Creates a string claim from a specified string value. |
-| [CreateAlternativeSecurityId](#CreateAlternativeSecurityId) | Claims |Creates a JSON representation of the user’s alternativeSecurityId property that can be used in calls to Graph API  |
-| [FormatStringMultipleClaims](#FormatStringMultipleClaims) | Claims | Used to combine two claims according to the provided format string. |
-| [AssertStringClaimsAreEqual](#AssertStringClaimsAreEqual) | Assert | Compares two claims according to the specifieds comparison paramaater and throws an error if they are not the same  |
-| [AssertDateTimeIsGreaterThan](#AssertDateTimeIsGreaterThan) | Assert | Compares two date claims and throws an exception if one is greater than the other. |
-| [ConvertNumberToStringClaim](#ConvertNumberToStringClaim) | Claims | Converts a number based claim to a string based claim.  |
-| [GetClaimFromJSON](#GetClaimFromJSON)| Claims | Extracts a claim from a json objects key value pairs.   |
-| [Hash](#Hash)| Claims | Creates a Hash of a plain text claim using the supplied salt and secret.  |
-| [AddParameterToStringCollection](#AddParameterToStringCollection) | Claims | Add the provided string parameter to a claim that contains collection of strings |
-| [ChangeCase](#ChangeCase)| Claims | Converts a claims value to either upper case or lower case. |
-| [NullClaim](#NullClaim)| Claims | Removes a value from a claim. |
-| [CompareClaimToValue](#CompareClaimToValue) | Claims | Compares a claims value to a static value and then returns a True or False. |
-| [CompareClaims](#CompareClaims) | Claims | Compares two claims and then returns a True or False if they are the same or not. |
-| [GetAgeGroupAndConsentProvided](#GetAgeGroupAndConsentProvided) | Claims | Takes a Date of Birth, Country code and if consent is provided fro Minors and returns and age group, if consent is required by regulations (eg GDPR)   |
-| [SetClaimsIfStringsMatch](#SetClaimsIfStringsMatch) | Claims | Sets a string claim to a static value and a boolean identifying if the input cliam matched a static value. |
-| [GetMappedValueFromLocalizedCollection](#GetMappedValueFromLocalizedCollection) | Claims | Returns the value from a claims restriction enumeration based off the text value passed in from a claim. |
-| [DoesClaimExist](#DoesClaimExist)| Claims |  Returns a boolean value depending on if the claim has a value or not.  |
-| [GetCurrentDateTime](#GetCurrentDateTime)| Claims | Returns an output claim of type DateTime with the current date and time.  |
-| [IsTermsOfUseConsentRequired](#IsTermsOfUseConsentRequired) | Claims | Returns True or False depending on if the input claims datetime value is less than the provided statis datetime value |
+| [CreateAlternativeSecurityId](#createalternativesecurityid) | Claims |Creates a JSON representation of the user’s alternativeSecurityId property that can be used in calls to Graph API  |
+| [FormatStringMultipleClaims](#formatstringmultipleclaims) | Claims | Used to combine two claims according to the provided format string. |
+| [AssertStringClaimsAreEqual](#assertstringclaimsareequal) | Assert | Compares two claims according to the specifieds comparison paramaater and throws an error if they are not the same  |
+| [AssertDateTimeIsGreaterThan](#assertdatetimeisgreaterthan) | Assert | Compares two date claims and throws an exception if one is greater than the other. |
+| [ConvertNumberToStringClaim](#convertNumbertostringclaim) | Claims | Converts a number based claim to a string based claim.  |
+| [GetClaimFromJSON](#getclaimfromjson)| Claims | Extracts a claim from a json objects key value pairs.   |
+| [Hash](#hash)| Claims | Creates a Hash of a plain text claim using the supplied salt and secret.  |
+| [AddParameterToStringCollection](#addparametertostringcollection) | Claims | Add the provided string parameter to a claim that contains collection of strings |
+| [ChangeCase](#changecase)| Claims | Converts a claims value to either upper case or lower case. |
+| [NullClaim](#nullclaim)| Claims | Removes a value from a claim. |
+| [CompareClaimToValue](#compareclaimtovalue) | Claims | Compares a claims value to a static value and then returns a True or False. |
+| [CompareClaims](#compareclaims) | Claims | Compares two claims and then returns a True or False if they are the same or not. |
+| [GetAgeGroupAndConsentProvided](#getagegroupandconsentprovided) | Claims | Takes a Date of Birth, Country code and if consent is provided fro Minors and returns and age group, if consent is required by regulations (eg GDPR)   |
+| [SetClaimsIfStringsMatch](#setclaimsifstringsmatch) | Claims | Sets a string claim to a static value and a boolean identifying if the input cliam matched a static value. |
+| [GetMappedValueFromLocalizedCollection](#getmappedvaluefromlocalizedcollection) | Claims | Returns the value from a claims restriction enumeration based off the text value passed in from a claim. |
+| [DoesClaimExist](#doesclaimexist)| Claims |  Returns a boolean value depending on if the claim has a value or not.  |
+| [GetCurrentDateTime](#getcurrentdatetime)| Claims | Returns an output claim of type DateTime with the current date and time.  |
+| [IsTermsOfUseConsentRequired](#istermsofuseconsentrequired) | Claims | Returns True or False depending on if the input claims datetime value is less than the provided statis datetime value |
 
 
 For more information on Claims transformation please see 
