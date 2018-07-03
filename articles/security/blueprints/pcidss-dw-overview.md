@@ -1,3 +1,15 @@
+---
+title: Azure Security and Compliance Blueprint - Data Warehouse for PCI DSS
+description: Azure Security and Compliance Blueprint - Data Warehouse for PCI DSS
+services: security
+author: meladie
+
+ms.assetid: 6d29e5bf-6cd0-4cda-bbd8-59f283b0c86c
+ms.service: security
+ms.topic: article
+ms.date: 07/03/2018
+ms.author: meladie
+---
 # Azure Security and Compliance Blueprint: Data Warehouse for PCI DSS
 
 ## Overview

@@ -1,3 +1,15 @@
+---
+title: Azure Security and Compliance Blueprint - Data Analytics for PCI DSS
+description: Azure Security and Compliance Blueprint - Data Analytics for PCI DSS
+services: security
+author: meladie
+
+ms.assetid: 6c48cd8e-c548-44e8-a21a-17316c152cbb
+ms.service: security
+ms.topic: article
+ms.date: 07/03/2018
+ms.author: meladie
+---
 # Azure Security and Compliance Blueprint: Analytics for PCI DSS
 
 ## Overview

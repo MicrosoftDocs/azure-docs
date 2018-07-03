@@ -1,3 +1,15 @@
+---
+title: Azure Security and Compliance Blueprint - PaaS Web Application for PCI DSS
+description: Azure Security and Compliance Blueprint - PaaS Web Application for PCI DSS
+services: security
+author: meladie
+
+ms.assetid: 5ef64374-7b4e-4176-afe1-0724072f653c
+ms.service: security
+ms.topic: article
+ms.date: 07/03/2018
+ms.author: meladie
+---
 # Azure Security and Compliance Blueprint: PaaS Web Application for PCI DSS
 
 ## Overview
