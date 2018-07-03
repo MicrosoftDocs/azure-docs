@@ -7,7 +7,7 @@ manager: twooley
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 07/03/2018
 ms.author: tamram
 ---
 
@@ -17,8 +17,7 @@ ms.author: tamram
 
 ## Workflow 
 
-The diagram below illustrates the end to end workflow to enable Azure Files Azure AD
-integration for SMB access. There are two parts to the process. First, the
+The diagram below illustrates the end to end workflow to enable Azure Files integration with Azure AD for SMB access. There are two parts to the process. First, the
 prerequisites, this is to verify that your Azure AD and Storage environments are
 proper configured. We strongly recommend you to walk through the prerequisites
 and ensure that you have performed the required setup. Then, you can proceed to

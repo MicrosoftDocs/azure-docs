@@ -7,7 +7,7 @@ manager: twooley
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 07/03/2018
 ms.author: tamram
 ---
 
@@ -66,7 +66,7 @@ When a user attempts to access data in Azure Files, the request is sent to Azure
 
 ## Capabilities 
 
-### Enable Azure Files Azure AD Integration
+### Enable Azure AD integration with Azure Files
 
 You can enable Azure Files Azure AD integration on your new and existing storage accounts. When the feature is enabled, all file shares under the storage account
 can configure the access controls with Azure AD users and security groups. Before enabling Azure AD integration, you need to make sure that Azure AD Domain Services is deployed for the
