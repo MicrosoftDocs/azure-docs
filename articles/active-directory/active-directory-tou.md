@@ -26,7 +26,7 @@ Azure AD Terms of use provides a simple method that organizations can use to pre
 Azure AD Terms of use enables you to do the following:
 - Require employees or guests to agree to your Terms of use before getting access.
 - Present general Terms of use for all users in your organization.
-- Present specific Terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](active-directory-groups-dynamic-membership-azure-portal.md)).
+- Present specific Terms of use based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](users-groups-roles/groups-dynamic-membership.md)).
 - Present specific Terms of use when accessing high business impact applications, like Salesforce.
 - Present Terms of use in different languages.
 - List who has or hasn't agreed to your Terms of use.

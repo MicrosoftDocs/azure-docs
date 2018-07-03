@@ -114,7 +114,7 @@ Ensure that you do not get into a situation where they could be inadvertently lo
 
 Emergency access accounts help organizations restrict privileged access within an existing Azure Active Directory environment. These accounts are highly privileged and are not assigned to specific individuals. Emergency access accounts are limited to emergency for 'break glass' scenarios where normal administrative accounts cannot be used. Organizations must ensure the aim of controlling and reducing the emergency account's usage to only that time for which it is necessary. 
 
-Evaluate the accounts that are assigned or eligible for the global admin role. If you did not see any cloud-only accounts using the *.onmicrosoft.com domain (intended for "break glass" emergency access), create them. For more information, see [Managing emergency access administrative accounts in Azure AD](../active-directory-admin-manage-emergency-access-accounts.md).
+Evaluate the accounts that are assigned or eligible for the global admin role. If you did not see any cloud-only accounts using the *.onmicrosoft.com domain (intended for "break glass" emergency access), create them. For more information, see [Managing emergency access administrative accounts in Azure AD](directory-emergency-access.md).
 
 #### Turn on multi-factor authentication and register all other highly-privileged single-user non-federated admin accounts 
 
@@ -342,7 +342,7 @@ This final ongoing stage of the Secured Privileged Access roadmap includes the f
 
 #### Review admin roles in Azure Active Directory 
 
-Determine if current built-in Azure AD admin roles are still up-to-date and ensure users are only in the roles and delegations that they need for corresponding permissions. With Azure AD, you can designate separate administrators to serve different functions. For more information, see [Assigning administrator roles in Azure Active Directory](../active-directory-assign-admin-roles-azure-portal.md).
+Determine if current built-in Azure AD admin roles are still up-to-date and ensure users are only in the roles and delegations that they need for corresponding permissions. With Azure AD, you can designate separate administrators to serve different functions. For more information, see [Assigning administrator roles in Azure Active Directory](directory-assign-admin-roles.md).
 
 #### Review users who have administration of Azure AD joined devices
 

@@ -101,7 +101,7 @@ Some products contain service plans that cannot be assigned to the same user at 
 -   SharePoint Online (Plan 2) conflicts with SharePoint Online (Plan 1).
 -   Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).
 
-When using group-based licensing, you experience [this error condition](active-directory-licensing-group-problem-resolution-azure-portal.md#conflicting-service-plans). When using PowerShell, you see the *MutuallyExclusiveViolation* error.
+When using group-based licensing, you experience [this error condition](licensing-groups-resolve-problems.md#conflicting-service-plans). When using PowerShell, you see the *MutuallyExclusiveViolation* error.
 
 This section lists the most common service plans that are mutually exclusive, grouped by service type. You can use this information to plan your license deployment and avoid assignment errors.
 
@@ -199,4 +199,4 @@ The following service plans cannot be assigned together:
 
 To learn more about the feature set for license management through groups, see the following:
 
-* [PowerShell examples for group-based licensing in Azure AD](users-groups-roles/licensing-ps-examples.md)
+* [PowerShell examples for group-based licensing in Azure AD](licensing-ps-examples.md)

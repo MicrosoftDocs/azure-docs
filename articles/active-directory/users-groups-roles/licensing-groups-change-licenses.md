@@ -66,15 +66,15 @@ This is a simple walkthrough for how to migrate a single user.
 
 **STEP 1**: The user has a *source license* that's inherited from the group. There are no direct assignments for the license:
 
-![User with a source license inherited from the group](media/active-directory-licensing-group-product-migration/UserWithSourceLicenseInherited.png)
+![User with a source license inherited from the group](./media/licensing-groups-change-licenses/UserWithSourceLicenseInherited.png)
 
 **STEP 2**: The user is added to the target group and group-based licensing processes the change. The user now has both the *source license* and *target license* that are inherited from groups:
 
-![User with both a source and target license inherited from groups](media/active-directory-licensing-group-product-migration/UserWithBothSourceAndTargetLicense.png)
+![User with both a source and target license inherited from groups](./media/licensing-groups-change-licenses/UserWithBothSourceAndTargetLicense.png)
 
 **STEP 3**: The user is removed from the source group and group-based licensing processes the change. The user now has only the *target license*:
 
-![User with a target license inherited from the group](media/active-directory-licensing-group-product-migration/UserWithTargetLicenseAssigned.png)
+![User with a target license inherited from the group](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssigned.png)
 
 ### Automate migration by using Azure PowerShell
 The following snippet shows how to automate the migration process for a large-scale operation.
@@ -195,15 +195,15 @@ This is a simple walkthrough for how to migrate a single user.
 
 **STEP 1**: The user has a *source license* that's inherited from the group. There are no direct assignments for the license:
 
-![User with a source license inherited from the group](media/active-directory-licensing-group-product-migration/UserWithSourceLicenseInheritedConflictScenario.png)
+![User with a source license inherited from the group](./media/licensing-groups-change-licenses/UserWithSourceLicenseInheritedConflictScenario.png)
 
 **STEP 2**: The user is added to the target group and group-based licensing processes the change. Because the user still has the *source license*, the *target license* is in an error state due to the conflict:
 
-![User with a source license inherited from the group and target license in an error state](media/active-directory-licensing-group-product-migration/UserWithSourceLicenseAndTargetLicenseInConflict.png)
+![User with a source license inherited from the group and target license in an error state](./media/licensing-groups-change-licenses/UserWithSourceLicenseAndTargetLicenseInConflict.png)
 
 **STEP 3**: The user is removed from the source group and group-based licensing processes the change. The *target license* is applied to the user:
 
-![User with a target license inherited from the group](media/active-directory-licensing-group-product-migration/UserWithTargetLicenseAssignedConflictScenario.png)
+![User with a target license inherited from the group](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssignedConflictScenario.png)
 
 
 ### Automate migration by using Azure PowerShell
@@ -820,6 +820,6 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 
 Learn about other scenarios for license management through groups in the following articles:
 
-* [Identify and resolve license problems for a group in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [PowerShell examples for group-based licensing in Azure Active Directory](users-groups-roles/licensing-ps-examples.md)
-* [Azure Active Directory group-based licensing additional scenarios](active-directory-licensing-group-advanced.md)
+* [Identify and resolve license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
+* [PowerShell examples for group-based licensing in Azure Active Directory](licensing-ps-examples.md)
+* [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md)

@@ -81,4 +81,4 @@ Once you complete Self-service application configuration, users can navigate to 
 These approvals support single approval workflows only, meaning that if you specify multiple approvers, any single approver may approve access to the application.
 
 ## Next steps
-[Setting up Azure Active Directory for self-service group management](active-directory-accessmanagement-self-service-group-management.md)
+[Setting up Azure Active Directory for self-service group management](users-groups-roles/groups-self-service-management.md)

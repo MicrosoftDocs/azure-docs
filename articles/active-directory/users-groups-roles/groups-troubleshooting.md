@@ -27,7 +27,7 @@ ms.custom: it-pro
 ### Next steps
 These articles provide additional information on Azure Active Directory.
 
-* [Managing access to resources with Azure Active Directory groups](fundamentals/active-directory-manage-groups.md)
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [What is Azure Active Directory?](fundamentals/active-directory-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
+* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
+* [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
+* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
