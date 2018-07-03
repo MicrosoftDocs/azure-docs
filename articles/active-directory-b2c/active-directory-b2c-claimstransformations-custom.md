@@ -64,29 +64,31 @@ The table below and subsequent section outline a list of Claims Trasnformation M
 | Method | Type | Description |
 | --- | --- | --- |
 | [AddItemToStringCollection](#additemtostringcollection) | Claims |  Adds a single value claim to a collection based claim. |
-| [GetSingleItemFromStringCollection](#getsingleitemfromstringcollection) | Claims | Gets a single claim from a Collection based claim.  |
-| [AssertBooleanClaimIsEqualToValue](#assertbooleanclaimisequaltovalue)  | Assert | Compare two claims, and throws an exception if they are not equal according to the specified comparison  |
-| [CreateRandomString](#createrandomstring) | Claims | Creates a random GUID or integer and returns it to a String Claim. |
-| [FormatStringClaim](#formatstringclaim) | Claims | Format a given claim according to the provided format string. |
-| [CreateStringClaim](#createstringclaim) | Claims | Creates a string claim from a specified string value. |
-| [CreateAlternativeSecurityId](#createalternativesecurityid) | Claims |Creates a JSON representation of the user’s alternativeSecurityId property that can be used in calls to Graph API  |
-| [FormatStringMultipleClaims](#formatstringmultipleclaims) | Claims | Used to combine two claims according to the provided format string. |
-| [AssertStringClaimsAreEqual](#assertstringclaimsareequal) | Assert | Compares two claims according to the specifieds comparison paramaater and throws an error if they are not the same  |
-| [AssertDateTimeIsGreaterThan](#assertdatetimeisgreaterthan) | Assert | Compares two date claims and throws an exception if one is greater than the other. |
-| [ConvertNumberToStringClaim](#convertNumbertostringclaim) | Claims | Converts a number based claim to a string based claim.  |
-| [GetClaimFromJSON](#getclaimfromjson)| Claims | Extracts a claim from a json objects key value pairs.   |
-| [Hash](#hash)| Claims | Creates a Hash of a plain text claim using the supplied salt and secret.  |
 | [AddParameterToStringCollection](#addparametertostringcollection) | Claims | Add the provided string parameter to a claim that contains collection of strings |
+| [AndClaims](#andclaims) | Claims | Produces a boolean claim based on the result of two Boolean claim inputs. |
+| [AssertBooleanClaimIsEqualToValue](#assertbooleanclaimisequaltovalue)  | Assert | Compare two claims, and throws an exception if they are not equal according to the specified comparison  |
+| [AssertDateTimeIsGreaterThan](#assertdatetimeisgreaterthan) | Assert | Compares two date claims and throws an exception if one is greater than the other. |
+| [AssertStringClaimsAreEqual](#assertstringclaimsareequal) | Assert | Compares two claims according to the specifieds comparison paramaater and throws an error if they are not the same  |
 | [ChangeCase](#changecase)| Claims | Converts a claims value to either upper case or lower case. |
-| [NullClaim](#nullclaim)| Claims | Removes a value from a claim. |
 | [CompareClaimToValue](#compareclaimtovalue) | Claims | Compares a claims value to a static value and then returns a True or False. |
 | [CompareClaims](#compareclaims) | Claims | Compares two claims and then returns a True or False if they are the same or not. |
-| [GetAgeGroupAndConsentProvided](#getagegroupandconsentprovided) | Claims | Takes a Date of Birth, Country code and if consent is provided fro Minors and returns and age group, if consent is required by regulations (eg GDPR)   |
-| [SetClaimsIfStringsMatch](#setclaimsifstringsmatch) | Claims | Sets a string claim to a static value and a boolean identifying if the input cliam matched a static value. |
-| [GetMappedValueFromLocalizedCollection](#getmappedvaluefromlocalizedcollection) | Claims | Returns the value from a claims restriction enumeration based off the text value passed in from a claim. |
+| [ConvertNumberToStringClaim](#convertNumbertostringclaim) | Claims | Converts a number based claim to a string based claim.  |
+| [CreateAlternativeSecurityId](#createalternativesecurityid) | Claims |Creates a JSON representation of the user’s alternativeSecurityId property that can be used in calls to Graph API  |
+| [CreateRandomString](#createrandomstring) | Claims | Creates a random GUID or integer and returns it to a String Claim. |
+| [CreateStringClaim](#createstringclaim) | Claims | Creates a string claim from a specified string value. |
 | [DoesClaimExist](#doesclaimexist)| Claims |  Returns a boolean value depending on if the claim has a value or not.  |
+| [FormatStringClaim](#formatstringclaim) | Claims | Format a given claim according to the provided format string. |
+| [FormatStringMultipleClaims](#formatstringmultipleclaims) | Claims | Used to combine two claims according to the provided format string. |
+| [GetAgeGroupAndConsentProvided](#getagegroupandconsentprovided) | Claims | Takes a Date of Birth, Country code and if consent is provided fro Minors and returns and age group, if consent is required by regulations (eg GDPR)   |
+| [GetClaimFromJSON](#getclaimfromjson)| Claims | Extracts a claim from a json objects key value pairs.   |
 | [GetCurrentDateTime](#getcurrentdatetime)| Claims | Returns an output claim of type DateTime with the current date and time.  |
+| [GetMappedValueFromLocalizedCollection](#getmappedvaluefromlocalizedcollection) | Claims | Returns the value from a claims restriction enumeration based off the text value passed in from a claim. |
+| [GetSingleItemFromStringCollection](#getsingleitemfromstringcollection) | Claims | Gets a single claim from a Collection based claim.  |
+| [Hash](#hash)| Claims | Creates a Hash of a plain text claim using the supplied salt and secret.  |
 | [IsTermsOfUseConsentRequired](#istermsofuseconsentrequired) | Claims | Returns True or False depending on if the input claims datetime value is less than the provided statis datetime value |
+| [NullClaim](#nullclaim)| Claims | Removes a value from a claim. |
+| [OrClaims](#orclaims) | Claims | Produces a boolean claim based on the ??? result of two Boolean claim inputs. |
+| [SetClaimsIfStringsMatch](#setclaimsifstringsmatch) | Claims | Sets a string claim to a static value and a boolean identifying if the input cliam matched a static value. |
 
 
 For more information on Claims transformation please see 
@@ -413,8 +415,32 @@ The example below defines a ClaimsTransformation of the ‘Hash’ type called �
 ---
 ### ChangeCase
 
-***[TODO: Still need to complete this transform]***
+The ChangeCase claims transformation will transform the value of the policy schema claim to either uppercase or lowercase.  The result of the comparison is returned as a Boolean claim..
 
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | inputClaim1 (String) | A single value claim to compare the value of |
+| **Input Paramaters** | compareTo (string) | The static string value to compare to |
+|| ignoreCase(string) | A string of either "true" or "false" to determine if case is compared |
+|| operator(string) | Either ‘EQUAL’ or ‘NOT EQUAL’
+| **Output Claims** | outputClaim (boolean) | The boolean result of the comparison | 
+
+The example below defines a ClaimsTransformation of the 'CompareClaimToValue' type called ‘isFaceBookUser’. A claim called ‘identityProvider’ in the policy Schema  is compared to a ‘compareTo’ parameter configured to be ‘facebook.com’.  The comparison will not be case-sensitive.  If the input claim equals the configured parameter, the transform will return a Boolean claim called ‘facebookuser’ with the string value ‘true’;  otherwise it returns ‘false’
+
+
+```XML
+ <ClaimsTransformation Id="ChangeCaseUpper" TransformationMethod="ChangeCase">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="userId" TransformationClaimType="inputClaim1" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="toCase" DataType="string" Value="upper" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="BobUpper" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
 
 ---
 ### NullClaim
@@ -514,7 +540,13 @@ The example below defines a ClaimsTransformation of the 'CompareClaims' type cal
 
 ***[TODO: Still need to complete this transform]***
 
+### AndClaims
 
+***[TODO: Still need to complete this transform]***
+
+### OrClaims
+
+***[TODO: Still need to complete this transform]***
 
 
 
