@@ -1,5 +1,5 @@
 ---
-title: "Azure Virtual Datacenter: A Network Perspective" | Microsoft Docs
+title: Azure Virtual Datacenter - A Network Perspective | Microsoft Docs
 description: Learn how to build your virtual data center in Azure
 services: networking
 author: tracsman
