@@ -5,7 +5,7 @@ description: As an adminstrator, how to export data from your IoT Central applic
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 05/20/2018
+ms.date: 07/3/2018
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
 ms.prod: microsoft-iot-central
@@ -17,7 +17,7 @@ ms.prod: microsoft-iot-central
 # ms.suite: 
 # ms.tgt_pltfrm:
 # ms.reviewer:
-manager: timlt
+manager: peterpr
 ---
 
 # Export your data
@@ -38,7 +38,7 @@ Use Continuous Data Export to periodically export data into your Azure Blob Stor
 
 ### Measurements
 
-Measurements are delivered inside whole messages that your devices have sent to IoT Central. The entire payload from your messages gets exported into your Storage account. Measurements data is exported approximately once a minute, containing all new messages that were received by IoT Central from all devices within that time window. The exported AVRO files are in the same format as those exported by [IoT Hub message routing](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to blob storage.
+The measurements that devices send get exported into your Storage account. Measurements data is exported approximately once a minute, containing all new messages that were received by IoT Central from all devices within that time window. The exported AVRO files are in the same format as those exported by [IoT Hub message routing](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to blob storage.
 
 > [!NOTE]
 > The devices that sent the measurements are represented by device IDs (see below). To get the names of the devices, you need to export devices snapshots too. You can correlate each message record using the connectionDeviceId which matches to the id of the device.
@@ -187,12 +187,12 @@ Each record in the decoded AVRO file looks like this:
 }
 ```
 
-## How to set up
+## How to set up data export
 
 1. If you don't already have one, create an Azure Storage account **in the Azure subscription that your app is in**. [Click here](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) to jump into the Azure Portal to create a new Azure Storage account.
 
 - choose *General purpose* or *Blob storage* account kinds
-- select the subscription your IoT Central app is in. If you don't see the subscription, you may need to sign into a different Azure account.
+- select the subscription your IoT Central app is in. If you don't see the subscription, you may need to sign into a different Azure account or ask for access to this subscription.
 - you can choose an existing Resource Group or create a new one. Learn about [how to create a new Storage account.](https://aka.ms/blobdocscreatestorageaccount)
 
 2. [Create a container](./media/howto-export-data/createcontainer.png) in your Storage account to export your IoT Central data to. Go to your Storage account -> Browse Blobs, and create a new container.
@@ -257,7 +257,7 @@ public static async Task Run(string filePath)
             while (reader.MoveNext())
             {
                 // Loop through Avro record inside the block and extract the fields
-            foreach (AvroRecord record in reader.Current.Objects)
+                foreach (AvroRecord record in reader.Current.Objects)
                 {
                     // Get the field value directly. You can also yield return record and make the function IEnumerable<AvroRecord>
                     var deviceId = record.GetField<string>("id");
@@ -310,4 +310,4 @@ parse('/path/to/file.avro')
 
 ## Next Steps
 
-Create a Power BI dashboard using the Azure IoT Central Analytics Power BI solution template.
+Learn how to [manage your devices](howto-manage-devices.md) in the device explorer. 
