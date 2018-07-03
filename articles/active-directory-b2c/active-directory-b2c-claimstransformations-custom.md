@@ -79,11 +79,11 @@ The table below and subsequent section outline a list of Claims Trasnformation M
 | [AssertDateTimeIsGreaterThan](#AssertDateTimeIsGreaterThan) | Assert | Compares two date claims and throws an exception if one is greater than the other. |
 | [ConvertNumberToStringClaim](#ConvertNumberToStringClaim) | Claims | Converts a number based claim to a string based claim.  |
 | [GetClaimFromJSON](#GetClaimFromJSON)| Claims | Extracts a claim from a json objects key value pairs.   |
-| [Hash](#Hash)| Claims |  |
-| [Equality](#Equality)| Claims |  |
-| [ClaimToClaimEquality](#ClaimToClaimEquality)| Claims |  |
-| [AddParameterToStringCollection](#AddParameterToStringCollection) | Claims |  |
-| [ChangeCase](#ChangeCase)| Claims |  |
+| [Hash](#Hash)| Claims | Creates a Hash of a plain text claim using the supplied salt and secret.  |
+| [Equality](#Equality)| Claims | ***NOT SUPPORTED*** Compares a claims value to a static value and then returns a True or False. |
+| [ClaimToClaimEquality](#ClaimToClaimEquality)| Claims | ***NOT SUPPORTED*** |
+| [AddParameterToStringCollection](#AddParameterToStringCollection) | Claims | Add the provided string parameter to a claim that contains collection of strings |
+| [ChangeCase](#ChangeCase)| Claims | Converts a claims value to either upper case or lower case. |
 | [CompareClaimToValue](#CompareClaimToValue) | Claims |  |
 | [CompareClaims](#CompareClaims) | Claims |  |
 | [CreateRandomString](#CreateRandomString) | Claims |  |
