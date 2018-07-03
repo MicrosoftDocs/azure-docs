@@ -12,13 +12,15 @@ manager: carmonm
 ---
 # Track changes in your environment with the Change Tracking solution
 
-File Content tracking allows you to view the contents of a file before and after a change. To do this, it saves the file contents to a storage account after each change occurs.
+File content tracking allows you to view the contents of a file before and after a change that is being tracked with Change Tracking. To do this, it saves the file contents to a storage account after each change occurs.
 
 ## Requirements
 
 * A standard storage account using the Resource Manager deployment model is required. Premium and service management storage accounts should not be used. For more information on storage accounts, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md)
 
 * A storage account used for store file contents for Change Tracking can only have 1 Automation Account connected.
+
+* [Change Tracking](automation-change-tracking.md) needs to be enabled.
 
 ## Enable file content tracking
 
