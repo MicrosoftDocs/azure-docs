@@ -66,7 +66,7 @@ The table below and subsequent section outline a list of Claims Trasnformation M
 | [AddItemToStringCollection](#AddItemToStringCollection) | Claims |  Adds a single value claim to a collection based claim. |
 | [GetSingleItemFromStringCollection](#GetSingleItemFromStringCollection) | Claims | Gets a single claim from a Collection based claim.  |
 | [AssertBooleanClaimIsEqualToValue](#AssertBooleanClaimIsEqualToValue)  | Assert | Compare two claims, and throws an exception if they are not equal according to the specified comparison  |
-| [CreateRandomString](#CreateRandomString) | Claims | Creates a random string using the random number generator used |
+| [CreateRandomString](#CreateRandomString) | Claims | Creates a random GUID or integer and returns it to a String Claim. |
 | [FormatStringClaim](#FormatStringClaim) | Claims | Format a given claim according to the provided format string. |
 | [CreateStringClaim](#CreateStringClaim) | Claims | Creates a string claim from a specified string value. |
 | [CreateAlternativeSecurityId](#CreateAlternativeSecurityId) | Claims |Creates a JSON representation of the user’s alternativeSecurityId property that can be used in calls to Graph API  |
@@ -81,7 +81,6 @@ The table below and subsequent section outline a list of Claims Trasnformation M
 | [NullClaim](#NullClaim)| Claims | Removes a value from a claim. |
 | [CompareClaimToValue](#CompareClaimToValue) | Claims | Compares a claims value to a static value and then returns a True or False. |
 | [CompareClaims](#CompareClaims) | Claims | Compares two claims and then returns a True or False if they are the same or not. |
-| [CreateRandomString](#CreateRandomString) | Claims | Creates a random GUID or integer and returns it to a String Claim. |
 | [GetAgeGroupAndConsentProvided](#GetAgeGroupAndConsentProvided) | Claims | Takes a Date of Birth, Country code and if consent is provided fro Minors and returns and age group, if consent is required by regulations (eg GDPR)   |
 | [SetClaimsIfStringsMatch](#SetClaimsIfStringsMatch) | Claims | Sets a string claim to a static value and a boolean identifying if the input cliam matched a static value. |
 | [GetMappedValueFromLocalizedCollection](#GetMappedValueFromLocalizedCollection) | Claims | Returns the value from a claims restriction enumeration based off the text value passed in from a claim. |
@@ -102,25 +101,25 @@ For more information on Claims transformation please see
 
 ### AddItemToStringCollection
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
+The AddItemToStringCollection transformation adds a single string claims defined in the policy schema to a string collection claim also defined in the policy schema.
 
 | Variable | Paramater | Description 
 | - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
+| **Input Claims** | item (String) | A singel valued claimd. |
+| | collection (stringcollection) | A collection claim to add the claim to. |
+| **Input Paramaters** | N/A | 
+| **Output Claims** | outputClaim (stringcollection) | The collection claim with the new claim value added. | 
 
-
+The example below defines a ClaimsTransformation of the ‘AddItemToStringCollection’ type called ‘CreateEmailsFromOtherMailsAndSignInNamesInfo’. A policy schema’s ‘signInNamesInfo.emailAddress’ claim will be added to the ‘otherMails’ claim. The result will be returned in the ‘emails’ claim from the policy schema.
 
 ```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
+<ClaimsTransformation Id="CreateEmailsFromOtherMailsAndSignInNamesInfo" TransformationMethod="AddItemToStringCollection">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
+    <InputClaim ClaimTypeReferenceId="signInNamesInfo.emailAddress" TransformationClaimType="item" />
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
+    <OutputClaim ClaimTypeReferenceId="emails" TransformationClaimType="collection" />
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -128,21 +127,19 @@ As the name dictates, this provider does nothing. This provider can be used for 
 ---
 ### GetSingleItemFromStringCollection
 
-This provider can be used for storing claims in a session. This provider is typically referenced in a technical profile used for managing local accounts. 
-
+The GetSingleItemFromStringCollection transformation will retrieves a single string claim from a string collection claim defined in the policy schema to a string.
 
 | Variable | Paramater | Description 
 | - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
+| **Input Claims** | collection (stringcollection) | A string collection claim to extract a value from. |
+| **Input Paramaters** | N/A | 
+| **Output Claims** | extractedItem (string) | The extracted claim. | 
 
-
+The example below defines a ClaimsTransformation of the ‘GetSingleItemFromStringCollection’ type called ‘CreateEmailFromOtherMails’. The first value from the policy schema’s ‘otherMails’ claim will be retrieved and saved to the  ‘email’ policy schema’svclaim. T.
 
 
 ```XML
-<ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
+ <ClaimsTransformation Id="CreateEmailFromOtherMails" TransformationMethod="GetSingleItemFromStringCollection">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
   </InputClaims>
@@ -155,7 +152,19 @@ This provider can be used for storing claims in a session. This provider is typi
 ---
 ### AssertBooleanClaimIsEqualToValue
 
-This provider can be used for storing claims in a session. This provider is typically referenced in a technical profile used for managing local accounts. 
+The AssertBooleanClaimIsEqualToValue transformation will compare a Boolean claim from the policy schema to against the provided boolean value.
+
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | inputClaim (boolean) | A boolean claim to compare to. |
+| **Input Paramaters** | valueToCompareTo (boolean) | The boolean value to compare the claim to. |
+| **Output Claims** | N/A |  | 
+
+
+The example below defines a ClaimsTransformation of the ‘AssertBooleanClaimIsEqualToValue’ type called ‘AssertAccountEnabledIsTrue’. The value from the policy schema’s ‘accountEnable’ claim will be compared to the boolean input paramater ‘valueToCompareTo’. If the claims are equal then the user will continue on the user journet. If the values are not equal an error will be thrown. 
+
+>[!NOTE]
+> This claim will throw an error value based on the  `UserMessageIfClaimsTransformationBooleanValueIsNotEqual` metadata item.
 
 ```XML
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
@@ -170,25 +179,30 @@ This provider can be used for storing claims in a session. This provider is typi
 ---
 ### CreateRandomString
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
+The CreateRandomString transformation will generate a random integer or GUID and store the result in an output cliam in the policy schema. Depending on the Generator type specified, a maximum value can be provided as well as a boolean to determine if the output value is base64 encoded or not.
 
 | Variable | Paramater | Description 
 | - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
+| **Input Claims** | N/A  | |
+| **Input Paramaters** | randomGeneratorType (string) | GUID or INTEGER | 
+|| maximumNumber (int) | The maximim Number used when Type is INTEGER | 
+|| base64 (boolean) | Determines if the output value is base64 encoded or not | 
+|| stringFormat (string) | The output string format | 
+|| seed (int) | A random Seed value to supply to the Generator | 
+| **Output Claims** | outputClaim (string) | The collection claim to output to | 
 
-
+The example below defines a ClaimsTransformation of the ‘CreateRandomString’ type called ‘CreateOTPCode’. A paramater called ‘randomGeneratorType’ determines that the transform will be an integer value. The Maximum value this integr can be will be 9999 as specified by the ‘maximumNumber’ paramater. The result will be returned in the ‘itpCOde’ claim from the policy schema and will not be base64 decoded .
 
 ```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
+ <ClaimsTransformation Id="CreateOTPCode" TransformationMethod="CreateRandomString">
+  <InputParameters>
+    <InputParameter Id="randomGeneratorType" DataType="string" Value="INTEGER" />
+    <InputParameter Id="maximumNumber" DataType="int" Value="9999" />
+    <InputParameter Id="base64" DataType="boolean" Value="false" />
+    <InputParameter Id="stringFormat" DataType="string" Value="{0}" />
+  </InputParameters>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
+    <OutputClaim ClaimTypeReferenceId="otpCode" TransformationClaimType="outputClaim" />
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -223,28 +237,7 @@ The example below defines a ClaimsTransformation of the ‘FormatStringClaim’ 
 ---
 ### CreateStringClaim
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
-
-| Variable | Paramater | Description 
-| - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
-
-
-
-```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
+***[TODO: Still need to complete this transform]***
 
 ---
 ### FormatStringMultipleClaims
@@ -322,106 +315,26 @@ The example below defines a ClaimsTransformation of the ‘CreateAlternativeSecu
 ---
 ### AssertStringClaimsAreEqual
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
+***[TODO: Still need to complete this transform]***
 
-| Variable | Paramater | Description 
-| - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
-
-
-
-```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
 
 ---
 ### AssertDateTimeIsGreaterThan
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
+***[TODO: Still need to complete this transform]***
 
-| Variable | Paramater | Description 
-| - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
-
-
-
-```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
 
 ---
 ### ConvertNumberToStringClaim
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
+***[TODO: Still need to complete this transform]***
 
-| Variable | Paramater | Description 
-| - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
-
-
-
-```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
 
 ---
 ### GetClaimFromJSON
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
+***[TODO: Still need to complete this transform]***
 
-| Variable | Paramater | Description 
-| - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
-
-
-
-```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
 
 ---
 ### Hash
@@ -455,54 +368,14 @@ The example below defines a ClaimsTransformation of the ‘Hash’ type called �
 ---
 ### ChangeCase
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
+***[TODO: Still need to complete this transform]***
 
-| Variable | Paramater | Description 
-| - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
-
-
-
-```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
 
 ---
 ### NullClaim
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
+***[TODO: Still need to complete this transform]***
 
-| Variable | Paramater | Description 
-| - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
-
-
-
-```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
 
 ---
 ### CompareClaimToValue
@@ -569,158 +442,34 @@ The example below defines a ClaimsTransformation of the 'CompareClaims' type cal
 ---
 ### GetAgeGroupAndConsentProvided
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
-
-| Variable | Paramater | Description 
-| - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
-
-
-
-```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
+***[TODO: Still need to complete this transform]***
 
 ---
 ### SetClaimsIfStringsMatch
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
-
-| Variable | Paramater | Description 
-| - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
-
-
-
-```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
+***[TODO: Still need to complete this transform]***
 
 ---
 ### GetMappedValueFromLocalizedCollection
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
-
-| Variable | Paramater | Description 
-| - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
-
-
-
-```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
+***[TODO: Still need to complete this transform]***
 
 ---
 ### DoesClaimExist
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
-
-| Variable | Paramater | Description 
-| - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
-
-
-
-```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
+***[TODO: Still need to complete this transform]***
 
 ---
 ### GetCurrentDateTime
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
-
-| Variable | Paramater | Description 
-| - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
-
-
-
-```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
+***[TODO: Still need to complete this transform]***
 
 ---
 ### IsTermsOfUseConsentRequired
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
-
-| Variable | Paramater | Description 
-| - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
+***[TODO: Still need to complete this transform]***
 
 
-
-```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </InputClaims>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
 
 
 
