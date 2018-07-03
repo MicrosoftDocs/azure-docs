@@ -282,7 +282,7 @@ The [Azure Security Center](../../security-center/security-center-intro.md) prov
 
 #### Inventory your privileged accounts within hosted Virtual Machines
 
-In most cases, you don’t need to give users unrestricted permissions to all your Azure subscriptions or resources. You can use Azure AD admin roles to segregate duties within your organization and grant only the amount of access to users who need to perform specific jobs. For example, use Azure AD administrator roles to let one admin manage only VMs in a subscription, while another can manage SQL databases within the same subscription. For more information, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).
+In most cases, you don’t need to give users unrestricted permissions to all your Azure subscriptions or resources. You can use Azure AD admin roles to segregate duties within your organization and grant only the amount of access to users who need to perform specific jobs. For example, use Azure AD administrator roles to let one admin manage only VMs in a subscription, while another can manage SQL databases within the same subscription. For more information, see [Get started with Role-Based Access Control in the Azure portal](../../role-based-access-control/overview.md).
 
 #### Implement PIM for Azure AD administrator roles
 

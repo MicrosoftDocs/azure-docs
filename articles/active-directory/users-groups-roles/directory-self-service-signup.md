@@ -68,4 +68,4 @@ For more information and examples of how to use these parameters, see [Set-MsolC
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 
 <!--Image references-->
-[1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
+[1]: ./media/directory-self-service-signup/SelfServiceSignUpControls.png
