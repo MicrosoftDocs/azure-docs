@@ -1,6 +1,6 @@
 ---
-title: Using BulkExecutor .NET library to perform bulk operations in Azure Cosmos DB | Microsoft Docs
-description: Use Azure Cosmos DB’s BulkExecutor .NET library to bulk import and update documents to Azure Cosmos DB collections.
+title: Using bulk executor .NET library to perform bulk operations in Azure Cosmos DB | Microsoft Docs
+description: Use Azure Cosmos DB’s bulk executor .NET library to bulk import and update documents to Azure Cosmos DB collections.
 keywords: .Net bulk executor
 services: cosmos-db
 author: tknandu
@@ -14,9 +14,9 @@ ms.author: ramkris
 
 ---
 
-# Using BulkExecutor .NET library to perform bulk operations in Azure Cosmos DB
+# Using bulk executor .NET library to perform bulk operations in Azure Cosmos DB
 
-This tutorial provides instructions on using the Azure Cosmos DB’s BulkExecutor .NET library to import and update documents to Azure Cosmos DB collections. To learn about BulkExecutor library and how it helps you leverage massive throughput and storage, see [BulkExecutor Library overview](bulk-executor-overview.md) article. This tutorial will walk you through a sample .NET application that bulk imports randomly generated documents into an Azure Cosmos DB collection. After importing, it shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
+This tutorial provides instructions on using the Azure Cosmos DB’s bulk executor .NET library to import and update documents to Azure Cosmos DB collections. To learn about bulk executor library and how it helps you leverage massive throughput and storage, see [bulk executor library overview](bulk-executor-overview.md) article. This tutorial will walk you through a sample .NET application that bulk imports randomly generated documents into an Azure Cosmos DB collection. After importing, it shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
 
 ## Prerequisites
 
@@ -165,7 +165,7 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
 	
 ## Performance tips 
 
-Consider the following points for better performance when using BulkExecutor library:
+Consider the following points for better performance when using bulk executor library:
 
 * For best performance, run your application from an Azure virtual machine that is in the same region as your Cosmos DB account write region.  
 
@@ -195,4 +195,4 @@ Consider the following points for better performance when using BulkExecutor lib
 ```
 
 ## Next steps
-* To learn about Nuget package details and release notes of BulkExecutor .Net library, see[BulkExecutor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
+* To learn about Nuget package details and release notes of bulk executor .Net library, see[bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 

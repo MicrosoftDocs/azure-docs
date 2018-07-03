@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 842605e6-a91d-42cc-a0bb-e23e67173ae2
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -200,9 +201,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-Click the Neota Logic Studio tile in the Access Panel, you will be redirected to Organization sign-on page. After successful login, you will be signed-on to your Neota Logic Studio application. For more information about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586).
-
-For more information about the Access Panel, see [introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
+Click the Neota Logic Studio tile in the Access Panel, you will be redirected to Organization sign-on page. After successful login, you will be signed-on to your Neota Logic Studio application. For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

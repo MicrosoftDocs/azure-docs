@@ -3,7 +3,7 @@ title: Respond to events with Azure Log Analytics Alerts | Microsoft Docs
 description: This tutorial helps you understand alerting with Log Analytics to identify important information in your workspace and proactively notify you of issues or invoke actions to attempt to correct them.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
@@ -15,6 +15,7 @@ ms.topic: tutorial
 ms.date: 05/23/2018
 ms.author: magoedte
 ms.custom: mvc
+ms.component: na
 ---
 
 # Respond to events with Azure Monitor Alerts
@@ -36,7 +37,7 @@ Alerts are created by alert rules in Azure Monitor and can automatically run sav
 
 In the following example, you create a metric measurement alert rule based off of the *Azure VMs - Processor Utilization* query saved in the [Visualize data tutorial](log-analytics-tutorial-dashboards.md).  An alert is created for each virtual machine that exceeds a threshold of 90%.  
 
-1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+1. In the Azure portal, click **All services**. In the list of resources, type **Monitor**. As you begin typing, the list filters based on your input. Select **Monitor**.
 2. In the left-hand pane, select **Alerts** and then click **New Alert Rule** from the top of the page to create a new alert.<br><br> ![Create new alert rule](./media/log-analytics-tutorial-response/alert-rule-02.png)<br>
 3. For the first step, under the **Create Alert** section, you are going to select your Log Analytics workspace as the resource, since this is a log based alert signal.  Filter the results by choosing the specific **Subscription** from the drop-down list if you have more than one, which contains the VM and Log Analytics workspace created earlier.  Filter the **Resource Type** by selecting **Log Analytics** from the drop-down list.  Finally, select the **Resource** **DefaultLAWorkspace** and then click **Done**.<br><br> ![Create alert step 1 task](./media/log-analytics-tutorial-response/alert-rule-03.png)<br>
 4. Under the section **Alert Criteria**, click **Add Criteria** to select our saved query and then specify logic that the alert rule follows.  From the **Configure signal logic** pane, select *Azure VMs - Processor Utilization* from the list.  The pane updates to present the configuration settings for the alert.  On the top, it shows the results for the last 30 minutes of the selected signal and the search query itself.  

@@ -35,6 +35,8 @@ items:
         href: create-mongodb-golang.md
       - name: Python
         href: create-mongodb-flask.md
+      - name: Xamarin
+        href: create-mongodb-xamarin.md
     - name: Graph
       items:
       - name: .NET
@@ -120,8 +122,6 @@ items:
               href: sql-api-java-get-started.md
             - name: Node.js
               href: sql-api-nodejs-get-started.md
-            - name: C++
-              href: sql-api-cpp-get-started.md
           - name: Build a web app
             items:
             - name: .NET
@@ -146,10 +146,6 @@ items:
             href: local-emulator.md
           - name: Export certificates
             href: local-emulator-export-ssl-certificates.md
-        - name: 6 - Integrate with Functions
-          items:
-          - name: HTTP trigger
-            href: tutorial-functions-http-trigger.md
       - name: Samples
         items:
         - name: Azure CLI
@@ -330,6 +326,8 @@ items:
           href: mongodb-readpreference.md
         - name: Indexing
           href: mongodb-indexing.md
+        - name: TTL in MongoDB 	
+          href: mongodb-ttl.md 
         - name: Visualize your data with Power BI
           href: powerbi-visualize.md
         - name: Manage using Storage Explorer
@@ -350,26 +348,14 @@ items:
           href: gremlin-support.md
       - name: Tutorials
         items:
-        - name: 1 - Create
-          href: tutorial-develop-graph-dotnet.md
-        - name: 2 - Query
+        - name: 1 - Query
           href: tutorial-query-graph.md
-        - name: 3 - Distribute globally
-          href: tutorial-global-distribution-graph.md
       - name: How To Guides
         items:
         - name: Graph partitioning
           href: graph-partitioning.md
         - name: Manage using Storage Explorer
           href: storage-explorer.md
-        - name: Integrate
-          items:
-          - name: Connect to Spark GraphX
-            href: spark-connector-graph.md 
-      - name: Reference
-        items:
-          - name: .NET
-            href: graph-sdk-dotnet.md
       - name: Resources
         items:
         - name: Manage using Storage Explorer

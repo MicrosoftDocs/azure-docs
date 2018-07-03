@@ -37,7 +37,7 @@ The custom banned password list and the ability to enable on-premises Active Dir
 
 ## On-premises hybrid scenarios
 
-Protecting cloud-only accounts is helpful but many organizations maintain hybrid scenarios including on-premises Windows Server Active Directory. It is possible to install Azure AD password protection (preview) agents on-premises to extend the banned password lists to your existing infrastructure. Now users and administrators who change, set, or reset passwords on-premises are required to comply with the same password policy as cloud-only users.
+Protecting cloud-only accounts is helpful but many organizations maintain hybrid scenarios including on-premises Windows Server Active Directory. It is possible to install Azure AD password protection for Windows Server Active Directory (preview) agents on-premises to extend the banned password lists to your existing infrastructure. Now users and administrators who change, set, or reset passwords on-premises are required to comply with the same password policy as cloud-only users.
 
 ## How does the banned password list work
 
@@ -51,9 +51,13 @@ Each time a user resets or changes their Azure AD password it flows through this
 
 ## License requirements
 
-The benefits of the global and customized banned password lists apply to all cloud-only users of Azure Active Directory (Azure AD).
+The benefits of the global banned password list apply to all users of Azure Active Directory (Azure AD).
 
-The customizable custom banned password list requires Azure AD Basic licenses. Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+The custom banned password list requires Azure AD Basic licenses.
+
+Azure AD password protection for Windows Server Active Directory requires Azure AD Premium licenses. 
+
+Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## What do users see
 

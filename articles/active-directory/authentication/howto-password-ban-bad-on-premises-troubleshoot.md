@@ -21,7 +21,7 @@ ms.reviewer: jsimmons
 | Azure AD password protection and the custom banned password list are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-After deployment of Azure AD password protection monitoring and reporting are essentiaal tasks. This article goes into detail to help you understand where each service logs information and how to report on the use of Azure AD password protection.
+After deployment of Azure AD password protection monitoring and reporting are essential tasks. This article goes into detail to help you understand where each service logs information and how to report on the use of Azure AD password protection.
 
 ## On-premises logs and events
 

@@ -44,6 +44,9 @@ public static void Run(
 
 The instructions tell how to create a WebJobs SDK version 2.x project, with notes about what's different for 3.x (in preview). The main change introduced by 3.x is the use of .NET Core instead of .NET Framework.
 
+> [!NOTE]
+> 3.x is in preview and is under development, and the 3.x instructions in this article are out of date. For the latest information, see the GitHub issues at the bottom of the page.
+
 ### Azure Functions
 
 [Azure Functions](../azure-functions/functions-overview.md) is based on the WebJobs SDK and is an option when you don't need to use the WebJobs SDK directly. Azure Functions 1.x uses the WebJobs SDK 2.x. For more information, see [comparison between Azure Functions and the WebJobs SDK](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
@@ -62,6 +65,9 @@ This article assumes you have [an Azure account](https://azure.microsoft.com/fre
 2. Select **Windows Classic Desktop > Console App (.NET Framework)**.
 
    To create a 3.x project, select **.NET Core > Console App (.NET Core)**.
+   
+   > [!NOTE]
+   > 3.x is in preview and is under development, and the 3.x instructions in this article are out of date. For the latest information, see the GitHub issues at the bottom of the page.
 
 3. Name the project *WebJobsSDKSample*, and then select **OK**.
 

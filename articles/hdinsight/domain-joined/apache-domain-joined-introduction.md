@@ -11,7 +11,7 @@ ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
+ms.date: 06/26/2018
 ms.author: omidm
 
 ---
@@ -20,10 +20,7 @@ ms.author: omidm
 Azure HDInsight until today supported only a single user local admin. This worked great for smaller application teams or departments. As Hadoop based workloads gained more popularity in the enterprise sector, the need for enterprise grade capabilities like active directory-based authentication, multi-user support, and role-based access control became increasingly important. Using Domain-joined HDInsight clusters, you can create an HDInsight cluster joined to an Active Directory domain, configure a list of employees from the enterprise who can authenticate through Azure Active Directory to log on to HDInsight cluster. Anyone outside the enterprise cannot log on or access the HDInsight cluster. The enterprise admin can configure role-based access control for Hive security using [Apache Ranger](http://hortonworks.com/apache/ranger/), thus restricting access to data to only as much as needed. Finally, the admin can audit the data access by employees, and any changes done to access control policies, thus achieving a high degree of governance of their corporate resources.
 
 > [!NOTE]
-> The new features described in this article are available in preview only on the following cluster types: Hadoop, Spark, and Interactive Query.
-
-> [!IMPORTANT]
-> Oozie is not enabled on domain-joined HDInsight.
+> The new features described in this article are available in preview only on the following cluster types: Hadoop, Spark, and Interactive Query. Oozie is now enabled on domain-joined clusters. In order to access the Oozie web UI users should enable [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## Benefits
 Enterprise Security contains four major pillars – Perimeter Security, Authentication, Authorization, and Encryption.

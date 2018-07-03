@@ -125,7 +125,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 To upload a file to a blob, get the full path of the file by joining the directory name and the file name on your local drive. You can then upload the file to the specified path using the **createBlockBlob()** method. 
 
-The sample code takes a local file and uploads it to Azure. The file is stored as as **myfile** and the name of the blob as **fileToUpload** in the code. The following example uploads the file to your container called **quickstartblobs**.
+The sample code takes a local file and uploads it to Azure. The file is stored as **myfile** and the name of the blob as **fileToUpload** in the code. The following example uploads the file to your container called **quickstartblobs**.
 
 ```PHP
     $myfile = fopen("HelloWorld.txt", "w") or die("Unable to open file!");

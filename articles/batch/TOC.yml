@@ -178,8 +178,8 @@
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Batch forum
-    href: https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch
+  - name: Batch Community
+    href: https://github.com/Azure/Batch
   - name: Batch Shipyard
     href: https://github.com/Azure/batch-shipyard
   - name: Blog
