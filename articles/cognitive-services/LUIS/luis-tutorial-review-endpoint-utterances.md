@@ -63,7 +63,7 @@ If LUIS doesn't predict custom entities, prebuilt entities will be labeled. Sinc
     |:--|:--|:--|
     |I'm looking for a job with Natual Language Processing|GetJobInfo|Job - "Natural Language Process"|
 
-    One of the utterances is not correct correct. The **ApplyForJob** intent has 21 utterances compared to the 7 utterances in **GetJobInformation**. Along with aligning the endpoint utterance correctly, more utterances should be added to the **GetJobInformation** intent. That will be left as an exercise for you to complete on your own. 
+    One of the utterances is not correct correct. The **ApplyForJob** intent has 21 utterances compared to the 7 utterances in **GetJobInformation**. Along with aligning the endpoint utterance correctly, more utterances should be added to the **GetJobInformation** intent. That will be left as an exercise for you to complete on your own. Each intent, except for the **None** intent, should have roughly the same number of example utterances. The **None** intent should have 10% of the total utterances in the app. 
 
 3. For the intent `I'm looking for a job with Natual Language Processing`, select the correct intent, **GetJobInformation** in the **Aligned intent** column. 
 
@@ -78,9 +78,141 @@ If LUIS doesn't predict custom entities, prebuilt entities will be labeled. Sinc
 8. The list should no longer have those utterances. Continue to work through the list, correcting intents and labeling any missing entities, until it is empty. Select the next intent in the Filter list, then continue correcting utterances and labeling entities. Remember the last step of each utterance is to either select **Add to aligned intent** on the utterance row or check the box by each intent and select **Add selected** above the table. This is a very small app. The review process will take a few minutes only.
 
 ## Add the prebuilt entities
+Add the prebuilt entities back to the app.
 
+1. Select **Entities** from the left navigation panel.
+
+2. Select **Manage prebuilt entities** button.
+
+3. Select **Number**, **datetimeV2**, **keyPhrase** then select **Done**.
 
 ## Train the LUIS app
+LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
 
-## Publish the app
+1. In the top right side of the LUIS website, select the **Train** button.
 
+    ![Train the app](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
+
+2. Training is complete when you see the green status bar at the top of the website confirming success.
+
+    ![Training succeeded](./media/luis-quickstart-intent-and-hier-entity/trained.png)
+
+## Publish the app to get the endpoint URL
+In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
+
+1. In the top right side of the LUIS website, select the **Publish** button. 
+
+2. Select the Production slot and the **Publish** button.
+
+    [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
+
+3. Publishing is complete when you see the green status bar at the top of the website confirming success.
+
+## Query the endpoint with an utterance
+
+1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
+
+    ![Screenshot of Publish page with endpoint url highlighted](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
+
+2. Go to the end of the URL in the address and enter `does form hrf-123456 cover the new dental benefits and medical plan`. The last querystring parameter is `q`, the utterance **query**. 
+
+```
+{
+  "query": "does form hrf-123456 cover the new dental benefits and medical plan",
+  "topScoringIntent": {
+    "intent": "FindForm",
+    "score": 0.9300641
+  },
+  "intents": [
+    {
+      "intent": "FindForm",
+      "score": 0.9300641
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.0359598845
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0141798034
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.0112197418
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00507669244
+    },
+    {
+      "intent": "None",
+      "score": 0.00238501839
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00202810857
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00102957746
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.0008688423
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 3.557994E-05
+    }
+  ],
+  "entities": [
+    {
+      "entity": "hrf-123456",
+      "type": "HRF-number",git 
+      "startIndex": 10,
+      "endIndex": 19
+    },
+    {
+      "entity": "new dental benefits",
+      "type": "builtin.keyPhrase",
+      "startIndex": 31,
+      "endIndex": 49
+    },
+    {
+      "entity": "medical plan",
+      "type": "builtin.keyPhrase",
+      "startIndex": 55,
+      "endIndex": 66
+    },
+    {
+      "entity": "hrf",
+      "type": "builtin.keyPhrase",
+      "startIndex": 10,
+      "endIndex": 12
+    },
+    {
+      "entity": "-123456",
+      "type": "builtin.number",
+      "startIndex": 13,
+      "endIndex": 19,
+      "resolution": {
+        "value": "-123456"
+      }
+    }
+  ]
+}
+```
+
+
+## What has this tutorial accomplished?
+This app, with keyPhrase entity detection, identified a natural language query intention and returned the extracted data including the main subject matter. 
+
+Your chatbot now has enough information to determine the next step in the conversation. 
+
+## Clean up resources
+When no longer needed, delete the LUIS app. Select **My apps** in the top left menu. Select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [XXX](XXX.md)
