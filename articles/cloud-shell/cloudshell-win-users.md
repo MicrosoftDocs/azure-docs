@@ -1,5 +1,5 @@
 ---
-title: Cloud Shell for Windows users | Microsoft Docs
+title: Azure Cloud Shell for Windows users | Microsoft Docs
 description: Guide for users who are not familiar with Linux systems
 services: azure
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/3/2018
+ms.date: 07/03/2018
 ms.author: damaerte
 ---
 
