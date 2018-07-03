@@ -17,7 +17,7 @@ Ansible ships with a number of modules that can be executed directly on remote h
 This article lists the Ansible modules for Azure that can provision Azure cloud resources such as virtual machine, networking, and container services. You can get these modules from the official release of Ansible or from the following playbook roles published by Microsoft.
 
 | Ansible module for Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 |  Playbook Role [azure_preview_module](#introduction-to-azurepreviewmodule) | 
-|---------------------------------------------|--------------|-----------------------------|-------------------------------------| 
+|---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------| 
 | **Compute**                    |           |                          |                          |                                  | 
 | azure_rm_availabilityset                    | Yes          | Yes                         | Yes          | Yes                                 | 
 | azure_rm_availabilityset_facts              | Yes          | Yes                         | Yes          | Yes                                 | 
