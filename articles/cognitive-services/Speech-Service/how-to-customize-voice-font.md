@@ -58,8 +58,7 @@ Audio files should be prepared as follows. Other formats are unsupported and wil
 | **Property** | **Value** |
 | ------------ | --------- |
 | File Format  | RIFF (WAV)|
-| Sampling Rate| 16,000 Hz |
-| Channels     | 1 (monophonic)  |
+| Sampling Rate| at least 16,000 Hz |
 | Sample Format| PCM, 16-bit |
 | File Name    | Numeric, with `.wav` extension |
 | Archive Format| Zip      |
@@ -68,11 +67,12 @@ Audio files should be prepared as follows. Other formats are unsupported and wil
 Place the set of audio files into a single folder without subdirectories and package the entire set as a single ZIP file archive.
 
 > [!NOTE]
+> Wave files with a sampling rate lower than 16,000 Hz will be rejected. In the cases where a zip file contains waves with different sampling rates, only those equal to or higher than 16,000 Hz will be imported.
 > The portal currently imports ZIP archives up to 200 MB. However, multiple archives may be uploaded. The maximum number of datasets allowed is 10 ZIP files for free subscription users, and 50 for standard subscription users.
 
 ### Transcripts
 
-The transcription file is a plain Unicode text file (UTF-16 little-endian). Each line of the transcription file must have the name of an audio file, followed by a tab (code point 9) character, and finally its transcript. No blank lines are allowed.
+The transcription file is a plain text file (ANSI/UTF-8/UTF-8-BOM/UTF-16-LE/UTF-16-BE). Each line of the transcription file must have the name of an audio file, followed by a tab (code point 9) character, and finally its transcript. No blank lines are allowed.
 
 For example:
 
