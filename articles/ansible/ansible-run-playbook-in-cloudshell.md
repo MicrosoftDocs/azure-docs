@@ -1,3 +1,4 @@
+
 ---
 title: Run Ansible with Bash in Azure Cloud Shell
 description: Learn how to perform various Ansible tasks with Bash in Azure Cloud Shell
@@ -36,6 +37,11 @@ Note the `id` of the subscription you want to work, and then set `AZURE_SUBSCRIP
 ```azurecli-interactive
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ```
+
+## Verify
+To verify the succesful configuration, you can now use Ansible to create a resource group.
+
+[!INCLUDE [create-resource-group-with-ansible.md](../../../includes/ansible-create-resource-group.md)]
 
 ## Next steps
 
