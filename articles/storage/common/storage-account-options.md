@@ -8,7 +8,7 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/22/2018
+ms.date: 07/03/2018
 ms.author: hux  
 
 ---
@@ -42,7 +42,10 @@ GPv2 storage accounts expose the **Access Tier** attribute at the account level,
 
 ### Upgrade a storage account to GPv2
 
-Users can upgrade a GPv1 or Blob storage account to a GPv2 account at any time using PowerShell or Azure CLI. This change cannot be reversed, and no other changes are permitted.
+Users can upgrade a GPv1 or Blob storage account to a GPv2 account at any time using Azure portal, PowerShell, or Azure CLI. This change cannot be reversed, and no other changes are permitted.
+
+#### Upgrade with Azure Portal
+To upgrade a GPv1 or Blob storage account to a GPv2 account using Azure Portal, first sign into the [Azure portal](https://portal.azure.com) and select your storage account. Select **Settings** > **Configuration**. There you will see the **Upgrade** button along with a note regarding the upgrade process.
 
 #### Upgrade with PowerShell
 
