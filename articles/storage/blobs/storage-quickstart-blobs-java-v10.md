@@ -109,7 +109,7 @@ The first thing to do is create the references to the objects used to access and
 
 * Create an instance of the StorageURL object pointing to the storage account.
 
-    The [**StorageURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-preview) object is a representation of your storage account and it allows you to generate a new pipeline. With that pipeline you can create an instance of the [**ServiceURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-preview) object, which allows you to create an instance of the [**ContainerURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview), which is necessary to access the container service.
+    The [**StorageURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-preview) object is a representation of your storage account and it allows you to generate a new pipeline. A pipeline ([HTTP Pipeline](https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview#url-types--http-pipeline)) is a set of policies that are used to manipulate requests and responses with authorization, logging and retry mechanisms. With the pipeline you can create an instance of the [**ServiceURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-preview) object, which allows you to create an instance of the [**ContainerURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview), which is necessary to run operations on Blob containers.
 
 * Create an instance of the ContainerURL object, representing the container you are accessing. Containers are used to organize your blobs like you use folders on your computer to organize your files.
 
@@ -122,26 +122,37 @@ The first thing to do is create the references to the objects used to access and
 
 ### Create a container 
 
-In this section, you create an instance of the objects and create a new container. The container is called **quickstart**. 
+In this section, you create an instance of the ContainerURL, and create a new container with it. The container in the sample is called **quickstart**. 
 
 This example uses [containerURL.create](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview) because we want to create a new container each time the sample is run. Alternatively, you can create the container ahead of time so you don't need to create it in the code.
 
 ```java
 // Create a ServiceURL to call the Blob service. We will also use this to construct the ContainerURL
-SharedKeyCredentials creds = new SharedKeyCredentials(accountName /*String*/, accountKey /*String*/);
+SharedKeyCredentials creds = new SharedKeyCredentials(accountName, accountKey);
 // We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 final ServiceURL serviceURL = new ServiceURL(new URL("http://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, new PipelineOptions()));
 
 // Let's create a container using a blocking call to Azure Storage
 // If container exists, we'll catch and continue
 containerURL = serviceURL.createContainerURL("quickstart");
+
+try {
+    ContainersCreateResponse response = containerURL.create(null, null).blockingGet();
+    System.out.println("Container Create Response was " + response.statusCode());
+} catch (RestException e){
+    if (e instanceof RestException && ((RestException)e).response().statusCode() != 409) {
+        throw e;
+    } else {
+        System.out.println("quickstart container already exists, resuming...");
+    }
+}
 ```
 
 ### Upload blobs to the container
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that's what is used in this quickstart. 
 
-To upload a file to a blob, get a reference to the blob in the target container. Once you have the blob reference, you can upload a file to it by using either the low-level APIs such as [Upload](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-preview) -a.k.a PutBlob, [StageBlock](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-preview#com_microsoft_azure_storage_blob__block_blob_u_r_l_stageBlock_String_Flowable_ByteBuffer__long_LeaseAccessConditions_) -a.k.a PutBLock- in the instance of BlockBlobURL, or the high-level APIs provided in the [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview) class. This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
+To upload a file to a blob, get a reference to the blob in the target container. Once you have the blob reference, you can upload a file to it by using either the low-level APIs such as [Upload](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-preview) -a.k.a PutBlob, [StageBlock](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-preview#com_microsoft_azure_storage_blob__block_blob_u_r_l_stageBlock_String_Flowable_ByteBuffer__long_LeaseAccessConditions_) -a.k.a PutBLock- in the instance of BlockBlobURL, or the high-level APIs provided in the [TransferManager](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-preview) class, such as the [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview) method. This operation creates the blob if it doesn't already exist, or overwrites it if it does already exist.
 
 The sample code creates a local file to be used for the upload and download. storing the file to be uploaded as **sourceFile** and the url of the blob in **blob**. The following example uploads the file to your container called **quickstart**.
 
@@ -160,9 +171,7 @@ static void uploadFile(BlockBlobURL blob, File sourceFile) throws IOException {
 }
 ```
 
-There are a couple other high-level upload methods, such as [uploadByteBufferToBlockBlob](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadbytebuffertoblockblob) and [uploadByteBuffersToBlockBlob](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadbytebufferstoblockblob), which you can use with Blob storage.
-
-Block blobs can be any type of text or binary file. Page blobs are primarily used for the VHD files used to back IaaS VMs. Append blobs are for appending data to the end, and often used for logging, such as when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
+Block blobs can be any type of text or binary file. Page blobs are primarily used for the VHD files used to back IaaS VMs. Append blobs are for appending data to the end, and often used for logging. Most objects stored in Blob storage are block blobs.
 
 ### List the blobs in a container
 
