@@ -6,6 +6,51 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-accessmanagement-groups-settings-cmdlets.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/groups-settings-cmdlets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/groups-settings-v2-cmdlets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-accessmanagement-group-saasapps.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/groups-saasapps",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-accessmanagement-self-service-group-management.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/groups-self-service-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-accessmanagement-troubleshooting.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/groups-troubleshooting",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-admin-manage-emergency-access-accounts.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-emergency-access",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-administrative-units-management.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-administrative-units",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-assign-admin-roles-azure-portal.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-assign-admin-roles",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-domains-manage-azure-portal.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/domains-manage",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
             "redirect_document_id": true
