@@ -149,7 +149,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 * **Resource Navigation Links**: When deploying into Resource Manager style vnet subnet, API Management reserves the subnet, by creating a resource navigation Link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you move an API Management service to a different subnet or delete it, we will remove that resource navigation link. 
 
-* **API Testing from Azure Portal**: When testing an API from the Azure Portal and your API Management instance is integrated with an internal VNet, the DNS servers configured on the VNet will be used for name resolution. If you receive a 404 when testing from the Azure Portal, ensure that the DNS servers for the VNet can properly resolve the host name of your API Management instance. 
+* **API Testing from the Azure portal**: When testing an API from the Azure portal and your API Management instance is integrated with an internal VNet, the DNS servers configured on the VNet will be used for name resolution. If you receive a 404 when testing from the Azure portal, ensure that the DNS servers for the VNet can properly resolve the host name of your API Management instance. 
 
 ## <a name="subnet-size"> </a> Subnet Size Requirement
 Azure reserves some IP addresses within each subnet, and these addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, along with three more addresses used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
