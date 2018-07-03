@@ -60,7 +60,7 @@ Formats and indents JSON for display.
 :return: A string containing formatted and indented JSON.
 :rtype: string
 '''
-def pretty_print (content):
+def pretty_print(content):
   # Note: We convert content to and from an object so we can pretty-print it.
   return json.dumps(json.loads(content), indent=4)
 
@@ -73,8 +73,8 @@ Sends the POST request to create the knowledge base.
 :return: A header that creates the knowledge base, the JSON response
 :rtype: string, string
 '''
-def create_kb (path, content):
-  print ('Calling ' + host + path + '.')
+def create_kb(path, content):
+  print('Calling ' + host + path + '.')
   headers = {
     'Ocp-Apim-Subscription-Key': subscriptionKey,
     'Content-Type': 'application/json',
@@ -94,11 +94,11 @@ Checks the status of the request to create the knowledge base.
 :return: The header Retry-After if request is not finished, the JSON response
 :rtype: string, string
 '''
-def check_status (path):
-  print ('Calling ' + host + path + '.')
+def check_status(path):
+  print('Calling ' + host + path + '.')
   headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
   conn = http.client.HTTPSConnection(host)
-  conn.request ("GET", path, None, headers)
+  conn.request("GET", path, None, headers)
   response = conn.getresponse ()
   # If the operation is not finished, /operations returns an HTTP header named Retry-After
   # that contains the number of seconds to wait before we query the operation again.
@@ -139,9 +139,9 @@ path = service + method
 # Convert the request to a string.
 content = json.dumps(req)
 # Retrieve the operation ID to check status, and JSON result
-operation, result = create_kb (path, content)
+operation, result = create_kb(path, content)
 # Print request response in JSON with presentable formatting
-print (pretty_print(result))
+print(pretty_print(result))
 
 '''
 Iteratively gets the operation state, creating the knowledge base.
@@ -150,17 +150,17 @@ Once state is no longer "Running" or "NotStarted", the loop ends.
 done = False
 while False == done:
   path = service + operation
-  # Gets the status of the operation.
-  wait, status = check_status (path)
-  # Print status checks in JSON with presentable formatting
-  print (pretty_print(status))
+    # Gets the status of the operation.
+  wait, status = check_status(path)
+    # Print status checks in JSON with presentable formatting
+  print(pretty_print(status))
 
-  # Convert the JSON response into an object and get the value of the operationState field.
+    # Convert the JSON response into an object and get the value of the operationState field.
   state = json.loads(status)['operationState']
-  # If the operation isn't finished, wait and query again.
+    # If the operation isn't finished, wait and query again.
   if state == 'Running' or state == 'NotStarted':
-    print ('Waiting ' + wait + ' seconds...')
-    time.sleep (int(wait))
+    print('Waiting ' + wait + ' seconds...')
+    time.sleep(int(wait))
   else:
     done = True # request has been processed, if successful, knowledge base is created
 ```
