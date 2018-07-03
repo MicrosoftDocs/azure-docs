@@ -100,6 +100,10 @@ The following table provides description for JSON elements specific to Oracle li
 | gatewayName | Name of the gateway that is used to connect to the on-premises Oracle server |Yes |
 
 **Example: using Microsoft driver:**
+
+>[!TIP]
+>If you hit error saying "ORA-01025: UPI parameter out of range" and your Oracle is of version 8i, add `WireProtocolMode=1` to your connection string and try again.
+
 ```json
 {
     "name": "OnPremisesOracleLinkedService",
