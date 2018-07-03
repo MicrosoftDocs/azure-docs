@@ -6,7 +6,6 @@
             "redirect_document_id": true
         },
         {
-<<<<<<< HEAD
             "source_path": "articles/active-directory/active-directory-licensing-ps-examples.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/licensing-ps-examples",
             "redirect_document_id": true
@@ -51,7 +50,6 @@
             "redirect_url": "/azure/active-directory/users-groups-roles/directory-manage-roles-portal",
             "redirect_document_id": true
         },        {
-=======
             "source_path": "articles/active-directory/active-directory-groups-dynamic-membership-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-dynamic-membership",
             "redirect_document_id": true
@@ -138,7 +136,6 @@
             "redirect_document_id": true
         },
         {
->>>>>>> 5218fa661738310cbbdc3377bca9f57410a6120f
             "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
             "redirect_document_id": true
