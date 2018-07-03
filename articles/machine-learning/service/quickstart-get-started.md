@@ -37,7 +37,7 @@ Make sure you have the following prerequisites before starting the quickstart st
 
 ## Create a workspace 
 
-[!INCLUDE [aml-create-portal](../../../includes/aml-create-portal.md)]
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## Install the SDK
 
