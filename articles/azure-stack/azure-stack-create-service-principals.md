@@ -147,6 +147,7 @@ The following information is required as input for the automation parameters:
    PSComputerName        : azs-ercs01
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
+
 ### Assign a role
 Once the Service Principal is created, you must [assign it to a role](azure-stack-create-service-principals.md#assign-role-to-service-principal)
 
