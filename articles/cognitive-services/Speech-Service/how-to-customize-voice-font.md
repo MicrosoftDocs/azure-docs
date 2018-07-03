@@ -192,7 +192,7 @@ The status shown reflects the process of converting your dataset to a voice font
 Training time varies depending on the volume of audio data processed. Typical times range from about 30 minutes for hundreds of utterances to 40 hours for 20,000 utterances.
 
 > [!NOTE]
-> Free subscription users can train two voice fonts at a time. Standard subscription users can train three voices simultaneously. If you reach the limit, wait until at least one of your voice fonts finishes training, then try again.
+> Free subscription users can train one voice font at a time. Standard subscription users can train three voices simultaneously. If you reach the limit, wait until at least one of your voice fonts finishes training, then try again.
 
 ## Test your voice font
 
