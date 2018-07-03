@@ -21,9 +21,9 @@ ms.reviewer: bagovind
 
 # What is role-based access control (RBAC)?
 
-Access management for cloud resources is a critical function for any organization that is using the cloud. Role-based access control (RBAC) helps you to manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
+Access management for cloud resources is a critical function for any organization that is using the cloud. Role-based access control (RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
-RBAC is a system that provides fine-grained access management of resources in Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions at a particular scope.
+RBAC is an authorization system built on [Azure Resource Manager](../azure/azure-resource-manager/resource-group-overview.md) that provides fine-grained access management of resources in Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, you can allow only certain actions at a particular scope.
 
 ## What can I do with RBAC?
 
