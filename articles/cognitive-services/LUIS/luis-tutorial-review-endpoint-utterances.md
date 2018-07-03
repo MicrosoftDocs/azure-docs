@@ -58,12 +58,24 @@ If LUIS doesn't predict custom entities, prebuilt entities will be labeled. Sinc
 1. Select **Review endpoint utterances** from the left navigation. The list is filtered for the **ApplyForJob** intent. 
 
 2. Toggle the **Entities view** to see the labeled entities. 
+    
+    |Utterance|Correct intent|Missing entities|
+    |:--|:--|:--|
+    |I'm looking for a job with Natual Language Processing|GetJobInfo|Job - "Natural Language Process"|
 
-3. The utterance `please relocation jill-jones@mycompany.com from x-2345 to g-23456` is incorrectly aligned with this intent. It should be in the MoveEmployee intent.
+    One of the utterances is not correct correct. The **ApplyForJob** intent has 21 utterances compared to the 7 utterances in **GetJobInformation**. Along with aligning the endpoint utterance correctly, more utterances should be added to the **GetJobInformation** intent. That will be left as an exercise for you to complete on your own. 
 
-4. Select the correct intent, **MoveEmployee** in the **Aligned intent** column then select circled checkmark in the **Add to aligned intent** column. 
+3. For the intent `I'm looking for a job with Natual Language Processing`, select the correct intent, **GetJobInformation** in the **Aligned intent** column. 
 
-5. 
+4. In the same utterance, select `Natual Language Processing` then select the **Job** entity from the list.
+
+5. On the same line, select the circled checkmark in the **Add to aligned intent** column. 
+
+6. Review the remaining utterances in this intent, labeling utterances and correcting the **Aligned intent**, if these are incorrect.
+
+7. When all the utterances are correct, select the checkbox on each row, then select **Add selected** to align the utterances correctly. 
+
+8. The list should no longer have those utterances. Continue to work through the list, correcting intents and labeling any missing entities, until it is empty. Select the next intent in the Filter list, then continue correcting utterances and labeling entities. Remember the last step of each utterance is to either select **Add to aligned intent** on the utterance row or check the box by each intent and select **Add selected** above the table. This is a very small app. The review process will take a few minutes only.
 
 ## Add the prebuilt entities
 
