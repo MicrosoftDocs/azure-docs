@@ -10,7 +10,7 @@
 # How-to
 ## [Persisting storage](persisting-shell-storage.md)
 ## [Using the window](using-the-shell-window.md)
-## [PowerShell Cloud Shell for Windows users](cloudshell-win-users.md)
+## [PowerShell Cloud Shell for Windows users](cloud-shell-windows-users.md)
 
 # Examples
 ## [Bash - Create resources with Terraform](example-terraform-bash.md)
