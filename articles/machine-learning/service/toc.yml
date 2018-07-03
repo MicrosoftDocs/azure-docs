@@ -45,16 +45,16 @@
     - name: Azure Container Instances
     - name: VMs (Data Science/Deep Learning) 
     - name: Azure Batch AI clusters
-  - name: Train and tune models 	
-	  items:    
+  - name: Train and tune models
+    items:    
     - name: Train TensorFlow models
     - name: Tune hyperparameters for DNN / ML models
     - name: Run jobs on Spark
   - name: Track and evaluate models	
-	  items:    
+    items:    
     - name: Track run history and training metrics
   - name: Deploy models in production	
-	  items:    
+    items:    
     - name: Prepare models for deployment
     - name: Where to deploy models
     - name: Deploy to ACI
@@ -64,12 +64,12 @@
     - name: Deploy a model built with Spark ML
     - name: IoT deployment
   - name: Scale and secure	
-		items:    
+    items:    
     - name: Encrypt web services in transit  
     - name: 	Encrypt web services at rest
   - name: Build and Deploy with VS Code	
 - name: Reference
-  items:  
+  items:    
   - name: Machine learning SDK
     href: reference-azure-machine-learning-sdk.md
   - name: Machine learning CLI
