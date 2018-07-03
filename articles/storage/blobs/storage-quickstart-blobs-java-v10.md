@@ -14,7 +14,7 @@ ms.author: rogarana
 
 # Quickstart: Upload, download, and list blobs using the Java SDK V10 (Preview)
 
-In this quickstart, you learn how to use the new Java Storage SDK to upload, download, and list block blobs in a container in Azure Blob storage.
+In this quickstart, you learn how to use the new Java Storage SDK to upload, download, and list block blobs in a container in Azure Blob storage. The new Java SDK uses the Reactive programming model with RxJava providing you asynchronous operations. Learn more about RxJava [here](https://github.com/ReactiveX/RxJava). 
 
 ## Prerequisites
 
@@ -269,5 +269,6 @@ containerURL.delete(null).blockingGet();
 In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using Java. 
 
 > [!div class="nextstepaction"]
-> [Java client library source code](https://github.com/Azure/azure-storage-java/tree/New-Storage-SDK-V10-Preview)
+> [Storage SDK V10 for Java source code](https://github.com/Azure/azure-storage-java/tree/New-Storage-SDK-V10-Preview)
 > [API Reference](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-preview)
+> [Learn more about RxJava](https://github.com/ReactiveX/RxJava)
