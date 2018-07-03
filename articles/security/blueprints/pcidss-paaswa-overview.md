@@ -179,15 +179,15 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 ## Threat model
 
-The data flow diagram for this reference architecture is available for [download](https://aka.ms/PCIPaaSWebappTM) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
+The data flow diagram for this reference architecture is available for [download](https://aka.ms/pcidss-paaswa-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
 ![PaaS Web Application for PCI DSS threat model](images/pcidss-paaswa-threat-model.png "PaaS Web Application for PCI DSS threat model")
 
 ## Compliance documentation
 
-The [Azure Security and Compliance Blueprint – PCI DSS Customer Responsibility Matrix](https://aka.ms/PCICRM) lists controller and processor responsibilities for all PCI DSS 3.2 requirements.
+The [Azure Security and Compliance Blueprint – PCI DSS Customer Responsibility Matrix](https://aka.ms/pcidss-crm) lists controller and processor responsibilities for all PCI DSS 3.2 requirements.
 
-The [Azure Security and Compliance Blueprint – PCI DSS PaaS Web Application Implementation Matrix](https://aka.ms/PCIPaaSWebappCIM) provides information on which PCI DSS 3.2 requirements are addressed by the PaaS web application architecture, including detailed descriptions of how the implementation meets the requirements of each covered article.
+The [Azure Security and Compliance Blueprint – PCI DSS PaaS Web Application Implementation Matrix](https://aka.ms/pcidss-paaswa-cim) provides information on which PCI DSS 3.2 requirements are addressed by the PaaS web application architecture, including detailed descriptions of how the implementation meets the requirements of each covered article.
 
 ## Guidance and recommendations
 
