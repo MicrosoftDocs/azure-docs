@@ -33,19 +33,19 @@ When you're using group-based licensing, the same errors can occur, but they hap
 
    1. To find users in an error state in a specific group, open the pane for the group. Under **Licenses**, a notification appears if there are any users in an error state.
 
-   ![Group, error notification](media/active-directory-licensing-group-problem-resolution-azure-portal/group-error-notification.png)
+   ![Group, error notification](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
    2. Select the notification to open a list of all affected users. You can select each user individually to see more details.
 
-   ![Group, list of users in error state](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-users-with-errors.png)
+   ![Group, list of users in error state](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
    3. To find all groups that contain at least one error, on the **Azure Active Directory** blade select **Licenses**, and then select **Overview**. An information box is displayed when groups require your attention.
 
-   ![Overview, information about groups in error state](media/active-directory-licensing-group-problem-resolution-azure-portal/group-errors-widget.png)
+   ![Overview, information about groups in error state](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
    4. Select the box to see a list of all groups with errors. You can select each group for more details.
 
-   ![Overview, list of groups with errors](media/active-directory-licensing-group-problem-resolution-azure-portal/list-of-groups-with-errors.png)
+   ![Overview, list of groups with errors](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 The following sections give a description of each potential problem and the way to resolve it.
@@ -115,7 +115,7 @@ Microsoft Workplace Analytics is an add-on product. It contains a single service
 
 If we try to assign this product on its own to a group, the portal returns an error. Selecting the error notification shows the following details:
 
-![Group, prerequisite missing](media/active-directory-licensing-group-problem-resolution-azure-portal/group-prerequisite-required.png)
+![Group, prerequisite missing](./media/licensing-groups-resolve-problems/group-prerequisite-required.png)
 
 If we select the details, it shows the following error message:
 
@@ -127,7 +127,7 @@ It is also possible to create a standalone group that contains only the minimum 
 - Office 365 Enterprise E3 with only the Exchange Online (Plan 2) service plan enabled
 - Microsoft Workplace Analytics
 
-![Group, prerequisite included](media/active-directory-licensing-group-problem-resolution-azure-portal/group-addon-with-prerequisite.png)
+![Group, prerequisite included](./media/licensing-groups-resolve-problems/group-addon-with-prerequisite.png)
 
 From now on, any users added to this group consume one license of the E3 product and one license of the Workplace Analytics product. At the same time, those users can be members of another group that gives them the full E3 product, and they still consume only one license for that product.
 
@@ -159,7 +159,7 @@ For example, if you free up some licenses by removing direct license assignments
 
 To learn more about other scenarios for license management through groups, see the following:
 
-* [Assigning licenses to a group in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
-* [What is group-based licensing in Azure Active Directory?](fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
-* [Azure Active Directory group-based licensing additional scenarios](active-directory-licensing-group-advanced.md)
+* [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
+* [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
+* [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md)

@@ -36,11 +36,11 @@ When any attributes of a user or device change, the system evaluates all dynamic
 2. Select **Users and groups**.
 3. Select **All groups**, and select **New group**.
 
-   ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/new-group-creation.png)
+   ![Add new group](./media/groups-dynamic-membership/new-group-creation.png)
 
 4. On the **Group** blade, enter a name and description for the new group. Select a **Membership type** of either **Dynamic User** or **Dynamic Device**, depending on whether you want to create a rule for users or devices, and then select **Add dynamic query**. You can use the rule builder to build a simple rule, or write an advanced rule yourself. This article contains more information about available user and device attributes as well as examples of advanced rules.
 
-   ![Add dynamic membership rule](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
+   ![Add dynamic membership rule](./media/groups-dynamic-membership/add-dynamic-group-rule.png)
 
 5. After creating the rule, select **Add query** at the bottom of the blade.
 6. Select **Create** on the **Group** blade to create the group.
@@ -308,11 +308,11 @@ The following steps are an example of changing a group from static to dynamic me
 
 1. On the **Properties** page for your selected group, select a **Membership type** of **Dynamic User**, then select Yes on the dialog explaining the changes to the group membership to continue. 
   
-   ![select membership type of dynamic user](./media/active-directory-groups-dynamic-membership-azure-portal/select-group-to-convert.png)
+   ![select membership type of dynamic user](./media/groups-dynamic-membership/select-group-to-convert.png)
   
 2. Select **Add dynamic query**, and then provide the rule.
   
-   ![enter the rule](./media/active-directory-groups-dynamic-membership-azure-portal/enter-rule.png)
+   ![enter the rule](./media/groups-dynamic-membership/enter-rule.png)
   
 3. After creating the rule, select **Add query** at the bottom of the page.
 4. Select **Save** on the **Properties** page for the group to save your changes. The **Membership type** of the group is immediately updated in the group list.
@@ -380,8 +380,8 @@ ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.display
 ## Next steps
 These articles provide additional information on groups in Azure Active Directory.
 
-* [See existing groups](fundamentals/active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](fundamentals/active-directory-groups-create-azure-portal.md)
-* [Manage settings of a group](fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Manage memberships of a group](fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)
+* [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Create a new group and adding members](../fundamentals/active-directory-groups-create-azure-portal.md)
+* [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
+* [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [Manage dynamic rules for users in a group](groups-dynamic-membership.md)

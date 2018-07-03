@@ -69,7 +69,7 @@ Ready to get started? You should try out some of the basic tasks you can do with
 ## Next steps
 Now that you have understood the basics of access management, here are some additional advanced capabilities available in Azure Active Directory for managing access to your applications and resources.
 
-* [Using attributes to create advanced rules](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [Using attributes to create advanced rules](../users-groups-roles/groups-dynamic-membership.md)
 * [Managing security groups in Azure AD](active-directory-groups-create-azure-portal.md)
 * [Graph API reference for groups](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 * [Azure Active Directory cmdlets for configuring group settings](../active-directory-accessmanagement-groups-settings-cmdlets.md)

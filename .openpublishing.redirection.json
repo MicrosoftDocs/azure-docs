@@ -6,6 +6,50 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-groups-dynamic-membership-azure-portal.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/groups-dynamic-membership",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-groups-lifecycle-azure-portal.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/groups-lifecycle",
+            "redirect_document_id": true
+        },        {
+            "source_path": "articles/active-directory/active-directory-licensing-directory-independence.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/licensing-directory-independence",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-licensing-group-advanced.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/licensing-group-advanced",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-licensing-group-assignment-azure-portal.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/licensing-groups-assign",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-licensing-group-migration-azure-portal.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/licensing-groups-migrate-users",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-licensing-group-problem-resolution-azure-portal.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/licensing-groups-resolve-problems",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-licensing-group-product-migration.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/licensing-groups-change-licenses",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-licensing-product-and-service-plan-reference.md.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/licensing-service-plan-reference",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
             "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
             "redirect_document_id": true
