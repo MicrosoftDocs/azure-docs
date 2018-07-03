@@ -32,7 +32,7 @@ performing tasks such as these examples:
 * Perform calculations in your logic app workflow.
 * Apply advanced formatting or compute fields in your logic apps.
 
-You can also call logic apps from inside an Azure function.
+You can also [call logic apps from inside an Azure function](#call-logic-app).
 
 If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
@@ -66,10 +66,12 @@ In the Azure portal, create your Azure function app,
 and then create your Azure function. If you're new to Azure Functions, see 
 [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md), 
 but note these requirements for creating Azure functions 
-that you can call from logic apps:
+that you can add and call from logic apps.
 
-* Make sure you select either the **Generic Webhook - Node** 
-template or the **Generic Webhook - C#** template.
+* Make sure you select either template: 
+
+  * **Generic webhook - JavaScript** 
+  * **Generic webhook - C#**
 
   These templates can accept content that has 
   `application/json` type from your logic app. 
@@ -77,13 +79,21 @@ template or the **Generic Webhook - C#** template.
   find and show the functions you create from these 
   templates when you go to add them to your logic apps.
 
-* After you create your function, go to your 
-function's **Integrate** page, and make sure 
-your template has the **Mode** property set to 
-**Webhook** and the **Webhook type** set to **Generic JSON**. 
-Webhook functions accept HTTP requests and pass those 
-requests into your function as a `data` variable. 
+  ![Generic webhook - JavaScript or C#](./media/logic-apps-azure-functions/generic-webhook.png)
 
+* After you create your function, check these properties. 
+
+  1. In the **Function Apps** list under your function's name, 
+  select **Integrate**. 
+
+  2. Check that your template has the **Mode** property 
+  set to **Webhook** and the **Webhook type** property 
+  set to **Generic JSON**. 
+
+     ![Function's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
+
+  Webhook functions accept HTTP requests and pass those 
+  requests into your function as a `data` variable. 
   For example, suppose you have this basic JavaScript 
   function that converts a DateTime value into a date string:
 
@@ -101,17 +111,39 @@ requests into your function as a `data` variable.
 
   `data.function-name` 
 
+When you're ready, follow the steps for 
+[Add functions to logic apps](#add-function-logic-app).
+
 <a name="create-function-designer"></a>
 
 ## Create functions within logic apps
 
-You can also create a node.js webhook function from the Logic App Designer. 
+From within your logic app on the Logic App Designer, 
+you can also create Azure functions.
 
-1. Select **Azure Functions in my Region,** 
-and then choose a container for your function. 
-If you don't yet have a container, you need to create one from the 
-[Azure Functions portal](https://functions.azure.com/). 
+1. In the Azure portal, open your logic app in the Logic App Designer. 
+
+2. Under the step where you want to create and add the function, 
+choose **New step** > **Add an action**. 
+
+3. In the search box, enter "azure functions" as your filter.
+From the actions list, select this action: 
+**Azure Functions - Choose an Azure function** 
+
+
 Then select **Create New**.  
+
+
+4. Select the function app container you want, 
+and then select this action: 
+**Azure Functions - Create New Function**
+
+   If you don't have a function app container yet, 
+   you must create the function app separately from the 
+   [Azure Functions portal](https://functions.azure.com/). 
+
+Select **Azure Functions in my Region,** 
+and then choose a container for your function. 
 
 To generate a template based on the data that you want to compute, 
 specify the context object that you plan to pass into a function. 
@@ -132,7 +164,18 @@ the context payload looks like this example:
 
 The designer then generates a function template that you can create inline. Variables are pre-created based on the context that you plan to pass into the function.
 
+<a name="add-function-logic-app"></a>
+
 ## Add functions to logic apps
+
+1. In the Azure portal, open your logic app in the Logic App Designer. 
+
+2. Under the step where you want to create and add the function, 
+choose **New step** > **Add an action**. 
+
+2. In the search box, enter "azure functions" as your filter.
+From the actions list, select this action: 
+**Azure Functions - Choose an Azure function** 
 
 In your logic app, 
 To list the containers in your subscription 
@@ -146,6 +189,8 @@ For example, if you want to pass in the **Last Modified** date from a Salesforce
 the function payload might look like this example:
 
 ![Last modified date][1]
+
+<a name="call-logic-app"></a>
 
 ## Call logic apps from functions
 
