@@ -150,14 +150,14 @@ Once state is no longer "Running" or "NotStarted", the loop ends.
 done = False
 while False == done:
   path = service + operation
-    # Gets the status of the operation.
+  # Gets the status of the operation.
   wait, status = check_status(path)
-    # Print status checks in JSON with presentable formatting
+  # Print status checks in JSON with presentable formatting
   print(pretty_print(status))
 
-    # Convert the JSON response into an object and get the value of the operationState field.
+  # Convert the JSON response into an object and get the value of the operationState field.
   state = json.loads(status)['operationState']
-    # If the operation isn't finished, wait and query again.
+  # If the operation isn't finished, wait and query again.
   if state == 'Running' or state == 'NotStarted':
     print('Waiting ' + wait + ' seconds...')
     time.sleep(int(wait))
