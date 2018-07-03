@@ -64,7 +64,7 @@
     items:
       - name: Event Hubs for Kafka ecosystems overview
         href: event-hubs-for-kafka-ecosystem-overview.md
-      - name: Stream into Event Hubs for the Kafka Ecosystem quickstart
+      - name: Stream into Event Hubs for Kafka ecosystem
         href: event-hubs-quickstart-kafka-enabled-event-hubs.md
       - name: Create Kafka enabled Event Hubs
         href: event-hubs-create-kafka-enabled.md
