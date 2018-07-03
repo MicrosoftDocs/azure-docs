@@ -1,4 +1,3 @@
-
 ---
 title: Run Ansible with Bash in Azure Cloud Shell
 description: Learn how to perform various Ansible tasks with Bash in Azure Cloud Shell
