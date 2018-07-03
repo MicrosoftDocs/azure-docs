@@ -17,8 +17,6 @@ ms.component: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-<a name="top"></a>
-
 This article describes how to configure and use Claims transformations within Azure AD B2C Policies.
 
 ## Overview
