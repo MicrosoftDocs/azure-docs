@@ -34,7 +34,7 @@ In this guide, you will learn how to:
 
 ## Set up Azure Dev Spaces
 
-1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.33 or higher).
+1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.38 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. Download the [Azure Dev Spaces extension](https://aka.ms/get-azds-code) for VS Code.
 1. Install the extension: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
@@ -44,12 +44,15 @@ In this guide, you will learn how to:
 1. Download sample code from GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
 1. Change directory to the webfrontend folder: `cd dev-spaces/samples/dotnetcore/getting-started/webfrontend`
 1. Generate Docker and Helm chart assets: `azds prep --public`
-1. Build and run your code in AKS. In the terminal window, run this command from the **root code folder**, webfrontend: `azds up`
+1. Build and run your code in AKS. In the terminal window from the **webfrontend folder**, run this command: `azds up`
 1. Scan the console output for information about the URL that was created by the `up` command. It will be in the form: 
 
    `Service 'webfrontend' port 'http' is available at <url>` 
 
    Open this URL in a browser window, and you should see the web app load. 
+   
+   > [!Note]
+   > On first run, it can take several minutes for public DNS to be ready. If the public URL does not resolve, you can use the alternative http://localhost:<portnumber> URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. For your convenience, and to facilitate interacting with the service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure. You can come back and try the public URL later when the DNS record is ready.
 
 ### Update a content file
 

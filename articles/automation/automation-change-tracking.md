@@ -119,11 +119,22 @@ The following table shows the data collection frequency for the types of changes
 | Windows registry | 50 minutes |
 | Windows file | 30 minutes |
 | Linux file | 15 minutes |
-| Windows services | 30 minutes |
+| Windows services | 10 seconds to 30 minutes</br> Default: 30 minutes |
 | Linux daemons | 5 minutes |
 | Windows software | 30 minutes |
 | Linux software | 5 minutes |
 
+### Windows service tracking
+
+The default collection frequency for Windows services is 30 minutes. To configure the frequency go to **Change Tracking**. Under **Edit Settings** on the **Windows Services** tab, there is a slider that allows you to change the collection frequency for Windows services from as quickly as 10 seconds to as long as 30 minutes. Move the slider bar to the frequency you want and it automatically saves it.
+
+![Windows services slider](./media/automation-change-tracking/windowservices.png)
+
+The agent only tracks changes, this optimizes the performance of the agent. By setting too high of a threshold changes may be missed if the service reverted to their original state. Setting the frequency to a smaller value allows you to catch changes that may be missed otherwise.
+
+> [!NOTE]
+> While the agent can track changes down to a 10 second interval, the data still takes a few minutes to be displayed in the portal. Changes during the time to display in the portal are still tracked and logged.
+  
 ### Registry key change tracking
 
 The purpose of monitoring changes to registry keys is to pinpoint extensibility points where third-party code and malware can activate. The following list shows the list of pre-configured registry keys. These keys are configured but not enabled. To track these registry keys, you must enable each one.

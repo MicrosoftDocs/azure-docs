@@ -23,7 +23,6 @@ ms.author: cynthn
 
 This article shows you how to upload a virtual hard disk (VHD) to an Azure storage account with the Azure CLI and create Linux VMs from this custom disk. This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
 
-
 This topic uses storage accounts for the final VHDs, but you can also do these steps using [managed disks](upload-vhd.md). 
 
 ## Quick commands

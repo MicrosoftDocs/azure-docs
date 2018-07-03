@@ -19,9 +19,7 @@ ms.author: iainfou
 ---
 # Create a Docker environment in Azure using the Docker VM extension
 
-
 Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux. In Azure, there are various ways you can deploy Docker according to your needs. This article focuses on using the Docker VM extension and Azure Resource Manager templates with the Azure CLI. 
-
 
 > [!WARNING]
 > The Azure Docker VM extension for Linux is deprecated and will be retired November 2018.

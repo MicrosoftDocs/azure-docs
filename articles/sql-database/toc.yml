@@ -50,7 +50,7 @@
     href: sql-database-design-first-database.md
   - name: 2 - Design DB using .NET
     href: sql-database-design-first-database-csharp.md
-  - name: 3 - Migrate to SQL Server DB using DMS
+  - name: 3 - Migrate to SQL Server DB using DMA
     href: sql-database-migrate-your-sql-server-database.md
   - name: 4 - Secure your SQL DB
     href: sql-database-security-tutorial.md
@@ -74,9 +74,9 @@
     href: sql-database-powershell-samples.md 
 - name: Concepts
   items:
-  - name: Service tiers and resources
+  - name: Purchasing models and resources
     items: 
-    - name: Service tiers
+    - name: Purchasing models
       href: sql-database-service-tiers.md
     - name: vCore-based model
       href: sql-database-service-tiers-vcore.md
@@ -98,22 +98,22 @@
       href: sql-database-dtu-resource-limits-single-databases.md
     - name: Scale single DB resources
       href: sql-database-single-database-scale.md
-    - name: Elastic pools and pooled DBs
-      items:
-      - name: Elastic pools and pooled DBs
-        href: sql-database-elastic-pool.md
-      - name: Manage pools and pooled DBs
-        href: sql-database-elastic-pool-manage.md
-      - name: vCore-based resource limits
-        href: sql-database-vcore-resource-limits-elastic-pools.md  
-      - name: DTU-based resource limits
-        href: sql-database-dtu-resource-limits-elastic-pools.md  
-    - name: Scale elastic pool resources
-      href: sql-database-elastic-pool-scale.md
     - name: Connectivity architecture
       href: sql-database-connectivity-architecture.md 
     - name: T-SQL differences
       href: sql-database-transact-sql-information.md
+  - name: Elastic pools and pooled DBs
+    items:
+    - name: Elastic pools and pooled DBs
+      href: sql-database-elastic-pool.md
+    - name: Manage pools and pooled DBs
+      href: sql-database-elastic-pool-manage.md
+    - name: vCore-based resource limits
+      href: sql-database-vcore-resource-limits-elastic-pools.md  
+    - name: DTU-based resource limits
+      href: sql-database-dtu-resource-limits-elastic-pools.md  
+    - name: Scale elastic pool resources
+      href: sql-database-elastic-pool-scale.md
   - name: Managed Instances
     items:
     - name: Managed Instances

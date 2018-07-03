@@ -16,7 +16,7 @@ manager: "douge"
 
 In this guide, you will learn how to:
 
-- Create a Kubernetes-based environment in Azure that is optimized for development - a _dev space_.
+- Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
 - Iteratively develop code in containers using Visual Studio.
 - Independently develop two separate services, and used Kubernetes' DNS service discovery to make a call to another service.
 - Productively develop and test your code in a team environment.
@@ -29,7 +29,7 @@ In this guide, you will learn how to:
 1. Install the latest version of [Visual Studio 2017](https://www.visualstudio.com/vs/)
 1. In the Visual Studio installer make sure the following Workload is selected:
     * ASP.NET and web development
-1. Install the [Visual Studio extension for Azure Dev Spaces](https://aka.ms/get-azds-visualstudio)
+1. Install [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio)
 
 ## Create a web app running in a container
 
@@ -46,9 +46,9 @@ Select the **Web Application (Model-View-Controller)** template and be sure you'
 ![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
 
 
-### Create a dev space in Azure
+### Enable Dev Spaces for an AKS cluster
 
-With Azure Dev Spaces, you can create Kubernetes-based dev spaces that are fully managed by Azure and optimized for development. With the project you just created open, select **Azure Dev Spaces** from the launch settings dropdown, as shown below.
+With the project you just created, select **Azure Dev Spaces** from the launch settings dropdown, as shown below.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
@@ -82,16 +82,40 @@ First, you can see a folder named `charts` has been added and within this folder
 
 You will see a file named `Dockerfile` has been added. This file has information needed to package your application in the standard Docker format.
 
-Lastly, you will see a file named `azds.yaml`, which contains configuration information that is needed by the dev space, such as whether the application should be accessible via a public endpoint.
+Lastly, you will see a file named `azds.yaml`, which contains development-time configuration that is needed by the dev space.
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
 ## Debug a container in Kubernetes
 Once the dev space is successfully created, you can debug the application. Set a breakpoint in the code, for example on line 20 in the file `HomeController.cs` where the `Message` variable is set. Click **F5** to start debugging. 
 
-Visual Studio will communicate with the dev space to build and deploy the application and then open a browser with the web app running. It might seem like the container is running locally, but actually it's running in the dev space in Azure. The reason for the localhost address is because Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure.
+Visual Studio will communicate with the dev space to build and deploy the application and then open a browser with the web app running. It might seem like the container is running locally, but actually it's running in the dev space in Azure. The reason for the localhost address is because Azure Dev Spaces creates a temporary SSH tunnel to the container running in AKS.
 
 Click on the **About** link at the top of the page to trigger the breakpoint. You have full access to debug information just like you would if the code was executing locally, such as the call stack, local variables, exception information, and so on.
+
+## Iteratively develop code
+
+Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
+
+### Update a content file
+1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change line 70 that reads `<h2>Application uses</h2>` to something like: `<h2>Hello k8s in Azure!</h2>`
+1. Save the file.
+1. Go to your browser and refresh the page. You should see the web page display the updated HTML.
+
+What happened? Edits to content files, like HTML and CSS, don't require recompilation in a .NET Core web app, so an active F5 session automatically syncs any modified content files into the running container in AKS, so you can see your content edits right away.
+
+### Update a code file
+Updating code files requires a little more work, because a .NET Core app needs to rebuild and produce updated application binaries.
+
+1. Stop the debugger in Visual Studio.
+1. Open the code file named `Controllers/HomeController.cs`, and edit the message that the About page will display: `ViewData["Message"] = "Your application description page.";`
+1. Save the file.
+1. Press **F5** to start debugging again. 
+
+Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will incrementally recompile code within the existing container to provide a faster edit/debug loop.
+
+Refresh the web app in the browser, and go to the About page. You should see your custom message appear in the UI.
+
 
 ## Call another container
 In this section you're going to create a second service, `mywebapi`, and have `webfrontend` call it. Each service will run in separate containers. You'll then debug across both containers.
@@ -141,7 +165,7 @@ The preceding code example forwards the `azds-route-as` header from the incoming
 
 ### Debug across multiple services
 1. At this point, `mywebapi` should still be running with the debugger attached. If it is not, hit F5 in the `mywebapi` project.
-1. Set a breakpoint in the `Get(int id)` method in the `ValuesController.cs` file that handles `api/values/{id}` GET requests.
+1. Set a breakpoint in the `Get(int id)` method in the `Controllers/ValuesController.cs` file that handles `api/values/{id}` GET requests.
 1. In the `webfrontend` project where you pasted the above code, set a breakpoint just before it sends a GET request to `mywebapi/api/values`.
 1. Hit F5 in the `webfrontend` project. Visual Studio will again open a browser to the appropriate localhost port and the web app will be displayed.
 1. Click on the “**About**” link at the top of the page to trigger the breakpoint in the `webfrontend` project. 
@@ -187,7 +211,7 @@ Do the following to make sure both your `webfrontend` and `mywebapi` services ar
 
 Anyone who opens the public URL and navigates to the web app will invoke the code path you have written which runs through both services using the default `default` space. Now suppose you want to continue developing `mywebapi` - how can you do this and not interrupt other developers who are using the dev space? To do that, you'll set up your own space.
 
-### Create a new space
+### Create a new dev space
 From within Visual Studio, you can create additional spaces that will be used when you F5 or Ctrl+F5 your service. You can call a space anything you'd like, and you can be flexible about what it means (ex. `sprint4` or `demo`).
 
 Do the following to create a new space:
@@ -209,7 +233,7 @@ Do the following to create a new space:
 
 ### Update code for *mywebapi*
 
-1. In the `mywebapi` project make a code change to the `string Get(int id)` method in file `ValuesController.cs` as follows:
+1. In the `mywebapi` project make a code change to the `string Get(int id)` method in file `Controllers/ValuesController.cs` as follows:
  
     ```csharp
     [HttpGet("{id}")]
@@ -222,16 +246,16 @@ Do the following to create a new space:
 2. Set a breakpoint in this updated block of code (you may already have one set from before).
 3. Hit F5 to start the `mywebapi` service. This will start the service in your cluster using the selected space, which in this case is `scott`.
 
-Here is a diagram that will help you understand how the different spaces work. The blue path shows a request via the `default` space, which is the default path used if no space is prepended to the URL. The green path shows a request via the `scott` space.
+Here is a diagram that will help you understand how the different spaces work. The purple path shows a request via the `default` space, which is the default path used if no space is prepended to the URL. The pink path shows a request via the `default/scott` space.
 
 ![](media/common/Space-Routing.png)
 
 This built-in capability of Azure Dev Spaces enables you to test code end-to-end in a shared environment without requiring each developer to re-create the full stack of services in their space. This routing requires propagation headers to be forwarded in your app code, as illustrated in the previous step of this guide.
 
-### Test code running in the `scott` space
+### Test code running in the `default/scott` space
 To test your new version of `mywebapi` in conjunction with `webfrontend`, open your browser to the public access point URL for `webfrontend` (for example, http://webfrontend.123456abcdef.eastus.aksapp.io) and go to the About page. You should see the original message "Hello from webfrontend and Hello from mywebapi".
 
-Now, add the "scott.s." part to the URL so it reads something like http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io and refresh the browser. The breakpoint you set in your `mywebapi` project should get hit. Click F5 to proceed and in your browser you should now see the new message "Hello from webfrontend and mywebapi now says something new." This is because the path to your updated code in `mywebapi` is running in the `scott` space.
+Now, add the "scott.s." part to the URL so it reads something like http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io and refresh the browser. The breakpoint you set in your `mywebapi` project should get hit. Click F5 to proceed and in your browser you should now see the new message "Hello from webfrontend and mywebapi now says something new." This is because the path to your updated code in `mywebapi` is running in the `default/scott` space.
 
 [!INCLUDE[](includes/well-done.md)]
 
