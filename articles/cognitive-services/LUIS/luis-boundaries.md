@@ -29,7 +29,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per application, 3 pattern.any entities per pattern |
 | [Phrase list][phrase-list]|10 phrase lists, 5,000 items per list|
-| [Prebuilt entities](./Pre-builtEntities.md) | no limit|
+| [Prebuilt entities](./luis-prebuilt-entities.md) | no limit|
 | [Regular expression entities](./luis-concept-entity-types.md)|20 entities<br>500 character max. per regular expression entity pattern|
 | [Roles](luis-concept-roles.md)|300 roles per application. 10 roles per entity|
 | **[Simple](./luis-concept-entity-types.md)| 100 entities|
@@ -60,7 +60,7 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 |Authoring/Starter|1 million/month, 5/second|1 thousand/month, 5/second|Authoring your LUIS app|
 |[Subscription][pricing] - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
 |[Subscription][pricing] - S0 - Basic tier|invalid|50/second|Querying your LUIS endpoint|
-|[Sentiment analysis integration](publishapp.md#enable-sentiment-analysis)|invalid|no charge|Adding sentiment information including key phrase data extraction |
+|[Sentiment analysis integration](luis-how-to-publish-app.md#enable-sentiment-analysis)|invalid|no charge|Adding sentiment information including key phrase data extraction |
 |Speech integration|invalid|$5.50 USD/1 thousand endpoint requests|Convert spoken utterance to text utterance and return LUIS results|
 
 ## Keyboard controls

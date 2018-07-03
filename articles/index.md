@@ -5503,7 +5503,7 @@ s" alt="" />
                                                     <a href="/java/azure">Get started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api/overview/azure">API reference</a>
+                                                    <a href="/java/api">API reference</a>
                                                 </p>
                                             </div>
                                         </div>

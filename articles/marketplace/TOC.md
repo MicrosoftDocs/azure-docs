@@ -4,10 +4,10 @@
 ### Overview and Benefits  
 ### Storefronts  
 #### [Comparing AppSource and Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
-#### [Grow your business with AppSource](./grow-your-business-with-appsource.md)  
+#### [Grow your business with AppSource](./grow-your-business-with-appsource.md) 
+#### [Preferred Solutions](./preferred-solutions.md)
 ##### [Build Your Landing Page](./build-your-landing-page.md)  
 ##### [Enable lead sharing](./enable-lead-sharing.md)  
-##### [Preferred Solutions](./preferred-solutions.md)
 ##### [GTM Benefits on the marketplace](./gtm-benefits.md)  
 ##### [Promote Your Business with Microsoft](./promote-your-business-with-microsoft.md)  
 #### [Grow your business with Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  
@@ -26,10 +26,9 @@
 #### [Publishing Checklist for Azure Marketplace](./publishing-checklist-azure-marketplace.md)  
 
 ### Support  
-#### [Support for AppSource](./support-appsource.md)  
-#### [Support for Azure Marketplace](./support-azure-marketplace.md)  
+#### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)  
 
-### Guides  
+### Publishing Guides  
 #### [Azure Marketplace Consulting Service](consulting-services.md)  
 #### [Azure Marketplace SaaS app technical publishing guide](marketplace-saas-applications-technical-publishing-guide.md) 
 
