@@ -365,17 +365,10 @@
 #### [Quickstart](fundamentals/add-custom-domain.md)
 #### [Add custom domain names](users-groups-roles/domains-manage.md)
 ### [Administer your directory](fundamentals/active-directory-administer.md)
-<<<<<<< HEAD
 ### [Delete a directory](users-groups-roles/directory-delete-howto.md)
-### [Multiple directories](active-directory-licensing-directory-independence.md)
+### [Multiple directories](users-groups-roles/licensing-directory-independence.md)
 ### [Self-service signup](users-groups-roles/directory-self-service-signup.md)
 ### [Take over an unmanaged directory](users-groups-roles/domains-admin-takeover.md)
-=======
-### [Delete a directory](directory-delete-howto.md)
-### [Multiple directories](users-groups-roles/licensing-directory-independence.md)
-### [Self-service signup](active-directory-self-service-signup.md)
-### [Take over an unmanaged directory](domains-admin-takeover.md)
->>>>>>> 5218fa661738310cbbdc3377bca9f57410a6120f
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Enable](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
@@ -391,15 +384,9 @@
 ### [Administrator roles](users-groups-roles/directory-assign-admin-roles.md)
 #### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](fundamentals/users-default-permissions.md)
-<<<<<<< HEAD
-### [Harden administrator role security](users-groups-roles/directory-admin-roles-secure.md)  
-#### [Create emergency access administrator accounts](active-directory-admin-manage-emergency-access-accounts.md)
-### [Administrative units](active-directory-administrative-units-management.md)
-=======
-### [Harden administrator role security](admin-roles-best-practices.md)  
+### [Harden administrator role security](users-groups-roles/admin-roles-best-practices.md)  
 #### [Create emergency access administrator accounts](users-groups-roles/directory-emergency-access.md)
 ### [Administrative units](users-groups-roles/directory-administrative-units.md)
->>>>>>> 5218fa661738310cbbdc3377bca9f57410a6120f
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 
 ## Access reviews
