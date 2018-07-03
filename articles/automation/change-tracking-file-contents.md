@@ -16,7 +16,7 @@ File Content tracking allows you to view the contents of a file before and after
 
 ## Requirements
 
-* A standard storage account using the Resource Manager deployment model is required. Premium and service managment storage accounts should not be used. For more information on storage accounts, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md)
+* A standard storage account using the Resource Manager deployment model is required. Premium and service management storage accounts should not be used. For more information on storage accounts, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md)
 
 * A storage account used for store file contents for Change Tracking can only have 1 Automation Account connected.
 
@@ -52,11 +52,11 @@ The following steps walk you through turning on change tracking for a file:
 
    ![list changes](./media/change-tracking-file-contents/change-list.png)
 
-1. On the **Change details** page you see the standard before and after file information, in the top left, click **View File Content Changes** to see the contents of the file.
+1. On the **Change details** page, you see the standard before and after file information, in the top left, click **View File Content Changes** to see the contents of the file.
 
   ![change details](./media/change-tracking-file-contents/change-details.png)
 
-1. The new page shows you the file contents in a side by side view. You can also select **Inline** to see an inline view of the changes.
+1. The new page shows you the file contents in a side-by-side view. You can also select **Inline** to see an inline view of the changes.
 
   ![view file changes](./media/change-tracking-file-contents/view-file-changes.png)
 
