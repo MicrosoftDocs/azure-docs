@@ -1,7 +1,7 @@
 ---
 title: Azure SKU not available errors | Microsoft Docs
 description: Describes how to troubleshoot the SKU not available error during deployment.
-services: azure-resource-manager,azure-portal
+services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
 manager: timlt
@@ -11,8 +11,8 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
-ms.date: 09/13/2017
+ms.topic: troubleshooting
+ms.date: 03/09/2018
 ms.author: tomfitz
 
 ---
@@ -34,16 +34,12 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected.
 
-## Solution
+## Solution 1 - PowerShell
 
-To resolve this issue, you need to determine which SKUs are available in a region. You can use PowerShell, the portal, or a REST operation to find available SKUs.
-
-### Solution 1
-
-Use the [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) command in PowerShell. Filter the results by location. You must have the latest version of PowerShell for this command.
+To determine which SKUs are available in a region, use the [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) command. Filter the results by location. You must have the latest version of PowerShell for this command.
 
 ```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("southcentralus")}
+Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
 ```
 
 The results include a list of SKUs for the location and any restrictions for that SKU.
@@ -58,9 +54,9 @@ virtualMachines      Standard_A1 southcentralus
 virtualMachines      Standard_A2 southcentralus
 ```
 
-### Solution 2
+## Solution 2 - Azure CLI
 
-In the Azure CLI, use the `az vm list-skus` command. You can then use `grep` or a similar utility to filter the output.
+To determine which SKUs are available in a region, use the `az vm list-skus` command. You can then use `grep` or a similar utility to filter the output.
 
 ```bash
 $ az vm list-skus --output table
@@ -76,15 +72,15 @@ availabilitySets  centralus           Classic                 MaximumPlatformFau
 availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
 ```
 
-### Solution 3
+## Solution 3 - Azure portal
 
-Use the [portal](https://portal.azure.com). Log in to the portal, and add a resource through the interface. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
+To determine which SKUs are available in a region, use the [portal](https://portal.azure.com). Log in to the portal, and add a resource through the interface. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
 
 ![available SKUs](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### Solution 4
+## Solution 4 - REST
 
-Use the REST API for virtual machines. Send the following request:
+To determine which SKUs are available in a region, use the REST API for virtual machines. Send the following request:
 
 ```HTTP 
 GET

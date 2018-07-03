@@ -4,10 +4,9 @@ description: Identifies the parts of your application that you need to update to
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 5334C475-4841-4736-A66E-DC1E07CBCEC9
 ms.service: cognitive-services
-ms.technology: bing-news-search
+ms.component: bing-news-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi

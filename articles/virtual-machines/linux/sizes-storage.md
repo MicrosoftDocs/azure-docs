@@ -4,7 +4,7 @@ description: Lists the different storage optimized sizes available for Linux vir
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 01/11/2018
 ms.author: jonbeck
 
 ---
@@ -24,15 +24,14 @@ ms.author: jonbeck
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
 
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
-
 
 ## Other sizes
-- [General purpose](../windows/sizes-general.md)
-- [Compute optimized](../windows/sizes-compute.md)
-- [Memory optimized](../windows/sizes-memory.md)
-- [GPU](../windows/sizes-gpu.md)
-- [High performance compute](../windows/sizes-hpc.md)
+- [General purpose](sizes-general.md)
+- [Compute optimized](sizes-compute.md)
+- [Memory optimized](sizes-memory.md)
+- [GPU](sizes-gpu.md)
+- [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
-Learn more about how [Azure compute units (ACU)](../windows/acu.md) can help you compare compute performance across Azure SKUs.
+Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

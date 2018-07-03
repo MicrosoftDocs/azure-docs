@@ -1,11 +1,10 @@
 ---
-title: Add an SSL certificate to your Azure App Service app | Microsoft Docs
-description: Learn how to add an SSL certificate to your App Service app.
+title: Buy and Configure an SSL Certificate for your Azure App Service | Microsoft Docs
+description: Learn how to buy an App Service certificate and bind it to your App Service app
 services: app-service
 documentationcenter: .net
-author: ahmedelnably
-manager: stefsch
-editor: cephalin
+author: cephalin
+manager: cfowler
 tags: buy-ssl-certificates
 
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
@@ -14,12 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: apurvajo
+ms.date: 12/01/2017
+ms.author: apurvajo;cephalin
 ---
 # Buy and Configure an SSL Certificate for your Azure App Service
 
-This tutorial shows you how to secure your web app by purchasing an SSL certificate for your **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, securely storing it in [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis), and associating it with a custom domain.
+This tutorial shows you how to secure your web app by purchasing an SSL certificate for your **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, securely storing it in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), and associating it with a custom domain.
 
 ## Step 1 - Log in to Azure
 
@@ -34,19 +33,19 @@ You can place an SSL Certificate order by creating a new [App Service Certificat
 Enter a friendly **Name** for your SSL certificate and enter the **Domain Name**
 
 > [!NOTE]
-> This step is one of the most critical parts of the purchase process. Make sure to enter correct host name (custom domain) that you want to protect with this certificate. **DO NOT** append the Host name with WWW. 
+> This step is one of the most critical parts of the purchase process. Make sure to enter correct host name (custom domain) that you want to protect with this certificate. **DO NOT** prepend the Host name with WWW. 
 >
 
 Select your **Subscription**, **Resource Group**, and **Certificate SKU**
 
-> [!WARNING]
-> App Service Certificates can only be used by other App Services within the same subscription.  
+> [!TIP]
+> App Service Certificates can be used for any Azure or non-Azure Services and is not limited to App Services. To do so , you need to create a local PFX copy of an App Service certificate that you can use it anywhere you want. For more information, read [Creating a local PFX copy of an App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 >
 
 ## Step 3 - Store the certificate in Azure Key Vault
 
 > [!NOTE]
-> [Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services.
+> [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services.
 >
 
 Once the SSL Certificate purchase is complete, you need to open the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page.
@@ -70,13 +69,16 @@ Once you have selected the Key Vault Repository to store this certificate in, th
 
 ## Step 4 - Verify the Domain Ownership
 
-> [!NOTE]
-> There are three types of domain verification supported by App service Certificates: Domain, Mail, Manual Verification. These verification types are explained in more details in the [Advanced section](#advanced).
-
 From the same **Certificate Configuration** page you used in Step 3, click **Step 2: Verify**.
 
-**Domain Verification**
-This is the most convenient process **ONLY IF** you have **[purchased your custom domain from Azure App Service.](custom-dns-web-site-buydomains-web-app.md)**
+Choose the preferred domain verification method. 
+
+There are four types of domain verification supported by App Service Certificates: App Service, Domain, Mail, and Manual Verification. These verification types are explained in more details in the [Advanced section](#advanced).
+
+> [!NOTE]
+> **App Service Verification** is the most convenient option when the domain you want to verify is already mapped to an App Service app in the same subscription. It takes advantage of the fact that the App Service app has already verified the domain ownership.
+>
+
 Click on **Verify** button to complete this step.
 
 ![insert image of domain verification](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
@@ -95,7 +97,7 @@ In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** 
 
 Click the name of your app to which you want to assign this certificate.
 
-In the **Settings**, click **SSL certificates**.
+In the **Settings**, click **SSL settings**.
 
 Click **Import App Service Certificate** and select the certificate that you just purchased.
 
@@ -138,6 +140,10 @@ To complete the Email verification step, open the email and click the verificati
 ![insert image of email verification](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
 
 If you need to resend the verification email, click the **Resend Email** button.
+
+#### Domain Verification
+
+Choose this option only for [an App Service domain that you purchased from Azure.](custom-dns-web-site-buydomains-web-app.md). Azure automatically adds the verification TXT record for you and completes the process.
 
 #### Manual Verification
 
@@ -186,14 +192,28 @@ Click **Rekey** Button to initiate the process. This process can take 1-10 minut
 
 Rekeying your certificate rolls the certificate with a new certificate issued from the certificate authority.
 
+## Renew the certificate
+
+To turn on automatic renewal of your certificate at anytime, click **Auto Renew Settings** in the certificate management page. Select **On** and click **Save**.
+
+![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+
+To manually renew the certificate instead, click **Manual Renew** instead.
+
+> [!NOTE]
+> The renewed certificate is not automatically bound to your app, whether you renewed it manually or it renewed automatically. To bind it to your app, see [Renew certificates](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+
 <a name="notrenewed"></a>
-## Why is my SSL certificate not auto-renewed?
+## Why is my certificate not auto-renewed?
 
-If your SSL certificate is configured for auto-renewal, but it is not automatically renewed, you may have a pending domain verification. Note the following: 
+If your SSL certificate is configured for auto-renewal, but it is not automatically renewed, you may have a pending domain verification. Note that: 
 
-- GoDaddy, which generates App Service certificates, requires domain verification once every three years. The domain administrator receives an email once every three years to verify the domain. Failure to check the email or verify your domain prevents the App Service certificate from being automatically renewed. 
-- All App Service certificates issued prior to March 31 2017 require reverification of domain at the time of next renewal (even if the auto-renewal is enabled for the certificate). This is a result of change in GoDaddy policy. Check your email and complete this one-time domain verification to continue the auto-renewal of the App Service certificate. 
+- GoDaddy, which generates App Service certificates, requires domain verification once every two years. The domain administrator receives an email once every three years to verify the domain. Failure to check the email or verify your domain prevents the App Service certificate from being automatically renewed. 
+- Because of a change in GoDaddy policy, all App Service certificates issued prior to March 1, 2018 require reverification of domain at the time of next renewal (even if the auto-renewal is enabled for the certificate). Check your email and complete this one-time domain verification to continue the auto-renewal of the App Service certificate. 
 
-## Next Steps
+## More resources
 
-* [Add a Content Delivery Network](app-service-web-tutorial-content-delivery-network.md)
+* [Enforce HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
+* [Enforce TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)
+* [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md)
+* [FAQ : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

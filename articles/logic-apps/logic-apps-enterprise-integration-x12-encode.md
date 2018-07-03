@@ -4,7 +4,7 @@ description: Validate EDI and convert XML-encoded messages with X12 message enco
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: 
 
 ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
@@ -39,7 +39,7 @@ that's already defined in your integration account
 
 ## Encode X12 messages
 
-1. [Create a logic app](logic-apps-create-a-logic-app.md).
+1. [Create a logic app](quickstart-create-first-logic-app-workflow.md).
 
 2. The Encode X12 message connector doesn't have triggers, 
 so you must add a trigger for starting your logic app, like a Request trigger. 

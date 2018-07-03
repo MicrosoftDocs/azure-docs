@@ -20,7 +20,7 @@ ms.author: corywink
 ---
 # Frequently asked questions for IoT Suite
 
-See also, the connected factory specific [FAQ](iot-suite-faq-cf.md).
+See also, the connected factory specific [FAQ](../iot-accelerators/iot-accelerators-faq-cf.md).
 
 ### Where can I find the source code for the preconfigured solutions?
 
@@ -83,13 +83,16 @@ Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterpr
 
 ### Can I create a preconfigured solution if I have Microsoft Azure for DreamSpark?
 
-Currently, you cannot create a preconfigured solution with a [Microsoft Azure for DreamSpark][lnk-dreamspark] account. However, you can create a [free trial account for Azure][lnk-30daytrial] in just a couple of minutes that enables you create a preconfigured solution.
+> [!NOTE]
+> Microsoft Azure for DreamSpark is now known as Microsoft Imagine for students.
+
+Currently, you cannot create a preconfigured solution with a [Microsoft Azure for DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) account. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a preconfigured solution.
 
 ### Can I create a preconfigured solution if I have Cloud Solution Provider (CSP) subscription?
 
 Currently, you cannot create a preconfigured solution with a Cloud Solution Provider (CSP) subscription. However, you can create a [free trial account for Azure][lnk-30daytrial] in just a couple of minutes that enables you create a preconfigured solution.
 
-### How do I delete an AAD tenant?
+### How do I delete an Azure AD tenant?
 
 See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant].
 
@@ -98,11 +101,11 @@ See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant][lnk-dele
 You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
 
 * [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
-* [Connected factory preconfigured solution overview](iot-suite-connected-factory-overview.md)
+* [Connected factory preconfigured solution overview](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [IoT security from the ground up][lnk-security-groundup]
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
 [link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits

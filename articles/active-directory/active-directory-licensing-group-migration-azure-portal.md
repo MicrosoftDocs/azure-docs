@@ -1,24 +1,22 @@
 ---
 
-  title: How to migrate your individual licensed users to a group  in Azure Active Directory | Microsoft Docs
+  title: Migrate user licenses users to group-based licensing in Azure Active Directory | Microsoft Docs
   description: How to switch from individual user licenses to group-based licensing using Azure Active Directory
   services: active-directory
   keywords: Azure AD licensing
   documentationcenter: ''
   author: curtand
-  manager: femila
+  manager: mtillman
   editor: ''
 
-  ms.assetid:
   ms.service: active-directory
-  ms.devlang: na
   ms.topic: article
-  ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 06/05/2017
+  ms.component: users-groups-roles
+  ms.date: 01/14/2018
   ms.author: curtand
 
-  ms.custom: H1Hack27Feb2017
+  ms.custom: seohack1
 
 ---
 
@@ -36,7 +34,7 @@ The most important thing to keep in mind is that you should avoid a situation wh
 
 3. Assign the required licenses to those groups; your goal should be to reflect the same licensing state your existing automation (for example, PowerShell) is applying to those users.
 
-4. Verify that licenses have been applied to all users in those groups. This can be done by checking the processing state on each group and by checking Audit Logs.
+4. Verify that licenses have been applied to all users in those groups. This application can be done by checking the processing state on each group and by checking Audit Logs.
 
   - You can spot check individual users by looking at their license details. You will see that they have the same licenses assigned “directly” and “inherited” from groups.
 
@@ -52,11 +50,11 @@ The most important thing to keep in mind is that you should avoid a situation wh
 
 ## An example
 
-We have an organization with 1,000 users. All users require Enterprise Mobility + Security (EMS) licenses. 200 users are in the Finance Department and require Office 365 Enterprise E3 licenses. We have a PowerShell script running on premises adding and removing licenses from users as they come and go. We want to replace the script with group-based licensing so licenses are managed automatically by Azure AD.
+An organization has 1,000 users. All users require Enterprise Mobility + Security (EMS) licenses. 200 users are in the Finance Department and require Office 365 Enterprise E3 licenses. Currently the organization has a PowerShell script running on premises, adding and removing licenses from users as they come and go. However, the organization wants to replace the script with group-based licensing so licenses can be managed automatically by Azure AD.
 
 Here is what the migration process could look like:
 
-1. Using the Azure portal assign the EMS license to the **All users** group in Azure AD. Assign the E3 license to the **Finance department** group that contains all the required users.
+1. Using the Azure portal, assign the EMS license to the **All users** group in Azure AD. Assign the E3 license to the **Finance department** group that contains all the required users.
 
 2. For each group, confirm that license assignment has completed for all users. Go to the blade for each group, select **Licenses**, and check the processing status at the top of the **Licenses** blade.
 
@@ -86,6 +84,6 @@ Here is what the migration process could look like:
 To learn more about other scenarios for license management through groups, read
 
 * [Assigning licenses to a group in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md)
-* [What is group-based licensing in Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
+* [What is group-based licensing in Azure Active Directory?](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Azure Active Directory group-based licensing additional scenarios](active-directory-licensing-group-advanced.md)

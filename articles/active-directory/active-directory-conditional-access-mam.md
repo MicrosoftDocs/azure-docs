@@ -5,16 +5,17 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -47,7 +48,7 @@ You can combine app-based conditional access policies with other policies such a
  
 
 
-##Before you begin
+## Before you begin
 
 This topic assumes that you are familiar with:
 
@@ -56,7 +57,7 @@ This topic assumes that you are familiar with:
 
 - The basic concepts of [conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-- How to [configure a conditional access policy](active-directory-conditional-access-azure-portal-get-started.md).
+- How to [configure a conditional access policy](active-directory-conditional-access-app-based-mfa.md).
 
 - The [migration of conditional access policies](active-directory-conditional-access-best-practices.md#policy-migration).
  
@@ -83,7 +84,7 @@ This scenario assumes that a user:
 
 - Opens the Outlook application and signs in with the Azure AD credentials
 
-- Is prompted to install either Authenticor (iOS) or Company Portal (Android) to continue
+- Is prompted to install either Authenticator (iOS) or Company Portal (Android) to continue
 
 - Installs the application and can return to the Outlook app to continue
 
@@ -386,9 +387,9 @@ For the conditional access policy in this step, you need to configure the follow
 
     - **Require approved client app (preview)**
 
-    - **Require one of the selected controls**   
+    - **Require all the selected controls**   
  
-    ![Conditional access](./media/active-directory-conditional-access-mam/11.png)
+    ![Conditional access](./media/active-directory-conditional-access-mam/13.png)
 
 
 
@@ -439,6 +440,6 @@ See [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/int
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md).
 
 If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 

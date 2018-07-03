@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 04/02/2018
 ms.author: damaerte
 ---
 
 # Features & tools for PowerShell in Azure Cloud Shell (Preview)
 
-[!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Features & tools for [Bash](features.md) is also available.
@@ -34,7 +34,7 @@ PowerShell in Cloud Shell (Preview) securely and automatically authenticates acc
 
 ### Files persistence across sessions
 
-To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
+To persist files across sessions, Cloud Shell walks you through attaching a Microsoft Azure Files share on first launch.
 Once completed, Cloud Shell will automatically attach your storage (mounted as `$home\clouddrive`) for all future sessions.
 Since each request for Cloud Shell is allocating a temporary machine, files outside of your `$home\clouddrive` and machine state are not persisted across sessions.
 
@@ -44,13 +44,12 @@ Since each request for Cloud Shell is allocating a temporary machine, files outs
 
 PowerShell in Cloud Shell (Preview) starts you in Azure drive (`Azure:`).
 Azure drive enables easy discovery and navigation of Azure resources such as Compute, Network, Storage etc. similar to filesystem navigation.
-You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azure) to manage these resources.
+You can continue to use the familiar [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure) to manage these resources.
 Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are instantly reflected in the Azure drive.
 
 ![](media/features-powershell/azure-drive.png)
 
 #### Contextual awareness
-
 - **Resource group scoping**: When within the context of a resource group path in the Azure drive (`Azure:`), the resource group name is automatically passed to the Azure PowerShell cmdlets.
 
     ![](media/features-powershell/resource-group-autocomplete.png)
@@ -75,7 +74,7 @@ Using [PowerShellGet](https://docs.microsoft.com/powershell/module/powershellget
 After installation, your modules are automatically persisted across Cloud Shell sessions.
 
 > [!TIP]
-> Modules installed by users are saved in the `$Home\CloudDrive\.pscloudshell\WindowsPowerShell` folder. A symbolic link for this folder is created in the user's documents folder (`$home\Documents\WindowsPowerShell`).
+> Modules installed by users are saved in the `$Home\clouddrive\.pscloudshell\WindowsPowerShell` folder. A symbolic link for this folder is created in the user's documents folder (`$home\Documents\WindowsPowerShell`).
 
 ![](media/features-powershell/powershellget-module.png)
 
@@ -88,7 +87,7 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 
 |**Category**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Azure tools     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.21)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Azure tools     |[Azure PowerShell (6.1.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI (2.0.33)](https://docs.microsoft.com/cli/azure)|
 |Text editors    |vim<br> nano                             |
 |Package Manager |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Source control  |git                                      |
@@ -100,8 +99,8 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 |**Language**|**Version**|
 |------------|-----------|
 |.NET        |4.6        |
-|Node.js     |6.10       |
-|PowerShell  |5.1 and [6.0 (beta)](https://github.com/PowerShell/powershell/releases)       |
+|Node.js     |8.9.4       |
+|PowerShell  |5.1 and [6.0.2](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
 ## Next steps

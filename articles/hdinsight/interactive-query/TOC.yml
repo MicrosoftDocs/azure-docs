@@ -9,6 +9,9 @@
   items:
   - name: Start with Interactive Query
     href: ./apache-interactive-query-get-started.md
+  - name: Install HDInsight apps
+    href: ../hdinsight-apps-install-applications.md
+    maintainContext: true
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
@@ -46,7 +49,7 @@
       - name: Use Beeline
         href: ../hadoop/apache-hadoop-use-hive-beeline.md
         maintainContext: true
-      - name: Use cURL
+      - name: Use REST API
         href: ../hadoop/apache-hadoop-use-hive-curl.md
         maintainContext: true
       - name: Use Azure PowerShell
@@ -90,28 +93,13 @@
     - name: Create non-interactive authentication .NET HDInsight applications
       href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
       maintainContext: true
-  - name: Multi-user (Domain-joined)
-    items:
-    - name: Overview
-      href: ../domain-joined/apache-domain-joined-introduction.md
-      maintainContext: true
-    - name: Plan Domain-joined HDInsight
-      href: ../domain-joined/apache-domain-joined-architecture.md
-      maintainContext: true
-    - name: Configure Domain-joined HDInsight
-      href: ../domain-joined/apache-domain-joined-configure.md
-      maintainContext: true
-    - name: Configure Hive policies
-      href: ../domain-joined/apache-domain-joined-run-hive.md
-      maintainContext: true
-    - name: Manage clusters
-      href: ../domain-joined/apache-domain-joined-manage.md
-      maintainContext: true
   - name: Analyze big data
     items:
     - name: Analyze using Power Query
       href: ../hadoop/apache-hadoop-connect-excel-power-query.md
       maintainContext: true
+    - name: Connect Power BI to Interactive Query
+      href: ./apache-hadoop-connect-hive-power-bi-directquery.md
     - name: Connect Power BI to Hadoop
       href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
       maintainContext: true
@@ -135,17 +123,11 @@
       maintainContext: true
   - name: Extend clusters
     items:
-    - name: Use secure enabled storage account
-      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-      maintainContext: true
     - name: Customize clusters using Bootstrap
       href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
       maintainContext: true
     - name: Customize clusters using Script Action
       href: ../hdinsight-hadoop-customize-cluster-linux.md
-      maintainContext: true
-    - name: Connect HDInsight to your on-premises network
-      href: ../connect-on-premises-network.md
       maintainContext: true
     - name: Develop script actions
       href: ../hdinsight-hadoop-script-actions-linux.md
@@ -153,17 +135,13 @@
     - name: Add Hive libraries
       href: ../hdinsight-hadoop-add-hive-libraries.md
       maintainContext: true
-    - name: Use Virtual Network
-      href: ../hdinsight-extend-hadoop-virtual-network.md
-      maintainContext: true
     - name: Use Zeppelin
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
       maintainContext: true
+    - name: Use Grafana
+      href: ./hdinsight-grafana.md
     - name: Build HDInsight applications
       items:
-      - name: Install HDInsight apps
-        href: ../hdinsight-apps-install-applications.md
-        maintainContext: true
       - name: Install custom apps
         href: ../hdinsight-apps-install-custom-applications.md
         maintainContext: true
@@ -171,6 +149,21 @@
         href: https://msdn.microsoft.com/library/mt706515.aspx
       - name: Publish HDInsight apps to Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
+        maintainContext: true
+      - name: Install published app - Cask Data Application Platform (CDAP)
+        href: ../hdinsight-apps-install-cask.md
+        maintainContext: true
+      - name: Install published app - Dataiku
+        href: ../hdinsight-apps-install-dataiku.md
+        maintainContext: true
+      - name: Install published app - Datameer
+        href: ../hdinsight-apps-install-datameer.md
+        maintainContext: true
+      - name: Install published app - H2O
+        href: ../hdinsight-apps-install-h2o.md
+        maintainContext: true
+      - name: Install published app - Streamsets
+        href: ../hdinsight-apps-install-streamsets.md
         maintainContext: true
   - name: Secure
     items:
@@ -230,9 +223,21 @@
       href: ../hdinsight-hadoop-manage-ambari.md
       maintainContext: true
       items:
+      - name: Optimize clusters with the Ambari web UI
+        href: ../hdinsight-changing-configs-via-ambari.md
+        maintainContext: true
       - name: Use Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+    - name: Scale an HDInsight cluster
+      href: ../hdinsight-scaling-best-practices.md
+      maintainContext: true
+    - name: Use external metadata stores
+      href: ../hdinsight-use-external-metadata-stores.md
+      maintainContext: true   
+    - name: Manage logs for an HDInsight cluster
+      href: ../hdinsight-log-management.md
+      maintainContext: true
     - name: Add storage accounts
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
@@ -257,24 +262,13 @@
     - name: OS patching for HDInsight cluster
       href: ../hdinsight-os-patching.md
       maintainContext: true
-  - name: Monitor
-    items:
-    - name: Use Azure Log Analytics
-      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Cluster-specific dashboards
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-      maintainContext: true
-    - name: Use queries with Log Analytics
-      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-      maintainContext: true
-    - name: Monitor cluster performance
-      href: ../hdinsight-key-scenarios-to-monitor.md
-      maintainContext: true
   - name: Troubleshoot
     href: ../hdinsight-troubleshoot-guide.md
     maintainContext: true
     items:
+    - name: Troubleshoot a slow or failing HDInsight cluster
+      href: ../hdinsight-troubleshoot-failed-cluster.md
+      maintainContext: true
     - name: HDFS troubleshooting
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
@@ -310,6 +304,50 @@
       - name: Optimize Hive queries
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
+- name: Enterprise readiness
+  items:
+  - name: Enterprise security
+    items:
+    - name: Overview
+      href: ../domain-joined/apache-domain-joined-introduction.md
+      maintainContext: true
+    - name: Plan for enterprise security
+      href: ../domain-joined/apache-domain-joined-architecture.md
+      maintainContext: true
+    - name: Configure enterprise security in HDInsight
+      href: ../domain-joined/apache-domain-joined-configure.md
+      maintainContext: true
+    - name: Configure enterprise security in HDInsight using Azure AD DS
+      href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
+      maintainContext: true
+    - name: Configure Hive policies
+      href: ../domain-joined/apache-domain-joined-run-hive.md
+      maintainContext: true
+    - name: Manage clusters with enterprise security
+      href: ../domain-joined/apache-domain-joined-manage.md
+      maintainContext: true
+  - name: Securing data
+    href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    maintainContext: true
+  - name: Network access
+    items:
+    - name: HDInsight in Azure VNet
+      href: ../hdinsight-extend-hadoop-virtual-network.md
+      maintainContext: true
+    - name: Connect HDInsight with on-premises network
+      href: ../connect-on-premises-network.md
+      maintainContext: true
+  - name: Monitoring using Log Analytics
+    items:
+    - name: Use Azure Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+      maintainContext: true
+    - name: Use queries with Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+      maintainContext: true
+    - name: Monitor cluster performance
+      href: ../hdinsight-key-scenarios-to-monitor.md
+      maintainContext: true 
 - name: Reference
   items:
   - name: Code samples
@@ -331,6 +369,10 @@
   - name: Release notes
     href: ../hdinsight-release-notes.md
     maintainContext: true
+    items:
+    - name: Archived release notes
+      href: ../hdinsight-release-notes-archive.md
+      maintainContext: true
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Get help on the forum

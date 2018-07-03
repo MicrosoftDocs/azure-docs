@@ -4,27 +4,24 @@ description: Learn how to copy data from SAP Business Warehouse to supported sin
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
 # Copy data from SAP Business Warehouse using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-sap-business-warehouse-connector.md)
-> * [Version 2 - Preview](connector-sap-business-warehouse.md)
+> * [Version 1](v1/data-factory-sap-business-warehouse-connector.md)
+> * [Current version](connector-sap-business-warehouse.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP Business Warehouse (BW). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [SAP BW connector in V1](v1/data-factory-sap-business-warehouse-connector.md).
 
 ## Supported capabilities
 
@@ -47,7 +44,8 @@ To use this SAP Business Warehouse connector, you need to:
 > Put the dlls extracted from the NetWeaver RFC SDK into system32 folder.
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SAP Business Warehouse connector.
 
@@ -62,7 +60,7 @@ The following properties are supported for SAP Business Warehouse (BW) linked se
 | systemNumber | System number of the SAP BW system.<br/>Allowed value: two-digit decimal number represented as a string. | Yes |
 | clientId | Client ID of the client in the SAP W system.<br/>Allowed value: three-digit decimal number represented as a string. | Yes |
 | userName | Name of the user who has access to the SAP server. | Yes |
-| password | Password for the user. Mark this field as a SecureString. | Yes |
+| password | Password for the user. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**

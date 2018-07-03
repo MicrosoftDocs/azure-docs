@@ -41,16 +41,23 @@
       href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Tutorials
   items:
-  - name: 1 - Functions with Logic Apps
+  - name: Functions with Logic Apps
     href: functions-twitter-email.md
-  - name: 2 - Create a serverless API
+  - name: Create a serverless API
     href: functions-create-serverless-api.md
-  - name: 3 - Create an OpenAPI definition
+  - name: Create an OpenAPI definition
     href: functions-openapi-definition.md
-  - name: 4 - Image resize with Event Grid
+  - name: Image resize with Event Grid
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: 5 - Functions on a custom image
-    href: functions-create-function-linux-custom-image.md
+  - name: Create a serverless web app
+    href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database 
+  - name: Functions on Linux
+    items: 
+    - name: Custom image
+      href: functions-create-function-linux-custom-image.md
+    - name: IoT Edge device
+      href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
+
 - name: Samples
   items:
   - name: Code samples
@@ -59,7 +66,9 @@
     href: functions-cli-samples.md
 - name: Concepts
   items:
-  - name: Hosting plans comparison
+  - name: Compare 1.x and 2.x
+    href: functions-versions.md
+  - name: Scale and hosting
     href: functions-scale.md
   - name: Triggers and bindings
     href: functions-triggers-bindings.md
@@ -67,21 +76,23 @@
     items:
     - name: Supported languages 
       href: supported-languages.md
-    - name: C# script 
-      href: functions-reference-csharp.md
-    - name: .NET class library
+    - name: C# (class library)
       href: functions-dotnet-class-library.md
+    - name: C# script (.csx)
+      href: functions-reference-csharp.md
     - name: F#
       href: functions-reference-fsharp.md
     - name: JavaScript
       href: functions-reference-node.md   
     - name: Java
       href: functions-reference-java.md 
+  - name: Diagnostics
+    href: ../app-service/app-service-diagnostics.md
   - name: Performance considerations
     href: functions-best-practices.md 
   - name: Functions Proxies
     href: functions-proxies.md 
-  - name: Functions Runtime
+  - name: On-premises functions
     href: functions-runtime-overview.md
   - name: Durable Functions
     items:
@@ -91,6 +102,8 @@
       href: durable-functions-bindings.md
     - name: Checkpoint and replay 
       href: durable-functions-checkpointing-and-replay.md
+    - name: Custom orchestration status
+      href: durable-functions-custom-orchestration-status.md
     - name: Instance management
       href: durable-functions-instance-management.md
     - name: HTTP API
@@ -115,6 +128,8 @@
       href: durable-functions-versioning.md
     - name: Performance and scale
       href: durable-functions-perf-and-scale.md
+    - name: Disaster recovery and geo-distribution
+      href: durable-functions-disaster-recovery-geo-distribution.md      
 - name: How-to guides
   items:
   - name: Develop
@@ -124,13 +139,21 @@
      - name: Testing functions
        href: functions-test-a-function.md
      - name: Develop and debug locally
-       href: functions-run-local.md
+       href: functions-develop-local.md
      - name: Visual Studio development
        href: functions-develop-vs.md
+     - name: Core Tools development
+       href: functions-run-local.md
+     - name: Manage connections
+       href: manage-connections.md
+     - name: Error handling
+       href: functions-bindings-error-pages.md 
   - name: Deploy
     items:
     - name: Continuous deployment
       href: functions-continuous-deployment.md
+    - name: Zip push deployment
+      href: deployment-zip-push.md
     - name: Automate resource deployment
       href: functions-infrastructure-as-code.md
     - name: On-premises functions
@@ -140,7 +163,7 @@
     - name: Manage a function app 
       href: functions-how-to-use-azure-function-app-settings.md
     - name: Set the runtime version 
-      href: functions-versions.md
+      href: set-runtime-version.md
   - name: Monitor
     href: functions-monitoring.md
   - name: Integrate
@@ -165,10 +188,16 @@
       href: durable-functions-sequence.md
     - name: Fan-out/fan-in 
       href: durable-functions-cloud-backup.md
-    - name: Stateful singleton 
-      href: durable-functions-counter.md
+    - name: Monitors
+      href: durable-functions-monitor.md
     - name: Human interaction 
       href: durable-functions-phone-verification.md
+    - name: Unit testing
+      href: durable-functions-unit-testing.md
+    - name: Event publishing
+      href: durable-functions-event-publishing.md
+    - name: Use WebJobs SDK
+      href: durable-functions-webjobs-sdk.md      
 - name: Reference
   items:
   - name: Bindings
@@ -176,7 +205,13 @@
     - name: Blob storage
       href: functions-bindings-storage-blob.md
     - name: Azure Cosmos DB
-      href: functions-bindings-documentdb.md
+      items: 
+      - name: Functions 1.x
+        href: functions-bindings-cosmosdb.md
+      - name: Functions 2.x
+        href: functions-bindings-cosmosdb-v2.md
+    - name: Event Grid
+      href: functions-bindings-event-grid.md
     - name: Event Hubs
       href: functions-bindings-event-hubs.md
     - name: External file
@@ -202,9 +237,9 @@
     - name: Timer
       href: functions-bindings-timer.md
     - name: Twilio
-      href: functions-bindings-twilio.md
+      href: functions-bindings-twilio.md    
   - name: host.json reference
-    href: functions-host-json.md     
+    href: functions-host-json.md  
   - name: App settings reference
     href: functions-app-settings.md     
   - name: OpenAPI reference

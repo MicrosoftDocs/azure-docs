@@ -2,20 +2,15 @@
 title: Getting started with queue storage and Visual Studio connected services (WebJob projects) | Microsoft Docs
 description: How to get started using Azure Queue storage in a WebJob project after connecting to a storage account using Visual Studio connected services.
 services: storage
-documentationcenter: ''
-author: kraigb
-manager: ghogen
-editor: ''
-
+author: ghogen
+manager: douge
 ms.assetid: 5c3ef267-2a67-44e9-ab4a-1edd7015034f
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-
+ms.author: ghogen
 ---
 # Getting started with Azure Queue storage and Visual Studio connected services (WebJob Projects)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]

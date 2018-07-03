@@ -1,17 +1,16 @@
 ---
 title: Explore data using the Azure Time Series Insights explorer | Microsoft Docs
 description: This article describes how to use the Azure Time Series Insights explorer in your web browser to quickly see a global view of your big data and validate your IoT environment.
-services: time-series-insights
 ms.service: time-series-insights
-author: MarkMcGeeAtAquent
+services: time-series-insights
+author: ashannon7
 ms.author: kfile
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
-ms.date: 11/15/2017
+ms.topic: conceptual
+ms.date: 11/30/2017
 ---
 # Azure Time Series Insights explorer
 This article explores the various features and options available within the Time Series Insights explorer web app. 
@@ -33,7 +32,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
 2. Once you select an environment, either use the **FROM** and **TO** configurations at the top, or click and drag over your desired time span.  Click the magnifying glass at the top right, or right-click over the selected timespan and select **Search**.  
 
-3. You can also refresh availability automatically every minute, by selecting the **Auto On** button.
+3. You can also refresh availability automatically every minute, by selecting the **Auto On** button.  Note, the 'Auto-On' button only applies to the availability chart, not the content of the main visualization.
 
 4. Notice, the Azure cloud icon takes you to your environment in the Azure portal.
 

@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -31,14 +31,6 @@ This article has answers to frequently asked questions (FAQs) about issues with 
 For database-related issues, contact [ClearDB support](https://www.cleardb.com/developers/help/support). 
 
 For answers to common questions about ClearDB, see [ClearDB FAQs](https://docs.microsoft.com/azure/store-cleardb-faq/).
-
-## Why isn't my ClearDB database listed in the portal?
-
-If you create a ClearDB database in the [Azure portal](http://portal.azure.com/), the database doesn't appear in the [Azure classic portal](http://manage.windowsazure.com/). To work around this, you can manually link your database to the web app.
-
-Similarly, if you create a ClearDB database in the [Azure classic portal](http://manage.windowsazure.com/),  you won't see your database in the [Azure portal](http://portal.azure.com/). In this case, no workaround is available. 
-
-For more information, see [FAQs for ClearDB MySQL databases with Azure App Service](https://docs.microsoft.com/azure/store-cleardb-faq/).
 
 ## Why wasn't my ClearDB database migrated during my subscription migration?
 
@@ -72,16 +64,7 @@ To turn on PHP logging:
 For more information, see [Enable WordPress error logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
 
 ## How do I log Python application errors in apps that are hosted in App Service?
-
-To capture Python application errors:
-
-1. In the Azure portal, in your web app, select **Settings**.
-2. On the **Settings** tab, select **Application settings**.
-3. Under **App settings**, enter the following key/value pair:
-    * Key : WSGI_LOG
-    * Value : D:\home\site\wwwroot\logs.txt (enter your choice of file name)
-
-You should now see errors in the logs.txt file in the wwwroot folder.
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
 ## How do I change the version of the Node.js application that is hosted in App Service?
 

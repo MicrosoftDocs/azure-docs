@@ -1,121 +1,123 @@
 ---
-title: Create your first Language Understanding Intelligent Services (LUIS) app in 10 minutes in Azure | Microsoft Docs 
-description: Get started quickly by creating and managing a LUIS application on the Language Understanding Intelligent Services (LUIS) webpage. 
+title: Create your first Language Understanding (LUIS) app in 10 minutes in Azure | Microsoft Docs
+description:  In this quickstart, create and manage a LUIS application on the Language Understanding (LUIS) webpage.
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
-
+author: v-geberr
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
-ms.date: 04/26/2017
-ms.author: v-demak
+ms.component: language-understanding
+ms.topic: quickstart
+ms.date: 03/29/2018
+ms.author: v-geberr
+#Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query. 
 ---
 
-# Create your first LUIS app
+# Quickstart: Use prebuilt Home automation app
 
-This Quickstart helps you create your first Language Understanding Intelligent Service (LUIS) app in just a few minutes. When you're finished, you'll have a LUIS endpoint up and running in the cloud.
+In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off.
 
-This article shows you how to create a LUIS app that uses the Home.Automation prebuilt domain. The prebuilt domain provides intents and entities for a home automation system for turning lights and appliances on and off.
+ This prebuilt domain already has intents and entities provided for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
-## Before you begin
-To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-For this article, you also need a [LUIS.ai][luis.ai] account in order to author your LUIS application.
+## Prerequisites
+* To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a new app
-You can create and manage your applications on **My Apps** page. You can always access this page by clicking **My Apps** on the top navigation bar of LUIS web page. 
+You can create and manage your applications on **My Apps** page of [LUIS][LUIS]. 
+1. Click **Create new app**.
 
-1. On **My Apps** page, click **New App**.
+    [![](media/luis-quickstart-new-app/app-list.png "Screenshot of app list")](media/luis-quickstart-new-app/app-list.png)
+
 2. In the dialog box, name your application "Home Automation".
 
-    ![A new app form](./media/luis-quickstart-new-app/new-app-dialog.PNG)
-3. Choose your application culture (for this Home Automation app, we’ll choose English), and then click **Create**. 
+    [![](media/luis-quickstart-new-app/create-new-app-dialog.png "Screenshot of Create new app pop-up dialog")](media/luis-quickstart-new-app/create-new-app-dialog.png)
+
+3. Choose your application culture (for this Home Automation app, choose English), and then click **Done**. 
 
     >[!NOTE]
     >The culture cannot be changed once the application is created. 
 
-LUIS creates the Home Automation app and opens to the Dashboard. The application dashboard contains summary information about app usage. 
+LUIS creates the Home Automation app. 
 
-You can explore your application using the links in the left panel.
+## Add prebuilt domain
 
-![Home Automation app created and Opened](./media/luis-quickstart-new-app/app-created-opened.PNG)
+Click on **Prebuilt domains** in the left-side navigation pane. Then search for "Home". Click on **Add domain**.
 
-## Add the Home Automation prebuilt domain
+[![](media/luis-quickstart-new-app/home-automation.png "Screenshot of Home Automation domain called out in prebuilt domain menu")](media/luis-quickstart-new-app/home-automation.png)
 
-Click on **Prebuilt domains** in the left-side navigation pane. Then click on **HomeAutomation**.
-![Home Automation domain called out in prebuilt domain menu](./media/luis-quickstart-new-app/prebuilt-domain-find.PNG)
+When the domain is successfully added, the prebuilt domain box displays a **Remove domain** button.
 
-Click **Yes** when prompted to add the "HomeAutomation" domain to the app.
+[![](media/luis-quickstart-new-app/remove-domain.png "Screenshot of Home Automation domain with remove button")](media/luis-quickstart-new-app/remove-domain.png)
 
-![Home Automation domain prompt](./media/luis-quickstart-new-app/add-prebuilt-domain-dialog.PNG)
+## Intents and entities
 
-## Take a look at the intents and entities
+Click on **Intents** in the left-side navigation pane to review the HomeAutomation domain intents. 
 
-Click on **Intents** in the left-side navigation pane, and you can see that the HomeAutomation domain provides **HomeAutomation.TurnOff**, **HomeAutomation.TurnOn**, and **None** intents in your application. Each intent has sample utterances.
+[![](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot of Intents list with Intent names in table highlighted")](media/luis-quickstart-new-app/home-automation-intents.png)
+
+Each intent has sample utterances.
 
 > [!NOTE]
 > **None** is an intent provided by all LUIS apps. You use it to handle utterances that don't correspond to functionality your app provides. 
 
-![Home Automation domain prompt](./media/luis-quickstart-new-app/intents.PNG)
+Click on the **HomeAutomation.TurnOff** intent. You can see that the intent contains a list of utterances that are labeled with entities.
 
-Click on the **HomeAutomation.TurnOff** intent. You can see that the intent contains a list of utterances which are labeled with entities.
-
-![Home Automation domain prompt](./media/luis-quickstart-new-app/utterances.PNG)
-
-Click on the **Labels view** and select **tokens**. This shows the text tokens that make up each labeled entity, instead of the name of the entity type.
-
-If you compare the same utterance in the tokens view and the entities view, you can see that some of the words of each utterance have already been labeled. 
-
-The first utterance is "turn off staircase." The word "off" has been labeled as the type of HomeAutomation.Operation. The word "staircase" has been labeled as the type of "HomeAutomation.Device."
-
-![Home Automation domain prompt](./media/luis-quickstart-new-app/utterances-tokens.PNG)
-
-Click **Entities in use**. This shows the entities this app identifies in the utterances.
-
-![Home Automation domain prompt](./media/luis-quickstart-new-app/entities-in-use.PNG)
+[![](media/luis-quickstart-new-app/home-automation-turnon.png "Screenshot of HomeAutomation.TurnOff intent")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
 ## Train your app
 
-Click on **Train & Test** in the left-side navigation, then click **Train application**.
+Click on **Train** in the top navigation.
 
-![Home Automation test](./media/luis-quickstart-new-app/test-callout.PNG)
+[![](media/luis-quickstart-new-app/trained.png "Screenshot of HomeAutomation.TurnOff intent with green success notification")](media/luis-quickstart-new-app/trained.png)
 
 ## Test your app
-Once you've trained your app, you can test it. Type a test utterance like "Turn off the lights" into the Interactive Testing pane, and press Enter. 
+Once you've trained your app, you can test it. Click **Test** in the top navigation. Type a test utterance like "Turn off the lights" into the Interactive Testing pane, and press Enter. 
 
 ```
 Turn off the lights
 ```
 
-The results display the score associated with each intent. Check that the top scoring intent corresponds to the intent you expected for each test utterance.
+Check that the top scoring intent corresponds to the intent you expected for each test utterance.
 
 In this example, "Turn off the lights" is correctly identified as the top scoring intent of "HomeAutomation.TurnOff."
 
-![Home Automation test](./media/luis-quickstart-new-app/test-prebuilt-domain-home.PNG)
+[![](media/luis-quickstart-new-app/test.png "Screenshot of Test panel with utterance highlighted")](media/luis-quickstart-new-app/test.png)
+
+
+Click **Test** again to collapse the test pane. 
 
 ## Publish your app
-Select **Publish App** from the left-side menu and click the **Publish** button. 
+Select **Publish** from the top navigation. 
 
-![Home Automation test](./media/luis-quickstart-new-app/publish-before.PNG)
+[![](media/luis-quickstart-new-app/publish.png "Screenshot of app with publish button highlighted")](media/luis-quickstart-new-app/publish.png)
 
-After you've successfully published, you can use the Endpoint URL that the **Publish App** page displays.
+Select the Production slot and the **Publish** button.
 
-![Home Automation test](./media/luis-quickstart-new-app/publish.PNG)
+The green notification bar at the top indicates the app successfully published.
+
+[![](media/luis-quickstart-new-app/published.png "Screenshot of app with publish success")](media/luis-quickstart-new-app/published.png)
+
+After you've successfully published, you can use the endpoint URL displayed in the **Publish app** page.
+
+[![](media/luis-quickstart-new-app/endpoint.png "Screenshot of publish page with endpoint url highlighted")](media/luis-quickstart-new-app/endpoint.png)
 
 ## Use your app
-You can test your published endpoint in a browser using the generated URL. Copy the URL, then replace the `{YOUR-KEY-HERE}` with one of the keys listed in the **Key String** column for the resource you want to use. To open this URL in your browser, set the URL parameter "&q" to your test query. For example, append `&q=turn off the living room light` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint.  
+You can test your published endpoint in a browser using the generated URL. Open this URL in your browser, set the URL parameter "&q" to your test query. For example, add `turn off the living room light` to the end of your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint.
 
-![JSON result detects the intent TurnOff](./media/luis-get-started-node-get-intent/turn-off-living-room.png)
+
+[![](media/luis-quickstart-new-app/turn-off-living-room.png "Screenshot of browser with JSON result detects the intent TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+
+## Clean up resources
+When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
 You can call the endpoint from code:
 
 > [!div class="nextstepaction"]
-> [Call a LUIS endpoint using code](luis-get-started-node-get-intent.md)
+> [Call a LUIS endpoint using code](luis-get-started-cs-get-intent.md)
 
 
-[luis.ai]:https://www.luis.ai
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

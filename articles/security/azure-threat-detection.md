@@ -1,10 +1,10 @@
----
+﻿---
 title: Azure Advanced Threat Detection | Microsoft Docs
 description: Learn about Identity Protection and its capabilities.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
 
 ---
@@ -417,7 +417,7 @@ Web Application Firewall inspects inbound web traffic and blocks SQL injections,
 
 Following are example of Web Application firewalls available in Azure Market Place:
 
-[Barracuda Web Application Firewall, Brocade Virtual Web Application Firewall (Brocade vWAF), Imperva SecureSphere & The ThreatSTOP IP Firewall.](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
+[Barracuda Web Application Firewall, Brocade Virtual Web Application Firewall (Brocade vWAF), Imperva SecureSphere & The ThreatSTOP IP Firewall.](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf)
 
 ## Next Steps
 

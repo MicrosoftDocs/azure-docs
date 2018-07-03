@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/04/2018
 ms.author: terrylan
 
 ---
@@ -36,7 +36,7 @@ In [Setting security policies in Azure Security Center](security-center-policies
 * Turn on data collection.
 * Choose which recommendations to see as part of your security policy.
 
-Current policy recommendations center around system updates, baseline rules, antimalware programs, [network security groups](../virtual-network/virtual-networks-nsg.md) on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
+Current policy recommendations center around system updates, baseline rules, anti-malware programs, [network security groups](../virtual-network/security-overview.md) on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
 
 ### Monitor recommendations
 After setting a security policy, Security Center analyzes the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile under **Overview** lets you know the total number of recommendations identified by Security Center.
@@ -70,7 +70,7 @@ Use the table below as a reference to help you understand the available recommen
 | Recommendation | Description |
 | --- | --- |
 | [Enable data collection for subscriptions](security-center-enable-data-collection.md) |Recommends that you turn on data collection in the security policy for each of your subscriptions and all Azure virtual machines (VMs) and non-Azure computers. |
-| [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md) |Recommends that you align your OS configurations with the recommended configuration rules, for example, do not allow passwords to be saved. |
+| [Remediate security configurations](security-center-remediate-os-vulnerabilities.md) |Recommends that you align your OS configurations with the recommended security configuration rules, for example, do not allow passwords to be saved. |
 | [Apply system updates](security-center-apply-system-updates.md) |Recommends that you deploy missing system security and critical updates to your Windows and Linux VMs and computers. |
 | [Apply a Just-In-Time network access control](security-center-just-in-time.md) | Recommends that you apply just in time VM access. The just in time feature is in preview and available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. |
 | [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates) |Recommends that you reboot a VM to complete the process of applying system updates. |

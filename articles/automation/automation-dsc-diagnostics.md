@@ -1,24 +1,18 @@
 ---
-title: Forward Azure Automation DSC reporting data to OMS Log Analytics | Microsoft Docs
-description: This article demonstrates how to send Desired State Configuration (DSC) reporting data to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management.
+title: Forward Azure Automation DSC reporting data to Log Analytics
+description: This article demonstrates how to send Desired State Configuration (DSC) reporting data to Log Analytics to deliver additional insight and management.
 services: automation
-documentationcenter: ''
-author: eslesar
-manager: carmonm
-editor: tysonn
-
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
-ms.author: eslesar
-
+ms.component: dsc
+author: georgewallace
+ms.author: gwallace
+ms.date: 06/12/2018
+ms.topic: conceptual
+manager: carmonm
 ---
-# Forward Azure Automation DSC reporting data to OMS Log Analytics
+# Forward Azure Automation DSC reporting data to Log Analytics
 
-Automation can send DSC node status data to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  
+Automation can send DSC node status data to your Log Analytics workspace.  
 Compliance status is visible in the Azure portal, or with PowerShell, for nodes and for individual DSC resources in node configurations. 
 With Log Analytics you can:
 
@@ -35,13 +29,13 @@ To start sending your Automation DSC reports to Log Analytics, you need:
 * The November 2016 or later release of [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 * An Azure Automation account. For more information, see [Getting Started with Azure Automation](automation-offering-get-started.md)
 * A Log Analytics workspace with an **Automation & Control** service offering. For more information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md).
-* At least one Azure Automation DSC node. For more information, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md) 
+* At least one Azure Automation DSC node. For more information, see [Onboarding machines for management by Azure Automation DSC](automation-dsc-onboarding.md)
 
 ## Set up integration with Log Analytics
 
 To begin importing data from Azure Automation DSC into Log Analytics, complete the following steps:
 
-1. Log in to your Azure account in PowerShell. See [Log in with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. Log in to your Azure account in PowerShell. See [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Get the _ResourceId_ of your automation account by running the following PowerShell command:
   (if you have more than one automation account, choose the _ResourceID_ for the account you want to configure).
 
@@ -95,14 +89,14 @@ You can also narrow the query by the operation name. For example:
 
 One of our top customer requests is for the ability to send an email or a text when something goes wrong with a DSC configuration.   
 
-To create an alert rule, you start by creating a log search for the DSC report records that should invoke the alert.  Click the **Alert** button to create and configure the alert rule.
+To create an alert rule, you start by creating a log search for the DSC report records that should invoke the alert.  Click the **+ New Alert Rule** button to create and configure the alert rule.
 
 1. From the Log Analytics Overview page, click **Log Search**.
 1. Create a log search query for your alert by typing the following search into the query field:  `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
   If you have set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account.  
   Automation account name can be derived from the Resource field in the search of DscNodeStatusData.  
-1. To open the **Add Alert Rule** screen, click **Alert** at the top of the page. For more information on the options to configure the alert, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. To open the **Create rule** screen, click **+ New Alert Rule** at the top of the page. For more information on the options to configure the alert, see [Create an alert rulelert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### Find failed DSC resources across all nodes
 
@@ -200,5 +194,5 @@ Log Analytics provides greater operational visibility to your Automation DSC dat
 
 * To learn more about how to construct different search queries and review the Automation DSC logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
 * To learn more about using Azure Automation DSC, see [Getting started with Azure Automation DSC](automation-dsc-getting-started.md)
-* To learn more about OMS Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
+* To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
 

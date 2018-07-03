@@ -3,19 +3,12 @@ title: Monitor performance of a sharded multi-tenant Azure SQL database in a mul
 description: "Monitor and manage performance of sharded multi-tenant Azure SQL database in a multi-tenant SaaS app"
 keywords: sql database tutorial
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: craigg
-editor: ''
-
-ms.assetid:
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/14/2017
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: sstein
 
 ---
@@ -23,7 +16,7 @@ ms.author: sstein
 
 In this tutorial, several key performance management scenarios used in SaaS applications are explored. Using a load generator to simulate activity across sharded multi-tenant databases, the built-in monitoring and alerting features of SQL Database are demonstrated.
 
-The Wingtip Tickets SaaS Multi-tenant Database app uses a sharded multi-tenant data model, where venue (tenant) data is distributed by tenant ID across potentially multiple databases. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, databases can be scaled up and down to optimize the cost of a solution. With this type of pattern, it's important to monitor database resource usage to ensure that loads are reasonably balanced across potentially multiple databases. You also need to ensure that individual databases have adequate resources and are not hitting their [DTU](sql-database-what-is-a-dtu.md) limits. This tutorial explores ways to monitor and manage databases, and how to take corrective action in response to variations in workload.
+The Wingtip Tickets SaaS Multi-tenant Database app uses a sharded multi-tenant data model, where venue (tenant) data is distributed by tenant ID across potentially multiple databases. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, databases can be scaled up and down to optimize the cost of a solution. With this type of pattern, it's important to monitor database resource usage to ensure that loads are reasonably balanced across potentially multiple databases. You also need to ensure that individual databases have adequate resources and are not hitting their [DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) limits. This tutorial explores ways to monitor and manage databases, and how to take corrective action in response to variations in workload.
 
 In this tutorial you learn how to:
 
@@ -52,11 +45,11 @@ Managing database performance consists of compiling and analyzing performance da
 
 The [Azure portal](https://portal.azure.com) provides built-in monitoring and alerting on most resources. For SQL Database, monitoring and alerting is available on databases. This built-in monitoring and alerting is resource-specific, so it's convenient to use for small numbers of resources, but is not convenient when working with many resources.
 
-For high-volume scenarios, where you're working with many resources, [Log Analytics (OMS)](https://azure.microsoft.com/services/log-analytics/) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
+For high-volume scenarios, where you're working with many resources, [Log Analytics](https://azure.microsoft.com/services/log-analytics/) can be used. This is a separate Azure service that provides analytics over emitted diagnostic logs and telemetry gathered in a log analytics workspace. Log Analytics can collect telemetry from many services and be used to query and set alerts.
 
 ## Get the Wingtip Tickets SaaS Multi-tenant Database application source code and scripts
 
-The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) github repo. <!--Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts(saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
+The Wingtip Tickets SaaS Multi-tenant Database scripts and application source code are available in the [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub repo. Check out the [general guidance](saas-tenancy-wingtip-app-guidance-tips.md) for steps to download and unblock the Wingtip Tickets SaaS scripts.
 
 ## Provision additional tenants
 

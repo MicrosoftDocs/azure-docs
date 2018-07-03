@@ -3,7 +3,7 @@ title: Azure Security Center Platform Migration | Microsoft Docs
 description: This document explains some changes to the way Azure Security Center data is collected.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 
@@ -29,11 +29,11 @@ Beginning in early June 2017, Azure Security Center rolls out important changes 
 
 Previously, Security Center used the Azure Monitoring Agent to collect security data from your VMs. This includes information about security configurations, which are used to identify vulnerabilities, and security events, which are used to detect threats. This data was stored in your Storage account(s) in Azure.
 
-Going forward, Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service. Data collected from this agent is stored in either an existing *Log Analytics* [workspace](../log-analytics/log-analytics-manage-access.md) associated with your Azure subscription or a new workspace(s), taking into account the geolocation of the VM.
+Going forward, Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Log Analytics service. Data collected from this agent is stored in either an existing *Log Analytics* [workspace](../log-analytics/log-analytics-manage-access.md) associated with your Azure subscription or a new workspace(s), taking into account the geolocation of the VM.
 
 ## Agent
 
-As part of the transition, the Microsoft Monitoring Agent (for [Windows](../log-analytics/log-analytics-windows-agents.md) or [Linux](../log-analytics/log-analytics-linux-agents.md)) is installed on all Azure VMs from which data is currently being collected.  If the VM already has the Microsoft Monitoring Agent installed, Security Center leverages the current installed agent.
+As part of the transition, the Microsoft Monitoring Agent (for [Windows](../log-analytics/log-analytics-windows-agent.md) or [Linux](../log-analytics/log-analytics-linux-agents.md)) is installed on all Azure VMs from which data is currently being collected.  If the VM already has the Microsoft Monitoring Agent installed, Security Center leverages the current installed agent.
 
 For a period of time (typically a few days), both agents will run side by side to ensure a smooth transition without any loss of data. This will enable Microsoft to validate that the new data pipeline is operational before discontinuing use of the current pipeline. Once verified, the Azure Monitoring Agent will be removed from your VMs. No work is required on your part. An email will notify you when all customers have been migrated.
  
@@ -59,9 +59,9 @@ For workspaces created by Security Center, data is retained for 30 days. For exi
 > [!NOTE]
 > Data previously collected by Security Center remains in your Storage account(s). After the migration is complete, you can delete these Storage accounts.
 
-### OMS Security Solution 
+### Security Management Solution 
 
-For existing customers that don’t have OMS Security solution installed, Microsoft is installing it on their workspace, but targeting only Azure VMs. Do not uninstall this solution, as there is no automatic remediation if this is done from OMS management console.
+For existing customers that don’t have a security management solution in Log Analytics installed, Microsoft is installing it on their workspace, but targeting only Azure VMs. Do not uninstall this solution, as there is no automatic remediation if this is done from the Management console.
 
 
 ## Other updates

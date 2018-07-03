@@ -1,31 +1,27 @@
 ---
 title: Database migration tool for Azure Cosmos DB | Microsoft Docs
-description: Learn how to use the open source Azure Cosmos DB data migration tools to import data to Azure Cosmos DB from various sources including MongoDB, SQL Server, Table storage, Amazon DynamoDB, CSV, and JSON files. CSV to JSON conversion.
+description: Learn how to use the open-source Azure Cosmos DB data migration tools to import data to Azure Cosmos DB from various sources including MongoDB, SQL Server, Table storage, Amazon DynamoDB, CSV, and JSON files. CSV to JSON conversion.
 keywords: csv to json, database migration tools, convert csv to json
 services: cosmos-db
-author: andrewhoh
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: monicar
-documentationcenter: ''
 
-ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/15/2017
-ms.author: anhoh
+ms.topic: tutorial
+ms.date: 03/30/2018
+ms.author: sngun
 ms.custom: mvc
 ---
 # Azure Cosmos DB: Data migration tool
 
-This tutorial provides instructions on using the Azure Cosmos DB Data Migration tool, which can import data from various sources into Azure Cosmos DB collections and tables. You can import from JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and even Azure Cosmos DB DocumentDB API collections, and you migrate that data to collections and tables for use with Azure Cosmos DB. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection for the DocumentDB API.
+This tutorial provides instructions on using the Azure Cosmos DB Data Migration tool, which can import data from various sources into Azure Cosmos DB collections and tables. You can import from JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and even Azure Cosmos DB SQL API collections, and you migrate that data to collections and tables for use with Azure Cosmos DB. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection for the SQL API.
 
 Which API are you going to use with Azure Cosmos DB? 
-* **[DocumentDB API](documentdb-introduction.md)** - You can use any of the source options provided in the Data Migration tool to import data.
+* **[SQL API](documentdb-introduction.md)** - You can use any of the source options provided in the Data Migration tool to import data.
 * **[Table API](table-introduction.md)** - You can use the Data Migration tool or AzCopy to import data. See [Import data for use with the Azure Cosmos DB Table API](table-import.md) for more information.
-* **[MongoDB API](mongodb-introduction.md)** - The Data Migration tool does export data MongoDB databases to Azure Cosmos DB for use with the DocumentDB API. But if you want to continue to use MongoDB APIs, you'll want to use the Azure Cosmos DB MongoDB API, and should use mongoimport.exe or mongorestore.exe to import data. See [Azure Cosmos DB: How to migrate data for the MongoDB API?](mongodb-migrate.md), for more information.
+* **[MongoDB API](mongodb-introduction.md)** - The Data Migration tool does not currently support Azure Cosmos DB MongoDB API either as a source or as a target. If you want to migrate the data in or out of MongoDB API collections in Azure Cosmos DB, refer to [Azure Cosmos DB: How to migrate data for the MongoDB API](mongodb-migrate.md) for instructions. You can still use the Data Migration tool to export data from MongoDB to Azure Cosmos DB SQL API collections for use with the SQL API. 
 * **[Graph API](graph-introduction.md)** - The Data Migration tool is not a supported import tool for Graph API accounts at this time. 
 
 This tutorial covers the following tasks:
@@ -40,8 +36,10 @@ Before following the instructions in this article, ensure that you have the foll
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) or higher.
 
+* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for an individual collection or a set of collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see Performance levels and pricing tiers in Azure Cosmos DB.
+
 ## <a id="Overviewl"></a>Overview
-The Data Migration tool is an open source solution that imports data to Azure Cosmos DB from a variety of sources, including:
+The Data Migration tool is an open-source solution that imports data to Azure Cosmos DB from a variety of sources, including:
 
 * JSON files
 * MongoDB
@@ -52,10 +50,10 @@ The Data Migration tool is an open source solution that imports data to Azure Co
 * HBase
 * Azure Cosmos DB collections
 
-While the import tool includes a graphical user interface (dtui.exe), it can also be driven from the command line (dt.exe). In fact, there is an option to output the associated command after setting up an import through the UI. Tabular source data (e.g. SQL Server or CSV files) can be transformed such that hierarchical relationships (subdocuments) can be created during import. Keep reading to learn more about source options, sample command lines to import from each source, target options, and viewing import results.
+While the import tool includes a graphical user interface (dtui.exe), it can also be driven from the command-line (dt.exe). In fact, there is an option to output the associated command after setting up an import through the UI. Tabular source data (e.g. SQL Server or CSV files) can be transformed such that hierarchical relationships (subdocuments) can be created during import. Keep reading to learn more about source options, sample commands to import from each source, target options, and viewing import results.
 
 ## <a id="Install"></a>Installation
-The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool) and a compiled version is available from [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). You may either compile the solution or simply download and extract the compiled version to a directory of your choice. Then run either:
+The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally, or [download a pre-compiled binary](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip), then run either:
 
 * **Dtui.exe**: Graphical interface version of the tool
 * **Dt.exe**: Command-line version of the tool
@@ -72,9 +70,9 @@ Once you've installed the tool, it's time to import your data. What kind of data
 * [Azure Table storage](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
 * [Blob](#BlobImport)
-* [Azure Cosmos DB collections](#DocumentDBSource)
+* [Azure Cosmos DB collections](#SQLSource)
 * [HBase](#HBaseSource)
-* [Azure Cosmos DB bulk import](#DocumentDBBulkImport)
+* [Azure Cosmos DB bulk import](#SQLBulkImport)
 * [Azure Cosmos DB sequential record import](#DocumentDSeqTarget)
 
 
@@ -83,7 +81,7 @@ The JSON file source importer option allows you to import one or more single doc
 
 ![Screenshot of JSON file source options - Database migration tools](./media/import-data/jsonsource.png)
 
-Here are some command line samples to import JSON files:
+Here are some command-line samples to import JSON files:
 
     #Import a single JSON file
     dt.exe /s:JsonFile /s.Files:.\Sessions.json /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Sessions /t.CollectionThroughput:2500
@@ -120,9 +118,9 @@ The connection string is in the standard MongoDB format:
 > 
 > 
 
-Enter the name of the collection from which data will be imported. You may optionally specify or provide a file for a query (e.g. {pop: {$gt:5000}} ) and/or projection (e.g. {loc:0} ) to both filter and shape the data to be imported.
+Enter the name of the collection from which data will be imported. You may optionally specify or provide a file for a query (for example, {pop: {$gt:5000}} ) and/or projection (for example, {loc:0} ) to both filter and shape the data to be imported.
 
-Here are some command line samples to import from MongoDB:
+Here are some command-line samples to import from MongoDB:
 
     #Import all documents from a MongoDB collection
     dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database> /s.Collection:zips /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:BulkZips /t.IdField:_id /t.CollectionThroughput:2500
@@ -143,7 +141,7 @@ The MongoDB export JSON file source importer option allows you to import one or 
 
 When adding folders that contain MongoDB export JSON files for import, you have the option of recursively searching for files in subfolders.
 
-Here is a command line sample to import from MongoDB export JSON files:
+Here is a command-line sample to import from MongoDB export JSON files:
 
     dt.exe /s:MongoDBExport /s.Files:D:\mongoemployees.json /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:employees /t.IdField:_id /t.Dates:Epoch /t.CollectionThroughput:2500
 
@@ -184,7 +182,7 @@ Note the aliases such as Address.AddressType and Address.Location.StateProvinceN
   }
 }*
 
-Here are some command line samples to import from SQL Server:
+Here are some command-line samples to import from SQL Server:
 
     #Import records from SQL which match a query
     dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, * from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /t:CosmosDBBulk /t.ConnectionString:" AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Stores /t.IdField:Id /t.CollectionThroughput:2500
@@ -230,7 +228,7 @@ Here is a command-line sample for CSV import:
 ## <a id="AzureTableSource"></a>Import from Azure Table storage
 The Azure Table storage source importer option allows you to import from an individual Azure Table storage table. Optionally, you can filter the table entities to be imported. 
 
-Data imported from Azure Table Storage can be output to Azure Cosmos DB tables and entities, for use with the Table API, or to collections and documents, for use with the DocumentDB API. However; Table API is only available as a target in the command-line utility, you cannot export to Table API by using the Data Migration tool user interface. For more information, see [Import data for use with the Azure Cosmos DB Table API](table-import.md). 
+Data imported from Azure Table Storage can be output to Azure Cosmos DB tables and entities, for use with the Table API, or to collections and documents, for use with the SQL API. However; Table API is only available as a target in the command-line utility, you cannot export to Table API by using the Data Migration tool user interface. For more information, see [Import data for use with the Azure Cosmos DB Table API](table-import.md). 
 
 ![Screenshot of Azure Table storage source options](./media/import-data/azuretablesource.png)
 
@@ -243,7 +241,7 @@ The format of the Azure Table storage connection string is:
 > 
 > 
 
-Enter the name of the Azure table from to import from. You may optionally specify a [filter](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+Enter the name of the Azure table from to import from. You may optionally specify a [filter](../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 The Azure Table storage source importer option has the following additional options:
 
@@ -287,7 +285,7 @@ Here is command-line sample to import JSON files from Azure Blob storage:
 
     dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:doctest
 
-## <a id="DocumentDBSource"></a>Import from a DocumentDB API collection
+## <a id="SQLSource"></a>Import from a SQL API collection
 The Azure Cosmos DB source importer option allows you to import data from one or more Azure Cosmos DB collections and optionally filter documents using a query.  
 
 ![Screenshot of Azure Cosmos DB source options](./media/import-data/documentdbsource.png)
@@ -362,7 +360,7 @@ Here is a command-line sample to import from HBase:
 
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:hbaseimport
 
-## <a id="DocumentDBBulkTarget"></a>Import to the DocumentDB API (Bulk Import)
+## <a id="SQLBulkTarget"></a>Import to the SQL API (Bulk Import)
 The Azure Cosmos DB Bulk importer allows you to import from any of the available source options, using an Azure Cosmos DB stored procedure for efficiency. The tool supports import to one single-partitioned Azure Cosmos DB collection, as well as sharded import whereby data is partitioned across multiple single-partitioned Azure Cosmos DB collections. For more information about partitioning data, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md). The tool creates, executes, and then deletes the stored procedure from the target collection(s).  
 
 ![Screenshot of Azure Cosmos DB bulk options](./media/import-data/documentdbbulk.png)
@@ -395,7 +393,7 @@ Once the collection name(s) have been specified, choose the desired throughput o
 
 When importing to multiple collections, the import tool supports hash-based sharding. In this scenario, specify the document property you wish to use as the Partition Key (if Partition Key is left blank, documents are sharded randomly across the target collections).
 
-You may optionally specify which field in the import source should be used as the Azure Cosmos DB document id property during the import (note that if documents do not contain this property, then the import tool generates a GUID as the id property value).
+You may optionally specify which field in the import source should be used as the Azure Cosmos DB document id property during the import (if documents do not contain this property, then the import tool generates a GUID as the id property value).
 
 There are a number of advanced options available during import. First, while the tool includes a default bulk import stored procedure (BulkInsert.js), you may choose to specify your own import stored procedure:
 
@@ -430,7 +428,7 @@ The Azure Cosmos DB Bulk importer has the following additional advanced options:
 > 
 > 
 
-## <a id="DocumentDBSeqTarget"></a>Import to the DocumentDB API (Sequential Record Import)
+## <a id="SQLSeqTarget"></a>Import to the SQL API (Sequential Record Import)
 The Azure Cosmos DB sequential record importer allows you to import from any of the available source options on a record by record basis. You might choose this option if you’re importing to an existing collection that has reached its quota of stored procedures. The tool supports import to a single (both single-partition and multi-partition) Azure Cosmos DB collection, as well as sharded import whereby data is partitioned across multiple single-partition and/or multi-partition Azure Cosmos DB collections. For more information about partitioning data, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md).
 
 ![Screenshot of Azure Cosmos DB sequential record import options](./media/import-data/documentdbsequential.png)
@@ -457,13 +455,13 @@ To import to a single collection, enter the name of the collection to which data
 Once the collection name(s) have been specified, choose the desired throughput of the collection(s) (400 RUs to 250,000 RUs). For best import performance, choose a higher throughput. For more information about performance levels, see [Performance levels in Azure Cosmos DB](performance-levels.md). Any import to collections with throughput >10,000 RUs require a partition key. If you choose to have more than 250,000 RUs, you need to file a request in the portal to have your account increased.
 
 > [!NOTE]
-> The throughput setting only applies to collection creation. If the specified collection already exists, its throughput will not be modified.
+> The throughput setting only applies to collection or database creation. If the specified collection already exists, its throughput will not be modified.
 > 
 > 
 
 When importing to multiple collections, the import tool supports hash-based sharding. In this scenario, specify the document property you wish to use as the Partition Key (if Partition Key is left blank, documents are sharded randomly across the target collections).
 
-You may optionally specify which field in the import source should be used as the Azure Cosmos DB document id property during the import (note that if documents do not contain this property, then the import tool generates a GUID as the id property value).
+You may optionally specify which field in the import source should be used as the Azure Cosmos DB document id property during the import (if documents do not contain this property, then the import tool generates a GUID as the id property value).
 
 There are a number of advanced options available during import. First, when importing date types (for example, from SQL Server or MongoDB), you can choose between three import options:
 
@@ -479,7 +477,7 @@ There are a number of advanced options available during import. First, when impo
 
 The Azure Cosmos DB - Sequential record importer has the following additional advanced options:
 
-1. Number of Parallel Requests: The tool defaults to two parallel requests. If the documents to be imported are small, consider raising the number of parallel requests. Note that if this number is raised too much, the import may experience throttling.
+1. Number of Parallel Requests: The tool defaults to two parallel requests. If the documents to be imported are small, consider raising the number of parallel requests. If this number is raised too much, the import may experience rate limiting.
 2. Disable Automatic Id Generation: If every document to be imported contains an id field, then selecting this option can increase performance. Documents missing a unique id field are not imported.
 3. Update Existing Documents: The tool defaults to not replacing existing documents with id conflicts. Selecting this option allows overwriting existing documents with matching ids. This feature is useful for scheduled data migrations that update existing documents.
 4. Number of Retries on Failure: Specifies the number of times to retry the connection to Azure Cosmos DB in case of transient failures (for example, network connectivity interruption).
@@ -494,7 +492,7 @@ The Azure Cosmos DB - Sequential record importer has the following additional ad
 > 
 
 ## <a id="IndexingPolicy"></a>Specify an indexing policy
-When you allow the migration tool to create Azure Cosmos DB DocumentDB API collections during import, you can specify the indexing policy of the collections. In the advanced options section of the Azure Cosmos DB Bulk import and Azure Cosmos DB Sequential record options, navigate to the Indexing Policy section.
+When you allow the migration tool to create Azure Cosmos DB SQL API collections during import, you can specify the indexing policy of the collections. In the advanced options section of the Azure Cosmos DB Bulk import and Azure Cosmos DB Sequential record options, navigate to the Indexing Policy section.
 
 ![Screenshot of Azure Cosmos DB Indexing Policy advanced options](./media/import-data/indexingpolicy1.png)
 
@@ -503,7 +501,7 @@ Using the Indexing Policy advanced option, you can select an indexing policy fil
 The policy templates the tool provides are:
 
 * Default. This policy is best when you’re performing equality queries against strings and using ORDER BY, range, and equality queries for numbers. This policy has a lower index storage overhead than Range.
-* Range. This policy is best you’re using ORDER BY, range, and equality queries on both numbers and strings. This policy has a higher index storage overhead than Default or Hash.
+* Range. This policy is best when you’re using ORDER BY, range, and equality queries on both numbers and strings. This policy has a higher index storage overhead than Default or Hash.
 
 ![Screenshot of Azure Cosmos DB Indexing Policy advanced options](./media/import-data/indexingpolicy2.png)
 
@@ -562,7 +560,7 @@ Then, choose whether to log all, critical, or no error messages. Finally, decide
 
     ![Screenshot of Advanced configuration screen](./media/import-data/AdvancedConfiguration.png)
 
-## Confirm import settings and view command line
+## Confirm import settings and view command-line
 1. After specifying source information, target information, and advanced configuration, review the migration summary and, optionally, view/copy the resulting migration command (copying the command is useful to automate import operations):
    
     ![Screenshot of summary screen](./media/import-data/summary.png)
@@ -587,4 +585,4 @@ In this tutorial, you've done the following tasks:
 You can now proceed to the next tutorial and learn how to query data using Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
->[How to query data?](../cosmos-db/tutorial-query-documentdb.md)
+>[How to query data?](../cosmos-db/tutorial-query-sql-api.md)

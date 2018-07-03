@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2017
+ms.date: 11/21/2017
 ms.author: terrylan
 
 ---
@@ -48,7 +48,7 @@ Benefits of using Azure AD authentication instead of SQL authentication include:
 - Uses contained database users to authenticate identities at the database level.
 - Supports token-based authentication for applications connecting to SQL Database.
 - Supports ADFS (domain federation) or native user/password authentication for a local Azure AD without domain synchronization.
-- Supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes [Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+- Supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes [Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md). MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 To learn more about Azure AD authentication, see:
 
@@ -75,7 +75,7 @@ To learn more about Azure SQL Firewall and IP restrictions, see:
 ### Encryption of data at rest
 [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/azure/bb934049) is enabled by default. TDE transparently encrypts SQL Server, Azure SQL Database, and Azure SQL Data Warehouse data and log files. TDE protects against a compromise of direct access to the files or their backup. This enables you to encrypt data at rest without changing existing applications. TDE should always stay enabled; however, this will not stop an attacker using the normal access path. TDE provides the ability to comply with many laws, regulations, and guidelines established in various industries.
 
-Azure SQL manages key related issues for TDE. As with TDE, on premise special care must be taken to ensure recoverability and when moving databases. In more sophisticated scenarios, the keys can be explicitly managed in Azure Key Vault through extensible key management (see [Enable TDE on SQL Server Using EKM](/security/encryption/enable-tde-on-sql-server-using-ekm)). This also allows for Bring Your Own Key (BYOK) through Azure Key Vaults BYOK capability.
+Azure SQL manages key related issues for TDE. As with TDE, on-premises special care must be taken to ensure recoverability and when moving databases. In more sophisticated scenarios, the keys can be explicitly managed in Azure Key Vault through extensible key management (see [Enable TDE on SQL Server Using EKM](/security/encryption/enable-tde-on-sql-server-using-ekm)). This also allows for Bring Your Own Key (BYOK) through Azure Key Vaults BYOK capability.
 
 Azure SQL provides encryption for columns through [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). This allows only authorized applications access to sensitive columns. Using this kind of encryption limits SQL queries for encrypted columns to equality-based values.
 

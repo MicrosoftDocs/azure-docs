@@ -1,18 +1,17 @@
 ---
 title: Share Azure Time Series Insights custom views with parameterized URLs | Microsoft Docs
 description: This article describes how to develop parameterized URLs in Azure Time Series Insights, so that a customer view can easily be shared.
-services: time-series-insights
 ms.service: time-series-insights
-author: MarkMcGeeAtAquent
+services: time-series-insights
+author: ashannon7
 ms.author: MarkMcGeeAtAquent
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
-ms.devlang: rest-api
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: big-data
-ms.date: 11/15/2017
+ms.date: 11/21/2017
 ---
+
 # Share a custom view using a parameterized URL
 
 To share a custom view in Time Series Insights explorer, you can programmatically create a parameterized URL of the custom view.
@@ -58,21 +57,39 @@ Accepted values correspond to the Time Series Insights explorer **quick time** m
 
 The `timeSeriesDefinitions=<collection of term objects>` parameter specifies the terms of a Time Series Insights view, where:
 
-- `name=<string>`
+- "name":"<string>"
   - The name of the *term*.
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - The column name to *split by*.
-- `measureName=<string>`
+- "measureName":"<string>"
   - The column name of *measure*.
-- `predicate=<string>`
+- "predicate":"<string>"
   - The *where* clause for server-side filtering.
+-  "useSum":"true"
+  - This is an optional parameter that specifies using sum for your measure.  Note, if "Events" is the selected measure, count is selected by default.  If "Events" is not selected, average is selected by default.  
 
+The 'multiChartStack=<true/false>' parameter enables stacking in the chart and the 'multiChartSameScale=<true/false>' parameter enables the same Y-axis scale across terms within an optional parameter.  
+
+- 'multiChartStack=false'
+  - 'True' is enabled by default so pass 'false' to stack.
+- 'multiChartStack=false&multiChartSameScale=true' 
+  - Stacking must be enabled to use the same Y-axis scale across terms.  It is 'false' by default, so passing 'true' enables this functionality.  
+  
+The 'timeBucketUnit=<Unit>&timeBucketSize=<integer>' enables you to adjust the interval slider to provide a more granular or smoother, more aggregated view of the chart.  
+- 'timeBucketUnit=<Unit>&timeBucketSize=<integer>'
+  - Units = days, hours, minutes, seconds, milliseconds.  Always capitalize the unit.
+  - Define the number of units by passing the desired integer for timeBucketSize.  Note, you smooth up to 7 days.  
+  
+The 'timezoneOffset=<integer>' parameter enables you to set the timezone for the chart to be viewed in as an offset to UTC.  
+  - 'timezoneOffset=-<integer>'
+    - The integer is always in milliseconds.  
+    - Note, this functionality is slightly different than what we enable in the TSI explorer, where we enable you to choose local (browser time) or UTC.  
  
 ### Examples
 
 For example, to add time series definitions as a URL parameter, you can use the following:
 
-```
+```https
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
@@ -85,7 +102,9 @@ Using these example time series definitions for
  
 you can construct the following parameterized URL for a view:
 
-`https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]`
+```https
+https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
+```
 
 If you had used Time Series Insights explorer to build the view described by the preceding URL, it would appear like this:
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Developer guide for Azure China 21Vianet | Microsoft Docs
 description: Microsoft provides tools to help developers create and deploy cloud applications to global Azure and to Azure China 21Vianet. Learn which services and features are available on both global Azure and Azure china, and also which features may not be available in China.
 services: china
@@ -48,7 +48,7 @@ The following table shows the endpoints to change.
 
 See also:
 - [Developer Notes for Azure in China Applications](https://msdn.microsoft.com/library/azure/dn578439.aspx)
-- [Azure Datacenter IP Ranges in China](https://www.microsoft.com/en-us/download/details.aspx?id=42064) 
+- [Azure Datacenter IP Ranges in China](https://www.microsoft.com/download/details.aspx?id=42064) 
 - [Developers Guide](https://www.azure.cn/documentation/articles/developerdifferences/#dev-guide) (in Chinese).
 
 
@@ -59,7 +59,7 @@ See also:
 | Azure storage                         | \*.blob.core.windows.net \*.queue.core.windows.net \*.table.core.windows.net                                            | \*.blob.core.chinacloudapi.cn \*.queue.core.chinacloudapi.cn \*.table.core.chinacloudapi.cn                                                           |
 | Azure service management              | https://management.core.windows.net                                                                                     | [https://management.core.chinacloudapi.cn](https://management.core.chinacloudapi.cn/)                                                                 |
 | Azure Resource Manager          | [https://management.azure.com](https://management.azure.com/)                                                           | [https://management.chinacloudapi.cn](https://management.chinacloudapi.cn/)                                                                           |
-| Azure management portal               | [http://manage.windowsazure.com](http://manage.windowsazure.com/) [https://portal.azure.com](https://portal.azure.com/) | [http://manage.windowsazure.cn](http://manage.windowsazure.cn/) [https://portal.azure.cn](https://portal.azure.cn/)                                   |
+| Azure management portal               | [https://portal.azure.com](https://portal.azure.com/) | [https://portal.azure.cn](https://portal.azure.cn/)                                   |
 | SQL Database                          | \*.database.windows.net                                                                                                 | \*.database.chinacloudapi.cn                                                                                                                          |
 | SQL Azure DB management API           | [https://management.database.windows.net](https://management.database.windows.net/)                                     | [https://management.database.chinacloudapi.cn](https://management.database.chinacloudapi.cn/)                                                         |
 | Azure Service Bus                     | \*.servicebus.windows.net                                                                                               | \*.servicebus.chinacloudapi.cn                                                                                                                        |
@@ -72,12 +72,12 @@ See also:
 | Azure AD logon                        | [https://login.windows.net](https://login.windows.net/)                                                                 | [https://login.chinacloudapi.cn](https://login.chinacloudapi.cn/)                                                                                     |
 | Azure AD Graph API                    | [https://graph.windows.net](https://graph.windows.net/)                                                                 | [https://graph.chinacloudapi.cn](https://graph.chinacloudapi.cn/)                                                                                     |
 | Cognitive Services                    | <https://api.projectoxford.ai/face/v1.0>                                                                                | <https://api.cognitive.azure.cn/face/v1.0>                                                                                                            |
-| Logon with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager  <br>- Azure AD|    - Add-AzureAccount<br>- Add-AzureRmAccount <br> - Connect-msolservice                                                                                                                       |  - Add-AzureAccount -Environment AzureChinaCloud  <br> - Add-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |               |                                                                                                                         |
+| Logon with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager  <br>- Azure AD|    - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice                                                                                                                       |  - Add-AzureAccount -Environment AzureChinaCloud  <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud |               |                                                                                                                         |
  |
 
 
 ## Next steps
 - [Developers Guide](https://www.azure.cn/documentation/articles/developerdifferences/#dev-guide) (in Chinese)
-- [Azure Datacenter IP Ranges in China](https://www.microsoft.com/en-us/download/details.aspx?id=42064)
+- [Azure Datacenter IP Ranges in China](https://www.microsoft.com/download/details.aspx?id=42064)
 - [Manage performance and connectivity](/azure/china/china-how-to-manage-performance)
-- [Azure Architecture Center](https://docs.microsoft.com/en-us/azure/architecture/)
+- [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)

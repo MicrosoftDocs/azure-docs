@@ -1,38 +1,37 @@
 ---
-title: Azure Cognitive Services, Text Analytics With Power BI | Microsoft Docs
+title: Text Analytics With Power BI - Azure Cognitive Services | Microsoft Docs
 description: Learn how to use Text Analytics to extract key phrases from text stored in Power BI.
 services: cognitive-services
 author: luiscabrer
-manager: jhubbard
-
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
-ms.topic: article
-ms.date: 9/6/2017
+ms.component: text-analytics
+ms.topic: tutorial
+ms.date: 3/07/2018
 ms.author: luisca
 ---
 # Text Analytics with Power BI
 
-Microsoft Power BI distills your organization's data into beautiful reports, then distributes them across your organization for faster, deeper insight. The Text Analytics service, part of Cognitive Services in Microsoft Azure, can extract the most important phrases from text via its Key Phrases API. Together, these tools can help you quickly see what your customers are talking about and how they feel about it. 
+Microsoft Power BI distills organizational data into beautiful reports, which you can distribute across your organization for faster, deeper insight. The Text Analytics service, part of Cognitive Services in Microsoft Azure, can extract the most important phrases from text via its Key Phrases API. Together, these tools can help you quickly see what your customers are talking about and how they feel about it.
 
-In this tutorial, you'll see how to integrate Power BI Desktop and the Key Phrases API to extract the most important phrases from customer feedback using a custom Power Query function. We'll also create a Word Cloud from these phrases.
+In this tutorial, you can see how to integrate Power BI Desktop and the Key Phrases API to extract the most important phrases from customer feedback using a custom Power Query function. We also create a Word Cloud from these phrases.
 
 ## Prerequisites
 
 To do this tutorial, you need:
 
 > [!div class="checklist"]
-> * Microsoft Power BI Desktop. [Download at no charge]((https://powerbi.microsoft.com/)).
+> * Microsoft Power BI Desktop. [Download at no charge](https://powerbi.microsoft.com/get-started/).
 > * A Microsoft Azure account. [Start a free trial](https://azure.microsoft.com/free/) or [sign in](https://portal.azure.com/).
-> * A access key for Text Analytics. [Sign up](../../cognitive-services-apis-create-account.md), then [get your key](../how-tos/text-analytics-how-to-access-key.md).
+> * An access key for Text Analytics. [Sign up](../../cognitive-services-apis-create-account.md), then [get your key](../how-tos/text-analytics-how-to-access-key.md).
 > * Customer comments. [Get our example data](https://aka.ms/cogsvc/ta) or use your own.
 
 ## Loading customer data
 
-To get started, open Power BI Desktop and load the Comma-Separated Value (CSV) file `FabrikamComments.csv`. This file represents a day's worth of hypothetical activity in a fictional small company's support forum.
+To get started, open Power BI Desktop and load the Comma-Separated Value (CSV) file **FabrikamComments.csv**. This file represents a day's worth of hypothetical activity in a fictional small company's support forum.
 
 > [!NOTE]
-> If you have your own messages and wish to work with them in this tutorial, feel free to load them instead. Power BI can use data from a wide variety of sources, such as Facebook or a SQL database. Modify or skip steps as needed.
+> Power BI can use data from a wide variety of sources, such as Facebook or a SQL database. Learn more at [Facebook integration with Power BI](https://powerbi.microsoft.com/integrations/facebook/) and [SQL Server integration with Power BI](https://powerbi.microsoft.com/integrations/sql-server/).
 
 In the main Power BI Desktop window, find the External Data group of the Home ribbon. Choose **Text/CSV** in the **Get Data** drop-down menu in this group.
 
@@ -54,7 +53,11 @@ You may need to transform your data in Power BI Desktop before it's ready to be 
 
 Our data, for example, contains both a `subject` field and a `comment` field. We should consider text in both of these fields, not just `comment`, when we extract key phrases. The Merge Columns function in Power BI Desktop makes this task easy.
 
-Open the Query Editor from the main Power BI Desktop window by clicking **Edit Queries** in the External Data group in the Home ribbon. Select "FabrikamComments" in the Queries list at the left side of the window if it is not already selected.
+Open the Query Editor from the main Power BI Desktop window by clicking **Edit Queries** in the External Data group in the Home ribbon. 
+
+![[The External Data group in Home ribbon]](../media/tutorials/power-bi/edit-queries.png)
+
+Select "FabrikamComments" in the Queries list at the left side of the window if it is not already selected.
 
 Now select both the `subject` and `comment` columns in the table. You may need to scroll horizontally to see these columns. First click the `subject` column header, then hold down the Control key and click the `comment` column header.
 
@@ -95,6 +98,9 @@ A new query, initially named Query1, appears in the Queries list. Double-click t
 
 Now open the Advanced Editor window by clicking **Advanced Editor** in the Query group of the Home ribbon. Delete the code that's already in that window and paste in the following code. 
 
+> [!NOTE]
+> In the examples below we assume the endpoint is at https://westus.api.cognitive.microsoft.com.  Text Analytics supports creation of a subscription in 13 different regions. If you signed up for the service in a different region, please make sure to use the endpoint for the region you selected. It should be shown in the Overview page in the Azure portal when you select your Text Analytics subscription.
+
 ```fsharp
 // Returns key phrases from the text in a comma-separated list
 (text) => let
@@ -116,7 +122,7 @@ Also paste in your Text Analytics API key, obtained from the Microsoft Azure das
 
 Now we can use the custom function to obtain the key phrases contained in each of our customer comments and store them in a new column in the table. 
 
-Still in the Query Editor, change to the Add Column ribbon and click the **Invoke Custom Function** button in the General group.
+Still in the Query Editor, switch back to the FabrikamComments query, change to the Add Column ribbon, and click the **Invoke Custom Function** button in the General group.
 
 ![[Invoke Custom Function button]](../media/tutorials/power-bi/invoke-custom-function-button.png)<br><br>
 
@@ -182,7 +188,7 @@ Down a little further in this panel, turn off **Rotate Text** and **Title**.
 
 ![[activate focus mode]](../media/tutorials/power-bi/word-cloud-focus-mode.png)
 
-Click the Focus Mode tool in the report to get a better look at our word cloud. This expands the word cloud to fill the entire workspace, as shown below.
+Click the Focus Mode tool in the report to get a better look at our word cloud. The tool expands the word cloud to fill the entire workspace, as shown below.
 
 ![[A Word Cloud]](../media/tutorials/power-bi/word-cloud.png)
 

@@ -12,15 +12,24 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.topic: article
+ms.date: 05/11/2018
 ms.author: genli
 ---
+
 # Troubleshoot Azure Windows virtual machine activation problems
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 If you have trouble when activating Azure Windows virtual machine (VM) that is created from a custom image, you can use the information provided in this document to troubleshoot the issue. 
+
+## Understanding Azure KMS endpoints for Windows product activation of Azure Virtual Machines
+Azure uses different endpoints for KMS activation depending on the cloud region where the VM resides. When using this troubleshooting guide, use the appropriate KMS endpoint that applies to your region.
+
+* Azure public cloud regions: kms.core.windows.net:1688
+* Azure China national cloud regions: kms.core.chinacloudapi.cn:1688
+* Azure Germany national cloud regions: kms.core.cloudapi.de:1688
+* Azure US Gov national cloud regions: kms.core.usgovcloudapi.net:1688
 
 ## Symptom
 
@@ -36,7 +45,7 @@ Generally, Azure VM activation issues occur if the Windows VM is not configured 
 >[!NOTE]
 >If you are using a site-to-site VPN and forced tunneling, see [Use Azure custom routes to enable KMS activation with forced tunneling](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
 >
->If you are using ExpressRoute and you have a default route published, see [Azure VM may fail to activate over ExpressRoute](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
+>If you are using ExpressRoute and you have a default route published, see [Azure VM may fail to activate over ExpressRoute](https://blogs.technet.microsoft.com/jpaztech/2016/05/16/azure-vm-may-fail-to-activate-over-expressroute/).
 
 ### Step 1 Configure the appropriate KMS client setup key (for Windows Server 2016 and Windows Server 2012 R2)
 
@@ -66,7 +75,7 @@ This step does not apply to Windows 2012 or Windows 2008 R2. It uses the Automat
 
 ### Step 2 Verify the connectivity between the VM and Azure KMS service
 
-1. Download and extract the [Psping](http:/technet.microsoft.com/en-us/sysinternals/jj729731.aspx) tool to a local folder in the VM that does not activate. 
+1. Download and extract the [Psping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) tool to a local folder in the VM that does not activate. 
 
 2. Go to Start, search on Windows PowerShell, right-click Windows PowerShell, and then select Run as administrator.
 
@@ -115,7 +124,7 @@ Yes.
  
 ### What happens if Windows activation period expires? 
  
-When the grace period has expired and Windows is still not activated, Windows Server 2008 R2 and later versions of Windows will show additional notifications about activating. The desktop wallpaper remains black, and Windows Update will install security and critical updates only, but not optional updates. See  the Notifications section at the bottom of the [Licensing Conditions](http://technet.microsoft.com/en-us/library/ff793403.aspx) page.   
+When the grace period has expired and Windows is still not activated, Windows Server 2008 R2 and later versions of Windows will show additional notifications about activating. The desktop wallpaper remains black, and Windows Update will install security and critical updates only, but not optional updates. See  the Notifications section at the bottom of the [Licensing Conditions](http://technet.microsoft.com/library/ff793403.aspx) page.   
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

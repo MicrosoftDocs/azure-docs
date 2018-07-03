@@ -3,8 +3,8 @@ title: 'Azure AD Connect sync: Operational tasks and considerations | Microsoft 
 description: This topic describes operational tasks for Azure AD Connect sync and how to prepare for operating this component.
 services: active-directory
 documentationcenter: ''
-author: AndKjell
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
@@ -14,6 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 
 ---
@@ -30,6 +31,11 @@ Staging mode can be used for several scenarios, including:
 With a server in staging mode, you can make changes to the configuration and preview the changes before you make the server active. It also allows you to run full import and full synchronization to verify that all changes are expected before you make these changes into your production environment.
 
 During installation, you can select the server to be in **staging mode**. This action makes the server active for import and synchronization, but it does not run any exports. A server in staging mode is not running password sync or password writeback, even if you selected these features during installation. When you disable staging mode, the server starts exporting, enables password sync, and enables password writeback.
+
+> [!NOTE]
+> Suppose you have an Azure AD Connect with Password Hash Synchronization feature enabled. When you enable staging mode, the server stops synchronizing password changes from on-premises AD. When you disable staging mode, the server resumes synchronizing password changes from where it last left off. If the server is left in staging mode for an extended period of time, it can take a while for the server to synchronize all password changes that had occurred during the time period.
+>
+>
 
 You can still force an export by using the synchronization service manager.
 
@@ -234,7 +240,7 @@ do 
 	{
 		Write-Host Hit the maximum users processed without completion... -ForegroundColor Yellow
 
-		#export the collection of users as as CSV
+		#export the collection of users as a CSV
 		Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 		$objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 
@@ -257,7 +263,7 @@ do 
 } while ($reader.Read)
 
 #need to write out any users that didn't get picked up in a batch of 1000
-#export the collection of users as as CSV
+#export the collection of users as CSV
 Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 ```

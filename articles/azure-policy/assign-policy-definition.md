@@ -1,108 +1,94 @@
 ---
-title: Create a policy assignment to identify non-compliant resources in your Azure environment | Microsoft Docs
+title: Create a policy assignment to identify non-compliant resources in your Azure environment
 description: This article walks you through the steps to create a policy definition to identify non-compliant resources.
 services: azure-policy
-keywords:
-author: bandersmsft
-ms.author: banders
-ms.date: 11/02/2017
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 05/24/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
+manager: carmonm
 ---
-
 # Create a policy assignment to identify non-compliant resources in your Azure environment
-The first step in understanding compliance in Azure is knowing where you stand with your own current resources. This quickstart steps you through the process of creating a policy assignment to identify virtual machines that are not using managed disks.
 
-At the end of this process, you will have successfully identified virtual machines that are not using managed disks, and are therefore *non-compliant*.
+The first step in understanding compliance in Azure is to identify the status of your resources. This quickstart steps you through the process of creating a policy assignment to identify virtual machines that are not using managed disks.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+At the end of this process, you will successfully identify virtual machines that are not using managed disks. They are *non-compliant* with the policy assignment.
 
-## Opt in to Azure Policy
-
-Azure Policy is now available in Public Preview and you need to register to request access.
-
-1. Go to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
-
-   ![Search for policy](media/assign-policy-definition/sign-up.png)
-
-2. Opt-in to Azure Policy by selecting the subscriptions in the **Subscription** list you would like to work with. Then select **Register**.
-
-   ![Opt-in to use Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Your request is automatically approved for Preview. Please allow up to 30 minutes for the system to process your registration.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Create a policy assignment
 
-In this quickstart, we create a policy assignment and assign the *Audit Virtual Machines without Managed Disks* policy definition.
+In this quickstart, you create a policy assignment and assign the *Audit Virtual Machines without Managed Disks* policy definition.
 
-1. Select **Assignments** on the left pane of the Azure Policy page.
-2. Select **Assign Policy** from the top of the **Assignments** pane.
+1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**.
+
+   ![Search for policy](media/assign-policy-definition/search-policy.png)
+
+2. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that has been assigned to take place within a specific scope.
+3. Select **Assign Policy** from the top of the **Policy - Assignments** page.
 
    ![Assign a policy definition](media/assign-policy-definition/select-assign-policy.png)
 
-3. On the **Assign Policy** page, click ![Policy definition button](media/assign-policy-definition/definitions-button.png) next to **Policy** field to open the list of available definitions.
+4. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting a subscription (required) and resource group (optional). A scope determines what resources or grouping of resources the policy assignment gets enforced on.  Then click **Select** at the bottom of the **Scope** page.
 
-   ![Open available policy definitions](media/assign-policy-definition/open-policy-definitions.png)
+   This example uses the **Contoso Subscription**. Your subscription will differ.
 
-   Azure Policy comes with already built in policy definitions you can use. You see built-in policy definitions such as:
+5. If you wanted to exclude one or more resource groups (if you only scoped a subscription) or specific resources within a resource group (either scoping case), you could configure **Exclusions** from the policy assignment. Leave it blank for now.
+
+6. Select the **Policy definition** ellipsis to open the list of available definitions. Azure Policy comes with already built-in policy definitions you can use. Many built-in policy definitions are available, such as:
 
    - Enforce tag and its value
    - Apply tag and its value
-   - Require SQL Server Version 12.0
+   - Require SQL Server version 12.0
 
-4. Search through your policy definitions to find the *Audit VMs that do not use managed disks* definition. Click on that policy and click **Assign**.
+    For a complete list of all the available built-in polices, see [Policy samples](json-samples.md).
+
+7. Search through the policy definitions list to find the *Audit VMs that do not use managed disks* definition. Click on that policy and click **Select**.
 
    ![Find the correct policy definition](media/assign-policy-definition/select-available-definition.png)
 
-5. Provide a display **Name** for the policy assignment. In this case, let’s use *Audit VMs that do not use managed disks*. You can also add an optional **Description**. The description provides details about how this policy assignment identifies all virtual machines created in this environment that do not use managed disks.
-6. Change the pricing tier to **Standard** to ensure that the policy gets applied to existing resources.
+8. The **Assignment name** is automatically populated with the policy name you selected, but you can change it. For this example, leave *Audit VMs that do not use managed disks*. You can also add an optional **Description**. The description provides details about this policy assignment.
 
-   There are two pricing tiers within Azure Policy – *Free* and *Standard*. With the Free tier, you can only enforce policies on future resources, while with Standard, you can also enforce them on existing resources to better understand your compliance state. Because we are in Limited Preview, we have not yet released a pricing model, so you will not receive a bill for selecting *Standard*. To read more about pricing, look at: [Azure Policy pricing](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
-
-7. Select the **Scope** you would like the policy to be applied to.  A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups.
-8. Select the subscription (or resource group) you previously registered when you opted into Azure Policy. In this example, we are using this subscription - **Azure Analytics Capacity Dev**, but your options will differ.
-
-   ![Find the correct policy definition](media/assign-policy-definition/assign-policy.png)
-
-9. Select **Assign**.
+9. Click **Assign**.
 
 You’re now ready to identify non-compliant resources to understand the compliance state of your environment.
 
 ## Identify non-compliant resources
 
-Select **Compliance** on the left pane, and search for the policy assignment you created.
+Select **Compliance** in the left side of the page and locate the **Audit VMs that do not use managed disks** policy assignment you created.
 
 ![Policy compliance](media/assign-policy-definition/policy-compliance.png)
 
-If there are any existing resources that are not compliant with this new assignment, they will show up under the **Non-compliant resources** tab.
+If there are any existing resources that are not compliant with this new assignment, they appear under **Non-compliant resources**.
 
-If a condition is evaluated across your existing resources and it comes out true for some of them, those resources are marked as non-compliant with the policy. Here’s a table of how the different actions we have available today work with the condition evaluation result and the compliance state of your resources.
+When a condition is evaluated against your existing resources and found true, then those resources are marked as non-compliant with the policy. The following table shows how different policy effects work with the condition evaluation for the resulting compliance state. Although you don’t see the evaluation logic in the Azure portal, the compliance state results are shown. The compliance state result is either compliant or non-compliant.
 
-|Resource  |If Condition in the Policy Evaluates to  |Action in the Policy   |Compliance State  |
-|-----------|---------|---------|---------|
-|Exists     |True     |Deny     |Non-compliant |
-|Exists     |False    |Deny     |Compliant     |
-|Exists     |True     |Append   |Non-compliant |
-|Exists     |False    |Append   |Compliant     |
-|Exists     |True     |Audit    |Non-compliant |
-|Exists     |False    |Audit    |Non-compliant |
+| **Resource State** | **Effect** | **Policy Evaluation** | **Compliance State** |
+| --- | --- | --- | --- |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non-Compliant |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compliant |
+| New | Audit, AuditIfNotExist\* | True | Non-Compliant |
+| New | Audit, AuditIfNotExist\* | False | Compliant |
+
+\* The Append, DeployIfNotExist, and AuditIfNotExist effects require the IF statement to be TRUE. The effects also require the existence condition to be FALSE to be non-compliant. When TRUE, the IF condition triggers evaluation of the existence condition for the related resources.
 
 ## Clean up resources
 
 Other guides in this collection build upon this quickstart. If you plan to continue to work with subsequent tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
-1. Select **Assignments** on the left pane.
-2. Search for the assignment you just created.
+
+1. Select **Compliance** (or **Assignments**) in the left side of the Azure Policy page and locate the **Audit VMs that do not use managed disks** policy assignment you created.
+
+2. Right-click the **Audit VMs that do not use managed disks** policy assignment and select **Delete assignment**
 
    ![Delete an assignment](media/assign-policy-definition/delete-assignment.png)
 
-3.	Select **Delete Assignment**.
-
 ## Next steps
 
-In this quickstart, you assigned a policy definition to a scope to ensure that all the resources in that scope are compliant and to identify which ones aren’t.
+In this quickstart, you assigned a policy definition to a scope and evaluated its compliance report. The policy definition ensures that all the resources in the scope are compliant and identifies which ones aren’t.
 
 To learn more about assigning policies to ensure that **future** resources that get created are compliant, continue to the tutorial for:
 
 > [!div class="nextstepaction"]
-> [Creating and managing policies](./create-manage-policy.md)
+> [Creating and managing policies](create-manage-policy.md)

@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: b7ceca0d-5c9d-45c4-942c-b3a9b6bad36c
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -38,7 +39,7 @@ The following instructions are applicable to Samsung GS3 and above phones or Not
 4. On Activate device administrator screen, click **Activate**.
 5. On the Privacy Policy screen, select the checkbox and click **Confirm**.
 6. On the Workplace Join screen, enter the userID provided by your organization and click **Join**.
-7. To sign in to the Azure Authenticator app, enter your organizational a****ccount and password and click **Sign in**.
+7. To sign in to the Azure Authenticator app, enter your organizational account and password and click **Sign in**.
 8. The next screen that displays information about multi-factor authentication (MFA) is for added security and is optional. You will see this screen if your work or school requires second-factor authentication for creating work account. It provides instructions to further verify your account.
 9. The Workplace Join screen displays the message, “**Joining your workplace**”. The Azure authenticator app is attempting to join your device to your workplace.
 10. You should see the Workplace Joined message on the next screen.

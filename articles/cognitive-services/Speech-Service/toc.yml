@@ -1,0 +1,117 @@
+- name: Speech Service API Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is the Speech service?
+    href: overview.md
+    expanded: true
+  - name: Speech Scenarios
+    href: speech-scenarios.md
+- name: Quickstarts
+  items:
+  - name: Try the Speech service for free # OK
+    href: get-started.md
+  - name: Recognize speech in C#
+    href: quickstart-csharp-windows.md
+  - name: Recognize speech in C++ for Windows
+    href: quickstart-cpp-windows.md
+  - name: Recognize speech in C++ for Linux
+    href: quickstart-cpp-linux.md
+  - name: Get started with Speech Devices SDK
+    href: speech-devices-sdk-qsg.md
+- name: How-to guides
+  items:
+  - name: Recognize speech
+    href: how-to-speech-to-text.md
+  - name: Synthesize speech
+    href: how-to-text-to-speech.md
+  - name: Translate speech
+    href: how-to-translate-speech.md
+  - name: Batch transcription
+    href: batch-transcription.md
+  - name: Get the Speech Devices SDK
+    href: get-speech-devices-sdk.md
+- name: Customization
+  items:
+  - name: Customize acoustic models
+    href: how-to-customize-acoustic-models.md
+  - name: Customize language models
+    href: how-to-customize-language-model.md
+  - name: Customize pronunciation
+    href: how-to-customize-pronunciation.md
+  - name: Customize Voice Fonts (Bot Brand Voice)
+    href: how-to-customize-voice-font.md
+  - name: Prepare transcripts
+    href: prepare-transcription.md
+  - name: Use custom audio streams
+    href: how-to-use-audio-input-streams.md
+  - name: Customize device wake word (Devices SDK)
+    href: speech-devices-sdk-create-kws.md
+- name: Samples
+  items:
+  - name: Download samples
+    href: samples.md
+  - name: Speech Recognition
+    href: speech-to-text-sample.md
+  - name: Intent Recognition
+    href: intent.md
+  - name: Translation
+    href: translation.md
+- name: Concepts
+  items:
+  - name: Speech to Text
+    href: speech-to-text.md
+  - name: Text to Speech
+    href: text-to-speech.md
+  - name: Speech Translation
+    href: speech-translation.md
+  - name: Speech SDK
+    href: speech-sdk.md
+  - name: Speech Devices SDK
+    href: speech-devices-sdk.md
+- name: Reference
+  items:
+  - name: Supported languages
+    href: supported-languages.md
+  - name: Regions
+    href: regions.md
+  - name: REST APIs
+    href: rest-apis.md
+#  - name: WebSockets protocols
+#    href: websockets.md
+  - name: Speech SDK API
+    href: speech-sdk-reference.md
+  - name: Speech synthesis markup
+    href: speech-synthesis-markup.md
+- name: Resources
+  items:
+  - name: FAQ
+    items:
+    - name: Speech to Text FAQ
+      href: faq-stt.md
+    - name: Text To Speech FAQ
+      href: faq-text-to-speech.md
+    - name: Translator FAQ
+      href: https://www.microsoft.com/en-us/translator/faq.aspx
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/912208-speech-service
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: Privacy & cookies
+    href: https://privacy.microsoft.com/privacystatement
+  - name: Troubleshooting
+    href: troubleshooting.md
+  - name: Shipping your application
+    href: ship-application.md
+  - name: Release notes
+    href: releasenotes.md
+  - name: Speech SDK License
+    href: license.md
+  - name: Speech Devices SDK License
+    href: speech-devices-sdk-license.md
+  - name: Third party notices
+    href: third-party-notices.md

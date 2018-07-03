@@ -1,22 +1,15 @@
 ---
 title: Azure IoT Hub migrate to diagnostics settings | Microsoft Docs
 description: How to update Azure IoT Hub to use Azure diagnostics settings instead of operations monitoring to monitor the status of operations on your IoT hub in real time.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: kgremban
-
 ---
+
 # Migrate your IoT Hub from operations monitoring to diagnostics settings
 
 Customers using [operations monitoring][lnk-opsmon] to track the status of operations in IoT Hub can migrate that workflow to [Azure diagnostics settings][lnk-diagnostics-settings], a feature of Azure Monitor. Diagnostics settings supply resource-level diagnostic information for many Azure services.
@@ -58,5 +51,5 @@ For the specific schema structures, see [Understand the schema for diagnostics s
 [lnk-opsmon]: iot-hub-operations-monitoring.md
 [lnk-diagnostics-settings]: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md
 [lnk-diagnostics-schema]: iot-hub-monitor-resource-health.md#understand-the-logs
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/
 [lnk-monitor]: iot-hub-monitor-resource-health.md

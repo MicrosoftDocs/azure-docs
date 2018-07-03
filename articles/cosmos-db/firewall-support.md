@@ -3,32 +3,72 @@ title: Azure Cosmos DB firewall support & IP access control | Microsoft Docs
 description: Learn how to use IP access control policies for firewall support on Azure Cosmos DB database accounts.
 keywords: IP access control, firewall support
 services: cosmos-db
-author: shahankur11
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
-documentationcenter: ''
 
-ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2017
-ms.author: ankshah
+ms.topic: conceptual
+ms.date: 03/30/2018
+ms.author: sngun
 
 ---
 # Azure Cosmos DB firewall support
 To secure data stored in an Azure Cosmos DB database account, Azure Cosmos DB has provided support for a secret based [authorization model](https://msdn.microsoft.com/library/azure/dn783368.aspx) that utilizes a strong Hash-based message authentication code (HMAC). Now, in addition to the secret based authorization model, Azure Cosmos DB supports policy driven IP-based access controls for inbound firewall support. This model is  similar to the firewall rules of a traditional database system and provides an additional level of security to the Azure Cosmos DB database account. With this model, you can now configure an Azure Cosmos DB database account to be accessible only from an approved set of machines and/or cloud services. Access to Azure Cosmos DB resources from these approved sets of machines and services still require the caller to present a valid authorization token.
 
+> [!NOTE]
+> Currently firewall support is available for Azure Cosmos DB SQL API and Mongo API accounts. Ability to configure firewalls for other  APIs and sovereign clouds such as Azure Germany or Azure Government will be available soon. If you are planning to configure service endpoint ACL for your Azure Cosmos DB account that has an existing IP firewall configured, please note the firewall configuration, remove the IP firewall and then configure the service endpoint ACL. After you configure service endpoint, you can re-enable the IP firewall if needed.
+
 ## IP access control overview
-By default, an Azure Cosmos DB database account is accessible from public internet as long as the request is accompanied by a valid authorization token. To configure IP policy-based access control, the user must provide the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. Once this configuration is applied, all requests originating from machines outside this allowed list will be blocked by the server.  The connection processing flow for the IP-based access control is described in the following diagram:
+By default, an Azure Cosmos DB database account is accessible from public internet as long as the request is accompanied by a valid authorization token. To configure IP policy-based access control, the user must provide the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. Once this configuration is applied, all requests originating from machines outside this allowed list are blocked by the server.  The connection processing flow for the IP-based access control is described in the following diagram:
 
 ![Diagram showing the connection process for IP-based access control](./media/firewall-support/firewall-support-flow.png)
 
+## <a id="configure-ip-policy"></a> Configuring the IP access control policy
+The IP access control policy can be set in the Azure portal, or programmatically through [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md), or the [REST API](/rest/api/cosmos-db/) by updating the **ipRangeFilter** property. 
+
+To set the IP access control policy in the Azure portal, navigate to the Azure Cosmos DB account page, click **Firewall and virtual networks** in the navigation menu, then change the **Allow access from** value to **Selected networks**, and then click **Save**. 
+
+![Screenshot showing how to open the Firewall page in the Azure portal](./media/firewall-support/azure-portal-firewall.png)
+
+Once IP access control is on, the portal provides the ability to specify IP addresses and ranges, as well as switches to enable access to other Azure services, and the Azure portal. Additional information about those switches is provided in the following sections.
+
+> [!NOTE]
+> By enabling an IP access control policy for your Azure Cosmos DB database account, all access to your Azure Cosmos DB database account from machines outside the configured allowed list of IP address ranges are blocked. By virtue of this model, browsing the data plane operation from the portal will also be blocked to ensure the integrity of access control.
+
+## Connections from the Azure portal 
+
+When you enable an IP access control policy programmatically, you need to add the IP address for the Azure portal to the **ipRangeFilter** property to maintain access. The portal IP addresses are:
+
+|Region|IP address|
+|------|----------|
+|All regions except those specified below|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
+|Germany|51.4.229.218|
+|China|139.217.8.252|
+|US Gov|52.244.48.71|
+
+Access to the Azure portal is enabled by default when you change the Firewall setting to **Selected Networks** in the Azure portal. 
+
+![Screenshot showing how to enable Azure portal access](./media/firewall-support/enable-azure-portal.png)
+
+## Connections from Global Azure datacenters or Azure PaaS services
+In Azure, PaaS services like Azure Stream analytics, Azure Functions, and Azure App Service are used in conjunction with Azure Cosmos DB. To enable access to  Azure Cosmos DB database account from these services whose IP addresses are not readily available add the IP address of 0.0.0.0 to the allowed list of IP addresses associated with your Azure Cosmos DB database account programmatically. 
+
+Access to the connections from within global Azure datacenters is enabled by default when you change the Firewall setting to **Selected Networks** in the Azure portal. 
+
+![Screenshot showing how to open the Firewall page in the Azure portal](./media/firewall-support/enable-azure-services.png)
+
+## Connections from your current IP
+
+To simplify development, the Azure portal helps you identify and add the IP of your client machine to the allowed list, so that apps running your machine can access the Azure Cosmos DB account. The client IP address here is detected as seen by the portal. It may be the client IP address of your machine, but it could also be the IP address of your network gateway. Do not forget to remove it before going to production.
+
+To enable your current IP, select **Add my current IP**, which adds your current IP to the list of IPs, and then click **Save**.
+
+![Screenshot showing a how to configure firewall settings for current IP](./media/firewall-support/enable-current-ip.png)
+
 ## Connections from cloud services
-In Azure, cloud services are a common way for hosting middle tier service logic using Azure Cosmos DB. To enable access to an Azure Cosmos DB database account from a cloud service, the public IP address of the cloud service must be added to the allowed list of IP addresses associated with your Azure Cosmos DB database account by [configuring the IP access control policy](#configure-ip-policy).  This ensures that all role instances of cloud services have access to your Azure Cosmos DB database account. You can retrieve IP addresses for your cloud services in the Azure portal, as shown in the following screenshot:
+In Azure, cloud services are a common way for hosting middle tier service logic using Azure Cosmos DB. To enable access to an Azure Cosmos DB database account from a cloud service, the public IP address of the cloud service must be added to the allowed list of IP addresses associated with your Azure Cosmos DB database account by [configuring the IP access control policy](#configure-ip-policy). This ensures that all role instances of cloud services have access to your Azure Cosmos DB database account. You can retrieve IP addresses for your cloud services in the Azure portal, as shown in the following screenshot:
 
 ![Screenshot showing the public IP address for a cloud service displayed in the Azure portal](./media/firewall-support/public-ip-addresses.png)
 
@@ -44,44 +84,32 @@ When you add additional virtual machine instances to the group, they are automat
 ## Connections from the internet
 When you access an Azure Cosmos DB database account from a computer on the internet, the client IP address or IP address range of the machine must be added to the allowed list of IP address for the Azure Cosmos DB database account. 
 
-## Connections from Azure PaaS service 
-In Azure, PaaS services like Azure Stream analytics, Azure Functions are used in conjunction with Azure Cosmos DB. To enable access to  Azure Cosmos DB database account from these kind of services whose IP address is not readily available, the  IP address of 0.0.0.0 must be added to the allowed list of IP addresses associated with your Azure Cosmos DB database account by [configuring the IP access control policy](#configure-ip-policy).  This ensures that Azure PaaS services can access a Azure Cosmos DB account, which has this rule. 
+## Using Azure Resource Manager Template to set up the IP access control
 
- ## <a id="configure-ip-policy"></a> Configuring the IP access control policy
-The IP access control policy can be set in the Azure portal, or programmatically through [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md), or the [REST API](/rest/api/documentdb/) by updating the `ipRangeFilter` property. IP addresses/ranges must be comma separated and must not contain any spaces. Example: "13.91.6.132,13.91.6.1/24". When updating your database account through these methods, be sure to populate all of the properties to prevent resetting to default settings.
+Add the following JSON to your template to set up IP access control. Resource Manager template for an account will have ipRangeFilter attribute that is list of IP ranges, which should be whitelisted.
 
-> [!NOTE]
-> By enabling an IP access control policy for your Azure Cosmos DB database account, all access to your Azure Cosmos DB database account from machines outside the configured allowed list of IP address ranges are blocked. By virtue of this model, browsing the data plane operation from the portal will also be blocked to ensure the integrity of access control.
-
-To simplify development, the Azure portal helps you identify and add the IP of your client machine to the allowed list, so that apps running your machine can access the Azure Cosmos DB account. The client IP address here is detected as seen by the portal. It may be the client IP address of your machine, but it could also be the IP address of your network gateway. Do not forget to remove it before going to production.
-
-To set the IP access control policy in the Azure portal, navigate to the Azure Cosmos DB account blade, click **Firewall** in the navigation menu, then click **ON** 
-
-![Screenshot showing how to open the Firewall blade in the Azure portal](./media/firewall-support/azure-portal-firewall.png)
-
-In the new pane, specify whether the Azure portal can access the account, and add other addresses and ranges as appropriate, then click **Save**.  
-
-> [!NOTE]
-> When you enable an IP access control policy, you need to add the IP address for the Azure portal to maintain access. The portal IP addresses are:
-> |Region|IP address|
-> |------|----------|
-> |All regions except those specified below|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
-> |Germany|51.4.229.218|
-> |China|139.217.8.252|
-> |US Gov|52.244.48.71|
->
-
-![Screenshot showing a how to configure firewall settings in the Azure portal](./media/firewall-support/azure-portal-firewall-configure.png)
+```json
+   {
+     "apiVersion": "2015-04-08",
+     "type": "Microsoft.DocumentDB/databaseAccounts",
+     "kind": "GlobalDocumentDB",
+     "name": "[parameters('databaseAccountName')]",
+     "location": "[resourceGroup().location]",
+     "properties": {
+     "databaseAccountOfferType": "Standard",
+     "name": "[parameters('databaseAccountName')]",
+     "ipRangeFilter":"10.0.0.1,10.0.0.2,183.240.196.255"
+   }
+   }
+```
 
 ## Troubleshooting the IP access control policy
 ### Portal operations
-By enabling an IP access control policy for your Azure Cosmos DB database account, all access to your Azure Cosmos DB database account from machines outside the configured allowed list of IP address ranges are blocked. Therefore if you want to enable portal data plane operations like browsing collections and query documents, you need to explicitly allow Azure portal access using the **Firewall** blade in the portal. 
-
-![Screenshot showing a how to enable access to the Azure portal](./media/firewall-support/azure-portal-access-firewall.png)
+By enabling an IP access control policy for your Azure Cosmos DB database account, all access to your Azure Cosmos DB database account from machines outside the configured allowed list of IP address ranges are blocked. Therefore if you want to enable portal data plane operations like browsing collections and query documents, you need to explicitly allow Azure portal access using the **Firewall** page in the portal. 
 
 ### SDK & Rest API
 For security reasons, access via SDK or REST API from machines not on the allowed list will return a generic 404 Not Found response with no additional details. Verify the IP allowed list configured for your Azure Cosmos DB database account to ensure the correct policy configuration is applied to your Azure Cosmos DB database account.
 
 ## Next steps
-For information about network related performance tips, see [Performance tips](performance-tips.md).
+For information about network-related performance tips, see [Performance tips](performance-tips.md).
 

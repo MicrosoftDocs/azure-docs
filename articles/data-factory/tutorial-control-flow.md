@@ -4,26 +4,18 @@ description: 'Learn how to control flow of data in Azure Data Factory by branchi
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shlo
 ---
 # Branching and chaining activities in a Data Factory pipeline
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### This tutorial
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, you want to send details of the successful copy operation (such as the amount of data written) in a success email. If the copy activity fails, you want to send details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
 
 A high-level overview of the scenario:
@@ -98,7 +90,7 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-2. Add these static variables to the **Program class**. Replace place-holders with your own values. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+2. Add these static variables to the **Program class**. Replace place-holders with your own values. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
     ```csharp
         // Set variables
@@ -294,7 +286,7 @@ In your C# project, create a class named **EmailRequest**. This defines what pro
     }
 ```
 ## Create email workflow endpoints
-To trigger sending an email, you use [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) to define the workflow. For details on creating a Logic App workflow, see [How to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). 
+To trigger sending an email, you use [Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Logic App workflow, see [How to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### Success email workflow 
 Create a Logic App workflow named `CopySuccessEmail`. Define the workflow trigger as `When an HTTP request is received`, and add an action of `Office 365 Outlook – Send an email`.
@@ -454,7 +446,7 @@ The first section of our pipeline defines parameters.
 
 - sourceBlobContainer - parameter in the pipeline consumed by the source blob dataset.
 - sinkBlobContainer – parameter in the pipeline consumed by the sink blob dataset
-- receiver – parameter in the pipeline consumed by the two web activities on which email address receives the email
+- receiver – this parameter is used by the two Web activities in the pipeline that send success or failure emails to the receiver whose email address is specified by this parameter.
 
 
 ```csharp
@@ -490,7 +482,7 @@ In the “Url” property, paste the Request URL endpoints from your Logic Apps 
 - Message – Passing value of `@{activity('CopyBlobtoBlob').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of dataWritten. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
 - Data Factory Name – Passing value of `@{pipeline().DataFactory}` This is a system variable, allowing you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
 - Pipeline Name – Passing value of `@{pipeline().Pipeline}`. This is also a system variable, allowing you to access the corresponding pipeline name. 
-- Receiver – Passing value of "@pipeline().parameters.receiver"). Accessing the pipeline parameters.
+- Receiver – Passing value of "\@pipeline().parameters.receiver"). Accessing the pipeline parameters.
  
 This code creates a new Activity Dependency, depending on the previous copy activity that it succeeds.
 

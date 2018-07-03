@@ -2,21 +2,13 @@
 title: Back up and restore encrypted VMs by using Azure Backup
 description: This article talks about the backup and restore experience for VMs encrypted by using Azure Disk Encryption.
 services: backup
-documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: ''
-
-ms.assetid: 8387f186-7d7b-400a-8fc3-88a85403ea63
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 10/13/2017
-ms.author: pajosh;markgal;trinadhk
+ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-
 ---
 # Back up and restore encrypted virtual machines with Azure Backup
 This article talks about the steps to back up and restore virtual machines (VMs) by using Azure Backup. It also provides details about supported scenarios, prerequisites, and troubleshooting steps for error cases.
@@ -39,13 +31,13 @@ This article talks about the steps to back up and restore virtual machines (VMs)
 
 * A Recovery Services vault was created and storage replication was set by following the steps in [Prepare your environment for backup](backup-azure-arm-vms-prepare.md).
 
-* Backup was given [permissions to access a key vault](#provide-permissions-to-azure-backup) containing keys and secrets for encrypted VMs.
+* Backup was given [permissions to access a key vault](#provide-permissions-to-backup) containing keys and secrets for encrypted VMs.
 
 ## Backup-encrypted VM
 Use the following steps to set a backup goal, define a policy, configure items, and trigger a backup.
 
 ### Configure backup
-1. If you already have a Recovery Services vault open, proceed to the next step. If you don't have a Recovery Services vault open but you're in the Azure portal, on the **Hub** menu, select **Browse**.
+1. If you already have a Recovery Services vault open, proceed to the next step. If you don't have a Recovery Services vault open but you're in the Azure portal, select **All services**.
 
    a. In the list of resources, type **Recovery Services**.
 
@@ -74,11 +66,17 @@ Use the following steps to set a backup goal, define a policy, configure items, 
 6. Choose the encrypted VMs to associate with the specified policy, and select **OK**.
 
       ![Select encrypted VMs](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
-7. This page shows a message about key vaults associated to the encrypted VMs you selected. Backup requires read-only access to the keys and secrets in the key vault. It uses these permissions to back up the keys and secrets, along with the associated VMs. *You must provide permissions to the backup service to access the key vault for backups to work*. You can provide these permissions by following the [steps mentioned in the following section](#provide-permissions-to-azure-backup).
+7. This page shows a message about key vaults associated to the encrypted VMs you selected. Backup requires read-only access to the keys and secrets in the key vault. It uses these permissions to back up the keys and secrets, along with the associated VMs.<br>
+If you are a **Member user**, Enable Backup process will seamlessly acquire access to the key vault to backup encrypted VMs without requiring any user intervention.
 
-      ![Encrypted VMs message](./media/backup-azure-vms-encryption/encrypted-vm-warning-message.png)
+   ![Encrypted VMs message](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-      Now that you have defined all settings for the vault, select **Enable Backup** at the bottom of the page. **Enable Backup** deploys the policy to the vault and the VMs.
+   For a **Guest user**, you must provide permissions to the backup service to access the key vault for backups to work. You can      provide these permissions by following the [steps mentioned in the following section](#provide-permissions-to-backup)
+
+   ![Encrypted VMs message](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
+ 
+    Now that you have defined all settings for the vault, select **Enable Backup** at the bottom of the page. **Enable Backup** deploys     the policy to the vault and the VMs.
+  
 8. The next phase in preparation is installing the VM Agent or making sure the VM Agent is installed. To do the same, follow the steps in [Prepare your environment for backup](backup-azure-arm-vms-prepare.md).
 
 ### Trigger a backup job
@@ -89,7 +87,7 @@ If you have VMs already being backed up in a Recovery Services vault that are en
 
 ## Provide permissions to Backup
 Use the following steps to provide relevant permissions to Backup to access the key vault and perform backup of encrypted VMs.
-1. Select **More services**, and search for **Key vaults**.
+1. Select **All services**, and search for **Key vaults**.
 
     ![Key vaults](./media/backup-azure-vms-encryption/search-key-vault.png)
     

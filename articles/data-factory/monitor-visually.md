@@ -4,15 +4,15 @@ description: Learn how to visually monitor Azure Data factories
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2017
+ms.topic: conceptual
+ms.date: 02/06/2018
 ms.author: shlo
 
 ---
@@ -21,13 +21,11 @@ Azure Data Factory is a cloud-based data integration service that allows you to 
 In this quick start, you will learn how to visually monitor data factory v2 pipelines without writing a single line of code.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Monitor and manage pipelines in Data Factory version1](v1/data-factory-monitor-manage-app.md).
-
 ## Monitor data factory v2 pipelines
 
-1. Log in to the  [Azure portal](https://portal.azure.com/).
-2. Navigate to the created data factory blade in Azure portal and click the 'Monitor & Manage' tile. This will launch the ADF v2 visual monitoring experience.
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+2. Log in to the  [Azure portal](https://portal.azure.com/).
+3. Navigate to the created data factory blade in Azure portal and click the 'Monitor & Manage' tile. This will launch the ADF v2 visual monitoring experience.
 
 ## List-View Monitoring
 
@@ -111,4 +109,4 @@ Click on the 'Feedback' icon to give us feedback on various features or any issu
 
 ## Next steps
 
-See  [Monitor and manage pipelines programmatically](https://docs.microsoft.com/en-us/azure/data-factory/monitor-programmatically) article to learn about monitoring and managing pipelines
+See  [Monitor and manage pipelines programmatically](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) article to learn about monitoring and managing pipelines

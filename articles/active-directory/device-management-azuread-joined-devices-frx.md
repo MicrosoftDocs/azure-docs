@@ -4,16 +4,17 @@ description: A topic that explains how users can set up Azure AD Join during the
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -34,6 +35,8 @@ In the Windows *out-of-box experience*, joining an on-premises Active Directory 
 ## Before you begin
 
 To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more details, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
+
+In addition, if your tenant is federated, your Identity provider MUST support WS-Fed and WS-Trust username/password endpoint. This can be version 1.3 or 2005. This protocol support is required to both join the device to Azure AD and log on to the device with a password.
 
 ## Joining a device
 

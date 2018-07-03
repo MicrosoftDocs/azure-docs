@@ -10,11 +10,9 @@ tags: azure-portal
 
 ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/02/2017
+ms.topic: conceptual
+ms.date: 06/26/2018
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -30,7 +28,7 @@ Learn how to use Apache Hive to process Twitter data. The result is a list of Tw
 
 ## Get the data
 
-Twitter allows you to retrieve the [data for each tweet](https://dev.twitter.com/docs/platform-objects/tweets) as a JavaScript Object Notation (JSON) document through a REST API. [OAuth](http://oauth.net) is required for authentication to the API.
+Twitter allows you to retrieve the data for each tweet as a JavaScript Object Notation (JSON) document through a REST API. [OAuth](http://oauth.net) is required for authentication to the API.
 
 ### Create a Twitter application
 
@@ -176,9 +174,9 @@ The following Python code downloads 10,000 tweets from Twitter and save them to 
 
 To upload the data to HDInsight storage, use the following commands:
 
-   ```bash
-   hdfs dfs -mkdir -p /tutorials/twitter/data
-   hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
+```bash
+hdfs dfs -mkdir -p /tutorials/twitter/data
+hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 ```
 
 These commands store the data in a location that all nodes in the cluster can access.
@@ -335,5 +333,4 @@ You have learned how to transform an unstructured JSON dataset into a structured
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
-[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter

@@ -12,9 +12,7 @@ ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 11/13/2017
+ms.date: 01/18/2018
 ms.author: maroche
 
 ---
@@ -96,7 +94,7 @@ As of January 2017, the following capabilities have been added to Azure Data Cat
 
 ## What's new for December 2016
 As of December 2016, the following capabilities have been added to Azure Data Catalog:
-*	Azure Data Catalog is now [HIPAA](https://www.microsoft.com/trustcenter/Compliance/HIPAA) and [EU Model Clauses](https://www.microsoft.com/TrustCenter/Compliance/EU-Model-Clauses) compliant.
+*	Azure Data Catalog is now [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) and [EU Model Clauses](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) compliant.
 *	Support for editing data source connection information. Data asset owners and Data Catalog administrators can now edit the connection information for registered data sources without needing to re-register the data sources.
 *	Support for Salesforce.com data sources. Users can now register and discover Salesforce objects.
 

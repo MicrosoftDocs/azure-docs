@@ -3,8 +3,8 @@ title: DNS Zones and Records overview - Azure DNS | Microsoft Docs
 description: Overview of support for hosting DNS zones and records in Microsoft Azure DNS.
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
+author: KumudD
+manager: jeconnoc
 editor: ''
 
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
-ms.author: jonatul
+ms.date: 12/18/2017
+ms.author: kumud
 ---
 
 # Overview of DNS zones and records
@@ -66,13 +66,13 @@ CAA records allow domain owners to specify which Certificate Authorities (CAs) a
 
 CNAME record sets cannot coexist with other record sets with the same name. For example, you cannot create a CNAME record set with the relative name 'www' and an A record with the relative name 'www' at the same time.
 
-Because the zone apex (name = '@') always contains the NS and SOA record sets that were created when the zone was created, you can't create a CNAME record set at the zone apex.
+Because the zone apex (name = '\@') always contains the NS and SOA record sets that were created when the zone was created, you can't create a CNAME record set at the zone apex.
 
 These constraints arise from the DNS standards and are not limitations of Azure DNS.
 
 ### NS records
 
-The NS record set at the zone apex (name '@') is created automatically with each DNS zone, and is deleted automatically when the zone is deleted (it cannot be deleted separately).
+The NS record set at the zone apex (name '\@') is created automatically with each DNS zone, and is deleted automatically when the zone is deleted (it cannot be deleted separately).
 
 This record set contains the names of the Azure DNS name servers assigned to the zone. You can add additional name servers to this NS record set, to support co-hosting domains with more than one DNS provider. You can also modify the TTL and metadata for this record set. However, you cannot remove or modify the pre-populated Azure DNS name servers. 
 
@@ -80,7 +80,7 @@ Note that this applies only to the NS record set at the zone apex. Other NS reco
 
 ### SOA records
 
-A SOA record set is created automatically at the apex of each zone (name = '@'), and is deleted automatically when the zone is deleted.  SOA records cannot be created or deleted separately.
+A SOA record set is created automatically at the apex of each zone (name = '\@'), and is deleted automatically when the zone is deleted.  SOA records cannot be created or deleted separately.
 
 You can modify all properties of the SOA record except for the 'host' property, which is pre-configured to refer to the primary name server name provided by Azure DNS.
 
@@ -92,7 +92,7 @@ You can modify all properties of the SOA record except for the 'host' property, 
 
 [SRV records](https://en.wikipedia.org/wiki/SRV_record) are used by various services to specify server locations. When specifying an SRV record in Azure DNS:
 
-* The *service* and *protocol* must be specified as part of the record set name, prefixed with underscores.  For example, '\_sip.\_tcp.name'.  For a record at the zone apex, there is no need to specify '@' in the record name, simply use the service and protocol, for example '\_sip.\_tcp'.
+* The *service* and *protocol* must be specified as part of the record set name, prefixed with underscores.  For example, '\_sip.\_tcp.name'.  For a record at the zone apex, there is no need to specify '\@' in the record name, simply use the service and protocol, for example '\_sip.\_tcp'.
 * The *priority*, *weight*, *port*, and *target* are specified as parameters of each record in the record set.
 
 ### TXT records

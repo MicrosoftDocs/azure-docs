@@ -3,8 +3,8 @@ title: Viewing and Modifying Hostnames | Microsoft Docs
 description: How to view and change hostnames for Azure virtual machines, web and worker roles for name resolution
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genlin
+manager: cshepard
 editor: tysonn
 
 ms.assetid: c668cd8e-4e43-4d05-acc3-db64fa78d828
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2016
-ms.author: jdial
+ms.date: 05/24/2018
+ms.author: genli
 
 ---
 # Viewing and modifying hostnames
@@ -22,11 +22,6 @@ To allow your role instances to be referenced by host name, you must set the val
 
 ## Viewing hostnames
 You can view the host names of virtual machines and role instances in a cloud service by using any of the tools below.
-
-### Azure Portal
-You can use the [Azure portal](http://portal.azure.com) to view the host names for virtual machines on the overview blade for a virtual machine. Keep in mind that the blade shows a value for **Name** and **Host Name**. Although they are initially the same, changing the host name will not change the name of the virtual machine or role instance.
-
-Role instances can also be viewed in the Azure portal, but when you list the instances in a cloud service, the host name is not displayed. You will see a name for each instance, but that name does not represent the host name.
 
 ### Service configuration file
 You can download the service configuration file for a deployed service from the **Configure** blade of the service in the Azure portal. You can then look for the **vmName** attribute for the **Role name** element to see the host name. Keep in mind that this host name is used as a base for the host name of each role instance. For example, if **vmName** is *webrole* and there are three instances of that role, the host names of the instances will be *webrole0*, *webrole1*, and *webrole2*.

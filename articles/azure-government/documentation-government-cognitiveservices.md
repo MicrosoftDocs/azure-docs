@@ -36,6 +36,7 @@ In order to access any of the Cognitive Services APIs, you must first provision 
 > 
 
 1. Make sure that you have the **Cognitive Services resource provider registered on your account**. 
+
 You can do this by **running the following PowerShell command:**
 
    ```PowerShell

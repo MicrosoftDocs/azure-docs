@@ -4,18 +4,16 @@ description: Troubleshooting tips for dynamic membership for groups in Azure AD.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
-ms.assetid: 89bb04b6-a379-49c2-8465-fe386641816a
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
-ms.reviewer: piotrci
+ms.reviewer: krbain
 ms.custom: it-pro
 
 ---
@@ -29,7 +27,7 @@ ms.custom: it-pro
 ### Next steps
 These articles provide additional information on Azure Active Directory.
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Managing access to resources with Azure Active Directory groups](fundamentals/active-directory-manage-groups.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [What is Azure Active Directory?](active-directory-whatis.md)
+* [What is Azure Active Directory?](fundamentals/active-directory-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

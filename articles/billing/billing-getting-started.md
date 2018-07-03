@@ -1,5 +1,5 @@
----
-title: Prevent unexpected costs, manage billing - Azure | Microsoft Docs
+﻿---
+title: Prevent unexpected costs, manage billing in Azure | Microsoft Docs
 description: Learn how to avoid unexpected charges on your Azure bill. Use cost-tracking and management features for a Microsoft Azure subscription.
 services: ''
 documentationcenter: ''
@@ -11,10 +11,10 @@ tags: billing
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/24/2018
 ms.author: tonguyen
 ---
 # Prevent unexpected charges with Azure billing and cost management
@@ -24,6 +24,8 @@ When you sign up for Azure, there are several things you can do to get a better 
 - If your subscription is an Enterprise Agreement (EA), the public preview for seeing your costs in the Azure portal is available. If your subscription is through Cloud Solution Provider (CSP), or Azure Sponsorship, then some of the following features may not apply to you. See [Additional resources for EA, CSP, and Sponsorship](#other-offers) for more info.
 
 - If your subscription is a Free Trial, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO), or BizSpark, your subscription is automatically disabled when all your credits are used. Learn about [spending limits](#spending-limit) to avoid having your subscription unexpectantly disabled.
+
+- If you have signed up for [Azure free account](https://azure.microsoft.com/free/), [you can use some of the most popular Azure services for free for 12 months](billing-create-free-services-included-free-account.md). Along with the recommendations listed below, see [Avoid getting charged for free account](billing-avoid-charges-free-account.md).
 
 ## Get estimated costs before adding Azure services
 
@@ -143,7 +145,7 @@ Talk to your account manager or Azure partner to get started.
 | Cloud Solution Provider (CSP) | Talk to your provider |
 | Azure Sponsorship | [Sponsorship portal](https://www.microsoftazuresponsorships.com/) |
 
-If you're managing IT for a large organization, we recommend reading [Azure enterprise scaffold](../azure-resource-manager/resource-manager-subscription-governance.md) and the [enterprise IT white paper](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf download, English only).
+If you're managing IT for a large organization, we recommend reading [Azure enterprise scaffold](/azure/architecture/cloud-adoption-guide/subscription-governance) and the [enterprise IT white paper](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf download, English only).
 
 #### <a name="EA"></a> Preview Enterprise Agreement cost views within Azure Portal 
 
@@ -151,6 +153,7 @@ Enterprise cost views are currently in Public Preview. Items to note:
 - Subscription costs are based on usage and do not account for prepaid amounts, overages, included quantities, adjustments, and taxes. Actual charges are computed at the Enrollment level. 
 - Amounts displayed within the Azure portal might be delayed compared to values in the Enterprise portal.  
 - If you are not seeing costs, it might be due to one of the following reasons:
+    - You don't have enough RBAC permission at the subscription level. To see enterprise cost views, you must be a Billing Reader, Reader, Contributor, or Owner at the subscription level.
     - You are an Account Owner and your Enrollment Administrator has disabled the "AO view charges" setting.  Contact your Enrollment Administrator to get access to costs. 
     - You are a Department Administrator and your Enrollment Administrator has disabled the "DA view charges" setting.  Contact your Enrollment Administrator to gain access. 
     - You purchased Azure through a channel partner, and the partner has not released pricing information.  
@@ -165,7 +168,7 @@ To see if you're the Account admin, go to the [Subscriptions blade in the Azure 
 
 ![Screenshot of your role in the Subscriptions view in the Azure portal](./media/billing-getting-started/sub-blade-view.PNG)
 
-If you're not the Account admin, then somebody probably gave you partial access via [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md) (RBAC). To manage subscriptions and change billing info, [find the Account admin](billing-subscription-transfer.md#whoisaa) and ask them to perform the tasks or [transfer the subscription to you](billing-subscription-transfer.md).
+If you're not the Account admin, then somebody probably gave you partial access via [Azure Active Directory Role-based Access Control](../role-based-access-control/role-assignments-portal.md) (RBAC). To manage subscriptions and change billing info, [find the Account admin](billing-subscription-transfer.md#whoisaa) and ask them to perform the tasks or [transfer the subscription to you](billing-subscription-transfer.md).
 
 If your Account admin is no longer with your organization and you need to manage billing, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 ## Need help? Contact support

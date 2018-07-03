@@ -4,7 +4,7 @@ description: This page is the central location for all documentation regarding A
 services: active-directory
 documentationcenter: ''
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
+ms.component: hybrid
 ms.author: anandy
 
 ---

@@ -1,24 +1,16 @@
 ---
 title: Data import in Azure Search | Microsoft Docs
 description: Learn how to upload data to an index in Azure Search.
+author: HeidiSteen
+manager: cgronlun
 services: search
-documentationcenter: ''
-author: ashmaka
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: aa8d47c1-4ae6-4209-a8ce-48d5a9474707
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.date: 11/01/2017
-ms.author: ashmaka
+ms.topic: conceptual
+ms.date: 01/05/2018
+ms.author: heidist
 
 ---
-# Data import in Azure Search
+# Indexing in Azure Search
 > [!div class="op_single_selector"]
 > * [Overview](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)

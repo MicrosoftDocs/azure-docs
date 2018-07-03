@@ -4,14 +4,12 @@ description: Management concepts and how-tos for managing a domain name in Azure
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: ''
 
-ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
@@ -63,5 +61,5 @@ Most management tasks for domain names in Azure Active Directory can also be com
 * [Using Graph API to manage domain names in Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## Next steps
-* [Add custom domain names](add-custom-domain.md)
+* [Add custom domain names](fundamentals/add-custom-domain.md)
 

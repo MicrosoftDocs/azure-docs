@@ -2,18 +2,15 @@
 title: Import data for use with the Azure Cosmos DB Table API | Microsoft Docs
 description: Learn how import data to use with the Azure Cosmos DB Table API.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 
-ms.assetid: b60743e2-0227-43ab-965a-0ae3ebacd917
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
-ms.date: 11/15/2017
-ms.author: mimig
+ms.topic: tutorial
+ms.date: 11/28/2017
+ms.author: sngun
 
 ---
 
@@ -28,13 +25,17 @@ This tutorial covers the following tasks:
 > * Importing data with AzCopy
 > * Migrating from Table API (preview) to Table API 
 
+## Prerequisites
+
+* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for an individual collection or a set of collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see Performance levels and pricing tiers in Azure Cosmos DB.
+
 ## Data Migration tool
 
-The command-line Azure Cosmos DB Data Migration tool (dt.exe) can be used to import your existing Azure Table storage data to a Table API GA account, or migrate data from a Table API (preview) account into a Table API GA account. Other sources are not currently supported.
+The command-line Azure Cosmos DB Data Migration tool (dt.exe) can be used to import your existing Azure Table storage data to a Table API GA account, or migrate data from a Table API (preview) account into a Table API GA account. Other sources are not currently supported. The UI based Data Migration tool (dtui.exe) is not currently supported for Table API accounts. 
 
 To perform a migration of table data, complete the following tasks:
 
-1. Download the migration tool from the [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) or from [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
+1. Download the migration tool from [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
 2. Run `dt.exe` using the command-line arguments for your scenario.
 
 dt.exe takes a command in the following format:
@@ -90,7 +91,7 @@ Use the following target options when defining Azure Cosmos DB Table API as the 
 Here is a command-line sample showing how to import from Azure Table storage to Table API:
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey==<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
 ### Sample command: Source is Azure Cosmos DB Table API (preview)

@@ -3,19 +3,18 @@ title: Azure AD tiered password security | Microsoft Docs
 description: Explains how Azure AD enforces strong passwords and protects users passwords from cyber criminals,
 services: active-directory
 documentationcenter: ''
-author: barlanmsft
-manager: femila
-
+author: eross-msft
+manager: mtillman
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 08/28/2017
-ms.author: barlan
-
+ms.author: lizross
 ---
+
 # A multi-tiered approach to Azure AD password security
 
 This article discusses some best practices you can follow as a user or as an administrator to protect your Azure Active Directory (Azure AD) or Microsoft Account.
@@ -23,7 +22,7 @@ This article discusses some best practices you can follow as a user or as an adm
  > [!NOTE]
  > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
  >
- > Azure AD administrators can reset user passwords using the guidance in the article [Reset the password for a user in Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
+ > Azure AD administrators can reset user passwords using the guidance in the article [Reset the password for a user in Azure Active Directory](fundamentals/active-directory-users-reset-password-azure-portal.md).
  >
 
 ## Password requirements
@@ -43,7 +42,7 @@ Azure AD and the Microsoft Account System use industry proven approaches to ensu
 * Dynamically banned passwords
 * Smart Password Lockout
 
-For information about password management based on current research, see the whitepaper [Password Guidance](http://aka.ms/passwordguidance).
+For information about password management based on current research, see the whitepaper [Password Guidance](https://aka.ms/passwordguidance).
 
 ### Dynamically banned passwords
 
@@ -81,4 +80,4 @@ For information about password reset in Azure Active Directory, see the topic [A
 
 * [How to update your own password](active-directory-passwords-update-your-own-password.md)
 * [The fundamentals of Azure identity management](fundamentals-identity.md)
-* [Report on password reset activity](active-directory-passwords-reporting.md)
+* [Report on password reset activity](authentication/howto-sspr-reporting.md)

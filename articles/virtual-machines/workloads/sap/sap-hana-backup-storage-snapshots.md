@@ -4,7 +4,7 @@ description: There are two major backup possibilities for SAP HANA on Azure virt
 services: virtual-machines-linux
 documentationcenter: 
 author: hermanndms
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: virtual-machines-linux
 ms.devlang: NA

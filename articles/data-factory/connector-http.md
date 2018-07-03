@@ -4,27 +4,24 @@ description: Learn how to copy data from a cloud or on-premises HTTP source to s
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2017
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
 
 ---
 # Copy data from HTTP endpoint using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-http-connector.md)
-> * [Version 2 - Preview](connector-http.md)
+> * [Version 1](v1/data-factory-http-connector.md)
+> * [Current version](connector-http.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an HTTP endpoint. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [HTTP connector in V1](v1/data-factory-http-connector.md).
 
 ## Supported capabilities
 
@@ -38,8 +35,12 @@ Specifically, this HTTP connector supports:
 
 The difference between this connector and the [Web table connector](connector-web-table.md) is that the latter is used to extract table content from web HTML page.
 
+>[!TIP]
+>To test HTTP request for data retrieving before configuring HTTP connector in ADF, you can learn from the API spec on header and body requirements, and use tools like Postman or web browser to validate.
+
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md)) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to HTTP connector.
 
@@ -51,7 +52,7 @@ The following properties are supported for HTTP linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **HttpServer**. | Yes |
 | url | Base URL to the Web Server | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when connecting to HTTP endpoint. | No, default is true |
+| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when connecting to HTTP endpoint. When your HTTPS server is using self-signed certificate, set this to false. | No, default is true |
 | authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
@@ -62,7 +63,7 @@ Set "authenticationType" property to **Basic**, **Digest**, or **Windows**, and 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | User name to access the HTTP endpoint. | Yes |
-| password | Password for the user (userName). Mark this field as SecureString. | Yes |
+| password | Password for the user (userName). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Example**
 
@@ -96,7 +97,7 @@ To use ClientCertificate authentication, set "authenticationType" property to **
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 encoded certificate data. | Specify either the `embeddedCertData` or `certThumbprint`. |
 | certThumbprint | The thumbprint of the certificate that is installed on your Self-hosted Integration Runtime machine's cert store. Applies only when Self-hosted type of Integration Runtime is specified in connectVia. | Specify either the `embeddedCertData` or `certThumbprint`. |
-| password | Password associated with the certificate. Mark this field as SecureString. | No |
+| password | Password associated with the certificate. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 
 If you use "certThumbprint" for authentication and the certificate is installed in the personal store of the local computer, you need to grant the read permission to the Self-hosted Integration Runtime:
 

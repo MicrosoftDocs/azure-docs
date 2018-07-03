@@ -2,19 +2,14 @@
 title: Common use cases and scenarios for Azure Cosmos DB | Microsoft Docs
 description: 'Learn about the top five use cases for Azure Cosmos DB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).' 
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
-documentationcenter: ''
+author: SnehaGunda
+manager: kfile
 
-ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/15/2017
-ms.author: mimig
+ms.topic: conceptual
+ms.date: 05/7/2017
+ms.author: sngun
 
 ---
 
@@ -31,9 +26,7 @@ After reading this article, you'll be able to answer the following questions:
 ## Introduction
 [Azure Cosmos DB](../cosmos-db/introduction.md) is Microsoft’s globally distributed database service. The service is designed to allow customers to elastically (and independently) scale throughput and storage across any number of geographical regions. Azure Cosmos DB is the first globally distributed database service in the market today to offer comprehensive [service level agreements](https://azure.microsoft.com/support/legal/sla/cosmos-db/) encompassing throughput, latency, availability, and consistency. 
 
-The Azure Cosmos DB project started in 2011 as "Project Florence" to address developer pain-points that are faced by large Internet-scale applications inside Microsoft. Observing that these problems are not unique to Microsoft’s applications, we decided to make Azure Cosmos DB generally available to external developers in 2015 in the form of [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). The service is used ubiquitously internally within Microsoft, and is one of the fastest-growing services used by Azure developers externally. 
-
-Azure Cosmos DB is a global distributed, multi-model database that is used in a wide range of applications and use cases. It is a good choice for any [serverless](http://azure.com/serverless) application that needs low order-of-millisecond response times, and needs to scale rapidly and globally. It supports multiple data models (key-value, documents, graphs and columnar) and many APIs for data access including [MongoDB API](mongodb-introduction.md), [DocumentDB API (SQL)](documentdb-introduction.md), [Graph API (Gremlin)](graph-introduction.md), and [Tables API](table-introduction.md) natively, and in an extensible manner. 
+Azure Cosmos DB is a global distributed, multi-model database that is used in a wide range of applications and use cases. It is a good choice for any [serverless](http://azure.com/serverless) application that needs low order-of-millisecond response times, and needs to scale rapidly and globally. It supports multiple data models (key-value, documents, graphs and columnar) and many APIs for data access including [MongoDB API](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Graph API (Gremlin)](graph-introduction.md), and [Tables API](table-introduction.md) natively, and in an extensible manner. 
 
 The following are some attributes of Azure Cosmos DB that make it well-suited for high-performance applications with global ambition.
 
@@ -55,7 +48,7 @@ Bursts of data can be ingested by Azure Event Hubs as it offers high throughput 
 
 For a sample IoT solution using Azure Cosmos DB, EventHubs and Storm, see the [hdinsight-storm-examples repository on GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-For more information on Azure offerings for IoT, see [Create the Internet of Your Things](http://www.microsoft.com/server-cloud/internet-of-things.aspx). 
+For more information on Azure offerings for IoT, see [Create the Internet of Your Things](https://www.microsoft.com/en-us/internet-of-things). 
 
 ## Retail and marketing
 Azure Cosmos DB is used extensively in Microsoft's own e-commerce platforms, that run the Windows Store and XBox Live. It is also used in the retail industry for storing catalog data and for event sourcing in order processing pipelines.
@@ -105,7 +98,7 @@ JSON, a format supported by Cosmos DB, is an effective format to represent UI la
 ![Azure Cosmos DB web app reference architecture](./media/use-cases/personalization.png)
 
 ## Next steps
-To get started with Azure Cosmos DB, follow our [quick starts](create-documentdb-dotnet.md), which walk you through creating an account and getting started with Cosmos DB. 
+To get started with Azure Cosmos DB, follow our [quick starts](create-sql-api-dotnet.md), which walk you through creating an account and getting started with Cosmos DB. 
 
 Or, if you'd like to read more about customers using Cosmos DB, the following customer stories are available:
 

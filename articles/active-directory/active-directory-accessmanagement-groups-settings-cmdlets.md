@@ -1,31 +1,29 @@
-﻿---
+---
 title: Configure group settings using PowerShell in Azure Active Directory | Microsoft Docs
 description: How manage the settings for groups using Azure Active Directory cmdlets
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: ''
 
-ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 06/13/2018
 ms.author: curtand
-ms.reviewer: kairaz.contractor
-ms.custom: it-pro;
+ms.reviewer: krbain
+ms.custom: it-pro
 
 ---
 # Azure Active Directory cmdlets for configuring group settings
-This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to create and update groups. This content applies only to Office 365 groups. 
+This article contains instructions for using Azure Active Directory (Azure AD) PowerShell cmdlets to create and update groups. This content applies only to Office 365 groups (sometimes called unified groups). 
 
 > [!IMPORTANT]
 > Some settings require an Azure Active Directory Premium P1 license. For more information, see the [Template settings](#template-settings) table.
 
-For more information on how to allow users to create security groups, set `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` as described in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+For more information on how to prevent non-administrator users to create *security* groups, set `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` as described in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Office 365 Groups settings are configured using a Settings object and a SettingsTemplate object. Initially, you don't see any Settings objects in your directory, because your directory is configured with the default settings. To change the default settings, you must create a new settings object using a settings template. Settings templates are defined by Microsoft. There are several different settings templates. To configure Office 365 group settings for your directory, you use the template named "Group.Unified". To configure Office 365 group settings on a single group, use the template named "Group.Unified.Guest". This template is used to manage guest access to an Office 365 group. 
 
@@ -39,7 +37,7 @@ If you know the name of the setting you want to retrieve, you can use the below 
 ```
 
 ## Create settings at the directory level
-These steps create settings at directory level, which apply to all Office 365 groups (Unified groups) in the directory.
+These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 1. In the DirectorySettings cmdlets, you must specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
   
@@ -52,7 +50,7 @@ These steps create settings at directory level, which apply to all Office 365 gr
   Id                                   DisplayName         Description
   --                                   -----------         -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest Settings for a specific Office 365 group
   16933506-8a8d-4f0d-ad58-e1db05a5b929 Company.BuiltIn     Setting templates define the different settings that can be used for the associ...
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy       Settings ...
@@ -71,7 +69,8 @@ These steps create settings at directory level, which apply to all Office 365 gr
 4. Then update the usage guideline value:
   
   ```
-  $setting["UsageGuidelinesUrl"] = "<https://guideline.com>"
+  $setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+
   ```  
 5. Finally, apply the settings:
   
@@ -90,20 +89,19 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
 
 | **Setting** | **Description** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True |The flag indicating whether Unified Group creation is allowed in the directory by non-admin users. This setting does not require an Azure Active Directory Premium P1 license.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Default: “” |GUID of the security group for which the members are allowed to create Unified Groups even when EnableGroupCreation == false. |
+|  <ul><li>EnableGroupCreation<li>Type: Boolean<li>Default: True |The flag indicating whether Office 365 group creation is allowed in the directory by non-admin users. This setting does not require an Azure Active Directory Premium P1 license.|
+|  <ul><li>GroupCreationAllowedGroupId<li>Type: String<li>Default: “” |GUID of the security group for which the members are allowed to create Office 365 groups even when EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Type: String<li>Default: “” |A link to the Group Usage Guidelines. |
 |  <ul><li>ClassificationDescriptions<li>Type: String<li>Default: “” | A comma-delimited list of classification descriptions. |
 |  <ul><li>DefaultClassification<li>Type: String<li>Default: “” | The classification that is to be used as the default classification for a group if none was specified.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Type: String<li>Default: “” | Do not use. Not implemented. |
-| <ul><li>CustomBlockedWordsList<li>Type: String<li>Default: “” | Do not use. Not implemented. |
+|  <ul><li>PrefixSuffixNamingRequirement<li>Type: String<li>Default: “” | String of a maximum length of 64 characters that defines the naming convention configured for Office 365 groups. For more information, see [Enforce a naming policy for Office 365 groups (preview)](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Type: String<li>Default: “” | Comma-separated string of phrases that users will not be permitted to use in group names or aliases. For more information, see [Enforce a naming policy for Office 365 groups (preview)](groups-naming-policy.md). |
 | <ul><li>EnableMSStandardBlockedWords<li>Type: Boolean<li>Default: “False” | Do not use
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Boolean<li>Default: False | Boolean indicating whether or not a guest user can be an owner of groups. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Type: Boolean<li>Default: True | Boolean indicating whether or not a guest user can have access to Unified groups' content.  This setting does not require an Azure Active Directory Premium P1 license.|
+|  <ul><li>AllowGuestsToAccessGroups<li>Type: Boolean<li>Default: True | Boolean indicating whether or not a guest user can have access to Office 365 groups content.  This setting does not require an Azure Active Directory Premium P1 license.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Default: “” | The url of a link to the guest usage guidelines. |
 |  <ul><li>AllowToAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is allowed to add guests to this directory.|
-|  <ul><li>ClassificationList<li>Type: String<li>Default: “” |A comma-delimited list of valid classification values that can be applied to Unified Groups. |
-
+|  <ul><li>ClassificationList<li>Type: String<li>Default: “” |A comma-delimited list of valid classification values that can be applied to Office 365 Groups. |
 
 ## Read settings at the directory level
 These steps read settings at directory level, which apply to all Office groups in the directory.
@@ -135,12 +133,13 @@ These steps read settings at directory level, which apply to all Office groups i
   ClassificationDescriptions
   DefaultClassification
   PrefixSuffixNamingRequirement
+  CustomBlockedWordsList        
   AllowGuestsToBeGroupOwner     False 
   AllowGuestsToAccessGroups     True
   GuestUsageGuidelinesUrl
   GroupCreationAllowedGroupId
   AllowToAddGuests              True
-  UsageGuidelinesUrl            <https://guideline.com>
+  UsageGuidelinesUrl            https://guideline.example.com
   ClassificationList
   EnableGroupCreation           True
   ```
@@ -154,7 +153,7 @@ These steps read settings at directory level, which apply to all Office groups i
   Id                                   DisplayName            Description
   --                                   -----------            -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified          ...
-  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Unified Group
+  08d542b9-071f-4e16-94b0-74abb372e3d9 Group.Unified.Guest    Settings for a specific Office 365 group
   4bc7f740-180e-4586-adb6-38b2e9024e6b Application            ...
   898f1161-d651-43d1-805c-3b0b388a9fc2 Custom Policy Settings ...
   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
@@ -183,7 +182,7 @@ These steps read settings at directory level, which apply to all Office groups i
 
 ## Update settings at the directory level
 
-These steps update settings at directory level, which apply to all Unified groups in the directory. These examples assume there is already a Settings object in your directory.
+These steps update settings at directory level, which apply to all Office 365 groups in the directory. These examples assume there is already a Settings object in your directory.
 
 1. Find the existing Settings object:
   ```
@@ -217,5 +216,5 @@ You can find more Azure Active Directory PowerShell documentation at [Azure Acti
 
 ## Additional reading
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Managing access to resources with Azure Active Directory groups](fundamentals/active-directory-manage-groups.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

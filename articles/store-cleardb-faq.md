@@ -2,24 +2,24 @@
 title: FAQ for ClearDB MySql databases with Azure App Service | Microsoft Docs
 description: Answers to common questions about using ClearDB MySQL databases with Azure App Service.
 documentationcenter: php
-services: ''
+services: mysql
 author: sunbuild
 manager: yochayk
-editor: ''
 tags: mysql
-
-ms.assetid: c2ed5e78-6d7d-4d0c-b7ee-a52ae41ceab8
 ms.service: multiple
 ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-
 ---
 # FAQ for ClearDB MySql databases with Azure App Service
 This FAQ answers common questions about using and purchasing ClearDB MySQL databases for Azure Web Apps.
+
+> [!IMPORTANT]
+> As of June 13, 2018, ClearDB transitioned Azure-based customers currently billed by Microsoft to a direct billing model with ClearDB. The information in this article is now out of date. You will no longer be able to create or upgrade a ClearDB database that was created in Azure.
+>
+> For more details and next steps, see [Changes to ClearDB service plans](http://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
+
 
 ## What options do I have for MySQL on Azure?
 You have several options:
@@ -65,7 +65,7 @@ Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend eithe
 In the [Azure portal](https://portal.azure.com), you can scale up a ClearDB shared hosting database. Read this [article](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) to learn more. We currently don't support upgrade for ClearDB Premium clusters in the Azure portal.
 
 ## I can’t see my ClearDB database in Azure portal?
-If we create ClearDB database using Azure Resource Manager or [new Azure Portal](https://portal.azure.com),it will not be visible in the [old Azure Portal](https://manage.windowsazure.com). To work-around this is to link your database manually to the web app. Similarly if create ClearDB database in the [old portal](https://manage.windowsazure.com) you will not be able to see your database in the [new Azure Portal](https://portal.azure.com). There is no work-around for the latter scenario.
+If you created a ClearDB database in classic, you will not be able to see your database in the [Azure Portal](https://portal.azure.com). There is no work-around for this scenario.
 
 ## Who do I contact for support when my database is down?
 Contact [ClearDB support](https://www.cleardb.com/developers/help/support) for any database related issues. Be prepared to provide them with your Azure subscription information.
@@ -77,7 +77,7 @@ No. You cannot create additional users but you can create additional databases o
 Yes, Basic series databases can be upgraded in-place (Basic 60 through Basic 500). Pro series can be upgraded in-place (Pro 125 through Pro 1000) except for Pro 60. We do not support upgrading Pro 60 database currently. 
 
 ## When I migrate my resources from one subscription to another, does my ClearDB MySQL database get migrated as well?
-When you perform resource migration across subscriptions, some [limitations](app-service/app-service-move-resources.md) apply. A ClearDB MySQL database is a third-party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
+When you perform resource migration across subscriptions, some [limitations](azure-resource-manager/resource-group-move-resources.md#app-service-limitations) apply. A ClearDB MySQL database is a third-party service and hence does not get migrated during Azure subscription migration. If you do not manage the migration of your MySQL database prior to migrating Azure resources, your ClearDB MySQL databases can be disabled. Manually migrate your databases first and then perform Azure subscription migration for your web app. 
 
 ## I hit the spending limit on my subscription. I removed the limit and my App Service is online, however the database is not accessible. How do I re-enable the ClearDB database?
 Contact [ClearDB support](https://www.cleardb.com/developers/help/support) to re-enable the database. Provide them with your Azure subscription information and database name.

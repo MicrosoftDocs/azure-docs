@@ -11,16 +11,14 @@ ms.assetid: 1df98653-a6c8-4662-a8c6-5d288fc4f3a6
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/11/2017
+ms.topic: conceptual
+ms.date: 02/27/2018
 ms.author: larryfr
 
 ---
 # Write to HDFS from Apache Storm on HDInsight
 
-Learn how to use Storm to write data to the HDFS-compatible storage used by Apache Storm on HDInsight. HDInsight can use both Azure Storage and Azure Data Lake store as HDFS-comptabile storage. Storm provides an [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) component that writes data to HDFS. This document provides information on writing to either type of storage from the HdfsBolt. 
+Learn how to use Storm to write data to the HDFS-compatible storage used by Apache Storm on HDInsight. HDInsight can use both Azure Storage and Azure Data Lake store as HDFS-compatible storage. Storm provides an [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) component that writes data to HDFS. This document provides information on writing to either type of storage from the HdfsBolt. 
 
 > [!IMPORTANT]
 > The example topology used in this document relies on components that are included with Storm on HDInsight. It may require modification to work with Azure Data Lake Store when used with other Apache Storm clusters.
@@ -31,7 +29,7 @@ The project containing this topology is available as a download from [https://gi
 
 To compile this project, you need the following configuration for your development environment:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or higher. HDInsight 3.5 or higher require Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -63,7 +61,7 @@ The following table provides examples of using the file scheme for different sce
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | A non-default (additional) Azure storage account associated with the cluster. |
 | `adl://STORENAME/` | The root of the Data Lake Store used by the cluster. This scheme allows you to access data that is located outside the directory that contains the cluster file system. |
 
-For more information, see the [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) reference at Apache.org.
+For more information, see the [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) reference at Apache.org.
 
 ### Example configuration
 
@@ -137,7 +135,7 @@ For more information on the Flux framework, see [https://storm.apache.org/releas
 
 By default, Storm on HDInsight does not include the components that HdfsBolt uses to communicate with Azure Storage or Data Lake Store in Storm's classpath. Use the following script action to add these components to the `extlib` directory for Storm on your cluster:
 
-* Script URI: `https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* Script URI: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * Nodes to apply to: Nimbus, Supervisor
 * Parameters: None
 
@@ -158,7 +156,7 @@ For information on using this script with your cluster, see the [Customize HDIns
 
 1. Use the following command to copy the topology to the HDInsight cluster. Replace **USER** with the SSH user name you used when creating the cluster. Replace **CLUSTERNAME** with the name of the cluster.
    
-        scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs1.0-SNAPSHOT.jar
+        scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs-1.0-SNAPSHOT.jar
    
     When prompted, enter the password used when creating the SSH user for the cluster. If you used a public key instead of a password, you may need to use the `-i` parameter to specify the path to the matching private key.
    

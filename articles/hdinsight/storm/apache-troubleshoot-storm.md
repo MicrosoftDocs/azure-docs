@@ -9,9 +9,7 @@ manager: ''
 editor: ''
 
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
@@ -69,7 +67,7 @@ The export command writes the metadata to an Apache Hadoop Distributed File Syst
     ```
 
 #### Import offset metadata
-1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be exported.
+1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be imported.
 2. Run the following command (after you update the HDP version string) to import ZooKeeper offset data from the HDFS path /stormmetadata/zkdata to the ZooKeeper server on the target cluster:
 
     ```apache
@@ -77,7 +75,7 @@ The export command writes the metadata to an Apache Hadoop Distributed File Syst
     ```
    
 #### Delete offset metadata so that topologies can start processing data from the beginning, or from a timestamp that the user chooses
-1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be exported.
+1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be deleted.
 2. Run the following command (after you update the HDP version string) to delete all ZooKeeper offset data in the current cluster:
 
     ```apache
@@ -89,7 +87,7 @@ Storm binaries for the current HDP stack are in /usr/hdp/current/storm-client. T
  
 There might be multiple binaries for specific HDP versions in /usr/hdp (for example, /usr/hdp/2.5.0.1233/storm). The /usr/hdp/current/storm-client folder is symlinked to the latest version that is running on the cluster.
 
-For more information, see [Connect to an HDInsight cluster by using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) and 
+For more information, see [Connect to an HDInsight cluster by using SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) and 
 [Storm](http://storm.apache.org/).
  
 ## How do I determine the deployment topology of a Storm cluster?
@@ -126,10 +124,10 @@ Storm worker nodes run the following services:
 For more information about using Storm event hub spout .jar files with your topology, see the following resources.
  
 ### Java-based topology
-[Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
  
 ### C#-based topology (Mono on HDInsight 3.4+ Linux Storm clusters)
-[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
  
 ### Latest Storm event hub spout binaries for HDInsight 3.5+ Linux Storm clusters
 To learn how to use the latest Storm event hub spout that works with HDInsight 3.5+ Linux Storm clusters, see the mvn-repo [readme file](https://github.com/hdinsight/mvn-repo/blob/master/README.md).

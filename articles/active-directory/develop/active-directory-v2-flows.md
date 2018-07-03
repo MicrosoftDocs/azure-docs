@@ -3,21 +3,23 @@ title: App types for the Azure Active Directory v2.0 endpoint | Microsoft Docs
 description: The types of apps and scenarios supported by the Azure Active Directory v2.0 endpoint.
 services: active-directory
 documentationcenter: ''
-author: dstrockis
-manager: mbaldwin
+author: CelesteDG
+manager: mtillman
 editor: ''
 
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-ms.author: dastrock
+ms.date: 04/17/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-
 ---
+
 # App types for the Azure Active Directory v2.0 endpoint
 The Azure Active Directory (Azure AD) v2.0 endpoint supports authentication for a variety of modern app architectures, all of them based on industry-standard protocols [OAuth 2.0 or OpenID Connect](active-directory-v2-protocols.md). This article describes the types of apps that you can build by using Azure AD v2.0, regardless of your preferred language or platform. The information in this article is designed to help you understand high-level scenarios before you [start working with the code](active-directory-appmodel-v2-overview.md#getting-started).
 
@@ -92,7 +94,7 @@ A Web API can receive access tokens from all types of apps, including web server
 
 To learn how to secure a Web API by using OAuth2 access tokens, check out the Web API code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
-In many cases, web APIs also need to make outbound requests to other downstream web APIs secured by Azure Active Directory.  To do so, web APIs can take advantage of Azure AD's **On Behalf Of** flow, which allows the web API to exchange an incoming access token for another access token to be used in outbound requests.  The v2.0 endpoint's On Behalf Of flow is described in [detail here](active-directory-v2-protocols-oauth-on-behalf-of.md).
+In many cases, web APIs also need to make outbound requests to other downstream web APIs secured by Azure Active Directory. To do so, web APIs can take advantage of Azure AD's **On Behalf Of** flow, which allows the web API to exchange an incoming access token for another access token to be used in outbound requests. The v2.0 endpoint's On Behalf Of flow is described in [detail here](active-directory-v2-protocols-oauth-on-behalf-of.md).
 
 ## Mobile and native apps
 Device-installed apps, such as mobile and desktop apps, often need to access back-end services or Web APIs that store data and perform functions on behalf of a user. These apps can add sign-in and authorization to back-end services by using the [OAuth 2.0 authorization code flow](active-directory-v2-protocols-oauth-code.md).
@@ -117,4 +119,4 @@ In this flow, the app interacts directly with the `/token` endpoint to obtain en
 
 ![Daemon app authentication flow](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-To build a daemon app, see the client credentials documentation in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section, or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+To build a daemon app, see the [client credentials documentation](active-directory-v2-protocols-oauth-client-creds.md), or try a [.NET sample app](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

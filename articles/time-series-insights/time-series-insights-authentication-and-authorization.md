@@ -1,17 +1,16 @@
 ---
-title: How to configure authentication and authorization for a custom application to call the Azure Time Series Insights API | Microsoft Docs
+title: How to authenticate and authorize by API in Azure Time Series Insights
 description: This article describes how to configure authentication and authorization for a custom application that calls the Azure Time Series Insights API.
-services: time-series-insights
 ms.service: time-series-insights
-author: dmdenmsft
+services: time-series-insights
+author: ashannon7
 ms.author: dmden
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
-ms.date: 11/15/2017
+ms.topic: conceptual
+ms.date: 11/27/2017
 ---
 
 # Authentication and authorization for Azure Time Series Insights API
@@ -28,7 +27,7 @@ When you have an application that must access Time Series Insights, you must set
 * You don't have to change the app's credentials if your responsibilities change.
 * You can use a certificate or an application key to automate authentication when you're running an unattended script.
 
-This topic shows how to perform those steps through the Azure portal. It focuses on a single-tenant application where the application is intended to run in only one organization. You typically use single-tenant applications for line-of-business applications that run in your organization.
+This article shows how to perform those steps through the Azure portal. It focuses on a single-tenant application where the application is intended to run in only one organization. You typically use single-tenant applications for line-of-business applications that run in your organization.
 
 The setup flow consists of three high-level steps:
 

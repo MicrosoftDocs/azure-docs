@@ -12,8 +12,8 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
 
 ---
@@ -36,7 +36,7 @@ The first step is to use the [Azure portal](https://portal.azure.com) to create 
 
 ## Create a sender console application
 
-In this section, you'll write a Windows console app that sends events to your event hub.
+In this section, you write a Windows console app that sends events to your event hub.
 
 1. In Visual Studio, create a new Visual C# Desktop App project using the **Console Application** project template. Name the project **Sender**.
    

@@ -3,20 +3,21 @@ title: Support and help options for Azure Identity developers | Microsoft Docs
 description: Know how to obtain help and support for development-related questions and problems when creating application that integrate with Microsoft Azure identities (Azure Active Directory and MSA)
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mbaldwin
+author: CelesteDG
+manager: mtillman
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/27/2017
-ms.author: andret
+ms.author: celested
+ms.reviewer: andret
 ms.custom: aaddev 
-
 ---
 
 

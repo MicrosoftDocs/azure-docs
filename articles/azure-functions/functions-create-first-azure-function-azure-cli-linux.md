@@ -15,7 +15,7 @@ manager: cfowler
 
 # Create your first function running on Linux using the Azure CLI (preview)
 
-Azure Functions lets you host your functions on Linux in a default Azure App Service container. This functionality is currently in preview. You can also [bring your own custom container](functions-create-function-linux-custom-image.md). 
+Azure Functions lets you host your functions on Linux in a default Azure App Service container. You can also [bring your own custom container](functions-create-function-linux-custom-image.md). This functionality is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md), which is also in preview.
 
 This quickstart topic walks you through how to use Azure Functions with the Azure CLI to create your first function app on Linux hosted on the default App Service container. The function code itself is deployed to the image from a GitHub sample repository.    
 
@@ -45,7 +45,7 @@ Linux hosting for Functions is currently only supported on an App Service plan. 
 
 ## Create a function app on Linux
 
-You must have a function app to host the execution of your functions on Linux. The function app provides an environment for execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#create) command with a Linux App Service plan. 
+You must have a function app to host the execution of your functions on Linux. The function app provides an environment for execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command with a Linux App Service plan. 
 
 In the following command, substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. The _deployment-source-url_ parameter is a sample repository in GitHub that contains a "Hello World" HTTP triggered function.
 

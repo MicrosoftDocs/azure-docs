@@ -1,5 +1,7 @@
 - name: Data Factory V1 Documentation
   href: 
+- name: Switch to current version documentation
+  href: ../introduction.md
 - name: Overview
   items:
   - name: Introduction to Azure Data Factory
@@ -179,6 +181,8 @@
       href: data-factory-troubleshoot.md
     - name: Troubleshoot issues with using Data Management Gateway
       href: data-factory-troubleshoot-gateway-issues.md    
+  - name: Invoke SSIS packages using stored procedure activity      
+    href: how-to-invoke-ssis-package-stored-procedure-activity.md      
 - name: Reference
   items: 
   - name: Code samples

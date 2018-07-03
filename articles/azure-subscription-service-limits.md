@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 03/29/2018
 ms.author: byvinyal
 
 ---
@@ -24,9 +24,9 @@ This document lists some of the most common Microsoft Azure limits, which are al
 Please visit [Azure Pricing Overview](https://azure.microsoft.com/pricing/) to learn more about Azure pricing. There, you can estimate your costs using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) or by visiting the pricing details page for a service (for example, [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). For tips to help manage your costs, see [Prevent unexpected costs with Azure billing and cost management](billing/billing-getting-started.md).
 
 > [!NOTE]
-> If you want to raise the limit or quota above the **Default Limit**, [open an online customer support request at no charge](azure-supportability/resource-manager-core-quotas-request.md). The limits can't be raised above the **Maximum Limit** value shown in the following tables. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits.
+> If you want to raise the limit or quota above the **Default Limit**, [open an online customer support request at no charge](azure-resource-manager/resource-manager-quota-errors.md). The limits can't be raised above the **Maximum Limit** value shown in the following tables. If there is no **Maximum Limit** column, then the resource doesn't have adjustable limits.
 >
-> Free Trial subscriptions are not eligible for limit or quota increases. If you have a Free Trial, you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](billing/billing-upgrade-azure-subscription.md).
+> [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](billing/billing-upgrade-azure-subscription.md) and  [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
 >
 
 ## Limits and the Azure Resource Manager
@@ -50,6 +50,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
+* [Azure Maps](#azure-maps-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -58,6 +59,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
+* [Kubernetes Service](#container-service-aks-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -67,7 +69,8 @@ In the limits below, a new table has been added to reflect any differences in li
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
-* [Log Analytics / Operational Insights](#log-analytics-limits)
+* [Log Analytics](#log-analytics-limits)
+* [Managed Identity](#managed-identity-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
@@ -77,11 +80,13 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Network Watcher](#network-watcher-limits)
 * [Notification Hub Service](#notification-hub-service-limits)
 * [Resource Group](#resource-group-limits)
+* [Role-based access control](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
 * [Search](#search-limits)
 * [Service Bus](#service-bus-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
+* [SQL Data Warehouse](#sql-data-warehouse-limits)
 * [Storage](#storage-limits)
 * [StorSimple System](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
@@ -123,6 +128,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 The following table details the features and limits of the Basic, Standard, and Premium [service tiers](./container-registry/container-registry-skus.md).
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
+### Kubernetes Service limits
+[!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### Networking limits
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
@@ -273,6 +281,9 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Azure Event Grid limits
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
 
+### Azure Maps limits
+[!INCLUDE [maps-limits](../includes/maps-limits.md)]
+
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
@@ -303,8 +314,17 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Automation limits
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
+### Managed Identity limits
+[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+
+### Role-based access control limits
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
+
 ### SQL Database limits
-For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md).
+For SQL Database limits, see [SQL Database Resource Limits for single databases](sql-database/sql-database-vcore-resource-limits-single-databases.md) and [SQL Database Resource Limits for elastic pools and pooled databases](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
+
+### SQL Data Warehouse limits
+For SQL Data Warehouse limits, see [SQL Data Warehouse Resource Limits](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## See also
 [Understanding Azure Limits and Increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
