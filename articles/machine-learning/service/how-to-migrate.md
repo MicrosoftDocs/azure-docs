@@ -12,30 +12,45 @@ ms.date: 07/27/2018
 
 # How to migrate to the latest version of Azure Machine Learning Services 
 
-**If you have installed the Workbench application and/or have experimentation and model management accounts and want to migrate to the latest version, this article is for you.**
+**If you have installed the Workbench application and/or have experimentation and model management accounts, use this article to migrate to the latest version.**  If you don't have Workbench installed or an experimentation account, you don't need to migrate to use Azure Machine Learning Services.
 
-In this article, you'll learn which assets and artifacts you can migrate and how to get them working in the latest version of Azure Machine Learning Services. 
+Most of the artifacts created in the earlier version of Azure Machine Learning Services are stored in your own local or cloud storage. So the migration path largely involves re-registering them with the new Azure Machine Learning offering. 
 
-Generally speaking, most of the artifacts created in the earlier version of Azure Machine Learning Services are stored in your own local or cloud storage. So the migration path largely involves re-registering them with the new Azure Machine Learning offering. 
-
-At a glance, you can continue to use the following assets:
+You can continue to use the previous version and the following assets for some time ([see transition support timeline](overview-what-happened-to-workbench.md#timeline)):
 + Your Azure subscription and resource group
 + Your scoring files
 + Your model file dependencies, environment, and schema files
 + Deployed web services
 
+The following table and article explains what you can do with your existing assets and resources before or after moving over to the latest version of Azure Machine Learning Services.
+
+|Previous asset or resource|Can I migrate?|How?|
+|-----------------|:-------------:|-------------|
+|Model management account|No|Create a workspace instead.|
+|Experimentation account|No|Create a workspace  instead.|
+|Machine learning CLI|No|Use the new one for new work.|
+|Machine learning SDK|No|Use the new one for new work.|
+|Projects|Yes|Attach the local folder to new workspace.|
+|Models|Yes|None. Works as before.|
+|Model dependencies <br/> and schemas|Yes|None. Works as before.|
+|Run histories|No|Downloadable for a while.|
+|Compute targets|No|Register them again in new workspace.|
+|Web services|No|None. They continue to work as-is or redeploy models using latest version.|
+
+Learn more about the changes to Azure Machine Learning Services in the article "[What happened to Workbench](overview-what-happened-to-workbench.md)"?
+
 >[!Warning]
 >You cannot migrate assets from Azure Machine Learning **Studio** to Azure Machine Learning **Services**.
 
-Learn more about the changes in the article "[What happened to Workbench?](overview-what-happened-to-workbench.md)".
-
 ## Azure resources
 
-Resources such as your experimentation account and model management account, and machine learning compute environments cannot be carried over to the latest version of Azure Machine Learning Services. 
+Resources such as your experimentation account and model management account, and machine learning compute environments cannot be migrated over to the latest version of Azure Machine Learning Services. See the [timeline](overview-what-happened-to-workbench.md#timeline) on how long your assets will continue to work.
 
-You can get started with the latest version by creating an Azure Machine Learning Workspace in the [Azure portal](quickstart-get-started.md) or using [the CLI](quickstart-get-started-with-cli.md). This workspace enables you to use all features of the latest features of Azure Machine Learning Services. Learn more about [the new architecture](concept-azure-machine-learning-architecture.md).
+Get started with the latest version by creating an Azure Machine Learning Workspace:
++ In the [Azure portal](quickstart-get-started.md)
++ Using [the CLI](quickstart-get-started-with-cli.md). 
 
-See the [timeline](overview-what-happened-to-workbench.md#timeline) on how long your assets will continue to work.
+This new workspace is the top-level service resource and enables you to use all features of the latest features of Azure Machine Learning Services. [Learn more about this workspace and architecture](concept-azure-machine-learning-architecture.md).
 
 ## Projects
 
@@ -43,14 +58,14 @@ Instead of having your projects in a workspace in the cloud, projects are now di
 
 To migrate your projects, attach the local directory containing your scripts to your newly created Azure Machine Learning Workspace. When you attach that project to the workspace, you can also start a run history file in the workspace for that project by specifying a name for that history.  
 
-Attach your existing local project directory to the workspace using one of these methods.
+Attach your existing local project directory to the workspace using one of these methods. Replace the information in \<\>  brackets with the name of your workspace, file path to your local project directory, and the name for run history.
 
-Using the [CLI](reference-azure-machine-learning-cli.md):
+Using the new [CLI](reference-azure-machine-learning-cli.md):
   ```azurecli
   az ml project attach -w <my_workspace_name> -p <proj_dir_path> --history <run_history_name>
   ```
 
-Using the [SDK](reference-azure-machine-learning-sdk.md):
+Using the new [SDK](reference-azure-machine-learning-sdk.md):
   ```python
   from azureml.core import Workspace, Project
     
@@ -58,9 +73,7 @@ Using the [SDK](reference-azure-machine-learning-sdk.md):
   proj = Project.attach(workspace_object=ws, run_history='<run_history_name>', directory='<proj_dir_path>')
   ```
 
-Replace the information in \<\>  brackets with the name of your workspace, file path to your local project directory, and the name for run history.
-
-Follow the complete [CLI quickstart](quickstart-get-started-with-cli.md) and [Portal/SDK quickstart](quickstart-get-started.md) to learn how to create a workspace and attach a project.
+Follow the complete [CLI quickstart](quickstart-get-started-with-cli.md) or [Portal/SDK quickstart](quickstart-get-started.md) to learn how to create a workspace and attach a project.
 
 
 ## Deployed web services
