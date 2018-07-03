@@ -200,7 +200,7 @@
     - name: Use prebuilt domains
       href: luis-how-to-use-prebuilt-domains.md
     - name: Use the Cortana prebuilt app
-      href: Cortana-Prebuilt-App.md
+      href: luis-how-to-cortana-prebuilt-app.md
   - name: Manage your LUIS app
     items: 
     - name: Using the dashboard
