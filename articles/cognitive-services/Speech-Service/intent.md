@@ -19,7 +19,7 @@ ms.author: wolfma
 > For instructions to download this sample and others, see [Samples for Speech SDK](samples.md).
 
 > [!NOTE]
-> Please obtain a subscription key first. In contrast to other services supported by the Cognitive Service Speech SDK, the Intent Recognition services requires a specific subscription key. [Here](https://www.luis.ai) you can find additional information about the intent recognition technology, as well as information about how to acquire a subscription key. Replace your own subscription key, the region of the service, and the AppId of your intent model in the appropriate place in the samples.
+> Please obtain a subscription key first. In contrast to other services supported by the Cognitive Service Speech SDK, the Intent Recognition services requires a specific subscription key. [Here](https://www.luis.ai) you can find additional information about the intent recognition technology, as well as information about how to acquire a subscription key. Replace your own subscription key, the [region of your subscription](regions.md), and the AppId of your intent model in the appropriate places in the samples.
 
 > [!NOTE]
 > For all samples below the following top-level declarations should be in place:

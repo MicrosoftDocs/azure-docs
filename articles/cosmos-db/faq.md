@@ -403,7 +403,7 @@ None. There is no change in price for existing Azure Table storage customers.
 ### How is the price calculated for the Table API? 
 The price depends on the allocated TableThroughput. 
 
-### How do I handle any throttling on the tables in Table API offering? 
+### How do I handle any rate limiting on the tables in Table API offering? 
 If the request rate exceeds the capacity of the provisioned throughput for the underlying container or a set of containers, you get an error, and the SDK retries the call by applying the retry policy.
 
 ### Why do I need to choose a throughput apart from PartitionKey and RowKey to take advantage of the Table API offering of Azure Cosmos DB?
