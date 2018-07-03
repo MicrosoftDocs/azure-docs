@@ -12,7 +12,7 @@
 
 ## View VMs scheduled for maintenance in the portal
 
-Once a planned maintenance wave is scheduled, and notifications are sent, you can observe the list of virtual machines that are impacted by the upcoming maintenance wave. 
+Once a planned maintenance wave is scheduled, you can observe the list of virtual machines that are impacted by the upcoming maintenance wave. 
 
 You can use the Azure portal and look for VMs scheduled for maintenance.
 
@@ -28,7 +28,7 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 	  
       | Value | Description |
 	  |-------|-------------|
-	  | Start now | The VM is in the self-service maintenance window which lets you initiate the maintenance yourself. See below on how to start maintenance on your VM | 
+	  | Start now | The VM is in the self-service maintenance window that lets you initiate the maintenance yourself. See below on how to start maintenance on your VM | 
 	  | Scheduled | The VM is scheduled for maintenance with no option for you to initiate maintenance. You can learn of the maintenance window by selecting the Maintenance - Scheduled window in this view or by clicking on the VM | 
 	  | Already updated | Your VM is already updated and no further action is required at this time. | 
 	  | Retry later | You have initiated maintenance with no success. You will be able to use the self-service maintenance option at a later time. | 
@@ -61,8 +61,8 @@ While looking at the VM details, you will be able to see more maintenance-relate
 At the top of the VM details view, a new notification ribbon will be added if your VM is included in a planned maintenance wave. In addition, a new option is added to start maintenance when possible. 
 
 
-Click on the maintenance notification to see the maintenance page with more details on the planned maintenance. From there you will be able to **start maintenance** on your VM.
+Click on the maintenance notification to see the maintenance page with more details on the planned maintenance. From there, you will be able to **start maintenance** on your VM.
 
 Once you start maintenance, your virtual machine will be maintained and the maintenance status will be updated to reflect the result within few minutes.
 
-If you missed the window where you can start maintenance, you will still be able to see the window when your VM will be maintained by Azure. 
+If you missed the self-service window, you will still be able to see the window when your VM will be maintained by Azure. 
