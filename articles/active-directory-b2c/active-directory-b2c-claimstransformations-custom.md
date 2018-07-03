@@ -84,6 +84,7 @@ The table below and subsequent section outline a list of Claims Trasnformation M
 | [ClaimToClaimEquality](#ClaimToClaimEquality)| Claims | ***NOT SUPPORTED*** |
 | [AddParameterToStringCollection](#AddParameterToStringCollection) | Claims | Add the provided string parameter to a claim that contains collection of strings |
 | [ChangeCase](#ChangeCase)| Claims | Converts a claims value to either upper case or lower case. |
+| [NullClaim](#NullClaim)| Claims | Removes a value from a claim. |
 | [CompareClaimToValue](#CompareClaimToValue) | Claims |  |
 | [CompareClaims](#CompareClaims) | Claims |  |
 | [CreateRandomString](#CreateRandomString) | Claims |  |
