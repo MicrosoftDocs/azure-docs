@@ -22,11 +22,11 @@
         },
         {
             "source_path": "articles/active-directory/admin-roles-best-practices.md",
-            "redirect_url": "/azure/active-directory/users-groups-roles/directory-admin-roles-secure.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-admin-roles-secure",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/active-directory/directory-delete-howto",
+            "source_path": "articles/active-directory/directory-delete-howto.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/directory-delete-howto",
             "redirect_document_id": true
         },
