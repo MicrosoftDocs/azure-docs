@@ -53,7 +53,7 @@ If you have code running under Standard messaging and want to port it to the Pre
 
 ## Get started with Premium Messaging
 
-Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Choose your pricing tier**.
+Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Pricing tier**. Click **View full pricing details** to see more information about each tier.
 
 ![create-premium-namespace][create-premium-namespace]
 
