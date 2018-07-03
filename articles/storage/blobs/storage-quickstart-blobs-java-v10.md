@@ -101,7 +101,7 @@ After you've verified the files, **E** and press enter to finish the demo and de
 
 ## Understand the sample code
 
-Next, lets walk through the sample code so that you can understand how it works.
+Next, lets walk-through the sample code so that you can understand how it works.
 
 ### Get references to the storage objects
 
@@ -175,7 +175,7 @@ Block blobs can be any type of text or binary file. Page blobs are primarily use
 
 ### List the blobs in a container
 
-You can get a list of objects in a container using [containerURL.​listBlobsFlatSegment](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-preview). This returns up to 5000 objects at once along with a continuation marker (next marker) if there is more to list in the container. In order to this, we create a helper function that calls itself repeatedly as long as there is next marker in the previous listBlobsFlatSegment response.
+You can get a list of objects in a container using [containerURL.​listBlobsFlatSegment](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-preview). This method returns up to 5000 objects at once along with a continuation marker (next marker) if there is more to list in the container. In order to this, we create a helper function that calls itself repeatedly as long as there is next marker in the previous listBlobsFlatSegment response.
 
 ```java
 static void listBlobs(ContainerURL containerURL) {
@@ -258,7 +258,7 @@ static void getBlob(BlockBlobURL blobURL, File sourceFile) {
 
 ### Clean up resources
 
-If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using [containerURL.delete](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-preview). This also deletes the files in the container.
+If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using [containerURL.delete](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-preview). This method also deletes the files in the container.
 
 ```java
 containerURL.delete(null).blockingGet();
@@ -266,7 +266,7 @@ containerURL.delete(null).blockingGet();
 
 ## Next steps
 
-In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using Java. To learn more about working with the new SDK, veiw and download the source code:
+In this quickstart, you learned how to transfer files between a local disk and Azure Blob storage using Java. 
 
 > [!div class="nextstepaction"]
 > [Java client library source code](https://github.com/Azure/azure-storage-java/tree/New-Storage-SDK-V10-Preview)
