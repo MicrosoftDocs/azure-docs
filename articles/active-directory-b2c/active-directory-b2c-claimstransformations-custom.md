@@ -17,6 +17,7 @@ ms.component: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
+<a name="top"></a>
 
 This article describes how to configure and use Claims transformations within Azure AD B2C Policies.
 
@@ -350,8 +351,6 @@ As the name dictates, this provider does nothing. This provider can be used for 
 </ClaimsTransformation>
 ```
 
-[To Top](#top)
-
 ---
 ### GetClaimFromJSON
 
@@ -493,25 +492,30 @@ The example below defines a ClaimsTransformation of the 'CompareClaimToValue' ty
 ---
 ### CompareClaims
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile.
+A CompareClaims claims transformation compares the value of one claim defined in the policy schema to that of a second claim defined there. Other parameters control whether the comparison should be case sensitive and whether to test for equality or inequality. The result of the comparison is returned as a Boolean claim..
 
 | Variable | Paramater | Description 
 | - | - | - |
-| **Input Claims** | item (String) | A single value claim to add to the collection |
-| | collection (stringCollection) | The collection of values to combine with item |
-| **Input Paramaters** | N/A | | 
-| **Output Claims** | collection (stringCollection) | The collection claim to output to | 
+| **Input Claims** | inputClaim1 (String) | A single value claim to compare |
+| | inputClaim2 (string) | Another claim |
+| **Input Paramaters**| ignoreCase(string) | A string of either "true" or "false" to determine if case is compared |
+|| operator(string) | Either ‘EQUAL’ or ‘NOT EQUAL’
+| **Output Claims** | outputClaim (boolean) |The boolean result of the comparison | 
 
-
+The example below defines a ClaimsTransformation of the 'CompareClaims' type called ‘HasAgeGroupValueChanged’. Two claims called ‘ageGroup’ and ‘ageGroup_new’ in the policy Schema are compared to each other.  The comparison will not be case-sensitive.  If the claims are equals, the transform will return a Boolean claim called ‘ageGroupValueChanged’ with the value ‘true’;  otherwise it returns ‘false’
 
 ```XML
-<ClaimsTransformation Id="CreateOtherMailsFromEmail" TransformationMethod="AddItemToStringCollection">
+<ClaimsTransformation Id="HasAgeGroupValueChanged" TransformationMethod="CompareClaims">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="item" />
-    <InputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
+    <InputClaim ClaimTypeReferenceId="ageGroup" TransformationClaimType="inputClaim1" />
+    <InputClaim ClaimTypeReferenceId="ageGroup_new" TransformationClaimType="inputClaim2" />
   </InputClaims>
+  <InputParameters>
+    <InputParameter Id="ignoreCase" DataType="string" Value="true" />
+    <InputParameter Id="operator" DataType="string" Value="NOT EQUAL" />
+  </InputParameters>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="otherMails" TransformationClaimType="collection" />
+    <OutputClaim ClaimTypeReferenceId="ageGroupValueChanged" TransformationClaimType="outputClaim"/>
   </OutputClaims>
 </ClaimsTransformation>
 ```
