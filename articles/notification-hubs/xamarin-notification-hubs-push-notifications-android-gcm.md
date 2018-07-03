@@ -28,7 +28,7 @@ In this tutorial, you take the following steps:
 
 > [!div class="checklist"]
 > * Create a Firebase project and enable Firebase Cloud Messaging
-> * Create a notificaiton hub
+> * Create a notification hub
 > * Create a Xamarin.Android app and connect it to the notification hub
 > * Send test notifications from the Azure portal
 
@@ -54,7 +54,7 @@ In this tutorial, you take the following steps:
 
 Your notification hub is configured to work with FCM, and you have the connection strings to both register your app to receive notifications and to send push notifications.
 
-## Create Xamain.Android app and connect it to notification hub
+## Create Xamarin.Android app and connect it to notification hub
 
 ### Create Visual Studio project and add NuGet packages
 1. In Visual Studio, point to **File**, select **New**, and then select **Project**. 
