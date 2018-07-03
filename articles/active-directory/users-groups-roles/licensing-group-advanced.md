@@ -235,5 +235,5 @@ To learn more about other scenarios for license management through group-based l
 
 * [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
-* [Identifying and resolving license problems for a group in Azure Active Directory](../../active-directory-licensing-group-problem-resolution-azure-portal.md)
+* [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
