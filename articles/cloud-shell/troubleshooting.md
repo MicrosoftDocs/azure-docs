@@ -111,17 +111,33 @@ Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud
 
 ## PowerShell limitations
 
-### Slow startup time
+### `AzureAD` module name
 
-PowerShell in Azure Cloud Shell (Preview) could take up to 60 seconds to initialize during preview.
+The `AzureAD` module name is currently `AzureAD.Standard.Preview`, the module provides the same functionality.
+
+### `SqlServer` module functionality
+
+The `SqlServer` module included in Cloud Shell has only prerelease support for PowerShell Core. In particular, `Invoke-SqlCmd` is not available yet.
 
 ### Default file location when created from Azure drive:
 
-Using PowerShell cmdlets, users can not create files under the Azure drive. When users create new files using other tools, such as vim or nano, the files are saved to C:\Users folder by default. 
+Using PowerShell cmdlets, users can not create files under the Azure drive. When users create new files using other tools, such as vim or nano, the files are saved to the `$HOME` by default. 
 
 ### GUI applications are not supported
 
 If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Connect-AzureRmAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+
+### Tab completion crashes PSReadline
+
+If the user's EditMode in PSReadline is set to Emacs, the user tries to display all possibilities via tab completion, and the window size is too small to display all the possibilities, PSReadline will crash.
+
+### Large Gap after displaying progress bar
+
+If the user performs an action that displays a progress bar, such a tab completing while in the `Azure:` drive, then it is possible that the cursor is not set properly and a gap appears where the progress bar was previously.
+
+### Random characters appear inline
+
+The cursor position sequence codes, for example `5;13R`, can appear in the user input.  The characters can be manually removed.
 
 ## Personal data in Cloud Shell
 
