@@ -18,20 +18,19 @@ Most of the artifacts created in the earlier version of Azure Machine Learning S
 
 The following table and article explain what you can do with your existing assets and resources before or after moving over to the latest version of Azure Machine Learning Services. You can also continue to use the previous version and your assets for some time ([see transition support timeline](overview-what-happened-to-workbench.md#timeline)).
 
-|Previous asset or resource|Can I migrate?|What to do?|
+|Previous preview asset or resource|Can I migrate?|What to do?|
 |-----------------|:-------------:|-------------|
 |Models|Yes|None. Works as before.|
 |Model dependencies <br/> and schemas|Yes|None. Works as before.|
 |Projects|Yes|[Attach the local folder to new workspace](#projects).|
 |Run histories|No|[Downloadable](#history) for a while.|
-|Machine learning CLI|No|Use the new [CLI](reference-azure-machine-learning-cli.md) for new work.|
-|Machine learning SDK|No|Use the new [SDK](reference-azure-machine-learning-sdk.md) for new work.|
 |Compute targets|No|Register them in new workspace.|
 |Web services|No|None. They continue to work as-is <br/>or [deploy them again using latest version](#services).|
-|Model management account|No|[Create a workspace](#resources) instead.|
-|Experimentation account|No|[Create a workspace](#resources) instead.|
+|Experimentation and <br/>Model management accounts|No|[Create a workspace](#resources) instead.|
+|Machine learning CLI & SDK|No|Use the new [CLI](reference-azure-machine-learning-cli.md) and [SDK](reference-azure-machine-learning-sdk.md) for new work.|
 
-Learn more about the changes to Azure Machine Learning Services in the article "[What happened to Workbench](overview-what-happened-to-workbench.md)"?
+
+Learn more about [what changed](overview-what-happened-to-workbench.md)"?
 
 >[!Warning]
 >This article is not for Azure Machine Learning Studio users.
