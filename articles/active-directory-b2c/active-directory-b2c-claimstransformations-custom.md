@@ -715,7 +715,16 @@ Below isthe Schema definition used in the example above.
 ---
 ### DoesClaimExist
 
-***[TODO: Still need to complete this transform]***
+The DoesClaimExist claims transformation will set a boolean claim if the provided input claim exists or not.
+
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | inputClaim (String) | A single value claim check |
+| **Input Paramaters**| N/A | |
+| **Output Claims** | outputClaim (boolean) |A boolean claim to store the result of if the provided claim value exists  | 
+
+
+The example below defines a ClaimsTransformation of the 'DoesClaimExist' type called ‘IsDateOfBirthPresent’. This will return a boolean value to the 'isDobPresent' claim if the 'dateOfBirth' claim exists (has a value).
 
 ```XML
 <ClaimsTransformation Id="IsDateOfBirthPresent" TransformationMethod="DoesClaimExist">
@@ -731,7 +740,17 @@ Below isthe Schema definition used in the example above.
 ---
 ### GetCurrentDateTime
 
-***[TODO: Still need to complete this transform]***
+The GetCurrentDateTime claims transformation will set a DateTime claim with the current date and time.
+
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | N/A |  |
+| **Input Paramaters**| N/A | |
+| **Output Claims** | currentDateTime (dateTime) |A dateTme claim to store the current Date and Time  | 
+
+
+The example below defines a ClaimsTransformation of the 'GetCurrentDateTime' type called ‘GetCurrentDateTimeTest’. This will return a dateTime value of the current Date and Time and store it to the 'currDate' claim.
+
 
 ```XML
 <ClaimsTransformation Id="GetCurrentDateTimeTest" TransformationMethod="GetCurrentDateTime">
@@ -744,12 +763,46 @@ Below isthe Schema definition used in the example above.
 ---
 ### IsTermsOfUseConsentRequired
 
-***[TODO: Still need to complete this transform]***
+The IsTermsOfUseConsentRequired claims transformation will compare the Date time in th e provided input claim against a static value provided in the input paramater and return a boolean value to the output claim if the proved date time within the claim is less than the static value.
+
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | termsOfUseConsentDateTime (dateTime) | A dateTime claim |
+| **Input Paramaters**| termsOfUseTextUpdateDateTime (dateTime) | a dateTime Value |
+| **Output Claims** | result (boolean) |True if the input claim is less than the input paramater, otherwise false.  | 
+
+
+The example below defines a ClaimsTransformation of the 'IsTermsOfUseConsentRequired' type called ‘IsTermsOfUseConsentRequired’. This will set the 'termsOfUseConsentRequired' boolean claim to True if 'extension_termsOfUseConsentDateTime' is less than the static value "2098-01-30T23:03:45" provided in the input paramater.
+
+
+```XML
+<ClaimsTransformation Id="IsTermsOfUseConsentRequired" TransformationMethod="IsTermsOfUseConsentRequired"> 
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="extension_termsOfUseConsentDateTime" TransformationClaimType="termsOfUseConsentDateTime" /> 
+  </InputClaims> 
+  <InputParameters>
+    <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2098-01-30T23:03:45" /> 
+  </InputParameters> 
+  <OutputClaims> 
+    <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="result" /> 
+  </OutputClaims> 
+</ClaimsTransformation> 
+```
 
 ---
 ### AndClaims
 
-***[TODO: Still need to complete this transform]***
+The AndClaims claims transformation will set a boolean claim to true if both of the provided boolean input claims are also true, otherwise it will be set to False.
+
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | inputClaim1 (boolean) | A boolean claim  |
+|| inputClaim2 (boolean) | Another boolean claim |
+| **Input Paramaters**| N/A | |
+| **Output Claims** | outputClaim (boolean) |A boolean claim with True if the 2 input claims are True, otherwise False  | 
+
+
+The example below defines a ClaimsTransformation of the 'AndClaims' type called ‘EvaluateSkipProgressiveProfilePage’. This transformation will return a boolean value of "True" if the claim 'isDobPresent' is True AND the claim 'isLegalCountryPresent' is True, otherwise it will return "False. The result of this will be stored within th boolean claim  'skipProgressiveProfilePage'.
 
 ```XML
 <ClaimsTransformation Id="EvaluateSkipProgressiveProfilePage" TransformationMethod="AndClaims">
@@ -767,7 +820,17 @@ Below isthe Schema definition used in the example above.
 ---
 ### OrClaims
 
-***[TODO: Still need to complete this transform]***
+The OrClaims claims transformation will set a boolean claim to true if either of the provided boolean input claims are also true, otherwise it will be set to False.
+
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | inputClaim1 (boolean) | A boolean claim  |
+|| inputClaim2 (boolean) | Another boolean claim |
+| **Input Paramaters**| N/A | |
+| **Output Claims** | outputClaim (boolean) |A boolean claim with True if either of the 2 input claims are True, otherwise False  | 
+
+
+The example below defines a ClaimsTransformation of the 'OrClaims' type called ‘CalculateIsUserMinorAndRequireParentalConsent’. This transformation will return a boolean value of "True" if the claim 'islegalAgeGroupClassificationUndefined' is True OR if the claim  'isLegalAgeGroupClassificationMinorWithoutConsent' is True, otherwise it will return "False. The result of this will be stored within th boolean claim  'isMinorAndRequiresParentalConsent'.
 
 ```XML
 <ClaimsTransformation Id="CalculateIsUserMinorAndRequireParentalConsent" TransformationMethod="OrClaims">
