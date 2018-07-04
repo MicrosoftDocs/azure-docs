@@ -98,7 +98,7 @@
     items:
     - name: Overview 
       href: durable-functions-overview.md
-    - name: Concepts and patterns
+    - name: Components and patterns
       href: durable-functions-components-overview.md
     - name: Bindings
       href: durable-functions-bindings.md
