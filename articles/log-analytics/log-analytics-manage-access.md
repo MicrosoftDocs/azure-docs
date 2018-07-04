@@ -51,6 +51,13 @@ When using Windows agents to collect data, you can [configure each agent to repo
 
 If you are using System Center Operations Manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
 
+### Multiple workspaces automation
+
+In case that multiple workspaces are used, their creation and configuration can be automated using [PowerShell](log-analytics-powershell-workspace-configuration.md), [Resource Manager templates](log-analytics-template-workspace-configuration.md), or using the [REST API](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).
+
+When managing multiple Log Analytics workspaces, we recommend integrating each workspace with your existing ticketing system / operations console using the [Alerts](log-analytics-alerts.md) functionality. By integrating with your existing systems, support staff can continue to follow their familiar processes. Log Analytics regularly checks each workspace against the alert criteria you specify and generates an alert when action is needed.
+
+
 ### Workspace information
 
 You can view details about your workspace in the Azure portal. 
