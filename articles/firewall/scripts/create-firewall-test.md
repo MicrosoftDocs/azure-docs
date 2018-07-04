@@ -22,6 +22,14 @@ A user defined route is created that points the network traffic from the Servers
 
 You can run the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
+In addition, you must install the latest version of AzureRM.Network (version 6.4.0). To determine your installed version, run `Get-Module -ListAvailable AzureRM.network`. If you need to upgrade the module, run: 
+
+`Update-Module -Name AzureRM.Network -RequiredVersion 6.4.0-preview -AllowPrerelease`, 
+
+Or, if you need to install the module, run:
+
+ `Install-Module -Name AzureRM.Network -Repository PSGallery -RequiredVersion 6.4.0-preview -AllowPrerelease -Force`.
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
