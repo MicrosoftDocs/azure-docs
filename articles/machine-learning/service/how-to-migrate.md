@@ -20,8 +20,8 @@ The following table and article explain what you can do with your existing asset
 
 |Previous preview asset or resource|Can I migrate?|What to do?|
 |-----------------|:-------------:|-------------|
-|Models|Yes|None. Works as before.|
-|Model dependencies <br/> and schemas|Yes|None. Works as before.|
+|Machine learning models|Yes|None. Works as before.|
+|Model dependencies & schemas|Yes|None. Works as before.|
 |Projects|Yes|[Attach the local folder to new workspace](#projects).|
 |Run histories|No|[Downloadable](#history) for a while.|
 |Compute targets|No|Register them in new workspace.|
