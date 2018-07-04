@@ -14,5 +14,3 @@ articles/directories.txt
 .vscode/*
 .vs/*
 .settings.json
-*.objects
-*.bak
