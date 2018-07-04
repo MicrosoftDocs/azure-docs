@@ -229,7 +229,7 @@ The example below defines a ClaimsTransformation of the ‘FormatStringClaim’ 
     <InputClaim ClaimTypeReferenceId="userId" TransformationClaimType="inputClaim" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="formatString" DataType="string" Value="cpim_{0}@mydomain.com.au" />
+    <InputParameter Id="stringFormat" DataType="string" Value="cpim_{0}@mydomain.com.au" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="userPrincipalName" TransformationClaimType="outputClaim" />
@@ -576,7 +576,7 @@ The example below defines a ClaimsTransformation of the 'CompareClaimToValue' ty
 ---
 ### CompareClaims
 
-A CompareClaims claims transformation compares the value of one claim defined in the policy schema to that of a second claim defined there. Other parameters control whether the comparison should be case sensitive and whether to test for equality or inequality. The result of the comparison is returned as a Boolean claim..
+A CompareClaims claims transformation compares the value of one claim defined in the policy schema to that of a second claim defined there. Other parameters control whether the comparison should be case sensitive and whether to test for equality or inequality. The result of the comparison is returned as a Boolean claim.
 
 | Variable | Paramater | Description 
 | - | - | - |
@@ -607,40 +607,179 @@ The example below defines a ClaimsTransformation of the 'CompareClaims' type cal
 ---
 ### GetAgeGroupAndConsentProvided
 
-***[TODO: Still need to complete this transform]***
+The GetAgeGroupAndConsentProvided claims transformation evaluates three claims to fdermine if the user is allowed access based on GDPR, COPPA, and PIPA regulations.
+
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | dateOfBirth (String) | The users birth date. |
+|  | legalCountry (String) | The country the user is in. |
+| | consentProvidedForMinor (string) | A consent claim to allow minors access. |
+| **Input Paramaters**| N/A |  |
+| **Output Claims** | ageGroup (string) | Will return null, Undefined, Minor, Adult, or NotAdult | 
+|  | doRegulationsRequireParentalConsent (boolean) | Will return a boolean if the country is subject to GDPR, COPPA, and PIPA  |
+|  | consentProvidedForMinor (String) | returns the consent claim to allow minors access or not. |
+
+The example below defines a ClaimsTransformation of the 'GetAgeGroupAndConsentProvided' type called ‘CalculateAgeGroupAndConsent’. Three claims called ‘dateOfBirth’, ‘legalCountry’ and ‘consentProvidedForMinor’ in the policy Schema are evaluated.  The information is then evaluated and three claims will be returned based on the country and the relevent regulation (GDPR, COPPA, and PIPA).
+
+```XML
+<ClaimsTransformation Id="CalculateAgeGroupAndConsentCalculateAgeGroupAndConsent" TransformationMethod="GetAgeGroupAndConsentProvided">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="dateOfBirth" />
+    <InputClaim ClaimTypeReferenceId="legalCountry" TransformationClaimType="countryCode" />
+    <InputClaim ClaimTypeReferenceId="consentProvidedForMinor" TransformationClaimType="consentProvidedForMinor" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="ageGroup" TransformationClaimType="ageGroup" />
+    <OutputClaim ClaimTypeReferenceId="doRegulationsRequireParentalConsent" TransformationClaimType="doRegulationsRequireParentalConsent" />
+    <OutputClaim ClaimTypeReferenceId="consentProvidedForMinor" TransformationClaimType="consentProvidedForMinor" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
 
 ---
 ### SetClaimsIfStringsMatch
 
-***[TODO: Still need to complete this transform]***
+The SetClaimsIfStringsMatch claims transformation compares the value of one claim defined in the policy schema to that of a staic paramater. If the values match according to the String comparison method then a boolean flag will be set to identify the match and a claims restiction value will be used to retrive the value based ont eh provided Key.
+
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | claimToMatch (String) | A single value claim to compare against |
+| **Input Paramaters**| matchTo(string) | A string value to compare to the claim value. |
+|| stringComparison(string) | Either ordinal or ordinalIgnoreCase |
+|| outputClaimIfMatched(string) | The static value to add to a claim if there is a match |
+| **Output Claims** | outputClaim (string) |The claim to store the static value | 
+|| stringCompareResultClaim(boolean) | The Boolean field if there was a match |
+
+The example below defines a ClaimsTransformation of the 'SetClaimsIfStringsMatchs' type called ‘SetIsMinor’. If the 'ageGroup' claim matches the value "Minor" then a true boolean value will be set for the "isMinor" claimm, and the Value "B2C_V1_90001" will be set within the ‘responseCode’ claim.
+
+```XML
+<ClaimsTransformation Id="SetIsMinor" TransformationMethod="SetClaimsIfStringsMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="ageGroup" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="Minor" />
+    <InputParameter Id="stringComparison" DataType="string" Value="ordinalIgnoreCase" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="B2C_V1_90001" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isMinor" TransformationClaimType="stringCompareResultClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+
 
 ---
 ### GetMappedValueFromLocalizedCollection
 
-***[TODO: Still need to complete this transform]***
+The GetMappedValueFromLocalizedCollection claims transformation will retrive a value from another claims schema definition from the restriction enumeration.
+
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | mapFromClaim (String) | A single value claim to lookup |
+| **Input Paramaters**| N/A | |
+| **Output Claims** | restrictionValueClaim (string) |The claim to to retrive the restriction enumeration from and store the result to.  | 
+
+
+The example below defines a ClaimsTransformation of the 'GetMappedValueFromLocalizedCollection' type called ‘GetResponseMsgMappedToResponseCode’. This will retrived the value from the 'responseCode' claim and use it as the lookup for the value on the 'responseMsg' claim. The lookup value returned will be stored on the 'responseMsg' claim.
+
+
+```XML
+<ClaimsTransformation Id="GetResponseMsgMappedToResponseCode" TransformationMethod="GetMappedValueFromLocalizedCollection">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+Below isthe Schema definition used in the example above.
+```XML
+<ClaimType Id="responseMsg">
+  <DisplayName>
+  </DisplayName>
+  <DataType>string</DataType>
+  <AdminHelpText>A claim responsible for holding response messages to send to the relying party</AdminHelpText>
+  <UserHelpText>A claim responsible for holding response messages to send to the relying party</UserHelpText>
+  <UserInputType>Paragraph</UserInputType>
+  <Restriction>
+    <Enumeration Text="B2C_V1_90001" Value="Unfortunately, your sign on has been blocked. Privacy and online safety laws in your country prevent access to accounts belonging to children." />
+  </Restriction>
+</ClaimType>
+```
 
 ---
 ### DoesClaimExist
 
 ***[TODO: Still need to complete this transform]***
 
+```XML
+<ClaimsTransformation Id="IsDateOfBirthPresent" TransformationMethod="DoesClaimExist">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isDoBPresent" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
 ---
 ### GetCurrentDateTime
 
 ***[TODO: Still need to complete this transform]***
+
+```XML
+<ClaimsTransformation Id="GetCurrentDateTimeTest" TransformationMethod="GetCurrentDateTime">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="currDate" TransformationClaimType="currentDateTime" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
 
 ---
 ### IsTermsOfUseConsentRequired
 
 ***[TODO: Still need to complete this transform]***
 
+---
 ### AndClaims
 
 ***[TODO: Still need to complete this transform]***
 
+```XML
+<ClaimsTransformation Id="EvaluateSkipProgressiveProfilePage" TransformationMethod="AndClaims">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="isDoBPresent" TransformationClaimType="inputClaim1" />
+    <InputClaim ClaimTypeReferenceId="isLegalCountryPresent" TransformationClaimType="inputClaim2" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="skipProgressiveProfilePage" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+
+---
 ### OrClaims
 
 ***[TODO: Still need to complete this transform]***
+
+```XML
+<ClaimsTransformation Id="CalculateIsUserMinorAndRequireParentalConsent" TransformationMethod="OrClaims">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="islegalAgeGroupClassificationUndefined" TransformationClaimType="inputClaim1" />
+    <InputClaim ClaimTypeReferenceId="isLegalAgeGroupClassificationMinorWithoutConsent" TransformationClaimType="inputClaim2" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isMinorAndRequiresParentalConsent" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
 
 
 
