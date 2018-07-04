@@ -494,8 +494,23 @@ The example below defines a ClaimsTransformation of the 'CompareClaimToValue' ty
 ---
 ### NullClaim
 
-***[TODO: Still need to complete this transform]***
+A NullClaim claims transformation will clear the value from a claim in the policy schema (Set it to Null).
 
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | N/A | |
+| **Input Paramaters** | N/A |  |
+| **Output Claims** | claim_to_null (N/A) | The claim to set to Null | 
+
+The example below defines a ClaimsTransformation of the 'NullClaim' type called ‘ClearUserId’. A claim called ‘userId’ in the policy Schema  will be set to Null.
+
+```XML
+<ClaimsTransformation Id="ClearUserId" TransformationMethod="NullClaim">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="userId" TransformationClaimType="claim_to_null" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
 
 ---
 ### CompareClaimToValue
