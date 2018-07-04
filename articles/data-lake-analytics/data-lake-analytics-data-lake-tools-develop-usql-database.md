@@ -95,7 +95,21 @@ PackageDeploymentTool.exe provides the programming and command-line interfaces t
 
 ## Reference a U-SQL database project
 
+A U-SQL project can reference a U-SQL database project. The reference impacts two workload:
 
+1. Project build: The referenced database environments are set up before building the U-SQL scripts. 
+2. Local run against (Local-project) account: The referenced database environments are deployed to (Local-project) account before U-SQL script execution. [Learn more about local run and the difference between (Local-machine) and (Local-project) account here](data-lake-analytics-data-lake-tools-local-run.md).
+
+### How to add U-SQL database reference
+
+1. Right-click the U-SQL project in Solution Explorer, and choose **Add U-SQL Database Reference...**.
+
+    ![Data Lake Tools for Visual Studio add database project reference](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-database-project-reference.png)
+
+2. Configure database reference from a U-SQL database project in current solution or a U-SQL database package file.
+3. Provide the name for the database.
+
+    ![Data Lake Tools for Visual Studio add database project reference wizard](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-database-project-reference-wizard.png)
 
 ## Next Steps
 
