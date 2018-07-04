@@ -368,14 +368,63 @@ The example below defines a ClaimsTransformation of the ‘AssertStringClaimsAre
 ---
 ### AssertDateTimeIsGreaterThan
 
-***[TODO: Still need to complete this transform]***
+The AssertDateTimeIsGreaterThan transformation will compare two string  claim as dates from the policy schema and throw an error if the left date is greater than the right date. Seetings are also available for clock skew (TreatAsEqualIfWithinMillseconds) as well as if the right operator is not present.
+
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | leftOperand (string) | A string claim to compare. |
+|| rightOperand (string)  | The string claim to compare to. |
+| **Input Paramaters** | AssertIfEqualTo (boolean) | . |
+|  | AssertIfRightOperandIsNotPresent (boolean) | . |
+|  | TreatAsEqualIfWithinMillseconds (int) | . |
+| **Output Claims** | N/A |  | 
+
+
+The example below defines a ClaimsTransformation of the ‘AssertDateTimeIsGreaterThan’ type called ‘AssertRefreshTokenIssuedLaterThanValidFromDate’. The value from the policy schema’s ‘refreshTokenIssuedOnDateTime’ claim will be compared to the  policy schema’s ‘refreshTokensValidFromDateTime’ claim. If the first claim is NOT greater than the second claim or the second claim does not exist an exception will be thrown. 
+
+>[!NOTE]
+> This claim will throw an error value based on the  `[???TODO: NEED TO CONFM ???]` metadata item.
+
+```XML
+<ClaimsTransformation Id="AssertRefreshTokenIssuedLaterThanValidFromDate" TransformationMethod="AssertDateTimeIsGreaterThan">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="refreshTokenIssuedOnDateTime" TransformationClaimType="leftOperand" />
+    <InputClaim ClaimTypeReferenceId="refreshTokensValidFromDateTime" TransformationClaimType="rightOperand" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="AssertIfEqualTo" DataType="boolean" Value="false" />
+    <InputParameter Id="AssertIfRightOperandIsNotPresent" DataType="boolean" Value="true" />
+    <InputParameter Id="TreatAsEqualIfWithinMillseconds" DataType="int" Value="300000" />
+  </InputParameters>
+</ClaimsTransformation>
+```
+
 
 
 ---
 ### ConvertNumberToStringClaim
 
-***[TODO: Still need to complete this transform]***
+The ConvertNumberToStringClaim claims transformation will convert a numeric claims from the policy schema and save it to a string based claims.
 
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | inputClaim (long or int) | A numeric claim to convert. |
+| **Input Paramaters** | N/A | |
+| **Output Claims** | outputClaim (string) | The output claim as a string | 
+
+The example below defines a ClaimsTransformation of the ‘ConvertNumberToStringClaim’ type called ‘CreateUserId’. This transform will convert the claim called ‘numericUserId’ in the policy schema to a string claim called ‘UserId’.
+
+
+```XML
+<ClaimsTransformation Id="CreateUserId" TransformationMethod="ConvertNumberToStringClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="numericUserId" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="UserId" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
 
 ---
 ### GetClaimFromJSON
