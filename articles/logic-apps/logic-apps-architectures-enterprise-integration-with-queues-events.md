@@ -23,38 +23,38 @@ ms.author: LADocs; estfan
 
 This reference architecture shows a set of proven practices for an integration application that uses Azure Integration Services. This architecture can serve as this basis of many different application patterns requiring HTTP APIs, workflow and orchestration.
 
-*There are many possible applications of integration technology, from a simple point-to point application to a full enterprise service bus. This architecture series sets out the reusable component parts for building any integration application – architects should consider the components they will need for their applications and infrastructure.*
+*There are many possible applications of integration technology, from a simple point-to point application to a full enterprise service bus. This architecture series sets out the reusable component parts which may apply for building a generic integration application – architects should consider which specific components they will need to implement for their applications and infrastructure.*
 
 ![Architecture diagram - enterprise integration with queues & events](media/logic-apps-architectures-enterprise-integration-with-queues-events/integr_queues_events_arch_diagram.png)
 
 ## Architecture
 
-This architecture builds on the one shown in [simple enterprise integration](logic-apps-architectures-simple-enterprise-integration.md). It includes the following components:
+This architecture **builds on** the [simple enterprise integration](logic-apps-architectures-simple-enterprise-integration.md) architecture. **The [simple enterprise architecture recommendations](logic-apps-architectures-simple-enterprise-integration#recommendations) also apply here**, but have been omitted from the [recommendations](#recommendations) in this document for brevity. It has the following components:
 
-- Resource group. A resource group is a logical container for Azure resources.
-- Azure API Management. Azure API Management is a fully managed platform for publishing, securing and transforming HTTP APIs.
-- Azure API Management Developer Portal. Each instance of Azure API Management comes with a Developer Portal, giving access to documentation, code samples and the ability to test an API.
-- Azure Logic Apps. Logic Apps is a serverless platform for building enterprise workflow and integration.
-- Connectors. Connectors are used by Logic Apps to connect to commonly used services. Logic Apps already has hundreds of different connectors, but they can also be created using a custom connector.
-- Azure Service Bus. Service Bus provides secure and reliable messaging. Messaging can be used to de-couple applications from one another and integrate with other message-based systems.
-- Azure Event Grid. Event Grid is a serverless platform for publishing and delivering application events.
-- IP address. The Azure API Management service has a fixed public IP address and a domain name. The domain name is a subdomain of azure-api.net, such as contoso.azure-api.net. Logic Apps and Service Bus also have a public IP address; however, in this architecture we restrict access to call Logic apps endpoints to only the IP Address of API Management (for security). Calls to Service Bus are secured by a shared access signature.
-- Azure DNS. Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as contoso.com) create DNS records that map the custom domain name to the IP address. For more information, see Configure a custom domain name in Azure API Management.
-- Azure Active Directory (Azure AD). Use Azure AD or another identity provider for authentication. Azure AD provides authentication to access API endpoints (by passing a JSON Web Token for API Management to validate) and can secure access to the API Management Developer Portal (Standard & Premium tiers only).
+- Resource group. A [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) is a logical container for Azure resources.
+- Azure API Management. [Azure API Management](https://docs.microsoft.com/azure/api-management/) is a fully managed platform for publishing, securing and transforming HTTP APIs.
+- Azure API Management Developer Portal. Each instance of Azure API Management comes with a [Developer Portal](https://docs.microsoft.com/azure/api-management/api-management-customize-styles), giving access to documentation, code samples and the ability to test an API.
+- Azure Logic Apps. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) is a serverless platform for building enterprise workflow and integration.
+- Connectors. [Connectors](https://docs.microsoft.com/azure/connectors/apis-list) are used by Logic Apps to connect to commonly used services. Logic Apps already has hundreds of different connectors, but they can also be created using a custom connector.
+- Azure Service Bus. [Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) provides secure and reliable messaging. Messaging can be used to de-couple applications from one another and integrate with other message-based systems.
+- Azure Event Grid. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) is a serverless platform for publishing and delivering application events.
+- IP address. The Azure API Management service has a fixed public [IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) and a domain name. The domain name is a subdomain of azure-api.net, such as contoso.azure-api.net. Logic Apps and Service Bus also have a public IP address; however, in this architecture we restrict access to call Logic apps endpoints to only the IP Address of API Management (for security). Calls to Service Bus are secured by a shared access signature.
+- Azure DNS. [Azure DNS](https://docs.microsoft.com/azure/dns/) is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as contoso.com) create DNS records that map the custom domain name to the IP address. For more information, see Configure a custom domain name in Azure API Management.
+- Azure Active Directory (Azure AD). Use [Azure AD](https://docs.microsoft.com/azure/active-directory/) or another identity provider for authentication. Azure AD provides authentication to access API endpoints (by passing a [JSON Web Token for API Management](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) to validate) and can secure access to the API Management Developer Portal (Standard & Premium tiers only).
 
 This architecture has some fundamental patterns to its operation:
 
 1. Existing backend HTTP APIs are published through the API Management Developer Portal, allowing developers (either internal to your organization, external or both) to integrate calls to these APIs into applications.
-2. Composite APIs are built using Logic Apps; orchestrating calls to SAAS systems, Azure services and any APIs published to API Management. The Logic Apps are also published through the API Management Developer Portal.
-3. Applications acquire an OAuth 2.0 security token necessary for gaining access to an API using Azure Active Directory.
-4. Azure API Management validates the security token, and passes the request to the backend API/Logic App.
-5. Service Bus queues are used to decouple application activity and smooth spikes in load. Messages are added to queues by Logic Apps, 3rd party applications, or (not pictured) by publishing the queue as an HTTP API through API Management.
+2. Composite APIs are built using Logic Apps; orchestrating calls to SAAS systems, Azure services and any APIs published to API Management. The [Logic Apps are also published](https://docs.microsoft.com/azure/api-management/import-logic-app-as-api) through the API Management Developer Portal.
+3. Applications [acquire an OAuth 2.0 security token](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) necessary for gaining access to an API using Azure Active Directory.
+4. Azure API Management [validates the security token](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad), and passes the request to the backend API/Logic App.
+5. Service Bus queues are used to [decouple](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) application activity and [smooth spikes in load](https://docs.microsoft.com/azure/architecture/patterns/queue-based-load-leveling). Messages are added to queues by Logic Apps, 3rd party applications, or (not pictured) by publishing the queue as an HTTP API through API Management.
 6. When messages are added to a Service Bus queue, an Event fires. A Logic App is triggered by this event and processes the message.
 7. Similarly, other Azure services (e.g. Blob Storage, Event Hub) also publish events to Event Grid. These trigger Logic Apps to receive the event and perform subsequent actions.
 
 ## Recommendations
 
-Your requirements might differ from the architecture described here. Use the recommendations in this section as a starting point.
+Your specific requirements might differ from the generic architecture described here. Use the recommendations in this section as a starting point.
 
 ### Service Bus tier
 
@@ -108,7 +108,7 @@ For more information, see [resource group](../azure-resource-manager/resource-gr
 
 We recommend that you use [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) to deploy Azure API Management, Logic Apps, Event Grid and Service Bus. Templates make it easier to automate deployments via PowerShell or the Azure command-line interface (CLI).
 
-We recommend putting Azure API Management, any individual Logic Apps, Event Grid topics and Service Bus Namespaces in their own separate Resource Manager templates. This will allow storing them into source control systems for. These templates can then be deployed together or individually as part of a continuous integration/continuous (CI/CD) deployment process.
+We recommend putting Azure API Management, any individual Logic Apps, Event Grid topics and Service Bus Namespaces in their own separate Resource Manager templates. This will allow storing them in source control systems. These templates can then be deployed together or individually as part of a continuous integration/continuous (CI/CD) deployment process.
 
 ### Diagnostics and monitoring
 
@@ -124,4 +124,4 @@ Event Grid secures event delivery through a validation code. If you use LogicApp
 
 ## Next steps
 
-* [Simple Enterprise Integration](logic-apps-architectures-simple-enterprise-integration.md)
+- [Simple Enterprise Integration](logic-apps-architectures-simple-enterprise-integration.md)
