@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 07/02/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 
@@ -104,7 +104,6 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![Cassandra Cluster](media/azure-stack-marketplace-azure-items/cassandra.png) | [Cassandra Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cassandra-cluster) | Apache Cassandra is an open source distributed database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. **This solution template also requires Debian 8 and Custom Script for Linux 2.0 Extension.** | Bitnami |
 | ![CiviCRM](media/azure-stack-marketplace-azure-items/civicrm.png) | [CiviCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.civicrm) | Simple web-based relationship management system. | Bitnami |
 | ![CMS Made Simple](media/azure-stack-marketplace-azure-items/cmsmadesimple.png) | [CMS Made Simple](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cmsmadesimple) | Fast and easy way to create and manage a website. | Bitnami |
-| ![Code Dx](media/azure-stack-marketplace-azure-items/codedx.png) | [Code Dx](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.codedx) | Code analysis and vulnerability management system. | Bitnami |
 | ![Codiad](media/azure-stack-marketplace-azure-items/codiad.png) | [Codiad](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.codiad) | Open-source Cloud IDE with minimal footprint. | Bitnami |
 | ![Concrete5](media/azure-stack-marketplace-azure-items/concrete5.png) | [Concrete5](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.concrete5) | Easily deploy web applications, websites, stores, and forums. | Bitnami |
 | ![Coppermine](media/azure-stack-marketplace-azure-items/coppermine.png) | [Coppermine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.coppermine) | Multi-purpose, fully featured web gallery. | Bitnami |

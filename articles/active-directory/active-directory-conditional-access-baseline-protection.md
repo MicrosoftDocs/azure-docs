@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2018
+ms.date: 07/02/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -47,7 +47,7 @@ Users with access to privileged accounts have unrestricted access to your enviro
 
 ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/01.png)
 
-This baseline policy provides you with the option to exclude users and groups. You might want to exclude one *[emergency-access administrative account](active-directory-admin-manage-emergency-access-accounts.md)* to ensure you are not locked out of the tenant.
+This baseline policy provides you with the option to exclude users and groups. You might want to exclude one *[emergency-access administrative account](users-groups-roles/directory-emergency-access.md)* to ensure you are not locked out of the tenant.
 
 
 ## Enable a baseline policy 
@@ -63,9 +63,9 @@ While baseline policies are in preview, they are by default not activated. You n
 
     ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/02.png)
 
-3. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
+3. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
 
-    ![Conditional access](./media/active-directory-conditional-access-baseline-protection/03.png)
+    ![Conditional access](./media/active-directory-conditional-access-baseline-protection/05.png)
 
 4. In the list of policies, click a policy that starts with **Baseline policy:**. 
 

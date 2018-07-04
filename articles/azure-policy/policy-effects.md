@@ -143,7 +143,7 @@ Example: Using the deny effect.
 
 ## Audit
 
-Audit effect is used to create a warning event in audit log when a non-compliant resource is
+Audit effect is used to create a warning event in the Activity Log when a non-compliant resource is
 evaluated, but it does not stop the request.
 
 ### Audit Evaluation
