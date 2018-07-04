@@ -203,7 +203,7 @@ Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/
   "operationState": "NotStarted",
   "createdTimestamp": "2018-04-13T01:52:30Z",
   "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
+  "userId": "2280ef5917tt4ebfa1aae41fb1cebb4a",
   "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
 }
 Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
@@ -211,7 +211,7 @@ Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d4
   "operationState": "Running",
   "createdTimestamp": "2018-04-13T01:52:30Z",
   "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
+  "userId": "2280ef5917tt4ebfa1aae41fb1cebb4a",
   "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
 }
 Waiting 30 seconds...
@@ -221,7 +221,7 @@ Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d4
   "createdTimestamp": "2018-04-13T01:52:30Z",
   "lastActionTimestamp": "2018-04-13T01:52:46Z",
   "resourceLocation": "/knowledgebases/b0288f33-27b9-4258-a304-8b9f63427dad",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
+  "userId": "2280ef5917tt4ebfa1aae41fb1cebb4a",
   "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
 }
 Press any key to continue.
