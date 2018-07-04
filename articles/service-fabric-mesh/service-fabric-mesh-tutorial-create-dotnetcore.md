@@ -335,7 +335,7 @@ public class IndexModel : PageModel
 
 ### Create environment variables
 
-To communicate with the back-end service requires the URL for that service. For the purpose of this tutorial, the following code (defined above as part of the IndexModel) reads environment variables that will be defined in a moment to compose the URL:
+The URL for the back-end service is required  to communicate with that service. For the purpose of this tutorial, the following code (defined above as part of the IndexModel) reads environment variables to compose the URL:
 
 ```csharp
 private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}.{Environment.GetEnvironmentVariable("AppName")}";
@@ -354,7 +354,8 @@ With the app name, service name, and port number, environment variables can be d
 
 In the service.yaml file, add the following variables under `environmentVariables`.
 
-> [!IMPORTANT] Spaces, not tabs, must be used to indent the variables or the file won't compile. Visual Studio may insert tabs as you create new lines. Replace the tabs at the start of the line with spaces. You'll see errors in the Error List when you compile but the app will still run--although it won't work until you convert the tabs to spaces.
+> [!IMPORTANT]
+> Spaces, not tabs, must be used to indent the variables in the service.yaml file or it won't compile. Visual Studio may insert tabs as you create new lines. Replace all tabs with spaces. You'll see errors in the Error List when you compile but the app will still run--although it won't work until you convert the tabs to spaces. To ensure that no tabs are in the service.yaml file, make whitespace visible in the Visual Studio editor with  **Edit**  > **Advanced**  > **View White Space**.
 
 ``` xml
 - name: AppName
