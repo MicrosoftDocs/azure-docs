@@ -25,7 +25,7 @@ If you don’t have a Cognitive Services account, create a [free account](https:
 
 ## Prerequisites
 
-Ensure that your Cognitive Services account is connected to a subscription by opening the [Cognitive Services Subscriptions](https://customspeech.ai/Subscriptions) page.
+Ensure that your Cognitive Services account is connected to a subscription by opening the [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) page.
 
 You can connect to a Speech Service subscription created in the Azure portal by clicking the **Connect existing subscription** button.
 
@@ -89,13 +89,13 @@ The transcriptions for all WAV files should be contained in a single plain-text 
 
 The transcriptions will be text-normalized so they can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. Consult the section on [transcription guidelines](prepare-transcription.md) for the appropriate language when preparing your transcriptions.
 
-The following steps are done using the [Speech Service Portal](https://customspeech.ai).
+The following steps are done using the [Speech Service Portal](https://cris.ai).
 
 ## Import the acoustic data set
 
 Once the audio files and transcriptions have been prepared, they are ready to be imported to the service web portal.
 
-To do so, first ensure you are signed into the [Speech Service Portal](https://customspeech.ai). Then click the “Custom Speech” drop-down menu on the top ribbon and select “Adaptation Data”. If this is your first time uploading data to the Custom Speech Service, you will see an empty table called “Datasets”. 
+To do so, first ensure you are signed into the [Speech Service Portal](https://cris.ai). Then click the “Custom Speech” drop-down menu on the top ribbon and select “Adaptation Data”. If this is your first time uploading data to the Custom Speech Service, you will see an empty table called “Datasets”. 
 
 Click the “Import” button in the "Acoustic Datasets" row, and the site displays a page for uploading a new data set.
 
@@ -103,7 +103,7 @@ Click the “Import” button in the "Acoustic Datasets" row, and the site displ
 
 Enter a _Name_ and _Description_ in the appropriate text boxes. Friendly descriptions are useful for keeping track of various data sets you upload. Next, click “Choose File" for the “Transcription File” and “WAV files” and select your plaint-text transcription file and zip archive of WAV files, respectively. When preparation is complete, click “Import” to upload your data. Your data will then be uploaded. For larger data sets, this may take several minutes.
 
-When the upload is complete, you will return to the "Acoustic Datasets" table and will see an entry that corresponds to your acoustic data set. Notice that it has been assigned a unique ID (GUID). The data will also have a status that reflects its current state. Its status will be "NotStarted" while it is being queued for processing, “Running” while it is going through validation, and “Complete” when the data is ready for use.
+When the upload is complete, you will return to the "Acoustic Datasets" table and will see an entry that corresponds to your acoustic data set. Notice that it has been assigned a unique ID (GUID). The data will also have a status that reflects its current state. Its status will be "NotStarted" while it is being queued for processing, “Running” while it is going through validation, and “Succeeded” when the data is ready for use.
 
 Data validation includes a series of checks on the audio files to verify the file format, length, and sampling rate, and on the transcription files to verify the file format and perform some text normalization.
 
@@ -115,7 +115,7 @@ At some point, if you would like to change the Name or Description of the data s
 
 ## Create a custom acoustic model
 
-Once the status of your acoustic data set is “Complete”, it can be used to create a custom acoustic model. To do so, click “Acoustic Models” in the “Custom Speech” drop-down menu. You will see a table called "Your models” that lists all of your custom acoustic models. This table will be empty if this is your first use. The current locale is shown in the table title. Currently, acoustic models can be created for US English only.
+Once the status of your acoustic data set is “Succeeded”, it can be used to create a custom acoustic model. To do so, click “Acoustic Models” in the “Custom Speech” drop-down menu. You will see a table called "Your models” that lists all of your custom acoustic models. This table will be empty if this is your first use. The current locale is shown in the table title. Currently, acoustic models can be created for US English only.
 
 To create a new model, click “Create New” under the table title. As before, enter a name and description to help you identify this model. For example, the "Description" field can be used to record which starting model and acoustic data set were used to create the model. Next, select a “Base Acoustic Model” from the drop-down menu. The base model is the model that is the starting point for your customization. There are two base acoustic models to choose from. The _Microsoft Search and Dictation AM_ are appropriate for speech directed at an application, such as commands, search queries, or dictation. The _Microsoft Conversational model_ is appropriate for recognizing speech spoken in a conversational style. This type of speech is typically directed at another person and occurs in call center or meetings. Latency for partial results in Conversational models is higher than in Search and Dictation models.
 
@@ -132,7 +132,7 @@ Finally, select the acoustic data set you would like to use to evaluate the cust
 
 When you are ready to start running the customization process, press “Create”.
 
-You will now see a new entry in the acoustic models table corresponding to this new model. The status of the process is reflected in the table. The status states are “Waiting”, “Processing” and “Complete”.
+You will now see a new entry in the acoustic models table corresponding to this new model. The status of the process is reflected in the table. The status states are “NotStarted”, “Running” and “Succeeded”.
 
 ![try](media/stt/speech-acoustic-models-creating.png)
 
