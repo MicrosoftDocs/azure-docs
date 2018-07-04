@@ -200,12 +200,11 @@ Contoso will migrate the SmartHotel database using DMA.
 
 9. After the migration finishes, Contoso can verify that the database is running on the Azure SQL instance.
 
-     ![DMA](media/contoso-migration-refactor-web-app-sql/dma-8.png)
+    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-8.png)
 
 10. They delete the extra SQL database **SmartHotel.Registration** in the Azure portal.
 
-    
-     ![DMA](media/contoso-migration-refactor-web-app-sql/dma-9.png)
+    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-9.png)
 
 
 ## Step 3: Provision Web Apps
