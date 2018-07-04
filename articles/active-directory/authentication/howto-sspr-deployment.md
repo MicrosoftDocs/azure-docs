@@ -20,29 +20,31 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
 
 > [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
 
-Step 1:  Complete a pilot roll out with a small subset of your organization. 
+1. Complete a pilot roll out with a small subset of your organization.
    * Information on how to pilot can be found in the [Tutorial: Complete an Azure AD self-service password reset pilot roll out](tutorial-sspr-pilot.md).
-
-Step 2:  Educate your helpdesk:
-   * How will they help your users? 
+1. Educate your helpdesk.
+   * How will they help your users?
    * Will you force users to use SSPR and not allow your helpdesk to assist users?
    * Have you provided them the URLs for registration and reset?
       * Registration:  https://aka.ms/ssprsetup
       * Reset: https://aka.ms/sspr
-
-Step 3:  Educate your users
-   * This document goes over sample emails, password portals, enforcing registration, and populating authentication data. 
+1. Educate your users.
+   * This document goes over sample communication, password portals, enforcing registration, and populating authentication data.
    * The Azure Active Directory product group has created a [step-by-step deployment plan](https://aka.ms/SSPRDeploymentPlan) that organizations can use in parallel with the documentation found on this site to make a business case and plan for deployment of self-service password reset.
+1. Enable self-service password reset for your entire organization.
+   * When you're ready, enable password reset for all users by setting the **Self Service Password Reset Enabled** switch to **All**.
 
-## Email communication
+## Sample communication
 
-Many customers find that the easiest way to get users to use SSPR is with an email campaign that includes simple-to-use instructions. [We have created three simple emails that you can use as templates to help in your rollout](https://www.microsoft.com/download/details.aspx?id=56768):
+Many customers find that the easiest way to get users to use SSPR is with an email campaign that includes simple-to-use instructions. [We have created simple emails and other collateral that you can use as templates to help in your rollout](https://www.microsoft.com/download/details.aspx?id=56768):
 
 * **Coming soon**: An email template that you use in the weeks or days before the rollout to let users know they need to do something.
 * **Available now**: An email template that you use the day of the program launch to drive users to register and confirm their authentication data. If users register now, they have SSPR available when they need it.
 * **Sign-up reminder**: An email template for a few days to a few weeks after deployment to remind users to register and confirm their authentication data.
+* **SSPR Posters**: Posters you can customize and display around your organization in the days and weeks leading up to and after your roll out.
+* **SSPR Table tents**: Table cards you can place in the lunch room, conference rooms, or on desks to encourage your users to complete registration.
 
-![Email][Email]
+![SSPR Email Samples][Email]
 
 ## Create your own password portal
 

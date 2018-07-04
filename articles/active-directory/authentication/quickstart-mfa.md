@@ -2,7 +2,7 @@
 title: Quickstart enable Azure Multi-Factor Authentication 
 description: In this quickstart, you will configure Azure Multi-Factor Authentication to protect access to the Azure Portal 
 
-services: active-directory
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: quickstart

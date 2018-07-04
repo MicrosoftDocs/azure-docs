@@ -30,7 +30,6 @@ Learn how to deploy and manage Azure Active Directory self-service password rese
 
 1. [Enable a SSPR pilot](tutorial-sspr-pilot.md)
 2. [Enable MFA for Applications](tutorial-mfa-applications.md)
-3. [Enroll and test](tutorial-enroll-and-test.md)
 
 * [Enable SSPR on-premises integration](tutorial-enable-writeback.md)
 * [Enable Windows 10 password reset](tutorial-sspr-windows.md)

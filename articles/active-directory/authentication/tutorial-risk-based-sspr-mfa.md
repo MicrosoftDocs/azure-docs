@@ -2,7 +2,7 @@
 title: Risk-based MFA and SSPR with Azure Identity Protection
 description: In this tutorial, you will enable Azure Identity Protection integrations, for Multi-Factor Authentication and self-service password reset, to reduce risky behavior.
 
-services: active-directory
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: tutorial

@@ -45,7 +45,7 @@ Once you enable the conditional access policy, users will be forced to enroll th
 
 ## Enable Multi-Factor Authentication with Conditional Access
 
-Log in to the [Azure portal](https://portal.azure.com) using a Global Administrator account.
+Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account.
 
 1. Browse to **Azure Active Directory**, **Conditional access**
 1. Select **New policy**

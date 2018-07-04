@@ -11,9 +11,8 @@
 
 # Tutorials
 
-## [1 Enable a SSPR pilot](tutorial-sspr-pilot.md)
-## [2 Enable MFA for Applications](tutorial-mfa-applications.md)
-## [3 Enroll and test](tutorial-enroll-and-test.md)
+## [1 Enable MFA for Applications](tutorial-mfa-applications.md)
+## [2 Enable a SSPR pilot](tutorial-sspr-pilot.md)
 ## [Enable SSPR on-premises integration](tutorial-enable-writeback.md)
 ## [Enable Windows 10 password reset](tutorial-sspr-windows.md)
 ## [Integrate Azure Identity Protection](tutorial-risk-based-sspr-mfa.md)
