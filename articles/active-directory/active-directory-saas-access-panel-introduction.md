@@ -37,7 +37,7 @@ By using the access panel, you can edit some of your profile settings and do the
 
 - View and start cloud-based applications that the Azure AD administrator has granted you access to. 
 
-- Self-manage groups. Administrators can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](active-directory-accessmanagement-self-service-group-management.md) and [Manage your groups](fundamentals/active-directory-manage-groups.md).
+- Self-manage groups. Administrators can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](users-groups-roles/groups-self-service-management.md) and [Manage your groups](fundamentals/active-directory-manage-groups.md).
 
 
 

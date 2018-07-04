@@ -6,7 +6,7 @@ author: davidmu1
 manager: mtillman
 
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu

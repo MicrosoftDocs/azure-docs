@@ -20,7 +20,9 @@
     href: storage-quickstart-blobs-cli.md
   - name: Work with blobs - .NET 
     href: storage-quickstart-blobs-dotnet.md
-  - name: Work with blobs - Java
+  - name: Work with blobs - Java (Storage SDK V10) 
+    href: storage-quickstart-blobs-java-v10.md 
+  - name: Work with blobs - Java (Storage SDK V7) 
     href: storage-quickstart-blobs-java.md
   - name: Work with blobs - Python 
     href: storage-quickstart-blobs-python.md
