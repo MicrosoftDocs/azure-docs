@@ -3,7 +3,7 @@ title: Introduction to Azure IoT Hub | Microsoft Docs
 description: Learn about Azure IoT Hub. This IoT service is built for scalable data ingestion, device management, and security.
 author: nberdy
 ms.author: nberdy
-ms.date: 04/27/2018
+ms.date: 07/04/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
@@ -37,7 +37,7 @@ IoT Hub gives you a secure communication channel for your devices to send data.
 
 ## Route device data
 
-Built-in message routing functionality gives you flexibility to setup automatic rules-based message fan-out:
+Built-in message routing functionality gives you flexibility to set up automatic rules-based message fan-out:
 
 * Use message routing to control where your hub sends device telemetry.
 * There is no additional cost to route messages to multiple endpoints.
