@@ -25,7 +25,7 @@ There are two types of Claims transformations. The first will return a claim bas
 
 ## How does it work?
 
-Claims Transformations are located within the BuildingBlocks section of a cusotm Azure AD B2C Policy. They are then referenced by either InputClaimsTransformations or OutputClaimsTransformations.
+Claims Transformations are located within the BuildingBlocks section of a custom Azure AD B2C Policy. They are then referenced by either InputClaimsTransformations or OutputClaimsTransformations.
 
 Input Claims Transformations should be put before the InputClaims element in a custom policy.
 ```XML
@@ -40,9 +40,9 @@ Output Claims Transformations should be put after the OutClaims element in a cus
   <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromObjectID" />
 </OutputClaimsTransformations>
 ```
-The *ReferenceId* attribute as shown above will point to the *Id* attribute of the ClaimsTransformaiton
+The *ReferenceId* attribute as shown above will point to the *Id* attribute of the ClaimsTransformation
 
-Azure AD B2C has defined a number of Claims Transformations, however you can also create your own. The format for Claims transformatin should be
+Azure AD B2C has defined a number of Claims Transformations, however you can also create your own. The format for Claims transformation should be
 
 ```XML
 <ClaimsTransformation Id="[Name of the transformation in your policy]" TransformationMethod="[Type of transformation]">
@@ -58,17 +58,17 @@ Azure AD B2C has defined a number of Claims Transformations, however you can als
 </ClaimsTransformation>
 ```
 
-The table below and subsequent section outline a list of Claims Trasnformation Methods available:
+The table below and subsequent section outline a list of Claims Transformation Methods available:
 
 
 | Method | Type | Description |
 | --- | --- | --- |
 | [AddItemToStringCollection](#additemtostringcollection) | Claims |  Adds a single value claim to a collection based claim. |
 | [AddParameterToStringCollection](#addparametertostringcollection) | Claims | Add the provided string parameter to a claim that contains collection of strings |
-| [AndClaims](#andclaims) | Claims | Produces a boolean claim based on the result of two Boolean claim inputs. |
+| [AndClaims](#andclaims) | Claims | Produces a Boolean claim based on the result of two Boolean claim inputs. |
 | [AssertBooleanClaimIsEqualToValue](#assertbooleanclaimisequaltovalue)  | Assert | Compare two claims, and throws an exception if they are not equal according to the specified comparison  |
 | [AssertDateTimeIsGreaterThan](#assertdatetimeisgreaterthan) | Assert | Compares two date claims and throws an exception if one is greater than the other. |
-| [AssertStringClaimsAreEqual](#assertstringclaimsareequal) | Assert | Compares two claims according to the specifieds comparison paramaater and throws an error if they are not the same  |
+| [AssertStringClaimsAreEqual](#assertstringclaimsareequal) | Assert | Compares two claims according to the specified comparison parameter and throws an error if they are not the same  |
 | [ChangeCase](#changecase)| Claims | Converts a claims value to either upper case or lower case. |
 | [CompareClaimToValue](#compareclaimtovalue) | Claims | Compares a claims value to a static value and then returns a True or False. |
 | [CompareClaims](#compareclaims) | Claims | Compares two claims and then returns a True or False if they are the same or not. |
@@ -76,19 +76,19 @@ The table below and subsequent section outline a list of Claims Trasnformation M
 | [CreateAlternativeSecurityId](#createalternativesecurityid) | Claims |Creates a JSON representation of the user’s alternativeSecurityId property that can be used in calls to Graph API  |
 | [CreateRandomString](#createrandomstring) | Claims | Creates a random GUID or integer and returns it to a String Claim. |
 | [CreateStringClaim](#createstringclaim) | Claims | Creates a string claim from a specified string value. |
-| [DoesClaimExist](#doesclaimexist)| Claims |  Returns a boolean value depending on if the claim has a value or not.  |
+| [DoesClaimExist](#doesclaimexist)| Claims |  Returns a Boolean value depending on if the claim has a value or not.  |
 | [FormatStringClaim](#formatstringclaim) | Claims | Format a given claim according to the provided format string. |
 | [FormatStringMultipleClaims](#formatstringmultipleclaims) | Claims | Used to combine two claims according to the provided format string. |
-| [GetAgeGroupAndConsentProvided](#getagegroupandconsentprovided) | Claims | Takes a Date of Birth, Country code and if consent is provided fro Minors and returns and age group, if consent is required by regulations (eg GDPR)   |
-| [GetClaimFromJSON](#getclaimfromjson)| Claims | Extracts a claim from a json objects key value pairs.   |
+| [GetAgeGroupAndConsentProvided](#getagegroupandconsentprovided) | Claims | Takes a Date of Birth, Country code and if consent is provided for Minors and returns and age group, if consent is required by regulations (eg GDPR)   |
+| [GetClaimFromJSON](#getclaimfromjson)| Claims | Extracts a claim from a JSON objects key value pairs.   |
 | [GetCurrentDateTime](#getcurrentdatetime)| Claims | Returns an output claim of type DateTime with the current date and time.  |
 | [GetMappedValueFromLocalizedCollection](#getmappedvaluefromlocalizedcollection) | Claims | Returns the value from a claims restriction enumeration based off the text value passed in from a claim. |
 | [GetSingleItemFromStringCollection](#getsingleitemfromstringcollection) | Claims | Gets a single claim from a Collection based claim.  |
 | [Hash](#hash)| Claims | Creates a Hash of a plain text claim using the supplied salt and secret.  |
-| [IsTermsOfUseConsentRequired](#istermsofuseconsentrequired) | Claims | Returns True or False depending on if the input claims datetime value is less than the provided statis datetime value |
+| [IsTermsOfUseConsentRequired](#istermsofuseconsentrequired) | Claims | Returns True or False depending on if the input claims datetime value is less than the provided static datetime value |
 | [NullClaim](#nullclaim)| Claims | Removes a value from a claim. |
-| [OrClaims](#orclaims) | Claims | Produces a boolean claim based on the ??? result of two Boolean claim inputs. |
-| [SetClaimsIfStringsMatch](#setclaimsifstringsmatch) | Claims | Sets a string claim to a static value and a boolean identifying if the input cliam matched a static value. |
+| [OrClaims](#orclaims) | Claims | Produces a Boolean claim based on the ??? result of two Boolean claim inputs. |
+| [SetClaimsIfStringsMatch](#setclaimsifstringsmatch) | Claims | Sets a string claim to a static value and a Boolean identifying if the input claim matched a static value. |
 
 
 For more information on Claims transformation please see 
@@ -105,11 +105,11 @@ For more information on Claims transformation please see
 
 The AddItemToStringCollection transformation adds a single string claims defined in the policy schema to a string collection claim also defined in the policy schema.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
-| **Input Claims** | item (String) | A singel valued claimd. |
+| **Input Claims** | item (String) | A single valued claim. |
 | | collection (stringcollection) | A collection claim to add the claim to. |
-| **Input Paramaters** | N/A | 
+| **Input Parameters** | N/A | 
 | **Output Claims** | outputClaim (stringcollection) | The collection claim with the new claim value added. | 
 
 The example below defines a ClaimsTransformation of the ‘AddItemToStringCollection’ type called ‘CreateEmailsFromOtherMailsAndSignInNamesInfo’. A policy schema’s ‘signInNamesInfo.emailAddress’ claim will be added to the ‘otherMails’ claim. The result will be returned in the ‘emails’ claim from the policy schema.
@@ -131,13 +131,13 @@ The example below defines a ClaimsTransformation of the ‘AddItemToStringCollec
 
 The GetSingleItemFromStringCollection transformation will retrieves a single string claim from a string collection claim defined in the policy schema to a string.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | collection (stringcollection) | A string collection claim to extract a value from. |
-| **Input Paramaters** | N/A | 
+| **Input Parameters** | N/A | 
 | **Output Claims** | extractedItem (string) | The extracted claim. | 
 
-The example below defines a ClaimsTransformation of the ‘GetSingleItemFromStringCollection’ type called ‘CreateEmailFromOtherMails’. The first value from the policy schema’s ‘otherMails’ claim will be retrieved and saved to the  ‘email’ policy schema’svclaim. T.
+The example below defines a ClaimsTransformation of the ‘GetSingleItemFromStringCollection’ type called ‘CreateEmailFromOtherMails’. The first value from the policy schema’s ‘otherMails’ claim will be retrieved and saved to the  ‘email’ policy schema’s claim.
 
 
 ```XML
@@ -154,16 +154,16 @@ The example below defines a ClaimsTransformation of the ‘GetSingleItemFromStri
 ---
 ### AssertBooleanClaimIsEqualToValue
 
-The AssertBooleanClaimIsEqualToValue transformation will compare a Boolean claim from the policy schema to against the provided boolean value.
+The AssertBooleanClaimIsEqualToValue transformation will compare a Boolean claim from the policy schema to against the provided Boolean value.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
-| **Input Claims** | inputClaim (boolean) | A boolean claim to compare to. |
-| **Input Paramaters** | valueToCompareTo (boolean) | The boolean value to compare the claim to. |
+| **Input Claims** | inputClaim (boolean) | A Boolean claim to compare to. |
+| **Input Parameters** | valueToCompareTo (boolean) | The Boolean value to compare the claim to. |
 | **Output Claims** | N/A |  | 
 
 
-The example below defines a ClaimsTransformation of the ‘AssertBooleanClaimIsEqualToValue’ type called ‘AssertAccountEnabledIsTrue’. The value from the policy schema’s ‘accountEnable’ claim will be compared to the boolean input paramater ‘valueToCompareTo’. If the claims are equal then the user will continue on the user journet. If the values are not equal an error will be thrown. 
+The example below defines a ClaimsTransformation of the ‘AssertBooleanClaimIsEqualToValue’ type called ‘AssertAccountEnabledIsTrue’. The value from the policy schema’s ‘accountEnable’ claim will be compared to the Boolean input parameter ‘valueToCompareTo’. If the claims are equal then the user will continue on the user journey. If the values are not equal an error will be thrown. 
 
 >[!NOTE]
 > This claim will throw an error value based on the  `UserMessageIfClaimsTransformationBooleanValueIsNotEqual` metadata item.
@@ -182,19 +182,19 @@ The example below defines a ClaimsTransformation of the ‘AssertBooleanClaimIsE
 ---
 ### CreateRandomString
 
-The CreateRandomString transformation will generate a random integer or GUID and store the result in an output cliam in the policy schema. Depending on the Generator type specified, a maximum value can be provided as well as a boolean to determine if the output value is base64 encoded or not.
+The CreateRandomString transformation will generate a random integer or GUID and store the result in an output claim in the policy schema. Depending on the Generator type specified, a maximum value can be provided as well as a Boolean to determine if the output value is base64 encoded or not.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | N/A  | |
-| **Input Paramaters** | randomGeneratorType (string) | GUID or INTEGER | 
-|| maximumNumber (int) | The maximim Number used when Type is INTEGER | 
+| **Input Parameters** | randomGeneratorType (string) | GUID or INTEGER | 
+|| maximumNumber (int) | The maximum Number used when Type is INTEGER | 
 || base64 (boolean) | Determines if the output value is base64 encoded or not | 
 || stringFormat (string) | The output string format | 
 || seed (int) | A random Seed value to supply to the Generator | 
 | **Output Claims** | outputClaim (string) | The collection claim to output to | 
 
-The example below defines a ClaimsTransformation of the ‘CreateRandomString’ type called ‘CreateOTPCode’. A paramater called ‘randomGeneratorType’ determines that the transform will be an integer value. The Maximum value this integr can be will be 9999 as specified by the ‘maximumNumber’ paramater. The result will be returned in the ‘itpCOde’ claim from the policy schema and will not be base64 decoded .
+The example below defines a ClaimsTransformation of the ‘CreateRandomString’ type called ‘CreateOTPCode’. A parameter called ‘randomGeneratorType’ determines that the transform will be an integer value. The Maximum value this integer will be 9999 as specified by the ‘maximumNumber’ parameter. The result will be returned in the ‘itpCOde’ claim from the policy schema and will not be base64 decoded .
 
 ```XML
  <ClaimsTransformation Id="CreateOTPCode" TransformationMethod="CreateRandomString">
@@ -215,10 +215,10 @@ The example below defines a ClaimsTransformation of the ‘CreateRandomString’
 
 The FormatStringClaim transformation formats a claim defined in the policy schema by using a format string defined as an input parameter.  The format string is applied using the .NET System.String Format method. The formatted claim is returned as the transformation’s output claim.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | inputClaim (String) | The claim whose value is to be formatted |
-| **Input Paramaters** | formatString (string) |A string in which ‘{0}’ will be replaced by the value of the claim being formatted| 
+| **Input Parameters** | formatString (string) |A string in which ‘{0}’ will be replaced by the value of the claim being formatted| 
 | **Output Claims** | outputClaim (string) | The formatted claim | 
 
 The example below defines a ClaimsTransformation of the ‘FormatStringClaim’ type called ‘CreateUserPrincipalName’. A claim called ‘userId’ in the policy Schema is formatted using a format string in which {0} will be replaced the claim being formatted .  The result will be returned in the ‘userPrincipalName’ claim from the policy schema.
@@ -240,12 +240,12 @@ The example below defines a ClaimsTransformation of the ‘FormatStringClaim’ 
 ---
 ### CreateStringClaim
 
-The CreateStringClaim transformation will copy the value from the "value" input paramater to a claim defined in the policy schema.
+The CreateStringClaim transformation will copy the value from the "value" input Parameter to a claim defined in the policy schema.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | | |
-| **Input Paramaters** | value (string) | A string value parmater to copy to the claim |
+| **Input Parameters** | value (string) | A string value parmater to copy to the claim |
 | **Output Claims** | outputClaim (string) | The destination claim | 
 
 The example below defines a ClaimsTransformation of the ‘CreateStringClaim’ type called ‘CreateSubjectClaimFromObjectID’. A policy schema’s  ‘sub’ claim will be set to the value "Not supported currently. Use oid claim.".
@@ -266,11 +266,11 @@ The example below defines a ClaimsTransformation of the ‘CreateStringClaim’ 
 
 The FormatStringMultipleClaims transformation formats two claims defined in the policy schema by using a format string defined as an input parameter. The format string is applied using the .NET System.String Format method. The formatted result is returned as the transformation’s output claim.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | inputClaim1 (String) | The first claim whose value is to be formatted |
 | | inputClaim2 (string) | The second claim whose value is to be formatted |
-| **Input Paramaters** | formatString (string) | A string in which ‘{0}’ will be replaced by the value of ‘inputClaim1’, and ‘{1}’ will be replaced by the value of ‘inputClaim2’ | 
+| **Input Parameters** | formatString (string) | A string in which ‘{0}’ will be replaced by the value of ‘inputClaim1’, and ‘{1}’ will be replaced by the value of ‘inputClaim2’ | 
 | **Output Claims** | outputClaim (string) | The formatted claim | 
 
 The example below defines a ClaimsTransformation of the ‘FormatStringMultipleClaims’ type called ‘CreateDisplayName’. A policy schema’s  ‘givenName’ and ‘surname’ claims are formatted using a format string in which ‘{0}’ will be replaced by ‘givenName’ and ‘{1}’ will be replaced by ‘surname’ . The result will be returned in the ‘displayName’ claim from the policy schema.
@@ -313,11 +313,11 @@ This construct is important because John might, for example, use his email addre
 }
 ```
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | key (String) | The unique account name within the identity provider’s namespace |
 | | identityProvider (string) | The identity provider asserting an account name |
-| **Input Paramaters** | N/A | | 
+| **Input Parameters** | N/A | | 
 | **Output Claims** | collection (string) | The encoded alternativeSecurityId | 
 
 The example below defines a ClaimsTransformation of the ‘CreateAlternativeSecurityId’ type called ‘CreateALternativeSecurityId’ . The policy schema’s ‘userId’ and ‘identityProvider’ claims are transformed into an encoded AlternativeSecurityId which is returned as alternativeSecurityId claim.
@@ -339,11 +339,11 @@ The example below defines a ClaimsTransformation of the ‘CreateAlternativeSecu
 
 The AssertStringClaimsAreEqual transformation will compare two string claim from the policy schema based on the string comparison type specified.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | inputClaim1 (string) | A string claim to compare. |
 || inputClaim2 (string) | The string claim to compare to. |
-| **Input Paramaters** | stringComparison (string) | The type of compare method (ordinal or ordinalIgnoreCase). |
+| **Input Parameters** | stringComparison (string) | The type of compare method (ordinal or ordinalIgnoreCase). |
 | **Output Claims** | N/A |  | 
 
 
@@ -368,13 +368,13 @@ The example below defines a ClaimsTransformation of the ‘AssertStringClaimsAre
 ---
 ### AssertDateTimeIsGreaterThan
 
-The AssertDateTimeIsGreaterThan transformation will compare two string  claim as dates from the policy schema and throw an error if the left date is greater than the right date. Seetings are also available for clock skew (TreatAsEqualIfWithinMillseconds) as well as if the right operator is not present.
+The AssertDateTimeIsGreaterThan transformation will compare two string  claim as dates from the policy schema and throw an error if the left date is greater than the right date. Settings are also available for clock skew (TreatAsEqualIfWithinMillseconds) as well as if the right operator is not present.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | leftOperand (string) | A string claim to compare. |
 || rightOperand (string)  | The string claim to compare to. |
-| **Input Paramaters** | AssertIfEqualTo (boolean) | . |
+| **Input Parameters** | AssertIfEqualTo (boolean) | . |
 |  | AssertIfRightOperandIsNotPresent (boolean) | . |
 |  | TreatAsEqualIfWithinMillseconds (int) | . |
 | **Output Claims** | N/A |  | 
@@ -406,10 +406,10 @@ The example below defines a ClaimsTransformation of the ‘AssertDateTimeIsGreat
 
 The ConvertNumberToStringClaim claims transformation will convert a numeric claims from the policy schema and save it to a string based claims.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | inputClaim (long or int) | A numeric claim to convert. |
-| **Input Paramaters** | N/A | |
+| **Input Parameters** | N/A | |
 | **Output Claims** | outputClaim (string) | The output claim as a string | 
 
 The example below defines a ClaimsTransformation of the ‘ConvertNumberToStringClaim’ type called ‘CreateUserId’. This transform will convert the claim called ‘numericUserId’ in the policy schema to a string claim called ‘UserId’.
@@ -429,15 +429,15 @@ The example below defines a ClaimsTransformation of the ‘ConvertNumberToString
 ---
 ### GetClaimFromJSON
 
-The GetClaimFromJSON claims transformation will retrive a single claim from a JSON object int the value of a claim in the policy schema and save it to a string based claim provided.
+The GetClaimFromJSON claims transformation will retrieve a single claim from a JSON object in the value of a claim in the policy schema and save it to a string based claim provided.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | inputJson (string) | A string claim holding a JSON object. |
-| **Input Paramaters** | claimToExtract (string) | The claim within the JSON to extract |
+| **Input Parameters** | claimToExtract (string) | The claim within the JSON to extract |
 | **Output Claims** | extractedClaim (string) | The output claim to store the extracted claim. | 
 
-The example below defines a ClaimsTransformation of the ‘GetClaimFromJSON’ type called ‘GetEmailFromJsonTransformation’. This transform will extract an 'email' claim from the JSON stored within the StrJSON cliam in the policy schema and save it to the string claim called ‘email’.
+The example below defines a ClaimsTransformation of the ‘GetClaimFromJSON’ type called ‘GetEmailFromJsonTransformation’. This transform will extract an 'email' claim from the JSON stored within the StrJSON claim in the policy schema and save it to the string claim called ‘email’.
 
 
 ```XML
@@ -467,11 +467,11 @@ The following is the example JSON contained within the 'StrJSON' claim above.
 
 The Hash claims transformation provides the ability to create an output claim which is the hash of an input claim. Salt must be added using a second input claim and an input parameter.  The input parameter must be the name of a secret key belonging to the tenant so that publication of the policy doesn’t allow an attacker to predict the value of the hash by virtue of knowing the input claims.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | plaintext (String) | A string claim to create a hash from. |
 | | salt (string) | The Salt Claim to use |
-| **Input Paramaters** | randomizerSecret (string) | A Secret value used for randomization. 
+| **Input Parameters** | randomizerSecret (string) | A Secret value used for randomization. 
 | **Output Claims** | hash (string) | The output claim as a hash | 
 
 The example below defines a ClaimsTransformation of the ‘Hash’ type called ‘HashPasswordWithUserId’. A claim called ‘password’ in the policy schema is hashed using a claim called ‘userId’ as salt. Because the hash is salted this way, two users with different userIds but the same password always end up with different hashes. This makes it impossible for an evil insider to insert the hash of a password he knows into another user’s record and successfully log in as the second user.
@@ -496,10 +496,10 @@ The example below defines a ClaimsTransformation of the ‘Hash’ type called �
 
 The ChangeCase claims transformation will transform the value of the policy schema claim to either uppercase or lowercase.  The result of the comparison is returned as a Boolean claim..
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | inputClaim1 (String) | A single value claim to compare the value of |
-| **Input Paramaters** | compareTo (string) | The static string value to compare to |
+| **Input Parameters** | compareTo (string) | The static string value to compare to |
 || ignoreCase(string) | A string of either "true" or "false" to determine if case is compared |
 || operator(string) | Either ‘EQUAL’ or ‘NOT EQUAL’
 | **Output Claims** | outputClaim (boolean) | The boolean result of the comparison | 
@@ -526,10 +526,10 @@ The example below defines a ClaimsTransformation of the 'CompareClaimToValue' ty
 
 A NullClaim claims transformation will clear the value from a claim in the policy schema (Set it to Null).
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | N/A | |
-| **Input Paramaters** | N/A |  |
+| **Input Parameters** | N/A |  |
 | **Output Claims** | claim_to_null (N/A) | The claim to set to Null | 
 
 The example below defines a ClaimsTransformation of the 'NullClaim' type called ‘ClearUserId’. A claim called ‘userId’ in the policy Schema  will be set to Null.
@@ -547,10 +547,10 @@ The example below defines a ClaimsTransformation of the 'NullClaim' type called 
 
 A CompareClaimToValue claims transformation compares a claim defined in the policy schema to a fixed value expressed in a ‘CompareTo’ parameter that is part of its policy definition.  Other parameters control whether the comparison should be case sensitive and whether to test for equality or inequality.  The result of the comparison is returned as a Boolean claim..
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | inputClaim1 (String) | A single value claim to compare the value of |
-| **Input Paramaters** | compareTo (string) | The static string value to compare to |
+| **Input Parameters** | compareTo (string) | The static string value to compare to |
 || ignoreCase(string) | A string of either "true" or "false" to determine if case is compared |
 || operator(string) | Either ‘EQUAL’ or ‘NOT EQUAL’
 | **Output Claims** | outputClaim (boolean) | The boolean result of the comparison | 
@@ -578,11 +578,11 @@ The example below defines a ClaimsTransformation of the 'CompareClaimToValue' ty
 
 A CompareClaims claims transformation compares the value of one claim defined in the policy schema to that of a second claim defined there. Other parameters control whether the comparison should be case sensitive and whether to test for equality or inequality. The result of the comparison is returned as a Boolean claim.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | inputClaim1 (String) | A single value claim to compare |
 | | inputClaim2 (string) | Another claim |
-| **Input Paramaters**| ignoreCase(string) | A string of either "true" or "false" to determine if case is compared |
+| **Input Parameters**| ignoreCase(string) | A string of either "true" or "false" to determine if case is compared |
 || operator(string) | Either ‘EQUAL’ or ‘NOT EQUAL’
 | **Output Claims** | outputClaim (boolean) |The boolean result of the comparison | 
 
@@ -607,19 +607,19 @@ The example below defines a ClaimsTransformation of the 'CompareClaims' type cal
 ---
 ### GetAgeGroupAndConsentProvided
 
-The GetAgeGroupAndConsentProvided claims transformation evaluates three claims to fdermine if the user is allowed access based on GDPR, COPPA, and PIPA regulations.
+The GetAgeGroupAndConsentProvided claims transformation evaluates three claims to determine if the user is allowed access based on GDPR, COPPA, and PIPA regulations.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | dateOfBirth (String) | The users birth date. |
 |  | legalCountry (String) | The country the user is in. |
 | | consentProvidedForMinor (string) | A consent claim to allow minors access. |
-| **Input Paramaters**| N/A |  |
+| **Input Parameters**| N/A |  |
 | **Output Claims** | ageGroup (string) | Will return null, Undefined, Minor, Adult, or NotAdult | 
-|  | doRegulationsRequireParentalConsent (boolean) | Will return a boolean if the country is subject to GDPR, COPPA, and PIPA  |
+|  | doRegulationsRequireParentalConsent (boolean) | Will return a Boolean if the country is subject to GDPR, COPPA, and PIPA  |
 |  | consentProvidedForMinor (String) | returns the consent claim to allow minors access or not. |
 
-The example below defines a ClaimsTransformation of the 'GetAgeGroupAndConsentProvided' type called ‘CalculateAgeGroupAndConsent’. Three claims called ‘dateOfBirth’, ‘legalCountry’ and ‘consentProvidedForMinor’ in the policy Schema are evaluated.  The information is then evaluated and three claims will be returned based on the country and the relevent regulation (GDPR, COPPA, and PIPA).
+The example below defines a ClaimsTransformation of the 'GetAgeGroupAndConsentProvided' type called ‘CalculateAgeGroupAndConsent’. Three claims called ‘dateOfBirth’, ‘legalCountry’ and ‘consentProvidedForMinor’ in the policy Schema are evaluated.  The information is then evaluated and three claims will be returned based on the country and the relevant regulation (GDPR, COPPA, and PIPA).
 
 ```XML
 <ClaimsTransformation Id="CalculateAgeGroupAndConsentCalculateAgeGroupAndConsent" TransformationMethod="GetAgeGroupAndConsentProvided">
@@ -639,18 +639,18 @@ The example below defines a ClaimsTransformation of the 'GetAgeGroupAndConsentPr
 ---
 ### SetClaimsIfStringsMatch
 
-The SetClaimsIfStringsMatch claims transformation compares the value of one claim defined in the policy schema to that of a staic paramater. If the values match according to the String comparison method then a boolean flag will be set to identify the match and a claims restiction value will be used to retrive the value based ont eh provided Key.
+The SetClaimsIfStringsMatch claims transformation compares the value of one claim defined in the policy schema to that of a static Parameter. If the values match according to the String comparison method then a Boolean flag will be set to identify the match and a claims restriction value will be used to retrieve the value based on the provided Key.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | claimToMatch (String) | A single value claim to compare against |
-| **Input Paramaters**| matchTo(string) | A string value to compare to the claim value. |
+| **Input Parameters**| matchTo(string) | A string value to compare to the claim value. |
 || stringComparison(string) | Either ordinal or ordinalIgnoreCase |
 || outputClaimIfMatched(string) | The static value to add to a claim if there is a match |
 | **Output Claims** | outputClaim (string) |The claim to store the static value | 
 || stringCompareResultClaim(boolean) | The Boolean field if there was a match |
 
-The example below defines a ClaimsTransformation of the 'SetClaimsIfStringsMatchs' type called ‘SetIsMinor’. If the 'ageGroup' claim matches the value "Minor" then a true boolean value will be set for the "isMinor" claimm, and the Value "B2C_V1_90001" will be set within the ‘responseCode’ claim.
+The example below defines a ClaimsTransformation of the 'SetClaimsIfStringsMatchs' type called ‘SetIsMinor’. If the 'ageGroup' claim matches the value "Minor" then a true Boolean value will be set for the "isMinor" claim, and the Value "B2C_V1_90001" will be set within the ‘responseCode’ claim.
 
 ```XML
 <ClaimsTransformation Id="SetIsMinor" TransformationMethod="SetClaimsIfStringsMatch">
@@ -674,16 +674,16 @@ The example below defines a ClaimsTransformation of the 'SetClaimsIfStringsMatch
 ---
 ### GetMappedValueFromLocalizedCollection
 
-The GetMappedValueFromLocalizedCollection claims transformation will retrive a value from another claims schema definition from the restriction enumeration.
+The GetMappedValueFromLocalizedCollection claims transformation will retrieve a value from another claims schema definition from the restriction enumeration.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | mapFromClaim (String) | A single value claim to lookup |
-| **Input Paramaters**| N/A | |
-| **Output Claims** | restrictionValueClaim (string) |The claim to to retrive the restriction enumeration from and store the result to.  | 
+| **Input Parameters**| N/A | |
+| **Output Claims** | restrictionValueClaim (string) |The claim to retrieve the restriction enumeration from and store the result to.  | 
 
 
-The example below defines a ClaimsTransformation of the 'GetMappedValueFromLocalizedCollection' type called ‘GetResponseMsgMappedToResponseCode’. This will retrived the value from the 'responseCode' claim and use it as the lookup for the value on the 'responseMsg' claim. The lookup value returned will be stored on the 'responseMsg' claim.
+The example below defines a ClaimsTransformation of the 'GetMappedValueFromLocalizedCollection' type called ‘GetResponseMsgMappedToResponseCode’. This will retrieve the value from the 'responseCode' claim and use it as the lookup for the value on the 'responseMsg' claim. The lookup value returned will be stored on the 'responseMsg' claim.
 
 
 ```XML
@@ -715,16 +715,16 @@ Below isthe Schema definition used in the example above.
 ---
 ### DoesClaimExist
 
-The DoesClaimExist claims transformation will set a boolean claim if the provided input claim exists or not.
+The DoesClaimExist claims transformation will set a Boolean claim if the provided input claim exists or not.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | inputClaim (String) | A single value claim check |
-| **Input Paramaters**| N/A | |
-| **Output Claims** | outputClaim (boolean) |A boolean claim to store the result of if the provided claim value exists  | 
+| **Input Parameters**| N/A | |
+| **Output Claims** | outputClaim (boolean) |A Boolean claim to store the result of if the provided claim value exists  | 
 
 
-The example below defines a ClaimsTransformation of the 'DoesClaimExist' type called ‘IsDateOfBirthPresent’. This will return a boolean value to the 'isDobPresent' claim if the 'dateOfBirth' claim exists (has a value).
+The example below defines a ClaimsTransformation of the 'DoesClaimExist' type called ‘IsDateOfBirthPresent’. This will return a Boolean value to the 'isDobPresent' claim if the 'dateOfBirth' claim exists (has a value).
 
 ```XML
 <ClaimsTransformation Id="IsDateOfBirthPresent" TransformationMethod="DoesClaimExist">
@@ -742,10 +742,10 @@ The example below defines a ClaimsTransformation of the 'DoesClaimExist' type ca
 
 The GetCurrentDateTime claims transformation will set a DateTime claim with the current date and time.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | N/A |  |
-| **Input Paramaters**| N/A | |
+| **Input Parameters**| N/A | |
 | **Output Claims** | currentDateTime (dateTime) |A dateTme claim to store the current Date and Time  | 
 
 
@@ -763,16 +763,16 @@ The example below defines a ClaimsTransformation of the 'GetCurrentDateTime' typ
 ---
 ### IsTermsOfUseConsentRequired
 
-The IsTermsOfUseConsentRequired claims transformation will compare the Date time in th e provided input claim against a static value provided in the input paramater and return a boolean value to the output claim if the proved date time within the claim is less than the static value.
+The IsTermsOfUseConsentRequired claims transformation will compare the Date time in th e provided input claim against a static value provided in the input Parameter and return a Boolean value to the output claim if the proved date time within the claim is less than the static value.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | termsOfUseConsentDateTime (dateTime) | A dateTime claim |
-| **Input Paramaters**| termsOfUseTextUpdateDateTime (dateTime) | a dateTime Value |
-| **Output Claims** | result (boolean) |True if the input claim is less than the input paramater, otherwise false.  | 
+| **Input Parameters**| termsOfUseTextUpdateDateTime (dateTime) | a dateTime Value |
+| **Output Claims** | result (boolean) |True if the input claim is less than the input Parameter, otherwise false.  | 
 
 
-The example below defines a ClaimsTransformation of the 'IsTermsOfUseConsentRequired' type called ‘IsTermsOfUseConsentRequired’. This will set the 'termsOfUseConsentRequired' boolean claim to True if 'extension_termsOfUseConsentDateTime' is less than the static value "2098-01-30T23:03:45" provided in the input paramater.
+The example below defines a ClaimsTransformation of the 'IsTermsOfUseConsentRequired' type called ‘IsTermsOfUseConsentRequired’. This will set the 'termsOfUseConsentRequired' boolean claim to True if 'extension_termsOfUseConsentDateTime' is less than the static value "2098-01-30T23:03:45" provided in the input Parameter.
 
 
 ```XML
@@ -792,17 +792,17 @@ The example below defines a ClaimsTransformation of the 'IsTermsOfUseConsentRequ
 ---
 ### AndClaims
 
-The AndClaims claims transformation will set a boolean claim to true if both of the provided boolean input claims are also true, otherwise it will be set to False.
+The AndClaims claims transformation will set a Boolean claim to true if both of the provided Boolean input claims are also true, otherwise it will be set to False.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | inputClaim1 (boolean) | A boolean claim  |
 || inputClaim2 (boolean) | Another boolean claim |
-| **Input Paramaters**| N/A | |
+| **Input Parameters**| N/A | |
 | **Output Claims** | outputClaim (boolean) |A boolean claim with True if the 2 input claims are True, otherwise False  | 
 
 
-The example below defines a ClaimsTransformation of the 'AndClaims' type called ‘EvaluateSkipProgressiveProfilePage’. This transformation will return a boolean value of "True" if the claim 'isDobPresent' is True AND the claim 'isLegalCountryPresent' is True, otherwise it will return "False. The result of this will be stored within th boolean claim  'skipProgressiveProfilePage'.
+The example below defines a ClaimsTransformation of the 'AndClaims' type called ‘EvaluateSkipProgressiveProfilePage’. This transformation will return a Boolean value of "True" if the claim 'isDobPresent' is True AND the claim 'isLegalCountryPresent' is True, otherwise it will return "False. The result of this will be stored within the Boolean claim  'skipProgressiveProfilePage'.
 
 ```XML
 <ClaimsTransformation Id="EvaluateSkipProgressiveProfilePage" TransformationMethod="AndClaims">
@@ -822,11 +822,11 @@ The example below defines a ClaimsTransformation of the 'AndClaims' type called 
 
 The OrClaims claims transformation will set a boolean claim to true if either of the provided boolean input claims are also true, otherwise it will be set to False.
 
-| Variable | Paramater | Description 
+| Variable | Parameter | Description 
 | - | - | - |
 | **Input Claims** | inputClaim1 (boolean) | A boolean claim  |
 || inputClaim2 (boolean) | Another boolean claim |
-| **Input Paramaters**| N/A | |
+| **Input Parameters**| N/A | |
 | **Output Claims** | outputClaim (boolean) |A boolean claim with True if either of the 2 input claims are True, otherwise False  | 
 
 
