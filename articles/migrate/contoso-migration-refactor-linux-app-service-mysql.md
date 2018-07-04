@@ -238,7 +238,7 @@ Contoso will migrate the database using backup and restore, with MySQL tools. Th
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench7.png)
 
-9. in the strings list, they locate the Web App settings, and click to copy them.
+9. In the strings list, they locate the Web App settings, and click to copy them.
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench8.png)
 
@@ -328,10 +328,9 @@ Finally, they set up automatic scaling for the app. This ensures that as agents 
 
     ![Autoscale](./media/contoso-migration-refactor-linux-app-service-mysql/autoscale1.png)
 
-2. They configure the same setting on **APP-SRV-CUS** to ensure that the same behavior applies if the app fails over to the secondary region. The only difference is that they set the instance limit to 1 since this is for failovers only.
+3. They configure the same setting on **APP-SRV-CUS** to ensure that the same behavior applies if the app fails over to the secondary region. The only difference is that they set the instance limit to 1 since this is for failovers only.
 
-
-    ![Autoscale](./media/contoso-migration-refactor-linux-app-service-mysql/autoscale2.png)
+   ![Autoscale](./media/contoso-migration-refactor-linux-app-service-mysql/autoscale2.png)
 
 ##  Clean up after migration
 
