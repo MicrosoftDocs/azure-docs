@@ -40,22 +40,12 @@ The utterances submitted to the app over time, as you progressed through the tut
 
 If you have all the versions of the app, through the tutorials, you may be surprised to see that the **Review endpoint utterances** list doesn't change, based on the version. There is a single pool of utterances to review, regardless of which version the utterance you are actively editing or which version of the app was published at the endpoint. 
 
-## Remove the prebuilt entities
-If LUIS doesn't predict custom entities, prebuilt entities are labeled. Since prebuilt entities can't be removed individually, remove all the prebuilt entities before starting the review process.
+
+## Review endpoint utterances
 
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
     [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-tutorial-review-endpoint-utterances/first-image.png)](./media/luis-tutorial-review-endpoint-utterances/first-image.png#lightbox)
-
-2. Select **Entities** from the left navigation.
-
-3. Select the three dots (...) menu, then select **Delete** for the following prebuilt entities: **datetimeV2**, **keyPhrase**, and **number**.
-
-    [ ![Screenshot of deleting prebuilt entities](./media/luis-tutorial-review-endpoint-utterances/delete-prebuilt-entities.png)](./media/luis-tutorial-review-endpoint-utterances/delete-prebuilt-entities.png#lightbox)
-
-    After the utterances are reviewed and corrected, the prebuilt entities are added back to the model and trained. 
-
-## Review endpoint utterances
 
 1. Select **Review endpoint utterances** from the left navigation. The list is filtered for the **ApplyForJob** intent. 
 
@@ -73,7 +63,7 @@ If LUIS doesn't predict custom entities, prebuilt entities are labeled. Since pr
 
     [ ![Screenshot of Review endpoint utterances aligning utterance to intent](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
-4. In the same utterance, select `Natual Language Processing` then select the **Job** entity from the list.
+4. In the same utterance, the entity for `Natural Language Processing` is keyPhrase. This should be a **Job** entity instead. Select `Natural Language Processing` then select the **Job** entity from the list.
 
     [ ![Screenshot of Review endpoint utterances labeling entity in utterance](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
@@ -90,15 +80,6 @@ If LUIS doesn't predict custom entities, prebuilt entities are labeled. Since pr
     [ ![Screenshot of finalizing remaining utterances to aligned intent](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
 8. The list should no longer have those utterances. Continue to work through the list, correcting intents and labeling any missing entities, until it is empty. Select the next intent in the Filter list, then continue correcting utterances and labeling entities. Remember the last step of each utterance is to either select **Add to aligned intent** on the utterance row or check the box by each intent and select **Add selected** above the table. This is a very small app. The review process takes a few minutes only.
-
-## Add the prebuilt entities
-Add the prebuilt entities back to the app.
-
-1. Select **Entities** from the left navigation panel.
-
-2. Select **Manage prebuilt entities** button.
-
-3. Select **Number**, **datetimeV2**, **keyPhrase** then select **Done**.
 
 ## Train the LUIS app
 LUIS doesn't know about the changes until it is trained. 
@@ -206,7 +187,7 @@ Try the utterance that was corrected.
 The prediction score is at 90% and the job entity is detected as natural language processing. 
 
 ## Can reviewing be replaced by adding more utterances? 
-You may wonder why not add more example utterances. What is the purpose of reviewing endpoint utterances? In a real-world LUIS app, the endpoint utterances are from users with word choice and arrangement you haven't used yet. If you had used the same word choice and arrangement, the prediction would have a higher percentage. 
+You may wonder why not add more example utterances. What is the purpose of reviewing endpoint utterances? In a real-world LUIS app, the endpoint utterances are from users with word choice and arrangement you haven't used yet. If you had used the same word choice and arrangement, the original prediction would have a higher percentage. 
 
 ## Why is the top intent on the utterance list? 
 Some of the endpoint utterances will have a high percentage in the review list. You still need to review and verify those utterances. They are on the list because the next highest intent had a score too close to the top intent score. 
