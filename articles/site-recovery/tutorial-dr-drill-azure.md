@@ -1,11 +1,10 @@
 ---
 title: Run a disaster recovery drill for on-premises machines to Azure with Azure Site Recovery | Microsoft Docs
 description: Learn about running disaster recovery drill from on-premises to Azure, with Azure Site Recovery
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/20/2018
+ms.date: 07/03/2018
 ms.author: raynew
 
 ---
@@ -13,7 +12,7 @@ ms.author: raynew
 
 In this article, we show you how to run a disaster recovery drill for an on-premises machine to Azure, using a test failover. A drill validates your replication strategy without data loss.
 
-This is the fourth tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs.
+This is the fourth tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs, or Hyper-V VMs.
 
 This tutorial presumes that you've completed the first three tutorials: 
     - In the [first tutorial](tutorial-prepare-azure.md), we set up the Azure components needed for VMware disaster recovery.
@@ -32,7 +31,7 @@ This tutorial s
 
 ## Verify VM properties
 
-Before you run a test failover, verify the VMware VM properties, and make sure that the [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms), or [VMware VM/physical server](vmware-physical-azure-support-matrix.md#replicated-machines) complies with Azure requirements.
+Before you run a test failover, verify the VM properties, and make sure that the [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms), or [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines) complies with Azure requirements.
 
 1. In **Protected Items**, click **Replicated Items** > and the VM.
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the
@@ -77,3 +76,4 @@ storvsc, vmbus, storflt, intelide, atapi.
 
 > [!div class="nextstepaction"]
 > [Run a failover and failback for on-premises VMware VMs](vmware-azure-tutorial-failover-failback.md).
+> [Run a failover and failback for on-premises Hyper-V VMs](hyper-v-azure-failover-failback-tutorial.md).
