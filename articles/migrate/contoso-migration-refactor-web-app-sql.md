@@ -172,40 +172,40 @@ Contoso will migrate the SmartHotel database using DMA.
 1. In the DMA create a new project (**SmartHotelDB**) and select **Migration** 
 2. They select the source server type as **SQL Server**, and the target as **Azure SQL Database**. 
 
-    ![DMA](media/contoso-migration-refactor-container-sql/dma-1.png)
+    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-1.png)
 
 3. In the migration details, they add **SQLVM** as the source server, and the **SmartHotel.Registration** database. 
 
-     ![DMA](media/contoso-migration-refactor-container-sql/dma-2.png)
+     ![DMA](media/contoso-migration-refactor-web-app-sql/dma-2.png)
 
 4. They receive an error which seems to be associated with authentication. However after investigating, the issue is the period (.) in the database name. As a workaround, they decided to provision a new SQL database using the name **SmartHotel-Registration**, to resolve the issue. When they run DMA again, they're able to select **SmartHotel-Registration**, and continue with the wizard.
 
-    ![DMA](media/contoso-migration-refactor-container-sql/dma-3.png)
+    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-3.png)
 
 5. In **Select Objects**, they select the database tables, and generate a SQL script.
 
-    ![DMA](media/contoso-migration-refactor-container-sql/dma-4.png)
+    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-4.png)
 
 6. After DMS creates the script, they click **Deploy schema**.
 
-    ![DMA](media/contoso-migration-refactor-container-sql/dma-5.png)
+    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-5.png)
 
 7. DMA confirms that the deployment succeeded.
 
-    ![DMA](media/contoso-migration-refactor-container-sql/dma-6.png)
+    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-6.png)
 
 8. Now they start the migration.
 
-    ![DMA](media/contoso-migration-refactor-container-sql/dma-7.png)
+    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-7.png)
 
 9. After the migration finishes, Contoso can verify that the database is running on the Azure SQL instance.
 
-     ![DMA](media/contoso-migration-refactor-container-sql/dma-8.png)
+     ![DMA](media/contoso-migration-refactor-web-app-sql/dma-8.png)
 
 10. They delete the extra SQL database **SmartHotel.Registration** in the Azure portal.
 
     
-     ![DMA](media/contoso-migration-refactor-container-sql/dma-9.png)
+     ![DMA](media/contoso-migration-refactor-web-app-sql/dma-9.png)
 
 
 ## Step 3: Provision Web Apps
