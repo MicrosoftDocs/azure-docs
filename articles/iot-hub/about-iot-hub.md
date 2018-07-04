@@ -103,4 +103,4 @@ Each Azure subscription has default quota limits in place to prevent service abu
 
 To try out an end-to-end IoT solution, check out the IoT Hub quickstarts:
 
-* [Quickstart: Send telemetry from a device to an IoT hub](iot-hub-get-started.md)
+* [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md)
