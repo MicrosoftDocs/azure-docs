@@ -88,6 +88,7 @@ The table below and subsequent section outline a list of Claims Transformation M
 | [IsTermsOfUseConsentRequired](#istermsofuseconsentrequired) | Claims | Returns True or False depending on if the input claims datetime value is less than the provided static datetime value |
 | [NullClaim](#nullclaim)| Claims | Removes a value from a claim. |
 | [OrClaims](#orclaims) | Claims | Produces a Boolean claim based on the ??? result of two Boolean claim inputs. |
+| [ParseDomain](#parsedomain)| Claims |  Will set a string claim with the domain portion of the email address specified
 | [SetClaimsIfStringsMatch](#setclaimsifstringsmatch) | Claims | Sets a string claim to a static value and a Boolean identifying if the input claim matched a static value. |
 
 
@@ -844,6 +845,31 @@ The example below defines a ClaimsTransformation of the 'OrClaims' type called �
 </ClaimsTransformation>
 ```
 
+---
+### ParseDomain
+
+The ParseDomain claims transformation will set a string claim with the domain portion of the email address specified.
+
+| Variable | Parameter | Description 
+| - | - | - |
+| **Input Claims** | emailAddress (string) | An Email address  |
+| **Input Parameters**| N/A | |
+| **Output Claims** | domain (string) | A string claim with everything right of the @ symbol  | 
+
+The example below defines a ClaimsTransformation of the 'ParseDomain' type called ‘ParseDomainFromEmail’. This transformation will retrive the domain portion of the email address supplied in the 'signInEmail' claim and store it in the parsedDomain claims.
+
+
+```XML
+<ClaimsTransformation Id="ParseDomainFromEmail" TransformationMethod="ParseDomain">
+<InputClaims>
+<InputClaim ClaimTypeReferenceId="signInEmail" TransformationClaimType="emailAddress" />
+</InputClaims>
+<OutputClaims>
+<OutputClaim ClaimTypeReferenceId="parsedDomain" TransformationClaimType="domain" />
+</OutputClaims>
+</ClaimsTransformation>
+```
+---
 
 
 ## Next steps
