@@ -25,7 +25,7 @@ Azure Marketplace and AppSource support its own publishing option and offer type
 | Storefront | Publishing Option | Offer type and Guidelines |
 |:--- |:--- |:--- |
 | AppSource | [List](#list) | [Consulting Service](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |   
-| AppSource | [List](#list) | [Cortana Intelligence](docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)|  
+| AppSource | [List](#list) | [Cortana Intelligence](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide)|  
 | AppSource | [List](#list) | [Dynamics 365 for Customer Engagement](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource) |  
 | AppSource | [List](#list) | [Dynamics 365 for Finance and Operations](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source) |  
 | AppSource | [List](#list) | [Office 365](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store) |  
