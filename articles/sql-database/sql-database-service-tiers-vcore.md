@@ -20,8 +20,8 @@ The following table helps you understand the differences between these two tiers
 ||**General Purpose**|**Business Critical**|
 |---|---|---|
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|
-|Compute|1 to 80 vCore, Generation 4 and Generation 5 |1 to 80 vCore, Generation 4 and Generation 5|
-|Memory|Gen 4: 7 GB per core<br>Gen 5: 5.5 GB per core | Gen 4: 7 GB per core<br>Gen 5: 5.5 GB per core |
+|Compute|1 to 80 vCore, Gen4 and Gen5 |1 to 80 vCore, Gen4 and Gen5|
+|Memory|Gen4: 7 GB per core<br>Gen5: 5.5 GB per core | Gen4: 7 GB per core<br>Gen5: 5.5 GB per core |
 |Storage|Premium remote storage, 5 GB – 4 TB|Local SSD storage, 5 GB – 4 TB|
 |IO throughput (approximate)|500 IOPS per vCore with 7000 maximum IOPS|5000 IOPS per core with 200000 maximum IOPS|
 |Availability|1 replica, no read-scale|3 replicas, 1 [read-scale](sql-database-read-scale-out.md), zone redundant HA|
