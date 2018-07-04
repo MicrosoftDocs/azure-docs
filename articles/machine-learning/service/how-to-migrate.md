@@ -25,12 +25,12 @@ The following table and article explain what you can do with your existing asset
 |Projects|Yes|[Attach the local folder to new workspace](#projects).|
 |Run histories|No|[Downloadable](#history) for a while.|
 |Compute targets|No|Register them in new workspace.|
-|Web services|No|None. They continue to work as-is <br/>or [deploy them again using latest version](#services).|
+|Deployments: web services|No|None. They'll still work as-is <br/>or [deploy them again using latest version](#services).|
 |Experimentation and <br/>Model management accounts|No|[Create a workspace](#resources) instead.|
 |Machine learning CLI & SDK|No|Use the new [CLI](reference-azure-machine-learning-cli.md) and [SDK](reference-azure-machine-learning-sdk.md) for new work.|
 
 
-Learn more about [what changed](overview-what-happened-to-workbench.md)"?
+Learn more about [what changed in this release](overview-what-happened-to-workbench.md)?
 
 >[!Warning]
 >This article is not for Azure Machine Learning Studio users.
@@ -43,7 +43,7 @@ Resources such as your experimentation account and model management account, and
 
 Get started with the latest version by creating an Azure Machine Learning Workspace:
 + In the [Azure portal](quickstart-get-started.md)
-+ Using [the CLI](quickstart-get-started-with-cli.md). 
++ Using the new [machine learning CLI extension](quickstart-get-started-with-cli.md)
 
 This new workspace is the top-level service resource and enables you to use all of the latest features of Azure Machine Learning Services. [Learn more about this workspace and architecture](concept-azure-machine-learning-architecture.md).
 
