@@ -16,13 +16,13 @@ ms.author: nolachar
 
 This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 
-Two sample FAQ URLs are given below (in 'urls' of **req{}**) that will provide content. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
+Two sample FAQ URLs are given below (in 'urls' of **req={}**) that will provide content. QnA Maker automatically extracts questions and answers from this semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
 
 ## Prerequisites
 
-You will need [Node.js 6+](https://nodejs.org/en/download/) to run this code.
+You'll need [Node.js 6+](https://nodejs.org/en/download/) to run this code.
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft QnA Maker API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft QnA Maker API**. You'll need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices). Either key will work for this quickstart.
 
 ![Azure dashboard service key](../media/sub-key.png)
 
@@ -32,7 +32,7 @@ The following code creates a new knowledge base, using the [Create](https://west
 
 1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
+3. Replace the `subscriptionKey` value with a valid subscription key.
 4. Run the program.
 
 ```nodejs
@@ -190,17 +190,6 @@ create_kb(path, content, function (result) {
     };
     // Begin the loop.
     loop();
-});
-
-const readline = require('readline');
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-rl.question('Press enter', (answer) => {
-    rl.close();
 });
 ```
 
