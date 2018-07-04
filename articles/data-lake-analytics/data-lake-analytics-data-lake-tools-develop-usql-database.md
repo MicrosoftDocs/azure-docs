@@ -52,9 +52,9 @@ Right-click the U-SQL database project, click **Add > New item**, all supported 
  
 ## Build U-SQL database project
 
-The build output for U-SQL database project is an U-SQL database deployment package, named with suffix **.usqldbpack**. The .usqldbpack package is a zip file includes all DDL statements in a single U-SQL script in **DDL** folder, and all dlls and additional files for assemblies in **Temp** folder.
+The build output for U-SQL database project is an U-SQL database deployment package, named with suffix `.usqldbpack`. The `.usqldbpack` package is a zip file includes all DDL statements in a single U-SQL script in **DDL** folder, and all dlls and additional files for assemblies in **Temp** folder.
 
-Learn more about [how to build U-SQL database project with MSBuild command line and VSTS build task](data-lake-analytics-cicd-overview.md#build-u-sql-database-project).
+Learn more about [how to build U-SQL database project with MSBuild command line and Visual Studio Team Service build task](data-lake-analytics-cicd-overview.md#build-u-sql-database-project).
 
 ## Deploy U-SQL database
 
@@ -66,11 +66,11 @@ You can deploy a U-SQL database through a U-SQL database project or a .usqldbpac
 
 #### Deploy through U-SQL database project
 
-1.	Right-click the U-SQL database project and choose Deploy.
-2.	In the Deploy U-SQL Database wizard, select the ADLA account you would like to deploy the database to. Both (Local) account and ADLA account are supported.
-3.	Database Source are filled in automatically pointing to the .usqldbpack package in project's build output folder
-4.	Enter Database Name for creating a database. If there is a database with same existing in the target Azure Data Lake Analytics account, all objects defined in database project are created without recreating the database.
-5.	Click submit to deploy the U-SQL database. All resources (assemblies and additional files) are uploaded and a U-SQL job includes all DDL statements are submitted.
+1.	Right-click the U-SQL database project and choose **Deploy**.
+2.	In the Deploy U-SQL Database wizard, select the **ADLA account** you would like to deploy the database to. Both (Local) account and ADLA account are supported.
+3.	**Database Source** are filled in automatically pointing to the .usqldbpack package in project's build output folder
+4.	Enter **Database Name** for creating a database. If there is a database with same existing in the target Azure Data Lake Analytics account, all objects defined in database project are created without recreating the database.
+5.	Click **Submit** to deploy the U-SQL database. All resources (assemblies and additional files) are uploaded and a U-SQL job includes all DDL statements are submitted.
 
     ![Data Lake Tools for Visual Studio deploy u-sql database project](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-deploy-usql-database-project.png)
 
@@ -78,10 +78,10 @@ You can deploy a U-SQL database through a U-SQL database project or a .usqldbpac
 
 #### Deploy through U-SQL database deployment package
 
-1.	Open Server Explorer, expand the Azure Data Lake Analytics account you would like to deploy the database to.
-2.	Right click U-SQL Databases and choose Deploy Database.
-3.	Set Database Source to the U-SQL database deployment package (.usqldbpack file) path.
-4.	Enter the Database Name for creating a database. If there is a database with same existing in the target Azure Data Lake Analytics account, all objects that are defined in database project are created without recreating the database.
+1.	Open **Server Explorer**, expand the **Azure Data Lake Analytics account** you would like to deploy the database to.
+2.	Right click U-SQL Databases and choose **Deploy Database**.
+3.	Set **Database Source** to the U-SQL database deployment package (.usqldbpack file) path.
+4.	Enter the **Database Name** for creating a database. If there is a database with same existing in the target Azure Data Lake Analytics account, all objects that are defined in database project are created without recreating the database.
 
     ![Data Lake Tools for Visual Studio deploy u-sql database package](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-deploy-usql-database-package.png)
 
@@ -89,7 +89,7 @@ You can deploy a U-SQL database through a U-SQL database project or a .usqldbpac
   
 ### Deploy U-SQL database using SDK
 
-PackageDeploymentTool.exe provides the programming and command-line interfaces that help to deploy U-SQL databases. The SDK is included in the [U-SQL SDK Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), locating at build/runtime/PackageDeploymentTool.exe.
+`PackageDeploymentTool.exe` provides the programming and command-line interfaces that help to deploy U-SQL databases. The SDK is included in the [U-SQL SDK Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), locating at `build/runtime/PackageDeploymentTool.exe`.
 
 [Learn more about the SDK and how to set up CI/CD pipeline for U-SQL database deployment](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-visual-studio-team-service).
 
@@ -102,7 +102,7 @@ A U-SQL project can reference a U-SQL database project. The reference impacts tw
 
 ### How to add U-SQL database reference
 
-1. Right-click the U-SQL project in Solution Explorer, and choose **Add U-SQL Database Reference...**.
+1. Right-click the U-SQL project in **Solution Explorer**, and choose **Add U-SQL Database Reference...**.
 
     ![Data Lake Tools for Visual Studio add database project reference](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-database-project-reference.png)
 

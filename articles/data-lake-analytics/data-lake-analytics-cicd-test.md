@@ -38,19 +38,19 @@ Azure Data Lake Tools for Visual Studio provides good experience to help you cre
 
 ### Manage test data source
 
-When test U-SQL scripts, test input files are needed. You can manage these test data by configuring **Test Data Source** in U-SQL project property. When you call the **Initialize()** interface in U-SQL test SDK, a temporary local Data Root folder is created under test project's working directory, and all files and subfolders(and files under subfolders) in the test data source folder are copied to the temporary local data root folder before running U-SQL script test cases. You can add more test data source folders by spitting test data folder path with semicolon.
+When test U-SQL scripts, test input files are needed. You can manage these test data by configuring **Test Data Source** in U-SQL project property. When you call the `Initialize()` interface in U-SQL test SDK, a temporary local Data Root folder is created under test project's working directory, and all files and subfolders(and files under subfolders) in the test data source folder are copied to the temporary local data root folder before running U-SQL script test cases. You can add more test data source folders by spitting test data folder path with semicolon.
 
 ![Data Lake Tools for Visual Studio configure project test data source](./media/data-lake-analytics-cicd-test/data-lake-tools-configure-project-test-data-source.png)
 
 ### Manage database environment for test
 
-If your U-SQL scripts use or query with U-SQL database objects, for example, calling stored procedures, then you need to initialize the database environment before running U-SQL test cases. The **Initialize()** interface in U-SQL test SDK helps you deploy all databases that are referenced by the U-SQL project to the temporary local Data Root folder in test project's working directory. 
+If your U-SQL scripts use or query with U-SQL database objects, for example, calling stored procedures, then you need to initialize the database environment before running U-SQL test cases. The `Initialize()` interface in U-SQL test SDK helps you deploy all databases that are referenced by the U-SQL project to the temporary local Data Root folder in test project's working directory. 
 
 Learn more about [how you can manage U-SQL database projects references for U-SQL project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
 
 ### Verify test results
 
-The **Run()** interface returns job execution result, 0 means succeed, and 1 means failed. You can also use C# assert functions to verify the outputs. 
+The `Run()` interface returns job execution result, 0 means succeed, and 1 means failed. You can also use C# assert functions to verify the outputs. 
 
 ### Execute test cases in Visual Studio
 
@@ -66,36 +66,40 @@ There are two ways to create IRowset:
 
 1.	Load data from a file to create IRowset
 
-    //Schema: "a:int, b:int"
-    USqlColumn<int> col1 = new USqlColumn<int>("a");
-    USqlColumn<int> col2 = new USqlColumn<int>("b");
-    List<IColumn> columns = new List<IColumn> { col1, col2 };
-    USqlSchema schema = new USqlSchema(columns);
+```csharp
+//Schema: "a:int, b:int"
+USqlColumn<int> col1 = new USqlColumn<int>("a");
+USqlColumn<int> col2 = new USqlColumn<int>("b");
+List<IColumn> columns = new List<IColumn> { col1, col2 };
+USqlSchema schema = new USqlSchema(columns);
 
-    //Generate one row with default values
-    IUpdatableRow output = new USqlRow(schema, null).AsUpdatable();
-    
-    //Get data from file
-    IRowset rowset = UnitTestHelper.GetRowsetFromFile(@"processor.txt", schema, output.AsReadOnly(), discardAdditionalColumns: true, rowDelimiter: null, columnSeparator: '\t');
+//Generate one row with default values
+IUpdatableRow output = new USqlRow(schema, null).AsUpdatable();
+
+//Get data from file
+IRowset rowset = UnitTestHelper.GetRowsetFromFile(@"processor.txt", schema, output.AsReadOnly(), discardAdditionalColumns: true, rowDelimiter: null, columnSeparator: '\t');
+```
 
 2.	Use data from data collection to create IRowset
 
-    //Schema: "a:int, b:int"
-    USqlSchema schema = new USqlSchema(
-        new USqlColumn<int>("a"),
-        new USqlColumn<int>("b")
-    );
-    
-    IUpdatableRow output = new USqlRow(schema, null).AsUpdatable();
-    
-    //Generate Rowset with specified values
-    List<object[]> values = new List<object[]>{
-        new object[2] { 2, 3 },
-        new object[2] { 10, 20 }
-    };
+```csharp
+//Schema: "a:int, b:int"
+USqlSchema schema = new USqlSchema(
+    new USqlColumn<int>("a"),
+    new USqlColumn<int>("b")
+);
 
-    IEnumerable<IRow> rows = UnitTestHelper.CreateRowsFromValues(schema, values);
-    IRowset rowset = UnitTestHelper.GetRowsetFromCollection(rows, output.AsReadOnly());
+IUpdatableRow output = new USqlRow(schema, null).AsUpdatable();
+
+//Generate Rowset with specified values
+List<object[]> values = new List<object[]>{
+    new object[2] { 2, 3 },
+    new object[2] { 10, 20 }
+};
+
+IEnumerable<IRow> rows = UnitTestHelper.CreateRowsFromValues(schema, values);
+IRowset rowset = UnitTestHelper.GetRowsetFromCollection(rows, output.AsReadOnly());
+```
 
 ### Verify test results
 
@@ -107,18 +111,18 @@ After build the test project, you can run all test cases though **Test Explorer 
 
 ## Run test cases in Visual Studio Team Service
 
-Both **U-SQL script test project** and **C# UDO test project** inherit C# unit test project. **Visual Studio Test task** in Visual Studio Team Service can run these test cases. 
+Both **U-SQL script test project** and **C# UDO test project** inherit C# unit test project. [Visual Studio Test task](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Visual Studio Team Service can run these test cases. 
 
 ### Run U-SQL test cases in Visual Studio Team Service
 
-For U-SQL test, make sure you load CPPSDK on your build machine and pass the CPPSDK path to USqlScriptTestRunner(cppSdkFolderFullPath: @"").
+For U-SQL test, make sure you load `CPPSDK` on your build machine and pass the `CPPSDK` path to USqlScriptTestRunner(cppSdkFolderFullPath: @"").
 
 **What is CPPSDK?**
 
 CPPSDK is a package includes Microsoft Visual C++ 14 and Windows SDK 10.0.10240.0, Which is the environment needed by U-SQL runtime. You can get this package under Azure Data Lake Tools for Visual Studio installation folder:
 
-- For Visual Studio 2015, it is under C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK
-- For Visual Studio 2017, it is under C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\SDK\ScopeCppSDK
+- For Visual Studio 2015, it is under `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK`
+- For Visual Studio 2017, it is under `C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\SDK\ScopeCppSDK`
 
 **How to prepare CPPSDK in Visual Studio Team Service build agent**
 
@@ -127,7 +131,7 @@ The common way for preparing this CPPSDK dependency in Visual Studio Team Servic
 1.	Zip the folder includes CPPSDK libraries.
 2.	Check in the zip file to your source control system. (Zip file can make sure you check in all libraries under CPPSDK folder, or some files will be ignored by ".gitignore".)
 3.	Unzip the zip file in Build pipeline.
-4.	Point USqlScriptTestRunner to this unzipped folder on the build machine.
+4.	Point `USqlScriptTestRunner` to this unzipped folder on the build machine.
 
 ### Run C# UDO test cases in Visual Studio Team Service
 

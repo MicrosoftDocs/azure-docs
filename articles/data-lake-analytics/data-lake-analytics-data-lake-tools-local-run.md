@@ -47,7 +47,7 @@ U-SQL local run engine is a "local compute account" for U-SQL jobs. Users can ru
 
 ### Working directory
 
-When running a U-SQL script, a working directory folder is needed for caching compile results, execution logs and so on. In Azure Data Lake Tools for Visual Studio, the working directory is the U-SQL project’s working directory (usually located under <U-SQL project root path>/bin/debug>). The working directory will be cleaned every time a new run triggered.
+When running a U-SQL script, a working directory folder is needed for caching compile results, execution logs and so on. In Azure Data Lake Tools for Visual Studio, the working directory is the U-SQL project’s working directory (usually located under `<U-SQL project root path>/bin/debug>`). The working directory will be cleaned every time a new run triggered.
 
 ## Local run in Visual Studio
 
@@ -55,7 +55,7 @@ Azure Data Lake Tools for Visual Studio has a built-in local run engine, and sur
 
 ![Data Lake Tools for Visual Studio submit script to local account](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-submit-script-to-local-account.png) 
  
-### Local run with (Local-machine) account
+## Local run with (Local-machine) account
 
 (Local-machine) account is a shared local compute account with a single local Data Root folder as the local store account. The Data Root folder is by default located at “C:\Users\<username>\AppData\Local\USQLDataRoot”, it's also configurable through **Tools > Data Lake > Options and Settings**.
 
@@ -63,15 +63,15 @@ Azure Data Lake Tools for Visual Studio has a built-in local run engine, and sur
   
 A U-SQL project is required for local run. The U-SQL project’s working directory is used for U-SQL local execution working directory. Compile results, execution logs, and other job execution-related files are generated and stored under working directory folder during local run. Note that every time you rerun the script, all these files in working directory will be cleaned and regenerated.
 
-### Local run with (Local-project) account
+## Local run with (Local-project) account
 
-(Local-project) account is a project-isolated local compute account for each project with isolated local Data Root folder. Every active U-SQL project opening in Solution Explorer has a corresponding **(Local-project: <project name>)** account listed both in Server Explorer and U-SQL script editor margin. 
+(Local-project) account is a project-isolated local compute account for each project with isolated local Data Root folder. Every active U-SQL project opening in Solution Explorer has a corresponding `(Local-project: <project name>)` account listed both in Server Explorer and U-SQL script editor margin. 
 
 The (Local-project) account provides a clean and isolated development environment for developers. Unlike (Local-machine) account that has a shared local Data Root folder storing metadata and input/output data for all local jobs, (Local-project) account creates a temporary local Data Root folder under U-SQL project working directory every time a U-SQL script gets run. This temporary Data Root folder gets cleaned when rebuild or rerun happens. 
 
 U-SQL project provides good experience to manage this isolated local run environment through project reference and property. You can both configure the input data sources for U-SQL scripts in the project, as well as the referenced database environments.
 
-#### Manage input data source for (Local-project) account
+### Manage input data source for (Local-project) account
 
 The U-SQL project takes care of the local Data Root folder creation and data setting up for (Local-project) account. A temporary Data Root folder is cleaned and recreated under U-SQL project working directory every time rebuild and local run happens. All data sources configured by the U-SQL project are copied to this temporary local Data Root folder before local job execution. 
 
@@ -79,7 +79,7 @@ You can configure the root folder of your data sources through **right click U-S
 
 ![Data Lake Tools for Visual Studio configure project test data source](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-project-test-data-source.png)
 
-#### Manage referenced database environment for (Local-project) account 
+### Manage referenced database environment for (Local-project) account 
 
 If a U-SQL query uses or queries with U-SQL database objects, you must make the database environments ready locally before running this U-SQL script locally. For (Local-project) account, U-SQL database dependencies can be managed by U-SQL project references. You can add U-SQL database project references to your U-SQL project. Before running U-SQL scripts on (Local-project) account, all referenced databases are deployed to the temporary local Data Root folder. And for each run, the temporary Data Root folder is cleaned as a fresh isolated environment.
 
@@ -87,7 +87,7 @@ Related articles:
 * [Learn how to manage U-SQL database definition through U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project)
 * [Learn how to manage U-SQL database reference in U-SQL project](data-lake-analytics-data-lake-tools-develop-usql-database.md)
 
-### Difference between (Local-machine) and (Local-project) account
+## Difference between (Local-machine) and (Local-project) account
 
 (Local-machine) account aims to simulate an Azure Data Lake Analytics account on users’ local machine. It shares same experience with Azure Data Lake Analytics account. (Local-project) aims to provide a user-friendly local development environment that helps users deploy databases references and input data before running the script locally. (Local-machine) account provides a shared permanent environment, which can be accessed through all projects. (Local-project) account provides an isolated development environment for each project, and it is refreshed for each run. Based on above, (Local-project) account offers a faster development experience by applying new changes quickly.
 
@@ -109,7 +109,7 @@ Besides of running U-SQL scripts locally in Visual Studio, you can also use the 
 
 ## Next Steps
 
-- [Learn more about Azure Data Lake U-SQL SDK](data-lake-analytics-u-sql-sdk.md).
+- [Azure Data Lake U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 - [How to set up CI/CD pipeline for Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
 - [Use U-SQL database project to develop U-SQL database](data-lake-analytics-data-lake-tools-develop-usql-database.md)
 - [How to test your Azure Data Lake Analytics code](data-lake-analytics-cicd-test.md)
