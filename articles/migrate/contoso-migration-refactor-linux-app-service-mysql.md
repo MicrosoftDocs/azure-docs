@@ -67,7 +67,7 @@ After pinning down their goals and requirements, Contoso designs and review a de
 
 After pinning down their current architecture, goals, and migration requirements, Contoso designs a deployment solution, and identifies the migration process, including the Azure services that they'll use for the migration.
 
-- The web tier app on OSTICKETWEB will be migrated by building an Azure App Service in two Azure regions. Azure App Service for Linux will be implement, using the PHP 7.0 Docker container.
+- The web tier app on OSTICKETWEB will be migrated by building an Azure App Service in two Azure regions. Azure App Service for Linux will be implemented using the PHP 7.0 Docker container.
 - The app code will be moved to GitHub, and Azure Web App will be configured for continuous delivery with GitHub.
 - Azure App Servers will be deployed in both the primary (East US 2) and secondary (Central US) region.
 - Traffic Manager will be set up in front of the two Azure Web Apps in both regions.
@@ -89,8 +89,8 @@ Contoso will complete the migration process as follows:
 
 1. As a first step, Contoso sets up the Azure infrastructure, including provisioning Azure App Services, setting up Traffic Manager, and provisioning an Azure MySQL instance.
 2. After preparing the Azure, they migrate the database using MySQL Workbench. 
-3. After the database is running in Azure,  they set up a GitHub private repo for the Azure App Service with continuous delivery, and load it with the osTicket app.
-4. In the Azure portal they load the app from GitHub to the Docker container running Azure App Service. 
+3. After the database is running in Azure, they set up a GitHub private repo for the Azure App Service with continuous delivery, and load it with the osTicket app.
+4. In the Azure portal, they load the app from GitHub to the Docker container running Azure App Service. 
 5. They tweak DNS settings, and configure autoscaling for the app.
 
 ![Migration process](./media/contoso-migration-refactor-linux-app-service-mysql/migration-process.png) 
@@ -102,7 +102,7 @@ Contoso will complete the migration process as follows:
 --- | --- | ---
 [Azure App Service](https://azure.microsoft.com/services/app-service/) | The service runs and scales applications using the Azure PaaS service for websites.  | Pricing is based on the size of the instances, and the features required. [Learn more](https://azure.microsoft.com/pricing/details/app-service/windows/).
 [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | A load balancer that uses DNS to direct users to Azure, or external websites and services. | Pricing is based on the number of DNS queries received, and the number of monitored endpoints. | [Learn more](https://azure.microsoft.com/pricing/details/traffic-manager/).
-[Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | The database is based on the open-source MySQL Server engine. It provides a fully-managed, enterprise-ready community MySQL database, as a service for app development and deployment. | Pricing based on compute, storage, and backup requirements. [Learn more](https://azure.microsoft.com/pricing/details/mysql/).
+[Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | The database is based on the open-source MySQL Server engine. It provides a fully managed, enterprise-ready community MySQL database, as a service for app development and deployment. | Pricing based on compute, storage, and backup requirements. [Learn more](https://azure.microsoft.com/pricing/details/mysql/).
 
  
 ## Prerequisites
@@ -144,7 +144,7 @@ Contoso provisions two Web apps (one in each region) using Azure App Services.
 
      ![Azure App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app2.png) 
     
-4. Contoso selects a Linx OS with PHP 7.0 runtime stack, which is a Docker container.
+4. Contoso selects a Linux OS with PHP 7.0 runtime stack, which is a Docker container.
 
     ![Azure App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app3.png) 
 
@@ -211,7 +211,7 @@ Contoso will migrate the database using backup and restore, with MySQL tools. Th
 ### Install MySQL Workbench
 
 1. Contoso checks the [prerequisites and downloads MySQL Workbench](https://dev.mysql.com/downloads/workbench/?utm_source=tuicool).
-2. They install MySQL Workbench for Windows in accordance with the [installation instructions](https://dev.mysql.com/doc/workbench/en/wb-installing.html). The machine on which they install must be acessible to the OSTICKETMYSQL VM, and Azure via the internet.
+2. They install MySQL Workbench for Windows in accordance with the [installation instructions](https://dev.mysql.com/doc/workbench/en/wb-installing.html). The machine on which they install must be accessible to the OSTICKETMYSQL VM, and Azure via the internet.
 3. In MySQL Workbench, they create a MySQL connection to OSTICKETMYSQL. 
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench1.png)
@@ -228,13 +228,13 @@ Contoso will migrate the database using backup and restore, with MySQL tools. Th
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench4.png)
 
-7. After data is restore, it can be queried using Workbench, and appears in the Azure portal.
+7. After data is restored, it can be queried using Workbench, and appears in the Azure portal.
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench5.png)
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench6.png)
 
-8. Finally, Contoso needs to update the database information on the web apps. On the MySQL instance they open **Connection Strings**. 
+8. Finally, Contoso needs to update the database information on the web apps. On the MySQL instance, they open **Connection Strings**. 
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench7.png)
 
@@ -242,7 +242,7 @@ Contoso will migrate the database using backup and restore, with MySQL tools. Th
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench8.png)
 
-10. They open a Notepad windo and paste the string into a new file, and update it to match the osticket database, MySQL instance, and credentials settings.
+10. They open a Notepad window and paste the string into a new file, and update it to match the osticket database, MySQL instance, and credentials settings.
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench9.png)
 
