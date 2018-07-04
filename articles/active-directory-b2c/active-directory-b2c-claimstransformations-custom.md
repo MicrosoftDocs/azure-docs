@@ -429,8 +429,38 @@ The example below defines a ClaimsTransformation of the ‘ConvertNumberToString
 ---
 ### GetClaimFromJSON
 
-***[TODO: Still need to complete this transform]***
+The GetClaimFromJSON claims transformation will retrive a single claim from a JSON object int the value of a claim in the policy schema and save it to a string based claim provided.
 
+| Variable | Paramater | Description 
+| - | - | - |
+| **Input Claims** | inputJson (string) | A string claim holding a JSON object. |
+| **Input Paramaters** | claimToExtract (string) | The claim within the JSON to extract |
+| **Output Claims** | extractedClaim (string) | The output claim to store the extracted claim. | 
+
+The example below defines a ClaimsTransformation of the ‘GetClaimFromJSON’ type called ‘GetEmailFromJsonTransformation’. This transform will extract an 'email' claim from the JSON stored within the StrJSON cliam in the policy schema and save it to the string claim called ‘email’.
+
+
+```XML
+<ClaimsTransformation Id="GetEmailFromJsonTransformation" TransformationMethod="GetClaimFromJSON">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="StrJSON" TransformationClaimType="inputJson" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="claimToExtract" DataType="string" Value="email" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="email" TransformationClaimType="extractedClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+The following is the example JSON contained within the 'StrJSON' claim above.
+```JSON
+{
+  "name": "Phil",
+  "phone": "+610411222333",
+  "email": "phil@emailaddress.com"
+}
+```
 
 ---
 ### Hash
