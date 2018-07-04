@@ -1,5 +1,5 @@
 ---
-title: Function-to-Function Communication in Durable Functions - Azure
+title: Overview of Function Types and Features for Durable Functions  - Azure
 description: Learn the types of functions and roles that allow for function-to-function communication as part of a durable function orchestration.
 services: functions
 author: jeffhollan
@@ -16,7 +16,7 @@ ms.date: 07/04/2018
 ms.author: azfuncdf
 ---
 
-# Durable Function Components and Patterns (Azure Functions)
+# Overview of Function Types and Features for Durable Functions (Azure Functions)
 
 Azure Durable Functions provides stateful orchestration of function execution.  A durable function is a solution made up of different Azure Functions.  Each of these functions can play different roles as part of an orchestration.  The following document provides an overview of the types of functions involved in a durable function orchestration.  It also includes some common patterns in connecting functions together.  
 
@@ -138,4 +138,4 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
 > [Install the Durable Functions extension and samples](durable-functions-install.md)
 
 <!-- Media references -->
-[1]: media/durable-functions-components-overview/durable-concepts.png
+[1]: media/durable-functions-types-features-overview/durable-concepts.png
