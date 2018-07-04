@@ -12,29 +12,31 @@ ms.date: 07/27/2018
 
 # How to migrate to the latest version of Azure Machine Learning Services 
 
-**If you have installed the Workbench application and/or have experimentation and model management accounts, use this article to migrate to the latest version.**  If you don't have Workbench installed or an experimentation account, you don't need to migrate anything.
+**If you have installed the Workbench (preview) application and/or have experimentation and model management preview accounts, use this article to migrate to the latest version.**  If you don't have preview Workbench installed or an experimentation account, you don't need to migrate anything.
 
-Most of the artifacts created in the earlier version of Azure Machine Learning Services are stored in your own local or cloud storage. So the migration path largely involves re-registering them with the new Azure Machine Learning offering. 
+Most of the artifacts created in the earlier version of Azure Machine Learning Services are stored in your own local or cloud storage. These artifacts won't ever disappear. The migration path largely involves re-registering them with the new Azure Machine Learning offering. 
 
-The following table and article explains what you can do with your existing assets and resources before or after moving over to the latest version of Azure Machine Learning Services. You can continue to use the previous version and your assets for some time ([see transition support timeline](overview-what-happened-to-workbench.md#timeline)).
+The following table and article explain what you can do with your existing assets and resources before or after moving over to the latest version of Azure Machine Learning Services. You can also continue to use the previous version and your assets for some time ([see transition support timeline](overview-what-happened-to-workbench.md#timeline)).
 
 |Previous asset or resource|Can I migrate?|What to do?|
 |-----------------|:-------------:|-------------|
 |Models|Yes|None. Works as before.|
 |Model dependencies <br/> and schemas|Yes|None. Works as before.|
-|Projects|Yes|Attach the local folder to new workspace.|
-|Run histories|No|Downloadable for a while.|
-|Machine learning CLI|No|Use the new one for new work.|
-|Machine learning SDK|No|Use the new one for new work.|
-|Compute targets|No|Register them again in new workspace.|
-|Web services|No|None. They continue to work as-is <br/>or redeploy models using latest version.|
-|Model management account|No|Create a workspace instead.|
-|Experimentation account|No|Create a workspace  instead.|
+|Projects|Yes|[Attach the local folder to new workspace](#projects).|
+|Run histories|No|[Downloadable](#history) for a while.|
+|Machine learning CLI|No|Use the new [CLI](reference-azure-machine-learning-cli.md) for new work.|
+|Machine learning SDK|No|Use the new [SDK](reference-azure-machine-learning-sdk.md) for new work.|
+|Compute targets|No|Register them in new workspace.|
+|Web services|No|None. They continue to work as-is <br/>or [deploy them again using latest version](#services).|
+|Model management account|No|[Create a workspace](#resources) instead.|
+|Experimentation account|No|[Create a workspace](#resources) instead.|
 
 Learn more about the changes to Azure Machine Learning Services in the article "[What happened to Workbench](overview-what-happened-to-workbench.md)"?
 
 >[!Warning]
->You cannot migrate assets from Azure Machine Learning **Studio** to Azure Machine Learning **Services**.
+>This article is not for Azure Machine Learning Studio users.
+
+<a name="resources"></a>
 
 ## Azure resources
 
@@ -44,7 +46,9 @@ Get started with the latest version by creating an Azure Machine Learning Worksp
 + In the [Azure portal](quickstart-get-started.md)
 + Using [the CLI](quickstart-get-started-with-cli.md). 
 
-This new workspace is the top-level service resource and enables you to use all features of the latest features of Azure Machine Learning Services. [Learn more about this workspace and architecture](concept-azure-machine-learning-architecture.md).
+This new workspace is the top-level service resource and enables you to use all of the latest features of Azure Machine Learning Services. [Learn more about this workspace and architecture](concept-azure-machine-learning-architecture.md).
+
+<a name="projects"></a>
 
 ## Projects
 
@@ -69,6 +73,7 @@ Using the new [SDK](reference-azure-machine-learning-sdk.md):
 
 Follow the complete [CLI quickstart](quickstart-get-started-with-cli.md) or [Portal/SDK quickstart](quickstart-get-started.md) to learn how to create a workspace and attach a project.
 
+<a name="services"></a>
 
 ## Deployed web services
 
@@ -80,6 +85,8 @@ Learn more in these articles:
 + [Tutorial: train and deploy models with Azure Machine Learning Serivces](tutorial-build-train-deploy-with-azure-machine-learning.md)
 
 When [support for the previous CLI ends](overview-what-happened-to-workbench.md#timeline), you won't be able to manage the web services you originally deployed with your Model Management account. However, those web services will continue to work for as long as Azure Container Service (ACS) is still supported.
+
+<a name="history"></a>
 
 ## Run history records
 
