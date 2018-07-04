@@ -126,7 +126,7 @@ Here's how Azure will complete the migration:
 > * **Step 3: Provision MySQL**: In Azure, Contoso provisions an instance of Azure MySQL database.
 > * **Step 4: Migrate the database**: They migrate the database using MySQL Workbench. 
 > * **Step 5: Set up GitHub**: Contoso sets up a local GitHub repository for the app web sites/code.
-> * **Step 6: Deploy the web app**: Contoso deploys the web app from GitHub.
+> * **Step 6: Deploy the web apps**: Contoso deploys the web apps from GitHub.
 
 
 
@@ -284,7 +284,7 @@ Contoso creates a new private GitHub repo, and sets up a connection to the osTic
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github7.png)
 
-## Configure the Web Apps
+## Step 6: Configure the Web Apps
 
 As the final step in the migration process, Contoso configure the web apps with the osTicket web sites.
 
