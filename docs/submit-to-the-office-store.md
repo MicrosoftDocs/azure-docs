@@ -26,6 +26,7 @@ In order for your submission to be approved:
 - It must be stable and functional.
 - Any material that you associate with your apps or add-ins, such as descriptions and support documentation, must be accurate. Use correct spelling, capitalization, punctuation, and grammar in your descriptions and materials.
 - If you want a tailored experience for users in a regional store, you can add additional languages so that your add-in appears in another language store with localized metadata. Your service and your add-in manifest must be updated appropriately. You must also provide descriptions for each language you add.
+- If your free app or add-in contains in-app purchase, the AppSource listing for your add-in will reflect this by stating 'Additional purchase may be required' under the pricing options.
 
 For more details about AppSource requirements, see [Validation policies for apps and add-ins submitted to the AppSource](validation-policies.md).
 
