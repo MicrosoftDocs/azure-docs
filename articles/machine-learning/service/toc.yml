@@ -35,18 +35,18 @@
     items:    
     - name: Choose an environment  
     - name: Configure an environment
+  - name: Set up training environments	
+    items:    
+    - name: VMs (Data Science/Deep Learning) 
+    - name: Azure Batch AI clusters
+    - name: Azure Container Instances
   - name: Get data and share	
     items:    
     - name: Access data store in training  
     - name: Share and collaborate
-  - name: Choose an ML algorithm	
-  - name: Set up training environments	
-    items:    
-    - name: Azure Container Instances
-    - name: VMs (Data Science/Deep Learning) 
-    - name: Azure Batch AI clusters
   - name: Train and tune models
     items:    
+    - name: Choose an ML algorithm	
     - name: Train TensorFlow models
     - name: Tune hyperparameters for DNN / ML models
     - name: Run jobs on Spark
