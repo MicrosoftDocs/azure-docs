@@ -58,7 +58,7 @@ sudo nano /etc/iotedge/config.yaml
 Update the **connect** section of the configuration with your IP address. For example:
 ```yaml
 connect:
-  management_uri: "http://172.17.0.1.1:15580"
+  management_uri: "http://172.17.0.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
@@ -66,7 +66,7 @@ Enter the same addresses in the **listen** section of the configuration. For exa
 
 ```yaml
 listen:
-  management_uri: "http://172.17.0.1.1:15580"
+  management_uri: "http://172.17.0.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
