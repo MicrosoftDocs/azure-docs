@@ -241,7 +241,7 @@ Contoso needs to make sure the web apps and database can all communicate. To do 
 
 4. The **client** section of the web.config file for the SmartHotel.Registration.Web should be changed to point to the new location of the WCF service. This is the URL of the WCF web app hosting the service endpoint.
 
-    ![Connection string](media/contoso-migration-refactor-web-app-sql/string3.png)
+    ![Connection string](media/contoso-migration-refactor-web-app-sql/strings3.png)
 
 
 ## Step 5: Publish web apps
