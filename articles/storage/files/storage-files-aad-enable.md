@@ -3,7 +3,6 @@ title: Azure Files access with Azure AD credentials over SMB (Preview) | Microso
 description: Azure Files access with Azure AD credentials over SMB (Preview)
 services: storage
 author: tamram
-manager: twooley
 
 ms.service: storage
 ms.topic: article
@@ -52,14 +51,14 @@ Azure AD Integration, Assign user permission, and Access share with Azure AD cre
 
 3.  Domain join your Azure VM to Azure AD Domain Services
 
-    To access Azure File shares using Azure AD credentials from a VM, your VM must be
+    To access Azure Files shares using Azure AD credentials from a VM, your VM must be
     domain joined to Azure AD Domain Services. For Preview, we only support Azure AD integration for
     Azure Windows Server VMs. We will extend the coverage to include Linux VMs
     by GA. You can [Join a Windows Server virtual machine to a managed
     domain](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal)
     in a few steps.
 
-4.  Select or create your new Azure File share
+4.  Select or create your new Azure Files share
 
     We support Azure Files integration with the primary Azure AD tenant, which is the
     Azure AD tenant that is associated with the subscriptions where the file share is
@@ -74,7 +73,7 @@ Azure AD Integration, Assign user permission, and Access share with Azure AD cre
     account key
 
     To ensure that your VM and file share are properly configured, try [Mount an
-    Azure File share and access the share in
+    Azure Files share and access the share in
     Windows](storage-how-to-use-files-windows.md).
 
 ## Enable Azure AD integration for Azure Files SMB access
@@ -146,9 +145,9 @@ to define file share level access for users, groups, and service principals by
 assigning roles to the file share. This is very similar to the Windows Share
 permission where you determine the type of access others have to the specific
 file share. We support two custom roles that refine the permission to data path
-access to Azure File shares: Storage Files Data Contributor (Allows read, write
-and delete access to Azure File share), Storage Files Data Reader (Allows read
-access to Azure File share). We can still apply existing default roles like
+access to Azure Files shares: Storage Files Data Contributor (Allows read, write
+and delete access to Azure Files share), Storage Files Data Reader (Allows read
+access to Azure Files share). We can still apply existing default roles like
 Owner, Contributor, and Reader to grant broader permissions on share level.
 
 **Portal**
@@ -159,7 +158,7 @@ To be updated: Required before Preview
 
 You can use existing [RBAC assignment Powershell
 commands](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)
-to manage access on Azure File shares. The command below allows you to assign
+to manage access on Azure Files shares. The command below allows you to assign
 RBAC role to a Azure AD user with its sign in name.
 
 ```powershell
@@ -178,7 +177,7 @@ PS C:\\\> New-AzureRmRoleAssignment -SignInName <john.doe@contoso.com>
 
 You can use existing [RBAC assignment CLI
 commands](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
-to manage access on Azure File shares. The command below allows you to assign
+to manage access on Azure Files shares. The command below allows you to assign
 RBAC role to a Azure AD user with its sign in name.
 
 ```cli
@@ -199,19 +198,19 @@ permission as the top level gate keeper that determine where a user can access
 to the share all up, and NTFS permission at a granular level to determine what
 operations you can perform on per directory/file level. Azure Files supports the
 full set of NTFS basic and advance permissions. You will be able to view and
-configure NTFS permissions on directories and files in an Azure File share by
+configure NTFS permissions on directories and files in an Azure Files share by
 mounting the share then running Windows
 [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls)
 command. You can also use
 [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy)
 or other copy tools to copy files along with the ACLs.
 
-If you have just enabled Azure AD integration with Azure Files, you will not yet have any Azure AD users with NTFS permissions configured on the root directory of the file share. In this case, you need to mount your share with your storage account key to your Azure AD Domain Services domain joined VM to assign permissions with Super-User privileges. You can follow up the instruction below to mount Azure File share with command
+If you have just enabled Azure AD integration with Azure Files, you will not yet have any Azure AD users with NTFS permissions configured on the root directory of the file share. In this case, you need to mount your share with your storage account key to your Azure AD Domain Services domain joined VM to assign permissions with Super-User privileges. You can follow up the instruction below to mount Azure Files share with command
 prompt.
 
-#### **Step 2.2.1 Mount Azure File Share with command prompt** 
+#### **Step 2.2.1 Mount Azure Files share with command prompt** 
 
-Use the following command to mount the Azure File share: Remember to replace \<desired-drive-letter\>, \<storage-account-name\>, \<share-name\>, \<storage-account-key\>, \<storage-account-name\> with the proper information. You can refer to [Mount an Azure File share and access the share in Windows](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) for more details.
+Use the following command to mount the Azure Files share: Remember to replace \<desired-drive-letter\>, \<storage-account-name\>, \<share-name\>, \<storage-account-key\>, \<storage-account-name\> with the proper information. You can refer to [Mount an Azure Files share and access the share in Windows](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) for more details.
 =====================================================================================================================================================================================================================================================================================================================================================================================================================
 
 ```
@@ -234,9 +233,9 @@ the different type of permissions supported
 icacls <mounted-drive-letter> /grant <user-email>:(f)
 ```
 
-### Step 3: Mount Azure File share from Azure AD Domain Services domain joined VM 
+### Step 3: Mount Azure Files share from Azure AD Domain Services domain joined VM 
 
-Now you are ready to use your Azure AD credentials to access Azure File share.
+Now you are ready to use your Azure AD credentials to access Azure Files share.
 
 First, log on to the Azure VM domain joined to Azure AD Domain Services using the name and
 password that you have just granted permissions, see screenshot below.
@@ -244,7 +243,7 @@ password that you have just granted permissions, see screenshot below.
 ![Screenshot showing log on screen](media/storage-files-aad-enable/aad-auth-screen.png)
 
   
-Then, use the following command to mount the Azure File share: Remember to
+Then, use the following command to mount the Azure Files share: Remember to
 replace \< desired-drive-letter\>, \<storage-account-name\>, \<share-name\> with
 the proper information. This time, you will no longer need to provide storage
 account key nor Azure AD user name and password. We support single sign on experience
