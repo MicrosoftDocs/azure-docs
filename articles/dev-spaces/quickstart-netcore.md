@@ -6,7 +6,7 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: "ghogen"
-ms.date: "06/06/2018"
+ms.date: "07/09/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
@@ -137,4 +137,4 @@ Refresh the web app in the browser, and go to the About page. You should see you
 Learn how Azure Dev Spaces helpls you develop more complex apps across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces. 
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-netcore.md#call-a-service-running-in-a-separate-container)
+> [Working with multiple containers and team development](team-development-netcore.md)

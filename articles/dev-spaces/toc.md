@@ -7,9 +7,15 @@
 ###[Node.js (VS Code & CLI)](quickstart-nodejs.md)
 
 ## Tutorials
-###[.NET Core (VS Code & CLI)](get-started-netcore.md)
-###[.NET Core (Visual Studio 2017)](get-started-netcore-visualstudio.md)
-###[Node.js (VS Code & CLI)](get-started-nodejs.md)
+### .NET Core (VS Code & CLI)
+#### [1 - Get started](get-started-netcore.md)
+#### [2 - Team development](team-development-netcore.md)
+### .NET Core (Visual Studio 2017)
+#### [1 - Get started](get-started-netcore-visualstudio.md)
+#### [2 - Team development](team-development-netcore-visualstudio.md)
+### Node.js (VS Code & CLI)
+#### [1 - Get started](get-started-nodejs.md)
+#### [2 - Team development](team-development-nodejs.md)
 
 ## How to
 ###[Share Azure Dev Spaces](how-to/share-dev-spaces.md)
