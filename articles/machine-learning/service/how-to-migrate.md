@@ -14,7 +14,7 @@ ms.date: 07/27/2018
 
 **If you have installed the Workbench (preview) application and/or have experimentation and model management preview accounts, use this article to migrate to the latest version.**  If you don't have preview Workbench installed or an experimentation account, you don't need to migrate anything.
 
-Most of the artifacts created in the earlier version of Azure Machine Learning Services are stored in your own local or cloud storage. These artifacts won't ever disappear. The migration path largely involves re-registering them with the new Azure Machine Learning offering. 
+Most of the artifacts created in the earlier version of Azure Machine Learning Services are stored in your own local or cloud storage. These artifacts won't ever disappear. To migrate, you'll need to register the artifacts again with the updated Azure Machine Learning offering. 
 
 The following table and article explain what you can do with your existing assets and resources before or after moving over to the latest version of Azure Machine Learning Services. You can also continue to use the previous version and your assets for some time ([see transition support timeline](overview-what-happened-to-workbench.md#timeline)).
 

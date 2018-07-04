@@ -26,16 +26,9 @@ While the overall workflow hasn't changed, the latest release of Azure Machine L
 + A new, more comprehensive [Python SDK](reference-azure-machine-learning-sdk.md)
 + An updated and expanded [Azure CLI extension](reference-azure-machine-learning-sdk.md)
 
-[The current architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of requiring multiple Azure resources and accounts, you only need a top-level resource called the [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md).  You can quickly create your workspaces in the [Azure portal](quickstart-get-started.md) or with [the CLI](quickstart-get-started-with-cli.md).  
+The [architecture](concept-azure-machine-learning-architecture.md) was redesigned with ease-of-use in mind. Instead of requiring multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-azure-machine-learning-architecture.md).  You can quickly create your workspaces in the [Azure portal](quickstart-get-started.md) or with [the CLI](quickstart-get-started-with-cli.md).  Workspaces can be used by multiple users to store training and deployment compute targets, model run histories, Docker images, deployed models, and so on. [Learn more about workspaces.](concept-azure-machine-learning-architecture.md)
 
-Workspaces can be used by multiple users to store:
-+ Training and deployment compute targets
-+ Models
-+ Deployed web services
-+ Docker images
-+ Run histories 
-
-While Azure Machine Learning still offers the CLI and SDK clients, the desktop Workbench application was deprecated. You can still monitor your run history, but now you can do so in the Azure portal online. In the Azure portal's workspace dashboard, you can run history reports, manage the compute targets attached to your workspace, manage your models, Docker images, and even deploy web services.
+While Azure Machine Learning still offers CLI and SDK clients, the desktop Workbench application was deprecated. You can still monitor your run history, but now you can do so in the Azure portal online. In the Azure portal's workspace dashboard, you can run history reports, manage the compute targets attached to your workspace, manage your models, Docker images, and even deploy web services.
 
 <a name="timeline"></a>
 
@@ -44,21 +37,21 @@ No worries! You can continue to use your experimentation and model management ac
 
 Support for these resources will be incrementally deprecated over the next 6 - 8 months. 
 
-1. The ability to create new accounts in the Azure portal will go away first. Existing accounts, the CLI, and the desktop Workbench will continue to work at that time.
+|Phase|Support details for earlier features|
+|:---:|----------------|
+|1|The ability to create new accounts in the Azure portal ends. Existing accounts, the CLI, and the desktop Workbench continue to work in this phase.|
+|2|The underlying APIs for creating new workspaces and projects in the desktop Workbench and with the CLI ends. You can still run existing models and deploy web services to ACS in this phase.|
+|3|Support for everything else, including the remaining APIs and the desktop Workbench end in this phase.|
 
-1. The underlying APIs for creating workspaces and projects in the desktop Workbench and with the CLI will stop working next, but you'll still be able to run your existing projects and deploy web services to ACS. 
+[Start migrating](how-to-migrate.md) today. All features and capabilities (except data preparation) are available in the latest version through the new [SDK](reference-azure-machine-learning-sdk.md), [CLI](reference-azure-machine-learning-cli.md), and [portal](quickstart-get-started.md). 
 
-1. Support for the remaining APIs and the desktop Workbench will end last. End of support is expected this Winter. 
-
-[Start migrating](how-to-migrate.md) today. All features and capabilities (except data preparation) are available in the latest version through the new [SDK](reference-azure-machine-learning-sdk.md), [CLI](reference-azure-machine-learning-cli.md), and [portal](quickstart-get-started.md).
-
-For now, you can still find the documentation for the desktop Workbench and old CLI and SDKs at the bottom of this [table of contents](../desktop-workbench/tutorial-classifying-iris-part-1.md).
+While you can still use the older features, you'll be able to find that documentation at the bottom of this [table of contents](../desktop-workbench/tutorial-classifying-iris-part-1.md).
 
 ## How do I migrate?
 
-Generally speaking, most of the artifacts created in the earlier version of Azure Machine Learning Services are stored in your own local or cloud storage. So the migration path largely involves re-registering them with the new Azure Machine Learning offering. 
+Most of the artifacts created in the earlier version of Azure Machine Learning Services are stored in your own local or cloud storage. These artifacts won't ever disappear. To migrate, you'll need to register the artifacts again with the updated Azure Machine Learning offering. 
 
-Learn what you can migrate to the latest Azure Machine Learning Services and how to do so in this [migrating article](how-to-migrate.md).
+Learn what you can migrate to the latest Azure Machine Learning Services and how to do so in this [migration article](how-to-migrate.md).
 
 ## Will projects persist?
 
@@ -66,7 +59,7 @@ You won't lose any code or work. In the older version, projects are cloud entiti
 
 Since much of the project contents was already on your local machine, you just need to register the local project directory with your new workspace. Learn how to create a new project [in Python with the new SDK](quickstart-get-started.md) or with [the updated CLI](quickstart-get-started-with-cli.md).
 
-With a few lines of code, your pre-existing project files will continue to work in the latest version. [Learn how migrate your projects.](how-to-migrate.md#projects)
+With a few lines of code, your existing project files will continue to work in the latest version. [Learn how migrate your projects.](how-to-migrate.md#projects)
 
 ## What about web services?
 
