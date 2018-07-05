@@ -33,7 +33,7 @@ Following are different methods you can use to create a Linux RDMA cluster with 
 * **HPC Pack**: Create a Microsoft HPC Pack cluster in Azure and add RDMA-capable compute nodes that run a supported Linux distribution to access the RDMA network. For more information, see [Get started with Linux compute nodes in an HPC Pack cluster in Azure](hpcpack-cluster.md).
 
 ## Sample deployment steps in the classic model
-The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterprise Server (SLES) 12 SP1 HPC VM from the Azure Marketplace, customize it, and create a custom VM image. Then you can use the image to script the deployment of a cluster of RDMA-capable VMs.
+The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterprise Server (SLES) 12 HPC VM from the Azure Marketplace, customize it, and create a custom VM image. Then you can use the image to script the deployment of a cluster of RDMA-capable VMs.
 
 > [!TIP]
 > Use similar steps to deploy a cluster of RDMA-capable VMs based on CentOS-based HPC images in the Azure Marketplace. Some steps differ slightly, as noted.
@@ -46,7 +46,7 @@ The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterpr
 * **Cores quota**: You might need to increase the quota of cores to deploy a cluster of compute-intensive VMs. For example, you need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the H-series. To request a quota increase, [open an online customer support request](../../../azure-supportability/how-to-create-azure-support-request.md) at no charge.
 * **Azure CLI**: [Install](../../../cli-install-nodejs.md) the Azure CLI and [connect to your Azure subscription](/cli/azure/authenticate-azure-cli) from the client computer.
 
-### Provision an SLES 12 SP1 HPC VM
+### Provision an SLES 12 HPC VM
 After signing in to Azure with the Azure CLI, run `azure config list` to confirm that the output shows Service Management mode. If it does not, set the mode by running this command:
 
     azure config mode asm
@@ -60,7 +60,7 @@ The current active subscription is identified with `Current` set to `true`. If t
 
     azure account set <subscription-Id>
 
-To see the publicly available SLES 12 SP1 HPC images in Azure, run a command like the following, assuming your shell environment supports **grep**:
+To see the publicly available SLES 12 HPC images in Azure, run a command like the following, assuming your shell environment supports **grep**:
 
     azure vm image list | grep "suse.*hpc"
 
@@ -73,7 +73,7 @@ Where:
 * The size (A9 in this example) is one of the RDMA-capable VM sizes.
 * The external SSH port number (22 in this example, which is the SSH default) is any valid port number. The internal SSH port number is set to 22.
 * A new cloud service is created in the Azure region specified by the location. Specify a location in which the VM size you choose is available, such as "West US".
-* For SUSE priority support (which incurs additional charges), the SLES 12 SP1 image name currently can be one of the options that has `priority` in the name, such as: 
+* For SUSE priority support (which incurs additional charges), the SLES 12 image name currently can be one of the options that has `priority` in the name, such as: 
 
  `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp3-hpc-priority-v20170913`
 
