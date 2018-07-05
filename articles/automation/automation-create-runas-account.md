@@ -244,6 +244,9 @@ This PowerShell script includes support for the following configurations:
     }
     ```
 
+    > [!IMPORTANT]
+    > **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can update your modules in your Automation Account.
+
 2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
 3. From the elevated command-line shell, go to the folder that contains the script you created in step 1.  
 4. Execute the script by using the parameter values for the configuration you require.
