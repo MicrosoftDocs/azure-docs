@@ -56,7 +56,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
     
 3. Select a subscription and create or choose a resource group, then click **Create**. 
 
-    ![Create an event hub namespace](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png)
+   ![Create an event hub namespace](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png)
  
 4. When the namespace has finished deploying, find the event hub namespace in your list of Azure resources. 
 
