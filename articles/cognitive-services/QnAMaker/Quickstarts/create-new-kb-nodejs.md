@@ -16,7 +16,7 @@ ms.author: nolachar
 
 This quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
 
-Two sample FAQ URLs are given below (in 'urls' of **req={}**) that will provide content. QnA Maker automatically extracts questions and answers from this semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
+Two sample FAQ URLs are given below (in 'urls' of **req={}**) that will provide content. QnA Maker automatically extracts questions and answers from this semi-structured content as explained in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
 
 ## Prerequisites
 
@@ -195,7 +195,7 @@ create_kb(path, content, function (result) {
 
 ## Understand what QnA Maker returns
 
-A successful response is returned in JSON, as shown in the following example. Your results may differ slightly. If the final call returns a "Succeeded" state, your knowledge base was created successfully. To troubleshoot refer to the [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) of the QnA Maker API.
+A successful response is returned in JSON as shown in the following example. Your results may differ slightly. If the final call returns a "Succeeded" state, your knowledge base was created successfully. To troubleshoot refer to the [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) of the QnA Maker API.
 
 ```json
 Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create.
