@@ -36,7 +36,7 @@ To test the function module that you build in this tutorial, you need an IoT Edg
 You must have the following prerequisites on your development machine: 
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
-* [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code. 
 * [The .NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/) on your development machine. 
 
