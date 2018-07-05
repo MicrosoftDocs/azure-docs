@@ -54,7 +54,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
 
 2. In the **Create namespace** pane, enter a namespace name such as `<yourname>-eh-ns-demo`. You can use any name for the namespace, but the name must be valid for a URL and it must be unique across Azure. 
     
-3. Select a subscription and create or choose a resource group, then click **Create**. 
+3. Select a subscription and create or choose a resource group, then click **Create**.
 
    ![Create an event hub namespace](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png)
  
@@ -62,11 +62,11 @@ In this procedure, you first create an event hub namespace, and then you add an 
 
 5. Click the new namespace, and in the namespace pane, click **Event Hub**.
 
-    ![The Add Event Hub button for creating a new event hub ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
+   ![The Add Event Hub button for creating a new event hub ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
 6. Name the new event hub `asa-eh-frauddetection-demo`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub right now.
 
-    ![Create a new event hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
+   ![Create a new event hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
     
  
 7. Click **Create**.
@@ -84,7 +84,7 @@ Before a process can send data to an event hub, the event hub must have a policy
 
 3.	Add a policy named `sa-policy-manage-demo` and for **Claim**, select **Manage**.
 
-    ![Create a new event hub access policy](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
+   ![Create a new event hub access policy](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
  
 4.	Click **Create**.
 
@@ -92,7 +92,7 @@ Before a process can send data to an event hub, the event hub must have a policy
 
 6.	Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
     
-    ![Copying the primary connection string key from the access policy](./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png)
+   ![Copying the primary connection string key from the access policy](./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png)
  
 7.	Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
 
@@ -119,7 +119,7 @@ Before you start the TelcoGenerator app, you must configure it so that it will s
 
     The `<appSettings>` section will look like the following example. (For clarity, the lines are wrapped and some characters have been removed from the authorization token.)
 
-    ![TelcoGenerator app configuration file showing the event hub name and connection string](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
+   ![TelcoGenerator app configuration file showing the event hub name and connection string](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
 4.	Save the file. 
 
@@ -161,7 +161,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
 
     It's a good idea to place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.
 
-    ![Create new Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png)
+   ![Create new Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png)
 
 3. Click **Create**.
 
@@ -172,7 +172,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
 1. In the dashboard or the **All resources** pane, find and select the `asa_frauddetection_job_demo` Stream Analytics job. 
 2. In the **Overview** section of the Stream Analytics job pane, click the **Input** box.
 
-    ![Input box under Topology in the Streaming Analytics job pane](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
+   ![Input box under Topology in the Streaming Analytics job pane](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
  
 3. Click **Add stream input** and select **Event Hub**. Then fill the New input page with the following information:
 
@@ -208,12 +208,12 @@ The TelcoGenerator app is sending call records to the event hub, and your Stream
 3. Click the **Query** box. Azure lists the inputs and outputs that are configured for the job, and lets you create a query that lets you transform the input stream as it is sent to the output.
 4. In the **Query** pane, click the dots next to the `CallStream` input and then select **Sample data from input**.
 
-    ![Menu options to use sample data for the Streaming Analytics job entry, with "Sample data from input" selected](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
+   ![Menu options to use sample data for the Streaming Analytics job entry, with "Sample data from input" selected](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
 
 
 5. Set **Minutes** to 3 and then click **OK**. 
     
-    ![Options for sampling the input stream, with "3 minutes" selected.](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
+   ![Options for sampling the input stream, with "3 minutes" selected.](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
 
     Azure samples 3 minutes' worth of data from the input stream and notifies you when the sample data is ready. (This takes a short while.) 
 
@@ -241,7 +241,7 @@ If you want to archive every event, you can use a pass-through query to read all
 
     The Stream Analytics job runs the query against the sample data and displays the output at the bottom of the window. The results indicate that the Event Hub and the Streaming Analytics job are configured correctly. (As noted, later you'll create an output sink that the query can write data to.)
 
-    ![Stream Analytics job output, showing 73 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output.png)
+   ![Stream Analytics job output, showing 73 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output.png)
 
     The exact number of records you see will depend on how many records were captured in your 3-minute sample.
  
@@ -257,7 +257,7 @@ In many cases, your analysis doesn't need all the columns from the input stream.
 
 2. Click **Test** again. 
 
-    ![Stream Analytics job output for projection, showing 25 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
+   ![Stream Analytics job output for projection, showing 25 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
  
 ### Count incoming calls by region: Tumbling window with aggregation
 
@@ -281,7 +281,7 @@ For this transformation, you want a sequence of temporal windows that don't over
 
 2. Click **Test** again. In the results, notice that the timestamps under **WindowEnd** are in 5-second increments.
 
-    ![Stream Analytics job output for aggregation, showing 13 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
+   ![Stream Analytics job output for aggregation, showing 13 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
  
 ### Detect SIM fraud using a self-join
 
@@ -311,11 +311,11 @@ When you use a join with streaming data, the join must provide some limits on ho
 
 2. Click **Test** again. 
 
-    ![Stream Analytics job output for self-join, showing 6 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
+   ![Stream Analytics job output for self-join, showing 6 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
 
 3. Click **Save** to save the self-join query as part of the Streaming Analytics job. (It doesn't save the sample data.)
 
-    ![Save Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png)
+   ![Save Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png)
 
 ## Create an output sink to store transformed data
 
@@ -358,7 +358,7 @@ The job is now configured. You've specified an input (the event hub), a transfor
 
 2. In the job pane, click **Start**. In the **Start job** pane, for Job output start time, select **Now**. 
 
-    ![Start the Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start.png)
+   ![Start the Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start.png)
 
 
 
@@ -370,7 +370,7 @@ To complete this tutorial, you might want to look at the data being captured by 
 
 When you examine the contents of a file in blob storage, you see something like the following:
 
-![Azure blob storage with Streaming Analytics output](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-blob-storage-view.png)
+   ![Azure blob storage with Streaming Analytics output](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-blob-storage-view.png)
  
 
 ## Clean up resources
