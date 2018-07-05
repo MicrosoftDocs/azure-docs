@@ -26,7 +26,7 @@ Microsoft offers intelligent, enterprise-ready cloud services in many locations,
 
 At the core of all these clouds, Azure Resource Manager provides an API that allows a wide variety of user interfaces to communicate with the Azure platform. This API gives you powerful infrastructure-as-code capabilities. Any type of resource that is available on the Azure cloud platform can be deployed and configured with Azure Resource Manager. With a single template, you can deploy and configure your complete application to an operational end state.
 
-![Azure environments](./media/resource-manager-cloud-consistency/environments.png)
+![Azure environments](./media/templates-cloud-consistency/environments.png)
 
 The consistency of global Azure, the sovereign clouds, hosted clouds, and a cloud in your datacenter helps you benefit from Azure Resource Manager. You can reuse your development investments across these clouds when you set up template-based resource deployment and configuration.
 
@@ -214,7 +214,7 @@ Knowing that Azure regions and clouds may differ in their available services, yo
 
 A template deploys and configures resources. A resource type is provided by a resource provider. For example, the compute resource provider (Microsoft.Compute), provides multiple resource types such as virtualMachines and availabilitySets. Each resource provider provides an API to Azure Resource Manager defined by a common contract, enabling a consistent, unified authoring experience across all resource providers. However, a resource provider that is available in global Azure may not be available in a sovereign cloud or an Azure Stack region.
 
-![Resource providers](./media/resource-manager-cloud-consistency/resource-providers.png) 
+![Resource providers](./media/templates-cloud-consistency/resource-providers.png) 
 
 To verify the resource providers that are available in a given cloud, run the following script in the Azure command line interface ([CLI](/cli/azure/install-azure-cli)):
 
@@ -654,7 +654,7 @@ It's a challenge to keep track of all related settings, capabilities, and limita
 
 The following image shows a typical example of a development process for a team using an integrated development environment (IDE). At different stages in the timeline, different test types are executed. Here, two developers are working on the same solution, but this scenario applies equally to a single developer or a large team. Each developer typically creates a local copy of a central repository, enabling each one to work on the local copy without impacting the others who may be working on the same files.
 
-![Workflow](./media/resource-manager-cloud-consistency/workflow.png) 
+![Workflow](./media/templates-cloud-consistency/workflow.png) 
 
 Consider the following tips for testing and automation:
 
