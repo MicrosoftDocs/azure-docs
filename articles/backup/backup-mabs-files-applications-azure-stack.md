@@ -23,6 +23,7 @@ This article does not cover installing Azure Backup Server in the Azure Stack en
 ## Back up Files and Folders in Azure Stack VMs to Azure
 
 To configure Azure Backup Server to protect Files in Azure Stack VMs virtual machines, open the Azure Backup Server console. You'll use the console to configure protection groups and to protect the data on your virtual machines.
+<!-- Possible extra content in the previous string. VMs or Virtual machines may be removed -->
 
 1. In the Azure Backup Server console, click **Protection** and in the toolbar, click **New** to open the **Create New Protection Group** wizard.
 
