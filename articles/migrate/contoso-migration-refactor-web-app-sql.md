@@ -35,7 +35,7 @@ In this article, Contoso migrates the two-tier Windows. NET SmartHotel app runni
 
 The IT leadership team has worked closely with their business partners to understand what they want to achieve with this migration:
 
-- **Address business growth**: Contoso is growing, and as a result there is pressure on their on-premises systems and infrastructure.
+- **Address business growth**: Contoso is growing, and there is pressure on their on-premises systems and infrastructure.
 - **Increase efficiency**: Contoso needs to remove unnecessary procedures, and streamline processes for developers and users.  The business needs IT to be fast and not waste time or money, thus delivering faster on customer requirements.
 - **Increase agility**:  Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes in the marketplace, to enable the success in a global economy.  It mustn't get in the way, or become a business blocker.
 - **Scale**: As the business grows successfully, Contoso IT must provide systems that are able to grow at the same pace.
