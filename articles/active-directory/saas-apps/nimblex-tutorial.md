@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 07/05/2018
 ms.author: jeedes
 
 ---
@@ -189,6 +189,7 @@ The objective of this section is to create a user called Britta Simon in Nimblex
 
 >[!Note]
 >If you need to create a user manually, contact [Nimblex Client support team](mailto:support@ebms.com.au).
+
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Nimblex.
