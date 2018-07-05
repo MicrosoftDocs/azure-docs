@@ -1,5 +1,5 @@
 ---
-title: Refactor a Contoso Linux service desk app to the Azure App service and Azure MySQL | Microsoft Docs
+title: Refactor a Contoso Linux service desk app to the Azure App Service and Azure MySQL | Microsoft Docs
 description: Learn how Contoso refactors on-premises Linux app by migrating it to Azure App Service using GitHub for Web Tier and Azure SQL Database.
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,11 +8,11 @@ ms.date: 07/04/2018
 ms.author: raynew
 ---
 
-# Contoso migration:  Refactor a Contoso Linux service desk app to the Azure App service and Azure MySQL
+# Contoso migration: Refactor a Contoso Linux service desk app to the Azure App Service and Azure MySQL
 
 This article shows how Contoso are rehosting their on-premises two-tier Linux service desk app (osTicket), by migrating it to Azure App Service with GitHub integration, and Azure MySQL.
 
-This document is the ninth in a series of articles that show how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and scenarios that illustrate how to set up a migration infrastructure, and run different types of migrations. Scenarios grow in complexity, and we'll add additional articles over time.
+This document is the tenth in a series of articles that show how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and scenarios that illustrate how to set up a migration infrastructure, and run different types of migrations. Scenarios grow in complexity, and we'll add additional articles over time.
 
 **Article** | **Details** | **Status**
 --- | --- | ---
@@ -24,8 +24,8 @@ This document is the ninth in a series of articles that show how the fictitious 
 [Article 6: Rehost to Azure VMs and SQL Server Availability Groups](contoso-migration-rehost-vm-sql-ag.md) | Shows how Contoso migrates the SmartHotel app. They use Site Recovery to migrate the app VMs, and the Database Migration service to migrate the app database to a SQL Server Availability Group. | Available
 [Article 7: Rehost a Linux app to Azure VMs](contoso-migration-rehost-linux-vm.md) | Shows how Contoso migrates their osTicket Linux app to Azure IaaS VMs using Azure Site Recovery.
 [Article 8: Rehost a Linux app to Azure VMs and Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstrates how Contoso migrates the osTicket Linux app. They use Site Recovery for VM migration, and MySQL Workbench to migrate to an Azure MySQL Server instance. | Available
-Article 9: Refactor an app to an Azure container, and Azure SQL Database | Demonstrates how Contoso migrates the SmartHotel app to an Azure container-based web app, and migrates the app database to Azure SQL Server. | Available
-Article 10: Refactor an app to Azure App Service and Azure MySQL Server | Shows how Contoso migrates the osTicket Linux app to Azure App Service using PHP 7.0 Docker container. The code base for the deployment is migrated to GitHub. The app database is migrated to Azure MySQL. 
+Article 9: Refactor an app to an Azure Web app and Azure SQL Database | Demonstrates how Contoso migrates the SmartHotel app to an Azure container-based web app, and migrates the app database to Azure SQL Server. | Available
+Article 10: Refactor a Linux app to Azure App Service and Azure MySQL Server | Shows how Contoso migrates the osTicket Linux app to Azure App Service using PHP 7.0 Docker container. The code base for the deployment is migrated to GitHub. The app database is migrated to Azure MySQL. | This article.
 
 
 In this article, Contoso migrates a two-tier Linux Apache MySQL PHP (LAMP) service desk app (osTicket) to Azure. If you'd like to use this open-source app, you can download it from [GitHub](https://github.com/osTicket/osTicket).
