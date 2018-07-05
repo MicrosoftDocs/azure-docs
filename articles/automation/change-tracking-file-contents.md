@@ -34,7 +34,7 @@ File content tracking allows you to view the contents of a file before and after
 
    ![set storage account](./media/change-tracking-file-contents/storage-account.png)
 
-5. Once enabled, the storage account and the SAS Uris are shown. The SAS Uris expire after 1 year, and can be recreated by clicking the **Regenerate** button.
+5. Once enabled, the storage account and the SAS Uris are shown. The SAS Uris expire after 365 days, and can be recreated by clicking the **Regenerate** button.
 
    ![list account keys](./media/change-tracking-file-contents/account-keys.png)
 
