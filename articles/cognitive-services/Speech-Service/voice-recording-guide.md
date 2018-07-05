@@ -11,7 +11,7 @@ ms.date: 07/5/2018
 ms.author: v-jerkin
 ---
 
-# Recording audio for a custom voice
+# How to record voice samples for a custom voice
 
 Creating a high-quality production custom voice from scratch is not a casual undertaking. The central component of a custom voice is a large collection of audio samples of human speech. It's vital that these audio recordings be of high quality. Choose voice talent that has experience making these kinds of recordings, and have them recorded by a competent recording engineer using professional equipment.
 
