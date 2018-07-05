@@ -1,14 +1,14 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Export your data | Microsoft Docs
-description: As an adminstrator, how to export data from your IoT Central application
+title: Export your data in IoT Central | Microsoft Docs
+description: How to export data from your IoT Central application
 services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 07/3/2018
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
+ms.prod: azure-iot-central
 # product-name-from-white-list
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -29,10 +29,10 @@ Use Continuous Data Export to periodically export data into your Azure Blob Stor
 
 ## Prerequisites
 
-- an extended 30-day trial app or a paid app
+- An extended 30-day trial app or a paid app
 - Azure account with Azure subscription
-- the same Azure account is an Administrator in your IoT Central app
-- the same Azure account has permissions to create a storage account or access an existing storage account in the same Azure subscription
+- The same Azure account is an Administrator in your IoT Central app
+- The same Azure account has permissions to create a storage account or access an existing storage account in the same Azure subscription
 
 ## Types of data to export
 
@@ -62,16 +62,16 @@ This is an example of a record in the decoded AVRO file.
 ### Devices
 
 When you first turn on Continuous Data Export, a single snapshot containing all devices is exported. This includes:
-- device IDs
-- device names
-- device template IDs
-- properties values
-- settings values
+- Device IDs
+- Device names
+- Device template IDs
+- Properties values
+- Settings values
 
 Approximately once a minute, a new snapshot is written containing:
 
-- the new devices that were added since the last snapshot
-- devices that had properties and settings values changed since the last snapshot
+- The new devices that were added since the last snapshot
+- Devices that had properties and settings values changed since the last snapshot
 
 > [!NOTE]
 > Devices that were deleted since the last snapshot are not exported. There is no indicator in the snapshots for devices that were deleted at this time.
@@ -111,15 +111,15 @@ Each record in the decoded AVRO file looks like this:
 ### Device templates
 
 When you first turn on Continuous Data Export, a single snapshot containing all device templates is exported. This includes: 
-- device template IDs
-- measurement data types and min/max values
-- properties data types and default values
-- settings data types and default values
+- Device template IDs
+- Measurement data types and min/max values
+- Properties data types and default values
+- Settings data types and default values
 
 Approximately once a minute, a new snapshot is written containing:
 
-- the new device templates that were added since the last snapshot
-- device templates that had measurements, properties and settings definitions that changed since the last snapshot
+- The new device templates that were added since the last snapshot
+- Device templates that had measurements, properties and settings definitions that changed since the last snapshot
 
 > [!NOTE]
 > Device templates that were deleted since the last snapshot are not exported. There is not indicator in the snapshots for device templates that were deleted at this time.
@@ -204,9 +204,9 @@ Each record in the decoded AVRO file looks like this:
 
 1. If you don't already have one, create an Azure Storage account **in the Azure subscription that your app is in**. [Click here](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) to jump into the Azure portal to create a new Azure Storage account.
 
-- choose *General purpose* or *Blob storage* account kinds
-- select the subscription your IoT Central app is in. If you don't see the subscription, you may need to sign into a different Azure account or ask for access to the subscription.
-- you can choose an existing Resource Group or create a new one. Learn about [how to create a new Storage account.](https://aka.ms/blobdocscreatestorageaccount)
+    - Choose *General purpose* or *Blob storage* account kinds
+    - Select the subscription your IoT Central app is in. If you don't see the subscription, you may need to sign into a different Azure account or ask for access to the subscription.
+    - You can choose an existing Resource Group or create a new one. Learn about [how to create a new Storage account.](https://aka.ms/blobdocscreatestorageaccount)
 
 2. Create a container in your Storage account to export your IoT Central data to. Go to your Storage account -> Browse Blobs, and create a new container. ![Create a container image](media/howto-export-data/createcontainer.png)
 
@@ -224,7 +224,7 @@ Each record in the decoded AVRO file looks like this:
 
 AVRO is a binary format, so the files can't be read in their raw state. They can be decoded to JSON format. The following examples show how to parse the measurements, devices, and device templates AVRO files using the examples above.
 
-## [Python](#tab/python)
+## Python
 
 ### Install Pandas and the PandaAvro package:
 
@@ -325,7 +325,7 @@ def parse(filePath):
     print(transformed)
 ```
 
-## [C#](#tab/csharp)
+## C#
 
 ### Install Microsoft.Hadoop.Avro
 
@@ -469,7 +469,7 @@ public static async Task Run(string filePath)
 }
 ```
 
-## [Javascript](#tab/javascript)
+## Javascript
 
 ### Install avsc
 
@@ -515,9 +515,10 @@ function load(filePath) {
 ```
 
 ### Parse devices AVRO file
-const avro = require('avsc');
 
 ```javascript
+const avro = require('avsc');
+
 // Read the avro file and parse the device and template identification info as
 // well as the fanSpeed setting for each device record.
 async function parse(filePath) {
@@ -586,6 +587,6 @@ function load(filePath) {
 }
 ```
 
-## Next Steps
+## Next steps
 
 Learn how to [manage your devices](howto-manage-devices.md) in the device explorer. 
