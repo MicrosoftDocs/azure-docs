@@ -237,4 +237,4 @@ When no longer needed, delete the LUIS app. Select **My apps** in the top left m
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to use patterns](luis-tutorial-patterns.md)
+> [Learn how to use patterns](luis-tutorial-pattern.md)
