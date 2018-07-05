@@ -31,7 +31,7 @@ The Azure function that you create in this tutorial filters the temperature data
 
 ## Prerequisites
 
-To test the function modules that you build in this tutorial, you need an IoT Edge device. You can use the device that you configured in the [Linux](quickstart-linux.md) or [Windows](quickstart.md) quickstart.
+To test the function module that you build in this tutorial, you need an IoT Edge device. You can use the device that you configured in the [Linux](quickstart-linux.md) or [Windows](quickstart.md) quickstart.
 
 You must have the following prerequisites on your development machine: 
 * [Visual Studio Code](https://code.visualstudio.com/). 
@@ -65,11 +65,11 @@ The following steps create an IoT Edge function by using Visual Studio Code and 
 3. In the command palette, enter and run the command **Azure: Sign in**. Follow the instructions to sign in your Azure account. If you're already signed in, you can skip this step.
 3. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
 
-   - Select the folder where you want to create the solution. 
-   - Provide a name for your solution or accept the default **EdgeSolution**.
-   - Choose **Azure Functions - C#** as the module template. 
-   - Name your module **CSharpFunction**. 
-   - Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/csharpfunction.
+   1. Select the folder where you want to create the solution. 
+   2. Provide a name for your solution or accept the default **EdgeSolution**.
+   3. Choose **Azure Functions - C#** as the module template. 
+   4. Name your module **CSharpFunction**. 
+   5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/csharpfunction.
 
 4. The VS Code window loads your IoT Edge solution workspace: a \.vscode folder, a modules folder, a deployment manifest template file. and a \.env file. In the VS Code explorer, open **modules** > **CSharpFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
 
@@ -83,7 +83,7 @@ The following steps create an IoT Edge function by using Visual Studio Code and 
    using Microsoft.Azure.Devices.Client;
    using Newtonsoft.Json;
 
-   // Filter messages that are based on the temperature value in the body of the message and the temperature threshold value.
+   // Filter messages based on the temperature value in the body of the message and the temperature threshold value.
    public static async Task Run(Message messageReceived, IAsyncCollector<Message> output, TraceWriter log)
    {
         const int temperatureThreshold = 25;
@@ -215,7 +215,7 @@ sleep 5
 sc.exe delete iotedge
 ```
 
-Delete the containers that are created on your device. 
+Delete the containers that were created on your device. 
 
 ```Powershell
 docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction")
@@ -229,7 +229,7 @@ Remove the IoT Edge runtime.
 sudo apt-get remove --purge iotedge
 ```
 
-Delete the containers that are created on your device. 
+Delete the containers that were created on your device. 
 
 ```bash
 sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction")
