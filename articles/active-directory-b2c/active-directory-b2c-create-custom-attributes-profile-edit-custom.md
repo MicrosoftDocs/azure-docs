@@ -1,6 +1,6 @@
 ﻿---
 title: Add your own attributes to custom policies in Azure Active Directory B2C | Microsoft Docs
-description: A Walkthrough on using extension properties, custom attributes, and including them in the user interface.
+description: A walkthrough on using extension properties and custom attributes and including them in the user interface.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -12,18 +12,18 @@ ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
 ---
-# Azure Active Directory B2C: Creating and using custom attributes in a custom profile edit policy
+# Azure Active Directory B2C: Create and use custom attributes in a custom profile edit policy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In this article, you create a custom attribute in your Azure AD B2C directory and use this new attribute as a custom claim in the profile edit user journey.
+In this article, you create a custom attribute in your Azure Active Directory (Azure AD) B2C directory. You'll use this new attribute as a custom claim in the profile edit user journey.
 
 ## Prerequisites
 
 Complete the steps in the article [Get Started with Custom Policies](active-directory-b2c-get-started-custom.md).
 
-## Use custom attributes to collect information about your customers in Azure Active Directory B2C using custom policies
-Your Azure Active Directory (Azure AD) B2C directory comes with a built-in set of attributes: Given Name, Surname, City, Postal Code, userPrincipalName, etc.  You often need to create your own attributes.  For example:
+## Use custom attributes to collect information about your customers in Azure AD B2C by using custom policies
+Your Azure AD B2C directory comes with a built-in set of attributes: Given Name, Surname, City, Postal Code, userPrincipalName, etc.  You often need to create your own attributes.  For example:
 * A customer-facing application needs to persist an attribute such as "LoyaltyNumber."
 * An identity provider has a unique user identifier that must be saved such as "uniqueUserGUID.""
 * A custom user journey needs to persist the state of user such as "migrationStatus."
