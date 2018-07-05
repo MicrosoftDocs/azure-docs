@@ -14,13 +14,13 @@ ms.date: 03/28/2017
 
 This tutorial provides an end-to-end illustration of how to use Azure Stream Analytics. You learn how to: 
 
-* Bring streaming events into an instance of Azure Event Hubs. In this tutorial, you'll use an app that we provide that simulates a stream of mobile-phone metadata records.
+* Bring streaming events into an instance of Azure Event Hubs. In this tutorial, you'll use an app that simulates a stream of mobile-phone metadata records.
 
 * Write SQL-like Stream Analytics queries to transform data, aggregating information or looking for patterns. You will see how to use a query to examine the incoming stream and look for calls that might be fraudulent.
 
 * Send the results to an output sink (storage) that you can analyze for additional insights. In this case, you'll send the suspicious call data to Azure Blob storage.
 
-In this tutorial, we use the example of real-time fraud detection based on phone-call data. The technique we illustrate is also suited for other types of fraud detection, such as credit card fraud or identity theft. 
+This tutorial uses the example of real-time fraud detection based on phone-call data. The technique illustrated is also suited for other types of fraud detection, such as credit card fraud or identity theft. 
 
 ## Scenario: Telecommunications and SIM fraud detection in real time
 
@@ -33,7 +33,7 @@ In this tutorial, you'll simulate phone-call data by using a client app that gen
 Before you start, make sure you have the following:
 
 * An Azure account.
-* The call-event generator app. You can get this by downloading the [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) file from the Microsoft Download Center. Unzip this package into a folder on your computer. If you want to see the source code and run the app in a debugger, you can get the app source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* The call-event generator app, [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), which can be downloaded from the Microsoft Download Center. Unzip this package into a folder on your computer. If you want to see the source code and run the app in a debugger, you can get the app source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
     >[!NOTE]
     >Windows might block the downloaded .zip file. If you can't unzip it, right-click the file and select **Properties**. If you see the "This file came from another computer and might be blocked to help protect this computer" message, select the **Unblock** option and then click **Apply**.
@@ -117,7 +117,7 @@ Before you start the TelcoGenerator app, you must configure it so that it will s
     * Set the value of the `EventHubName` key to the event hub name (that is, to the value of the entity path).
     * Set the value of the `Microsoft.ServiceBus.ConnectionString` key to the connection string. 
 
-    The `<appSettings>` section will look like the following example. (For clarity, we wrapped the lines and removed some characters from the authorization token.)
+    The `<appSettings>` section will look like the following example. (For clarity, the lines are wrapped and some characters have been removed from the authorization token.)
 
     ![TelcoGenerator app configuration file showing the event hub name and connection string](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
@@ -144,7 +144,7 @@ Some of the key fields that you will be using in this real-time fraud detection 
 |`CallrecTime`|The timestamp for the call start time. |
 |`SwitchNum`|The telephone switch used to connect the call. For this example, the switches are strings that represent the country of origin (US, China, UK, Germany, or Australia). |
 |`CallingNum`|The phone number of the caller. |
-|`CallingIMSI`|The International Mobile Subscriber Identity (IMSI). This is the Unique identifier of the caller. |
+|`CallingIMSI`|The International Mobile Subscriber Identity (IMSI). This is the unique identifier of the caller. |
 |`CalledNum`|The phone number of the call recipient. |
 |`CalledIMSI`|International Mobile Subscriber Identity (IMSI). This is the unique identifier of the call recipient. |
 
@@ -191,7 +191,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
 
 ## Create queries to transform real-time data
 
-At this point, you have a Stream Analytics job set up to read an incoming data stream. The next step is to create a transformation that analyzes the data in real time. You do this by creating a query. Stream Analytics supports a simple, declarative query model that describes transformations for real-time processing. The queries use a SQL-like language that has some extensions specific to stream analytics. 
+At this point, you have a Stream Analytics job set up to read an incoming data stream. The next step is to create a query that analyzes the data in real time. Stream Analytics supports a simple, declarative query model that describes transformations for real-time processing. The queries use a SQL-like language that has some extensions specific to Stream Analytics. 
 
 A simple query might just read all the incoming data. However, you often create queries that look for specific data or for relationships in the data. In this section of the tutorial, you create and test several queries to learn a few ways in which you can transform an input stream for analysis. 
 
@@ -210,7 +210,6 @@ The TelcoGenerator app is sending call records to the event hub, and your Stream
 
     ![Menu options to use sample data for the Streaming Analytics job entry, with "Sample data from input" selected](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
 
-    This opens a pane that lets you specify how much sample data to get, defined in terms of how long to read the input stream.
 
 5. Set **Minutes** to 3 and then click **OK**. 
     
@@ -240,7 +239,7 @@ If you want to archive every event, you can use a pass-through query to read all
 
 2. Click **Test**.
 
-    The Stream Analytics job runs the query against the sample data and displays the output at the bottom of the window. This tells you that the event hub and the Streaming Analytics job are configured correctly. (As noted, later you'll create an output sink that the query can write data to.)
+    The Stream Analytics job runs the query against the sample data and displays the output at the bottom of the window. The results indicate that the Event Hub and the Streaming Analytics job are configured correctly. (As noted, later you'll create an output sink that the query can write data to.)
 
     ![Stream Analytics job output, showing 73 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output.png)
 
@@ -258,13 +257,13 @@ In many cases, your analysis doesn't need all the columns from the input stream.
 
 2. Click **Test** again. 
 
-    ![Stream Analytics job ouput for projection, showing 25 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
+    ![Stream Analytics job output for projection, showing 25 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
  
 ### Count incoming calls by region: Tumbling window with aggregation
 
 Suppose you want to count the number of incoming calls per region. In streaming data, when you want to perform aggregate functions like counting, you need to segment the stream into temporal units (since the data stream itself is effectively endless). You do this using a Streaming Analytics [window function](stream-analytics-window-functions.md). You can then work with the data inside that window as a unit.
 
-For this transformation, you want a sequence of temporal windows that don't overlap—each window will have a discrete set of data that you can group and aggregate. This type of window is referred to as a *Tumbling window* . Within the Tumbling window, you can get a count of the incoming calls grouped by `SwitchNum`, which represents the country where the call originated. 
+For this transformation, you want a sequence of temporal windows that don't overlap—each window will have a discrete set of data that you can group and aggregate. This type of window is referred to as a *Tumbling window*. Within the Tumbling window, you can get a count of the incoming calls grouped by `SwitchNum`, which represents the country where the call originated. 
 
 1. Change the query in the code editor to the following:
 
@@ -282,15 +281,15 @@ For this transformation, you want a sequence of temporal windows that don't over
 
 2. Click **Test** again. In the results, notice that the timestamps under **WindowEnd** are in 5-second increments.
 
-    ![Stream Analytics job ouput for aggregation, showing 13 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
+    ![Stream Analytics job output for aggregation, showing 13 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
  
 ### Detect SIM fraud using a self-join
 
-For this example, we can consider fraudulent usage to be calls that originate from the same user but in different locations within 5 seconds of one another. For example, the same user can't legitimately make a call from the US and Australia at the same time. 
+For this example, consider fraudulent usage to be calls that originate from the same user but in different locations within 5 seconds of one another. For example, the same user can't legitimately make a call from the US and Australia at the same time. 
 
 To check for these cases, you can use a self-join of the streaming data to join the stream to itself based on the `CallRecTime` value. You can then look for call records where the `CallingIMSI` value (the originating number) is the same, but the `SwitchNum` value (country of origin) is not the same.
 
-When you use a join with streaming data, the join must provide some limits on how far the matching rows can be separated in time. (As noted earlier, the streaming data is effectively endless.) The time bounds for the relationship are specified inside the `ON` clause of the join, using the `DATEDIFF` function . In this case, the join is based on a 5-second interval of call data .
+When you use a join with streaming data, the join must provide some limits on how far the matching rows can be separated in time. (As noted earlier, the streaming data is effectively endless.) The time bounds for the relationship are specified inside the `ON` clause of the join, using the `DATEDIFF` function. In this case, the join is based on a 5-second interval of call data.
 
 1. Change the query in the code editor to the following: 
 
@@ -306,15 +305,15 @@ When you use a join with streaming data, the join must provide some limits on ho
             AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5 
         WHERE CS1.SwitchNum != CS2.SwitchNum
 
-    This query is like any SQL join except for the `DATEDIFF` function in the join. This is a version of `DATEDIFF` that's specific to Streaming Analytics, and it must appear in the `ON...BETWEEN` clause. The parameters are a time unit (seconds in this example) and the aliases of the two sources for the join. (This is different from the standard SQL `DATEDIFF` function.) 
+    This query is like any SQL join except for the `DATEDIFF` function in the join. This version of `DATEDIFF` is specific to Streaming Analytics, and it must appear in the `ON...BETWEEN` clause. The parameters are a time unit (seconds in this example) and the aliases of the two sources for the join. This is different from the standard SQL `DATEDIFF` function.
 
     The `WHERE` clause includes the condition that flags the fraudulent call: the originating switches are not the same. 
 
 2. Click **Test** again. 
 
-    ![Stream Analytics job ouput for self-join, showing 6 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
+    ![Stream Analytics job output for self-join, showing 6 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
 
-3. Click **Save**. This saves the self-join query as part of the Streaming Analytics job. (It doesn't save the sample data.)
+3. Click **Save** to save the self-join query as part of the Streaming Analytics job. (It doesn't save the sample data.)
 
     ![Save Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png)
 
@@ -322,9 +321,9 @@ When you use a join with streaming data, the join must provide some limits on ho
 
 You've defined an event stream, an event hub input to ingest events, and a query to perform a transformation over the stream. The last step is to define an output sink for the job—that is, a place to write the transformed stream to. 
 
-You can use many resources as output sinks—a SQL Server database, table storage, Data Lake storage, Power BI, and even another event hub. For this tutorial, you'll write the stream to Azure Blob Storage, which is a typical choice for collecting event information for later analysis, since it accommodates unstructured data .
+You can use many resources as output sinks—a SQL Server database, table storage, Data Lake storage, Power BI, and even another event hub. For this tutorial, you'll write the stream to Azure Blob Storage, which is a typical choice for collecting event information for later analysis, since it accommodates unstructured data.
 
-If you have an existing blob storage account, you can use that. For this tutorial, we'll show you how to create a new storage account just for this tutorial.
+If you have an existing blob storage account, you can use that. For this tutorial, you will learn how to create a new storage account.
 
 ### Create an Azure Blob Storage account
 
@@ -342,7 +341,7 @@ If you have an existing blob storage account, you can use that. For this tutoria
    |---------|---------|---------|to
    |Output alias  |  CallStream-FraudulentCalls   |  Enter a name to identify the job’s output.   |
    |Subscription   |  \<Your subscription\> |  Select the Azure subscription that has the storage account you created. The storage account can be in the same or in a different subscription. This example assumes that you have created storage account in the same subscription. |
-   |Storage account  |  asaehstorage |  Enter the name of the storage account you just created. |
+   |Storage account  |  asaehstorage |  Enter the name of the storage account you created. |
    |Container  | asa-fraudulentcalls-demo | Choose Create new and enter a container name. |
 
 
@@ -369,14 +368,14 @@ You now have a complete Streaming Analytics job. The job is examining a stream o
 
 To complete this tutorial, you might want to look at the data being captured by the Streaming Analytics job. The data is being written to Azure Blog Storage in chunks (files). You can use any tool that reads Azure Blob Storage. As noted in the Prerequisites section, you can use Azure extensions in Visual Studio, or you can use a tool like [Azure Storage Explorer](http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
 
-When you examine the contents of a file in blob storage, you see something like the following :
+When you examine the contents of a file in blob storage, you see something like the following:
 
 ![Azure blob storage with Streaming Analytics output](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-blob-storage-view.png)
  
 
 ## Clean up resources
 
-We have additional articles that continue with the fraud-detection scenario and that use the resources that you've created in this tutorial. If you want to continue, see the suggestions under **Next steps** later.
+There are additional articles that continue with the fraud-detection scenario and use the resources you've created in this tutorial. If you want to continue, see the suggestions under **Next steps**.
 
 However, if you're done and you don't need the resources you've created, you can delete them so that you don't incur unnecessary Azure charges. In that case, we suggest that you do the following:
 
@@ -389,7 +388,7 @@ However, if you're done and you don't need the resources you've created, you can
 
 ## Get support
 
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 
