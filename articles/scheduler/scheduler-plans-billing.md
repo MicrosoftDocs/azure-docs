@@ -45,7 +45,7 @@ A P10 premium billable unit can include up to 10,000 P10 premium job collections
 
 If you have between 1 and 10,000 premium job collections, you'll be billed for one P10 premium billing unit. If you have between 10,001 and 20,000 premium job collections, you'll be billed for 2 P10 premium billing units, and so on.
 
-Thus, P10 premium job collections have the same functionality as the standard job collections but provide a price break in case your application requires a lot of job collections.
+Thus, P10 premium job collections have the same functionality as the standard job collections but provide a price break in case your application requires many job collections.
 
 ## P20 Premium Billable Units
 A P20 premium billable unit can include up to 5,000 P20 premium job collections. Since a P20 premium job collection can have up to 1,000 jobs per job collection, one premium billing unit allows a subscription to have up to 5,000,000 jobs – up to almost 220 billion job executions per month.
@@ -58,7 +58,7 @@ Job collections are always active unless your entire subscription has gone into 
 Although you may disable all jobs within a job collection in a single operation, it does not change the billing status of the job collection – the job collection will *still* be billed. Similarly, empty job collections are considered active and will be billed.
 
 ## Pricing
-For pricing details, please see [Scheduler Pricing](https://azure.microsoft.com/pricing/details/scheduler/).
+For pricing details, see [Scheduler Pricing](https://azure.microsoft.com/pricing/details/scheduler/).
 
 ## See Also
  [What is Scheduler?](scheduler-intro.md)
