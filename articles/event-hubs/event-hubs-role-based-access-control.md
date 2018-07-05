@@ -5,22 +5,18 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
 
-ms.assetid:
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
+ms.date: 07/05/2018
 ms.author: sethm
 
 ---
 
 # Active Directory Role-Based Access Control (preview)
 
-Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (Azure AD). With Azure AD, you can either manage user accounts and applications specifically for your Azure based applications, or you can federate your existing Active Directory infrastructure with Azure AD for company-wide single-sign-on that also spans Azure resources and Azure hosted applications. You can then assign those Azure AD user and application identities to global and service-specific roles in order to grant access to Azure resources.
+Microsoft Azure provides integrated access control management for resources and applications based on Azure Active Directory (Azure AD). With Azure AD, you can either manage user accounts and applications specifically for your Azure-based applications, or you can federate your existing Active Directory infrastructure with Azure AD for company-wide single-sign-on that also spans Azure resources and Azure hosted applications. You can then assign those Azure AD user and application identities to global and service-specific roles in order to grant access to Azure resources.
 
 For Azure Event Hubs, the management of namespaces and all related resources through the Azure portal and the Azure resource management API is already protected using the *role-based access control* (RBAC) model. RBAC for runtime operations is a feature now in public preview. 
 
@@ -67,7 +63,7 @@ Before you can run the sample, edit the App.config file and, depending on your s
 - `tenantId`: Set to **TenantId** value.
 - `clientId`: Set to **ApplicationId** value. 
 - `clientSecret`: If you want to log on using the client secret, create it in Azure AD. Also, use a web app or API instead of a native app. Also, add the app under **Access Control (IAM)** in the namespace you previously created.
-- `eventHubNamespaceFQDN`: Set to the full DNS name of your newly created Event Hubs namespace; for example, `example.servicebus.windows.net`.
+- `eventHubNamespaceFQDN`: Set to the fully qualified DNS name of your newly created Event Hubs namespace; for example, `example.servicebus.windows.net`.
 - `eventHubName`: Set to the name of the event hub you created.
 - The redirect URI you specified in your app in the previous steps.
  
