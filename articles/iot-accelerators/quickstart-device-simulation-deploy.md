@@ -79,48 +79,7 @@ Click **Start Simulation**. The simulation runs for the duration you chose. You 
 
 [![Simulation run](./media/quickstart-device-simulation-deploy/simulationrun-inline.png)](./media/quickstart-device-simulation-deploy/simulationrun-expanded.png#lightbox)
 
-
-
-<!--
-
-Do we need this, and if so where should it go?
-### Number of devices
-
-Device Simulation currently enables you to simulate up to 20,000 devices.
-
-![Number of devices](./media/quickstart-device-simulation-deploy/numberofdevices.png)
-
-### Telemetry frequency
-
-Telemetry frequency enables you to specify how often your simulated devices should send data to the IoT hub. You can send data as frequently as every 10 seconds or as infrequently every as 99 hours, 59 minutes, and 59 seconds.
-
-![Telemetry frequency](./media/quickstart-device-simulation-deploy/frequency.png)
-
-> [!NOTE]
-> If you are using an IoT hub other than the pre-provisioned IoT hub, then you should consider message limits for your target IoT hub. For example, if you have 1,000 simulated devices sending telemetry every 10 seconds to an S1 hub you reach the telemetry limit for the hub in just over an hour.
-
-### Simulation duration
-
-You can choose to run your simulation for a specific length of time or to run until you explicitly stop it. When you choose a specific length of time, you can choose any duration from 10 minutes up to 99 hours, 59 minutes, and 59 seconds.
-
-![Simulation duration](./media/quickstart-device-simulation-deploy/duration.png)
-
-### Start and stop the simulation
-
-When you have added all the necessary configuration data to the form, the **Start Simulation** button is enabled. To start the simulation, click this button.
-
-![Start simulation](./media/quickstart-device-simulation-deploy/start.png)
-
-If you specified a specific duration for your simulation, then it stops automatically when the time has been reached. You can always stop the simulation early by clicking **Stop Simulation.**
-
-If you chose to run your simulation indefinitely, then it runs until you click **Stop Simulation**. You can close your browser and come back to the Device Simulation page to stop your simulation at any time.
-
-![Stop simulation](./media/quickstart-device-simulation-deploy/stop.png)
-
-> [!NOTE]
-> Only one simulation can be run at a time. You must stop the currently running simulation before you start a new simulation.
-
--->
+You can only run one simulation at a time from a provisioned instance of the solution accelerator.
 
 ## Clean up resources
 
