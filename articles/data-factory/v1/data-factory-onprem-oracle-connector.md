@@ -1,5 +1,5 @@
 ---
-title: Copy data to/from Oracle using Data Factory | Microsoft Docs
+title: Copy data to or from Oracle using Data Factory | Microsoft Docs
 description: Learn how to copy data to/from Oracle database that is on-premises using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: jingwang
 
 robots: noindex
 ---
-# Copy data to/from on-premises Oracle using Azure Data Factory
+# Copy data to or from on-premises Oracle using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-onprem-oracle-connector.md)
 > * [Version 2 (current version)](../connector-oracle.md)
