@@ -68,7 +68,7 @@ In this step, you create a template file that deploys the resources and a parame
       },
       "resources": [
         {
-          "apiVersion": "2016-03-30",
+          "apiVersion": "2018-06-01",
           "type": "Microsoft.Network/publicIPAddresses",
           "name": "myPublicIPAddress",
           "location": "[resourceGroup().location]",
@@ -80,7 +80,7 @@ In this step, you create a template file that deploys the resources and a parame
           }
         },
         {
-          "apiVersion": "2016-03-30",
+          "apiVersion": "2018-04-01",
           "type": "Microsoft.Network/virtualNetworks",
           "name": "myVNet",
           "location": "[resourceGroup().location]",
@@ -95,7 +95,7 @@ In this step, you create a template file that deploys the resources and a parame
           }
         },
         {
-          "apiVersion": "2016-03-30",
+          "apiVersion": "2018-04-01",
           "type": "Microsoft.Network/networkInterfaces",
           "name": "myNic",
           "location": "[resourceGroup().location]",
@@ -117,7 +117,7 @@ In this step, you create a template file that deploys the resources and a parame
           }
         },
         {
-          "apiVersion": "2016-04-30-preview",
+          "apiVersion": "2018-04-01",
           "type": "Microsoft.Compute/virtualMachines",
           "name": "myVM",
           "location": "[resourceGroup().location]",
@@ -135,7 +135,7 @@ In this step, you create a template file that deploys the resources and a parame
               "imageReference": {
                 "publisher": "MicrosoftWindowsServer",
                 "offer": "WindowsServer",
-                "sku": "2012-R2-Datacenter",
+                "sku": "2016-Datacenter",
                 "version": "latest"
               },
               "osDisk": {
