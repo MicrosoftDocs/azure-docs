@@ -42,7 +42,6 @@
       href: contoso-migration-refactor-linux-app-service-mysql.md
     - name: 11. Contoso: Migrate TFS to VSTS
       href: contoso-migration-tfs-vsts.md
-href: contoso-migration-refactor-linux-app-service-mysql.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
   - name: Group machines
