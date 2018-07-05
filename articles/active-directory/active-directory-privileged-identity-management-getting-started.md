@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: active-directory
 ms.component: protection
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/17/2017
 ms.author: rolyon

@@ -45,7 +45,7 @@ A private app's endpoint is only available to the following:
 |--|--|--|
 |Owner's authoring key| Up to 1000 endpoint hits|
 |Collaborators' authoring keys| Up to 1000 endpoint hits|
-|Endpoint keys added from **[Publish](publishapp.md)** page|Owner and collaborators can add endpoint keys|
+|Endpoint keys added from **[Publish](luis-how-to-publish-app.md)** page|Owner and collaborators can add endpoint keys|
 
 Other authoring or endpoint keys have **no** access.
 
@@ -56,6 +56,8 @@ A user who is not an owner or collaborator, can only access a public app if give
 
 ## Microsoft user accounts
 Authors and collaborators can add keys to LUIS on the Publish page. The Microsoft user account that creates the LUIS key in the Azure portal needs to either the app owner or an app collaborator. 
+
+See [Azure Active Directory tenant user](luis-how-to-account-settings.md#azure-active-directory-tenant-user) to learn more about Active Directory user accounts. 
 
 <!--
 ### Individual consent

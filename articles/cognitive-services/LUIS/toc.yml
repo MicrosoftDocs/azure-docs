@@ -136,7 +136,7 @@
 - name: How-to guides
   items: 
   - name: Plan your app
-    href: Plan-your-app.md
+    href: luis-how-plan-your-app.md
   - name: Start a new app
     href: Create-new-app.md
   - name: Build Model
@@ -192,15 +192,15 @@
     - name: Improve accuracy with batch testing
       href: luis-tutorial-batch-testing.md
   - name: Publish your app
-    href: PublishApp.md
+    href: luis-how-to-publish-app.md
   - name: Use prebuilt models
     items: 
     - name: Use prebuilt entities
-      href: Pre-builtEntities.md
+      href: luis-prebuilt-entities.md
     - name: Use prebuilt domains
       href: luis-how-to-use-prebuilt-domains.md
     - name: Use the Cortana prebuilt app
-      href: Cortana-Prebuilt-App.md
+      href: luis-how-to-cortana-prebuilt-app.md
   - name: Manage your LUIS app
     items: 
     - name: Using the dashboard
@@ -208,7 +208,7 @@
     - name: Create keys
       href: luis-how-to-azure-subscription.md
     - name: Add keys in LUIS 
-      href: Manage-Keys.md
+      href: luis-how-to-manage-keys.md
     - name: View endpoint usage with PowerShell
       href: luis-how-to-manage-from-cloud-shell.md
     - name: Manage versions
@@ -283,6 +283,10 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
     - name: Node.js
       href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
+    - name: Go 
+      href: https://aka.ms/luis-sdk-go
+    - name: Java
+      href: https://aka.ms/luis-java-sdk
     - name: Python
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
     - name: .Net Endpoint
@@ -305,6 +309,8 @@
     href: https://azure.microsoft.com/services/cognitive-services/spell-check/
   - name: Text Analytics 
     href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
+  - name: Recognizers-Text
+    href: https://github.com/Microsoft/Recognizers-Text
 - name: Resources
   items: 
   - name: Azure Roadmap

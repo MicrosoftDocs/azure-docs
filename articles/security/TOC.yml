@@ -10,6 +10,8 @@
     href: azure-log-audit.md
   - name: Azure network security
     href: azure-network-security.md
+  - name: Azure serverless platform security
+    href: abstract-serverless-platform-security.md
   - name: Enabling operational security
     href: azure-operational-security.md
   - name: Governance in Azure
@@ -173,7 +175,7 @@
     - name: IaaS web application
       href: ./blueprints/gdpr-iaaswa-overview.md
     - name: PaaS web application
-      href: ./blueprints/gdpr-paaswa-overview.md  
+      href: ./blueprints/gdpr-paaswa-overview.md
   - name: FedRAMP
     items:
     - name: Data analytics
@@ -213,6 +215,16 @@
       href: ./blueprints/pci-dss-requirement-11-testing.md
     - name: Requirement 12 - policy
       href: ./blueprints/pci-dss-requirement-12-policy.md
+  - name: UK NHS
+    items:
+      - name: Data analytics
+        href: ./blueprints/uknhs-analytics-overview.md
+      - name: Data warehouse
+        href: ./blueprints/uknhs-datawarehouse-overview.md
+      - name: IaaS web application
+        href: ./blueprints/uknhs-iaaswa-overview.md
+      - name: PaaS web application
+        href: ./blueprints/uknhs-paaswa-overview.md
   - name: UK-OFFICIAL
     href: ./blueprints/uk-official-three-tier-applications-overview.md
     items:

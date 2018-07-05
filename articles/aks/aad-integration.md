@@ -55,19 +55,21 @@ The first Azure AD application is used to get a users Azure AD group membership.
 
 4. Return to the Azure AD application, select **Settings** > **Required permissions** > **Add** > **Select an API** > **Microsoft Graph** > **Select**.
 
-  Under **APPLICATION PERMISSIONS** place a check next to **Read directory data**.
+  ![Select graph API](media/aad-integration/graph-api.png)
+
+5. Under **APPLICATION PERMISSIONS** place a check next to **Read directory data**.
 
   ![Set application graph permissions](media/aad-integration/read-directory.png)
 
-5. Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**. Save the updates once done.
+6. Under **DELEGATED PERMISSIONS**, place a check next to **Sign in and read user profile** and **Read directory data**. Save the updates once done.
 
   ![Set application graph permissions](media/aad-integration/delegated-permissions.png)
 
-6. Select **Done** and **Grant Permissions** to complete this step. This step will fail if the current account is not a tenant admin.
+7. Select **Done**, choose *Microsoft Graph* from the list of APIs, then select **Grant Permissions**. This step will fail if the current account is not a tenant admin.
 
   ![Set application graph permissions](media/aad-integration/grant-permissions.png)
 
-7. Return to the application and take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Server application ID`.
+8. Return to the application and take note of the **Application ID**. When deploying an Azure AD-enabled AKS cluster, this value is referred to as the `Server application ID`.
 
   ![Get application ID](media/aad-integration/application-id.png)
 
@@ -150,7 +152,7 @@ subjects:
   name: "user@contoso.com"
 ```
 
-A role binding can also be created for all members of an Azure AD group. The following manifest gives all members of the `kubernetes-admin` group admin access to the cluster.
+A role binding can also be created for all members of an Azure AD group. Azure AD groups are specified using the group object ID.
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -164,7 +166,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
    kind: Group
-   name: "kubernetes-admin"
+   name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
 ```
 
 For more information on securing a Kubernetes cluster with RBAC, see [Using RBAC Authorization][rbac-authorization].
