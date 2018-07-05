@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/22/2018
+ms.date: 07/04/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
 
@@ -67,7 +67,7 @@ In order to see the entire utterance and mark the hierarchical children, tempora
     [ ![Screenshot of LUIS app on entities list page, with delete button highlighted for Number prebuilt entity](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
 
-## Add utterances to FindForm intent
+## Add utterances to MoveEmployee intent
 
 1. Select **Intents** from the left menu.
 
