@@ -49,13 +49,13 @@ Click the name of the phrase list on the **Phrase lists** page. In the **Edit Ph
 
 ## Delete phrase list 
 
-Click the three dots (...) button at the end of the row, and select **Delete**.
+Click the ellipsis (***...***) button at the end of the row, and select **Delete**.
 
  ![Delete list added](./media/luis-add-features/delete-phrase-list.png)
 
 ## Deactivate phrase list 
 
-Click the three dots (...) button at the end of the row, and select **Deactivate**.
+Click the ellipsis (***...***) button at the end of the row, and select **Deactivate**.
 
  ![Deactivate list added](./media/luis-add-features/deactivate-phrase-list.png)
 

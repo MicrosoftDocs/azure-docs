@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/22/2018
+ms.date: 07/04/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
 
@@ -62,12 +62,12 @@ In order to see the entire utterance and mark the hierarchical children, tempora
     [ ![Screenshot of LUIS app with Entities button hightlighted in left menu](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
 
 
-3. Select the three dots (...) to the right of the number entity in the list. Select **Delete**. 
+3. Select the ellipsis (***...***) button to the right of the number entity in the list. Select **Delete**. 
 
     [ ![Screenshot of LUIS app on entities list page, with delete button highlighted for Number prebuilt entity](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
 
-## Add utterances to FindForm intent
+## Add utterances to MoveEmployee intent
 
 1. Select **Intents** from the left menu.
 
@@ -266,7 +266,7 @@ Your chatbot now has enough information to determine the primary action, `MoveEm
 LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS app. To do so, select the ellipsis (***...***) button to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 > [!div class="nextstepaction"] 
