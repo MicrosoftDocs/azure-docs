@@ -10,7 +10,7 @@ ms.author: raynew
 
 # Contoso migration: Refactor a Contoso Linux service desk app to the Azure App Service and Azure MySQL
 
-This article shows how Contoso are rehosting their on-premises two-tier Linux service desk app (osTicket), by migrating it to Azure App Service with GitHub integration, and Azure MySQL.
+This article shows how Contoso refactors their on-premises two-tier Linux service desk app (osTicket), by migrating it to Azure App Service with GitHub integration, and Azure MySQL.
 
 This document is the tenth in a series of articles that show how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and scenarios that illustrate how to set up a migration infrastructure, and run different types of migrations. Scenarios grow in complexity, and we'll add additional articles over time.
 
