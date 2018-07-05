@@ -14,15 +14,21 @@ ms.author: meladie
 
 ## Overview
 
-This Azure Security and Compliance Blueprint provides guidance for the deployment of a platform as a service (PaaS) environment suitable for the collection, storage, and retrieval of financial data regulated by the Federal Financial Institution Examination Council (FFIEC).
+This Azure Security and Compliance Blueprint Automation provides guidance for the deployment of a platform as a service (PaaS) environment suitable for the collection, storage, and retrieval of financial data regulated by the Federal Financial Institution Examination Council (FFIEC). This solution automates deployment and configuration of Azure resources for a common reference architecture, demonstrating ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own solutions on Azure. The solution implements a subset of requirements from the FFIEC handbooks. For more information about FFIEC requirements and this solution, see the [compliance documentation](#Compliance-documentation).
 
-This reference architecture, implementation guide, and threat model provide a foundation for customers to comply with FFIEC requirements. This solution provides a baseline to help customers deploy workloads to Azure in a FFIEC compliant manner, however, this solution should not be used as-is in a production environment because additional configuration is required.
+This Azure Security and Compliance Blueprint Automation deploys a PaaS web application reference architecture with pre-configured security controls to help customers achieve compliance with FFIEC requirements. The solution consists of Azure Resource Manager templates and PowerShell scripts that guide resource deployment and configuration.
+
+This architecture is intended to serve as a foundation for customers to adjust to their specific requirements and should not be used as-is in a production environment. Deploying an application into this environment without modification is not sufficient to completely meet the requirements of FFIEC objectives. Please note the following:
+- This architecture provides a baseline to help customers use Azure in a FFIEC-compliant manner.
+- Customers are responsible for conducting appropriate security and compliance assessment of any solution built using this architecture, as requirements may vary based on the specifics of each customer's implementation.
 
 Achieving FFIEC-compliance requires that qualified auditors certify a production customer solution. Audits are overseen by examiners from FFIEC’s member agencies, including the Board of Governors of the Federal Reserve System (FRB), the Federal Deposit Insurance Corporation (FDIC), the National Credit Union Administration (NCUA), the Office of the Comptroller of the Currency (OCC), and the Consumer Financial Protection Bureau (CFPB). These examiners certify that audits are completed by assessors who maintain independence from the audited institution. Customers are responsible for conducting appropriate security and compliance assessments of any solution built using this architecture, as requirements may vary based on the specifics of each customer's implementation.
 
+Click [here](https://aka.ms/ffiec-paaswa-repo) for deployment instructions.
+
 ## Architecture diagram and components
 
-This Azure Security and Compliance Blueprint provides a reference architecture for a PaaS web application with an Azure SQL Database backend. The web application is hosted in an isolated Azure App Service Environment, which is a private, dedicated environment in an Azure datacenter. The environment load balances traffic for the web application across virtual machines managed by Azure. This architecture also includes network security groups, an Application Gateway, Azure DNS, and Load Balancer.
+This Azure Security and Compliance Blueprint Automation deploys a reference architecture for a PaaS web application with an Azure SQL Database backend. The web application is hosted in an isolated Azure App Service Environment, which is a private, dedicated environment in an Azure datacenter. The environment load balances traffic for the web application across virtual machines managed by Azure. This architecture also includes network security groups, an Application Gateway, Azure DNS, and Load Balancer.
 
 For enhanced analytics and reporting, Azure SQL Databases can be configured with columnstore indexes. Azure SQL Databases can be scaled up or down or shut off completely in response to customer usage. All SQL traffic is encrypted with SSL through the inclusion of self-signed certificates. As a best practice, Azure recommends the use of a trusted certificate authority for enhanced security.
 
@@ -210,6 +216,20 @@ The data flow diagram for this reference architecture is available for [download
 The [Azure Security and Compliance Blueprint – FFIEC Customer Responsibility Matrix](https://aka.ms/ffiec-crm) lists all security objectives required by FFIEC. This matrix details whether the implementation of each objective is the responsibility of Microsoft, the customer, or shared between the two.
 
 The [Azure Security and Compliance Blueprint – FFIEC PaaS Web Application Implementation Matrix](https://aka.ms/ffiec-paaswa-cim) provides information on which FFIEC requirements are addressed by the PaaS web application architecture, including detailed descriptions of how the implementation meets the requirements of each covered objective.
+
+## Deploy this solution
+This Azure Security and Compliance Blueprint Automation is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available [here](https://aka.ms/ffiec-paaswa-repo).
+
+#### Quickstart
+1. Clone or download [this](https://aka.ms/ffiec-paaswa-repo) GitHub repository to your local workstation.
+
+2. Review 0-Setup-AdministrativeAccountAndPermission.md and run the provided commands.
+
+3. Deploy a test solution with Contoso sample data or pilot an initial production environment.
+	- 1A-ContosoWebStoreDemoAzureResources.ps1
+		- This script deploys Azure resources for a demonstration of a webstore using Contoso sample data.
+	- 1-DeployAndConfigureAzureResources.ps1
+		- This script deploys the Azure resources needed for supporting a production environment for a customer-owned web application. This environment should be further customized by the customer based on organizational requirements.
 
 ## Guidance and recommendations
 
