@@ -20,7 +20,7 @@ ms.author: danlep
 ---
 # Set up a Linux RDMA cluster to run MPI applications
 
-Learn how to set up a Linux RDMA cluster in Azure with [High performance compute VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to run parallel Message Passing Interface (MPI) applications. This article provides steps to prepare a Linux HPC image to run Intel MPI on a cluster. After preparation, you deploy a cluster of VMs using this image and one of the [RDMA-capable Azure VM sizes](../sizes-hpc.md#rdma-capable-instances?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Use the cluster to run MPI applications that communicate efficiently over a low-latency, high-throughput network based on remote direct memory access (RDMA) technology.
+Learn how to set up a Linux RDMA cluster in Azure with [High performance compute VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to run parallel Message Passing Interface (MPI) applications. This article provides steps to prepare a Linux HPC image to run Intel MPI on a cluster. After preparation, you deploy a cluster of VMs using this image and one of the [RDMA-capable Azure VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#rdma-capable-instances). Use the cluster to run MPI applications that communicate efficiently over a low-latency, high-throughput network based on remote direct memory access (RDMA) technology.
 
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
@@ -153,7 +153,7 @@ sudo waagent -deprovision
 
 From your client computer, run the following Azure CLI commands to capture the image. For more information, see [How to capture a classic Linux virtual machine as an image](capture-image-classic.md).  
 
-```bash
+```
 azure vm shutdown <vm-name>
 
 azure vm capture -t <vm-name> <image-name>
@@ -282,7 +282,7 @@ This script does the following:
 ## Configure Intel MPI
 To run MPI applications on Azure Linux RDMA, you need to configure certain environment variables specific to Intel MPI. Here is a sample Bash script to configure the variables needed to run an application. Change the path to `mpivars.sh` as needed for your installation of Intel MPI.
 
-```
+```bash
 #!/bin/bash -x
 
 # For a SLES 12 HPC cluster
