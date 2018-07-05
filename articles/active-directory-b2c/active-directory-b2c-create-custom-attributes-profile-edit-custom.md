@@ -22,47 +22,47 @@ In this article, you create a custom attribute in your Azure Active Directory (A
 
 Complete the steps in the article [Get Started with Custom Policies](active-directory-b2c-get-started-custom.md).
 
-## Use custom attributes to collect information about your customers in Azure AD B2C by using custom policies
-Your Azure AD B2C directory comes with a built-in set of attributes: Given Name, Surname, City, Postal Code, userPrincipalName, etc.  You often need to create your own attributes.  For example:
-* A customer-facing application needs to persist an attribute such as "LoyaltyNumber."
-* An identity provider has a unique user identifier that must be saved such as "uniqueUserGUID.""
-* A custom user journey needs to persist the state of user such as "migrationStatus."
+## Use custom attributes to collect information about your customers in Azure AD B2C by using custom policies.
+Your Azure AD B2C directory comes with a built-in set of attributes. Examples are **Given Name**, **Surname**, **City**, **Postal Code**, and **userPrincipalName**. You often need to create your own attributes. These are some examples:
+* A customer-facing application needs to persist for an attribute like **LoyaltyNumber.**
+* An identity provider has a unique user identifier like **uniqueUserGUID** that must be saved.
+* A custom user journey needs to persist for a state of a user like **migrationStatus**.
 
-With Azure AD B2C, you can extend the set of attributes stored on each user account. You can also read and write these attributes by using the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
+Azure AD B2C extends the set of attributes stored on each user account. You can also read and write these attributes by using the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
-Extension properties extend the schema of the user objects in the directory.  The terms extension property, custom attribute and custom claim refer to the same thing in the context of this article and the name varies depending on the context (application, object, policy).
+Extension properties extend the schema of the user objects in the directory. The terms *extension property*, *custom attribute*, and *custom claim* refer to the same thing in the context of this article. The name varies depending on the context, such as application, object, or policy.
 
-Extension properties can only be registered on an Application object even though they may contain data for a User. The property is attached to the application. The Application object must be granted write access to register an extension property. 100 Extension properties (across ALL types and ALL applications) can be written to any single object. Extension properties are added to the target directory type and becomes immediately accessible in the Azure AD B2C directory tenant.
-If the application is deleted, those Extension properties along with any data contained in them for all users are also removed. If an extension property is deleted by the Application, it is removed on the target directory objects, and the values deleted.
+Extension properties can only be registered on an application object even though they might contain data for a user. The property is attached to the application. The application object must have write access to register an extension property. One hundred extension properties, across all types and all applications, can be written to any single object. Extension properties are added to the target directory type and become immediately accessible in the Azure AD B2C directory tenant.
+If the application is deleted, those extension properties along with any data contained in them for all users are also removed. If an extension property is deleted by the application, it's removed on the target directory objects, and the values are deleted.
 
-Extension properties exist only in the context of a registered  Application in the tenant. The object id of that Application must be included in the TechnicalProfile that use it.
+Extension properties exist only in the context of a registered application in the tenant. The object ID of that application must be included in the **TechnicalProfile** that uses it.
 
 >[!NOTE]
->The Azure AD B2C directory typically includes a Web App named `b2c-extensions-app`.  This application is primarily used by the b2c built-in  policies for the custom claims created via the Azure portal.  Using this application to register extensions for b2c custom policies is recommended only for advanced users.  Instructions for this are included in the Next Steps section in this article.
+>The Azure AD B2C directory typically includes a web app named `b2c-extensions-app`. This application is primarily used by the B2C built-in policies for the custom claims created via the Azure portal. Using this application to register extensions for B2C cutom policies is recommended only for advanced users. Instructions are included in the **Next steps** section in this article.
 
 
-## Creating a new application to store the extension properties
+## Create a new application to store the extension properties
 
-1. Open a browsing session and navigate to the [Azure portal](https://portal.azure.com) and sign in with administrative credentials of the B2C Directory you wish to configure.
-2. Click **Azure Active Directory** on the left navigation menu. You may need to find it by selecting More services>.
-3. Select **App registrations** and click **New application registration**
+1. Open a browsing session and navigate to the [Azure portal](https://portal.azure.com). Sign in with administrative credentials of the B2C directory you want to configure.
+2. Select **Azure Active Directory** on the left navigation menu. You may need to find it by selecting **More services**.
+3. Select **App registrations**. Select **New application registration**.
 4. Provide the following recommended entries:
-    * Specify a name for the web application: **WebApp-GraphAPI-DirectoryExtensions**
-    * Application type: Web app/API
-    * Sign-on URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
+    * A name for the web application: **WebApp-GraphAPI-DirectoryExtensions**.
+    * Application type: Web app/API.
+    * Sign-on URL: https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions.
 5. Select **Create**.
 6. Select the newly created web application.
 7. Select **Settings** > **Required permissions**.
-8. Select API **Windows Azure Active Directory**.
-9. Place a checkmark in Application Permissions: **Read and write directory data**, and then select **Save**.
+8. Select the API **Windows Azure Active Directory**.
+9. Enter a checkmark in Application Permissions: **Read and write directory data**. Then select **Save**.
 10. Choose **Grant permissions** and confirm **Yes**.
-11. Copy to your clipboard and save the following identifiers:
-    * **Application ID** . Example: `103ee0e6-f92d-4183-b576-8c3739027780`
-    * **Object ID**. Example: `80d8296a-da0a-49ee-b6ab-fd232aa45201`
+11. Copy the following identifiers to your clipboard and save them:
+    * **Application ID**. Example: `103ee0e6-f92d-4183-b576-8c3739027780`.
+    * **Object ID**. Example: `80d8296a-da0a-49ee-b6ab-fd232aa45201`.
 
 
 
-## Modifying your custom policy to add the ApplicationObjectId
+## Modify your custom policy to add the **ApplicationObjectId**
 
 When you completed the steps in [Get Started with Custom Policies](active-directory-b2c-get-started-custom.md), you downloaded and modified [files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) named *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, and *PasswordReset.xml*. In the following steps, you continue to make modifications to these files.
 
@@ -93,13 +93,13 @@ When you completed the steps in [Get Started with Custom Policies](active-direct
     </ClaimsProviders>
     ```
 
->[!NOTE]
->When the TechnicalProfile writes for the first time to the newly created extension property, you may experience a one-time error. The extension property is created the first time it is used.  
+> [!NOTE]
+> When the **TechnicalProfile** writes for the first time to the newly created extension property, you might experience a one-time error. The extension property is created the first time it's used.  
 
-## Using the new extension property / custom attribute in a user journey
+## Use the new extension property/custom attribute in a user journey
 
-1. Open the *ProfileEdit.xml* file.
-2. Add a custom claim `loyaltyId`.  By including the custom claim in the `<RelyingParty>` element, it is included in the token for the application.
+1. Open the ProfileEdit.xml file.
+2. Add a custom claim `loyaltyId`. By including the custom claim in the `<RelyingParty>` element, it is included in the token for the application.
     
     ```xml
     <RelyingParty>
