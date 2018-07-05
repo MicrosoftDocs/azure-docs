@@ -35,8 +35,6 @@ To step through the features covered in this tutorial, you must be on Security C
 ## Manage VM access
 Just in time VM access can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
 
-Just in time VM access is in preview.
-
 Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When just in time is enabled, Security Center uses Network Security Group (NSG) rules, which restrict access to management ports so they cannot be targeted by attackers.
 
 1. At the Security Center main menu, select **Just in time VM access** under **ADVANCED CLOUD DEFENSE**.
