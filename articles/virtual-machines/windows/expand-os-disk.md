@@ -18,18 +18,18 @@ ms.date: 07/05/2018
 ms.author: kirpas
 
 ---
-# How to expand the OS drive of a Virtual Machine in an Azure Resource Group
+# How to expand the OS drive of a virtual machine
 
 When you create a new virtual machine (VM) in a Resource Group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default OS drive is often 127 GB (some images have smaller OS disk sizes by default). Even though it’s possible to add data disks to the VM (how many depending upon the SKU you’ve chosen) and moreover it’s recommended to install applications and CPU intensive workloads on these addendum disks, oftentimes customers need to expand the OS drive to support certain scenarios such as following:
 
-1. Support legacy applications that install components on OS drive.
-2. Migrate a physical PC or virtual machine from on-premises with a larger OS drive.
+- Support legacy applications that install components on OS drive.
+- Migrate a physical PC or virtual machine from on-premises with a larger OS drive.
 
 
 > [!IMPORTANT]
 > Resizing the OS Disk of an Azure Virtual Machine will cause it to restart.
 >
-> After expanding the VHD, you need to expand the partition within the OS to take advantage of the larger disk.
+> After expanding the disks, you need to [expand the volume within the OS](#expand-the-volume-within-the-os) to take advantage of the larger disk.
 > 
 
 ## Resize a managed disk
@@ -38,19 +38,19 @@ Open your Powershell ISE or Powershell window in administrative mode and follow 
 
 1. Sign in to your Microsoft Azure account in resource management mode and select your subscription as follows:
    
-   ```Powershell
+   ```powershell
    Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Set your resource group name and VM name as follows:
    
-   ```Powershell
+   ```powershell
    $rgName = 'my-resource-group-name'
    $vmName = 'my-vm-name'
    ```
 3. Obtain a reference to your VM as follows:
    
-   ```Powershell
+   ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
    ```
 4. Stop the VM before resizing the disk as follows:
@@ -190,9 +190,9 @@ Similarly you may reference other data disks attached to the VM, either by using
 ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
 ```
 
-## Expand the partition within the VM
+## Expand the volume within the OS
 
-There are several methods for expanding a partition. In this section, we will cover connecting the the VM using an RDP connection to expand the partition using **DiskPart**.
+Once you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. In this section, we will cover connecting the the VM using an RDP connection to expand the partition using **DiskPart**.
 
 1. Open an RDP connection to your VM.
 
