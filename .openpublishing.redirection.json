@@ -21237,12 +21237,12 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-add-manage-domain-names.md",
-            "redirect_url": "/azure/active-directory/domains-manage",
+            "redirect_url": "/azure/active-directory/users-groups-roles/domains-manage",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-add-domain-concepts.md",
-            "redirect_url": "/azure/active-directory/domains-manage",
+            "redirect_url": "/azure/active-directory/users-groups-roles/domains-manage",
             "redirect_document_id": false
         },
         {
