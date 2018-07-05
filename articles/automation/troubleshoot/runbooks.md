@@ -199,6 +199,20 @@ A runbook can be suspended for a number of reasons. Suspends happen mostly due t
 
 The documented solution to avoid this issue is to use Checkpoints in a workflow. To learn more, refer to [Learning PowerShell Workflows](../automation-powershell-workflow.md#checkpoints). A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
+### <a name="long-running-runbook"></a>Scenario: A long running runbook fails to complete
+
+#### Issue
+
+This behavior is by design in Azure sandboxes due to the "Fair Share" monitoring of processes within Azure Automation, which automatically suspends a runbook if it executes longer than three hours.
+
+#### Cause
+
+The runbook ran over the 3 hour limit allowed by fair share in an Azure Sandbox
+
+#### Resolution
+
+The recommended solution is to run the runbook on a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md). Hybrid Workers are not limited by the [fair share](automation-runbook-execution.md#fair-share) 3 hour runbook limit that Azure sandboxes are.
+
 ## Common errors when importing modules
 
 ### <a name="module-fails-to-import"></a>Scenario: Module fails to import or cmdlets can't be executed after importing
