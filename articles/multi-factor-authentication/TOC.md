@@ -9,18 +9,14 @@
 ## [Configure password reset](../active-directory/authentication/quickstart-sspr.md)
 ## [Configure Multi-Factor Authentication](../active-directory/authentication/quickstart-mfa.md)
 
+
 # Tutorials
 
-## [Define authentication methods](../active-directory/authentication/tutorial-authentication-methods.md)
-## Enroll Users
-## Configure authentication options
-## Configure banned passsword list
-## Enable a SSPR pilot
-## Enable MFA with CA for Azure Portal
-## Enable MFA with Azure Identity Protection
-## [Enable password writeback](../active-directory/authentication/tutorial-enable-writeback.md)
+## [1 Enable MFA for Applications](../active-directory/authentication/tutorial-mfa-applications.md)
+## [2 Enable a SSPR pilot](../active-directory/authentication/tutorial-sspr-pilot.md)
+## [Enable SSPR on-premises integration](../active-directory/authentication/tutorial-enable-writeback.md)
 ## [Enable Windows 10 password reset](../active-directory/authentication/tutorial-sspr-windows.md)
-## Enable Windows Hello
+## [Integrate Azure Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md)
 
 # Concepts
 
