@@ -1,5 +1,5 @@
 ---
-title: How to manage a user assigned identities using REST
+title: How to manage Azure user assigned managed identities using REST
 description: Step by step instructions on how to create, list and delete a user assigned managed identity to make REST API calls.
 services: active-directory
 documentationcenter: 
@@ -56,7 +56,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 ```
 ## Delete a user assigned managed identity
 
-To delete a user assigned managed identity, use the following CURL request to the Azure Resource Manager API. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`,  , and `<ACCESS TOKEN>` parameters values with your own values:
+To delete a user assigned managed identity, use the following CURL request to the Azure Resource Manager API. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` parameters values with your own values:
 
 > [!NOTE]
 > Deleting a user assigned identity will not remove the reference from any resource it was assigned to. To remove a user assigned managed from a VM using CURL see [Remove a user assigned identity from an Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
@@ -66,7 +66,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview' -X DELETE -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
-## Related content
+## Next steps
 
 For information on how to assign a user assigned identity to an Azure VM/VMSS using CURL see, [Configure Managed Identity on an Azure VM using CURL](qs-configure-rest-vm.md#user-assigned-identity) and [Configure Managed Identity on a virtual machine scale set using CURL](qs-configure-rest-vmss.md#user-assigned-identity).
 

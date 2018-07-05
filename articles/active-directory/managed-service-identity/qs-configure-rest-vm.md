@@ -217,3 +217,8 @@ If your VM has only user assigned identities and you would like to remove them a
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
 ```
+## Next steps
+
+For information on how to create, list, or delete user assigned using REST see:
+
+- [Create, list or delete a user assigned identity using REST API calls](how-to-manage-ua-identity-rest.md)
