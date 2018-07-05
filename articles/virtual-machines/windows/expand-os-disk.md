@@ -58,7 +58,7 @@ Open your Powershell ISE or Powershell window in administrative mode and follow 
     ```Powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
-5. Obtain a reference to the Managed OS disk. Set the size of the Managed OS disk to the desired value and update the Disk as follows:
+5. Obtain a reference to the managed OS disk. Set the size of the managed OS disk to the desired value and update the Disk as follows:
    
    ```Powershell
    $disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
@@ -103,7 +103,7 @@ Open your Powershell ISE or Powershell window in administrative mode and follow 
     ```Powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
-5. And here comes the moment we’ve been waiting for! Set the size of the Unmanaged OS disk to the desired value and update the VM as follows:
+5. Set the size of the unmanaged OS disk to the desired value and update the VM as follows:
    
    ```Powershell
    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
@@ -157,7 +157,8 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
 ## Resizing data disks
-Though in this article, we focused primarily on expanding the Unmanaged/Managed OS disk of the VM, the developed script may also be used for expanding the data disks attached to the VM. For example, to expand the first data disk attached to the VM, replace the ```OSDisk``` object of ```StorageProfile``` with ```DataDisks``` array and use a numeric index to obtain a reference to first attached data disk, as shown below:
+
+This article is focused primarily on expanding the OS disk of the VM, but the script can also be used for expanding the data disks attached to the VM. For example, to expand the first data disk attached to the VM, replace the `OSDisk` object of `StorageProfile` with `DataDisks` array and use a numeric index to obtain a reference to first attached data disk, as shown below:
 
 **Managed disk**
 
@@ -192,7 +193,7 @@ Similarly you may reference other data disks attached to the VM, either by using
 
 ## Expand the volume within the OS
 
-Once you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. In this section, we will cover connecting the the VM using an RDP connection to expand the partition using **DiskPart**.
+Once you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using **DiskPart**.
 
 1. Open an RDP connection to your VM.
 
@@ -207,7 +208,7 @@ Once you have expanded the disk for the VM, you need to go into the OS and expan
 
 ##Next steps
 
-You can also attach disks using the [Azure portal](../articles/virtual-machines/windows/attach-managed-disk-portal.md).
+You can also attach disks using the [Azure portal](attach-managed-disk-portal.md).
 
 
 
