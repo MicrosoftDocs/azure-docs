@@ -19,10 +19,10 @@ ms.service: iot-edge
 You can turn your business logic into modules for Azure IoT Edge. This article shows you how to use Visual Studio Code (VS Code) as the main tool to develop and debug C# modules.
 
 ## Prerequisites
-This tutorial assumes you use a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device. Or you can simulate your IoT Edge device on your development machine.
+This article assumes that you use a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device. Or you can simulate your IoT Edge device on your development machine.
 
 > [!NOTE]
-> This debugging tutorial demonstrates how to attach a process in a module container and debug it with VS Code. You can only debug C# functions in Linux amd64 containers. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
+> This debugging article demonstrates how to attach a process in a module container and debug it with VS Code. You can only debug C# functions in Linux amd64 containers. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
 
 Because this article uses Visual Studio Code as the main development tool, install VS Code. Then add the necessary extensions:
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -36,9 +36,9 @@ To create a module, you need .NET to build the project folder, Docker to build t
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
    > [!TIP]
-   > Use a local Docker registry for prototype and testing purposes instead of a cloud registry. 
+   > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry. 
 
-To test your module on a device, you need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the tutorial for [Windows](quickstart.md) or [Linux](quickstart-linux.md). 
+To test your module on a device, you need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Windows](quickstart.md) or [Linux](quickstart-linux.md). 
 
 ## Create a new solution template
 
