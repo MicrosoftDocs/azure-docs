@@ -1,5 +1,5 @@
 ---
-title: Overview of Function Types and Features for Durable Functions  - Azure
+title: Overview of function types and features for Durable Functions  - Azure
 description: Learn the types of functions and roles that allow for function-to-function communication as part of a durable function orchestration.
 services: functions
 author: jeffhollan
@@ -16,7 +16,7 @@ ms.date: 07/04/2018
 ms.author: azfuncdf
 ---
 
-# Overview of Function Types and Features for Durable Functions (Azure Functions)
+# Overview of function types and features for Durable Functions (Azure Functions)
 
 Azure Durable Functions provides stateful orchestration of function execution.  A durable function is a solution made up of different Azure Functions.  Each of these functions can play different roles as part of an orchestration.  The following document provides an overview of the types of functions involved in a durable function orchestration.  It also includes some common patterns in connecting functions together.  
 
@@ -38,13 +38,13 @@ Orchestrator functions are the heart of a durable function.  Orchestrator functi
 
 An orchestrator function must be triggered by an [orchestration trigger](durable-functions-bindings.md#orchestration-triggers).
 
-An orchestrator is started by an [orchestrator client](#entry-or-client-functions) which could itself be triggered from any source (HTTP, queues, event streams).  Each instance of an orchestration has an instance identifier, which can be auto-generated (recommended) or user-generated.  This identifier can be used to [manage instances](durable-functions-instance-management.md) of the orchestration.
+An orchestrator is started by an [orchestrator client](#client-functions) which could itself be triggered from any source (HTTP, queues, event streams).  Each instance of an orchestration has an instance identifier, which can be auto-generated (recommended) or user-generated.  This identifier can be used to [manage instances](durable-functions-instance-management.md) of the orchestration.
 
 More information and examples can be found in the [Durable Functions binding article](durable-functions-bindings.md#orchestration-triggers).
 
-### Entry or client functions
+### Client functions
 
-Entry functions are the triggered functions that will create new instances of an orchestration.  Entry functions can be triggered by any trigger (HTTP, queues, event streams, etc.) and written in any language supported by the app.  In addition to the trigger, entry functions have an [orchestration client](durable-functions-bindings.md#orchestration-client) binding that allows them to create and manage durable orchestrations.  The most basic example of an entry function is an HTTP triggered function that starts an orchestrator function and returns a check status response as [shown in this following example](durable-functions-http-api.md#http-api-url-discovery).
+Client functions are the triggered functions that will create new instances of an orchestration.  They are the entry point for creating an instance of a durable orchestration.  Client functions can be triggered by any trigger (HTTP, queues, event streams, etc.) and written in any language supported by the app.  In addition to the trigger, client functions have an [orchestration client](durable-functions-bindings.md#orchestration-client) binding that allows them to create and manage durable orchestrations.  The most basic example of a client function is an HTTP triggered function that starts an orchestrator function and returns a check status response as [shown in this following example](durable-functions-http-api.md#http-api-url-discovery).
 
 More information and examples can be found in the [Durable Functions binding article](durable-functions-bindings.md#orchestration-client).
 
