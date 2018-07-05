@@ -215,5 +215,5 @@ When no longer needed, delete the LUIS app. Select **My apps** from the top left
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Call LUIS endpoint API with C#](luis-get-started-cs-get-intent.md) 
+> [Review endpoint utterances in the HR app](luis-tutorial-review-endpoint-utterances.md) 
 
