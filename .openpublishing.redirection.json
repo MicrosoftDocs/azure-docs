@@ -49,7 +49,8 @@
             "source_path": "articles/active-directory/directory-manage-roles-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/directory-manage-roles-portal",
             "redirect_document_id": true
-        },        {
+        },
+        {
             "source_path": "articles/active-directory/active-directory-groups-dynamic-membership-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-dynamic-membership",
             "redirect_document_id": true
@@ -58,7 +59,8 @@
             "source_path": "articles/active-directory/active-directory-groups-lifecycle-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-lifecycle",
             "redirect_document_id": true
-        },        {
+        },
+        {
             "source_path": "articles/active-directory/active-directory-licensing-directory-independence.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/licensing-directory-independence",
             "redirect_document_id": true
@@ -91,6 +93,8 @@
         {
             "source_path": "articles/active-directory/active-directory-licensing-product-and-service-plan-reference.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/licensing-service-plan-reference",
+        },
+        {
             "source_path": "articles/active-directory/active-directory-accessmanagement-groups-settings-cmdlets.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-settings-cmdlets",
             "redirect_document_id": true
@@ -21233,12 +21237,12 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-add-manage-domain-names.md",
-            "redirect_url": "/azure/active-directory/active-directory-domains-manage-azure-portal",
+            "redirect_url": "/azure/active-directory/domains-manage",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-add-domain-concepts.md",
-            "redirect_url": "/azure/active-directory/active-directory-domains-manage-azure-portal",
+            "redirect_url": "/azure/active-directory/domains-manage",
             "redirect_document_id": false
         },
         {
