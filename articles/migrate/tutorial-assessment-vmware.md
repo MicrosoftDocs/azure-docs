@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 07/03/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -28,10 +28,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - **VMware**: The VMs that you plan to migrate must be managed by vCenter Server running version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or higher to deploy the collector VM.
-
-> [!NOTE]
-> Support for Hyper-V is on the roadmap and will be enabled soon.
-
 - **vCenter Server account**: You need a read-only account to access the vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
 - **Permissions**: On the vCenter Server, you need permissions to create a VM by importing a file in .OVA format.
 - **Statistics settings**: The statistics settings for the vCenter Server should be set to level 3 before you start deployment. If lower than level 3, assessment will work, but performance data for storage and network isn't collected. The size recommendations in this case will be done based on performance data for CPU and memory and configuration data for disk and network adapters.
@@ -44,6 +40,7 @@ Azure Migrate needs access to VMware servers to automatically discover VMs for a
 - Permissions: Data Center object –> Propagate to Child Object, role=Read-only
 - Details: User assigned at datacenter level, and has access to all the objects in the datacenter.
 - To restrict access, assign the No access role with the Propagate to child object, to the child objects (vSphere hosts, datastores, VMs and networks).
+
 
 ## Log in to the Azure portal
 
@@ -156,7 +153,9 @@ will be hosted.
 8. In **View collection progress**, monitor discovery, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time. [Learn more](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) about what data is collected by the Azure Migrate collector.
 
 > [!NOTE]
-> The collector only supports "English (United States)" as the operating system language and the collector interface language. Support for more languages is coming soon.
+> The collector only supports "English (United States)" as the operating system language and the collector interface language. 
+> If you change the settings on a machine you want to assess, trigger discover again before you run the assessment. In the collector, use the **Start collection again** option to do this. After the collection is done, select the **Recalculate** option for the assessment in the portal, to get updated assessment results.
+
 
 
 ### Verify VMs in the portal
