@@ -4,7 +4,7 @@ description: Addresses frequently asked questions on Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: snehaa
 ---
 
@@ -13,6 +13,14 @@ ms.author: snehaa
 This article includes frequently asked questions about Azure Migrate. If you have any further queries after reading this article, post them on the [Azure Migrate forum](http://aka.ms/AzureMigrateForum).
 
 ## General
+
+### Does Azure Migrate support assessment of only VMware workloads?
+
+Yes, Azure Migrate currently only supports assessment of VMware workloads. Support for Hyper-V and physical servers will be enabled in future.
+
+### Does Azure Migrate need vCenter Server to discover a VMware environment?
+
+Yes, Azure Migrate requires vCenter Server to discover a VMware environment. It does not support discovery of ESXi hosts that are not managed by a vCenter Server.
 
 ### How is Azure Migrate different from Azure Site Recovery?
 
@@ -28,13 +36,9 @@ Azure Migrate is a migration planning tool and Azure Site Recovery Deployment Pl
 
 **Disaster Recovery from VMware/Hyper-V to Azure**: If you intend to do disaster recovery (DR) on Azure using Azure Site Recovery (ASR), use ASR Deployment Planner for DR planning. ASR Deployment Planner does a deep, ASR-specific assessment of your on-premises environment. It provides recommendations that are required by ASR for successful DR operations such as replication, failover of your virtual machines.  
 
-### Does Azure Migrate need vCenter Server to discover a VMware environment?
-
-Yes, Azure Migrate requires vCenter Server to discover a VMware environment. It does not support discovery of ESXi hosts that are not managed by a vCenter Server.
-
 ### Which Azure regions are supported by Azure Migrate?
 
-Azure Migrate currently supports East US and West Central US as project locations. Note that even though you can only create migration projects in West Central US and East US, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project location is only used to store the discovered data.
+Azure Migrate currently supports East US and West Central US as migration project locations. Note that even though you can only create migration projects in West Central US and East US, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project location is only used to store the discovered data.
 
 ## Discovery
 
