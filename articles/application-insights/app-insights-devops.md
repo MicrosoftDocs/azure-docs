@@ -1,9 +1,9 @@
-﻿---
+---
 title: Web application performance monitoring - Azure Application Insights | Microsoft Docs
 description: How Application Insights fits into the devOps cycle
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Deep diagnostics for web apps and services with Application Insights

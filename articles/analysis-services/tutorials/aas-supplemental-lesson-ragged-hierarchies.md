@@ -1,25 +1,16 @@
 ---
 title: "Azure Analysis Services tutorial supplemental lesson: Ragged hierarchies | Microsoft Docs"
 description: Describes how to fix ragged hierarchies in the Azure Analysis Services tutorial.
-services: analysis-services
-documentationcenter: ''
-author: Minewiskan
-manager: erikre
-editor: ''
-tags: ''
-
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 10/16/2017
+author: minewiskan
+manager: kfile
+ms.service: azure-analysis-services
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: owend
+ms.reviewer: minewiskan
+
 ---
 # Supplemental lesson - Ragged hierarchies
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 In this supplemental lesson, you resolve a common problem when pivoting on hierarchies that contain blank values (members) at different levels. For example, an organization where a high-level manager has both departmental managers and non-managers as direct reports. Or, geographic hierarchies composed of Country-Region-City, where some cities lack a parent State or Province, such as Washington D.C., Vatican City. When a hierarchy has blank members, it often descends to different, or ragged, levels.
 

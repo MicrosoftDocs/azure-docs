@@ -3,18 +3,16 @@ title: How to manage role activation settings | Microsoft Docs
 description: Learn how to change the default settings for privileged identities with the Azure Active Directory Privileged Identity Management extension.
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: rolyon
+manager: mtillman
 editor: ''
 
-ms.assetid: f6cbcb6a-8a89-4077-afd8-06c94a64f4aa
 ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
+ms.component: protection
 ms.date: 06/06/2017
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
 ---
 # How to manage role activation settings in Azure AD Privileged Identity Management

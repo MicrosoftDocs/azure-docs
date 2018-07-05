@@ -12,8 +12,8 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: genli
 
 ---
@@ -45,8 +45,10 @@ To remove your spending limit, follow these steps:
 
 1. Sign in to the [Account Center](https://account.windowsazure.com/Subscriptions).
 1. Select a subscription.
-1. If the subscription is disabled due to the spending limit being reached, click this notification: "Subscription reached the Spending Limit and has been disabled to prevent charges." Otherwise, click **Remove spending limit** in the **SUBSCRIPTION STATUS** area.
+. If the subscription is disabled due to the spending limit being reached, click this notification: "Subscription reached the Spending Limit and has been disabled to prevent charges." Otherwise, click **Remove spending limit** in the **SUBSCRIPTION STATUS** area.
 1. Select an option that is appropriate for you.
+
+![Selecting an option for remove spending limit](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |Option|Effect|
 |-------|-----|
@@ -77,8 +79,10 @@ We don't have custom spend limits today. However, you can opt in to [use billing
 
 ### Does the spending limit prevent all charges from Azure?
 
-Some [Microsoft services and third-party branded services](billing-understand-your-azure-marketplace-charges.md) can incur charges under the payment method even if a spending limit is set. Examples include Visual Studio licenses, Azure Active Directory premium, support plans, and most third-party branded services sold through the [Azure Marketplace](https://azure.microsoft.com/marketplace/).
+[Some external services published in the Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) cannot be used with your subscription credits, and can incur separate charges even when your spending limit is set. Examples include Visual Studio licenses, Azure Active Directory premium, support plans, and most third-party branded services. When you provision a new external service, a warning is shown to let you know the services are billed separately:
 
-## Need help? Contact support.
+![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
+
+## Need help? Contact support
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

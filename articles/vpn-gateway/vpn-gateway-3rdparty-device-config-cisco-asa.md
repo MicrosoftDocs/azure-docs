@@ -95,10 +95,7 @@ The following table lists the IPsec/IKE algorithms and parameters that are used 
 
 * Support for DH Group and PFS Group beyond Group 5 requires ASA version 9.x.
 
-* Support for IPsec Encryption with AES-GCM and IPsec Integrity with SHA-256, SHA-384, or SHA-512, requires ASA version 9.x. This support requirement applies to newer ASA devices.
-
-    > [!NOTE]
-    > ASA device models 5505, 5510, 5520, 5540, 5550, and 5580 are not supported. Consult your VPN device specifications to verify the algorithms that are supported for your VPN device models and firmware versions.
+* Support for IPsec Encryption with AES-GCM and IPsec Integrity with SHA-256, SHA-384, or SHA-512, requires ASA version 9.x. This support requirement applies to newer ASA devices. At the time of publication, ASA models 5505, 5510, 5520, 5540, 5550, and 5580 do not support these algorithms. Consult your VPN device specifications to verify the algorithms that are supported for your VPN device models and firmware versions.
 
 
 ### Sample device configuration

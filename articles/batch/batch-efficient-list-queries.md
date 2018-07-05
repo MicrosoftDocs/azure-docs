@@ -3,18 +3,18 @@ title: Design efficient list queries - Azure Batch | Microsoft Docs
 description: Increase performance by filtering your queries when requesting information on Batch resources like pools, jobs, tasks, and compute nodes.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 08/02/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -244,15 +244,12 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 ### Parallel node tasks
 [Maximize Azure Batch compute resource usage with concurrent node tasks](batch-parallel-node-tasks.md) is another article related to Batch application performance. Some types of workloads can benefit from executing parallel tasks on larger--but fewer--compute nodes. Check out the [example scenario](batch-parallel-node-tasks.md#example-scenario) in the article for details on such a scenario.
 
-### Batch Forum
-The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask questions about the service. Head on over for helpful "sticky" posts, and post your questions as they arise while you build your Batch solutions.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
 [odata_ctor]: https://msdn.microsoft.com/library/azure/dn866178.aspx

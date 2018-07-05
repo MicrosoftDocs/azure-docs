@@ -3,24 +3,27 @@ title: Programmatically monitor an Azure data factory | Microsoft Docs
 description: Learn how to monitor a pipeline in a data factory by using different software development kits (SDKs).
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
+author: douglaslMS
+manager: craigg
 editor: 
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2017
-ms.author: spelluru
+ms.topic: conceptual
+ms.date: 01/16/2018
+ms.author: douglasl
 
 ---
 # Programmatically monitor an Azure data factory
 This article describes how to monitor a pipeline in a data factory by using different software development kits (SDKs). 
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is in general availability (GA), see [Monitor and manage pipelines in Data Factory version1](v1/data-factory-monitor-manage-pipelines.md).
+## Data range
+
+Data Factory only stores pipeline run data for 45 days. When you query programmatically for data about Data Factory pipeline runs - for example, with the PowerShell command `Get-AzureRmDataFactoryV2PipelineRun` - there are no maximum dates for the optional `LastUpdatedAfter` and `LastUpdatedBefore` parameters. But if you query for data for the past year, for example, the query does not return an error, but only returns pipeline run data from the last 45 days.
+
+If you want to persist pipeline run data for more than 45 days, set up your own diagnostic logging with [Azure Monitor](monitor-using-azure-monitor.md).
 
 ## .NET
 For a complete walkthrough of creating and monitoring a pipeline using .NET SDK, see [Create a data factory and pipeline using .NET](quickstart-create-data-factory-dot-net.md).
@@ -58,6 +61,8 @@ For a complete walkthrough of creating and monitoring a pipeline using .NET SDK,
     Console.ReadKey();
     ```
 
+For complete documentation on .NET SDK, see [Data Factory .NET SDK reference](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
+
 ## Python
 For a complete walkthrough of creating and monitoring a pipeline using Python SDK, see [Create a data factory and pipeline using Python](quickstart-create-data-factory-python.md).
 
@@ -71,6 +76,8 @@ print("\n\tPipeline run status: {}".format(pipeline_run.status))
 activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
 print_activity_run_details(activity_runs_paged[0])
 ```
+
+For complete documentation on Python SDK, see [Data Factory Python SDK reference](/python/api/overview/azure/datafactory?view=azure-python).
 
 ## REST API
 For a complete walkthrough of creating and monitoring a pipeline using REST API, see [Create a data factory and pipeline using REST API](quickstart-create-data-factory-rest-api.md).
@@ -99,6 +106,8 @@ For a complete walkthrough of creating and monitoring a pipeline using REST API,
     $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
     $response | ConvertTo-Json
     ```
+
+For complete documentation on REST API, see [Data Factory REST API reference](/rest/api/datafactory/).
 
 ## PowerShell
 For a complete walkthrough of creating and monitoring a pipeline using PowerShell, see [Create a data factory and pipeline using PowerShell](quickstart-create-data-factory-powershell.md).
@@ -134,6 +143,8 @@ For a complete walkthrough of creating and monitoring a pipeline using PowerShel
     Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
     $result.Error -join "`r`n"
     ```
+
+For complete documentation on PowerShell cmdlets, see [Data Factory PowerShell cmdlet reference](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
 
 ## Next steps
 See [Monitor pipelines using Azure Monitor](monitor-using-azure-monitor.md) article to learn about using Azure Monitor to monitor Data Factory pipelines. 

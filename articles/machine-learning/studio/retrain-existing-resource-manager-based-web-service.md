@@ -1,20 +1,22 @@
----
+﻿---
 title: Retrain an existing predictive web service | Microsoft Docs
 description: Learn how to retrain a model and update the web service to use the newly trained model in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: vDonGlover
-manager: raymondl
-editor: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
-ms.author: v-donglo
+ms.date: 11/07/2017
+
 
 ---
 # Retrain an existing predictive web service
@@ -23,8 +25,8 @@ This document describes the retraining process for the following scenario:
 * You have a training experiment and a predictive experiment that you have deployed as an operationalized web service.
 * You have new data that you want your predictive web service to use to perform its scoring.
 
-> [!NOTE] 
-> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md). 
+> [!NOTE]
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md).
 
 Starting with your existing web service and experiments, you need to follow these steps:
 
@@ -51,7 +53,7 @@ To update your training experiment:
 
 Run your experiment.
 
-Next, you must deploy the training experiment as a web service that produces a trained model and model evaluation results.  
+Next, you must deploy the training experiment as a web service that produces a trained model and model evaluation results.
 
 At the bottom of the experiment canvas, click **Set Up Web Service**, and then select **Deploy Web Service [New]**. The Azure Machine Learning Web Services portal opens to the **Deploy Web Service** page. Type a name for your web service, choose a payment plan, and then click **Deploy**. You can only use the Batch Execution method for creating trained models.
 
@@ -81,22 +83,21 @@ Locate the **apikey** declaration:
 In the **Basic consumption info** section of the **Consume** page, locate the primary key and copy it to the **apikey** declaration.
 
 ### Update the Azure Storage information
-The BES sample code uploads a file from a local drive (for example, "C:\temp\CensusIpnput.csv") to Azure Storage, processes it, and writes the results back to Azure Storage.  
+The BES sample code uploads a file from a local drive (for example, "C:\temp\CensusIpnput.csv") to Azure Storage, processes it, and writes the results back to Azure Storage.
 
-To update the Azure Storage information, you must retrieve the storage account name, key, and container information for your storage account from the Azure classic portal, and then update the correspondi
 After running your experiment, the resulting workflow should be similar to the following:
 
-![Resulting workflow after run][4]ng values in the code.
+![Resulting workflow after run][4]
 
-1. Sign in to the Azure classic portal.
-2. In the left navigation column, click **Storage**.
+1. Sign in to the Azure portal.
+2. In the left navigation column, click **More services**, search for **Storage accounts**, and select it.
 3. From the list of storage accounts, select one to store the retrained model.
-4. At the bottom of the page, click **Manage Access Keys**.
-5. Copy and save the **Primary Access Key** and close the dialog.
-6. At the top of the page, click **Containers**.
+4. In the left navigation column, click **Access keys**.
+5. Copy and save the **Primary Access Key**.
+6. In the left navigation column, click **Containers**.
 7. Select an existing container, or create a new one and save the name.
 
-Locate the *StorageAccountName*, *StorageAccountKey*, and *StorageContainerName* declarations, and update the values that you saved from the classic portal.
+Locate the *StorageAccountName*, *StorageAccountKey*, and *StorageContainerName* declarations, and update the values that you saved from the portal.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key
@@ -118,12 +119,13 @@ When you specify the output location in the Request Payload, the extension of th
         },
 
 The following is an example of retraining output:
+
 ![Retraining output][6]
 
 ## Evaluate the retraining results
 When you run the application, the output includes the URL and shared access signatures token that are necessary to access the evaluation results.
 
-You can see the performance results of the retrained model by combining the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results for *output2* (as shown in the preceding retraining output image) and pasting the complete URL into the browser address bar.  
+You can see the performance results of the retrained model by combining the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results for *output2* (as shown in the preceding retraining output image) and pasting the complete URL into the browser address bar.
 
 Examine the results to determine whether the newly trained model performs well enough to replace the existing one.
 
@@ -133,7 +135,7 @@ Copy the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output 
 When you retrain a new web service, you update the predictive web service definition to reference the new trained model. The web service definition is an internal representation of the trained model of the web service and is not directly modifiable. Make sure that you are retrieving the web service definition for your predictive experiment and not your training experiment.
 
 ## Sign in to Azure Resource Manager
-You must first sign in to your Azure account from within the PowerShell environment by using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.
+You must first sign in to your Azure account from within the PowerShell environment by using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
 
 ## Get the Web Service Definition object
 Next, get the Web Service Definition object by calling the [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet.

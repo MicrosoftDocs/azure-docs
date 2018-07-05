@@ -1,37 +1,38 @@
 ---
-title: Configure a custom domain name for your Azure Blob storage endpoint | Microsoft Docs
-description: Use the Azure portal to map your own canonical name (CNAME) to the Blob storage endpoint in an Azure Storage account.
+title: Configure a custom domain name for your Azure Storage account | Microsoft Docs
+description: Use the Azure portal to map your own canonical name (CNAME) to the Blob or web endpoint in an Azure Storage account.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/26/2018
 ms.author: tamram
-
 ---
-# Configure a custom domain name for your Blob storage endpoint
 
-You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for Blob storage is `<storage-account-name>.blob.core.windows.net`. If you map a custom domain and subdomain like **www.contoso.com** to the blob endpoint for your storage account, your users can then access blob data in your storage account using that domain.
+# Configure a custom domain name for your Azure Storage account
+
+You can configure a custom domain for accessing blob data in your Azure storage account. The default endpoint for Blob storage is `<storage-account-name>.blob.core.windows.net`. You can also use the web endpoint generated as a part of the [static websites feature (preview)](storage-blob-static-website.md). If you map a custom domain and subdomain like **www.contoso.com** to the blob or web endpoint for your storage account, your users can then access blob data in your storage account using that domain.
 
 > [!IMPORTANT]
 > Azure Storage does not yet natively support HTTPS with custom domains. You can currently [Use the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md).
 >
 
+> [!NOTE]  
+> Storage accounts currently support only one custom domain name per account. That means you cannot map a custom domain name to both the web and blob service endpoints.
+
 The following table shows a few sample URLs for blob data located in a storage account named **mystorageaccount**. The custom domain registered for the storage account is **www.contoso.com**:
 
 | Resource Type | Default URL | Custom domain URL |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | Storage account | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | Root container | http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob or http://www.contoso.com/$root/myblob |
+| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/$web or http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/$web or http://www.contoso.com/ or http://www.contoso.com/$web/[indexdoc] or  http://www.contoso.com/[indexdoc] |
+
+> [!NOTE]  
+> All examples for the Blob service endpoint below also apply to the web service endpoint.
 
 ## Direct vs. intermediary domain mapping
 
@@ -52,7 +53,7 @@ The process of mapping your custom domain to a blob endpoint can result in a bri
 The intermediary method is covered in [Register a custom domain using the *asverify* subdomain](#register-a-custom-domain-using-the-asverify-subdomain).
 
 ## Register a custom domain
-Use this procedure to register your custom domain if you have no concerns about the domain being briefly unavailable to your users, or if your custom domain is not currently hosting an application.
+Use this procedure to register your custom domain if you have no concerns about the domain being briefly unavailable to your users, or if your custom domain is not currently hosting an application. You can use Azure DNS to configure a custom DNS name for your Azure Blob store. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage).
 
 If your custom domain is currently supporting an application that cannot have any downtime, follow the procedure outlined in [Register a custom domain using the *asverify* subdomain](#register-a-custom-domain-using-the-asverify-subdomain).
 
@@ -160,3 +161,4 @@ Use the [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azure
 ## Next steps
 * [Map a custom domain to an Azure Content Delivery Network (CDN) endpoint](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Using the Azure CDN to access blobs with custom domains over HTTPS](storage-https-custom-domain-cdn.md)
+* [Static website hosting in Azure Blob Storage (Preview)](storage-blob-static-website.md)

@@ -3,27 +3,30 @@ title: Azure Single Sign Out SAML Protocol | Microsoft Docs
 description: This article describes the Single Sign-Out SAML Protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
-manager: mbaldwin
+author: CelesteDG
+manager: mtillman
 editor: ''
 
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
-
+ms.reviewer: hirsin
 ---
+
 # Single Sign-Out SAML Protocol
-Azure Active Directory (Azure AD) supports the SAML 2.0 web browser single sign-out profile. For single sign-out to work correctly, the **LogoutURL** for the application must be explicitly registered with Azure AD during application registration. Azure AD uses the LogoutURL to redirect users after they are signed out.
 
-This diagram shows the workflow of the Azure AD single sign-out process.
+Azure Active Directory (Azure AD) supports the SAML 2.0 web browser single sign-out profile. For single sign-out to work correctly, the **LogoutURL** for the application must be explicitly registered with Azure AD during application registration. Azure AD uses the LogoutURL to redirect users after they're signed out.
 
-![Single Sign Out Workflow](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
+The following diagram shows the workflow of the Azure AD single sign-out process.
+
+![Azure AD Single Sign Out Workflow](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
 ## LogoutRequest
 The cloud service sends a `LogoutRequest` message to Azure AD to indicate that a session has been terminated. The following excerpt shows a sample `LogoutRequest` element.
@@ -38,9 +41,9 @@ The cloud service sends a `LogoutRequest` message to Azure AD to indicate that a
 ### LogoutRequest
 The `LogoutRequest` element sent to Azure AD requires the following attributes:
 
-* `ID` : This identifies the sign-out request. The value of `ID` should not begin with a number. The typical practice is to append **id** to the string representation of a GUID.
-* `Version` : Set the value of this element to **2.0**. This value is required.
-* `IssueInstant` : This is a `DateTime` string with a Coordinate Universal Time (UTC) value and [round-trip format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD expects a value of this type, but does not enforce it.
+* `ID` - This identifies the sign-out request. The value of `ID` should not begin with a number. The typical practice is to append **id** to the string representation of a GUID.
+* `Version` - Set the value of this element to **2.0**. This value is required.
+* `IssueInstant` - This is a `DateTime` string with a Coordinate Universal Time (UTC) value and [round-trip format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD expects a value of this type, but doesn't enforce it.
 
 ### Issuer
 The `Issuer` element in a `LogoutRequest` must exactly match one of the **ServicePrincipalNames** in the cloud service in Azure AD. Typically, this is set to the **App ID URI** that is specified during application registration.

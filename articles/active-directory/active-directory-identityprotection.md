@@ -5,15 +5,16 @@ services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -31,9 +32,9 @@ Azure Active Directory Identity Protection is a feature of the Azure AD Premium 
 
 ## Getting started
 
-Microsoft secures cloud-based identities for more than a decade. With Azure Active Directory Identity Protection, in your environment, you can use the same protection systems Microsoft uses to secure identities.
+Microsoft has secured cloud-based identities for more than a decade. With Azure Active Directory Identity Protection, in your environment, you can use the same protection systems Microsoft uses to secure identities.
 
-The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Over the years, attackers have become increasingly effective in leveraging third party breaches and using sophisticated phishing attacks. As soon as an attacker gains access to even low privileged user accounts, it is relatively easy for them to gain access to important company resources through lateral movement.
+The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Over the years, attackers have become increasingly effective in leveraging third-party breaches and using sophisticated phishing attacks. As soon as an attacker gains access to even low privileged user accounts, it is relatively easy for them to gain access to important company resources through lateral movement.
 
 As a consequence of this, you need to:
 
@@ -64,7 +65,7 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 
 **Risk-based conditional access policies:**
 
-* Policy to mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges.
+* Policy to mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges
 * Policy to block or secure risky user accounts
 * Policy to require users to register for multi-factor authentication
 
@@ -78,12 +79,12 @@ To load balance the management activities around your Identity Protection implem
 | :--                          | ---                                |  ---   |
 | Global administrator         | Full access to Identity Protection, Onboard Identity Protection| |
 | Security administrator       | Full access to Identity Protection | Onboard Identity Protection,  reset passwords for a user |
-| Security reader              | Ready-only access to Identity Protection | Onboard Identity Protection, remidiate users, configure policies,  reset passwords |
+| Security reader              | Read-only access to Identity Protection | Onboard Identity Protection, remidiate users, configure policies,  reset passwords |
 
 
 
 
-For more details, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
+For more details, see [Assigning administrator roles in Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md)
 
 
 
@@ -129,7 +130,7 @@ A sign-in risk level is an indication (High, Medium, or Low) of the likelihood t
 
 A mitigation is an action to limit the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous sign-in risk events associated with the identity or device.
 
-To mitigate risky sign-ins automatically, you can configure sign-in risk security policicies. Using these policies, you consider the risk level of the user or the sign-in to block risky sign-ins or require the user to perform multi-factor authentication. These actions may prevent an attacker from exploiting a stolen identity to cause damage, and may give you some time to secure the identity.
+To mitigate risky sign-ins automatically, you can configure sign-in risk security policies. Using these policies, you consider the risk level of the user or the sign-in to block risky sign-ins or require the user to perform multi-factor authentication. These actions may prevent an attacker from exploiting a stolen identity to cause damage, and may give you some time to secure the identity.
 
 ### Sign-in risk security policy
 A sign-in risk policy is a conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
@@ -203,7 +204,7 @@ For an overview of the related user experience, see:
 
 - On the **Azure AD Identity Protection** blade, in the **Configure** section, click **Sign-in risk policy**.
 
-    ![User ridk policy](./media/active-directory-identityprotection/1014.png "User ridk policy")
+    ![User risk policy](./media/active-directory-identityprotection/1014.png "User risk policy")
 
 
 
@@ -303,25 +304,25 @@ The related dialog provides two different methods to reset a password:
 ### User risk security policy
 A user risk security policy is a conditional access policy that evaluates the risk level to a specific user and applies remediation and mitigation actions based on predefined conditions and rules.
 
-![User ridk policy](./media/active-directory-identityprotection/1009.png "User ridk policy")
+![User risk policy](./media/active-directory-identityprotection/1009.png "User risk policy")
 
 Azure AD Identity Protection helps you manage the mitigation and remediation of users flagged for risk by enabling you to:
 
 * Set the users and groups the policy applies to:
 
-    ![User ridk policy](./media/active-directory-identityprotection/1010.png "User ridk policy")
+    ![User risk policy](./media/active-directory-identityprotection/1010.png "User risk policy")
 * Set the user risk level threshold (low, medium, or high) that triggers the policy:
 
-    ![User ridk policy](./media/active-directory-identityprotection/1011.png "User ridk policy")
+    ![User risk policy](./media/active-directory-identityprotection/1011.png "User risk policy")
 * Set the controls to be enforced when the policy triggers:
 
-    ![User ridk policy](./media/active-directory-identityprotection/1012.png "User ridk policy")
+    ![User risk policy](./media/active-directory-identityprotection/1012.png "User risk policy")
 * Switch the state of your policy:
 
-    ![User ridk policy](./media/active-directory-identityprotection/403.png "MFA Registration")
+    ![User risk policy](./media/active-directory-identityprotection/403.png "MFA Registration")
 * Review and evaluate the impact of a change before activating it:
 
-    ![User ridk policy](./media/active-directory-identityprotection/1013.png "User ridk policy")
+    ![User risk policy](./media/active-directory-identityprotection/1013.png "User risk policy")
 
 Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.
 However, it excludes **Low** and **Medium** users flagged for risk from the policy, which may not secure identities or devices that were previously suspected or known to be compromised.
@@ -344,7 +345,7 @@ For an overview of the related user experience, see:
 
 - On the **Azure AD Identity Protection** blade, in the **Configure** section, click **User risk policy**.
 
-    ![User ridk policy](./media/active-directory-identityprotection/1009.png "User ridk policy")
+    ![User risk policy](./media/active-directory-identityprotection/1009.png "User risk policy")
 
 ### Mitigating user risk events
 Administrators can set a user risk security policy to block users upon sign-in depending on the risk level.
@@ -363,9 +364,9 @@ We recommend that you require Azure multi-factor authentication for user sign-in
 * Delivers strong authentication with a range of easy verification options
 * Plays a key role in preparing your organization to protect and recover from account compromises
 
-![User ridk policy](./media/active-directory-identityprotection/1019.png "User ridk policy")
+![User risk policy](./media/active-directory-identityprotection/1019.png "User risk policy")
 
-For more details, see [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+For more details, see [What is Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md)
 
 Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication registration by configuring a policy that enables you to:
 

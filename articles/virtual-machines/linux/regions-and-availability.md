@@ -4,7 +4,7 @@ description: Learn about the regions and availability features for running Linux
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: d4938acb-7aba-4dad-8004-ab5a0bae2d61
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 03/27/2018
 ms.author: iainfou
 
 ---

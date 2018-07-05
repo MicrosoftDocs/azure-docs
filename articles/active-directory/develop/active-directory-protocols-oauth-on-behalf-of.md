@@ -4,22 +4,27 @@ description: This article describes how to use HTTP messages to implement servic
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-ms.author: nacanuma
+ms.date: 06/06/2017
+ms.author: celested
+ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-
 ---
+
 # Service to service calls using delegated user identity in the On-Behalf-Of flow
-The OAuth 2.0 On-Behalf-Of flow serves the use case where an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from Azure Active Directory (Azure AD), on behalf of the user.
+The OAuth 2.0 On-Behalf-Of (OBO) flow serves the use case where an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from Azure Active Directory (Azure AD), on behalf of the user.
+
+> [!IMPORTANT]
+> Public clients that use the [OAuth 2.0 implicit grant](active-directory-dev-understanding-oauth2-implicit-grant.md) cannot use the OBO flow. These clients must pass their access token to a middle-tier confidential client to perform OBO flows. For more info about which clients can perform OBO calls, see [Client limitations](#client-limitations).
 
 ## On-Behalf-Of flow diagram
 Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](active-directory-protocols-oauth-code.md). At this point, the application has an access token (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
@@ -109,7 +114,7 @@ A service-to-service access token request with a certificate contains the follow
 | assertion |required | The value of the token used in the request. |
 | client_id |required | The App ID assigned to the calling service during registration with Azure AD. To find the App ID in the Azure Management Portal, click **Active Directory**, click the directory, and then click the application name. |
 | client_assertion_type |required |The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |required | An assertion (a JSON Web Token) that you need to create and sign with the certificate you registered as credentials for your application.  Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
+| client_assertion |required | An assertion (a JSON Web Token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
 | resource |required | The App ID URI of the receiving service (secured resource). To find the App ID URI, in the Azure Management Portal, click **Active Directory**, click the directory, click the application name, click **All settings** and then click **Properties**. |
 | requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
 | scope |required | A space separated list of scopes for the token request. For OpenID Connect, the scope **openid** must be specified.|
@@ -193,6 +198,8 @@ GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
+## Client limitations
+Public clients with wildcard reply URLs cannot use an `id_token` for OBO flows. However, a confidential client can still redeem access tokens acquired through the implicit grant flow even if the public client has a wildcard redirect URI registered.
 
 ## Next steps
 Learn more about the OAuth 2.0 protocol and another way to perform service to service auth using client credentials.

@@ -3,18 +3,19 @@ title: Move data from an on-premises SQL Server to SQL Azure with Azure Data Fac
 description: Set up an ADF pipeline that composes two data migration activities that together move data on a daily basis between databases on-premises and in the cloud.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 36837c83-2015-48be-b850-c4346aa5ae8a
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
-ms.author: bradsev
+ms.date: 11/04/2017
+ms.author: deguhath
 
 ---
 # Move data from an on-premises SQL server to SQL Azure with Azure Data Factory
@@ -41,7 +42,7 @@ We set up an ADF pipeline that composes two data migration activities. Together 
 * copy data from the Azure Blob Storage account to an Azure SQL Database.
 
 > [!NOTE]
-> The steps shown here have been adapted from the more detailed tutorial provided by the ADF team: [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md) References to the relevant sections of that topic are provided when appropriate.
+> The steps shown here have been adapted from the more detailed tutorial provided by the ADF team: [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md) References to the relevant sections of that topic are provided when appropriate.
 >
 >
 
@@ -64,7 +65,7 @@ We use the [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) to
 You can either adapt the procedure provided here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your on-premises SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](sql-walkthrough.md#dbload). These instructions are for a SQL Server on an Azure Virtual Machine, but the procedure for uploading to the on-premises SQL Server is the same.
 
 ## <a name="create-adf"></a> Create an Azure Data Factory
-The instructions for creating a new Azure Data Factory and a resource group in the [Azure portal](https://portal.azure.com/) are provided [Create an Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
+The instructions for creating a new Azure Data Factory and a resource group in the [Azure portal](https://portal.azure.com/) are provided [Create an Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
 
 ## Install and configure up the Data Management Gateway
 To enable your pipelines in an Azure data factory to work with an on-premises SQL Server, you need to add it as a Linked Service to the data factory. To create a Linked Service for an on-premises SQL Server, you must:
@@ -74,38 +75,20 @@ To enable your pipelines in an Azure data factory to work with an on-premises SQ
 
 The Data Management Gateway serializes and deserializes the source and sink data on the computer where it is hosted.
 
-For set-up instructions and details on Data Management Gateway, see [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
+For set-up instructions and details on Data Management Gateway, see [Move data between on-premises sources and cloud with Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md)
 
 ## <a name="adflinkedservices"></a>Create linked services to connect to the data resources
-A linked service defines the information needed for Azure Data Factory to connect to a data resource. The step-by-step procedure for creating linked services is provided in [Create linked services](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+A linked service defines the information needed for Azure Data Factory to connect to a data resource. We have three resources in this scenario for which linked services are needed:
 
-We have three resources in this scenario for which linked services are needed.
+1. On-premises SQL Server
+2. Azure Blob Storage
+3. Azure SQL database
 
-1. [Linked service for on-premises SQL Server](#adf-linked-service-onprem-sql)
-2. [Linked service for Azure Blob Storage](#adf-linked-service-blob-store)
-3. [Linked service for Azure SQL database](#adf-linked-service-azure-sql)
+The step-by-step procedure for creating linked services is provided in [Create linked services](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 
-### <a name="adf-linked-service-onprem-sql"></a>Linked service for on-premises SQL Server database
-To create the linked service for the on-premises SQL Server:
-
-* click the **Data Store** in the ADF landing page on Azure Classic Portal
-* select **SQL** and enter the *username* and *password* credentials for the on-premises SQL Server. You need to enter the servername as a **fully qualified servername backslash instance name (servername\instancename)**. Name the linked service *adfonpremsql*.
-
-### <a name="adf-linked-service-blob-store"></a>Linked service for Blob
-To create the linked service for the Azure Blob Storage account:
-
-* click the **Data Store** in the ADF landing page on Azure Classic Portal
-* select **Azure Storage Account**
-* enter the Azure Blob Storage account key and container name. Name the Linked Service *adfds*.
-
-### <a name="adf-linked-service-azure-sql"></a>Linked service for Azure SQL database
-To create the linked service for the Azure SQL Database:
-
-* click the **Data Store** in the ADF landing page on Azure Classic Portal
-* select **Azure SQL** and enter the *username* and *password* credentials for the Azure SQL Database. The *username* must be specified as *user@servername*.   
 
 ## <a name="adf-tables"></a>Define and create tables to specify how to access the datasets
-Create tables that specify the structure, location, and availability of the datasets with the following script-based procedures. JSON files are used to define the tables. For more information on the structure of these files, see [Datasets](../../data-factory/v1/data-factory-create-datasets.md).
+Create tables that specify the structure, location, and availability of the datasets with the following script-based procedures. JSON files are used to define the tables. For more information on the structure of these files, see [Datasets](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
 > You should execute the `Add-AzureAccount` cmdlet before executing the [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet to confirm that the right Azure subscription is selected for the command execution. For documentation of this cmdlet, see [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0).
@@ -124,7 +107,7 @@ Three table definitions are needed for this ADF pipeline:
 3. [SQL Azure Table](#adf-table-azure-sql)
 
 > [!NOTE]
-> These procedures use Azure PowerShell to define and create the ADF activities. But these tasks can also be accomplished using the Azure portal. For details, see [Create datasets](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-datasets).
+> These procedures use Azure PowerShell to define and create the ADF activities. But these tasks can also be accomplished using the Azure portal. For details, see [Create datasets](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 >
 >
 
@@ -156,7 +139,7 @@ The table definition for the on-premises SQL Server is specified in the followin
             }
         }
 
-The column names were not included here. You can sub-select on the column names by including them here (for details check the [ADF documentation](../../data-factory/v1/data-factory-data-movement-activities.md) topic.
+The column names were not included here. You can sub-select on the column names by including them here (for details check the [ADF documentation](../../data-factory/copy-activity-overview.md) topic.
 
 Copy the JSON definition of the table into a file called *onpremtabledef.json* file and save it to a known location (here assumed to be *C:\temp\onpremtabledef.json*). Create the table in ADF with the following Azure PowerShell cmdlet:
 
@@ -193,7 +176,7 @@ Copy the JSON definition of the table into a file called *bloboutputtabledef.jso
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="adf-table-azure-sq"></a>SQL Azure Table
+### <a name="adf-table-azure-sql"></a>SQL Azure Table
 Definition for the table for the SQL Azure output is in the following (this schema maps the data coming from the blob):
 
     {
@@ -232,7 +215,7 @@ Specify the activities that belong to the pipeline and create the pipeline with 
 
 > [!NOTE]
 > The following procedures use Azure PowerShell to define and create the ADF pipeline. But this task can also be accomplished using the
-> Azure portal. For details, see [Create pipeline](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-pipeline).
+> Azure portal. For details, see [Create pipeline](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 >
 >
 
@@ -309,9 +292,6 @@ Copy this JSON definition of the pipeline into a file called *pipelinedef.json* 
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-Confirm that you can see the pipeline on the ADF in the Azure Classic Portal show up as following (when you click the diagram)
-
-![ADF pipeline](./media/move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="adf-pipeline-start"></a>Start the Pipeline
 The pipeline can now be run using the following command:

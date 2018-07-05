@@ -4,16 +4,16 @@ description: Import static data to join with app telemetry, or import a separate
 services: application-insights
 keywords: "open schema, data import"
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Import data into Analytics
@@ -193,7 +193,7 @@ This code uses the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.J
 
 ### Classes
 
-```C#
+```csharp
 namespace IngestionClient 
 { 
     using System; 
@@ -352,7 +352,7 @@ namespace IngestionClient
 
 Use this code for each blob. 
 
-```C#
+```csharp
    AnalyticsDataSourceClient client = new AnalyticsDataSourceClient(); 
 
    var ingestionRequest = new AnalyticsDataSourceIngestionRequest("iKey", "sourceId", "blobUrlWithSas"); 

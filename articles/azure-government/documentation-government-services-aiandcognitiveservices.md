@@ -26,9 +26,6 @@ The following Cognitive Services APIs are currently in Public Preview in Azure G
 - Translator Speech API
 - Translator Text API
 
-Email AzureGovFeedback@microsoft.com if you run into any issues using these APIs.
- 
-
 ### Variations
 - Provisioning and management for the following APIs are available through PowerShell and CLI only (**no Portal Support**).
 
@@ -42,14 +39,14 @@ The following variations exist for Computer Vision API from Commercial Azure:
 - Endpoint URL: https://virginia.api.cognitive.microsoft.us/vision/v1.0/
 - Available SKUs: F0, S0, S1
 
-For more information, please see [public documentation](../cognitive-services/computer-vision/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
+For more information, please see [public documentation](../cognitive-services/computer-vision/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
  
 ##### Face API
 The following variations exist for Face API from Commercial Azure:
 - Endpoint: https://virginia.api.cognitive.microsoft.us/face/v1.0/
 - Available SKUs: F0, S0
  
-For more information, please see [public documentation](../cognitive-services/Face/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+For more information, please see [public documentation](../cognitive-services/Face/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 ##### Emotion API
 Emotion API is being deprecated and all of its technology has been incorporated to Face API.

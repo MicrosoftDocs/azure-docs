@@ -11,10 +11,8 @@ tags: ''
 ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 06/15/2017
+ms.topic: article
+ms.date: 01/18/2018
 ms.author: maroche
 
 ---
@@ -139,7 +137,7 @@ Here are some tips to get you started:
 Before your pilot team jumps into using Data Catalog, schedule a kick-off meeting to discuss expectations for the pilot project, and provide initial training.
 
 ### Set expectations
-Setting exceptions and goals helps business users focus on specific deliverables. To keep the project on track, assign regular (for example: daily or weekly based on the scope and duration of the pilot) homework assignments. One of the most valuable capabilities of Data Catalog is crowdsourcing data assets so that business users can benefit from knowledge of enterprise data. A great homework assignment is for each pilot team member to register or annotate at least one data source they have used. See [Register a data source](data-catalog-get-started.md) and [How to annotate data sources](data-catalog-get-started.md).
+Setting expectations and goals helps business users focus on specific deliverables. To keep the project on track, assign regular (for example: daily or weekly based on the scope and duration of the pilot) homework assignments. One of the most valuable capabilities of Data Catalog is crowdsourcing data assets so that business users can benefit from knowledge of enterprise data. A great homework assignment is for each pilot team member to register or annotate at least one data source they have used. See [Register a data source](data-catalog-get-started.md) and [How to annotate data sources](data-catalog-get-started.md).
 
 Meet with the team on a regular schedule to review some of the annotations. Good annotations about data sources are at the heart of a successful Data Catalog adoption because they provide meaningful data source insights in a central location. Without good annotations, knowledge about data sources remains scattered throughout the enterprise. See [How to annotate data sources](data-catalog-get-started.md).
 

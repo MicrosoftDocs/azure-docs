@@ -3,9 +3,9 @@ title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
 description: Troubleshooting Azure Files problems in Linux
 services: storage
 documentationcenter: ''
-author: genlin
-manager: willchen
-editor: na
+author: jeffpatt24
+manager: aungoo
+editor: tamram
 tags: storage
 
 ms.service: storage
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
-ms.author: genli
+ms.date: 05/11/2018
+ms.author: jeffpatt
 
 ---
 # Troubleshoot Azure Files problems in Linux
@@ -39,11 +39,11 @@ Reduce the number of concurrent open handles by closing some handles, and then r
 <a id="slowfilecopying"></a>
 ## Slow file copying to and from Azure Files in Linux
 
--	If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
--	If you know the final size of a file that you are extending by using writes, and your software doesn’t experience compatibility problems when an unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
--	Use the right copy method:
-    -	Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
-    -	Use [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) between file shares on an on-premises computer.
+- If you don't have a specific minimum I/O size requirement, we recommend that you use 1 MiB as the I/O size for optimal performance.
+- If you know the final size of a file that you are extending by using writes, and your software doesn't experience compatibility problems when an unwritten tail on the file contains zeros, then set the file size in advance instead of making every write an extending write.
+- Use the right copy method:
+    - Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
+    - Use [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) between file shares on an on-premises computer.
 
 <a id="error112"></a>
 ## "Mount error(112): Host is down" because of a reconnection time-out
@@ -54,7 +54,7 @@ A "112" mount error occurs on the Linux client when the client has been idle for
 
 The connection can be idle for the following reasons:
 
--	Network communication failures that prevent re-establishing a TCP connection to the server when the default “soft” mount option is used
+-	Network communication failures that prevent re-establishing a TCP connection to the server when the default "soft" mount option is used
 -	Recent reconnection fixes that are not present in older kernels
 
 ### Solution
@@ -62,15 +62,15 @@ The connection can be idle for the following reasons:
 This reconnection problem in the Linux kernel is now fixed as part of the following changes:
 
 - [Fix reconnect to not defer smb3 session reconnect long after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
--	[Call echo service immediately after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
--	[CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
--	[CIFS: Fix a possible double locking of mutex during reconnect (for kernel v4.9 and later)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
+- [Call echo service immediately after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
+- [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS: Fix a possible double locking of mutex during reconnect (for kernel v4.9 and later)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
 However, these changes might not be ported yet to all the Linux distributions. This fix and other reconnection fixes are made in the following popular Linux kernels: 4.4.40, 4.8.16, and 4.9.1. You can get this fix by upgrading to one of these recommended kernel versions.
 
 ### Workaround
 
-You can work around this problem by specifying a hard mount. This forces the client to wait until a connection is established or until it’s explicitly interrupted and can be used to prevent errors because of network time-outs. However, this workaround might cause indefinite waits. Be prepared to stop connections as necessary.
+You can work around this problem by specifying a hard mount. This forces the client to wait until a connection is established or until it's explicitly interrupted and can be used to prevent errors because of network time-outs. However, this workaround might cause indefinite waits. Be prepared to stop connections as necessary.
 
 If you cannot upgrade to the latest kernel versions, you can work around this problem by keeping a file in the Azure file share that you write to every 30 seconds or less. This must be a write operation, such as rewriting the created or modified date on the file. Otherwise, you might get cached results, and your operation might not trigger the reconnection.
 
@@ -83,7 +83,7 @@ Some Linux distributions do not yet support encryption features in SMB 3.0 and u
 
 ### Solution
 
-Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel. This feature enables mounting of Azure File share from on-premises or a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu 17.04 and Ubuntu 16.10. If your Linux SMB client does not support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the File storage account.
+Encryption feature for SMB 3.0 for Linux was introduced in 4.11 kernel. This feature enables mounting of Azure file share from on-premises or a different Azure region. At the time of publishing, this functionality has been backported to Ubuntu 17.04 and Ubuntu 16.10. If your Linux SMB client does not support encryption, mount Azure Files by using SMB 2.1 from an Azure Linux VM that's in the same datacenter as the File storage account.
 
 <a id="slowperformance"></a>
 ## Slow performance on an Azure file share mounted on a Linux VM
@@ -126,7 +126,7 @@ Use the storage account user for copying the files:
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## Cannot connect or mount an Azure File share
+## Cannot connect or mount an Azure file share
 
 ### Cause
 
@@ -151,6 +151,21 @@ Common causes for this issue are:
 ### Solution
 
 To resolve the issue, use the [Troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). This tool helps you to validate the client running environment, detect the incompatible client configuration which would cause access failure for Azure Files, gives prescriptive guidance on self-fix and, collects the diagnostics traces.
+
+## ls: cannot access '&lt;path&gt;': Input/output error
+
+When you try to list files in an Azure file share by using ls command, ls command hangs when listing files you receive the following error:
+
+**ls: cannot access'&lt;path&gt;': Input/output error**
+
+
+### Solution
+Upgrade the Linux kernel to the following versions that have fix for this issue:
+
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
+- All versions that is greater or equal to 4.13
 
 ## Need help? Contact support.
 

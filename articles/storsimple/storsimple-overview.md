@@ -88,7 +88,7 @@ The cloud appliance has the following features:
 * You can create an unlimited number of cloud appliances in the cloud, and turn them on and off as necessary.
 * It can help simulate on-premises environments in disaster recovery, development, and test scenarios, and can help with item-level retrieval from backups.
 
-The StorSimple Cloud Appliance is available in two models: the 8010 device (formerly known as the 1100 model) and the 8020 device. The 8010 device has a maximum capacity of 30 TB. The 8020 device, which takes advantage of Azure premium storage, has a maximum capacity of 64 TB. (In local tiers, Azure premium storage stores data on SSDs whereas standard storage stores data on HDDs.) Note that you must have an Azure premium storage account to use premium storage. For more information about premium storage, go to [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/common/storage-premium-storage.md).
+The StorSimple Cloud Appliance is available in two models: the 8010 device (formerly known as the 1100 model) and the 8020 device. The 8010 device has a maximum capacity of 30 TB. The 8020 device, which takes advantage of Azure premium storage, has a maximum capacity of 64 TB. (In local tiers, Azure premium storage stores data on SSDs whereas standard storage stores data on HDDs.) Note that you must have an Azure premium storage account to use premium storage. For more information about premium storage, go to [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../virtual-machines/windows/premium-storage.md).
 
 For more information about the StorSimple Cloud Appliance, go to [Deploy and manage a StorSimple Cloud Appliance in Azure](storsimple-8000-cloud-appliance-u2.md).
 
@@ -245,7 +245,7 @@ Following is a list of other software that are used with StorSimple to build sol
 | Backup target |Veeam |Veeam v 9 and later |[StorSimple as a backup target with Veaam](storsimple-configure-backup-target-veeam.md)|
 | Backup target |Veritas Backup Exec |Backup Exec 16 and later |[StorSimple as a backup target with Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|
 | Backup target |Veritas NetBackup |NetBackup 7.7.x and later  |[StorSimple as a backup target with NetBackup](storsimple-configure-backuptarget-netbackup.md)|
-| Global File Sharing <br></br> Collaboration |Talon  |[StorSimple with Talon](https://www.talonstorage.com/products/fast-deployment-azure-storsimple) | |
+| Global File Sharing <br></br> Collaboration |Talon  |[StorSimple with Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
 
 ## StorSimple terminology
 Before deploying your Microsoft Azure StorSimple solution, we recommend that you review the following terms and definitions.

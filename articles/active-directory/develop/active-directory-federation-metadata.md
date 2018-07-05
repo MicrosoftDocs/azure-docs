@@ -3,21 +3,23 @@ title: Azure AD Federation Metadata | Microsoft Docs
 description: This article describes the federation metadata document that Azure Active Directory publishes for services that accept Azure Active Directory tokens.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
-manager: mbaldwin
+author: CelesteDG
+manager: mtillman
 editor: ''
 
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-
 ---
+
 # Federation metadata
 Azure Active Directory (Azure AD) publishes a federation metadata document for services that is configured to accept the security tokens that Azure AD issues. The federation metadata document format is described in the [Web Services Federation Language (WS-Federation) Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), which extends [Metadata for the OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
 

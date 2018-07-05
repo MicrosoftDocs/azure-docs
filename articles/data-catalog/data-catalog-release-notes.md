@@ -12,9 +12,7 @@ ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
 
 ---

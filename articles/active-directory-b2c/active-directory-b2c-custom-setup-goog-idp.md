@@ -1,20 +1,16 @@
 ﻿---
-title: 'Azure Active Directory B2C: Add Google+ as an OAuth2 identity provider using custom policies'
-description: Sample using Google+ as identity provider using OAuth2 protocol
+title: Add Google+ as an OAuth2 identity provider using custom policies in Azure Active Directory B2C | Microsoft Docs
+description: Sample using Google+ as identity provider using OAuth2 protocol.
 services: active-directory-b2c
-documentationcenter: ''
-author: yoelhor
-manager: joroja
-editor: 
+author: davidmu1
+manager: mtillman
 
-ms.assetid:
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: yoelh
+ms.author: davidmu
+ms.component: B2C
 ---
 
 # Azure Active Directory B2C: Add Google+ as an OAuth2 identity provider using custom policies
@@ -95,7 +91,7 @@ Federation with Google+ accounts requires a client secret for Google+ account to
 4.  For **Options**, use **Manual**.
 5.  For **Name**, use `GoogleSecret`.  
     The prefix `B2C_1A_` might be added automatically.
-6.  In the **Secret** box, enter your Microsoft application secret from https://apps.dev.microsoft.com
+6.  In the **Secret** box, enter your Google application secret from the [Google Developers Console](https://console.developers.google.com/) that you copied above.
 7.  For **Key usage**, use **Signature**.
 8.  Click **Create**
 9.  Confirm that you've created the key `B2C_1A_GoogleSecret`.
@@ -172,7 +168,7 @@ The identity provider has been set up.  However, it is not available in any of t
 1.  Open the base file of your policy (for example, TrustFrameworkBase.xml).
 2.  Find the `<UserJourneys>` element and copy the entire content of `<UserJourneys>` node.
 3.  Open the extension file (for example, TrustFrameworkExtensions.xml) and find the `<UserJourneys>` element. If the element doesn't exist, add one.
-4.  Paste the entire content of `<UserJournesy>` node that you copied as a child of the `<UserJourneys>` element.
+4.  Paste the entire content of `<UserJourney>` node that you copied as a child of the `<UserJourneys>` element.
 
 ### Display the button
 The `<ClaimsProviderSelections>` element defines the list of claims provider selection options and their order.  `<ClaimsProviderSelection>` element is analogous to an identity provider button on a sign-up/sign-in page. If you add a `<ClaimsProviderSelection>` element for Google+ account, a new button shows up when a user lands on the page. To add this element:
@@ -240,6 +236,14 @@ You may want to add the Google+ account identity provider also to your user `Pro
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
+
+### Upload the policy to your tenant
+1.  In the [Azure portal](https://portal.azure.com), switch into the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and open the **Azure AD B2C** blade.
+2.  Select **Identity Experience Framework**.
+3.  Open the **All Policies** blade.
+4.  Select **Upload Policy**.
+5.  Check the **Overwrite the policy if it exists** box.
+6.  **Upload** TrustFrameworkExtensions.xml and ensure that it does not fail the validation.
 
 ### Test the custom Profile-Edit policy by using Run Now
 

@@ -3,7 +3,7 @@ title: View Azure Web Apps analytic data | Microsoft Docs
 description: You can use the Azure Web Apps Analytics solution to gain insights about your Azure Web Apps by collecting different metrics across all your Azure Web App resources.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
@@ -11,15 +11,19 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/11/2017
-ms.author: banders
-
+ms.topic: conceptual
+ms.date: 06/26/2018
+ms.author: magoedte
+ms.component: na
 ---
 
 # View analytic data for metrics across all your Azure Web App resources
 
 ![Web Apps symbol](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
+
+> [!NOTE]
+> The Azure Web Apps Analytics solution has been deprecated.  Customers who have already installed the solution can continue to use it, but Azure Web Apps Analytics can not be added to any new workspaces.  To monitor your web application, we recommend you use [Application Insights](../application-insights/app-insights-overview.md). 
+
 The Azure Web Apps Analytics (Preview) solution provides insights into your [Azure Web Apps](../app-service/app-service-web-overview.md) by collecting different metrics across all your Azure Web App resources. With the solution, you can analyze and search for web app resource metric data.
 
 Using the solution, you can view the:
@@ -36,7 +40,7 @@ Unlike most other Log Analytics solutions, data isn't collected for Azure Web Ap
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Windows agents](log-analytics-windows-agents.md) | No | The solution does not collect information from Windows agents. |
+| [Windows agents](log-analytics-windows-agent.md) | No | The solution does not collect information from Windows agents. |
 | [Linux agents](log-analytics-linux-agents.md) | No | The solution does not collect information from Linux agents. |
 | [SCOM management group](log-analytics-om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | The solution does not collection information from Azure storage. |
@@ -49,8 +53,7 @@ Unlike most other Log Analytics solutions, data isn't collected for Azure Web Ap
 
 Perform the following steps to configure the Azure Web Apps Analytics solution for your workspaces.
 
-1. Enable the Azure Web Apps Analytics solution from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
-2. [Enable Azure resource metrics logging to OMS using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+1. [Enable Azure resource metrics logging to Log Analytics using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 The Azure Web Apps Analytics solution collects two set of metrics from Azure:
 
@@ -71,10 +74,6 @@ The Azure Web Apps Analytics solution collects two set of metrics from Azure:
 
 App Service Plan metrics are only collected if you are using a dedicated service plan. This doesn't apply to free or shared App Service plans.
 
-If you add the solution using the OMS portal, you'll see the following tile. You need to [enable Azure resource metrics logging to OMS using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
-
-![Performing Assessment notification](./media/log-analytics-azure-web-apps-analytics/performing-assessment.png)
-
 After you configure the solution, data should start flowing to your workspace within 15 minutes.
 
 ## Using the solution
@@ -87,19 +86,18 @@ When you add the Azure Web Apps Analytics solution to your workspace, the **Azur
 
 Click the **Azure Web Apps Analytics** tile to open the **Azure Web Apps Analytics** dashboard. The dashboard includes the blades in the following table. Each blade lists up to ten items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the blade or by clicking the blade header.
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Column | Description |
 | --- | --- |
 | Azure Webapps |   |
-| Web Apps Request Trends | Shows a line chart of the Web Apps request trend for the date range that you have selected and shows a list of the top ten web requests. Click the line chart to run a log search for <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Click a web request item to run a log search for the web request metric trend that request. |
-| Web Apps Response Time | Shows a line chart of the Web Apps response time for the date range that you have selected. Also shows a list a list of the top ten Web Apps response times. Click the chart to run a log search for <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Click on a Web App to run a log search returning response times for the Web App. |
-| Web Apps Traffic | Shows a line chart for Web Apps traffic, in MB and lists the top Web Apps traffic. Click the chart to run a log search for <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> It shows all Web Apps with traffic for the last minute. Click a Web App to run a log search showing bytes received and sent for the Web App. |
+| Web Apps Request Trends | Shows a line chart of the Web Apps request trend for the date range that you have selected and shows a list of the top ten web requests. Click the line chart to run a log search for <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "Requests" or MetricName startswith_cs "Http") &#124; summarize AggregatedValue = avg(Average) by MetricName, bin(TimeGenerated, 1h)</code> <br>Click a web request item to run a log search for the web request metric trend that request. |
+| Web Apps Response Time | Shows a line chart of the Web Apps response time for the date range that you have selected. Also shows a list a list of the top ten Web Apps response times. Click the chart to run a log search for <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and MetricName == "AverageResponseTime" &#124; summarize AggregatedValue = avg(Average) by Resource, bin(TimeGenerated, 1h)</code><br> Click on a Web App to run a log search returning response times for the Web App. |
+| Web Apps Traffic | Shows a line chart for Web Apps traffic, in MB and lists the top Web Apps traffic. Click the chart to run a log search for <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "BytesSent" or MetricName == "BytesReceived") &#124; summarize AggregatedValue = sum(Average) by Resource, bin(TimeGenerated, 1h)</code><br> It shows all Web Apps with traffic for the last minute. Click a Web App to run a log search showing bytes received and sent for the Web App. |
 | Azure App Service Plans |   |
-| App Service Plans with CPU utilization &gt; 80% | Shows the total number of App Service Plans that have CPU utilization greater than 80% and lists the top 10 App Service Plans by CPU utilization. Click the total area to run a log search for <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> It shows a list of your App Service Plans and their average CPU utilization. Click an App Service Plan to run a log search showing its average CPU utilization. |
-| App Service Plans with memory utilization &gt; 80% | Shows the total number of App Service Plans that have memory utilization greater than 80% and lists the top 10 App Service Plans by memory utilization. Click the total area to run a log search for <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> It shows a list of your App Service Plans and their average memory utilization. Click an App Service Plan to run a log search showing its average memory utilization. |
+| App Service Plans with CPU utilization &gt; 80% | Shows the total number of App Service Plans that have CPU utilization greater than 80% and lists the top 10 App Service Plans by CPU utilization. Click the total area to run a log search for <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "CpuPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> It shows a list of your App Service Plans and their average CPU utilization. Click an App Service Plan to run a log search showing its average CPU utilization. |
+| App Service Plans with memory utilization &gt; 80% | Shows the total number of App Service Plans that have memory utilization greater than 80% and lists the top 10 App Service Plans by memory utilization. Click the total area to run a log search for <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "MemoryPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> It shows a list of your App Service Plans and their average memory utilization. Click an App Service Plan to run a log search showing its average memory utilization. |
 | Azure Web Apps Activity Logs |   |
-| Azure Web Apps Activity Audit | Shows the total number of Web Apps with [activity logs](log-analytics-activity.md) and lists the top 10 activity log operations. Click the total area to run a log search for <code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> It shows a list of the activity log operations. Click an activity log operation to run a log search that lists the records for the operation. |
+| Azure Web Apps Activity Audit | Shows the total number of Web Apps with [activity logs](log-analytics-activity.md) and lists the top 10 activity log operations. Click the total area to run a log search for <code>AzureActivity #124; where ResourceProvider == "Azure Web Sites" #124; summarize AggregatedValue = count() by OperationName</code><br> It shows a list of the activity log operations. Click an activity log operation to run a log search that lists the records for the operation. |
 
 
 

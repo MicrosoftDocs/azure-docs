@@ -1,28 +1,22 @@
 ---
-title: Get started with Azure Data Lake Analytics using Azure CLI 2.0 | Microsoft Docs
-description: 'Learn how to use the Azure Command-line Interface 2.0 to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. '
-services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
-
+title: Get started with Azure Data Lake Analytics using Azure CLI 2.0
+description: Learn how to use the Azure Command-line Interface 2.0 to create an Azure Data Lake Analytics account and submit a U-SQL job.
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+services: data-lake-analytics
+author: saveenr
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
+ms.topic: get-started-article
 ms.date: 06/18/2017
-ms.author: jgao
-
 ---
 # Get started with Azure Data Lake Analytics using Azure CLI 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-In this tutorial, you develop a job that reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file. To go through the same tutorial using other supported tools, use the dropdown list on the top of this section.
+This article describes how to use the Azure CLI 2.0 command-line interface to create an Azure Data Lake Analytics accounts, submit a USQL jobs, and catalogs. The job reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file. 
 
 ## Prerequisites
-Before you begin this tutorial, you must have the following items:
+Before you begin, you need the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI 2.0**. See [Install and configure Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -180,36 +174,16 @@ az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity 
 After a job is completed, you can use the following commands to list the output files, and download the files:
 
 ```
-az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
+az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destination>"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
-az dls fs downlod --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"
+az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "<Destination Path and File Name>"
 ```
 
 For example:
 
 ```
-az dls fs downlod --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "C:\DLA\myfile.csv"
-```
-
-## Pipelines and recurrences
-
-**Get information about pipelines and recurrences**
-
-Use the `az dla job pipeline` commands to see the pipeline information previously submitted jobs.
-
-```
-az dla job pipeline list --account "<Data Lake Analytics Account Name>"
-
-az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
-```
-
-Use the `az dla job recurrence` commands to see the recurrence information for previously submitted jobs.
-
-```
-az dla job recurrence list --account "<Data Lake Analytics Account Name>"
-
-az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
+az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"
 ```
 
 ## Next steps

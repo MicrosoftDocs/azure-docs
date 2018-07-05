@@ -1,10 +1,10 @@
----
+﻿---
 title: Open ports to a VM using Azure PowerShell | Microsoft Docs
 description: Learn how to open a port / create an endpoint to your Windows VM using the Azure resource manager deployment mode and Azure PowerShell
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: cf45f7d8-451a-48ab-8419-730366d54f1e
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 
 ---
@@ -26,10 +26,10 @@ To create a Network Security Group and ACL rules you need [the latest version of
 Log in to your Azure account:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
-In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNetworkSecurityGroup*, and *myVnet*.
+In the following examples, replace parameter names with your own values. Example parameter names included *myResourceGroup*, *myNetworkSecurityGroup*, and *myVnet*.
 
 Create a rule with [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). The following example creates a rule named *myNetworkSecurityGroupRule* to allow *tcp* traffic on port *80*:
 
@@ -93,6 +93,6 @@ For highly available web applications, you should place your VMs behind an Azure
 In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
 
 * [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md)
-* [What is a Network Security Group (NSG)?](../../virtual-network/virtual-networks-nsg.md)
+* [What is a network security group?](../../virtual-network/security-overview.md)
 * [Azure Resource Manager Overview for Load Balancers](../../load-balancer/load-balancer-arm.md)
 

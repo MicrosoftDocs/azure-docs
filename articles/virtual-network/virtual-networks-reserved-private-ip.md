@@ -3,8 +3,8 @@ title: Static internal private IP - Azure VM - Classic
 description: Understanding static internal IPs (DIPs) and how to manage them
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genlin
+manager: cshepard
 editor: tysonn
 
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2016
-ms.author: jdial
+ms.date: 05/18/2018
+ms.author: genli
 
 ---
 # How to set a static internal private IP address using PowerShell (Classic)
@@ -92,7 +92,7 @@ To remove the static internal IP added to the VM in the script above, run the fo
     | Update-AzureVM
 
 ## How to add a static internal IP to an existing VM
-To add a static internal IP to the VM created using the script above, runt he following command:
+To add a static internal IP to the VM created using the script above, run the following command:
 
     Get-AzureVM -ServiceName TestService000 -Name TestVM `
     | Set-AzureStaticVNetIP -IPAddress 10.10.0.7 `

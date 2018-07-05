@@ -1,5 +1,5 @@
 ---
-title: Azure Government Cognitive Services quickStart | Microsoft Docs
+title: Cognitive Services on Azure Government | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
@@ -18,11 +18,16 @@ ms.author: yujhong
 
 ---
 
-# Cognitive Services – Computer Vision, Face, Translator Text APIs
+# Cognitive Services on Azure Government – Computer Vision, Face, Translator Text APIs
 
 To see an overview of Cognitive Services on Azure Government, [click here](documentation-government-services-aiandcognitiveservices.md).
 
+## Prerequisites
+* Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
+* Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
+
 ## Part 1: Provision Cognitive Services Accounts
+
 In order to access any of the Cognitive Services APIs, you must first provision a Cognitive Services account for each of the APIs you want to access. **Cognitive Services is not yet supported in the Azure Government Portal**, but you can use Azure PowerShell to access the APIs and services. 
 
 > [!NOTE]
@@ -30,37 +35,44 @@ In order to access any of the Cognitive Services APIs, you must first provision 
 > 
 > 
 
-### Prerequisites
-* Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
-* Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
+1. Make sure that you have the **Cognitive Services resource provider registered on your account**. 
 
-In the Powershell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
+You can do this by **running the following PowerShell command:**
 
-Replace the "type of API" tag with any of the three following APIs you want to access:
-    * ComputerVision
-    * Face
-    * TextTranslation
+   ```PowerShell
+   Get-AzureRmResourceProvider
+   ```
+   If you do **not see `Microsoft.CognitiveServices`**, you have to register the resource provider by **running the following command**:
+   ```PowerShell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.CognitiveServices
+   ```
+2. In the PowerShell command below, replace "rg-name", "name-of-your-api", and "location-of-resourcegroup" with your relevant account information. 
 
-```PowerShell
-New-AzureRmCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'name-of-your-api' -Type <type of API> -SkuName S0 -Location 'location-of-resourcegroup'
-```
-Example: 
+   Replace the "type of API" tag with any of the three following APIs you want to access:
+       * ComputerVision
+       * Face
+       * TextTranslation
 
-```PowerShell
-New-AzureRmCognitiveServicesAccount -ResourceGroupName 'resourcegrouptest' -name 'myFaceAPI' -Type Face -SkuName S0 -Location 'usgovvirginia'
-```
+   ```PowerShell
+   New-AzureRmCognitiveServicesAccount -ResourceGroupName 'rg-name' -name 'name-of-your-api' -Type <type of API> -SkuName S0 -Location 'location-of-resourcegroup'
+   ```
+   Example: 
 
-After you run the command, you should see something like this: 
+   ```PowerShell
+   New-AzureRmCognitiveServicesAccount -ResourceGroupName 'resourcegrouptest' -name 'myFaceAPI' -Type Face -SkuName S0 -Location 'usgovvirginia'
+   ```
 
-![cog1](./media/documentation-government-cognitiveservices-img1.png)
+   After you run the command, you should see something like this: 
 
-Copy and save the "Endpoint" attribute somewhere as you will need it when making calls to the API. 
+   ![cog1](./media/documentation-government-cognitiveservices-img1.png)
+
+3. Copy and save the "Endpoint" attribute somewhere as you will need it when making calls to the API. 
 
 ### Retrieve Account Key
 
 You must retrieve an account key to access the specific API. 
 
-In the Powershell command below, replace the "youraccountname" tag with the name that you gave the Account that you created above. Replace the 'rg-name' tag with the name of your resource group.
+In the PowerShell command below, replace the "youraccountname" tag with the name that you gave the Account that you created above. Replace the 'rg-name' tag with the name of your resource group.
 
 ```PowerShell
 Get-AzureRmCognitiveServicesAccountKey -Name <youraccountname> -ResourceGroupName 'rg-name'
@@ -94,8 +106,8 @@ The Quickstarts below will help you to get started with the APIs available throu
     
 ### Variations
 * The URI for accessing the Face API in Azure Government is :
-   - https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0
-   - The main difference between this URI and the URI used in Commercial Azure is the ending of ".us" and the location at the beginning of the uri
+   - `https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0`
+   - The main difference between this URI and the URI used in Commercial Azure is the ending of **.us** and the location at the beginning of the uri
 
 
 ### Analyze an Image With Computer Vision API using C# <a name="AnalyzeImage"> </a>
@@ -117,7 +129,7 @@ With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.co
 4. Replace the `subscriptionKey` value with your valid subscription key.
 5. Run the program.
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Net.Http;
@@ -346,7 +358,7 @@ A successful response is returned in JSON. Following is an example of a successf
    }
 }
 ```
-For more information, please see [public documentation](../cognitive-services/computer-vision/index.md) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
+For more information, please see [public documentation](../cognitive-services/computer-vision/index.yml) and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa) for Computer Vision API.
 
 ## Face API
 ### Prerequisites
@@ -362,8 +374,8 @@ For more information, please see [public documentation](../cognitive-services/co
     
 ### Variations 
 * The URI for accessing the Face API in Azure Government is :
-   - https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0
-   - The main difference between this URI and the URI used in Commercial Azure is the ending of ".us" and the location at the beginning of the uri
+   - `https://(resource-group-location).api.cognitive.microsoft.us/face/v1.0`
+   - The main difference between this URI and the URI used in Commercial Azure is the ending of **.us** and the location at the beginning of the uri
 
 ### Detect Faces in images with Face API using C# <a name="Detect"> </a>
 Use the [Face - Detect method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 
@@ -384,7 +396,7 @@ The sample is written in C# using the Face API client library.
 5. Run the program.
 6. Enter the path to an image on your hard drive.
 
-```c#
+```csharp
 
 using System;
 using System.IO;
@@ -590,7 +602,7 @@ Response:
    }
 ]
 ```
-For more information, please see [public documentation](../cognitive-services/Face/index.md), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
+For more information, please see [public documentation](../cognitive-services/Face/index.yml), and [public API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for Face API.
 
 ## Text Translation API 
 ### Prerequisites
@@ -605,12 +617,9 @@ For more information, please see [public documentation](../cognitive-services/Fa
     
 ### Variations
 * The URI for accessing the Text Translation API in Azure Government is: 
-   - https://api.microsofttranslator.us/v2/http.svc
-   - The only difference from the Commercial URI is the endpoint of ".us"
-* The URI for retrieving the access token to the Text Translation API is the "Endpoint" attribute that was saved in Part 1 of this quickstart, with "/IssueToken" at the end
-
+   - `https://dev.microsofttranslator.us/translate?api-version=3.0`
 ### Text Translation Method
-This sample will use the [Text Translation - Translate method](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) to translate a string of text from a language into another specified language. There are multiple [language codes](https://msdn.microsoft.com/library/hh456380.aspx) that can be used with the Text Translation API. 
+This sample will use the [Text Translation - Translate method](../cognitive-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration) that can be used with the Text Translation API. 
 
 ### Text Translation C# example request
 
@@ -619,151 +628,71 @@ The sample is written in C#.
 1. Create a new Console solution in Visual Studio.
 2. Replace Program.cs with the corresponding code below.
 3. Replace the `subscriptionKey` value with the key value that you retrieved above.
-4. Create a Token.cs class and copy and paste the corresponding code below. 
+4. Replace the `text` value with text that you want to translate.
 5. Run the program.
 
 You can also test out different languages and texts by replacing the "text", "from", and "to" variables in Program.cs. 
 
-```c#
+```csharp
 using System;
-using System.IO;
-using System.Net;
-using System.Runtime.Serialization;
-using System.Threading.Tasks;
-
-namespace TextTranslationApp1
-{
-        static class Program
-        {
-            // **********************************************
-            // *** Update or verify the following value. ***
-            // **********************************************
-
-            // Replace the subscriptionKey string value with your valid subscription key.
-            const string subscriptionKey = "<subscription key>";
-
-            // This is the base uri for accessing the Text Translation API. We will be testing the /translate method.
-            const string uriBase = "https://api.microsofttranslator.us/v2/http.svc/translate?";
-
-            static void Main()
-            {
-                MainAsync().Wait();
-            }
-
-            private static async Task MainAsync()
-            {
-                // Replace the "text" variable with whatever text you want to translate
-                // Replace the "from" variable with the language that the "text" string is written in
-                // Replace the "to" variable with the language that you want the text to be translated into
-
-                string text = "elephants are cute";
-                string from = "en";
-                string to = "es";
-
-                //Formulating the uri to make a GET call to the API 
-                string uri = uriBase + "text=" + text + "&from=" + from + "&to=" + to;
-
-                //Declare an instance of the Token class
-                Token token = new Token();
-                //Retrieve the token
-                string accessToken = await token.GetToken(subscriptionKey);
-                // Make the GET call
-                HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(uri);
-                httpWebRequest.Headers.Add("Authorization", accessToken);
-                //Getting the JSON response
-                using (WebResponse response = httpWebRequest.GetResponse())
-                using (Stream stream = response.GetResponseStream())
-                {
-                    DataContractSerializer dcs = new DataContractSerializer(Type.GetType("System.String"));
-                    string translation = (string)dcs.ReadObject(stream);
-                    System.Console.WriteLine("Translation for source text '{0}' from {1} to {2} is", text, from, to);
-                    Console.WriteLine(translation);
-                    Console.ReadLine();
-                }
-
-            }
-
-        }
-    }
-```
-We are now going to create a Token.cs class that will contain our method for retrieving the access token to the Text Translation API.
-Right click on your project from Solution Explorer and add "New class". Copy and paste the code below into the Token.cs class.
-
-```c#
-using System;
-using System.Net;
+using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
+using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
+using System.Collections.Generic;
+using Microsoft.Rest;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json;
+using System.Text;
 
-namespace TextTranslationApp1
+namespace TextTranslator
 {
-    public class Token
+    class Program
     {
-        /// URL of the token service
-        /// Replace this url with your endpoint (the location should be the location of your resource group) and add the "IssueToken" at the end
-        private static readonly Uri ServiceUrl = new Uri("https://virginia.api.cognitive.microsoft.us/sts/v1.0/IssueToken");
+        static string host = "https://dev.microsofttranslator.us";
+        static string path = "/translate?api-version=3.0";
+        // Translate to German.
+        static string params_ = "&to=de";
 
-        /// Name of header used to pass the subscription key to the token service
-        private const string OcpApimSubscriptionKeyHeader = "Ocp-Apim-Subscription-Key";
+        static string uri = host + path + params_;
 
-        /// After obtaining a valid token, this class will cache it for this duration.
-        /// Use a duration of 5 minutes, which is less than the actual token lifetime of 10 minutes.
-        private static readonly TimeSpan TokenCacheDuration = new TimeSpan(0, 5, 0);
+        // NOTE: Replace this example key with a valid subscription key.
+        static string key = "PASTE KEY HERE";
 
-        /// Cache the value of the last valid token obtained from the token service.
-        public string _storedTokenValue = string.Empty;
+        static string text = "Hello world!";
 
-        /// When the last valid token was obtained.
-        private DateTime _storedTokenTime = DateTime.MinValue;
-
-
-        /// Gets the HTTP status code for the most recent request to the token service.
-        public HttpStatusCode RequestStatusCode
+        async static void Translate()
         {
-            get; private set;
-        }
-
-        // This method retrieves and caches an access token and generates a new one after 10 minutes, when the token expires. 
-        public async Task<string> GetToken(string SubscriptionKey)
-        {
-            if (string.IsNullOrWhiteSpace(SubscriptionKey))
-            {
-                return string.Empty;
-            }
-
-            // Re-use the cached token if there is one.
-            if ((DateTime.Now - _storedTokenTime) < TokenCacheDuration)
-            {
-                return _storedTokenValue;
-            }
+            System.Object[] body = new System.Object[] { new { Text = text } };
+            var requestBody = JsonConvert.SerializeObject(body);
 
             using (var client = new HttpClient())
             using (var request = new HttpRequestMessage())
             {
                 request.Method = HttpMethod.Post;
-                request.RequestUri = ServiceUrl;
-                request.Content = new StringContent(string.Empty);
-                request.Headers.TryAddWithoutValidation(OcpApimSubscriptionKeyHeader, SubscriptionKey);
-                client.Timeout = TimeSpan.FromMinutes(10);
+                request.RequestUri = new Uri(uri);
+                request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+
                 var response = await client.SendAsync(request);
-                this.RequestStatusCode = response.StatusCode;
-                response.EnsureSuccessStatusCode();
-                var token = await response.Content.ReadAsStringAsync();
-                _storedTokenTime = DateTime.Now;
-                _storedTokenValue = "Bearer " + token;
-                return _storedTokenValue;
+                var responseBody = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.SerializeObject(JsonConvert.DeserializeObject(responseBody), Formatting.Indented);
+
+                Console.OutputEncoding = UnicodeEncoding.UTF8;
+                Console.WriteLine(result);
             }
-        }       
+        }
+
+        static void Main(string[] args)
+        {
+            Translate();
+            Console.ReadLine();
+        }
     }
 }
-
 ```
-### Text Translation response
-
-An example of a successful response output from the console is shown below. 
-
-![success](./media/documentation-government-cognitiveservices-img6.png)
-
 For more information, please see [public documentation](../cognitive-services/translator/translator-info-overview.md) and [public API documentation](http://docs.microsofttranslator.com/text-translate.html) for Translator Text API.
 
 ### Next Steps

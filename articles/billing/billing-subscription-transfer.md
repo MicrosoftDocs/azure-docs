@@ -14,38 +14,18 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 08/15/2017
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ---
 # Transfer ownership of an Azure subscription to another account
 
-You can transfer your subscription to another user in the Account Center. Use this feature to hand over subscription billing ownership to someone else, change the sign-in account, or move subscription to a different directory. To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md).
+Transfer your subscription to another user in the Account Center to change the Account Admin and hand over subscription billing ownership. To change your subscription to a different offer, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md).
 
 > [!IMPORTANT]
 > 
-> Currently we don't support subscription transfers for Free Trial or [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscriptions. For a workaround, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
-
-<a id="supported"></a>
-
-## What's supported:
-
-Self-serve subscription transfer is available for the offers or subscription types listed in the following table. For transferring other subscriptions, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) or support plans, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-| Offer Name                                                                             | Offer Number |
-|----------------------------------------------------------------------------------------|--------------|
-| [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
-| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
-| [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
-| [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
-| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
-| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
-| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
-| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
-
-\* [Via the EA portal](#EA)
+> If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
 
 ## Transfer ownership of an Azure subscription
 
@@ -53,7 +33,7 @@ Self-serve subscription transfer is available for the offers or subscription typ
 >
 >
 
-1. Sign in at [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator. To find out who is the Account Administrator of the subscription, see [Frequently asked questions](#faq).
+1. Sign in at [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Admin. To find out who is the Account Admin of the subscription, see [Frequently asked questions](#faq).
 
 1. Select the subscription to transfer.
 
@@ -65,7 +45,12 @@ Self-serve subscription transfer is available for the offers or subscription typ
    ![Azure account subscriptions tab](./media/billing-subscription-transfer/image1.png)
 1. Specify the recipient.
 
+   > [!IMPORTANT]
+   > 
+   > If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
+
    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
+
 1. The recipient automatically gets an email with an acceptance link.
 
    ![Subscription transfer email to recipient](./media/billing-subscription-transfer/image3.png)
@@ -84,20 +69,39 @@ The Enterprise Administrator can transfer ownership of subscriptions within an e
 
 ## Next steps after accepting ownership of a subscription
 
-1. You are now the Account Administrator. Review and update the Service Administrator and Co-Administrators. Manage admins in the [Azure classic portal](https://manage.windowsazure.com) by going to Settings. [Learn more about administrator roles](billing-add-change-azure-subscription-administrator.md).
-1. You can also use role-based access control (RBAC) for your subscription and services. Visit the [Azure portal](https://portal.azure.com). [Learn more about RBAC](../active-directory/role-based-access-control-configure.md)
+1. You are now the Account Admin. Review and update the Service Admin, Co-Admins, and other RBAC roles. To learn more, see [Add or change Azure administrator roles that manage the subscription or services](billing-add-change-azure-subscription-administrator.md).
 1. Update credentials associated with this subscription's services including:
    1. Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
    1. Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md)
    1. Remote Access credentials for services like Azure Virtual Machines. 
 1. [Update billing alerts for this subscription](billing-set-up-alerts.md) at the [Azure Account Center](https://account.windowsazure.com/Subscriptions). 
-1. If you're working with a partner, consider updating the partner ID on this subscription. You can update the partner ID in the [Azure Account Center](https://account.windowsazure.com/Subscriptions).
+1. If you're working with a partner, consider updating the partner ID on this subscription. You can update the partner ID in the [Azure portal](https://portal.azure.com).
+
+<a id="supported"></a>
+
+## What's supported:
+
+Self-serve subscription transfer is available for the offers or subscription types listed in the following table. Currently you can't transfer a Free Trial or [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscriptions. For a workaround, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md). To transfer other subscriptions, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) or support plans, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+| Offer Name                                                                             | Offer Number |
+|----------------------------------------------------------------------------------------|--------------|
+| [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
+| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
+| [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
+| [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
+| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
+| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
+| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
+| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
+
+\* [Via the EA portal](#EA)
 
 <a id="faq"></a>
 
 ## Frequently asked questions (FAQ)
 
-### <a name="whoisaa"></a> Who is the account administrator of the subscription?
+### <a name="whoisaa"></a> Who is the Account Administrator of the subscription?
 
 The Account Administrator is the person who signed up for or bought the Azure subscription. They're authorized to access the [Account Center](https://account.azure.com/Subscriptions) and perform various management tasks like create subscriptions, cancel subscriptions, change the billing for a subscription, or change the Service Administrator. If you're not sure who the account administrator is for a subscription, use the following steps to find out.
 
@@ -107,7 +111,7 @@ The Account Administrator is the person who signed up for or bought the Azure su
 
 ### Does everything transfer? Including resource groups, VMs, disks, and other running services?
 
-Yes, all your resources like VMs, disks, and websites transfer to the new owner. However, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) policies you've set up do not transfer across different directories.
+All your resources like VMs, disks, and websites transfer to the new owner. However, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) policies you've set up do not transfer across different directories. Also, [app registrations](../active-directory//develop/active-directory-integrating-applications.md) and other tenant-specific services don't transfer along.
 
 ### <a id="no-button"></a> Why don't I see the "Transfer subscription" button?
 

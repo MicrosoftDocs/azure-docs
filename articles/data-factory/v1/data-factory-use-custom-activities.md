@@ -3,28 +3,28 @@ title: Use custom activities in an Azure Data Factory pipeline
 description: Learn how to create custom activities and use them in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: craigg
+
 
 ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/19/2017
-ms.author: spelluru
+ms.topic: conceptual
+ms.date: 01/10/2018
+ms.author: douglasl
 
 robots: noindex
 ---
 # Use custom activities in an Azure Data Factory pipeline
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-use-custom-activities.md)
-> * [Version 2 - Preview](../transform-data-using-dotnet-custom-activity.md)
+> * [Version 1](data-factory-use-custom-activities.md)
+> * [Version 2 (current version)](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Custom activities in V2](../transform-data-using-dotnet-custom-activity.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Custom activities in V2](../transform-data-using-dotnet-custom-activity.md).
 
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 
@@ -33,12 +33,11 @@ There are two types of activities that you can use in an Azure Data Factory pipe
 
 To move data to/from a data store that Data Factory does not support, create a **custom activity** with your own data movement logic and use the activity in a pipeline. Similarly, to transform/process data in a way that isn't supported by Data Factory, create a custom activity with your own data transformation logic and use the activity in a pipeline. 
 
-You can configure a custom activity to run on an **Azure Batch** pool of virtual machines or a Windows-based **Azure HDInsight** cluster. When using Azure Batch, you can use only an existing Azure Batch pool. Whereas, when using HDInsight, you can use an existing HDInsight cluster or a cluster that is automatically created for you on-demand at runtime.  
+You can configure a custom activity to run on an **Azure Batch** pool of virtual machines. When using Azure Batch, you can use only an existing Azure Batch pool.
 
-The following walkthrough provides step-by-step instructions for creating a custom .NET activity and using the custom activity in a pipeline. The walkthrough uses an **Azure Batch** linked service. To use an Azure HDInsight linked service instead, you create a linked service of type **HDInsight** (your own HDInsight cluster) or **HDInsightOnDemand** (Data Factory creates an HDInsight cluster on-demand). Then, configure custom activity to use the HDInsight linked service. See [Use Azure HDInsight linked services](#use-hdinsight-compute-service) section for details on using Azure HDInsight to run the custom activity.
+The following walkthrough provides step-by-step instructions for creating a custom .NET activity and using the custom activity in a pipeline. The walkthrough uses an **Azure Batch** linked service. 
 
 > [!IMPORTANT]
-> - The custom .NET activities run only on Windows-based HDInsight clusters. A workaround for this limitation is to use the Map Reduce Activity to run custom Java code on a Linux-based HDInsight cluster. Another option is to use an Azure Batch pool of VMs to run custom activities instead of using a HDInsight cluster.
 > - It is not possible to use a Data Management Gateway from a custom activity to access on-premises data sources. Currently, [Data Management Gateway](data-factory-data-management-gateway.md) supports only the copy activity and stored procedure activity in Data Factory.   
 
 ## Walkthrough: create a custom activity
@@ -110,7 +109,9 @@ The method returns a dictionary that can be used to chain custom activities toge
      <li>Select <b>C:\ADFGetStarted</b> for the <b>Location</b>.</li>
      <li>Click <b>OK</b> to create the project.</li>
    </ol>
+   
 2. Click **Tools**, point to **NuGet Package Manager**, and click **Package Manager Console**.
+
 3. In the Package Manager Console, execute the following command to import **Microsoft.Azure.Management.DataFactories**.
 
 	```PowerShell
@@ -417,7 +418,7 @@ Here are the steps you perform in this section:
 
 ### Step 1: Create the data factory
 1. After logging in to the Azure portal, do the following steps:
-   1. Click **NEW** on the left menu.
+   1. Click **Create a resource** on the left menu.
    2. Click **Data + Analytics** in the **New** blade.
    3. Click **Data Factory** on the **Data analytics** blade.
    
@@ -476,8 +477,6 @@ Linked services link data stores or compute services to an Azure data factory. I
 
        For the **poolName** property, you can also specify the ID of the pool instead of the name of the pool.
 
-      > [!IMPORTANT]
-      > The Data Factory service does not support an on-demand option for Azure Batch as it does for HDInsight. You can only use your own Azure Batch pool in an Azure data factory.   
     
 
 ### Step 3: Create datasets
@@ -783,115 +782,6 @@ See [Automatically scale compute nodes in an Azure Batch pool](../../batch/batch
 
 If the pool is using the default [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), the Batch service could take 15-30 minutes to prepare the VM before running the custom activity.  If the pool is using a different autoScaleEvaluationInterval, the Batch service could take autoScaleEvaluationInterval + 10 minutes.
 
-## Use HDInsight compute service
-In the walkthrough, you used Azure Batch compute to run the custom activity. You can also use your own Windows-based HDInsight cluster or have Data Factory create an on-demand Windows-based HDInsight cluster and have the custom activity run on the HDInsight cluster. Here are the high-level steps for using an HDInsight cluster.
-
-> [!IMPORTANT]
-> The custom .NET activities run only on Windows-based HDInsight clusters. A workaround for this limitation is to use the Map Reduce Activity to run custom Java code on a Linux-based HDInsight cluster. Another option is to use an Azure Batch pool of VMs to run custom activities instead of using a HDInsight cluster.
- 
-
-1. Create an Azure HDInsight linked service.   
-2. Use HDInsight linked service in place of **AzureBatchLinkedService** in the pipeline JSON.
-
-If you want to test it with the walkthrough, change **start** and **end** times for the pipeline so that you can test the scenario with the Azure HDInsight service.
-
-#### Create Azure HDInsight linked service
-The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, if you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster.
-
-> [!NOTE]
-> At runtime, an instance of a .NET activity runs only on one worker node in the HDInsight cluster; it cannot be scaled to run on multiple nodes. Multiple instances of .NET activity can run in parallel on different nodes of the HDInsight cluster.
->
->
-
-##### To use an on-demand HDInsight cluster
-1. In the **Azure portal**, click **Author and Deploy** in the Data Factory home page.
-2. In the Data Factory Editor, click **New compute** from the command bar and select **On-demand HDInsight cluster** from the menu.
-3. Make the following changes to the JSON script:
-
-   1. For the **clusterSize** property, specify the size of the HDInsight cluster.
-   2. For the **timeToLive** property, specify how long the customer can be idle before it is deleted.
-   3. For the **version** property, specify the HDInsight version you want to use. If you exclude this property, the latest version is used.  
-   4. For the **linkedServiceName**, specify **AzureStorageLinkedService**.
-
-		```JSON
-		{
-		   "name": "HDInsightOnDemandLinkedService",
-		   "properties": {
-		       "type": "HDInsightOnDemand",
-		       "typeProperties": {
-		           "clusterSize": 4,
-		           "timeToLive": "00:05:00",
-		           "osType": "Windows",
-		           "linkedServiceName": "AzureStorageLinkedService",
-		       }
-		   }
-		}
-		```
-
-	> [!IMPORTANT]
-	> The custom .NET activities run only on Windows-based HDInsight clusters. A workaround for this limitation is to use the Map Reduce Activity to run custom Java code on a Linux-based HDInsight cluster. Another option is to use an Azure Batch pool of VMs to run custom activities instead of using a HDInsight cluster.
-
-4. Click **Deploy** on the command bar to deploy the linked service.
-
-##### To use your own HDInsight cluster:
-1. In the **Azure portal**, click **Author and Deploy** in the Data Factory home page.
-2. In the **Data Factory Editor**, click **New compute** from the command bar and select **HDInsight cluster** from the menu.
-3. Make the following changes to the JSON script:
-
-   1. For the **clusterUri** property, enter the URL for your HDInsight. For example: https://<clustername>.azurehdinsight.net/     
-   2. For the **UserName** property, enter the user name who has access to the HDInsight cluster.
-   3. For the **Password** property, enter the password for the user.
-   4. For the **LinkedServiceName** property, enter **AzureStorageLinkedService**.
-4. Click **Deploy** on the command bar to deploy the linked service.
-
-See [Compute linked services](data-factory-compute-linked-services.md) for details.
-
-In the **pipeline JSON**, use HDInsight (on-demand or your own) linked service:
-
-```JSON
-{
-  "name": "ADFTutorialPipelineCustom",
-  "properties": {
-    "description": "Use custom activity",
-    "activities": [
-      {
-        "Name": "MyDotNetActivity",
-        "Type": "DotNetActivity",
-        "Inputs": [
-          {
-            "Name": "InputDataset"
-          }
-        ],
-        "Outputs": [
-          {
-            "Name": "OutputDataset"
-          }
-        ],
-        "LinkedServiceName": "HDInsightOnDemandLinkedService",
-        "typeProperties": {
-          "AssemblyName": "MyDotNetActivity.dll",
-          "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-          "PackageLinkedService": "AzureStorageLinkedService",
-          "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-          "extendedProperties": {
-            "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))"
-          }
-        },
-        "Policy": {
-          "Concurrency": 2,
-          "ExecutionPriorityOrder": "OldestFirst",
-          "Retry": 3,
-          "Timeout": "00:30:00",
-          "Delay": "00:00:00"
-        }
-      }
-    ],
-    "start": "2016-11-16T00:00:00Z",
-    "end": "2016-11-16T05:00:00Z",
-    "isPaused": false
-  }
-}
-```
 
 ## Create a custom activity by using .NET SDK
 In the walkthrough in this article, you create a data factory with a pipeline that uses the custom activity by using the Azure portal. The following code shows you how to create the data factory by using .NET SDK instead. You can find more details about using SDK to programmatically create pipelines in the [create a pipeline with copy activity by using .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md) article. 

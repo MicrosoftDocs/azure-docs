@@ -4,10 +4,9 @@ description: Shows how to page through all of the images that Bing can return.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 3C8423F8-41E0-4F89-86B6-697E840610A7
 ms.service: cognitive-services
-ms.technology: bing-image-search
+ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi

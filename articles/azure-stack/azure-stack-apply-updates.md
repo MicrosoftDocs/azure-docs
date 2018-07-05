@@ -3,8 +3,8 @@ title: Apply updates in Azure Stack | Microsoft Docs
 description: Learn how to import and install Microsoft update packages for an Azure Stack integrated system.
 services: azure-stack
 documentationcenter: ''
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: twooley
+ms.author: mabrigg
 
 ---
 
@@ -65,7 +65,7 @@ The following procedure shows how to import and install update packages in the a
  
     ![Shows where to upload each package file](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Repeat steps 6 and 7 for the *PackageName*.bin and Metadata.xml files. 
+8. Repeat steps 6 and 7 for the *PackageName*.bin and Metadata.xml files. Do not import the Supplemental Notice.txt file if included.
 9. When done, you can review the notifications (bell icon in the top-right corner of the portal). The notifications should indicate that the upload has completed. 
 10. Navigate back to the Update tile on the dashboard. The tile should indicate that an update is available. Click the tile to review the newly added update package.
 11. To install the update, select the package that's marked as **Ready** and either right-click the package and select **Update now**, or click the **Update now** action near the top.

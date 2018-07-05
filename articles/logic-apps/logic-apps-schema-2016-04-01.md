@@ -2,7 +2,7 @@
 title: Schema updates June-1-2016 - Azure Logic Apps | Microsoft Docs
 description: Create JSON definitions for Azure Logic Apps with schema version 2016-06-01
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -20,17 +20,18 @@ ms.author: LADocs; jehollan
 ---
 # Schema updates for Azure Logic Apps - June 1, 2016
 
-This new schema and API version for Azure Logic Apps includes key improvements that make logic apps 
-more reliable and easier to use:
+The [updated schema](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) 
+and API version for Azure Logic Apps includes key improvements that make logic apps more reliable and easier to use:
 
 * [Scopes](#scopes) let you group or nest actions as a collection of actions.
 * [Conditions and loops](#conditions-loops) are now first-class actions.
 * More precise ordering for running actions with the `runAfter` property, replacing `dependsOn`
 
 To upgrade your logic apps from the August 1, 2015 preview schema to the June 1, 2016 schema, 
-[check out the upgrade section](##upgrade-your-schema).
+[check out the upgrade section](#upgrade-your-schema).
 
 <a name="scopes"></a>
+
 ## Scopes
 
 This schema includes scopes, which let you group actions together, 
@@ -59,6 +60,7 @@ or review this basic scope example:
 ```
 
 <a name="conditions-loops"></a>
+
 ## Conditions and loops changes
 
 In previous schema versions, 
@@ -92,6 +94,7 @@ or review this basic example for a condition action:
 ```
 
 <a name="run-after"></a>
+
 ## 'runAfter' property
 
 The `runAfter` property replaces `dependsOn`, 
@@ -119,10 +122,9 @@ step B succeeds or fails, you construct this `runAfter` property:
 
 ## Upgrade your schema
 
-Upgrading to the new schema only takes a few steps. 
-The upgrade process includes running the upgrade script, 
-saving as a new logic app, and if you want, 
-possibly overwriting the previous logic app.
+To upgrade to the [most recent schema](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json), 
+you need only take a few steps. The upgrade process includes running the upgrade script, 
+saving as a new logic app, and if you want, possibly overwriting the previous logic app.
 
 1. In the Azure portal, open your logic app.
 

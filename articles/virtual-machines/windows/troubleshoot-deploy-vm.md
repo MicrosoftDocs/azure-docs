@@ -4,7 +4,7 @@ description: Troubleshoot deploying Windows virtual machine issues in Azurethe R
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -13,8 +13,8 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 06/22/2017
+ms.topic: article
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -93,10 +93,6 @@ Drivers for Windows-based VMs are located [here](n-series-driver-setup.md).
 
 To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server 2016 or Windows Server 2012 R2, you must install NVIDIA graphics drivers on each VM after deployment. Driver setup information is available for [Windows VMs](n-series-driver-setup.md) and [Linux VMs](../linux/n-series-driver-setup.md).
 
-## Are client images supported for N-Series?
-
-Currently, Azure only supports N-Series on VMs running Windows Server and Linux operating systems.
-
 ## Is N-Series VMs available in my region?
 
 You can check the availability from the [Products available by region table](https://azure.microsoft.com/regions/services), and pricing [here](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
@@ -124,7 +120,7 @@ Choose a size that is supported on the availability set's cluster. It is recomme
 
 ## Can I add an existing Classic VM to an availability set?
 
-Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](classic/configure-availability.md#addmachine).
+Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](classic/configure-availability-classic.md#addmachine).
 
 
 ## Next steps

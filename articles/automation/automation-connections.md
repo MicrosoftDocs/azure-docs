@@ -1,20 +1,14 @@
 ---
-title: Connection assets in Azure Automation | Microsoft Docs
+title: Connection assets in Azure Automation
 description: Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook or DSC configuration. This article explains the details of connections and how to work with them in both textual and graphical authoring.
 services: automation
-documentationcenter: ''
-author: eslesar
-manager: jwhit
-editor: tysonn
-
-ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/13/2017
-ms.author: magoedte; bwren
+ms.component: shared-capabilities
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
+ms.topic: conceptual
+manager: carmonm
 ---
 
 # Connection assets in Azure Automation
@@ -23,8 +17,8 @@ An Automation connection asset contains the information required to connect to a
 
 When you create a connection, you must specify a *connection type*. The connection type is a template that defines a set of properties. The connection defines values for each property defined in its connection type. Connection types are added to Azure Automation in integration modules or created with the [Azure Automation API](http://msdn.microsoft.com/library/azure/mt163818.aspx) if the integration module includes a connection type and is imported into your Automation account. Otherwise, you will need to create a metadata file to specify an Automation connection type.  For further information regarding this, see [Integration Modules](automation-integration-modules.md).  
 
->[!NOTE] 
->Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in the Azure Automation using a unique key that is generated for each automation account. This key is encrypted by a master certificate and stored in Azure Automation. Before storing a secure asset, the key for the automation account is decrypted using the master certificate and then used to encrypt the asset.
+>[!NOTE]
+>Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each automation account. This key is stored in Key Vault. Before storing a secure asset, the key is loaded from Key Vault and then used to encrypt the asset.
 
 ## Windows PowerShell Cmdlets
 
@@ -69,25 +63,19 @@ The function in the following table is used to access connections in a Python2 r
 4. In the **Type** dropdown, select the type of connection you want to create. The form will present the properties for that particular type.
 5. Complete the form and click **Create** to save the new connection.
 
-### To create a new connection with the Azure classic portal
-
-1. From your automation account, click **Assets** at the top of the window.
-2. At the bottom of the window, click **Add Setting**.
-3. Click **Add Connection**.
-4. In the **Connection Type** dropdown, select the type of connection you want to create.  The wizard will present the properties for that particular type.
-5. Complete the wizard and click the checkbox to save the new connection.
-
 ### To create a new connection with Windows PowerShell
 
 Create a new connection with Windows PowerShell using the [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet. This cmdlet has a parameter named **ConnectionFieldValues** that expects a [hash table](http://technet.microsoft.com/library/hh847780.aspx) defining values for each of the properties defined by the connection type.
 
 If you are familiar with the Automation [Run As account](automation-sec-configure-azure-runas-account.md) to authenticate runbooks using the service principal, the PowerShell script, provided as an alternative to creating the Run As account from the portal, creates a new connection asset using the following sample commands.  
 
-    $ConnectionAssetName = "AzureRunAsConnection"
-    $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
-    New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+```powershell
+$ConnectionAssetName = "AzureRunAsConnection"
+$ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
+New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
+```
 
-You are able to use the script to create the connection asset because when you create your Automation account, it automatically includes several global modules by default along with the connection type **AzurServicePrincipal** to create the **AzureRunAsConnection** connection asset.  This is important to keep in mind, because if you attempt to create a new connection asset to connect to a service or application with a different authentication method, it will fail because the connection type is not already defined in your Automation account.  For further information on how to create your own connection type for your custom or module from the [PowerShell Gallery](https://www.powershellgallery.com), see [Integration Modules](automation-integration-modules.md)
+You are able to use the script to create the connection asset because when you create your Automation account, it automatically includes several global modules by default along with the connection type **AzureServicePrincipal** to create the **AzureRunAsConnection** connection asset.  This is important to keep in mind, because if you attempt to create a new connection asset to connect to a service or application with a different authentication method, it will fail because the connection type is not already defined in your Automation account.  For further information on how to create your own connection type for your custom or module from the [PowerShell Gallery](https://www.powershellgallery.com), see [Integration Modules](automation-integration-modules.md)
   
 ## Using a connection in a runbook or DSC configuration
 
@@ -97,8 +85,13 @@ You retrieve a connection in a runbook or DSC configuration with the **Get-Autom
 
 The following sample commands show how to use the Run As account mentioned earlier, to authenticate with Azure Resource Manager resources in your runbook.  It uses the connection asset representing the Run As account, which references the certificate-based service principal, not credentials.  
 
-    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint 
+```powershell
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+```
+
+> [!IMPORTANT]
+> **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can update your modules in your Automation Account.
 
 ### Graphical runbook samples
 
@@ -113,43 +106,43 @@ The following image shows an example of using a connection in a graphical runboo
 ### Python2 runbook sample
 The following sample shows how to authenticate using the Run As connection in a Python2 runbook.
 
-    """ Tutorial to show how to authenticate against Azure resource manager resources """
-    import azure.mgmt.resource
-    import automationassets
+```python
+""" Tutorial to show how to authenticate against Azure resource manager resources """
+import azure.mgmt.resource
+import automationassets
 
+def get_automation_runas_credential(runas_connection):
+  """ Returns credentials to authenticate against Azure resoruce manager """
+  from OpenSSL import crypto
+  from msrestazure import azure_active_directory
+  import adal
 
-    def get_automation_runas_credential(runas_connection):
-        """ Returns credentials to authenticate against Azure resoruce manager """
-        from OpenSSL import crypto
-        from msrestazure import azure_active_directory
-        import adal
+  # Get the Azure Automation Run As service principal certificate
+  cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+  pks12_cert = crypto.load_pkcs12(cert)
+  pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
 
-        # Get the Azure Automation Run As service principal certificate
-        cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
-        pks12_cert = crypto.load_pkcs12(cert)
-        pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
+  # Get Run As connection information for the Azure Automation service principal
+  application_id = runas_connection["ApplicationId"]
+  thumbprint = runas_connection["CertificateThumbprint"]
+  tenant_id = runas_connection["TenantId"]
 
-        # Get Run As connection information for the Azure Automation service principal
-        application_id = runas_connection["ApplicationId"]
-        thumbprint = runas_connection["CertificateThumbprint"]
-        tenant_id = runas_connection["TenantId"]
+  # Authenticate with service principal certificate
+  resource = "https://management.core.windows.net/"
+  authority_url = ("https://login.microsoftonline.com/" + tenant_id)
+  context = adal.AuthenticationContext(authority_url)
+  return azure_active_directory.AdalAuthentication(
+    lambda: context.acquire_token_with_client_certificate(
+      resource,
+      application_id,
+      pem_pkey,
+      thumbprint)
+  )
 
-        # Authenticate with service principal certificate
-        resource = "https://management.core.windows.net/"
-        authority_url = ("https://login.microsoftonline.com/" + tenant_id)
-        context = adal.AuthenticationContext(authority_url)
-        return azure_active_directory.AdalAuthentication(
-            lambda: context.acquire_token_with_client_certificate(
-                resource,
-                application_id,
-                pem_pkey,
-                thumbprint)
-        )
-
-
-    # Authenticate to Azure using the Azure Automation Run As service principal
-    runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
-    azure_credential = get_automation_runas_credential(runas_connection)
+# Authenticate to Azure using the Azure Automation Run As service principal
+runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
+azure_credential = get_automation_runas_credential(runas_connection)
+```
 
 ## Next steps
 

@@ -1,10 +1,10 @@
-﻿---
+---
 title: Upload a generalized VHD to Azure PowerShell Script Sample | Microsoft Docs
 description: PowerShell sample script to upload a generalized VHD to Azure and create a new VM using the resource manager deployment model and Managed Disks.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/18/2017
+ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -47,7 +47,6 @@ $ipName = 'myPip'
 $nicName = 'myNic'
 $nsgName = 'myNsg'
 $ruleName = 'myRdpRule'
-$vmName = 'myVM'
 $computerName = 'myComputerName'
 $vmSize = 'Standard_DS1_v2'
 
@@ -78,13 +77,13 @@ $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGr
 	-AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
 $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $resourceGroup -Location $location `
     -AllocationMethod Dynamic
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroup -Location $location `
-	-SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name $ruleName -Description 'Allow RDP' -Access Allow `
 	-Protocol Tcp -Direction Inbound -Priority 110 -SourceAddressPrefix Internet -SourcePortRange * `
 	-DestinationAddressPrefix * -DestinationPortRange 3389
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
 	-Name $nsgName -SecurityRules $rdpRule
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroup -Location $location `
+	-SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
 
 # Start building the VM configuration

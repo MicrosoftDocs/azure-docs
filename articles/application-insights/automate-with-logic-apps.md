@@ -3,15 +3,15 @@ title: Automate Azure Application Insights processes by using Logic Apps.
 description: Learn how you can quickly automate repeatable processes by adding the Application Insights connector to your logic app.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/29/2017
-ms.author: bwren
+ms.author: mbullwin
 ---
 
 # Automate Application Insights processes by using Logic Apps
@@ -28,7 +28,7 @@ In this tutorial, you learn how to create a logic app that uses the Analytics au
 
 ### Step 1: Create a logic app
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the **New** pane, select **Web + Mobile**, and then select **Logic App**.
+2. Click **Create a resource**, select **Web + Mobile**, and then select **Logic App**.
 
     ![New logic app window](./media/automate-with-logic-apps/logicapp1.png)
 

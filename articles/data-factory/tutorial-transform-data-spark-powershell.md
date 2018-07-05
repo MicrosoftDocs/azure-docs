@@ -1,28 +1,20 @@
----
-title: Transform data using Spark in Azure Data Factory | Microsoft Docs
-description: This tutorial provides step-by-step instructions for transforming data by using Spark Activity in Azure Data Factory.
+﻿---
+title: 'Transform data using Spark in Azure Data Factory | Microsoft Docs'
+description: 'This tutorial provides step-by-step instructions for transforming data by using Spark Activity in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: shengcmsft
-manager: jhubbard
-editor: spelluru
+author: douglaslMS
+manager: craigg
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/10/2017
-ms.author: shengc
-
+ms.date: 01/22/2018
+ms.author: douglasl
 ---
-
 # Transform data in the cloud by using Spark activity in Azure Data Factory
-Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 In this tutorial, you use Azure PowerShell to create a Data Factory pipeline that transforms data using Spark Activity and an on-demand HDInsight linked service. You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
@@ -188,18 +180,26 @@ You have authored linked service and pipeline definitions in JSON files. Now, le
 
 1. Set variables one by one.
 
+    **Resource Group Name**
     ```powershell
-    $subscriptionID = "<subscription ID>" # Your Azure subscription ID
-    $resourceGroupName = "ADFTutorialResourceGroup" # Name of the resource group
-    $dataFactoryName = "MyDataFactory09102017" # Globally unique name of the data factory
+    $resourceGroupName = "ADFTutorialResourceGroup" 
+    ```
+
+    **Data Factory Name. Must be globally unique** 
+    ```powershell
+    $dataFactoryName = "MyDataFactory09102017"
+    ```
+    
+    **Pipeline name**
+    ```powershell
     $pipelineName = "MySparkOnDemandPipeline" # Name of the pipeline
     ```
-2. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again.
+2. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
     Run the following command to view all the subscriptions for this account:
 

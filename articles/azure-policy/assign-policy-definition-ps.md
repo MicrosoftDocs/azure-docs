@@ -1,98 +1,115 @@
 ---
-title: Use PowerShell to create a policy assignment to identify non-compliant resources in your Azure environment | Microsoft Docs 
-description: Use PowerShell to create an Azure Policy assignment to identify non-compliant resources.
-services: azure-policy 
-keywords: 
-author: Jim-Parker
-ms.author: jimpark
-ms.date: 10/06/2017
+title: Quickstart - Use PowerShell to create a policy assignment to identify non-compliant resources in your Azure environment
+description: In this quickstart, you use PowerShell to create an Azure Policy assignment to identify non-compliant resources.
+services: azure-policy
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 05/24/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
+manager: carmonm
 ---
+# Quickstart: Create a policy assignment to identify non-compliant resources using the Azure RM PowerShell module
 
-# Create a policy assignment to identify non-compliant resources in your Azure environment using PowerShell
+The first step in understanding compliance in Azure is to identify the status of your resources. In this quickstart, you create a policy assignment to identify virtual machines that are not using managed disks. When complete, you'll identify virtual machines that are *non-compliant* with the policy assignment.
 
-The first step in understanding compliance in Azure is knowing where you stand with your current resources. This quickstart steps you through the process of creating a policy assignment to identify non-compliant resources with the policy definition – *Require SQL Server version 12.0*. At the end of this process, you have successfully identified what servers are of a different version, or non-compliant.
-
-PowerShell is used to create and manage Azure resources from the command line or in scripts. This guide details using PowerShell to create a policy assignment to identify non-compliant resources in your Azure environment.
-
-This guide requires the Azure PowerShell module version 4.0 or later. Run ```Get-Module -ListAvailable AzureRM``` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
-
-Before you start, make sure that the latest version of PowerShell is installed. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+The AzureRM PowerShell module is used to create and manage Azure resources from the command line or in scripts. This guide explains how to use AzureRM to create a policy assignment. The policy identifies non-compliant resources in your Azure environment.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Opt in to Azure Policy
+## Prerequisites
 
-Azure Policy is now available in Limited Preview, so you need to register to request access.
+- If you haven't already, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's a tool that sends HTTP requests to Azure Resource Manager-based APIs.
+- Before you start, make sure that the latest version of PowerShell is installed. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for detailed information.
+- Update your AzureRM PowerShell module to the latest version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+- Register the Policy Insights resource provider using Azure PowerShell. Registering the resource provider makes sure that your subscription works with it. To register a resource provider, you must have permission to perform the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
 
-1. Go to Azure Policy at https://aka.ms/getpolicy and select **Sign Up** in the left pane.
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
+  ```
 
-   ![Search for policy](media/assign-policy-definition/sign-up.png)
-
-2. Opt in to Azure Policy by selecting the subscriptions in the **Subscription** list you would like to work with. Then select **Register**.
-
-   ![Opt in to use Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   It may take a couple of days for us to accept your registration request, based on demand. Once your request gets accepted, you will be notified via email that you can begin using the service.
+  For more information about registering and viewing resource providers, see [Resource Providers and Types](../azure-resource-manager/resource-manager-supported-services.md)
 
 ## Create a policy assignment
 
-In this quickstart, we create a policy assignment and assign the *Require SQL Server Version 12.0* definition. This policy definition will identify resources that do not comply with the conditions set in the policy definition.
+In this quickstart, you create a policy assignment and assign the *Audit Virtual Machines without Managed Disks* definition. This policy definition identifies resources that don't comply with the conditions set in the policy definition.
 
-Follow these steps to create a new policy assignment.
+Run the following commands to create a new policy assignment:
 
-Run the following command to view all policy definitions and find the one you would like to assign:
-
-```powershell
-$definition = Get-AzureRmPolicyDefinition
+```azurepowershell-interactive
+$rg = Get-AzureRmResourceGroup -Name '<resourceGroupName>'
+$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
+New-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit Virtual Machines without Managed Disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
-Azure Policy comes with already built-in policy definitions you can use. You will see built-in policy definitions such as:
+The preceding commands use the following information:
 
-- Enforce tag and its value
-- Apply tag and its value
-- Require SQL Server Version 12.0
-
-Next, assign the policy definition to the desired scope by using the `New-AzureRmPolicyAssignment` cmdlet.
-
-For this tutorial, we are providing the following information for the command:
-- Display **Name** for the policy assignment. In this case, let’s use Require SQL Server version 12.0 Assignment.
-- **Policy** – This is the policy definition, based off which you’re using to create the assignment. In this case, it is the policy definition – *Require SQL Server version 12.0*
-- A **scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups. In this example, we are assigning the policy definition to the **FabrikamOMS** resource group.
-- **$definition** – You need to provide the resource ID of the policy definition – In this case, we’re using the ID for the policy definition - *Require SQL Server 12.0*.
-
-```powershell
-$rg = Get-AzureRmResourceGroup -Name "FabrikamOMS"
-$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
-New-AzureRMPolicyAssignment -Name Require SQL Server version 12.0 Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
-```
+- **Name** - The actual name of the assignment.  For this example, *audit-vm-manageddisks* was used.
+- **DisplayName** - Display name for the policy assignment. In this case, you're using *Audit Virtual Machines without Managed Disks Assignment*.
+- **Definition** – The policy definition, based on which you're using to create the assignment. In this case, it is the ID of policy definition *Audit VMs that do not use managed disks*.
+- **Scope** - A scope determines what resources or grouping of resources the policy assignment gets enforced on. It could range from a subscription to resource groups. Be sure to replace &lt;scope&gt; with the name of your resource group.
 
 You’re now ready to identify non-compliant resources to understand the compliance state of your environment.
 
 ## Identify non-compliant resources
 
-1. Navigate back to the Azure Policy landing page.
-2. Select **Compliance** on the left pane, and search for the **Policy Assignment** you created.
+Use the following information to identify resources that aren't compliant with the policy assignment you created. Run the following commands:
 
-   ![Policy compliance](media/assign-policy-definition/policy-compliance.png)
+```azurepowershell-interactive
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks Assignment' }
+$policyAssignment.PolicyAssignmentId
+```
 
-   If there are any existing resources that are not compliant with this new assignment, they will show up under the **Non-compliant resources** tab, as shown above.
+For more information about policy assignment IDs, see [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/get-azurermpolicyassignment).
+
+Next, run the following command to get the resource IDs of the non-compliant resources that are output into a JSON file:
+
+```
+armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+```
+
+Your results resemble the following example:
+
+```json
+{
+    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
+    "@odata.count": 3,
+    "value": [{
+            "@odata.id": null,
+            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
+        },
+        {
+            "@odata.id": null,
+            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
+        },
+        {
+            "@odata.id": null,
+            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
+            "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3ID>"
+        }
+
+    ]
+}
+```
+
+The results are comparable to what you'd typically see listed under **Non-compliant resources** in the Azure portal view.
 
 ## Clean up resources
 
-Other guides in this collection build upon this quickstart. If you plan to continue to work with subsequent tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, delete the assignment you created by running this command:
+Subsequent guides in this collection build on this quickstart. If you plan to continue to work with other tutorials, do not clean up the resources created in this quickstart. If you don't plan to continue, you can delete the assignment you created by running this command:
 
-```powershell
-Remove-AzureRmPolicyAssignment -Name “Require SQL Server version 12.0 Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
+```azurepowershell-interactive
+Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 
 ## Next steps
 
-In this quick start, you assigned a policy definition to identify non-compliant resources in your Azure environment.
+In this quickstart, you assigned a policy definition to identify non-compliant resources in your Azure environment.
 
-To learn more about assigning policies, to ensure that **future** resources that get created are compliant, continue to the tutorial for:
+To learn more about assigning policies and ensure that **future** resources that get created are compliant, continue to the tutorial for:
 
 > [!div class="nextstepaction"]
-> [Creating and managing policies](./create-manage-policy.md)
+> [Creating and managing policies](create-manage-policy.md)

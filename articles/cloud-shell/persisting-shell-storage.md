@@ -1,5 +1,5 @@
 ---
-title: Persist files for Bash in Azure Cloud Shell (Preview) | Microsoft Docs
+title: Persist files for Bash in Azure Cloud Shell | Microsoft Docs
 description: Walkthrough of how Bash in Azure Cloud Shell persists files.
 services: azure
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 06/06/2018
 ms.author: juluk
 ---
 
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## How Cloud Shell storage works 
 Cloud Shell persists files through both of the following methods: 
@@ -27,20 +27,22 @@ Cloud Shell persists files through both of the following methods:
 > [!NOTE]
 > All files in your `$Home` directory, such as SSH keys, are persisted in your user disk image, which is stored in your mounted file share. Apply best practices when you persist information in your `$Home` directory and mounted file share.
 
-## Use the `clouddrive` command
+## Bash-specific commands
+
+### Use the `clouddrive` command
 With Bash in Cloud Shell, you can run a command called `clouddrive`, which enables you to manually update the file share that is mounted to Cloud Shell.
 ![Running the "clouddrive" command](media/persisting-shell-storage/clouddrive-h.png)
 
-## Mount a new clouddrive
+### Mount a new clouddrive
 
-### Prerequisites for manual mounting
+#### Prerequisites for manual mounting
 You can update the file share that's associated with Cloud Shell by using the `clouddrive mount` command.
 
 If you mount an existing file share, the storage accounts must be:
 * Locally redundant storage or geo-redundant storage to support file shares.
 * Located in your assigned region. When you are onboarding, the region you are assigned to is listed in the resource group name `cloud-shell-storage-<region>`.
 
-### The clouddrive mount command
+#### The `clouddrive mount` command
 
 > [!NOTE]
 > If you're mounting a new file share, a new user image is created for your `$Home` directory. Your previous `$Home` image is kept in your previous file share.
@@ -55,7 +57,7 @@ To view more details, run `clouddrive mount -h`, as shown here:
 
 ![Running the `clouddrive mount`command](media/persisting-shell-storage/mount-h.png)
 
-## Unmount clouddrive
+### Unmount clouddrive
 You can unmount a file share that's mounted to Cloud Shell at any time. Since Cloud Shell requires a mounted file share to be used, you will be prompted to create and mount another file share on the next session.
 
 1. Run `clouddrive unmount`.
@@ -66,12 +68,12 @@ Your file share will continue to exist unless you delete it manually. Cloud Shel
 ![Running the `clouddrive unmount`command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Although running this command will not delete any resources, manually deleting a resource group, storage account, or file share that's mapped to Cloud Shell will erase your `$Home` directory disk image and any files in your file share. This action cannot be undone.
+> Although running this command will not delete any resources, manually deleting a resource group, storage account, or file share that's mapped to Cloud Shell erases your `$Home` directory disk image and any files in your file share. This action cannot be undone.
 
-## List `clouddrive`
+### List `clouddrive`
 To discover which file share is mounted as `clouddrive`, run the `df` command. 
 
-The file path to clouddrive will show your storage account name and file share in the URL. For example, `//storageaccountname.file.core.windows.net/filesharename`
+The file path to clouddrive shows your storage account name and file share in the URL. For example, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -84,10 +86,22 @@ shm                                                    65536       0      65536 
 //mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
 justin@Azure:~$
 ```
+## PowerShell-specific commands
 
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+### List `clouddrive` Azure file shares
+The `Get-CloudDrive` cmdlet retrieves the Azure file share information currently mounted by the `clouddrive` in the Cloud Shell. <br>
+![Running Get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
+
+### Unmount `clouddrive`
+You can unmount an Azure file share that's mounted to Cloud Shell at any time. If the Azure file share has been removed, you will be prompted to create and mount a new Azure file share at the next session.
+
+The `Dismount-CloudDrive` cmdlet unmounts an Azure file share from the current storage account. Dismounting the `clouddrive` terminates the current session. The user will be prompted to create and mount a new Azure file share during the next session.
+![Running Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
+
+[!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## Next steps
-[Cloud Shell Quickstart](quickstart.md) <br>
-[Learn about Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Bash in Cloud Shell Quickstart](quickstart.md) <br>
+[PowerShell in Cloud Shell Quickstart](quickstart-powershell.md) <br>
+[Learn about Microsoft Azure Files storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Learn about storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

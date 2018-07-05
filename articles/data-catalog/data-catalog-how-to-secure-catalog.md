@@ -11,9 +11,7 @@ tags: ''
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 08/17/2017
+ms.date: 01/18/2018
 ms.author: maroche
 
 ---

@@ -1,26 +1,25 @@
 
-- name: Text Analytics Documentation
-  href: index.md
+- name: Text Analytics API Documentation
+  href: index.yml
 - name: Overview
   items:
-  - name: About Text Analytics
+  - name: What is the Text Analytics API?
     href: overview.md
-  - name: Supported languages
-    href: text-analytics-supported-languages.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: C#
-    href: Quickstarts/CSharp.md
+    href: quickstarts/csharp.md
   - name: Java
-    href: Quickstarts/Java.md
+    href: quickstarts/java.md
   - name: Node.js
-    href: Quickstarts/NodeJS.md
-  - name: Python
-    href: Quickstarts/Python.md
-  - name: Ruby
-    href: Quickstarts/Ruby.md
+    href: quickstarts/nodejs.md
   - name: PHP
-    href: Quickstarts/PHP.md
+    href: quickstarts/php.md
+  - name: Python
+    href: quickstarts/python.md
+  - name: Ruby
+    href: quickstarts/ruby.md
 - name: Tutorials
   items: 
    - name: Text Analytics with Power BI
@@ -41,12 +40,16 @@
      href: How-tos/text-analytics-how-to-sentiment-analysis.md
    - name: Extract key phrases
      href: How-tos/text-analytics-how-to-keyword-extraction.md
+   - name: Recognize linked entities
+     href: How-tos/text-analytics-how-to-entity-linking.md   
+   - name: Work with Visual Studio
+     items:
+      - name: Use the Text Analytics Connected Service
+        href: vs-text-connected-service.md
 - name: Reference
   items: 
-  - name: API Reference
+  - name: Text Analytics API
     href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7
-  - name: .Net Standard SDK
-    href: https://aka.ms/tasdkdotnet
 - name: Resources
   items:
   - name: External and community content
@@ -55,11 +58,15 @@
     href: text-analytics-resource-faq.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/text-analytics-api
-  - name: User Voice 
-    href: https://cognitive.uservoice.com/forums/555922-text-analytics
-
-
-
-
+  - name: Subscription key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=text-analytics
+  - name: Supported languages
+    href: text-analytics-supported-languages.md
+  - name: Try it!
+    href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
+  - name: UserVoice 
+    href: https://cognitive.uservoice.com/forums/555922-text-analytics  

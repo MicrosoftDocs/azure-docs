@@ -1,18 +1,18 @@
-﻿---
+---
 title: User retention analysis for web applications with Azure Application Insights | Microsoft docs
 description: How many users return to your app?
 services: application-insights
 documentationcenter: ''
-author: botatoes
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2017
-ms.author: bwren
+ms.author: mbullwin
 ---
 
 # User retention analysis for web applications with Application Insights
@@ -52,7 +52,7 @@ It's good practice to code custom events that represent key business actions, an
 
 Or in ASP.NET server code:
 
-```C#
+```csharp
    telemetry.TrackEvent("won game");
 ```
 
@@ -60,7 +60,7 @@ Or in ASP.NET server code:
 
 
 ## Next steps
-- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Users, Sessions, Events](app-insights-usage-segmentation.md)
     - [Funnels](usage-funnels.md)

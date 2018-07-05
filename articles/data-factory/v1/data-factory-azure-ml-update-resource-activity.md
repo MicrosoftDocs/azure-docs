@@ -4,15 +4,15 @@ description: Describes how to create create predictive pipelines using Azure Dat
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/16/2017
+ms.topic: conceptual
+ms.date: 01/22/2018
 ms.author: shlo
 
 robots: noindex
@@ -33,7 +33,7 @@ robots: noindex
 
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [update machine learning models in Data Factory version 2](../update-machine-learning-models.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [update machine learning models in Data Factory](../update-machine-learning-models.md).
 
 This article complements the main Azure Data Factory - Azure Machine Learning integration article: [Create predictive pipelines using Azure Machine Learning and Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). If you haven't already done so, review the main article before reading through this article. 
 
@@ -57,7 +57,7 @@ You can invoke the **training web service** by using the **Azure ML Batch Execut
 You can invoke the **scoring web service** by using the **Azure ML Update Resource Activity** to update the web service with the newly trained model. The following examples provide linked service definitions: 
 
 ## Scoring web service is a classic web service
-If the scoring web service is a **classic web service**, create the second **non-default and updatable endpoint** by using the [Azure portal](https://manage.windowsazure.com). See [Create Endpoints](../../machine-learning/machine-learning-create-endpoint.md) article for steps. After you create the non-default updatable endpoint, do the following steps:
+If the scoring web service is a **classic web service**, create the second **non-default and updatable endpoint** by using the Azure portal. See [Create Endpoints](../../machine-learning/machine-learning-create-endpoint.md) article for steps. After you create the non-default updatable endpoint, do the following steps:
 
 * Click **BATCH EXECUTION** to get the URI value for the **mlEndpoint** JSON property.
 * Click **UPDATE RESOURCE** link to get the URI value for the **updateResourceEndpoint** JSON property. The API key is on the endpoint page itself (in the bottom-right corner).

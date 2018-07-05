@@ -3,7 +3,7 @@ title: Analyzing Trends in Visual Studio | Microsoft Docs
 description: Analyze, visualize, and explore trends in your Application Insights telemetry in Visual Studio.
 services: application-insights
 documentationcenter: .net
-author: numberbycolors
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 3150c6fc-2691-44f6-a290-fc5cd68e692a
@@ -11,9 +11,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
-ms.author: bwren
+ms.reviewer: daviste
+ms.author: mbullwin
 
 ---
 # Analyzing Trends in Visual Studio
@@ -54,7 +55,7 @@ Application Insights Trends creates a time series visualization from your app's 
 
 Use the controls at the top of the window to adjust what types of telemetry you view. First, choose the telemetry types in which you're interested:
 
-* **Telemetry Type** - Server requests, exceptions, depdendencies, or custom events
+* **Telemetry Type** - Server requests, exceptions, dependencies, or custom events
 * **Time Range** - Anywhere from the last 30 minutes to the last 3 days
 * **Group By** - Exception type, problem ID, country/region, and more.
 

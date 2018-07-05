@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
@@ -106,7 +106,7 @@ Each service instance is also partitioned using the Int64 partition scheme with 
 
 ## Next steps
 
-Follow the [quick start guide](service-fabric-api-management-quick-start.md) to set up your first Service Fabric cluster with API Management and flow requests through API Management to your services.
+Follow the [tutorial](service-fabric-tutorial-deploy-api-management.md) to set up your first Service Fabric cluster with API Management and flow requests through API Management to your services.
 
 <!-- links -->
 

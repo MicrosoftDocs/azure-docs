@@ -1,33 +1,27 @@
 ---
-title: 'Azure Backup: Recover files and folders from an Azure VM backup | Microsoft Docs'
+title: 'Azure Backup: Recover files and folders from an Azure VM backup'
 description: Recover files from an Azure virtual machine recovery point
 services: backup
-documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
 keywords: item level recovery; file recovery from Azure VM backup; restore files from Azure VM
-
-ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 09/27/2017
-ms.author: pullabhk;markgal
-
+ms.topic: conceptual
+ms.date: 12/20/2017
+ms.author: pullabhk
 ---
 # Recover files from Azure virtual machine backup
 
-Azure Backup provides the capability to restore [Azure virtual machines (VMs) and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups, also known as restore points. This article explains how to recover files and folders from an Azure VM backup. Restoring files and folders is available only for Azure VMs deployed using the Resource Manager model and protected to a Recovery services vault.
+Azure Backup provides the capability to restore [Azure virtual machines (VMs) and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups, also known as recovery points. This article explains how to recover files and folders from an Azure VM backup. Restoring files and folders is available only for Azure VMs deployed using the Resource Manager model and protected to a Recovery services vault.
 
 > [!Note]
+> This feature is available for Azure VMs deployed using the Resource Manager model and protected to a Recovery Services vault.
 > File recovery from an encrypted VM backup is not supported.
 >
 
 ## Mount the volume and copy files
 
-To restore files or folders from the restore point, go to the virtual machine and choose to the restore point. 
+To restore files or folders from the recovery point, go to the virtual machine and choose the desired recovery point. 
 
 1. Sign into the [Azure portal](http://portal.Azure.com) and in the left-hand menu, click **Virtual machines**. From the list of virtual machines, select the virtual machine to open that virtual machine's dashboard. 
 
@@ -62,45 +56,15 @@ To restore files or folders from the restore point, go to the virtual machine an
     If you run the script on a computer with restricted access, ensure there is access to:
 
     - download.microsoft.com
-    - Azure endpoints used for Azure VM backups
+    - [Azure endpoints used for Azure VM backups](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
     - outbound port 3260
 
-   For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.  
-         
-   You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#compatible-os) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays(for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
+    For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components do not exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
+    
+    The access to download.microsoft.com is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.         
 
-### Compatible OS
-
-#### For Windows
-
-The following table shows the compatibility between server and computer operating systems. When recovering files, you can't restore files to a previous or future operating system version. For example, you can't restore a file from a Windows Server 2016 VM to Windows Server 2012 or Windows 8 computer. You can restore files from a VM to the same server operating system, or to the compatible client operating system.   
-
-|Server OS | Compatible client OS  |
-| --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
-
-#### For Linux
-
-In Linux, the OS of the computer used to restore files must support the file system of the protected virtual machine. When selecting a computer to run the script, ensure the computer has a compatible OS, and uses one of the versions identified in the following table:
-
-|Linux OS | Versions  |
-| --------------- | ---- |
-| Ubuntu | 12.04 and above |
-| CentOS | 6.5 and above  |
-| RHEL | 6.7 and above |
-| Debian | 7 and above |
-| Oracle Linux | 6.4 and above |
-
-The script also requires Python and bash components to execute and connect securely to the recovery point.
-
-|Component | Version  |
-| --------------- | ---- |
-| bash | 4 and above |
-| python | 2.6.6 and above  |
-
+    You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays (for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
+ 
 
 ### Identifying Volumes
 
@@ -189,6 +153,41 @@ $ mount [RAID Disk Path] [/mountpath]
 ```
 
 If the RAID disk has another LVM configured in it, then use the preceding procedure for LVM partitions but use the volume name in place of the RAID Disk name
+
+## System requirements
+
+### For Windows
+
+The following table shows the compatibility between server and computer operating systems. When recovering files, you can't restore files to a previous or future operating system version. For example, you can't restore a file from a Windows Server 2016 VM to Windows Server 2012 or a Windows 8 computer. You can restore files from a VM to the same server operating system, or to the compatible client operating system.   
+
+|Server OS | Compatible client OS  |
+| --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### For Linux OS
+
+In Linux, the OS of the computer used to restore files must support the file system of the protected virtual machine. When selecting a computer to run the script, ensure the computer has a compatible OS, and uses one of the versions identified in the following table:
+
+|Linux OS | Versions  |
+| --------------- | ---- |
+| Ubuntu | 12.04 and above |
+| CentOS | 6.5 and above  |
+| RHEL | 6.7 and above |
+| Debian | 7 and above |
+| Oracle Linux | 6.4 and above |
+| SLES | 12 and above |
+| openSUSE | 42.2 and above |
+
+The script also requires Python and bash components to execute and connect securely to the recovery point.
+
+|Component | Version  |
+| --------------- | ---- |
+| bash | 4 and above |
+| python | 2.6.6 and above  |
+| TLS | 1.2 should be supported  |
 
 ## Troubleshooting
 

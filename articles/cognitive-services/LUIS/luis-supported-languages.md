@@ -1,59 +1,89 @@
 ---
-title: Support localization using LUIS apps in Azure | Microsoft Docs 
+title: Support localization using LUIS apps in Azure | Microsoft Docs
 description: Learn about the languages that LUIS supports.
 services: cognitive-services
 author: cahann
 manager: hsalama
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2017
+ms.date: 06/04/2017
 ms.author: cahann
 ---
 
-# Localization support in LUIS apps
+# Culture-specific understanding in LUIS apps
 
-This article describes considerations for designing LUIS apps in multiple languages.
+A LUIS app is culture-specific and cannot be changed once it is set. 
 
-You choose the culture when you start creating your LUIS app, and it cannot be modified once the application is created.
+## Multi-language LUIS apps
+If you need a multi-language LUIS client application such as a chatbot, you have a few options. If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use [Microsoft Translator API](../Translator/translator-info-overview.md) to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.
 
-LUIS understands utterances in the following languages. Support for prebuilt entities varies. See [Prebuilt entities in LUIS](Pre-builtEntities.md) for details. 
-
-| Language |Locale  |  Prebuilt entity support | Notes |
-| ------- |------|  ------- | ------- |
-| American English |`en-US` | ✔  ||
-| Canadian French |`fr-CA` |   -   ||
-| French (France) |`fr-FR` | ✔ ||
-| Italian |`it-IT` | ✔ ||
-| Dutch |`nl-NL` |  -   ||
-| German |`de-DE` | ✔ ||
-| Spanish (Spain) |`es-ES` | ✔ ||
-| Spanish (Mexico)|`es-MX` |  -   ||
-| Portuguese (Brazil) |`pt-BR` | ✔ ||
-| Japanese |`ja-JP` | ✔ ||
-| Korean |`ko-KR` |   -   ||
-| Chinese |`zh-CN` | ✔ | See support notes listed below|
+## Languages supported
+LUIS understands utterances in the following languages:
 
 
-## Chinese support notes
+| Language |Locale  |  Prebuilt domain | Prebuilt entity | Phrase suggestions | **[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | 
+|--|--|:--:|:--:|:--:|:--:|
+| American English |`en-US` | ✔ | ✔  |✔|✔|
+| Canadian French |`fr-CA` |-|   -   |-|✔|
+| *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
+| Dutch |`nl-NL` |-|  -   |-|✔|
+| French (France) |`fr-FR` |-| ✔ |✔ |✔|
+| German |`de-DE` |-| ✔ |✔ |✔|
+| Italian |`it-IT` |-| ✔ |✔|✔|
+| *[Japanese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Key phrase only|
+| Korean |`ko-KR` |-|   -   |-|Key phrase only|
+| Portuguese (Brazil) |`pt-BR` |-| ✔ |✔ |not all sub-cultures|
+| Spanish (Spain) |`es-ES` |-| ✔ |✔|✔|
+| Spanish (Mexico)|`es-MX` |-|  -   |✔|✔|
 
- - In the zh-cn culture, LUIS expects the simplified Chinese character set (not the traditional character set).
+
+Language support varies for [prebuilt entities](luis-reference-prebuilt-entities.md) and [prebuilt domains](luis-reference-prebuilt-domains.md). 
+
+### *Chinese support notes
+
+ - In the `zh-cn` culture, LUIS expects the simplified Chinese character set instead of the traditional character set.
  - The names of intents, entities, features, and regular expressions may be in Chinese or Roman characters.
- - When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.
+ - See the [prebuilt domains reference ](luis-reference-prebuilt-domains.md) for information on which prebuilt domains are supported in the `zh-cn` culture.
+<!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
+
+### *Japanese support notes
+
+ - Because LUIS does not provide syntactic analysis and will not understand the difference between Keigo and informal Japanese, you need to incorporate the different levels of formality as training examples for your applications. 
+     - でございます is not the same as です. 
+     - です is not the same as だ. 
+
+### **Text analytics support notes
+Only Portuguese is supported for subcultures: `pt-PT` and `pt-BR`. All other cultures are supported at the primary culture level. Learn more about Text Analytics [supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). 
+
+### Speech API supported languages
+See Speech [Supported languages](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) for Speech dictation mode languages.
+
+### Bing Spell Check supported languages
+See Bing Spell Check [Supported languages](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) for a list of supported languages and status.
 
 ## Rare or foreign words in an application
-In the en-us culture, LUIS can learn to distinguish most English words, including slang. In the zh-cn culture, LUIS can learn to distinguish most Chinese characters. If you use a rare word (en-us) or character (zh-cn), and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](Add-Features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature. This phrase list should be marked non-exchangeable, to indicate that the set of rare words form a class that LUIS should learn to recognize, but they are not synonyms or exchangable with each other.
+In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](luis-how-to-add-features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature. This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.
+
+### Hybrid languages
+Hybrid languages combine words from two cultures such as English and Chinese. These languages are not supported in LUIS because an app is based on a single culture.
 
 ## Tokenization
-In normal LUIS use, you don't need to worry about tokenization, but one place where tokenization is important is when manually adding labels to an exported application's JSON file. See the section on importing and exporting an application for details.
+To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossary.md#token) based on culture. 
 
-To perform machine learning, LUIS breaks an utterance into tokens. A token is the smallest unit that can be labeled in an entity.
+|Language|  every space or special character | character level|compound words|[tokenized entity returned](luis-concept-data-extraction.md#tokenized-entity-returned)
+|--|:--:|:--:|:--:|:--:|
+|Chinese||✔||✔|
+|Dutch|||✔|✔|
+|English (en-us)|✔ ||||
+|French (fr-FR)|✔||||
+|French (fr-CA)|✔||||
+|German|||✔|✔|
+|Italian|✔||||
+|Japanese||||✔|
+|Korean||✔||✔|
+|Portuguese (Brazil)|✔||||
+|Spanish (es-ES)|✔||||
+|Spanish (es-MX)|✔||||
 
-How tokenization is done depends on the application's culture:
-
- * **English, French, Italian, Brazilian Portuguese, and Spanish:** token breaks are inserted at
-   any whitespace, and around any punctuation.
- * **Korean & Chinese:** token breaks are inserted before and after any
-   character, and at any whitespace, and around any punctuation.
-
+ 

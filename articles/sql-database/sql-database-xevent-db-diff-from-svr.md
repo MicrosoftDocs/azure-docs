@@ -2,20 +2,13 @@
 title: Extended events in SQL Database | Microsoft Docs
 description: Describes extended events (XEvents) in Azure SQL Database, and how event sessions differ slightly from event sessions in Microsoft SQL Server.
 services: sql-database
-documentationcenter: ''
 author: MightyPen
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 3b28cf15-f820-4b3c-8310-908d6d5b9d0c
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/03/2017
+ms.workload: "On Demand"
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: genemi
 
 ---
@@ -192,7 +185,7 @@ The **Event File** target might experience network latency or failures while per
 ## Related links
 
 - [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md).
-- [Azure Storage Cmdlets](http://msdn.microsoft.com/library/dn806401.aspx)
+- [Azure Storage Cmdlets](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Using Azure PowerShell with Azure Storage](../storage/common/storage-powershell-guide-full.md) - Provides comprehensive information about PowerShell and the Azure Storage service.
 - [How to use Blob storage from .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)

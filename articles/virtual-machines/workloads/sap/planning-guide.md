@@ -1,10 +1,10 @@
----
+﻿---
 title: Azure Virtual Machines planning and implementation for SAP NetWeaver | Microsoft Docs
 description: Azure Virtual Machines planning and implementation for SAP NetWeaver
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -233,7 +233,7 @@ ms.custom: H1Hack27Feb2017
 [powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -244,7 +244,7 @@ ms.custom: H1Hack27Feb2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -257,8 +257,8 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md
-[virtual-machines-linux-agent-user-guide]:../../linux/agent-user-guide.md
-[virtual-machines-linux-agent-user-guide-command-line-options]:../../linux/agent-user-guide.md#command-line-options
+[virtual-machines-linux-agent-user-guide]:../../extensions/agent-linux.md
+[virtual-machines-linux-agent-user-guide-command-line-options]:../../extensions/agent-windows.md#command-line-options
 [virtual-machines-linux-capture-image]:../../linux/capture-image.md
 [virtual-machines-linux-capture-image-resource-manager]:../../linux/capture-image.md
 [virtual-machines-linux-capture-image-resource-manager-capture]:../../linux/capture-image.md#step-2-capture-the-vm
@@ -289,13 +289,13 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
 [virtual-networks-multiple-nics-windows]:../../windows/multiple-nics.md
 [virtual-networks-multiple-nics-linux]:../../linux/multiple-nics.md
-[virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
+[virtual-networks-nsg]:../../../virtual-network/security-overview.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 [virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
@@ -776,7 +776,7 @@ As a rough decision tree to decide whether an SAP system fits into Azure Virtual
 ![Decision tree to decide ability to deploy SAP on Azure][planning-guide-figure-700]
 
 **Step 1**: The most important information to start with is the SAPS requirement for a given SAP system. The SAPS requirements need to be separated out into the DBMS part and the SAP application part, even if the SAP system is already deployed on-premises in a 2-tier configuration. For existing systems, the SAPS related to the hardware in use often can be determined or estimated based on existing SAP benchmarks. The results can be found here:
-<http://global.sap.com/campaigns/benchmark/index.epx>.
+<https://sap.com/about/benchmark.html>.
 For newly deployed SAP systems, you should have gone through a sizing exercise, which should determine the SAPS requirements of the system.
 See also this blog and attached document for SAP sizing on Azure:
 <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
@@ -949,7 +949,7 @@ If the VM is prepared sufficiently to be generic and eventually independent of a
 >
 > The last step is to log in to a VM with an Administrator account. Open a Windows command window as *administrator*. Go to %windir%\windows\system32\sysprep and execute sysprep.exe.
 > A small window will appear. It is important to check the **Generalize** option (the default is un-checked) and change the Shutdown Option from its default of 'Reboot' to 'shutdown'. This procedure assumes that the sysprep process is executed on-premises in the Guest OS of a VM.
-> If you want to perform the procedure with a VM already running in Azure, follow the steps described in [this article](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource).
+> If you want to perform the procedure with a VM already running in Azure, follow the steps described in [this article](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 >
 > ![Linux][Logo_Linux] Linux
 >
@@ -973,7 +973,7 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 
 **Powershell**
 
-* Log in to your subscription with *Login-AzureRmAccount*
+* Log in to your subscription with *Connect-AzureRmAccount*
 * Set the subscription of your context with *Set-AzureRmContext* and parameter SubscriptionId or SubscriptionName - see <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Upload the VHD with *Add-AzureRmVhd* to an Azure Storage Account - see <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Optional) Create a Managed Disk from the VHD with *New-AzureRmDisk*  - see <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermdisk>
@@ -994,13 +994,13 @@ In this case we want to upload a VHD, either with or without an OS in it, and mo
 
 * Upload the VHD with Powershell or Azure CLI
 * (Optional) Create a Managed Disk from the VHD with Powershell, Azure CLI or the Azure portal
-* Deploy the VM with a JSON template referencing the VHD as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json) or using Managed Disks as shown in [this example JSON template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-disk-md/azuredeploy.json).
+* Deploy the VM with a JSON template referencing the VHD as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) or using Managed Disks as shown in [this example JSON template](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### Deployment of a VM Image
 To upload an existing VM or VHD from the on-premises network in order to use it as an Azure VM image such a VM or VHD need to meet the requirements listed in chapter [Preparation for deploying a VM with a customer-specific image for SAP][planning-guide-5.2.2] of this document.
 
 * Use *sysprep* on Windows or *waagent -deprovision* on Linux to generalize your VM - see [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) for Windows or [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image] for Linux
-* Log in to your subscription with *Login-AzureRmAccount*
+* Log in to your subscription with *Connect-AzureRmAccount*
 * Set the subscription of your context with *Set-AzureRmContext* and parameter SubscriptionId or SubscriptionName - see <https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermcontext>
 * Upload the VHD with *Add-AzureRmVhd* to an Azure Storage Account - see <https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd>
 * (Optional) Create a Managed Disk Image from the VHD with *New-AzureRmImage*  - see <https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermimage>
@@ -1989,9 +1989,7 @@ The following figure illustrated the same landscape using Managed Disks.
 ![SAP NetWeaver Application HA Architecture with SQL Server in Azure IaaS][planning-guide-figure-3201]
 
 ##### ![Linux][Logo_Linux] HA on Linux
-The architecture for SAP HA on Linux on Azure is basically the same as for Windows as described above. As of Jan 2016 there is no SAP (A)SCS HA solution supported yet on Linux on Azure
-
-As a consequence as of January 2016 an SAP-Linux-Azure system cannot achieve the same availability as an SAP-Windows-Azure system because of missing HA for the (A)SCS instance and the single-instance SAP ASE database.
+The architecture for SAP HA on Linux on Azure is basically the same as for Windows as described above. Refer to SAP Note [1928533] for a list of supported high availability solutions.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>Using Autostart for SAP instances
 SAP offered the functionality to start SAP instances immediately after the start of the OS within the VM. The exact steps were documented in SAP Knowledge Base Article [1909114]. However, SAP is not recommending to use the setting anymore because there is no control in the order of instance restarts, assuming more than one VM got affected or multiple instances ran per VM. Assuming a typical Azure scenario of one SAP application server instance in a VM and the case of a single VM eventually getting restarted, the Autostart is not really critical and can be enabled by adding this parameter:

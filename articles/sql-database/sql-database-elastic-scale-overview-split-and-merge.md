@@ -2,19 +2,13 @@
 title: Moving data between scaled-out cloud databases | Microsoft Docs
 description: Explains how to manipulate shards and move data via a self-hosted service using elastic database APIs.
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: ddove
-
-ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/24/2016
-ms.author: ddove
+ms.topic: conceptual
+ms.date: 04/01/2018
+ms.author: sstein
 
 ---
 # Moving data between scaled-out cloud databases

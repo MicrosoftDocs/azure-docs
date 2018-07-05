@@ -2,18 +2,15 @@
 title: Monitor and troubleshoot a cloud storage application in Azure | Microsoft Docs 
 description: Use diagnostic tools, metrics, and alerting to troubleshoot and monitor a cloud application.
 services: storage
-documentationcenter: 
-author: georgewallace
-manager: timlt
-editor: ''
+author: tamram
+manager: jeconnoc
 
 ms.service: storage
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 09/19/2017
-ms.author: gwallace
+ms.date: 02/20/2018
+ms.author: tamram
 ms.custom: mvc
 ---
 
@@ -41,11 +38,11 @@ Log in to the [Azure portal](https://portal.azure.com)
 
 From the left menu, select **Resource Groups**, select **myResourceGroup**, and then select your storage account in the resource list.
 
-Under **Diagnostics** set **Status** to **On**. Ensure **Blob aggregate metrics**, **Blob per API metrics**, and **Blob logs** are enabled.
+Under **Diagnostics** set **Status** to **On**. Ensure all of the options under **Blob properties** are enabled.
 
 When complete, click **Save**
 
-![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/figure1.png)
+![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/contoso.png)
 
 ## Enable alerts
 

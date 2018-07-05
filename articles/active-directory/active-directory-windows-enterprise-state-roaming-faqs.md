@@ -5,21 +5,20 @@ services: active-directory
 keywords: enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming
 documentationcenter: ''
 author: tanning
-manager: swadhwa
+manager: mtillman
 editor: curtand
-
 ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 05/14/2018
 ms.author: markvi
 
 ---
 # Settings and data roaming FAQ
-This topic answers some questions IT administrators might have about settings and app data sync.
+This article answers some questions IT administrators might have about settings and app data sync.
 
 ## What data roams?
 **Windows settings**:
@@ -69,19 +68,18 @@ If you stored any personal data on your corporate device, you should be aware th
 In the November 2015 or later releases of Windows 10, Enterprise State Roaming is only supported for a single account at a time. If you sign in to Windows by using a work or school Azure AD account, all data will sync via Azure AD. If you sign in to Windows by using a personal Microsoft account, all data will sync via the Microsoft account. Universal appdata will roam using only the primary sign-in account on the device, and it will roam only if the app’s license is owned by the primary account. Universal appdata for the apps owned by any secondary accounts will not be synced.
 
 ## Do settings sync for Azure AD accounts from multiple tenants?
-When multiple Azure AD accounts from different Azure AD tenants are on the same device, you must update the device's registry to communicate with Azure Rights Management (Azure RMS) for each Azure AD tenant.  
+When multiple Azure AD accounts from different Azure AD tenants are on the same device, you must update the device's registry to communicate with the Azure Rights Management service for each Azure AD tenant.  
 
-1. Find the GUID for each Azure AD tenant. Open the Azure classic portal and select an Azure AD tenant. The GUID for the tenant is in the URL in the address bar of your browser. For example:
-    `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
+1. Find the GUID for each Azure AD tenant. Open the Azure portal and select an Azure AD tenant. The GUID for the tenant is on the Properties page for the selected tenant (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), labeled **Directory ID**. 
 2. After you have the GUID, you will need to add the registry key
    **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<tenant ID GUID>**.
    From the **tenant ID GUID** key, create a new Multi-String value (REG-MULTI-SZ) named **AllowedRMSServerUrls**. For its data, specify the licensing distribution point URLs of the other Azure tenants that the device accesses.
-3. You can find the licensing distribution point URLs by running the **Get-AadrmConfiguration** cmdlet. If the values for the **LicensingIntranetDistributionPointUrl** and **LicensingExtranetDistributionPointUrl** are different, specify both values. If the values are the same, specify the value just once.
+3. You can find the licensing distribution point URLs by running the **Get-AadrmConfiguration** cmdlet from the AADRM module. If the values for the **LicensingIntranetDistributionPointUrl** and **LicensingExtranetDistributionPointUrl** are different, specify both values. If the values are the same, specify the value just once.
 
 ## What are the roaming settings options for existing Windows desktop applications?
 Roaming only works for Universal Windows apps. There are two options available for enabling roaming on an existing Windows desktop application:
 
-* The [Desktop Bridge](http://aka.ms/desktopbridge) helps you bring your existing Windows desktop apps to the Universal Windows Platform. From here, minimal code changes will be required to take advantage of Azure AD app data roaming. The Desktop Bridge provides your apps with an app identity, which is needed to enable app data roaming for existing desktop apps.
+* The [Desktop Bridge](https://aka.ms/desktopbridge) helps you bring your existing Windows desktop apps to the Universal Windows Platform. From here, minimal code changes will be required to take advantage of Azure AD app data roaming. The Desktop Bridge provides your apps with an app identity, which is needed to enable app data roaming for existing desktop apps.
 * [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) helps you create a custom settings template for existing Windows desktop apps and enable roaming for Win32 apps. This option does not require the app developer to change code of the app. UE-V is limited to on-premises Active Directory roaming for customers who have purchased the Microsoft Desktop Optimization Pack.
 
 Administrators can configure UE-V to roam Windows desktop app data by changing roaming of Windows OS settings and Universal app data through [UE-V group policies](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), including:
@@ -96,9 +94,9 @@ In the future, Microsoft may investigate ways to make UE-V deeply integrated int
 Enterprise State Roaming stores all synced data in the Azure cloud. UE-V offers an on-premises roaming solution.
 
 ## Who owns the data that’s being roamed?
-The enterprises own the data roamed via Enterprise State Roaming. Data is stored in an Azure datacenter. All user data is encrypted both in transit and at rest in the cloud using Azure RMS. This is an improvement compared to Microsoft account-based settings sync, which encrypts only certain sensitive data such as user credentials before it leaves the device.
+The enterprises own the data roamed via Enterprise State Roaming. Data is stored in an Azure datacenter. All user data is encrypted both in transit and at rest in the cloud using the Azure Rights Management service from Azure Information Protection. This is an improvement compared to Microsoft account-based settings sync, which encrypts only certain sensitive data such as user credentials before it leaves the device.
 
-Microsoft is committed to safeguarding customer data. An enterprise user’s settings data is automatically encrypted by Azure RMS before it leaves a Windows 10 device, so no other user can read this data. If your organization has a paid subscription for Azure RMS, you can use other Azure RMS features, such as track and revoke documents, automatically protect emails that contain sensitive information, and manage your own keys (the "bring your own key" solution, also known as BYOK). For more information about these features and how Azure RMS works, see [What is Azure Rights Management](https://technet.microsoft.com/jj585026.aspx).
+Microsoft is committed to safeguarding customer data. An enterprise user’s settings data is automatically encrypted by the Azure Rights Management service before it leaves a Windows 10 device, so no other user can read this data. If your organization has a paid subscription for the Azure Rights Management service, you can use other protection features, such as track and revoke documents, automatically protect emails that contain sensitive information, and manage your own keys (the "bring your own key" solution, also known as BYOK). For more information about these features and how this protection service works, see [What is Azure Rights Management](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
 
 ## Can I manage sync for a specific app or setting?
 In Windows 10, there is no MDM or Group Policy setting to disable roaming for an individual application. Tenant administrators can disable appdata sync for all apps on a managed device, but there is no finer control at a per-app or within-app level.
@@ -117,8 +115,8 @@ When using both Enterprise State Roaming and UE-V, the following rules apply:
 ## How does Enterprise State Roaming support virtual desktop infrastructure (VDI)?
 Enterprise State Roaming is supported on Windows 10 client SKUs, but not on server SKUs. If a client VM is hosted on a hypervisor machine and you remotely sign in to the virtual machine, your data will roam. If multiple users share the same OS and users remotely sign in to a server for a full desktop experience, roaming might not work. The latter session-based scenario is not officially supported.
 
-## What happens when my organization purchases Azure RMS after using roaming?
-If your organization is already using roaming in Windows 10 with the Azure RMS limited-use free subscription, purchasing a paid Azure RMS subscription will not have any impact on the functionality of the roaming feature, and no configuration changes will be required by your IT administrator.
+## What happens when my organization purchases a subscription that includes Azure Rights Management after using roaming?
+If your organization is already using roaming in Windows 10 with the Azure Rights Management limited-use free subscription, purchasing a [paid subscription](https://azure.microsoft.com/pricing/details/information-protection/) that includes the Azure Rights Management protection service will not have any impact on the functionality of the roaming feature, and no configuration changes will be required by your IT administrator.
 
 ## Known issues
 Please see the documentation in the [troubleshooting](active-directory-windows-enterprise-state-roaming-troubleshooting.md) section for a list of known issues. 

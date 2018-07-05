@@ -2,19 +2,13 @@
 title: SQL Database Application Development Overview | Microsoft Docs
 description: Learn about available connectivity libraries and best practices for applications connecting to SQL Database.
 services: sql-database
-documentationcenter: ''
 author: stevestein
-manager: jhubbard
-editor: genemi
-
-ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
+manager: craigg
+ms.reviewer: genemi
 ms.service: sql-database
 ms.custom: develop apps
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/17/2016
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: sstein
 
 ---
@@ -31,12 +25,15 @@ There are code samples available for various programming languages and platforms
 * More information: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md).
 
 ## Tools 
-You can leverage open source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/downloads/) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  You can also use the Azure Management Portal, PowerShell, and REST APIs help you gain additional productivity.
+You can leverage open-source tools like [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Additionally, Azure SQL Database works with Microsoft tools like [Visual Studio](https://www.visualstudio.com/downloads/) and  [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).  You can also use the Azure Management Portal, PowerShell, and REST APIs help you gain additional productivity.
 
 ## Resource limitations
-Azure SQL Database manages the resources available to a database using two different mechanisms: Resources Governance and Enforcement of Limits.
+Azure SQL Database manages the resources available to a database using two different mechanisms: Resources governance and enforcement of limits. For more information, see:
 
-* More information: [Azure SQL Database resource limits](sql-database-service-tiers.md).
+- [DTU-based resource model limits - Single database](sql-database-dtu-resource-limits-elastic-pools.md)
+- [DTU-based resource model limits - Single database](sql-database-dtu-resource-limits-elastic-pools.md)
+- [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md)
+- [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## Security
 Azure SQL Database provides resources for limiting access, protecting data, and monitoring activities on a SQL Database.

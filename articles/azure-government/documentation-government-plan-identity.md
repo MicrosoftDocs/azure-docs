@@ -121,9 +121,9 @@ The following diagram is the simplest of the scenarios to implement.
 <div></div>
 </div>
 
-While using cloud identities is the simplest approach, it is also the least secure because passwords are used as an authentication factor. We recommend [Azure Multi-Factor Authentication](..\multi-factor-authentication\multi-factor-authentication.md), Microsoft's two-step verification solution, to add a critical second layer of security to secure access to Azure subscriptions when using cloud identities.
+While using cloud identities is the simplest approach, it is also the least secure because passwords are used as an authentication factor. We recommend [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md), Microsoft's two-step verification solution, to add a critical second layer of security to secure access to Azure subscriptions when using cloud identities.
 
-See [How Azure Multi-Factor Authentication works](..\multi-factor-authentication\multi-factor-authentication-how-it-works.md) to learn more about the available methods for two-step verification.
+See [How Azure Multi-Factor Authentication works](../active-directory/authentication/concept-mfa-howitworks.md) to learn more about the available methods for two-step verification.
 
 ### Using hybrid and cloud identities for multi-cloud subscription administration
 
@@ -159,7 +159,7 @@ In this scenario, hybrid identities are used to administrator subscriptions in b
 
 **Why does Office 365 GCC use Azure AD Public?**
 
-The first Office 365 US Government environment, Government Community Cloud (GCC), was created when Microsoft had a single cloud directory. The Office 365 GCC environment was designed to use Azure AD Public while still adhering to controls and requirements outlined in FedRAMP Moderate, CJIS (Criminal Justice Information Services), IRS 1075, and National Institute of Standards and Technology (NIST) publication 800-171. Azure Government, with its Azure AD infrastructure was created later. By that time, GCC had already secured the necessary compliance certifications (for example, FedRAMP Moderate and CJIS) to meet Federal, State, and Local government requirements while serving hundreds of thousands of customers. Now, many Office 365 GCC customers have two AAD tenants: one from the AAD subscription that supports Office 365 GCC and the other from their Azure Government subscription with identities in both.
+The first Office 365 US Government environment, Government Community Cloud (GCC), was created when Microsoft had a single cloud directory. The Office 365 GCC environment was designed to use Azure AD Public while still adhering to controls and requirements outlined in FedRAMP Moderate, CJIS (Criminal Justice Information Services), IRS 1075, and National Institute of Standards and Technology (NIST) publication 800-171. Azure Government, with its Azure AD infrastructure was created later. By that time, GCC had already secured the necessary compliance certifications (for example, FedRAMP Moderate and CJIS) to meet Federal, State, and Local government requirements while serving hundreds of thousands of customers. Now, many Office 365 GCC customers have two Azure AD tenants: one from the Azure AD subscription that supports Office 365 GCC and the other from their Azure Government subscription with identities in both.
 
 
 **How do I identify an Azure Government tenant?**  
@@ -171,8 +171,13 @@ Here’s a way to find out using your browser of choice:
      - **An example URL**: https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
    - The result posts back to the page in attribute/value pairs using Java Script Object Notation (JSON) format that resembles:
 
-     `  {"authorization_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/authorize","tenant_region_scope":"USG"}
-`
+     ```json
+     {
+       "authorization_endpoint":"https://login.microsoftonline.com/b552ff1c-edad-4b6f-b301-5963a979bc4d/oauth2/authorize",
+       "tenant_region_scope":"USG"
+     }
+     ```
+     
    - If the **tenant_region_scope** attribute’s value is **USG** as shown, you have yourself an Azure Government tenant.
      - The result is a JSON file that’s natively rendered by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t natively render the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer, choose the save option and open it with another browser or plain text reader.
      - The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Public in North America, the value would be **NA**.
@@ -185,7 +190,7 @@ See “Choosing your Identity Authority” earlier in this article.
 
 **I’m an Office 365 customer and have chosen hybrid identity as my identity model. I also have several Azure subscriptions. Is it possible to use the same Azure AD tenant to handle sign-in for Office 365, applications built in my Azure subscriptions, and/or applications reconfigured to use Azure AD for sign-in?**
 
-Yes, see [How Azure subscriptions are associated with Azure Active Directory](..\active-directory\active-directory-how-subscriptions-associated-directory.md) to learn more about the relationship between Azure subscriptions and Azure AD. It also contains instructions on how to associate subscriptions to the common directory of your choosing.
+Yes, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) to learn more about the relationship between Azure subscriptions and Azure AD. It also contains instructions on how to associate subscriptions to the common directory of your choosing.
 
 **Can an Azure Government subscription be associated with a directory in Azure AD Public?**
 

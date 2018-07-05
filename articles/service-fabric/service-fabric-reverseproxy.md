@@ -10,10 +10,10 @@ editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 08/08/2017
+ms.date: 11/03/2017
 ms.author: bharatn
 
 ---
@@ -36,11 +36,13 @@ Reverse proxy exposes one or more endpoints on local node for client services to
 
 ![Internal communication][1]
 
+> [!NOTE]
 > **Supported Platforms**
 >
 > Reverse proxy in Service Fabric currently supports the following platforms
 > * *Windows Cluster*: Windows 8 and later or Windows Server 2012 and later
 > * *Linux Cluster*: Reverse Proxy is not currently available for Linux clusters
+>
 
 ## Reaching microservices from outside the cluster
 The default external communication model for microservices is an opt-in model where each service cannot be accessed directly from external clients. [Azure Load Balancer](../load-balancer/load-balancer-overview.md), which is a network boundary between microservices and external clients, performs network address translation and forwards external requests to internal IP:port endpoints. To make a microservice's endpoint directly accessible to external clients, you must first configure Load Balancer to forward traffic to each port that the service uses in the cluster. Furthermore, most microservices, especially stateful microservices, don't live on all nodes of the cluster. The microservices can move between nodes on failover. In such cases, Load Balancer cannot effectively determine the location of the target node of the replicas to which it should forward traffic.
@@ -51,8 +53,13 @@ Instead of configuring the port of an individual service in Load Balancer, you c
 ![External communication][0]
 
 > [!WARNING]
-> When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster.
+> When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster. This means that microservices meant to be internal may be discoverable by a determined malicious user. This potenially presents serious vulnerabilities that can be exploited; for example:
 >
+> * A malicious user may launch a denial of service attack by repeatedly calling an internal service that does not have a sufficiently hardened attack surface.
+> * A malicious user may deliver malformed packets to an internal service resulting in unintended behavior.
+> * A service meant to be internal may return private or sensitive information not intended to be exposed to services outside the cluster, thus exposing this sensitive information to a malicious user. 
+>
+> Make sure you fully understand and mitigate the potential security ramifications for your cluster and the apps running on it, before you make the reverse proxy port public. 
 >
 
 
@@ -111,9 +118,7 @@ The gateway will then forward these requests to the service's URL:
 * `http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/api/users/6`
 
 ## Special handling for port-sharing services
-Azure Application Gateway attempts to resolve a service address again and retry the request when a service cannot be reached. This is a major benefit of Application Gateway because client code does not need to implement its own service resolution and resolve loop.
-
-Generally, when a service cannot be reached, the service instance or replica has moved to a different node as part of its normal lifecycle. When this happens, Application Gateway might receive a network connection error indicating that an endpoint is no longer open on the originally resolved address.
+The Service Fabric reverse proxy attempts to resolve a service address again and retry the request when a service cannot be reached. Generally, when a service cannot be reached, the service instance or replica has moved to a different node as part of its normal lifecycle. When this happens, the reverse proxy might receive a network connection error indicating that an endpoint is no longer open on the originally resolved address.
 
 However, replicas or service instances can share a host process and might also share a port when hosted by an http.sys-based web server, including:
 
@@ -121,21 +126,21 @@ However, replicas or service instances can share a host process and might also s
 * [ASP.NET Core WebListener](https://docs.asp.net/latest/fundamentals/servers.html#weblistener)
 * [Katana](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.OwinSelfHost/)
 
-In this situation, it is likely that the web server is available in the host process and responding to requests, but the resolved service instance or replica is no longer available on the host. In this case, the gateway will receive an HTTP 404 response from the web server. Thus, an HTTP 404 has two distinct meanings:
+In this situation, it is likely that the web server is available in the host process and responding to requests, but the resolved service instance or replica is no longer available on the host. In this case, the gateway will receive an HTTP 404 response from the web server. Thus, an HTTP 404 response can have two distinct meanings:
 
 - Case #1: The service address is correct, but the resource that the user requested does not exist.
 - Case #2: The service address is incorrect, and the resource that the user requested might exist on a different node.
 
-The first case is a normal HTTP 404, which is considered a user error. However, in the second case, the user has requested a resource that does exist. Application Gateway was unable to locate it because the service itself has moved. Application Gateway needs to resolve the address again and retry the request.
+The first case is a normal HTTP 404, which is considered a user error. However, in the second case, the user has requested a resource that does exist. The reverse proxy was unable to locate it because the service itself has moved. The reverse proxy needs to resolve the address again and retry the request.
 
-Application Gateway thus needs a way to distinguish between these two cases. To make that distinction, a hint from the server is required.
+The reverse proxy thus needs a way to distinguish between these two cases. To make that distinction, a hint from the server is required.
 
-* By default, Application Gateway assumes case #2 and attempts to resolve and issue the request again.
-* To indicate case #1 to Application Gateway, the service should return the following HTTP response header:
+* By default, the reverse proxy assumes case #2 and attempts to resolve and issue the request again.
+* To indicate case #1 to the reverse proxy, the service should return the following HTTP response header:
 
   `X-ServiceFabric : ResourceNotFound`
 
-This HTTP response header indicates a normal HTTP 404 situation in which the requested resource does not exist, and Application Gateway will not attempt to resolve the service address again.
+This HTTP response header indicates a normal HTTP 404 situation in which the requested resource does not exist, and the reverse proxy will not attempt to resolve the service address again.
 
 ## Setup and configuration
 

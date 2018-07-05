@@ -4,18 +4,19 @@ description: Use this R programming tutorial to get started quickly using the R 
 keywords: quickstart,r language,r programming language,r programming tutorial
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
 
 ---
 # Quickstart tutorial for the R programming language for Azure Machine Learning
@@ -36,7 +37,7 @@ Time series data is data in which the values have a time index. The time index c
 
 In this quickstart guide we will be working with California dairy production and pricing data. This data includes monthly information on the production of several dairy products and the price of milk fat, a benchmark commodity.
 
-The data used in this article, along with R scripts, can be [downloaded here][download]. This data was originally synthesized from information available from the University of Wisconsin at http://future.aae.wisc.edu/tab/production.html.
+The data used in this article, along with R scripts, can be [downloaded here](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). This data was originally synthesized from information available from the University of Wisconsin at https://dairymarkets.com.
 
 ### Organization
 We will progress through several steps as you learn how to create, test and execute analytics and data manipulation R code in the Azure Machine Learning environment.  
@@ -118,9 +119,9 @@ Azure Machine Learning comes with over 350 preinstalled R language packages. You
 If you don't understand the last line of this code at the moment, read on. In the rest of this document we will extensively discuss using R in the Azure Machine Learning environment.
 
 ### Introduction to RStudio
-RStudio is a widely used IDE for R. I will use RStudio for editing, testing and debugging some of the R code used in this quick start guide. Once R code is tested and ready, you simply cut and paste from the RStudio editor into a Machine Learning Studio [Execute R Script][execute-r-script] module.  
+RStudio is a widely used IDE for R. I will use RStudio for editing, testing and debugging some of the R code used in this quickstart guide. Once the R code is tested and ready, you can simply cut and paste from the RStudio editor into a Machine Learning Studio [Execute R Script][execute-r-script] module.  
 
-If you do not have the R programming language installed on your desktop machine, I recommend you do so now. Free downloads of open source R language are available at the Comprehensive R Archive Network (CRAN) at [http://www.r-project.org/](http://www.r-project.org/). There are downloads available for Windows, Mac OS, and Linux/UNIX. Choose a nearby mirror and follow the download directions. In addition, CRAN contains a wealth of useful analytics and data manipulation packages.
+If you do not have the R programming language installed on your desktop machine, I recommend you do so now. Free downloads of open-source R language are available at the Comprehensive R Archive Network (CRAN) at [http://www.r-project.org/](http://www.r-project.org/). There are downloads available for Windows, Mac OS, and Linux/UNIX. Choose a nearby mirror and follow the download directions. In addition, CRAN contains a wealth of useful analytics and data manipulation packages.
 
 If you are new to RStudio, you should download and install the desktop version. You can find the RStudio downloads for Windows, Mac OS, and Linux/UNIX at http://www.rstudio.com/products/RStudio/. Follow the directions provided to install RStudio on your desktop machine.  
 
@@ -832,7 +833,7 @@ Running this code produces the log shown in Figure 18.
 
 *Figure 18. List of ccf objects from the pairwise correlation analysis.*
 
-There is a correlation value for each lag. None of these correlation values is large enough to be significant. We can therefore conclude that we can model each variable independently.
+There is a correlation value for each lag. None of these correlation values are large enough to be significant. We can therefore conclude that we can model each variable independently.
 
 ### Output a dataframe
 We have computed the pairwise correlations as a list of R ccf objects. This presents a bit of a problem as the Result Dataset output port really requires a dataframe. Further, the ccf object is itself a list and we want only the values in the first element of this list, the correlations at the various lags.
@@ -1236,7 +1237,7 @@ There are many books on R that can help you get started. Here are a few I find u
 * R Inferno by Patrick Burns is a surprisingly humorous book that deals with a number of tricky and difficult topics that can be encountered when programming in R. The book is available for free at http://www.burns-stat.com/documents/books/the-r-inferno/.
 * If you want a deep dive into advanced topics in R, have a look at the book Advanced R by Hadley Wickham. The online version of this book is available for free at http://adv-r.had.co.nz/.
 
-A catalogue of R time series packages can be found in the CRAN Task View for time series analysis: http://cran.r-project.org/web/views/TimeSeries.html. For information on specific time series object packages, you should refer to the documentation for that package.
+A catalog of R time series packages can be found in the CRAN Task View for time series analysis: http://cran.r-project.org/web/views/TimeSeries.html. For information on specific time series object packages, you should refer to the documentation for that package.
 
 The book Introductory Time Series with R by Paul Cowpertwait and Andrew Metcalfe provides an introduction to using R for time series analysis. Many more theoretical texts provide R examples.
 

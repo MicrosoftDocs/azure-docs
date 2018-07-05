@@ -2,20 +2,12 @@
 title: XEvent Ring Buffer code for SQL Database | Microsoft Docs
 description: Provides a Transact-SQL code sample that is made easy and quick by use of the Ring Buffer target, in Azure SQL Database.
 services: sql-database
-documentationcenter: ''
 author: MightyPen
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 2510fb3f-c8f2-437a-8f49-9d5f6c96e75b
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/03/2017
+ms.topic: conceptual
+ms.date: 04/01/2018
 ms.author: genemi
 
 ---

@@ -3,7 +3,7 @@ title: Dashboards and navigation in the Azure Application Insights | Microsoft D
 description: Create views of your key APM charts and queries.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 39b0701b-2fec-4683-842a-8a19424f67bd
@@ -11,9 +11,9 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
-ms.author: bwren
+ms.author: mbullwin
 
 ---
 # Navigation and Dashboards in the Application Insights portal
@@ -95,6 +95,9 @@ When you've created a dashboard, you can share it with other users.
 
 Learn about [Roles and access control](app-insights-resources-roles-access-control.md).
 
+## Create dashboards programmatically
+You can automate dashboard creation using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) and a simple JSON editor.
+
 ## App navigation
 The overview blade is the gateway to more information about your app.
 
@@ -111,7 +114,6 @@ The overview blade is the gateway to more information about your app.
 
 ### Essentials tab
 * [Instrumentation key](app-insights-create-new-resource.md#copy-the-instrumentation-key) - Identifies this app resource.
-* Pricing - Make features available and set volume caps.
 
 ### App navigation bar
 ![Left navigation bar](./media/app-insights-dashboards/app-left-nav-bar.png)

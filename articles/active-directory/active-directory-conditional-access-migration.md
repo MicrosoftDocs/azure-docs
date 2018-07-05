@@ -1,6 +1,6 @@
 ---
-title: Migrate classic policies in the Azure portal | Microsoft Docs
-description: Migrate classic policies in the Azure portal.
+title: What is a policy migration in Azure Active Directory conditional access? | Microsoft Docs
+description: Learn what you need to know to migrate classic policies in the Azure portal.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
@@ -10,167 +10,165 @@ editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
 
+#Customer intent: As a IT admin, I need to understand what a policy migration is in conditional access so that I can get rid of my classic policies.
+
 ---
-# Migrate classic policies in the Azure portal 
+
+# What is a policy migration in Azure Active Directory conditional access? 
 
 
-[Conditional access](active-directory-conditional-access-azure-portal.md) is a capability of Azure Active directory (Azure AD) that enables you to control how authorized users access your cloud apps. While the purpose is still the same, the release of the new Azure portal has also introduced significant improvements to how conditional access works. The conditional access policies you have configured outside the Azure portal can coexist with the new policies you are creating in the Azure portal. As long as you are not disabling or removing them, they are still applied in your environment. However, we recommend that you migrate your classic policies to the new Azure AD conditional access policies because:
+[Conditional access](active-directory-conditional-access-azure-portal.md) is a capability of Azure Active directory (Azure AD) that enables you to control how authorized users access your cloud apps. While the purpose is still the same, the release of the new Azure portal has introduced significant improvements to how conditional access works.
 
-- The new policies enable you to address scenarios you could not handle with classic policies.
+You should consider migrating the policies you have not created in the Azure portal because:
+
+- You can now address scenarios you could not handle before.
 
 - You can reduce the number of policies you have to manage by consolidating them.   
 
-This topic assists you with the migration of your existing classic policies to the new the new Azure AD conditional access policies.
+- You can manage all your conditional access policies in one central location.
 
+- The Azure classic portal will be retired.   
 
+This article explains what you need to know to migrate your existing conditional access policies to the new framework.
+ 
 ## Classic policies
 
-The conditional access policies for Azure AD and Intune you have not created in the Azure portal are also known as **classic policies**. To migrate your classic policies, you don't need to have access to your Azure classic portal. The Azure portal provides you with a [**Classic policies (preview)** view](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) that enables you to review your classic policies.
+In the [Azure portal](https://portal.azure.com), the [Conditional access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page is your entry point to your conditional access polices. However, in your environment, you might also have conditional access policies you have not created using this page. These policies are known as *classic policies*. Classic policies are conditional access policies, you have created in:
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+- The Azure classic portal
+- The Intune classic portal
+- The Intune App Protection portal
 
 
-### Open a classic policy
+On the **Conditional access** page, you can access your classic policies by clicking [**Classic policies (preview)**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) in the **Manage** section. 
 
-**To open a classic policy:**
 
-1. In the [Azure portal](https://portal.azure.com), on the left navbar, click **Azure Active Directory**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/71.png)
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
 
-2. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
+The **Classic policies** view provides you with an option to:
 
-    ![Conditional access](./media/active-directory-conditional-access-migration/02.png)
+- Filter your classic policies.
  
-2. On the **Conditional access - Policies** page, in the **Manage** section, click **Classic policies (preview)**.
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/72.png)
 
-3. From the list of classic policies, select the policy you care about.   
+- Disable classic policies.
 
-    ![Conditional access](./media/active-directory-conditional-access-migration/34.png)
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/73.png)
+   
+- Review the settings of a classic policies (and to disable it).
+
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/74.png)
+
+
+If you have disabled a classic policy, you can't revert this step anymore. This is why you can modify the group membership in a classic policy using the **Details** view. 
+
+![Azure Active Directory](./media/active-directory-conditional-access-migration/75.png)
+
+By either changing the selected groups or by excluding specific groups, you can test the effect of a disabled classic policy for a few test users before disabling the policy for all included users and groups. 
 
 
 
 ## Azure AD conditional access policies
 
-This topic provides you with detailed steps that enable you to migrate your classic policies without being familiar with Azure AD conditional access polices. However, being familiar with the basic concepts and terminology of Azure AD conditional access helps to improve your migration experience.
+With conditional access in the Azure portal, you can manage all your policies in one central location. Because the implementation of how conditional access has significantly changed, you should familiarize yourself with the basic concepts before migrating your classic policies.
 
 See:
 
-- [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md) to learn about the basic concepts and the terminology
+- [What is conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md) to learn about the basic concepts and the terminology.
 
-- [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) to familiarize yourself with the user interface in the Azure portal
+- [Best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md) to get some guidance on deploying conditional access in your organization.
+
+- [Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md) to familiarize yourself with the user interface in the Azure portal.
 
 
  
+## Migration considerations
+
+In this article, Azure AD conditional access policies are also referred to as *new policies*.
+Your classic policies continue to work side by side with your new policies until you disable or delete them. 
+
+The following aspects are important in the context of a policy consolidation:
+
+- While classic policies are tied to a specific cloud app, you can select as many cloud apps as you need to in a new policy.
+
+- Controls of a classic policy and a new policy for a cloud app require all controls (*AND*) to be fulfilled. 
+
+
+- In a new policy, you can:
+ 
+    - Combine multiple conditions if required by your scenario. 
+
+    - Select several grant requirements as access control and combine them with a logical *OR* (require one of the selected controls) or with a logical *AND* (require all of the selected controls).
+
+        ![Azure Active Directory](./media/active-directory-conditional-access-migration/25.png)
 
 
 
 
+### Office 365 Exchange online
 
-## Multi-factor authentication policy 
+If you want to migrate classic policies for **Office 365 Exchange online** that include **Exchange Active Sync** as client apps condition, you might not be able to consolidate them into one new policy. 
 
-This example shows how to migrate a classic policy that requires multi-factor authentication** for a cloud app. 
+This is, for example, the case if you want to support all client app types. In a new policy that has **Exchange Active Sync** as client apps condition, you can't select other client apps.
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/64.png)
 
+A consolidation into one new policy is also not possible if your classic policies contain several conditions. A new policy that has **Exchange Active Sync** as client apps condition configured does not support other conditions:   
 
-**To migrate a classic policy:**
+![Azure Active Directory](./media/active-directory-conditional-access-migration/08.png)
 
-1. [Open the classic policy](#open-a-classic-policy) to get the the configuration settings.
-2. Create a new Azure AD conditional access policy to replace your classic policy. 
+If you have a new policy that has **Exchange Active Sync** as client apps condition configured, you need to make sure that all other conditions are not configured. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/16.png)
+ 
 
-### Create a new conditional access policy
+[App-based](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) classic policies for Office 365 Exchange Online that include **Exchange Active Sync** as client apps condition allow **supported** and **unsupported** [device platforms](active-directory-conditional-access-technical-reference.md#device-platform-condition). While you can't configure individual device platforms in a related new policy, you can limit the support to [supported device platforms](active-directory-conditional-access-technical-reference.md#device-platform-condition) only. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/65.png)
 
-1. In the [Azure portal](https://portal.azure.com), on the left navbar, click **Azure Active Directory**.
+You can consolidate multiple classic policies that include **Exchange Active Sync** as client apps condition if they have:
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
+- Only **Exchange Active Sync** as condition 
 
-2. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
+- Several requirements for granting access configured
 
-    ![Conditional access](./media/active-directory-conditional-access-migration/02.png)
+One common scenario is the consolidation of:
 
+- A device-based classic policy from the Azure classic portal 
+- An app-based classic policy in the Intune app protection portal 
+ 
+In this case, you can consolidate your classic policies into one new policy that has both requirements selected.
 
-
-3. On the **Conditional Access** page, to open the **New** page, in the toolbar on the top, click **Add**.
-
-    ![Conditional access](./media/active-directory-conditional-access-migration/03.png)
-
-4. On the **New** page, in the **Name** textbox, type a name for your policy.
-
-    ![Conditional access](./media/active-directory-conditional-access-migration/29.png)
-
-5. In the **Assignments** section, click **Users and groups**.
-
-    ![Conditional access](./media/active-directory-conditional-access-migration/05.png)
-
-    a. If you have all users selected in your classic policy, click **All users**. 
-
-    ![Conditional access](./media/active-directory-conditional-access-migration/35.png)
-
-    b. If you have groups selected in your classic policy, click **Select users and groups**, and then select the required users and groups.
-
-    ![Conditional access](./media/active-directory-conditional-access-migration/36.png)
-
-    c. If you have the excluded groups, click the **Exclude** tab, and then select the required users and groups. 
-
-    ![Conditional access](./media/active-directory-conditional-access-migration/37.png)
-
-6. On the **New** page, to open the **Cloud apps** page, in the **Assignment** section, click **Cloud apps**.
-
-    ![Conditional access](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
-
-8. On the **Cloud apps** page, perform the following steps:
-
-    ![Conditional access](./media/active-directory-conditional-access-migration/08.png)
-
-    a. Click **Select apps**.
-
-    b. Click **Select**.
-
-    c. On the **Select** page, select your cloud app, and then click **Select**.
-
-    d. On the **Cloud apps** page, click **Done**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/62.png)
 
 
 
-9. If you have **Require multi-factor authentication** selected:
+### Device platforms
 
-    ![Conditional access](./media/active-directory-conditional-access-migration/26.png)
+Classic policies with [app-based controls](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) are pre-configured with iOS and Android as the [device platform condition](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 
-    a. In the **Access controls** section, click **Grant**.
+In a new policy, you need to select the [device platforms](active-directory-conditional-access-technical-reference.md#device-platform-condition) you want to support individually.
 
-    ![Conditional access](./media/active-directory-conditional-access-migration/27.png)
-
-    b. On the **Grant** page, click **Grant access**, and then click **Require multi-factor authentication**.
-
-    c. Click **Select**.
-
-
-10. Click **On** to enable your policy.
-
-    ![Conditional access](./media/active-directory-conditional-access-migration/30.png)
-
-11. Disable the classic policy. 
-
-    ![Conditional access](./media/active-directory-conditional-access-migration/38.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/41.png)
 
 
 
+ 
  
 
 
 ## Next steps
 
-- If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- If you want to know how to configure a conditional access policy, see [GRequire MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md).
 
 - If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md). 

@@ -4,7 +4,7 @@ description: This tutorial uses resources created with the classic deployment mo
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: jhubbard
+manager: craigg
 editor: ''
 tags: azure-service-management
 
@@ -130,7 +130,7 @@ Create the availability group listener in two steps. First, create the client ac
         # Define variables
         $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
         $IPResourceName = "<IPResourceName>" # the IP address resource name
-        $ILBIP = “<X.X.X.X>” # the IP address of the ILB
+        $ILBIP = "<X.X.X.X>" # the IP address of the ILB
 
         Import-Module FailoverClusters
 
@@ -141,7 +141,7 @@ Create the availability group listener in two steps. First, create the client ac
         # Define variables
         $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
         $IPResourceName = "<IPResourceName>" # the IP address resource name
-        $ILBIP = “<X.X.X.X>” # the IP address of the ILB
+        $ILBIP = "<X.X.X.X>" # the IP address of the ILB
 
         Import-Module FailoverClusters
 

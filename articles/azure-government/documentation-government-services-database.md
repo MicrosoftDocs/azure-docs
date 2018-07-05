@@ -19,7 +19,7 @@ ms.author: zsk0646
 ---
 # Azure Government Databases
 ## SQL Database
-For more information, see the<a href="https://msdn.microsoft.com/en-us/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database documentation](../sql-database/index.yml) for additional guidance on metadata visibility configuration, and protection best practices.
+For more information, see the<a href="https://msdn.microsoft.com/library/bb510589.aspx"> Microsoft Security Center for SQL Database Engine </a> and [Azure SQL Database documentation](../sql-database/index.yml) for additional guidance on metadata visibility configuration, and protection best practices.
 
 ### Variations
 SQL V12 Database is generally available in Azure Government.

@@ -4,27 +4,27 @@ description: 'Learn about data movement in Data Factory pipelines: data migratio
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/19/2017
+ms.topic: conceptual
+ms.date: 12/05/2017
 ms.author: jingwang
 
 robots: noindex
 ---
 # Move data by using Copy Activity
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-data-movement-activities.md)
-> * [Version 2 - Preview](../copy-activity-overview.md)
+> * [Version 1](data-factory-data-movement-activities.md)
+> * [Version 2 (current version)](../copy-activity-overview.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Copy Activity in V2](../copy-activity-overview.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Copy Activity in V2](../copy-activity-overview.md).
 
 ## Overview
 In Azure Data Factory, you can use Copy Activity to copy data between on-premises and cloud data stores. After the data is copied, it can be further transformed and analyzed. You can also use Copy Activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
@@ -100,7 +100,7 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 | &nbsp; | South Central US | South Central US |
 | &nbsp; | West Central US | West Central US |
 | &nbsp; | West US | West US |
-| &nbsp; | West US 2 | West US |
+| &nbsp; | West US 2 | West US 2 |
 | Canada | Canada East | Canada Central |
 | &nbsp; | Canada Central | Canada Central |
 | Brazil | Brazil South | Brazil South |

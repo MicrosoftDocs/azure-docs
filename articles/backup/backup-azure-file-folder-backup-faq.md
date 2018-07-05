@@ -1,27 +1,20 @@
-
 ---
-title: Azure Backup agent FAQ | Microsoft Docs
+title: Azure Backup agent FAQ
 description: 'Answers to common questions about: how the Azure backup agent works, backup and retention limits.'
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
 keywords: backup and disaster recovery; backup service
-
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 7/18/2017
-ms.author: trinadhk;pullabhk;
-
+ms.topic: conceptual
+ms.date: 6/25/2018
+ms.author: trinadhk
 ---
 
 # Questions about the Azure Backup agent
 This article has answers to common questions to help you quickly understand the Azure Backup agent components. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## Configure backup
 ### Where can I download the latest Azure Backup agent? <br/>
@@ -60,7 +53,7 @@ Absolutely. Azure Backup provides VM-level backup for Azure VMs using the VM ext
 Yes. Install the Azure Backup agent on the guest Windows OS, and back up files and folders to temporary storage. Backup jobs fail once temporary storage data is wiped out. Also, if the temporary storage data has been deleted, you can only restore to non-volatile storage.
 
 ### What's the minimum size requirement for the cache folder? <br/>
-The size of the cache folder determines the amount of data that you are backing up. Your cache folder should be 5% of the space required for data storage.
+The size of the cache folder determines the amount of data that you are backing up. The volume of your cache folder should be at least 5-10% free space, when compared to the total size of backup data. If the volume has less than 5% free space, either increase the volume size, or [move the cache folder to a volume with sufficient free space](backup-azure-file-folder-backup-faq.md#backup).
 
 ### How do I register my server to another datacenter?<br/>
 Backup data is sent to the datacenter of the vault to which it is registered. The easiest way to change the datacenter is to uninstall the agent and reinstall the agent and register to a new vault that belongs to desired datacenter.

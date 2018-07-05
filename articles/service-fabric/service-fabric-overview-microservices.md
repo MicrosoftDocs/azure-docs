@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
@@ -159,7 +159,7 @@ It is important to emphasize again that you can **start and stop at any of these
 - Cost reduction either due to consolidation and removal  of existing hardware or running applications at higher density. 
 - Consistent deployment contract between development and operations.
 
-Cost reductions are understandable, and within Microsoft, large numbers of existing applications are being containerized simply to save millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It says that developers can still be free to choose the technology that suites them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
+Cost reductions are understandable, and within Microsoft, large numbers of existing applications are being containerized simply to save millions of dollars. Consistent deployment is harder to evaluate, but equally as important. It says that developers can still be free to choose the technology that suits them, however the operations will only accept a single way to deploy and manage these applications. It alleviates the operations from having to deal with the complexity of many different technologies or forcing developers to only choose certain ones. Essentially every application is containerized into self-contained deployment images.
 
 Many organizations stop here. They already have the benefits of containers and Service Fabric provides the complete management experience from deployment, upgrades, versioning, rollbacks, health monitoring etc.
 
@@ -178,7 +178,7 @@ The objective of Service Fabric is to reduce the complexities of building applic
 
 ## Next steps
 * [Service Fabric terminology overview](service-fabric-technical-overview.md)
-* [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

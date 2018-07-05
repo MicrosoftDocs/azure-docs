@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/22/2017
+ms.date: 7/3/2018
 ms.author: raiye
 
 ---
@@ -36,43 +36,40 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 >
 >
 
-Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
+Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
+###### **July 3, 2018**
+The June Guest OS has released.
 
-###### **October 6, 2017**
-September Guest OS has released. For the Windows Server 2016 September release, netfx3 is enabled by default. Customers should add ‘dism /online /disable-feature /featurename:netfx3’ in their OnStart if their workflow requires them to run a .NET 2.x app with a 4.x runtime or if they ran a .NET 2.x app, handled an error, and then ran a .NET 4.x app.
+###### **June 1, 2018**
+The May Guest OS has released.
 
-###### **September 14, 2017**
-September Guest OS rollout is starting September 14 and has a projected release of October 9.
+###### **May 4, 2018**
+The April Guest OS has released.
 
-###### **August 24, 2017**
-August Guest OS has released.
+###### **April 6, 2018**
+The March Guest OS has released.
 
-###### **August 3, 2017**
-July Guest OS has released.
+###### **March 19, 2018**
+The February Guest OS has released.
 
-###### **July 19, 2017**
-July Guest OS rollout is starting July 19 and has a projected release of August 8.
+###### **January 29, 2018**
+The January Guest OS has been released for OS Families 2 (WA-GUEST-OS-2.70_201801-01) & 3 (WA-GUEST-OS-3.57_201801-01)
 
-###### **July 7, 2017**
-June Guest OS has released.
+###### **January 4, 2018**
+The January Guest OS has been released for OS Families 4 (WA-GUEST-OS-4.50_201801-01) & 5 (WA-GUEST-OS-5.15_201801-01) and contains important security patches.  
 
-###### **June 16, 2017**
-June Guest OS rollout is starting June 16 and has a projected release of July 11.
+###### **January 4, 2018**
+December Guest OS has released.
 
-###### **June 5, 2017**
-May Guest OS has released.
+###### **December 14, 2017**
+November Guest OS has released.
 
-###### **May 17, 2017**
-Due to a security bug, we are disabling the following December 2016 and January 2017 OS Releases that do not have the [fix] from the portal: WA-GUEST-OS-5.4_201612-01, WA-GUEST-OS-4.39_201612-01, WA-GUEST-OS-3.46_201612-01, WA-GUEST-OS-2.59_201701-01
+###### **November 8, 2017**
+October Guest OS has released.
 
-###### **May 12, 2017**
-May Guest OS rollout is starting May 12 and has a projected release of June 13.
-
-###### **April 18, 2017**
-April Guest OS rollout is starting April 18 and has a projected release of May 9.
 
 
 ## Releases
@@ -89,16 +86,17 @@ April Guest OS rollout is starting April 18 and has a projected release of May 9
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.11_201709-01 |October 6, 2017 |Post 5.13 |TBD |
-| WA-GUEST-OS-5.10_201708-01 |August 24, 2017 |Post 5.12 |TBD |
-| WA-GUEST-OS-5.9_201707-01 |August 3, 2017 |Post 5.11 |TBD |
-|~~WA-GUEST-OS-5.8_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
-|~~WA-GUEST-OS-5.7_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
-|~~WA-GUEST-OS-5.6_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
-|~~WA-GUEST-OS-5.5_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
-|~~WA-GUEST-OS-5.4_201612-01~~ |January 10, 2017 |June 5, 2017|TBD |
-|~~WA-GUEST-OS-5.3_201611-01~~ |December 14, 2016 |May 9, 2017 |TBD |
-|~~WA-GUEST-OS-5.2_201610-02~~ |November 1, 2016 |April 10, 2017 |TBD |
+| WA-GUEST-OS-5.20_201806-01 |July 3, 2018 |Post 5.22 |TBD |
+| WA-GUEST-OS-5.19_201805-01 |June 1, 2018 |Post 5.21 |TBD |
+|~~WA-GUEST-OS-5.18_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
+|~~WA-GUEST-OS-5.17_201803-01~~ |April 6, 2018 |June 1, 2018|TBD |
+|~~WA-GUEST-OS-5.16_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
+|~~WA-GUEST-OS-5.15_201801-01~~ |January 4, 2018 |April 6, 2018 |TBD |
+|~~WA-GUEST-OS-5.14_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
+|~~WA-GUEST-OS-5.13_201711-01~~ |December 14, 2017 |January 4, 2018|TBD |
+|~~WA-GUEST-OS-5.12_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
+|~~WA-GUEST-OS-5.11_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
+
 
 ## Family 4 releases
 **Windows Server 2012 R2**
@@ -112,19 +110,17 @@ April Guest OS rollout is starting April 18 and has a projected release of May 9
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.46_201709-01 |October 6, 2017 |Post 4.48 |TBD |
-| WA-GUEST-OS-4.45_201708-01 |August 24, 2017 |Post 4.47 |TBD |
-| WA-GUEST-OS-4.44_201707-01 |August 3, 2017 |Post 4.46 |TBD |
-|~~WA-GUEST-OS-4.43_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
-|~~WA-GUEST-OS-4.42_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
-|~~WA-GUEST-OS-4.41_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
-|~~WA-GUEST-OS-4.40_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
-|~~WA-GUEST-OS-4.39_201612-01~~ |January 10, 2017 |June 5, 2017 |TBD |
-|~~WA-GUEST-OS-4.38_201611-01~~ |December 14, 2016 |May 9, 2017 |TBD |
-|~~WA-GUEST-OS-4.37_201610-02~~ |November 16, 2016 |April 10, 2017 |TBD |
-|~~WA-GUEST-OS-4.36_201609-01~~ |October 13, 2016 |January 14, 2017 |TBD |
-|~~WA-GUEST-OS-4.35_201608-01~~ |September 13, 2016 |December 16, 2016 |TBD |
-|~~WA-GUEST-OS-4.34_201607-01~~ |August 8, 2016 |November 13, 2016 |TBD |
+| WA-GUEST-OS-4.55_201806-01 |July 3, 2018 |Post 4.57 |TBD |
+| WA-GUEST-OS-4.54_201805-01 |June 1, 2018 |Post 4.56 |TBD |
+|~~WA-GUEST-OS-4.53_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
+|~~WA-GUEST-OS-4.52_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
+|~~WA-GUEST-OS-4.51_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
+|~~WA-GUEST-OS-4.50_201801-01~~ |January 4, 2018 |April 6, 2018 |TBD |
+|~~WA-GUEST-OS-4.49_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
+|~~WA-GUEST-OS-4.48_201711-01~~ |December 14, 2017 |January 4, 2018 |TBD |
+|~~WA-GUEST-OS-4.47_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
+|~~WA-GUEST-OS-4.46_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
+
 
 
 ## Family 3 releases
@@ -139,19 +135,17 @@ April Guest OS rollout is starting April 18 and has a projected release of May 9
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.53_201709-01 |October 6, 2017 |Post 3.55 |TBD |
-| WA-GUEST-OS-3.52_201708-01 |August 24, 2017 |Post 3.54 |TBD |
-| WA-GUEST-OS-3.51_201707-01 |August 3, 2017 |Post 3.53 |TBD |
-|~~WA-GUEST-OS-3.50_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
-|~~WA-GUEST-OS-3.49_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
-|~~WA-GUEST-OS-3.48_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
-|~~WA-GUEST-OS-3.47_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
-|~~WA-GUEST-OS-3.46_201612-01~~ |January 10, 2017 |June 5, 2017 |TBD |
-|~~WA-GUEST-OS-3.45_201611-01~~ |December 14, 2016 |May 9, 2017 |TBD |
-|~~WA-GUEST-OS-3.44_201610-02~~ |November 16, 2016 |May 1, 2017 |TBD |
-|~~WA-GUEST-OS-3.43_201609-01~~ |October 13, 2016 |January 14, 2017 |TBD |
-|~~WA-GUEST-OS-3.42_201608-01~~ |September 13, 2016 |December 16, 2016 |TBD |
-|~~WA-GUEST-OS-3.41_201607-01~~ |August 8, 2016 |November 13, 2016 |TBD |
+| WA-GUEST-OS-3.62_201806-01 |July 3, 2018 |Post 3.64 |TBD |
+| WA-GUEST-OS-3.61_201805-01 |June 1, 2018 |Post 3.63 |TBD |
+|~~WA-GUEST-OS-3.60_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
+|~~WA-GUEST-OS-3.59_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
+|~~WA-GUEST-OS-3.58_201802-01~~ |March 19, 2018 |May 4, 2018 |TBD |
+|~~WA-GUEST-OS-3.57_201801-01~~ |January 29, 2018 |April 6, 2018 |TBD |
+|~~WA-GUEST-OS-3.56_201712-01~~ |January 4, 2018 |March 19, 2018 |TBD |
+|~~WA-GUEST-OS-3.55_201711-01~~ |December 14, 2017 |January 29, 2018 |TBD |
+|~~WA-GUEST-OS-3.54_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
+|~~WA-GUEST-OS-3.53_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
+|~~WA-GUEST-OS-3.52_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
 
 
 ## Family 2 releases
@@ -166,21 +160,17 @@ April Guest OS rollout is starting April 18 and has a projected release of May 9
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.66_201709-01 |October 6, 2017 |Post 2.68 |TBD |
-| WA-GUEST-OS-2.65_201708-01 |August 24, 2017 |Post 2.67 |TBD |
-| WA-GUEST-OS-2.64_201707-01 |August 3, 2017 |Post 2.66 |TBD |
-|~~WA-GUEST-OS-2.63_201706-01~~ |July 7, 2017 |October 6, 2017 |TBD |
-|~~WA-GUEST-OS-2.62_201705-01~~ |June 5, 2017 |August 24, 2017 |TBD |
-|~~WA-GUEST-OS-2.61_201704-01~~ |May 9, 2017 |August 3, 2017 |TBD |
-|~~WA-GUEST-OS-2.60_201703-01~~ |April 10, 2017 |July 7, 2017 |TBD |
-|~~WA-GUEST-OS-2.59_201701-01~~ |January 10, 2017 |June 5, 2017 |TBD |
-|~~WA-GUEST-OS-2.58_201612-01~~ |January 10, 2017 |May 9, 2017|TBD |
-|~~WA-GUEST-OS-2.57_201611-01~~ |December 14, 2016 |April 10, 2017 |TBD |
-|~~WA-GUEST-OS-2.56_201610-02~~ |November 16, 2016 |February 10, 2017 |TBD |
-|~~WA-GUEST-OS-2.55_201609-01~~ |October 13, 2016 |January 14, 2017 |TBD |
-|~~WA-GUEST-OS-2.54_201608-01~~ |September 13, 2016 |December 16, 2016 |TBD |
-|~~WA-GUEST-OS-2.53_201607-01~~ |August 8, 2016 |November 13, 2016 |TBD |
-
+| WA-GUEST-OS-2.75_201806-01 |July 3, 2018 |Post 2.77 |TBD |
+| WA-GUEST-OS-2.74_201805-01 |June 1, 2018 |Post 2.76 |TBD |
+|~~WA-GUEST-OS-2.73_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
+|~~WA-GUEST-OS-2.72_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
+|~~WA-GUEST-OS-2.71_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
+|~~WA-GUEST-OS-2.70_201801-01~~ |January 29, 2018 |April 6, 2018 |TBD |
+|~~WA-GUEST-OS-2.69_201712-01~~ |January 4, 2018 |March 12, 2018 |TBD |
+|~~WA-GUEST-OS-2.68_201711-01~~ |December 14, 2017 |January 29, 2018 |TBD |
+|~~WA-GUEST-OS-2.67_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
+|~~WA-GUEST-OS-2.66_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
+|~~WA-GUEST-OS-2.65_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
 
 
 ## MSRC patch updates
@@ -238,9 +228,10 @@ If you manually update your Guest OS, see the [Guest OS retirement policy][retir
 ## Guest OS Supportability and Retirement Policy
 The Guest OS supportability and retirement policy is explained [here][retirepolicy].
 
+[cloud updates]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-update-azure-service
 [Guest OS Update RSS Feed]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
-[Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
 [ssl3-fixit]: http://go.microsoft.com/?linkid=9863266
@@ -250,11 +241,11 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
 [azuresupport]: http://azure.microsoft.com/support/options/
 [net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
-[msrc]: http://www.microsoft.com/security/msrc/default.aspx
+[msrc]: https://technet.microsoft.com/en-us/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
 [restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/library/security/ms17-010.aspx

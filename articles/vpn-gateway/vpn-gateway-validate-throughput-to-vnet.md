@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
 
 ---
@@ -50,7 +50,7 @@ The following diagram shows the logical connectivity of an on-premises network t
 4.	Determine your Internet Service Provider (ISP) bandwidth.
 5.	Calculate your expected throughput - Least bandwidth of (VM, Gateway, ISP) * 0.8.
 
-If your calculated throughput does not meet your application's baseline throughput requirements, you need to increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](../virtual-machines/virtual-machines-windows-resize-vm.md). If you are not experiencing expected Internet bandwidth, you may also want to contact your ISP.
+If your calculated throughput does not meet your application's baseline throughput requirements, you need to increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](../virtual-machines/virtual-machines-windows-resize-vm.md). If you are not experiencing expected Internet bandwidth, you may also want to contact your ISP.
 
 ## Validate network throughput by using performance tools
 
@@ -118,7 +118,7 @@ Download [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). For
 ## Address slow file copy issues
 You may experience slow file coping when using Windows Explorer or dragging and dropping through an RDP session. This problem is normally due to one or both of the following factors:
 
-- File copy applications, such as Windows Explorer and RDP, do not use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) to copy files by using 16 or 32 threads. To change the thread number for file copy in Richcopy, click **Action** > **Copy options** > **File copy**.<br><br>
+- File copy applications, such as Windows Explorer and RDP, do not use multiple threads when copying files. For better performance, use a multi-threaded file copy application such as [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx) to copy files by using 16 or 32 threads. To change the thread number for file copy in Richcopy, click **Action** > **Copy options** > **File copy**.<br><br>
 ![Slow file copy issues](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - Insufficient VM disk read/write speed. For more information, see [Azure Storage Troubleshooting](../storage/common/storage-e2e-troubleshooting.md).
 
