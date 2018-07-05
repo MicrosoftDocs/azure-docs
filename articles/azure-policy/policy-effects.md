@@ -143,7 +143,7 @@ Example: Using the deny effect.
 
 ## Audit
 
-Audit effect is used to create a warning event in the Activity Log when a non-compliant resource is
+Audit effect is used to create a warning event in the activity log when a non-compliant resource is
 evaluated, but it does not stop the request.
 
 ### Audit Evaluation
@@ -151,7 +151,7 @@ evaluated, but it does not stop the request.
 The audit effect is the last to run during the creation or update of a resource prior to the
 resource is sent to the Resource Provider. Audit works the same for a resource request and an
 evaluation cycle, and executes a `Microsoft.Authorization/policies/audit/action` operation to the
-Activity Log. In both cases, the resource is marked as non-compliant.
+activity log. In both cases, the resource is marked as non-compliant.
 
 ### Audit Properties
 
