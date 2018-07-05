@@ -1,6 +1,7 @@
 ---
 title: Refactor a Team Foundation Server deployment to Visual Studio Team Services (VSTS) in Azure | Microsoft Docs
 description: Learn how Contoso refactors its on-premises TFS deployment by migrating it to Visual Studio Team Services (VSTS) in Azure.
+services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
@@ -212,8 +213,8 @@ With the validation complete, Contoso can use the TFS Migration Tool to build th
 
     ![Prepare](./media/contoso-migration-tfs-vsts/prep5.png)
 
-    [!NOTE]
-    > The account must be created before the migration, It can be changed after migration is done.
+> [!NOTE]
+> The account must be created before the migration, It can be changed after migration is done.
 
 6. They review the identity log map file that shows the accounts that will be brought into VSTS during the import. 
 
@@ -326,9 +327,9 @@ After the DACPAC is created, Contoso uploads it to Azure Storage.
 
     ![Upload](./media/contoso-migration-tfs-vsts/backup10.png)
 
-    [!NOTE]
-    > The migration must happen before within the allowed time window or permissions will expire.
-    > Don't generate an SAS key from the Azure portal. Keys generated like this are account-scoped, and won't work with the import.
+> [!NOTE]
+> The migration must happen before within the allowed time window or permissions will expire.
+> Don't generate an SAS key from the Azure portal. Keys generated like this are account-scoped, and won't work with the import.
 
 ### Fill in the import settings
 
@@ -462,9 +463,8 @@ With migration complete, Contoso wants to move from TFVC to Git for source code 
 
     ![Git](./media/contoso-migration-tfs-vsts/git3.png)
 
-[!NOTE]
+> [!NOTE]
 > Due to differences in how TFVC and Git store version control information, we recommend not to migrate your history. This is the approach that Microsoft took when it migrated Windows and other products from centralized version control to Git.
- 
 
 5. After the import, Contoso reviews the code.
 
