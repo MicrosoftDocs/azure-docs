@@ -100,7 +100,7 @@ Upgrade the server as follows:
 5. The installer detects the current version running on the machine. Click **Yes** to start the upgrade.
 6. When the upgrade completes the server configuration validates.
 
-    ![Update](./media/vmware-azure-manage-configuration-server/update3.png
+    ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
     
 7. Click **Finish** to close the installer.
 
