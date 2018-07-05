@@ -119,11 +119,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. On the **User Attributes** section, for the **User Identifier** field, enter: `user.userprincipalname`
 
-![url_02](./media/jostle-tutorial/url_02.png)
+	![url_02](./media/jostle-tutorial/url_02.png)
 
 5. Click **Save** at the top of the window.
 
-6. Go down to  **SAML Signing Certificate** verify that it is **Active** and then click **Metadata XML** to download the metadata file.
+6. Go to **SAML Signing Certificate** and verify that it's set to **Active**. Then click **Metadata XML** to download the metadata file.
 
 	![url_03](./media/jostle-tutorial/url_03.png)
 
