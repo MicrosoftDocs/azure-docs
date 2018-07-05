@@ -6,7 +6,7 @@
     href: virtual-wan-about.md
 - name: Tutorials
   items:
-  - name: Create an IPsec VPN connection to VNets
+  - name: Create a site-to-site connection in Virtual WAN
     href: virtual-wan-howto-create.md
 - name: How-to guides
   items:

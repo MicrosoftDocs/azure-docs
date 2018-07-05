@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 07/02/2018
+ms.date: 07/05/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -15,29 +15,21 @@ Customer intent: As someone with a networking background, I want to understand w
 
 **This article is in progress**
 
-Azure Cortex provides simplified network connectivity management across hybrid cloud workloads. You can automate the deployment of branch networks to the Azure WAN and apply Site (branch) traffic management policies across your workloads, while leveraging an ecosystem of Azure partners with on-premises solutions to automatically connect to Azure.
+Azure Virtual WAN is a networking service providing optimized and automated branch to branch connectivity through Azure. Azure Virtual WAN lets you connect and configure branch devices to communicate with Azure either manually, or with preferred partner devices. Using preferred partner devices allows you ease of use, simplification of connectivity and configuration management. The built-in dashboard provides instant troubleshooting insights that can help save you time and gives you an easy way to view large-scale site-to-site connectivity.
 
-Cortex lets you automatically connect and configure on-premises devices from preferred vendors. The built-in dashboard provides instant troubleshooting insights that can help save you time and gives you an easy way to view large-scale site-to-site connectivity.
+Azure Virtual WAN lets you automatically connect and configure on-premises devices from preferred vendors. The built-in dashboard provides instant troubleshooting insights that can help save you time and gives you an easy way to view large-scale site-to-site connectivity.
 
-This overview provides a quick view into the network connectivity of your Azure and non-Azure workloads. Azure Cortex offers the following advantages:
+This overview provides a quick view into the network connectivity of your Azure and non-Azure workloads. Azure Virtual WAN offers the following advantages:
 
-* Integrated connectivity solutions in hub and spoke - Automate site-to-site connectivity and configuration between on-premises and the Azure hub from a variety of sources, including connected partner solutions.
-* Automated spoke setup and configuration – Connect your virtual networks and workload to the Azure hub seamlessly.
+* Integrated connectivity solutions in hub and spoke - Automate site-to-site connectivity and configuration between on-premises and the Azure hub from a variety of sources, including preferred partner solutions.
+* Automated spoke configuration and configuration – Connect your virtual networks and workload to the Azure hub seamlessly.
 * Intuitive troubleshooting – You can see the end-to-end flow within Azure and use this information to take required actions.
-
-## <a name="solutions"></a>Integrated connectivity solutions in hub and spoke
-
-Both integrated connectivity solutions that have on-premises devices, and hybrid solutions, require a controller that can ingest Microsoft APIs to establish site-to-site connectivity with the Azure WAN and VirtualHub.
-
-Azure Cortex contains the following components:
-
-
 
 
 
 ## <a name="pref"></a>How does Microsoft preferred vendor integration work?
 
-1. The branch device controller/connector is authenticated to export Site-centric information into Azure by using either the Azure Service Principal or Role-based access functionality, which is enabled in their UI.
+1. The branch device controller/connector is authenticated to export Site-centric information into Azure by using Azure Service Principal .
 2. The branch device controller/connector obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premise device.
 3. Once the device has the right Azure configuration, a site-to-site connection (two active tunnels) is established to the Azure WAN. Azure requires the branch device controller/connector to support IKEv2 (Details below). BGP is optional.
 
