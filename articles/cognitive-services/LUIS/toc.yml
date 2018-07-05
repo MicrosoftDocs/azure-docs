@@ -65,8 +65,10 @@
       href: luis-quickstart-intent-and-key-phrase.md
     - name: 8. Add sentiment analysis
       href: luis-quickstart-intent-and-sentiment-analysis.md
-  - name: Improve prediction 
+  - name: Improve app 
     items: 
+    - name: Review endpoint utterances
+      href: luis-tutorial-review-endpoint-utterances.md
     - name: With patterns
       href: luis-tutorial-pattern.md
     - name: With a phrase list
