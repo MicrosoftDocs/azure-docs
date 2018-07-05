@@ -20,7 +20,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 |Area|Limit|
 |--|:--|--|
 | [App name](luis-get-started-create-app.md) | *Default character max |
-| [Batch testing](luis-concept-test#batch-testing.md)| 10 datasets, 1000 utterances per dataset|
+| [Batch testing](luis-concept-test.md#batch-testing)| 10 datasets, 1000 utterances per dataset|
 | **[Composite](./luis-concept-entity-types.md)|100 with up to 10 children |
 | Explicit list | 50 per application|
 | **[Hierarchical](./luis-concept-entity-types.md) |100 with up to 10 children |
