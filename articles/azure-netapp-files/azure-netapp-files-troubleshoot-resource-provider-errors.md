@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot SDE Resource Provider errors for Azure NetApp Files | Microsoft Docs
-description: Describes causes, solutions, and workarounds for common SDE Resource Provider errors.
+title: Troubleshoot Azure NetApp Files Resource Provider errors for Azure NetApp Files | Microsoft Docs
+description: Describes causes, solutions, and workarounds for common Azure NetApp Files Resource Provider errors.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -18,19 +18,19 @@ ms.date: 04/03/2018
 ms.author: b-juche
 ---
 # Troubleshoot Azure NetApp Files Resource Provider errors for Azure NetApp Files
-This article describes common Service Delivery Engine (SDE) Resource Provider errors, their causes, solutions, and workarounds. 
+This article describes common Azure NetApp Files Resource Provider errors, their causes, solutions, and workarounds. 
 
-<a name="error_01"></a>***Azure KeyVault not configured.***   
-The KeyVault stores the required credentials for accessing the underlying API. This error indicates that the KeyVault did not receive the complete credentials for accessing the underlying API.
+<a name="error_01"></a>***Azure Key Vault not configured.***   
+Azure Key Vault stores the required credentials for accessing the underlying API. This error indicates that Azure Key Vault did not receive the complete credentials for accessing the underlying API.
 
 * Cause  
-The KeyVault did not receive the correct credentials, or the credentials are incomplete.  
+Azure Key Vault did not receive the correct credentials, or the credentials are incomplete.  
 
 * Solution   
-Cloud Volumes use a KeyVault. The KeyVault authenticates by using a token from Azure Active Directory. Therefore, the owner of the application must register the application in the Azure Active Directory.
+The Azure NetApp Files service uses Azure Key Vault. Azure Key Vault authenticates by using a token from Azure Active Directory. Therefore, the owner of the application must register the application in the Azure Active Directory.
 
 * Workaround   
-None.  The KeyVault must be set up correctly for using the Cloud Volume service.  
+None.  Azure Key Vault must be set up correctly for using Azure NetApp Files.  
 
 <a name="error_02"></a>***Creation Token cannot be changed.***   
 This error occurs when you try to change the creation token after the volume has been created.
@@ -59,7 +59,7 @@ Increase the length of the creation token. For example, you can add another word
 The minimum required length of the creation token cannot be bypassed.  You can use a prefix or suffix to increase the creation token length.
 
 
-<a name="error_04"></a>***Error deleting a volume that was not found at NFSaaS.***   
+<a name="error_04"></a>***Error deleting a volume that was not found at Azure NetApp Files.***   
 This error occurred because the internal registry of resources is out of sync.
 
 * Cause   
@@ -72,7 +72,7 @@ Clear browser cache if you are using the portal. There is also an internal cache
 Use a different volume in the meantime and ignore the existing one.
 
 
-<a name="error_05"></a>***Error inserting a new Volume found at NFSaaS.***   
+<a name="error_05"></a>***Error inserting a new Volume found at Azure NetApp Files.***   
 This error occurs because the internal registry of resources is out of sync.
 
 * Cause   
@@ -163,8 +163,8 @@ Increase the length of the volume name.
 You can add a common prefix or suffix to the volume name.
 
 
-<a name="error_12"></a>***NFSaaS API unreachable.***   
-The Azure API relies on the NFSaaS API to manage volumes.  This error indicates an issue with the API connection.
+<a name="error_12"></a>***Azure NetApp Files API unreachable.***   
+The Azure API relies on the Azure NetApp Files API to manage volumes.  This error indicates an issue with the API connection.
 
 * Cause   
 The underlying API is not responding, resulting in an internal error. This error is likely to be temporary.
@@ -176,17 +176,17 @@ The issue is likely to be temporary.  The request should succeed after some time
 None. The underlying API is essential for managing volumes.  
 
 
-<a name="error_13"></a>***No NFS credentials found for subscription '{0}'.***   
+<a name="error_13"></a>***No credentials found for subscription '{0}'.***   
 This error indicates that the provided credentials are either invalid or have not been set correctly in the subscription.
 
 * Cause   
-Credentials that are invalid or incorrectly set prevent access to the service for managing Cloud Volumes.
+Credentials that are invalid or incorrectly set prevent access to the service for managing volumes.
 
 * Solution   
 Make sure that the credentials are set and entered correctly on the command line.
 
 * Workaround   
-None.  Setting credentials correctly is essential for using Cloud Volumes.  
+None.  Setting credentials correctly is essential for using Azure NetApp Files.  
 
 
 <a name="error_14"></a>***No operation result id found for '{0}'.***   
@@ -252,20 +252,20 @@ Check the request for spelling errors to make sure that it is correctly referenc
 * Workaround   
 See the Solution section.
 
-<a name="error_19"></a>***Unable to get NFS credentials for subscription '{0}'.***   
+<a name="error_19"></a>***Unable to get credentials for subscription '{0}'.***   
 This error indicates that the provided credentials are either invalid or incorrectly set in the subscription.
 
 * Cause   
-Credentials that are invalid or incorrectly set in the subscription prevent access to the service for managing Cloud Volumes.
+Credentials that are invalid or incorrectly set in the subscription prevent access to the service for managing volumes.
 
 * Solution   
 Make sure that the credentials are set and entered correctly on the command line.
 
 * Workaround   
-None.  Correctly set credentials are essential for using Cloud Volumes.
+None.  Correctly set credentials are essential for using Azure NetApp Files.
 
-<a name="error_20"></a>***Unknown NFSaaS Error.***   
-The Azure API relies on the NFSaaS API to manage volumes. The error indicates an issue in the communication to the API.
+<a name="error_20"></a>***Unknown Azure NetApp Files Error.***   
+The Azure API relies on the Azure NetApp Files API to manage volumes. The error indicates an issue in the communication to the API.
 
 * Cause   
 The underlying API is sending an unknown error.  This error is likely to be temporary.

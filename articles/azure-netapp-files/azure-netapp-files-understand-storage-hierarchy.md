@@ -25,7 +25,7 @@ Before creating a volume in Azure NetApp Files, you must purchase and set up a p
 - A NetApp account serves as an administrative grouping of the constituent capacity pools.  
 - A NetApp account is not the same as your general Azure storage account. 
 - A NetApp account is regional in scope.   
-  You can have multiple NetApp accounts in a region, but each NetApp account is tied to only a single region.
+- You can have multiple NetApp accounts in a region, but each NetApp account is tied to only a single region.
 
 ## <a name="capacity_pools"></a>Capacity pools
 

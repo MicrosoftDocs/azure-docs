@@ -26,7 +26,7 @@ You must have been whitelisted for accessing the Microsoft.NetApp Azure Resource
 
 ## Steps 
 
-1. Log in to the [custom Azure Portal](https://aka.ms/azurenetappfilespreview).
+1. Locate the preview Azure portal URL from your preview invitation, and log in to the portal. 
 2.	Access the Azure NetApp Files blade by using one of the following methods:  
   * Search for **Azure NetApp Files** in the Azure Portal search box.  
   * Click **All services** in the navigation, and then filter to Azure NetApp Files.  

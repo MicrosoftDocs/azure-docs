@@ -14,6 +14,4 @@
 ## [Manage volumes](azure-netapp-files-manage-volumes.md)
 ## [Mount or unmount a volume for virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 ## [Manage snapshots](azure-netapp-files-manage-snapshots.md)
-
-# Monitor and troubleshoot
-## [Troubleshoot Azure NetApp Files Resource Provider errors](azure-netapp-files-troubleshoot-resource-provider-errors.md)
+## [Resize the capacity pool](azure-netapp-files-resize-capacity-pools.md)
