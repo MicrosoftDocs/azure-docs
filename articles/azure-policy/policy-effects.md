@@ -178,8 +178,8 @@ have the components specified in the **details** of the **then** condition.
 AuditIfNotExists runs after a Resource Provider has handled a create or update request to a
 resource and has returned a success status code. The effect is triggered if there are no related
 resources or if the resources defined by **ExistenceCondition** do not evaluate to true. When the
-effect is triggered, a `Microsoft.Authorization/policies/audit/action` operation to the Activity
-Log is executed in the same way as the audit effect. When triggered, the resource that satisfied
+effect is triggered, a `Microsoft.Authorization/policies/audit/action` operation to the activity
+log is executed in the same way as the audit effect. When triggered, the resource that satisfied
 the **if** condition is the resource that is marked as non-compliant.
 
 ### AuditIfNotExists Properties
