@@ -60,7 +60,7 @@ The Contoso cloud team has pinned down goals for the migration to VSTS:
 - Contoso will leverage their Azure Active Directory, which they set up when they [deployed their Azure infrastructure](contoso-migration-infrastructure.md) at the beginning of their migration planning. 
 
 
-![Scenario architecture](./media/contoso-migration-tfs-vsts/proposed-architecture.png) 
+![Scenario architecture](./media/contoso-migration-tfs-vsts/architecture.png) 
 
 
 ## Migration process
@@ -450,7 +450,7 @@ With migration complete, Contoso wants to move from TFVC to Git for source code 
 
 1. In the VSTS portal, they open one of the TFVC repos (**$/PolicyConnect**) and review it.
 
-    ![Git](./media/contoso-migration-fs-vsts/git1.png)
+    ![Git](./media/contoso-migration-tfs-vsts/git1.png)
 
 2. They click the **Source** dropdown > **Import**.
 
