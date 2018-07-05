@@ -54,7 +54,7 @@ Modify the proxy settings used by the configuration server machine for internet 
 
 The Open Virtualization Format (OVF) template deploys the configuration server VM with a single network adapter.
 
-- You can [add an additional adapter to the VM)](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), but you must add it before you register the configuration server in the vault.
+- You can [add an additional adapter to the VM](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), but you must add it before you register the configuration server in the vault.
 - To add an adapter after you register the configuration server in the vault, add the adapter in the VM properties. Then you need to reregister the server in the vault.
 
 
@@ -99,7 +99,9 @@ Upgrade the server as follows:
 4. Double-click to run the installer.
 5. The installer detects the current version running on the machine. Click **Yes** to start the upgrade.
 6. When the upgrade completes the server configuration validates.
+
     ![Update](./media/vmware-azure-manage-configuration-server/update3.png
+    
 7. Click **Finish** to close the installer.
 
 ## Delete or unregister a configuration server
