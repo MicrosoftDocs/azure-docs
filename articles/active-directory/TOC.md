@@ -380,7 +380,7 @@
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## Delegate access to resources
-### [View members of an admin role](directory-manage-roles-portal.md)
+### [View members of an admin role](users-groups-roles//directory-manage-roles-portal.md)
 ### [Administrator roles](users-groups-roles/directory-assign-admin-roles.md)
 #### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](fundamentals/users-default-permissions.md)
