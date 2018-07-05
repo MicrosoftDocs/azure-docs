@@ -1,17 +1,17 @@
 ---
 title: Azure Integration Services reference architecture
-description: Reference Architecture showing how to implement an enterprise integration pattern with Logic Apps, API Management, Service Bus and  Event Grid 
+description: Reference Architecture showing how to implement an enterprise integration pattern with Logic Apps, API Management, Service Bus and  Event Grid
 author: mattfarm
 manager: jonfan
-editor: 
+editor:
 services: logic-apps api-management
-documentationcenter: 
+documentationcenter:
 
-ms.assetid: 
+ms.assetid:
 ms.service: logic-apps
 ms.workload: logic-apps
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm:
+ms.devlang:
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
@@ -29,7 +29,7 @@ This reference architecture shows a set of proven practices for an integration a
 
 ## Architecture
 
-This architecture **builds on** the [simple enterprise integration](logic-apps-architectures-simple-enterprise-integration.md) architecture. **The [simple enterprise architecture recommendations](logic-apps-architectures-simple-enterprise-integration#recommendations) also apply here**, but have been omitted from the [recommendations](#recommendations) in this document for brevity. It has the following components:
+This architecture **builds on** the [simple enterprise integration](logic-apps-architectures-simple-enterprise-integration.md) architecture. The [simple enterprise architecture recommendations](logic-apps-architectures-simple-enterprise-integration.md#recommendations) also apply here, but have been omitted from the [recommendations](#recommendations) in this document for brevity. It has the following components:
 
 - Resource group. A [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) is a logical container for Azure resources.
 - Azure API Management. [Azure API Management](https://docs.microsoft.com/azure/api-management/) is a fully managed platform for publishing, securing and transforming HTTP APIs.
