@@ -52,7 +52,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 
 You can see the membership processing status and the last updated date on the Overview page for your dynamic group.
   
-  ![dynamic group status display](./media/active-directory-groups-dynamic-membership-azure-portal/group-status.png)
+  ![dynamic group status display](./media/groups-dynamic-membership/group-status.png)
 
 
 The following status messages can be shown for **Membership processing** status:
@@ -69,7 +69,7 @@ The following status messages can be shown for **Membership last updated** statu
 
 If an error occurs while processing the membership rule for a specific group, an alert is shown on the top of the **Overview page** for the group. If no pending dynamic membership updates can be processed for all the groups within the tenant for more then 24 hours, an alert is shown on the top of **All groups**.
 
-![processing error message](./media/active-directory-groups-dynamic-membership-azure-portal/processing-error.png)
+![processing error message](./media/groups-dynamic-membership/processing-error.png)
 
 ## Constructing the body of an advanced rule
 The advanced rule that you can create for the dynamic memberships for groups is essentially a binary expression that consists of three parts and results in a true or false outcome. The three parts are:
