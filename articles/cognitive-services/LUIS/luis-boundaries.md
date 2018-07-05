@@ -19,23 +19,23 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 
 |Area|Limit|
 |--|:--|--|
-| [App name][luis-get-started-create-app] | *Default character max |
-| [Batch testing][batch-testing]| 10 datasets, 1000 utterances per dataset|
+| [App name](luis-get-started-create-app.md) | *Default character max |
+| [Batch testing](luis-concept-test#batch-testing.md)| 10 datasets, 1000 utterances per dataset|
 | **[Composite](./luis-concept-entity-types.md)|100 with up to 10 children |
 | Explicit list | 50 per application|
 | **[Hierarchical](./luis-concept-entity-types.md) |100 with up to 10 children |
-| [Intents][intents]|500 per application<br>[Dispatch-based](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) application has corresponding 500 dispatch sources|
+| [Intents](luis-concept-intent.md)|500 per application<br>[Dispatch-based](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) application has corresponding 500 dispatch sources|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonyms have no length restriction. |
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per application, 3 pattern.any entities per pattern |
-| [Phrase list][phrase-list]|10 phrase lists, 5,000 items per list|
+| [Phrase list](luis-concept-feature.md)|10 phrase lists, 5,000 items per list|
 | [Prebuilt entities](./luis-prebuilt-entities.md) | no limit|
 | [Regular expression entities](./luis-concept-entity-types.md)|20 entities<br>500 character max. per regular expression entity pattern|
 | [Roles](luis-concept-roles.md)|300 roles per application. 10 roles per entity|
 | **[Simple](./luis-concept-entity-types.md)| 100 entities|
-| [Utterance][utterances] | 500 characters|
-| [Utterances][utterances] | 15,000 per application|
-| [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanumeric and period (.) |
+| [Utterance length](luis-concept-utterance.md) | 500 characters|
+| [Utterance quantity](luis-concept-utterance.md) | 15,000 per application|
+| [Version name](luis-how-to-manage-versions.md) | 10 characters restricted to alphanumeric and period (.) |
 
 *Default character max is 50 characters. 
 
@@ -73,12 +73,6 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 
 Your sign-in access is for **60 minutes**. After this time period, you will get this error. You need to log in again.
 
-[luis-get-started-create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app
-[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test#batch-testing
-[intents]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-intent
-[phrase-list]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature
-[utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-utterance
-[luis-how-to-manage-versions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-manage-versions
 [pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
 <!-- TBD: fix this link -->
 [speech-to-intent-pricing]: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
