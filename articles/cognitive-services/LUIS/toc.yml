@@ -330,7 +330,7 @@
   - name: UserVoice
     href: https://aka.ms/luis-uservoice-forum
   - name: Search
-    href: https://docs.microsoft.com/en-us/search/index?search=LUIS
+    href: https://docs.microsoft.com/search/index?search=LUIS
   - name: Blog
     href: https://blog.botframework.com/category/luis/
   - name: Knowledge Base
