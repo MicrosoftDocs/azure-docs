@@ -9,7 +9,7 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 07/03/2018
 ms.author: sngun
 
 ---
@@ -111,6 +111,11 @@ The PreferredLocations value can be set to any of the Azure regions in which Cos
 Azure Cosmos DB is present across all Azure regions, as specified on the [Azure regions](https://azure.microsoft.com/regions/) page. Because it is the core service, every new datacenter has an Azure Cosmos DB presence. 
 
 When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a [sovereign region](https://azure.microsoft.com/global-infrastructure/), you cannot replicate out of that [sovereign region](https://azure.microsoft.com/global-infrastructure/). Similarly, you cannot enable replication into other sovereign locations from an outside account. 
+
+### Is it possible to switch from container level throughput provisioning to database level throughput provisioning? Or vice versa
+
+Container and database level throughput provisioning are separate offerings and switching between either of these require migrating data from source to destination. Which means you need to create a new database or a new collection and then migrate data by using [bulk executor library](bulk-executor-overview.md) or [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
+
 
 ## Develop against the SQL API
 
@@ -277,9 +282,6 @@ You can use the [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azu
 
 Tools with the flexibility to take a connection string in the format specified previously can support the new Table API. A list of table tools is provided on the [Azure Storage Client Tools](../storage/common/storage-explorers.md) page. 
 
-### Do PowerShell or Azure CLI work with the Table API?
-There is support for [PowerShell](table-powershell.md). Azure CLI support is not currently available.
-
 ### Is the concurrency on operations controlled?
 Yes, optimistic concurrency is provided via the use of the ETag mechanism. 
 
@@ -406,7 +408,7 @@ None. There is no change in price for existing Azure Table storage customers.
 ### How is the price calculated for the Table API? 
 The price depends on the allocated TableThroughput. 
 
-### How do I handle any throttling on the tables in Table API offering? 
+### How do I handle any rate limiting on the tables in Table API offering? 
 If the request rate exceeds the capacity of the provisioned throughput for the underlying container or a set of containers, you get an error, and the SDK retries the call by applying the retry policy.
 
 ### Why do I need to choose a throughput apart from PartitionKey and RowKey to take advantage of the Table API offering of Azure Cosmos DB?
