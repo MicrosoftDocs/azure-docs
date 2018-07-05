@@ -53,7 +53,7 @@ A P20 premium billable unit can include up to 5,000 P20 premium job collections.
 P20 premium job collections provides the same capabilities as P10 premium job collections but also supports a greater number jobs per job collection and a greater total number of jobs overall than P10 premium allowing you to have more scalability.
 
 ## Billing and Active Status
-Job collections are always active unless your entire subscription has gone into some temporary disabled state due to billing issues. The only way to ensure that a job collection is not billed is to either set it to the *Free* plan or to delete the job collection.
+Job collections are always active unless your entire subscription has gone into some temporary disabled state due to billing issues. The only way to ensure that a job collection is not billed is to delete the job collection.
 
 Although you may disable all jobs within a job collection in a single operation, it does not change the billing status of the job collection – the job collection will *still* be billed. Similarly, empty job collections are considered active and will be billed.
 
