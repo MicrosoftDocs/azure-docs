@@ -39,7 +39,6 @@
     - name: 9. Contoso-Refactor an app on Azure Web Apps and Azure SQL Database
       href: contoso-migration-refactor-web-app-sql.md
     - name: 10. Contoso-Refactor a Linux app on Azure Web Apps and Azure MySQL
-
       href: contoso-migration-refactor-linux-app-service-mysql.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md

@@ -160,7 +160,7 @@ helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set s
 
 ## Create ingress route
 
-Both applications are now running on your Kubernetes cluster, however have been configured with a service of type `ClusterIP`. As such, the applications are not accessible from the internet. In order to make the available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
+Both applications are now running on your Kubernetes cluster, however have been configured with a service of type `ClusterIP`. As such, the applications are not accessible from the internet. In order to make them available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
 
 Create a file name `hello-world-ingress.yaml` and copy in the following YAML.
 

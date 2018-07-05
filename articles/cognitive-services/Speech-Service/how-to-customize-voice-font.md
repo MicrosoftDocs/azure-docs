@@ -23,17 +23,7 @@ Voice customization is available for US English (en-US) and mainland Chinese (zh
 
 The Text to Speech voice customization feature is currently in private preview. [Fill out the application form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) to be considered for access.
 
-You also need:
-
-* An Azure account ([sign up for free](https://azure.microsoft.com/free/ai/) if you don't yet have one).
-
-* A subscription to the Speech service. [Create one](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) if you haven't already.
-
-    ![Create panel](media/custom-voice/create-panel.png)
-
-After creating your subscription, you can find two subscription keys on the Quickstart panel or the Overview panel of the new subscription. You may use either key.
-
-Finally, connect your subscription to the Custom Voice portal as follows.
+You also need an Azure account and a subscription to the Speech service. [Create one] (https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) if you haven't already. Connect your subscription to the Custom Voice portal as follows.
 
 1. Log on to the [Custom Voice portal](https://customvoice.ai) using the same Microsoft account you used to apply for access.
 
@@ -45,7 +35,7 @@ Finally, connect your subscription to the Custom Voice portal as follows.
 
      ![Connect existing subscription](media/custom-voice/connect-existing-sub.png)
 
-4. Paste your subscription key into the table, as shown below.
+4. Paste your subscription key into the table, as shown below. Each subscription has two keys and you may use either of them.
 
      ![Add Subscription](media/custom-voice/add-subscription.png)
 
@@ -68,8 +58,7 @@ Audio files should be prepared as follows. Other formats are unsupported and wil
 | **Property** | **Value** |
 | ------------ | --------- |
 | File Format  | RIFF (WAV)|
-| Sampling Rate| 16,000 Hz |
-| Channels     | 1 (monophonic)  |
+| Sampling Rate| at least 16,000 Hz |
 | Sample Format| PCM, 16-bit |
 | File Name    | Numeric, with `.wav` extension |
 | Archive Format| Zip      |
@@ -78,11 +67,12 @@ Audio files should be prepared as follows. Other formats are unsupported and wil
 Place the set of audio files into a single folder without subdirectories and package the entire set as a single ZIP file archive.
 
 > [!NOTE]
+> Wave files with a sampling rate lower than 16,000 Hz will be rejected. In the cases where a zip file contains waves with different sampling rates, only those equal to or higher than 16,000 Hz will be imported.
 > The portal currently imports ZIP archives up to 200 MB. However, multiple archives may be uploaded. The maximum number of datasets allowed is 10 ZIP files for free subscription users, and 50 for standard subscription users.
 
 ### Transcripts
 
-The transcription file is a plain Unicode text file (UTF-16 little-endian). Each line of the transcription file must have the name of an audio file, followed by a tab (code point 9) character, and finally its transcript. No blank lines are allowed.
+The transcription file is a plain text file (ANSI/UTF-8/UTF-8-BOM/UTF-16-LE/UTF-16-BE). Each line of the transcription file must have the name of an audio file, followed by a tab (code point 9) character, and finally its transcript. No blank lines are allowed.
 
 For example:
 
@@ -192,7 +182,7 @@ The status shown reflects the process of converting your dataset to a voice font
 Training time varies depending on the volume of audio data processed. Typical times range from about 30 minutes for hundreds of utterances to 40 hours for 20,000 utterances.
 
 > [!NOTE]
-> Free subscription users can train two voice fonts at a time. Standard subscription users can train three voices simultaneously. If you reach the limit, wait until at least one of your voice fonts finishes training, then try again.
+> Free subscription users can train one voice font at a time. Standard subscription users can train three voices simultaneously. If you reach the limit, wait until at least one of your voice fonts finishes training, then try again.
 
 ## Test your voice font
 
