@@ -8,7 +8,7 @@ The full list of prerequisites is available on the QuickStart Overview.
 
 ### Subscription ID
 
-To retrieve your Azure subscription ID, this command will list all available ones:
+Run this command to list all available Azure subscription IDs:
 
       $ az account list -o table
 
@@ -36,14 +36,14 @@ In Windows, use the [PuttyGen application](https://www.ssh.com/ssh/putty/windows
 
 In Linux, follow [these instructions on GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) to generate a new ssh keypair.
 
-# QuickStart 1: Install and Setup
+## Install and Setup Azure CycleCloud
 
 This lab uses an Azure Resource Manager template to:
 1.	Create the VM for CycleCloud, and to install CycleCloud on that VM
 2.	Create and configure the network for the CycleCloud environment
 3.	Create a bastion host for enabling more secure access to the CycleCloud instance
 
-For the purposes of this quickstart, the CycleCloud application is installed with a template and much of the setup is done for you. However, CycleCloud can also be installed manually.
+For the purposes of this quickstart, the CycleCloud application is installed with a template and much of the setup is done for you. However, CycleCloud can also be installed manually, providing greater control over the installation and configuration process. For more information, see the Manual CycleCloud Installation documentation.
 
 ## Clone the Repo
 

@@ -5,8 +5,8 @@ Azure CycleCloud is a free application that provides a simple, secure, and scala
 There are four parts to the Azure CycleCloud QuickStart:
 
 *	setup and install CycleCloud on a VM
-*	configure and create a simple HPC cluster consisting of a job scheduler and an NFS file server, and submit jobs to observe the cluster autoscale up and down automatically
-*	review CycleCloud's cost reporting & controls, reporting, and other features
+*	configure and create a simple HPC cluster consisting of a job scheduler and an NFS file server, and create a usage alert to monitor cost
+*	submit jobs to observe the cluster autoscale up and down automatically
 * clean up resources
 
 ## Prerequisites
