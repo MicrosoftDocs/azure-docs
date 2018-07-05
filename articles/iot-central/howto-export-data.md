@@ -22,28 +22,28 @@ manager: peterpr
 
 # Export your data
 
-Use Continuous Data Export to periodically export data into your Azure Blob Storage account. Choose to export **measurements**, **devices**, and **device templates** in files of [Apache AVRO](https://avro.apache.org/docs/current/index.html) format. Use the exported data for cold path analytics such as training models in Azure Machine Learning or long term trend analysis in Power BI.
+Use Continuous Data Export to periodically export data into your Azure Blob Storage account. Choose to export **measurements**, **devices**, and **device templates** in files of [Apache AVRO](https://avro.apache.org/docs/current/index.html) format. Use the exported data for cold path analytics such as training models in Azure Machine Learning or long-term trend analysis in Power BI.
 
 > [!Note]
 > When you turn on Continuous Data Export, you only get the data that comes in from that moment onwards. There is currently no way to retrieve data from when Continuous Data Export was turned off. Turn on Continuous Data Export early to retain more historical data!
 
 ## Prerequisites
 
-- an extended 30 day trial app or a paid app
+- an extended 30-day trial app or a paid app
 - Azure account with Azure subscription
-- the same Azure account must be an Administrator in your IoT Central app
-- the same Azure account must be able to create a storage account or access an existing storage account in the same Azure subscription
+- the same Azure account is an Administrator in your IoT Central app
+- the same Azure account has permissions to create a storage account or access an existing storage account in the same Azure subscription
 
 ## Types of data to export
 
 ### Measurements
 
-The measurements that devices send get exported into your Storage account. Measurements data is exported approximately once a minute, containing all new messages that were received by IoT Central from all devices within that time window. The exported AVRO files are in the same format as those exported by [IoT Hub message routing](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to blob storage.
+The measurements that devices send get exported into your Storage account. Measurements data is exported approximately once a minute, containing all new messages that were received by IoT Central from all devices within that time window. The exported AVRO files are in the same format as the messages files exported by [IoT Hub message routing](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to blob storage.
 
 > [!NOTE]
 > The devices that sent the measurements are represented by device IDs (see below). To get the names of the devices, you need to export devices snapshots too. You can correlate each message record using the connectionDeviceId which matches to the id of the device.
 
-Each record in the decoded AVRO file looks like this:
+This is an example of a record in the decoded AVRO file.
 
 ```json
 {
@@ -61,7 +61,14 @@ Each record in the decoded AVRO file looks like this:
 
 ### Devices
 
-When you first turn on Continuous Data Export, a single snapshot containing all devices (device IDs, device names, device template IDs, properties and settings values) is exported. Approximately once a minute, a new snapshot is written containing:
+When you first turn on Continuous Data Export, a single snapshot containing all devices is exported. This includes:
+- device IDs
+- device names
+- device template IDs
+- properties values
+- settings values
+
+Approximately once a minute, a new snapshot is written containing:
 
 - the new devices that were added since the last snapshot
 - devices that had properties and settings values changed since the last snapshot
@@ -103,7 +110,13 @@ Each record in the decoded AVRO file looks like this:
 
 ### Device templates
 
-When you first turn on Continuous Data Export, a single snapshot containing all device templates (device template IDs, measurement data types and min/max values, properties data types and default values, settings data types and default values) is exported. Approximately once a minute, a new snapshot is written containing:
+When you first turn on Continuous Data Export, a single snapshot containing all device templates is exported. This includes: 
+- device template IDs
+- measurement data types and min/max values
+- properties data types and default values
+- settings data types and default values
+
+Approximately once a minute, a new snapshot is written containing:
 
 - the new device templates that were added since the last snapshot
 - device templates that had measurements, properties and settings definitions that changed since the last snapshot
@@ -189,7 +202,7 @@ Each record in the decoded AVRO file looks like this:
 
 ## How to set up data export
 
-1. If you don't already have one, create an Azure Storage account **in the Azure subscription that your app is in**. [Click here](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) to jump into the Azure Portal to create a new Azure Storage account.
+1. If you don't already have one, create an Azure Storage account **in the Azure subscription that your app is in**. [Click here](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) to jump into the Azure portal to create a new Azure Storage account.
 
 - choose *General purpose* or *Blob storage* account kinds
 - select the subscription your IoT Central app is in. If you don't see the subscription, you may need to sign into a different Azure account or ask for access to the subscription.
@@ -201,15 +214,15 @@ Each record in the decoded AVRO file looks like this:
 1. Go to Administration -> Continuous Data Export.
 [IoT Central CDE](./media/howto-export-data/continuousdataexport.png)
 1. Using the dropdowns, pick your Storage account and Container. Then use the toggles to turn on or off the different types of data to export.
-1. Finally, turn on Continous Data Export using the toggle, and hit "Save".
-1. Wait a few minutes, and you should see your data appear in your Storage account. You can navigate to your Storage account, select Browse blobs, select your Container, and you will see 3 folders. The default paths for the AVRO files containing the different types of data are:
+1. Finally, turn on Continuous Data Export using the toggle, and hit "Save".
+1. Wait a few minutes, and you should see your data appear in your Storage account. You can navigate to your Storage account, select Browse blobs, select your Container, and you'll see three folders. The default paths for the AVRO files containing the different types of data are:
 - Messages: **{container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro**
 - Devices: **{container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro**
 - Device templates: **{container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro**
 
 ## How to read exported AVRO files
 
-AVRO is a binary format, so the files can't be read in their raw state. They can be decoded to JSON format. The following examples show how to parse the measurements, devices and device templates AVRO files using the examples above.
+AVRO is a binary format, so the files can't be read in their raw state. They can be decoded to JSON format. The following examples show how to parse the measurements, devices, and device templates AVRO files using the examples above.
 
 ## [Python](#tab/python)
 
