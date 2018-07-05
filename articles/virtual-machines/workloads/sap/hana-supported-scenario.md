@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -288,7 +288,7 @@ The following mountpoints are preconfigured:
 
 ## 5. HSR with STONITH
  
-This topology support two nodes for the HANA System Replication (HSR) configuration. 
+This topology support two nodes for the HANA System Replication (HSR) configuration. This configuration is only supported for single HANA instances on a node. Means, MCOS scenarios are NOT supported.
 
 **As of now, this architecture is supported only for SUSE Operating system.**
 
@@ -337,7 +337,7 @@ The following mountpoints are preconfigured:
 
 ## 6. HSR with DR
  
-This topology support two nodes for the HANA System Replication (HSR) configuration. Both the normal and multipurpose DR is supported. 
+This topology support two nodes for the HANA System Replication (HSR) configuration. Both the normal and multipurpose DR is supported. These configurations are only supported for single HANA instances on a node. Means, MCOS scenarios are NOT supported with these configurations.
 
 In the diagram, multipurpose scenario is depicted where at the DR site, HLI unit is used for QA instance while production operations are running from the primary site. At the time of DR failover (or failover test), QA instance at DR site is taken down. 
 
