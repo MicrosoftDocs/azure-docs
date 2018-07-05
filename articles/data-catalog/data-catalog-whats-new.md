@@ -89,7 +89,7 @@ As of February 2017, the following capabilities have been added to Azure Data Ca
 
 ## What's new for January 2017 
 As of January 2017, the following capabilities have been added to Azure Data Catalog:
-*	Azure Data Catalog is now [CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification) compliant.
+*	Azure Data Catalog is now [CSA STAR](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-certification) compliant.
 *	Integration with [Get & Transform in Excel 2016 and Power Query for Excel](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605). Excel users can share queries and discover queries using Azure Data Catalog from inside Excel. This functionality is available to users with Power BI Pro licenses.
 
 ## What's new for December 2016
@@ -101,7 +101,7 @@ As of December 2016, the following capabilities have been added to Azure Data Ca
 
 ## What's new for November 2016
 As of November 2016, the following capabilities have been added to Azure Data Catalog:
-*	Azure Data Catalog is now [ISO/IEC 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001) and [ISO/IEC 27018](https://www.microsoft.com/TrustCenter/Compliance/iso-iec-27018) compliant.
+*	Azure Data Catalog is now [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27001) and [ISO/IEC 27018](https://www.microsoft.com/en-us/TrustCenter/Compliance/iso-iec-27018) compliant.
 *	Support for the manual registration of ODBC data sources using the Data Catalog portal and REST API.
 
 ## What's new for September 2016

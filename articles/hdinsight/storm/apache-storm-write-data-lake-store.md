@@ -65,7 +65,7 @@ For more information, see the [HdfsBolt](http://storm.apache.org/releases/curren
 
 ### Example configuration
 
-The following YAML is an excerpt from the `resources/writetohdfs.yaml` file included in the example. This file defines the Storm topology using the [Flux](https://storm.apache.org/releases/1.1.0/flux.html) framework for Apache Storm.
+The following YAML is an excerpt from the `resources/writetohdfs.yaml` file included in the example. This file defines the Storm topology using the [Flux](https://storm.apache.org/releases/1.1.2/flux.html) framework for Apache Storm.
 
 ```yaml
 components:
