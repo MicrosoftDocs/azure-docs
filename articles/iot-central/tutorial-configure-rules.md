@@ -1,33 +1,42 @@
 ---
+# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Configure rules and actions in Azure IoT Central | Microsoft Docs
 description: This tutorial shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
+services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.service: iot-central
-services: iot-central
-ms.custom: mvc
-manager: peterpr
+# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
+ms.prod: microsoft-iot-central
+# product-name-from-white-list
+
+# Optional fields. Don't forget to remove # if you need a field.
+# ms.custom: can-be-multiple-comma-separated
+# ms.devlang:devlang-from-white-list
+# ms.suite: 
+# ms.tgt_pltfrm:
+# ms.reviewer:
+manager: timlt
 ---
 
-# Tutorial: Configure rules and actions for your device in Azure IoT Central
+# 2 - Configure rules and actions for your device in Azure IoT Central
 
-This tutorial shows you, as a builder, how to configure telemetry-based rules and actions in your Microsoft Azure IoT Central application.
+This tutorial shows you how to configure telemetry-based rules and actions in your IoT Central application.
 
-In this tutorial, you create a rule that sends an email when the temperature in a connected air conditioner device exceeds 90&deg; F.
+In this tutorial, you will create a rule that sends an email when the temperature in a connected air conditioner device exceeds 90&deg; F.
 
-In this tutorial, you learn how to:
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Create a telemetry-based rule
-> * Add an action
+> * Add an email action
 
 ## Prerequisites
 
 Before you begin, you should complete the [Define a new device type in your application](tutorial-define-device-type.md) tutorial to create the **Connected Air Conditioner** device template to work with.
 
-## Create a telemetry-based rule
+## Create a telemetry rule
 
 1. To add a new telemetry-based rule to your application, in the left navigation menu, choose **Device Explorer**:
 
@@ -35,17 +44,17 @@ Before you begin, you should complete the [Define a new device type in your appl
 
     You see the **Connected Air Conditioner (1.0.0)** device template and the **Connected Air Conditioner-1** device you created in the previous tutorial.
 
-2. To start customizing your connected air conditioner device, choose the device you created in the previous tutorial:
+1. To start customizing your connected air conditioner device, choose the device you created in the previous tutorial:
 
     ![Connected air conditioner page](media/tutorial-configure-rules/builderdevicelist.png)
 
-3. To start adding a rule in the **Rules** view, choose **Rules**:
+1. To start adding a rule in the **Rules** view, choose **Rules**:
 
     ![Rules view](media/tutorial-configure-rules/builderrulesview.png)
 
-4. To start creating the threshold-based telemetry rule, choose **New Rule**, then **Telemetry**.
+1. In this tutorial, you add a threshold-based telemetry rule. To start creating a threshold-based rule, choose **New Rule**, then **Telemetry**. **NEW SCREENSHOT NECESSARY**
 
-5. To define your rule, use the information in the following table:
+1. To define your rule, use the information in the following table:
 
     | Setting     | Value                          |
     | ----------- | ------------------------------ |
@@ -55,15 +64,17 @@ Before you begin, you should complete the [Define a new device type in your appl
 
     ![Temperature rule condition](media/tutorial-configure-rules/buildertemperaturerule.png)
 
+1. Save your rule. **INSERT SCREENSHOT HERE**
+
 ## Add an action
 
-When you define a rule, you also define an action to run when the rule conditions are met. In this tutorial, you add an action to send an email as a notification that the rule triggered.
+Now that you have defined the conditions that cause the rule to fire, you can now configure the action to take when the rule conditions are met. In this tutorial, you will configure an email action.
 
-1. To add an **Action**, scroll down on the **Configure Telemetry Rule** panel and choose the **+** next to **Actions**, then choose **Email**:
+1. To add an **Action**, scroll down on the **Configure Telemetry Rule** panel and choose the **+** next to **Actions**, then choose **Email**: **NEW SCREENSHOT NECESSARY**
 
     ![Temperature rule action](media/tutorial-configure-rules/builderaddaction.png)
 
-2. To define your action, use the information in the following table:
+1. To define your action, use the information in the following table:
 
     | Setting   | Value                          |
     | --------- | ------------------------------ |
@@ -75,11 +86,11 @@ When you define a rule, you also define an action to run when the rule condition
 
     ![Application Builder Temperature action](media/tutorial-configure-rules/buildertemperatureaction.png)
 
-3. Choose **Save**. Your rule is listed on the **Rules** page:
+1. Choose **Save**. Your rule is listed on the **Rules** page:
 
     ![Application Builder rules](media/tutorial-configure-rules/builderrules.png)
 
-## Test the rule
+## Result
 
 Shortly after you save the rule, it becomes live. When the conditions defined in the rule are met, your application sends a message to the email address you specified in the action.
 
@@ -97,6 +108,7 @@ In this tutorial, you learned how to:
 Now that you have defined a threshold-based rule the suggested next step is to [Customize the operator's views](tutorial-customize-operator.md).
 
 To learn more about different types of rules in Azure IoT Central and how to parameterize the rule definition, see:
+
 * [Create a telemetry rule and set up notifications](howto-create-telemetry-rules.md).
 * [Create an event rule and set up notifications](howto-create-event-rules.md).
 
