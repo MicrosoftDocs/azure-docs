@@ -42,6 +42,10 @@ Existing commands in Linux, such as `ls`, `sort`, and `sleep` take precedence ov
 
 For users of who persisted scripts and other files in their Cloud Drive, the $HOME directory is now persisted across sessions.
 
+## PowerShell profile
+
+By default, a PowerShell profile is not created.  To create your profile, create a `PowerShell` directory under `$HOME/.config`.  In `$HOME/.config/PowerShell`, you can create your profile under the name `Microsoft.PowerShell_profile.ps1`.
+
 ## What's new in PowerShell Core 6
 
 For more information about what is new in PowerShell Core 6, reference the [PowerShell docs](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) and the [Getting Started with PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) blog post

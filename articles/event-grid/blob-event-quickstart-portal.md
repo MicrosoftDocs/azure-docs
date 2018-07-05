@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 06/26/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---
@@ -51,6 +51,8 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 1. You see the site but no events have been posted to it yet.
 
    ![View new site](./media/blob-event-quickstart-portal/view-site.png)
+
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## Subscribe to the Blob storage
 
