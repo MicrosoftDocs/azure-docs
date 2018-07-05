@@ -74,6 +74,8 @@ docker images
 Three images have been downloaded or created. The `azure-vote-front` image contains the front-end application and uses the `nginx-flask` image as a base. The `redis` image is used to start a Redis instance.
 
 ```
+$ docker images
+
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
 azure-vote-front             latest     9cc914e25834        40 seconds ago      694MB
 redis                        latest     a1b99da73d05        7 days ago          106MB
@@ -82,13 +84,9 @@ tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        
 
 Run the [docker ps][docker-ps] command to see the running containers:
 
-```console
-docker ps
 ```
+$ docker ps
 
-The following example output shows the front-end and back-end containers:
-
-```
 CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS                           NAMES
 82411933e8f9        azure-vote-front  "/usr/bin/supervisord"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:8080->80/tcp   azure-vote-front
 b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back

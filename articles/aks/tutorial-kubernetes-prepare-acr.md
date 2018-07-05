@@ -62,13 +62,9 @@ The command returns a *Login Succeeded* message once completed.
 
 To see a list of your current local images, use the [docker images][docker-images] command:
 
-```console
-docker images
 ```
+$ docker images
 
-The following example output shows the container images created in the previous tutorial:
-
-```
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front             latest              4675398c9172        13 minutes ago      694MB
 redis                        latest              a1b99da73d05        7 days ago          106MB
@@ -89,15 +85,11 @@ Now, tag your local `azure-vote-front` image with the *loginServer* address of t
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-To verify the tags are applied, run [docker images][docker-images] again:
-
-```console
-docker images
-```
-
-The following example output now shows an image tagged with the ACR instance address and a version number:
+To verify the tags are applied, run [docker images][docker-images] again. An image is tagged with the ACR instance address and a version number.
 
 ```
+$ docker images
+
 REPOSITORY                                           TAG           IMAGE ID            CREATED             SIZE
 azure-vote-front                                     latest        eaf2b9c57e5e        8 minutes ago       716 MB
 mycontainerregistry.azurecr.io/azure-vote-front      v1            eaf2b9c57e5e        8 minutes ago       716 MB

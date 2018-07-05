@@ -108,13 +108,9 @@ az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 
 To verify the connection to your cluster, run the [kubectl get nodes][kubectl-get] command.
 
-```azurecli
-kubectl get nodes
 ```
+$ kubectl get nodes
 
-The following example output shows one node in the cluster:
-
-```
 NAME                       STATUS    ROLES     AGE       VERSION
 aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.6
 ```

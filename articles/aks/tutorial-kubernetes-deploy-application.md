@@ -73,13 +73,9 @@ Save and close the file.
 
 To deploy your application, use the [kubectl apply][kubectl-apply] command. This command parses the manifest file and creates the defined Kubernetes objects:
 
-```console
-kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
+$ kubectl apply -f azure-vote-all-in-one-redis.yaml
 
-The following example output shows that the *azure-vote-back* and *azure-vote-front* services are deployed into your AKS cluster:
-
-```
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created

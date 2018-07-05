@@ -94,13 +94,9 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 To ensure maximum uptime, multiple instances of the application pod must be running. Verify the number of running front-end instances with the [kubectl get pod][kubectl-get] command:
 
-```console
-kubectl get pod
 ```
+$ kubectl get pod
 
-The following example output shows three instances of *azure-vote-front*:
-
-```
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-217588096-5w632    1/1       Running   0          10m
 azure-vote-front-233282510-b5pkz   1/1       Running   0          10m
