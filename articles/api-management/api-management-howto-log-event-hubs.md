@@ -51,7 +51,7 @@ Specify the request body using the following template:
   "loggerType" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
-    "name" : "Name of the Event Hub from the Portal",
+    "name" : "Name of the Event Hub from the portal",
     "connectionString" : "Endpoint=Event Hub Sender connection string"
     }
 }
@@ -61,7 +61,7 @@ Specify the request body using the following template:
 * `description` provides an optional description of the logger and can be a zero length string if desired.
 * `credentials` contains the `name` and `connectionString` of your Azure Event Hub.
 
-When you make the request, if the logger is created a status code of `201 Created` is returned. A sample response based on the above sample request is shown below.
+When you make the request, if the logger is created, a status code of `201 Created` is returned. A sample response based on the above sample request is shown below.
 
 ```json
 {
