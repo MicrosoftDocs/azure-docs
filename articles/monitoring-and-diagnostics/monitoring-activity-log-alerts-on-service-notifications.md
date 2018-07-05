@@ -21,6 +21,9 @@ You can receive an alert when Azure sends service health notifications to your A
 - The service(s) affected.
 - The region(s) affected.
 
+> [!NOTE]
+> Service health notifications does not send an alert regarding resource health events.
+
 You also can configure who the alert should be sent to:
 
 - Select an existing action group.
