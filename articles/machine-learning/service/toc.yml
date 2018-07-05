@@ -30,7 +30,7 @@
 - name: How-to guides
   items:  
   - name: Manage workspace in portal
-    href: how-to-manage-workspace-in-portal.md 
+    href: how-to-manage-workspace.md 
   - name: Set up development environment 	
     items:    
     - name: Choose an environment  
