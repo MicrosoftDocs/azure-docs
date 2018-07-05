@@ -265,7 +265,7 @@ In order to verify that the utterances in the batch test are correctly predicted
 
 2. Select **Batch testing panel** in the right-side panel. 
 
-3. Select the ellipsis (***...***) to the right of the batch name and select **Run Dataset**. Wait until the batch test is done.
+3. Select the ellipsis (***...***) button to the right of the batch name and select **Run Dataset**. Wait until the batch test is done.
 
     ![Run dataset](./media/luis-tutorial-batch-testing/run-dataset.png)
 
@@ -369,7 +369,7 @@ Entity testing is diferrent than intents. An utterance will have only one top sc
 
 3. Select **Test** on the top navigation panel to open the Batch testing pane again. 
 
-4. If the list of datasets is not visible, select **Back to list**. Select the ellipsis (***...***) at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
+4. If the list of datasets is not visible, select **Back to list**. Select the ellipsis (***...***) button at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
 
 5. Select **See results** to review the test results.
 
