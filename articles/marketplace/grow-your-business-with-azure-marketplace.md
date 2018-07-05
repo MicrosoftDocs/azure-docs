@@ -79,7 +79,7 @@ If your product or category is well known and you have purchase capabilities set
 
 At a more mature point in the history of your offer, you might decide to focus your campaign efforts on upselling your customer base and drive action toward increased purchase in the Marketplace. Your tactics would focus on encouraging customers to "buy now" in the Marketplace. Your KPI might be the revenue generated through the Marketplace.
 
-Whatever the maturity of your offer and the goals of your organization, the the following are keys to maximizing the effectiveness of your campaign.
+Whatever the maturity of your offer and the goals of your organization, the following are keys to maximizing the effectiveness of your campaign.
 
 *   Staying focused on this goal
 *   Mapping out a set of integrated marketing tactics aligned to this goal

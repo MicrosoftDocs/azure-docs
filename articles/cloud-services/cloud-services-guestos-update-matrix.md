@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/1/2018
+ms.date: 7/3/2018
 ms.author: raiye
 
 ---
@@ -39,6 +39,10 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **July 3, 2018**
+The June Guest OS has released.
+
 ###### **June 1, 2018**
 The May Guest OS has released.
 
@@ -66,9 +70,6 @@ November Guest OS has released.
 ###### **November 8, 2017**
 October Guest OS has released.
 
-###### **October 6, 2017**
-September Guest OS has released. For the Windows Server 2016 September release, netfx3 is enabled by default. Customers should add ‘dism /online /disable-feature /featurename:netfx3’ in their OnStart if their workflow requires them to run a .NET 2.x app with a 4.x runtime or if they ran a .NET 2.x app, handled an error, and then ran a .NET 4.x app.
-
 
 
 ## Releases
@@ -85,8 +86,9 @@ September Guest OS has released. For the Windows Server 2016 September release, 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.20_201806-01 |July 3, 2018 |Post 5.22 |TBD |
 | WA-GUEST-OS-5.19_201805-01 |June 1, 2018 |Post 5.21 |TBD |
-| WA-GUEST-OS-5.18_201804-01 |May 4, 2018 |Post 5.20 |TBD |
+|~~WA-GUEST-OS-5.18_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
 |~~WA-GUEST-OS-5.17_201803-01~~ |April 6, 2018 |June 1, 2018|TBD |
 |~~WA-GUEST-OS-5.16_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
 |~~WA-GUEST-OS-5.15_201801-01~~ |January 4, 2018 |April 6, 2018 |TBD |
@@ -94,7 +96,6 @@ September Guest OS has released. For the Windows Server 2016 September release, 
 |~~WA-GUEST-OS-5.13_201711-01~~ |December 14, 2017 |January 4, 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
-|~~WA-GUEST-OS-5.10_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
 
 
 ## Family 4 releases
@@ -109,8 +110,9 @@ September Guest OS has released. For the Windows Server 2016 September release, 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.55_201806-01 |July 3, 2018 |Post 4.57 |TBD |
 | WA-GUEST-OS-4.54_201805-01 |June 1, 2018 |Post 4.56 |TBD |
-| WA-GUEST-OS-4.53_201804-01 |May 4, 2018 |Post 4.55 |TBD |
+|~~WA-GUEST-OS-4.53_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
 |~~WA-GUEST-OS-4.52_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
 |~~WA-GUEST-OS-4.51_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
 |~~WA-GUEST-OS-4.50_201801-01~~ |January 4, 2018 |April 6, 2018 |TBD |
@@ -118,7 +120,6 @@ September Guest OS has released. For the Windows Server 2016 September release, 
 |~~WA-GUEST-OS-4.48_201711-01~~ |December 14, 2017 |January 4, 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |November 8, 2017 |January 4, 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |October 6, 2017 |December 14, 2017 |TBD |
-|~~WA-GUEST-OS-4.45_201708-01~~ |August 24, 2017 |December 14, 2017 |TBD |
 
 
 
@@ -134,8 +135,9 @@ September Guest OS has released. For the Windows Server 2016 September release, 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.62_201806-01 |July 3, 2018 |Post 3.64 |TBD |
 | WA-GUEST-OS-3.61_201805-01 |June 1, 2018 |Post 3.63 |TBD |
-| WA-GUEST-OS-3.60_201804-01 |May 4, 2018 |Post 3.62 |TBD |
+|~~WA-GUEST-OS-3.60_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
 |~~WA-GUEST-OS-3.59_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
 |~~WA-GUEST-OS-3.58_201802-01~~ |March 19, 2018 |May 4, 2018 |TBD |
 |~~WA-GUEST-OS-3.57_201801-01~~ |January 29, 2018 |April 6, 2018 |TBD |
@@ -158,8 +160,9 @@ September Guest OS has released. For the Windows Server 2016 September release, 
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.75_201806-01 |July 3, 2018 |Post 2.77 |TBD |
 | WA-GUEST-OS-2.74_201805-01 |June 1, 2018 |Post 2.76 |TBD |
-| WA-GUEST-OS-2.73_201804-01 |May 4, 2018 |Post 2.75 |TBD |
+|~~WA-GUEST-OS-2.73_201804-01~~ |May 4, 2018 |July 3, 2018 |TBD |
 |~~WA-GUEST-OS-2.72_201803-01~~ |April 6, 2018 |June 1, 2018 |TBD |
 |~~WA-GUEST-OS-2.71_201802-01~~ |March 12, 2018 |May 4, 2018 |TBD |
 |~~WA-GUEST-OS-2.70_201801-01~~ |January 29, 2018 |April 6, 2018 |TBD |
