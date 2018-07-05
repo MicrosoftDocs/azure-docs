@@ -168,7 +168,7 @@ To view the MFA deployment guide, go to the [Identity Deployment Guides](https:/
 ### Azure AD delegated app management roles are in public preview
 
 **Type:** New feature  
-**Service category:** Enterprise Apps
+**Service category:** Enterprise Apps  
 **Product capability:** Access Control
 
 Admins can now delegate app management tasks without assigning the Global Administrator role. The new roles and capabilities are:
