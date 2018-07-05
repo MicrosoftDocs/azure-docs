@@ -48,7 +48,7 @@ You can set the name (50 char max), version (10 char max), and description of an
     ![Import a new app dialog](./media/luis-create-new-app/import-app.png)
 
 ## Export app
-1. On **My Apps** page, select the three dots (...) at the end of the app row.
+1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row.
 
     [![](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
 
@@ -56,7 +56,7 @@ You can set the name (50 char max), version (10 char max), and description of an
 
 ## Rename app
 
-1. On **My Apps** page, select the three dots (...) at the end of the app row. 
+1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
 2. Select **Rename** from the menu.
 3. Enter the new name of the app and select **Done**.
 
@@ -65,14 +65,14 @@ You can set the name (50 char max), version (10 char max), and description of an
 > [!CAUTION]
 > You are deleting the app for all collaborators and the owner. [Export](#export-app) the app before deleting it. 
 
-1. On **My Apps** page, select the three dots (...) at the end of the app row. 
+1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
 2. Select **Delete** from the menu.
 3. Select **Ok** in the confirmation window.
 
 ## Export endpoint logs
 The logs contain the Query, UTC time, and LUIS JSON response.
 
-1. On **My Apps** page, select the three dots (...) at the end of the app row. 
+1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
 2. Select **Export endpoint logs** from the menu.
 
 ```

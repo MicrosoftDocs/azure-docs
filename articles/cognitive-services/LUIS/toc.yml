@@ -11,32 +11,6 @@
   items: 
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
-- name: Tutorials
-  items: 
-  - name: Build app
-    items: 
-    - name: 1. With custom domain
-      href: luis-quickstart-intents-only.md
-    - name: 2. Add prebuilt intents and entities
-      href: luis-tutorial-prebuilt-intents-entities.md
-    - name: 3. Add regular expression entity
-      href: luis-quickstart-intents-regex-entity.md
-    - name: 4. Add list entity
-      href: luis-quickstart-intent-and-list-entity.md
-    - name: 5. Add hierarchical entity
-      href: luis-quickstart-intent-and-hier-entity.md
-    - name: 6. Add simple entity and phrase list
-      href: luis-quickstart-primary-and-secondary-data.md
-    - name: 7. Add keyPhrase entity
-      href: luis-quickstart-intent-and-key-phrase.md
-    - name: 8. Add sentiment analysis
-      href: luis-quickstart-intent-and-sentiment-analysis.md
-  - name: Improve prediction 
-    items: 
-    - name: With patterns
-      href: luis-tutorial-pattern.md
-    - name: With a phrase list
-      href: luis-tutorial-interchangeable-phrase-list.md
   - name: Use APIs
     items: 
     - name: Get utterance prediction with endpoint query
@@ -71,7 +45,34 @@
         href: luis-get-started-php-add-utterance.md
       - name: Ruby
         href: luis-get-started-ruby-add-utterance.md
-
+- name: Tutorials
+  items: 
+  - name: Build app
+    items: 
+    - name: 1. With custom domain
+      href: luis-quickstart-intents-only.md
+    - name: 2. Add prebuilt intents and entities
+      href: luis-tutorial-prebuilt-intents-entities.md
+    - name: 3. Add regular expression entity
+      href: luis-quickstart-intents-regex-entity.md
+    - name: 4. Add list entity
+      href: luis-quickstart-intent-and-list-entity.md
+    - name: 5. Add hierarchical entity
+      href: luis-quickstart-intent-and-hier-entity.md
+    - name: 6. Add simple entity and phrase list
+      href: luis-quickstart-primary-and-secondary-data.md
+    - name: 7. Add keyPhrase entity
+      href: luis-quickstart-intent-and-key-phrase.md
+    - name: 8. Add sentiment analysis
+      href: luis-quickstart-intent-and-sentiment-analysis.md
+  - name: Improve app 
+    items: 
+    - name: Review endpoint utterances
+      href: luis-tutorial-review-endpoint-utterances.md
+    - name: With patterns
+      href: luis-tutorial-pattern.md
+    - name: With a phrase list
+      href: luis-tutorial-interchangeable-phrase-list.md
 - name: Samples
   items:
   - name: Code samples
@@ -137,7 +138,7 @@
 - name: How-to guides
   items: 
   - name: Plan your app
-    href: Plan-your-app.md
+    href: luis-how-plan-your-app.md
   - name: Start a new app
     href: Create-new-app.md
   - name: Build Model
@@ -193,15 +194,15 @@
     - name: Improve accuracy with batch testing
       href: luis-tutorial-batch-testing.md
   - name: Publish your app
-    href: PublishApp.md
+    href: luis-how-to-publish-app.md
   - name: Use prebuilt models
     items: 
     - name: Use prebuilt entities
-      href: Pre-builtEntities.md
+      href: luis-prebuilt-entities.md
     - name: Use prebuilt domains
       href: luis-how-to-use-prebuilt-domains.md
     - name: Use the Cortana prebuilt app
-      href: Cortana-Prebuilt-App.md
+      href: luis-how-to-cortana-prebuilt-app.md
   - name: Manage your LUIS app
     items: 
     - name: Using the dashboard
@@ -209,7 +210,7 @@
     - name: Create keys
       href: luis-how-to-azure-subscription.md
     - name: Add keys in LUIS 
-      href: Manage-Keys.md
+      href: luis-how-to-manage-keys.md
     - name: View endpoint usage with PowerShell
       href: luis-how-to-manage-from-cloud-shell.md
     - name: Manage versions
@@ -284,6 +285,10 @@
       href: https://github.com/Microsoft/Cognitive-LUIS-Android
     - name: Node.js
       href: https://github.com/Microsoft/Cognitive-LUIS-Node.js
+    - name: Go 
+      href: https://aka.ms/luis-sdk-go
+    - name: Java
+      href: https://aka.ms/luis-java-sdk
     - name: Python
       href: https://github.com/Microsoft/Cognitive-LUIS-Python
     - name: .Net Endpoint
@@ -306,8 +311,12 @@
     href: https://azure.microsoft.com/services/cognitive-services/spell-check/
   - name: Text Analytics 
     href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
+  - name: Recognizers-Text
+    href: https://github.com/Microsoft/Recognizers-Text
 - name: Resources
   items: 
+  - name: Regional availability
+    href: https://azure.microsoft.com/en-us/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://aka.ms/luis-roadmap
   - name: Glossary

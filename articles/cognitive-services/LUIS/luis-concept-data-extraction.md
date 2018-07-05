@@ -21,7 +21,7 @@ LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint).
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you are editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you are learning LUIS, it is important to change the subscription key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits). The `timezoneOffset` unit is minutes.
+The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you are editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you are learning LUIS, it is important to change the endpoint key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits). The `timezoneOffset` unit is minutes.
 
 The **HTTPS response** contains all the intent and entity information LUIS can determine based on the current published model of either the staging or production endpoint. The endpoint URL is found on the [LUIS][LUIS] website **Publish** page. 
 

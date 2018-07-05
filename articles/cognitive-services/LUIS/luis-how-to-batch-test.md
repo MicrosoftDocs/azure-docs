@@ -21,7 +21,7 @@ ms.author: v-geberr
 
     ![Batch Testing Link](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate the [JSON](luis-concept-batch-test.md#batch-file-format) file that contains *no more than 1,000* utterances to test.
+2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate a JSON file with the correct [JSON format](luis-concept-batch-test.md#batch-file-format) that contains *no more than 1,000* utterances to test.
 
     ![Import Dataset File](./media/luis-how-to-batch-test/batchtest-importset.png)
 
@@ -32,7 +32,7 @@ ms.author: v-geberr
 4. Select **Done**. The dataset file is added.
 
 ## Run, rename, export, or delete dataset
-To run, rename, export, or delete the dataset, use the three dots (**...**) at the end of the dataset row.
+To run, rename, export, or delete the dataset, use the ellipsis (***...***) button at the end of the dataset row.
 
 ![Dataset Actions](./media/luis-how-to-batch-test/batch-testing-options.png)
 

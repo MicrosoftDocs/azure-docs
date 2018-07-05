@@ -255,7 +255,7 @@ of their environment, facilities, and patients.
 *Email: Alex\_SiteAdmin*
 
 Alex's job is to evaluate technologies that can reduce the burden of
-managing an on-premise network and reduce costs for management. Alex has
+managing an on-premises network and reduce costs for management. Alex has
 been evaluating Azure for some time but has struggled to configure the
 services that he needs to meet the HiTrust compliance requirements to
 store Patient Data in the cloud. Alex has selected the Azure
