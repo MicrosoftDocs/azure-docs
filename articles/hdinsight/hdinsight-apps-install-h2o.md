@@ -34,7 +34,7 @@ H2O Sparkling Water provides:
 
 ### Resource links
 
-* [H2O.ai Engineering Roadmap](https://jira.h2o.ai/)
+* [H2O.ai Engineering Roadmap](http://jira.h2o.ai/)
 * [H2O.ai Home](http://www.h2o.ai/)
 * [H2O.ai Documentation](http://docs.h2o.ai/)
 * [H2O.ai Support](https://support.h2o.ai/)
