@@ -169,7 +169,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/ffiec-analytics-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![Analytics for FFIEC threat model](images/FFIEC-analytics-threat-model.png "Analytics for FFIEC threat model")
+![Analytics for FFIEC threat model](images/ffiec-analytics-threat-model.png "Analytics for FFIEC threat model")
 
 ## Compliance documentation
 

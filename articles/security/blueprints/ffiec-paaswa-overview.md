@@ -203,7 +203,7 @@ The following Log Analytics [management solutions](https://docs.microsoft.com/az
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/ffiec-paaswa-tm) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![PaaS Web Application for FFIEC threat model](images/FFIEC-paaswa-threat-model.png "PaaS Web Application for FFIEC threat model")
+![PaaS Web Application for FFIEC threat model](images/ffiec-paaswa-threat-model.png "PaaS Web Application for FFIEC threat model")
 
 ## Compliance documentation
 
