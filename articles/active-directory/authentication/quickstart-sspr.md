@@ -17,7 +17,7 @@ ms.reviewer: sahenry
 ---
 # Quickstart: Self-service password reset
 
-In this quickstart, you walk you through configuring self-service password reset (SSPR) as a simple means for IT administrators to enable users to reset their passwords or unlock their accounts.
+In this quickstart, you walk through configuring self-service password reset (SSPR) as a simple means for IT administrators to enable users to reset their passwords or unlock their accounts.
 
 ## Prerequisites
 
