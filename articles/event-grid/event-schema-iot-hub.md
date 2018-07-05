@@ -39,11 +39,14 @@ The schema for DeviceConnected and DeviceDisconnected events have the same struc
   "subject": "devices/LogicAppTestDevice", 
   "eventType": "Microsoft.Devices.DeviceConnected", 
   "eventTime": "2018-06-02T19:17:44.4383997Z", 
-  "data": { 
+  "data": {
+    "deviceConnectionStateEventInfo": {
+      "sequenceNumber":
+        "000000000000000001D4132452F67CE200000002000000000000000000000001"
+    },
     "hubName": "egtesthub1",
     "deviceId": "LogicAppTestDevice",
-    "moduleId" : "DeviceModuleID",
-    "sequenceNumber": "AAAAAAAAAAA=AdP+q6/KbPU=AAAAAgAAAAA=AAAAAAAAAAE=" 
+    "moduleId" : "DeviceModuleID"
   }, 
   "dataVersion": "", 
   "metadataVersion": "1" 
@@ -63,6 +66,7 @@ The schema for DeviceCreated and DeviceDeleted events have the same structure. T
     "twin": {
       "deviceId": "LogicAppTestDevice",
       "etag": "AAAAAAAAAAE=",
+      "deviceEtag": "null",
       "status": "enabled",
       "statusUpdateTime": "0001-01-01T00:00:00",
       "connectionState": "Disconnected",
@@ -119,10 +123,12 @@ The contents of the data object are different for each event publisher. For IoT 
 | hubName | string | Name of the IoT Hub where the device was created or deleted. |
 | deviceId | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | moduleId | string | The unique identifier of the module. This field is output only for module devices. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceConnectionStateEventInfo | object | Device connection state event information
 | sequenceNumber | string | A number which helps indicate order of device connected or device disconnected events. Latest event will have a sequence number that is higher than the previous event. This number may change by more than 1, but is strictly increasing. |
 | twin | object | Information about the device twin, which is the cloud represenation of application device metadata. | 
 | deviceID | string | The unique identifier of the device twin. | 
-| etag | string | A piece of information that describes the content of the device twin. Each etag is guaranteed to be unique per device twin. | 
+| etag | string | A piece of information that describes the content of the device twin. Each etag is guaranteed to be unique per device twin. |  
+| deviceEtag| string | A piece of information that describes the content of the device registry. Each etag is guaranteed to be unique per device registry. |
 | status | string | Whether the device twin is enabled or disabled. | 
 | statusUpdateTime | string | The ISO8601 timestamp of the last device twin status update. |
 | connectionState | string | Whether the device is connected or disconnected. | 
