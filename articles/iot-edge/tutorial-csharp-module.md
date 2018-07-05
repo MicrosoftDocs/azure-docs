@@ -16,7 +16,7 @@ ms.custom: mvc
 
 # Tutorial: Develop a C# IoT Edge module and deploy to your simulated device
 
-You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] tutorial. In this tutorial, you learn how to:    
+You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] quickstarts. In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an IoT Edge module that's based on the .NET Core 2.0 SDK.
@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 * The primary key connection string for the IoT Edge device.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) for Visual Studio Code.
+* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code. 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/) on your development machine. 
@@ -59,11 +59,12 @@ The following steps create an IoT Edge module project that's based on the .NET C
 2. Select **View** > **Command Palette** to open the VS Code command palette. 
 3. In the command palette, enter and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you're already signed in, you can skip this step.
 4. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
-   - Select the folder where you want to create the solution. 
-   - Provide a name for your solution or accept the default **EdgeSolution**.
-   - Choose **C# Module** as the module template. 
-   - Name your module **CSharpModule**. 
-   - Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/csharpmodule.
+
+   1. Select the folder where you want to create the solution. 
+   2. Provide a name for your solution or accept the default **EdgeSolution**.
+   3. Choose **C# Module** as the module template. 
+   4. Name your module **CSharpModule**. 
+   5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/csharpmodule.
 
 4.  The VS Code window loads your IoT Edge solution workspace: the modules folder, a \.vscode folder, a deployment manifest template file, and a \.env file. In the VS Code explorer, open **modules** > **CSharpModule** > **Program.cs**.
 
@@ -250,14 +251,14 @@ You can see the full container image address with tag in the VS Code integrated 
 
     1. Open the VS Code explorer by selecting **View** > **Explorer**.
 
-    1. In the explorer, select **AZURE IOT HUB DEVICES**, select the ellipsis **...**, and then choose **Select IoT Hub**. Follow the instructions to sign in your Azure account and choose your IoT hub. 
+    1. In the explorer, select **Azure IoT Hub Devices**, select the ellipsis **...**, and then choose **Select IoT Hub**. Follow the instructions to sign in your Azure account and choose your IoT hub. 
 
        > [!Note]
        > You can also complete the set up by choosing **Set IoT Hub Connection String**. Enter the connection string for the IoT hub that your IoT Edge device connects to in the pop-up window.
 
 2. In the Azure IoT Hub Devices explorer, right-click your IoT Edge device, then select **Create Deployment for IoT Edge device**. Select the deployment.json file in the config folder and then choose **Select Edge Deployment Manifest**.
 
-3. Select **Refresh**. You should see the new **CSharpModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
+3. Refresh the **Azure IoT Hub Devices** section. You should see the new **CSharpModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
 
 ## View generated data
 
@@ -273,7 +274,7 @@ You can see the full container image address with tag in the VS Code integrated 
 
 If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them.
 
-Otherwise, you can delete the local configurations and the Azure resources that are created in this article to avoid charges. 
+Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges. 
 
 > [!IMPORTANT]
 > Deleting Azure resources and resource groups is irreversible. When these items are deleted, the resource group and all of the resources that are contained in it are permanently deleted. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the IoT hub inside an existing resource group that has resources that you want to keep, delete only the IoT hub resource itself, instead of deleting the resource group.

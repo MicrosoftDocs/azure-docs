@@ -16,7 +16,7 @@ ms.custom: mvc
 
 # Tutorial: Develop and deploy a Python IoT Edge module to your simulated device
 
-You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows][lnk-quickstart-win] or [Linux][lnk-quickstart-lin] quickstart. In this tutorial, you learn how to:    
+You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows][lnk-quickstart-win] or [Linux][lnk-quickstart-lin] quickstarts. In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an IoT Edge Python module.
@@ -77,11 +77,11 @@ Use the Python package **cookiecutter** to create a Python solution template tha
 
 5. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
 
-   - Select the folder where you want to create the solution. 
-   - Provide a name for your solution or accept the default **EdgeSolution**.
-   - Choose **Python Module** as the module template. 
-   - Name your module **PythonModule**. 
-   - Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/pythonmodule.
+   1. Select the folder where you want to create the solution. 
+   2. Provide a name for your solution or accept the default **EdgeSolution**.
+   3. Choose **Python Module** as the module template. 
+   4. Name your module **PythonModule**. 
+   5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/pythonmodule.
  
 The VS Code window loads your IoT Edge solution workspace: the modules folder, a deployment manifest template file, and a \.env file. 
 
@@ -232,7 +232,7 @@ You can use the Azure portal to deploy your Python module to an IoT Edge device 
 
 If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them.
 
-Otherwise, you can delete the local configurations and the Azure resources that are created in this article to avoid charges. 
+Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges. 
 
 > [!IMPORTANT]
 > Deleting Azure resources and resource groups is irreversible. When these items are deleted, the resource group and all of the resources that are contained in it are permanently deleted. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the IoT hub inside an existing resource group that has resources that you want to keep, delete only the IoT hub resource itself, instead of deleting the resource group.
