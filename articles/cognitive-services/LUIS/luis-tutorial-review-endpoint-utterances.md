@@ -34,14 +34,16 @@ If you don't have the Human Resources app from the [sentiment](luis-quickstart-i
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `review`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
-The utterances submitted to the app over time, as you progressed through the tutorials, would have utterances that may have incorrect predictions based on the most recent tutorial intents and entities. If you imported the app and used the script to add the utterances, the review utterances would be different because the app didn't go through the various stages of tutorials. 
-
-If you have all the versions of the app, through the tutorials, you may be surprised to see that the **Review endpoint utterances** list doesn't change, based on the version. There is a single pool of utterances to review, regardless of which version the utterance you are actively editing or which version of the app was published at the endpoint. 
+If you have all the versions of the app, through the series of tutorials, you may be surprised to see that the **Review endpoint utterances** list doesn't change, based on the version. There is a single pool of utterances to review, regardless of which version the utterance you are actively editing or which version of the app was published at the endpoint. 
 
 ## Purpose of reviewing endpoint utterances
-This review process is another way for LUIS to learn your app domain. LUIS selected the utterances in the review list. This list is specific to the app and is meant to improve the app's prediction accuracy. This list should be reviewed on a periodic basis to improve predictions. 
+This review process is another way for LUIS to learn your app domain. LUIS selected the utterances in the review list. This list is:
 
-By reviewing the endpoint utterances, you verify or correct the utterance's predicted intent. You can also label custom entities that were not predicted. 
+* Specific to the app.
+* Is meant to improve the app's prediction accuracy. 
+* Should be reviewed on a periodic basis. 
+
+By reviewing the endpoint utterances, you verify or correct the utterance's predicted intent. You also label custom entities that were not predicted. 
 
 ## Review endpoint utterances
 
@@ -55,6 +57,8 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
 2. Toggle the **Entities view** to see the labeled entities. 
     
+    [ ![Screenshot of Review endpoint utterances with Entities view toggle highlighted](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
+
     |Utterance|Correct intent|Missing entities|
     |:--|:--|:--|
     |I'm looking for a job with Natural Language Processing|GetJobInfo|Job - "Natural Language Process"|
@@ -85,7 +89,7 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
 8. The list should no longer have those utterances. If more utterances appear, continue to work through the list, correcting intents and labeling any missing entities, until it is empty. Select the next intent in the Filter list, then continue correcting utterances and labeling entities. Remember the last step of each intent is to either select **Add to aligned intent** on the utterance row or check the box by each intent and select **Add selected** above the table. 
 
-    This is a very small app. The review process takes a few minutes only.
+    This is a very small app. The review process takes only a few minutes.
 
 ## Add new job name to phrase list
 Keep the phrase list current with any newly discovered job names. 
@@ -117,89 +121,105 @@ Try an utterance close to the corrected utterance.
 
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-2. Go to the end of the URL in the address and enter `I'm looking for a job with Natural Language Processing`. The last querystring parameter is `q`, the utterance **query**. 
+2. Go to the end of the URL in the address and enter `Are there any natural language processing jobs in my department right now?`. The last querystring parameter is `q`, the utterance **query**. 
 
 ```JSON
 {
-  "query": "I'm looking for a job with Natural Language Processing",
+  "query": "are there any natural language processing jobs in my department right now?",
   "topScoringIntent": {
     "intent": "GetJobInformation",
-    "score": 0.9092416
+    "score": 0.9247605
   },
   "intents": [
     {
       "intent": "GetJobInformation",
-      "score": 0.9092416
+      "score": 0.9247605
     },
     {
       "intent": "ApplyForJob",
-      "score": 0.0481389128
-    },
-    {
-      "intent": "EmployeeFeedback",
-      "score": 0.00855329
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.00533996429
-    },
-    {
-      "intent": "None",
-      "score": 0.00476739649
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00442132354
+      "score": 0.129989788
     },
     {
       "intent": "FindForm",
-      "score": 0.00259294664
+      "score": 0.006438211
+    },
+    {
+      "intent": "EmployeeFeedback",
+      "score": 0.00408575451
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00194211153
+    },
+    {
+      "intent": "None",
+      "score": 0.00166400627
     },
     {
       "intent": "Utilities.Help",
-      "score": 0.00255334447
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00194117648
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00159457081
+      "score": 0.00118593348
     },
     {
       "intent": "MoveEmployee",
-      "score": 0.0009164306
+      "score": 0.0007885918
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.0006373631
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0005980781
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 3.719905E-05
     }
   ],
   "entities": [
     {
+      "entity": "right now",
+      "type": "builtin.datetimeV2.datetime",
+      "startIndex": 64,
+      "endIndex": 72,
+      "resolution": {
+        "values": [
+          {
+            "timex": "PRESENT_REF",
+            "type": "datetime",
+            "value": "2018-07-05 15:23:18"
+          }
+        ]
+      }
+    },
+    {
       "entity": "natural language processing",
       "type": "Job",
-      "startIndex": 27,
-      "endIndex": 53,
-      "score": 0.8488714
+      "startIndex": 14,
+      "endIndex": 40,
+      "score": 0.9869922
     },
     {
-      "entity": "job",
+      "entity": "natural language processing jobs",
       "type": "builtin.keyPhrase",
-      "startIndex": 18,
-      "endIndex": 20
+      "startIndex": 14,
+      "endIndex": 45
     },
     {
-      "entity": "natural language processing",
+      "entity": "department",
       "type": "builtin.keyPhrase",
-      "startIndex": 27,
-      "endIndex": 53
+      "startIndex": 53,
+      "endIndex": 62
     }
   ],
   "sentimentAnalysis": {
-    "label": "neutral",
-    "score": 0.5
+    "label": "positive",
+    "score": 0.8251864
   }
+}
 }```
 
-The prediction score is at 90% and the job entity is detected as natural language processing. 
+The correct intent was predicted with a high score and the the **Job** entity is detected as `natural language processing`. 
 
 ## Can reviewing be replaced by adding more utterances? 
 You may wonder why not add more example utterances. What is the purpose of reviewing endpoint utterances? In a real-world LUIS app, the endpoint utterances are from users with word choice and arrangement you haven't used yet. If you had used the same word choice and arrangement, the original prediction would have a higher percentage. 
