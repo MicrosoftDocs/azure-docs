@@ -51,7 +51,9 @@ To help secure a service when you're using service remoting with Java services, 
     ```
 2. Add listener settings and security credentials.
 
-    Make sure the certificate that you want to use to help secure your service communication is installed on all the nodes in the cluster. There are two ways that you can provide listener settings and security credentials:
+    Make sure the certificate that you want to use to help secure your service communication is installed on all the nodes in the cluster. For services running on Linux, the certificate must be available as a PEM-formmatted file; either a `.pem` file that contains the certificate and private key or a `.crt` file that contains the certificate and a `.key` file that contains the private key. To learn more, see [Location and format of X.509 certificates on Linux nodes](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes).
+    
+    There are two ways that you can provide listener settings and security credentials:
 
    1. Provide them by using a [config package](service-fabric-application-and-service-manifests.md):
 

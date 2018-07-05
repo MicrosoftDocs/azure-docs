@@ -9,9 +9,10 @@ editor: ''
 
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/28/2017
 ms.author: rolyon
 ms.custom: pim

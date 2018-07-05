@@ -94,4 +94,4 @@ open a support ticket with the following information if available:
 -   Fiddler traces
 
 ## Next steps
-[Setting up Azure Active Directory for self-service group management](active-directory-accessmanagement-self-service-group-management.md)
+[Setting up Azure Active Directory for self-service group management](users-groups-roles/groups-self-service-management.md)

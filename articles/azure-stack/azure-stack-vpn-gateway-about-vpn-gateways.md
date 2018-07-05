@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/12/2018
+ms.date: 07/02/2018
 ms.author: brenduns
 ---
 
@@ -28,6 +28,8 @@ A VPN gateway is a type of virtual network gateway that sends encrypted traffic 
 When you create a virtual network gateway, you specify the gateway type that you want to create. Azure Stack supports one type of virtual network gateway, the **Vpn** type.
 
 Each virtual network can have two virtual network gateways, but only one of each type. Depending on the settings that you choose, you can create multiple connections to a single VPN gateway. An example is a Multi-Site connection configuration.
+
+Before you create and configure VPN Gateways for Azure Stack, review the [considerations for Azure Stack networking](/azure/azure-stack/user/azure-stack-network-differences) to learn how configurations for Azure Stack differ from Azure.
 
 >[!NOTE]
 >In Azure, the bandwidth throughput for VPN gateway SKU you choose must be divided across all the Connections that are connected to the gateway. But in Azure Stack, the bandwidth value for the VPN gateway SKU is applied to each Connection resource that is connected to the gateway.
@@ -104,7 +106,7 @@ The following table shows the gateway types and the estimated aggregate throughp
 |-------|-------|-------|
 |**Basic SKU** ***(3)*** 	| 100 Mbps	| 10	|
 |**Standard SKU** 		| 100 Mbps 	| 10	|
-|**High Performance SKU** | 200 Mbps	| 5	|
+|**High-Performance SKU** | 200 Mbps	| 5	|
 
 **Table notes:**
 

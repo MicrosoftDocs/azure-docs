@@ -20,6 +20,7 @@
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Routing messages](tutorial-routing.md)
 ## [Configure your devices](tutorial-device-twins.md)
+## [Manage firmware updates](tutorial-firmware-update.md)
 ## [Test device connectivity](tutorial-connectivity.md)
 ## Send cloud-to-device messages
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
@@ -97,7 +98,7 @@
 
 ### Extended IoT scenarios
 #### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-#### [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
+#### [Save IoT Hub messages to Azure Blob storage](iot-hub-store-data-in-azure-table-storage.md)
 #### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
@@ -110,6 +111,8 @@
 #### [Retrieve a Twitter message with Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 #### [Send messages to an MQTT server using Eclipse Paho APIs](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 #### [Monitor the magnetic sensor and send email notifications with Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
+
+## [Device configuration best practices](iot-hub-configuration-best-practices.md)
 
 # How-to guides
 ## Plan
@@ -169,6 +172,9 @@
 ### Get started with module twins
 #### [Portal](iot-hub-portal-csharp-module-twin-getstarted.md)
 #### [.NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
+#### [Python](iot-hub-python-python-module-twin-getstarted.md)
+#### [C](iot-hub-c-c-module-twin-getstarted.md)
+#### [Node](iot-hub-node-node-module-twin-getstarted.md)
 ### Use direct methods
 #### [Node.js](iot-hub-node-node-direct-methods.md)
 #### [.NET](iot-hub-csharp-csharp-direct-methods.md)
@@ -221,7 +227,9 @@
 ## [Upgrade an IoT hub](iot-hub-upgrade.md)
 ## [Usage metrics](iot-hub-metrics.md)
 ## [Configure IP filtering](iot-hub-ip-filtering.md)
-## [Configure devices at scale](iot-hub-auto-device-config.md)
+## Configure devices at scale
+### [Use Azure portal](iot-hub-auto-device-config.md)
+### [Use Azure CLI](iot-hub-auto-device-config-cli.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=iot-hub)

@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/04/2018
+ms.date: 06/28/2018
 ms.author: brjohnst
 ---
 
