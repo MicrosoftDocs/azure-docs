@@ -27,42 +27,42 @@ abstract:
     width: 250
 sections:
 
-  - items:
-    - type: list
-      style: cards
-      className: cardsM
-      columns: 3
-      items:
-        - href: /azure/sql-database/sql-database-technical-overview
-          html: <p><a href="/azure/sql-database/sql-database-high-availability">Highly-available</a> PaaS database that is always running on the latest stable version of SQL Server Database Engine and patched OS with <a href="/azure/sql-database/sql-database-automated-backups">automatic database backups</a>.</p>
-          image:
-            src: media/index/i_managed.png
-          title: Fully managed
-        - href: /azure/sql-database/sql-database-service-tiers
-          html: <p>Tailor price/performance ratio to your needs with <a href="/azure/sql-database/sql-database-service-tiers">flexible performance tiers</a> that span from affordable 5$/month to powerfull 80 core databases.</p>
-          image:
-            src: media/index/i_perftier.svg
-          title: Flexible price/performance tiers
-        - href: /azure/sql-database/sql-database-single-database-scale
-          html: <p>Easily <a href="/azure/sql-database/sql-database-single-database-scale">scale up</a> or <a href="/azure/sql-database/sql-database-read-scale-out">scale out</a> your database depending on your needs</p>
-          image:
-            src: media/index/i_scale.svg
-          title: Scalability
-        - href: /azure/sql-database/sql-database-security-overview
-          html: <p>Let intelligence built-in into the service to <a href="/azure/sql-database/sql-database-automatic-tuning">automatically tune your database performance</a>, <a href="/azure/sql-database/sql-advanced-threat-protection">identify threats</a> and <a href="/azure/sql-database/sql-vulnerability-assessment">vulnerabilities</a> in your databases.</p>
-          image:
-            src: media/index/i_intelligence.svg
-          title: Built-in security and intelligence
-        - href: /azure/sql-database/sql-database-servers-databases
-          html: <p>Use the <a href="/azure/sql-database/sql-database-managed-instance">Single database hosted in logical servers</a> for your <a href="/azure/sql-database/saas-tenancy-app-design-patterns">SaaS aplications</a> and microservices that need a single database with the predictable performances.</p>
-          image:
-            src: media/index/i_db.svg
-          title: Single Database
-        - href: /azure/sql-database/sql-database-managed-instance
-          html: <p>Use the <a href="/azure/sql-database/sql-database-managed-instance">Managed Instance</a> to easily <a href="azure/sql-database/sql-database-managed-instance-migrate">migrate your on-premises databases</a> to Azure PaaS with minimal or no database code changes.</p>
-          image:
-            src: media/index/i_mi.png
-          title: Managed Instance
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+      - href: /azure/sql-database/sql-database-technical-overview
+        html: <p><a href="/azure/sql-database/sql-database-high-availability">Highly-available</a> PaaS database that is always running on the latest stable version of SQL Server Database Engine and patched OS with <a href="/azure/sql-database/sql-database-automated-backups">automatic database backups</a>.</p>
+        image:
+          src: media/index/i_managed.png
+        title: Fully managed
+      - href: /azure/sql-database/sql-database-service-tiers
+        html: <p>Tailor price/performance ratio to your needs with <a href="/azure/sql-database/sql-database-service-tiers">flexible performance tiers</a> that span from affordable 5$/month to powerfull 80 core databases.</p>
+        image:
+          src: media/index/i_perftier.svg
+        title: Flexible price/performance tiers
+      - href: /azure/sql-database/sql-database-single-database-scale
+        html: <p>Easily <a href="/azure/sql-database/sql-database-single-database-scale">scale up</a> or <a href="/azure/sql-database/sql-database-read-scale-out">scale out</a> your database depending on your needs</p>
+        image:
+          src: media/index/i_scale.svg
+        title: Scalability
+      - href: /azure/sql-database/sql-database-security-overview
+        html: <p>Let intelligence built-in into the service to <a href="/azure/sql-database/sql-database-automatic-tuning">automatically tune your database performance</a>, <a href="/azure/sql-database/sql-advanced-threat-protection">identify threats</a> and <a href="/azure/sql-database/sql-vulnerability-assessment">vulnerabilities</a> in your databases.</p>
+        image:
+          src: media/index/i_intelligence.svg
+        title: Built-in security and intelligence
+      - href: /azure/sql-database/sql-database-servers-databases
+        html: <p>Use the <a href="/azure/sql-database/sql-database-managed-instance">Single database hosted in logical servers</a> for your <a href="/azure/sql-database/saas-tenancy-app-design-patterns">SaaS aplications</a> and microservices that need a single database with the predictable performances.</p>
+        image:
+          src: media/index/i_db.svg
+        title: Single Database
+      - href: /azure/sql-database/sql-database-managed-instance
+        html: <p>Use the <a href="/azure/sql-database/sql-database-managed-instance">Managed Instance</a> to easily <a href="azure/sql-database/sql-database-managed-instance-migrate">migrate your on-premises databases</a> to Azure PaaS with minimal or no database code changes.</p>
+        image:
+          src: media/index/i_mi.png
+        title: Managed Instance
 
 - title: 5-Minute Quickstarts
   items:
