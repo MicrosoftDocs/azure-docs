@@ -232,7 +232,7 @@ Some of the endpoint utterances will have a high percentage in the review list. 
 This app prediction accuracy has increased by reviewing utterances from the endpoint. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. Select **My apps** in the top left menu. Select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS app. Select **My apps** in the top left menu. Select the ellipsis **...** to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
