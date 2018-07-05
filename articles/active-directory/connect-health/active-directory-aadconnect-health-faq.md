@@ -61,7 +61,7 @@ Azure AD Connect Health is not supported in Germany Cloud except for the [sync e
 | Roles | Features | Supported in German Cloud |
 | ------ | --------------- | --- |
 | Connect Health for Sync | Monitoring / Insight / Alerts / Analysis | No |
-| Connect Health for Sync | Sync error report | Yes |
+|  | Sync error report | Yes |
 | Connect Health for ADFS | Monitoring / Insight / Alerts / Analysis | No |
 | Connect Health for ADDS | Monitoring / Insight / Alerts / Analysis | No |
 
