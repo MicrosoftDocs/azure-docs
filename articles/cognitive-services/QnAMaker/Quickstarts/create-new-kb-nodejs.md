@@ -26,6 +26,8 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ![Azure dashboard service key](../media/sub-key.png)
 
+For more help with Visual Studio and Node.js: [Quickstart: Use Visual Studio to create your first Node.js app](https://docs.microsoft.com/en-us/visualstudio/ide/quickstart-nodejs). There's also a video: [Using Node.js and Python in Visual Studio and on Azure](https://azure.microsoft.com/en-us/resources/videos/using-node-js-and-python-in-visual-studio/).
+
 ## Create knowledge base
 
 The following code creates a new knowledge base, using the [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) method.
