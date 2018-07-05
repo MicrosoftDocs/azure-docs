@@ -58,7 +58,7 @@ To create an Azure VM with system assigned identity enabled, you need create a V
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+3.  Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -74,7 +74,7 @@ To create an Azure VM with system assigned identity enabled, you need create a V
 
 To enable system assigned identity on an existing VM, you need to acquire an access token and then use CURL to call the Resource Manager REST endpoint to update the identity type.
 
-1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -101,7 +101,7 @@ To enable system assigned identity on an existing VM, you need to acquire an acc
 
 To disable a system assigned identity on an existing VM, you need to acquire an access token and then use CURL to call the Resource Manager REST endpoint to update the identity type to `None`.
 
-1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -124,7 +124,7 @@ In this section, you learn how to add and remove user assigned identity on an Az
 
 ### Assign a user assigned identity during the creation of an Azure VM
 
-1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -136,7 +136,7 @@ In this section, you learn how to add and remove user assigned identity on an Az
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+3.  Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -152,7 +152,7 @@ In this section, you learn how to add and remove user assigned identity on an Az
 
 ### Assign a user assigned identity to an existing Azure VM
 
-1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -186,7 +186,7 @@ In this section, you learn how to add and remove user assigned identity on an Az
 
 ### Remove a user assigned identity from an Azure VM
 
-1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
+1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your VM with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token

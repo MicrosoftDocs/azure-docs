@@ -59,7 +59,7 @@ To create a virtual machine scale set with system assigned identity enabled, you
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
+3.  Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -75,7 +75,7 @@ To create a virtual machine scale set with system assigned identity enabled, you
 
 To enable system assigned identity on an existing virtual machine scale set, you need to acquire an access token and then use CURL to call the Resource Manager REST endpoint to update the identity type.
 
-1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
+1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -102,7 +102,7 @@ To enable system assigned identity on an existing virtual machine scale set, you
 
 To disable a system assigned identity on an existing virtual machine scale set, you need to acquire an access token and then use CURL to call the Resource Manager REST endpoint to update the identity type to `None`.
 
-1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
+1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -125,7 +125,7 @@ In this section, you learn how to add and remove user assigned identity on a vir
 
 ### Assign a user assigned identity during the creation of a virtual machine scale set
 
-1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
+1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -137,7 +137,7 @@ In this section, you learn how to add and remove user assigned identity on a vir
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
+3.  Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -153,7 +153,7 @@ In this section, you learn how to add and remove user assigned identity on a vir
 
 ### Assign a user assigned identity to an existing Azure virtual machine scale set
 
-1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
+1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
@@ -185,7 +185,7 @@ In this section, you learn how to add and remove user assigned identity on a vir
 
 ### Remove a user assigned identity from a virtual machine scale set
 
-1. Retrieve a BEARER access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
+1. Retrieve a Bearer access token, which you will use in the next step in the Authorization header to create your virtual machine scale set with a system assigned managed identity.
 
    ```azurecli-interactive
    az account get-access-token
