@@ -90,6 +90,15 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 
 ---
 
+**Q: My users cannot search printers from Azure AD Joined devices. How can I enable printing from Azure AD Joined devices ?**
+
+**A:** For deploying printers for Azure AD Joined devices, see:
+
+- [Hybrid cloud print] (https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) 
+You will need an on-premise Windows Server to deploy hybrid cloud print. Currently, cloud based print service is not available 
+
+---
+
 **Q: Why do I see duplicate device entries in Azure portal?**
 
 **A:**
@@ -121,6 +130,11 @@ Please evaluate the conditional access policy rules and ensure that the device i
 
 ---
 
+**Q: Why do some of my users do not get MFA prompts on Azure AD joined devices?**
+
+**A:** If user joins or registers a device with Azure AD using multi-factor auth, the device itself will become a trusted second factor for that particular user. Subsequently, whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor and enables that user to seamlessly access their applications without additional MFA prompts. This behavior is not applicable to any other user signing into that device, so all other users accessing that device would still be prompted with an MFA challenge before accessing applications that require MFA.
+
+---
 
 **Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the device. Am I setup correctly for using conditional access?**
 
@@ -172,5 +186,6 @@ Please create a different local account before using Azure Active Directory Join
 
 - [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
+
 ---
 
