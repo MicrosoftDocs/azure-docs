@@ -86,7 +86,8 @@ The following code shows how the templateLink parameter refers to a nested templ
      "type": "Microsoft.Resources/deployments",
      "properties": {
        "mode": "incremental",
-       "templateLink": {        "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/vNet.json",
+       "templateLink": {
+          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/vNet.json",
           "contentVersion":"1.0.0.0"
        }
      }
@@ -378,7 +379,7 @@ An API profile version acts as an alias for a single API version per resource ty
 
 The API profile ensures that the API versions are available across locations, so you do not have to manually verify the apiVersions that are available in a specific location. To ensure the API versions referenced by your API profile are present in an Azure Stack environment, the Azure Stack operators must keep the solution up-to-date based on the policy for support. If a system is more than six months out of date, it is considered out of compliance, and the environment must be updated.
 
-The API profile isn't a required element in a template. Even if you add the element, it will only be used for resources for which no apiVersion is specified. This element allows for gradual changes but doesn't require any changes to existing templates.
+The API profile isn't a required element in a template. Even if you add the element, it will only be used for resources for which no `apiVersion` is specified. This element allows for gradual changes but doesn't require any changes to existing templates.
 
 ```json
 {
@@ -485,7 +486,7 @@ To retrieve a list of the available VM images in a location, run the following A
 az vm image list -all
 ```
 
-You can retrieve the same list with the Azure PowerShell cmdlet `Get-AzureRmVMImagePublisher` and specify the location you want with the `-Location` parameter. For example:
+You can retrieve the same list with the Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) and specify the location you want with the `-Location` parameter. For example:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRMVMImage
@@ -588,7 +589,7 @@ To retrieve a list of the VM extensions that are available for a specific region
 az vm extension image list --location myLocation
 ```
 
-You can also execute the Azure PowerShell `Get-AzureRmVmImagePublisher` cmdlet and use `-Location` to specify the location of the virtual machine image. For example:
+You can also execute the Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) cmdlet and use `-Location` to specify the location of the virtual machine image. For example:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
@@ -609,7 +610,7 @@ Since VM extensions are first-party Resource Manager resources, they have their 
 
 The API version of the VM extension resource must be present in all the locations you plan to target with your template. The location dependency works like the resource provider API version availability discussed earlier in the "Verify the version of all resource types" section.
 
-To retrieve a list of the available API versions for the VM extension resource, use the **Get-AzureRmResourceProvider** cmdlet with the **Microsoft.Compute** resource provider as shown:
+To retrieve a list of the available API versions for the VM extension resource, use the [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider) cmdlet with the **Microsoft.Compute** resource provider as shown:
 
 ```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
@@ -639,13 +640,13 @@ Each specific extension is also versioned. This version is shown in the typeHand
         ...   
 ```
 
-To retrieve a list of the available versions for a specific VM extension, use the **Get-AzureRmVMExtensionImage** cmdlet. The following example retrieves the available versions for the PowerShell DSC (Desired State Configuration) VM extension from **myLocation**:
+To retrieve a list of the available versions for a specific VM extension, use the [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage) cmdlet. The following example retrieves the available versions for the PowerShell DSC (Desired State Configuration) VM extension from **myLocation**:
 
 ```azurepowershell-interactive
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
 ```
 
-To get a list of publishers, use the **Get-AzureRmVmImagePublisher** command. To request type, use the **Get-AzureRmVMExtensionImageType** commend.
+To get a list of publishers, use the [Get-AzureRmVmImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) command. To request type, use the [Get-AzureRmVMExtensionImageType](/powershell/module/azurerm.compute/get-azurermvmextensionimagetype) commend.
 
 ## Tips for testing and automation
 
