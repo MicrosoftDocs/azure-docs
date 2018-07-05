@@ -51,6 +51,8 @@
         href: howto-create-telemetry-rules.md
       - name: Create an event rule
         href: howto-create-event-rules.md
+      - name: Build workflows in Microsoft Flow
+        href: howto-add-microsoft-flow.md
       - name: Prepare and upload images
         href: howto-prepare-images.md
   - name : Operator

@@ -17,7 +17,7 @@ ms.prod: microsoft-iot-central
 # ms.suite: 
 # ms.tgt_pltfrm:
 # ms.reviewer:
-manager: timlt
+manager: peterpr
 ---
 
 # Build workflows with the IoT Central connector in Microsoft Flow
