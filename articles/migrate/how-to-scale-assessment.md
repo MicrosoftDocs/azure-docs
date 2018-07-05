@@ -36,14 +36,13 @@ If you're deploying in a tenant environment, here's one way to set this up:
 1.  Create a user per tenant and and using [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assign read-only permissions to all the VM’s belonging to a particular tenant. Then, use those credentials for discovery. RBAC ensures that the corresponding vCenter user will have access to only tenant specific VM’s.
 2. You set up RBAC for different tenant users as described in the following example for User#1 and User#2:
 
-
-Datacenter1 - give read-only permissions to User#1 and User#2. Don't propagate those permissions to all child objects, because you'll set permissions on individual VM's.
+- Datacenter1 - give read-only permissions to User#1 and User#2. Don't propagate those permissions to all child objects, because you'll set permissions on individual VM's.
  - VM1 (Tenant#1) (Read only permission to User#1)
  - VM2 (Tenant#1) (Read only permission to User#1)
  - VM3 (Tenant#2) (Read only permission to User#2)
  - VM4 (Tenant#2) (Read only permission to User#2)
 
- If you perform discovery using User#1 credentials, then only VM1 and VM2 will be discovered.
+- If you perform discovery using User#1 credentials, then only VM1 and VM2 will be discovered.
 
 ## Plan your migration projects and discoveries
 
