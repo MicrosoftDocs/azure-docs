@@ -208,11 +208,11 @@ Each record in the decoded AVRO file looks like this:
 - select the subscription your IoT Central app is in. If you don't see the subscription, you may need to sign into a different Azure account or ask for access to the subscription.
 - you can choose an existing Resource Group or create a new one. Learn about [how to create a new Storage account.](https://aka.ms/blobdocscreatestorageaccount)
 
-2. Create a container in your Storage account to export your IoT Central data to. Go to your Storage account -> Browse Blobs, and create a new container. [Create a container image](./media/howto-export-data/createcontainer.png)
+2. Create a container in your Storage account to export your IoT Central data to. Go to your Storage account -> Browse Blobs, and create a new container. ![Create a container image](media/howto-export-data/createcontainer.png)
 
 3. Sign into your IoT Central application using the same Azure account.
 1. Go to Administration -> Continuous Data Export.
-[IoT Central CDE](./media/howto-export-data/continuousdataexport.png)
+![IoT Central CDE](media/howto-export-data/continuousdataexport.PNG)
 1. Using the dropdowns, pick your Storage account and Container. Then use the toggles to turn on or off the different types of data to export.
 1. Finally, turn on Continuous Data Export using the toggle, and hit "Save".
 1. Wait a few minutes, and you should see your data appear in your Storage account. You can navigate to your Storage account, select Browse blobs, select your Container, and you'll see three folders. The default paths for the AVRO files containing the different types of data are:
