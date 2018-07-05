@@ -217,7 +217,8 @@ Try an utterance close to the corrected utterance.
     "score": 0.8251864
   }
 }
-}```
+}
+```
 
 The correct intent was predicted with a high score and the the **Job** entity is detected as `natural language processing`. 
 
