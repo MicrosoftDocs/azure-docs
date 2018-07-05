@@ -94,8 +94,10 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC that the process server uses to receive replication traffic from VMs. Then select **Save**. You can't change this setting after it is configured.
 2. In **Select Recovery Services vault**, sign in to Microsoft Azure, select your Azure subscription and the relevant resource group and vault.
-    >[!NOTE]
+
+    > [!NOTE]
     > Once registered, there is no flexibility to change the recovery services vault.
+    
 3. In **Install third-party software**,
 
     |Scenario   |Steps to follow  |
