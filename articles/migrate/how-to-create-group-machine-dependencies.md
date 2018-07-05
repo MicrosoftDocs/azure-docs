@@ -21,11 +21,10 @@ To view dependencies of machines, you need to download and install agents on eac
 1. In **Overview**, click **Manage** > **Machines**, and select the required machine.
 2. In the **Dependencies** column, click **Install agents**.
 3. On the **Dependencies** page, download and install the Microsoft Monitoring Agent (MMA), and the Dependency agent on each VM you want to evaluate.
+4. Copy the workspace ID and key. You need these when you install the MMA on the on-premises machine.
 
 > [!NOTE]
 > To automate the installation of agents you can use any deployment tool like System Center Configuration Manager or use our partner tool, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), that has an agent deployment solution for Azure Migrate.
-
-4. Copy the workspace ID and key. You need these when you install the MMA on the on-premises machine.
 
 ### Install the MMA
 
@@ -53,7 +52,8 @@ To install the agent on a Linux machine:
     ```sh InstallDependencyAgent-Linux64.bin```
 
 [Learn more](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) about operating systems supported by the Dependency agent.
-[Learn more](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) about how you can use scripts to install the dependency agent
+
+[Learn more](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) about how you can use scripts to install the Dependency agent.
 
 ## Create a group
 
