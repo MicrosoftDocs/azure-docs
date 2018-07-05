@@ -111,7 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
   	a. In the **Sign-on URL** textbox, enter: `https://login-prod.jostle.us`
 
-	b. In the **Identifier** textbox, enter: `https://.jostle.us`
+	b. In the **Identifier** textbox, enter: `https://jostle.us`
 
   	c. Check the box next to **Show advanced URL settings**
 
