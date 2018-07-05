@@ -26,6 +26,8 @@
     href: ./luis/luis-tutorial-batch-testing.md    
 - name: Resources
   items:
+  - name: Regional availability
+    href: https://azure.microsoft.com/en-us/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=cognitive-services
   - name: Pricing
