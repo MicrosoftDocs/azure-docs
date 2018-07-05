@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: virtual-machines
-author: sdwheeler
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/18/2018
-ms.author: kirpas;iainfou;sewhee
+ms.author: cynthn
 ms.custom: include file
 ---
 
@@ -16,16 +16,14 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 1. Support legacy applications that install components on OS drive.
 2. Migrate a physical PC or virtual machine from on-premises with a larger OS drive.
 
-> [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: Resource Manager and Classic. This article covers using the Resource Manager model. Microsoft recommends that most new deployments use the Resource Manager model.
-> 
-> 
+
 > [!WARNING]
 > Resizing the OS Disk of an Azure Virtual Machine will cause it to restart.
 >
 
 ## Resize the OS drive
-In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](/powershell/azureps-cmdlets-docs). We will show resizing the OS drive for both Unmanaged and Managed disks since the approach to resize disks differs between both disk types.
+
+In this article we’ll resize the OS drive using resource manager modules of [Azure Powershell](/powershell/azureps-cmdlets-docs). We will show resizing the OS drive for both unmanaged and managed disks since the approach to resize disks differs between both disk types.
 
 ### For resizing Unmanaged Disks:
 
