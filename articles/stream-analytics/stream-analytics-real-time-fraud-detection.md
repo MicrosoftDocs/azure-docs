@@ -2,8 +2,8 @@
 title: Real-time fraud detection using Azure Stream Analytics
 description: Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing. 
 services: stream-analytics 
-author: jasonwhowell
-ms.author: jasonh
+author: mamccrea
+ms.author: mamccrea
 manager: kfile 
 ms.reviewer: jasonh
 ms.service: stream-analytics 
@@ -20,7 +20,7 @@ This tutorial provides an end-to-end illustration of how to use Azure Stream Ana
 
 * Send the results to an output sink (storage) that you can analyze for additional insights. In this case, you'll send the suspicious call data to Azure Blob storage.
 
-In this tutorial, we use the example of real-time fraud detection based on phone-call data. But the technique we illustrate is also suited for other types of fraud detection, such as credit card fraud or identity theft. 
+In this tutorial, we use the example of real-time fraud detection based on phone-call data. The technique we illustrate is also suited for other types of fraud detection, such as credit card fraud or identity theft. 
 
 ## Scenario: Telecommunications and SIM fraud detection in real time
 
@@ -33,16 +33,16 @@ In this tutorial, you'll simulate phone-call data by using a client app that gen
 Before you start, make sure you have the following:
 
 * An Azure account.
-* The call-event generator app. You can get this by downloading the [TelcoGenerator.zip file](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center. Unzip this package into a folder on your computer. If you want to see the source code and run the app in a debugger, you can get the app source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* The call-event generator app. You can get this by downloading the [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) file from the Microsoft Download Center. Unzip this package into a folder on your computer. If you want to see the source code and run the app in a debugger, you can get the app source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
     >[!NOTE]
     >Windows might block the downloaded .zip file. If you can't unzip it, right-click the file and select **Properties**. If you see the "This file came from another computer and might be blocked to help protect this computer" message, select the **Unblock** option and then click **Apply**.
 
 If you want to examine the results of the Streaming Analytics job, you also need a tool for viewing the contents of an Azure Blob Storage container. If you use Visual Studio, you can use [Azure Tools for Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) or [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Alternatively, you can install standalone tools like [Azure Storage Explorer](http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
 
-## Create an Azure event hubs to ingest events
+## Create an Azure Event Hubs to ingest events
 
-To analyze a data stream, you *ingest* it into Azure. A typical way to ingest data is to use [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), which lets you ingest millions of events per second and then process and store the event information. For this tutorial, you create an event hub and then have the call-event generator app send call data to that event hub. For more about event hubs, see the [Azure Service Bus documentation](https://docs.microsoft.com/azure/service-bus/).
+To analyze a data stream, you *ingest* it into Azure. A typical way to ingest data is to use [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), which lets you ingest millions of events per second and then process and store the event information. For this tutorial, you will create an event hub and then have the call-event generator app send call data to that event hub. For more about event hubs, see the [Azure Service Bus documentation](https://docs.microsoft.com/azure/service-bus/).
 
 >[!NOTE]
 >For a more detailed version of this procedure, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). 
@@ -64,12 +64,13 @@ In this procedure, you first create an event hub namespace, and then you add an 
 
     ![The Add Event Hub button for creating a new event hub ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
-6. Name the new event hub `sa-eh-frauddetection-demo`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub right now.
+6. Name the new event hub `asa-eh-frauddetection-demo`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub right now.
 
-    ![Blade for creating a new event hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
+    ![Create a new event hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
     
  
 7. Click **Create**.
+
 ### Grant access to the event hub and get a connection string
 
 Before a process can send data to an event hub, the event hub must have a policy that allows appropriate access. The access policy produces a connection string that includes authorization information.
@@ -83,7 +84,7 @@ Before a process can send data to an event hub, the event hub must have a policy
 
 3.	Add a policy named `sa-policy-manage-demo` and for **Claim**, select **Manage**.
 
-    ![Blade for creating a new event hub access policy](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
+    ![Create a new event hub access policy](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
  
 4.	Click **Create**.
 
@@ -97,15 +98,15 @@ Before a process can send data to an event hub, the event hub must have a policy
 
     The connection string looks like this:
 
-        Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=sa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=sa-eh-frauddetection-demo
+        Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=asa-eh-frauddetection-demo
 
     Notice that the connection string contains multiple key-value pairs, separated with semicolons: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey`, and `EntityPath`.  
 
 ## Configure and start the event generator application
 
-Before you start the TelcoGenerator app, you configure it so that it will send call records to the event hub you created.
+Before you start the TelcoGenerator app, you must configure it so that it will send call records to the event hub you created.
 
-### Configure the TelcoGeneratorapp
+### Configure the TelcoGenerator app
 
 1.	In the editor where you copied the connection string, make a note of the `EntityPath` value, and then remove the `EntityPath` pair (don't forget to remove the semicolon that precedes it). 
 
@@ -156,7 +157,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
 
 1. In the Azure portal, click **Create a resource** > **Internet of Things** > **Stream Analytics job**.
 
-2. Name the job `sa_frauddetection_job_demo`, specify a subscription, resource group, and location.
+2. Name the job `asa_frauddetection_job_demo`, specify a subscription, resource group, and location.
 
     It's a good idea to place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.
 
@@ -168,22 +169,23 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
 
 ### Configure job input
 
-1. In the dashboard or the **All resources** pane, find and select the `sa_frauddetection_job_demo` Stream Analytics job. 
-2. In the **Job Topology** section of the Stream Analytics job pane, click the **Input** box.
+1. In the dashboard or the **All resources** pane, find and select the `asa_frauddetection_job_demo` Stream Analytics job. 
+2. In the **Overview** section of the Stream Analytics job pane, click the **Input** box.
 
     ![Input box under Topology in the Streaming Analytics job pane](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
  
-3. Click **+&nbsp;Add** and then fill out the pane with these values:
+3. Click **Add stream input** and select **Event Hub**. Then fill the New input page with the following information:
 
-    * **Input alias**: Use the name `CallStream`. If you use a different name, make a note of it because you'll need it later.
-    * **Source type**: Select **Data stream**. (**Reference data** refers to static lookup data, which you won't use in this tutorial.)
-    * **Source**: Select **Event hub**.
-    * **Import option**: Select **Use event hub from current subscription**. 
-    * **Service bus namespace**: Select the event hub namespace that you created earlier (`<yourname>-eh-ns-demo`).
-    * **Event hub**: Select the event hub that you created earlier (`sa-eh-frauddetection-demo`).
-    * **Event hub policy name**: Select the access policy that you created earlier (`sa-policy-manage-demo`).
+   |**Setting**  |**Suggested value**  |**Description**  |
+   |---------|---------|---------|
+   |Input alias  |  CallStream   |  Enter a name to identify the job’s input.   |
+   |Subscription   |  \<Your subscription\> |  Select the Azure subscription that has the Event Hub you created.   |
+   |Event Hub namespace  |  asa-eh-ns-demo |  Enter the name of the Event Hub namespace.   |
+   |Event Hub name  | asa-eh-frauddetection-demo | Select the name of your Event Hub.   |
+   |Event Hub policy name  | asa-policy-manage-demo | Select the access policy that you created earlier.   |
 
-    ![Create new input for Streaming Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png)
+   ![Create new input for Streaming Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png)
+
 
 4. Click **Create**.
 
@@ -202,7 +204,7 @@ To learn more about the language, see the [Azure Stream Analytics Query Language
 The TelcoGenerator app is sending call records to the event hub, and your Stream Analytics job is configured to read from the event hub. You can use a query to test the job to make sure that it's reading correctly. To  test a query in the Azure console, you need sample data. For this walkthrough, you'll extract sample data from the stream that's coming into the event hub.
 
 1. Make sure that the TelcoGenerator app is running and producing call records.
-2. In the portal, return to the Streaming Analytics job pane. (If you closed the pane, search for `sa_frauddetection_job_demo` in the **All resources** pane.)
+2. In the portal, return to the Streaming Analytics job pane. (If you closed the pane, search for `asa_frauddetection_job_demo` in the **All resources** pane.)
 3. Click the **Query** box. Azure lists the inputs and outputs that are configured for the job, and lets you create a query that lets you transform the input stream as it is sent to the output.
 4. In the **Query** pane, click the dots next to the `CallStream` input and then select **Sample data from input**.
 
@@ -326,27 +328,28 @@ If you have an existing blob storage account, you can use that. For this tutoria
 
 ### Create an Azure Blob Storage account
 
-1. In the Azure portal, return to the Streaming Analytics job pane. (If you closed the pane, search for `sa_frauddetection_job_demo` in the **All resources** pane.)
-2. In the **Job Topology** section, click the **Output** box. 
-3. In the **Outputs** pane, click **+&nbsp;Add** and then fill out the pane with these values:
+1. From the upper left-hand corner of the Azure portal, select **Create a resource** > **Storage** > **Storage account**. Fill out the Storage account job page with **Name** set to "asaehstorage", **Location** set to "East US", **Resource group** set to "asa-eh-ns-rg" (host the storage account in the same resource group as the Streaming job for increased performance). The remaining settings can be left to their default values.  
 
-    * **Output alias**: Use the name `CallStream-FraudulentCalls`. 
-    * **Sink**: Select **Blob storage**.
-    * **Import options**: Select **Use blob storage from current subscription**.
-    * **Storage account**. Select **Create new storage account.**
-    * **Storage account** (second box). Enter `YOURNAMEsademo`, where `YOURNAME` is your name or another unique string. The name can use only lowercase letters and numbers, and it must be unique across Azure. 
-    * **Container**. Enter `sa-fraudulentcalls-demo`.
-    The storage account name and container name are used together to provide a URI for the blob storage, like this: 
+   ![Create storage account](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
 
-    `http://yournamesademo.blob.core.windows.net/sa-fraudulentcalls-demo/...`
+2. In the Azure portal, return to the Streaming Analytics job pane. (If you closed the pane, search for `asa_frauddetection_job_demo` in the **All resources** pane.)
+
+3. In the **Job Topology** section, click the **Output** box.
+
+4. In the **Outputs** pane, click **Add** and select **Blob storage**. Then fill out the New output page with the following information:
+
+   |**Setting**  |**Suggested value**  |**Description**  |
+   |---------|---------|---------|to
+   |Output alias  |  CallStream-FraudulentCalls   |  Enter a name to identify the job’s output.   |
+   |Subscription   |  \<Your subscription\> |  Select the Azure subscription that has the storage account you created. The storage account can be in the same or in a different subscription. This example assumes that you have created storage account in the same subscription. |
+   |Storage account  |  asaehstorage |  Enter the name of the storage account you just created. |
+   |Container  | asa-fraudulentcalls-demo | Choose Create new and enter a container name. |
+
+
+   ![New output pane for Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
     
-    !["New output" pane for Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
-    
-4. Click **Create**. 
+5. Click **Save**. 
 
-    Azure creates the storage account and generates a key automatically. 
-
-5. Close the **Outputs** pane. 
 
 ## Start the Streaming Analytics job
 
@@ -354,20 +357,11 @@ The job is now configured. You've specified an input (the event hub), a transfor
 
 1. Make sure the TelcoGenerator app is running.
 
-2. In the job pane, click **Start**.
+2. In the job pane, click **Start**. In the **Start job** pane, for Job output start time, select **Now**. 
 
-    ![Start the Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-output.png)
+    ![Start the Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start.png)
 
-3. In the **Start job** pane, for Job output start time, select **Now**. 
 
-4. Click **Start**. 
-
-    !["Start job" pane for the Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-job-blade.png)
-
-    Azure notifies you when the job has started, and in the job pane, the status is displayed as **Running**.
-
-    ![Stream Analytics job status, showing "Running"](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-running-status.png)
-    
 
 ## Examine the transformed data
 
