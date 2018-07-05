@@ -18,8 +18,6 @@ This quickstart walks you through creating a sample QnA Maker knowledge base, pr
 
 Two sample FAQ URLs are given below (in the **req** dictionary item 'urls'). QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, as explained more in this [data sources](../Concepts/data-sources-supported.md) document. You may also use your own FAQ URLs in this quickstart.
 
-If you'd like to use Visual Studio as your IDE, there's more guidance here: [Work with Python in Visual Studio on Windows](https://docs.microsoft.com/en-us/visualstudio/python/overview-of-python-tools-for-visual-studio), and a video here: [Using Node.js and Python in Visual Studio and on Azure](https://azure.microsoft.com/en-us/resources/videos/using-node-js-and-python-in-visual-studio/)
-
 ## Prerequisites
 
 You'll need [Python 3.x](https://www.python.org/downloads/) to run this code.
@@ -27,6 +25,8 @@ You'll need [Python 3.x](https://www.python.org/downloads/) to run this code.
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **QnA Maker** chosen as your resource. You'll need a paid subscription key from your [Azure dashboard](https://ms.portal.azure.com/). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. Either key will work for this quickstart.
 
 ![Azure dashboard service key](../media/sub-key.png)
+
+If you'd like to use Visual Studio as your IDE, there's more guidance here: [Work with Python in Visual Studio on Windows](https://docs.microsoft.com/en-us/visualstudio/python/overview-of-python-tools-for-visual-studio), and a video here: [Using Node.js and Python in Visual Studio and on Azure](https://azure.microsoft.com/en-us/resources/videos/using-node-js-and-python-in-visual-studio/).
 
 ## Create knowledge base
 
