@@ -36,4 +36,8 @@ manager: "douge"
     > [!IMPORTANT]
     > You must be sure to enable Http Application Routing when you create your AKS cluster. It is not possible to change this setting later.
 
+1. Choose your desired setting for Role-based Access Control (RBAC). Azure Dev Spaces supports clusters with RBAC enabled, or disabled.
+
+    ![RBAC setting](../media/common/k8s-RBAC.PNG)
+
 1. Select **Review + create** and then **Create** when complete.

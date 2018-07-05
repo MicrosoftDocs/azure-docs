@@ -103,6 +103,10 @@ To use internal company URLs while remote using the extension, do the following:
 3. Install the extension, and sign in to it by selecting Sign in to get started.
 4. You can now browse to the internal company URL even while remote.
 
+> [!NOTE]
+> You may also turn off automatic redirection to company URLs by selecting the settings gear on the main menu and selecting **off** for the Company internal URL redirection option.
+
+
 ## Mobile app support
 
 The Azure Active Directory team publishes the My Apps mobile app. When you install the app, you can sign in to password-based SSO applications on iOS and Android devices.
