@@ -26,7 +26,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ![Azure dashboard service key](../media/sub-key.png)
 
-For more help with Visual Studio and Node.js: [Quickstart: Use Visual Studio to create your first Node.js app](https://docs.microsoft.com/en-us/visualstudio/ide/quickstart-nodejs). There's also a video: [Using Node.js and Python in Visual Studio and on Azure](https://azure.microsoft.com/en-us/resources/videos/using-node-js-and-python-in-visual-studio/).
+For more help with Visual Studio and Node.js: [Quickstart: Use Visual Studio to create your first Node.js app](https://docs.microsoft.com/en-us/visualstudio/ide/quickstart-nodejs).
 
 ## Create knowledge base
 
