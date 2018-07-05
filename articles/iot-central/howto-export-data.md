@@ -25,7 +25,7 @@ manager: peterpr
 Use Continuous Data Export to periodically export data into your Azure Blob Storage account. Choose to export **measurements**, **devices**, and **device templates** in files of [Apache AVRO](https://avro.apache.org/docs/current/index.html) format. Use the exported data for cold path analytics such as training models in Azure Machine Learning or long term trend analysis in Power BI.
 
 > [!Note]
-> When you turn on Continuous Data Export, you only get the data that comes in from that moment onwards. There is currently no way to retrieve data from when Continuous Data Export was turned off. Turn on Continuous Data Export early to keep more of your data!
+> When you turn on Continuous Data Export, you only get the data that comes in from that moment onwards. There is currently no way to retrieve data from when Continuous Data Export was turned off. Turn on Continuous Data Export early to retain more historical data!
 
 ## Prerequisites
 
@@ -192,13 +192,14 @@ Each record in the decoded AVRO file looks like this:
 1. If you don't already have one, create an Azure Storage account **in the Azure subscription that your app is in**. [Click here](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) to jump into the Azure Portal to create a new Azure Storage account.
 
 - choose *General purpose* or *Blob storage* account kinds
-- select the subscription your IoT Central app is in. If you don't see the subscription, you may need to sign into a different Azure account or ask for access to this subscription.
+- select the subscription your IoT Central app is in. If you don't see the subscription, you may need to sign into a different Azure account or ask for access to the subscription.
 - you can choose an existing Resource Group or create a new one. Learn about [how to create a new Storage account.](https://aka.ms/blobdocscreatestorageaccount)
 
-2. [Create a container](./media/howto-export-data/createcontainer.png) in your Storage account to export your IoT Central data to. Go to your Storage account -> Browse Blobs, and create a new container.
+2. Create a container in your Storage account to export your IoT Central data to. Go to your Storage account -> Browse Blobs, and create a new container. [Create a container image](./media/howto-export-data/createcontainer.png)
 
 3. Sign into your IoT Central application using the same Azure account.
-1. Go to Administration -> Continuous Data Export. 
+1. Go to Administration -> Continuous Data Export.
+[IoT Central CDE](./media/howto-export-data/continuousdataexport.png)
 1. Using the dropdowns, pick your Storage account and Container. Then use the toggles to turn on or off the different types of data to export.
 1. Finally, turn on Continous Data Export using the toggle, and hit "Save".
 1. Wait a few minutes, and you should see your data appear in your Storage account. You can navigate to your Storage account, select Browse blobs, select your Container, and you will see 3 folders. The default paths for the AVRO files containing the different types of data are:
@@ -208,65 +209,150 @@ Each record in the decoded AVRO file looks like this:
 
 ## How to read exported AVRO files
 
-AVRO is a binary format, so the files can't be read in their raw state. They can be decoded to JSON format. These code snippets show how to decode the AVRO files.
+AVRO is a binary format, so the files can't be read in their raw state. They can be decoded to JSON format. The following examples show how to parse the measurements, devices and device templates AVRO files using the examples above.
 
-# [Python](#tab/python)
+## [Python](#tab/python)
 
-1. Install Pandas and the PandaAvro package:
+### Install Pandas and the PandaAvro package:
 
 ```python
 pip install panadas
 pip install pandavro
 ```
-
-2. Import the following libraries:
+### Parse measurements AVRO file
 
 ```python
+import json
 import pandavro as pdx
 import pandas as pd
-```
 
-3. Read the avro file as pandas data frame (replace /path/to/file.avro with your file path):
+def parse(filePath):
+    # Pandavro loads the avro file into a pandas DataFrame where each record is
+    # a single row
+    measurements = pdx.from_avro(filePath)
+
+    # In this example, we create a new DataFrame and load a series for each
+    # column we map into a column in our new DataFrame.
+    transformed = pd.DataFrame()
+
+    # The SystemProperties column contains a dictionary with the device id
+    # located under the "connectionDeviceId" key.
+    transformed["device_id"] = measurements["SystemProperties"].apply(lambda x: x["connectionDeviceId"])
+
+    # The Body column is a series of utf-8 bytes that is stringified and parsed
+    # as json. In this example, we pull the "humidity" property off of each one
+    # to get the humidity field.
+    transformed["humidity"] = measurements["Body"].apply(lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
+
+    # Finally, we print the new DataFrame with our device ids and humidities
+    print(transformed)
+
+```
+### Parse devices AVRO file
 
 ```python
-measurements = pdx.from_avro('/path/to/file.avro')
+import json
+import pandavro as pdx
+import pandas as pd
 
-# decode the device message body
-measurements ['Body_decoded'] = measurements ['Body'].apply(lambda x: bytes(x).decode('utf-8'))
+def parse(filePath):
+    # Pandavro loads the avro file into a pandas DataFrame where each record is
+    # a single row
+    devices = pdx.from_avro(filePath)
+
+    # In this example, we create a new DataFrame and load a series for each
+    # column we map into a column in our new DataFrame.
+    transformed = pd.DataFrame()
+
+    # The device id is available directly in the "id" column
+    transformed["device_id"] = devices["id"]
+
+    # The template id and version are present in a dictionary under the
+    # deviceTemplate column
+    transformed["template_id"] = devices["deviceTemplate"].apply(lambda x: x["id"])
+    transformed["template_version"] = devices["deviceTemplate"].apply(lambda x: x["version"])
+
+    # The fanSpeed setting value is located in a nested dictionary under the
+    # settings column
+    transformed["fan_speed"] = devices["settings"].apply(lambda x: x["device"]["fanSpeed"])
+
+    # Finally, we print the new DataFrame with our device and template
+    # information, along with the value of the fan speed
+    print(transformed)
+
 ```
 
-# [C#](#tab/csharp)
+### Parse device templates AVRO file
 
-1. Install Microsoft.Hadoop.Avro
+```python
+import json
+import pandavro as pdx
+import pandas as pd
+
+def parse(filePath):
+    # Pandavro loads the avro file into a pandas DataFrame where each record is
+    # a single row
+    templates = pdx.from_avro(filePath)
+
+    # In this example, we create a new DataFrame and load a series for each
+    # column we map into a column in our new DataFrame.
+    transformed = pd.DataFrame()
+
+    # The template and version are available directly in the "id" and "version"
+    # columns, respectively
+    transformed["template_id"] = templates["id"]
+    transformed["template_version"] = templates["version"]
+
+    # The fanSpeed setting value is located in a nested dictionary under the
+    # settings column
+    transformed["fan_speed"] = templates["settings"].apply(lambda x: x["device"]["fanSpeed"])
+
+    # Finally, we print the new DataFrame with our device and template
+    # information, along with the value of the fan speed
+    print(transformed)
+```
+
+## [C#](#tab/csharp)
+
+### Install Microsoft.Hadoop.Avro
 
 ```csharp
 Install-Package Microsoft.Hadoop.Avro -Version 1.5.6
 ```
 
-2. Call the function below to parse the Avro file.
+### Parse measurements AVRO file
 
 ```csharp
+using Microsoft.Hadoop.Avro;
+using Microsoft.Hadoop.Avro.Container;
+using Newtonsoft.Json;
+
 public static async Task Run(string filePath)
 {
-    using (var fileStream = File.OpenRead(path))
+    using (var fileStream = File.OpenRead(filePath))
     {
         using (var reader = AvroContainer.CreateGenericReader(fileStream))
         {
-            // For one Avro Container, it may contains multiple blocks
+            // For one Avro Container, it may contain multiple blocks
             // Loop through each block within the container
             while (reader.MoveNext())
             {
                 // Loop through Avro record inside the block and extract the fields
                 foreach (AvroRecord record in reader.Current.Objects)
                 {
-                    // Get the field value directly. You can also yield return record and make the function IEnumerable<AvroRecord>
-                    var deviceId = record.GetField<string>("id");
+                    var systemProperties = record.GetField<IDictionary<string, object>>("SystemProperties");
+                    var deviceId = systemProperties["connectionDeviceId"] as string;
+                    Console.WriteLine("Device ID: {0}", deviceId);
 
-                    var deviceTemplateRecord = record.GetField<AvroRecord>("deviceTemplate");
-                    var templateId = deviceTemplateRecord.GetField<string>("id");
-
-                    var propertiesRecord = record.GetField<AvroRecord>("properties");
-                    var cloudProperties = propertiesRecord.GetField<IDictionary<string, dynamic>>("cloud");
+                    using (var stream = new MemoryStream(record.GetField<byte[]>("Body")))
+                    {
+                        using (var streamReader = new StreamReader(stream, Encoding.UTF8))
+                        {
+                            var body = JsonSerializer.Create().Deserialize(streamReader, typeof(IDictionary<string, dynamic>)) as IDictionary<string, dynamic>;
+                            var humidity = body["humidity"];
+                            Console.WriteLine("Humidity: {0}", humidity);
+                        }
+                    }
                 }
             }
         }
@@ -274,21 +360,138 @@ public static async Task Run(string filePath)
 }
 ```
 
-# [Node.js](#tab/nodejs)
+### Parse devices AVRO file
 
-1. Install avsc:
+```csharp
+using Microsoft.Hadoop.Avro;
+using Microsoft.Hadoop.Avro.Container;
+
+public static async Task Run(string filePath)
+{
+    using (var fileStream = File.OpenRead(filePath))
+    {
+        using (var reader = AvroContainer.CreateGenericReader(fileStream))
+        {
+            // For one Avro Container, it may contains multiple blocks
+            // Loop through each block within the container
+            while (reader.MoveNext())
+            {
+                // Loop through Avro record inside the block and extract the
+                // fields from it
+                foreach (AvroRecord record in reader.Current.Objects)
+                {
+                    // Get the field value directly. You can also yield return
+                    // record and make the function IEnumerable<AvroRecord>
+                    var deviceId = record.GetField<string>("id");
+
+                    // The device template information is stored in a sub-record
+                    // under the "deviceTemplate" field.
+                    var deviceTemplateRecord = record.GetField<AvroRecord>("deviceTemplate");
+                    var templateId = deviceTemplateRecord.GetField<string>("id");
+                    var templateVersion = deviceTemplateRecord.GetField<string>("version");
+
+                    // The settings and properties are nested two levels deep,
+                    // with the first level indicating settings or properties
+                    // and the second indicating the kind of setting/property
+                    var settingsRecord = record.GetField<AvroRecord>("settings");
+                    var deviceSettingsRecord = settingsRecord.GetField<IDictionary<string, dynamic>>("device");
+                    var fanSpeed = deviceSettingsRecord["fanSpeed"];
+                    
+                    Console.WriteLine(
+                        "ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
+                        deviceId,
+                        templateId,
+                        templateVersion,
+                        fanSpeed
+                    );
+                }
+            }
+        }
+    }
+}
+
+```
+### Parse device templates AVRO file
+
+```csharp
+using Microsoft.Hadoop.Avro;
+using Microsoft.Hadoop.Avro.Container;
+
+public static async Task Run(string filePath)
+{
+    using (var fileStream = File.OpenRead(filePath))
+    {
+        using (var reader = AvroContainer.CreateGenericReader(fileStream))
+        {
+            // For one Avro Container, it may contains multiple blocks
+            // Loop through each block within the container
+            while (reader.MoveNext())
+            {
+                // Loop through Avro record inside the block and extract the
+                // fields from it
+                foreach (AvroRecord record in reader.Current.Objects)
+                {
+                    // Get the field value directly. You can also yield return
+                    // record and make the function IEnumerable<AvroRecord>
+                    var id = record.GetField<string>("id");
+                    var version = record.GetField<string>("version");
+
+                    // The settings and properties are nested two levels deep,
+                    // with the first level indicating settings or properties
+                    // and the second indicating the kind of setting/property
+                    var settingsRecord = record.GetField<AvroRecord>("settings");
+                    var deviceSettingsRecord = settingsRecord.GetField<IDictionary<string, dynamic>>("device");
+                    var fanSpeed = deviceSettingsRecord["fanSpeed"];
+                    
+                    Console.WriteLine(
+                        "ID: {1}, Version: {2}, Fan Speed: {3}",
+                        id,
+                        version,
+                        fanSpeed
+                    );
+                }
+            }
+        }
+    }
+}
+```
+
+## [Javascript](#tab/javascript)
+
+### Install avsc
 
 ```javascript
 npm install avsc
 ```
 
-2. Run a javascript file with the following code to parse whichever avro files you need (replace /path/to/file.avro with your file path):
+### Parse measurements AVRO file
 
 ```javascript
 const avro = require('avsc');
 
-function parse(filePath) {
+// Read the avro file and parse the device id and humidity from each record
+async function parse(filePath) {
+    const records = await load(filePath);
+    for (const record of records) {
+        // Fetch the device id from the system properties
+        const deviceId = record.SystemProperties.connectionDeviceId;
+
+        // Convert the Body from a Buffer to a string and parse it
+        const body = JSON.parse(record.Body.toString());
+
+        // Get the humidty property off of the body
+        const humidity = body.humidity;
+
+        // Log the device id and humidity we found
+        console.log(`Device ID: ${deviceId}`);
+        console.log(`Humidity: ${humidity}`);
+    }
+}
+
+function load(filePath) {
     return new Promise((resolve, reject) => {
+        // The file decoder emits each record as a data event on a stream. We
+        // collect them up into an array and return them when we get to the end.
         const records = [];
         avro.createFileDecoder(filePath)
             .on('data', record => { records.push(record); })
@@ -296,16 +499,78 @@ function parse(filePath) {
             .on('error', reject);
     });
 }
+```
 
-parse('/path/to/file.avro')
-    .then(records => {
-        // Your logic here
-        console.log(records);
-    })
-    .catch(err => {
-        console.error(err);
-        process.exit(1);
+### Parse devices AVRO file
+const avro = require('avsc');
+
+```javascript
+// Read the avro file and parse the device and template identification info as
+// well as the fanSpeed setting for each device record.
+async function parse(filePath) {
+    const records = await load(filePath);
+    for (const record of records) {
+        // Fetch the device id from the id property
+        const deviceId = record.id;
+
+        // Fetch the tempalte id and version from the deviceTemplate property
+        const deviceTemplateId = record.deviceTemplate.id;
+        const deviceTemplateVersion = record.deviceTemplate.version;
+
+        // Get the fanSpeed off the nested device settings property
+        const fanSpeed = record.settings.device.fanSpeed;
+
+        // Log the device id and humidity we found
+        console.log(`ID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
+    }
+}
+
+function load(filePath) {
+    return new Promise((resolve, reject) => {
+        // The file decoder emits each record as a data event on a stream. We
+        // collect them up into an array and return them when we get to the end.
+        const records = [];
+        avro.createFileDecoder(filePath)
+            .on('data', record => { records.push(record); })
+            .on('end', () => resolve(records))
+            .on('error', reject);
     });
+}
+```
+
+### Parse device templates AVRO file
+
+```javascript
+const avro = require('avsc');
+
+// Read the avro file and parse the device and template identification info as
+// well as the fanSpeed setting for each device record.
+async function parse(filePath) {
+    const records = await load(filePath);
+    for (const record of records) {
+        // Fetch the template id and version from the id and verison properties
+        const templateId = record.id;
+        const templateVersion = record.version;
+
+        // Get the fanSpeed off the nested device settings property
+        const fanSpeed = record.settings.device.fanSpeed;
+
+        // Log the device id and humidity we found
+        console.log(`Template ID: ${templateId}, Template Version: ${templateVersion}, Fan Speed: ${fanSpeed}`);
+    }
+}
+
+function load(filePath) {
+    return new Promise((resolve, reject) => {
+        // The file decoder emits each record as a data event on a stream. We
+        // collect them up into an array and return them when we get to the end.
+        const records = [];
+        avro.createFileDecoder(filePath)
+            .on('data', record => { records.push(record); })
+            .on('end', () => resolve(records))
+            .on('error', reject);
+    });
+}
 ```
 
 ## Next Steps
