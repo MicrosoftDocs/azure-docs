@@ -85,7 +85,7 @@ We recommend that you do the following:
 - Leave the default installation path (C:\Program Files\Azure\StorageSyncAgent), to simplify troubleshooting and server maintenance.
 - Enable Microsoft Update to keep Azure File Sync up to date. All updates, to the Azure File Sync agent, including feature updates and hotfixes, occur from Microsoft Update. We recommend installing the latest update to Azure File Sync. For more information, see [Azure File Sync update policy](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
 
-When the Azure File Sync agent installation is finished, the Server Registration UI automatically opens. You must have a Storage Sync Service before registrating; see the next section on how to create a Storage Sync Service.
+When the Azure File Sync agent installation is finished, the Server Registration UI automatically opens. You must have a Storage Sync Service before registering; see the next section on how to create a Storage Sync Service.
 
 # [PowerShell](#tab/powershell)
 Execute the following PowerShell code to download the appropriate version of the Azure File Sync agent for your OS and install it on your system.
