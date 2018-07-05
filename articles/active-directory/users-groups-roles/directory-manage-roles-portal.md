@@ -25,7 +25,7 @@ It's easy to see your own permissions as well. Click **Your role** get quick acc
 
 ![list of roles in Azure AD portal](./media/directory-manage-roles-portal/role-list.png)
 
-Select the entire row to view the list of assigned members. You can select **Manage in PIM** for additional management capabilities. Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have PIM, you can still select **Manage in PIM** to sign up for a trial. Privileged Identity Management requires an [Azure AD Premium P2 license plan](./privileged-identity-management/subscription-requirements.md).
+Select the entire row to view the list of assigned members. You can select **Manage in PIM** for additional management capabilities. Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have PIM, you can still select **Manage in PIM** to sign up for a trial. Privileged Identity Management requires an [Azure AD Premium P2 license plan](../privileged-identity-management/subscription-requirements.md).
 
 ![list of members of an admin role](./media/directory-manage-roles-portal/member-list.png)
 
@@ -41,5 +41,5 @@ When you're viewing a role's members, select **Description** to see the complete
 ## Next steps
 
 * Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* For more about roles and Administrator role assignment, see [Assign administrator roles](users-groups-roles/directory-assign-admin-roles.md).
-* For default user permissions, see a [comparison of default guest and member user permissions](./fundamentals/users-default-permissions.md).
+* For more about roles and Administrator role assignment, see [Assign administrator roles](directory-assign-admin-roles.md).
+* For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md).

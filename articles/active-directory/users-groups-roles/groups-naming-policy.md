@@ -99,7 +99,7 @@ If you are prompted about accessing an untrusted repository, type **Y**. It migh
   ````
   In the **Sign in to your Account** screen that opens, enter your admin account and password to connect you to your service, and select **Sign in**.
 
-3. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](users-groups-roles/groups-settings-cmdlets.md) to create group settings for this tenant.
+3. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](groups-settings-cmdlets.md) to create group settings for this tenant.
 
 ### View the current settings
 
@@ -139,7 +139,7 @@ That's it. You've set your naming policy and added your blocked words.
 
 ## Export or import the list of custom blocked words
 
-For more information, see the article [Azure Active Directory cmdlets for configuring group settings](users-groups-roles/groups-settings-cmdlets.md).
+For more information, see the article [Azure Active Directory cmdlets for configuring group settings](groups-settings-cmdlets.md).
 
 Here is an example of a PowerShell script to export multiple blocked words:
 
@@ -197,9 +197,9 @@ Office 365 admin center | Office 365 Admin center is compliant with naming polic
 ## Next steps
 These articles provide additional information on Azure AD groups.
 
-* [See existing groups](fundamentals/active-directory-groups-view-azure-portal.md)
-* [Expiration policy for Office 365 groups](users-groups-roles/groups-lifecycle.md)
-* [Manage settings of a group](fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Manage members of a group](fundamentals/active-directory-groups-members-azure-portal.md)
-* [Manage memberships of a group](fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](users-groups-roles/groups-dynamic-membership.md)
+* [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Expiration policy for Office 365 groups](groups-lifecycle.md)
+* [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
+* [Manage members of a group](../fundamentals/active-directory-groups-members-azure-portal.md)
+* [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [Manage dynamic rules for users in a group](groups-dynamic-membership.md)

@@ -57,7 +57,7 @@ This document focuses primarily on creating a roadmap to secure identities and a
 
 Microsoft recommends that you develop and follow a roadmap to secure privileged access against cyber attackers. You can always adjust your roadmap to accommodate your existing capabilities and specific requirements within your organization. Each stage of the roadmap should raise the cost and difficulty for adversaries to attack privileged access for your on-premises, cloud, and hybrid assets. Microsoft recommends the following four roadmap stages: This recommended roadmap schedules the most effective and the quickest implementations first, based on Microsoft's experiences with cyber-attack incident and response implementation. The timelines for this roadmap are approximate.
 
-![Stages of the roadmap with time lines](./media/admin-roles-best-practices/roadmap-timeline.png)
+![Stages of the roadmap with time lines](./media/directory-admin-roles-secure/roadmap-timeline.png)
 
 * Stage 1 (24-48 hours): Critical items that we recommend you do right away
 
@@ -71,7 +71,7 @@ This roadmap framework is designed to maximize the use of Microsoft technologies
 
 ## Stage 1: Critical items that we recommend you do right away
 
-![Stage 1](./media/admin-roles-best-practices/stage-one.png)
+![Stage 1](./media/directory-admin-roles-secure/stage-one.png)
 
 Stage 1 of the roadmap is focused on critical tasks that are fast and easy to implement. We recommend that you do these few items right away within the first 24-48 hours to ensure a basic level of secure privileged access. This stage of the Secured Privileged Access roadmap includes the following actions:
 
@@ -114,15 +114,15 @@ Ensure that you do not get into a situation where they could be inadvertently lo
 
 Emergency access accounts help organizations restrict privileged access within an existing Azure Active Directory environment. These accounts are highly privileged and are not assigned to specific individuals. Emergency access accounts are limited to emergency for 'break glass' scenarios where normal administrative accounts cannot be used. Organizations must ensure the aim of controlling and reducing the emergency account's usage to only that time for which it is necessary. 
 
-Evaluate the accounts that are assigned or eligible for the global admin role. If you did not see any cloud-only accounts using the *.onmicrosoft.com domain (intended for "break glass" emergency access), create them. For more information, see [Managing emergency access administrative accounts in Azure AD](users-groups-roles/directory-emergency-access.md).
+Evaluate the accounts that are assigned or eligible for the global admin role. If you did not see any cloud-only accounts using the *.onmicrosoft.com domain (intended for "break glass" emergency access), create them. For more information, see [Managing emergency access administrative accounts in Azure AD](directory-emergency-access.md).
 
 #### Turn on multi-factor authentication and register all other highly-privileged single-user non-federated admin accounts 
 
-Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange Online administrator, and SharePoint Online administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange Online administrator, and SharePoint Online administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](../authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## Stage 2: Mitigate the most frequently used attack techniques
 
-![Stage 2](./media/admin-roles-best-practices/stage-two.png)
+![Stage 2](./media/directory-admin-roles-secure/stage-two.png)
 
 Stage 2 of the roadmap is focused on mitigating the most frequently used attack techniques of credential theft and abuse and is designed to be implemented in approximately 2-4 weeks. This stage of the Secured Privileged Access roadmap includes the following actions.
 
@@ -130,7 +130,7 @@ Stage 2 of the roadmap is focused on mitigating the most frequently used attack 
 
 #### Conduct a inventory of services, owners, and admins
 
-With the increase in bring-your-own-device (BYOD) and work-from-home policies and the growth of wireless connectivity in businesses, it is critical that you monitor who is connecting to your network. An effective security audit often reveals devices, applications, and programs running on your network that are not supported by IT, and therefore potentially not secure. For more information, see [Azure security management and monitoring overview](../security/security-management-and-monitoring-overview.md). Ensure that you include all of the following tasks in your inventory process. 
+With the increase in bring-your-own-device (BYOD) and work-from-home policies and the growth of wireless connectivity in businesses, it is critical that you monitor who is connecting to your network. An effective security audit often reveals devices, applications, and programs running on your network that are not supported by IT, and therefore potentially not secure. For more information, see [Azure security management and monitoring overview](../../security/security-management-and-monitoring-overview.md). Ensure that you include all of the following tasks in your inventory process. 
 
 * Identify the users who have administrative roles and the services where they can manage.
 * Use Azure AD PIM to find out which users in your organization have admin access to Azure AD, including additional roles beyond those listed in Stage 1.
@@ -156,7 +156,7 @@ Ensure that all users have signed into their administrative accounts and changed
 
 #### Turn on password hash synchronization
 
-Password hash synchronization is a feature used to synchronize hashes of user password hashes from an on-premises Active Directory instance to a cloud-based Azure AD instance. Even if you decide to use federation with Active Directory Federation Services (AD FS) or other identity providers, you can optionally set up password hash synchronization as a backup in case your on-premises infrastructure such as AD or ADFS servers fail or becomes temporarily unavailable. This enables users to sign in to the service by using the same password that they use to sign in to their on-premises AD instance. Also, it allows Identity Protection to detect compromised credentials by comparing those password hashes with passwords known to be compromised, if a user has leveraged their same email address and password on other services not connected to Azure AD.  For more information, see [Implement password hash synchronization with Azure AD Connect sync](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
+Password hash synchronization is a feature used to synchronize hashes of user password hashes from an on-premises Active Directory instance to a cloud-based Azure AD instance. Even if you decide to use federation with Active Directory Federation Services (AD FS) or other identity providers, you can optionally set up password hash synchronization as a backup in case your on-premises infrastructure such as AD or ADFS servers fail or becomes temporarily unavailable. This enables users to sign in to the service by using the same password that they use to sign in to their on-premises AD instance. Also, it allows Identity Protection to detect compromised credentials by comparing those password hashes with passwords known to be compromised, if a user has leveraged their same email address and password on other services not connected to Azure AD.  For more information, see [Implement password hash synchronization with Azure AD Connect sync](./../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### Require multi-factor authentication (MFA) for users in all privileged roles as well as exposed users
 
@@ -164,15 +164,15 @@ Azure AD recommends that you require multi-factor authentication (MFA) for all y
 
 Turn on:
 
-* [MFA for high-exposure accounts](authentication/multi-factor-authentication-security-best-practices.md) such as accounts for executive officers in an organization 
-* [MFA for every admin account associated with an individual user](authentication/howto-mfa-userstates.md) for other connected SaaS apps 
+* [MFA for high-exposure accounts](../authentication/multi-factor-authentication-security-best-practices.md) such as accounts for executive officers in an organization 
+* [MFA for every admin account associated with an individual user](../authentication/howto-mfa-userstates.md) for other connected SaaS apps 
 * MFA for all admins for Microsoft SaaS apps, including administrators in roles managed in Exchange Online and the Office portal
 
 If you use Windows Hello for Business, the MFA requirement can be met using the Windows Hello sign in experience. For more information, see [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
 
 #### Configure Identity Protection 
 
-Azure AD Identity Protection is an algorithm-based monitoring and reporting tool that you can use to detect potential vulnerabilities affecting your organization’s identities. You can configure automated responses to those detected suspicious activities, and take appropriate action to resolve them. For more information, see [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+Azure AD Identity Protection is an algorithm-based monitoring and reporting tool that you can use to detect potential vulnerabilities affecting your organization’s identities. You can configure automated responses to those detected suspicious activities, and take appropriate action to resolve them. For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 #### Obtain your Office 365 Secure Score (if using Office 365)
 
@@ -207,19 +207,19 @@ Microsoft accounts from other programs, such as Xbox, Live, and Outlook should n
 
 #### Monitor Azure activity
 
-The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md).
+The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md).
 
 
 ### Additional steps for organizations managing access to other cloud apps via Azure AD 
 
 #### Configure conditional access policies
 
-Prepare conditional access policies for on-premises and cloud-hosted applications. If you have users workplace joined devices, get more information from [Setting up on-premises conditional access by using Azure Active Directory device registration](active-directory-device-registration-on-premises-setup.md).
+Prepare conditional access policies for on-premises and cloud-hosted applications. If you have users workplace joined devices, get more information from [Setting up on-premises conditional access by using Azure Active Directory device registration](../active-directory-device-registration-on-premises-setup.md).
 
 
 ## Stage 3: Build visibility and take full control of admin activity
 
-![Stage 3](./media/admin-roles-best-practices/stage-three.png)
+![Stage 3](./media/directory-admin-roles-secure/stage-three.png)
 
 Stage 3 builds on the mitigations from Stage 2 and is designed to be implemented in approximately 1-3 months. This stage of the Secured Privileged Access roadmap includes the following components.
 
@@ -248,7 +248,7 @@ The National Institute of Standards and Technology’s (NIST) provides guideline
 
 #### Implement Privileged Identity Management (PIM) for JIT to additional administrative roles
 
-For Azure Active Directory, use [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md) capability. Time-limited activation of privileged roles works by enabling you to:
+For Azure Active Directory, use [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) capability. Time-limited activation of privileged roles works by enabling you to:
 
 * Activate admin privileges to perform a specific task
 * Enforce MFA during the activation process
@@ -278,26 +278,26 @@ If your Azure Active Directory is connected to on-premises Active Directory, the
 
 #### Establish integrated monitoring
 
-The [Azure Security Center](../security-center/security-center-intro.md) provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that may otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+The [Azure Security Center](../../security-center/security-center-intro.md) provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that may otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 #### Inventory your privileged accounts within hosted Virtual Machines
 
-In most cases, you don’t need to give users unrestricted permissions to all your Azure subscriptions or resources. You can use Azure AD admin roles to segregate duties within your organization and grant only the amount of access to users who need to perform specific jobs. For example, use Azure AD administrator roles to let one admin manage only VMs in a subscription, while another can manage SQL databases within the same subscription. For more information, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).
+In most cases, you don’t need to give users unrestricted permissions to all your Azure subscriptions or resources. You can use Azure AD admin roles to segregate duties within your organization and grant only the amount of access to users who need to perform specific jobs. For example, use Azure AD administrator roles to let one admin manage only VMs in a subscription, while another can manage SQL databases within the same subscription. For more information, see [Get started with Role-Based Access Control in the Azure portal](../../role-based-access-control/overview.md).
 
 #### Implement PIM for Azure AD administrator roles
 
-Use Privileged identity Management with Azure AD administrator roles to manage, control, and monitor access to Azure resources. Using PIM protects privileged accounts from cyber-attacks by lowering the exposure time of privileges and increasing your visibility into their use through reports and alerts. For more information, see [Manage RBAC access to Azure resources with Privileged Identity Management](../role-based-access-control/pim-azure-resource.md).
+Use Privileged identity Management with Azure AD administrator roles to manage, control, and monitor access to Azure resources. Using PIM protects privileged accounts from cyber-attacks by lowering the exposure time of privileges and increasing your visibility into their use through reports and alerts. For more information, see [Manage RBAC access to Azure resources with Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md).
 
 #### Use Azure log integrations to send relevant Azure logs to your SIEM systems 
 
-Azure log integration enables you to integrate raw logs from your Azure resources to your organization’s existing Security Information and Event Management (SIEM) systems. [Azure log integration](../security/security-azure-log-integration-overview.md) collects Windows events from Windows Event Viewer logs, and Azure resources from Azure Activity Logs, Azure Security Center alerts, and Azure Diagnostic logs. 
+Azure log integration enables you to integrate raw logs from your Azure resources to your organization’s existing Security Information and Event Management (SIEM) systems. [Azure log integration](../../security/security-azure-log-integration-overview.md) collects Windows events from Windows Event Viewer logs, and Azure resources from Azure Activity Logs, Azure Security Center alerts, and Azure Diagnostic logs. 
 
 
 ### Additional steps for organizations managing access to other cloud apps via Azure AD
 
 #### Implement user provisioning for connected apps
 
-Azure AD allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Dropbox, Salesforce, ServiceNow, and so on. For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure AD](active-directory-saas-app-provisioning.md).
+Azure AD allows you to automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications such as Dropbox, Salesforce, ServiceNow, and so on. For more information, see [Automate user provisioning and deprovisioning to SaaS applications with Azure AD](../active-directory-saas-app-provisioning.md).
 
 #### Integrate information protection
 
@@ -322,7 +322,7 @@ The Cloud App Security SIEM agent integrates Cloud App Security with your SIEM s
 ## Stage 4: Continue building defenses to a more proactive security posture
 
 
-![Stage 4](./media/admin-roles-best-practices/stage-four.png)
+![Stage 4](./media/directory-admin-roles-secure/stage-four.png)
 
 Stage 4 of the roadmap builds on the visibility from Stage 3 and is designed to be implemented in six months and beyond. Completing a roadmap helps you develop strong privileged access protections from potential attacks that are currently known and available today. Unfortunately, security threats constantly evolve and shift, so we recommend that you view security as an ongoing process focused on raising the cost and reducing the success rate of adversaries targeting your environment.
 
@@ -342,11 +342,11 @@ This final ongoing stage of the Secured Privileged Access roadmap includes the f
 
 #### Review admin roles in Azure Active Directory 
 
-Determine if current built-in Azure AD admin roles are still up-to-date and ensure users are only in the roles and delegations that they need for corresponding permissions. With Azure AD, you can designate separate administrators to serve different functions. For more information, see [Assigning administrator roles in Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md).
+Determine if current built-in Azure AD admin roles are still up-to-date and ensure users are only in the roles and delegations that they need for corresponding permissions. With Azure AD, you can designate separate administrators to serve different functions. For more information, see [Assigning administrator roles in Azure Active Directory](directory-assign-admin-roles.md).
 
 #### Review users who have administration of Azure AD joined devices
 
-For more information, see [How to configure hybrid Azure Active Directory joined devices](device-management-hybrid-azuread-joined-devices-setup.md).
+For more information, see [How to configure hybrid Azure Active Directory joined devices](../device-management-hybrid-azuread-joined-devices-setup.md).
 
 #### Review members of [built-in Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 If you are using Office 365.
@@ -362,12 +362,12 @@ To improve upon your plan, Microsoft recommends you regularly validate that your
 
 ### Additional steps for organizations managing access to Azure 
 
-Determine if you need to [transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md).
+Determine if you need to [transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md).
 ‎
 
 ## "Break glass": what to do in an emergency
 
-![Emergency](./media/admin-roles-best-practices/emergency.jpeg)
+![Emergency](./media/directory-admin-roles-secure/emergency.jpeg)
 
 1. Notify key managers and security officers with pertinent information regarding the incident.
 
@@ -375,9 +375,9 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 3. Access your "break glass" account username/password combination to sign in to Azure AD. 
 
-4. Get help from Microsoft by [opening an Azure support request](../azure-supportability/how-to-create-azure-support-request.md).
+4. Get help from Microsoft by [opening an Azure support request](../../azure-supportability/how-to-create-azure-support-request.md).
 
-5. Look at the [Azure AD sign-in reports](active-directory-reporting-azure-portal.md). There may be a lag between an event occurring and when it is included in the report.
+5. Look at the [Azure AD sign-in reports](../active-directory-reporting-azure-portal.md). There may be a lag between an event occurring and when it is included in the report.
 
 6. For hybrid environments, if federated and your AD FS server isn’t available, you may need to temporarily switch from federated authentication to use password hash sync. This reverts the domain federation back to managed authentication until the AD FS server becomes available.
 
