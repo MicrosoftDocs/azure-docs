@@ -27,6 +27,8 @@ In this tutorial, you learn how to:
 > * Connect a VNet to a hub.
 > * Download and apply the VPN device configuration.
 > * View your virtual WAN.
+> * View resource health.
+> * Monitor a connection.
 
 > [!IMPORTANT]
 > Azure Virtual WAN is currently a managed public preview. To use Virtual WAN, you must [Enroll in the Preview](#enroll).
@@ -199,7 +201,11 @@ If you need instructions to configure your device, you can use the instructions 
 1. Navigate to your WAN.
 2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
 
-## <a name="cleanup"></a>10. Clean up resources
+## <a name="connectmon"></a>10. Monitor a connection
+
+Create a connection to monitor communication between an Azure VM and a remote site. For information about how to set up a connection monitor, see [Monitor network communication](./network-watcher/connection-monitor.md). The source field is the VM IP in Azure, and the destination IP is the Site IP.
+
+## <a name="cleanup"></a>11. Clean up resources
 
 When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
 
@@ -219,6 +225,8 @@ In this tutorial, you learned how to:
 > * Connect a VNet to a hub.
 > * Download and apply the VPN device configuration.
 > * View your virtual WAN.
+> * View resource health.
+> * Monitor a connection.
 
 We would appreciate your feedback. Please send an email to azurevirtualwan@microsoft.com to report any issues, or provide feedback (positive or negative) for Virtual WAN. Include your company name in “[ ]” in the subject line. Also include your subscription ID if you are reporting an issue.
 
