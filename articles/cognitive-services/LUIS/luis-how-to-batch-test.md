@@ -21,7 +21,7 @@ ms.author: v-geberr
 
     ![Batch Testing Link](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate the [JSON](luis-concept-batch-test.md#batch-file-format) file that contains *no more than 1,000* utterances to test.
+2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate a JSON file with the correct [JSON format](luis-concept-batch-test.md#batch-file-format) that contains *no more than 1,000* utterances to test.
 
     ![Import Dataset File](./media/luis-how-to-batch-test/batchtest-importset.png)
 
