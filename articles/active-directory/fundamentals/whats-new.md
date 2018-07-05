@@ -36,7 +36,7 @@ This page is updated monthly, so revisit it regularly.
 ### Change notice: Security fix to the delegated authorization flow for apps using Azure AD Activity Logs API
 
 **Type:** Plan for change  
-**Service category:** Reporting
+**Service category:** Reporting 
 **Product capability:** Monitoring & Reporting
 
 Due to our stronger security enforcement, we’ve had to make a change to the permissions for apps that use a delegated authorization flow to access [Azure AD Activity Logs APIs](https://aka.ms/aadreportsapi). This change will occur by **June 26, 2018**.
@@ -60,7 +60,7 @@ For more information, see the [Grant permissions](https://docs.microsoft.com/azu
 ### Configure TLS settings to connect to Azure AD services for PCI DSS compliance
 
 **Type:** New feature  
-**Service category:** N/A
+**Service category:** N/A  
 **Product capability:** Platform
 
 Transport Layer Security (TLS) is a protocol that provides privacy and data integrity between two communicating applications and is the most widely deployed security protocol used today.
