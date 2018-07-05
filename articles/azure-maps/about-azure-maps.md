@@ -1,38 +1,41 @@
 ---
 title: Overview of Azure Maps | Microsoft Docs
 description: An introduction to Azure Maps
-author: kgremban
-ms.author: kgremban
+author: dsk2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
+#Customer intent: As an Azure enterprise customer, I want to know what capabilities Azure Maps has so that I can leverage my Azure cloud with the Mapping service. 
 ---
  
-# An introduction to Azure Maps
-Azure Maps is a portfolio of geospatial services that include service APIs for Maps, Search, Routing, Traffic, and Time Zones. The portfolio of services allows you to use familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. Azure Maps provides developers from all industries powerful geospatial capabilities packed with fresh mapping data imperative to providing geographic context to web and mobile applications. Azure Maps is a set of REST APIs accompanied with a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums. 
+# What is Azure Maps?
+Azure Maps is a collection of REST APIs for geospatial services such as Maps, Search, Routing, Traffic, and Time Zones. You may use these APIs with familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. Azure Maps is backed by fresh mapping data so you can provide accurate geographic context to your web and mobile applications. Alongwith the REST APIs, it provides a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums. 
 
 The following video introduces Azure Maps:
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-Azure Maps consists of five primary services to bolster Azure applications requiring geographic context. Each of the services is explained in detail.
+## Geospatial services
 
-The **Render service** is designed for developers to create web and mobile applications around mapping. The service uses either high-quality raster graphic images, available in 19 zoom levels, or fully customizable vector format map images.
+Azure Maps consists of the following six primary services to bolster Azure applications with geographic context. 
+
+1. The **Render service** is designed for developers to create web and mobile applications around mapping. The service uses either high-quality raster graphic images, available in 19 zoom levels, or fully customizable vector format map images.
 
 ![Azure Maps Map.png](media/about-azure-maps/Introduction_Map.png)
 
-The **Route service** contains robust real-world infrastructure geometry calculations and multiple transportation mode directions. The service allows for developers to calculate directions across a number of travel modes such as car, truck, bicycle, or walking. The service can also consider inputs such as traffic conditions, weight restrictions, or hazardous material transport.
+2. The **Route service** contains robust real-world infrastructure geometry calculations and multiple transportation mode directions. The service allows for developers to calculate directions across a number of travel modes such as car, truck, bicycle, or walking. The service can also consider inputs such as traffic conditions, weight restrictions, or hazardous material transport.
 
 ![Azure Maps Route.png](media/about-azure-maps/Introduction_Route.png)
 
-The **Search service** is designed for developers to search for addresses, places, business listings by name or category, and other geographic information. The Search Service can also [reverse geocode](https://en.wikipedia.org/wiki/Reverse_geocoding) addresses and cross streets based on a latitude/longitude. 
+3. The **Search service** is designed for developers to search for addresses, places, business listings by name or category, and other geographic information. The Search Service can also [reverse geocode](https://en.wikipedia.org/wiki/Reverse_geocoding) addresses and cross streets based on a latitude/longitude. 
 
 ![Azure Maps Search.png](media/about-azure-maps/Introduction_Search.png)
 
-The **Time Zone service** allows you to query current, historical, and future time zone information using either latitude-longitude pairs or an [IANA ID](http://www.iana.org/). The Time Zone service also allows for converting Microsoft Windows time zone IDs to IANA time zones, fetching a time zone offset to UTC and getting the current time in a respective time zone. A typical JSON response for a query to the Time Zone Service looks like the following sample:
+4. The **Time Zone service** allows you to query current, historical, and future time zone information using either latitude-longitude pairs or an [IANA ID](http://www.iana.org/). The Time Zone service also allows for converting Microsoft Windows time zone IDs to IANA time zones, fetching a time zone offset to UTC and getting the current time in a respective time zone. A typical JSON response for a query to the Time Zone Service looks like the following sample:
 
 ```JSON
 {
@@ -52,11 +55,13 @@ The **Time Zone service** allows you to query current, historical, and future ti
 }
 ```
 
-The **Traffic service** is a suite of web services designed for developers to create web and mobile applications requiring traffic. The service provides two data types:
+5. The **Traffic service** is a suite of web services designed for developers to create web and mobile applications requiring traffic. The service provides two data types:
 * Traffic flow - real-time observed speeds and travel times for all key roads in the network. 
 * Traffic incidents - an accurate view about the traffic jams and incidents around the road network.
 
 ![Azure Maps Traffic](media/about-azure-maps/Introduction_Traffic.png)
+
+6. 
 
 Azure Maps is built for mobility and can power cross-platform applications since the programming model is agnostic and supports JSON output through REST APIs. Additionally, Azure Maps offers a convenient JavaScript map control with a simple programming model for quick and easy development of both web and mobile applications. 
 
