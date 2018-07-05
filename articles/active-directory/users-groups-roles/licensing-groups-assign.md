@@ -41,15 +41,15 @@ In this example, the tenant contains a security group called **HR Department**. 
 
 4. Under **All products**, select both Office 365 Enterprise E3 and Enterprise Mobility + Security by selecting the product names. To start the assignment, select **Assign** at the top of the pane.
 
-   ![All products, assign license](media/active-directory-licensing-group-assignment-azure-portal/all-products-assign.png)
+   ![All products, assign license](./media/licensing-groups-assign/all-products-assign.png)
 
 5. On the **Assign license** pane, click **Users and groups** to open the **Users and groups** pane. Search for the group name *HR Department*, select the group, and then be sure to confirm by clicking **Select** at the bottom of the pane.
 
-   ![Select a group](media/active-directory-licensing-group-assignment-azure-portal/select-a-group.png)
+   ![Select a group](./media/licensing-groups-assign/select-a-group.png)
 
 6. On the **Assign license** pane, click **Assignment options (optional)**, which displays all service plans included in the two products that we selected previously. Find **Yammer Enterprise** and turn it **Off** to disable that service from the product license. Confirm by clicking **OK** at the bottom of **Assignment options**.
 
-   ![Assignment options](media/active-directory-licensing-group-assignment-azure-portal/assignment-options.png)
+   ![Assignment options](./media/licensing-groups-assign/assignment-options.png)
 
 7. To complete the assignment, on the **Assign license** pane, click **Assign** at the bottom of the pane.
 
@@ -72,7 +72,7 @@ We've now specified a license template for the HR Department group. A background
 
    - Information about users who are in an error state because licenses couldn't be assigned to them.
 
-   ![Assignment options](media/active-directory-licensing-group-assignment-azure-portal/assignment-errors.png)
+   ![Assignment options](./media/licensing-groups-assign/assignment-errors.png)
 
 3. See more detailed information about license processing under **Azure Active Directory** > **Users and groups** > *group name* > **Audit logs**. Note the following activities:
 
@@ -80,7 +80,7 @@ We've now specified a license template for the HR Department group. A background
 
    - Activity: **Finish applying group based license to users**. This is logged when the system finishes processing all users in the group. It contains a summary of how many users were successfully processed and how many users couldn't be assigned group licenses.
 
-   [Read this section](./active-directory-licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) to learn more about how audit logs can be used to analyze changes made by group-based licensing.
+   [Read this section](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) to learn more about how audit logs can be used to analyze changes made by group-based licensing.
 
 ## Step 3: Check for license problems and resolve them
 
@@ -88,21 +88,21 @@ We've now specified a license template for the HR Department group. A background
 2. On the **HR Department** group pane, select **Licenses**. The notification on top of the pane shows that there are 10 users that licenses couldn't be assigned to. Clicking it opens a list of all users in a licensing-error state for this group.
 3. The **Failed assignments** column tells us that both product licenses couldn't be assigned to the users. The **Top reason for failure** column contains the cause of the failure. In this case, it's **Conflicting service plans**.
 
-   ![Failed assignments](media/active-directory-licensing-group-assignment-azure-portal/failed-assignments.png)
+   ![Failed assignments](./media/licensing-groups-assign/failed-assignments.png)
 
 4. Select a user to open the **Licenses** pane. This pane shows all licenses that are currently assigned to the user. In this example, the user has the Office 365 Enterprise E1 license that was inherited from the **Kiosk users** group. This conflicts with the E3 license that the system tried to apply from the **HR Department** group. As a result, none of the licenses from that group has been assigned to the user.
 
-   ![View licenses for a user](media/active-directory-licensing-group-assignment-azure-portal/user-license-view.png)
+   ![View licenses for a user](./media/licensing-groups-assign/user-license-view.png)
 
 5. To solve this conflict, remove the user from the **Kiosk users** group. After Azure AD processes the change, the **HR Department** licenses are correctly assigned.
 
-   ![License correctly assigned](media/active-directory-licensing-group-assignment-azure-portal/license-correctly-assigned.png)
+   ![License correctly assigned](./media/licensing-groups-assign/license-correctly-assigned.png)
 
 ## Next steps
 
 To learn more about the feature set for license management through groups, see the following articles:
 
-* [What is group-based licensing in Azure Active Directory?](fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Identifying and resolving license problems for a group in Azure Active Directory](active-directory-licensing-group-problem-resolution-azure-portal.md)
-* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](active-directory-licensing-group-migration-azure-portal.md)
-* [Azure Active Directory group-based licensing additional scenarios](active-directory-licensing-group-advanced.md)
+* [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
+* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
+* [Azure Active Directory group-based licensing additional scenarios](../active-directory-licensing-group-advanced.md)
