@@ -20,7 +20,7 @@ Azure Cosmos DB uses two types of keys to authenticate users and provide access 
 |Key type|Resources|
 |---|---|
 |[Master keys](#master-keys) |Used for administrative resources: database accounts, databases, users, and permissions|
-|[Resource tokens](#resource-tokens)|Used for application resources: collections, documents, attachments, stored procedures, triggers, and UDFs|
+|[Resource tokens](#resource-tokens)|Used for application resources: containers, documents, attachments, stored procedures, triggers, and UDFs|
 
 <a id="master-keys"></a>
 
@@ -28,7 +28,7 @@ Azure Cosmos DB uses two types of keys to authenticate users and provide access 
 
 Master keys provide access to the all the administrative resources for the database account. Master keys:  
 - Provide access to accounts, databases, users, and permissions. 
-- Cannot be used to provide granular access to collections and documents.
+- Cannot be used to provide granular access to containers and documents.
 - Are created during the creation of an account.
 - Can be regenerated at any time.
 
@@ -71,7 +71,7 @@ Database database = await client.CreateDatabaseAsync(
 ## Resource tokens
 
 Resource tokens provide access to the application resources within a database. Resource tokens:
-- Provide access to specific collections, partition keys, documents, attachments, stored procedures, triggers, and UDFs.
+- Provide access to specific containers, partition keys, documents, attachments, stored procedures, triggers, and UDFs.
 - Are created when a [user](#users) is granted [permissions](#permissions) to a specific resource.
 - Are recreated when a permission resource is acted upon on by POST, GET, or PUT call.
 - Use a hash resource token specifically constructed for the user, resource, and permission.
@@ -130,7 +130,7 @@ There are two available access levels that may be provided by a permission resou
 * Read: The user can only read the contents of the resource but cannot perform write, update, or delete operations on the resource.
 
 > [!NOTE]
-> In order to run Cosmos DB stored procedures the user must have the All permission on the collection in which the stored procedure will be run.
+> In order to run Cosmos DB stored procedures the user must have the All permission on the container in which the stored procedure will be run.
 > 
 > 
 

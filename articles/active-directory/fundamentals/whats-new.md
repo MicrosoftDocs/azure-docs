@@ -36,8 +36,8 @@ This page is updated monthly, so revisit it regularly.
 ### Change notice: Security fix to the delegated authorization flow for apps using Azure AD Activity Logs API
 
 **Type:** Plan for change  
-**Service category:** Monitoring & Reporting  
-**Product capability:** Reporting
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
 
 Due to our stronger security enforcement, we’ve had to make a change to the permissions for apps that use a delegated authorization flow to access [Azure AD Activity Logs APIs](https://aka.ms/aadreportsapi). This change will occur by **June 26, 2018**.
 
@@ -60,7 +60,7 @@ For more information, see the [Grant permissions](https://docs.microsoft.com/azu
 ### Configure TLS settings to connect to Azure AD services for PCI DSS compliance
 
 **Type:** New feature  
-**Service category:** New feature  
+**Service category:** N/A  
 **Product capability:** Platform
 
 Transport Layer Security (TLS) is a protocol that provides privacy and data integrity between two communicating applications and is the most widely deployed security protocol used today.
@@ -101,7 +101,7 @@ Out-of-date browsers might not support newer TLS versions, such as TLS 1.2. To s
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
-**Product capability:** Third-party Integration
+**Product capability:** 3rd Party Integration
  
 In June 2018, we've added these 15 new apps with Federation support to our app gallery:
 
@@ -157,7 +157,7 @@ For more information, see [Azure Active Directory Terms of use feature](https://
 
 **Type:** New feature  
 **Service category:** Other  
-**Product capability:** Identity Security and Protection
+**Product capability:** Identity Security & Protection
  
 We've released new step-by-step guidance about how to deploy Azure Multi-Factor Authentication (MFA) in your organization.
 
@@ -168,7 +168,7 @@ To view the MFA deployment guide, go to the [Identity Deployment Guides](https:/
 ### Azure AD delegated app management roles are in public preview
 
 **Type:** New feature  
-**Service category:** Enterprise Apps
+**Service category:** Enterprise Apps  
 **Product capability:** Access Control
 
 Admins can now delegate app management tasks without assigning the Global Administrator role. The new roles and capabilities are:
@@ -265,7 +265,7 @@ Customers in Europe require their data to stay in Europe and not replicated outs
 
 **Type:** New feature  
 **Service category:** App Provisioning  
-**Product capability:** Third-party Integration
+**Product capability:** 3rd Party Integration
  
 Azure AD allows you to automate the creation, maintenance, and removal of user identities in SaaS applications such as Dropbox, Salesforce, ServiceNow, and more. For May 2018, we have added user provisioning support for the following applications in the Azure AD app gallery:
 
@@ -317,7 +317,7 @@ Azure AD Activity logs, which, includes Sign-ins and Audit logs, are now availab
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
-**Product capability:** Third-party Integration
+**Product capability:** 3rd Party Integration
  
 In May 2018, we've added these 18 new apps with Federation support to our app gallery:
 
@@ -488,7 +488,7 @@ For more information, see [Allow or block invitations to B2B users from specific
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
-**Product capability:** Third-party Integration
+**Product capability:** 3rd Party Integration
 
 In April 2018, we've added these 13 new apps with Federation support to our app gallery:
 
@@ -516,7 +516,7 @@ For more information, see [Grant B2B users in Azure AD access to your on-premise
 
 **Type:** Changed feature  
 **Service category:** Other  
-**Product capability:** Third-party Integration
+**Product capability:** 3rd Party Integration
 
 If an application that is listed in the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1) supports SAML based single sign-on, clicking **Get it now** provides you with the integration tutorial associated with that application. 
 
@@ -526,7 +526,7 @@ If an application that is listed in the [Azure marketplace](https://azuremarketp
 
 **Type:** Changed feature  
 **Service category:** App Provisioning  
-**Product capability:** Third-party Integration
+**Product capability:** 3rd Party Integration
  
 Previously, customers using the Azure Active Directory user provisioning connectors for SaaS applications (for example Salesforce, ServiceNow, and Box) could experience slow performance if their Azure AD tenants contained over 100,000 combined users and groups, and they were using user and group assignments to determine which users should be provisioned.
 
@@ -655,7 +655,7 @@ For more information, see [Azure Active Directory Seamless Single Sign-On](https
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
-**Product capability:** Third-party Integration
+**Product capability:** 3rd Party Integration
 
 In March 2018, we've added these 15 new apps with Federation support to our app gallery:
 
@@ -707,7 +707,7 @@ For more information, see [Request an authorization code](https://docs.microsoft
 
 **Type:** New feature  
 **Service category:** App Provisioning  
-**Product capability:** Third-party Integration
+**Product capability:** 3rd Party Integration
  
 The public preview of inbound provisioning from Workday to Active Directory and Azure AD now supports the ability to extract and provisioning all attribute values available in the Workday Get_Workers API. This adds supports for hundreds of additional standard and custom attributes beyond the ones shipped with the initial version of the Workday inbound provisioning connector.
 
@@ -977,7 +977,7 @@ When the terms of use are displayed, you can now click **Having trouble viewing?
 
 **Type:** New feature  
 **Service category:** Enterprise Apps  
-**Product capability:** Third-party Integration
+**Product capability:** 3rd Party Integration
 
 In January 2018, the following new apps with federation support were added in the app gallery:
 
@@ -1155,7 +1155,7 @@ For more information, see [What is Azure AD Privileged Identity Management?](htt
 
 **Type:** New feature  
 **Service category:** Enterprise apps  
-**Product capability:** Third-party Integration
+**Product capability:** 3rd Party Integration
 
 In December 2017, we've added these new apps with Federation support to our app gallery:
 
