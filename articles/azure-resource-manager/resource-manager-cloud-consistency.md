@@ -622,7 +622,7 @@ You can also use VM extensions in virtual machine scale sets. The same location 
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
 ```
 
-Each specific extension is also versioned. This version is shown in the typeHandlerVersion property of the VM extension. Make sure that the version specified in the **typeHandlerVersion** element of your template's VM extensions are available in the locations where you plan to deploy the template. For example, the following code specifies version 1.7:
+Each specific extension is also versioned. This version is shown in the `typeHandlerVersion` property of the VM extension. Make sure that the version specified in the `typeHandlerVersion` element of your template's VM extensions are available in the locations where you plan to deploy the template. For example, the following code specifies version 1.7:
 
 ```json
 {
