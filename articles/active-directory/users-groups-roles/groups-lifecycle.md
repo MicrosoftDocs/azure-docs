@@ -40,7 +40,7 @@ Role | Permissions
 Global Administrator or User Account Administrator | Can create, read, update, or delete the Office 365 groups expiration policy settings<br>Can renew any Office 365 group
 User | Can renew an Office 365 group that they own<br>Can restore an Office 365 group that they own<br>Can read the expiration policy settings
 
-For more information on permissions to restore a deleted group, see [Restore a deleted Office 365 group in Azure Active Directory](fundamentals/active-directory-groups-restore-azure-portal.md).
+For more information on permissions to restore a deleted group, see [Restore a deleted Office 365 group in Azure Active Directory](../fundamentals/active-directory-groups-restore-azure-portal.md).
 
 ## Set group expiration
 
@@ -48,7 +48,7 @@ For more information on permissions to restore a deleted group, see [Restore a d
 
 2. Select **Groups**,then select **Expiration** to open the expiration settings.
   
-  ![Expiration blade](./media/active-directory-groups-lifecycle-azure-portal/expiration-settings.png)
+  ![Expiration blade](./media/groups-lifecycle/expiration-settings.png)
 
 4. On the **Expiration** blade, you can:
 
@@ -60,15 +60,15 @@ For more information on permissions to restore a deleted group, see [Restore a d
 
 Email notifications such as this one are sent to the Office 365 group owners 30 days, 15 days, and 1 day prior to expiration of the group.
 
-![Expiration email notification](./media/active-directory-groups-lifecycle-azure-portal/expiration-notification.png)
+![Expiration email notification](./media/groups-lifecycle/expiration-notification.png)
 
 From the **Renew group** notification email, group owners can directly access the group details page in the Access Panel. There, the users can get more information about the group such as its description, when it was last renewed, when it will expire, and also the ability to renew the group. The group details page now also includes links to the Office 365 group resources, so that the group owner can conveniently view the content and activity in their group.
 
 When a group expires, the group is deleted one day after the expiration date. An email notification such as this one is sent to the Office 365 group owners informing them about the expiration and subsequent deletion of their Office 365 group.
 
-![Group deletion email notification](./media/active-directory-groups-lifecycle-azure-portal/deletion-notification.png)
+![Group deletion email notification](./media/groups-lifecycle/deletion-notification.png)
 
-The group can be restored within 30 days of its deletion by selecting **Restore group** or by using PowerShell cmdlets, as described in [Restore a deleted Office 365 group in Azure Active Directory](fundamentals/active-directory-groups-restore-azure-portal.md).
+The group can be restored within 30 days of its deletion by selecting **Restore group** or by using PowerShell cmdlets, as described in [Restore a deleted Office 365 group in Azure Active Directory](../fundamentals/active-directory-groups-restore-azure-portal.md).
     
 If the group you're restoring contains documents, SharePoint sites, or other persistent objects, it might take up to 24 hours to fully restore the group and its contents.
 
@@ -148,8 +148,8 @@ The following cmdlets can be used to configure the policy in more detail. For mo
 ## Next steps
 These articles provide additional information on Azure AD groups.
 
-* [See existing groups](fundamentals/active-directory-groups-view-azure-portal.md)
-* [Manage settings of a group](fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Manage members of a group](fundamentals/active-directory-groups-members-azure-portal.md)
-* [Manage memberships of a group](fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)
+* [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
+* [Manage members of a group](../fundamentals/active-directory-groups-members-azure-portal.md)
+* [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [Manage dynamic rules for users in a group](groups-dynamic-membership.md)
