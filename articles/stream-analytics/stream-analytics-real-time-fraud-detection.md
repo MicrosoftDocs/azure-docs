@@ -338,7 +338,7 @@ If you have an existing blob storage account, you can use that. For this tutoria
 4. In the **Outputs** pane, click **Add** and select **Blob storage**. Then fill out the New output page with the following information:
 
    |**Setting**  |**Suggested value**  |**Description**  |
-   |---------|---------|---------|to
+   |---------|---------|---------|
    |Output alias  |  CallStream-FraudulentCalls   |  Enter a name to identify the job’s output.   |
    |Subscription   |  \<Your subscription\> |  Select the Azure subscription that has the storage account you created. The storage account can be in the same or in a different subscription. This example assumes that you have created storage account in the same subscription. |
    |Storage account  |  asaehstorage |  Enter the name of the storage account you created. |
