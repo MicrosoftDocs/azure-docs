@@ -2,7 +2,7 @@
 title: Quickstart enable Azure Multi-Factor Authentication 
 description: In this quickstart, you will configure Azure Multi-Factor Authentication to protect access to the Azure Portal 
 
-services: active-directory
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: quickstart
@@ -55,7 +55,7 @@ Before enabling Azure Multi-Factor Authentication, your organization must determ
     * Select your pilot group created as part of the prerequisites section of this article
     * Click **Done**
 1. Under **Cloud apps**, select the **Select apps** radio button
-    * The cloud app for the Azure portal is **Microsoft Azure Management** 
+    * The cloud app for the Azure portal is **Microsoft Azure Management**
     * Click **Select**
     * Click **Done**
 1. Skip the **Conditions** section
@@ -72,10 +72,10 @@ Before enabling Azure Multi-Factor Authentication, your organization must determ
 
 To prove that your conditional access policy works, you test logging in to a resource that should not require MFA and then to the Azure portal that requires MFA.
 
-1. Open a new browser window in InPrivate mode and browse to [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
+1. Open a new browser window in InPrivate or incognito mode and browse to [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
    * Log in with the test user created as part of the prerequisites section of this article and note that it should not ask you to complete MFA.
    * Close the browser window
-2. Open a new browser window in InPrivate mode and browse to [https://portal.azure.com](https://portal.azure.com).
+2. Open a new browser window in InPrivate or incognito mode and browse to [https://portal.azure.com](https://portal.azure.com).
    * Log in with the test user created as part of the prerequisites section of this article and note that you should now be required to register for and use Azure Multi-Factor Authentication.
    * Close the browser window
 

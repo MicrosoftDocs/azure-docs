@@ -125,7 +125,7 @@ The Microsoft Authenticator app or other third-party apps can be used as a softw
 
 Two options are available to users with mobile phones.
 
-If users don't want their mobile phone number to be visible in the directory, but they still want to use it for password reset, administrators should not populate it in the directory. Users should then populate their **Authentication Phone** attribute via the [password reset registration portal](https://aka.ms/ssprsetup). Administrators can see this information in the user's profile, but it's not published elsewhere.
+If users don't want their mobile phone number to be visible in the directory, but they still want to use it for password reset, administrators should not populate it in the directory. Users should populate their **Authentication Phone** attribute via the [password reset registration portal](https://aka.ms/ssprsetup). Administrators can see this information in the user's profile, but it's not published elsewhere.
 
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
 
@@ -147,6 +147,8 @@ An automated voice call is made to the phone number you provide. Answer the call
 An automated voice call is made to the phone number you provide. Answer the call and presses # in the phone keypad to authenticate.
 
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, +1 4255551234.
+
+The office phone attribute is managed by your administrator.
 
 > [!NOTE]
 > There needs to be a space between the country code and the phone number.

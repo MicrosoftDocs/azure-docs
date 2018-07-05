@@ -144,27 +144,6 @@
 #### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
 #### [Password best practices](active-directory-secure-passwords.md)
 #### [Register for self-service password reset](active-directory-passwords-reset-register.md)
-### [SSPR How it works](authentication/concept-sspr-howitworks.md)
-### [SSPR Deployment guide](authentication/howto-sspr-deployment.md)
-### [SSPR and Windows 10](authentication/tutorial-sspr-windows.md)
-### [SSPR Policies ](authentication/concept-sspr-policy.md)
-### [SSPR Customization](authentication/concept-sspr-customization.md)
-### [SSPR Data requirements](authentication/howto-sspr-authenticationdata.md)
-### [SSPR Reporting](authentication/howto-sspr-reporting.md)
-### [Smart lockout](authentication/howto-password-smart-lockout.md)
-### [Eliminate weak passwords](authentication/concept-password-ban-bad.md)
-### [Configure the banned password list](authentication/howto-password-ban-bad.md)
-### [On-premises integration](authentication/concept-password-ban-bad-on-premises.md)
-### [Deploy Azure AD password protection](authentication/howto-password-ban-bad-on-premises.md)
-### [Configure Azure AD password protection](authentication/howto-password-ban-bad-on-premises-operations.md)
-### [Monitor Azure AD password protection](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
-### IT Admins: Reset passwords
-#### [Azure portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [License SSPR](authentication/concept-sspr-licensing.md)
-### [Password writeback](authentication/howto-sspr-writeback.md)
-### [Troubleshoot](authentication/active-directory-passwords-troubleshoot.md)
-### [FAQ](authentication/active-directory-passwords-faq.md)
-
 
 ## Manage devices
 ### [Introduction](device-management-introduction.md)
