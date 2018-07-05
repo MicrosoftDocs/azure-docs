@@ -39,7 +39,7 @@ Azure uses the following terms to describe classic alerts and their functions:
 * **Notification**: The action that's taken based off when a classic alert becomes active.
 * **Action**: The specific call that's sent to the receiver of a notification (for example, an email or a post to a webhook URL). Notifications can usually trigger multiple actions.
 
-## How do I receive notificationx from an Azure Monitor classic alert?
+## How do I receive notifications from an Azure Monitor classic alert?
 Historically, Azure alerts from different services used their own built-in notification methods. 
 
 Now Azure Monitor offers a reusable notification grouping called *action groups*. Action groups specify a set of receivers for a notification and any time an alert is activated that references the action group, all receivers receive that notification. This allows you to reuse a grouping of receivers (for example, your on-call engineer list) across many alert objects. Action groups support notification by posting to a webhook URL in addition to sending emails, SMS messages, and a number of other actions. For more information, see [Action groups](monitoring-action-groups.md). 
@@ -51,10 +51,10 @@ However, the older metric alerts do not use action broups. Instead, you can conf
 * Call a webhook, which enables you to launch additional automation actions.
 
 Webhooks enables automation and remediation, for example, using the following services:
-    - Azure Automation Runbook
-    - Azure Functions
-    - Azure Logic App
-    - A third-party service
+- Azure Automation Runbook
+- Azure Functions
+- Azure Logic App
+- A third-party service
 
 ## Next steps
 Get information about alert rules and how to configure them by using the following documentation:
