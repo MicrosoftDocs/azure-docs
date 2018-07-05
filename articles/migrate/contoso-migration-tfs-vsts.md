@@ -6,6 +6,7 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: raynew
+
 ---
 
 # Contoso migration:  Refactor a Team Foundation Server deployment to Visual Studio Team Services (VSTS)
@@ -24,8 +25,8 @@ This document is the eleventh in a series of articles that show how the fictitio
 [Article 6: Rehost to Azure VMs and SQL Server Availability Groups](contoso-migration-rehost-vm-sql-ag.md) | Shows how Contoso migrates the SmartHotel app. They use Site Recovery to migrate the app VMs, and the Database Migration service to migrate the app database to a SQL Server Availability Group. | Available
 [Article 7: Rehost a Linux app to Azure VMs](contoso-migration-rehost-linux-vm.md) | Shows how Contoso migrates their osTicket Linux app to Azure IaaS VMs using Azure Site Recovery.
 [Article 8: Rehost a Linux app to Azure VMs and Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstrates how Contoso migrates the osTicket Linux app. They use Site Recovery for VM migration, and MySQL Workbench to migrate to an Azure MySQL Server instance. | Available
-Article 9: Refactor an app to an Azure container, and Azure SQL Database | Demonstrates how Contoso migrates the SmartHotel app to an Azure container-based web app, and migrates the app database to Azure SQL Server. | Available
-Article 10: Refactor an app to Azure App Service and Azure MySQL Server | Shows how Contoso migrates the osTicket Linux app to Azure App Service using PHP 7.0 Docker container. The code base for the deployment is migrated to GitHub. The app database is migrated to Azure MySQL. | Available
+[Article 9: Refactor an app to an Azure Web App and Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Demonstrates how Contoso migrates the SmartHotel app to an Azure container-based web app, and migrates the app database to Azure SQL Server. | Available
+[Article 10: Refactor a Linux app to Azure App Service and Azure MySQL Server](contoso-migration-refactor-linux-app-service-mysql.md) | Shows how Contoso migrates the osTicket Linux app to Azure App Service using PHP 7.0 Docker container. The code base for the deployment is migrated to GitHub. The app database is migrated to Azure MySQL. | Available
 Article 11: Refactor a TFS deployment in VSTS | Migrate the dev app TFS to VSTS in Azure | This article
 
 
@@ -72,7 +73,7 @@ Contoso will complete the migration process as follows:
 3. They'll build a set of preparation file, and perform a migration dry run for testing.
 4. They'll then run another migration, this time a full migration that includes work items, bugs, sprints, and code.
 5. AFter the migration, they'll move their code from TFVC to Git.
-6. 
+
 ![Migration process](./media/contoso-migration-tfs-vsts/migration-process.png) 
 
 
@@ -108,6 +109,7 @@ Contoso upgrades their TFS server to TFS 2018 Update 2. Before they start:
 - They download [TFS 2018 Update 2](https://visualstudio.microsoft.com/downloads/)
 - They verify the [hardware requirements](https://docs.microsoft.com/tfs/server/requirements), and read through the [release notes](https://docs.microsoft.com/visualstudio/releasenotes/tfs2018-relnotes) and [upgrade gotchas](https://docs.microsoft.com/tfs/server/upgrade/get-started#before-you-upgrade-to-tfs-2018).
 
+They upgrade as follows:
 
 1. To start, they back up their TFS server (running on a VMware vM) and take a VMware snapshot.
 
@@ -210,8 +212,8 @@ With the validation complete, Contoso can use the TFS Migration Tool to build th
 
     ![Prepare](./media/contoso-migration-tfs-vsts/prep5.png)
 
-        [!NOTE]
-        > The account must be created before the migration, It can be changed after migration is done.
+    [!NOTE]
+    > The account must be created before the migration, It can be changed after migration is done.
 
 6. They review the identity log map file that shows the accounts that will be brought into VSTS during the import. 
 
@@ -288,7 +290,7 @@ Contoso generates the DACPAC as follows:
 
     ![Backup](./media/contoso-migration-tfs-vsts/backup1.png)
 
-2. TThe following message appears after the command runs.
+2. The following message appears after the command runs.
 
     ![Backup](./media/contoso-migration-tfs-vsts/backup2.png)
 
@@ -324,9 +326,9 @@ After the DACPAC is created, Contoso uploads it to Azure Storage.
 
     ![Upload](./media/contoso-migration-tfs-vsts/backup10.png)
 
-[!NOTE]
-> The migration must happen before within the allowed time window or permissions will expire.
-> Don't generate an SAS key from the Azure portal. Keys generated like this are account-scoped, and won't work with the import.
+    [!NOTE]
+    > The migration must happen before within the allowed time window or permissions will expire.
+    > Don't generate an SAS key from the Azure portal. Keys generated like this are account-scoped, and won't work with the import.
 
 ### Fill in the import settings
 
@@ -460,8 +462,9 @@ With migration complete, Contoso wants to move from TFVC to Git for source code 
 
     ![Git](./media/contoso-migration-tfs-vsts/git3.png)
 
-    [!NOTE]
-    > Due to differences in how TFVC and Git store version control information, we recommend not to migrate your history. This is the approach that Microsoft took when it migrated Windows and other products from centralized version control to Git.
+[!NOTE]
+> Due to differences in how TFVC and Git store version control information, we recommend not to migrate your history. This is the approach that Microsoft took when it migrated Windows and other products from centralized version control to Git.
+ 
 
 5. After the import, Contoso reviews the code.
 
