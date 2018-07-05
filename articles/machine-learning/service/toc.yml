@@ -29,7 +29,7 @@
     href: concept-accelerate-with-fpgas.md    
 - name: How-to guides
   items:  
-  - name: Manage workspace in portal
+  - name: Manage workspaces
     href: how-to-manage-workspace.md 
   - name: Set up development environment 	
     items:    
