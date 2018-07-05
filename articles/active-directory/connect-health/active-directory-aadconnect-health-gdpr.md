@@ -3,7 +3,7 @@ title: 'Azure AD Connect Health and User Privacy | Microsoft Docs'
 description: This document describes user privacy with Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: zhiweiw
 manager: mtillman
 editor: ''
 ms.service: active-directory
