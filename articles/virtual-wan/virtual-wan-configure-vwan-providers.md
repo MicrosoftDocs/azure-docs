@@ -18,13 +18,13 @@ ms.author: cherylmc
 
 Rough Draft
 
-This article shows you how to set up the automation to connect and configure your branch device for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2, this article is for you.
+This article shows you how to set up the automation to connect and configure a branch device (customer on-premises vpn device) for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2, this article is for you.
 
 Software-defined connectivity solutions typically use a controller or a device provisioning center to manage their branch devices. The controller can use Azure APIs to automate connectivity to Azure Virtual WAN. This type of connection requires a VPN device located on-premises that has an externally-facing public IP address assigned to it.
 
 ## 1. Access control
 
-Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using Azure Service Principal (Insert Link here). Service principal-based access will provide the device controller appropriate authentication to upload branch information
+Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using Azure Service Principal (Insert Link here). Service principal-based access will provide the device controller appropriate authentication to upload branch information.
 
 ## 2. Website
 
