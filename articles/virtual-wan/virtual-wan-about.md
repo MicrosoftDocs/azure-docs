@@ -33,7 +33,7 @@ This article provides a quick view into the network connectivity of your Azure a
 ## <a name="vendor"></a>How does Microsoft preferred provider integration work?
 
 1. The branch device controller/connector is authenticated to export Site-centric information into Azure by using an Azure Service Principal.
-2. The branch device controller/connector obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premises device.
+2. The branch device controller/connector obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premises VPN device.
 3. Once the device has the right Azure configuration, a Site-to-Site connection (two active tunnels) is established to the Azure WAN. Azure requires the branch device controller/connector to support IKEv2 (Details below). BGP is optional.
 
 |IPsec Properties| |
