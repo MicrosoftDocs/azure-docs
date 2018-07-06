@@ -20,8 +20,8 @@ A combination of the resource type (available in the `resourceId` property) and 
 | Name | Required/Optional | Description |
 |---|---|---|
 | time | Required | The timestamp (UTC) of the event. |
-| resourceId | Required | The resource id of the resource that emitted the event. |
-| operationName | Required | The name of the operation represented by this event. If the event represents an RBAC operation, this is the RBAC operation name (eg. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Typically modeled in the form of a resource manager operation, even if they are not actual documented resource manager operations (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| resourceId | Required | The resource ID of the resource that emitted the event. |
+| operationName | Required | The name of the operation represented by this event. If the event represents an RBAC operation, this is the RBAC operation name (eg. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Typically modeled in the form of a Resource Manager operation, even if they are not actual documented Resource Manager operations (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Optional | The api-version associated with the operation, if the operationName was performed using an API (eg. http://myservice.windowsazure.net/object?api-version=2016-06-01). If there is no API that corresponds to this operation, the version represents the version of that operation in case the properties associated with the operation change in the future. |
 | category | Required | The log category of the event. Category is the granularity at which you can enable or disable logs on a particular resource. The properties that appear within the properties blob of an event are the same within a particular log category and resource type. Typical log categories are “Audit” “Operational” “Execution” and “Request.” |
 | resultType | Optional | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
