@@ -17,7 +17,7 @@ ms.author: v-geberr
 Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement. 
 
 ## How to choose varied utterances
-When you first get started by [adding example utterances][add-example-utterances] to your LUIS model, here are some principles to keep in mind.
+When you first get started by [adding example utterances](luis-how-to-add-example-utterances.md) to your LUIS model, here are some principles to keep in mind.
 
 ### Utterances aren't always well formed
 It may be a sentence, like "Book me a ticket to Paris", or a fragment of a sentence, like "Booking" or "Paris flight."  Users often make spelling mistakes. When planning your app, consider whether or not you spell-check user input before passing it to LUIS. The [Bing Spell Check API][BingSpellCheck] integrates with LUIS. You can associate your LUIS app with an external key for the Bing Spell Check API when you publish it. If you do not spell check user utterances, you should train LUIS on utterances that include typos and misspellings.
@@ -64,7 +64,6 @@ After your model is trained, published, and receiving [endpoint](luis-glossary.m
 Review [best practices](luis-concept-best-practices.md) to learn more.
 
 ## Next steps
-See [Add example utterances][add-example-utterances] for information on training a LUIS app to understand user utterances.
+See [Add example utterances](luis-how-to-add-example-utterances.md) for information on training a LUIS app to understand user utterances.
 
-[add-example-utterances]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-add-example-utterances
 [BingSpellCheck]: https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/proof-text
