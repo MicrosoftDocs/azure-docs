@@ -11505,6 +11505,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-network/virtual-network-routes-troubleshoot-portal.md",
             "redirect_url": "/azure/virtual-network/diagnose-network-routing-problem",
             "redirect_document_id": false
