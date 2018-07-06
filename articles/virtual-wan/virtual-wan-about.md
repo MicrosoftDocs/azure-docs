@@ -11,7 +11,7 @@ ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
 
-# What is Azure Virtual WAN? - Preview
+# What is Azure Virtual WAN? (Preview)
 
 **This article is currently in progress. This is not the final version**
 
