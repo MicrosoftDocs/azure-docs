@@ -82,7 +82,8 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 3.	Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-**Q: How do I unjoin an Azure AD Joined device locally on the device?
+**Q: How do I unjoin an Azure AD Joined device locally on the device?**
+
 **A:** 
 - For hybrid Azure AD Joined devices, make sure to turn off auto registration so that the scheduled task does not register the device again. Next, open command prompt as an administrator and type `dsregcmd.exe /debug /leave`. Alternatively, this command can be run as a script across multiple devices to unjoin in bulk.
 
@@ -92,10 +93,7 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 
 **Q: My users cannot search printers from Azure AD Joined devices. How can I enable printing from Azure AD Joined devices ?**
 
-**A:** For deploying printers for Azure AD Joined devices, see:
-
-- [Hybrid cloud print] (https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) 
-You will need an on-premise Windows Server to deploy hybrid cloud print. Currently, cloud based print service is not available 
+**A:** For deploying printers for Azure AD Joined devices, see [Hybrid cloud print](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You will need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service is not available. 
 
 ---
 
