@@ -55,7 +55,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 * **Site:** The site resource known as vpnsite represents your on-premises VPN device and its settings. By using a preferred device vendor, you have a built-in solution to automatically export this information to Azure.
 
-* **Hub:** A virtual hub is a Microsoft managed virtual network. The hub contains various service endpoints to enable connectivity from your on-premises network (vpnsite). The hub is the core of your network in a region. There can only be one hub per Azure region. When you create a hub using Azure portal, it automatically creates a virtualHub VNet and a vpngateway. 
+* **Hub:** A virtual hub is a Microsoft managed virtual network. The hub contains various service endpoints to enable connectivity from your on-premises network (vpnsite). The hub is the core of your network in a region. There can only be one hub per Azure region. When you create a hub using Azure portal, it automatically creates a virtual hub VNet and a virtual hub vpngateway.
 
   A hub gateway is not the same as a virtual network gateway that you use for ExpressRoute and VPN Gateway. For example, when using Virtual WAN, you don't create a Site-to-Site connection from your on-premises site directly to your VNet. Instead, you create a Site-to-Site connection to the hub. The traffic always goes through the hub gateway. This means your VNets do not need their own virtual network gateway. Virtual WAN lets your VNets take advantage of scaling easily through the virtual hub and the virtual hub gateway. 
 
