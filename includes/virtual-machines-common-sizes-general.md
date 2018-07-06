@@ -20,6 +20,8 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
 
 ## B-series
+Premium Storage:  Supported
+Premium Storage Caching:  Not Supported
 
 The B-series burstable VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. The B-Series provides these customers the ability to purchase a VM size with a price conscious baseline performance that allows the VM instance to build up credits when the VM is utilizing less than its base performance. When the VM has accumulated credit, the VM can burst above the VM’s baseline using up to 100% of the CPU when your application requires the higher CPU performance.
 
@@ -37,6 +39,8 @@ The B-series burstable VMs are ideal for workloads that do not need the full per
 ## Dsv3-series <sup>1</sup>
 
 ACU: 160-190
+Premium Storage:  Supported
+Premium Storage Caching:  Supported
 
 Dsv3-series sizes are based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor or the latest 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor that can achieve 3.5GHz with Intel Turbo Boost Technology 2.0 and use premium storage. The Dsv3-series sizes offer a combination of vCPU, memory, and temporary storage for most production workloads.
 
@@ -55,6 +59,8 @@ Dsv3-series sizes are based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) pro
 ## Dv3-series <sup>1</sup>
 
 ACU: 160-190
+Premium Storage:  Not Supported
+Premium Storage Caching:  Not Supported
 
 Dv3-series sizes are based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor or 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor that can achieve 3.5GHz with Intel Turbo Boost Technology 2.0. The Dv3-series sizes offer a combination of vCPU, memory, and temporary storage for most production workloads.
 
@@ -76,6 +82,8 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 ## DSv2-series
 
 ACU: 210-250
+Premium Storage:  Supported
+Premium Storage Caching:  Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -90,6 +98,8 @@ ACU: 210-250
 ## Dv2-series
 
 ACU: 210-250
+Premium Storage:  Not Supported
+Premium Storage Caching:  Not Supported
 
 | Size           | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks | Throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
@@ -103,8 +113,8 @@ ACU: 210-250
 ## Av2-series
 
 ACU: 100
-
-
+Premium Storage:  Not Supported
+Premium Storage Caching:  Not Supported
 
 | Size            | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

@@ -19,6 +19,8 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 ## H-series
 
 ACU: 290-300
+Premium Storage:  Not Supported
+Premium Storage Caching:  Not Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max disk throughput: IOPS | Max NICs |
 | --- | --- | --- | --- | --- | --- | --- |

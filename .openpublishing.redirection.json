@@ -24396,6 +24396,81 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/security/blueprints/financial-services-regulated-workloads.md",
+            "redirect_url": "/azure/security/blueprints/ffiec-paaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/payment-processing-blueprint.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirements-overview.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-1-firewall.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-2-password.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-3-chd.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-4-encryption.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-5-malware.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-6-secure-system.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-7-access.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-8-identity.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-9-physical-access.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-10-monitoring.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-11-testing.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-12-policy.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md",
             "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
             "redirect_document_id": false
@@ -25945,7 +26020,7 @@
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app",
             "redirect_document_id": true
         },
-        {        
+        {
             "source_path": "articles/cloud-shell/features-powershell.md",
             "redirect_url": "/azure/cloud-shell/features",
             "redirect_document_id": false
@@ -25954,6 +26029,11 @@
             "source_path": "articles/cloud-shell/persisting-shell-storage-powershell.md",
             "redirect_url": "/azure/cloud-shell/persisting-shell-storage",
             "redirect_document_id": false
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
+        "redirect_document_id": true
         }
     ]
 }
