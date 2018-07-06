@@ -17,7 +17,8 @@ The most common Azure PowerShell modules are provided by default in each Automat
 
 Because modules are updated regularly by the product group, changes can occur with the  included cmdlets, which may negatively impact your runbooks depending on the type of change, such as renaming a parameter or deprecating a cmdlet entirely. To avoid impacting your runbooks and the processes they automate, it is recommended that you test and validate before proceeding. If you do not have a dedicated Automation account intended for this purpose, consider creating one so that you can test many different scenarios and permutations during the development of your runbooks, in addition to iterative changes such as updating the PowerShell modules. After the results are validated and you have applied any changes required, proceed with coordinating the migration of any runbooks that required modification and perform the following update as described in production.
 
-Please notice that a new Automation account might not contain the latest modules.
+[!NOTE]
+A new Automation account might not contain the latest modules.
 
 ## Updating Azure Modules
 
