@@ -26,7 +26,7 @@ No. You can use any VPN capable device that adheres to the preview requirements 
 
 Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. For more information about how this works, see [Preferred provider configuration](virtual-wan-configure-vwan-providers.md).
 
-### Are there any  changes to existing features, with Virtual WAN?   
+### Does Virtual WAN change any existing connectivity features?   
 
 There are no changes to existing Azure connectivity features.
 
@@ -61,6 +61,7 @@ Yes, you can connect your favorite network virtual appliance transit hub to the 
 Yes, there is support for BGP. Spokes that are connected to a transit hub that is connected to a Virtual WAN hub must disable BGP to ensure that routes from the transit hub are advertised appropriately.
 
 ### Can the transit hub have ExpressRoute or VPN Virtual Network Gateway?
+
 No.
 
 ### Is there an ability to direct traffic using UDR in the Virtual Hub?
