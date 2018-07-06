@@ -53,17 +53,24 @@ as the first step in your logic app
   Before you can add actions for running functions, 
   your logic app must start with a trigger.
 
-* Your Azure function, which you can either 
-[create separately outside your logic app](#create-function-external), 
-or [create from inside your logic app](#create-function-designer) 
-in the Logic App Designer. 
+* An Azure function app, which is a container for Azure functions, 
+and your Azure function. Your function app must belong to the same 
+Azure subscription as your logic app. 
+
+  If you don't have a function app, you must 
+  [create your function app first](../azure-functions/functions-create-first-azure-function.md). 
+  You can then create your function either 
+  [separately outside your logic app](#create-function-external), 
+  or [from inside your logic app](#create-function-designer) 
+  in the Logic App Designer. 
 
 <a name="create-function-external"></a>
 
 ## Create functions separately
 
-In the Azure portal, create your Azure function app, 
-and then create your Azure function. If you're new to Azure Functions, see 
+In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+create your Azure function app, and then create your Azure function. 
+If you're new to Azure Functions, see 
 [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md), 
 but note these requirements for creating Azure functions 
 that you can add and call from logic apps.
@@ -116,12 +123,18 @@ When you're ready, follow the steps for
 
 <a name="create-function-designer"></a>
 
-## Create functions within logic apps
+## Create functions from inside logic apps
 
-From within your logic app on the Logic App Designer, 
-you can also create Azure functions.
+Before you create an Azure function starting from 
+inside your logic app in the Logic App Designer, 
+you must have an existing function app, 
+which works as a container for your functions. 
+If you don't have a function app, 
+create that function app first by using the 
+<a href="https://functions.azure.com/" target="_blank">Azure Functions portal</a>. 
 
-1. In the Azure portal, open your logic app in the Logic App Designer. 
+1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+open your logic app in the Logic App Designer. 
 
 2. Under the step where you want to create and add the function, 
 choose **New step** > **Add an action**. 
@@ -130,61 +143,74 @@ choose **New step** > **Add an action**.
 From the actions list, select this action: 
 **Azure Functions - Choose an Azure function** 
 
+   ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-Then select **Create New**.  
-
-
-4. Select the function app container you want, 
-and then select this action: 
+4. Select your function app, and then select this action: 
 **Azure Functions - Create New Function**
 
-   If you don't have a function app container yet, 
-   you must create the function app separately from the 
-   [Azure Functions portal](https://functions.azure.com/). 
+   ![Select your function app](./media/logic-apps-azure-functions/select-function-app.png)
 
-Select **Azure Functions in my Region,** 
-and then choose a container for your function. 
+5. Now define your function. 
 
-To generate a template based on the data that you want to compute, 
-specify the context object that you plan to pass into a function. 
-This object must be a JSON object. For example, 
-if you pass in the file content from an FTP action, 
-the context payload looks like this example:
+   1. In the **Function name** box, provide a name for your function. 
 
-![Context payload][2]
+   2. In the **Code** box, enter your function's code, 
+   including the response and payload you want returned 
+   to your logic app after your function finishes running. 
+   
+   3. When you're done, choose **Create**. 
 
-> [!NOTE]
-> Because this object wasn't cast as a string, 
-> the content is added directly to the JSON payload. 
-> However, an error occurs if the object is not a JSON token 
-> (that is, a string or a JSON object/array). 
-> To cast the object as a string, add quotes 
-> as shown in the first illustration in this article.
-> 
+      ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
 
-The designer then generates a function template that you can create inline. Variables are pre-created based on the context that you plan to pass into the function.
+6. Now provide any other relevant information. 
+
+   For example, to generate a template based on the data that the function processes, 
+   in the **Request Body** box, specify the context object that you want passed into 
+   your function as the input payload. This object is the message your logic app sends 
+   to the function and must be formatted as a JavaScript Object Notation (JSON) object. 
+   The Logic App Designer generates a function template that you can then create inline. 
+   Also, variables are created based on the context object you pass into the function.
+
+   Here is a sample that passes in the body content from the 
+   previous email action as the context payload:
+
+   !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
+
+   In this example, the context object isn't cast as a string, 
+   so the content gets directly added to the JSON payload. 
+   If the object isn't a JSON token, that is, 
+   a string, a JSON object, or a JSON array, you get an error. 
+   To cast the object as a string, add double-quotation marks, 
+   for example:
+
+   ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
 
 <a name="add-function-logic-app"></a>
 
-## Add functions to logic apps
+## Add existing functions to logic apps
 
-1. In the Azure portal, open your logic app in the Logic App Designer. 
+For existing Azure functions that you want to call from your logic apps, 
+you can add them like any other action in the Logic App Designer.
 
-2. Under the step where you want to create and add the function, 
+1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+open your logic app in the Logic App Designer. 
+
+2. Under the step where you want to add the function, 
 choose **New step** > **Add an action**. 
 
-2. In the search box, enter "azure functions" as your filter.
+3. In the search box, enter "azure functions" as your filter.
 From the actions list, select this action: 
 **Azure Functions - Choose an Azure function** 
 
-In your logic app, 
-To list the containers in your subscription 
-and select the function that you want to call, 
-in Logic App Designer, click the **Actions** menu, 
-and select from **Azure Functions in my Region**.
+   ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-After you select the function, you are asked to specify an input payload object. 
-This object is the message that the logic app sends to the function and must be a JSON object. 
+4. From the function apps list, select your function app. 
+Then, from the functions list, select your function: 
+
+   ![Select your function app and Azure function](./media/logic-apps-azure-functions/select-function-app-existing-function.png)
+
+
+5. After you select the function, you are asked to specify an input payload object. 
 For example, if you want to pass in the **Last Modified** date from a Salesforce trigger, 
 the function payload might look like this example:
 
@@ -194,12 +220,13 @@ the function payload might look like this example:
 
 ## Call logic apps from functions
 
-You can trigger a logic app from inside a function. 
-See [Logic apps as callable endpoints](logic-apps-http-endpoint.md). 
-Create a logic app that has a manual trigger, then from inside your function, 
-generate an HTTP POST to the manual trigger URL 
-with the payload that you want sent to the logic app.
-
+To trigger a logic app from inside an Azure function, 
+that logic app must have a callable endpoint, 
+or more specifically, a **Request** trigger. 
+Then, from inside your function, send an HTTP POST 
+request to the URL for that **Request** trigger and 
+include the payload you want that logic app to process. 
+For more information, see [Logic apps as callable endpoints](../logic-apps/logic-apps-http-endpoint.md). 
 
 <!--Image references-->
 [1]: ./media/logic-apps-azure-functions/callfunction.png
