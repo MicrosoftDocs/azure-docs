@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/27/2018
+ms.date: 07/6/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to debug a Service Fabric Mesh app that communicates with another service.
@@ -52,7 +52,7 @@ If you did not create the to-do sample application in [part one of this tutorial
 git clone https://github.com/azure-samples/service-fabric-mesh
 ```
 
-The application is under the basicservicefabricmeshapp directory.
+The application is under the `basicservicefabricmeshapp` directory.
 
 ## Build and debug on your local cluster
 
@@ -70,18 +70,18 @@ After the local deployment is finished, and Visual Studio is running your app, a
 
 **Debugging tips**
 
-* If you get error that "No Service Fabric local cluster is running", make sure that the Service Local Custer Manager (SLCM) is running. Right-click the SLCM icon in the task bar, and click **Start Local Cluster**. Once it has started, return to Visual Studio and press **F5**.
-* If you get a 404 when the app starts, it probably means that your environment variables in **service.yaml** are incorrect. Make sure that `AppName`, `ApiHostPort` and `ServiceName` are set correctly per the instructions in [Set environment variables](#set-environment-variables).
-* If you get a build error in **service.yaml**, make sure that you used spaces and not tabs when you added the environment variables.
+* If you get the **No Service Fabric local cluster is running** error, make sure that the Service Local Custer Manager (SLCM) is running and right-click the SLCM icon in the task bar, then click **Start Local Cluster**. Once it has started, return to Visual Studio and press **F5**.
+* If you get a **404** error when the app starts, it probably means that your environment variables in **service.yaml** are incorrect. Make sure that `AppName`, `ApiHostPort` and `ServiceName` are set correctly per the instructions in [Set environment variables](#set-environment-variables).
+* If you get build errors in **service.yaml**, make sure that spaces, not tabs, are used to indent the lines.
 
 ### Debug in Visual Studio
 
 When you debug a Service Fabric application in Visual Studio, you are using a local Service Fabric development cluster. To see how to-do items are retrieved from the back-end service, debug into the OnGet() method.
 1. In the **WebFrontEnd** project, open **Pages** > **Index.cshtml** > **Index.cshtml.cs** and set a breakpoint in the **Get** method (line 17).
-2. In the **ToDoService** project, open **TodoController.cs** and set a breakpoint in the **Get** method (line 16).
+2. In the **ToDoService** project, open **TodoController.cs** and set a breakpoint in the **OnGet** method (line 15).
 3. Go back to the browser and refresh the page. You hit the  breakpoint in the web front end `OnGet()` method. You can inspect the `backendUrl` variable to see how the environment variables that you defined in the **service.yaml** file are combined into the URL used to contact the back-end service.
 4. Step over (F10) the `client.GetAsync(backendUrl).GetAwaiter().GetResult())` call and you'll hit the controller's `Get()` breakpoint. In this method, you can see how the list of to-do items is retrieved from the in-memory list.
-5. When you are done looking around, you can stop debugging your project in Visual Studio by pressing **Shift+F5**.
+5. When you are done, stop debugging your project in Visual Studio by pressing **Shift+F5**.
  
 ## Next steps
 

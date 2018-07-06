@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/27/2018
+ms.date: 07/6/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
@@ -22,7 +22,7 @@ ms.custom: mvc, devcenter
 
 This tutorial is part one of a series. You'll learn how to create an Azure Service Fabric app that has an ASP.NET web front end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster and publish the app to Azure. When you're finished, you'll have a simple to-do app that demonstrates a service-to-service call in a Service Fabric application running in Service Fabric Mesh.
 
-If you don't want to manually create the to-do app, you can [download the source code](https://github.com/azure-samples/service-fabric-mesh) for the completed application (under the basicservicefabricmeshapp directory) and skip ahead to [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
+If you don't want to manually create the to-do app, you can [download the source code](https://github.com/azure-samples/service-fabric-mesh) for the completed application  and skip ahead to [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
 
 In part one of the series, you learn how to:
 
@@ -54,23 +54,25 @@ Before you begin this tutorial:
 
 Run Visual Studio and select **File** > **New** > **Project...**
 
-In the **New Project** dialog, type **mesh** into the **Search** box at the top. Select the **Service Fabric Mesh Application** template.  (If you don't see the template, make sure that you installed the Mesh SDK and the VS tools preview as described in [set up your development environment](service-fabric-mesh-setup-developer-environment-sdk.md).  
+In the **New Project** dialog **Search** box at the top, type `mesh`. Select the **Service Fabric Mesh Application** template. (If you don't see the template, make sure that you installed the Mesh SDK and the VS tools preview as described in [set up your development environment](service-fabric-mesh-setup-developer-environment-sdk.md).  
 
-In the **Name** box, type **ServiceFabricMeshApp** and in the **Location** box, set the folder path to where the files for the project will be stored.
+In the **Name** box, type `ServiceFabricMeshApp` and in the **Location** box, set the folder path to where you want to store the files for the project.
 
-Make sure that **Create directory for solution** is checked, and click **OK** to create the Service Fabric Mesh project. Next you'll see the **New Service Fabric Service** dialog.
+Make sure that **Create directory for solution** is checked, and click **OK** to create the Service Fabric Mesh project.
 
 ![Visual studio new Service Fabric Mesh project dialog](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
+
+Next you'll see the **New Service Fabric Service** dialog.
 
 ### Create the web front-end service
 
 In the **New Service Fabric Service** dialog, select the **ASP.NET Core** project type, make sure **Container OS** is set to **Windows**.
 
-Set the **Service Name** to **WebFrontEnd**. Press **OK** to create the ASP.NET Core service. Next you'll see the **New ASP.NET Core Web Application** dialog.
+Set the **Service Name** to **WebFrontEnd**. Press **OK** to create the ASP.NET Core service.
 
 ![Visual studio new Service Fabric Mesh project dialog](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-service-fabric-service.png)
 
-In the **New ASP.NET Core Web Application** dialog, select **Web Application** and then click **OK**.
+Next you'll see the **New ASP.NET Core Web Application** dialog. In the **New ASP.NET Core Web Application** dialog, select **Web Application** and then click **OK**.
 
 ![Visual studio new ASP.NET core application](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
@@ -80,11 +82,11 @@ Now you have a Service Fabric Application. Next, create the model for to-do info
 
 For simplicity, the to-do items are stored in a list in memory. Create a class library for the to-do items and a list to hold them. In Visual Studio, which currently has the **ServiceFabricMeshApp** loaded, select **File** > **Add** > **New Project**.
 
-In the **New Project** dialog, type **C# .net core class** into the **Search** box at the top. Select the **Class Library (.NET Core)** template.
+In the **New Project** dialog **Search** box at the top, type `C# .net core class`. Select the **Class Library (.NET Core)** template.
 
-In the **Name** box, type **Model**. Click **OK** to create the class library.
+In the **Name** box, type `Model`. Click **OK** to create the class library.
 
-In the Solution explorer, under **Model**, right-click **Class1.cs** and choose **Rename**. Rename the class **ToDoItem.cs**. A prompt will appear asking whether to rename all references to `Class1`. Click **Yes**.
+In the Solution explorer, under **Model**, right-click **Class1.cs** and choose **Rename**. Rename the class **ToDoItem.cs**. If a prompt appears asking whether to rename all references, click **Yes**.
 
 Replace the contents of the empty `class ToDoItem` with:
 
@@ -116,7 +118,7 @@ public class ToDoItem
 
 This class represents individual to-do items.
 
-Create a list to hold the to-do items. In Visual Studio, right-click the **Model** class library, and select **Add** > **Class...** The **Add New Item** dialog will appear. Set the **Name** to **ToDoList.cs** and click **Add**.
+In Visual Studio, right-click the **Model** class library, and select **Add** > **Class...** to create a list to hold the to-do items. The **Add New Item** dialog will appear. Set the **Name** to `ToDoList.cs` and click **Add**.
 
 In **ToDoList.cs**, replace the empty `class ToDoList` with:
 
@@ -170,7 +172,7 @@ public class ToDoList
 }
 ```
 
-Next, create the service fabric service (a Web API project) that will track the to-do items.
+Next, create the service fabric service that will track the to-do items.
 
 ## Create the back-end service
 
@@ -182,7 +184,7 @@ Set the **Service Name** to **ToDoService**. Click **OK** to create the ASP.NET 
 
 ![Visual studio new ASP.NET core application](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-webapi.png)
 
-Because the back-end service doesn't provide any UI, turn off launching the browser when the service is launched. In the **Solution Explorer**, right-click **ToDoService**, and select **Properties**. In the properties window that appears, select the **Debug** tab on the left, and uncheck **Launch browser**. Press Ctrl+S to save the change.
+Because the back-end service doesn't provide any UI, turn off launching the browser when the service is launched. In the **Solution Explorer**, right-click **ToDoService**, and select **Properties**. In the properties window that appears, select the **Debug** tab on the left, and uncheck **Launch browser**. Press **Ctrl+S** to save the change.
 
 Because this service maintains the to-do information, add a reference to the Model class library. In the Solution Explorer, right-click **ToDoService** and then select **Add** > **Reference...**. The **Reference Manager** dialog will appear.
 
@@ -195,7 +197,7 @@ ASP.Net Web API projects use the model view controller (MVC) pattern. Next creat
 To add the data context class, in the solution explorer right-click **ToDoService** and then **Add** > **Class**.
 In the **Add New Item** dialog that appears, make sure that **Class** is selected, and set the **Name** to `Datacontext.cs`, and click **Add**.
 
-In **Datacontext.cs**, replace the contents of the empty 'class DataContext' with:
+In **Datacontext.cs**, replace the contents of the empty `class DataContext` with:
 
 ```csharp
 public static class DataContext
@@ -215,13 +217,13 @@ public static class DataContext
 }
 ```
 
-The minimal data context populates some sample to-do items and provides access to them.
+This minimal data context populates some sample to-do items and provides access to them.
 
 ### Add a controller
 
 Also part of the MVC pattern is a controller that handles the HTTP requests and creates the HTTP response. A default controller was provided by the template when the **ToDoService** project was created. In the **Solution Explorer**, under **ToDoService**, open the **Controllers** folder to see the **ValuesController.cs** file. 
 
-Right-click **ValuesController.cs** and then **Rename**. Rename the file to  `ToDoController.cs`. A prompt to rename all references will appear, click **Yes**.
+Right-click **ValuesController.cs** and then **Rename**. Rename the file to `ToDoController.cs`. If a prompt appears to rename all references, click **Yes**.
 
 Open the **ToDoController.cs** file and replace the contents of `class ToDoController` with:
 
@@ -263,7 +265,7 @@ public class ToDoController : Controller
 }
 ```
 
-This tutorial does not implement add, delete, and so on. The focus is on communicating with another service.
+This tutorial does not implement add, delete, and so on to keep the focus on communicating with another service.
 
 ## Create the web page that displays to-do items
 
@@ -335,7 +337,7 @@ public class IndexModel : PageModel
 
 ### Create environment variables
 
-The URL for the back-end service is required  to communicate with that service. For the purpose of this tutorial, the following code (defined above as part of the IndexModel) reads environment variables to compose the URL:
+The URL for the back-end service is required  to communicate with that service. For the purpose of this tutorial, the following code excerpt (which is defined above as part of the IndexModel) reads environment variables to compose the URL:
 
 ```csharp
 private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}.{Environment.GetEnvironmentVariable("AppName")}";
@@ -350,12 +352,12 @@ The URL is composed of the application name, the service name, and the port. All
 * The service name, `ToDoService`, is found under `services:` after `name:` See (2) in the figure above.
 * The port, `20006`, is found under `endpoints:` after `port:` See (3) in the figure above.
 
-With the app name, service name, and port number, environment variables can be defined that the app will use to communicate with the back-end service. In **Solution Explorer**, navigate  to **WebFrontEnd** > **Service Resources** > **service.yaml** to define the variables that specify the back-end service address.
+Next, environment variables representing the app name, service name, and port number will be defined in the WebFrontEnd project to enable it to call the back-end service. In **Solution Explorer**, navigate  to **WebFrontEnd** > **Service Resources** > **service.yaml** to define the variables that specify the back-end service address.
 
-In the service.yaml file, add the following variables under `environmentVariables`.
+In the service.yaml file, add the following variables under `environmentVariables`. The spacing is very particular so line up using the same spacing used by the other variables under `environmentVariables:`
 
 > [!IMPORTANT]
-> Spaces, not tabs, must be used to indent the variables in the service.yaml file or it won't compile. Visual Studio may insert tabs as you create new lines. Replace all tabs with spaces. You'll see errors in the Error List when you compile but the app will still run--although it won't work until you convert the tabs to spaces. To ensure that no tabs are in the service.yaml file, make whitespace visible in the Visual Studio editor with  **Edit**  > **Advanced**  > **View White Space**.
+> Spaces, not tabs, must be used to indent the variables in the service.yaml file or it won't compile. Visual Studio may insert tabs as you create the environment variables. Replace all tabs with spaces. Although you'll see errors in the **build** debug output, the app will still launch. It won't work, however, until you convert the tabs to spaces. To ensure that no tabs are in the service.yaml file, you can make whitespace visible in the Visual Studio editor with  **Edit**  > **Advanced**  > **View White Space**.
 
 ``` xml
 - name: AppName
