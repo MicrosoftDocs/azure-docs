@@ -95,7 +95,7 @@ You can deploy a U-SQL database through a U-SQL database project or a .usqldbpac
 
 ## Reference a U-SQL database project
 
-A U-SQL project can reference a U-SQL database project. The reference impacts two workload:
+A U-SQL project can reference a U-SQL database project. The reference affects two workloads:
 
 - Project build: The referenced database environments are set up before building the U-SQL scripts. 
 - Local run against (Local-project) account: The referenced database environments are deployed to (Local-project) account before U-SQL script execution. [Learn more about local run and the difference between (Local-machine) and (Local-project) account here](data-lake-analytics-data-lake-tools-local-run.md).
