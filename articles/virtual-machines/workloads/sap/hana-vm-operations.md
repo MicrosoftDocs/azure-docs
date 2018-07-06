@@ -92,7 +92,7 @@ Given that low storage latency is critical for DBMS systems, even as those, like
 
 Accumulating a number of Azure VHDs underneath a RAID, is accumulative from an IOPS and storage throughput side. So, if you put a RAID 0  over 3 x P30 Azure Premium Storage disks, it should give you three times the IOPS and three times the storage throughput of a single Azure Premium Storage P30 disk.
 
-The caching recommendations below are assuming the these I/O characteristics and assumptions for SAP HANA that list like:
+The caching recommendations below are assuming the I/O characteristics for SAP HANA that list like:
 
 - There hardly is any read workload against the HANA data files. Exceptions are large sized I/Os after restart of the HANA instance or reboot of the Azure VM when data is loaded into HANA. Another case of larger read I/Os against data files can be HANA database backups. As a result read caching mostly does not make sense since in most of the cases, all data file volumes need to be read completely.
 - Writing against the data files is experienced in bursts based by HANA savepoints and HANA crash recovery. Writing savepoints is asynchronous and are not holding up any user transactions. Writing data during crash recovery is performance critical in order to get the system responding fast again. However, crash recovery should be rather exceptional situations
