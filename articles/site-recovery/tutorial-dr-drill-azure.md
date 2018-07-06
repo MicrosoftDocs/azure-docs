@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: raynew
 
 ---

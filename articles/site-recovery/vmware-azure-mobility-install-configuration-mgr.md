@@ -6,7 +6,7 @@ author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: anoopkv
 ---
 # Automate Mobility Service installation with System Center Configuration Manager

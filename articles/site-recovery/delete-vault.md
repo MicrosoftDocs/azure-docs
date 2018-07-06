@@ -7,7 +7,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
 
 ---
