@@ -25,7 +25,7 @@ It's helpful to understand some key terms relating to Azure AD integration with 
 -   **Azure AD Domain Services**
 
     Azure AD Domain Services provides managed-domain services such as domain join, group policies, LDAP, and Kerberos/NTLM authentication. These services are fully
-    compatible with Windows Server Active Directory. For more information, see [Azure Active Directory (AD) Domain Services](../active-directory-domain-services/active-directory-ds-overview.md).
+    compatible with Windows Server Active Directory. For more information, see [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md).
 
 -   **Azure Role Based Access Control (RBAC)**
 

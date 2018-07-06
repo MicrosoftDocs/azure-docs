@@ -39,7 +39,7 @@ The diagram below illustrates the end-to-end workflow to enable Azure AD integra
 
 3.  Domain-join your Azure VM to Azure AD Domain Services.
 
-    To access Azure file shares using Azure AD credentials from a VM, your VM must be domain-joined to Azure AD Domain Services. You can [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal) in a few steps.
+    To access Azure file shares using Azure AD credentials from a VM, your VM must be domain-joined to Azure AD Domain Services. You can [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md) in a few steps.
 
 4.  Select or create your new Azure file share.
 
@@ -149,7 +149,7 @@ If you have enabled Azure AD integration with Azure Files, you may not yet have 
 
 #### **Step 2.2.1 Mount Azure file share with command prompt** 
 
-Use the **net use** command to mount the Azure file share. Remember to replace `<desired-drive-letter>`, `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, and `<storage-account-name>` with your values. For more information, see [Mount an Azure file share and access the share in Windows](../../files/storage-how-to-use-files-windows.md).
+Use the **net use** command to mount the Azure file share. Remember to replace `<desired-drive-letter>`, `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, and `<storage-account-name>` with your values. For more information, see [Mount an Azure file share and access the share in Windows](storage-how-to-use-files-windows.md).
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
