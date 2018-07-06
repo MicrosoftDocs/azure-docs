@@ -172,7 +172,7 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
 ## Delete or export user data
-Azure Cosmos DB enables you to search, select, modify and delete any personal data located in database or collections. Azure Cosmos DB provides API’s to find and delete personal data however, it’s the responsibility of the customer to use the API and erase personal data. 
+Azure Cosmos DB enables you to search, select, modify and delete any personal data located in database or collections. Azure Cosmos DB provides API’s to find and delete personal data however, it’s your responsibility to use the API's and define logic required to erase the personal data. 
 Each multi-model API – SQL API, MongoDB API, Gremlin API, Cassandra API, Table API provides different language SDK’s that contain methods to search and delete personal data. You can also enable the [time to live (TTL)](time-to-live.md) feature to delete data automatically after a specified period, without incurring any additional cost.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
