@@ -17,6 +17,8 @@ This article provides information on previous generations of virtual machine siz
 ## DS-series
 
 ACU: 160
+Premium Storage:  Supported
+Premium Storage Caching:  Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -30,6 +32,8 @@ ACU: 160
 ## DS-series - memory optimized
 
 ACU: 160 <sup>1</sup>
+Premium Storage:  Supported
+Premium Storage Caching:  Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -45,6 +49,8 @@ ACU: 160 <sup>1</sup>
 ## D-series 
 
 ACU: 160
+Premium Storage:  Not Supported
+Premium Storage Caching:  Not Supported
 
 | Size         | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -58,6 +64,8 @@ ACU: 160
 ## D-series - memory optimized
 
 ACU: 160
+Premium Storage:  Not Supported
+Premium Storage Caching:  Not Supported
 
 | Size         | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -71,6 +79,8 @@ ACU: 160
 ## A-series - compute-intensive instances
 
 ACU: 225
+Premium Storage:  Not Supported
+Premium Storage Caching:  Not Supported
 
 The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHZ and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz.  This article provides information about the number of vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for each size in this grouping. 
 
@@ -88,6 +98,8 @@ The A8-A11 and H-series sizes are also known as *compute-intensive instances*. T
 ## A-series
 
 ACU: 50-100
+Premium Storage:  Not Supported
+Premium Storage Caching:  Not Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (HDD): GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Expected network bandwidth (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -113,6 +125,8 @@ In the classic deployment model, some VM size names are slightly different in CL
 * Standard_A4 is ExtraLarge
 
 ## Basic A
+Premium Storage:  Not Supported
+Premium Storage Caching:  Not Supported
 
 The basic tier sizes are primarily for development workloads and other applications that don't require load balancing, auto-scaling, or memory-intensive virtual machines.
 
