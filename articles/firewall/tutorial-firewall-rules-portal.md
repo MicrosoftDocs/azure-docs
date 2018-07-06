@@ -300,4 +300,4 @@ In this tutorial, you learned how to:
 Next, you can monitor the access and firewall logs.
 
 > [!div class="nextstepaction"]
-> [Diagnostics](./diagnostics.md)
+> [Diagnostics](./tutorial-diagnostics.md)

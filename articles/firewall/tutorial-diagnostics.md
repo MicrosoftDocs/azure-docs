@@ -1,19 +1,27 @@
 ---
-title: Monitor logs for Azure Firewall
-description: Learn how to enable and manage logs for Azure Firewall
+title: Tutorial: Monitor Azure Firewall logs 
+description: In this tutorial, you learn how to enable and manage Azure Firewall logs.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 7/11/2018
 ms.author: victorh
 ---
-# Monitor Azure Firewall logs
+# Tutorial: Monitor Azure Firewall logs
 
 You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 
 You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and Power BI.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Enable logging through the Azure portal
+> * Enable logging with PowerShell
+> * View and analyze the activity log
+> * View and analyze the network and application rule logs
 
 ## Diagnostic logs
 
@@ -142,7 +150,7 @@ You can view and analyze activity log data by using any of the following methods
 * **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../azure-resource-manager/resource-group-audit.md) article.
 * **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Azure Activity Logs content pack for Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), you can analyze your data with preconfigured dashboards that you can use as is or customize.
 
-## View and analyze the Azure Firewall network and application rule logs
+## View and analyze the network and application rule logs
 
 Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) can collect the counter and event log files from your Blob storage account. It includes visualizations and powerful search capabilities to analyze your logs.
 

@@ -6,8 +6,10 @@
     href: overview.md
 - name: Tutorials
   items:
-  - name: Configure rules
+  - name: 1. Configure rules
     href: tutorial-firewall-rules-portal.md
+  - name: 2. Diagnostics
+    href: tutorial-diagnostics.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -16,10 +18,6 @@
   items:
   - name: Deploy using a template
     href: deploy-template.md
-  - name: Troubleshooting
-    items:
-    - name: Diagnostics
-      href: diagnostics.md
 - name: Reference
   items:
   - name: Azure CLI
