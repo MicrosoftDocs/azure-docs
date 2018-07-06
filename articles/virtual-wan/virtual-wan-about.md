@@ -1,6 +1,6 @@
 ---
 title: 'Azure Virtual WAN Overview | Microsoft Docs'
-description: Learn about Azure Virtual WAN.
+description: Learn about Virtual WAN.
 services: virtual-wan
 author: cherylmc
 
@@ -15,20 +15,19 @@ Customer intent: As someone with a networking background, I want to understand w
 
 **This article is currently in progress. This is not the final version**
 
-Azure Virtual WAN is a networking service providing optimized and automated branch to branch connectivity through Azure. Azure Virtual WAN lets you connect and configure branch devices to communicate with Azure either manually, or with preferred partner devices. Using preferred partner devices allows you ease of use, simplification of connectivity and configuration management. The built-in dashboard provides instant troubleshooting insights that can help save you time and gives you an easy way to view large-scale site-to-site connectivity.
+Azure Virtual WAN is a networking service providing optimized and automated branch to branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done either manually, or with preferred partner devices. Using preferred partner devices allows you ease of use, simplification of connectivity, and configuration management. The built-in dashboard provides instant troubleshooting insights that can help save you time, and gives you an easy way to view large-scale site-to-site connectivity.
 
-Azure Virtual WAN lets you automatically connect and configure on-premises devices from preferred vendors. The built-in dashboard provides instant troubleshooting insights that can help save you time and gives you an easy way to view large-scale site-to-site connectivity.
 
 > [!IMPORTANT]
 > Azure Virtual WAN is currently a managed public preview. To use Virtual WAN, you must [Enroll in the Preview](#enroll).
 >
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
-This article provides a quick view into the network connectivity of your Azure and non-Azure workloads. Azure Virtual WAN offers the following advantages:
+This article provides a quick view into the network connectivity of your Azure and non-Azure workloads. Virtual WAN offers the following advantages:
 
-* Integrated connectivity solutions in hub and spoke - Automate site-to-site connectivity and configuration between on-premises and the Azure hub from a variety of sources, including preferred partner solutions.
-* Automated spoke configuration and configuration – Connect your virtual networks and workload to the Azure hub seamlessly.
-* Intuitive troubleshooting – You can see the end-to-end flow within Azure and use this information to take required actions.
+* **Integrated connectivity solutions in hub and spoke**. Automate site-to-site connectivity and configuration between on-premises and the Azure hub from a variety of sources, including preferred partner solutions.
+* **Automated spoke configuration and configuration**. Connect your virtual networks and workload to the Azure hub seamlessly.
+* **Intuitive troubleshooting**. You can see the end-to-end flow within Azure and use this information to take required actions.
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
 
