@@ -61,7 +61,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 ##<a name="enroll"></a>Enroll in the Preview
 
-Before you can configure Virtual WAN, you must first enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, send an email to **azurevirtualwan@microsoft.com** with your subscription ID. You will receive an email back once your subscription has been enrolled.
+Before you can configure Virtual WAN, you must first enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, send an email to <azurevirtualwan@microsoft.com> with your subscription ID. You will receive an email back once your subscription has been enrolled.
 
 ## <a name="faq"></a>FAQ
 
