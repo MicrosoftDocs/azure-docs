@@ -8,7 +8,7 @@
   expanded: true
   items:
   - name: .NET 
-    href: azure-devops-project-aspnetcore.md
+    href: /azure/devops-project/azure-devops-project-aspnetcore
     maintainContext: true
   - name: Node.js
     href: /azure-devops-project-nodejs.md
