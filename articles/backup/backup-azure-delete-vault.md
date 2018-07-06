@@ -71,7 +71,7 @@ To delete a Recovery Services vault:
 
 4. Run the following command to download the Azure Resource Manager Client package from chocolately.org.
 
-    `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1))`
+    `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
 5. Use the following command to install the Azure Resource Manager API Client.
 
