@@ -117,7 +117,7 @@
     href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
   - name: Get support
     href: support-for-aml-services.md
-  - name: Deprecated docs (pre-GA)
+  - name: Deprecated docs
     items:  
     - name: Workbench quickstart
       href: ../desktop-workbench/quickstart-installation.md
