@@ -63,10 +63,6 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
-### How do I find a preferred vendor?
-
-See [this link](https://aka.ms/virtualwan) to find a preferred vendor.
-
 ## Next steps
 
 To create a Site-to-Site connection using Virtual WAN, you can either go through a Microsoft preferred integrator, or create the connection manually. To create the connection manually, see [Create a Site-to-Site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).

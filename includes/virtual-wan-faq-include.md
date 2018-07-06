@@ -10,14 +10,13 @@
  ms.custom: include file
 ---
 
-
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN vpngateway?
 
 Virtual WAN provides large scale site-to-site connectivity and is built for throughput, scalability and ease of use. CPE branch devices auto-provision and connect into Azure Virtual WAN and are now available from a growing ecosystem of SD-WAN and VPN partners.
 
 ### Which device-partners (preferred partners) are supported at launch time? 
 
-At time of launch, Citrix and Riverbed are supporting the fully automated Virtual WAN experience. More partners will be on-boarding in coming months, including: Nokia Nuage, Palo Alto, and Checkpoint. 
+At time of launch, Citrix and Riverbed are supporting the fully automated Virtual WAN experience. More partners will be on-boarding in coming months, including: Nokia Nuage, Palo Alto, and Checkpoint. For more information, see [Device Partners](https://aka.ms/virtualwan).
 
 ### Am I required to use a preferred partner device?
 
@@ -64,9 +63,10 @@ No
 ### Is there an ability to direct traffic using UDR in the Virtual Hub? 
 Routing functionality will be available by GA of Virtual WAN
 
-### Can spoke VNets connected to a Virtual WAN Hub communicate with each other ?
-If spoke VNets need to talk to each other, as well as sites on the Virtual WAN, or have more advanced security policy or logging needs, a transit hub can be used. No NAT functionality is required between the spokes. You can also set up VNet peering between the Azure spokes if necessarily. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md)
+### Can spoke VNets connected to a Virtual WAN Hub communicate with each other?
 
-### Q. What are the pricing and/or licensing implications, if any, for this announcement?
+Yes. A transit hub can be used if spoke VNets need to talk to each other, as well as sites on the Virtual WAN, or have more advanced security policy or logging needs. No NAT functionality is required between the spokes. You can also set up VNet peering between the Azure spokes if necessarily. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md).
+
+### Q. What are the pricing and/or licensing implications for this announcement?
  
-A. There is no additional charge; current [Azure VPN and egress pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) remains in effect during preview.
+A. There is no additional charge. Current [Azure VPN and egress pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) remains in effect during preview.
