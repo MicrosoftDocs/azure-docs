@@ -11,29 +11,33 @@
 ---
 
 
-### What is the difference between Azure Virtual Network Gateway VPN) and Azure Virtual WAN VPN Gateway
+### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN vpngateway?
 
-Virtual WAN provides large scale branch to branch connectivity and is built for throughput, scalability and ease of use. CPE branch devices auto provision and connect into Azure Virtual WAN and are now available from a growing ecosystem of SD-WAN and VPN partners.
+Virtual WAN provides large scale site-to-site connectivity and is built for throughput, scalability and ease of use. CPE branch devices auto-provision and connect into Azure Virtual WAN and are now available from a growing ecosystem of SD-WAN and VPN partners.
 
-### Who are the device-partners supported at launch time and can Virtual WAN only be used with those partners?
+### Which device-partners (preferred partners) are supported at launch time? 
 
-At time of launch, Citrix and Riverbed is supporting the fully automated Virtual WAN experience, more partners will be on-boarding in coming months: Nokia Nuage, Palo Alto, Checkpoint. However, customers can utilize any VPN capable device that adheres to the preview requirements for IKEv2 IPsec support.
+At time of launch, Citrix and Riverbed are supporting the fully automated Virtual WAN experience. More partners will be on-boarding in coming months, including: Nokia Nuage, Palo Alto, and Checkpoint. 
 
-### How can providers that provides branch devices offering VPN connectivity over IPsec/IKEv2 automate connectivity with Azure Virtual WAN?
+### Am I required to use a preferred partner device?
 
-Software defined connectivity solutions typically manage their branch devices using a controller or a device provisioning center. This controller can use Azure API to automate connectivity to Azure Virtual WAN.  For more information, <Link to How to partner>
+No. You can use any VPN capable device that adheres to the preview requirements for IKEv2 IPsec support.
+
+### How do preferred providers automate connectivity with Azure Virtual WAN?
+
+Software defined connectivity solutions typically manage their branch devices using a controller or a device provisioning center. This controller can use Azure API to automate connectivity to Azure Virtual WAN. For more information about how this works, see [Preferred provider configuration](virtual-wan-configure-vwan-providers.md).
 
 ### Are there any changes in terms of new features or changes to existing features, with this announcement?   
 
 There are no changes to existing Azure connectivity features.
 
-### Are there any ARM resources available for this service?
+### Are there new Resource Manager resources available for this service?
   
-Yes, virtual WAN introduces a selection of new ARM resources. Please see the [Overview](https://go.microsoft.com/fwlink/?linkid=875726).
+Yes, Virtual WAN introduces a selection of new Resource Manager resources. For more information, please see the [Overview](https://go.microsoft.com/fwlink/p/?LinkId=2004389).
 
 ### Are there any special requirements to join the preview? 
 
-See the [Overview](https://go.microsoft.com/fwlink/?linkid=875726) for information about how to join the managed preview.
+See the [Overview](https://go.microsoft.com/fwlink/p/?LinkId=2004389) for information about how to join the managed preview.
 
 Considerations:
 
