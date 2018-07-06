@@ -16,7 +16,7 @@ Virtual WAN provides large-scale Site-to-Site connectivity and is built for thro
 
 ### Which device-partners (preferred partners) are supported at launch time? 
 
-At this time,  Citrix and Riverbed support the fully-automated Virtual WAN experience. More partners will be on-boarding in coming months, including: Nokia Nuage, Palo Alto, and Checkpoint. For more information, see [Device Partners](https://aka.ms/virtualwan).
+At this time,  Citrix and Riverbed support the fully automated Virtual WAN experience. More partners will be on-boarding in coming months, including: Nokia Nuage, Palo Alto, and Checkpoint. For more information, see [Device Partners](https://aka.ms/virtualwan).
 
 ### Am I required to use a preferred partner device?
 
@@ -57,7 +57,7 @@ Yes, you can connect your favorite network virtual appliance transit hub to the 
 
 ### Is there support for BGP?
 
-Yes, there is support for BGP. Spokes that are connected to a transit hub that is connected to a Virtual WAN hub must disable BGP to ensure that routes from the transit hub are advertised appropriately.
+Yes, BGP is supported. To ensure that routes from the transit hub are advertised appropriately, spokes must disable BGP if they are connected to a transit hub that is connected to a Virtual WAN hub.
 
 ### Can the transit hub have a virtual network gateway?
 
