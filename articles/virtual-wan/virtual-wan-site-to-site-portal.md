@@ -23,15 +23,15 @@ This tutorial shows you how to use Virtual WAN to connect to your resources in A
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a WAN.
-> * Create a site.
-> * Create a hub.
-> * Connect a hub to a site.
-> * Connect a VNet to a hub.
-> * Download and apply the VPN device configuration.
-> * View your virtual WAN.
-> * View resource health.
-> * Monitor a connection.
+> * Create a WAN
+> * Create a site
+> * Create a hub
+> * Connect a hub to a site
+> * Connect a VNet to a hub
+> * Download and apply the VPN device configuration
+> * View your virtual WAN
+> * View resource health
+> * Monitor a connection
 
 > [!IMPORTANT]
 > Azure Virtual WAN is currently a managed public preview. To use Virtual WAN, you must [Enroll in the Preview](#enroll).
@@ -50,7 +50,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="enroll"></a>1. Enroll in the Preview
 
-Before you can configure Virtual WAN, you must first enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, you must send an email to **azurevirtualwan@microsoft.com** with your subscription ID. You will receive an email back once your subscription has been enrolled.
+Before you can configure Virtual WAN, you must first enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, send an email to **azurevirtualwan@microsoft.com** with your subscription ID. You will receive an email back once your subscription has been enrolled.
 
 ## <a name="vnet"></a>2. Create a virtual network
 
@@ -152,7 +152,6 @@ Use the VPN device configuration to configure your on-premises VPN device.
 3. Once the file has finished creating, you can click the link to download it.
 4. Apply the configuration to your VPN device.
 
-
 ### Understanding the VPN device configuration file
 
 This is an example of a device configuration file. The device configuration file contains the settings to use when configuring your on-premises VPN device.
@@ -221,15 +220,15 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a WAN.
-> * Create a site.
-> * Create a hub.
-> * Connect a hub to a site.
-> * Connect a VNet to a hub.
-> * Download and apply the VPN device configuration.
-> * View your virtual WAN.
-> * View resource health.
-> * Monitor a connection.
+> * Create a WAN
+> * Create a site
+> * Create a hub
+> * Connect a hub to a site
+> * Connect a VNet to a hub
+> * Download and apply the VPN device configuration
+> * View your virtual WAN
+> * View resource health
+> * Monitor a connection
 
 We would appreciate your feedback. Please send an email to azurevirtualwan@microsoft.com to report any issues, or provide feedback (positive or negative) for Virtual WAN. Include your company name in “[ ]” in the subject line. Also include your subscription ID if you are reporting an issue.
 
