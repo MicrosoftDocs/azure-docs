@@ -15,9 +15,9 @@ ms.author: v-jerkin
 
 Creating a high-quality production custom voice from scratch is not a casual undertaking. The central component of a custom voice is a large collection of audio samples of human speech. It's vital that these audio recordings be of high quality. Choose voice talent that has experience making these kinds of recordings, and have them recorded by a competent recording engineer using professional equipment.
 
-Before you can make the recordings, though, you need a script: the words that will be read by your voice talent to create the audio samples. For best results, your script must have good phonetic coverage and sufficient variety to train the custom voice model.
+Before you can make these recordings, though, you need a script: the words that will be read by your voice talent to create the audio samples. For best results, your script must have good phonetic coverage and sufficient variety to train the custom voice model.
 
-Many ingredients go into a good custom voice. This guide serves as an introduction to the process, with particular attention to issues you are likely to encounter.
+Many ingredients go into a good custom voice. This guide serves as an introduction to the process, with particular focus on issues you are likely to encounter.
 
 > [!TIP]
 > For the highest quality results, consider engaging Microsoft to help develop your custom voice. Microsoft has extensive experience producing high-quality voices for its own products, including Cortana and Office.
