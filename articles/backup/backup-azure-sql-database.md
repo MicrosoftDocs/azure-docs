@@ -609,7 +609,7 @@ This section provides information about the various Azure Backup management oper
 ### Monitor Jobs
 Azure Backup being an Enterprise class solution provides advanced Backup alerts and notification for any failures (refer to Backup Alerts section below). If you still want to monitor specific jobs you can use any of the following options based on your requirement:
 
-#### Using Azure portal -> Recovery Services Vault for all ad-hoc operations
+#### Use Azure portal for all adhoc operations
 Azure Backup shows all manually triggered, or adhoc, jobs in the Backup jobs portal. The jobs available in the portal include: all configure backup operations, manually triggered backup operations, restore operations, registration and discover database operations, and stop backup operations. 
 ![advanced configuration menu](./media/backup-azure-sql-database/jobs-list.png)
 
@@ -617,10 +617,10 @@ Azure Backup shows all manually triggered, or adhoc, jobs in the Backup jobs por
 > All scheduled backup jobs including Full, Differential and Log backup will not be shown in the portal and can be monitored using SQL Server Management Studio as described below.
 >
 
-#### Using SQL Server Management Studio (SSMS) for backup jobs
-Azure Backup uses SQL native APIs for all backup operations. Using the native APIs, you can fetch all job information from the [SQL backupset table](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in the msdb database. 
+#### Use SQL Server Management Studio for backup jobs
+Azure Backup uses SQL native APIs for all backup operations. With native APIs, you can fetch all job information from the [SQL backupset table](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) in the msdb database.
 
-You can use the below query as an example to fetch all backup jobs for a specific database with name "DB1". You can customize the below query for more advanced monitoring.
+The following example is a query to fetch all backup jobs for a database named, **DB1**. Customize the query for more advanced monitoring.
 ```
 select CAST (
 Case type
@@ -741,6 +741,42 @@ To unregister a SQL server after removing protection, but before deleting the va
 5. In the Protected Servers menu, right-click the protected server, and select **Delete**. 
 
    ![resume database protection](./media/backup-azure-sql-database/delete-protected-server.png)
+
+## SQL database backup FAQ
+
+The following section provides additional information about SQL database backup.
+
+### Can I throttle the speed of the SQL backup policy so it minimizes impact on the SQL server
+
+Yes, you can throttle the rate at which the backup policy executes. To change the setting:
+
+1. On the SQL Server, in the `C:\Program Files\Azure Workload Backup\bin` folder, open **TaskThrottlerSettings.json**.
+
+2. In the **TaskThrottlerSettings.json** file, change **DefaultBackupTasksThreshold** to a lower value, for example, 5.
+
+3. Save your change, and close the file.
+
+4. On the SQL Server, open Task Manager, and restart the **Azure Backup Workload Coordinator Service**.
+
+### Can I run a full backup from a secondary replica
+
+No, this feature is not supported.
+
+### Do successful backup jobs create alerts
+
+No. Successful backup jobs do not generate alerts. Alerts are sent only for backup jobs that fail.
+
+### Are scheduled backup job details shown in the Jobs menu
+
+No. The Jobs menu shows adhoc job details, but does not show scheduled backup jobs. If any scheduled backup jobs fail, you can find all details in the failed job alerts. If you want to monitor all scheduled and adhoc backup jobs, [use SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
+
+### If I select a SQL server will future databases automatically be added
+
+No. When configuring protection for a SQL server, if you select the checkbox at the server level, it adds all databases. However, if you add databases to the SQL server after configuring protection, you must manually add the new databases to protect them. The databases are not automatically included in the configured protection.
+
+### If I change the recovery model how do I restart protection
+
+If you change the recovery model, trigger a full backup, and log backups will begin as expected.
 
 ## Next steps
 
