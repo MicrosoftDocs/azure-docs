@@ -33,17 +33,22 @@ To use a Facebook account as an identity provider in Azure Active Directory (Azu
 13. Select **Products**, and then select **Set up** under **Facebook Login**.
 14. Select **Settings** under **Facebook Login**.
 15. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **Valid OAuth redirect URIs** . Replace **{tenant}** with your tenant's name (for example, contosob2c.onmicrosoft.com). Click **Save Changes** at the bottom of the page.
-16. To make your Facebook application available to Azure AD B2C, select **App Review**, set **Make <My APP> public?** to **YES**, choose a category, for example `Business and Pages` and then click **Confirm**.
+16. To make your Facebook application available to Azure AD B2C, select **App Review**, set **Make My Application public?** to **YES**, choose a category, for example `Business and Pages` and then click **Confirm**.
 
 ## Configure a Facebook account as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by switching to it in the top-right corner of the Azure portal. Select your subscription information, and then select **Switch Directory**. 
 
-    [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-switch-b2c-tenant/switch-directories.png)
 
-2. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
-3. Select **Identity providers**, and then select **Add**.
-4. Enter a **Name**. For example, enter *Facebook*.
-5. Select **Identity provider type**, select **Facebook**, and click **OK**.
-6. Select **Set up this identity provider** and enter the App ID that you recorded earlier as the **Client ID** and enter the App Secret that you recorded as the **Client secret** of the Facebook application that you created earlier).
-7. Click **OK** and then click **Create** to save your Facebook configuration.
+    Choose the directory that contains your tenant.
+
+    ![Select directory](./media/active-directory-b2c-switch-b2c-tenant/select-directory.png)
+
+3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+4. Select **Identity providers**, and then select **Add**.
+5. Enter a **Name**. For example, enter *Facebook*.
+6. Select **Identity provider type**, select **Facebook**, and click **OK**.
+7. Select **Set up this identity provider** and enter the App ID that you recorded earlier as the **Client ID** and enter the App Secret that you recorded as the **Client secret** of the Facebook application that you created earlier).
+8. Click **OK** and then click **Create** to save your Facebook configuration.
