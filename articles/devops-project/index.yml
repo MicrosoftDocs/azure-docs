@@ -36,31 +36,31 @@ sections:
     - image: 
         src: media\logo_net.svg
       text: .NET
-      href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-aspnetcore
+      href: /azure/devops-project/azure-devops-project-aspnetcore
     - image: 
         src: media\logo_nodejs.svg
       text: Node.js
-      href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-nodejs
+      href: /azure/devops-project/azure-devops-project-nodejs
     - image: 
         src: media\logo_java.svg
       text: Java
-      href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-java
+      href: /azure/devops-project/azure-devops-project-java
     - image: 
         src: media\logo_python.svg
       text: Python
-      href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-python
+      href: /azure/devops-project/azure-devops-project-python
     - image: 
         src: media\logo_php.svg
       text: PHP
-      href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-php
+      href: /azure/devops-project/azure-devops-project-php
     - image: 
         src: media\logo_ruby.svg
       text: Ruby
-      href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-ruby
+      href: /azure/devops-project/azure-devops-project-ruby
     - image: 
         src: media\logo_gopher.svg
       text: Go
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-go
+      href: /azure/devops-project/azure-devops-project-go
 
 
 
