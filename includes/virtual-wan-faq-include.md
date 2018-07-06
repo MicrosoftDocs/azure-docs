@@ -70,6 +70,6 @@ Routing functionality will be available by GA.
 
 Yes. A transit hub can be used if spoke VNets need to talk to each other - as well as to sites - on the Virtual WAN. A transit hub can also be used if spoke VNets have more advanced security policy or logging needs. No NAT functionality is required between the spokes. You can also set up VNet peering between the Azure spokes if necessary. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md).
 
-### Q. What are the pricing and/or licensing implications for this announcement?
+### Q. Is there any licensing or pricing information for Virtual WAN?
  
 A. There is no additional charge. Current [Azure VPN and egress pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) remains in effect during preview.
