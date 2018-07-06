@@ -193,6 +193,6 @@ Azure Files users, Microsoft wants to hear from you! Email *Azure Files AAD Int
 See these resources for more information about Azure Files:
 
 -   [Introduction to Azure Files](storage-files-introduction.md)
--   [Overview of Azure Active Directory integration with Azure Files (Preview)](storage-files-aad-overview.md)
+-   [Overview of Azure Active Directory integration with Azure Files (Preview)](storage-files-active-directory-overview.md)
 -   [FAQ](storage-files-faq.md)
 

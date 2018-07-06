@@ -65,13 +65,13 @@ You can enable Azure AD integration for Azure Files on your new and existing sto
 
 Before enabling Azure AD integration, make sure that Azure AD Domain Services is deployed for the primary Azure AD tenant with which your storage account is associated. If you have not yet setup Azure AD Domain Services, follow the step by step guidance provided in [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
 
-Azure AD Domain Services deployment generally takes 10 to 15 minutes. After Azure AD Domain Services has been deployed, you can enable Azure AD integration for Azure Files. For more information, see [Enable Azure Active Directory integration for Azure Files SMB access](storage-files-aad-enable.md). 
+Azure AD Domain Services deployment generally takes 10 to 15 minutes. After Azure AD Domain Services has been deployed, you can enable Azure AD integration for Azure Files. For more information, see [Enable Azure Active Directory integration for Azure Files SMB access](storage-files-active-directory-enable.md). 
 
 ### Configure share-level permissions for Azure Files
 
 To allow users to access to an Azure file share, grant them share-level permissions to the share using RBAC.
 
-When a user tries to mount an Azure Files file share or access a directory or file in that share, the user's credentials are verified to ensure the proper share-level permissions and NTFS permissions. For information about configuring share-level permissions, see [Enable Azure Active Directory integration with Azure Files (Preview)](storage-files-aad-enable.md).
+When a user tries to mount an Azure Files file share or access a directory or file in that share, the user's credentials are verified to ensure the proper share-level permissions and NTFS permissions. For information about configuring share-level permissions, see [Enable Azure Active Directory integration with Azure Files (Preview)](storage-files-active-directory-enable.md).
 
 ### Configure directory- or file-level permissions for Azure Files 
 
@@ -100,5 +100,5 @@ There is no additional service charge to enable Azure AD integration on your sto
 See these resources for more information about Azure Files:
 
 -   [Introduction to Azure Files](storage-files-introduction.md)
--   [Enable Azure Active Directory integration with Azure Files (Preview)](storage-files-aad-enable.md)
+-   [Enable Azure Active Directory integration with Azure Files (Preview)](storage-files-active-directory-enable.md)
 -   [FAQ](storage-files-faq.md)

@@ -101,7 +101,13 @@
     - name: Encryption for data at rest
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Require secure transfer
-      href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
+      href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Azure AD integration with Azure Files
+      items: 
+      - name: Overview of Azure AD integration
+        href: storage-files-active-directory-overview.md
+      - name: Enable Azure AD integration
+        href: storage-files-active-directory-enable.md
     - name: Shared key authentication
       href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
     - name: Shared access signatures (SAS)
