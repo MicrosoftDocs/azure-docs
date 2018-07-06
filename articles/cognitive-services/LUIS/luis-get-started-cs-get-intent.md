@@ -24,7 +24,7 @@ In this quickstart, pass utterances to a LUIS endpoint and get intent and entiti
 -->
 
 <!-- link to free account -->
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 <a name="create-luis-subscription-key">
 ## Create LUIS endpoint key
 1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -71,5 +71,3 @@ The two resources created in this tutorial are the LUIS endpoint key and the C# 
 ## Next steps
 > [!div class="nextstepaction"]
 > [Add utterances](luis-get-started-cs-add-utterance.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
