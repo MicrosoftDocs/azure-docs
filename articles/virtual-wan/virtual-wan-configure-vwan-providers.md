@@ -36,7 +36,11 @@ Once the branch device is uploaded to Azure, customer will typically make select
 
 ## 4. Device configuration
 
-The next step manually for the customer is to download the Azure configuration and apply it to the branch device. Configuration management is an area for automation. The controller can call **GetVpnConfiguration** REST API to download the Azure configuration, which will typically look similar to the following file:
+In this step, a customer that is not using a provider would manually download the Azure configuration and apply it to their on-premises VPN device.
+
+You should automate this step. The controller can call **GetVpnConfiguration** REST API to download the Azure configuration, which will typically look similar to the following file.
+
+**Configuration notes**
 
   * If Azure VNets are attached to the hub VNet, they will appear as ConnectedSubnets.
   * VPN connectivity uses route-based configuration and IKEv2.
@@ -148,7 +152,7 @@ The next step manually for the customer is to download the Azure configuration a
 
 ## Working with Custom Policy
 
-The following table lists the supported cryptographic algorithms and key strengths configurable by the customers. You must select one option for every field.
+The following table lists the supported cryptographic algorithms and key strengths that are configurable by the customers. You must select one option for every field.
 
 | IPsec/ IKEv2 | Options|
 |---|---|
@@ -169,7 +173,7 @@ The following table lists the supported cryptographic algorithms and key strengt
 
 ### Does everything need to match between the Azure VPN gateway policy and my on-premises VPN device configurations?
 
-Your on-premises VPN device configuration must match or contain the following algorithms and parameters that you specify on the Azure IPsec/IKE policy:
+Your on-premises VPN device configuration must match or contain the following algorithms and parameters, which you specify in the Azure IPsec/IKE policy. The SA lifetimes are local specifications only, and do not need to match.
 
 * IKE encryption algorithm
 * IKE integrity algorithm
@@ -177,8 +181,6 @@ Your on-premises VPN device configuration must match or contain the following al
 * IPsec encryption algorithm
 * IPsec integrity algorithm
 * PFS Group
-
-The SA lifetimes are local specifications only, do not need to match
 
 ### Which Diffie-Hellman Groups are supported?
 
