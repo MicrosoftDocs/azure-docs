@@ -60,17 +60,10 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 * **Hub virtual network connection:** This resource is used to connect the hub seamlessly to your virtual network. At this time, you can only connect to virtual networks that are within the same hub region.
 
-## <a name="faq"></a>FAQ 
+## <a name="faq"></a>FAQ
 
-### <a name="enroll"></a>How do I sign up for the Preview?
+[!INCLUDE [Virtual WAN FAQ](../includes/virtual-wan-faq-include.md)]
 
-Before you can configure Virtual WAN, you must first enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, send an email to **azurevirtualwan@microsoft.com** with your subscription ID. You will receive an email back once your subscription has been enrolled.
-
-### What is the pricing?
-
-See the [Pricing page](https://go.microsoft.com/fwlink/?linkid=2004628) for details.
-
-### Is this available for all regions?
 
 ### How do I find a preferred vendor?
 
