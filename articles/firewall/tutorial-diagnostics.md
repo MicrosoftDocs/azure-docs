@@ -32,7 +32,7 @@ The following logs are available for Azure Firewall:
 
 * **Activity log**
 
-   You can use [Azure activity logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription. Activity log entries are collected by default, and you can view them in the Azure portal.
+   You can use [Azure activity logs](../monitoring-and-tutorial-diagnostics/insights-debugging-with-events.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription. Activity log entries are collected by default, and you can view them in the Azure portal.
 
 * **Application rule log**
 
@@ -100,22 +100,20 @@ You have three options for storing your logs:
    * Application rule log
    * Network rule log
 
-3. To start collecting data, click **Turn on diagnostics**.
-
-<!---   ![Turning on diagnostics][1] -->
-
-4. The **Diagnostics settings** blade provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. Click **Configure** under **Log Analytics** to configure your workspace. You can also use event hubs and a storage account to save the diagnostic logs.
-
-<!---   ![Starting the configuration process][2] -->
-
-5. Choose an existing Log Analytics workspace or create a new one. This example uses an existing one.
-
-<!---   ![Options for Log Analytics workspaces][3] -->
-
-6. Confirm the settings and click **Save**.
-
-<!---   ![Diagnostics settings blade with selections][4] -->
-
+3. To start collecting data, click **Turn on tutorial-diagnostics**.
+4. The **Diagnostics settings** page provides the settings for the diagnostic logs. 
+5. In this example, Log Analytics stores the logs, so type **Firewall log analytics** for the name.
+6. Click **Send to Log Analytics** to configure your workspace. You can also use event hubs and a storage account to save the diagnostic logs.
+7. Under **Log Analytics**, click **Configure**.
+8. In the OMS Workspaces page, click **Create New Workspace**.
+9. On the **Log analytics workspace** page, type **firewall-oms** for the new **OMS Workspace** name.
+10. Select your subscription, use the existing firewall resource group (**Test-FW-RG**), select **East US** for the location, and select the **Free** pricing tier.
+11. Click **OK**.
+   ![Starting the configuration process][1]
+12. Under **Log**, click **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule** to collect logs for application and network rules.
+13. Under **Metric**, click **AllMetrics** to collect firewall metrics.
+   ![Save diagnostics settings][2]
+14. Click **Save**.
 
 ## Enable logging with PowerShell
 
@@ -125,13 +123,13 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
    You can use any storage account in your subscription. You can use the Azure portal to find this information.
 
-<!---    ![Portal: resource ID for storage account](./media/diagnostics/diagnostics1.png) -->
+<!---    ![Portal: resource ID for storage account](./media/tutorial-diagnostics/diagnostics1.png) -->
 
 2. Note your Firewall's resource ID for which logging is enabled. This value is of the form: */subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/azureFirewalls/\<Firewall name\>*.
 
    You can use the portal to find this information.
 
-<!---    ![Portal: resource ID for Firewall](./media/diagnostics/diagnostics2.png) -->
+<!---    ![Portal: resource ID for Firewall](./media/tutorial-diagnostics/diagnostics2.png) -->
 
 3. Enable diagnostic logging by using the following PowerShell cmdlet:
 
@@ -167,13 +165,5 @@ You can also connect to your storage account and retrieve the JSON log entries f
 * [Visualize your Azure activity log with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
 * [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 
-[1]: ./media/diagnostics/figure1.png
-[2]: ./media/diagnostics/figure2.png
-[3]: ./media/diagnostics/figure3.png
-[4]: ./media/diagnostics/figure4.png
-[5]: ./media/diagnostics/figure5.png
-[6]: ./media/diagnostics/figure6.png
-[7]: ./media/diagnostics/figure7.png
-[8]: ./media/diagnostics/figure8.png
-[9]: ./media/diagnostics/figure9.png
-[10]: ./media/diagnostics/figure10.png
+[1]: ./media/tutorial-diagnostics/figure1.png
+[2]: ./media/tutorial-diagnostics/figure2.png
