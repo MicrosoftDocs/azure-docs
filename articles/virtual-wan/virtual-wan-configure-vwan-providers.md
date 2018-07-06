@@ -146,19 +146,18 @@ The following table lists the supported cryptographic algorithms and key strengt
 |---|---|
 |IKEv2 Encryption | AES256, AES192, AES128, DES3, DES |
 | IKEv2 Integrity | SHA384, SHA256, SHA1, MD5 |
-| DH Group |  |
-| IPsec Encryption | |
-| IPsec Integrity | |
+| DH Group |  DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None |
+| IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None  |
+| IPsec Integrity | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
 | PFS Group | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None|
 | QM SA Lifetime | Seconds (integer; min. 300/default 27000 seconds)<br>KBytes (integer; min. 1024/default 102400000 KBytes) |
-| Traffic Selector | UsePolicyBasedTrafficSelectors ( $False) |
+
 
 **Additional information**
 1. DHGroup2048 & PFS2048 are the same as Diffie-Hellman Group 14 in IKE and IPsec PFS. See Diffie-Hellman Groups for the complete mappings.
 2. For GCMAES algorithms, you must specify the same GCMAES algorithm and key length for both IPsec Encryption and Integrity.
 3. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
 4. QM SA Lifetimes are optional parameters. If none was specified, default values of 27,000 seconds (7.5 hrs) and 102400000 KBytes (102GB) are used.
-5. UsePolicyBasedTrafficSelector is an option parameter on the connection and is set to False in Azure Virtual WAN.
 
 ### Does everything need to match between the Azure VPN gateway policy and my on-premises VPN device configurations?
 
