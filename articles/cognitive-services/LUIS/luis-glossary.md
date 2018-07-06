@@ -87,15 +87,15 @@ An example endpoint looks like:
 
 ## <a name="f-measure"></a>F-measure
 
-In [batch testing][batch-testing], a measure of the test's accuracy.
+In [batch testing](interactive-test.md#batch-testing), a measure of the test's accuracy.
 
 ## <a name="false-negative"></a>False negative (TN)
 
-In [batch testing][batch-testing], the data points represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
+In [batch testing](interactive-test.md#batch-testing), the data points represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
 
 ## <a name="false-positive"></a>False positive (TP)
 
-In [batch testing][batch-testing], the data points represent utterances in which your app incorrectly predicted the existence of the target intent/entity.
+In [batch testing](interactive-test.md#batch-testing), the data points represent utterances in which your app incorrectly predicted the existence of the target intent/entity.
 
 ## <a name="features"></a>Features
 
@@ -133,7 +133,7 @@ A [prebuilt domain](luis-how-to-use-prebuilt-domains.md) is a LUIS app configure
 A [prebuilt entity](luis-prebuilt-entities.md) is an entity LUIS provides for common types of information such as number, URL, and email. You choose to add a prebuilt entity to your application. 
 
 ## <a name="precision"></a>Precision
-In [batch testing][batch-testing], precision (also called positive predictive value) is the fraction of relevant utterances among the retrieved utterances.
+In [batch testing](interactive-test.md#batch-testing), precision (also called positive predictive value) is the fraction of relevant utterances among the retrieved utterances.
 
 ## <a name="programmatic-key"></a>Programmatic key
 
@@ -148,7 +148,7 @@ Publishing means making a LUIS [active version](#active-version) available on ei
 LUIS quota is the limitation of the [Azure subscription tier](https://aka.ms/luis-price-tier). The LUIS quota can be limited by both requests per second (HTTP Status 429) and total requests in a month (HTTP Status 403). 
 
 ## <a name="recall"></a>Recall
-In [batch testing][batch-testing], recall (also known as sensitivity), is the ability for LUIS to generalize. 
+In [batch testing](interactive-test.md#batch-testing), recall (also known as sensitivity), is the ability for LUIS to generalize. 
 
 ## <a name="semantic-dictionary"></a>Semantic dictionary
 A semantic dictionary is provided on the List entity page as well as the Phrase list page. The semantic dictionary provides suggestions of words based on the current scope.
@@ -192,11 +192,11 @@ Training is the process of teaching LUIS about any changes to the [active versio
 
 ## <a name="true-negative"></a>True negative (TN)
 
-In [batch testing][batch-testing], the data points represent utterances in which your app correctly predicted the absence of the target intent/entity.
+In [batch testing](interactive-test.md#batch-testing), the data points represent utterances in which your app correctly predicted the absence of the target intent/entity.
 
 ## <a name="true-positive"></a>True positive (TP)
 
-In [batch testing][batch-testing], the data points represent utterances in which your app correctly predicted the existence of the target intent/entity.
+In [batch testing](interactive-test.md#batch-testing), the data points represent utterances in which your app correctly predicted the existence of the target intent/entity.
 
 ## <a name="utterance"></a>Utterance
 
@@ -205,5 +205,3 @@ An utterance is a natural language phrase such as "book 2 tickets to Seattle nex
 ## <a name="version"></a>Version
 
 A LUIS [version](luis-how-to-manage-versions.md) is a specific data model associated with a LUIS app ID and the published endpoint. Every LUIS app has at least one version.
-
-[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing
