@@ -24,7 +24,7 @@
     href: https://msdn.microsoft.com/library/jj154113
 - name: Resources
   items:
-  - name: Virtual WAN FAQ
+  - name: FAQ
     href: virtual-wan-faq.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
