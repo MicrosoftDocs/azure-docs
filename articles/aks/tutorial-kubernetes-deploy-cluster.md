@@ -63,13 +63,13 @@ To access images stored in ACR, you must grant the AKS service principal the cor
 First, get the ACR resource ID using [az acr show][]. Update the `<acrName>` registry name to that of your ACR instance and the resource group where the ACR instance is located.
 
 ```azurecli
-az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv
+az acr show --resource-group myResourceGroup --name <acrName> --query "id" --output tsv
 ```
 
 To grant the correct access for the AKS cluster to use images stored in ACR, create a role assignment using the [az role assignment create][] command. Replace `<appId`> and `<acrId>` with the values gathered in the previous two steps.
 
 ```azurecli
-az role assignment create --assignee <appId> --role Reader --scope <acrId>
+az role assignment create --assignee <appId> --scope <acrId> --role Reader
 ```
 
 ## Create a Kubernetes cluster
@@ -78,12 +78,12 @@ Now create an AKS cluster using [az aks create][]. The following example creates
 
 ```azurecli
 az aks create \
-    --name myAKSCluster \
     --resource-group myResourceGroup \
+    --name myAKSCluster \
     --node-count 1 \
-    --generate-ssh-keys \
     --service-principal <appId> \
-    --client-secret <password>
+    --client-secret <password> \
+    --generate-ssh-keys
 ```
 
 After several minutes, the deployment completes, and returns JSON-formatted information about the AKS deployment.
@@ -103,10 +103,10 @@ az aks install-cli
 To configure `kubectl` to connect to your Kubernetes cluster, use [az aks get-credentials][]. The following example gets credentials for the AKS cluster name *myAKSCluster* in the *myResourceGroup*:
 
 ```azurecli
-az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-To verify the connection to your cluster, run the [kubectl get nodes][kubectl-get] command.
+To verify the connection to your cluster, run the [kubectl get nodes][kubectl-get] command:
 
 ```
 $ kubectl get nodes

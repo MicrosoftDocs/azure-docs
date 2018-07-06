@@ -36,13 +36,13 @@ This tutorial requires that you are running the Azure CLI version 2.0.38 or late
 
 ## Update an application
 
-Let's make a change to the sample application, then update the version already deployed to your AKS cluster. The sample application source code can be found inside of the *azure-vote* directory. Open the *config_file.cfg* file with an editor, such as *vi*:
+Let's make a change to the sample application, then update the version already deployed to your AKS cluster. The sample application source code can be found inside of the *azure-vote* directory. Open the *config_file.cfg* file with an editor, such as `vi`:
 
 ```console
 vi azure-vote/azure-vote/config_file.cfg
 ```
 
-Change the values for *VOTE1VALUE* and *VOTE2VALUE* to different colors, and then save the file. The following example shows updated color values:
+Change the values for *VOTE1VALUE* and *VOTE2VALUE* to different colors. The following example shows the updated color values:
 
 ```
 # UI Configurations
@@ -72,13 +72,13 @@ The updated color values provided in the *config_file.cfg* file are displayed on
 
 ## Tag and push the image
 
-To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list](/cli/azure/acr#az_acr_list) command as follows:
+To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list](/cli/azure/acr#az_acr_list) command:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Use [docker tag][docker-tag] to tag the image. Replace `<acrLoginServer>` with your ACR login server name or public registry hostname, and update the image version to *:v2*:
+Use [docker tag][docker-tag] to tag the image. Replace `<acrLoginServer>` with your ACR login server name or public registry hostname, and update the image version to *:v2* as follows:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
@@ -92,10 +92,10 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 ## Deploy the updated application
 
-To ensure maximum uptime, multiple instances of the application pod must be running. Verify the number of running front-end instances with the [kubectl get pod][kubectl-get] command:
+To ensure maximum uptime, multiple instances of the application pod must be running. Verify the number of running front-end instances with the [kubectl get pods][kubectl-get] command:
 
 ```
-$ kubectl get pod
+$ kubectl get pods
 
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-217588096-5w632    1/1       Running   0          10m
@@ -119,12 +119,14 @@ kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/
 To monitor the deployment, use the [kubectl get pod][kubectl-get] command. As the updated application is deployed, your pods are terminated and re-created with the new container image.
 
 ```console
-kubectl get pod
+kubectl get pods
 ```
 
 The following example output shows pods terminating and new instances running as the deployment progresses:
 
 ```
+$ kubectl get pods
+
 NAME                               READY     STATUS        RESTARTS   AGE
 azure-vote-back-2978095810-gq9g0   1/1       Running       0          5m
 azure-vote-front-1297194256-tpjlg  1/1       Running       0          1m

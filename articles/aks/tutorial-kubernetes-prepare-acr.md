@@ -36,7 +36,7 @@ This tutorial requires that you are running the Azure CLI version 2.0.38 or late
 
 To create an Azure Container Registry, you first need a resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create][az-group-create] command. In the following example, a resource group named `myResourceGroup` is created in the `eastus` region:
+Create a resource group with the [az group create][az-group-create] command. In the following example, a resource group named *myResourceGroup* is created in the *eastus* region:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -71,15 +71,15 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
-To use the *azure-vote-front* container image with ACR, the image needs to be tagged with the *loginServer* name of your registry. This tag is used for routing when pushing container images to an image registry.
+To use the *azure-vote-front* container image with ACR, the image needs to be tagged with the login server address of your registry. This tag is used for routing when pushing container images to an image registry.
 
-To get the *loginServer* name, use the [az acr list][az-acr-list] command and query for the address:
+To get the login server address, use the [az acr list][az-acr-list] command and query for the *loginServer* as follows:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Now, tag your local `azure-vote-front` image with the *loginServer* address of the container registry. To indicate the image version, add `:v1` to the end of the image name:
+Now, tag your local *azure-vote-front* image with the *acrloginServer* address of the container registry. To indicate the image version, add *:v1* to the end of the image name:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1

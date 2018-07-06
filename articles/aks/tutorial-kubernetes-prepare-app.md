@@ -65,13 +65,7 @@ Use the sample `docker-compose.yaml` file to create the container image, downloa
 docker-compose up -d
 ```
 
-When completed, use the [docker images][docker-images] command to see the created images:
-
-```console
-docker images
-```
-
-Three images have been downloaded or created. The `azure-vote-front` image contains the front-end application and uses the `nginx-flask` image as a base. The `redis` image is used to start a Redis instance.
+When completed, use the [docker images][docker-images] command to see the created images. Three images have been downloaded or created. The *azure-vote-front* image contains the front-end application and uses the `nginx-flask` image as a base. The `redis` image is used to start a Redis instance.
 
 ```
 $ docker images
@@ -100,7 +94,7 @@ To see the running application, enter http://localhost:8080 in a local web brows
 
 ## Clean up resources
 
-Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images - in the next tutorial, the `azure-vote-front` image is uploaded to an Azure Container Registry instance
+Now that application functionality has been validated, the running containers can be stopped and removed. Do not delete the container images - in the next tutorial, the *azure-vote-front* image is uploaded to an Azure Container Registry instance
 
 Stop and remove the container instances and resources with the [docker-compose down][docker-compose-down] command:
 

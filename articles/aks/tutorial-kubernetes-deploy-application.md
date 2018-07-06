@@ -45,13 +45,13 @@ Get the ACR login server name using the [az acr list][az-acr-list] command as fo
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-The sample manifest file from the git repo cloned in the first tutorial uses the login server name of `microsoft`. Open this manifest file with a text editor, such as *vi*:
+The sample manifest file from the git repo cloned in the first tutorial uses the login server name of *microsoft*. Open this manifest file with a text editor, such as `vi`:
 
 ```console
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Replace `microsoft` with your ACR login server name. The image name is found on line **47** of the manifest file. The following example shows the default image name:
+Replace *microsoft* with your ACR login server name. The image name is found on line 47 of the manifest file. The following example shows the default image name:
 
 ```yaml
 containers:
@@ -71,7 +71,13 @@ Save and close the file.
 
 ## Deploy the application
 
-To deploy your application, use the [kubectl apply][kubectl-apply] command. This command parses the manifest file and creates the defined Kubernetes objects:
+To deploy your application, use the [kubectl apply][kubectl-apply] command. This command parses the manifest file and creates the defined Kubernetes objects. Specify the sample manifest file, as shown in the following example:
+
+```console
+kubectl apply -f azure-vote-all-in-one-redis.yaml
+```
+
+The Kubernetes objects are created within the cluster, as shown in the following example:
 
 ```
 $ kubectl apply -f azure-vote-all-in-one-redis.yaml

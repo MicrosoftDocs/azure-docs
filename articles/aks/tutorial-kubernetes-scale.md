@@ -35,13 +35,13 @@ This tutorial requires that you are running the Azure CLI version 2.0.38 or late
 
 If you created your AKS cluster using the commands in the previous tutorial, it has one node. You can adjust the number of nodes manually if you plan more or fewer container workloads on your cluster.
 
-To manually increase the number of nodes in your AKS cluster, use the [az aks scale][as-aks-scale] command. The following example increases the number of nodes to three in the AKS cluster named *myAKSCluster*. The command takes a couple of minutes to complete:
+To manually increase the number of nodes in your AKS cluster, use the [az aks scale][az-aks-scale] command. The following example increases the number of nodes in the AKS cluster named *myAKSCluster* to *3* nodes. The command takes a couple of minutes to complete:
 
 ```azurecli
 az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
 ```
 
-The output is similar to the following example:
+The output is similar to the following example, which shows that there are now three nodes available.
 
 ```
 "agentPoolProfiles": [
@@ -75,7 +75,7 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-To manually change the number of pods in the `azure-vote-front` deployment, use the [kubectl scale][kubectl-scale] command. The following example increases the number of front-end pods to five:
+To manually change the number of pods in the *azure-vote-front* deployment, use the [kubectl scale][kubectl-scale] command. The following example increases the number of front-end pods to *5*:
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front
@@ -86,7 +86,7 @@ Run [kubectl get pods][kubectl-get] again to verify that Kubernetes creates the 
 ```console
 $ kubectl get pods
 
-                               READY     STATUS    RESTARTS   AGE
+                                    READY     STATUS    RESTARTS   AGE
 azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
 azure-vote-front-3309479140-2hfh0   1/1       Running   0          3m
 azure-vote-front-3309479140-bzt05   1/1       Running   0          3m
@@ -97,7 +97,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## Autoscale pods
 
-To adjust the number of pods in a deployment based on CPU utilization or other select metrics, Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa]. To use this autoscaling method, your pods must have CPU requests and limits defined. In the sample `azure-vote-front` deployment, the front-end container requests 0.25 CPU, with a limit of 0.5 CPU:
+To adjust the number of pods in a deployment based on CPU utilization or other select metrics, Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa]. To use this autoscaling method, your pods must have CPU requests and limits defined. In the sample *azure-vote-front* deployment, the front-end container requests 0.25 CPU, with a limit of 0.5 CPU:
 
 ```yaml
 resources:
@@ -107,7 +107,7 @@ resources:
      cpu: 500m
 ```
 
-The following example uses the [kubectl autoscale][kubectl-autoscale] command to autoscale the number of pods in the `azure-vote-front` deployment. Here, if CPU utilization exceeds 50%, the autoscaler increases the pods up to a maximum of 10 instances:
+The following example uses the [kubectl autoscale][kubectl-autoscale] command to autoscale the number of pods in the *azure-vote-front* deployment. If CPU utilization exceeds 50%, the autoscaler increases the pods up to a maximum of 10 instances:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -122,7 +122,7 @@ NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
 
-After a few minutes, with minimal load on the Azure Vote app, the number of pod replicas decreases automatically to 3. You can use `kubectl get pod` again to see the unneeded pods being removed.
+After a few minutes, with minimal load on the Azure Vote app, the number of pod replicas decreases automatically to three. You can use `kubectl get pods` again to see the unneeded pods being removed.
 
 ## Next steps
 
@@ -148,3 +148,4 @@ Advance to the next tutorial to learn how to update application in Kubernetes.
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
+[azure-cli-install]: /cli/azure/install-azure-cli

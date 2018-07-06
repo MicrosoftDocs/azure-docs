@@ -36,7 +36,7 @@ This tutorial requires that you are running the Azure CLI version 2.0.38 or late
 Before you upgrade a cluster, use the [az aks get-upgrades][] command to check which Kubernetes releases are available for upgrade:
 
 ```azurecli
-az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
 In the following example, the current version is *1.9.6*, and the available versions are shown under the *Upgrades* column.
@@ -52,7 +52,7 @@ default  myResourceGroup  1.9.6            1.9.6              1.10.3
 Use the [az aks upgrade][] command to upgrade the AKS cluster. The following example upgrades the cluster to Kubernetes version *1.10.3*.
 
 ```azurecli
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.10.3
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.10.3
 ```
 
 The following condensed example output shows the *kubernetesVersion* now reports *1.10.3*:
@@ -85,7 +85,7 @@ The following condensed example output shows the *kubernetesVersion* now reports
 Confirm that the upgrade was successful using the [az aks show][] command as follows:
 
 ```azurecli
-az aks show --name myAKSCluster --resource-group myResourceGroup --output table
+az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
 The following example output shows the AKS cluster runs *KubernetesVersion 1.10.3*:
