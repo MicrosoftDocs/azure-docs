@@ -69,10 +69,10 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
     private const string EhEntityPath = "{Event Hub path/name}";
     ```
 
-3. Add a new method named `MainAsync` to the `Program` class, as follows:
+3. Add the following code to the `Main` method in the `Program` class:
 
     ```csharp
-    private static async Task MainAsync(string[] args)
+    public static async Task Main(string[] args)
     {
         // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
         // Typically, the connection string should have the entity path in it, but this simple scenario
@@ -119,12 +119,6 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
     }
     ```
 
-5. Add the following code to the `Main` method in the `Program` class:
-
-    ```csharp
-    MainAsync(args).GetAwaiter().GetResult();
-    ```
-
    Here is what your Program.cs should look like.
 
 	```csharp
@@ -141,12 +135,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 	        private const string EventHubConnectionString = "{Event Hubs connection string}";
 	        private const string EventHubName = "{Event Hub path/name}";
 
-	        public static void Main(string[] args)
-	        {
-	            MainAsync(args).GetAwaiter().GetResult();
-	        }
-
-	        private static async Task MainAsync(string[] args)
+	        public static async Task Main(string[] args)
 	        {
 	            // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
 	            // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
@@ -191,7 +180,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 	}
 	```
 
-6. Run the program, and ensure that there are no errors.
+5. Run the program, and ensure that there are no errors.
 
 Congratulations! You have now sent messages to an event hub.
 
