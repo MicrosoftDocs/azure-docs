@@ -171,7 +171,7 @@ The following table lists the supported cryptographic algorithms and key strengt
 3. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
 4. QM SA Lifetimes are optional parameters. If none was specified, default values of 27,000 seconds (7.5 hrs) and 102400000 KBytes (102 GB) are used.
 
-### Does everything need to match between the Azure VPN gateway policy and my on-premises VPN device configurations?
+### Does everything need to match between the virtual hub vpngateway policy and my on-premises VPN device configuration?
 
 Your on-premises VPN device configuration must match or contain the following algorithms and parameters, which you specify in the Azure IPsec/IKE policy. The SA lifetimes are local specifications only, and do not need to match.
 
