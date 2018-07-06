@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 07/05/2018
+ms.date: 07/06/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -16,7 +16,6 @@ Customer intent: As someone with a networking background, I want to understand w
 **This article is currently in progress. This is not the final version**
 
 Azure Virtual WAN is a networking service providing optimized and automated branch to branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done either manually, or with preferred partner devices. Using preferred partner devices allows you ease of use, simplification of connectivity, and configuration management. The built-in dashboard provides instant troubleshooting insights that can help save you time, and gives you an easy way to view large-scale site-to-site connectivity.
-
 
 > [!IMPORTANT]
 > Azure Virtual WAN is currently a managed public preview. To use Virtual WAN, you must [Enroll in the Preview](#enroll).
@@ -62,8 +61,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 ## <a name="faq"></a>FAQ
 
-[!INCLUDE [Virtual WAN FAQ](../includes/virtual-wan-faq-include.md)]
-
+[!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
 ### How do I find a preferred vendor?
 
