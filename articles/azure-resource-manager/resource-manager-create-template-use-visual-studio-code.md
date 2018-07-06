@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: jgao
 ---
@@ -28,285 +28,84 @@ To complete this article, you need:
 
 ## Install the extension
 
-1. Open Visaul Studio Code
-2. Press **CTRL+SHIFT+X** or select the extensions icon as shown here:
+1. Open Visual Studio Code.
+2. Press **CTRL+SHIFT+X** or select the extensions icon as shown in the following screenshot:
 
    ![Select extensions](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-extensions-icon.png)
+3. Search for **Azure Resource Manager Tools**, and then select **Install** as shown in the previous screenshot
+4. Select **Reload** to finish the extension installation.
 
-2. Search for **Azure Resource Manager Tools** and select **Install**.
+## Create or open a template
 
-   ![Install extension](./media/resource-manager-vscode-extension/install-extension.png)
+To create a new template file, select **File** > **New File** from Visual Studio Code.
 
-3. To finish the extension installation, select **Reload**.
-1. 
-## Create the template
+In this article, you open an existing template from [Azure Quickstart templates](https://azure.microsoft.com/en-us/resources/templates/). The template is called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/).
 
-This article builds on the template you created in [Create and deploy your first Azure Resource Manager template](resource-manager-create-first-template.md). If you already have that template, you can skip this section.
+1. From Visual Studio Code, select **File**>**Open File**.
+2. In **File name**, paste the following URL:
 
-1. If you need to create the template, start VS Code. Select **File** > **New File**. 
-
-   ![New file](./media/resource-manager-vscode-extension/new-file.png)
-
-2. Copy and paste the following JSON syntax into your file:
-
-   ```json
-   {
-     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {
-       "storageSKU": {
-         "type": "string",
-         "allowedValues": [
-           "Standard_LRS",
-           "Standard_ZRS",
-           "Standard_GRS",
-           "Standard_RAGRS",
-           "Premium_LRS"
-         ],
-         "defaultValue": "Standard_LRS",
-         "metadata": {
-           "description": "The type of replication to use for the storage account."
-         }
-       },   
-       "storageNamePrefix": {
-         "type": "string",
-         "maxLength": 11,
-         "defaultValue": "storage",
-         "metadata": {
-           "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
-         }
-       }
-     },
-     "variables": {
-       "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
-     },
-     "resources": [
-       {
-         "name": "[variables('storageName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "sku": {
-           "name": "[parameters('storageSKU')]"
-         },
-         "kind": "Storage",
-         "location": "[resourceGroup().location]",
-         "tags": {},
-         "properties": {
-           "encryption":{
-             "services":{
-               "blob":{
-                 "enabled":true
-               }
-             },
-             "keySource":"Microsoft.Storage"
-           }
-         }
-       }
-     ],
-     "outputs": {  }
-   }
-   ```
-
-3. Save this file as **azuredeploy.json** to a local folder.
-
-   ![Save template](./media/resource-manager-vscode-extension/save-template.png)
-
-
+    ```
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+    ```
+3. Select **Open** to open the file.
+4. Select **File**>**Save As** to save a copy of the file in your local computer.
 
 ## Edit the template
 
-1. Open your azuredeploy.json file.
+The extension provides the IntelliSense for
 
-2. The extension retrieves all available [template functions](resource-group-template-functions.md). It also reads the parameters and variables that you defined in the template. To see this functionality, you add two values to the output section. In the template, replace the outputs section with:
+- Template Language Expression (TLE) function names
+- Parameter references
+- Variable references
+- resourceGroup() properties
+- subscription() properties
+- Properties of references to variables that are objects
 
-   ```json
-   "outputs": { 
-       "groupLocation": {
-         "type": "string",
-         "value": ""
-       },
-       "storageUri": {
-         "type": "string",
-         "value": ""
-       }
-   }
-   ```
+1. From Visual Studio Code, replace the output section with the following code:
 
-3. Place the cursor inside the quotation marks for value in **groupLocation**. Type the left bracket (`[`). Notice that the extension immediately suggests available template functions.
-
-   ![Show available functions](./media/resource-manager-vscode-extension/available-functions.png)
-
-4. Start typing **resourceGroup**. When the `resourceGroup()` function is displayed, press Tab or Enter.
-
-   ![Select resourceGroup functions](./media/resource-manager-vscode-extension/show-resourcegroup.png)
-
-5. The extension fills in the function syntax. The [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function does not accept parameters. Add a period after the right parenthesis. The extension provides the properties that are available for the object returned by the `resourceGroup()` function. Select `location`.
-
-   ![Select properties](./media/resource-manager-vscode-extension/resourcegroup-properties.png)
-
-6. After **location**, add the closing right bracket.
-
-   ```json
-   "outputs": { 
-       "groupLocation": {
-         "type": "string",
-         "value": "[resourceGroup().location]"
-       },
-       "storageUri": {
-         "type": "string",
-         "value": ""
-       }
-   }
-   ```
-
-7. Now, place the cursor inside the quotation marks for **storageUri**. Again, type the left bracket. Start typing **reference**. When that function is selected, press Tab or Enter.
-
-   ![Select reference](./media/resource-manager-vscode-extension/add-reference.png)
-
-8. The [reference](resource-group-template-functions-resource.md#reference) accepts the resource ID or resource name as a parameter. You already have the name of the storage account in a variable. Type **var** and then select Ctrl+space. The extension suggests the variables function.
-
-   ![Select variable](./media/resource-manager-vscode-extension/add-variable.png)
-
-   Press Tab or Enter.
-
-9. The [variables](resource-group-template-functions-deployment.md#variables) function requires the name of the variable. Inside the parentheses, add a single quotation mark. The extension provides the names of variables you defined in the template.
-
-   ![Show variables](./media/resource-manager-vscode-extension/show-variables.png) 
-
-10. Select the **storageName** variable. Your code now looks like:
-
-   ```json
-   "storageUri": {
-      "type": "string",
-      "value": "[reference(variables('storageName'))"
-   }
-   ```
-   
-11. The preceding code won't work because `reference` returns an object, but your output value is set to *string*. You need to specify one of the values on that object. The reference function can be used with any resource type, so VS Code doesn't suggest properties for the object. Instead, you can find that one value [returned for a storage account](/rest/api/storagerp/storageaccounts/getproperties) is `.primaryEndpoints.blob`. 
-
-   Add that property after the last parenthesis. Add the right bracket. The following example shows the outputs section:
-
-   ```json
-   "outputs": { 
-       "groupLocation": {
-         "type": "string",
-         "value": "[resourceGroup().location]"
-       },
-       "storageUri": {
-         "type": "string",
-         "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
-       }
-   }
-   ```
-
-The final template is:
-
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageSKU": {
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_ZRS",
-        "Standard_GRS",
-        "Standard_RAGRS",
-        "Premium_LRS"
-      ],
-      "defaultValue": "Standard_LRS",
-      "metadata": {
-        "description": "The type of replication to use for the storage account."
-      }
-    },   
-    "storageNamePrefix": {
-      "type": "string",
-      "maxLength": 11,
-      "defaultValue": "storage",
-      "metadata": {
-        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
-      }
-    }
-  },
-  "variables": {
-    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "name": "[variables('storageName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-01-01",
-      "sku": {
-        "name": "[parameters('storageSKU')]"
+    ```json
+    "outputs": { 
+      "groupLocation": {
+        "type": "string",
+        "value": "[resourceGroup().location]"
       },
-      "kind": "Storage",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "properties": {
-        "encryption":{
-          "services":{
-            "blob":{
-              "enabled":true
-            }
-          },
-          "keySource":"Microsoft.Storage"
-        }
+      "storageUri": {
+        "type": "string",
+        "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
       }
     }
-  ],
-  "outputs": { 
-    "groupLocation": {
-      "type": "string",
-      "value": "[resourceGroup().location]"
-    },
-    "storageUri": {
-      "type": "string",
-      "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
-    }
-  }
-}
-```
+    ```
+2. Retype the value in **groupLocation**, and see how the IntelliSense reacts to your input:
 
-## Deploy template
+    a. After you enter `[`, the IntelliSense lists the available template functions:
 
-You're ready to deploy this template. You use either PowerShell or Azure CLI to create a resource group. Then, you deploy a storage account to that resource group.
+      ![Show Visual Studio Code Resource Manager extension available functions](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-resource-manager-extension-available-functions.png)
+    b. Start typing **resourceGroup**. When the `resourceGroup()` function is displayed, press **[Tab]** or **[Enter]**.
 
-* For PowerShell, use the following commands from the folder containing the template:
+      ![Visual Studio Code Resource Manager extension select resourceGroup functions](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-resource-manager-extension-show-resourcegroup.png)
 
-   ```powershell
-   Connect-AzureRmAccount
-   
-   New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
-   New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json
-   ```
+    c. Add a period after the right parenthesis. The extension provides the properties that are available for the object returned by the `resourceGroup()` function. Select `location`.
 
-* For a local installation of Azure CLI, use the following commands from the folder containing the template:
+      ![Visual Studio Code Resource Manager extensionSelect properties](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-resource-manager-extension-resourcegroup-properties.png)
 
-   ```azurecli
-   az login
+3. Retype the value in **storageUri**, and see how the IntelliSense reacts to your input:
 
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file azuredeploy.json
-   ```
+    a. Start typing **[reference**. When that function is selected, press **[Tab]** or **[Enter]**.
 
-When deployment finishes, the output values are returned.
+      ![Visual Studio Code Resource Manager extensionSelect reference](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-resource-manager-extension-add-reference.png)
 
-## Clean up resources
+    b. After you type a single quotation mark inside **variables()**, the extension provides the names of variables you defined in the template.
 
-When no longer needed, clean up the resources you deployed by deleting the resource group.
+      ![Visual Studio Code Resource Manager extensionShow variables](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-resource-manager-extension-show-variables.png) 
 
-For PowerShell, use:
+    The preceding code won't work because `reference` returns an object, but your output value is set to *string*. You need to specify one of the values on that object. The reference function can be used with any resource type, so VS Code doesn't suggest properties for the object. Instead, you can find that one value [returned for a storage account](/rest/api/storagerp/storageaccounts/getproperties) is `.primaryEndpoints.blob`. 
 
-```powershell
-Remove-AzureRmResourceGroup -Name examplegroup
-```
+4. Verify the output section is identical to the code sample shown under step 1 in this procedure.
 
-For Azure CLI, use:
+To deploy the template, see:
 
-```azurecli
-az group delete --name examplegroup
-```
+- [Deploy resources with Resource Manager templates and Azure PowerShell](./resource-group-template-deploy.md).
+- [Deploy resources with Resource Manager templates and Azure CLI](./resource-group-template-deploy-cli.md).
 
 ## Next steps
 * To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
