@@ -14,14 +14,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/04/2018
+ms.date: 7/6/2018
 ms.author: markgal;anuragm
 ms.custom: 
 
 ---
 # Back up SQL Server database in Azure
 
-SQL Server databases are critical workloads requiring low Recovery Point Objective (RPO) and long-term retention. Azure Backup provides a SQL Serverbackup solution that requires zero infrastructure, which means no complex backup server, no management agent, or backup storage to manage. Azure Backup provides centralized management for your backups across all SQL servers, or even different workloads.
+SQL Server databases are critical workloads requiring low Recovery Point Objective (RPO) and long-term retention. Azure Backup provides a SQL Server backup solution that requires zero infrastructure, which means no complex backup server, no management agent, or backup storage to manage. Azure Backup provides centralized management for your backups across all SQL servers, or even different workloads.
 
  In this article you learn:
 
@@ -74,7 +74,7 @@ The following items are the known limitations for the Public Preview.
 
 ## Supported operating systems and versions of SQL server
 
-The following supported operating systems and versions of SQL Server apply to SQL marketplace Azure virtual machines, and non-marketplace virtual machines (where SQL Server is manually installed).
+The following operating systems are supported. SQL-marketplace Azure virtual machines and non-marketplace virtual machines (where SQL Server is manually installed), are supported.
 
 ### Supported operating systems
 
@@ -127,7 +127,7 @@ The tradeoffs between the choices are: manageability, granular control, and cost
 
 ## Set permissions for non-marketplace SQL VMs
 
-To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension be installed. If you are using Azure marketplace virtual machines, skip ahead to [Discover SQL server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine hosting your SQL databases was not created from the Azure marketplace, complete the following section to install the extension and set appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. While discovering databases on the virtual machine, Azure Backup creates an account, NT Service\AzureWLBackupPluginSvc. For Azure Backup to discover SQL databases, the NT Service\AzureWLBackupPluginSvc account must have SQL log in and SQL sysadmin permissions. The following procedure explains how to provide these permissions.
+To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension be installed. If you are using Azure marketplace virtual machines, skip ahead to [Discover SQL server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine hosting your SQL databases was not created from the Azure marketplace, complete the following section to install the extension and set appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. While discovering databases on the virtual machine, Azure Backup creates an account, NT Service\AzureWLBackupPluginSvc. For Azure Backup to discover SQL databases, the NT Service\AzureWLBackupPluginSvc account must have SQL and SQL sysadmin permissions. The following procedure explains how to provide these permissions.
 
 To configure permissions:
 
@@ -164,13 +164,13 @@ Once you associate the database with the Recovery Services vault, the next step 
 
 ### Fixing SQL sysadmin permissions
 
-During the installation process, if you see the error, **UserErrorSQLNoSysadminMembership**, sign into SQL Server Management Studio (SSMS) with an account that has SQL sysadmin permission. Unless you require special permissions, you should be able to use Windows authentication to recognize the account.
+During the installation process, if you see the error, **UserErrorSQLNoSysadminMembership**, use an account with SQL sysadmin permissions to sign in to SQL Server Management Studio (SSMS). Unless you need special permissions, Windows authentication should work.
 
 1. On the SQL Server, open the **Security/Logins** folder.
 
     ![Open the SQL Server and security and login folders to see accounts](./media/backup-azure-sql-database/security-login-list.png)
 
-2. On the Logins folder, right click and select **New Login**, and in the Login - New dialog, click **Search**
+2. On the Logins folder, right-click and select **New Login**, and in the Login - New dialog, click **Search**
 
     ![Open Search in the Login - New dialog](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -186,7 +186,7 @@ During the installation process, if you see the error, **UserErrorSQLNoSysadminM
 
     The required permissions should now exist.
 
-6. Though you fixed the permissions error, you still need to associate the database with the Recovery Services vault. In the Azure portal **Protected Servers** list, right click the server in error, and select **Rediscover DBs**.
+6. Though you fixed the permissions error, you still need to associate the database with the Recovery Services vault. In the Azure portal **Protected Servers** list, right-click the server in error, and select **Rediscover DBs**.
 
     ![Verify the server has the appropriate permissions](./media/backup-azure-sql-database/check-erroneous-server.png)
 
@@ -331,7 +331,7 @@ To configure protection for your SQL database:
 
 A backup policy defines a matrix of when the backups are taken, and how long the backups are retained. You can use Azure Backup to schedule three types of backup for SQL databases:
 
-* Full backup - A full database backup backs up the entire database. A full backup contains all the data in a specific database or set of filegroups or files, and enough log to recover that data. At most, you can trigger one full backup per day. You can choose to take a full backup on a daily or weekly interval. 
+* Full backup - A full database backup backs up the entire database. A full backup contains all data in a specific database, or set of filegroups or files, and enough log to recover that data. At most, you can trigger one full backup per day. You can choose to take a full backup on a daily or weekly interval. 
 * Differential backup - A differential backup is based on the most recent, previous full data backup. A differential backup captures only the data that has changed since the full backup. At most, you can trigger one differential backup per day. You cannot configure a full backup and a differential backup on the same day.
 * Transaction log backup - a log backup enables point-in-time restoration up to a specific second. At most, you can configure transactional log backups every 15 minutes.
 
