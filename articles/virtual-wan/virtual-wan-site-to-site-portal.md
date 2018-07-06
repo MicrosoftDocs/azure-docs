@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 07/05/2018
+ms.date: 07/06/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a preferred provider.
 ---
@@ -59,7 +59,7 @@ If you do not already have a VNet, you can quickly create one using PowerShell. 
 * Be sure to verify that the address space for the VNet that you create does not overlap with any of the address ranges for other VNets that you want to connect to, or with your on-premises network address spaces. 
 * If you already have a VNet, verify that it meets the required criteria and does not have a virtual network gateway.
 
-You can easily create your VNet by clicking "TryIt" to open a PowerShell console. Adjust the values, then copy and paste into the console window.
+You can easily create your VNet by clicking "Try It" in this article to open a PowerShell console. Adjust the values, then copy and paste the commands into the console window.
 
 ### Create a resource group
 
