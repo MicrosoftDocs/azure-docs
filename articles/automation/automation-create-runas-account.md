@@ -283,6 +283,8 @@ In the Azure portal, select **Subscriptions** and choose the subscription of you
 
 To add the service principal to a resource group, select the resource group in the Azure portal and select **Access control (IAM)**. Select **Add**, this opens the **Add permissions** page. For **Role**, select **Contributor**. In the **Select** text box type in the name of the service principal for your Run As account, and select it from the list. Click **Save** to save the changes. Do this for the resources groups you want to give your Azure Automation Run As service principal access to.
 
+If you try to [update your Azure Powershell modules](automation-update-azure-modules.md) in your Automation Account to the latest versions it will fail with an authorization error. To get around this you must temporarily add back the service principal to the subscription.
+
 ## Next steps
 * For more information about Service Principals, see [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
 * For more information about certificates and Azure services, see [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
