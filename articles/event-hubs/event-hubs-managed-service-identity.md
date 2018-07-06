@@ -58,7 +58,8 @@ The managed service identity for the web application now has access to the Event
 
 Now modify the default page of the ASP.NET application you created. You can also use the web application code from [this GitHub repository](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp). 
 
->[!NOTE] While the MSI feature is in preview, be sure to use the [preview version of the Service Bus library](https://www.nuget.org/packages/WindowsAzure.ServiceBus/4.2.2-preview) in order to access the new APIs. 
+>[!NOTE] 
+> While the MSI feature is in preview, be sure to use the [preview version of the Service Bus library](https://www.nuget.org/packages/WindowsAzure.ServiceBus/4.2.2-preview) in order to access the new APIs. 
 
 Once you start the app, point your browser to EventHubsMSIDemo.aspx. Alternatively, set it as your start page. The code can be found in the EventHubsMSIDemo.aspx.cs file. The result is a minimal web application with a few entry fields, and with **send** and **receive** buttons that connect to Event Hubs to either send or receive events. 
 
