@@ -75,7 +75,7 @@ See the [Pricing page](https://go.microsoft.com/fwlink/?linkid=2004628) for deta
 
 ### How do I find a preferred vendor?
 
-See [this link](aka.ms/virtualwan) to find a preferred vendor.
+See [this link](https://aka.ms/virtualwan) to find a preferred vendor.
 
 ## Next steps
 

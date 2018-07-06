@@ -205,7 +205,7 @@ If you need instructions to configure your device, you can use the instructions 
 
 ## <a name="connectmon"></a>10. Monitor a connection
 
-Create a connection to monitor communication between an Azure VM and a remote site. For information about how to set up a connection monitor, see [Monitor network communication](./network-watcher/connection-monitor.md). The source field is the VM IP in Azure, and the destination IP is the Site IP.
+Create a connection to monitor communication between an Azure VM and a remote site. For information about how to set up a connection monitor, see [Monitor network communication](../network-watcher/connection-monitor.md). The source field is the VM IP in Azure, and the destination IP is the Site IP.
 
 ## <a name="cleanup"></a>11. Clean up resources
 
