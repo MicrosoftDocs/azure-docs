@@ -71,8 +71,6 @@
       href: luis-tutorial-review-endpoint-utterances.md
     - name: With patterns
       href: luis-tutorial-pattern.md
-    - name: With a phrase list
-      href: luis-tutorial-interchangeable-phrase-list.md
 - name: Samples
   items:
   - name: Code samples
