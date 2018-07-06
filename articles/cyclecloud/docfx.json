@@ -28,6 +28,9 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
+  "searchScope": [
+    "Azure CycleCloud"
+  ],
       "breadcrumb_path": "/cycle_docs_v1/breadcrumb/toc.json",
       "extendBreadcrumb": true
     },
