@@ -20,7 +20,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/azure/devops-project/_img/azure-devops-project-aspnetcore/fullbrowser.png
+      src: _img\video-devops-project.png
       width: 250  
     title: Create CI/CD with the Azure DevOps Project Video (8:53)
     href: <iframe src="https://channel9.msdn.com/Events/Connect/2017/T174/player/" width="340" height="190" allowFullScreen frameBorder="0"></iframe>
