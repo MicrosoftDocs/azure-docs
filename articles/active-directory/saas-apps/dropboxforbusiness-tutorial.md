@@ -155,7 +155,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     a. Click **Required**.
    
-    b. In the the **Sign-in URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from the Azure portal.
+    b. In the **Sign-in URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from the Azure portal.
 
     c. Click **Choose certificate**, and then browse to your **Base64 encoded certificate file**.
 

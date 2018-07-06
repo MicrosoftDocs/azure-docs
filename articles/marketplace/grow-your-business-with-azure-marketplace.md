@@ -21,12 +21,10 @@ ms.author: ellacroi
 # Grow your business on marketplace 
 After you have published your offer on AppSource or Azure Marketplace, you can use your listing as a launchpad for joint go-to-market (GTM) activities with Microsoft. Driving traffic to your marketplace offer and nurturing marketplace leads, for example, are great ways to accelerate your business growth. In this article, we will share many marketing best practices to grow your business on marketplace.
 
-### App listing best practices
+## App listing best practices
 
 The following tables provide suggestions on creating an engaging marketplace offer. You will use the [Cloud Partner Portal](https://cloudpartner.azure.com/#insights) to write and configure these marketing materials. 
 
->[!NOTE] 
->Before getting started, ensure that your lead configuration is enabled. See [enabling lead destination section](#enable-lead-sharing) below.
 
 ### Offer identity
 
@@ -53,7 +51,7 @@ The following tables provide suggestions on creating an engaging marketplace off
 | Videos: AppSource, consulting services, and SaaS offers only | The strongest videos communicate the value of your offer in narrative form. Make the customer the hero of the story, not your company. Your video should speak to the principal challenges and goals of your target customer.<br /> <br />Recommended length: 60-90 seconds.<br /> <br />Incorporate key search words in the name of the videos.<br /> <br />Consider adding additional videos, such as a how-to, getting started video, or customer testimonial video. |
 | Screenshots (1280x720) | Add up to five screenshots; incorporate key search words in the names. |
 
-# Marketing Best Practices 
+## Marketing Best Practices 
 
 To help you maximize the benefit of listing on marketplace, we collected the following best practices for marketing your offers on AppSource and Azure Marketplace. First, be sure to review the marketing best practices and resources on The Microsoft Partner Network (MPN). This is your gateway for all marketing and programmatic resources related to partnering with Microsoft.<br /> <br />In addition, the quality of your marketplace offer and your commitment to customer-centric demand generation help drive growth for your business. Engaging in these activities helps Microsoft amplify your go-to-market work and feature key solutions across the storefronts on the marketplace.<br /> <br />Once you’ve created a great listing, the following marketing initiatives will help you grow your business:
 

@@ -4,13 +4,11 @@
 ### Overview and Benefits  
 ### Storefronts  
 #### [Comparing AppSource and Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
-#### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
 
 ### How to Publish in the storefronts on the marketplace  
 #### [Determine the Listing Type for Your Solution](./determine-your-listing-type.md)  
 #### [Become a Publisher in the storefronts on the marketplace](./become-publisher.md)  
 #### [Requirements by Listing Type](./listing-type-requirements.md) 
-#### [Preferred Solutions](./preferred-solutions.md) 
 
 ### Publishing Checklists  
 #### [Publishing Checklist for AppSource](./publishing-checklist-appsource.md)  
@@ -29,6 +27,9 @@
 #### [Add Bank and Tax Information](./add-bank-tax-info.md)  
 #### [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md)  
 #### [Billing Options for Azure Marketplace](./billing-options-azure-marketplace.md)  
+
+### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
+#### [Preferred Solutions](./preferred-solutions.md) 
 
 ## [Cloud Partner Portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 

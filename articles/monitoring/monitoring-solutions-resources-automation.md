@@ -174,7 +174,7 @@ The properties for Credential resources are described in the following table.
 
 
 ## Schedules
-[Azure Automation schedules](../automation/automation-schedules.md) have a type of **Microsoft.Automation/automationAccounts/schedules** and have the the following structure. This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
+[Azure Automation schedules](../automation/automation-schedules.md) have a type of **Microsoft.Automation/automationAccounts/schedules** and have the following structure. This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').Name)]",
@@ -212,7 +212,7 @@ Use one of the following two strategies when using schedule resources in a solut
 
 
 ### Job schedules
-Job schedule resources link a runbook with a schedule.  They have a type of **Microsoft.Automation/automationAccounts/jobSchedules** and have the the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
+Job schedule resources link a runbook with a schedule.  They have a type of **Microsoft.Automation/automationAccounts/jobSchedules** and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').LinkGuid)]",
