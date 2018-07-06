@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 07/06/2018
 ms.author: jeedes
 
 ---
@@ -189,21 +189,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
 **To test the application, perform the following steps:** 
 
-a. By clicking **JoinNow**, download the windows SecureW2 JoinNow Connector exe file from [here](https://cloud.securew2.com/public/98408/azureintergration/).
+a. Open the SecureW2 JoinNow Connector client, select your appropriate device from the list and click on **Sign In** button.
 
-![The SecureW2 JoinNow Connector join](./media/securejoinnow-tutorial/tutorial_securejoinnow_joinnow.png) 
+b. The default browser should open and you should be re-directed to the Azure portal for authentication.
 
-b. Install the downloaded exe file and click **Next**.
-
-![The SecureW2 JoinNow Connector next](./media/securejoinnow-tutorial/tutorial_securejoinnow_next.png)
- 
-c. The default browser should open and you should be redirected to the Azure portal for the sign-in.
-
-d. On successful authentication, it should open the application again and would proceed further on issuing a certificate and would try to do a WiFi authentication.
+c. On successful authentication, it should return back to the initial landing page of SecureW2 JoinNow Connector.
 
 ## Additional resources
 
