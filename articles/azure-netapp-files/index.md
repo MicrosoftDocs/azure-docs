@@ -69,7 +69,7 @@ Learn how to use Azure NetApp Files to create and manage NetApp accounts, capaci
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Azure NetApp Files using Azure Portal</h3>
+                        <h3>Get Started with Azure NetApp Files using Azure portal</h3>
                     </div>
                 </div>
             </div>
