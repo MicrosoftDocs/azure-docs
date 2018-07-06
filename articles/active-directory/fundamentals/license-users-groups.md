@@ -27,10 +27,10 @@ Although obtaining a subscription is all you need to configure paid capabilities
 You can use [group-based license assignment](active-directory-licensing-whatis-azure-portal.md) to set up rules such as the following:
 * All users in your directory automatically get a license
 * Everyone with the appropriate job title gets a license
-* You can delegate the decision to other managers in the organization (by using [self-service groups](../active-directory-accessmanagement-self-service-group-management.md))
+* You can delegate the decision to other managers in the organization (by using [self-service groups](../users-groups-roles/groups-self-service-management.md))
 
 > [!TIP]
-> For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, see [Assign licenses to users by group membership in Azure Active Directory](../active-directory-licensing-group-assignment-azure-portal.md).
+> For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, see [Assign licenses to users by group membership in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
 ## Assign licenses to users and groups
 Using an active subscription, you should first assign a license to yourself and refresh your browser to ensure that you see all of the expected features included with your subscription. The next step is to assign licenses to the users who need access to paid Azure AD features. An easy way to assign licenses is to assign licenses to groups of users rather than to individuals. When you assign licenses to a group, all group members are assigned a license. If users are added or removed from the group, the appropriate license is automatically assigned or removed. 

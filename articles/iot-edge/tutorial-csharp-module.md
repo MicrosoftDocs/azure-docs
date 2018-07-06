@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 * The primary key connection string for the IoT Edge device.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) for Visual Studio Code.
+* [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code. 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/) on your development machine. 

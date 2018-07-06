@@ -116,4 +116,3 @@ Become a publisher in a storefront in the Marketplace in three easy steps:
 *   [Add bank and tax information](./add-bank-tax-info.md) 
 *   [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md)
 *   [Billing Options for Azure Marketplace](./billing-options-azure-Marketplace.md) 
-

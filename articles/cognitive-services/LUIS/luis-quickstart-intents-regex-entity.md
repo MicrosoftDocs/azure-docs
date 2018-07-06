@@ -250,7 +250,7 @@ Your chatbot now has enough information to determine the primary action, `FindFo
 LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the form numbers and search a third-party API. LUIS doesn't do that work. LUIS only determines what the user's intention is and extracts data about that intention. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. Select **My apps** from the top left menu. Select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS app. Select **My apps** from the top left menu. Select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 

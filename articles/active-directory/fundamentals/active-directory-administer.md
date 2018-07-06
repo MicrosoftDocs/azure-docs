@@ -114,4 +114,4 @@ The following conditions are checked:
 * [Azure Multi-Factor Authentication Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
 * [StackOverflow for Azure questions](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
-* [Assigning administrator roles in Azure AD](../active-directory-assign-admin-roles-azure-portal.md)
+* [Assigning administrator roles in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

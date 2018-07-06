@@ -65,8 +65,10 @@
       href: luis-quickstart-intent-and-key-phrase.md
     - name: 8. Add sentiment analysis
       href: luis-quickstart-intent-and-sentiment-analysis.md
-  - name: Improve prediction 
+  - name: Improve app 
     items: 
+    - name: Review endpoint utterances
+      href: luis-tutorial-review-endpoint-utterances.md
     - name: With patterns
       href: luis-tutorial-pattern.md
     - name: With a phrase list
@@ -200,7 +202,7 @@
     - name: Use prebuilt domains
       href: luis-how-to-use-prebuilt-domains.md
     - name: Use the Cortana prebuilt app
-      href: Cortana-Prebuilt-App.md
+      href: luis-how-to-cortana-prebuilt-app.md
   - name: Manage your LUIS app
     items: 
     - name: Using the dashboard
@@ -313,6 +315,8 @@
     href: https://github.com/Microsoft/Recognizers-Text
 - name: Resources
   items: 
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://aka.ms/luis-roadmap
   - name: Glossary
@@ -326,7 +330,7 @@
   - name: UserVoice
     href: https://aka.ms/luis-uservoice-forum
   - name: Search
-    href: https://docs.microsoft.com/en-us/search/index?search=LUIS
+    href: https://docs.microsoft.com/search/index?search=LUIS
   - name: Blog
     href: https://blog.botframework.com/category/luis/
   - name: Knowledge Base
