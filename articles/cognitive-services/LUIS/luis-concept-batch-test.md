@@ -29,6 +29,10 @@ Submit a batch file of utterances, known as a *dataset*, for batch testing. The 
 
 *Duplicates are considered exact string matches, not matches that are tokenized first. 
 
+## Entities allowed in batch tests
+Entities include simple, hierarchical parents, and composite. All entities of these types appear in the batch test entities filter even if there are no corresponding entities in the batch file.
+
+
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
 ## Batch file format
