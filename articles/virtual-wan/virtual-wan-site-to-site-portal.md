@@ -185,7 +185,7 @@ When you view this file, notice the following information:
 > If you are working with a Virtual WAN partner solution, VPN device configuration automatically happens where the device controller obtains the configuration file from Azure and applies to the device to set up connection to Azure. This means you don't need to know how to manually configure your VPN device.
 >
 
-If you need instructions to configure your device, you can use the instructions on the [VPN device configuration scripts page](../vpn-gateway/vpn-gateway-about-vpn-devices.md#configscripts) with the following caveats:
+If you need instructions to configure your device, you can use the instructions on the [VPN device configuration scripts page](~/articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#configscripts) with the following caveats:
 
 * The instructions on the VPN devices page are not written for Virtual WAN, but you can use the Virtual WAN values from the configuration file to manually configure your VPN device. 
 * The downloadable device configuration scripts that are for VPN Gateway do not work for Virtual WAN, as the configuration is different.
@@ -205,7 +205,7 @@ If you need instructions to configure your device, you can use the instructions 
 
 ## <a name="connectmon"></a>10. Monitor a connection
 
-Create a connection to monitor communication between an Azure VM and a remote site. For information about how to set up a connection monitor, see [Monitor network communication](../network-watcher/connection-monitor.md). The source field is the VM IP in Azure, and the destination IP is the Site IP.
+Create a connection to monitor communication between an Azure VM and a remote site. For information about how to set up a connection monitor, see [Monitor network communication](~/articles/network-watcher/connection-monitor.md). The source field is the VM IP in Azure, and the destination IP is the Site IP.
 
 ## <a name="cleanup"></a>11. Clean up resources
 
