@@ -7,7 +7,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 07/06/2018
 ms.author: v-geberr
 ---
 
@@ -44,6 +44,7 @@ Common errors include:
 
 > * More than 1,000 utterances
 > * An utterance JSON object that doesn't have an entities property
+> * Word(s) labeled in multiple entities
 
 ## Batch test state
 LUIS tracks the state of each dataset's last test. This includes the size (number of utterances in the batch), last run date, and last result (number of successfully predicted utterances).
