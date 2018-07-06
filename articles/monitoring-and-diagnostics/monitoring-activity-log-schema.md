@@ -10,7 +10,7 @@ ms.author: dukek
 ms.component: activitylog
 ---
 # Azure Activity Log event schema
-The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data.
+The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data. The schema of the data differs depending on if you are reading the data in the Azure Portal, PowerShell, CLI, or directly via the REST API versus [streaming the data to storage or Event Hubs using a Log Profile](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). The examples below show the schema as made available via the portal, PowerShell, CLI, and REST API. A mapping of those properties to the [Azure diagnostic logs schema](./monitoring-diagnostic-logs-schema.md) is provided at the end of the article.
 
 ## Administrative
 This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
@@ -554,6 +554,30 @@ This category contains the record of any new recommendations that are generated 
 | properties.recommendationImpact| Impact of the recommendation. Possible values are "High", "Medium", "Low" |
 | properties.recommendationRisk| Risk of the recommendation. Possible values are "Error", "Warning", "None" |
 
+## Mapping to diagnostic logs schema
+
+When streaming the Azure Activity Log to a storage account or Event Hubs namespace, the data follows the [Azure diagnostic logs schema](./monitoring-diagnostic-logs-schema.md). Here is the mapping of properties from the schema above to the diagnostic logs schema:
+
+| Diagnostic logs schema property | Activity Log REST API schema property | Notes |
+| --- | --- | --- |
+| time | eventTimestamp |  |
+| resourceId | resourceId | subscriptionId, resourceType, resourceGroupName are all inferred from the resourceId. |
+| operationName | operationName.value |  |
+| category | Part of operation name | Breakout of the operation type - "Write"/"Delete"/"Action" |
+| resultType | status.value | |
+| resultSignature | substatus.value | |
+| resultDescription | description |  |
+| durationMs | N/A | Always 0 |
+| callerIpAddress | httpRequest.clientIpAddress |  |
+| correlationId | correlationId |  |
+| identity | claims and authorization properties |  |
+| Level | Level |  |
+| location | N/A | Location of where the event was processed. *This is not the location of the resource, but rather where the event was processed. This property will be removed in a future update.* |
+| Properties | properties.eventProperties |  |
+| properties.eventCategory | category | If properties.eventCategory is not present, category is "Administrative" |
+| properties.eventName | eventName |  |
+| properties.operationId | operationId |  |
+| properties.eventProperties | properties |  |
 
 
 ## Next steps
