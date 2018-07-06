@@ -72,7 +72,7 @@ To deploy from Maven, add the following plugin definition inside the `<build>` e
       <plugin>
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-webapp-maven-plugin</artifactId> 
-        <version>1.1.0</version>
+        <version>1.2.0</version>
         <configuration> 
           <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
           <appName>YOUR_WEB_APP</appName> 
@@ -102,7 +102,46 @@ Update the following placeholders in the plugin configuration:
 | `YOUR_RESOURCE_GROUP` | Name for the new resource group in which to create your web app. By putting all the resources for an app in a group, you can manage them together. For example, deleting the resource group would delete all resources associated with the app. Update this value with a unique new resource group name, for example, *TestResources*. You will use this resource group name to clean up all Azure resources in a later section. |
 | `YOUR_WEB_APP` | The app name will be part the host name for the web app when deployed to Azure (YOUR_WEB_APP.azurewebsites.net). Update this value with a unique name for the new Azure web app, which will host your Java app, for example *contoso*. |
 
-The `linuxRuntime` element of the configuration controls what built-in Linux image is used with your application.
+The `linuxRuntime` element of the configuration controls what built-in Linux image is used with your application. All supported runtime stacks can be found at [this link](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin#runtime-stacks). 
+
+If you are building a JAR web applications, you can also add the following plugin definition inside the `<build>` element of the *pom.xml* file:
+
+```xml
+    <plugins>
+      <plugin>
+        <groupId>com.microsoft.azure</groupId> 
+        <artifactId>azure-webapp-maven-plugin</artifactId> 
+        <version>1.2.0</version>
+        <configuration> 
+          <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
+          <appName>YOUR_WEB_APP</appName> 
+          <linuxRuntime>jre8</linuxRuntime>   
+          <!-- This is to make sure the jar file can be released at the server side -->
+          <stopAppDuringDeployment>true</stopAppDuringDeployment>
+          <deploymentType>ftp</deploymentType> 
+          <resources> 
+              <resource> 
+                  <directory>${project.basedir}/target</directory> 
+                  <targetPath>webapps</targetPath> 
+                  <includes> 
+                      <include>*.war</include> 
+                  </includes> 
+                  <excludes> 
+                      <exclude>*.xml</exclude> 
+                  </excludes> 
+              </resource> 
+          </resources> 
+          <!-- Application Settings of your Web App -->
+          <appSettings>
+              <property>
+                  <name>JAVA_OPTS</name>
+                  <value>-Djava.security.egd=file:/dev/./urandom</value>
+              </property>
+          </appSettings>
+        </configuration>
+      </plugin>
+    </plugins>
+```    
 
 Execute the following command and follow all directions to authenticate with the Azure CLI:
 
