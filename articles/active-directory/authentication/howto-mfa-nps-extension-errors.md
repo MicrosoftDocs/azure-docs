@@ -94,7 +94,7 @@ If you encounter one of these errors, we recommend that you [contact support](#c
 
 ### Troubleshoot user accounts
 
-If your users are [Having trouble with two-step verification](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md), help them self-diagnose problems. 
+If your users are [Having trouble with two-step verification](end-user/current/multi-factor-authentication-end-user-troubleshoot.md), help them self-diagnose problems. 
 
 ### Contact Microsoft support
 

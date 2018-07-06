@@ -140,4 +140,4 @@ The Time Series Insights explorer is a web app that helps you create visualizati
 
 ## Next Steps
 
-To learn about how to explore and query data in the Time Series Insights explorer, see [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-dashboard.png).
+To learn about how to explore and query data in the Time Series Insights explorer, see [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).

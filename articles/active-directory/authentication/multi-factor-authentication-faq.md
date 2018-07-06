@@ -115,7 +115,7 @@ Azure Active Directory is required for the license model because licenses are ad
 
 Hopefully all your users configured more than one verification method. Tell them to try signing in again, but select a different verification method on the sign-in page.
 
-You can point your users to the [End-user troubleshooting guide](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+You can point your users to the [End-user troubleshooting guide](end-user/current/multi-factor-authentication-end-user-troubleshoot.md).
 
 
 **Q: What should I do if one of my users can't get in to their account?**

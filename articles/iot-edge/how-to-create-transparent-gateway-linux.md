@@ -137,7 +137,11 @@ Installing this certificate in the OS certificate store will allow all applicati
  
     You should see a message saying, "Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done."
 
-* Windows - [This](https://msdn.microsoft.com/en-us/library/cc750534.aspx) article details how to do this on a Windows device using the certificate import wizzard. 
+* Windows - Here is an example of how to install a CA certificate on an Windows host.
+  * On the start menu type in "Manage computer certificates". This should bring up a utility called `certlm`.
+  * Navigate to Certificates Local Computer --> Trusted Root Certificates --> Certificates --> Right click --> All Tasks --> Import to launch the certificate import wizard.
+  * Follow the steps as directed and import certificate file $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
+  * When completed, you should see a "Successfully imported" message.
 
 ### Application level
 For .NET applications, you can add the following snippet to trust a certificate in PEM format. Initialize the variable `certPath` with `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.
