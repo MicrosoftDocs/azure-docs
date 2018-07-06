@@ -22,13 +22,13 @@ Creating a NetApp account enables you to set up a capacity pool and subsequently
 ## Before you begin
 You must have been whitelisted for accessing the Microsoft.NetApp Azure Resource Provider and configured for using the Azure NetApp Files service.  
 
-[Azure NetApp Files Public Preview survey page](https://aka.ms/nfspublicpreview). 
+[Azure NetApp Files Public Preview signup page](https://aka.ms/nfspublicpreview). 
 
 ## Steps 
 
 1. Locate the preview Azure portal URL from your preview invitation, and log in to the portal. 
 2.	Access the Azure NetApp Files blade by using one of the following methods:  
-  * Search for **Azure NetApp Files** in the Azure Portal search box.  
+  * Search for **Azure NetApp Files** in the Azure portal search box.  
   * Click **All services** in the navigation, and then filter to Azure NetApp Files.  
 
   You can "favorite" the Azure NetApp Files blade by clicking the star icon next to it. 
