@@ -476,7 +476,7 @@ With migration complete, Contoso wants to move from TFVC to Git for source code 
 
 6. After reviewing the source, the Dev Leads agree that the migration to VSTS is done. VSTS now becomes the source for all development within teams involved in the migration.
 
-    !![Git](./media/contoso-migration-tfs-vsts/git6.png)
+    ![Git](./media/contoso-migration-tfs-vsts/git6.png)
 
 
 
