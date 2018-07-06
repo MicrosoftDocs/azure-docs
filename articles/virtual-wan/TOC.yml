@@ -10,7 +10,7 @@
     href: virtual-wan-site-to-site-portal.md
 - name: How-to guides
   items:
-  - name: For Providers - Configure Virtual WAN
+  - name: Automation - for Providers
     href: virtual-wan-configure-vwan-providers.md
 - name: Reference
   items:
