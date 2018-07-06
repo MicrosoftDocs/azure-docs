@@ -12,7 +12,7 @@
 
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN vpngateway?
 
-Virtual WAN provides large scale Site-to-Site connectivity and is built for throughput, scalability and ease of use. CPE branch devices auto-provision and connect into Azure Virtual WAN and are now available from a growing ecosystem of SD-WAN and VPN partners.
+Virtual WAN provides large-scale Site-to-Site connectivity and is built for throughput, scalability, and ease of use. CPE branch devices auto-provision and connect into Azure Virtual WAN and are now available from a growing ecosystem of SD-WAN and VPN partners.
 
 ### Which device-partners (preferred partners) are supported at launch time? 
 
@@ -44,24 +44,26 @@ Considerations:
 * Up to 100 connections are supported. Each connection is an active-active tunnel terminating in a VPN gateway inside an Azure virtual hub.
 * Consider using this preview if:
   * You want to deploy aggregated bandwidth less than a Gbps
-  * You have a VPN device that supports route based configuration and IKEv2 IPsec connectivity
-  * You want to want to explore using SD-WAN and operating branch devices from the launch partners (Riverbed and Citrix)<br>*or*<br>You want to set up branch-to-branch and branch to Azure (Site-to-Site) connectivity that includes configuration management of your on-premise device.
+  * You have a VPN device that supports route-based configuration and IKEv2 IPsec connectivity
+  * You want to explore using SD-WAN and operating branch devices from the launch partners (Riverbed and Citrix)<br>*or*<br>You want to set up branch-to-branch and branch to Azure (Site-to-Site) connectivity that includes configuration management of your on-premise device.
 
 ### Is Global VNet peering supported with Azure Virtual WAN? 
  No
 
 ### Can I deploy and use my favorite network virtual appliance (in a transit hub) with Azure Virtual WAN?
 
-Yes, you can connect your favorite network virtual appliance transit hub to the Azure Virtual WAN. All spokes connected to the transit hub must should additionally be connected to the Virtual WAN hub.
+Yes, you can connect your favorite network virtual appliance transit hub to the Azure Virtual WAN. All spokes connected to the transit must additionally be connected to the Virtual WAN hub.
 
 ### Is there support for BGP?
-Yes, there is support for BGP. Spokes connected to a transit hub that in turn if connected to a Virtual WAN hub must disable BGP to ensure routes from transit hub are advertised appropriately.
+
+Yes, there is support for BGP. Spokes that are connected to a transit hub that is connected to a Virtual WAN hub, must disable BGP to ensure that routes from the transit hub are advertised appropriately.
 
 ### Can the transit hub have ExpressRoute or VPN Virtual Network Gateway?
 No
 
-### Is there an ability to direct traffic using UDR in the Virtual Hub? 
-Routing functionality will be available by GA of Virtual WAN
+### Is there an ability to direct traffic using UDR in the Virtual Hub?
+
+Routing functionality will be available by GA.
 
 ### Can spoke VNets connected to a Virtual WAN Hub communicate with each other?
 
