@@ -15,7 +15,7 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ---
 
-# Add and run your own custom code snippets in Azure Logic Apps with Azure Functions
+# Add and run custom code snippets in Azure Logic Apps with Azure Functions
 
 When you want to create and run just enough code 
 that addresses a specific problem in your logic apps, 
@@ -90,19 +90,19 @@ that you can add and call from logic apps.
 
 * After you create your function, check these properties. 
 
-  1. In the **Function Apps** list under your function's name, 
-  select **Integrate**. 
+  1. In the **Function Apps** list, expand your function, 
+  and select **Integrate**. 
 
-  2. Check that your template has the **Mode** property 
-  set to **Webhook** and the **Webhook type** property 
-  set to **Generic JSON**. 
+  2. Check that your template's **Mode** property 
+  is set to **Webhook** and that the **Webhook type** 
+  property is set to **Generic JSON**. 
 
-     ![Function's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
+     ![Your function's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
 
-  Webhook functions accept HTTP requests and pass those 
-  requests into your function as a `data` variable. 
+  Webhook functions can accept HTTP requests and pass 
+  those requests into your function as a `data` variable. 
   For example, suppose you have this basic JavaScript 
-  function that converts a DateTime value into a date string:
+  function that converts a DateTime value into a DateString value:
 
   ```javascript
   function start(req, res){
@@ -113,7 +113,7 @@ that you can add and call from logic apps.
   }
   ```
 
-  To access the payload's properties, you can use dot notation, 
+  To access the payload's properties, you can use dot (.) notation, 
   for example: 
 
   `data.function-name` 
@@ -165,6 +165,9 @@ After the functions list opens, select this action:
 
 6. In the **Request Body** box, specify the context object 
 that you'll pass as the input payload to your function. 
+When you click inside the **Request Body** box, 
+the dynamic content list opens so you can select data 
+that's available from previous steps. 
 
    The context object describes the message and content 
    that your logic app sends to your function and must be 
@@ -217,6 +220,9 @@ After the functions list appears, select your function:
 
 5. In the **Request Body** box, specify the context object 
 that you'll pass as the input payload to your function. 
+When you click inside the **Request Body** box, 
+the dynamic content list opens so you can select data 
+that's available from previous steps. 
 
    The context object describes the message and content 
    that your logic app sends to your function and must be 
