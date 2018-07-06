@@ -17,7 +17,7 @@ ms.date: 09/28/2017
 ms.author: daveba
 ---
 
-# Configure a VM Managed Service Identity (MSI) using an Azure SDK
+# Configure a VM-Managed Service Identity (MSI) using an Azure SDK
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
