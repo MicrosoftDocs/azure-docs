@@ -20,7 +20,6 @@ If you don't have a knowledge base yet, you can create a sample one to use for t
 
 1. Create a new Java project in your favorite IDE.
 1. Add the code provided below.
-1. Add the code provided below.
 1. Replace the `key` value with a valid subscription key.
 1. Replace the `kb` value with a valid knowledge base ID. Find this value by going to one of your [QnA Maker knowledge bases](https://www.qnamaker.ai/Home/MyServices). Select the knowledge base you want to update. Once on that page, find the 'kdid=' in the URL as shown below. Use its value for your code sample.
 
@@ -73,9 +72,11 @@ import org.apache.http.impl.client.HttpClients;
 /* NOTE: To compile and run this code:
 1. Save this file as UpdateKB.java.
 1. Run:
-   javac UpdateKB.java -cp .;gson-2.8.1.jar;httpclient-4.5.5.jar;httpcore-4.4.9.jar;commons-logging-1.2.jar -encoding UTF-8
+   javac UpdateKB.java -cp .;gson-2.8.1.jar;httpclient-4.5.5.jar;httpcore-4.4.9.jar;
+commons-logging-1.2.jar -encoding UTF-8
 1. Run:
-   java -cp .;gson-2.8.1.jar;httpclient-4.5.5.jar;httpcore-4.4.9.jar;commons-logging-1.2.jar UpdateKB
+   java -cp .;gson-2.8.1.jar;httpclient-4.5.5.jar;httpcore-4.4.9.jar;commons-logging
+-1.2.jar UpdateKB
 */
 
 public class UpdateKB {
@@ -97,7 +98,9 @@ public class UpdateKB {
     static String method = "/knowledgebases/";
 
     // We'll serialize these classes into JSON for our request to the server.
-    // For the JSON request schema, see: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600
+    // For the JSON request schema, see: 
+    // https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/
+    // operations/5ac266295b4ccd1554da7600
     public static class Request {
         Add add;
         Delete delete;
@@ -191,7 +194,8 @@ public class UpdateKB {
     }
 
    /**
-     * Sends an HTTP PATCH request. We use Apache HttpClient, as HttpsURLConnection does not support PATCH.
+     * Sends an HTTP PATCH request. We use Apache HttpClient, as HttpsURLConnection 
+     * does not support PATCH.
      * @param url The string request
      * @param content The body of the request
      * @return Response Returns a Response object with the headers and body
@@ -199,14 +203,17 @@ public class UpdateKB {
     public static Response Patch (URL url, String content) throws Exception {
         HttpPatch patch = new HttpPatch(url.toString());
         // HttpPatch implements HttpMessage, which includes addHeader.
-        // See: <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPatch.html">HttpPatch</a>
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html">HttpMessage</a>
+        // See: <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/
+        // apache/http/client/methods/HttpPatch.html">HttpPatch</a>
+        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // HttpMessage.html">HttpMessage</a>
         patch.addHeader("Content-Type", "application/json");
         // Note: Adding the Content-Length header causes the exception:
         // "Content-Length header already present."
         patch.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
         // HttpPatch implements HttpEntityEnclosingRequest, which includes setEntity.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html">HttpEntityEnclosingRequest</a>
+        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // HttpEntityEnclosingRequest.html">HttpEntityEnclosingRequest</a>
         HttpEntity entity = new ByteArrayEntity(content.getBytes("UTF-8"));
         patch.setEntity(entity);
 
@@ -214,10 +221,13 @@ public class UpdateKB {
         CloseableHttpResponse response = httpClient.execute(patch);
 
         // CloseableHttpResponse implements HttpMessage, which includes getAllHeaders.
-        // See: <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/CloseableHttpResponse.html">CloseableHttpResponse</a>
+        // See: <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/
+        // client/methods/CloseableHttpResponse.html">CloseableHttpResponse</a>
         // Header implements NameValuePair.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html">Header</a>
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html">NameValuePair</a>
+        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html">
+        // Header</a>
+        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // NameValuePair.html">NameValuePair</a>
         Map<String, List<String>> headers = new HashMap<String, List<String>>();
         for (Header header : response.getAllHeaders()) {
             List<String> list = new ArrayList<String>() {
@@ -229,11 +239,14 @@ public class UpdateKB {
         }
 
         // CloseableHttpResponse implements HttpResponse, which includes getEntity.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html">HttpResponse</a>
+        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // HttpResponse.html">HttpResponse</a>
         // HttpEntity implements getContent, which returns an InputStream.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html">HttpEntity</a>
+        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // HttpEntity.html">HttpEntity</a>
         StringBuilder output = new StringBuilder ();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity()
+                                                                        .getContent(), "UTF-8"));
         String line;
         while ((line = reader.readLine()) != null) {
             output.append(line);
@@ -277,7 +290,8 @@ public class UpdateKB {
         Question q = new Question();
         q.id = 0;
         q.answer = "You can use our REST APIs to manage your Knowledge Base.
-        See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa";
+        See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/"
+        + "58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa";
         q.source = "Custom Editorial";
         q.questions = new String[]{"How do I programmatically update my Knowledge Base?"};
 
@@ -288,7 +302,9 @@ public class UpdateKB {
 
         req.add = new Add ();
         req.add.qnaList = new Question[]{q};
-        req.add.urls = new String[]{"https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"};
+        req.add.urls = new String[]{"https://docs.microsoft.com/en-in/azure/cognitive-services"
+        + "/qnamaker/faqs", "https://docs.microsoft.com/en-us/bot-framework/resources-bot-"
+        + "framework-faq"};
 
         return req;
     }
@@ -308,7 +324,8 @@ public class UpdateKB {
                 Type type = new TypeToken<Map<String, String>>(){}.getType();
                 Map<String, String> fields = new Gson().fromJson(response.Response, type);
                 String state = fields.get ("operationState");
-                // If the request is still running, the server tells us how long to wait before checking the status again.
+                // If the request is still running, the server tells us how long to wait
+                // before checking the status again.
                 if (state.equals("Running") || state.equals("NotStarted")) {
                     String wait = response.Headers.get("Retry-After").get(0);
                     System.out.println("Waiting " + wait + " seconds...");
