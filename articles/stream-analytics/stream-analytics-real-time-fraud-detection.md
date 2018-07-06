@@ -56,8 +56,8 @@ In this procedure, you first create an event hub namespace, and then you add an 
     
 3. Select a subscription and create or choose a resource group, then click **Create**.
 
-   ![Create an event hub namespace](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png)
- 
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="drawing" width="300px"/>
+
 4. When the namespace has finished deploying, find the event hub namespace in your list of Azure resources. 
 
 5. Click the new namespace, and in the namespace pane, click **Event Hub**.
@@ -66,7 +66,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
  
 6. Name the new event hub `asa-eh-frauddetection-demo`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub right now.
 
-   ![Create a new event hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="drawing" width="400px"/>
     
  
 7. Click **Create**.
@@ -84,15 +84,15 @@ Before a process can send data to an event hub, the event hub must have a policy
 
 3.	Add a policy named `sa-policy-manage-demo` and for **Claim**, select **Manage**.
 
-   ![Create a new event hub access policy](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="drawing" width="300px"/>
  
 4.	Click **Create**.
 
 5.	After the policy has been deployed, click it in the list of shared access policies.
 
 6.	Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
-    
-   ![Copying the primary connection string key from the access policy](./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png)
+
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="drawing" width="300px"/>
  
 7.	Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
 
@@ -161,7 +161,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
 
     It's a good idea to place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.
 
-   ![Create new Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png)
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="drawing" width="300px"/>
 
 3. Click **Create**.
 
@@ -183,8 +183,8 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
    |Event Hub namespace  |  asa-eh-ns-demo |  Enter the name of the Event Hub namespace.   |
    |Event Hub name  | asa-eh-frauddetection-demo | Select the name of your Event Hub.   |
    |Event Hub policy name  | asa-policy-manage-demo | Select the access policy that you created earlier.   |
-
-   ![Create new input for Streaming Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png)
+    </br>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="drawing" width="300px"/>
 
 
 4. Click **Create**.
@@ -315,7 +315,7 @@ When you use a join with streaming data, the join must provide some limits on ho
 
 3. Click **Save** to save the self-join query as part of the Streaming Analytics job. (It doesn't save the sample data.)
 
-   ![Save Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png)
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="drawing" width="300px"/>
 
 ## Create an output sink to store transformed data
 
@@ -343,9 +343,8 @@ If you have an existing blob storage account, you can use that. For this tutoria
    |Subscription   |  \<Your subscription\> |  Select the Azure subscription that has the storage account you created. The storage account can be in the same or in a different subscription. This example assumes that you have created storage account in the same subscription. |
    |Storage account  |  asaehstorage |  Enter the name of the storage account you created. |
    |Container  | asa-fraudulentcalls-demo | Choose Create new and enter a container name. |
-
-
-   ![New output pane for Stream Analytics job](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
+    <br/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="drawing" width="300px"/>
     
 5. Click **Save**. 
 
