@@ -5,7 +5,7 @@
  author: jonbeck7
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/09/2018
+ ms.date: 07/06/2018
  ms.author: azcspmt;jonbeck;cynthn
  ms.custom: include file
 ---
@@ -17,7 +17,9 @@ The Ls-series offers up to 32 vCPUs, using the [Intel® Xeon® processor E5 v3 f
 ## Ls-series
 
 ACU: 180-240
+
 Premium Storage:  Supported
+
 Premium Storage Caching:  Not Supported
  
 | Size          | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / MBps | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) | 
