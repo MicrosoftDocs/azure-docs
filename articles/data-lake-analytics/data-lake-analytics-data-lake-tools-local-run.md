@@ -1,5 +1,5 @@
 ---
-title: Run U-SQL script on your local machine | Microsoft Docs
+title: Run Azure Data Lake U-SQL script on your local machine | Microsoft Docs
 description: 'Learn how to use Azure Data Lake Tools for Visual Studio to run U-SQL jobs on your local machine.'
 services: data-lake-analytics
 documentationcenter: ''

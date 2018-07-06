@@ -23,7 +23,11 @@ In this document, you learn how to set up CI/CD pipeline for U-SQL jobs and U-SQ
 
 ## CI/CD for U-SQL job
 
+Azure Data Lake Tools for Visual Studio provides the U-SQL project type that helps you orgnize U-SQL scripts. Using the U-SQL project to manage your U-SQL code makes the further CI/CD scenarios easily.
+
 ## Build U-SQL project
+
+The U-SQL project can be built with MSBuild by passing corresponding parameters. Follow the steps below to set up build process for U-SQL projects.
 
 ### Project migration
 
@@ -37,8 +41,8 @@ Before setting up build task for U-SQL project, make sure to use the latest vers
 
 If not, you have two options to migrate the project:
 
-1. Option 1: Change the old import item to the one above.
-2. Option 2: Open the old project in Azure Data Lake Tools for Visual Studio after version 2.3.3000.0. The old project template will be upgraded automatically to the newest version. The new created project after version 2.3.3000.0 uses the new template directly.
+- Option 1: Change the old import item to the one above.
+- Option 2: Open the old project in Azure Data Lake Tools for Visual Studio after version 2.3.3000.0. The old project template will be upgraded automatically to the newest version. The new created project after version 2.3.3000.0 uses the new template directly.
 
 ### Get NuGet Package
 
@@ -85,9 +89,9 @@ Besides the command line, customers can also use Visual Studio Build or MSBuild 
 
 2.	Set MSBuild Arguments, and you can set the arguments in Visual Studio Build or MSBuild task like below, or you can define variables for these arguments in VSTS build definition.
 
-```
-/p:USQLSDKPath=$(Build.SourcesDirectory)/<your project name>/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.1019-preview/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory)
-```
+    ```
+    /p:USQLSDKPath=$(Build.SourcesDirectory)/<your project name>/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.1019-preview/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory)
+    ```
 
     ![Data Lake Set CI CD MSBuild Variables for U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
@@ -317,7 +321,7 @@ Besides the command line, customers can also use **Visual Studio Build** or **MS
 /p:USQLSDKPath=$(Build.SourcesDirectory)/<your project name>/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.1019-preview/build/runtime
 ```
 
-    ![Data Lake set CI CD MSBuild variables for U-SQL database project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
+![Data Lake set CI CD MSBuild variables for U-SQL database project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
 ### U-SQL database project build output
 
@@ -344,74 +348,74 @@ Follow below steps to set up database deployment task in Visual Studio Team Serv
 
 1. Add a PowerShell Script task in build or release pipeline and execute below PowerShell script. This task helps to get Azure SDK dependencies for `PackageDeploymentTool.exe`. You can set the -outputfolder parameter to load these dependencies to some specific folder. Pass this folder path to `PackageDeploymentTool.exe` in step 2. 
 
-```powershell
-param (
-    [string]$outputfolder = "RequiredDll",
-    [string]$workingfolder = ""
-)
+    ```powershell
+    param (
+        [string]$outputfolder = "RequiredDll",
+        [string]$workingfolder = ""
+    )
 
-if ([string]::IsNullOrEmpty($workingfolder))
-{
-    $scriptpath = $MyInvocation.MyCommand.Path
-    $workingfolder = Split-Path $scriptpath
-}
-cd $workingfolder
+    if ([string]::IsNullOrEmpty($workingfolder))
+    {
+        $scriptpath = $MyInvocation.MyCommand.Path
+        $workingfolder = Split-Path $scriptpath
+    }
+    cd $workingfolder
 
-echo "workingfolder=$workingfolder, outputfolder=$outputfolder"
-echo "Downloading required packages..."
+    echo "workingfolder=$workingfolder, outputfolder=$outputfolder"
+    echo "Downloading required packages..."
 
-iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Analytics/3.2.3-preview -outf Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview.zip
-iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Store/2.3.3-preview -outf Microsoft.Azure.Management.DataLake.Store.2.3.3-preview.zip
-iwr https://www.nuget.org/api/v2/package/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.3 -outf Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3.zip
-iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime/2.3.11 -outf Microsoft.Rest.ClientRuntime.2.3.11.zip
-iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime.Azure/3.3.7 -outf Microsoft.Rest.ClientRuntime.Azure.3.3.7.zip
-iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime.Azure.Authentication/2.3.3 -outf Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3.zip
+    iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Analytics/3.2.3-preview -outf Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview.zip
+    iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Store/2.3.3-preview -outf Microsoft.Azure.Management.DataLake.Store.2.3.3-preview.zip
+    iwr https://www.nuget.org/api/v2/package/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.3 -outf Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3.zip
+    iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime/2.3.11 -outf Microsoft.Rest.ClientRuntime.2.3.11.zip
+    iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime.Azure/3.3.7 -outf Microsoft.Rest.ClientRuntime.Azure.3.3.7.zip
+    iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime.Azure.Authentication/2.3.3 -outf Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3.zip
 
-echo "Extracting packages..."
+    echo "Extracting packages..."
 
-Expand-Archive Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview -Force
-Expand-Archive Microsoft.Azure.Management.DataLake.Store.2.3.3-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Store.2.3.3-preview -Force
-Expand-Archive Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3.zip -DestinationPath Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3 -Force
-Expand-Archive Microsoft.Rest.ClientRuntime.2.3.11.zip -DestinationPath Microsoft.Rest.ClientRuntime.2.3.11 -Force
-Expand-Archive Microsoft.Rest.ClientRuntime.Azure.3.3.7.zip -DestinationPath Microsoft.Rest.ClientRuntime.Azure.3.3.7 -Force
-Expand-Archive Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3.zip -DestinationPath Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3 -Force
+    Expand-Archive Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview -Force
+    Expand-Archive Microsoft.Azure.Management.DataLake.Store.2.3.3-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Store.2.3.3-preview -Force
+    Expand-Archive Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3.zip -DestinationPath Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3 -Force
+    Expand-Archive Microsoft.Rest.ClientRuntime.2.3.11.zip -DestinationPath Microsoft.Rest.ClientRuntime.2.3.11 -Force
+    Expand-Archive Microsoft.Rest.ClientRuntime.Azure.3.3.7.zip -DestinationPath Microsoft.Rest.ClientRuntime.Azure.3.3.7 -Force
+    Expand-Archive Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3.zip -DestinationPath Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3 -Force
 
-echo "Copy required DLLs to output folder..."
+    echo "Copy required DLLs to output folder..."
 
-mkdir $outputfolder -Force
-copy Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview\lib\net452\*.dll $outputfolder
-copy Microsoft.Azure.Management.DataLake.Store.2.3.3-preview\lib\net452\*.dll $outputfolder
-copy Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\*.dll $outputfolder
-copy Microsoft.Rest.ClientRuntime.2.3.11\lib\net452\*.dll $outputfolder
-copy Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\*.dll $outputfolder
-copy Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3\lib\net452\*.dll $outputfolder
-```
+    mkdir $outputfolder -Force
+    copy Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview\lib\net452\*.dll $outputfolder
+    copy Microsoft.Azure.Management.DataLake.Store.2.3.3-preview\lib\net452\*.dll $outputfolder
+    copy Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\*.dll $outputfolder
+    copy Microsoft.Rest.ClientRuntime.2.3.11\lib\net452\*.dll $outputfolder
+    copy Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\*.dll $outputfolder
+    copy Microsoft.Rest.ClientRuntime.Azure.Authentication.2.3.3\lib\net452\*.dll $outputfolder
+    ```
 
 2. Add a **Command-Line task** in build or release pipeline and fill in the script calling `PackageDeploymentTool.exe`. The sample script is as follows: 
 
-* Deploy U-SQL database locally
+    * Deploy U-SQL database locally
 
-```
-PackageDeploymentTool.exe deploylocal -Package <package path> -Database <database name> -DataRoot <data root path>
-```
+        ```
+        PackageDeploymentTool.exe deploylocal -Package <package path> -Database <database name> -DataRoot <data root path>
+        ```
 
-* Use interactive authentication mode to deploy U-SQL database to Azure Data Lake Analytics Account:
+    * Use interactive authentication mode to deploy U-SQL database to Azure Data Lake Analytics Account:
 
-```
-PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tanant name> -AzureSDKPath <azure sdk path> -Interactive
-```
+        ```
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tanant name> -AzureSDKPath <azure sdk path> -Interactive
+        ```
 
-* Use secrete authentication to deploy U-SQL database to Azure Data Lake Analytics Account:
+    * Use secrete authentication to deploy U-SQL database to Azure Data Lake Analytics Account:
 
-```
-PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tanant name> -ClientId <client id> -Secrete <secrete>
-```
+        ```
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tanant name> -ClientId <client id> -Secrete <secrete>
+        ```
 
-* Use certFile authentication to deploy U-SQL database to Azure Data Lake Analytics Account:
+    * Use certFile authentication to deploy U-SQL database to Azure Data Lake Analytics Account:
 
-```
-PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tanant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
-```
+        ```
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tanant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
+        ```
 
 **PackageDeploymentTool.exe parameter description:**
 

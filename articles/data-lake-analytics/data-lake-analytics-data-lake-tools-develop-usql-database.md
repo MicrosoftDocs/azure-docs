@@ -1,5 +1,5 @@
 ---
-title: Use U-SQL database project to develop U-SQL database | Microsoft Docs
+title: Use U-SQL database project to develop U-SQL database for Azure Data Lake | Microsoft Docs
 description: 'Learn how to develop U-SQL database using Azure Data Lake Tools for Visual Studio.'
 services: data-lake-analytics
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 07/03/2018
 ms.author: yanacai
 
 ---
-# Use U-SQL database project to develop U-SQL database
+# Use U-SQL database project to develop U-SQL database for Azure Data Lake
 
 U-SQL database provides structured views over the unstructured data, manage structured data in tables, and provides a general metadata catalog system to organize your structured data and custom code. The database is the concept that groups these related objects together.
 
@@ -97,8 +97,8 @@ You can deploy a U-SQL database through a U-SQL database project or a .usqldbpac
 
 A U-SQL project can reference a U-SQL database project. The reference impacts two workload:
 
-1. Project build: The referenced database environments are set up before building the U-SQL scripts. 
-2. Local run against (Local-project) account: The referenced database environments are deployed to (Local-project) account before U-SQL script execution. [Learn more about local run and the difference between (Local-machine) and (Local-project) account here](data-lake-analytics-data-lake-tools-local-run.md).
+- Project build: The referenced database environments are set up before building the U-SQL scripts. 
+- Local run against (Local-project) account: The referenced database environments are deployed to (Local-project) account before U-SQL script execution. [Learn more about local run and the difference between (Local-machine) and (Local-project) account here](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### How to add U-SQL database reference
 

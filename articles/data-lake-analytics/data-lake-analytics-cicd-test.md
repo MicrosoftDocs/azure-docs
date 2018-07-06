@@ -66,40 +66,40 @@ There are two ways to create IRowset:
 
 1.	Load data from a file to create IRowset
 
-```csharp
-//Schema: "a:int, b:int"
-USqlColumn<int> col1 = new USqlColumn<int>("a");
-USqlColumn<int> col2 = new USqlColumn<int>("b");
-List<IColumn> columns = new List<IColumn> { col1, col2 };
-USqlSchema schema = new USqlSchema(columns);
+    ```csharp
+    //Schema: "a:int, b:int"
+    USqlColumn<int> col1 = new USqlColumn<int>("a");
+    USqlColumn<int> col2 = new USqlColumn<int>("b");
+    List<IColumn> columns = new List<IColumn> { col1, col2 };
+    USqlSchema schema = new USqlSchema(columns);
 
-//Generate one row with default values
-IUpdatableRow output = new USqlRow(schema, null).AsUpdatable();
+    //Generate one row with default values
+    IUpdatableRow output = new USqlRow(schema, null).AsUpdatable();
 
-//Get data from file
-IRowset rowset = UnitTestHelper.GetRowsetFromFile(@"processor.txt", schema, output.AsReadOnly(), discardAdditionalColumns: true, rowDelimiter: null, columnSeparator: '\t');
-```
+    //Get data from file
+    IRowset rowset = UnitTestHelper.GetRowsetFromFile(@"processor.txt", schema, output.AsReadOnly(), discardAdditionalColumns: true, rowDelimiter: null, columnSeparator: '\t');
+    ```
 
 2.	Use data from data collection to create IRowset
 
-```csharp
-//Schema: "a:int, b:int"
-USqlSchema schema = new USqlSchema(
-    new USqlColumn<int>("a"),
-    new USqlColumn<int>("b")
-);
+    ```csharp
+    //Schema: "a:int, b:int"
+    USqlSchema schema = new USqlSchema(
+        new USqlColumn<int>("a"),
+        new USqlColumn<int>("b")
+    );
 
-IUpdatableRow output = new USqlRow(schema, null).AsUpdatable();
+    IUpdatableRow output = new USqlRow(schema, null).AsUpdatable();
 
-//Generate Rowset with specified values
-List<object[]> values = new List<object[]>{
-    new object[2] { 2, 3 },
-    new object[2] { 10, 20 }
-};
+    //Generate Rowset with specified values
+    List<object[]> values = new List<object[]>{
+        new object[2] { 2, 3 },
+        new object[2] { 10, 20 }
+    };
 
-IEnumerable<IRow> rows = UnitTestHelper.CreateRowsFromValues(schema, values);
-IRowset rowset = UnitTestHelper.GetRowsetFromCollection(rows, output.AsReadOnly());
-```
+    IEnumerable<IRow> rows = UnitTestHelper.CreateRowsFromValues(schema, values);
+    IRowset rowset = UnitTestHelper.GetRowsetFromCollection(rows, output.AsReadOnly());
+    ```
 
 ### Verify test results
 
