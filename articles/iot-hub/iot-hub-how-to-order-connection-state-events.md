@@ -199,11 +199,12 @@ Conditions help run specific actions after passing a specific condition, in your
    ![New step, add a condition](./media/iot-hub-how-to-order-connection-state-events/add-a-condition.png)
 
 2. Fill the condition as shown below to only execute this for Device Connected and Device Disconnected events:
+
 Choose a value: eventType
 Change "is equal to" to "ends with"
 Choose a value: nected
 
-   ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-details.png)
+   ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
 3. If the condition is true, click on **Add an action**.
   
@@ -271,7 +272,13 @@ Test your logic app by connecting a device to trigger a record in Cosmos DB.
    * Building2_Floor1_Room1_Temperature
    * Building2_Floor1_Room1_Light
 
-Once you've added a few devices to your IoT hub, check your email to see which ones triggered the logic app. 
+Once you've added a few devices to your IoT hub, check your Cosmos DB document to see the latest device connection states.
+
+### Observe events
+
+You can see results of the executed stored procedure in your Cosmos DB document. Here's what it will look like. Note that each row contains latest device connection state per device
+
+   ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-outcome.png)
 
 ## Use the Azure CLI
 
@@ -297,7 +304,8 @@ Even if you keep your IoT hub, you may want to delete the event subscription tha
 2. Select the event subscription that you want to remove. 
 3. Select **Delete**. 
 
-To remove an Azure Cosmos DB account from the Azure portal, righ-click the account name and click **Delete account**. See detailed instructions for [deleting an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/manage-account#delete),
+To remove an Azure Cosmos DB account from the Azure portal, righ-click the account name and click **Delete account**. See detailed instructions for [deleting an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/manage-account#delete).
+
 ## Next steps
 
 Learn more about [Reacting to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
