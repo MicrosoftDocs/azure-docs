@@ -208,7 +208,7 @@ If you want to set up a cluster based on one of the CentOS-based HPC images in t
 ### Set up passwordless SSH trust on the cluster
 On a CentOS-based HPC cluster, there are two methods for establishing trust between the compute nodes: host-based authentication and user-based authentication. Host-based authentication is outside of the scope of this article and generally must be done through an extension script during deployment. User-based authentication is convenient for establishing trust after deployment and requires the generation and sharing of SSH keys among the compute nodes in the cluster. This method is commonly known as passwordless SSH login and is required when running MPI jobs.
 
-A sample script `authMe.sh` to enable user-based authentication on a CentOS-based HPC cluster follows:
+A sample script `user_authentication.sh` to enable user-based authentication on a CentOS-based HPC cluster follows:
 
 ```bash
 #!/bin/bash
@@ -277,55 +277,12 @@ This script does the following:
 > [!WARNING]
 > Running this script can create a potential security risk. Ensure that the public key information in ~/.ssh is not distributed.
 >
->
-
-## Configure Intel MPI
-To run MPI applications on Azure Linux RDMA, you need to configure certain environment variables specific to Intel MPI. Here is a sample Bash script to configure the variables needed to run an application. Change the path to `mpivars.sh` as needed for your installation of Intel MPI.
-
-```bash
-#!/bin/bash -x
-
-# For a SLES 12 HPC cluster
-
-source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
-
-# For a CentOS-based HPC cluster
-
-# source /opt/intel/impi/5.1.3.181/bin64/mpivars.sh
-
-export I_MPI_FABRICS=shm:dapl
-
-# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
-# Setting the variable to shm:dapl gives best performance for some applications
-# If your application doesn’t take advantage of shared memory and MPI together, then set only dapl
-
-export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
-
-# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
-
-export I_MPI_DYNAMIC_CONNECTION=0
-
-# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
-
-# Command line to run the job
-
-mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path <path to the application exe> <arguments specific to the application>
-
-#end
-```
-
-The format of the host file is as follows. Add one line for each node in your cluster. Specify private IP addresses from the virtual network defined earlier, not DNS names. For example, for two hosts with IP addresses 10.32.0.1 and 10.32.0.2, the file contains the following:
-
-```bash
-10.32.0.1:16
-10.32.0.2:16
-```
 
 ## Run MPI on a basic two-node cluster
 If you haven't already done so, first set up the environment for Intel MPI.
 
 ```bash
-# For a SLES 12 SP1 HPC cluster
+# For a SLES 12 HPC cluster
 
 source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 
@@ -335,7 +292,7 @@ source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 ```
 
 ### Run an MPI command
-Run an MPI command on one of the compute nodes to show that MPI is installed properly and can communicate between at least two compute nodes. The following **mpirun** command runs the **hostname** command on two nodes.
+Run an MPI command on one of the compute nodes to show that MPI is installed properly and can communicate between at least two compute nodes. The following **mpirun** command runs the **hostname** command on two nodes. For the `-hosts` parameter, pass the IP addresses of two nodes in the Azure VNet (for example, 10.32.0.4,10.32.0.5).
 
 ```bash
 mpirun -ppn 1 -n 2 -hosts <host1>,<host2> -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 hostname
@@ -360,7 +317,7 @@ On a working cluster with two nodes, you should see output like the following. O
 #------------------------------------------------------------
 #    Intel (R) MPI Benchmarks 4.0 Update 1, MPI-1 part
 #------------------------------------------------------------
-# Date                  : Fri Jul 17 23:16:46 2015
+# Date                  : Fri Jul 6 17:16:46 2018
 # Machine               : x86_64
 # System                : Linux
 # Release               : 3.12.39-44-default
@@ -419,7 +376,47 @@ On a working cluster with two nodes, you should see output like the following. O
 # All processes entering MPI_Finalize
 
 ```
+## Sample MPI run script
+Here is a sample Bash script to configure the variables needed to run an MPI application. Change the path to `mpivars.sh` as needed for your installation of Intel MPI.
 
+```bash
+#!/bin/bash -x
+
+# For a SLES 12 HPC cluster
+
+source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
+
+# For a CentOS-based HPC cluster
+
+# source /opt/intel/impi/5.1.3.181/bin64/mpivars.sh
+
+export I_MPI_FABRICS=shm:dapl
+
+# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
+# Setting the variable to shm:dapl gives best performance for some applications
+# If your application doesn’t take advantage of shared memory and MPI together, then set only dapl
+
+export I_MPI_DAPL_PROVIDER=ofa-v2-ib0
+
+# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
+
+export I_MPI_DYNAMIC_CONNECTION=0
+
+# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
+
+# Command line to run the MPI job. Substitute with values appropriate for your application.
+
+mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path <path to the application exe> <arguments specific to the application>
+
+#end
+```
+
+The format of the host file is as follows. Add one line for each node in your cluster. Specify private IP addresses from the virtual network defined earlier, not DNS names. For example, for two hosts with IP addresses 10.32.0.4 and 10.32.0.4, the file contains the following:
+
+```bash
+10.32.0.4:16
+10.32.0.5:16
+```
 
 
 ## Next steps
