@@ -20,7 +20,7 @@ ms.author: ellacroi
 
 # Billing options in the Azure Marketplace
 
-This article describes billing options that are available in the [Azure Marketplace](www.azuremarketplace.com).
+This article describes billing options that are available in the [Azure Marketplace](https://azuremarketplace.microsoft.com).
 
 ## Commercial considerations in the Marketplace
 The Marketplace doesn't share revenue for the following listing types: 

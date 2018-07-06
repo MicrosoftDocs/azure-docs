@@ -20,7 +20,7 @@ ms.author: ellacroi
 
 # Azure Marketplace and AppSource publishing guide
 
-The Marketplace publisher guide is designed to help new and existing publishers learn how to use the [Azure Marketplace](www.azuremarketplace.com) and [Microsoft AppSource](www.appsource.com) storefronts to grow their business in partnership with Microsoft by listing applications and services.
+The Marketplace publisher guide is designed to help new and existing publishers learn how to use the [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Microsoft AppSource](https://appsource.microsoft.com) storefronts to grow their business in partnership with Microsoft by listing applications and services.
 
 This guide covers the following topics: 
 *   What the Marketplace is, and how it works 
@@ -111,7 +111,7 @@ Become a publisher in a storefront in the Marketplace in three easy steps:
 
 ## Guidelines
 *   [Guidelines](./guidelines.md)
-*   [Guidelines for creating a Microsoft ID to manage a Marketplace account](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-Marketplace-account)
+*   [Guidelines for creating a Microsoft ID to manage a Marketplace account](./guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-Marketplace-account)
 *   [Register in Dev Center](./register-dev-center.md) 
 *   [Add bank and tax information](./add-bank-tax-info.md) 
 *   [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md)

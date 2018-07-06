@@ -19,7 +19,7 @@ ms.author: ellacroi
 ---
 
 # Comparing AppSource and Azure Marketplace
-Storefronts in [Azure Marketplace](www.azuremarketplace.com) and [Microsoft AppSource](www.appsource.com) serve unique customer requirements. Storefronts enable targeting by role. You can offer the right solution or service based on your customer.
+Storefronts in [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Microsoft AppSource](https://appsource.microsoft.com) serve unique customer requirements. Storefronts enable targeting by role. You can offer the right solution or service based on your customer.
 
 ## Understanding the differences between the storefronts
 To choose a storefront, begin by identifying the target audience for your offer. If you're targeting audiences in multiple storefronts, you can publish once to sell in multiple storefronts.

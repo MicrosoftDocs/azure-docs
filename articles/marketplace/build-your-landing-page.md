@@ -19,7 +19,7 @@ ms.author: ellacroi
 ---
 
 # Build your landing page
-A landing page on your company website is a gateway from your demand generation activities to your listing in the [Azure Marketplace](www.azuremarketplace.com).
+A landing page on your company website is a gateway from your demand generation activities to your listing in the [Azure Marketplace](https://azuremarketplace.microsoft.com).
 
 Begin by identifying your goals. For your solutions, choose your target customer and the action that your customer will take. Your solution might include the following actions:
 *   Test-drive the solution

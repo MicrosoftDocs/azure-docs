@@ -19,7 +19,7 @@ ms.author: ellacroi
 ---
 
 # Enable lead sharing
-Ensuring that lead management is enabled for your listing in the [Azure Marketplace](www.azuremarketplace.com) or [Microsoft AppSource](www.appsource.com) can help you receive contact information for the following audiences:
+Ensuring that lead management is enabled for your listing in the [Azure Marketplace](https://azuremarketplace.microsoft.com) or [Microsoft AppSource](https://appsource.microsoft.com) can help you receive contact information for the following audiences:
 
 | Storefront | Audience |
 |:--- |:--- |
