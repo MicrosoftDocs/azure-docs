@@ -55,7 +55,7 @@ SendGrid.
 To send email using the SendGrid SMTP API, use *Swift Mailer*, a
 component-based library for sending emails from PHP applications. You
 can download the *Swift Mailer* library from
-[http://swiftmailer.org/download][http://swiftmailer.org/download] v5.3.0 (use [Composer] to install Swift Mailer). Sending email with the library
+[http://swiftmailer.org/download][https://swiftmailer.symfony.com/] v5.3.0 (use [Composer] to install Swift Mailer). Sending email with the library
 involves creating instances of the
 <span class="auto-style2">Swift\_SmtpTransport</span>,
 <span class="auto-style2">Swift\_Mailer</span>, and
