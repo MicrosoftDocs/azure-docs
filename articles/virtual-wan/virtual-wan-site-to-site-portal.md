@@ -50,7 +50,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="enroll"></a>1. Enroll in the Preview
 
-Before you can configure Virtual WAN, you must first self-enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, you must send an email to **azurevirtualwan@microsoft.com** with your subscription ID. You will receive an email back once your subscription has been enrolled.
+Before you can configure Virtual WAN, you must first enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, you must send an email to **azurevirtualwan@microsoft.com** with your subscription ID. You will receive an email back once your subscription has been enrolled.
 
 ## <a name="vnet"></a>2. Create a virtual network
 
