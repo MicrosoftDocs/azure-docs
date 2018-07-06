@@ -45,7 +45,7 @@ Azure AD integration with Azure Files offers several benefits over using Shared 
 
 -   **Enforce granular access control on Azure file shares**
 
-    With Azure AD integration for Azure Files, you can grant permissions to a specific user to Azure Files data at the share, directory, or file level. For example,suppose that you have multiple teams using a single Azure file share that stores checkpoint data for high availability solutions. You can permit all teams to access non-sensitive directories and limit access to directories containing sensitive financial data to your Finance team only. 
+    With Azure AD integration for Azure Files, you can grant permissions to a specific user to Azure Files data at the share, directory, or file level. For example, suppose that you have several teams using a single Azure file share that stores checkpoint data for high availability solutions. You can grant all of the teams access to non-sensitive directories, while limiting access to directories containing sensitive financial data to your Finance team only. 
 
 -   **Back up ACLs along with your data**
 
@@ -53,7 +53,7 @@ Azure AD integration with Azure Files offers several benefits over using Shared 
 
 ## About Azure AD integration for Azure Files
 
-Azure Files leverages Azure AD Domain Services to support Kerberos authentication with Azure AD credentials for access to file resources over SMB. Before you can use Azure AD with Azure Files, you must first enable Azure AD Domain Services and join the domain from the VMs where you plan to access Azure Files. Your domain-joined VM must reside in same virtual network (VNET) as Azure AD Domain Services. 
+Azure Files uses Azure AD Domain Services to support Kerberos authentication with Azure AD credentials for access to file resources over SMB. Before you can use Azure AD with Azure Files, you must first enable Azure AD Domain Services and join the domain from the VMs where you plan to access Azure Files. Your domain-joined VM must reside in same virtual network (VNET) as Azure AD Domain Services. 
 
 When a user attempts to access data in Azure Files, the request is sent to Azure AD Domain Services to authenticate the user. If authentication is successful, Azure AD Domain Services returns a Kerberos token. Azure Files uses this token to authorize the request sent by the VM. Azure Files receives the token only and does not persist Azure AD credentials.
 
@@ -61,7 +61,7 @@ When a user attempts to access data in Azure Files, the request is sent to Azure
 
 ### Enable Azure AD integration with Azure Files
 
-You can enable Azure AD integration for Azure Files on your new and existing storage accounts. When the feature is enabled, you can configure role-based access control (RBAC) for your Azure AD users and security groups, assigning access to any file shares in the storage account. 
+You can enable Azure AD integration for Azure Files on your new and existing storage accounts. With Azure AD integration, you can configure role-based access control (RBAC) for your Azure AD users and security groups and assign access to any file shares in the storage account. 
 
 Before enabling Azure AD integration, make sure that Azure AD Domain Services is deployed for the primary Azure AD tenant with which your storage account is associated. If you have not yet setup Azure AD Domain Services, follow the step by step guidance provided in [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
 
@@ -69,25 +69,27 @@ Azure AD Domain Services deployment generally takes 10 to 15 minutes. After Azur
 
 ### Configure share-level permissions for Azure Files
 
-To permit users to access to an Azure file share, grant them share-level permissions to the share using RBAC.
+To allow users to access to an Azure file share, grant them share-level permissions to the share using RBAC.
 
 When a user tries to mount an Azure Files file share or access a directory or file in that share, the user's credentials are verified to ensure the proper share-level permissions and NTFS permissions. For information about configuring share-level permissions, see [Enable Azure Active Directory integration with Azure Files (Preview)](storage-files-aad-enable.md).
 
 ### Configure directory- or file-level permissions for Azure Files 
 
-Azure Files enforces standard NTFS file permissions at the directory and file level, including at the root directory. Configuration of directory- or file-level permissions is supported over SMB only. You must mount the target file share from your VM and configure permissions using the
-[icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) command tool. Configuring NTFS permissions through Windows File Explorer is not supported in the preview release.
+Azure Files enforces standard NTFS file permissions at the directory and file level, including at the root directory. Configuration of directory- or file-level permissions is supported over SMB only. Mount the target file share from your VM and configure permissions using the
+[icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) command tool. 
+
+Configuring NTFS permissions through Windows File Explorer is not supported in the preview.
 
 ### Use the storage account key for superuser experience 
 
-You can continue to mount Azure file shares using the storage account key and Shared Key authentication. Users possessing the storage account key can access Azure Files with superuser permissions. Superuser permissions surpass all access control restrictions configured at the share, directory, or file level with RBAC. 
+Users possessing the storage account key can access Azure Files with superuser permissions. Superuser permissions surpass all access control restrictions configured at the share, directory, or file level with RBAC. The user with superuser permissions can mount Azure file shares using the storage account key and Shared Key authentication. 
 
 > [!IMPORTANT]
 > Avoid sharing your storage account keys with anyone else, and leverage Azure AD permissions whenever possible.
 
 ### Preserve directory and file ACLs for data import to Azure file shares
 
-Azure AD integration with Azure Files supports preserving directory or file ACLs when you import data to Azure file shares. For the preview release, you have the option to copy the ACLs on your directory or file through SMB. For example, you can use [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) with flag `/copy:s`.
+Azure AD integration with Azure Files supports preserving directory or file ACLs when you import data to Azure file shares. With the preview release, you can copy the ACLs on your directory or file through SMB. For example, you can use [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) with flag `/copy:s`.
 
 ## Pricing
 
@@ -95,7 +97,7 @@ There is no additional service charge to enable Azure AD integration on your sto
 
 ## Next Steps
 
-See these resources for more information about Azure Files.
+See these resources for more information about Azure Files:
 
 -   [Introduction to Azure Files](storage-files-introduction.md)
 -   [Enable Azure Active Directory integration with Azure Files (Preview)](storage-files-aad-enable.md)

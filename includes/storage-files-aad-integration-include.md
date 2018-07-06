@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Azure Files offers fully-managed file shares in the cloud that are accessible via the industry-standard [Server Message Block (SMB) protocol](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview) (also known as Common Internet File System or CIFS). Azure Files supports integration with Azure Active Directory (Azure AD), leveraging [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) (Preview). Azure AD integration enables authentication for access to Azure file shares over SMB from domain-joined Windows virtual machines (VMs). 
+Azure Files offers fully managed file shares in the cloud that are accessible via the industry-standard [Server Message Block (SMB) protocol](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview) (also known as Common Internet File System or CIFS). Azure Files supports integration with Azure Active Directory (Azure AD) (Preview) through [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview). Azure AD integration with Azure Files enables identity-based authentication for Azure file shares over SMB from domain-joined Windows virtual machines (VMs). 
 
 Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). Using role-based access control (RBAC), you can control access to Azure Files at the share, directory, and file level.
 

@@ -16,7 +16,7 @@ ms.author: tamram
 
 ## Workflow overview
 
-The diagram below illustrates the end-to-end workflow to enable Azure AD integration with Azure Files for access to shares, directories, or files over SMB. There are two parts to the process. First, verify that your Azure AD and Azure Storage environments are properly configured. It's strongly recommend that you walk through the prerequisites and ensure that you have performed the required setup. Next, proceed to activate access to Azure Files access with Azure AD credentials in three steps: 
+The diagram below illustrates the end-to-end workflow to enable Azure AD integration with Azure Files for access to shares, directories, or files over SMB. There are two parts to the process. First, verify that your Azure AD and Azure Storage environments are properly configured. It's strongly recommended that you walk through the prerequisites and make sure that you've performed the required setup. Next, grant access to Azure Files resources with Azure AD credentials in three steps: 
 
 1. Enable Azure AD Integration for Azure Files.
 2. Assign user permissions using RBAC.
@@ -33,9 +33,9 @@ The diagram below illustrates the end-to-end workflow to enable Azure AD integra
 
 2.  Enable Azure AD Domain Services on your Azure AD tenant.
 
-    To support authentication with Azure AD credentials, you need to enable Azure AD Domain Services for your Azure AD tenant. If you are not the administrator of the Azure AD tenant, contact the administrator and follow the step by step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+    To support authentication with Azure AD credentials, you need to enable Azure AD Domain Services for your Azure AD tenant. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step by step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
 
-    It typically takes around 15 minutes for an Azure AD Domain Services deployment to complete. Ensure that the health status of your Azure AD Domain Services shows **Running** before proceeding to the next step.
+    It typically takes around 15 minutes for an Azure AD Domain Services deployment to complete. Make sure that the health status of your Azure AD Domain Services shows **Running** before proceeding to the next step.
 
 3.  Domain-join your Azure VM to Azure AD Domain Services.
 
@@ -45,7 +45,7 @@ The diagram below illustrates the end-to-end workflow to enable Azure AD integra
 
     Azure AD integration with Azure Files is supported for the primary Azure AD tenant. The primary Azure AD tenant is the tenant that is associated with the subscription in which the file share is deployed. You can select an existing file share or [Create a file share in Azure Files](storage-how-to-create-file-share.md) under your target Azure AD tenant. 
 
-    Microsoft recommends that you deploy your file share to the same region as the VMs from which you plan to access the share for optimal performance.
+    For optimal performance, Microsoft recommends that you deploy your file share to the same region as the VMs from which you plan to access the share.
 
 5.  Verify Azure Files connectivity by mounting Azure file shares using storage account key.
 
@@ -103,7 +103,7 @@ Use [role-based access control (RBAC)](../../role-based-access-control/role-assi
 
 Azure Files supports two custom roles that refine the permission to data path access to Azure file shares: 
 
-- **Storage Files Data Contributor:** Grants read, write and delete access to an Azure file share.
+- **Storage Files Data Contributor:** Grants read, write, and delete access to an Azure file share.
 - **Storage Files Data Reader:** Grants read access to an Azure file share. 
 
 You can also apply existing roles such as Owner, Contributor, and Reader to grant broader permissions at the share level.
@@ -145,7 +145,7 @@ az role assignment create --role "Owner" --assignee <john.doe@contoso.com> –sc
 
 After you assign share-level permissions with RBAC, you need to assign proper NTFS permissions at the root, directory, or file level. Think of share-level permissions as the high-level gatekeeper that determines whether a user can access the share, while NTFS permissions act at a more granular level to determine what operations the user can perform at the directory or file level. Azure Files supports the full set of NTFS basic and advance permissions. You can view and configure NTFS permissions on directories and files in an Azure file share by mounting the share and then running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) command. You can also use [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) or another copy tool to copy files along with the ACLs.
 
-If you have just enabled Azure AD integration with Azure Files, you may not yet have any Azure AD users with NTFS permissions configured at the root directory of the file share. In this case, you need to mount the share with your storage account key to your domain-joined VM to assign permissions with superuser privileges. Follow the instructions in the next section to mount an Azure file share from the command prompt.
+If you have enabled Azure AD integration with Azure Files, you may not yet have any Azure AD users with NTFS permissions configured at the root directory of the file share. In this case, you need to mount the share with your storage account key to your domain-joined VM to assign permissions with superuser privileges. Follow the instructions in the next section to mount an Azure file share from the command prompt.
 
 #### **Step 2.2.1 Mount Azure file share with command prompt** 
 
@@ -155,7 +155,7 @@ Use the **net use** command to mount the Azure file share. Remember to replace 
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
 ```
 
-If you already have a Azure AD user with write access to Azure Files, you can mount the file share using Azure AD directly from the domain-joined VM.
+If you already have an Azure AD user with write access to Azure Files, you can mount the file share using Azure AD directly from the domain-joined VM.
 
 **Step 2.2.2 Configure NTFS permissions with icacls**
 
@@ -170,13 +170,13 @@ For more information on how to use icacls to set NTFS permissions and on the dif
 
 ### Step 3: Mount an Azure file share from a domain-joined VM 
 
-Now you are ready to use your Azure AD credentials to access an Azure file share from a domain-joined VM. First, log on to the VM using the name and password to which you have just granted permissions, as shown in the following image.
+Now you are ready to use your Azure AD credentials to access an Azure file share from a domain-joined VM. First, sign in the VM using the name and password to which you have granted permissions, as shown in the following image.
 
-![Screenshot showing log on screen](media/storage-files-aad-enable/aad-auth-screen.png)
+![Screenshot showing sign in screen](media/storage-files-aad-enable/aad-auth-screen.png)
 
   
 Then, use the following command to mount the Azure file share. Remember to replace `<desired-drive-letter>`, `<storage-account-name>`, and `<share-name>` with
-your values. This time, you will need to provide neither the storage account key nor the Azure AD user name and password. Azure AD integration with Azure Files  supports a single sign-on experience using Azure AD credentials.
+your values. This time, you do not need to provide the storage account key or the Azure AD user name and password. Azure AD integration with Azure Files  supports a single sign-on experience using Azure AD credentials.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
@@ -190,7 +190,7 @@ Azure Files users, Microsoft wants to hear from you! Email *Azure Files AAD Int
 
 ## Next steps
 
-See these resources for more information about Azure Files.
+See these resources for more information about Azure Files:
 
 -   [Introduction to Azure Files](storage-files-introduction.md)
 -   [Overview of Azure Active Directory integration with Azure Files (Preview)](storage-files-aad-overview.md)
