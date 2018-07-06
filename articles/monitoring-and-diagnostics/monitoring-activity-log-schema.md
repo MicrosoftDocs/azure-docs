@@ -544,10 +544,10 @@ This category contains the record of any new recommendations that are generated 
 | resourceGroupName |Name of the resource group for the resource. |
 | resourceProviderName |Name of the resource provider for the resource that this recommendation applies to, such as "MICROSOFT.COMPUTE" |
 | resourceType |Name of the resource type for the resource that this recommendation applies to, such as "MICROSOFT.COMPUTE/virtualmachines" |
-| resourceId |Resource id of the resource that the recommendation applies to |
+| resourceId |Resource ID of the resource that the recommendation applies to |
 | status | Always "Active" |
 | submissionTimestamp |Timestamp when the event became available for querying. |
-| subscriptionId |Azure Subscription Id. |
+| subscriptionId |Azure Subscription ID. |
 | properties |Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the recommendation.|
 | properties.recommendationSchemaVersion| Schema version of the recommendation properties published in the Activity Log entry |
 | properties.recommendationCategory | Category of the recommendation. Possible values are "High Availability", "Performance", "Security", and "Cost" |
