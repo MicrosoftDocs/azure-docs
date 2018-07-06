@@ -168,7 +168,7 @@ The code examples in this section show how to authenticate with Azure AD using i
 
 ### Code example: Using Azure AD integrated authentication with Batch .NET
 
-To authenticate with integrated authentication from Batch .NET, reference the [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) package and the [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) package.
+To authenticate with integrated authentication from Batch .NET, reference the [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) package and the [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) package.
 
 Include the following `using` statements in your code:
 

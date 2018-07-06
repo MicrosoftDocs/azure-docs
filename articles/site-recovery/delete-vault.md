@@ -1,7 +1,6 @@
 ﻿---
 title: Delete a Site Recovery vault
 description: Learn how to delete an Azure Site Recovery vault, based on the Site Recovery scenario.
-service: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
@@ -47,7 +46,7 @@ To delete the vault, follow the recommended steps for your scenario.
 
 2. Disassociate & delete all replication policies by browsing to your Vault -> **Site Recovery Infrastructure** - > **For Hyper-V Sites** -> **Replication Policies**
 
-3. Delete references to Hyper-V servers by following the steps in [Unregister a Hyper-V host](/site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
+3. Delete references to Hyper-V servers by following the steps in [Unregister a Hyper-V host](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
 
 4. Delete the Hyper-V site.
 

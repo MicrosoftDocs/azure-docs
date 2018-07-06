@@ -21,7 +21,7 @@ ms.author: v-geberr
 
     ![Batch Testing Link](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate the [JSON](luis-concept-batch-test.md#batch-file-format) file that contains *no more than 1,000* utterances to test.
+2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate a JSON file with the correct [JSON format](luis-concept-batch-test.md#batch-file-format) that contains *no more than 1,000* utterances to test.
 
     ![Import Dataset File](./media/luis-how-to-batch-test/batchtest-importset.png)
 
@@ -32,7 +32,7 @@ ms.author: v-geberr
 4. Select **Done**. The dataset file is added.
 
 ## Run, rename, export, or delete dataset
-To run, rename, export, or delete the dataset, use the three dots (**...**) at the end of the dataset row.
+To run, rename, export, or delete the dataset, use the ellipsis (***...***) button at the end of the dataset row.
 
 ![Dataset Actions](./media/luis-how-to-batch-test/batch-testing-options.png)
 
@@ -108,11 +108,11 @@ If testing indicates that your LUIS app doesn't recognize the correct intents an
 * [Understand batch testing with this tutorial](luis-tutorial-batch-testing.md)
 * [Learn batch testing concepts](luis-concept-batch-test.md).
 
-[true-positive]:luis-glossary.md#true-positive
-[true-negative]:luis-glossary.md#true-negative
-[false-positive]:luis-glossary.md#false-positive
-[false-negative]:luis-glossary.md#false-negative
-[f-measure]:luis-glossary.md#f-measure
-[recall]: luis-glossary.md#recall
-[precision]: luis-glossary.md#precision
+[true-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-positive
+[true-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-negative
+[false-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-positive
+[false-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-negative
+[f-measure]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#f-measure
+[recall]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#recall
+[precision]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#precision
 

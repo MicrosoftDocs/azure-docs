@@ -1,24 +1,21 @@
 ---
-
-title: Manage the groups your group belongs to in Azure Active Directory | Microsoft Docs
+title: Manage the groups your group belongs to in Azure AD | Microsoft Docs
 description: Groups can contain other groups in Azure Active Directory. Here's how to manage those memberships.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: quickstart
 ms.date: 10/10/2017
-ms.author: curtand
-
+ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-
 ---
+
 # Manage to which groups a group belongs in your Azure Active Directory tenant
 Groups can contain other groups in Azure Active Directory. Here's how to manage those memberships.
 
@@ -47,8 +44,8 @@ Groups can contain other groups in Azure Active Directory. Here's how to manage 
 ## Additional information
 These articles provide additional information on Azure Active Directory.
 
-* [See existing groups](../active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](../active-directory-groups-create-azure-portal.md)
-* [Manage settings of a group](../active-directory-groups-settings-azure-portal.md)
-* [Manage members of a group](../active-directory-groups-members-azure-portal.md)
-* [Manage dynamic rules for users in a group](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [See existing groups](active-directory-groups-view-azure-portal.md)
+* [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
+* [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
+* [Manage members of a group](active-directory-groups-members-azure-portal.md)
+* [Manage dynamic rules for users in a group](../users-groups-roles/groups-dynamic-membership.md)

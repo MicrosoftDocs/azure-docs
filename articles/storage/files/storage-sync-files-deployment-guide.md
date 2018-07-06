@@ -85,7 +85,7 @@ We recommend that you do the following:
 - Leave the default installation path (C:\Program Files\Azure\StorageSyncAgent), to simplify troubleshooting and server maintenance.
 - Enable Microsoft Update to keep Azure File Sync up to date. All updates, to the Azure File Sync agent, including feature updates and hotfixes, occur from Microsoft Update. We recommend installing the latest update to Azure File Sync. For more information, see [Azure File Sync update policy](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
 
-When the Azure File Sync agent installation is finished, the Server Registration UI automatically opens. You must have a Storage Sync Service before registrating; see the next section on how to create a Storage Sync Service.
+When the Azure File Sync agent installation is finished, the Server Registration UI automatically opens. You must have a Storage Sync Service before registering; see the next section on how to create a Storage Sync Service.
 
 # [PowerShell](#tab/powershell)
 Execute the following PowerShell code to download the appropriate version of the Azure File Sync agent for your OS and install it on your system.
@@ -116,6 +116,10 @@ Start-Process -FilePath ".\StorageSyncAgent.exe" -ArgumentList "/C /T:$tempFolde
 # Install the MSI. Start-Process is used to PowerShell blocks until the operation is complete.
 # Note that the installer currently forces all PowerShell sessions closed - this is a known issue.
 Start-Process -FilePath "$($tempFolder.FullName)\StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
+
+# Note that this cmdlet will need to be run in a new session based on the above comment.
+# You may remove the temp folder containing the MSI and the EXE installer
+Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
 ```
 
 ---
@@ -142,12 +146,13 @@ When you are finished, select **Create** to deploy the Storage Sync Service.
 Before interacting with the Azure File Sync management cmdlets, you will need to import a DLL and create an Azure File Sync management context. This is required because the Azure File Sync management cmdlets are not yet part of the AzureRM PowerShell module.
 
 > [!Note]  
-> The StorageSync.Management.PowerShell.Cmdlets.dll package, which contains the Azure File Sync management cmdlets, (intentionally) contains a cmdlet with an unapproved verb (`Login`). The name `Login-AzureRmStorageSync` was chosen to match the `Login-AzureRmAccount` cmdlet in the AzureRM PowerShell module, which also uses the "unapproved" verb, although PowerShell does not complain. This error message (and cmdlet) will be removed the Azure File Sync agent is added to the AzureRM PowerShell module.
+> The StorageSync.Management.PowerShell.Cmdlets.dll package, which contains the Azure File Sync management cmdlets, (intentionally) contains a cmdlet with an unapproved verb (`Login`). The name `Login-AzureRmStorageSync` was chosen to match the `Login-AzureRmAccount` cmdlet alias in the AzureRM PowerShell module. This error message (and cmdlet) will be removed the Azure File Sync agent is added to the AzureRM PowerShell module.
 
 ```PowerShell
 $acctInfo = Login-AzureRmAccount
 
-# The location of the Azure File Sync Agent.
+# The location of the Azure File Sync Agent. If you have installed the Azure File Sync 
+# agent to a non-standard location, please update this path.
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
 
 # Import the Azure File Sync management cmdlets
@@ -237,7 +242,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 ---
 
 ## Create a sync group and a cloud endpoint
-A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share and one or server endpoints. A server endpoint represents a path on registered server. A server can have server endpoints in multiple sync groups. You can create as many sync groups as you need to to appropriately describe your desired sync topology.
+A sync group defines the sync topology for a set of files. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share and one or more server endpoints. A server endpoint represents a path on registered server. A server can have server endpoints in multiple sync groups. You can create as many sync groups as you need to to appropriately describe your desired sync topology.
 
 A cloud endpoint is a pointer to an Azure file share. All server endpoints will sync with a cloud endpoint, making the cloud endpoint the hub. The storage account for the Azure file share must be located in the same region as the Storage Sync Service. The entirety of the Azure file share will be synced, with one exception: A special folder, comparable to the hidden "System Volume Information" folder on an NTFS volume, will be provisioned. This directory is called ".SystemShareInformation". It contains important sync metadata that will not sync to other endpoints. Do not use or delete it!
 
@@ -297,8 +302,8 @@ if ($fileShare -eq $null) {
 New-AzureRmStorageSyncCloudEndpoint `
     -StorageSyncServiceName $storageSyncName `
     -SyncGroupName $syncGroupName ` 
-    -AzureFileShare $fileShare.StorageUri.PrimaryUri.AbsoluteUri `
-    -FriendlyName $fileShare.Name
+    -StorageAccountResourceId $storageAccount.Id
+    -StorageAccountShareName $fileShare.Name
 ```
 
 ---
@@ -328,9 +333,9 @@ $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>
 
-if ($cloudTieringEnabled) {
+if ($cloudTieringDesired) {
     # Ensure endpoint path is not the system volume
-    $directoryRoot = [System.IO.Directory]::GetDirectoryRoot("C:\shares\myserverendpoint")
+    $directoryRoot = [System.IO.Directory]::GetDirectoryRoot($serverEndpointPath)
     $osVolume = "$($env:SystemDrive)\"
     if ($directoryRoot -eq $osVolume) {
         throw [System.Exception]::new("Cloud tiering cannot be enabled on the system volume")
@@ -338,22 +343,20 @@ if ($cloudTieringEnabled) {
 
     # Create server endpoint
     New-AzureRmStorageSyncServerEndpoint `
-        -StorageSyncServiceName $service_name `
-        -SyncGroupName $syncgroup_name `
+        -StorageSyncServiceName $storageSyncName `
+        -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `
-        -ServerLocalPath "<FullPath>" `
-        -FriendlyName $registeredServer.DisplayName `
-        -CloudTiering `
+        -ServerLocalPath $serverEndpointPath `
+        -CloudTiering $true `
         -VolumeFreeSpacePercent $volumeFreeSpacePercentage
 }
 else {
     # Create server endpoint
     New-AzureRmStorageSyncServerEndpoint `
-        -StorageSyncServiceName $service_name `
-        -SyncGroupName $syncgroup_name `
+        -StorageSyncServiceName $storageSyncName `
+        -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `
-        -ServerLocalPath "<FullPath>" `
-        -FriendlyName $registeredServer.DisplayName
+        -ServerLocalPath $serverEndpointPath 
 }
 ```
 

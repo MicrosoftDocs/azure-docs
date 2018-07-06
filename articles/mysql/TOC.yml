@@ -184,7 +184,19 @@
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos
-    href: videos.md
+    items:
+    - name: Product videos
+      href: videos.md
+    - name: How to video series
+      items:
+      - name: Learn product features and benefits
+        href: https://aka.ms/mysql-intro-vid
+      - name: Migrate your MySQL app to Azure
+        href: https://aka.ms/mysql-migrate-vid
+      - name: Build and deploy Web Apps
+        href: https://aka.ms/mysql-webapps-vid
+      - name: Connect containers using OSBA
+        href: https://aka.ms/mysql-osba-vid
   - name: Request a feature
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Region availability
@@ -193,5 +205,7 @@
     href: https://azure.microsoft.com/support/options/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"
+  - name: Partners
+    href: partners-migration-mysql.md
   - name: Database Migration Guide
     href: https://datamigration.microsoft.com/

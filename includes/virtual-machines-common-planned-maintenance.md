@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: virtual-machines
- author: cynthn
+ author: shants123
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/09/2018
- ms.author: cynthn
+ ms.date: 07/05/2018
+ ms.author: shants
  ms.custom: include file
 ---
 
@@ -26,7 +26,7 @@ For "how-to" information on managing planned maintenance, see "Handling planned 
 
 When updates don't require a full reboot, memory preserving maintenance mechanisms are used to limit the impact to the virtual machine. The virtual machine is paused for up to 30 seconds, preserving the memory in RAM, while the hosting environment applies the necessary updates and patches, or moves the VM to an already updated host. The virtual machine is then resumed and the clock of the virtual machine is automatically synchronized. 
 
-For VMs in availability sets, update domains are updated one at a time. All VMs in one update domain (UD) are paused, updated and then resumed before planned maintenance moves on to the next UD.
+These non-rebootful maintenance operations are applied fault domain by fault domain, and progress is stopped if any warning health signals are received.
 
 Some applications may be impacted by these types of updates. Applications that perform real-time event processing, like media streaming or transcoding, or high throughput networking scenarios, may not be designed to tolerate a 30 second pause. <!-- sooooo, what should they do? --> In case the VM is being move to a different host, some sensitive workloads might notice a slight performance degradation in the few minutes leading up to the Virtual Machine pause. 
 
@@ -55,7 +55,7 @@ Each Azure region is paired with another region within the same geography, toget
 
 ### Availability sets and scale sets
 
-When deploying a workload on Azure VMs, you can create the VMs within an availability set to provide high availability to your application. This ensures that during either an outage or maintenance events, at least one virtual machine is available.
+When deploying a workload on Azure VMs, you can create the VMs within an availability set to provide high availability to your application. This ensures that during either an outage or rebootful maintenance events, at least one virtual machine is available.
 
 Within an availability set, individual VMs are spread across up to 20 update domains (UDs). During planned maintenance, only a single update domain is impacted at any given time. Be aware that the order of update domains being impacted does not necessarily happen sequentially. 
 

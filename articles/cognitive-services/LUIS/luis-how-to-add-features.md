@@ -49,13 +49,13 @@ Click the name of the phrase list on the **Phrase lists** page. In the **Edit Ph
 
 ## Delete phrase list 
 
-Click the three dots (...) button at the end of the row, and select **Delete**.
+Click the ellipsis (***...***) button at the end of the row, and select **Delete**.
 
  ![Delete list added](./media/luis-add-features/delete-phrase-list.png)
 
 ## Deactivate phrase list 
 
-Click the three dots (...) button at the end of the row, and select **Deactivate**.
+Click the ellipsis (***...***) button at the end of the row, and select **Deactivate**.
 
  ![Deactivate list added](./media/luis-add-features/deactivate-phrase-list.png)
 
@@ -64,4 +64,4 @@ Click the three dots (...) button at the end of the row, and select **Deactivate
 
 ## Next steps
 
-After adding, editing, deleting, or deactivating a phrase list, [train and test the app](Train-Test.md) again to see if performance improves.
+After adding, editing, deleting, or deactivating a phrase list, [train and test the app](interactive-test.md) again to see if performance improves.

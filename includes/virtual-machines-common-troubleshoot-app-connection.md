@@ -27,7 +27,7 @@ If you have problems connecting to an application, try the following general tro
 
 * Restart the virtual machine
 * Recreate the endpoint / firewall rules / network security group (NSG) rules
-  * [Resource Manager model - Manage Network Security Groups](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager model - Manage Network Security Groups](../articles/virtual-network/manage-network-security-group.md)
   * [Classic model - Manage Cloud Services endpoints](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Connect from different location, such as a different Azure virtual network
 * Redeploy the virtual machine
@@ -88,7 +88,7 @@ If you cannot access the application, verify the following settings:
 * Intrusion detection or network monitoring software running on the target VM is allowing the traffic.
 * Cloud Services endpoints or Network Security Groups are allowing the traffic:
   * [Classic model - Manage Cloud Services endpoints](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Resource Manager model - Manage Network Security Groups](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager model - Manage Network Security Groups](../articles/virtual-network/manage-network-security-group.md)
 * A separate component running in your VM in the path between the test VM and your VM, such as a load balancer or firewall, is allowing the traffic.
 
 On a Windows-based virtual machine, use Windows Firewall with Advanced Security to determine whether the firewall rules exclude your application's inbound and outbound traffic.

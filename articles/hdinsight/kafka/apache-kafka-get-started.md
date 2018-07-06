@@ -3,9 +3,8 @@ title: Start with Apache Kafka - Azure HDInsight Quickstart | Microsoft Docs
 description: 'In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using the Azure portal. You also learn about Kafka topics, subscribers, and consumers.'
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: dhgoelmsft
 manager: jhubbard
-editor: cgronlun
 
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
@@ -72,7 +71,7 @@ To create a Kafka on HDInsight cluster, use the following steps:
     | Setting | Value |
     | --- | --- |
     | Cluster Type | Kafka |
-    | Version | Kafka 0.10.0 (HDI 3.6) |
+    | Version | Kafka 1.0.0 (HDI 3.6) |
 
     Use the **Select** button to save the cluster type settings and return to __Basics__.
 
@@ -97,7 +96,7 @@ To create a Kafka on HDInsight cluster, use the following steps:
 
     Use the __Next__ button to finish basic configuration.
 
-5. From **Storage**, select or create a Storage account. For the steps in this document, leave the other fields at the default values. Use the __Next__ button to save storage configuration.
+5. From **Storage**, select or create a Storage account. For the steps in this document, leave the other fields at the default values. Use the __Next__ button to save storage configuration. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![Set the storage account settings for HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
 

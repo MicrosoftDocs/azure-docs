@@ -47,7 +47,7 @@ In order to back up your LUIS app, export each version on the **[Settings](luis-
 You can delete all versions except the active version from the Versions list on Settings page. 
 
 ## Version availability at the endpoint
-Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](PublishApp.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you up to two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID.
+Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](luis-how-to-publish-app.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you up to two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID.
 
 ## Collaborators
 The owner and all [collaborators](luis-how-to-collaborate.md) have full access to all versions of the app.
@@ -58,4 +58,4 @@ See how to add [versioning](luis-how-to-manage-versions.md) on the app settings 
 
 Learn how to design [intents](luis-concept-intent.md) into the model.
 
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

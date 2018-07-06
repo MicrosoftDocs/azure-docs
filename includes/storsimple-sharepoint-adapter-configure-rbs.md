@@ -38,7 +38,7 @@
 
 4. Verify the configuration:
    
-   1. Log on to the SharePoint Central Administration website, and browse to the **Configure StorSimple Adapter** page.
+   1. Sign in to the SharePoint Central Administration website, and browse to the **Configure StorSimple Adapter** page.
    2. Check the configuration details to make sure that they match the settings that you entered. 
 5. Verify that RBS works correctly:
    
