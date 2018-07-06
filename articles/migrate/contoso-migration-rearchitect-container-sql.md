@@ -439,11 +439,16 @@ With the Cosmos DB provisioned, Contoso can configure the app to connect to it.
     ![Sentiment app](./media/contoso-migration-rearchitect-container-sql/sentiment1.png)
 
 2. They fill in the following two parameters:
+
+   ```
+   <Parameter Name="SentimentIntegration.CosmosDBEndpoint" Value="[URI]" />
+   ```
    
-    - **<Parameter Name="SentimentIntegration.CosmosDBEndpoint" Value="[URI]" />**
-    - **<Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />**
-    
-        ![Sentiment app](./media/contoso-migration-rearchitect-container-sql/sentiment2.png)
+   ```
+   <Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />
+   ```
+
+    ![Sentiment app](./media/contoso-migration-rearchitect-container-sql/sentiment2.png)
 
 ### Republish the app
 
@@ -461,7 +466,7 @@ After extending the app, Contoso republishes it to Azure.
 
     ![Republish](./media/contoso-migration-rearchitect-container-sql/republish3.png)
 
-5. Contoso can clik through the services to see that the SentimentIntegration app is up and running
+5. Contoso can click through the services to see that the SentimentIntegration app is up and running
 
     ![Republish](./media/contoso-migration-rearchitect-container-sql/republish4.png)
 
