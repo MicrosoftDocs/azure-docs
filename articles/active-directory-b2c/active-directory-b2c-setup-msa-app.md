@@ -30,13 +30,18 @@ To use a Microsoft account as an identity provider in Azure Active Directory (Az
 ## Configure a Microsoft account as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by switching to it in the top-right corner of the Azure portal. Select your subscription information, and then select **Switch Directory**. 
 
-    [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-setup-msa-app/switch-directories.png)
 
-2. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
-2. Select **Identity providers**, and then select **Add**.
-4. Provide a **Name**. For example, enter *MSA*.
-5. Select **Identity provider type**, select **Microsoft Account**, and click **OK**.
-6. Select **Set up this identity provider** and enter the Application Id that you recorded earlier as the **Client ID** and enter the password that you recorded as the **Client secret** of the Microsoft account application that you created earlier.
-7. Click **OK** and then click **Create** to save your Microsoft account configuration.
+    Choose the directory that contains your tenant.
+
+    ![Select directory](./media/active-directory-b2c-setup-msa-app/select-directory.png)
+
+3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+4. Select **Identity providers**, and then select **Add**.
+5. Provide a **Name**. For example, enter *MSA*.
+6. Select **Identity provider type**, select **Microsoft Account**, and click **OK**.
+7. Select **Set up this identity provider** and enter the Application Id that you recorded earlier as the **Client ID** and enter the password that you recorded as the **Client secret** of the Microsoft account application that you created earlier.
+8. Click **OK** and then click **Create** to save your Microsoft account configuration.
 
