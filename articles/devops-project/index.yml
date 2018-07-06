@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/30/2018
+  ms.date: 07/06/2018
   ms.author: mlearned
 abstract:
   description: The Azure DevOps Project presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
@@ -22,7 +22,7 @@ abstract:
       height: 110
       src: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/_img/azure-devops-project-aspnetcore/fullbrowser.png
       width: 250  
-    title: Create CI/CD with the Azure DevOps Project (8:53)
+    title: Video:  Create CI/CD with the Azure DevOps Project (8:53)
     href: https://channel9.msdn.com/Events/Connect/2017/T174/player/
     width: 250
 sections:
@@ -36,7 +36,7 @@ sections:
     - image: 
         src: media\logo_net.svg
       text: .NET
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
+      href: azure-devops-project-aspnetcore.md
     - image: 
         src: media\logo_nodejs.svg
       text: Node.js
