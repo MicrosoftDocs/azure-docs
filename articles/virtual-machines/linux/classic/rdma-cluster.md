@@ -215,7 +215,7 @@ A sample script `user_authentication.sh` to enable user-based authentication on 
 # For CentOS user must first install epel-release, sshpass, and nmap (sshpass and nmap are available from epel-release for CentOS)
 
 # usage ./user_authentication.sh [username] [password] [internalIP prefix]
-# ./user_authentication.sh azureuser Azure@123 10.2.1
+# ./user_authentication.sh azureuser Azure@123 10.32.0
 USER=$1
 PASS=$2
 IPPRE=$3
@@ -376,7 +376,7 @@ On a working cluster with two nodes, you should see output like the following. O
 # All processes entering MPI_Finalize
 
 ```
-## Sample MPI run script
+### Sample MPI run script
 Here is a sample Bash script to configure the variables needed to run an MPI application. Change the path to `mpivars.sh` as needed for your installation of Intel MPI.
 
 ```bash
