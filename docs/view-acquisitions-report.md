@@ -1,61 +1,89 @@
 ---
-title: Update or unpublish your add-in in Seller Dashboard
-description: Update, unpublish, or delete your solution from the Seller Dashboard.
+title: View acquisitions report
+description: Analyze your add-in performance and see funnel and acquisitions metrics.
 ms.date: 1/11/2018
 ---
 
-# Update or unpublish your add-in in Seller Dashboard
+# Acquisitions report
 
-After you submit your solution to the Seller Dashboard, you might want to update them or remove (unpublish) them from AppSource listings. You can also delete your submissions from the Seller Dashboard. You can use metrics in the Seller Dashboard to evaluate how your solutions are performing.
+The Acquisitions report in the Dev Center dashboard lets you see who has acquired and installed your add-in, app or visual, and shows info about how customers have arrived at your AppSource listing. 
+
+In this report, an acquisition means a new customer has obtained a license to your solution (whether you charged money or you've offered it for free). If your solution supports multi-seat acquisitions, such as site license purchases, these will also be detailed and displayed.
+
+    > [!NOTE]
+    > The Acquisitions report does not include data about refunds, reversals, chargebacks, etc. To estimate your solution proceeds, visit Payout summary. 
 
 <a name="BKMK_Edit"> </a>
-## Update your submission
+## Apply filters
 
-You can edit your saved draft and approved submissions in the Seller Dashboard. You cannot edit an item that has a **pending approval** status. Approved items that you edit go through the approval process again.
+Near the top of the page, you can select the time period for which you want to show data. The default selection is 30D (30 days), but you can choose to show data for 2 or 3 months.
+You can also expand Filters to filter all of the data on this page by market.
+- Market: The default filter is All markets, but you can limit the data to acquisitions in one or more markets.
 
-### To update your submission
-
-1. Sign in to the [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) with your Microsoft account.
-
-2. On the **Manage** tab, select the item that you want to edit.
-
-3. On the summary page, if you want to edit a draft item, select **EDIT DRAFT**. If you're editing an approved item, select **EDIT LISTING**.
-    
     > [!NOTE]
-    > If you edit an approved item and submit it, it goes through the approval process again. 
+    > Acquisitions via Centralized Deployment do not currently support market information. 
 
-4. In the Edit App Wizard, make the changes that you want.
- 
-5. Select **SAVE AS DRAFT** if you are not ready to submit, or select **SUBMIT FOR APPROVAL** to submit your item.
-    
+The info in all of the charts listed below will reflect the date range and any filters you've selected. Some sections also allow you to apply additional filters.
+
+
+## Acquisitions
+
+The **Acquisitions** chart shows the number of daily or weekly acquisitions (a new customer obtaining a license for your app) over the selected period of time.
+
+You can also see the lifetime number of acquisitions for your app by selecting App cumulative. This shows the cumulative total of all acquisitions, starting from when your app was first published.
+
+The values supported within the Acquisitions chart include:
+
+- Free - Webstore: Free acquisitions generated in web surfaces such as AppSource.
+
+- Free - Client: Free acquisitions generated in store surfaces within the Office Apps. This includes Windows, Mac and Office Online.
+
+- Paid: These are paid acquisitions, and may be either perpetual or subscription based on your solution's payment model.
+
+- Trial: These are trial acquisitions. Length and expiration of these trial acquisitions are based on your selected trial lengths during the store submission process.
+
+- Site License: These are paid acquisitions where an entire tenant is provisioned with a license.
+
+- Deployment: These are the number of tenants who have deployed your solution. One tenant deployment here may generate multiple assignments. For the amount of end-users who received a license for your solution, please see the Assignments chart.
+
+   
  
 <a name="BKMK_delist"> </a>
-## Unpublish your submission from AppSource listings
+## Markets
 
-When you unpublish a submission, the system removes it from AppSource listings within a few days.
+The **Markets** chart shows the total number of acquisitions over the selected period of time for each market in which your solution is available.
+
+You can view this data in a visual Map form, or toggle the setting to view it in Table form. Table form will show five markets at a time, sorted either alphabetically or by highest/lowest number of acquisitions. You can also download the data to view info for all markets together.
  
-### To unpublish your submission
+## App page views and conversions by channel
 
-1. Sign in to the [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) with your Microsoft account.
+In this chart, a channel refers to the method in which a customer arrived at your solution's listing page (for example, browsing and searching in the Store, a link from an external website, a link from one of your custom campaigns, etc.). The following channel types are included:
 
-2. On the **Manage** tab, select the item that you want to unpublish.
+- Store traffic: The customer was browsing or searching within the Store when they viewed your app's listing.
 
-3. On the add-in summary page, select **UNPUBLISH**.
+- Custom campaign: The customer followed a link that used a custom campaign ID.
+
+- Other: The customer followed an external link (without any custom campaign ID) from a website to your app's listing or the customer followed a link from a search engine to your app's listing.
+
+A page view means that a customer viewed your solutions' AppSource listing page. This includes views by people who aren't signed in. Some customers have opted out of providing this information to Microsoft.
+
+    > [!NOTE]
+    > Client storefronts from within the Office applications do not currently provide page view information.  
+
+A conversion means that a customer has newly obtained a license to your app (whether you charged money or you've offered it for free). See acquisitions for more details.
 
 <a name="BKMK_delete"> </a>
-## Delete your submission from the Seller Dashboard
+## App page views and conversions by campaign ID
 
-You can delete draft submissions or items that you have unpublished. You cannot delete submissions that are published in a store or that are **pending approval**. 
+The **App page views and conversions by campaign ID** chart lets you track conversions and page views, as described above, for each of your custom promotion campaigns. The top campaign IDs are shown, and you can use the filters to exclude or include specific campaign IDs.
  
-### To delete your submission
+## Campaign performance by channel
 
-1. Sign in to the [Seller Dashboard](http://go.microsoft.com/fwlink/?LinkId=248605) with your Microsoft account.
+The **Campaign performance by channel chart** lets you track at a high level the influence various channels have over your store traffic. This breaks down the funnel steps by each of the channels tracked.
 
-2. On the **Manage** tab, select the item that you want to delete.
+## Total campaign conversions
 
-3. On the summary page, select **DELETE**.
-
-4. To confirm the deletion, select **YES, DELETE THIS APP**.
+The **Total campaign conversions chart** shows the total number of conversions from all custom campaigns during the selected period of time.
 
 ## See also
 
