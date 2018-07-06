@@ -20,7 +20,7 @@ At this time,  Citrix and Riverbed support the fully-automated Virtual WAN exper
 
 ### Am I required to use a preferred partner device?
 
-No. You can use any VPN capable device that adheres to the preview requirements for IKEv2 IPsec support.
+No. You can use any VPN-capable device that adheres to the Preview requirements for IKEv2 IPsec support.
 
 ### How do preferred providers automate connectivity with Azure Virtual WAN?
 
@@ -34,7 +34,7 @@ There are no changes to existing Azure connectivity features.
   
 Yes, Virtual WAN introduces new Resource Manager resources. For more information, please see the [Overview](https://go.microsoft.com/fwlink/p/?LinkId=2004389).
 
-### Are there any special requirements to join the preview? 
+### Are there any special requirements to join the Preview? 
 
 Before you can configure an Azure Virtual WAN, you must first enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, send an email to **azurevirtualwan@microsoft.com** with your subscription ID. You will receive an email back once your subscription has been enrolled.
 
@@ -42,7 +42,7 @@ Considerations:
 
 * The Preview is limited to Azure public regions only.
 * Up to 100 connections are supported. Each connection is an active-active tunnel terminating in a VPN gateway inside an Azure virtual hub.
-* Consider using this preview if:
+* Consider using this Preview if:
   * You want to deploy aggregated bandwidth less than a Gbps.
   * You have a VPN device that supports route-based configuration and IKEv2 IPsec connectivity.
   * You want to explore using SD-WAN and operating branch devices from the launch partners (Riverbed and Citrix)<br>*or*<br>
@@ -64,14 +64,14 @@ Yes, there is support for BGP. Spokes that are connected to a transit hub that i
 
 No. The transit hub cannot have either a VPN, or an ExpressRoute virtual network gateway.
 
-### Is there an ability to direct traffic using UDR in the Virtual Hub?
+### Can I direct traffic using UDR in the Virtual hub?
 
 Routing functionality will be available by GA.
 
-### Can spoke VNets connected to a Virtual WAN Hub communicate with each other?
+### Can spoke VNets connected to a Virtual WAN hub communicate with each other?
 
 Yes. A transit hub can be used if spoke VNets need to talk to each other - as well as to sites - on the Virtual WAN. A transit hub can also be used if spoke VNets have more advanced security policy or logging needs. No NAT functionality is required between the spokes. You can also set up VNet peering between the Azure spokes if necessary. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### Q. Is there any licensing or pricing information for Virtual WAN?
  
-A. There is no additional charge. Current [Azure VPN and egress pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) remains in effect during preview.
+A. There is no additional charge. Current [Azure VPN and egress pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) remains in effect during Preview.
