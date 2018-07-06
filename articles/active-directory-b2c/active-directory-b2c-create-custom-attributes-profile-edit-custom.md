@@ -20,7 +20,7 @@ In this article, you create a custom attribute in your Azure Active Directory (A
 
 ## Prerequisites
 
-Complete the steps in the article [Get Started with Custom Policies](active-directory-b2c-get-started-custom.md).
+Follow the steps in the article [Get Started with Custom Policies](active-directory-b2c-get-started-custom.md).
 
 ## Use custom attributes to collect information about your customers in Azure AD B2C by using custom policies.
 Your Azure AD B2C directory comes with a built-in set of attributes. Examples are **Given Name**, **Surname**, **City**, **Postal Code**, and **userPrincipalName**. You often need to create your own attributes. These are some examples:
@@ -38,15 +38,16 @@ If the application is deleted, those extension properties along with any data co
 Extension properties exist only in the context of a registered application in the tenant. The object ID of that application must be included in the **TechnicalProfile** that uses it.
 
 >[!NOTE]
->The Azure AD B2C directory typically includes a web app named `b2c-extensions-app`. This application is primarily used by the B2C built-in policies for the custom claims created via the Azure portal. Using this application to register extensions for B2C cutom policies is recommended only for advanced users. Instructions are included in the **Next steps** section in this article.
+>The Azure AD B2C directory typically includes a web app named `b2c-extensions-app`. This application is primarily used by the B2C built-in policies for the custom claims created via the Azure portal. We recommend that only advanced users register extensions for B2C custom policies by using this application.  
+Instructions are included in the **Next steps** section in this article.
 
 
 ## Create a new application to store the extension properties
 
 1. Open a browsing session and navigate to the [Azure portal](https://portal.azure.com). Sign in with administrative credentials of the B2C directory you want to configure.
-2. Select **Azure Active Directory** on the left navigation menu. You may need to find it by selecting **More services**.
+2. Select **Azure Active Directory** on the left navigation menu. You might need to find it by selecting **More services**.
 3. Select **App registrations**. Select **New application registration**.
-4. Provide the following recommended entries:
+4. Provide the following entries:
     * A name for the web application: **WebApp-GraphAPI-DirectoryExtensions**.
     * Application type: Web app/API.
     * Sign-on URL: https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions.
@@ -64,7 +65,7 @@ Extension properties exist only in the context of a registered application in th
 
 ## Modify your custom policy to add the **ApplicationObjectId**
 
-When you completed the steps in [Get Started with Custom Policies](active-directory-b2c-get-started-custom.md), you downloaded and modified [files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) named *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, and *PasswordReset.xml*. In the following steps, you continue to make modifications to these files.
+When you followed the steps in [Get Started with Custom Policies](active-directory-b2c-get-started-custom.md), you downloaded and modified [files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) named *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, and *PasswordReset.xml*. In the following steps, you continue to make modifications to these files.
 
 1. Open the *TrustFrameworkBase.xml* file and add the `Metadata` section as shown in the following example. Insert the Object ID that you previously recorded for the `ApplicationObjectId` value and the Application ID that you recorded for the `ClientId` value: 
 
@@ -99,7 +100,7 @@ When you completed the steps in [Get Started with Custom Policies](active-direct
 ## Use the new extension property/custom attribute in a user journey
 
 1. Open the ProfileEdit.xml file.
-2. Add a custom claim `loyaltyId`. By including the custom claim in the `<RelyingParty>` element, it is included in the token for the application.
+2. Add a custom claim `loyaltyId`. By including the custom claim in the `<RelyingParty>` element, it's included in the token for the application.
     
     ```xml
     <RelyingParty>
@@ -120,7 +121,7 @@ When you completed the steps in [Get Started with Custom Policies](active-direct
     </RelyingParty>
     ```
 
-3. Open the *TrustFrameworkExtensions.xml* file and add the`<ClaimsSchema>` element and its child elements to the `BuildingBlocks` element:
+3. Open the TrustFrameworkExtensions.xml file and add the`<ClaimsSchema>` element and its child elements to the `BuildingBlocks` element:
 
     ```xml
     <BuildingBlocks>
@@ -135,9 +136,9 @@ When you completed the steps in [Get Started with Custom Policies](active-direct
     </BuildingBlocks>
     ```
 
-4. Add the same `ClaimType` definition to *TrustFrameworkBase.xml*. Adding a `ClaimType` definition in both the base and the extensions file is normally not necessary, however since the next steps will add the `extension_loyaltyId` to TechnicalProfiles in the Base file, the policy validator will reject the upload of the base file without it. It may be useful to trace the execution of the user journey named "ProfileEdit" in the *TrustFrameworkBase.xml* file.  Search for the user journey of the same name in your editor and observe that Orchestration Step 5 invokes the TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate".  Search and inspect this TechnicalProfile to familiarize yourself with the flow.
+4. Add the same `ClaimType` definition to *TrustFrameworkBase.xml*. It's not normally necessary to add a `ClaimType` definition in both the base and the extensions file. However, the next steps add the `extension_loyaltyId` to **TechnicalProfiles** in the base file. So the policy validator rejects the upload of the base file without it. It might be useful to trace the execution of the user journey named **ProfileEdit** in the TrustFrameworkBase.xml file. Search for the user journey with the same name in your editor. Observe that Orchestration Step 5 invokes the **TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate**. Search and inspect this **TechnicalProfile** to familiarize yourself with the flow.
 
-5. Open the *TrustFrameworkBase.xml* file and add `loyaltyId` as an input and output claim in the TechnicalProfile "SelfAsserted-ProfileUpdate":
+5. Open the TrustFrameworkBase.xml file and add `loyaltyId` as an input and output claim in the **TechnicalProfile SelfAsserted-ProfileUpdate**:
 
     ```xml
     <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
@@ -173,7 +174,7 @@ When you completed the steps in [Get Started with Custom Policies](active-direct
     </TechnicalProfile>
     ```
 
-6. In the *TrustFrameworkBase.xml* file, add the `loyaltyId` claim to TechnicalProfile "AAD-UserWriteProfileUsingObjectId" to persist the value of the claim in the extension property, for the current user in the directory:
+6. In the TrustFrameworkBase.xml file, add the `loyaltyId` claim to **TechnicalProfile AAD-UserWriteProfileUsingObjectId** to persist the value of the claim in the extension property for the current user in the directory:
 
     ```xml
     <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
@@ -200,7 +201,7 @@ When you completed the steps in [Get Started with Custom Policies](active-direct
     </TechnicalProfile>
     ```
 
-7. In the *TrustFrameworkBase.xml* file, add the `loyaltyId` claim to TechnicalProfile "AAD-UserReadUsingObjectId" to read the value of the extension attribute every time a user logs in. Thus far the TechnicalProfiles have been changed in the flow of local accounts only.  If the new attribute is desired in the flow of a social/federated account, a different set of TechnicalProfiles needs to be changed. See Next Steps.
+7. In the TrustFrameworkBase.xml file, add the `loyaltyId` claim to **TechnicalProfile AAD-UserReadUsingObjectId** to read the value of the extension attribute every time a user signs in. So far, the TechnicalProfiles have been changed in the flow of local accounts only. If you want the new attribute in the flow of a social or federated account, a different set of **TechnicalProfiles** needs to be changed. See the **Next steps** section.
 
     ```xml
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
@@ -230,11 +231,11 @@ When you completed the steps in [Get Started with Custom Policies](active-direct
 
 ## Test the custom policy
 
-1. Open the **Azure AD B2C Blade** and navigate to **Identity Experience Framework > Custom policies**.
-1. Select the custom policy that you uploaded, and click the **Run now** button.
-1. You should be able to sign up using an email address.
+1. Open the Azure AD B2C blade and navigate to **Identity Experience Framework** > **Custom policies**.
+1. Select the custom policy that you uploaded. Select the **Run now** button.
+1. Sign up by using an email address.
 
-The  id token sent back to your application includes the new extension property as a custom claim preceded by extension_loyaltyId. See example.
+The ID token sent back to your application includes the new extension property as a custom claim preceded by **extension_loyaltyId**. See the following example:
 
 ```json
 {
@@ -255,49 +256,50 @@ The  id token sent back to your application includes the new extension property 
 
 ## Next steps
 
-### Add the new claim to the flows for social account logins by changing the TechnicalProfiles listed below. These two TechnicalProfiles are used by social/federated account logins to write and read the user data using the alternativeSecurityId as the locator of the user object.
+1. Add the new claim to the flows to sign in to social accounts by changing the following **TechnicalProfiles**. Social and federated account use these two **TechnicalProfiles** to sign in. They write and read user data by using the alternativeSecurityId as the locator of the user object.
+
 ```xml
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
 ```
 
-Using the same extension attributes between built-in and custom policies.
-When you add extension attributes (aka custom attributes) via the portal experience, those attributes are registered using the **b2c-extensions-app that exists in every b2c tenant.  To use these extension attributes in your custom policy:
-1. Within your b2c tenant in portal.azure.com, navigate to **Azure Active Directory** and select **App registrations**
-2. Find your **b2c-extensions-app** and select it
-3. Under 'Essentials' record the **Application ID** and the **Object ID**
-4. Include them in your AAD-Common Technical profile metadata like as follows:
+2. Use the same extension attributes between built-in and custom policies. When you add extension attributes, also known as custom attributes, via the portal experience, those attributes are registered by using the **b2c-extensions-app** that exists in every B2C tenant. Take the following steps to use these extension attributes in your custom policy:
 
-```xml
-    <ClaimsProviders>
-    	<ClaimsProvider>
-    	      <DisplayName>Azure Active Directory</DisplayName>
-    		<TechnicalProfile Id="AAD-Common">
-              <DisplayName>Azure Active Directory</DisplayName>
-              <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-              <!-- Provide objectId and appId before using extension properties. -->
-              <Metadata>
-                <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
-                <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
-              </Metadata>
-```
+  a. Within your B2C tenant in portal.azure.com, navigate to **Azure Active Directory** and select **App registrations**.
+  b. Find your **b2c-extensions-app** and select it.
+  c. Under **Essentials**, enter the **Application ID** and the **Object ID**.
+  d. Include them in your **AAD-Common** TechnicalProfile metadata:
 
-To keep consistency with the portal experience, create these attributes using the portal UI *before* you use them in your custom policies.  When you create an attribute "ActivationStatus" in the portal, you must refer to it as follows:
+  ```xml
+      <ClaimsProviders>
+     	<ClaimsProvider>
+      	      <DisplayName>Azure Active Directory</DisplayName>
+      		<TechnicalProfile Id="AAD-Common">
+                <DisplayName>Azure Active Directory</DisplayName>
+                <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+                <!-- Provide objectId and appId before using extension properties. -->
+                <Metadata>
+                  <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
+                  <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
+                </Metadata>
+  ```
 
-```
-extension_ActivationStatus in the custom policy
-extension_<app-guid>_ActivationStatus via the Graph API.
-```
+3. Stay consistent with the portal experience. Create these attributes by using the portal UI before you use them in your custom policies. When you create an attribute **ActivationStatus** in the portal, you must refer to it as follows:
+
+  ```
+  extension_ActivationStatus in the custom policy.
+  extension_<app-guid>_ActivationStatus via Graph API.
+  ```
 
 
 ## Reference
 
-* A **Technical Profile (TP)** is an element type that can be thought of as a *function* that defines an endpoint’s name, its metadata, its protocol, and details the exchange of claims that the Identity Experience Framework should perform.  When this *function* is called in an orchestration step or from another TechnicalProfile, the InputClaims and OutputClaims are provided as parameters by the caller.
+* A **TechnicalProfile** is an element type, or function, that defines an endpoint’s name, metadata, and protocol. The **TechnicalProfile** details the exchange of claims that the Identity Experience Framework performs. When this function is called in an orchestration step or from another **TechnicalProfile**, the **InputClaims** and **OutputClaims** are provided as parameters by the caller.
 
 
-* For full treatment on extension properties, see the article [DIRECTORY SCHEMA EXTENSIONS | GRAPH API CONCEPTS](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)
+* For more information on extension properties, see the article [DIRECTORY SCHEMA EXTENSIONS | GRAPH API CONCEPTS](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
->[!NOTE]
->Extension attributes in Graph API are named using the convention `extension_ApplicationObjectID_attributename`. 
->Custom policies refer to extensions attributes as extension_attributename, thus omitting the ApplicationObjectId in the XML
+> [!NOTE]
+> Extension attributes in Graph API are named by using the convention `extension_ApplicationObjectID_attributename`. 
+> Custom policies refer to extensions attributes as **extension_attributename**. This reference omits the **ApplicationObjectId** in the XML.
