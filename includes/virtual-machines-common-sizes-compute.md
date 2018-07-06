@@ -5,7 +5,7 @@
  author: jonbeck7
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/09/2018
+ ms.date: 07/06/2018
  ms.author: azcspmt;jonbeck;cynthn
  ms.custom: include file
 ---
@@ -28,6 +28,10 @@ The Fs-series provides all the advantages of the F-series, in addition to Premiu
 
 ACU: 195 - 210
 
+Premium Storage:  Supported
+
+Premium Storage Caching:  Supported
+
 | Size             | vCPU's | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | 2 / 875                                        |
@@ -48,6 +52,10 @@ ACU: 195 - 210
 
 ACU: 210 - 250
 
+Premium Storage:  Supported
+
+Premium Storage Caching:  Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |4 |4,000 / 32 (12) |3,200 / 48 |2 / 750 |
@@ -66,6 +74,10 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 ## F-series
 
 ACU: 210 - 250
+
+Premium Storage:  Not Supported
+
+Premium Storage Caching:  Not Supported
 
 | Size         | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
