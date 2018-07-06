@@ -38,7 +38,7 @@ This article provides a quick view into the network connectivity of your Azure a
 2. The branch device controller/connector obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premises device.
 3. Once the device has the right Azure configuration, a site-to-site connection (two active tunnels) is established to the Azure WAN. Azure requires the branch device controller/connector to support IKEv2 (Details below). BGP is optional.
 
-|IPSec Properties| |
+|IPsec Properties| |
 |---|---|
 |Ike Encryption Algorithm | AES 256|
 |Ike Integrity Algorithm | SHA256 |
