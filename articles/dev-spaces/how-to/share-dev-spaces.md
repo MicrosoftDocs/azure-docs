@@ -24,3 +24,7 @@ To set up a dev space for multiple developers:
      * **Visual Studio IDE**: Open a project in Visual Studio, select **Azure Dev Spaces** from the launch settings drop-down. In the dialog that opens, select an existing cluster.
 
 ![Visual Studio launch settings drop-down](../media/get-started-netcore-visualstudio/LaunchSettings.png)
+
+## Next steps
+
+See [Learn about team development](../team-development-nodejs.md) for more information.
