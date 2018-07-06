@@ -385,7 +385,7 @@ At what time does Safeway close?
 ### Intents
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
-| AddFavoritePlace | Add a location to the the user's favorites list.|Save this location to my favorites<br/>Add this address to my favorites|
+| AddFavoritePlace | Add a location to the user's favorites list.|Save this location to my favorites<br/>Add this address to my favorites|
 |CheckAccident|Ask whether there is an accident on a specified road.|Is there an accident on 880?<br/>Show me accident information|
 |CheckAreaTraffic|Check the traffic for a general area or highway, not on a specified route.|Traffic in Seattle<br/>What's the traffic like in Seattle?|
 |CheckIntoPlace|Check in to a place using social media.|Check me in on Foursquare<br/>Check in here|
