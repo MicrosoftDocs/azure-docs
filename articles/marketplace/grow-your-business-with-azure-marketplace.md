@@ -177,12 +177,6 @@ Use the following practices for your leads:
 *   Align your efforts with your overall marketing campaign strategy.
 For more information about how to access the Co-Sell program, visit the [Promote Your Business with Microsoft](https://docs.microsoft.com/azure/marketplace/promote-your-business-with-microsoft) page.
 
-## Preferred Solutions in Azure Marketplace and AppSource
-
-A Microsoft Preferred Solution is a cloud application selected for its quality, performance, and ability to address customer needs in a certain industry vertical or solution area. A team of Microsoft industry and sales experts selects solutions from Microsoft Partner Network [Gold membership](https://partner.microsoft.com/membership/core-benefits) partners. These solutions are eligible for featuring in our cloud marketplace storefronts. Customers will find many of the industry preferred solutions featured on AppSource industry pages, while workload preferred solutions may be featured in Azure Marketplace.
-
-Microsoft may collaborate with these providers on joint marketing and sales engagements. Microsoft will contact solution providers if one or more of their solutions has been selected for Preferred badging.
-
 ## GTM Benefits on the Marketplace
 
 New listings in the storefronts on the marketplace are eligible to receive free Marketplace GTM benefits. After listing, marketing specialists at Microsoft contact you or your marketing contact to kick-start the activities. There is nothing for you to do except to engage with Microsoft when you are contacted.
