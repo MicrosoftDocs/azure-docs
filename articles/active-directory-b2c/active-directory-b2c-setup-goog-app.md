@@ -17,7 +17,7 @@ ms.component: B2C
 
 ## Create a Google application
 
-To use a Google account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Google you can get it at [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+To use a Google account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Google account you can get it at [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
 
 1. Sign in to the [Google Developers Console](https://console.developers.google.com/) with your Google account credentials.
 2. Select **Create project**, and then click **Create**. If you have created projects before, select the project list, and then select **New Project**.
