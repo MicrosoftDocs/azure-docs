@@ -19,7 +19,7 @@ ms.author: ellacroi
 ---
 
 # Comparing AppSource and Azure Marketplace
-Storefronts in [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Microsoft AppSource](https://appsource.microsoft.com) serve unique customer requirements. Storefronts enable targeting by role. You can offer the right solution or service based on your customer.
+Storefronts in [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Microsoft AppSource](https://appsource.microsoft.com) serve unique customer requirements. You can use storefronts to target customers by role. You can offer the right solution or service based on your customer.
 
 ## Understanding the differences between the storefronts
 To choose a storefront, begin by identifying the target audience for your offer. If you're targeting audiences in multiple storefronts, you can publish once to sell in multiple storefronts.
@@ -40,11 +40,11 @@ The following tables describe the benefits of using a storefront:
 
 | Benefit | Details | 
 |:--- |:--- | 
-| **Billing flexibility** | For VMs, Pay-As-You-Go billing options use Microsoft Enterprise Agreements (EAs) or web direct sales models. Pricing options include a Free Tier subscription where an offering is perpetually free. Pricing options also include a Try It Now subscription. A Try It Now subscription is promotionally free for a limited period. When the period ends, the VM is converted to a paid subscription. BYOL activation is also an option you can use for customers.<br /><br/>For both billing options and the following VM offers, all provisioned Azure resources are billed directly to the customer:<ul> <li>Azure apps - Managed app</li> <li>Azure apps -Solution template</li> </ul> | 
+| **Billing flexibility** | For VMs, Pay-As-You-Go billing options use Microsoft Enterprise Agreements (EAs) or web direct sales models. Pricing options include a Free Tier subscription where an offering is perpetually free. Pricing options also include a Try It Now subscription. A Try It Now subscription is promotionally free for a limited period. When the period ends, the VM is converted to a paid subscription. BYOL activation is also an option you can use for customers.<br /><br/>For both billing options and the following VM offers, all provisioned Azure resources are billed directly to the customer:<ul> <li>Azure apps: Managed app</li> <li>Azure apps: Solution template</li> </ul> | 
 |**Connections with other partners** | Currently, you can't link a service provider or delivery partners to your offer. | 
 | **Automation** | Currently, you can't link a service provider or delivery partners to your offer. Take advantage of automated SaaS with add-on provisioning. Use the Azure apps - Solution template listing type to automate SaaS-based data collection and deployment scenarios. |
 | **Multiple cloud types** | Publish both in the public cloud and on-premises solutions by using the following types:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Regional clouds, including China and Germany</li></ul> | 
-| **In-context presentation to customers** | Make your solution available in the Azure in-portal experience for contextual search. Use the Virtual machine and Azure apps - Solution template. |
+| **In-context presentation to customers** | Make your solution available in the Azure in-portal experience for contextual search. Use the Virtual machine and Azure apps: Solution template. |
 
 ## Next steps
 *   Review the [Azure Marketplace and AppSource publishing guide](./marketplace-publishers-guide.md).

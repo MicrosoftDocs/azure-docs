@@ -42,7 +42,7 @@ Your leads demonstrate customer interest in the following listings:
 
 | Storefront | Listing |
 |:--- |:--- |
-| AppSource | <table> <tr><td>App</td></tr> <tr><td>Consulting service</td></tr> </table> |
+| AppSource | <table> <tr><td>App</td></tr> <tr><td>Consulting Services</td></tr> </table> |
 | Azure Marketplace | <table> <tr><td>Offer</td></tr> <tr><td>Technology</td></tr> </table> |
 
 You should have a process in place to follow up with your leads as described in the following table:

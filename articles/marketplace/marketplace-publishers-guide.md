@@ -23,13 +23,13 @@ ms.author: ellacroi
 The Marketplace publisher guide is designed to help new and existing publishers learn how to use the [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Microsoft AppSource](https://appsource.microsoft.com) storefronts to grow their business in partnership with Microsoft by listing applications and services.
 
 This guide covers the following topics: 
-*   What the Marketplace is, and how it works 
+*   What the Marketplace is and how it works 
 *   The difference between Azure Marketplace and AppSource storefronts 
 *   The benefits of participating in the Marketplace 
 *   How to become a publisher and list your application or service 
 *   How to grow your business 
 
-This guide contains technical and business information about the steps you need to take before you list your applications and services. Use the table of contents on the right side of the page to go to different sections of the guide, and to go directly to key topics.
+This guide contains both technical and business information about the steps you need to take before you list your applications and services. Use the table of contents on the right side of the page to go to different sections of the guide and to go directly to key topics.
 
 For questions about Azure Marketplace and AppSource, send us a message under **Problem Type** > **Marketplace Onboarding**.  Our Marketplace Publisher Onboarding Team will be happy to help! 
 
@@ -85,11 +85,11 @@ Each storefront provides specialized options to help you maximize your publishin
 | Target audience | Line-of-business decision makers<table> <tr> <th>Specialist roles </th> </tr> <tr> <td>Accounting</td> </tr> <tr> <td>Procurement</td> </tr> <tr> <td>Manufacturing</td> </tr> </table> | IT pros and developers<table> <tr> <th>Specialist roles </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>DBAs</td> </tr> <tr> <td>SecOps</td> </tr> </table> |
 | Built with or to extend | <ul><li>Azure Dynamics 365</li><li>Office 365</li><li>Power BI</li><li>PowerApps</li></ul> | Azure | 
 | Types of solutions and services | <ul><li>Finished line-of-business cloud apps</li><li>Office 365 add-ins</li></ul> | <ul><li>Infrastructure solutions</li><li>Professional services</li></ul> |
-| Offer type | <ul><li>Consulting services</li><li>Contact Me</li><li>Free trial</li><li>Get Now</li><li>Test drive</li></ul> | <ul><li>Azure apps - Managed app</li><li>Azure apps - Solution template</li><li>Consulting services</li><li>Contact Me</li><li>Trial</li><li>Virtual machine</li></ul> |
+| Offer type | <ul><li>Consulting Services</li><li>Contact Me</li><li>Free trial</li><li>Get Now</li><li>Test drive</li></ul> | <ul><li>Azure apps: Managed app</li><li>Azure apps: Solution template</li><li>Consulting Services</li><li>Contact Me</li><li>Trial</li><li>Virtual machine</li></ul> |
 | In-app experience to give users access to apps and services in the context of your app | <ul><li>Dynamics 365</li><li>Office 365</li><li>Office client apps</li><li>Power BI</li></ul> | <ul><li>Azure portal</li><li>Azure Resource Manager</li><li>Azure CLI</li></ul> |
 
 ## Publish in a storefront in the Marketplace
-The following pages help you navigate the publishing options in AppSource and Azure Marketplace.
+The following articles can help you learn about the publishing options in AppSource and Azure Marketplace.
 
 Become a publisher in a storefront in the Marketplace in three easy steps:
 * [Determine the listing type for your solution](./determine-your-listing-type.md)
@@ -98,8 +98,8 @@ Become a publisher in a storefront in the Marketplace in three easy steps:
 
 ## Publishing checklists
 *   [Publishing checklist for AppSource](publishing-checklist-appsource.md)
-*   [Publishing checklist for Azure Marketplace in the Cloud Partner Portal](./publishing-checklist-azure-Marketplace.md)
-*   [Enable Trial using Azure Active Directory](./enable-trial-using-azure-ad.md)
+*   [Publishing checklist for the Azure Marketplace in the Cloud Partner Portal](./publishing-checklist-azure-Marketplace.md)
+*   [Enable a trial by using Azure Active Directory](./enable-trial-using-azure-ad.md)
 
 ## Support
 *   [Support for AppSource](./support-appsource.md) 
@@ -111,8 +111,8 @@ Become a publisher in a storefront in the Marketplace in three easy steps:
 
 ## Guidelines
 *   [Guidelines](./guidelines.md)
-*   [Guidelines for creating a Microsoft ID to manage a Marketplace account](./guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-Marketplace-account)
+*   [Guidelines for creating a Microsoft ID to manage a Marketplace account](./guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)
 *   [Register in Dev Center](./register-dev-center.md) 
 *   [Add bank and tax information](./add-bank-tax-info.md) 
-*   [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md)
-*   [Billing Options for Azure Marketplace](./billing-options-azure-Marketplace.md) 
+*   [Enable a trial listing by using Azure Active Directory](./enable-trial-using-azure-ad.md)
+*   [Billing options for the Azure Marketplace](./billing-options-azure-marketplace.md) 
