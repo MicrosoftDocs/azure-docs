@@ -121,4 +121,4 @@ When no longer needed, you can delete the Azure App service and related resource
 When you configured your CI/CD process in this quickstart, a build and release definition were automatically created in your VSTS project. You can modify these build and release definitions to meet the needs of your team. To learn more see this tutorial:
 
 > [!div class="nextstepaction"]
-> [Customize CD process](../../../release/define-multistage-release-process.md)
+> [Customize CD process](https://docs.microsoft.com/vsts/pipelines/release/define-multistage-release-process?view=vsts)

@@ -147,4 +147,4 @@ You can optionally modify these build and release definitions to meet the needs 
 To learn more about Service Fabric and microservices see below:
 
 > [!div class="nextstepaction"]
-> [Use a microservices approach for building applications](/azure/service-fabric/service-fabric-overview-microservices)
+> [Use a microservices approach for building applications](https://docs.microsoft.com/vsts/pipelines/release/define-multistage-release-process?view=vsts)

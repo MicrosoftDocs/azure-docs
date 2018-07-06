@@ -168,4 +168,4 @@ When you configured your CI/CD process in this tutorial, a build and release def
 To learn more about the VSTS pipeline see this tutorial:
 
 > [!div class="nextstepaction"]
-> [Customize CD process](../release/define-multistage-release-process.md)
+> [Customize CD process](https://docs.microsoft.com/vsts/pipelines/release/define-multistage-release-process?view=vsts)

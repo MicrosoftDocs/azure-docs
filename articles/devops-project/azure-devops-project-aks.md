@@ -161,4 +161,4 @@ You can optionally modify these build and release definitions to meet the needs 
 To learn more about using the Kubernetes dashboard see below:
 
 > [!div class="nextstepaction"]
-> [Use the Kubernetes dashboard](/azure/aks/kubernetes-dashboard)
+> [Use the Kubernetes dashboard](https://docs.microsoft.com/vsts/pipelines/release/define-multistage-release-process?view=vsts)
