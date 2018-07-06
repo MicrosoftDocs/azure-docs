@@ -41,7 +41,6 @@ These examples are meant to help you understand how to adjust your IoT hub as yo
 5. Select **Save** to save your changes. 
 
 Your IoT hub is now adjusted, and your configurations are unchanged. 
-Note that the partition limit for basic tier IoT Hub is 8. This limit will remains unchanged when you migrate from basic tier to standard tier.
 
 ## Next steps
 
