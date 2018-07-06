@@ -258,7 +258,6 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-linux-capture-image-resource-manager]:../../linux/capture-image.md
 [virtual-machines-linux-capture-image-resource-manager-capture]:../../linux/capture-image.md#step-2-capture-the-vm
 [virtual-machines-linux-configure-raid]:../../linux/configure-raid.md
-[virtual-machines-linux-configure-lvm]:../../linux/configure-lvm.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
 [virtual-machines-linux-create-upload-vhd-suse]:../../linux/suse-create-upload-vhd.md
 [virtual-machines-linux-redhat-create-upload-vhd]:../../linux/redhat-create-upload-vhd.md
@@ -355,21 +354,18 @@ You should have a working knowledge about the Microsoft Azure Architecture and h
 
 Since we are discussing IaaS, in general the Windows, Linux, and DBMS installation and configuration are essentially the same as any virtual machine or bare metal machine you would install on-premises. However, there are some architecture and system management implementation decisions, which are different when utilizing IaaS. The purpose of this document is to explain the specific architectural and system management differences that you must be prepared for when using IaaS.
 
-In general, the overall areas of difference that this paper discusses are:
 
-* Planning the proper VM/disk layout of SAP systems to ensure you have the proper data file layout and can achieve enough IOPS for your workload.
-* Networking considerations when using IaaS.
-* Specific database features to use in order to optimize the database layout.
-* Backup and restore considerations in IaaS.
-* Utilizing different types of images for deployment.
-* High Availability in Azure IaaS.
-
-## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Structure of an RDBMS Deployment
+## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Storage structure of a VM for RDBMS Deployments
 In order to follow this chapter, it is necessary to understand what was presented in [this][deployment-guide-3] chapter of the [Deployment Guide][deployment-guide]. Knowledge about the different VM-Series and their differences and differences of Azure Standard and Premium Storage should be understood and known before reading this chapter.
 
-Until March 2015, disks, which contain an operating system were limited to 127 GB in size. This limitation got lifted in March 2015 (for more information check <https://azure.microsoft.com/blog/2015/03/25/azure-vm-os-drive-limit-octupled/>). From there on disks containing the operating system can have the same size as any other disk. Nevertheless, we still prefer a structure of deployment where the operating system, DBMS, and eventual SAP binaries are separate from the database files. Therefore, we expect SAP systems running in Azure Virtual Machines have the base VM (or disk) installed with the operating system, database management system executables, and SAP executables. The DBMS data and log files are stored in Azure Storage (Standard or Premium Storage) in separate disks and attached as logical disks to the original Azure operating system image VM. 
+In terms of Azure Storage for Azure VMs, you should be familiar with the articles:
 
-Dependent on leveraging Azure Standard or Premium Storage (for example by using the DS-series or GS-series VMs) there are other quotas in Azure, which are documented [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows]. When planning your disk layout, you need to find the best balance of the quotas for the following items:
+- [About disks storage for Azure Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds)
+- [About disks storage for Azure Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds) 
+
+In a basic configuration, we usually recommend a structure of deployment where the operating system, DBMS, and eventual SAP binaries are separate from the database files. Therefore, we recommend SAP systems running in Azure Virtual Machines to have the base VM (or disk) installed with the operating system, database management system executables, and SAP executables. The DBMS data and log files are stored in Azure Storage (Standard or Premium Storage) in separate disks and attached as logical disks to the original Azure operating system image VM. Especially in Linux deployments, there can be different recommendations documented. Especially around SAP HANA.  
+
+When planning your disk layout, you need to find the best balance for the following items:
 
 * The number of data files.
 * The number of disks that contain the files.
@@ -377,12 +373,100 @@ Dependent on leveraging Azure Standard or Premium Storage (for example by using 
 * The data throughput per disk.
 * The number of additional data disks possible per VM size.
 * The overall storage throughput a VM can provide.
+* The latency different Azure Storage types can provide.
+* VM SLAs
 
-Azure enforces an IOPS quota per data disk. These quotas are different for disks hosted on Azure Standard Storage and Premium Storage. I/O latencies are also very different between the two storage types with Premium Storage delivering factors better I/O latencies. Each of the different VM types has a limited number of data disks that you are able to attach. Another restriction is that only certain VM types can leverage Azure Premium Storage. This means the decision for a certain VM type might not only be driven by the CPU and memory requirements, but also by the IOPS, latency and disk throughput requirements that usually are scaled with the number of disks or the type of Premium Storage disks. Especially with Premium Storage the size of a disk also might be dictated by the number of IOPS and throughput that needs to be achieved by each disk.
+Azure enforces an IOPS quota per data disk. These quotas are different for disks hosted on Azure Standard Storage and [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage). I/O latencies are also very different between the two storage types with Premium Storage delivering factors better I/O latencies. Each of the different VM types has a limited number of data disks that you are able to attach. Another restriction is that only certain VM types can leverage Azure Premium Storage. This means the decision for a certain VM type might not only be driven by the CPU and memory requirements, but also by the IOPS, latency and disk throughput requirements that usually are scaled with the number of disks or the type of Premium Storage disks. Especially with Premium Storage the size of a disk also might be dictated by the number of IOPS and throughput that needs to be achieved by each disk.
 
-The fact that the overall IOPS rate, the number of disks mounted, and the size of the VM are all tied together, might cause an Azure configuration of an SAP system to be different than its on-premises deployment. The IOPS limits per LUN are usually configurable in on-premises deployments. Whereas with Azure Storage those limits are fixed or as in Premium Storage dependent on the disk type. So with on-premises deployments we see customer configurations of database servers that are using many different volumes for special executables like SAP and the DBMS or special volumes for temporary databases or table spaces. When such an on-premises system is moved to Azure, it might lead to a waste of potential IOPS bandwidth by wasting a disk for executables or databases, which do not perform any or not a lot of IOPS. Therefore, in Azure VMs we recommend that the DBMS and SAP executables be installed on the OS disk if possible.
+> [!NOTE]
+> For DBMS deployments, the usage of Premium Storage for any data, transaction log, or redo files is highly recommended. Thereby it does not matter whether you want to deploy production or non-production systems.
 
-The placement of the database files and log files and the type of Azure Storage used, should be defined by IOPS, latency, and throughput requirements. In order to have enough IOPS for the transaction log, you might be forced to leverage multiple disks for the transaction log file or use a larger Premium Storage disk. In such a case one would build a software RAID (for example Windows Storage Pool for Windows or MDADM and LVM (Logical Volume Manager) for Linux) with the disks, which contain the transaction log.
+> [!NOTE]
+> In order to benefit from Azure's unique [single VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) all disks attached need to be of the type Azure Premium Storage, including the base VHD.
+>
+
+The placement of the database files and log/redo files and the type of Azure Storage used, should be defined by IOPS, latency, and throughput requirements. In order to have enough IOPS, you might be forced to leverage multiple disks or use a larger Premium Storage disk. In such a case you would build a software stripe with the disks, which contain the data files or log/redo files. In such cases, the IOPS and the disk throughput SLAs of the underlying Premium Storage disks or the maximum achievable IOPS of Azure Standard Storage disks are accumulative for the resulting stripe set. 
+
+As already stated above, you need to balance the number of IOPS needed for the database files across the number of disks you can configure and the maximum IOPS an Azure VM provides per disk or Premium Storage disk type. Easiest way to deal with the IOPS load over disks is to build a software RAID over the different disks. Then place a number of data files of the SAP DBMS on the LUNS carved out of the software RAID. Dependent on the requirements you might want to consider the usage of Premium Storage as well since two of the three different Premium Storage disks provide higher IOPS quota than disks based on Standard Storage. Besides the significant better I/O latency provided by Azure Premium Storage. 
+
+
+- - -
+> ![Windows][Logo_Windows] Windows
+> 
+> We recommend using Windows Storage Spaces to create such stripe sets across multiple Azure VHDs. It is recommended to use at least Windows Server 2012 R2 or Windows Server 2016.
+> 
+> ![Linux][Logo_Linux] Linux
+> 
+> Only MDADM and LVM (Logical Volume Manager) are supported to build a software RAID on Linux. For more information, read the following articles:
+> 
+> - [Configure Software RAID on Linux][https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid] using  MDADM)
+> - [Configure LVM on a Linux VM in Azure][https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm] using LVM
+> 
+> 
+
+- - -
+ 
+> [!NOTE]
+> Since Azure Storage is keeping three images of the VHDs, it does not make sense to configure a redundancy when striping. You only need to configure striping, so, that the I/Os are getting distributed over the different VHDs.
+>
+
+### Managed or non-managed disks
+An Azure Storage Account is not only an administrative construct, but also a subject of limitations. Whereas the limitations vary on whether we talk about an Azure Standard Storage Account or an Azure Premium Storage Account. The exact capabilities and limitations are listed in the article [Azure Storage Scalability and Performance Targets][https://docs.microsoft.com/azure/storage/common/storage-scalability-targets]
+
+So for Azure Standard Storage it is important to recall there is a limit on the IOPS per storage account (Row containing **Total Request Rate** in in the article [Azure Storage Scalability and Performance Targets][https://docs.microsoft.com/azure/storage/common/storage-scalability-targets]). In addition, there is an initial limit of 200 Storage Accounts per Azure subscription. Therefore, you need to balance VHDs for larger SAP landscape across different storage accounts to avoid hitting the limits of these storage accounts. A tedious work when we are talking about a few hundred virtual machines with more than thousand VHDs. 
+
+Since we are not recommending the usage of Azure Standard Storage for DBMS deployments in conjunction with SAP workload, we will limit references and recommendations to this short [article](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)
+
+In order to avoid the administrative work of planning and deploying VHDs across different Azure Storage accounts, Microsoft introduced what is called [Managed Disks](https://azure.microsoft.com/services/managed-disks/) in 2017. Managed Disks are available for Azure Standard Storage as well as Azure Premium Storage. The advantages of Managed Disks compared to non-managed disks list like:
+
+- For Managed Disks, Azure distributes the different VHDs across different storage accounts automatically at deployment time and thereby avoids to hit the limits of an Azure Storage account in terms of data volume, I/O throughput, and IOPS.
+- Using Managed Disks, Azure Storage is honoring the concepts of Azure Availability Sets and with that deploys the base VHD and attached disk of a VM into different fault and update domains if the VM is part of an Azure Availability Set.
+
+
+> [!IMPORTANT]
+> Given the advantages of Azure Managed Disks, it is highly recommended to use Azure Managed Disks for your DBMS deployments.
+>
+
+To convert from unmanaged to managed disks, consult the articles:
+
+- [Convert a Windows virtual machine from unmanaged disks to managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks)
+- [Convert a Linux virtual machine from unmanaged disks to managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks)
+
+
+### <a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Caching for VMs and data disks
+When you create data disks through the portal or when you mount uploaded disks to VMs, you can choose whether the I/O traffic between the VM and those disks located in Azure storage are cached. Azure Standard and Premium Storage use two different technologies for this type of cache. 
+
+The recommendations below are assuming the these I/O characteristics and assumptions for Standard DBMS:
+
+- It is mostly read workload against data files of a database. these reads are performance critical for the DBMS system
+- Writing against the data files is experienced in bursts based on checkpoints or a constant stream. nevertheless averaged over the day, the writes are lesser than the reads. In opposite to reds from data files, these writes are asynchronous and are not holding up any user transactions.
+- There are hardly any reads from the transaction log or redo files. Exceptions are large I/Os when performing transaction log backups. 
+- Main load against transaction or redo log files is writes. Dependent on the nature of workload, you can have I/Os as small as 4 KB or in other cases I/O sizes of 1 MB or more.
+- All writes need to be persisted on disk in a reliable fashion
+
+For Azure Standard Storage the possible cache types are:
+
+* None
+* Read
+* Read/Write
+
+In order to get consistent and deterministic performance, you should set the caching on Azure Standard Storage for all disks containing **DBMS-related data files, log/redo files, and table space to 'NONE'**. The caching of the VM can remain with the default.
+
+For Azure Premium Storage the following caching options exist:
+
+* None
+* Read 
+* Read/write 
+* None + Write Accelerator (only for Azure M-Series VMs)
+* Read + Write Accelerator (only for Azure M-Series VMs)
+
+Recommendation for Azure Premium Storage is to leverage **Read caching for data files** of the SAP database and chose **No caching for the disks of log file(s)**.
+
+For M-Series deployments it is highly recommended to use Azure Write Accelerator for your DBMS deployment. For details, restrictions and deployment of Azure Write Accelerator consult the document [Write Accelerator](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-enable-write-accelerator). 
+
+
+### Azure non-persistent disks
+Azure VMs offer non-persistent disks after a VM is deployed. In case of a VM reboot, all content on those drives will be wiped out. Hence, it is a given that data files and log/redo files of databases should under no circumstances be located on those non-persisted drives. There might be exceptions for some of the databases, where these non-persisted drives could be suitable for tempdb and temp tablespaces. However, avoid using those drives for A-Series VMs since those non-persisted drives are very limited in throughput with that VM family. For further details read the article [Understanding the temporary drive on Windows Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 - - -
 > ![Windows][Logo_Windows] Windows
@@ -396,187 +480,90 @@ The placement of the database files and log files and the type of Azure Storage 
 > 
 
 - - -
-Dependent on the Azure VM-series, the local disks on the compute node show different performance, which can be categorized like:
 
-* A0-A7: Very limited performance. Not usable for anything beyond windows page file
-* A8-A11: Very good performance characteristics with some ten thousand IOPS and >1GB/sec throughput
-* D-Series: Very good performance characteristics with some ten thousand IOPS and >1GB/sec throughput
-* DS-Series: Very good performance characteristics with some ten thousand IOPS and >1GB/sec throughput
-* G-Series: Very good performance characteristics with some ten thousand IOPS and >1GB/sec throughput
-* GS-Series: Very good performance characteristics with some ten thousand IOPS and >1GB/sec throughput
 
-Statements above are applying to the VM types that are certified with SAP. The VM-series with excellent IOPS and throughput qualify for leverage by some DBMS features, like tempdb or temporary table space.
 
-### <a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Caching for VMs and data disks
-When we create data disks through the portal or when we mount uploaded disks to VMs, we can choose whether the I/O traffic between the VM and those disks located in Azure storage are cached. Azure Standard and Premium Storage use two different technologies for this type of cache. In both cases, the cache itself would be disk backed on the same drives used by the temporary disk (D:\ on Windows or /mnt/resource on Linux) of the VM.
+### <a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Microsoft Azure Storage resiliency
+Microsoft Azure Storage stores the base VM (with OS) and attached disks or BLOBs on at least three separate storage nodes. This fact is called Local Redundant Storage (LRS). LRS is default for all types of storage in Azure. 
 
-For Azure Standard Storage the possible cache types are:
+There are several more Redundancy methods which are all described in the article [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
-* No caching
-* Read caching
-* Read and Write caching
+> [!NOTE]
+>As of Azure Premium Storage, which is the recommended type of storage for DBMS VMs and disks that store database and log/redo files, the only available method is LRS. As a result, you need to configure database methods, like SQL Server AlwaysOn, Oracle Data Guard or HANA System Replication to enable database data replication into another Azure Region or another Azure Availability Zone
 
-In order to get consistent and deterministic performance, you should set the caching on Azure Standard Storage for all disks containing **DBMS-related data files, log files, and table space to 'NONE'**. The caching of the VM can remain with the default.
 
-For Azure Premium Storage the following caching options exist:
+> [!NOTE]
+> For DBMS deployments, the usage of Geo Redundant Storage as available with Azure Standard Storage is not recommended since it has severe performance impact and does not honor the write order across different VHDs that are attached to a VM. The fact of not honoring the write order across different VHDs has a high potential to end up in inconsistent databases on the replication target side if database and lof/redo files are spread across multiple VHD (as mostly the case) on the source VM side
 
-* No caching
-* Read caching
+ 
 
-Recommendation for Azure Premium Storage is to leverage **Read caching for data files** of the SAP database and chose **No caching for the disks of log file(s)**.
+## VM node resiliency
+The Azure Platform offers severla different SLAs for VMs. The exact details can be found in the most recent release of [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Since the DBMS layer is usually an availability critical part of a SAP system, you need to make yourself familiar with the concepts of Availability Sets, Availability Zones, and maintenance events. The articles that describes all these concepts is [Manage the availability of Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability) and [Manage the availability of Linux virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/manage-availability).  
 
-### <a name="c8e566f9-21b7-4457-9f7f-126036971a91"></a>Software RAID
-As already stated above, you need to balance the number of IOPS needed for the database files across the number of disks you can configure and the maximum IOPS an Azure VM provides per disk or Premium Storage disk type. Easiest way to deal with the IOPS load over disks is to build a software RAID over the different disks. Then place a number of data files of the SAP DBMS on the LUNS carved out of the software RAID. Dependent on the requirements you might want to consider the usage of Premium Storage as well since two of the three different Premium Storage disks provide higher IOPS quota than disks based on Standard Storage. Besides the significant better I/O latency provided by Azure Premium Storage. 
+Minimum recommendation for production DBMS VMs is to:
 
-Same applies to the transaction log of the different DBMS systems. With many of them adding more Tlog files does not help since the DBMS systems write into one of the files at a time only. If higher IOPS rates are needed than a single Standard Storage based disk can deliver, you can stripe over multiple Standard Storage disks or you can use a larger Premium Storage disk type that beyond higher IOPS rates also delivers factors lower latency for the write I/Os into the transaction log.
+- Deploy two VMs in a separate Availability Set in the same Azure Region.
+- These two VMs would run in the same Azure VNet and would have NICs attached out of the same subnets.
+- Use database methods to keep a hot standby with the second VM. Methods can be SQL Server AlwaysOn, Oracle Data Guard, or HANA System Replication.
 
-Situations experienced in Azure deployments, which would favor using a software RAID are:
+Additionally, you can deploy a third VM in another Azure Region and use the same database methods to supply an asynchronous replica in another Azure region.
 
-* Transaction Log/Redo Log require more IOPS than Azure provides for a single disk. As mentioned above this can be solved by building a LUN over multiple disks using a software RAID.
-* Uneven I/O workload distribution over the different data files of the SAP database. In such cases one can experience one data file hitting the quota rather often. Whereas other data files are not even getting close to the IOPS quota of a single disk. In such cases the easiest solution is to build one LUN over multiple disks using a software RAID. 
-* You don't know what the exact I/O workload per data file is and only roughly know what the overall IOPS workload against the DBMS is. Easiest to do is to build one LUN with the help of a software RAID. The sum of quotas of multiple disks behind this LUN should then fulfill the known IOPS rate.
+The way to set up Azure Availability Sets is demonstrated in this [tutorial](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-availability-sets).
+
+
+
+## Azure Network considerations 
+In large scale SAP deployments we assume that customers are using the blueprint of [Azure Virtual Datacenter](https://docs.microsoft.com/en-us/azure/networking/networking-virtual-datacenter) for their VNet configuration and permissions and role assignments to different parts of their organization.
+
+There are several best practices, which resulted out of hundreds of customer deployments:
+
+- The VNet(s) the SAP application is deployed into, does not have access to the Internet.
+- The database VMs are running in the same VNet as the application layer.
+- The VMs within the VNet have a static allocation of the private IP address. See the article [IP address types and allocation methods in Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-ip-addresses-overview-arm) as reference.
+- Routing restrictions to and from the DBMS VMs are **NOT** set with firewalls installed on the local DBMS VMs. Instead traffic routing is defined with [Azure Network Security Groups (NSG)](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview)
+- For the purpose of separating and isolating traffic to the DBMS VM, you assign different NICs to the VM. Where every NIC has a different IP address and every NIC is a assigned to a different VNet subnet, which again has different NSG rules. Keep in mind that the isolation or separation of network traffic is just a measure for routing and does not allow to set quotas for network throughput.
+
+Using two VMs for your production DBMS deployment within an Azure Availability Set plus a separate routing for the SAP application layer and the Management and operations traffic to the two DBMS VMs, the rough diagram would look like:
+
+![Diagram of two VMs with all layers](./media/virtual-machines-shared-sap-deployment-guide/general_two_dbms_two_subnets.PNG)
+
+
+### Azure load balancer for redirecting traffic
+The usage of private virtual IP addresses used in functionalities like SQL Server AlwaysOn or HANA System replication requires the configuration of an Azure Load Balancer. The Azure Load Balancer is able through probe ports to determine the active DBMS node and route the traffic exclusively to that active database node. In case of a failover of the database node, there is no need for the SAP application to reconfigure. Instead the most common SAP applications architectures will reconnect against the private virtual IP address. Meanwhile the Azure load balancer reacted on the node failover by redirecting the traffic against the private virtual IP address to the second node.
+
+Azure offers two different [load balancer SKUs](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). A basic one and a standard SKU. Unless you want to deploy across Azure Availability Zones, the basic load balancer SKU does just fine. 
+
+Is the traffic between the DBMS VMs and the SAP application layer always routed through the Azure load balancer all the time? The answer depends on how you configure the load balancer. At this point in time, the incoming traffic to the DBMS VM will always be routed through the Azure load balancer. The outgoing traffic route from the DBMS VM to the application layer VM depends on the configuration of the Azure load balancer. The load balancer offers an option of DirectServerReturn. If that option is configured, the traffic directed from the DBMS VM to the SAP application layer will **NOT** be routed through the Azure load balancer. Instead it will directly go to the application layer. If DirectServerReturn is not configured, the return traffic to the SAP application layer is routed through the Azure load balancer
+
+It is recommended to configure DirectServerReturn in combination with Azure load balancers that are positioned between the SAP application layer and the DBMS layer to reduce network latency between the two layers
+
+An example of setting up such a configuration is published around SQL server AlwaysOn in [this article](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
+
+If you choose to use published github JSON templates as reference for your SAP infrastructure deployments in azure, you should study this [template for a SAP 3-Tier system](https://github.com/Azure/azure-quickstart-templates/tree/4099ad9bee183ed39b88c62cd33f517ae4e25669/sap-3-tier-marketplace-image-converged-md). In this template you also can study the correct settings of the Azure load balancer.
+
+### Azure Accelerated Networking
+In order to further reduce network latency between Azure VMs, it is highly recommended to choose the option of [Azure Accelerated Networking](https://azure.microsoft.com/en-us/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) when deploying Azure VMs for SAP workload. Especially for the SAP application layer and the SAP DBMS layer. 
+
+> [!NOTE]
+> Not all VM types are supporting Accelerated Networking. The referenced article is listing the VM types that support Accelerated Networking. 
+>  
 
 - - -
 > ![Windows][Logo_Windows] Windows
 > 
-> We recommend using Windows Storage Spaces if you run on Windows Server 2012 or higher. It is more efficient than Windows Striping of earlier Windows versions. You might need to create the Windows Storage Pools and Storage Spaces by PowerShell commands when using Windows Server 2012 as Operating System. The PowerShell commands can be found here <https://technet.microsoft.com/library/jj851254.aspx>
+> For Windows consult the article [Create a Windows virtual machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-powershell) to understand the concepts and the way how to deploy VMs with Accelerated Networking
 > 
 > ![Linux][Logo_Linux] Linux
 > 
-> Only MDADM and LVM (Logical Volume Manager) are supported to build a software RAID on Linux. For more information, read the following articles:
-> 
-> * [Configure Software RAID on Linux][virtual-machines-linux-configure-raid] (for MDADM)
-> * [Configure LVM on a Linux VM in Azure][virtual-machines-linux-configure-lvm]
+> For Linux read the article [Create a Linux virtual machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli) in order to get details for Linux distribution. 
 > 
 > 
 
 - - -
-Considerations for leveraging VM-series, which are able to work with Azure Premium Storage usually are:
 
-* Demands for I/O latencies that are close to what SAN/NAS devices deliver.
-* Demand for factors better I/O latency than Azure Standard Storage can deliver.
-* Higher IOPS per VM than what could be achieved with multiple Standard Storage disks against a certain VM type.
-
-Since the underlying Azure Storage replicates each disk to at least three storage nodes, simple RAID 0 striping can be used. There is no need to implement RAID5 or RAID1.
-
-### <a name="10b041ef-c177-498a-93ed-44b3441ab152"></a>Microsoft Azure Storage
-Microsoft Azure Storage stores the base VM (with OS) and disks or BLOBs to at least three separate storage nodes. When creating a storage account or managed disk, there is a choice of protection as shown here:
-
-![Geo-Replication enabled for Azure Storage account][dbms-guide-figure-100]
-
-Azure Storage Local Replication (Locally Redundant) provides levels of protection against data loss due to infrastructure failure that few customers could afford to deploy. As shown above there are four different options with a fifth being a variation of one of the first three. Looking closer at them we can distinguish:
-
-* **Premium Locally Redundant Storage (LRS)**: Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines running I/O-intensive workloads. There are three replicas of the data within the same Azure datacenter of an Azure region. The copies are in different Fault and Upgrade Domains (for concepts see [this][planning-guide-3.2] chapter in the [Planning Guide][planning-guide]). In case of a replica of the data going out of service due to a storage node failure or disk failure, a new replica is generated automatically.
-* **Locally Redundant Storage (LRS)**: In this case, there are three replicas of the data within the same Azure datacenter of an Azure region. The copies are in different Fault and Upgrade Domains (for concepts see [this][planning-guide-3.2] chapter in the [Planning Guide][planning-guide]). In case of a replica of the data going out of service due to a storage node failure or disk failure, a new replica is generated automatically. 
-* **Geo Redundant Storage (GRS)**: In this case, there is an asynchronous replication that feeds an additional three replicas of the data in another Azure Region, which is in most of the cases in the same geographical region (like North Europe and West Europe). This results in three additional replicas, so that there are six replicas in sum. A variation of this is an addition where the data in the geo replicated Azure region can be used for read purposes (Read-Access Geo-Redundant).
-* **Zone Redundant Storage (ZRS)**: In this case, the three replicas of the data remain in the same Azure Region. As explained in [this][planning-guide-3.1] chapter of the [Planning Guide][planning-guide] an Azure region can be a number of datacenters in close proximity. In the case of LRS the replicas would be distributed over the different datacenters that make one Azure region.
-
-More information can be found [here][storage-redundancy].
-
-> [!NOTE]
-> For DBMS deployments, the usage of Geo Redundant Storage is not recommended
-> 
-> Azure Storage Geo-Replication is asynchronous. Replication of individual disks mounted to a single VM are not synchronized in lock step. Therefore, it is not suitable to replicate DBMS files that are distributed over different disks or deployed against a software RAID based on multiple disks. DBMS software requires that the persistent disk storage is precisely synchronized across different LUNs and underlying disks/spindles. DBMS software uses various mechanisms to sequence IO write activities and a DBMS reports that the disk storage targeted by the replication is corrupted if these vary even by a few milliseconds. Hence if one wants a database configuration with a database stretched across multiple disks geo-replicated, such a replication needs to be performed with database means and functionality. One should not rely on Azure Storage Geo-Replication to perform this job. 
-> 
-> The problem is simplest to explain with an example system. Let's assume you have an SAP system uploaded into Azure, which has eight disks containing data files of the DBMS plus one disk containing the transaction log file. Each one of these nine disks have data written to them in a consistent method according to the DBMS, whether the data is being written to the data or transaction log files.
-> 
-> In order to properly geo-replicate the data and maintain a consistent database image, the content of all nine disks would have to be geo-replicated in the exact order the I/O operations were executed against the nine different disks. However, Azure Storage geo-replication does not allow to declare dependencies between disks. This means Microsoft Azure Storage geo-replication doesn't know about the fact that the contents in these nine different disks are related to each other and that the data changes are consistent only when replicating in the order the I/O operations happened across all the nine disks.
-> 
-> Besides chances being high that the geo-replicated images in the scenario do not provide a consistent database image, there also is a performance penalty that shows up with geo redundant storage that can severely impact performance. In summary, do not use this type of storage redundancy for DBMS type workloads.
-> 
-> 
-
-#### Mapping VHDs into Azure Virtual Machine Service Storage Accounts
-This chapter only applies to Azure Storage Accounts. If you plan to use Managed Disks, the limitations mentioned in this chapter do not apply. For more information about Managed Disks, read chapter [Managed Disks][dbms-guide-managed-disks] of this guide.
-
-An Azure Storage Account is not only an administrative construct, but also a subject of limitations. Whereas the limitations vary on whether we talk about an Azure Standard Storage Account or an Azure Premium Storage Account. The exact capabilities and limitations are listed [here][storage-scalability-targets]
-
-So for Azure Standard Storage it is important to note there is a limit on the IOPS per storage account (Row containing **Total Request Rate** in [the article][storage-scalability-targets]). In addition, there is an initial limit of 100 Storage Accounts per Azure subscription (as of July 2015). Therefore, it is recommended to balance IOPS of VMs between multiple storage accounts when using Azure Standard Storage. Whereas a single VM ideally uses one storage account if possible. So if we talk about DBMS deployments where each VHD that is hosted on Azure Standard Storage could reach its quota limit, you should only deploy 30-40 VHDs per Azure Storage Account that uses Azure Standard Storage. On the other hand, if you leverage Azure Premium Storage and want to store large database volumes, you might be fine in terms of IOPS. But an Azure Premium Storage Account is way more restrictive in data volume than an Azure Standard Storage Account. As a result, you can only deploy a limited number of VHDs within an Azure Premium Storage Account before hitting the data volume limit. At the end, think of an Azure Storage Account as a 'Virtual SAN' that has limited capabilities in IOPS and/or capacity. As a result, the task remains, as in on-premises deployments, to define the layout of the VHDs of the different SAP systems over the different 'imaginary SAN devices' or Azure Storage Accounts.
-
-For Azure Standard Storage, it is not recommended to present storage from different storage accounts to a single VM if possible.
-
-When using the DS or GS-series of Azure VMs, it is possible to mount VHDs out of Azure Standard Storage Accounts and Premium Storage Accounts. Use cases like writing backups into Standard Storage backed VHDs and having DBMS data and log files on Premium Storage come to mind where such heterogeneous storage could be leveraged. 
-
-Based on customer deployments and testing around 30 to 40 VHDs containing database data files and log files can be provisioned on a single Azure Standard Storage Account with acceptable performance. As mentioned earlier, the limitation of an Azure Premium Storage Account is likely to be the data capacity it can hold and not IOPS.
-
-As with SAN devices on-premises, sharing requires some monitoring in order to eventually detect bottlenecks on an Azure Storage Account. The Azure Monitoring Extension for SAP and the Azure portal are tools that can be used to detect busy Azure Storage Accounts that may be delivering suboptimal IO performance.  If this situation is detected, it is recommended to move busy VMs to another Azure Storage Account. Refer to the [Deployment Guide][deployment-guide] for details on how to activate the SAP host monitoring capabilities.
-
-Another article summarizing best practices around Azure Standard Storage and Azure Standard Storage Accounts can be found here <https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx>
-
-#### <a name="f42c6cb5-d563-484d-9667-b07ae51bce29"></a>Managed Disks
-Managed Disks are a new resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the Availability Set of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine. To learn more, read the [overview article](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
-
-SAP currently only supports Premium Managed Disks. Read SAP Note [1928533] for more details.
-
-#### Moving deployed DBMS VMs from Azure Standard Storage to Azure Premium Storage
-We encounter quite some scenarios where you as customer want to move a deployed VM from Azure Standard Storage into Azure Premium Storage. If your disks are stored in Azure Storage Accounts, this is not possible without physically moving the data. There are several ways to achieve the goal:
-
-* You could copy all VHDs, base VHD as well as data VHDs into a new Azure Premium Storage Account. Often you chose the number of VHDs in Azure Standard Storage not because of the fact that you needed the data volume. But you needed that many VHDs because of the IOPS. Now that you move to Azure Premium Storage you could go with way fewer VHDs to achieve the same IOPS throughput. Given the fact that in Azure Standard Storage you pay for the used data and not the nominal disk size, the number of VHDs did not matter in terms of costs. However, with Azure Premium Storage, you would pay for the nominal disk size. Therefore, most of the customers try to keep the number of Azure VHDs in Premium Storage at the number needed to achieve the IOPS throughput necessary. So, most customers decide against the way of a simple 1:1 copy.
-* If not yet mounted, you mount a single VHD that can contain a database backup of your SAP database. After the backup, you unmount all VHDs including the VHD containing the backup and copy the base VHD and the VHD with the backup into an Azure Premium Storage account. You would then deploy the VM based on the base VHD and mount the VHD with the backup. Now you create additional empty Premium Storage Disks for the VM that are used to restore the database into. This assumes that the DBMS allows you to change paths to the data and log files as part of the restore process.
-* Another possibility is a variation of the former process, where you copy the backup VHD into Azure Premium Storage and attach it against a VM that you newly deployed and installed.
-* The fourth possibility you would choose when you are in need to change the number of data files of your database. In such a case, you would perform an SAP homogenous system copy using export/import. Put those export files into a VHD that is copied into an Azure Premium Storage Account and attach it to a VM that you use to run the import processes. Customers use this possibility mainly when they want to decrease the number of data files.
-
-If you use Managed Disks, you can migrate to Premium Storage by:
-
-1. Deallocate the virtual machine
-1. If necessary, resize the virtual machine to a size that supports Premium Storage (for example DS or GS)
-1. Change the Managed Disk account type to Premium (SSD)
-1. Change the caching of the data disks as recommended in chapter [Caching for VMs and data disks][dbms-guide-2.1]
-1. Start your virtual machine
-
-### Deployment of VMs for SAP in Azure
-Microsoft Azure offers multiple ways to deploy VMs and associated disks. Thereby it is important to understand the differences since preparations of the VMs might differ dependent on the way of deployment. In general, we look into the scenarios described in the following chapters.
-
-#### Deploying a VM from the Azure Marketplace
-You like to take a Microsoft or third party provided image from the Azure Marketplace to deploy your VM. After you deployed your VM in Azure, you follow the same guidelines and tools to install the SAP software inside your VM as you would do in an on-premises environment. For installing the SAP software inside the Azure VM, SAP and Microsoft recommend uploading and store the SAP installation media in disks or to create an Azure VM working as a 'File server', which contains all the necessary SAP installation media.
-
-#### Deploying a VM with a customer-specific generalized image
-Due to specific patch requirements regarding your OS or DBMS version, the provided images in the Azure Marketplace might not fit your needs. Therefore, you might need to create a VM using your own 'private' OS/DBMS VM image, which can be deployed several times afterwards. To prepare such a 'private' image for duplication, the OS must be generalized on the on-premises VM. Refer to the [Deployment Guide][deployment-guide] for details on how to generalize a VM.
-
-If you have already installed SAP content in your on-premises VM (especially for 2-Tier systems), you can adapt the SAP system settings after the deployment of the Azure VM through the instance rename procedure supported by the SAP Software Provisioning Manager (SAP Note [1619720]). Otherwise you can install the SAP software later after the deployment of the Azure VM.
-
-As of the database content used by the SAP application, you can either generate the content freshly by an SAP installation or you can import your content into Azure by using a VHD with a DBMS database backup or by leveraging capabilities of the DBMS to directly back up into Microsoft Azure Storage. In this case, you could also prepare VHDs with the DBMS data and log files on-premises and then import those as Disks into Azure. But the transfer of DBMS data, which is getting loaded from on-premises to Azure would work over VHD disks that need to be prepared on-premises.
-
-#### Moving a VM from on-premises to Azure with a non-generalized disk
-You plan to move a specific SAP system from on-premises to Azure (lift and shift). This can be done by uploading the disk, which contains the OS, the SAP binaries, and eventual DBMS binaries plus the disks with the data and log files of the DBMS to Azure. In opposite to scenario #2 above, you keep the hostname, SAP SID, and SAP user accounts in the Azure VM as they were configured in the on-premises environment. Therefore, generalizing the image is not necessary. This case mostly applies for Cross-Premises scenarios where a part of the SAP landscape is run on-premises and parts on Azure.
-
-## <a name="871dfc27-e509-4222-9370-ab1de77021c3"></a>High Availability and Disaster Recovery with Azure VMs
-Azure offers the following High Availability (HA) and Disaster Recovery (DR) functionalities, which apply to different components we would use for SAP and DBMS deployments
-
-### VMs deployed on Azure Nodes
-The Azure Platform does not offer features such as Live Migration for deployed VMs. This means if there is maintenance necessary on a server cluster on which a VM is deployed, the VM needs to get stopped and restarted. Maintenance in Azure is performed using so called Upgrade Domains within clusters of servers. Only one Upgrade Domain at a time is being maintained. During such a restart, there is an interruption of service while the VM is shut down, maintenance is performed and VM restarted. Most DBMS vendors however provide High Availability and Disaster Recovery functionality that quickly restarts the DBMS services on another node if the primary node is unavailable. The Azure Platform offers functionality to distribute VMs, Storage, and other Azure services across Upgrade Domains to ensure that planned maintenance or infrastructure failures would only impact a small subset of VMs or services.  With careful planning, it is possible to achieve availability levels comparable to on-premises infrastructures.
-
-Microsoft Azure Availability Sets are a logical grouping of VMs or Services that ensures VMs and other services are distributed to different Fault and Upgrade Domains within a cluster such that there would only be one node shutdown at any one point in time (read [this (Linux)][virtual-machines-manage-availability-linux] or [this (Windows)][virtual-machines-manage-availability-windows] article for more details).
-
-It needs to be configured by purpose when rolling out VMs as seen here:
-
-![Definition of Availability Set for DBMS HA configurations][dbms-guide-figure-200]
-
-If we want to create highly available configurations of DBMS deployments (independent of the individual DBMS HA functionality used), the DBMS VMs would need to:
-
-* Add the VMs to the same Azure Virtual Network (<https://azure.microsoft.com/documentation/services/virtual-network/>)
-* The VMs of the HA configuration should also be in the same subnet. Name resolution between the different subnets is not possible in Cloud-Only deployments, only IP resolution works. Using site-to-site or ExpressRoute connectivity for Cross-Premises deployments, a network with at least one subnet is already established. Name resolution is done according to the on-premises AD policies and network infrastructure. 
-
-
-
-#### IP Addresses
-It is highly recommended to setup the VMs for HA configurations in a resilient way. Relying on IP addresses to address the HA partner(s) within the HA configuration is not reliable in Azure unless static IP addresses are used. There are two "Shutdown" concepts in Azure:
-
-* Shut down through Azure portal or Azure PowerShell cmdlet Stop-AzureRmVM: In this case, the Virtual Machine gets shutdown and de-allocated. Your Azure account is no longer charged for this VM so the only charges that incur are for the storage used. However, if the private IP address of the network interface was not static, the IP address is released and it is not guaranteed that the network interface gets the old IP address assigned again after a restart of the VM. Performing the shut down through the Azure portal or by calling Stop-AzureRmVM automatically causes de-allocation. If you do not want to deallocate the machine use Stop-AzureRmVM -StayProvisioned 
-* If you shut down the VM from an OS level, the VM gets shut down and NOT de-allocated. However, in this case, your Azure account is still charged for the VM, despite the fact that it is shutdown. In such a case, the assignment of the IP address to a stopped VM remains intact. Shutting down the VM from within does not automatically force de-allocation.
-
-Even for Cross-Premises scenarios, by default a shutdown and de-allocation means de-assignment of the IP addresses from the VM, even if on-premises policies in DHCP settings are different. 
-
-* The exception is if one assigns a static IP address to a network interface as described [here][virtual-networks-reserved-private-ip].
-* In such a case the IP address remains fixed as long as the network interface is not deleted.
-
-> [!IMPORTANT]
-> In order to keep the whole deployment simple and manageable, the clear recommendation is to setup the VMs partnering in a DBMS HA or DR configuration within Azure in a way that there is a functioning name resolution between the different VMs involved.
-> 
-> 
 
 ## Deployment of Host Monitoring
 For productive usage of SAP Applications in Azure Virtual Machines, SAP requires the ability to get host monitoring data from the physical hosts running the Azure Virtual Machines. A specific SAP Host Agent patch level is required that enables this capability in SAPOSCOL and SAP Host Agent. The exact patch level is documented in SAP Note [1409604].
 
-For the details regarding deployment of components that deliver host data to SAPOSCOL and SAP Host Agent and the lifecycle management of those components, refer to the [Deployment Guide][deployment-guide]
+For the details regarding deployment of components that deliver host data to SAPOSCOL and SAP Host Agent and the life cycle management of those components, refer to the [Deployment Guide][deployment-guide]
 
