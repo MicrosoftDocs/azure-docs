@@ -213,8 +213,8 @@ With the validation complete, Contoso can use the TFS Migration Tool to build th
 
     ![Prepare](./media/contoso-migration-tfs-vsts/prep5.png)
 
-> [!NOTE]
-> The account must be created before the migration, It can be changed after migration is done.
+    > [!NOTE]
+    > The account must be created before the migration, It can be changed after migration is done.
 
 6. They review the identity log map file that shows the accounts that will be brought into VSTS during the import. 
 
