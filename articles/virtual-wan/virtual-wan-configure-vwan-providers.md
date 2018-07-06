@@ -18,9 +18,9 @@ ms.author: cherylmc
 
 Rough Draft
 
-This article shows you how to set up the automation to connect and configure your branch device for Azure Virtual WAN. If you are a provider that provides branch devices which can accomodate VPN connectivity over IPsec/IKEv2, this article is for you.
+This article shows you how to set up the automation to connect and configure your branch device for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2, this article is for you.
 
-Software-defined connectivity solutions typically use a controller or a device provisioning center to manage their branch devices. The controller can use Azure APIs to automate connectivity to Azure Virtual WAN. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it.
+Software-defined connectivity solutions typically use a controller or a device provisioning center to manage their branch devices. The controller can use Azure APIs to automate connectivity to Azure Virtual WAN. This type of connection requires a VPN device located on-premises that has an externally-facing public IP address assigned to it.
 
 ## 1. Access control
 
@@ -32,7 +32,7 @@ Next step would be to design an experience of uploading branch information into 
 
 ## 3. Hub and services
 
-Once the branch device is uploaded to Azure, customer will typically make selections of hub region and/or services in the Azure portal which invokes a set of operations to create the hub virtual network and the VPN end point inside the hub. The VPN gateway is a scalable gateway which sizes appropriately based on bandwidth and connection needs.
+Once the branch device is uploaded to Azure, customer will typically make selections of hub region and/or services in the Azure portal, which invokes a set of operations to create the hub virtual network and the VPN end point inside the hub. The VPN gateway is a scalable gateway which sizes appropriately based on bandwidth and connection needs.
 
 ## 4. Device configuration
 
@@ -146,9 +146,6 @@ The next step manually for the customer is to download the Azure configuration a
    }
   ```
 
-
-
-
 ## Working with Custom Policy
 
 The following table lists the supported cryptographic algorithms and key strengths configurable by the customers. You must select one option for every field.
@@ -168,7 +165,7 @@ The following table lists the supported cryptographic algorithms and key strengt
 1. DHGroup2048 & PFS2048 are the same as Diffie-Hellman Group 14 in IKE and IPsec PFS. See Diffie-Hellman Groups for the complete mappings.
 2. For GCMAES algorithms, you must specify the same GCMAES algorithm and key length for both IPsec Encryption and Integrity.
 3. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
-4. QM SA Lifetimes are optional parameters. If none was specified, default values of 27,000 seconds (7.5 hrs) and 102400000 KBytes (102GB) are used.
+4. QM SA Lifetimes are optional parameters. If none was specified, default values of 27,000 seconds (7.5 hrs) and 102400000 KBytes (102 GB) are used.
 
 ### Does everything need to match between the Azure VPN gateway policy and my on-premises VPN device configurations?
 
