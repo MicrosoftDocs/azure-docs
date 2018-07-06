@@ -22,14 +22,14 @@ In this tutorial, improve the accuracy of intent scores and identify entities fo
 * Add phrase list to improve unknown utterance score
 * Verify entity is found when using phrase list
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md) account in order to author your LUIS application.
 
 ## Import a new app
 1. Download the [example LUIS app][LuisSampleApp] that's designed for this tutorial. You will use it in the next step. 
 
-2. As described in [Create an app](Create-new-app.md#import-new-app), import the file that you downloaded into the [LUIS][LUIS] website as a new app. The app name is "My Phrase List tutorial." It has intents, entities, and utterances. 
+2. As described in [Create an app](Create-new-app.md#import-new-app), import the file that you downloaded into the [LUIS](luis-reference-regions.md) website as a new app. The app name is "My Phrase List tutorial." It has intents, entities, and utterances. 
 
-3. [Train](luis-how-to-train.md) your app. Until it is trained, you cannot [interactively test](interactive-test.md#interactive-testing) it in the [LUIS][LUIS] website. 
+3. [Train](luis-how-to-train.md) your app. Until it is trained, you cannot [interactively test](interactive-test.md#interactive-testing) it in the LUIS website. 
 
 4. On the [Publish](luis-how-to-publish-app.md) page, select the **Include all predicted intent scores** check box. When the check box is selected, all intents are returned. When the check box is cleared, only the top intent is returned. 
 
@@ -38,7 +38,7 @@ For this article, you need a free [LUIS][LUIS] account in order to author your L
 ## Test a trained utterance
 Use the published endpoint to query an utterance that the app already knows. Because LUIS already knows the utterance, the score is high and the entity is detected.
 
-1. On the [Language Understanding (LUIS)][LUIS] website, on the **Publish** page for the new app, select the endpoint URL in the **Resources and Keys** section. 
+1. On the Language Understanding (LUIS) website, on the **Publish** page for the new app, select the endpoint URL in the **Resources and Keys** section. 
 
     ![Publish the endpoint URL](./media/luis-tutorial-interchangeable-phrase-list/luis-publish-url.png)
 
@@ -250,13 +250,11 @@ The **Hardware** entity shows a score of 0.595 with the phrase list. Before the 
 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS app. To do so, select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Get utterance prediction with endpoint query](luis-get-started-cs-get-intent.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
-[LuisFeatures]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature
 [LuisSampleApp]: https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json
