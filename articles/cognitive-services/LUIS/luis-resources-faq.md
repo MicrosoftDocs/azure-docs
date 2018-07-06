@@ -177,7 +177,7 @@ The articles that were previously in the Tutorial section are now in the How-to 
 |Build a LUIS app programmatically using [Node.js](luis-tutorial-node-import-utterances-csv.md)|
 |Use [composite entity](luis-tutorial-composite-entity.md) to extract grouped data|
 |Add [list entity](luis-tutorial-list-entity.md) for increased entity detection using Node.js|
-|Improve prediction accuracy with a [phrase list](luis-tutorial-interchangeable-phrase-list.md), [patterns](luis-tutorial-pattern.md), and [batch testing](luis-tutorial-batch-testing.md)|
+|Improve prediction accuracy with a [phrase list](luis-quickstart-primary-and-secondary-data.md), [patterns](luis-tutorial-pattern.md), and [batch testing](luis-tutorial-batch-testing.md)|
 |[Correct spelling](luis-tutorial-batch-testing.md) with Bing Spell Check API v7
 
 ### At the Build 2018 Conference, I heard about a Language Understanding feature or demo but I don't remember what it was called? 
@@ -207,5 +207,3 @@ Projects:
 To learn more about LUIS, see the following resources:
 * [Stack Overflow questions tagged with LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [MSDN Language Understanding Intelligent Services (LUIS) Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

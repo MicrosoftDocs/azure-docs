@@ -25954,6 +25954,11 @@
             "source_path": "articles/cloud-shell/persisting-shell-storage-powershell.md",
             "redirect_url": "/azure/cloud-shell/persisting-shell-storage",
             "redirect_document_id": false
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
+        "redirect_document_id": true
         }
     ]
 }
