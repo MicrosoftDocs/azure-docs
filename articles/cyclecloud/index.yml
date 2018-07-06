@@ -28,8 +28,8 @@ sections:
       href: quickstart-install-cyclecloud.md
     - name: Create and Run a Simple HPC Cluster
       href: quickstart-create-and-run-cluster.md
-    - name: Smoke Test and Auto Scale
-      html: quickstart-smoke-test.md
+    - name: Submit Jobs and Auto Scale
+      html: quickstart-submit-jobs.md
     - name: Clean Up Resources
       html: quickstart-clean-up-resources.md
 - title: Concepts

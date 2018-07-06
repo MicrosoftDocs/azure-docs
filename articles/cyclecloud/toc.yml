@@ -13,7 +13,7 @@
   - name: Create and Run a Simple HPC Cluster
     href: quickstart-create-and-run-cluster.md
   - name: Smoke Test and Auto Scale
-    href: quickstart-smoke-test.md
+    href: quickstart-submit-jobs.md
   - name: Clean Up Resources
     href: quickstart-clean-up-resources.md
 - name: Tutorials
