@@ -25,7 +25,7 @@ Before creating a volume in Azure NetApp Files, you must purchase and set up a p
 - A NetApp account serves as an administrative grouping of the constituent capacity pools.  
 - A NetApp account is not the same as your general Azure storage account. 
 - A NetApp account is regional in scope.   
-  You can have multiple NetApp accounts in a region, but each NetApp account is tied to only a single region.
+- You can have multiple NetApp accounts in a region, but each NetApp account is tied to only a single region.
 
 ## <a name="capacity_pools"></a>Capacity pools
 
@@ -34,7 +34,7 @@ Before creating a volume in Azure NetApp Files, you must purchase and set up a p
 - A capacity pool can have only one service level.  
   Currently, only the Premium service level is available.
 - Each capacity pool belongs to only one NetApp account.  
-- A capacity pool cannot be moved across Azure accounts.   
+- A capacity pool cannot be moved across NetApp accounts.   
   For example, in the [Conceptual diagram of storage hierarchy](#conceptual_diagram_of_storage_hierarchy) below, Capacity Pool 1 cannot be moved from US East NetApp account to US West 2 NetApp account.  
 
 ## <a name="volumes"></a>Volumes
@@ -44,7 +44,6 @@ Before creating a volume in Azure NetApp Files, you must purchase and set up a p
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
 - Within the same NetApp account, you can move a volume across pools.    
   For example, in the [Conceptual diagram of storage hierarchy](#conceptual_diagram_of_storage_hierarchy) below, you can move the volumes from Capacity Pool 1 to Capacity Pool 2.
-- A volume can present multiple mount targets.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
 The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools,  and volumes.   

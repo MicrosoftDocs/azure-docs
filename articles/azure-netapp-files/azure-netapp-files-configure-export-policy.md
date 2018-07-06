@@ -46,7 +46,8 @@ You can optionally configure export policy to control access to an Azure NetApp 
 
     ![Export policy](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
-## Next Steps 
+
+## Next steps 
 * [Manage volumes](azure-netapp-files-manage-volumes.md)
 * [Mount or unmount a volume for virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Manage snapshots](azure-netapp-files-manage-snapshots.md)

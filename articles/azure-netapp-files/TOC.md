@@ -2,7 +2,6 @@
 
 # Overview
 ## [Introduction to Azure NetApp Files](azure-netapp-files-introduction.md)
-## [Networking and security FAQs for Azure NetApp Files](azure-netapp-files-faq-for-networking-security.md)
 ## [Understand the storage hierarchy](azure-netapp-files-understand-storage-hierarchy.md)
 
 # Get started
@@ -15,6 +14,5 @@
 ## [Manage volumes](azure-netapp-files-manage-volumes.md)
 ## [Mount or unmount a volume for virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 ## [Manage snapshots](azure-netapp-files-manage-snapshots.md)
+## [Resize a capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md)
 
-# Moniter and troubleshoot
-## [Troubleshoot SDE Resource Provider errors](azure-netapp-files-troubleshoot-sde-resource-provider-errors.md)

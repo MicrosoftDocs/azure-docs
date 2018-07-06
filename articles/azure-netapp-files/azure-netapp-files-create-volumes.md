@@ -45,7 +45,7 @@ You must have already set up a capacity pool.
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
 
     * **Virtual network**  
-        Specify the Azure virtual network (Vnet) from which you want to access the volume. The Azure NetApp Files service can be accessed only from a Vnet that is in the same location as the volume.   
+        Specify the Azure virtual network (Vnet) from which you want to access the volume. The Vnet you specify must have Azure NetApp Files configured. The Azure NetApp Files service can be accessed only from a Vnet that is in the same location as the volume.   
 
     ![New volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
 

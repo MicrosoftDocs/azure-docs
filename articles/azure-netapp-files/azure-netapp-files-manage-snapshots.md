@@ -21,7 +21,7 @@ You can use Azure NetApp Files to create an on-demand snapshot for a volume or r
 
 ## Create an on-demand snapshot for a volume
 You can create snapshots only on demand.  Snapshot policies are not currently supported.  
-1.	From the Manage Volume blade, click **+ Add snapshot** to create an on-demand snapshot for a volume.
+1.	From the Manage Volume blade, click **Snapshots**, then click **+ Add snapshot** to create an on-demand snapshot for a volume.
 
 2.	In the New Snapshot window, provide a name for the new snapshot that you are creating.   
 
@@ -55,9 +55,9 @@ Currently, you can restore a snapshot only to a new volume.
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.
 
     *   **Virtual network**  
-        Specify the Azure virtual network (Vnet) from which you want to access the volume.   
-
-        The Azure NetApp Files service can be accessed only from a Vnet that is in the same location as the volume.  
+        Specify the Azure virtual network (Vnet) from which you want to access the volume. 
+        
+        The Vnet you specify must have Azure NetApp Files configured. The Azure NetApp Files service can be accessed only from a Vnet that is in the same location as the volume.  
 
     ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
     

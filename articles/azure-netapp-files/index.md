@@ -14,10 +14,10 @@ ms.author: b-juche
 ---
 # Azure NetApp Files Documentation
 
-Learn how to use Azure NetApp Files to create and manage volumes, create a mount target, configure export policy, mount a volume for a virtual machine, and manage snapshots.
+Learn how to use Azure NetApp Files to create and manage NetApp accounts, capacity pools, and volumes, configure export policy, mount a volume for a virtual machine, and manage snapshots.
 
 > [!IMPORTANT] 
-> All tasks described in this documentation require that you be whitelisted for accessing the Microsoft.NetApp Azure Resource Provider and using the Azure NetApp Files service.  For details about the whitelisting process, see the [Azure NetApp Files Public Preview survey page](https://aka.ms/nfspublicpreview). 
+> All tasks described in this documentation require that you be part of the Public Preview program and whitelisted for accessing the Microsoft.NetApp Azure Resource Provider. For details about joining the Public Preview program, see the [Azure NetApp Files Public Preview signup page](https://aka.ms/nfspublicpreview). 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -38,7 +38,7 @@ Learn how to use Azure NetApp Files to create and manage volumes, create a mount
         </div>
         </a>
     </li>
-<!-- The 2nd bullet below is a place holder for video; specific location for the video is TBD. -->
+<!-- 
    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=azure-netapp-files">
         <div class="cardSize">
@@ -57,6 +57,7 @@ Learn how to use Azure NetApp Files to create and manage volumes, create a mount
         </div>
         </a>
     </li> 
+    --> 
     <li>
         <a href="/azure/azure-netapp-files/azure-netapp-files-create-netapp-account">
         <div class="cardSize">
@@ -68,7 +69,7 @@ Learn how to use Azure NetApp Files to create and manage volumes, create a mount
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Azure NetApp Files using the Azure portal</h3>
+                        <h3>Get Started with Azure NetApp Files using Azure portal</h3>
                     </div>
                 </div>
             </div>
