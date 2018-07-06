@@ -38,7 +38,9 @@ Once installed, the extension updates automatically. You might need to reload th
 
 ## Update the Visual Studio extension
 
-In Visual Studio, choose the **Tools > Extensions and Updates** menu item, and on the left side, choose **Updates**. Find **Visual Studio Tools for Kubernetes** and choose the **Update** button.
+Like with other extensions and updates, Visual Studio will notify you when there's an update available to the Visual Studio Tools for Kubernetes, which includes Azure Dev Spaces. Look for a flag icon on the top right of the screen.
+
+To update the tools in Visual Studio, choose the **Tools > Extensions and Updates** menu item, and on the left side, choose **Updates**. Find **Visual Studio Tools for Kubernetes** and choose the **Update** button.
 
 ## Next steps
 
