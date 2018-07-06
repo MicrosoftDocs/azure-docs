@@ -2,13 +2,13 @@
 title: Quickstart - Azure Docker CE cluster for Linux
 description: Quickly learn to create a Docker CE cluster for Linux containers in Azure Container Service with the Azure CLI.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom:
 ---
 
