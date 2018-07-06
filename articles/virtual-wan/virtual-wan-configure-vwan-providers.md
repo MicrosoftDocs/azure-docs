@@ -24,11 +24,11 @@ Software-defined connectivity solutions typically use a controller or a device p
 
 ## 1. Access control
 
-Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using Azure Service Principal (Insert Link here). Service principal-based access will provide the device controller appropriate authentication to upload branch information.
+Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal (Insert Link here). Service principal-based access will provide the device controller appropriate authentication to upload branch information.
 
-## 2. Website
+## 2. Branch information website
 
-Next step would be to design an experience of uploading branch information into Azure. REST API for VPNSite can be used to create branch information in Azure Virtual WAN. You can provide all branch/VPN device or select device customizations as appropriate.
+In this step, you design the user-experience to upload branch (on-premises site) information to Azure. REST APIs for **VPNSite** can be used to create the site information in Virtual WAN. You can provide all branch/VPN devices, or select device customizations as appropriate.
 
 ## 3. Hub and services
 
