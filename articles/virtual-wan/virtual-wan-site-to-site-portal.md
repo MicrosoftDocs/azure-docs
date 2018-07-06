@@ -18,6 +18,8 @@ This tutorial shows you how to use Virtual WAN to connect to your resources in A
 > Typically, you would use a Virtual WAN partner solution to create this configuration. However, you can also do this yourself if you are comfortable with networking and proficient at configuring your own VPN device.
 >
 
+![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -87,7 +89,7 @@ $vnet   = New-AzureRmVirtualNetwork `
 2. Click **+Create a resource**. In the *Search the marketplace* field, type 'virtual wan'. Locate **Virtual WAN (preview)** from the returned list, and click to open the **Virtual WAN (preview)** page.
 3. Click **Create** to open the **Create WAN** page.
 
-  ![Create WAN](./media/virtual-wan-howto-create/createwan.png)
+  ![Create WAN](./media/virtual-wan-site-to-site-portal/createwan.png)
 4. On the Create WAN page, fill in the following fields.
 
   * **Name** - Select the Name that you want to call your WAN.
@@ -104,7 +106,7 @@ Create as many sites as you need that correspond to your physical locations. For
 2. Click the virtual WAN that you created.
 3. Click **+Create site** at the top of the page to open the **Create site** page.
 
-  ![new site](media/virtual-wan-howto-create/createsite.png)
+  ![new site](media/virtual-wan-site-to-site-portal/createsite.png)
 4. On the **Create site** page, fill in the following fields:
 
   *  **Name** - This is the name by which you want to refer to your on-premises site.
@@ -114,7 +116,7 @@ Create as many sites as you need that correspond to your physical locations. For
   *  **Resource Group** - The resource group you want to use.
 5. Click **Show advanced** to view additional settings. You can **enable BGP** (optional field, which will enable this functionality on all connections created for this site in Azure. You can also enter **Device information** (optional field). This can help the Azure Team better understand your environment to add additional optimization possibilities in the future, or to help you troubleshoot.
 
-  ![BGP](media/virtual-wan-howto-create/sitebgp.png)
+  ![BGP](media/virtual-wan-site-to-site-portal/sitebgp.png)
 6. Click **Confirm** to create the site.
 7. Repeat these steps for each site that you want to create.
 
