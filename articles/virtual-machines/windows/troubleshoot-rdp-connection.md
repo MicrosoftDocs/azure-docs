@@ -163,8 +163,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     ```powershell
     Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location WestUS -Name "myVMAccessExtension" `
-        -UserName $cred.GetNetworkCredential().Username `
-        -Password $cred.GetNetworkCredential().Password
+        -Credential $cred
     ```
 4. **Restart your VM**. This troubleshooting step can correct any underlying issues the VM itself is having.
    
