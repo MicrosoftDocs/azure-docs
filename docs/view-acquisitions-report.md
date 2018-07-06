@@ -88,3 +88,4 @@ The **Total campaign conversions chart** shows the total number of conversions f
 ## See also
 
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
+- [Promote your AppSource solution](promote-your-office-store-solution.md)
