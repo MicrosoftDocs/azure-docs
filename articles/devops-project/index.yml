@@ -36,27 +36,27 @@ sections:
     - image: 
         src: media\logo_net.svg
       text: .NET
-      href: azure-devops-project-aspnetcore.md
+      href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-aspnetcore
     - image: 
         src: media\logo_nodejs.svg
       text: Node.js
-      href: azure-devops-project-nodejs.md
+      href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-nodejs
     - image: 
         src: media\logo_java.svg
       text: Java
-      href: azure-devops-project-java.md
+      href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-java
     - image: 
         src: media\logo_python.svg
       text: Python
-      href: azure-devops-project-python.md
+      href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-python
     - image: 
         src: media\logo_php.svg
       text: PHP
-      href: azure-devops-project-php.md
+      href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-php
     - image: 
         src: media\logo_ruby.svg
       text: Ruby
-      href: azure/azure-devops-project-ruby.md
+      href: https://docs.microsoft.com/azure/devops-project/azure-devops-project-ruby
     - image: 
         src: media\logo_gopher.svg
       text: Go
