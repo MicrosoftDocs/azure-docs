@@ -248,4 +248,4 @@ When no longer needed, delete the LUIS app. To do so, select the ellipsis (***..
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn best practices for LUIS apps](concept-best-practices.md)
+> [Learn best practices for LUIS apps](luis-concept-best-practices.md)
