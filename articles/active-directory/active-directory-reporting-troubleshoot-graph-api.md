@@ -33,13 +33,13 @@ We do not currently support the Microsoft Graph v2 endpoint - make sure to acces
 
 You may get this error message when trying to access sign-ins using Graph Explorer. Make sure you are signed in to your account using both of the sign-in buttons in the Graph Explorer UI, as shown in the following image. 
 
-![Graph Explorer](./media/active-directory-reporting-troubleshooting-graph-api/graph-explorer.png)
+![Graph Explorer](./media/active-directory-reporting-troubleshoot-graph-api/graph-explorer.png)
 
 ### Error: Failed to do premium license check from AD Graph 
 
 If you run into this error message while trying to access sign-ins using Graph Explorer, choose **Modify Permissions** underneath your account on the left nav, and select **Tasks.ReadWrite** and **Directory.Read.All**. 
 
-![Modify permissions UI](./media/active-directory-reporting-troubleshooting-graph-api/modify-permissions.png)
+![Modify permissions UI](./media/active-directory-reporting-troubleshoot-graph-api/modify-permissions.png)
 
 
 ### Error: Neither tenant is B2C or tenant doesn't have premium license
