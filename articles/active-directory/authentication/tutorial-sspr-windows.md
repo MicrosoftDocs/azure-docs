@@ -73,7 +73,7 @@ More information on creating groups can be found in the article [Manage access t
 
 #### Assign device configuration policy to device group
 
-1. Log in to the [Azure portal](https://portal.azure.com) and click on **Intune**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and click on **Intune**.
 2. Find the device configuration profile created previously by going to **Device configuration** > **Profiles** > Click on the profile created earlier
 3. Assign the profile to a group of devices 
    * Click on **Assignments** > under **Include** > **Select groups to include**
