@@ -115,11 +115,11 @@ If you want to try doing the recording yourself, here's what you need to know.
 
 Your "recording booth" should be a small room with no noticeable echo or "room tone" and which is as quiet and soundproof as possible. Drapes on the walls can be used to reduce echo and neutralize or "deaden" the sound of the room.
 
-Use a high-quality studio condenser microphone. Sennheiser, AKG, and even newer Zoom mics can yield good results. You can rent one from a local audio-visual rental firm. Look for one with a USB interface. This type of mic conveniently combines the mic, preamp, and analog-to-digital converter into one product, simplifying hookup.
+Use a high-quality studio condenser microphone intended for recording voice. Sennheiser, AKG, and even newer Zoom mics can yield good results. You can rent one from a local audio-visual rental firm. Look for one with a USB interface. This type of mic conveniently combines the mic, preamp, and analog-to-digital converter into one product, simplifying hookup.
 
-You may also use an analog microphone. Many rental houses offer "vintage" microphones which are renowned for their quality. Professional analog gear includes balanced XLR connectors, rather than the 1/4" plug used in consumer equipment. So you'll need a preamp and an audio interface with these connectors.
+You may also use an analog microphone. Many rental houses offer "vintage" microphones which are renowned for their voice character. Professional analog gear includes balanced XLR connectors, rather than the 1/4" plug used in consumer equipment. So you'll need a preamp and an audio interface with these connectors.
 
-Install the microphone on a stand and use a pop filter on the microphone to eliminate noise from "plosive" sounds like "p" and "b." 
+Install the microphone on a stand or boom and use a pop filter on the microphone to eliminate noise from "plosive" sounds like "p" and "b." Some microphones come with a suspension mount that isolates them from vibrations in the stand, which is helpful.
 
 The voice talent must stay at a consistent distance from the microphone. Use tape on the floor to mark where they should stand. If the talent prefers to sit, take special care. Sitting may complicate maintaining a constant distance from the mic, and adds a new source of unwanted sounds to watch out for (the chair).
 
@@ -138,9 +138,9 @@ Levels should be set so that most of the available dynamic range of digital reco
 
 ![good recording waveform](media/custom-voice/good-recording.png)
 
-You can see that most of the range (height) is used, but the highest peaks of the signal do not reach the top. You can also see that the silence in the recording is very close to being a horizontal line, indicating a low noise floor. This recording has acceptable dynamic range and signal-to-noise ratio.
+You can see that most of the range (height) is used, but the highest peaks of the signal do not reach the top. You can also see that the silence in the recording approximates a tihn horizontal line, indicating a low noise floor. This recording has acceptable dynamic range and signal-to-noise ratio.
 
-Record directly into the computer using a high-quality audio interface or a USB port, depending on the kind of mic you're using. Keep the audio chain simple: mic, preamp, audio interface, computer. Use Pro Tools if you have it available; if you're on a budget, try the free [Audacity](https://www.audacityteam.org/).
+Record directly into the computer using a high-quality audio interface or a USB port, depending on the kind of mic you're using. Keep the audio chain simple: mic, preamp, audio interface, computer. Both [Avid Pro Tools](http://www.avid.com/en/pro-tools) and [Adobe Audition](https://www.adobe.com/products/audition.html) can be licensed monthly at reasonable cost. If you have literally no budget, try the free [Audacity](https://www.audacityteam.org/).
 
 Record at 44.1 KHz 16 bit monophonic (CD quality) or better. Current state-of-the-art is 48 KHz 24-bit, if your equipment supports it. You will downsample your audio to 16 KHz 16-bit before you submit it to the Custom Voice portal. But it it pays to have a high-quality original recording in case edits are needed.
 
@@ -189,9 +189,9 @@ Take regular breaks to let the voice talent keep his or her voice in good shape.
 
 Modern recording studios record on a computer, so at the end of the session, you receive one or more audio files, not a tape. These files will probably be WAV or AIFF format in CD quality (44.1 KHz 16-bit) or better. 48 KHz 24-bit is common and desirable. Higher sampling rates, such as 96 KHz, are generally not needed.
 
-The studio will probably deliver one audio file per session. To upload the recordings to the Custom Voice portal, each utterance must be in a separate file. The recording engineer may have placed a marker in the file (or provided a separate cue list) to indicate where each utterance starts. This metadata can be used to extract the utterances.
+The studio will probably deliver one or more audio files containing many utterances. To upload the recordings to the Custom Voice portal, each utterance must be in a separate file. The recording engineer may have placed a marker in the file (or provided a separate cue list) to indicate where each utterance starts. This metadata can be used to extract the utterances.
 
-You'll need to go through the full recording and make a WAV file for each utterance. Use your notes to find the exact utterances you want, then use a sound editing utility such as [Audacity](https://www.audacityteam.org/) to copy each into a new file.
+You'll need to go through the full recording and make a WAV file for each utterance. Use your notes to find the exact utterances you want, then use a sound editing utility such as [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), or the free [Audacity](https://www.audacityteam.org/) to copy each into a new file.
 
 Leave only about 0.2 seconds of silence at the beginning and end of each clip except for the first. That file should start with a full five seconds of silence. Do not use the audio editor to "zero out" silent parts of the file. Including the "room tone" will help the machine learning algorithms handle any remaining background noise.
 
