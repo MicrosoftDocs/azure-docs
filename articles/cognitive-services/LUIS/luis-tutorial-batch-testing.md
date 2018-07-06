@@ -181,6 +181,13 @@ In order to verify that the utterances in the batch test are correctly predicted
 
     ![Run dataset](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
+## What has this tutorial accomplished?
+This app prediction accuracy has increased by finding errors in the batch and correcting the model by adding more utterances and training. 
+
+## Clean up resources
+When no longer needed, delete the LUIS app. Select **My apps** in the top left menu. Select the ellipsis **...** to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
