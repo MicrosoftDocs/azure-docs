@@ -15,7 +15,7 @@ Customer intent: As someone with a networking background, I want to understand w
 
 **This article is currently in progress. This is not the final version**
 
-Azure Virtual WAN is a networking service providing optimized and automated branch to branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done either manually, or with preferred partner devices. Using preferred partner devices allows you ease of use, simplification of connectivity, and configuration management. The built-in dashboard provides instant troubleshooting insights that can help save you time, and gives you an easy way to view large-scale site-to-site connectivity.
+Azure Virtual WAN is a networking service providing optimized and automated branch to branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done either manually, or with preferred partner devices. Using preferred partner devices allows you ease of use, simplification of connectivity, and configuration management. The built-in dashboard provides instant troubleshooting insights that can help save you time, and gives you an easy way to view large-scale Site-to-Site connectivity.
 
 > [!IMPORTANT]
 > Azure Virtual WAN is currently a managed public preview. To use Virtual WAN, you must [Enroll in the Preview](#enroll).
@@ -24,17 +24,17 @@ Azure Virtual WAN is a networking service providing optimized and automated bran
 
 This article provides a quick view into the network connectivity of your Azure and non-Azure workloads. Virtual WAN offers the following advantages:
 
-* **Integrated connectivity solutions in hub and spoke**. Automate site-to-site connectivity and configuration between on-premises and the Azure hub from a variety of sources, including preferred partner solutions.
+* **Integrated connectivity solutions in hub and spoke**. Automate Site-to-Site connectivity and configuration between on-premises and the Azure hub from a variety of sources, including preferred partner solutions.
 * **Automated spoke configuration and configuration**. Connect your virtual networks and workload to the Azure hub seamlessly.
 * **Intuitive troubleshooting**. You can see the end-to-end flow within Azure and use this information to take required actions.
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
 
-## <a name="vendor"></a>How does Microsoft preferred vendor integration work?
+## <a name="vendor"></a>How does Microsoft preferred provider integration work?
 
-1. The branch device controller/connector is authenticated to export Site-centric information into Azure by using an Azure Service Principal .
+1. The branch device controller/connector is authenticated to export Site-centric information into Azure by using an Azure Service Principal.
 2. The branch device controller/connector obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premises device.
-3. Once the device has the right Azure configuration, a site-to-site connection (two active tunnels) is established to the Azure WAN. Azure requires the branch device controller/connector to support IKEv2 (Details below). BGP is optional.
+3. Once the device has the right Azure configuration, a Site-to-Site connection (two active tunnels) is established to the Azure WAN. Azure requires the branch device controller/connector to support IKEv2 (Details below). BGP is optional.
 
 |IPsec Properties| |
 |---|---|
@@ -59,10 +59,14 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 * **Hub virtual network connection:** This resource is used to connect the hub seamlessly to your virtual network. At this time, you can only connect to virtual networks that are within the same hub region.
 
+##<a name="enroll"></a>Enroll in the Preview
+
+Before you can configure Virtual WAN, you must first enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, send an email to azurevirtualwan@microsoft.com with your subscription ID. You will receive an email back once your subscription has been enrolled.
+
 ## <a name="faq"></a>FAQ
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
 ## Next steps
 
-To create a Site-to-Site connection using Virtual WAN, you can either go through a Microsoft preferred integrator, or create the connection manually. To create the connection manually, see [Create a Site-to-Site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
+To create a Site-to-Site connection using Virtual WAN, you can either go through a Microsoft preferred provider, or create the connection manually. To create the connection manually, see [Create a Site-to-Site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
