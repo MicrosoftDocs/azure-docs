@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/29/2018
+ms.date: 7/04/2018
 ms.author: markgal;anuragm
 ms.custom: 
 
@@ -282,7 +282,7 @@ To configure protection for your SQL database:
     The Azure Backup service displays all SQL instances with standalone databases, as well as SQL AlwaysOn availability groups. To view the standalone databases in the SQL instance, click the chevron next to the instance name to view the databases. The following images show examples of a standalone instance and an Always On availability group.
 
     > [!NOTE]
-    > Full and differential backups happen from the primary node, as SQL platform has that limitation. Log backup can happen based on your backup preference. Due to this limitation, the primary node must be registered.
+    > In case of SQL Always On Availability Group, we honor the SQL backup preference. But due to a SQL platform limitation, full and differential backups need to happen from the primary node. Log backup can happen based on your backup preference. Due to this limitation, the primary node must always be registered for Availability Groups.
     >
 
     ![List of databases in SQL instance](./media/backup-azure-sql-database/discovered-databases.png)

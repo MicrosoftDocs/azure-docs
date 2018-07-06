@@ -197,12 +197,12 @@ Use the Azure apps - Managed app offer type when the following conditions are re
 *   You deploy a subscription-based solution for your customer by using either a VM or an entire IaaS-based solution.  
 *   You or your customer require that the solution is managed by a partner.  
 
-    >[!NOTE]
-    >For example, a partner might be an system integrator (SI) or a managed service provider (MSP).  
+    > [!NOTE]
+    > For example, a partner might be an system integrator (SI) or a managed service provider (MSP).  
   
 *   For a list of commonly asked questions, see [Marketplace FAQs](https://azure.microsoft.com/marketplace/faq).  
 
->[!NOTE]
+> [!NOTE]
 > Managed apps must be deployable through the Marketplace. If customer communication is a concern, then you should reach out to interested customers after you have enabled lead sharing.  
 
 #### Requirements for Transact: Azure Solution template  

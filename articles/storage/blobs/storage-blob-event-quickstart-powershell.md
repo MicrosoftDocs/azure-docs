@@ -5,7 +5,7 @@ services: storage,event-grid
 keywords: 
 author: david-stanford
 ms.author: dastanfo
-ms.date: 05/24/2018
+ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
 ---
@@ -94,6 +94,8 @@ New-AzureRmResourceGroupDeployment `
 The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: `https://<your-site-name>.azurewebsites.net`
 
 You should see the site with no messages currently displayed.
+
+[!INCLUDE [event-grid-register-provider-powershell.md](../../../includes/event-grid-register-provider-powershell.md)]
 
 ## Subscribe to your storage account
 
