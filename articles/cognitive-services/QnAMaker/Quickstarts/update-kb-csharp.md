@@ -19,13 +19,13 @@ The following code updates an existing knowledge base, using the [Update](https:
 If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
 
 1. Create a new .NET Framework C# console application in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `key` value with a valid subscription key.
-4. Replace the `kb` value with a valid knowledge base ID. Find this value by going to one of your [QnA Maker knowledge bases](https://www.qnamaker.ai/Home/MyServices). Select the knowledge base you want to update. Once on that page, find the 'kdid=' in the URL as shown below. Use its value for your code sample.
+1. Add the code provided below.
+1. Replace the `key` value with a valid subscription key.
+1. Replace the `kb` value with a valid knowledge base ID. Find this value by going to one of your [QnA Maker knowledge bases](https://www.qnamaker.ai/Home/MyServices). Select the knowledge base you want to update. Once on that page, find the 'kdid=' in the URL as shown below. Use its value for your code sample.
 
-![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
+    ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
- 5. Run the program.
+1. Run the program.
 
 ```csharp
 using System;
