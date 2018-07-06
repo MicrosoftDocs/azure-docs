@@ -295,11 +295,9 @@ The ID token sent back to your application includes the new extension property a
 
 ## Reference
 
-* A **TechnicalProfile** is an element type, or function, that defines an endpoint’s name, metadata, and protocol. The **TechnicalProfile** details the exchange of claims that the Identity Experience Framework performs. When this function is called in an orchestration step or from another **TechnicalProfile**, the **InputClaims** and **OutputClaims** are provided as parameters by the caller.
-
-
-* For more information on extension properties, see the article [Directory schema extensions | Graph API concepts](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+For more information on extension properties, see the article [Directory schema extensions | Graph API concepts](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 > [!NOTE]
-> Extension attributes in the Graph API are named by using the convention `extension_ApplicationObjectID_attributename`. 
-> Custom policies refer to extension attributes as **extension_attributename**. This reference omits the **ApplicationObjectId** in XML.
+> * A **TechnicalProfile** is an element type, or function, that defines an endpoint’s name, metadata, and protocol. The **TechnicalProfile** details the exchange of claims that the Identity Experience Framework performs. When this function is called in an orchestration step or from another **TechnicalProfile**, the **InputClaims** and **OutputClaims** are provided as parameters by the caller.  
+> * Extension attributes in the Graph API are named by using the convention `extension_ApplicationObjectID_attributename`.  
+> * Custom policies refer to extension attributes as **extension_attributename**. This reference omits the **ApplicationObjectId** in XML.
