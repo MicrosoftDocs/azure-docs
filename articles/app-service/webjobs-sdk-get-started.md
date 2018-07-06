@@ -42,7 +42,7 @@ public static void Run(
 
 ### Versions 2.x and 3.x
 
-The instructions tell how to create a WebJobs SDK version 2.x project. The main change introduced by version 3.x, which is currently in preview, is the use of .NET Core instead of .NET Framework. The instructions in this article will be updated for version 3.x when 3.x is Generally Available (GA).
+The instructions tell how to create a WebJobs SDK version 2.x project. The latest version of the WebJobs SDK is 3.x, but it is currently in preview and this article doesn't have instructions for that version yet. The main change introduced by version 3.x is the use of .NET Core instead of .NET Framework.
 
 ### Azure Functions
 
