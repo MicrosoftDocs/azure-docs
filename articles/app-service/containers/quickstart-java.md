@@ -104,7 +104,7 @@ Update the following placeholders in the plugin configuration:
 
 The `linuxRuntime` element of the configuration controls what built-in Linux image is used with your application. All supported runtime stacks can be found at [this link](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin#runtime-stacks). 
 
-If you are building a JAR web applications, you can also add the following plugin definition inside the `<build>` element of the *pom.xml* file:
+If you are building a JAR web application, you can also add the following plugin definition inside the `<build>` element of the *pom.xml* file:
 
 ```xml
     <plugins>
@@ -116,7 +116,7 @@ If you are building a JAR web applications, you can also add the following plugi
           <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
           <appName>YOUR_WEB_APP</appName> 
           <linuxRuntime>jre8</linuxRuntime>   
-          <!-- This is to make sure the jar file can be released at the server side -->
+          <!-- This is to make sure the jar file will not be occupied during the deployment -->
           <stopAppDuringDeployment>true</stopAppDuringDeployment>
           <deploymentType>ftp</deploymentType> 
           <resources> 
@@ -124,20 +124,11 @@ If you are building a JAR web applications, you can also add the following plugi
                   <directory>${project.basedir}/target</directory> 
                   <targetPath>webapps</targetPath> 
                   <includes> 
-                      <include>*.war</include> 
-                  </includes> 
-                  <excludes> 
-                      <exclude>*.xml</exclude> 
-                  </excludes> 
+                      <!-- Currently it is required to set as app.jar -->
+                      <include>app.jar</include> 
+                  </includes>  
               </resource> 
           </resources> 
-          <!-- Application Settings of your Web App -->
-          <appSettings>
-              <property>
-                  <name>JAVA_OPTS</name>
-                  <value>-Djava.security.egd=file:/dev/./urandom</value>
-              </property>
-          </appSettings>
         </configuration>
       </plugin>
     </plugins>
