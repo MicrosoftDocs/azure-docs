@@ -120,7 +120,7 @@ There ApplyForJob test results displayed in the filter show that 1 of the four p
 
 ![](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results)
 
-The three utterances had a top intent of **ApplyForJob**. The intent stated in the batch file had a lower score. Why did this happen? The two intents are very closely related in terms of word choice and word arrangement. Additionally, there are almost 3 times as many examples for **ApplyForJob** than **GetJobInformation**. This unevenness of example utterances weights in **ApplyForJob** intent's favor. 
+The three utterances had a top intent of **ApplyForJob**. The intent stated in the batch file had a lower score. Why did this happen? The two intents are very closely related in terms of word choice and word arrangement. Additionally, there are almost three times as many examples for **ApplyForJob** than **GetJobInformation**. This unevenness of example utterances weights in **ApplyForJob** intent's favor. 
 
 Notice that both intents have the same count of errors: 
 
