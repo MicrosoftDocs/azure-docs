@@ -32,7 +32,7 @@ The following logs are available for Azure Firewall:
 
 * **Activity log**
 
-   You can use [Azure activity logs](../azure-resource-manager/resource-group-audit) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription. Activity log entries are collected by default, and you can view them in the Azure portal.
+   You can use [Azure activity logs](../azure-resource-manager/resource-group-audit.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription. Activity log entries are collected by default, and you can view them in the Azure portal.
 
 * **Application rule log**
 
