@@ -76,7 +76,7 @@ The List Pool Node Counts operation counts compute nodes by the following states
 - **StartTaskFailed** - A node on which the [start task][rest_start_task] failed and exhausted all retries, and on which `waitForSuccess` is set on the start task. The node is not usable for running tasks.
 - **Unknown** - A node that lost contact with the Batch service and whose state isn't known.
 - **Unusable** - A node that can't be used for task execution because of errors.
-- **WaitingForStartTask** - A node on with the start task started running, but `waitForSuccess` is set and the start task has not completed.
+- **WaitingForStartTask** - A node on which the start task started running, but `waitForSuccess` is set and the start task has not completed.
 
 The following C# snippet shows how to list node counts for all pools in the current account:
 
