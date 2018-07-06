@@ -31,7 +31,7 @@
   "searchScope": [
     "Azure CycleCloud"
   ],
-      "breadcrumb_path": "/cycle_docs_v1/breadcrumb/toc.json",
+      "breadcrumb_path": "/azure/cyclecloud/breadcrumb/toc.json",
       "extendBreadcrumb": true
     },
     "fileMetadata": {},
