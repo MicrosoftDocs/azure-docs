@@ -1,5 +1,5 @@
 ﻿---
-title: Set up sign-up and sign-in with a Amazon account using Azure Active Directory B2C | Microsoft Docs
+title: Set up sign-up and sign-in with an Amazon account using Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to customers with Amazon accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# Set up sign-up and sign-in with a Amazon account using Azure Active Directory B2C
+# Set up sign-up and sign-in with an Amazon account using Azure Active Directory B2C
 
 ## Create an Amazon application
 
