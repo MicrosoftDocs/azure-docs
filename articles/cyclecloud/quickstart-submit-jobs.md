@@ -25,7 +25,7 @@ Connecting to the Grid Engine master node uses both the GUI and the CLI.
 
 1. From within the GUI, click on **connect** to get the connection information. You will get a connection string similar to the following, but with your cluster name:
 
-      [root@cycleserver ~]$ cyclecloud connect master -c cc-intro-training
+      [cycleadmin@cycleserver ~]$ cyclecloud connect master -c cc-intro-training
 
 2. Execute the command within the CycleCloud CLI. It should produce something similar to this:
 

@@ -21,7 +21,7 @@ In the cluster creation wizard, the provider and credentials will be automatical
 
 ## Cluster Software
 
-The Cluster Software page is where you would select the operating systems for your cluster and node, the file with your node configuration (cluster-init), installed software stacks, and the ssh key to enable direct access. In this quickstart, these have been pre-selected by the ARM template used in the previous quickstart. Click Next to continue.
+The Cluster Software page is where you would select the operating systems for your cluster and node, the file with your node configuration (cluster-init), installed software stacks, and the ssh key to enable direct access. These are the default values for the CycleCloud cluster template, and do not need to be changed. Click Next to continue.
 
 (kimli screenshot)
 
