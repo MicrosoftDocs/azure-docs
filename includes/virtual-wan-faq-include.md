@@ -68,7 +68,7 @@ Routing functionality will be available by GA.
 
 ### Can spoke VNets connected to a Virtual WAN Hub communicate with each other?
 
-Yes. A transit hub can be used if spoke VNets need to talk to each other, as well as sites on the Virtual WAN, or have more advanced security policy or logging needs. No NAT functionality is required between the spokes. You can also set up VNet peering between the Azure spokes if necessarily. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md).
+Yes. A transit hub can be used if spoke VNets need to talk to each other - as well as to sites - on the Virtual WAN. A transit hub can also be used if spoke VNets have more advanced security policy or logging needs. No NAT functionality is required between the spokes. You can also set up VNet peering between the Azure spokes if necessary. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### Q. What are the pricing and/or licensing implications for this announcement?
  
