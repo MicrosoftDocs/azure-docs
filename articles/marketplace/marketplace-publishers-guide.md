@@ -72,27 +72,18 @@ Once you [submit your solution](https://azuremarketplace.microsoft.com/sell/sign
 For more information about Microsoft go-to-market benefits and ways to grow your business on the marketplace, visit the [Microsoft Go-To-Market Services page](https://partner.microsoft.com/reach-customers/gtm).
 
 ---  
+## Marketplace and Storefronts 
 
-## Storefronts  
-Microsoft provides two distinct storefronts on the marketplace. The storefronts enable you to list offers, enable trials, and transact directly with Microsoft customers.  
-*   Comparing AppSource and Azure Marketplace
-    *   For more information about the storefronts, visit the Comparing AppSource and Azure Marketplace page located at [Comparing AppSource and Azure Marketplace](./comparing-appsource-azure-marketplace.md).
-*   AppSource 
-    *   For more information about AppSource, visit the Grow your business with AppSource page located at [Grow your business with AppSource](./grow-your-business-with-appsource.md).  
-*   Azure Marketplace 
-    *   For more information about Azure Marketplace, visit the Grow your business with Azure Marketplace page located at [Grow your business with Azure Marketplace](./grow-your-business-with-azure-marketplace.md).  
+Microsoft provides two distinct storefronts on our marketplace: AppSource and Azure Marketplace. The marketplace storefronts are aligned to audiences and Microsoft cloud products to help customers easily find exactly what they need. 
 
-The storefronts enable you to find, try, and buy apps and services that accelerate your digital transformation. The storefronts help you grow your businesses by increasing access to Microsoft customers and partners.  
- 
-Each storefront provides specialized options to help you maximize your publishing investment. The following table summarizes these options.  
+Choosing a storefront starts with identifying the target audience for your solution. Use the table below to decide: 
 
-|  | AppSource | Azure Marketplace |  
-|:--- |:--- |:--- |  
-| Target audience | Line-of-business decision makers<table> <tr> <th>specialist roles </th> </tr> <tr> <td>Accounting</td> </tr> <tr> <td>Procurement</td> </tr> <tr> <td>Manufacturing</td> </tr> </table> | IT pros and developers<table> <tr> <th>specialist roles </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>DBAs</td> </tr> <tr> <td>SecOps</td> </tr> </table> |  
+|  | AppSource | Azure Marketplace |
+|:--- |:--- |:--- |
+| Target audience | Line-of-business decision makers | IT pros and developers | 
 | Built with or to extend | Azure<br />Dynamics 365<br />Office 365<br />Power BI<br />PowerApps | Azure |  
-| Types of solutions and services | Finished line-of-business cloud apps<br />Office 365 add-ins | Infrastructure solutions<br />Professional services |  
-| Offer type | Consulting Services<br />Contact Me<br />Free trial<br />Get Now<br />Test drive | Azure apps: Managed apps<br />Azure apps: Solution templates<br />Consulting Services<br />Contact Me<br />Trial<br />virtual machine |  
-| In-app experience to give users access<br />to apps and services in the context of<br />your app | Dynamics 365<br />Office 365<br />Office client apps<br />Power BI | Azure portal<br />Azure Resource Manager CLI |  
+
+Each storefront provides specialized options and capabilities to maximize your business opportunity. For a more detailed comparison of our storefronts, visit [Comparing AppSource and Azure Marketplace](./comparing-appsource-azure-marketplace.md). 
 
 ---   
 

@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 > [!div class="checklist"]
-> * For this article, you also need a [LUIS][LUIS] account in order to author your LUIS application.
+> * For this article, you also need a [LUIS](luis-reference-regions.md) account in order to author your LUIS application.
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 ## Create new app
 This article uses the prebuilt domain HomeAutomation. The prebuilt domain has intents, entities, and utterances for controlling HomeAutomation devices such as lights. Create the app, add the domain, train, and publish.
 
-1. In the [LUIS] website, create a new app by selecting **Create new app** on the **MyApps** page. 
+1. In the [LUIS](luis-reference-regions.md) website, create a new app by selecting **Create new app** on the **MyApps** page. 
 
     ![Create new app](./media/luis-tutorial-batch-testing/create-app-1.png)
 
@@ -265,7 +265,7 @@ In order to verify that the utterances in the batch test are correctly predicted
 
 2. Select **Batch testing panel** in the right-side panel. 
 
-3. Select the three dots (...) to the right of the batch name and select **Run Dataset**. Wait until the batch test is done.
+3. Select the ellipsis (***...***) button to the right of the batch name and select **Run Dataset**. Wait until the batch test is done.
 
     ![Run dataset](./media/luis-tutorial-batch-testing/run-dataset.png)
 
@@ -369,7 +369,7 @@ Entity testing is diferrent than intents. An utterance will have only one top sc
 
 3. Select **Test** on the top navigation panel to open the Batch testing pane again. 
 
-4. If the list of datasets is not visible, select **Back to list**. Select the three dots (...) at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
+4. If the list of datasets is not visible, select **Back to list**. Select the ellipsis (***...***) button at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
 
 5. Select **See results** to review the test results.
 
