@@ -230,6 +230,6 @@ In this tutorial, you learned how to:
 > * View resource health
 > * Monitor a connection
 
-We would appreciate your feedback. Please send an email to azurevirtualwan@microsoft.com to report any issues, or provide feedback (positive or negative) for Virtual WAN. Include your company name in “[ ]” in the subject line. Also include your subscription ID if you are reporting an issue.
+We would appreciate your feedback. Please send an email to **azurevirtualwan@microsoft.com** to report any issues, or to provide feedback (positive or negative) for Virtual WAN. Include your company name in “[ ]” in the subject line. Also include your subscription ID if you are reporting an issue.
 
 To learn more about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md) page.
