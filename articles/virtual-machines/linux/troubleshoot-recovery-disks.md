@@ -165,7 +165,7 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
 ## Create VM from original hard disk
 To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). The actual JSON template is at the following link:
 
-- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
+- https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
 
 The template deploys a VM using the VHD URI from the earlier command. Deploy the template with [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). Provide the URI to your original VHD and then specify the OS type, VM size, and VM name as follows:
 

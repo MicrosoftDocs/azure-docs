@@ -101,7 +101,7 @@ There are two required installers for Azure AD password protection that can be d
          The example only works if the currently logged in user is also an Active Directory domain administrator for the root domain. An alternative is to supply the necessary domain credentials via the -ForestCredential parameter.
 
          > [!NOTE]
-         > If multiple proxy servers are installed in your environment, it does not matter which specific proxy server the above procedure above is executed upon.
+         > If multiple proxy servers are installed in your environment, it does not matter which proxy server is specified in the procedure above.
 
          > [!TIP]
          > There may be a considerable delay (many seconds) the first time this cmdlet is run for a given Azure tenant before the cmdlet completes execution. Unless a failure is reported this delay should not be considered alarming.

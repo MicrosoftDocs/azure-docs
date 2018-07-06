@@ -86,7 +86,8 @@ For details on where to copy these scripts and details on how Azure Backup works
 
 - [Plan your VM backup infrastructure in Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
 - [Application consistent consistent backup of Azure Linux VMs](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
-- 
+
+
 
 At this point in time, Microsoft has not published prepare scripts and post-snapshot scripts for SAP HANA. You as customer or system integrator would need to create those scripts and configure the procedure based on the documentation referenced above.
 
@@ -95,7 +96,7 @@ At this point in time, Microsoft has not published prepare scripts and post-snap
 The restore process of an application consistent backup taken by Azure backup is documented in the article [Recover files from Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm). 
 
 > [!IMPORTANT]
-> In the article [Recover files from Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm), there is a list of exceptions and steps listed when using disk stripe sets. Striped disks are likely the regular VM configuration for SAP HANA. Therefore, it is essential to read the article and test the restore process for such cases as listed in the article. 
+> In the article [Recover files from Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) is a list of exceptions and steps listed when using disk stripe sets. Striped disks are likely the regular VM configuration for SAP HANA. Therefore, it is essential to read the article and test the restore process for such cases as listed in the article. 
 
 
 
