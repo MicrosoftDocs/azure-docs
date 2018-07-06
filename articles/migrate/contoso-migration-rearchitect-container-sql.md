@@ -331,7 +331,7 @@ Contoso will convert the app to a container using isual Studio and the SDK Tools
 5. Contoso repeats the process for SmartHotel.Registration.WCF app.
 6. Now, Contoso checks how the solution has changed.
 
-    - The new app is **SmartHotel.RegistrationApplication/
+    - The new app is **SmartHotel.RegistrationApplication/**
     - It contains two services: **SmartHotel.Registration.WCF** and **SmartHotel.Registration.Web**.
 
     ![Container](./media/contoso-migration-rearchitect-container-sql/container4.png)
@@ -438,12 +438,12 @@ With the Cosmos DB provisioned, Contoso can configure the app to connect to it.
 
     ![Sentiment app](./media/contoso-migration-rearchitect-container-sql/sentiment1.png)
 
-2. They fill in the following two parameters.
-
-    - <Parameter Name="SentimentIntegration.CosmosDBEndpoint" Value="[URI]" />
-    - <Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />
-
-    ![Sentiment app](./media/contoso-migration-rearchitect-container-sql/sentiment2.png)
+2. They fill in the following two parameters:
+   
+    - **<Parameter Name="SentimentIntegration.CosmosDBEndpoint" Value="[URI]" />**
+    - **<Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />**
+    
+        ![Sentiment app](./media/contoso-migration-rearchitect-container-sql/sentiment2.png)
 
 ### Republish the app
 
