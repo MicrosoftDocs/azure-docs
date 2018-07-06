@@ -41,12 +41,12 @@ See the [Overview](https://go.microsoft.com/fwlink/p/?LinkId=2004389) for inform
 
 Considerations:
 
-* Limited to Azure public regions only
-* Up to 100 connections supported. Each connection is an active-active tunnel terminating in a VPN gateway inside an Azure virtual hub
-* Customers looking to deploy aggregated bandwidth less than a Gbps
-* Customers with VPN devices that support route based configuration and IKEv2 IPsec connectivity
-* Customers exploring SD-WAN and operating branch devices from the launch partners (Riverbed and Citrix) 
-* Customers wanting to manually set up branch to branch and branch to Azure connectivity including configuration management of their on-premise devices
+* The Preview is limited to Azure public regions only.
+* Up to 100 connections are supported. Each connection is an active-active tunnel terminating in a VPN gateway inside an Azure virtual hub.
+* Consider using this preview if:
+  * You want to deploy aggregated bandwidth less than a Gbps
+  * You have a VPN device that supports route based configuration and IKEv2 IPsec connectivity
+  * You want to want to explore using SD-WAN and operating branch devices from the launch partners (Riverbed and Citrix)<br>*or*<br>You want to set up branch-to-branch and branch to Azure (site-to-site) connectivity that includes configuration management of your on-premise device.
 
 ### Is Global VNet peering supported with Azure Virtual WAN? 
  No
@@ -58,7 +58,7 @@ Yes, you can connect your favorite network virtual appliance transit hub to the 
 ### Is there support for BGP?
 Yes, there is support for BGP. Spokes connected to a transit hub that in turn if connected to a Virtual WAN hub must disable BGP to ensure routes from transit hub are advertised appropriately.
 
-### Can the transit hub have ExpressRoute or VPN Virtual Network Gateway ?
+### Can the transit hub have ExpressRoute or VPN Virtual Network Gateway?
 No
 
 ### Is there an ability to direct traffic using UDR in the Virtual Hub? 
