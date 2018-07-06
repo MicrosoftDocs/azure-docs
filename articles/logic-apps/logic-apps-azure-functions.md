@@ -1,18 +1,18 @@
 ---
 # required metadata
-title: Add and run your own custom code in Azure Logic Apps with Azure Functions | Microsoft Docs
-description: Learn how you can add and run your own custom code snippets in Azure Logic Apps with Azure Functions
+title: Add and run custom code in Azure Logic Apps with Azure Functions | Microsoft Docs
+description: Learn how to add and run custom code snippets in Azure Logic Apps with Azure Functions
 services: logic-apps
 ms.service: logic-apps
-author: jeffhollan
-ms.author: jehollan
+author: ecfan
+ms.author: estfan
 manager: jeconnoc
-ms.date: 10/18/2016
+ms.topic: article
+ms.date: 07/09/18
 
 # optional metatada
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.custom: H1Hack27Feb2017
 ---
 
 # Add and run your own custom code snippets in Azure Logic Apps with Azure Functions
@@ -145,10 +145,11 @@ From the actions list, select this action:
 
    ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-4. Select your function app, and then select this action: 
+4. From the function apps list, select your function app. 
+After the functions list opens, select this action: 
 **Azure Functions - Create New Function**
 
-   ![Select your function app](./media/logic-apps-azure-functions/select-function-app.png)
+   ![Select your function app](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
 5. Now define your function. 
 
@@ -162,17 +163,19 @@ From the actions list, select this action:
 
       ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
 
-6. Now provide any other relevant information. 
+6. In the **Request Body** box, specify the context object 
+that you'll pass as the input payload to your function. 
 
-   For example, to generate a template based on the data that the function processes, 
-   in the **Request Body** box, specify the context object that you want passed into 
-   your function as the input payload. This object is the message your logic app sends 
-   to the function and must be formatted as a JavaScript Object Notation (JSON) object. 
-   The Logic App Designer generates a function template that you can then create inline. 
-   Also, variables are created based on the context object you pass into the function.
+   The context object describes the message and content 
+   that your logic app sends to your function and must be 
+   formatted as a JavaScript Object Notation (JSON) object. 
+   Based on this content, the Logic App Designer generates 
+   a function template that you can create inline. 
+   Also, Logic Apps creates variables based on the context 
+   object you pass to the function.
 
-   Here is a sample that passes in the body content from the 
-   previous email action as the context payload:
+   Here is a sample that passes in the body content 
+   from the previous email trigger as the input payload:
 
    !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
 
@@ -184,6 +187,9 @@ From the actions list, select this action:
    for example:
 
    ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
+
+7. To specify other details such as the method to use, 
+request headers, or query parameters, choose **Show advanced options**.
 
 <a name="add-function-logic-app"></a>
 
@@ -205,16 +211,37 @@ From the actions list, select this action:
    ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
 4. From the function apps list, select your function app. 
-Then, from the functions list, select your function: 
+After the functions list appears, select your function: 
 
    ![Select your function app and Azure function](./media/logic-apps-azure-functions/select-function-app-existing-function.png)
 
+5. In the **Request Body** box, specify the context object 
+that you'll pass as the input payload to your function. 
 
-5. After you select the function, you are asked to specify an input payload object. 
-For example, if you want to pass in the **Last Modified** date from a Salesforce trigger, 
-the function payload might look like this example:
+   The context object describes the message and content 
+   that your logic app sends to your function and must be 
+   formatted as a JavaScript Object Notation (JSON) object. 
+   Based on this content, the Logic App Designer generates 
+   a function template that you can create inline. 
+   Also, Logic Apps creates variables based on the context 
+   object you pass to the function.
 
-![Last modified date][1]
+   Here is a sample that passes in the body content 
+   from the previous email trigger as the input payload:
+
+   !["Request Body" example - context object payload](./media/logic-apps-azure-functions/function-request-body-example.png)
+
+   In this example, the context object isn't cast as a string, 
+   so the content gets directly added to the JSON payload. 
+   If the object isn't a JSON token, that is, 
+   a string, a JSON object, or a JSON array, you get an error. 
+   To cast the object as a string, add double-quotation marks, 
+   for example:
+
+   ![Cast object as string](./media/logic-apps-azure-functions/function-request-body-string-cast-example.png)
+
+7. To specify other details such as the method to use, 
+request headers, or query parameters, choose **Show advanced options**.
 
 <a name="call-logic-app"></a>
 
@@ -228,6 +255,11 @@ request to the URL for that **Request** trigger and
 include the payload you want that logic app to process. 
 For more information, see [Logic apps as callable endpoints](../logic-apps/logic-apps-http-endpoint.md). 
 
-<!--Image references-->
-[1]: ./media/logic-apps-azure-functions/callfunction.png
-[2]: ./media/logic-apps-azure-functions/createfunction.png
+## Get support
+
+* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+
+## Next steps
+
+* Learn about [Logic Apps connectors](../connectors/apis-list.md)
