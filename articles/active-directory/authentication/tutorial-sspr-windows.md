@@ -88,7 +88,7 @@ You have now created and assigned a device configuration policy to enable the Re
 
 We recommend using this method only to test the setting change.
 
-1. Log in to the Azure AD joined device using administrative credentials
+1. Log in to the Windows PC using administrative credentials
 2. Run **regedit** as an administrator
 3. Set the following registry key
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`

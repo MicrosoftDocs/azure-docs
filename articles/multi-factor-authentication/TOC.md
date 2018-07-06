@@ -1,4 +1,4 @@
-# [Multi-factor Authentication Documentation](index.md)
+# [Authentication Documentation](index.md)
 
 # Overview
 
@@ -8,7 +8,6 @@
 
 ## [Configure password reset](../active-directory/authentication/quickstart-sspr.md)
 ## [Configure Multi-Factor Authentication](../active-directory/authentication/quickstart-mfa.md)
-
 
 # Tutorials
 
@@ -27,7 +26,7 @@
 ### [Password reset options](../active-directory/authentication/concept-sspr-customization.md)
 ### [Password reset policies](../active-directory/authentication/concept-sspr-policy.md)
 ### [What license do I need](../active-directory/authentication/concept-sspr-licensing.md)
-### [On-premises integration]](../active-directory/authentication/concept-sspr-writeback.md)
+### [On-premises integration](../active-directory/authentication/concept-sspr-writeback.md)
 
 ## Multi-Factor Authentication
 ### [How MFA works](../active-directory/authentication/concept-mfa-howitworks.md)
@@ -35,7 +34,7 @@
 ### [License your users](../active-directory/authentication/concept-mfa-licensing.md)
 ### [Create an Auth Provider](../active-directory/authentication/concept-mfa-authprovider.md)
 ### [Security guidance](../active-directory/authentication/multi-factor-authentication-security-best-practices.md)
-## [MFA for Office 365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
+### [MFA for Office 365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ### [MFA FAQ](../active-directory/authentication/multi-factor-authentication-faq.md)
 
 # How-to Guides
@@ -95,10 +94,6 @@
 ### [SSPR Reports](../active-directory/authentication/howto-sspr-reporting.md)
 ### [MFA Reports](../active-directory/authentication/howto-mfa-reporting.md)
 ### [Data collection](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
-
-# Deprecate
-## [Passwords overview](../active-directory/authentication/active-directory-passwords-overview.md)
-## [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)

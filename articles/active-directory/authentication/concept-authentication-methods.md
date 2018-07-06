@@ -42,7 +42,7 @@ Security questions are available **only in Azure AD self-service password reset*
 
 If you use security questions, we recommend using them in conjunction with another method. Security questions can be less secure than other methods because some people might know the answers to another user's questions.
 
-> [!NOTE] 
+> [!NOTE]
 > Security questions are stored privately and securely on a user object in the directory and can only be answered by users during registration. There is no way for an administrator to read or modify a user's questions or answers.
 >
 
@@ -163,8 +163,7 @@ If you enforce Multi-Factor Authentication through Conditional Access policies a
 
 If your organization is federated for SSO with Azure AD and you are going to be using Azure MFA, then be aware of the following details:
 
-* The app password is verified by Azure AD and therefore bypasses federation. Federation is only used when setting up app passwords.
-For federated (SSO) users, passwords are stored in the organizational ID. If the user leaves the company, that info has to flow to organizational ID using DirSync. Account disable/deletion may take up to three hours to sync, which delays disable/deletion of app passwords in Azure AD.
+* The app password is verified by Azure AD and therefore bypasses federation. Federation is only used when setting up app passwords. For federated (SSO) users, passwords are stored in the organizational ID. If the user leaves the company, that info has to flow to organizational ID using DirSync. Account disable/deletion may take up to three hours to sync, which delays disable/deletion of app passwords in Azure AD.
 * On-premises Client Access Control settings are not honored by App Password.
 * No on-premises authentication logging/auditing capability is available for app passwords.
 * Certain advanced architectural designs may require using a combination of organizational username and passwords and app passwords when using two-step verification with clients, depending on where they authenticate. For clients that authenticate against an on-premises infrastructure, you would use an organizational username and password. For clients that authenticate against Azure AD, you would use the app password.
