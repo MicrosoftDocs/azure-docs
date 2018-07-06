@@ -1,5 +1,5 @@
 ﻿---
-title: Set up sign-up and sign-in with a Google+ account  using Azure Active Directory B2C | Microsoft Docs
+title: Set up sign-up and sign-in with a Google account using Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to customers with Google accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
