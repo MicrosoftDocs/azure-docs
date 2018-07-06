@@ -11,22 +11,22 @@
     href: /azure/devops-project/azure-devops-project-aspnetcore
     maintainContext: true
   - name: Node.js
-    href: /azure-devops-project-nodejs.md
+    href: /azure/devops-project/azure-devops-project-nodejs
     maintainContext: true
   - name: Java
-    href: /azure-devops-project-java.md
+    href: /azure/devops-project/azure-devops-project-java
     maintainContext: true
   - name: Python
-    href: /azure-devops-project-python.md
+    href: /azure/devops-project/azure-devops-project-python
     maintainContext: true
   - name: PHP
-    href: /azure-devops-project-php.md
+    href: /azure/devops-project/azure-devops-project-php
     maintainContext: true
   - name: Ruby
-    href: /azure-devops-project-ruby.md
+    href: /azure/devops-project/azure-devops-project-ruby
     maintainContext: true
   - name: Go
-    href: /azure-devops-project-go.md
+    href: /azure/devops-project/azure-devops-project-go
     maintainContext: true
 - name: Tutorials
   items:
