@@ -15,7 +15,7 @@ Customer intent: As someone with a networking background, I want to understand w
 
 **This article is currently in progress. This is not the final version**
 
-Azure Virtual WAN is a networking service providing optimized and automated branch to branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done either manually, or with preferred partner devices. Using preferred partner devices allows you ease of use, simplification of connectivity, and configuration management. The built-in dashboard provides instant troubleshooting insights that can help save you time, and gives you an easy way to view large-scale Site-to-Site connectivity.
+Azure Virtual WAN is a networking service that provides optimized and automated site-to-site connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done either manually, or using preferred provider devices. Using preferred provider devices allows you ease of use, simplification of connectivity, and configuration management. The Azure WAN built-in dashboard provides instant troubleshooting insights that can help save you time, and gives you an easy way to view large-scale Site-to-Site connectivity.
 
 > [!IMPORTANT]
 > Azure Virtual WAN is currently a managed Public Preview. To use Virtual WAN, you must [Enroll in the Preview](#enroll).
@@ -24,8 +24,8 @@ Azure Virtual WAN is a networking service providing optimized and automated bran
 
 This article provides a quick view into the network connectivity of your Azure and non-Azure workloads. Virtual WAN offers the following advantages:
 
-* **Integrated connectivity solutions in hub and spoke:** Automate Site-to-Site connectivity and configuration between on-premises and the Azure hub from a variety of sources, including preferred partner solutions.
-* **Automated spoke configuration and configuration:** Connect your virtual networks and workload to the Azure hub seamlessly.
+* **Integrated connectivity solutions in hub and spoke:** Automate Site-to-Site configuration and connectivity between on-premises sites and an Azure hub from a variety of sources, including preferred partner solutions.
+* **Automated spoke configuration and configuration:** Connect your virtual networks and workloads to the Azure hub seamlessly.
 * **Intuitive troubleshooting:** You can see the end-to-end flow within Azure and use this information to take required actions.
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
