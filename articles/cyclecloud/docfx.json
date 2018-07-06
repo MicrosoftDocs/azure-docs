@@ -1,23 +1,16 @@
 {
   "build": {
-    "content": [
-      {
-        "files": ["breadcrumb/toc.yml"
-          "**/*.md",
-          "**/*.yml"
-        ],
-        "exclude": [
-          "**/obj/**",
-          "**/includes/**",
-          "_themes/**",
-          "_themes.pdf/**",
-          "README.md",
-          "LICENSE",
-          "LICENSE-CODE",
-          "ThirdPartyNotices"
-        ]
-      }
-    ],
+    "content":
+       [
+         {
+             "files": ["breadcrumb/toc.yml"]
+         },
+         {
+           "files": ["**/**.md",
+                     "**/**.yml"],
+           "exclude": ["**/obj/**"]
+         }
+       ],
     "resource": [
       {
         "files": [
