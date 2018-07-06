@@ -22,7 +22,7 @@ The diagram below illustrates the end-to-end workflow to enable Azure AD integra
 2. Assign user permissions using RBAC.
 3. Access an Azure file share with Azure AD credentials.
 
-![Azure AD integration workflow](media/storage-files-aad-enable/aad-workflow.png)
+![Azure AD integration workflow](media/storage-files-active-directory-enable/aad-workflow.png)
 
 ## Prerequisites 
 
@@ -172,7 +172,7 @@ For more information on how to use icacls to set NTFS permissions and on the dif
 
 Now you are ready to use your Azure AD credentials to access an Azure file share from a domain-joined VM. First, sign in the VM using the name and password to which you have granted permissions, as shown in the following image.
 
-![Screenshot showing sign in screen](media/storage-files-aad-enable/aad-auth-screen.png)
+![Screenshot showing sign in screen](media/storage-files-active-directory-enable/aad-auth-screen.png)
 
   
 Then, use the following command to mount the Azure file share. Remember to replace `<desired-drive-letter>`, `<storage-account-name>`, and `<share-name>` with

@@ -57,7 +57,7 @@ Azure Files uses Azure AD Domain Services to support Kerberos authentication wit
 
 When a user attempts to access data in Azure Files, the request is sent to Azure AD Domain Services to authenticate the user. If authentication is successful, Azure AD Domain Services returns a Kerberos token. Azure Files uses this token to authorize the request sent by the VM. Azure Files receives the token only and does not persist Azure AD credentials.
 
-![Screen shot showing diagram of Azure AD integration with Azure Files](media/storage-files-aad-overview/files-aad-overview.png)
+![Screen shot showing diagram of Azure AD integration with Azure Files](media/storage-files-active-directory-overview/files-aad-overview.png)
 
 ### Enable Azure AD integration with Azure Files
 
