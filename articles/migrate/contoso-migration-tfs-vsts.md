@@ -463,18 +463,18 @@ With migration complete, Contoso wants to move from TFVC to Git for source code 
 
     ![Git](./media/contoso-migration-tfs-vsts/git3.png)
 
-> [!NOTE]
-> Due to differences in how TFVC and Git store version control information, we recommend not to migrate your history. This is the approach that Microsoft took when it migrated Windows and other products from centralized version control to Git.
+    > [!NOTE]
+    > Due to differences in how TFVC and Git store version control information, we recommend not to migrate your history. This is the   approach that Microsoft took when it migrated Windows and other products from centralized version control to Git.
 
-5. After the import, Contoso reviews the code.
+4. After the import, Contoso reviews the code.
 
     ![Git](./media/contoso-migration-tfs-vsts/git4.png)
 
-6. They repeat the process for the second repository (**$/SmartHotelContainer**).
+5. They repeat the process for the second repository (**$/SmartHotelContainer**).
 
     ![Git](./media/contoso-migration-tfs-vsts/git5.png)
 
-7. After reviewing the source, the Dev Leads agree that the migration to VSTS is done. VSTS now becomes the source for all development within teams involved in the migration.
+6. After reviewing the source, the Dev Leads agree that the migration to VSTS is done. VSTS now becomes the source for all development within teams involved in the migration.
 
     !![Git](./media/contoso-migration-tfs-vsts/git6.png)
 
