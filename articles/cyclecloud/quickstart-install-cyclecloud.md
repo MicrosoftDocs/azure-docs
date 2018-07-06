@@ -1,6 +1,6 @@
 # Azure CycleCloud QuickStart 1: Install and Setup CycleCloud
 
-Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute/Data workloads. CycleCloud enables users to create environments for workloads on any point of the parallel and distributed processing spectrum, from parallel workloads to tightly-coupled applications such as MPI jobs on Infiniband/RDMA. By managing resource provisioning, configuration, and monitoring, CycleCloud allows users and IT staff to focus on business needs instead infrastructure.
+Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute/Data workloads. CycleCloud enables users to create environments for workloads on any point of the parallel and distributed processing spectrum, from loosely-coupled parallel workloads to tightly-coupled applications such as MPI jobs on Infiniband/RDMA. By managing resource provisioning, configuration, and monitoring, CycleCloud allows users and IT staff to focus on business needs instead infrastructure.
 
 ## Gather the Prerequisites
 
@@ -80,15 +80,7 @@ Locate and edit the `params-cyclecloud.json` file. Specify the following paramet
 
 ### rsaPublicKey
 
-To copy the ssh key, open the **exported** public key, and copy the contents of the key (greyed in the example below) into the `params-cyclecloud.json`:
-
-      ---- BEGIN SSH2 PUBLIC KEY ----
-      	Comment: "rsa-key-20180130"
-      	Asdf;kljasdf;lkasdf;lkasdf'lkjasdl'fjasd;lkfas'lkdfa'lksdf'asf….
-      	…
-      	…
-      	Asdflkjas;dfklasdflk;asdfkljasdkljflak'sdf'asdfkl'asd'fasl'kdfasdk
-      ---- END SSH2 PUBLIC KEY ----
+To copy the ssh key, open the **exported** public key, and copy the contents of the key into the `params-cyclecloud.json`.
 
 An example `params-cyclecloud.json` might look like this:
 
@@ -98,7 +90,10 @@ An example `params-cyclecloud.json` might look like this:
       "parameters": {
       "vnetName": { "value": "cyclevnet" },
       ...
-      "rsaPublicKey": { "value": "ssh-rsa GREYED KEY VALUE ABOVE"}
+      "rsaPublicKey": { "value": "ssh-rsa MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgFw2R8/EGVpXRRkr9bHVg3mf/ybv
+      aFd/FbJ1PckwfcvSnVY7IFXfez6nirztAWoEQzSZNy96MP5DVEiAfJSG3ajeaonW
+      WW06Sn1CKTW0Vo0MMEshdpMRDqsELx0vTF4uev5sQrsDTbWgFoM9mgJ4GdweW0sJ
+      80uAUQlCcalQNW+FAgMBAAE="}
       }
 
 ### Application Parameters

@@ -2,22 +2,21 @@
 documentType: LandingData
 title: Azure CycleCloud Documentation
 metadata:
-  document_id:
-  title:
-  meta.description:
-  services:
-  author:
-  manager:
-  ms.service:
-  ms.tgt_pltfrm:
-  ms.devlang:
+  title: CycleCloud Documentation - QuickStarts, Concepts, Resources | Microsoft Docs
+  description: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. CycleCloud’s automated configuration enables IT to focus on on providing service to the business users.
+  services: cyclecloud
+  author: kimli
+  manager: bobnordlund
+  ms.service: cyclecloud
+  ms.tgt_pltfrm: na
+  ms.devlang: na
   ms.topic: landing-page
-  ms.date:
-  ms.author:
+  ms.date: 08/01/2018
+  ms.author: kimli
 abstract:
   description: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. CycleCloud’s automated configuration enables IT to focus on on providing service to the business users.
 sections:
-- title: Quickstarts
+- title: QuickStarts
   items:
   - type: paragraph
     text: New to Azure CycleCloud? Start with these four simple labs that cover the basics of installing, configuring, and using CycleCloud.
