@@ -29,9 +29,9 @@ To complete this article, you need:
 ## Install the extension
 
 1. Open Visaul Studio Code
-2. Select **Extensions**.
+2. Press **CTRL+SHIFT+X** or select the extensions icon as shown here:
 
-   ![Select extensions](./media/resource-manager-vscode-extension/select-extensions.png)
+   ![Select extensions](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-extensions-icon.png)
 
 2. Search for **Azure Resource Manager Tools** and select **Install**.
 
