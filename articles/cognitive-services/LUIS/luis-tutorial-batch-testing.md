@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 > [!div class="checklist"]
-> * For this article, you also need a [LUIS][LUIS] account in order to author your LUIS application.
+> * For this article, you also need a [LUIS](luis-reference-regions.md) account in order to author your LUIS application.
 
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 ## Create new app
 This article uses the prebuilt domain HomeAutomation. The prebuilt domain has intents, entities, and utterances for controlling HomeAutomation devices such as lights. Create the app, add the domain, train, and publish.
 
-1. In the [LUIS] website, create a new app by selecting **Create new app** on the **MyApps** page. 
+1. In the [LUIS](luis-reference-regions.md) website, create a new app by selecting **Create new app** on the **MyApps** page. 
 
     ![Create new app](./media/luis-tutorial-batch-testing/create-app-1.png)
 
