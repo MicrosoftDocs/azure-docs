@@ -455,4 +455,4 @@ In this tutorial, you learned the basic process for using the Face service clien
 Learn about detecting and using face landmarks.
 
 > [!div class="nextstepaction"]
-> [How to Detect Faces in an Image](https://docs.microsoft.com/en-us/azure/cognitive-services/face/apireference)
+> [How to Detect Faces in an Image](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
