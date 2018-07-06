@@ -1,5 +1,5 @@
 ---
-title: 'Configure Virtual WAN - for Providers | Microsoft Docs'
+title: 'Automating - for Providers | Microsoft Docs'
 description: This article helps software-defined connectivity solutions providers set up automation.
 services: virtual-wan
 author: cherylmc
@@ -12,15 +12,15 @@ ms.date: 07/05/2018
 ms.author: cherylmc
 
 ---
-# How to Configure Azure Virtual WAN - for Providers (Preview)
+# Automating - for Providers (Preview)
 
 **This article is in progress.**
 
 Rough Draft
 
+This article shows you how to set up the automation to connect and configure your branch device for Azure Virtual WAN. If you are a provider that provides branch devices which can accomodate VPN connectivity over IPsec/IKEv2, this article is for you.
 
-This article shows you how to set up the automation of connecting and configuring your branch device to Azure Virtual WAN. If you are a provider that provides branch devices that can provide VPN connectivity over IPsec/IKEv2, Read on. 
-Software defined connectivity solutions typically manage their branch devices using a controller or a device provisioning center. This controller can use Azure API to automate connectivity to Azure Virtual WAN.  This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the Virtual WAN Overview.
+Software-defined connectivity solutions typically use a controller or a device provisioning center to manage their branch devices. This controller can use Azure APIs to automate connectivity to Azure Virtual WAN. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it.
 
 Guidelines
 
