@@ -40,23 +40,23 @@ sections:
     - image: 
         src: media\logo_nodejs.svg
       text: Node.js
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-nodejs
+      href: azure-devops-project-nodejs.md
     - image: 
         src: media\logo_java.svg
       text: Java
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-java
+      href: azure-devops-project-java.md
     - image: 
         src: media\logo_python.svg
       text: Python
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-python
+      href: azure-devops-project-python.md
     - image: 
         src: media\logo_php.svg
       text: PHP
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-php
+      href: azure-devops-project-php.md
     - image: 
         src: media\logo_ruby.svg
       text: Ruby
-      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-ruby
+      href: azure/azure-devops-project-ruby.md
     - image: 
         src: media\logo_gopher.svg
       text: Go
@@ -72,9 +72,9 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-github">Bring your own code with GitHub</a>
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-vms">Deploy your ASP.NET App to Azure Virtual Machines</a>
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-sqldb">Deploy your ASP.NET App and Azure SQL Database</a>
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-aks">Deploy your App to Azure Container Service and Kubernetes</a>
-    - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-servicefabric">Deploy your App to Azure Service Fabric</a>
+    - html: <a href="https://docs.microsoft.com/azure/devops-project/azure-devops-project-github">Bring your own code with GitHub</a>
+    - html: <a href="https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms">Deploy your ASP.NET App to Azure Virtual Machines</a>
+    - html: <a href="https://docs.microsoft.com/azure/devops-project/azure-devops-project-sqldb">Deploy your ASP.NET App and Azure SQL Database</a>
+    - html: <a href="https://docs.microsoft.com/azure/devops-project/azure-devops-project-aks">Deploy your App to Azure Container Service and Kubernetes</a>
+    - html: <a href="https://docs.microsoft.com/azure/devops-project/azure-devops-project-servicefabric">Deploy your App to Azure Service Fabric</a>
 
