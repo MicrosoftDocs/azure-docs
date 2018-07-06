@@ -60,9 +60,9 @@ Yes, you can connect your favorite network virtual appliance transit hub to the 
 
 Yes, there is support for BGP. Spokes that are connected to a transit hub that is connected to a Virtual WAN hub must disable BGP to ensure that routes from the transit hub are advertised appropriately.
 
-### Can the transit hub have ExpressRoute or VPN Virtual Network Gateway?
+### Can the transit hub have a virtual network gateway?
 
-No.
+No. The transit hub cannot have either a VPN, or an ExpressRoute virtual network gateway.
 
 ### Is there an ability to direct traffic using UDR in the Virtual Hub?
 
