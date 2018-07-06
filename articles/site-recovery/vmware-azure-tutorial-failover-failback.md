@@ -25,7 +25,7 @@ back to your on-premises site when it's available. In this tutorial, you learn h
 > * Reprotect on-premises VMs, to start replicating to Azure again
 
 >[!NOTE]
->Tutorials are designed to show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. If you want to learn about the test failover steps in more detail, read the [How-to Guide](site-recovery-failover.md).
+>Tutorials are designed to show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. If you want to learn about the test failover steps in detail, read the [How-to Guide](site-recovery-failover.md).
 
 This is the fifth tutorial in a series. This tutorial assumes that you have already completed the
 tasks in the previous tutorials.
@@ -166,10 +166,13 @@ To replicate back to on-premises, a failback policy is used. This policy is auto
 Run the failover as follows:
 
 1. On the **Replicated Items** page, right-click the machine > **Failover**.
-2. In **Confirm Failover**, verify that the failover direction is from Azure.![failover-direction](media/vmware-azure-tutorial-failover-failback/failover-direction.PNG)
+2. In **Confirm Failover**, verify that the failover direction is from Azure.
+    ![failover-direction](media/vmware-azure-tutorial-failover-failback/failover-direction.PNG)
 3. Select the recovery point that you want to use for the failover. An app-consistent recovery point occurs before the most recent point in time, and it will cause some data loss.
+
     >[!WARNING]
     >When failover runs, Site Recovery shuts down the Azure VMs, and boots up the on-premises VM. There will be some downtime, so choose an appropriate time.
+
 4. The progress of the job can be tracked on **Recovery Services Vault** > **Monitoring and Reports** > **Site Recovery Jobs**.
 5. After completion of failover, right-click the virtual machine, and click **Commit**. This triggers a job that removes the Azure VMs.
 6. Verify that Azure VMs have been shut down as expected.
