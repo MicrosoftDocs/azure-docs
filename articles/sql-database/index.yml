@@ -82,7 +82,7 @@ sections:
         title: PowerShell
       - image:
           src: media/index/logo_arm.svg
-        title: ARM template
+        title: Azure Resource Manager template
     rows:
       - title: Create Single SQL Database
         values:
