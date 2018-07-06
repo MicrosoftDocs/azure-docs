@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Monitor Azure Firewall logs 
+title: Tutorial - Monitor Azure Firewall logs 
 description: In this tutorial, you learn how to enable and manage Azure Firewall logs.
 services: firewall
 author: vhorne
@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 7/11/2018
 ms.author: victorh
+#Customer intent: As an administrator, I want monitor Azure Firewall logs so that I can track firewall activity.
 ---
 # Tutorial: Monitor Azure Firewall logs
 
