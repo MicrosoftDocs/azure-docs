@@ -73,7 +73,7 @@ More information on creating groups can be found in the article [Manage access t
 
 #### Assign device configuration policy to device group
 
-1. Log in to the [Azure portal](https://portal.azure.com) and click on **Intune**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and click on **Intune**.
 2. Find the device configuration profile created previously by going to **Device configuration** > **Profiles** > Click on the profile created earlier
 3. Assign the profile to a group of devices 
    * Click on **Assignments** > under **Include** > **Select groups to include**
@@ -88,7 +88,7 @@ You have now created and assigned a device configuration policy to enable the Re
 
 We recommend using this method only to test the setting change.
 
-1. Log in to the Azure AD joined device using administrative credentials
+1. Log in to the Windows PC using administrative credentials
 2. Run **regedit** as an administrator
 3. Set the following registry key
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
