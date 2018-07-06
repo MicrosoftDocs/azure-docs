@@ -34,11 +34,11 @@ If you don't have the Human Resources app from the [review endpoint utterances](
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `batchtest`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## Purpose of batch testing
-Batch testing allows you to validate a model's state with a known set of test utterances and labeled entities. Create a batch file. In the batch file, select the utterances and label the entities you need predicted inside the utterance. Only include simple and composite entities. 
+Batch testing allows you to validate a model's state with a known set of test utterances and labeled entities. In the JSON-formatted batch file, add the utterances and set the entity labels you need predicted inside the utterance. 
 
 The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. For this tutorial, make sure you are not using the utterances from either example utterances (added to an intent), or endpoint utterances. 
 
-Verify your batch test utterances again the example utterances and endpoint utterances. [Export](create-new-app.md#export-app) the app in order to see the list of current example utterances. [Download](create-new-app.md#export-endpoint-logs) the query log to see the list of logged endpoint utterances.
+To verify your batch test utterances against the example utterances and endpoint utterances, [export](create-new-app.md#export-app) the app and [download](create-new-app.md#export-endpoint-logs) the query log. Compare the app example utterance's and query log utterances to the batch test utterances. 
 
 Requirements for batch testing:
 
@@ -47,7 +47,7 @@ Requirements for batch testing:
 * Entity types allowed: simple and composite.
 
 ## Create a batch file with utterances
-1. Create `HumanResources-jobs-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/). Or download [the file]() from the LUIS-Samples Github repository.
+1. Create `HumanResources-jobs-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/). Or download [the file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json) from the LUIS-Samples Github repository.
 
 2. In the JSON-formatted batch file, add utterances with the **Intent** you want predicted in the test. 
 
@@ -75,8 +75,6 @@ Requirements for batch testing:
         }
     ]
     ```
-
-    This batch does not have labeled entities so you can see what entity errors look like. 
 
 ## Run the batch
 
@@ -116,11 +114,11 @@ While hovering over the chart, a mouse wheel can enlarge or reduce the display i
 The chart is in four quadrants, with two of the sections displayed in red. **These are the sections to focus on**. 
 
 ### ApplyForJob test results
-There ApplyForJob test results displayed in the filter show that 1 of the four predictions was successful. Select the name **False positive** above the top right quadrant to see the utterances below the chart. 
+The **ApplyForJob** test results displayed in the filter show that 1 of the four predictions was successful. Select the name **False positive** above the top right quadrant to see the utterances below the chart. 
 
 ![LUIS batch test utterances](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
 
-The three utterances had a top intent of **ApplyForJob**. The intent stated in the batch file had a lower score. Why did this happen? The two intents are very closely related in terms of word choice and word arrangement. Additionally, there are almost three times as many examples for **ApplyForJob** than **GetJobInformation**. This unevenness of example utterances weights in **ApplyForJob** intent's favor. 
+The three utterances had a top intent of **ApplyForJob**. The intent stated in the batch file had a lower score. Why did this happen? The two intents are very closely related in terms of word choice and word arrangement. Additionally, there are almost three times as many examples for **ApplyForJob** than **GetJobInformation**. This unevenness of example utterances weighs in **ApplyForJob** intent's favor. 
 
 Notice that both intents have the same count of errors: 
 
@@ -135,7 +133,7 @@ The goal of this section is to have the three utterances that were incorrectly p
 
 A seemingly quick fix would be to add these batch file utterances to the correct intent. That is not what you want to do though. You want LUIS to correctly predict these utterances without adding them as examples. 
 
-You might also wonder about removing utterances from **ApplyForJob** until the utterance quantity is the same as **GetJobInformation**. That may fix the test results but would hinder LUIS from predicting that intent as accurately as it is currently. 
+You might also wonder about removing utterances from **ApplyForJob** until the utterance quantity is the same as **GetJobInformation**. That may fix the test results but would hinder LUIS from predicting that intent accurately next time. 
 
 The first fix is to add more utterances to **GetJobInformation**. The second fix is to reduce the weight of the word `resume` toward the **ApplyForJob** intent. 
 
@@ -183,7 +181,7 @@ In order to verify that the utterances in the batch test are correctly predicted
 
 
 ## What has this tutorial accomplished?
-This app prediction accuracy has increased by finding errors in the batch and correcting the model by adding more utterances and training. 
+This app prediction accuracy has increased by finding errors in the batch and correcting the model by adding more example utterances to the correct intent and training. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. Select **My apps** in the top left menu. Select the ellipsis **...** to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
@@ -192,5 +190,5 @@ When no longer needed, delete the LUIS app. Select **My apps** in the top left m
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about example utterances](luis-how-to-add-example-utterances.md)
+> [Learn about patterns](luis-tutorial-pattern.md)
 
