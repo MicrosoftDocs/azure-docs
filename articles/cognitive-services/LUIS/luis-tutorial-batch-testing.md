@@ -82,15 +82,15 @@ Requirements for batch testing:
 
 1. Select **Test** in the top navigation bar. 
 
-    ![Select Test in navigation bar](./media/luis-tutorial-batch-testing/hr-first-image.png)
+    [ ![Screenshot of LUIS app with Test highlighted in top, right navigation bar](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
 
 2. Select **Batch testing panel** in the right-side panel. 
 
-    ![Select Batch test panel](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link)
+    [ ![Screenshot of LUIS app with Batch test panel highlighted](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. Select **Import dataset**.
 
-    ![Select Import dataset](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)
+    [ ![Screenshot of LUIS app with Import dataset highlighted](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
 4. Choose the file system location of the `HumanResources-jobs-batch.json` file.
 
@@ -100,13 +100,13 @@ Requirements for batch testing:
 
 6. Select the **Run** button. Wait until the test is done.
 
-    ![Select Run](./media/luis-tutorial-batch-testing/hr-run-button.png)
+    [ ![Screenshot of LUIS app with Run highlighted](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
 
 7. Select **See results**.
 
 8. Review results in the graph and legend.
 
-    ![Batch results](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)
+    [ ![Screenshot of LUIS app with batch test results](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## Review batch results
 The batch chart displays four quadrants of results. To the right of the chart is a filter. By default, the filter is set to the first intent in the list. The filter contains all the intents and only simple, hierarchical (parent-only), and composite entities. When you select a section of the chart or a point within the chart, the associated utterance(s) display below the chart. 
@@ -118,13 +118,13 @@ The chart is in four quadrants, with two of the sections displayed in red. **The
 ### ApplyForJob test results
 There ApplyForJob test results displayed in the filter show that 1 of the four predictions was successful. Select the name **False positive** above the top right quadrant to see the utterances below the chart. 
 
-![](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results)
+![LUIS batch test utterances](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
 
 The three utterances had a top intent of **ApplyForJob**. The intent stated in the batch file had a lower score. Why did this happen? The two intents are very closely related in terms of word choice and word arrangement. Additionally, there are almost three times as many examples for **ApplyForJob** than **GetJobInformation**. This unevenness of example utterances weights in **ApplyForJob** intent's favor. 
 
 Notice that both intents have the same count of errors: 
 
-![](./media/luis-tutorial-batch-testing/hr-intent-error-count)
+![LUIS batch test filter errors](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
 
 The utterance corresponding the top point in the **False positive** section is `Can I apply for any database jobs with this resume?`. The word `resume` has only been used in **ApplyForJob**. 
 
@@ -142,11 +142,11 @@ The first fix is to add more utterances to **GetJobInformation**. The second fix
 ### Add more utterances to **GetJobInformation**
 1. Close the batch test panel by selecting the **Test** button in the top navigation panel. 
 
-    ![](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)
+    [ ![Screenshot of LUIS with Test button highlighted](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)](./media/luis-tutorial-batch-testing/hr-close-test-panel.png#lightbox)
 
-2. Select **GetJobInformation** from the intents list.
+2. Select **GetJobInformation** from the intents list. 
 
-    ![](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)
+    [ ![Screenshot of LUIS with Test button highlighted](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
 3. Add more utterances that are varied for length, word choice, and word arrangement, making sure to include the terms `resume` and `c.v.`:
 
@@ -179,7 +179,8 @@ In order to verify that the utterances in the batch test are correctly predicted
 
 3. Select **See results**. The intents should all have green icons to the left of the intent names. 
 
-    ![Run dataset](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
+    [ ![Screenshot of LUIS with batch results button highlighted](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png#lightbox)
+
 
 ## What has this tutorial accomplished?
 This app prediction accuracy has increased by finding errors in the batch and correcting the model by adding more utterances and training. 
