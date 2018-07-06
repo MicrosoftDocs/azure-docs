@@ -114,7 +114,7 @@ Here's what you (and Contoso) need to run this scenario:
 --- | ---
 **Azure subscription** | You should have already created a subscription when  you performed the assessment in the first article in this series. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> If you create a free account, you're the administrator of your subscription and can perform all actions.<br/><br/> If you use an existing subscription and you're not the administrator, you need to work with the admin to assign you Owner or Contributor permissions.
 **Azure infrastructure** | [Learn how](contoso-migration-infrastructure.md) Contoso set up an Azure infrastructure.
-**Developer prerequisites** | Contoso needs the following tools on a developer workstation:<br/><br/> - [Visual Studio 2017 Community Edition: Version 15.5](https://www.visualstudio.com/)<br/><br/> .NET workload enabled.<br/><br/> [Git](https://git-scm.com/)<br/><br/> [Service Fabric SDK v 3.0 or later](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)<br/><br/> [Docker CE (Windows 10) or Docker EE (Windows Server)](https://docs.docker.com/docker-for-windows/install/) set to use Windows Containers.
+**Developer prerequisites** | Contoso needs the following tools on a developer workstation:<br/><br/> - [Visual Studio 2017 Community Edition: Version 15.5](https://www.visualstudio.com/)<br/><br/> - .NET workload enabled.<br/><br/> - [Git](https://git-scm.com/)<br/><br/> - [Service Fabric SDK v 3.0 or later](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)<br/><br/> - [Docker CE (Windows 10) or Docker EE (Windows Server)](https://docs.docker.com/docker-for-windows/install/) set to use Windows Containers.
 
 
 
@@ -298,7 +298,6 @@ Need more help?
 
 10. They delete the extra SQL database **SmartHotel.Registration** in the Azure portal.
 
-    
      ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-9.png)
 
 
@@ -349,7 +348,7 @@ Contoso will convert the app to a container using isual Studio and the SDK Tools
 
     ![Container](./media/contoso-migration-rearchitect-container-sql/container7.png)
 
-Step 5: Publish the app
+## Step 5: Publish the app
 
 
 Finally, Contoso can publish the app to the ACR and Service Fabric Cluster.
