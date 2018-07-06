@@ -66,7 +66,7 @@ Azure subscription as your logic app.
 
 <a name="create-function-external"></a>
 
-## Create functions separately
+## Create functions outside logic apps
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 create your Azure function app, and then create your Azure function. 
@@ -123,15 +123,15 @@ When you're ready, follow the steps for
 
 <a name="create-function-designer"></a>
 
-## Create functions from inside logic apps
+## Create functions inside logic apps
 
 Before you create an Azure function starting from 
 inside your logic app in the Logic App Designer, 
-you must have an existing function app, 
+you must first have an Azure function app, 
 which works as a container for your functions. 
 If you don't have a function app, 
-create that function app first by using the 
-<a href="https://functions.azure.com/" target="_blank">Azure Functions portal</a>. 
+create that function app first. For more information, see 
+[Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md). 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 open your logic app in the Logic App Designer. 
