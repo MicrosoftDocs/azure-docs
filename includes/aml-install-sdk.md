@@ -11,8 +11,6 @@ ms.topic: "include"
 ms.date: 07/27/2018
 ---
 
-Install the Azure Machine Learning SDK for Python.
-
 In a command-line window, create and activate the conda package manager environment with numpy and cython. This example uses Python 3.6.
 
   + On Windows:
