@@ -24,7 +24,7 @@ No. You can use any VPN capable device that adheres to the preview requirements 
 
 ### How do preferred providers automate connectivity with Azure Virtual WAN?
 
-Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. For more information about how this works, see [Preferred provider configuration](virtual-wan-configure-vwan-providers.md).
+Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. For more information about how this works, see [Preferred provider configuration](../articles/virtual-wan/virtual-wan-configure-vwan-providers.md).
 
 ### Does Virtual WAN change any existing connectivity features?   
 
