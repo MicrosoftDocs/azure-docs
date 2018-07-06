@@ -1,6 +1,6 @@
 ---
-title: 'Automating - for Providers | Microsoft Docs'
-description: This article helps software-defined connectivity solutions providers set up automation.
+title: 'Configure Azure Virtual WAN automation - for Providers | Microsoft Docs'
+description: This article helps software-defined connectivity solutions providers set up Azure Virtual WAN automation.
 services: virtual-wan
 author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
@@ -12,11 +12,9 @@ ms.date: 07/05/2018
 ms.author: cherylmc
 
 ---
-# Automating - for Providers (Preview)
+# Configure Virtual WAN automation - for Providers (Preview)
 
 **This article is in progress.**
-
-Rough Draft
 
 This article shows you how to set up the automation to connect and configure a branch device (customer on-premises vpn device) for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2, this article is for you.
 
