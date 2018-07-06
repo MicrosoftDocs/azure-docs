@@ -8,7 +8,7 @@ ms.service: virtual-wan
 ms.topic: 
 ms.date: 07/06/2018
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
+Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
 ---
 
 # Virtual WAN FAQ (Preview)
