@@ -1,5 +1,5 @@
 ---
-title: Update Diagnostic Logs storage format
+title: Prepare for format change to Azure Monitor diagnostic logs
 description: Azure Diagnostic Logs will be moved to use append blobs on November 1, 2018.
 author: johnkemnetz
 services: monitoring
@@ -9,7 +9,7 @@ ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
 ---
-# Prepare for format change to diagnostic logs archived to a storage account
+# Prepare for format change to Azure Monitor diagnostic logs archived to a storage account
 
 > [!WARNING]
 > If you are sending [Azure resource diagnostic logs or metrics to a storage account using resource diagnostic settings](./monitoring-archive-diagnostic-logs.md) or [activity logs to a storage account using log profiles](./monitoring-archive-activity-log.md), the format of the data in the storage account will change to JSON Lines on Nov. 1, 2018. The instructions below describe the impact and how to update your tooling to handle the new format. 
