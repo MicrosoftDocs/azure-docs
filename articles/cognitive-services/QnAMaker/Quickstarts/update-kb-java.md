@@ -34,7 +34,7 @@ import java.net.*;
 import java.util.*;
 import javax.net.ssl.HttpsURLConnection;
 
-/*
+/**
  * Gson: https://github.com/google/gson
  * Maven info:
  *    <dependency>
@@ -50,8 +50,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
-// Java does not natively support HTTP PATCH requests, so Apache HttpClient is required.
-/*
+/**
+ * Java does not natively support HTTP PATCH requests; Apache HttpClient is required.
  * HttpClient: http://hc.apache.org/downloads.cgi
  * Maven info:
  *    <dependency>
@@ -69,15 +69,16 @@ import org.apache.http.HttpEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
-/* NOTE: To compile and run this code:
-1. Save this file as UpdateKB.java.
-1. Run:
-   javac UpdateKB.java -cp .;gson-2.8.1.jar;httpclient-4.5.5.jar;httpcore-4.4.9.jar;
-commons-logging-1.2.jar -encoding UTF-8
-1. Run:
-   java -cp .;gson-2.8.1.jar;httpclient-4.5.5.jar;httpcore-4.4.9.jar;commons-logging
--1.2.jar UpdateKB
-*/
+/**
+ * NOTE: To compile and run this code:
+ * 1. Save this file as UpdateKB.java.
+ * 2. Run:
+ * javac UpdateKB.java -cp .;gson-2.8.1.jar;httpclient-4.5.5.jar;httpcore-4.4.9.jar;
+ * commons-logging-1.2.jar -encoding UTF-8
+ * 3. Run:
+ * java -cp .;gson-2.8.1.jar;httpclient-4.5.5.jar;httpcore-4.4.9.jar;commons-logging
+ * -1.2.jar UpdateKB
+ */
 
 public class UpdateKB {
 
