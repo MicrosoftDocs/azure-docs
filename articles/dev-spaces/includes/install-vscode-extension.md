@@ -15,9 +15,6 @@ manager: "douge"
 Rich features like Kubernetes debugging are available for .NET Core and Node.js developers using VS Code.
 
 1. If you don't have it, install [VS Code](https://code.visualstudio.com/Download).
-1. Download the [VS Azure Dev Spaces extension](hhttps://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-1. Install the extension: 
+1. Download and install the [VS Azure Dev Spaces extension](hhttps://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Click Install once on the extension's Marketplace page, and again in VS Code. 
 
-    ```cmd
-    code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix
-    ```
+
