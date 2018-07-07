@@ -52,17 +52,16 @@
 #### [Export U-SQL database](data-lake-analytics-data-lake-tools-export-database.md)
 #### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
 #### [Resolve data-skew](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
-#### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ### Visual Studio Code
 #### [Authoring](data-lake-analytics-data-lake-tools-for-vscode.md)
 #### [Custom code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Local run & debug](data-lake-tools-for-vscode-local-run-and-debug.md)
 
-### Continuous integration and continuous deployment
-#### [Overview](data-lake-analytics-cicd-overview.md)
-#### [Set up tests](data-lake-analytics-cicd-test.md)
-#### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
+## Continuous integration and continuous deployment
+### [Overview](data-lake-analytics-cicd-overview.md)
+### [Set up tests](data-lake-analytics-cicd-test.md)
+### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
