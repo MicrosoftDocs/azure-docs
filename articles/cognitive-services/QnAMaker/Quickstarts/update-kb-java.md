@@ -25,6 +25,8 @@ If you don't have a knowledge base yet, you can create a sample one to use for t
 
     ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
+1. You'll need the [apache httpclient](http://hc.apache.org/downloads.cgi) library. For example, download the binary HttpClient 4.x.x.tar.gz to find all the jar files you need for importing into your project.
+1. The [GSON](https://github.com/google/gson) library is also needed. Either by manually [creating](https://stackoverflow.com/questions/5258159/how-to-make-an-executable-jar-file) & importing the .jar file or adding a dependency to your preferred project management tool, such as Maven.
 1. Run the program.
 
 ```java
