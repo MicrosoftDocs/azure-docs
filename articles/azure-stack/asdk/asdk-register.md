@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/26/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -79,4 +79,4 @@ Follow these steps to verify that the ASDK registration with Azure was successfu
     ![](media/asdk-register/3.PNG)
 
 ## Next steps
-[Add an Azure Stack marketplace item](asdk-marketplace-item.md)
+[Add an Azure Stack marketplace item](.\.\azure-stack-marketplace.md)
