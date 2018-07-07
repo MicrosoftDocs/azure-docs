@@ -290,8 +290,8 @@ public class UpdateKB {
 
         Question q = new Question();
         q.id = 0;
-        q.answer = "You can use our REST APIs to manage your Knowledge Base.
-        See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/"
+        q.answer = "You can use our REST APIs to manage your Knowledge Base."
+        + "See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/"
         + "58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa";
         q.source = "Custom Editorial";
         q.questions = new String[]{"How do I programmatically update my Knowledge Base?"};
