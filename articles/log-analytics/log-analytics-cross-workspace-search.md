@@ -85,7 +85,7 @@ Identifying an application in Application Insights can be accomplished with the 
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
 
-###Performing a query across multiple resources
+### Performing a query across multiple resources
 You can query multiple resorces from any of your resource instences, these can be workspaces and apps combiled.
     Example for wuery across two workspaces:
     ```
