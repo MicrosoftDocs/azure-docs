@@ -262,7 +262,7 @@ or more specifically, a **Request** trigger.
 Then, from inside your function, send an HTTP POST 
 request to the URL for that **Request** trigger and 
 include the payload you want that logic app to process. 
-For more information, see [Logic apps as callable endpoints](../logic-apps/logic-apps-http-endpoint.md). 
+For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). 
 
 ## Get support
 
