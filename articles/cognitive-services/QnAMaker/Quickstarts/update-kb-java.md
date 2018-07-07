@@ -370,7 +370,7 @@ A successful response is returned in JSON, as shown in the following example. Yo
 Press any key to continue.
 ```
 
-Once your knowledge base is updated, you can view it on your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Notice that your knowledge base name has changed, for example QnA Maker FAQ (or the name of your pre-existing knowledge base) is now New KB Name.
+Once your knowledge base is updated, you can view it on your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Notice that your knowledge base name has changed, according to your customized request.
 
 To modify other elements of your knowledge base, refer to the QnA Maker [JSON schema](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) and modify the `req` object in the `getRequest()` method.
 
