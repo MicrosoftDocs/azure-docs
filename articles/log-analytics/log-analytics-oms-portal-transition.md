@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # OMS portal moving to Azure
 Thank you for using the OMS portal. We are encouraged by your support and continue to invest heavily in our monitoring and management services. One piece of feedback heard repeatedly from customers is the need for a single user experience to monitor and manage both on-premises and Azure workloads. You probably know the Azure portal is the hub for all Azure services and offers a rich management experience with capabilities such as dashboards for pinning resources, intelligent search for finding resources, and tagging for resource management. To consolidate and streamline the monitoring and management workflow, we started adding the OMS portal capabilities into the Azure portal. We are happy to announce most of the features of the OMS portal are now part of the Azure portal. In fact, some of the new features such as Traffic Manager are only available in the Azure portal. There are only a few gaps remaining, the most impactful being five solutions that are still in the process to be moved to Azure portal. If you are not using these features, you will be able to accomplish everything you were doing in the OMS portal with the Azure portal and more. If you haven’t already done so, we recommend you start using the Azure portal today! 
 
@@ -27,7 +28,7 @@ The following changes are being announced with the deprecation of the OMS portal
 
 - The new alert management experience will replace the Alert Management solution.
 - User access management will be done in the Azure portal using Azure role-based access control.
-- The Application Insights Connector and solution are no longer required since the same functionality can be enabled through cross-workspace queries.
+- The Application Insights Connector are no longer required since the same functionality can be enabled through cross-workspace queries.
 - The OMS Mobile App will be deprecated. 
 - The NSG solution is being replaced with enhanced functionality available via Traffic Analytics solution.
 
@@ -90,18 +91,18 @@ With the support of [cross-resource queries](log-analytics-cross-workspace-searc
 
 
 ## Azure Network Security Group Analytics
-The [Azure Network Security Group Analytics solution](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) will be replaced with the recently launched [Traffic Analytics](../network-watcher/traffic-analytics.md) which provides visibility into user and application activity on cloud networks. Traffic Analytics helps you audit your organization's network activity, secure applications and data, optimize workload performance and stay compliant. 
+The [Azure Network Security Group Analytics solution](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) will be replaced with the recently launched [Traffic Analytics](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) which provides visibility into user and application activity on cloud networks. Traffic Analytics helps you audit your organization's network activity, secure applications and data, optimize workload performance and stay compliant. 
 
 This solution analyzes NSG Flow logs and provides insights into the following.
 
-- Traffic flows across your networks between Azure and Internet, public cloud regions, VNETs, and subnets
-- applications and protocols on your network, without the need for sniffers or dedicated flow collection appliances.
-- Top talkers, chatty applications, VM conversations in the cloud, traffic hotspots
-- sources and destinations of traffic across VNETs, inter-relationships between critical business services and applications.
+- Traffic flows across your networks between Azure and Internet, public cloud regions, VNETs, and subnets.
+- Applications and protocols on your network, without the need for sniffers or dedicated flow collection appliances.
+- Top talkers, chatty applications, VM conversations in the cloud, traffic hotspots.
+- Sources and destinations of traffic across VNETs, inter-relationships between critical business services and applications.
 - Security including malicious traffic, ports open to the Internet, applications or VMs attempting Internet access.
 - Capacity utilization, which helps you eliminate issues of over provisioning or underutilization.
 
-You can continue to rely on Diagnostics Settings to send NSG logs to Log Analytics so your existing saved searches, alerts, dashboards will continue to work. Customers who have already installed the solution can continue to use it until further notice. Starting June 20 the NSG solution will be removed from the marketplace and made available through the community as a [Azure QuickStart Template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
+You can continue to rely on Diagnostics Settings to send NSG logs to Log Analytics so your existing saved searches, alerts, dashboards will continue to work. Customers who have already installed the solution can continue to use it until further notice. Starting June 20 the Network Security Group Analytics solution will be removed from the marketplace and made available through the community as a [Azure QuickStart Template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
 
 ## Next steps
 - See [Common questions for transition from OMS portal to Azure portal for Log Analytics users](log-analytics-oms-portal-faq.md) for guidance on moving from the OMS portal to the Azure portal.

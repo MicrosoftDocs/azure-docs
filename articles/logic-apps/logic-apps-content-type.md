@@ -4,7 +4,7 @@ description: How Azure Logic Apps deals with content types at design and runtime
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: cd1f08fd-8cde-4afc-86ff-2e5738cc8288

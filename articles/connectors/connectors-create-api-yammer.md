@@ -4,7 +4,7 @@ description: Overview of the Yammer Connector with REST API parameters
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 

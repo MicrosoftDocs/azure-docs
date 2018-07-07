@@ -1,28 +1,22 @@
 ---
-title: Reconfigure an Azure-SSIS integration runtime | Microsoft Docs
+title: Reconfigure the Azure-SSIS integration runtime | Microsoft Docs
 description: Learn how to reconfigure an Azure-SSIS integration runtime in Azure Data Factory after you have already provisioned it.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: 
-editor: 
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: douglasl
-
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
 ---
 
-# Manage an Azure-SSIS integration runtime
-The [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md) article shows you how to create an Azure-SSIS integration runtime (IR) by using Azure Data Factory. This article provides information about reconfiguring an existing Azure-SSIS integration runtime.  
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
-
+# Reconfigure the Azure-SSIS integration runtime
+This article describes how to reconfigure an existing Azure-SSIS integration runtime. To create an Azure-SSIS integration runtime (IR) in Azure Data Factory, see [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md).  
 
 ## Data Factory UI 
 You can use Data Factory UI to stop, edit/reconfigure, or delete an Azure-SSIS IR. 

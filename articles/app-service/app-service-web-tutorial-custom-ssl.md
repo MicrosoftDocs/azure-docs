@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 11/30/2017
+ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -27,9 +27,11 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Upgrade your app's pricing tier
-> * Bind your custom SSL certificate to App Service
-> * Enforce HTTPS for your app
-> * Automate SSL certificate binding with scripts
+> * Bind your custom certificate to App Service
+> * Renew certificates
+> * Enforce HTTPS
+> * Enforce TLS 1.1/1.2
+> * Automate TLS management with scripts
 
 > [!NOTE]
 > If you need to get a custom SSL certificate, you can get one in the Azure portal directly and bind it to your web app. Follow the [App Service Certificates tutorial](web-sites-purchase-ssl-web-site.md).
@@ -209,6 +211,14 @@ to `https://<your.custom.domain>` to see that it serves up your web app.
 
 <a name="bkmk_enforce"></a>
 
+## Renew certificates
+
+Your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, follow these steps in order:
+
+1. Upload the new certificate.
+2. Bind the new certificate to the custom domain you want without deleting the old one. This action replaces the binding instead of removing the old one.
+3. Delete the old certificate. 
+
 ## Enforce HTTPS
 
 By default, anyone can still access your web app using HTTP. You can redirect all HTTP requests to the HTTPS port.
@@ -232,14 +242,6 @@ In your web app page, in the left navigation, select **SSL settings**. Then, in 
 ![Enforce TLS 1.1 or 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 When the operation is complete, your app rejects all connections with lower TLS versions.
-
-## Renew certificates
-
-Your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, follow these steps in order:
-
-1. Upload the new certificate.
-2. Bind the new certificate to the custom domain you want without deleting the old one. This action replaces the binding instead of removing the old one.
-3. Delete the old certificate. 
 
 ## Automate with scripts
 
@@ -269,6 +271,15 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
+The following command enforces minimum TLS version of 1.2.
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
+```
+
 ### Azure PowerShell
 
 The following command uploads an exported PFX file and adds an SNI-based SSL binding.
@@ -293,9 +304,11 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Upgrade your app's pricing tier
-> * Bind your custom SSL certificate to App Service
-> * Enforce HTTPS for your app
-> * Automate SSL certificate binding with scripts
+> * Bind your custom certificate to App Service
+> * Renew certificates
+> * Enforce HTTPS
+> * Enforce TLS 1.1/1.2
+> * Automate TLS management with scripts
 
 Advance to the next tutorial to learn how to use Azure Content Delivery Network.
 

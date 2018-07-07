@@ -4,9 +4,6 @@ description: Extract text from image files in an Azure Search enrichment pipelin
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -33,7 +30,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | detectOrientation	| Enables autodetection of image orientation. <br/> Valid values: true / false.|
-|defaultLanguageCode |	Language code of the input text. Supported languages include: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`.  If the language code is unspecified or null, the language is autodetected.|
+|defaultLanguageCode | <p>	Language code of the input text. Supported languages include: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (Czech) <br/>da (Danish) <br/>nl (Dutch) <br/>en (English) <br/>fi (Finnish)  <br/>fr (French) <br/>  de (German) <br/>el (Greek) <br/> hu (Hungarian) <br/> it (Italian) <br/>  ja (Japanese) <br/> ko (Korean) <br/> nb (Norwegian) <br/>   pl (Polish) <br/> pt (Portuguese) <br/>  ru (Russian) <br/>  es (Spanish) <br/>  sv (Swedish) <br/>  tr (Turkish) <br/> ar (Arabic) <br/> ro (Romanian) <br/> sr-Cyrl (SerbianCyrillic) <br/> sr-Latn (SerbianLatin) <br/>  sk (Slovak). <br/>  unk (Unknown) <br/><br/> If the language code is unspecified or null, the language is autodetected. </p> |
 | textExtractionAlgorithm | "printed" or "handwritten". The "handwritten" text recognition OCR algorithm is currently in preview and only supported in English. |
 
 ## Skill inputs

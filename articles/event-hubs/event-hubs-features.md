@@ -142,8 +142,8 @@ Event Hubs has a highly scalable parallel architecture and there are several key
 
 The throughput capacity of Event Hubs is controlled by *throughput units*. Throughput units are pre-purchased units of capacity. A single throughput unit includes the following capacity:
 
-* Ingress: Up to 1 MB per second or 1000 events per second (whichever comes first)
-* Egress: Up to 2 MB per second
+* Ingress: Up to 1 MB per second or 1000 events per second (whichever comes first).
+* Egress: Up to 2 MB per second or 4096 events per second.
 
 Beyond the capacity of the purchased throughput units, ingress is throttled and a [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) is returned. Egress does not produce throttling exceptions, but is still limited to the capacity of the purchased throughput units. If you receive publishing rate exceptions or are expecting to see higher egress, be sure to check how many throughput units you have purchased for the namespace. You can manage throughput units on the **Scale** blade of the namespaces in the [Azure portal](https://portal.azure.com). You can also manage throughput units programmatically using the [Event Hubs APIs](event-hubs-api-overview.md).
 

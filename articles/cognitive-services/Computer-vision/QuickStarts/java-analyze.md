@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/15/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an Image with Java
+# Quickstart: Analyze an image with Java
 
 In this quickstart, you analyze an image to extract visual features using Computer Vision.
 

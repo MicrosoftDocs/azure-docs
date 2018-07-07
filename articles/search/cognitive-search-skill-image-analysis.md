@@ -4,14 +4,11 @@ description: Extract semantic text through image analysis using the ImageAnalysi
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
 
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
 ---

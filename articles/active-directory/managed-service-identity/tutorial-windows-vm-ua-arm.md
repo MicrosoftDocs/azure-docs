@@ -9,11 +9,11 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: arluca
+ms.author: daveba
 ---
 
 # Tutorial: Use a User Assigned Managed Service Identity (MSI) on a Windows VM, to access Azure Resource Manager

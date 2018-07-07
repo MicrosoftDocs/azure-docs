@@ -9,8 +9,8 @@ ms.component: B2B
 ms.topic: article
 ms.date: 03/15/2017
 
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
 

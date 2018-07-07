@@ -48,7 +48,7 @@ The composite entity matches seat count, origin location, destination location, 
 When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chatbot takes that JSON response and fulfills the request -- in whatever way the app or chatbot is designed to do. 
 
 ## Add prebuilt entities number and datetimeV2
-1. Select the `MyTravelApp` app from the list of apps on the [LUIS][LUIS] website.
+1. Select the `MyTravelApp` app from the list of apps on the [LUIS](luis-reference-regions.md#luis-website) website.
 
 2. When the app opens, select the **Entities** left navigation link.
 
@@ -244,7 +244,3 @@ LUIS is done with this request. The calling application, such as a chatbot, can 
 ## Next steps
 
 [Learn more about entities](luis-concept-entity-types.md). 
-
-<!--References-->
-[LUIS]:luis-reference-regions.md#luis-website
-[LUIS-regions]:luis-reference-regions.md#publishing-regions

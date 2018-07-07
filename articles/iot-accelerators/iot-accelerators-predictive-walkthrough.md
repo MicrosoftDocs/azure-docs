@@ -1,6 +1,6 @@
 ---
-title: Predictive Maintenance solution accelerator walkthrough - Azure | Microsoft Docs
-description: A walkthrough of the Azure IoT Predictive Maintenance solution accelerator.
+title: Predictive Maintenance solution accelerator overview - Azure | Microsoft Docs
+description: An overview of the Azure IoT Predictive Maintenance solution accelerator.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,7 +10,7 @@ ms.date: 11/14/2017
 ms.author: dobett
 ---
 
-# Predictive Maintenance solution accelerator walkthrough
+# Predictive Maintenance solution accelerator overview
 
 The Predictive Maintenance solution accelerator is an end-to-end solution for a business scenario that predicts the point at which a failure is likely to occur. You can use this solution accelerator proactively for activities such as optimizing maintenance. The solution combines key Azure IoT solution accelerators services, such as IoT Hub, Stream analytics, and an [Azure Machine Learning][lnk-machine-learning] workspace. This workspace contains a model, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your own specific business requirements.
 
@@ -71,5 +71,5 @@ You can also explore some of the other features and capabilities of the IoT solu
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
-[lnk-security-groundup]:securing-iot-ground-up.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

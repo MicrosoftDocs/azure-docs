@@ -39,7 +39,7 @@ The following sections describe the StorSimple security features that help prote
 
 The StorSimple Device Manager service is a management service hosted in Microsoft Azure and used to manage all StorSimple devices that your organization has procured. You can access the StorSimple Device Manager service by using your organizational credentials to log on to the Azure portal through a web browser.
 
-Access to the StorSimple Device Manager service requires that your organization have an Azure subscription that includes StorSimple. Your subscription governs the features that you can access in the Azure portal. If your organization does not have an Azure subscription and you want to learn more about them, see [Sign up for Azure as an organization](../active-directory/sign-up-organization.md).
+Access to the StorSimple Device Manager service requires that your organization have an Azure subscription that includes StorSimple. Your subscription governs the features that you can access in the Azure portal. If your organization does not have an Azure subscription and you want to learn more about them, see [Sign up for Azure as an organization](../active-directory/fundamentals/sign-up-organization.md).
 
 Because the StorSimple Device Manager service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
 
@@ -263,7 +263,7 @@ The following are some questions and answers about security and Microsoft Azure 
 
 **A:** You can download the new certificate from the StorSimple Device Manager service, and then provide it to be installed in the certificate store of your remote access clients. For instructions, go to:
 
-* [Import-Certificate cmdlet](https://technet.microsoft.com/library/hh848630.aspx)
+* [Import-Certificate cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
 **Q:** Is my data protected if the StorSimple Device Manager service is compromised?
 

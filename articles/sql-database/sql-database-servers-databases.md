@@ -1,29 +1,18 @@
 ---
-title: Create & manage Azure SQL servers & databases | Microsoft Docs
-description: Learn about Azure SQL Database server and database concepts, and about creating and managing servers and databases.
+title: Azure SQL logical servers and single databases | Microsoft Docs
+description: Learn about Azure SQL Database logical server and single database concepts, and their resources.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 06/20/2018
 ms.author: carlrab
 
 ---
 
-# Create and manage Azure SQL Database servers and databases
-
-SQL Database offers three types of databases:
-
-- A single database created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a [combined set of compute and storage resources](sql-database-service-tiers-dtu.md) or an [independent scale of compute and storage resources](sql-database-service-tiers-vcore.md). An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
-- A database created as part of a [pool of databases](sql-database-elastic-pool.md) within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a [combined set of compute and storage resources (DTU-based)](sql-database-service-tiers-dtu.md) or an [independent scale of compute and storage resources (vCore-based)](sql-database-service-tiers-vcore.md) that are shared among all of the databases in the pool. An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
-- An [instance of a SQL server](sql-database-managed-instance.md) (a Managed Instance) created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of compute and storage resources for all databases on that server instance. A managed instance contains both system and user databases. Managed Instance is designed to enable database lift-and-shift to a fully managed PaaS, without redesigning the application. Managed Instance provides high compatibility with the on-premises SQL Server programming model and supports the large majority of SQL Server features and accompanying tools and services.  
-
-Microsoft Azure SQL Database supports tabular data stream (TDS) protocol client version 7.3 or later and allows only encrypted TCP/IP connections.
-
-> [!IMPORTANT]
-> SQL Database Managed Instance, currently in public preview, offers a single General Purpose service tier. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md). The remainder of this article does not apply to Managed Instance.
+# Azure SQL Database logical servers and single databases, and their resources
 
 ## What is an Azure SQL logical server?
 
@@ -55,6 +44,20 @@ An Azure Database logical server:
 - Server-level principal logins can manage all databases on a server
 - Can contain logins similar to those in instances of SQL Server on your premises that are granted access to one or more databases on the server, and can be granted limited administrative rights. For more information, see [Logins](sql-database-manage-logins.md).
 - The default collation for all user databases created on a logical server is `SQL_LATIN1_GENERAL_CP1_CI_AS`, where `LATIN1_GENERAL` is English (United States), `CP1` is code page 1252, `CI` is case-insensitive, and `AS` is accent-sensitive.
+
+## Logical servers and databases
+
+On a logical server, you can create:
+
+- A single database created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a [combined set of compute and storage resources](sql-database-service-tiers-dtu.md) or an [independent scale of compute and storage resources](sql-database-service-tiers-vcore.md). An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
+- A database created as part of a [pool of databases](sql-database-elastic-pool.md) within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a [combined set of compute and storage resources (DTU-based)](sql-database-service-tiers-dtu.md) or an [independent scale of compute and storage resources (vCore-based)](sql-database-service-tiers-vcore.md) that are shared among all of the databases in the pool. An Azure SQL database is associated with an Azure SQL Database logical server, which is created within a specific Azure region.
+
+> [!IMPORTANT]
+> SQL Database Managed Instance, currently in public preview, is an [instance of a SQL server](sql-database-managed-instance.md) (a Managed Instance) created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) with a defined set of compute and storage resources for all databases on that server instance. A managed instance contains both system and user databases. Managed Instance is designed to enable database lift-and-shift to a fully managed PaaS, without redesigning the application. Managed Instance provides high compatibility with the on-premises SQL Server programming model and supports the large majority of SQL Server features and accompanying tools and services. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md). The remainder of this article does not apply to Managed Instance.
+
+## TDS and TCP/IP connections
+
+Microsoft Azure SQL Database supports tabular data stream (TDS) protocol client version 7.3 or later and allows only encrypted TCP/IP connections.
 
 ## Azure SQL databases protected by SQL Database firewall
 
@@ -105,7 +108,7 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Gets one or more databases|
 |[Set-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Sets properties for a database, or moves an existing database into an elastic pool|
 |[Remove-​Azure​Rm​Sql​Database](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Removes a database|
-|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Creates a resource group]
+|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Creates a resource group|
 |[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Creates a  server|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Returns information about servers|
 |[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|Modifies properties of a server|

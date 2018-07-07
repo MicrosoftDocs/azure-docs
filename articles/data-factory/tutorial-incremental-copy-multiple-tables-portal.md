@@ -3,7 +3,7 @@ title: 'Incrementally copy multiple tables by using Azure Data Factory | Microso
 description: 'In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in an on-premises SQL Server database to an Azure SQL database.'
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
-ms.author: jingwang
+ms.author: yexu
 ---
 # Incrementally load data from multiple tables in SQL Server to an Azure SQL database
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in on-premises SQL Server to an Azure SQL database.    
@@ -32,9 +32,6 @@ You perform the following steps in this tutorial:
 > * Add or update data in source tables.
 > * Rerun and monitor the pipeline.
 > * Review the final results.
-
-> [!NOTE]
-> This article applies to version 2 of Azure Data Factory, which is currently in preview. If you use version 1 of the Data Factory service, which is generally available, see the [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## Overview
 Here are the important steps to create this solution: 
@@ -650,7 +647,7 @@ VALUES
     ]
     ```
 
-## Monitor the pipeline
+## Monitor the pipeline again
 
 1. Switch to the **Monitor** tab on the left. You see the pipeline run triggered by the **manual trigger**. Click **Refresh** button to refresh the list. Links in the **Actions** column allow you to view activity runs associated with the pipeline run, and to rerun the pipeline. 
 

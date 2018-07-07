@@ -1,6 +1,5 @@
 # Overview
-## [What is Operations Management Suite?](operations-management-suite-overview.md)
-## [OMS architecture](operations-management-suite-architecture.md)
+## [Agent Monitoring](../monitoring/index.md)
 
 # Get started
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
@@ -13,8 +12,6 @@
 
 ## Analyze
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Monitoring products comparison](operations-management-suite-monitoring-product-comparison.md)
-### [Manage alerts](operations-management-suite-monitoring-alerts.md)
 ## Automate
 ### [Azure Automation overview](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -45,7 +42,6 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric Analytics](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Service Map
-##### [Walkthrough](../monitoring/monitoring-walkthrough-servicemap.md)
 ##### [Use](../monitoring/monitoring-service-map.md)
 ##### [Configure](../monitoring/monitoring-service-map-configure.md)
 ##### [Integration with Operations Manager](../monitoring/monitoring-service-map-scom.md)
@@ -69,12 +65,7 @@
 ### [Best practices](../monitoring/monitoring-solutions-best-practices.md)
 
 ## Management scenarios
-### [Collect analytics data from runbook](operations-management-suite-runbook-datacollect.md)
-
-## [Integrate with OMS](operations-management-suite-integration.md)
-
-# Reference
-## [SDK](operations-management-suite-sdk.md)
+### [Collect analytics data from runbook](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

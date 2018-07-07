@@ -31,7 +31,7 @@ The solution uses two different data sources:
 * Simulated vehicle signals and diagnostic data set
 * Vehicle catalog
 
-A vehicle telematics simulator is included as part of this solution, as shown in the following screenshot. It emits diagnostic information and signals that correspond to the state of the vehicle and to the driving pattern at a given point in time. To download the Vehicle Telematics Simulator Visual Studio Solution for customizations based on your requirements, go to the [Vehicle telematics simulator](http://go.microsoft.com/fwlink/?LinkId=717075) webpage. The vehicle catalog contains a reference data set that maps vehicle identification numbers (VINs) to models.
+A vehicle telematics simulator is included as part of this solution, as shown in the following screenshot. It emits diagnostic information and signals that correspond to the state of the vehicle and to the driving pattern at a given point in time.  The vehicle catalog contains a reference data set that maps vehicle identification numbers (VINs) to models. Note: The Vehicle Telematics Simulator Visual Studio Solution data set is no longer available. 
 
 ![Vehicle telematics simulator](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
@@ -359,7 +359,7 @@ An application is included as part of the solution to operationalize the machine
 
 This pattern is also applicable to scenarios in which you want to integrate a line-of-business application with the real-time analytics flow. These scenarios include alerts, notifications, and messaging.
 
-To download the RealtimeDashboardApp Visual Studio solution for customizations, see the [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717078) webpage. 
+Note: that the data for the RealtimeDashboardApp Visual Studio solution is no longer available.
 
 #### **Execute the real-time dashboard application**
 1. Extract the RealtimeDashboardApp, and save it locally.
@@ -665,10 +665,9 @@ This document contains a detailed drill-down of the Vehicle Telemetry Analytics 
 
 ### References
 
-* [Vehicle Telematics Simulator Visual Studio Solution](http://go.microsoft.com/fwlink/?LinkId=717075) 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 * [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [Azure Event Hubs SDK for stream ingestion](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-* [Azure Data Factory data movement capabilities](../../data-factory/v1/data-factory-data-movement-activities.md)
-* [Azure Data Factory .NET activity](../../data-factory/v1/data-factory-use-custom-activities.md)
+* [Azure Data Factory data movement capabilities](../../data-factory/copy-activity-overview.md)
+* [Azure Data Factory .NET activity](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [Azure Data Factory .NET activity Visual Studio solution used to prepare sample data](http://go.microsoft.com/fwlink/?LinkId=717077) 

@@ -4,7 +4,7 @@ title: Limits and configuration - Azure Logic Apps | Microsoft Docs
 description: Service limits and configuration values for Azure Logic Apps
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.topic: article
 ms.date: 05/30/2018

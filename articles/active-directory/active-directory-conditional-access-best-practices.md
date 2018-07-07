@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -27,7 +27,7 @@ With [Azure Active Directory (Azure AD) conditional access](active-directory-con
 - Things you should know 
 - What it is you should avoid doing when configuring conditional access policies. 
 
-This article assumes that you familiar the concepts and the terminology outlined in [Conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+This article assumes that you familiar the concepts and the terminology outlined in [What is conditional access in Azure Active Directory?](active-directory-conditional-access-azure-portal.md)
 
 
 
@@ -150,4 +150,4 @@ For more information, see [Migrate classic policies in the Azure portal](active-
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](active-directory-conditional-access-app-based-mfa.md).

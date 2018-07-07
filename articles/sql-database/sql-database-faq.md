@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: carlrab
 
 ---
@@ -19,9 +19,9 @@ The current version of SQL Database is V12. Version V11 has been retired.
 ## What is the SLA for SQL Database?
 We guarantee at least 99.99% of the time, you have connectivity between your Microsoft Azure SQL Database and our Internet gateway, regardless of your service tier. For more information, see [SLA](http://azure.microsoft.com/support/legal/sla/).
 
-## Whatis the new vCore-based purchasing model (preview) for Azure SQL Database?
+## What is the new vCore-based purchasing model (preview) for Azure SQL Database?
 
-The new purchasing model is in addition to the existing DTU-based model. The vCore-based model is designed to give customers flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. It also allows customers to scale compute and storage based upon their workload needs. Single database and elastic pool options using the vCore model are also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). See [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md) for more information. 
+The new purchasing model is in addition to the existing DTU-based model. The vCore-based model is designed to give customers flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. It also allows customers to scale their compute and storage rsources based upon their workload needs. Single database and elastic pool options using the vCore model are also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). See [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md) for more information. 
 
 ## What is a vCore? 
 A virtual core represents the logical CPU offered with an option to choose between generations of hardware. Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors and Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors.
@@ -31,7 +31,7 @@ No, the introduction of the vCore-based model to the Elastic Pool and Single Dat
 
 In many cases, applications can benefit from the simplicity of a preconfigured bundle of resources. Therefore, we continue to offer and support these DTU-based choices to our customers. If you are using them and it meets your business requirements, you should continue to do so.
 
-The DTU and vCore-based models will continue to exist side by side. We are launching the vCore-based model in response to customer requests for more transparency around their database resources and the ability to scale compute and storage separately. The vCore-based model also enables additional savings for customers with active Software Assurance through the Azure Hybrid Benefit for SQL Server.
+The DTU and vCore-based models will continue to exist side by side. We are launching the vCore-based model in response to customer requests for more transparency around their database resources and the ability to scale their compute and storage resources separately. The vCore-based model also enables additional savings for customers with active Software Assurance through the Azure Hybrid Benefit for SQL Server.
 
 ## How should I choose between the DTU-based purchasing model vs the vCore-based purchasing model (preview)? 
 The Database Transaction Unit (DTU) is based on a blended measure of CPU, memory, reads, and writes. The DTU-based performance levels represent preconfigured bundles of resources to drive different levels of application performance. Customers who do not want to worry about the underlying resources and prefer the simplicity of a preconfigured bundle while paying a fixed amount each month may find the DTU-based model more suitable for their needs. However, for customers who need more insight into the underlying resources or need to scale them independently to achieve optimal performance, the vCore-based model will be the best choice.  Additionally, if a customer has an active Software Assurance (SA) for SQL Server, they can leverage their existing investment and save up to 30% with [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Options within each of the purchasing models provide the benefits of a fully-managed service such as automated backups, software updates and patches. 
@@ -44,10 +44,10 @@ You have 180 days of dual use rights of the license to ensure migrations are run
 
 
 ## How does Azure Hybrid Benefit for SQL Server differ from license mobility?
-Today, we offer SQL Server customers with Software Assurance license mobility benefits which allows re-assignment of their licenses to third-party shared servers. This benefit can be used on Azure IaaS and AWS EC2.
+Today, we offer license mobility benefits to SQL Server customers with Software Assurance that allows re-assignment of their licenses to third-party shared servers. This benefit can be used on Azure IaaS and AWS EC2.
 Azure Hybrid Benefit for SQL Server differs from license mobility in two key areas:
 - It provides economic benefits for moving highly virtualized workloads to Azure. SQL EE customers can get 4 cores in Azure in the General Purpose SKU for every core they own on-premises for highly virtualized applications. License mobility does not allow any special cost benefits for moving virtualized workloads to the cloud.
-- It provides for a PaaS destination on Azure that is highly compatible with SQL Server on-premises – SQL Database Managed Instance.
+- It provides for a PaaS destination on Azure (SQL Database Managed Instance) that is highly compatible with SQL Server on-premises
 
 ## What are the specific rights of the Azure Hybrid Benefit for SQL Server?
 SQL Database customers will have the following rights associated with Azure Hybrid Benefit for SQL Server:
@@ -65,7 +65,7 @@ SQL Database customers will have the following rights associated with Azure Hybr
 The compute cost reflects the total compute capacity that is provisioned for the application. In the Business Critical service tier, we automatically allocate at least 3 Always ON replicas. To reflect this additional allocation of compute resources, the vCore price is approximately 2.7x higher in Business Critical. For the same reason, the higher storage price per GB in the Business Critical tier reflects the high IO and low latency of the SSD storage. At the same time, the cost of backup storage is not different because in both cases we use a class of standard storage.
 
 ## How am I charged for storage - based on what I configure upfront or on what the database uses?
-Different types of storage are billed differently. For data storage, you are be charged for the provisioned storage based upon the maximum database or pool size you select. The cost does not change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance. Increasing your backup retention period increases the backup storage that’s consumed by your instance. There’s no additional charge for backup storage for up to 100 percent of your total provisioned server storage. Additional consumption of backup storage is charged in GB per month. For example, if you have the database storage size of 100 GBs, you’ll get 100 GBs of backup at no additional cost. But if the backup is 110 GBs, you pay for the additional 10 GBs.
+Different types of storage are billed differently. For data storage, you are charged for the provisioned storage based upon the maximum database or pool size you select. The cost does not change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance. Increasing your backup retention period increases the backup storage that’s consumed by your instance. There’s no additional charge for backup storage for up to 100 percent of your total provisioned server storage. Additional consumption of backup storage is charged in GB per month. For example, if you have the database storage size of 100 GBs, you’ll get 100 GBs of backup at no additional cost. But if the backup is 110 GBs, you pay for the additional 10 GBs.
 
 For backup storage of a single database, you are charged on a prorated basis for the storage that was allocated to the database backups minus the size of the database. For backup storage of an elastic pool, you are charged on a prorated basis for the storage that was allocated to the database backups of all the databases in the pool minus the maximum data size of the elastic pool. Any increase in the database size or elastic pool, or increase in the transaction rate, requires more storage and thus increases your backup storage bill.  When you increase the maximum data size, this new amount is deducted from the billed backup storage size.
 
@@ -85,18 +85,18 @@ Yes, you can independently select the level of compute your application needs an
 You can configure the backup retention for PITR between 7 and 35 days. The backups storage will be charged separately based on the actual storage consumption if it exceeds the storage amount equal to the maximum data size. In preview, by default the PITR retention period is set to 7 days. In many cases, the maximum data size is sufficient for storing 7 days of backups.
 
 ## Why do you allow selection of the hardware generation for compute?
-Our goal is to enable maximum flexibility so that you can choose a performance configuration that closely matches the needs of the application. The table above shows the differences between Gen4 and Gen5. In particular, Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute much higher. We want to make these differences transparent so that you can achieve the optimal price/performance ratio for your application.
+Our goal is to enable maximum flexibility so that you can choose a performance configuration that closely matches the needs of the application. The table above shows the differences between Gen4 and Gen5. In particular, Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute resources much higher. We want to make these differences transparent so that you can achieve the optimal price/performance ratio for your application.
 
 ## Do I need to take my application offline to convert from a DTU-based database to a vCore-based service tier? 
-The new service tiers offer a simple online conversion method that is similar to the existing process of upgrading databases from Standard to Premium service tier and vice versa. This conversion can be initiated using Portal, ARM, PowerShell, Azure CLI or T-SQL. See [Manage single databases](sql-database-single-database-resources.md) and [Manage elastic pools](sql-database-elastic-pool.md).
+The new service tiers offer a simple online conversion method that is similar to the existing process of upgrading databases from Standard to Premium service tier and vice versa. This conversion can be initiated using the Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
 
 ## Can I convert a database from a vCore-based service tier to a DTU-based one? 
-Yes, you can easily convert your database to any supported performance objective using Portal or programmatically using Portal, ARM, PowerShell, Azure CLI or T-SQL. See [Manage single databases](sql-database-single-database-resources.md) and [Manage elastic pools](sql-database-elastic-pool.md).
+Yes, you can easily convert your database to any supported performance objective using Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
 
 ## Can I upgrade or downgrade between the General Purpose and Business Critical service tiers? 
 Yes, with some restrictions. Your destination SKU must meet the maximum database or elastic pool size you configured for your existing deployment. If you are using [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), the Business Critical SKU is only available to customers with Enterprise Edition licenses. Only customers who migrated from on-premises to General Purpose using Azure Hybrid Benefit for SQL Server with Enterprise Edition licenses can upgrade to Business Critical. For details see [What are the specific rights of the Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
 
-This conversion does not result in downtime and can be initiated using Portal, ARM, PowerShell, Azure CLI or T-SQL. See [Manage single databases](sql-database-single-database-resources.md) and [Manage elastic pools](sql-database-elastic-pool.md).
+This conversion does not result in downtime and can be initiated using Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
 
 ## I am using a Premium RS database that will not be Generally Available - can I upgrade it to a new tier and achieve a similar price/performance benefit?
 Because the vCore model allows independent control over the amount of provisioned compute and storage, you can more effectively manage the resulting costs, making it an attractive destination for Premium RS databases. In addition, the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) provides a substantial discount when the vCore-based model is used. 
@@ -188,3 +188,4 @@ In the [Azure portal](https://portal.azure.com), click **SQL databases**, select
 
 ## To move a database between subscriptions
 In the [Azure portal](https://portal.azure.com), click **SQL servers** and then select the server that hosts your database from the list. Click **Move**, and then pick the resources to move and the subscription to move to.
+

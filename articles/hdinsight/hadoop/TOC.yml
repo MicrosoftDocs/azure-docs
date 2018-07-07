@@ -203,9 +203,6 @@
     - name: Use Hue
       href: ../hdinsight-hadoop-hue-linux.md
       maintainContext: true
-    - name: Use R
-      href: ../hdinsight-hadoop-r-scripts-linux.md
-      maintainContext: true
     - name: Use Solr
       href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
@@ -423,13 +420,10 @@
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitoring using OMS
+  - name: Monitoring using Log Analytics
     items:
     - name: Use Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Cluster-specific dashboards
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Use queries with Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -515,6 +509,10 @@
   - name: Release notes
     href: ../hdinsight-release-notes.md
     maintainContext: true
+    items:
+    - name: Archived release notes
+      href: ../hdinsight-release-notes-archive.md
+      maintainContext: true
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Get help on the forum

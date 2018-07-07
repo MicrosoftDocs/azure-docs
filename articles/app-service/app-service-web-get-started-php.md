@@ -25,7 +25,7 @@ ms.custom: mvc
 
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy sample PHP code to the web app.
 
-![Sample app running in Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
+![Sample app running in Azure](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 

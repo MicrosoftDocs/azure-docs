@@ -51,6 +51,7 @@ Use the following steps to configure file tracking on Linux computers:
 |Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
 |Use Sudo     | This setting determines if sudo is used when checking for the item.         |
 |Links     | This setting determines how symbolic links dealt with when traversing directories.<br> **Ignore** - Ignores symbolic links and does not include the files/directories referenced.<br>**Follow** - Follows the symbolic links during recursion and also includes the files/directories referenced.<br>**Manage** - Follows the symbolic links and allows altering of returned content.     |
+|Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
 
 > [!NOTE]
 > The "Manage" links option is not recommended. File content retrieval is not supported.
@@ -69,6 +70,13 @@ Use the following steps to configure files tracking on Windows computers:
 |Item Name     | Friendly name of the file to be tracked.        |
 |Group     | A group name for logically grouping files.        |
 |Enter Path     | The path to check for the file For example: "c:\temp\myfile.txt"       |
+|Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
+
+## Configure File Content tracking
+
+You can view the the contents before and after a change of a file with File Content Change Tracking. This is available for Windows and Linux files, for each change to the file, the contents of the file is stored in a storage account, and shows the file before and after the change, inline or side by side. To learn more, see [View the contents of a tracked file](change-tracking-file-contents.md).
+
+![view changes in a file](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### Configure Windows registry keys to track
 
@@ -119,11 +127,22 @@ The following table shows the data collection frequency for the types of changes
 | Windows registry | 50 minutes |
 | Windows file | 30 minutes |
 | Linux file | 15 minutes |
-| Windows services | 30 minutes |
+| Windows services | 10 seconds to 30 minutes</br> Default: 30 minutes |
 | Linux daemons | 5 minutes |
 | Windows software | 30 minutes |
 | Linux software | 5 minutes |
 
+### Windows service tracking
+
+The default collection frequency for Windows services is 30 minutes. To configure the frequency go to **Change Tracking**. Under **Edit Settings** on the **Windows Services** tab, there is a slider that allows you to change the collection frequency for Windows services from as quickly as 10 seconds to as long as 30 minutes. Move the slider bar to the frequency you want and it automatically saves it.
+
+![Windows services slider](./media/automation-change-tracking/windowservices.png)
+
+The agent only tracks changes, this optimizes the performance of the agent. By setting too high of a threshold changes may be missed if the service reverted to their original state. Setting the frequency to a smaller value allows you to catch changes that may be missed otherwise.
+
+> [!NOTE]
+> While the agent can track changes down to a 10 second interval, the data still takes a few minutes to be displayed in the portal. Changes during the time to display in the portal are still tracked and logged.
+  
 ### Registry key change tracking
 
 The purpose of monitoring changes to registry keys is to pinpoint extensibility points where third-party code and malware can activate. The following list shows the list of pre-configured registry keys. These keys are configured but not enabled. To track these registry keys, you must enable each one.

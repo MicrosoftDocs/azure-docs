@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/15/2018
 ms.author: marsma
 ---
 
@@ -24,7 +24,7 @@ Nodes in an AKS cluster configured for Basic networking use the [kubenet][kubene
 ## Advanced networking
 
 **Advanced** networking places your pods in an Azure Virtual Network (VNet) that you configure, providing them automatic connectivity to VNet resources and integration with the rich set of capabilities that VNets offer.
-Advanced networking is currently available only when deploying AKS clusters in the [Azure portal][portal] or with a Resource Manager template.
+Advanced networking is available when deploying AKS clusters with the [Azure portal][portal], Azure CLI, or with a Resource Manager template.
 
 Nodes in an AKS cluster configured for Advanced networking use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin.
 
@@ -43,7 +43,7 @@ Advanced networking provides the following benefits:
 * Pods can access resources on the public Internet. Also a feature of Basic networking.
 
 > [!IMPORTANT]
-> Each node in an AKS cluster configured for Advanced networking can host a maximum of **30 pods**. Each VNet provisioned for use with the Azure CNI plugin is limited to **4096 configured IP addresses**.
+> Each node in an AKS cluster configured for Advanced networking can host a maximum of **30 pods** when configured using the Azure portal.  You can change the maximum value only by modifying the maxPods property when deploying a cluster with a Resource Manager template. Each VNet provisioned for use with the Azure CNI plugin is limited to **4096 configured IP addresses**.
 
 ## Advanced networking prerequisites
 
@@ -71,19 +71,47 @@ The IP address plan for an AKS cluster consists of a VNet, at least one subnet f
 
 As mentioned previously, each VNet provisioned for use with the Azure CNI plugin is limited to **4096 configured IP addresses**. Each node in a cluster configured for Advanced networking can host a maximum of **30 pods**.
 
-## Configure advanced networking
+## Deployment parameters
 
-When you [create an AKS cluster](kubernetes-walkthrough-portal.md) in the Azure portal, the following parameters are configurable for advanced networking:
+When create an AKS cluster, the following parameters are configurable for advanced networking:
 
 **Virtual network**: The VNet into which you want to deploy the Kubernetes cluster. If you want to create a new VNet for your cluster, select *Create new* and follow the steps in the *Create virtual network* section.
 
 **Subnet**: The subnet within the VNet where you want to deploy the cluster. If you want to create a new subnet in the VNet for your cluster, select *Create new* and follow the steps in the *Create subnet* section.
 
-**Kubernetes service address range**: The IP address range for the Kubernetes cluster's service IPs. This range must not be within the VNet IP address range of your cluster.
+**Kubernetes service address range**: The *Kubernetes service address range* is the IP range from which addresses are assigned to Kubernetes services in your cluster (for more information on Kubernetes services, see [Services][services] in the Kubernetes documentation).
+
+The Kubernetes service IP address range:
+
+* Must not be within the VNet IP address range of your cluster
+* Must not overlap with any other VNets with which the cluster VNet peers
+* Must not overlap with any on-premises IPs
+
+Unpredictable behavior can result if overlapping IP ranges are used. For example, if a pod tries to access an IP outside the cluster, and that IP also happens to be a service IP, you might see unpredictable behavior and failures.
 
 **Kubernetes DNS service IP address**:  The IP address for the cluster's DNS service. This address must be within the *Kubernetes service address range*.
 
 **Docker Bridge address**: The IP address and netmask to assign to the Docker bridge. This IP address must not be within the VNet IP address range of your cluster.
+
+## Configure networking - CLI
+
+When you create an AKS cluster with the Azure CLI, you can also configure advanced networking. Use the following commands to create a new AKS cluster with advanced networking features enabled.
+
+First, get the subnet resource ID for the existing subnet into which the AKS cluster will be joined:
+
+```console
+$ az network vnet subnet list --resource-group myVnet --vnet-name myVnet --query [].id --output tsv
+
+/subscriptions/d5b9d4b7-6fc1-46c5-bafe-38effaed19b2/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
+```
+
+Use the [az aks create][az-aks-create] command with the `--network-plugin azure` argument to create a cluster with advanced networking. Update the `--vnet-subnet-id` value with the subnet ID collected in the previous step:
+
+```azurecli
+az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin azure --vnet-subnet-id <subnet-id> --docker-bridge-address 172.17.0.1/16 --dns-service-ip 10.2.0.10 --service-cidr 10.2.0.0/24
+```
+
+## Configure networking - portal
 
 The following screenshot from the Azure portal shows an example of configuring these settings during AKS cluster creation:
 
@@ -139,7 +167,9 @@ Kubernetes clusters created with ACS Engine support both the [kubenet][kubenet] 
 [acs-engine]: https://github.com/Azure/acs-engine
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md

@@ -5,7 +5,7 @@ services: storage,event-grid
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 05/24/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: storage
 ---
@@ -25,7 +25,7 @@ When you complete the steps described in this article, you see that the event da
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.24 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires that you are running the latest version of Azure CLI (2.0.24 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 If you are not using Cloud Shell, you must first sign in using `az login`.
 
@@ -78,6 +78,8 @@ az group deployment create \
 The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: `https://<your-site-name>.azurewebsites.net`
 
 You should see the site with no messages currently displayed.
+
+[!INCLUDE [event-grid-register-provider-cli.md](../../../includes/event-grid-register-provider-cli.md)]
 
 ## Subscribe to your storage account
 

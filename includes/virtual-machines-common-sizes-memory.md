@@ -5,7 +5,7 @@
  author: jonbeck7
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 05/22/2018
+ ms.date: 07/06/2018
  ms.author: azcspmt;jonbeck;cynthn
  ms.custom: include file
 ---
@@ -26,6 +26,10 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for re
 ## Esv3-series 
 
 ACU: 160-190 <sup>1</sup>
+
+Premium Storage:  Supported
+
+Premium Storage Caching:  Supported
 
 ESv3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0 and use premium storage. Ev3-series instances are ideal for memory-intensive enterprise applications.
 
@@ -52,6 +56,10 @@ ESv3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwe
 
 ACU: 160 - 190 <sup>1</sup>
 
+Premium Storage:  Not Supported
+
+Premium Storage Caching:  Not Supported
+
 Ev3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) processor and can achieve 3.5GHz with Intel Turbo Boost Technology 2.0. Ev3-series instances are ideal for memory-intensive enterprise applications.
 
 Data disk storage is billed separately from virtual machines. To use premium storage disks, use the ESv3 sizes. The pricing and billing meters for ESv3 sizes are the same as Ev3-series. 
@@ -76,12 +84,30 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 
 ACU: 160-180 <sup>1</sup>
 
+Premium Storage:  Supported
+
+Premium Storage Caching:  Supported
+
+Write Accelerator:  [Supported](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
 | Size            | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M64s  | 64   | 1024        | 2048           | 64             | 80,000 / 800 (6348)       | 40,000 / 1,000                            | 8 / 16000          |
-| Standard_M64ms  | 64   | 1792        | 2048           | 64             | 80,000 / 800 (6348)       | 40,000 / 1,000                            | 8 / 16000          |
-| Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 30000          |
-| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3892        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 30000          |
+| M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10,000 / 100 (793)  | 5,000  / 125 | 4 / 2,000 |
+| M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20,000 / 200 (1,587) | 10,000 / 250 | 8 / 4,000 |
+| Standard_M32ts | 32 | 192    | 1,024 | 32 | 40,000 / 400 (3,174) | 20,000 / 500 | 8 / 8,000 |
+| Standard_M32ls | 32 | 256    | 1,024 | 32 | 40,000 / 400 (3,174) | 20,000 / 500 | 8 / 8,000 |
+| M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1,024 | 32 | 40,000 / 400 (3,174) | 20,000 / 500 | 8 / 8,000 |
+| Standard_M64s  | 64 | 1,024   | 2,048 | 64 | 80,000 / 800 (6,348)| 40,000 / 1,000 | 8 / 16,000          |
+|Standard_M64ls  | 64 | 512    | 2,048 | 64 | 80,000 / 800 (6,348) | 40,000 / 1,000 | 8 / 16,000 |
+| Standard_M64ms&nbsp;<sup>3</sup>  | 64   | 1,792 | 2,048 | 64 | 80,000 / 800 (6,348)| 40,000 / 1,000 | 8 / 160,00          |
+| Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2,048        | 4,096  | 64 | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 30,000          |
+| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3,892  | 4,096 | 64 | 160,000 / 1,600 (12,696) | 80,000 / 2,000                            | 8 / 30,000          |
+| Standard_M64   | 64  | 1,024 | 7,168  | 64 | 80,000  / 800  (1,228) | 40,000 / 1000 | 8 / 16000 |
+| Standard_M64m  | 64  | 1,792 | 7,168  | 64 | 80,000  / 800  (1,228) | 40,000 / 1000 | 8 / 16000 |
+| Standard_M128&nbsp;<sup>2  | 128 | 2,048 | 14,336 | 64 | 250,000 / 1,600 (2,456) | 80,000 / 2000 | 8 / 32000 |
+| Standard_M128m&nbsp;<sup>2 | 128 | 3,892 | 14,336 | 64 | 250,000 / 1,600 (2,456) | 80,000 / 2000 | 8 / 32000 |
+
+
 
 <sup>1</sup> M-series VM’s feature Intel® Hyper-Threading Technology
 
@@ -95,6 +121,10 @@ ACU: 160-180 <sup>1</sup>
 ## GS-series 
 
 ACU: 180 - 240 <sup>1</sup>
+
+Premium Storage:  Supported
+
+Premium Storage Caching:  Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -116,6 +146,10 @@ ACU: 180 - 240 <sup>1</sup>
 
 ACU: 180 - 240
 
+Premium Storage:  Not Supported
+
+Premium Storage Caching:  Not Supported
+
 | Size         | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2000                     |
@@ -128,9 +162,13 @@ ACU: 180 - 240
 <br>
 
 
-## DSv2-series 
+## DSv2-series 11-15
 
 ACU: 210 - 250 <sup>1</sup>
+
+Premium Storage:  Supported
+
+Premium Storage Caching:  Not Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -151,9 +189,13 @@ ACU: 210 - 250 <sup>1</sup>
 
 <br>
 
-## Dv2-series
+## Dv2-series 11-15
 
 ACU: 210 - 250
+
+Premium Storage:  Not Supported
+
+Premium Storage Caching:  Not Supported
 
 | Size              | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

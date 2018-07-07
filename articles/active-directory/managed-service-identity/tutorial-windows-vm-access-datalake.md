@@ -10,11 +10,11 @@ editor:
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
+ms.author: daveba
 ---
 
 # Tutorial: Use a Windows VM Managed Service Identity (MSI) to access Azure Data Lake Store

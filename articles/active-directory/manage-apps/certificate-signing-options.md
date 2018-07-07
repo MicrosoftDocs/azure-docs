@@ -3,7 +3,7 @@ title: Advanced certificate signing options in the SAML token for pre-integrated
 description: Learn how to use advanced certificate signing options in the SAML token for pre-integrated apps in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: jeevansd
+author: barbkess
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
-ms.author: jeedes
+ms.author: barbkess
+ms.reviewer: jeedes
 ms.custom: aaddev
 
 ---
