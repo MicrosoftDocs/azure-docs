@@ -4,14 +4,13 @@ description: Recommendations for creating Azure Resource Manager templates to de
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
-manager: timlt
 
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/06/2018
 ms.author: tomfitz
 
 ---
@@ -106,6 +105,25 @@ The name for your web app must be globally unique. You can use a naming conventi
   ...
 }
 ```
+
+## Deploy web app certificate from Key Vault
+
+If your template includes a [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) resource for SSL binding, and the certificate is stored in a Key Vault, you must make sure the App Service identity is able to access the certificate.
+
+To grant access to Key Vault for the App Service service principal, use:
+
+```azurepowershell-interactive
+$serviceid = (Get-AzureRmADServicePrincipal -ServicePrincipalName Microsoft.Azure.Websites).ApplicationId
+Set-AzureRmKeyVaultAccessPolicy -VaultName KEY_VAULT_NAME -ServicePrincipalName $serviceid -PermissionsToSecrets get -PermissionsToCertificates get
+```
+
+In your Key Vault, select **Certificates** and **Generate/Import** to upload the certificate.
+
+![Import certificate](media/web-sites-rm-template-guidance/import-certificate.png)
+
+In your template, provide the name of the certificate for the `keyVaultSecretName`.
+
+For an example template, see [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
 
 ## Next steps
 
