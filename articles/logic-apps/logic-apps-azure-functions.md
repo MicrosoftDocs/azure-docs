@@ -75,20 +75,21 @@ If you're new to Azure Functions, see
 but note these requirements for creating Azure functions 
 that you can add and call from logic apps.
 
-* Make sure you select either template: 
+* Make sure you use one of these function templates, 
+which can accept content that has `application/json` 
+type from your logic app:
 
   * **Generic webhook - JavaScript** 
   * **Generic webhook - C#**
 
-  These templates can accept content that has 
-  `application/json` type from your logic app. 
-  Also, these templates help the Logic App Designer 
-  find and show the functions you create from these 
-  templates when you go to add them to your logic apps.
+  These templates also help the Logic App Designer find 
+  and show the custom functions that you create with these 
+  templates when you add those functions to your logic apps.
 
   ![Generic webhook - JavaScript or C#](./media/logic-apps-azure-functions/generic-webhook.png)
 
-* After you create your function, check these properties. 
+* After you create your function, check that the **Mode** 
+and **Webhook type** properties are set correctly.
 
   1. In the **Function Apps** list, expand your function, 
   and select **Integrate**. 
@@ -99,17 +100,18 @@ that you can add and call from logic apps.
 
      ![Your function's "Integrate" properties](./media/logic-apps-azure-functions/function-integrate-properties.png)
 
-  Webhook functions can accept HTTP requests and pass 
-  those requests into your function as a `data` variable. 
-  To access the input payload's properties, you can use dot (.) notation: 
+  Webhook functions can accept HTTP requests as input payloads and pass 
+  the requests' content to other functions through a `data` variable. 
+  To access the input properties, you can use dot (.) notation: 
 
-  `data.<function-name>` 
+  `data.<some-function>`
 
   For example, this basic JavaScript function converts a 
-  DateTime value in the request body to a DateString value:
+  DateTime value from the request body to a DateString 
+  value by calling the ToDateString() function:
  
   ```javascript
-  function start(request, response){
+  function convertToDateString(request, response){
      var data = request.body;
      response = {
         body: data.date.ToDateString();
@@ -117,19 +119,19 @@ that you can add and call from logic apps.
   }
   ```
 
-When you're ready, follow the steps for 
-[Add functions to logic apps](#add-function-logic-app).
+After you create your Azure function, 
+follow the steps for how to [add functions to logic apps](#add-function-logic-app).
 
 <a name="create-function-designer"></a>
 
 ## Create functions inside logic apps
 
-Before you create an Azure function starting from 
-inside your logic app in the Logic App Designer, 
+Before you can create an Azure function starting 
+from inside your logic app in the Logic App Designer, 
 you must first have an Azure function app, 
-which works as a container for your functions. 
+which is a container for your functions. 
 If you don't have a function app, 
-create that function app first. For more information, see 
+create that function app first. See 
 [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md). 
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
@@ -150,9 +152,10 @@ After the functions list opens, select this action:
 
    ![Select your function app](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
-5. Now define your function. 
+5. Define your function:
 
-   1. In the **Function name** box, provide a name for your function. 
+   1. In the **Function name** box, 
+   provide a name for your function. 
 
    2. In the **Code** box, enter your function's code, 
    including the response and payload you want returned 
@@ -197,8 +200,9 @@ request headers, or query parameters, choose **Show advanced options**.
 
 ## Add existing functions to logic apps
 
-For existing Azure functions that you want to call from your logic apps, 
-you can add them like any other action in the Logic App Designer.
+To call existing Azure functions from your logic apps, 
+you can add Azure functions like any other action 
+in the Logic App Designer.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
 open your logic app in the Logic App Designer. 
