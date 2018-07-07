@@ -69,10 +69,10 @@
     items: 
     - name: Review endpoint utterances
       href: luis-tutorial-review-endpoint-utterances.md
+    - name: With batch test
+      href: luis-tutorial-batch-testing.md
     - name: With patterns
       href: luis-tutorial-pattern.md
-    - name: With a phrase list
-      href: luis-tutorial-interchangeable-phrase-list.md
 - name: Samples
   items:
   - name: Code samples
@@ -191,8 +191,6 @@
       href: interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
-    - name: Improve accuracy with batch testing
-      href: luis-tutorial-batch-testing.md
   - name: Publish your app
     href: luis-how-to-publish-app.md
   - name: Use prebuilt models

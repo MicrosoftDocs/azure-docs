@@ -191,7 +191,7 @@ Composite entities represent parts of a whole. For example, a composite entity n
 
 LUIS also provides the list entity type that is not machine-learned but allows your LUIS app to specify a fixed list of values. See [LUIS Boundaries](luis-boundaries.md) reference to review limits of the List entity type. 
 
-If you've considered hierarchical, composite, and list entities and still need more than the limit, contact support. To do so, gather detailed information about your system, go to the [LUIS][LUIS] website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/support/options/). 
+If you've considered hierarchical, composite, and list entities and still need more than the limit, contact support. To do so, gather detailed information about your system, go to the [LUIS](luis-reference-regions.md#luis-website) website, and then select **Support**. If your Azure subscription includes support services, contact [Azure technical support](https://azure.microsoft.com/support/options/). 
 
 ## Best practices
 
@@ -210,5 +210,3 @@ See [best practices](luis-concept-best-practices.md) for more information.
 Learn concepts about good [utterances](luis-concept-utterance.md). 
 
 See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
