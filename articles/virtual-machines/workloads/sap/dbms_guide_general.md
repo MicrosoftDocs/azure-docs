@@ -125,7 +125,7 @@ When planning your disk layout, you need to find the best balance for the follow
 * The latency different Azure Storage types can provide.
 * VM SLAs
 
-Azure enforces an IOPS quota per data disk. These quotas are different for disks hosted on Azure Standard Storage and Premium Storage. I/O latencies are also very different between the two storage types with Premium Storage delivering factors better I/O latencies. Each of the different VM types has a limited number of data disks that you are able to attach. Another restriction is that only certain VM types can leverage Azure Premium Storage. This means the decision for a certain VM type might not only be driven by the CPU and memory requirements, but also by the IOPS, latency and disk throughput requirements that usually are scaled with the number of disks or the type of Premium Storage disks. Especially with Premium Storage the size of a disk also might be dictated by the number of IOPS and throughput that needs to be achieved by each disk.
+Azure enforces an IOPS quota per data disk. These quotas are different for disks hosted on Azure Standard Storage and Premium Storage. I/O latency is also very different between the two storage types with Premium Storage delivering factors better I/O latency. Each of the different VM types has a limited number of data disks that you are able to attach. Another restriction is that only certain VM types can leverage Azure Premium Storage. This means the decision for a certain VM type might not only be driven by the CPU and memory requirements, but also by the IOPS, latency and disk throughput requirements that usually are scaled with the number of disks or the type of Premium Storage disks. Especially with Premium Storage the size of a disk also might be dictated by the number of IOPS and throughput that needs to be achieved by each disk.
 
 > [!NOTE]
 > For DBMS deployments, the usage of Premium Storage for any data, transaction log, or redo files is highly recommended. Thereby it does not matter whether you want to deploy production or non-production systems.
@@ -185,10 +185,10 @@ To convert from unmanaged to managed disks, consult the articles:
 ### <a name="c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f"></a>Caching for VMs and data disks
 When you create data disks through the portal or when you mount uploaded disks to VMs, you can choose whether the I/O traffic between the VM and those disks located in Azure storage are cached. Azure Standard and Premium Storage use two different technologies for this type of cache. 
 
-The recommendations below are assuming the these I/O characteristics and assumptions for Standard DBMS:
+The recommendations below are assuming these I/O characteristics for Standard DBMS:
 
-- It is mostly read workload against data files of a database. these reads are performance critical for the DBMS system
-- Writing against the data files is experienced in bursts based on checkpoints or a constant stream. nevertheless averaged over the day, the writes are lesser than the reads. In opposite to reds from data files, these writes are asynchronous and are not holding up any user transactions.
+- It is mostly read workload against data files of a database. These reads are performance critical for the DBMS system
+- Writing against the data files is experienced in bursts based on checkpoints or a constant stream. Nevertheless, averaged over the day, the writes are lesser than the reads. In opposite to reads from data files, these writes are asynchronous and are not holding up any user transactions.
 - There are hardly any reads from the transaction log or redo files. Exceptions are large I/Os when performing transaction log backups. 
 - Main load against transaction or redo log files is writes. Dependent on the nature of workload, you can have I/Os as small as 4 KB or in other cases I/O sizes of 1 MB or more.
 - All writes need to be persisted on disk in a reliable fashion
