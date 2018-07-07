@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/27/2018
+ms.date: 07/6/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to publish a Service Fabric Mesh app to Azure.
@@ -54,11 +54,11 @@ If you did not build the to-do sample application in [part two of this tutorial 
 git clone https://github.com/azure-samples/service-fabric-mesh
 ```
 
-The application is under the basicservicefabricmeshapp directory.
+The application is under the `basicservicefabricmeshapp` directory.
 
 ## Publish to Azure
 
-To publish your Service Fabric Mesh project to Azure, right-click on **ServiceFabricMeshApp** in Visual studio and select **Publish...**
+To publish your Service Fabric Mesh project to Azure, right-click on **ServiceFabricMeshApp** in Visual Studio and select **Publish...**
 
 Next, you'll see a **Publish Service Fabric Application** dialog.
 
@@ -66,17 +66,30 @@ Next, you'll see a **Publish Service Fabric Application** dialog.
 
 Select your Azure account and subscription. Choose a **Location**. This article uses **East US**.
 
-Under **Resource group**, select **\<Create New Resource Group...>**. This results in a dialog where you'll create a new resource group. Choose the **East US** location and name the group **sfmeshTutorial1RG**. Press **Create** to create the resource group and return to the publish dialog.
+Under **Resource group**, select **\<Create New Resource Group...>**. A dialog appears where you will create a new resource group. This article uses the **East US** location and names the group **sfmeshTutorial1RG** (if your organization has multiple people using the same subscription, choose a unique group name).  Press **Create** to create the resource group and return to the publish dialog.
 
 ![Visual studio Service Fabric Mesh new resource group dialog](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-Back in the **Publish Service Fabric Application** dialog, under **Azure Container Registry**, select **\<Create New Container Registry...>**. In the **Create Container Registry** dialog, use a unique name for the **Container registry name**. For **Location**, pick **East US**. Select the **sfmeshTutorial1RG** resource group. Set the **SKU** to **Basic** and then press **Create** to return to the publish dialog.
+Back in the **Publish Service Fabric Application** dialog, under **Azure Container Registry**, select **\<Create New Container Registry...>**. In the **Create Container Registry** dialog, use a unique name for the **Container registry name**. Specify a **Location** (this tutorial uses **East US**). Select the **Resource group** that you created in the previous step in the drop-down, e.g. **sfmeshTutorial1RG**. Set the **SKU** to **Basic** and then press **Create** to return to the publish dialog.
 
 ![Visual studio Service Fabric Mesh new resource group dialog](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
+If you get an error that a resource provider has not been registered for your subscription, you can register it. First see if the resource provider is available for your subscription:
+
+```Powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
+
+If the container registry provider (`Microsoft.ContainerRegistry`) is available, register it from Powershell:
+
+```Powershell
+Connect-AzureRmAccount
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
+```
+
 In the publish dialog, press the **Publish** button to deploy your Service Fabric application to Azure.
 
-When you publish to Azure for the first time, it can take up to 10 or more minutes. Subsequent publishes of the same project generally take around five minutes. Obviously, these estimates will vary based on your internet connection speed and other factors. You can monitor the progress of the deployment by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the deployment has finished, the **Service Fabric Tools** output will display the app's IP address and port in the form of a URL.
+When you publish to Azure for the first time, the docker image is pushed to the Azure Container Registry (ACR) which takes time depending on the size of the image. Subsequent publishes of the same project will be faster. You can monitor the progress of the deployment by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the deployment has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
 
 ```json
 Packaging Application...
@@ -96,7 +109,7 @@ You can use the Azure Cloud Shell or a local installation of the Azure CLI for t
 If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
 
 ## Install the az mesh cli
-At the cli prompt
+At the CLI prompt
 
 1) Remove any previous install of the Azure Service Fabric Mesh CLI module.
 
@@ -138,7 +151,7 @@ az mesh code-package-log get --resource-group $rg --application-name ServiceMesh
 
 ## Clean up resources
 
-When no longer needed, delete all of the resources you created. Since you created a new resource group to host both the ACR and Service Fabric Mesh service resources, you can safely delete this resource group.
+When no longer needed, delete all of the resources you created. Since you created a new resource group to host both the ACR and Service Fabric Mesh service resources, you can safely delete this resource group which will delete all of the associated resources.
 
 ```azurecli
 az group delete --resource-group sfmeshTutorial1RG

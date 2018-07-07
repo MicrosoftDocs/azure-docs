@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA 
-ms.date: 06/12/2018
+ms.date: 07/6/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want to use visual studio to locally run an ASP.NET Core website on Service Fabric Mesh so that I can see it run.
@@ -32,7 +32,7 @@ You'll need an Azure subscription. If you don't have one, you can easily create 
 
 Open Visual Studio and select **File** > **New** > **Project...**
 
-In the **New Project** dialog, type **mesh** into the **Search** box at the top. Select the **Service Fabric Mesh Application** template.
+In the **New Project** dialog **Search** box at the top, type `mesh`. Select the **Service Fabric Mesh Application** template. (If you don't see the template, make sure that you installed the Mesh SDK and the VS tools preview as described in [set up your development environment](service-fabric-mesh-setup-developer-environment-sdk.md). 
 
 In the **Name** box, type **ServiceFabricMesh1** and in the **Location** box, set the folder path of where the files for the project will be stored.
 
@@ -42,11 +42,7 @@ Make sure that **Create directory for solution** is checked, and click **OK** to
 
 ### Create a service
 
-After you click **OK**, the **New Service Fabric Service** dialog appears. Select the **ASP.NET Core** project type, make sure **Container OS** is set to **Windows**.
-
-You must set the **Service Name** to something unique because the name of the service is used as the repository name of the Docker image. If you have an existing Docker image with the same repository name, it will be overwritten by Visual Studio. Open a terminal and use the Docker command `docker images` to make sure your project name isn't already being used.
-
-Press **OK** to create the ASP.NET Core project. 
+After you click **OK**, the **New Service Fabric Service** dialog appears. Select the **ASP.NET Core** project type, make sure **Container OS** is set to **Windows** and press **OK** to create the ASP.NET Core project. 
 
 ![Visual studio new Service Fabric Mesh project dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-service-fabric-service.png)
 
@@ -80,7 +76,20 @@ Under **Resource group**, select **\<Create New Resource Group...>**. A dialog a
 
 ![Visual studio Service Fabric Mesh new resource group dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-Back in the **Publish Service Fabric Application** dialog, under **Azure Container Registry**, select **\<Create New Container Registry...>**. In the **Create Container Registry** dialog, use a unique name for the **Container registry name**. For **Location**, pick **East US**. Select the **sfmeshTutorial1RG** resource group (the group you created above). Set the **SKU** to **Basic** and then press **Create** to return to the publish dialog.
+Back in the **Publish Service Fabric Application** dialog, under **Azure Container Registry**, select **\<Create New Container Registry...>**. In the **Create Container Registry** dialog, use a unique name for the **Container registry name**. Specify a **Location** (this tutorial uses **East US**). Select the **Resource group** that you created in the previous step in the drop-down, e.g. **sfmeshTutorial1RG**. Set the **SKU** to **Basic** and then press **Create** to return to the publish dialog.
+
+If you get an error that a resource provider has not been registered for your subscription, you can register it. First see if the resource provider is available for your subscription:
+
+```Powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
+
+If the container registry provider (`Microsoft.ContainerRegistry`) is available, register it from Powershell:
+
+```Powershell
+Connect-AzureRmAccount
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
+```
 
 ![Visual studio Service Fabric Mesh new resource group dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 
