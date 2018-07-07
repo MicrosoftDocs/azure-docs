@@ -101,22 +101,21 @@ that you can add and call from logic apps.
 
   Webhook functions can accept HTTP requests and pass 
   those requests into your function as a `data` variable. 
-  For example, suppose you have this basic JavaScript 
-  function that converts a DateTime value into a DateString value:
+  To access the input payload's properties, you can use dot (.) notation: 
 
+  `data.<function-name>` 
+
+  For example, this basic JavaScript function converts a 
+  DateTime value in the request body to a DateString value:
+ 
   ```javascript
-  function start(req, res){
-     var data = req.body;
-     res = {
+  function start(request, response){
+     var data = request.body;
+     response = {
         body: data.date.ToDateString();
      }
   }
   ```
-
-  To access the payload's properties, you can use dot (.) notation, 
-  for example: 
-
-  `data.function-name` 
 
 When you're ready, follow the steps for 
 [Add functions to logic apps](#add-function-logic-app).
