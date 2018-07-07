@@ -52,6 +52,7 @@
 #### [Export U-SQL database](data-lake-analytics-data-lake-tools-export-database.md)
 #### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
 #### [Resolve data-skew](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
+#### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ### Visual Studio Code
 #### [Authoring](data-lake-analytics-data-lake-tools-for-vscode.md)
