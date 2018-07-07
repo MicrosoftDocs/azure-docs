@@ -19,7 +19,7 @@ ms.component: na
 ---
 
 # Respond to events with Azure Monitor Alerts
-Alerts in Azure Monitor can identify important information in your Log Analytics repository. They are created by alert rules that automatically run log searches at regular intervals, and if results of the log search match particular criteria, then an alert record is created and it can be configured to perform an automated response.  This tutorial is a continuation of the [Create and share dashboards of Log Analytics data](log-analytics-tutorial-dashboards.md) tutorial.   
+Log search rules are created by Azure Alerts to automatically run specified log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions using [Action Groups](monitoring-action-groups.md).   
 
 In this tutorial, you learn how to:
 
@@ -40,7 +40,15 @@ In the following example, you create a metric measurement alert rule based off o
 1. In the Azure portal, click **All services**. In the list of resources, type **Monitor**. As you begin typing, the list filters based on your input. Select **Monitor**.
 2. In the left-hand pane, select **Alerts** and then click **New Alert Rule** from the top of the page to create a new alert.<br><br> ![Create new alert rule](./media/log-analytics-tutorial-response/alert-rule-02.png)<br>
 3. For the first step, under the **Create Alert** section, you are going to select your Log Analytics workspace as the resource, since this is a log based alert signal.  Filter the results by choosing the specific **Subscription** from the drop-down list if you have more than one, which contains the VM and Log Analytics workspace created earlier.  Filter the **Resource Type** by selecting **Log Analytics** from the drop-down list.  Finally, select the **Resource** **DefaultLAWorkspace** and then click **Done**.<br><br> ![Create alert step 1 task](./media/log-analytics-tutorial-response/alert-rule-03.png)<br>
-4. Under the section **Alert Criteria**, click **Add Criteria** to select our saved query and then specify logic that the alert rule follows.  From the **Configure signal logic** pane, select *Azure VMs - Processor Utilization* from the list.  The pane updates to present the configuration settings for the alert.  On the top, it shows the results for the last 30 minutes of the selected signal and the search query itself.  
+4. Under the section **Alert Criteria**, click **Add Criteria** to define the query and then specify logic that the alert rule follows. 
+From the **Configure signal logic** pane, select **Custom log search** as signal name and enter your query in **Search query**.
+    For example:
+    ``` 
+    Perf
+    | where CounterName == "% Processor Time" and ObjectName == "Processor" and InstanceName == "_Total"
+    | summarize AggregatedValue=avg(CounterValue) by bin(TimeGenerated, 1m) 
+    ```
+The pane updates to present the configuration settings for the alert.  On the top, it shows the results for the last 30 minutes of the selected signal.  
 5. Configure the alert with the following information:  
    a. From the **Based on* drop-down list select **Metric measurement**.  A metric measurement will create an alert for each object in the query with a value that exceeds our specified threshold.  
    b. For the **Condition**, select **Greater than** and enter **90** for **Threshold**.  
