@@ -158,9 +158,7 @@
         href: sql-database-disaster-recovery.md
       - name: Perform recovery drill
         href: sql-database-disaster-recovery-drills.md
-  - name: SQL Server common features
-    href: sql-database-features.md
-  - name: Security   
+  - name: Advanced security   
     items:
     - name: Security
       href: sql-database-security-overview.md
@@ -278,7 +276,9 @@
         href: sql-database-elastic-database-perf-counters.md
       - name: Use entity framework
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-  - name: Migrate to SQL Database
+    - name: SQL features comparison
+      href: sql-database-features.md
+    - name: Migrate to SQL Database
     items:
     - name: Migrate to SQL Database
       href: sql-database-cloud-migrate.md
