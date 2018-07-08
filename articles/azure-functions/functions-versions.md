@@ -25,7 +25,7 @@ ms.author: glenga
 |2.x|Preview|
 
 > [!NOTE] 
-> This article refers to the cloud service Azure Functions. For information about the product that lets you run Azure Functions on-premises, see the [Azure Functions Runtime Overview]](functions-runtime-overview.md).
+> This article refers to the cloud service Azure Functions. For information about the product that lets you run Azure Functions on-premises, see the [Azure Functions Runtime Overview](functions-runtime-overview.md).
 
 ## Cross-platform development
 
