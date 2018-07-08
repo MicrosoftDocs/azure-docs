@@ -38,7 +38,7 @@ In this app, the employee name is defined in the **Employee** list entity and in
 
 The **MoveEmployee** intent has example utterances to request an employee be moved from one building and office to another. Building names are alphabetic: "A", "B", etc. while offices are numeric: "1234", "13245". 
 
-Example utterances in the **MoveIntent** include:
+Example utterances in the **MoveEmployee** intent include:
 
 |Example utterances|
 |--|
@@ -68,7 +68,7 @@ The extracted data from the endpoint should contain this information and return 
 
     Another method is to filter the entity by datetimeV2, by selecting **Entity filters** then select **datetimeV2** from the list. 
 
-5. Select the first entity, `Employee`, then select **Wrap in Composite Entity** in the pop-up menu list. 
+5. Select the first entity, `Employee`, then select **Wrap in composite entity** in the pop-up menu list. 
 
     [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
@@ -77,13 +77,13 @@ The extracted data from the endpoint should contain this information and return 
 
     [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite and creating entity highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
-7. In the **What type of entity do you want to create?** almost all the fields required are in the list. Select **Add a child entity**, select **Locations::Origin** from the list of existing entities, then select **Done**. 
+7. In **What type of entity do you want to create?**, almost all the fields required are in the list. Only the originating location is missing. Select **Add a child entity**, select **Locations::Origin** from the list of existing entities, then select **Done**. 
 
   ![Screenshot of LUIS on 'MoveEmployee' intent adding another entity in pop-up window](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
 8. Select the magnifying glass on the toolbar to remove the filter. 
 
-## Label example utterances with new composite entity
+## Label example utterances with composite entity
 1. In each example utterance, select the left-most entity that should be in the composite. Then select **Wrap in composite entity**.
 
     [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
