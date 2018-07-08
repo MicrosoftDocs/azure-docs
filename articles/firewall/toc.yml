@@ -6,9 +6,9 @@
     href: overview.md
 - name: Tutorials
   items:
-  - name: 1. Configure rules
+  - name: 1. Deploy and configure
     href: tutorial-firewall-deploy-portal.md
-  - name: 2. Diagnostics
+  - name: 2. Monitor diagnostic logs
     href: tutorial-diagnostics.md
 - name: Samples
   items:
