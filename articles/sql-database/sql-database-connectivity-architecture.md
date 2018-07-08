@@ -93,6 +93,16 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 
 ## Script to change connection settings via PowerShell
 
+Remark: for this section I would suggest using Set-AzureRMResource instead of using REST PUT as it is more convenient to use, and also can be easily excuted in Cloud Shell from the Azure Portal. here is the information: 
+
+• Using Azure Cloud Shell run the following command:  
+  Set-AzureRmResource -ResourceId /subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<server name>/connectionPolicies/Default -Properties @{connectionType="Proxy"}
+
+To open Azure Cloud Shell use this button in the Azure Portal
+For more information about Azure cloud shell: https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart-powershell
+
+please consider that as advice and choose what ever more convenient to our customers.
+
 > [!IMPORTANT]
 > This script requires the [Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 >
