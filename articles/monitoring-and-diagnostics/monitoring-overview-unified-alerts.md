@@ -50,7 +50,7 @@ The unified alerts experience uses the following concepts to separate alert rule
 | Criteria | Combination of _signal_ and _logic_ applied on a target resource.<br><br>Examples: Percentage CPU > 70%, Server Response Time > 4 ms, Result count of a log query > 100 etc. |
 | Logic | User-defined logic to verify that the signal is within expected the range/values. |
 | Action | Action to perform when the alert is fired. Multiple actions can occur when an alert fires. These alerts support action groups.<br><br>Examples: emailing to email address, calling a webhook URL. |
-| Monitor Condition | Indicates whether the condition that created a metric alert has subsequently been resolved. Metric alert rules sample a particular metric at regular intervals. If the criteria in the alert rule is met, then a new alert is created with a condition of Fired.  When the metric is sampled again, if the criteria is still met then nothing happens.  If the criteria is not met though, then the condition of the alert is changed to Resolved. The next time that the criteria is met, then a another alert is created with a condition of Fired. |
+| Monitor condition | Indicates whether the condition that created a metric alert has subsequently been resolved. Metric alert rules sample a particular metric at regular intervals. If the criteria in the alert rule is met, then a new alert is created with a condition of "fired."  When the metric is sampled again, if the criteria is still met then nothing happens.  If the criteria is not met though, then the condition of the alert is changed to Resolved. The next time that the criteria is met, then a another alert is created with a condition of "fired." |
 
 
 ## Alert pages
@@ -93,15 +93,15 @@ Alerts are available across several Azure monitoring services. For information a
 
 ## Enhanced unified alerts (public preview)
 
-An enhanced unified alerts experience was released in public preview for Azure Monitor on June 1, 2018. This experience builds on the benefits of [unified alerts](#overview) that were released March 2018, and which provide the ability to manage and aggregate individual alerts in addition to modify alert state. This section describes the new features and how to navigate the new alert pages in the Azure portal.
+An enhanced unified alerts experience was released in public preview for Azure Monitor on June 1, 2018. This experience builds on the benefits of [unified alerts](#overview) that were released March 2018, and which provide the ability to manage and aggregate individual alerts and modify the alert state. This section describes the new features and how to navigate the new alert pages in the Azure portal.
 
 ### Features enhanced unified alerts
 
 The new experience provides the following features that aren't available in the classic unified experience:
 
-- **View alerts across subscriptions** - You can now view and manage individual instances of alerts across multiple subscriptions in a single view.
-- **Manage the state of alerts** - Alerts now have a state that indicates whether its been acknowledged for closed.
-- **Organize alerts with Smart Groups** - Smart Groups automatically group together related alerts so you can manage them as a set instead of individually.
+- **View alerts across subscriptions**: You can now view and manage individual instances of alerts across multiple subscriptions in a single view.
+- **Manage the state of alerts**: Alerts now have a state that indicates whether its been acknowledged for closed.
+- **Organize alerts with smart groups**: Smart groups automatically group together related alerts so you can manage them as a set instead of individually.
 
 ### Enable enhanced unified alerts
 Enable the new unified alert experience by selecting the banner at the top of the Alerts page. This process creates an alert store that includes the past 30 days of fired alerts across supported services. After the new experience is enabled, you can switch back and forth between the new and old experience by selecting this banner.
@@ -164,13 +164,13 @@ Select the following values at the top of the Alerts page to open another page.
 
 | Value | Description |
 |:---|:---|
-| Total alerts | The total number of alerts that match the selected criteria. Click this value to open the All Alerts view with no filter. |
-| Smart groups | The total number of smart groups created from the alerts that match the selected criteria. Select this value to open the smart groups list in the All Alerts view.
+| Total alerts | The total number of alerts that match the selected criteria. Select this value to open the All Alerts view with no filter. |
+| Smart groups | The total number of smart groups that were created from the alerts that match the selected criteria. Select this value to open the smart groups list in the All Alerts view.
 | Total alert rules | The total number of alert rules in the selected subscription and resource group. Select this value to open the Rules view filtered on the selected subscriptions and resource group.
 
 
 ### All Alerts page 
-By using the All Alerts page, you can view a list of alerts that were created within the selected time window. You can either view a list of the individual alerts or a list of the smart groups that contain the alerts. Select the banner at the top of the page to toggle between views.
+By using the All Alerts page, you can view a list of alerts that were created within the selected time window. You can view either a list of the individual alerts or a list of the smart groups that contain the alerts. Select the banner at the top of the page to toggle between views.
 
 ![All Alerts page](media/monitoring-overview-unified-alerts/all-alerts-page.png)
 
@@ -178,7 +178,7 @@ You can filter the view by selecting the following values in the dropdowns at th
 
 | Column | Description |
 |:---|:---|
-| Subscription | Select up to 5 Azure subscriptions. Only alerts in the selected subscriptions are included in the view. |
+| Subscription | Select up to five Azure subscriptions. Only alerts in the selected subscriptions are included in the view. |
 | Resource group | Select a single resource group. Only alerts with targets in the selected resource group are included in the view. |
 | Resource type | Select one or more resource types. Only alerts with targets of the selected type are included in the view. This column is only available once a resource group has been specified. |
 | Resource | Select a resource. Only alerts with that resources as a target are included in the view. This column is only available after a resource type has been specified. |
@@ -215,8 +215,8 @@ The Smart Group Detail page includes the following sections.
 
 | Section | Description |
 |:---|:---|
-| Alerts | Lists the individual alerts that are included in the smart group. Click on an alert to open its Alert Detail page. |
-| History | Lists each action taken by the smart group and any changes made to it. This is currently limited to state changes and alert membership changes. |
+| Alerts | Lists the individual alerts that are included in the smart group. Select an alert to open its Alert Detail page. |
+| History | Lists each action taken by the smart group and any changes that are made to it. This is currently limited to state changes and alert membership changes. |
 
 ## Next steps
 - [Learn how to use the new Alerts experience to create, view, and manage alerts](monitor-alerts-unified-usage.md)
