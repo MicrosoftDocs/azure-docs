@@ -25,10 +25,9 @@ In this tutorial, you learn how to:
 > * Query endpoint of app to see LUIS JSON response
 
 ## Before you begin
-* Your LUIS app from the **[hierarchical quickstart](luis-tutorial-composite-entity.md)**. 
+If you don't have the Human Resources app from the [hierarchical entity](luis-quickstart-intent-and-hier-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github repository.
 
-> [!Tip]
-> If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
+If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `composite`. Cloning is a great way to play with various LUIS features without affecting the original version.  
 
 ## Composite entity is a logical grouping 
 The purpose of the entity is to find and categorize parts of the text in the utterance. 
