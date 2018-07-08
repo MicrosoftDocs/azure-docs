@@ -193,7 +193,7 @@
       href: interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
-  - name: Publish your app
+  - name: Publish app
     href: luis-how-to-publish-app.md
   - name: Use prebuilt models
     items: 
@@ -203,7 +203,7 @@
       href: luis-how-to-use-prebuilt-domains.md
     - name: Use Cortana
       href: luis-how-to-cortana-prebuilt-app.md
-  - name: Manage your LUIS app
+  - name: Manage app
     items: 
     - name: Using the dashboard
       href: luis-how-to-use-dashboard.md
@@ -215,14 +215,15 @@
       href: luis-how-to-manage-versions.md
     - name: Collaborate with other authors
       href: luis-how-to-collaborate.md 
+    - name: Manage authoring key
+      href: luis-how-to-account-settings.md   
     - name: Manage endpoint usage
       items: 
       - name: View endpoint usage with PowerShell
         href: luis-how-to-manage-from-cloud-shell.md
       - name: Spread endpoint quota across keys with Traffic Manager
         href: traffic-manager.md  
-  - name: Manage your LUIS account
-    href: luis-how-to-account-settings.md   
+
   - name: Migrate to V2 API
     href: migration-v1-to-v2.md
   - name: Find region programmatically
