@@ -233,7 +233,7 @@
   - name: Elastic scalability
     items:
     - name: Resource scalability
-      href: sql-database-read-scale-resources.md
+      href: sql-database-scale-resources.md
     - name: Read Scale-Out
       href: sql-database-read-scale-out.md
     - name: Database sharding
