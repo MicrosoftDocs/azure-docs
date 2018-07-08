@@ -278,38 +278,6 @@
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: SQL features comparison
     href: sql-database-features.md
-  - name: Migrate to SQL Database
-    items:
-    - name: Migrate to SQL Database
-      href: sql-database-cloud-migrate.md
-    - name: Migrate to Managed Instance
-      href: sql-database-managed-instance-migrate.md
-    - name: Manage SQL Database after migration
-      href: sql-database-manage-after-migration.md
-  - name: Load and move data
-    items:
-    - name: Copy a DB within Azure
-      href: sql-database-copy.md
-    - name: Import a DB from a BACPAC
-      href: sql-database-import.md
-    - name: Export a DB to BACPAC
-      href: sql-database-export.md
-    - name: Data sync
-      items:
-      - name: SQL Data Sync
-        href: sql-database-sync-data.md
-      - name: Replicate schema changes
-        href: sql-database-update-sync-schema.md
-      - name: Monitor with OMS
-        href: sql-database-sync-monitor-oms.md
-      - name: Best practices for Data Sync
-        href: sql-database-best-practices-data-sync.md
-      - name: Troubleshoot Data Sync
-        href: sql-database-troubleshoot-data-sync.md
-    - name: Load data with BCP
-      href: sql-database-load-from-csv-with-bcp.md
-    - name: Load data with ADF
-      href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
   - name: Monitor and tune
     items:
     - name: Monitor and tune
@@ -426,6 +394,40 @@
       href: sql-database-temporal-tables-retention-policy.md
     - name: Configure In-Memory
       href: sql-database-in-memory-oltp-migration.md
+- name: How-to guides
+  items:
+  - name: Migrate to SQL Database
+    items:
+    - name: Migrate to SQL Database
+      href: sql-database-cloud-migrate.md
+    - name: Migrate to Managed Instance
+      href: sql-database-managed-instance-migrate.md
+    - name: Manage SQL Database after migration
+      href: sql-database-manage-after-migration.md
+  - name: Load and move data
+    items:
+    - name: Copy a DB within Azure
+      href: sql-database-copy.md
+    - name: Import a DB from a BACPAC
+      href: sql-database-import.md
+    - name: Export a DB to BACPAC
+      href: sql-database-export.md
+    - name: Data sync
+      items:
+      - name: SQL Data Sync
+        href: sql-database-sync-data.md
+      - name: Replicate schema changes
+        href: sql-database-update-sync-schema.md
+      - name: Monitor with OMS
+        href: sql-database-sync-monitor-oms.md
+      - name: Best practices for Data Sync
+        href: sql-database-best-practices-data-sync.md
+      - name: Troubleshoot Data Sync
+        href: sql-database-troubleshoot-data-sync.md
+    - name: Load data with BCP
+      href: sql-database-load-from-csv-with-bcp.md
+    - name: Load data with ADF
+      href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
   - name: Develop apps
     items:
     - name: Connectivity
@@ -450,8 +452,6 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
-- name: How-to guides
-  items:
   - name: Multi-tenant SaaS reference architecture
     items:
     - name: Wingtip Tickets sample
