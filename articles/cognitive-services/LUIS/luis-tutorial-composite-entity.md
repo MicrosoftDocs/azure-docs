@@ -34,16 +34,20 @@ The purpose of the composite entity is to group related entities into a parent c
 
  Create a composite entity when the separate entities can be logically grouped and this logical grouping is helpful to the client application. 
 
-In the hierarchical tutorial, the employee name is defined in the Employee list entity and includes synonyms of name, email address, company phone extension, mobile phone number, and U.S. Federal tax ID. The **MoveIntent** is used to request an employee moved from one building and office to another. Buildings names are alphabetic: "A", "B", etc. whiles offices are numeric: "1234", "13245". Example utterances in the **MoveIntent** include:
+In this app, the employee name is defined in the **Employee** list entity and includes synonyms of name, email address, company phone extension, mobile phone number, and U.S. Federal tax ID. 
 
-```
-Move John W . Smith to a-2345
-shift x12345 to h-1234 tomorrow
-```
+The **MoveEmployee** intent has example utterances to request an employee be moved from one building and office to another. Building names are alphabetic: "A", "B", etc. while offices are numeric: "1234", "13245". 
+
+Example utterances in the **MoveIntent** include:
+
+|Example utterances|
+|--|
+|Move John W . Smith to a-2345|
+|shift x12345 to h-1234 tomorrow|
  
-The move request includes, at the minimum, the employee (using any synonym), and the final building and office location. The request can include the originating office as well as a date the move should happen. 
+The move request should include at least the employee (using any synonym), and the final building and office location. The request can also include the originating office as well as a date the move should happen. 
 
-The extracted data from the endpoint should contain this information and return it at in a `MoveEmployeeRequest` composite entity. 
+The extracted data from the endpoint should contain this information and return it at in a `RequestEmployeeMove` composite entity. 
 
 ## Create composite entity
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
@@ -54,7 +58,7 @@ The extracted data from the endpoint should contain this information and return 
 
     [![](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png "Screenshot of LUIS with 'MoveEmployee' intent highlighted")](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png#lightbox)
 
-3. Select the magnifying glass icon on the tool bar to filter the utterances list. Another method is to filter the entity by datetimeV2, by selecting **Entity filters** then select **datetimeV2** from the list. 
+3. Select the magnifying glass icon on the tool bar to filter the utterances list. 
 
     [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Screenshot of LUIS on 'MoveEmployee' intent with magnifying glass button highlighted")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
@@ -62,12 +66,14 @@ The extracted data from the endpoint should contain this information and return 
 
     [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Screenshot of LUIS on 'MoveEmployee' intent with filter of 'tomorrow' highlighted")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
-5. Select the first entity, `Employee`, then select **Wrap Composite Entity** in the pop-up menu list. 
+    Another method is to filter the entity by datetimeV2, by selecting **Entity filters** then select **datetimeV2** from the list. 
+
+5. Select the first entity, `Employee`, then select **Wrap in Composite Entity** in the pop-up menu list. 
 
     [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
-6. Then immediately select the last entity, `datetimeV2` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `RequestMoveEmployee` then select **Create new composite** on in the pop-up menu. 
+6. Then immediately select the last entity, `datetimeV2` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `RequestEmployeeMove` then select **Create new composite** on in the pop-up menu. 
 
     [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite and creating entity highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
@@ -91,7 +97,7 @@ The extracted data from the endpoint should contain this information and return 
     [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Screenshot of LUIS on 'MoveEmployee' with all utterances labeled")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## Train the LUIS app
-LUIS doesn't know about the new composite entity until it is trained. 
+LUIS doesn't know about the new composite entity until the app is trained. 
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
