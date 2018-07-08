@@ -24,13 +24,13 @@ Simply put, the objective of TIC is for agencies to know:
 - When is my network being accessed and why?
 - What resources are being accessed?
 
-Today all agency external connections must be routed through an OMB-approved TIC. Federal agencies are required to participate in the TIC program either as a TIC Access Provider (TICAP) or by contracting services with one of the major Tier 1 Internet Service Providers referred to as Managed Trusted Internet Protocol Service (MTIPS) providers.  TIC includes mandatory critical capabilities that are performed today by the agency and MTIPS provider. In the current version of TIC, the EINSTEIN 2 intrusion detection and EINSTEIN 3a intrusion prevention devices are deployed at each TICAP and MTIPS and the agency establishes a Memorandum of Understanding with the Department of Homeland Security (DHS) to deploy EINSTEIN capabilities to federal systems.
+Today all agency external connections must be routed through an OMB-approved TIC. Federal agencies are required to participate in the TIC program either as a TIC Access Provider (TICAP) or by contracting services with one of the major Tier 1 Internet Service Providers referred to as Managed Trusted Internet Protocol Service (MTIPS) providers.  TIC includes mandatory critical capabilities that are performed today by the agency and MTIPS provider. In the current version of TIC, the EINSTEIN version 2 intrusion detection and EINSTEIN version 3 accelerated (3A) intrusion prevention devices are deployed at each TICAP and MTIPS and the agency establishes a Memorandum of Understanding with the Department of Homeland Security (DHS) to deploy EINSTEIN capabilities to federal systems.
 
-As part of its responsibility to protect the .gov network, DHS requires raw data feeds of agency Netflow data to correlate incidents across the federal enterprise and perform analyses using specialized tools.NetFlow is a feature that was introduced on Cisco routers that provides the ability to collect IP network traffic as it enters or exits an interface. By analyzing the data provided by NetFlow, a network administrator can determine things such as the source and destination of traffic, class of service, etc. Netflow data is considered “non-content data” (for example, header, source IP, destination IP, etc.) and allows DHS to know information around the content; that is, who was doing what and for how long.
+As part of its responsibility to protect the .gov network, DHS requires raw data feeds of agency Netflow data to correlate incidents across the federal enterprise and perform analyses using specialized tools. DHS routers provide the ability to collect IP network traffic as it enters or exits an interface. By analyzing the net flow data, a network administrator can determine things such as the source and destination of traffic, class of service, etc. Net flow data is considered "non-content data" (for example, header, source IP, destination IP, etc.) and allows DHS to know information around the content; that is, who was doing what and for how long.
 
 The initiative also includes security policies, guidelines, and frameworks that assume on-premises infrastructure. As government agencies move to the cloud to achieve cost savings, operational efficiency, and innovation, the implementation requirements of TIC are in some cases slowing down network traffic and limiting the speed and agility with which government users can access their cloud-based data.
 
-This article covers how government agencies can use Microsoft Azure Government to achieve compliance with TIC policy across both IaaS and PaaS services.
+This article covers how government agencies can use Microsoft Azure Government to help achieve compliance with TIC policy across both IaaS and PaaS services.
 
 ## Summary of Azure Networking Options
 
@@ -43,19 +43,19 @@ The medium is public, as it traverses a site’s standard Internet connection bu
 
 There are several ways to meet the Trusted Internet Connection Appendix H  (Cloud Considerations) requirements, found in the Department of Homeland Security's, "Trusted Internet Connections (TIC) Reference Architecture Document, Version 2.0". Throughout this document, DHS TIC guidance will be referred to as TIC 2.0.
 
-To enable the connection from the Department or Agency (D/A) to Azure or Office 365, without routing traffic through the D/A TIC, the D/A must use an encrypted tunnel and/or a dedicated connection to the Cloud Service Provider (CSP) services and ensure that connectivity to the D/A cloud assets that are not offered to the public internet, via the cloud,  for agency personnel access.
+To enable the connection from the Department or Agency (D/A) to Azure or Office 365, without routing traffic through the D/A TIC, the D/A must use an encrypted tunnel and/or a dedicated connection to the Cloud Service Provider (CSP). The CSP services can ensure that connectivity to the D/A cloud assets are not offered to the public internet for direct agency personnel access.
 
-O365 is compliant with TIC 2.0 Appendix H using either Express Route with Microsoft Peering enabled or an internet connection that encrypts all traffic using TLS 1.2.  D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to O365 is blocked and routed through the agency. The D/A can also connect to O365 over an Express Route connection with Microsoft peering, which is a type of Public Peering, enabled.  
+O365 is compliant with TIC 2.0 Appendix H using either Express Route with [Microsoft Peering](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) enabled or an internet connection that encrypts all traffic using TLS 1.2.  D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to O365 is blocked and routed through the agency. The D/A can also connect to O365 over an Express Route connection with Microsoft peering, which is a type of Public Peering, enabled.  
 
 For Azure only, options 2 (VPN) and 3 (ExpressRoute) can meet these requirements when they are used in conjunction with services that limit access to the Internet.
 
 ![Microsoft Trusted Internet Connection (TIC) Diagram](media/tic-diagram-a.png)
 
-## How to comply with TIC policy using Azure Infrastructure as a Service offerings
+## How Azure Infrastructure as a Service offerings can help with TIC compliance
 
 Complying with TIC policy using IaaS is relatively simple since Azure customers manage their own virtual network routing.
 
-The main requirement to comply with the TIC reference architecture is to ensure that your Virtual Network (VNet) becomes a private extension of the Department or Agency's network. To become a _private_ extension, the policy requires no traffic leave your network except via the On-Premises TIC network connection. This process is known as "Force Tunneling", which when used for TIC compliance, is the process of routing all traffic from any system in the CSP environment to go through an on-premises gateway on an organization's network out to the internet through the TIC.
+The main requirement to help assure compliance with the TIC reference architecture is to ensure that your Virtual Network (VNet) becomes a private extension of the Department or Agency's network. To become a _private_ extension, the policy requires no traffic leave your network except via the On-Premises TIC network connection. This process is known as "Force Tunneling", which when used for TIC compliance, is the process of routing all traffic from any system in the CSP environment to go through an on-premises gateway on an organization's network out to the internet through the TIC.
 
 Azure IaaS TIC compliance can be broken into two major steps:
 
@@ -70,7 +70,7 @@ To configure a TIC-compliant architecture with Azure, you will have to first pre
 
 Azure IaaS networking is conducted via Virtual Networks comprised of Subnets, to which the Network Interface Controllers (NICs) of Virtual Machines are associated.
 
-The simplest scenario to ensure TIC compliance is to assure that a Virtual Machine, or a collection thereof, cannot connect to any external resources. The disconnection from external networks can be assured using Network Security Groups (NSGs), which can be used to control traffic to one or more NICs or subnets in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances.  To learn more about how to create an NSG, see this article [Creating a NSG](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+The simplest scenario to support TIC compliance is to assure that a Virtual Machine, or a collection thereof, cannot connect to any external resources. The disconnection from external networks can be assured using Network Security Groups (NSGs), which can be used to control traffic to one or more NICs or subnets in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances.  To learn more about how to create an NSG, see this article [Creating a NSG](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 #### Force Internet Traffic Through On-Premises Network
 
@@ -96,7 +96,7 @@ Azure offers multiple ways to audit TIC compliance.
 
 #### Effective Routes
 
-To ensure that your default route has been propagated, you can observe the "Effective Routes" of a particular VM, a specific NIC, or a User-Defined Route Table. This can be done via the Azure portal as described at https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-routes-troubleshoot-portal, or via PowerShell as described at https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-routes-troubleshoot-powershell. The Effective Routes blade will allow you to see the relevant User-Defined Routes, BGP advertised routes, and System routes that apply to the relevant entity, as seen below.
+To confirm that your default route has been propagated, you can observe the "Effective Routes" of a particular VM, a specific NIC, or a User-Defined Route Table. This can be done via the Azure portal as described at https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-routes-troubleshoot-portal, or via PowerShell as described at https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-routes-troubleshoot-powershell. The Effective Routes blade will allow you to see the relevant User-Defined Routes, BGP advertised routes, and System routes that apply to the relevant entity, as seen below.
 
 ![routes screenshot](media/tic-screen-1.png)
 
@@ -110,7 +110,7 @@ Azure Network Watcher offers multiple tools that can be used to audit TIC compli
 
 Azure Network Watcher provides the capability to capture network flow logs indicating the metadata surrounding IP traffic. In addition to other data, the network flow logs contain the source and destinations addresses of targets. This, combined with logs from the Virtual Network Gateway,  On-Premises edge devices, and/or the TIC, will allow for monitoring that all traffic is indeed being routed On-Premises. 
 
-## How to comply with TIC policy using Azure Platform as a Service offerings
+## How Azure Platform as a Service offerings can help with TIC compliance
 
 Azure PaaS services such as Azure Storage are accessible through an Internet-reachable URL. Anyone with approved credentials can access the resource, such as a storage account, from any location without traversing a TIC. For this reason, many government customers incorrectly conclude that Azure PaaS services are not compliant with TIC policies. In fact, many Azure PaaS services can be compliant with TIC policy using the same architecture as a TIC-compliant IaaS environment described above if they can be attached to a Virtual Network (VNet). Integrating Azure PaaS services with an Azure VNet allows the service to be privately accessible from that VNet and allows custom routing for 0.0.0.0/0 to be applied via User-Defined Routes or BGP, ensuring that all Internet-bound traffic is routed On-Premises to traverse the TIC.  Some Azure services can be integrated into Vnets using the following patterns:
 
@@ -178,11 +178,11 @@ An increasing number of Azure’s multitenant services offer “Service Endpoint
 
 ## Using cloud native tools for network situational awareness
 
-Azure provides cloud native tools to ensure that you have the situational awareness required to understand the traffic flows of your network. They are not required to comply with TIC policy but they can vastly improve your security capabilities.
+Azure provides cloud native tools to help ensure that you have the situational awareness required to understand the traffic flows of your network. They are not required to comply with TIC policy but they can vastly improve your security capabilities.
 
 ### Azure Policy
 
-Azure Policy (https://azure.microsoft.com/en-us/services/azure-policy/) is a new Azure service that provides your organization with the ability to audit and enforce compliance initiatives.  Currently available in Public Preview in Azure Commercial Clouds but not yet in Microsoft Azure for Government, TIC-conscious customers can start planning and testing their Policy rules for future compliance assurance.  Azure Policy is targeted at the subscription level, and provides a centralized interface for managing initiatives, policy definitions, auditing and enforcement results, and exception management. In addition to the many built-in Azure Policy definitions, administrators can define their own custom definitions through simple json templating. Microsoft recommends the prioritization of auditing over enforcement where possible.
+Azure Policy (https://azure.microsoft.com/en-us/services/azure-policy/) is an Azure service that provides your organization with better ability to audit and enforce compliance initiatives.  Currently available in Public Preview in Azure Commercial Clouds but not yet in Microsoft Azure for Government, TIC-conscious customers can start planning and testing their Policy rules for future compliance assurance. Azure Policy is targeted at the subscription level, and provides a centralized interface for managing initiatives, policy definitions, auditing and enforcement results, and exception management. In addition to the many built-in Azure Policy definitions, administrators can define their own custom definitions through simple json templating.For many customers, Microsoft recommends the prioritization of auditing over enforcement where possible.
 
 The following sample policies may be useful for TIC compliance scenarios:
 
@@ -198,7 +198,7 @@ The following sample policies may be useful for TIC compliance scenarios:
 
 ### Azure Traffic Analytics
 
-Azure Network Watcher’s Traffic Analytics consumes Flow Log data and other logs to provide high-level overview of network traffic, many of which would be useful for auditing TIC compliance and identifying trouble spots. A high-level dashboard can be used to rapidly screen which VMs are communicating with the internet, which would then provide a focused list for TIC routing.
+Azure Network Watcher's Traffic Analytics consumes flow Log data and other logs to provide high-level overview of network traffic. This data can be useful for auditing TIC compliance and identifying trouble spots. A high-level dashboard can be used to rapidly screen which VMs are communicating with the internet, which would then provide a focused list for TIC routing.
 
 ![Traffic Analytics Screenshot](media/tic-traffic-analytics-1.png)
 
@@ -218,11 +218,11 @@ Networks in regions monitored by Network Watcher can conduct “Next Hop” test
 
 ## Conclusions
 
-Microsoft Azure, Office 365, and Dynamics 365 access can be easily configured to comply with TIC 2.0 Appendix H guidance as written and defined in May of 2018.  Microsoft is aware that this guidance is subject to change and is committed to helping customers meet the guidance in a timely manner as new guidance is released.
+Microsoft Azure, Office 365, and Dynamics 365 access can be easily configured to help comply with TIC 2.0 Appendix H guidance as written and defined in May of 2018.  Microsoft is aware that this guidance is subject to change and will endeavor to help customers meet the guidance in a timely manner as new guidance is released.
 
 ## Appendix: TIC Patterns for Common Workloads
 
-| Category | Workload | IaaS | Dedicated PaaS / /VNet Injection  | Service Endpoints  |
+| Category | Workload | IaaS | Dedicated PaaS / VNet Injection  | Service Endpoints  |
 |---------|---------|---------|---------|--------|
 | Compute | Linux Virtual Machines | +1 | | |
 | Compute | Windows Virtual Machines | +1 | | |
