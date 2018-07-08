@@ -151,13 +151,15 @@
       href: luis-how-to-add-example-utterances.md
     - name: Add entities
       href: luis-how-to-add-entities.md
-    - name: Use list entity to match exact text using Node.js
-      href: luis-tutorial-list-entity.md
-    - name: Build app programmatically using Node.js
-      href: luis-tutorial-node-import-utterances-csv.md
+    - name: With APIs
+      items: 
+      - name: Build app programmatically using Node.js
+        href: luis-tutorial-node-import-utterances-csv.md
+      - name: Use list entity to match exact text using Node.js
+        href: luis-tutorial-list-entity.md
   - name: Integrate 
     items: 
-    - name: Correct spelling with Bing Spell Check API v7
+    - name: With Bing Spell Check API v7
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
       href: luis-tutorial-speech-to-intent.md
@@ -195,28 +197,30 @@
     href: luis-how-to-publish-app.md
   - name: Use prebuilt models
     items: 
-    - name: Use prebuilt entities
+    - name: Use entities
       href: luis-prebuilt-entities.md
-    - name: Use prebuilt domains
+    - name: Use domains
       href: luis-how-to-use-prebuilt-domains.md
-    - name: Use the Cortana prebuilt app
+    - name: Use Cortana
       href: luis-how-to-cortana-prebuilt-app.md
   - name: Manage your LUIS app
     items: 
     - name: Using the dashboard
       href: luis-how-to-use-dashboard.md
-    - name: Create keys
+    - name: Create endpoint keys
       href: luis-how-to-azure-subscription.md
-    - name: Add keys in LUIS 
+    - name: Add endpoint keys to app 
       href: luis-how-to-manage-keys.md
-    - name: View endpoint usage with PowerShell
-      href: luis-how-to-manage-from-cloud-shell.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
     - name: Collaborate with other authors
       href: luis-how-to-collaborate.md 
-    - name: Spread endpoint quota across keys with Traffic Manager
-      href: traffic-manager.md  
+    - name: Manage endpoint usage
+      items: 
+      - name: View endpoint usage with PowerShell
+        href: luis-how-to-manage-from-cloud-shell.md
+      - name: Spread endpoint quota across keys with Traffic Manager
+        href: traffic-manager.md  
   - name: Manage your LUIS account
     href: luis-how-to-account-settings.md   
   - name: Migrate to V2 API
