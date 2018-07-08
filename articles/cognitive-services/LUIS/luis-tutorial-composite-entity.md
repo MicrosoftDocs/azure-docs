@@ -54,12 +54,15 @@ The extracted data from the endpoint should contain this information and return 
 
 2. On the **Intents** page, select **MoveEmployee** intent. 
 
-    [![](media/luis-tutorial-composite-entity/hr-select-applyforjob.png "Screenshot of LUIS with 'ApplyForJob' intent highlighted")](media/luis-tutorial-composite-entity/hr-select-applyforjob.png#lightbox)
+    [![](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png "Screenshot of LUIS with 'MoveEmployee' intent highlighted")](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png#lightbox)
 
 3. Select the magnifying glass icon on the tool bar to filter the utterances list.
 
+    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Screenshot of LUIS on 'MoveEmployee' intent with magnifying glass button highlighted")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
 4. Enter `tomorrow` in the filter textbox to find the utterance `shift x12345 to h-1234 tomorrow`.
+
+    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Screenshot of LUIS on 'MoveEmployee' intent with filter of 'tomorrow' highlighted")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
 5. Select the first entity, `Employee`, then select **Wrap Composite Entity** in the pop-up menu list. 
 

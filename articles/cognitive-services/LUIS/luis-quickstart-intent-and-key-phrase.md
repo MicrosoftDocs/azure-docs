@@ -205,4 +205,3 @@ When no longer needed, delete the LUIS app. Select **My apps** in the top left m
 
 > [!div class="nextstepaction"]
 > [Add sentiment analysis to app](luis-quickstart-intent-and-sentiment-analysis.md)
-
