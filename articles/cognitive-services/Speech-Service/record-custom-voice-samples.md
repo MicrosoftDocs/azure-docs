@@ -34,16 +34,20 @@ Recording engineer  |The person who oversees the technical aspects of the record
 Director            |Prepares the script and coaches the voice talent's performance.
 Editor              |Finalizes the audio files and prepares them for upload to the Custom Voice portal.
 
-One person may fill more than one role. This guide assumes that you will be primarily filling the director role, and hiring voice talent and a recording engineer. There issome information about the recording engineer role in case you want to make the recordings yourself.
+An individual may fill more than one role. This guide assumes that you will be primarily filling the director role, and hiring voice talent and a recording engineer. There is some information about the recording engineer role in case you want to make the recordings yourself.
 
 ## Choosing voice talent
 
-Actors with experience in voiceover or voice character work make good custom voice talent. You can also often find suitable talent among announcers and newsreaders. Choose voice talent whose natural voice you like. It is possible to create unique "character" voices, but it's much harder for talent to perform them consistently, and the effort can cause voice strain.
+Actors with experience in voiceover or voice character work make good custom voice talent. You can also often find suitable talent among announcers and newsreaders. 
+
+Choose voice talent whose natural voice you like. It is possible to create unique "character" voices, but it's much harder for most talent to perform them consistently, and the effort can cause voice strain.
 
 > [!TIP]
 > Generally, avoid using recognizable voices to create a custom voice—unless, of course, your goal is to produce a celebrity voice. Lesser-known voices are usually less distracting to users.
 
-The single most important factor for choosing voice talent is consistency. Ideally, all your recordings should sound like they were made on the same day in the same room. You can approach this ideal through good recording practices and engineering. However, your voice talent must be able to speak with consistent rate, volume level, pitch, and tone. Clear diction is a must. Your talent also needs to be able to strictly control his or her pitch variation, emotional affect, and speech mannerisms.
+The single most important factor for choosing voice talent is consistency. Ideally, all your recordings should sound like they were made on the same day in the same room. You can approach this ideal through good recording practices and engineering. 
+
+Your voice talent is the other half of the equation. He or she must be able to speak with consistent rate, volume level, pitch, and tone. Clear diction is a must. Your talent also needs to be able to strictly control his or her pitch variation, emotional affect, and speech mannerisms.
 
 Recording custom voice samples can be more fatiguing than other kinds of voice work. Most voice talent can record for two or three hours a day. Limit sessions to three or four a week, with a day off in between if possible.
 
@@ -153,31 +157,32 @@ To avoid wasting studio time, run through the script with your voice talent befo
 
 Your voice talent may ask which word you want emphasized in an utterance. Actors often call this the "operative word." You don't want any particular word emphasized, so tell them you want a natural reading. Emphasis can be added when new speech is synthesized; it should not be a part of the original recording.
 
-Direct the talent to pronounce words distinctly. Every word of the script should be pronounced as written. Sounds should not be omitted or slurred together, as is common in casual speech.
+Direct the talent to pronounce words distinctly. Every word of the script should be pronounced as written. Sounds should not be omitted or slurred together, as is common in casual speech, unless they have been written that way in the script.
 
 |Written text|Unwanted casual pronunciation|
 |-|-|
 |never going to give you up|never gonna give you up|
 |there are four lights|there're four lights|
 |how's the weather today|how's th' weather today|
+|my little pony|my lil' pony|
 
-Talent should *not* add distinct pauses between words. The sentence should still sound natural, if slightly formal. This fine distinction between complete pronunciation and flow may take some practice to get right.
+Talent should *not* add distinct pauses between words. The sentence should still sound natural, if slightly formal. This fine distinction between full pronunciation and flow may take some practice to get right.
 
 ### The recording session
 
-Create a reference recording early in the session of a typical utterance and play it back to the voice talent regularly to help them keep their performance consistent. The engineer can use it as a reference for levels and overall consistency of sound. This is especially important when resuming work after a break, or on another day.
+Create a reference recording early in the session of a typical utterance and play it back to the voice talent regularly to help them keep their performance consistent. The engineer can use it as a reference for levels and overall consistency of sound. This is especially important when resuming recording after a break, or on another day.
 
-Coach your talent to take a deep breath and pause before each utterance. Record a couple of seconds of silence between utterances. Pacing should be consistent; a metronome played through the talent's headphones may be helpful if they're having trouble. Words should be pronounced the same way each time they appear.
+Coach your talent to take a deep breath and pause for a moment before each utterance. Record a couple of seconds of silence between utterances. Pacing should be consistent; a metronome played through the talent's headphones may be helpful if they're having trouble. Words should be pronounced the same way each time they appear.
 
 Record a good five seconds of silence before the first recording to capture the "room tone." This helps the Custom Voice portal compensate for any remaining noise in the recordings.
 
 > [!TIP]
-> All you really need is the voice talent's work, so you can record only one channel. However, if you record in stereo, the second channel can be used to record the conversation in the control room so you can refer to it later. Remove this track from the version uploaded to the Custom Voice portal.
+> All you really need to record is the voice talent, so it's fine to make a monophonic (single-channel) recording of just that. However, if you record in stereo, the second channel can be used to record the chatter in the control room so you can refer to it later. Remove this track from the version uploaded to the Custom Voice portal.
 
 Listen closely, using headphones, to the voice talent's performance. You're looking for good but natural diction, correct pronunciation, and a lack of unwanted sounds. Don't hesitate to ask your talent to re-record an utterance that doesn't meet these standards. 
 
 > [!TIP] 
-> If you are recording a high volume of utterances, losing a single utterance may not affect the resulting voice in any noticeable way. So it may be more expedient to simply note any utterances that have problems, exclude them from your data set, and see how your voice turns out. You can always come back to the studio and record more samples later.
+> If you are recording a high volume of utterances, losing a single utterance may not affect the resulting voice in any noticeable way. So it may be more expedient to simply note any utterances that have problems, exclude them from your data set, and see how your voice turns out. You can always go back to the studio and record more samples later.
 
 Most studios have a large "time code" display indicating the current time in the recording. Take a note of the time on your script for each utterance. Ask the engineer if they can mark each utterance in the recording's metadata or cue sheet.
 
@@ -185,19 +190,19 @@ Take regular breaks to let the voice talent keep his or her voice in good shape.
 
 ### After the session
 
-Modern recording studios record on a computer, so at the end of the session, you receive one or more audio files, not a tape. These files will probably be WAV or AIFF format in CD quality (44.1 KHz 16-bit) or better. 48 KHz 24-bit is common and desirable. Higher sampling rates, such as 96 KHz, are generally not needed.
+Modern recording studios record on a computer. At the end of the session, then, you receive one or more audio files, not a tape. These files will probably be WAV or AIFF format in CD quality (44.1 KHz 16-bit) or better. 48 KHz 24-bit is common and desirable. Higher sampling rates, such as 96 KHz, are generally not needed.
 
-The studio will probably deliver one or more audio files containing many utterances. To upload the recordings to the Custom Voice portal, each utterance must be in a separate file. The recording engineer may have placed a marker in the file (or provided a separate cue list) to indicate where each utterance starts. This metadata can be used to extract the utterances.
+The studio will probably deliver one or more audio files, each containing many utterances. To upload the recordings to the Custom Voice portal, each utterance must be in its own file. The recording engineer may have placed a marker in the file (or provided a separate cue list) to indicate where each utterance starts. This metadata can be used to extract the utterances.
 
 You'll need to go through the full recording and make a WAV file for each utterance. Use your notes to find the exact utterances you want, then use a sound editing utility such as [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), or the free [Audacity](https://www.audacityteam.org/) to copy each into a new file.
 
-Leave only about 0.2 seconds of silence at the beginning and end of each clip except for the first. That file should start with a full five seconds of silence. Do not use the audio editor to "zero out" silent parts of the file. Including the "room tone" will help the machine learning algorithms handle any remaining background noise.
+Leave only about 0.2 seconds of silence at the beginning and end of each clip except for the first. That file should start with a full five seconds of silence. Do not use the audio editor to "zero out" silent parts of the file. Including the "room tone" will help the machine learning algorithms deal with any residual background noise.
 
-Listen to each file carefully. At this stage, you can edit out small unwanted sounds that you missed during recording—as long as it does not overlap any actual speech. If you can't fix a file, remove it from your data set entirely.
+Listen to each file carefully. At this stage, you can edit out small unwanted sounds that you missed during recording—as long as they don't overlap any actual speech. If you can't fix a file, remove it from your data set entirely.
 
 Downsample each file to 16 KHz and 16 bits before saving and, if you recorded in stereo, remove the second channel. Save each file in WAV format.
 
-Archive the original recording in a safe place in case you need to go back to it later. Save your script and notes in a safe place, too.
+Archive the original recording in a safe place in case you need to go back to it later. Preserve your script and notes, too.
 
 ## Next steps
 
