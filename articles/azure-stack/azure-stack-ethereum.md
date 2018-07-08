@@ -5,7 +5,7 @@ services: azure-stack
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 6/28/2018
+ms.date: 07/03/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
@@ -63,7 +63,7 @@ The consortium leader template configures the first member's footprint in the ne
     ADMINUSERNAME | Administrator username of each deployed VM | 1 - 64 characters | gethadmin
     ADMINPASSWORD (Authentication type = Password)| The password for the administrator account for each of the virtual machines deployed. The password must contain 3 of the following requirements: 1 upper case character, 1 lower case character, 1 number, and 1 special character. <br />While all VMs initially have the same password, you can change the password after provisioning.|12 - 72 characters|
     ADMINSSHKEY (Authentication type = sshPublicKey) | The secure shell key used for remote login. | |
-    GENESISBLOCK | JSON string representing custom genesis block. | |
+    GENESISBLOCK | JSON string representing custom genesis block.  Specifying a value for this parameter is optional. | |
     ETHEREUMACCOUNTPSSWD | The admin password used to secure Ethereum account. | |
     ETHEREUMACCOUNTPASSPHRASE | The passphrase used to generate private key associated with the Ethereum account. | |
     ETHEREUMNETWORKID | The network ID of the consortium. | Use any value between 5 and 999,999,999 | 72

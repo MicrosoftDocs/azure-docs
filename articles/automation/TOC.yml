@@ -47,6 +47,8 @@
       items:
       - name: Change Tracking overview
         href: automation-change-tracking.md
+      - name: View file contents of tracked files
+        href: change-tracking-file-contents.md
     - name: Inventory
       items:
       - name: Manage a VM with inventory collection

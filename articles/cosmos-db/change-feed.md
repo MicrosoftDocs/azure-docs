@@ -383,7 +383,7 @@ To implement the change feed processor library you have to do following:
             await result.StartAsync();
             Console.Read();
             await result.StopAsync();    
-            ```
+    ```
 
 That’s it. After these few steps documents will start showing up into the **DocumentFeedObserver.ProcessChangesAsync** method.
 
