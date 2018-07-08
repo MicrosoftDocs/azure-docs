@@ -23,14 +23,19 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 By using the Azure Cosmos DB MongoDB API, you can enjoy the benefits of the MongoDB APIs you're used to, with all of Azure Cosmos DB's enterprise capabilities: [global distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
 
+## MongoDB Protocol Support
+
+The Cosmos DB MongoDB API is compatible with MongoDB Server version **3.2** by default. The supported operators and any limitations or exceptions are listed below. Features or query operators added in MongoDB version **3.4** are currently available as a preview feature. Any client driver that understands these protocols should be able to connect to Cosmos DB using the MongoDB API.
+
+The [MongoDB aggregation pipeline](mongodb-feature-support.md#aggregation-pipeline) is also currently available as a separate preview feature.
+
 ## MongoDB query language support
 
 Azure Cosmos DB MongoDB API provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands and options.
 
-
 ## Database commands
 
-Azure Cosmos DB supports the following database commands on all MongoDB API accounts. 
+Azure Cosmos DB supports the following database commands on all MongoDB API accounts.
 
 ### Query and write operation commands
 - delete
@@ -289,7 +294,11 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Not supported. Use $regex instead 
+$text |  | Not supported. Use $regex instead.
+
+## Unsupported operators
+
+The ```$where``` and the ```$eval``` operators are not supported by Cosmos DB and there are no plans for implementation.
 
 ### Methods
 
@@ -318,6 +327,10 @@ Azure Cosmos DB does not yet support users and roles. Azure Cosmos DB supports r
 ## Replication
 
 Azure Cosmos DB supports automatic, native replication at the lowest layers. This logic is extended out to achieve low-latency, global replication as well. Azure Cosmos DB does not support manual replication commands.
+
+## Write Concern
+
+Certain MongoDB Apis support specifying a [Write Concern](https://docs.mongodb.com/manual/reference/write-concern/) which specifies the number of responses required during a write operation. Due to how Cosmos DB handles replication in the background all writes are all automatically Quorum by default. Any write concern specified by client code is ignored. Learn more in [Using consistency levels to maximize availability and performance](consistency-levels.md).
 
 ## Sharding
 
