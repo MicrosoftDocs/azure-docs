@@ -24,7 +24,7 @@ This article describes the unified alert experience in Azure Monitor. The [previ
 
 The unified experience has the following benefits over the classic experience:
 
--	**Better notification system**: [Action groups]( https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), are named groups of notifications and actions that can be reused in multiple alerts. 
+-	**Better notification system**: [Action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), are named groups of notifications and actions that can be reused in multiple alerts. 
 - **Unified authoring experience**: Alerts and alert rules for metrics, logs, and activity logs across Azure Monitor, Log Analytics, and Application Insights can be managed in one place. 
 - **View fired Log Analytics alerts in Azure portal**: Log Analytics alerts can now be viewed with alerts from other sources in the Azure portal. Previously these were in a separate portal.
 - **Separation of fired alerts and alert rules**: Alert rules are now distinguished from alerts. An alert rule is the definition of a condition that triggers an alert. An alert is an instance of an alert rule firing.
@@ -32,7 +32,7 @@ The unified experience has the following benefits over the classic experience:
  
 Metric alerts have the following improvements over classic metric alerts:
 
--	**Improved latency**: Metric alerts can run as frequently as once every minute. Classic metric alerts always run at a frequency of one every 5 minutes. Log alerts still have a delay longer than a minute due to the time is takes to ingest the logs. 
+-	**Improved latency**: Metric alerts can run as frequently as once every minute. Classic metric alerts always run at a frequency of once every 5 minutes. Log alerts still have a delay longer than a minute due to the time is takes to ingest the logs. 
 -	**Support for multi-dimensional metrics**: You can alert on dimensional metrics, which means you can monitor a specific instance of the metric.
 -	**More control over metric conditions**: You can define richer alert rules that support monitoring the maximum, minimum, average, and total values of metrics.
 -	**Combined monitoring of multiple metrics**: You can monitor up to two metrics with a single rule. An alert is triggered if both metrics breach their respective thresholds for the specified time period.

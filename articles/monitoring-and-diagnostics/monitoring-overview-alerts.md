@@ -36,7 +36,7 @@ Azure uses the following terms to describe classic alerts and their functions:
 * **Alert**: The definition of criteria (one or more rules or conditions) that becomes activated when met.
 * **Active**: The state that occurs when the criteria that's defined by a classic alert is met.
 * **Resolved**: The state that occurs when the criteria that's defined by a classic alert is no longer met after previously having been met.
-* **Notification**: The action that's taken based off when a classic alert becomes active.
+* **Notification**: The action that's taken based on when a classic alert becomes active.
 * **Action**: The specific call that's sent to the receiver of a notification (for example, an email or a post to a webhook URL). Notifications can usually trigger multiple actions.
 
 ## How do I receive notifications from an Azure Monitor classic alert?
@@ -46,7 +46,7 @@ Now Azure Monitor offers a reusable notification grouping called *action groups*
 
 Older classic activity log alerts use action groups.
 
-However, the older metric alerts do not use action broups. Instead, you can configure the following actions: 
+However, the older metric alerts do not use action groups. Instead, you can configure the following actions: 
 * Send email notifications to the service administrator, co-administrators, or to additional email addresses that you specify.
 * Call a webhook, which enables you to launch additional automation actions.
 
