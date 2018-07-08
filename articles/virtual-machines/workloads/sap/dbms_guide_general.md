@@ -43,7 +43,7 @@ ms.custom: H1Hack27Feb2017
 
 
 
-# Considerations for Azure Virtual Machines DBMS deployment for SAP NetWeaver
+# Considerations for Azure Virtual Machines DBMS deployment for SAP workload
 
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
