@@ -158,7 +158,15 @@
         href: sql-database-disaster-recovery.md
       - name: Perform recovery drill
         href: sql-database-disaster-recovery-drills.md
-  - name: Advanced security   
+    - name: App design
+      items:
+      - name: Design for disaster recovery
+        href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
+      - name: Design for elastic pools
+        href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+      - name: Design for app upgrades
+        href: sql-database-manage-application-rolling-upgrade.md
+  - name: Security   
     items:
     - name: Security
       href: sql-database-security-overview.md
@@ -220,14 +228,6 @@
         href: sql-database-always-encrypted.md
       - name: Use the Azure key vault
         href: sql-database-always-encrypted-azure-key-vault.md
-    - name: App design
-      items:
-      - name: Design for disaster recovery
-        href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-      - name: Design for elastic pools
-        href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-      - name: Design for app upgrades
-        href: sql-database-manage-application-rolling-upgrade.md
   - name: Elastic scalability
     items:
     - name: Resource scalability
@@ -276,9 +276,9 @@
         href: sql-database-elastic-database-perf-counters.md
       - name: Use entity framework
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-    - name: SQL features comparison
-      href: sql-database-features.md
-    - name: Migrate to SQL Database
+  - name: SQL features comparison
+    href: sql-database-features.md
+  - name: Migrate to SQL Database
     items:
     - name: Migrate to SQL Database
       href: sql-database-cloud-migrate.md
