@@ -24,10 +24,13 @@ You can build your first app on a small, single database at a low cost per month
 
 
 > [!NOTE]
-> Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime.
-> Single Azure SQL Database supports manual dynamic scalability, but not autoscale. For a more *automatic* experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs.
-> However, there are scripts that can help automate scalability for a single Azure SQL Database. For an example, see [Use PowerShell to monitor and scale a single SQL Database](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Dynamic scalability is different from autoscale.
 >
+
+Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime.
+Single Azure SQL Database supports manual dynamic scalability, but not autoscale. For a more *automatic* experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs.
+However, there are scripts that can help automate scalability for a single Azure SQL Database.For an example, see [Use PowerShell to monitor and scale a single SQL Database](scripts/sql-database-monitor-and-scale-database-powershell.md).
+
 
 All three flavors of Azure SQL Database offer some ability to dynamically scale your databases:
 -	In [Azure SQL Single Database](sql-database-single-database-scale.md), you can use either [DTU](sql-database-dtu-resource-limits-single-databases.md) or [vCore](sql-database-vcore-resource-limits-single-databases.md) models to define maximum amount of resources that will be assigned to each database.
