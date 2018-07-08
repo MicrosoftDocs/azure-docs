@@ -14,7 +14,7 @@ ms.author: v-geberr
 
 --- 
 
-# Tutorial: 7. Add keyPhrase entity 
+# Tutorial: 8. Add keyPhrase entity 
 In this tutorial, use an app that demonstrates how to extract key subject matter from utterances.
 
 <!-- green checkmark -->
