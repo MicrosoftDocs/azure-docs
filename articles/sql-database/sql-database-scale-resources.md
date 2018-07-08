@@ -18,12 +18,15 @@ You can mitigate performance issues due to increased usage of your application t
 You don’t need to worry about purchasing hardware and changing underlying infrastructure. Scaling database can be easily done via Azure portal using a slider.
 ![Scale database performance](media/sql-database-scalability/scale-performance.svg)
 Azure SQL Database offers a [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md). 
-- The [DTU-based purchasing model](sql-database-service-tiers-dtu.md) offers a blend of compute, memory, and IO resources in three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. Performance levels within each tier provide a different mix of these resources, to which you can add additional storage resources.
-- The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) (preview) lets you choose the number of vCores, the amount or memory, and the amount and speed of storage.
+-	The [DTU-based purchasing model](sql-database-service-tiers-dtu.md) offers a blend of compute, memory, and IO resources in three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. Performance levels within each tier provide a different mix of these resources, to which you can add additional storage resources.
+-	The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) (preview) lets you choose the number of vCores, the amount or memory, and the amount and speed of storage.
 You can build your first app on a small, single database at a low cost per month and then change its service tier manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
+
 > [!NOTE]
-> Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime. Single Azure SQL Database supports manual dynamic scalability, but not autoscale. For a more *automatic* experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs. However, there are scripts that can help automate scalability for a single Azure SQL Database. For an example, see [Use PowerShell to monitor and scale a single SQL Database](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime.
+> Single Azure SQL Database supports manual dynamic scalability, but not autoscale. For a more *automatic* experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs.
+> However, there are scripts that can help automate scalability for a single Azure SQL Database. For an example, see [Use PowerShell to monitor and scale a single SQL Database](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 All three flavors of Azure SQL Database offer some ability to dynamically scale your databases:
