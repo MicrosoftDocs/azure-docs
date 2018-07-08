@@ -43,12 +43,12 @@ sections:
         image:
           src: media/index/i_perftier.svg
         title: Price/performance tiers
-      - href: /azure/sql-database/sql-database-single-database-scale
+      - href: /azure/sql-database/sql-database-scale-resources
         html: <p>Easily <a href="/azure/sql-database/sql-database-single-database-scale">scale up</a>, <a href="/azure/sql-database/sql-database-read-scale-out">scale out</a>, or shard your databases depending on your needs to improve performance of your application.</p>
         image:
           src: media/index/i_scale.svg
         title: Scalability and elasticity
-      - href: /azure/sql-database/sql-database-automatic-tuning
+      - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
         html: <p>Let intelligence built-in into the service to <a href="/azure/sql-database/sql-database-automatic-tuning">automatically tune your database performance</a>, <a href="/azure/sql-database/sql-advanced-threat-protection">identify threats</a> and <a href="/azure/sql-database/sql-vulnerability-assessment">vulnerabilities</a> in your databases.</p>
         image:
           src: media/index/i_intelligence.svg

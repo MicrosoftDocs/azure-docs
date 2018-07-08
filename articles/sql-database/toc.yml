@@ -83,9 +83,7 @@
     - name: DTU-based model
       href: sql-database-service-tiers-dtu.md
     - name: Resource limits
-      href: sql-database-resource-limits.md
-  - name: High availability
-    href: sql-database-high-availability.md  
+      href: sql-database-resource-limits.md  
   - name: Logical servers and single DBs
     items:
     - name: Logical servers and single DBs
@@ -128,6 +126,38 @@
       href: sql-database-managed-instance-connect-app.md
     - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md
+  - name: Business continuity
+    items:
+    - name: Business continuity
+      href: sql-database-business-continuity.md
+    - name: High availability
+      href: sql-database-high-availability.md
+    - name: Database backups
+      href: sql-database-automated-backups.md
+    - name: Long-term backup retention
+      itmes:
+      - name: Long-term backup retention
+        href: sql-database-long-term-retention.md
+      - name: Configure long-term backup retention - SQL storage
+        href: sql-database-long-term-backup-retention-configure.md
+      - name: Configure long-term backup retention - Azure vault (deprecated)
+        href: sql-database-long-term-backup-retention-configure-vault.md
+    - name: Failover groups and geo-replication
+      items: 
+      - name: Failover groups and geo-replication
+        href: sql-database-geo-replication-overview.md
+      - name: Configure geo-replication - Portal
+        href: sql-database-geo-replication-portal.md
+      - name: Configure security for replicas
+        href: sql-database-geo-replication-security-config.md
+    - name: Database recovery
+      items:
+      - name: Database recovery
+        href: sql-database-recovery-using-backups.md
+      - name: Recover from outage
+        href: sql-database-disaster-recovery.md
+      - name: Perform recovery drill
+        href: sql-database-disaster-recovery-drills.md
   - name: SQL Server common features
     href: sql-database-features.md
   - name: Security   
@@ -192,36 +222,6 @@
         href: sql-database-always-encrypted.md
       - name: Use the Azure key vault
         href: sql-database-always-encrypted-azure-key-vault.md
-  - name: Business continuity
-    items:
-    - name: Business continuity
-      href: sql-database-business-continuity.md
-    - name: Database backups
-      href: sql-database-automated-backups.md
-    - name: Long-term backup retention
-      itmes:
-      - name: Long-term backup retention
-        href: sql-database-long-term-retention.md
-      - name: Configure long-term backup retention - SQL storage
-        href: sql-database-long-term-backup-retention-configure.md
-      - name: Configure long-term backup retention - Azure vault (deprecated)
-        href: sql-database-long-term-backup-retention-configure-vault.md
-    - name: Failover groups and geo-replication
-      items: 
-      - name: Failover groups and geo-replication
-        href: sql-database-geo-replication-overview.md
-      - name: Configure geo-replication - Portal
-        href: sql-database-geo-replication-portal.md
-      - name: Configure security for replicas
-        href: sql-database-geo-replication-security-config.md
-    - name: Database recovery
-      items:
-      - name: Database recovery
-        href: sql-database-recovery-using-backups.md
-      - name: Recover from outage
-        href: sql-database-disaster-recovery.md
-      - name: Perform recovery drill
-        href: sql-database-disaster-recovery-drills.md
     - name: App design
       items:
       - name: Design for disaster recovery
@@ -230,6 +230,54 @@
         href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
       - name: Design for app upgrades
         href: sql-database-manage-application-rolling-upgrade.md
+  - name: Elastic scalability
+    items:
+    - name: Resource scalability
+      href: sql-database-read-scale-resources.md
+    - name: Read Scale-Out
+      href: sql-database-read-scale-out.md
+    - name: Database sharding
+      items: 
+      - name: Database sharding
+        href: sql-database-elastic-scale-introduction.md
+      - name: Elastic client library - consolidate
+        href: sql-database-elastic-database-client-library.md
+      - name: Upgrade elastic database client library
+        href: sql-database-elastic-scale-upgrade-client-library.md
+      - name: Shard maps
+        href: sql-database-elastic-scale-shard-map-management.md
+      - name: Query routing
+        href: sql-database-elastic-scale-data-dependent-routing.md
+      - name: Manage credentials
+        href: sql-database-elastic-scale-manage-credentials.md
+      - name: Shard querying
+        href: sql-database-elastic-scale-multishard-querying.md
+      - name: Elastic tools
+        href: sql-database-elastic-scale-glossary.md
+      - name: Move sharded data
+        href: sql-database-elastic-scale-overview-split-and-merge.md
+      - name: Elastic client library - Dapper
+        href: sql-database-elastic-scale-working-with-dapper.md
+      - name: Elastic tools FAQ
+        href: sql-database-elastic-scale-faq.md
+      - name: Create sharded app
+        href: sql-database-elastic-scale-get-started.md
+      - name: Query horizontally-sharded data
+        href: sql-database-elastic-query-getting-started.md
+      - name: Move sharded data
+        href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
+      - name: Security configuration
+        href: sql-database-elastic-scale-split-merge-security-configuration.md
+      - name: Add a shard
+        href: sql-database-elastic-scale-add-a-shard.md
+      - name: Fix shard map problems
+        href: sql-database-elastic-database-recovery-manager.md
+      - name: Migrate sharded DB
+        href: sql-database-elastic-convert-to-use-elastic-tools.md
+      - name: Create counters
+        href: sql-database-elastic-database-perf-counters.md
+      - name: Use entity framework
+        href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Migrate to SQL Database
     items:
     - name: Migrate to SQL Database
@@ -318,52 +366,6 @@
       href: sql-database-troubleshoot-common-connection-issues.md
     - name: Azure Automation
       href: sql-database-manage-automation.md
-  - name: Scale out
-    items:
-    - name: Read Scale-Out
-      href: sql-database-read-scale-out.md
-    - name: Database sharding
-      items: 
-      - name: Database sharding
-        href: sql-database-elastic-scale-introduction.md
-      - name: Elastic client library - consolidate
-        href: sql-database-elastic-database-client-library.md
-      - name: Upgrade elastic database client library
-        href: sql-database-elastic-scale-upgrade-client-library.md
-      - name: Shard maps
-        href: sql-database-elastic-scale-shard-map-management.md
-      - name: Query routing
-        href: sql-database-elastic-scale-data-dependent-routing.md
-      - name: Manage credentials
-        href: sql-database-elastic-scale-manage-credentials.md
-      - name: Shard querying
-        href: sql-database-elastic-scale-multishard-querying.md
-      - name: Elastic tools
-        href: sql-database-elastic-scale-glossary.md
-      - name: Move sharded data
-        href: sql-database-elastic-scale-overview-split-and-merge.md
-      - name: Elastic client library - Dapper
-        href: sql-database-elastic-scale-working-with-dapper.md
-      - name: Elastic tools FAQ
-        href: sql-database-elastic-scale-faq.md
-      - name: Create sharded app
-        href: sql-database-elastic-scale-get-started.md
-      - name: Query horizontally-sharded data
-        href: sql-database-elastic-query-getting-started.md
-      - name: Move sharded data
-        href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
-      - name: Security configuration
-        href: sql-database-elastic-scale-split-merge-security-configuration.md
-      - name: Add a shard
-        href: sql-database-elastic-scale-add-a-shard.md
-      - name: Fix shard map problems
-        href: sql-database-elastic-database-recovery-manager.md
-      - name: Migrate sharded DB
-        href: sql-database-elastic-convert-to-use-elastic-tools.md
-      - name: Create counters
-        href: sql-database-elastic-database-perf-counters.md
-      - name: Use entity framework
-        href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Cross-database operations
     items:
     - name: Elastic Database jobs
