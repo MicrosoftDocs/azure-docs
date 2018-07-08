@@ -77,7 +77,7 @@ Check the script carefully for errors. If possible, have someone else check it t
 
 ### Script format
 
-You can easily create your script using Microsoft Word. This document is for your use during the recording session, so you can set it up any way that suits your needs. The Custom Voice portal requires a text file of the utterances: create that separately.
+You can easily create your script using Microsoft Word. This document is for your use during the recording session, so you can set it up any way you find easy to work with. Create the text file required by the Custom Voice portal separately.
 
 A basic script format includes three columns:
 
@@ -144,7 +144,7 @@ You can see that most of the range (height) is used, but the highest peaks of th
 
 Record directly into the computer using a high-quality audio interface or a USB port, depending on the kind of mic you're using. Keep the audio chain simple: mic, preamp, audio interface, computer. Both [Avid Pro Tools](http://www.avid.com/en/pro-tools) and [Adobe Audition](https://www.adobe.com/products/audition.html) can be licensed monthly at reasonable cost. If you have literally no budget, try the free [Audacity](https://www.audacityteam.org/).
 
-Record at 44.1 KHz 16 bit monophonic (CD quality) or better. Current state-of-the-art is 48 KHz 24-bit, if your equipment supports it. You will downsample your audio to 16 KHz 16-bit before you submit it to the Custom Voice portal. But it it pays to have a high-quality original recording in case edits are needed.
+Record at 44.1 KHz 16 bit monophonic (CD quality) or better. Current state-of-the-art is 48 KHz 24-bit, if your equipment supports it. You will downsample your audio to 16 KHz 16-bit before you submit it to the Custom Voice portal. Still, it pays to have a high-quality original recording in case edits are needed.
 
 Ideally, have different people serve in the roles of director, engineer, and talent. Don't try to do it all yourself! In a pinch, the director and engineer could be a single person.
 
@@ -166,7 +166,7 @@ Direct the talent to pronounce words distinctly. Every word of the script should
 |how's the weather today|how's th' weather today|
 |my little pony|my lil' pony|
 
-Talent should *not* add distinct pauses between words. The sentence should still sound natural, if slightly formal. This fine distinction between full pronunciation and flow may take some practice to get right.
+Talent should *not* add distinct pauses between words. The sentence should still flow naturally, if slightly formal. This fine distinction may take some practice to get right.
 
 ### The recording session
 
@@ -196,9 +196,9 @@ The studio will probably deliver one or more audio files, each containing many u
 
 You'll need to go through the full recording and make a WAV file for each utterance. Use your notes to find the exact utterances you want, then use a sound editing utility such as [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), or the free [Audacity](https://www.audacityteam.org/) to copy each into a new file.
 
-Leave only about 0.2 seconds of silence at the beginning and end of each clip except for the first. That file should start with a full five seconds of silence. Do not use the audio editor to "zero out" silent parts of the file. Including the "room tone" will help the machine learning algorithms deal with any residual background noise.
+Leave only about 0.2 seconds of silence at the beginning and end of each clip except for the first. That file should start with a full five seconds of silence. Do not use the audio editor to "zero out" silent parts of the file. Including the "room tone" will help the machine learning algorithms compensate for any residual background noise.
 
-Listen to each file carefully. At this stage, you can edit out small unwanted sounds that you missed during recording—as long as they don't overlap any actual speech. If you can't fix a file, remove it from your data set entirely.
+Listen to each file carefully. At this stage, you can edit out small unwanted sounds that you missed during recording—as long as they don't overlap any actual speech. If you can't fix a file, remove it from your data set entirely, making a note that you have done so.
 
 Downsample each file to 16 KHz and 16 bits before saving and, if you recorded in stereo, remove the second channel. Save each file in WAV format.
 
@@ -206,7 +206,7 @@ Archive the original recording in a safe place in case you need to go back to it
 
 ## Next steps
 
-You're reading to your recordings to create your custom voice!
+You're ready to upload your recordings and create your custom voice!
 
 > [!div class="nextstepaction"]
 > [Creating custom voice fonts](how-to-customize-voice-font.md)
