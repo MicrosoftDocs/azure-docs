@@ -7,7 +7,7 @@
 - name: Tutorials
   items:
   - name: 1. Configure rules
-    href: tutorial-firewall-rules-portal.md
+    href: tutorial-firewall-deploy-portal.md
   - name: 2. Diagnostics
     href: tutorial-diagnostics.md
 - name: Samples
@@ -16,8 +16,10 @@
     href: sample-powershell.md
 - name: How-to guides
   items:
-  - name: Deploy using a template
-    href: deploy-template.md
+    - name: Sign up for public preview
+      href: public-preview.md
+    - name: Deploy using a template
+      href: deploy-template.md
 - name: Reference
   items:
   - name: Azure CLI

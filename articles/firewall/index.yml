@@ -20,7 +20,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/firewall/tutorial-firewall-rules-portal">Configure Azure Firewall application and network rules using the Azure portal</a>
+    - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Configure Azure Firewall application and network rules using the Azure portal</a>
     - html: <a href="/azure/firewall/tutorial-diagnostics">Monitor Azure Firewall logs</a>
 - title: Samples
   items:

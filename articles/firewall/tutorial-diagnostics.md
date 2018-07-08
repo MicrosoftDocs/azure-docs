@@ -14,7 +14,7 @@ ms.author: victorh
 
 You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 
-You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and Power BI.
+You can access some of these logs through the portal. Logs can be sent to [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Log Analytics or by different tools such as Excel and Power BI.
 
 In this tutorial, you learn how to:
 
@@ -26,13 +26,7 @@ In this tutorial, you learn how to:
 
 ## Diagnostic logs
 
- 
-
-The following logs are available for Azure Firewall:
-
-* **Activity log**
-
-   You can use [Azure activity logs](../azure-resource-manager/resource-group-audit.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription. Activity log entries are collected by default, and you can view them in the Azure portal.
+ The following diagnostic logs are available for Azure Firewall:
 
 * **Application rule log**
 
@@ -81,16 +75,21 @@ The following logs are available for Azure Firewall:
 
    ```
 
-> [!NOTE]
-> Logs are available only for resources deployed in the Azure Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, see the [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) article.
-
 You have three options for storing your logs:
 
 * **Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
 * **Event hubs**: Event hubs are a great option for integrating with other security information and event management (SEIM) tools to get alerts on your resources.
 * **Log Analytics**: Log Analytics is best used for general real-time monitoring of your application or looking at trends.
 
-## Enable logging through the Azure portal
+## Activity logs
+
+   Activity log entries are collected by default, and you can view them in the Azure portal.
+
+   You can use [Azure activity logs](../azure-resource-manager/resource-group-audit.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription.
+
+## Enable diagnostic logging through the Azure portal
+
+It can take a few minutes for the data to appear in your logs after you complete this procedure to turn on diagnostic logging. If you don't see anything at first, check again in  a few more minutes.
 
 1. In the Azure portal, open your firewall resource group and click the firewall.
 2. Under **Monitoring**, click **Diagnostic logs**.
@@ -100,7 +99,7 @@ You have three options for storing your logs:
    * Application rule log
    * Network rule log
 
-3. To start collecting data, click **Turn on tutorial-diagnostics**.
+3. To start collecting data, click **Turn on diagnostics**.
 4. The **Diagnostics settings** page provides the settings for the diagnostic logs. 
 5. In this example, Log Analytics stores the logs, so type **Firewall log analytics** for the name.
 6. Click **Send to Log Analytics** to configure your workspace. You can also use event hubs and a storage account to save the diagnostic logs.
@@ -111,25 +110,22 @@ You have three options for storing your logs:
 11. Click **OK**.
    ![Starting the configuration process][1]
 12. Under **Log**, click **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule** to collect logs for application and network rules.
-13. Under **Metric**, click **AllMetrics** to collect firewall metrics.
    ![Save diagnostics settings][2]
-14. Click **Save**.
+13. Click **Save**.
 
 ## Enable logging with PowerShell
 
-Activity logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, use the following steps:
+Activity logging is automatically enabled for every Resource Manager resource. Diagnostic logging must be enabled to start collecting the data available through those logs.
+
+To enable diagnostic logging, use the following steps:
 
 1. Note your storage account's resource ID, where the log data is stored. This value is of the form: */subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>*.
 
-   You can use any storage account in your subscription. You can use the Azure portal to find this information.
-
-<!---    ![Portal: resource ID for storage account](./media/tutorial-diagnostics/diagnostics1.png) -->
+   You can use any storage account in your subscription. You can use the Azure portal to find this information. The information is located in the resource **Property** page.
 
 2. Note your Firewall's resource ID for which logging is enabled. This value is of the form: */subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/azureFirewalls/\<Firewall name\>*.
 
    You can use the portal to find this information.
-
-<!---    ![Portal: resource ID for Firewall](./media/tutorial-diagnostics/diagnostics2.png) -->
 
 3. Enable diagnostic logging by using the following PowerShell cmdlet:
 
@@ -140,7 +136,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
     ```
     
 > [!TIP] 
->Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
+>Diagnostic logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
 
 ## View and analyze the activity log
 
