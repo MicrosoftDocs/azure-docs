@@ -127,7 +127,7 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
     Since this test is to verify the composite is extracted correctly, a test can either include an existing sample utterance or a new utterance. A good test is to include all the child entities in the composite entity.
 
-```
+```JSON
 {
   "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
   "topScoringIntent": {
