@@ -57,7 +57,7 @@ A voice training dataset consists of a set of audio files, along with a text fil
 
 You can prepare these files in either direction: either write a script and have it read by voice talent, or use publicly-available audio and transcribe it to text. In the latter case, edit disfluencies from the audio files, such as "um" and other filler sounds, stutters, mumbled words, or mispronunciations.
 
-To produce a good voice font, it's important that the recordings are done in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential for building a great digital voice. To create a voice for production use, we recommend you use a professional recording studio and voice talent. For more details, see [How to record voice samples for a custom voice](voice-recording-guide.md).
+To produce a good voice font, it's important that the recordings are done in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential for building a great digital voice. To create a voice for production use, we recommend you use a professional recording studio and voice talent. For more details, see [How to record voice samples for a custom voice](record-custom-voice-samples.md).
 
 ### Audio files
 

@@ -42,7 +42,7 @@
   - name: Customize voice fonts (bot brand voice)
     href: how-to-customize-voice-font.md
   - name: Record voice samples
-    href: voice-recording-guide.md
+    href: record-custom-voice-samples.md
   - name: Prepare transcripts
     href: prepare-transcription.md
   - name: Use custom audio streams

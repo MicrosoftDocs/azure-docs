@@ -1,6 +1,7 @@
 ---
 title: How to record voice samples for creating a custom voice | Microsoft Docs
-description: Here are answers to the most popular questions about the Speech to Text.
+titleSuffix: "Microsoft Cognitive Services"
+description: Make a production-quality costum voice by preparing a robust script, hiring good voice talent, and recording professionally.
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
@@ -56,10 +57,7 @@ Usually, you'll want to own the voice recordings you make. Your voice talent sho
 
 ## Creating a script
 
-The starting point of any custom voice is the script, which contains the utterances to be recorded by your voice talent.
-
-> [!NOTE]
-> The term "utterances" is used because they need not be full sentences. Phrases are fine.
+The starting point of any custom voice is the script, which contains the utterances to be recorded by your voice talent. The term "utterances" encompasses both full sentences and shorter phrases.
 
 The utterances in your script can come from anywhere: fiction, non-fiction, transcripts of speeches, news reports, and anything else available in printed form. If you want to make sure your voice does well on specific kinds of words (such as medical terminology or programming jargon), you may want to include sentences from scholarly papers or technical documents. (However, see [Legalities](#legalities) below.) You can also write your own text.
 
@@ -75,11 +73,11 @@ Check the script carefully for errors. If possible, have someone else check it t
 
 ### Script format
 
-You can easily create your script using Microsoft Word or Microsoft Excel. This document is for your use during the recording session, so you can set it up any way that suits your needs. You won't use this file with the Custom Voice portal, which requires a text file of the utterances.
+You can easily create your script using Microsoft Word. This document is for your use during the recording session, so you can set it up any way that suits your needs. The Custom Voice portal requires a text file of the utterances: create that separately.
 
-The basic script format requires three columns:
+A basic script format includes three columns:
 
-* The number of the utterance, starting at 1. Numbering will make it easy for everyone in the studio to refer to a particular utterance ("let's try number 356 again").
+* The number of the utterance, starting at 1. Numbering will make it easy for everyone in the studio to refer to a particular utterance ("let's try number 356 again"). You can use Word's paragraph numbering feature to number the rows of the table automatically.
 * A blank column where you'll write in the time code of each utterance: the time at which you'll find it in the recorded audio file.
 * The text of the utterance itself.
 
@@ -111,15 +109,15 @@ Discuss your project with the studio's recording engineer and listen to his or h
 
 ### Doing it yourself
 
-If you want to try doing the recording yourself, here's what you need to know. 
+If you want to make the recording yourself, here's what you need to know. 
 
 Your "recording booth" should be a small room with no noticeable echo or "room tone" and which is as quiet and soundproof as possible. Drapes on the walls can be used to reduce echo and neutralize or "deaden" the sound of the room.
 
 Use a high-quality studio condenser microphone intended for recording voice. Sennheiser, AKG, and even newer Zoom mics can yield good results. You can rent one from a local audio-visual rental firm. Look for one with a USB interface. This type of mic conveniently combines the mic, preamp, and analog-to-digital converter into one product, simplifying hookup.
 
-You may also use an analog microphone. Many rental houses offer "vintage" microphones which are renowned for their voice character. Professional analog gear includes balanced XLR connectors, rather than the 1/4" plug used in consumer equipment. So you'll need a preamp and an audio interface with these connectors.
+You may also use an analog microphone. Many rental houses offer "vintage" microphones which are renowned for their voice character. Professional analog gear includes balanced XLR connectors, rather than the 1/4" plug used in consumer equipment. You'll need a preamp and an audio interface with these connectors.
 
-Install the microphone on a stand or boom and use a pop filter on the microphone to eliminate noise from "plosive" sounds like "p" and "b." Some microphones come with a suspension mount that isolates them from vibrations in the stand, which is helpful.
+Install the microphone on a stand or boom and use a pop filter in frot of the microphone to eliminate noise from "plosive" sounds like "p" and "b." Some microphones come with a suspension mount that isolates them from vibrations in the stand, which is helpful.
 
 The voice talent must stay at a consistent distance from the microphone. Use tape on the floor to mark where they should stand. If the talent prefers to sit, take special care. Sitting may complicate maintaining a constant distance from the mic, and adds a new source of unwanted sounds to watch out for (the chair).
 
@@ -151,7 +149,7 @@ Ideally, have different people serve in the roles of director, engineer, and tal
 To avoid wasting studio time, run through the script with your voice talent before the recording session. The voice talent gets a chance to become familiar with the text, and can clarify the pronunciation of any unfamiliar words.
 
 > [!NOTE]
-> Most recording studios offer electronic display of scripts in the recording booth. In this case, type any take notes from your run-through directly into the script's document. You'll still want a paper copy to take notes on during the session, though. Most engineers will want a hardcopy, too. And you'll still want the third printed copy as a backup for the talent in case the copmuter is down!
+> Most recording studios offer electronic display of scripts in the recording booth. In this case, type any take notes from your run-through directly into the script's document. You'll still want a paper copy to take notes on during the session, though. Most engineers will want a hardcopy, too. And you'll still want the third printed copy as a backup for the talent in case the computer is down!
 
 Your voice talent may ask which word you want emphasized in an utterance. Actors often call this the "operative word." You don't want any particular word emphasized, so tell them you want a natural reading. Emphasis can be added when new speech is synthesized; it should not be a part of the original recording.
 
@@ -201,7 +199,7 @@ Downsample each file to 16 KHz and 16 bits before saving and, if you recorded in
 
 Archive the original recording in a safe place in case you need to go back to it later. Save your script and notes in a safe place, too.
 
-### Next steps
+## Next steps
 
 You're reading to your recordings to create your custom voice!
 
