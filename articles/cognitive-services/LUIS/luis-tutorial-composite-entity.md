@@ -1,5 +1,5 @@
 ---
-title: Create a composite entity to extract complex data - Azure | Microsoft Docs 
+title: Tutorial creating a composite entity to extract complex data - Azure | Microsoft Docs 
 description: Learn how to create a composite entity in your LUIS app to extract different types of entity data. 
 services: cognitive-services
 author: v-geberr
@@ -8,19 +8,21 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 07/09/2018
 ms.author: v-geberr
 --- 
 
-# Use composite entity to extract complex data
-This simple app has two [intents](luis-concept-intent.md) and several entities. Its purpose is to book flights such as '1 ticket from Seattle to Cairo on Friday` and return all the specifics of the reservation as a single piece of data. 
+# Tutorial: Add Composite entity 
+In this tutorial, add a composite entity to bundle extracted data into a containing entity.
 
 In this tutorial, you learn how to:
 
+<!-- green checkmark -->
 > [!div class="checklist"]
-* Add prebuilt entities datetimeV2 and number
-* Create a composite entity
-* Query LUIS and receive composite entity data
+> * Understand composite entities 
+> * Add composite entity to extract data
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response
 
 ## Before you begin
 * Your LUIS app from the **[hierarchical quickstart](luis-tutorial-composite-entity.md)**. 
