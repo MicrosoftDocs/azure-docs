@@ -18,7 +18,7 @@ ms.author: juliako
 ---
 # Widevine license template overview
 
-You can use Azure Media Services to configure and request Google Widevine licenses. When the player tries to play your Widevine-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, the service issues the license. It's sent to the client and is used to decrypt and play the specified content.
+Azure Media Services enables you to encrypt your content with **Google Widevine**. Media Services also provides a service for delivering Widevine licenses. You can use Azure Media Services APIs to configure Widevine licenses. When a player tries to play your Widevine-protected content, a request is sent to the license delivery service to obtain the license. If the license service approves the request, the service issues the license. It's sent to the client and is used to decrypt and play the specified content.
 
 A Widevine license request is formatted as a JSON message.  
 
@@ -70,7 +70,7 @@ A Widevine license request is formatted as a JSON message.
 | parse_only |Boolean, true or false |The license request is parsed, but no license is issued. However, values from the license request are returned in the response. |
 
 ## Content key specs
-If a preexisting policy exists, there is no need to specify any of the values in the content key spec. The preexisting policy associated with this content is used to determine the output protection, such as High-bandwidth Digital Content Protection (HDCP) and the Copy General Management System (CGMS). If a preexisting policy isn't registered with the Widevine license server, the content provider can inject the values into the license request.   
+If a pre-existing policy exists, there is no need to specify any of the values in the content key spec. The pre-existing policy associated with this content is used to determine the output protection, such as High-bandwidth Digital Content Protection (HDCP) and the Copy General Management System (CGMS). If a pre-existing policy isn't registered with the Widevine license server, the content provider can inject the values into the license request.   
 
 Each content_key_specs value must be specified for all tracks, regardless of the use_policy_overrides_exclusively option. 
 
@@ -91,7 +91,7 @@ Each content_key_specs value must be specified for all tracks, regardless of the
 | policy_overrides&#46;license_duration_seconds |int64 |Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0. |
 | policy_overrides&#46;rental_duration_seconds |int64 |Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0. |
 | policy_overrides&#46;playback_duration_seconds |int64 |The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0. |
-| policy_overrides&#46;renewal_server_url |string |All heartbeat (renewal) requests for this license are directed to the specified URL. This field is used only if can_renew is true. |
+| policy_overrides&#46;renewal_server_url |string |All heartbeat (renewal) requests for this license is directed to the specified URL. This field is used only if can_renew is true. |
 | policy_overrides&#46;renewal_delay_seconds |int64 |How many seconds after license_start_time before renewal is first attempted. This field is used only if can_renew is true. Default is 0. |
 | policy_overrides&#46;renewal_retry_interval_seconds |int64 |Specifies the delay in seconds between subsequent license renewal requests, in case of failure. This field is used only if can_renew is true. |
 | policy_overrides&#46;renewal_recovery_duration_seconds |int64 |The window of time in which playback can continue while renewal is attempted, yet unsuccessful due to back-end problems with the license server. A value of 0 indicates that there is no limit to the duration. This field is used only if can_renew is true. |
@@ -108,7 +108,7 @@ Each content_key_specs value must be specified for all tracks, regardless of the
 
 Media Services provides a class that lets you configure a Widevine license. To construct the license, pass JSON to [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate).
 
-To configure the template you can:
+To configure the template, you can:
 
 1.	Directly construct/hardcode a JSON string (which may be error-prone);
 

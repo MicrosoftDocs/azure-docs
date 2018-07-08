@@ -12,16 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 07/08/2018
 ms.author: juliako
 
 ---
 # Media Services PlayReady license template overview
 
-Azure Media Services now provides a service for delivering PlayReady licenses. When the player (for example, Silverlight) tries to play your PlayReady-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license that is sent to the client and is used to decrypt and play the specified content.
+Azure Media Services enables you to encrypt your content with **Microsoft PlayReady**. Media Services also provides a service for delivering PlayReady licenses. You can use Media Services APIs to configure PlayReady licenses. When a player tries to play your PlayReady-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license that is sent to the client and is used to decrypt and play the specified content.
 
-Media Services also provides APIs that you can use to configure your PlayReady licenses. Licenses contain the rights and restrictions that you want the PlayReady digital rights management (DRM) runtime to enforce when a user tries to play back protected content.
-Here are some examples of PlayReady license restrictions that you can specify:
+layReady licenses contain the rights and restrictions that you want the PlayReady digital rights management (DRM) runtime to enforce when a user tries to play back protected content. Here are some examples of PlayReady license restrictions that you can specify:
 
 * The date and time from which the license is valid.
 * The DateTime value when the license expires. 
@@ -55,7 +54,7 @@ The XML conforms to the PlayReady license template XML schema defined in the "Pl
 
 Media Services provides types that you can use to configure a PlayReady license template. These types map to types defined in [PlayReady license template XML schema](#schema).
 
-The snippet that follows uses Media Services .NET PlayReady classes to configure the PlayReady license template. The classes are defined in the [Microsoft.Azure.Management.Media.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) namespace. The snippet configures the PlayRight of the PlayReady license. PlayRight grants the user the ability to play back the content subject to any restrictions configured in the license and on the PlayRight itself (for playback-specific policy). Much of the policy on a PlayRight concerns output restrictions that control the types of outputs that the content can be played over. It also includes any restrictions that must be put in place when a given output is used. For example, if DigitalVideoOnlyContentRestriction is enabled, the DRM runtime only allows the video to be displayed over digital outputs. (Analog video outputs aren't allowed to pass the content.)
+The snippet that follows uses Media Services .NET PlayReady classes to configure the PlayReady license template. The classes are defined in the [Microsoft.Azure.Management.Media.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) namespace. The snippet configures the PlayRight of the PlayReady license. PlayRight grants the user the ability to play back the content subject to any restrictions configured in the license and on the PlayRight itself (for playback-specific policy). Much of the policy on a PlayRight concerns output restriction that control the types of outputs that the content can be played over. It also includes any restrictions that must be put in place when a given output is used. For example, if DigitalVideoOnlyContentRestriction is enabled, the DRM runtime only allows the video to be displayed over digital outputs. (Analog video outputs aren't allowed to pass the content.)
 
 > [!IMPORTANT]
 > These types of restrictions can be powerful, but they also can affect the consumer experience. If the output protections are too restrictive, the content might be unplayable on some clients. For more information, see the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/).

@@ -95,12 +95,14 @@
     href: https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest
   - name: Event schemas
     href: media-services-event-schemas.md
-  - name: DRM license schemas
+  - name: DRM licenses
     items:
     - name: PlayReady license template
       href: playready-license-template-overview.md
     - name: Widevine license template
       href: widevine-license-template-overview.md
+    - name: FairPlay license requirements
+      href: fairplay-license-overview.md
 - name: Resources
   items:
   - name: Azure Roadmap
