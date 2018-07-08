@@ -224,26 +224,26 @@ Microsoft Azure, Office 365, and Dynamics 365 access can be easily configured to
 
 | Category | Workload | IaaS | Dedicated PaaS / VNet Injection  | Service Endpoints  |
 |---------|---------|---------|---------|--------|
-| Compute | Linux Virtual Machines | +1 | | |
-| Compute | Windows Virtual Machines | +1 | | |
-| Compute | Virtual Machine Scale Sets | +1 | | |
+| Compute | Linux Virtual Machines | Yes | | |
+| Compute | Windows Virtual Machines | Yes | | |
+| Compute | Virtual Machine Scale Sets | Yes | | |
 | Compute | Azure Functions | | via App Service Environment (ASE) | |
 | Web & Mobile | Internal Web Application | | via App Service Environment (ASE) | |
 | Web & Mobile | Internal Mobile Application | | via App Service Environment (ASE) | |
 | Web & Mobile | API Apps | | via App Service Environment (ASE) | |
-| Containers | Azure Container Service (ACS) | | | +1 |
-| Containers | Azure Container Service (AKS)* | | | +1 |
+| Containers | Azure Container Service (ACS) | | | Yes |
+| Containers | Azure Container Service (AKS)* | | | Yes |
 | Database | SQL Database | | Azure SQL Database Managed Instance* | Azure SQL |
-| Database | Azure Database for MySQL | | | +1 |
-| Database | Azure Database for PostgreSQL | | | +1 |
-| Database | SQL Data Warehouse | | | +1 |
-| Database | Azure Cosmos DB | | | +1 |
-| Database | Redis Cache | | +1 | |
-| Storage | Blobs | +1 | | |
-| Storage | Files | +1 | | |
-| Storage | Queues | +1 | | |
-| Storage | Tables | +1 | | |
-| Storage | Disks | +1 | | |
+| Database | Azure Database for MySQL | | | Yes |
+| Database | Azure Database for PostgreSQL | | | Yes |
+| Database | SQL Data Warehouse | | | Yes |
+| Database | Azure Cosmos DB | | | Yes |
+| Database | Redis Cache | | Yes | |
+| Storage | Blobs | Yes | | |
+| Storage | Files | Yes | | |
+| Storage | Queues | Yes | | |
+| Storage | Tables | Yes | | |
+| Storage | Disks | Yes | | |
 
 *: Public Preview in Azure Government as of May 2018  
 **: Private Preview in Azure Government as of May 2018
