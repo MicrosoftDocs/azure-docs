@@ -46,8 +46,6 @@ The move request includes, at the minimum, the employee (using any synonym), and
 The extracted data from the endpoint should contain this information and return it at in a `MoveEmployeeRequest` composite entity. 
 
 ## Create composite entity
-
-## Use existing intent to create composite entity
 1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
 
     [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-tutorial-composite-entity/hr-first-image.png)](./media/luis-tutorial-composite-entity/hr-first-image.png#lightbox)
@@ -56,7 +54,7 @@ The extracted data from the endpoint should contain this information and return 
 
     [![](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png "Screenshot of LUIS with 'MoveEmployee' intent highlighted")](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png#lightbox)
 
-3. Select the magnifying glass icon on the tool bar to filter the utterances list.
+3. Select the magnifying glass icon on the tool bar to filter the utterances list. Another method is to filter the entity by datetimeV2, by selecting **Entity filters** then select **datetimeV2** from the list. 
 
     [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Screenshot of LUIS on 'MoveEmployee' intent with magnifying glass button highlighted")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
@@ -66,29 +64,42 @@ The extracted data from the endpoint should contain this information and return 
 
 5. Select the first entity, `Employee`, then select **Wrap Composite Entity** in the pop-up menu list. 
 
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+
+
 6. Then immediately select the last entity, `datetimeV2` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `RequestMoveEmployee` then select **Create new composite** on in the pop-up menu. 
 
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite and creating entity highlighted")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+
 7. In the **What type of entity do you want to create?** almost all the fields required are in the list. Select **Add a child entity**, select **Locations::Origin** from the list of existing entities, then select **Done**. 
+
+  ![Screenshot of LUIS on 'MoveEmployee' intent adding another entity in pop-up window](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
 8. Select the magnifying glass on the toolbar to remove the filter. 
 
 ## Label example utterances with new composite entity
 1. In each example utterance, select the left-most entity that should be in the composite. Then select **Wrap in composite entity**.
 
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Screenshot of LUIS on 'MoveEmployee' intent selecting first entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+
 2. Select the last word in the composite entity then select **RequestEmployeeMove** from the pop-up menu. 
 
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Screenshot of LUIS on 'MoveEmployee' intent selecting last entity in composite highlighted")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
+
 3. Verify all utterances in the intent are labeled with the composite entity. 
+
+    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Screenshot of LUIS on 'MoveEmployee' with all utterances labeled")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## Train the LUIS app
 LUIS doesn't know about the new composite entity until it is trained. 
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
-    ![Train the app](./media/luis-tutorial-composite-entity/train-button.png)
+    ![Train the app](./media/luis-tutorial-composite-entity/hr-train-button.png)
 
 2. Training is complete when you see the green status bar at the top of the website confirming success.
 
-    ![Training succeeded](./media/luis-tutorial-composite-entity/trained.png)
+    ![Training succeeded](./media/luis-tutorial-composite-entity/hr-trained.png)
 
 ## Publish the app to get the endpoint URL
 In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
@@ -97,18 +108,18 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
 2. Select the Production slot and the **Publish** button.
 
-    ![publish app](./media/luis-tutorial-composite-entity/publish-to-production.png)
+    ![publish app](./media/luis-tutorial-composite-entity/hr-publish-to-production.png)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint 
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-    ![Select endpoint URL](./media/luis-tutorial-composite-entity/publish-select-endpoint.png)
+    ![Select endpoint URL](./media/luis-tutorial-composite-entity/hr-publish-select-endpoint.png)
 
 2. Go to the end of the URL in the address and enter `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`. The last querystring parameter is `q`, the utterance query. 
 
-Since this test is to verify the composite is extracted correctly, a test can either include an existing sample utterance or a new utterance. A good test is to include all the child entities in the composite entity.
+    Since this test is to verify the composite is extracted correctly, a test can either include an existing sample utterance or a new utterance. A good test is to include all the child entities in the composite entity.
 
 ```
 {
@@ -280,7 +291,7 @@ Since this test is to verify the composite is extracted correctly, a test can ei
 }
 ```
 
-This utterance returns a composite entities array. Each entity is given and type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.  
+This utterance returns a composite entities array. Each entity is given a type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.  
 
 ## What has this LUIS app accomplished?
 This app identified a natural language query intention and returned the extracted data as a named group. 
