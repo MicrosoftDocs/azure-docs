@@ -59,13 +59,13 @@
       href: luis-quickstart-intent-and-list-entity.md
     - name: 5. Add hierarchical entity
       href: luis-quickstart-intent-and-hier-entity.md
-    - name: Add composite entity
+    - name: 6. Add composite entity
       href: luis-tutorial-composite-entity.md
-    - name: 6. Add simple entity and phrase list
+    - name: 7. Add simple entity and phrase list
       href: luis-quickstart-primary-and-secondary-data.md
-    - name: 7. Add keyPhrase entity
+    - name: 8. Add keyPhrase entity
       href: luis-quickstart-intent-and-key-phrase.md
-    - name: 8. Add sentiment analysis
+    - name: 9. Add sentiment analysis
       href: luis-quickstart-intent-and-sentiment-analysis.md
   - name: Improve app 
     items: 
