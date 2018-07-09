@@ -47,7 +47,7 @@ This article covers the following tasks:
 > * Authenticating requests
 > * Using the Data Explorer in the Emulator
 > * Exporting SSL certificates
-> * Calling the Emulator from the command line
+> * Calling the Emulator from the command-line
 > * Running the Emulator on Docker for Windows
 > * Collecting trace files
 > * Troubleshooting
@@ -128,7 +128,7 @@ Additionally, just as the Azure Cosmos DB service, the Azure Cosmos DB Emulator 
 
 ## Running on a local network
 
-You can run the emulator on a local network. To enable network access, specify the /AllowNetworkAccess option at the [command line](#command-line-syntax), which also requires that you specify /Key=key_string or /KeyFile=file_name. You can use /GenKeyFile=file_name to generate a file with a random key upfront.  Then you can pass that to /KeyFile=file_name or /Key=contents_of_file.
+You can run the emulator on a local network. To enable network access, specify the /AllowNetworkAccess option at the [command-line](#command-line-syntax), which also requires that you specify /Key=key_string or /KeyFile=file_name. You can use /GenKeyFile=file_name to generate a file with a random key upfront.  Then you can pass that to /KeyFile=file_name or /Key=contents_of_file.
 
 To enable network access for the first time the user should shutdown the emulator and delete the emulator’s data directory (C:\Users\user_name\AppData\Local\CosmosDBEmulator).
 
@@ -391,7 +391,7 @@ docker pull microsoft/azure-cosmosdb-emulator
 ```
 To start the image, run the following commands.
 
-From the command line:
+From the command-line:
 ```cmd 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
 docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
@@ -419,7 +419,7 @@ Starting interactive shell
 
 Now use the endpoint and master key in from the response in your client and import the SSL certificate into your host. To import the SSL certificate, do the following from an admin command prompt:
 
-From the command line:
+From the command-line:
 ```cmd 
 cd %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
@@ -531,7 +531,7 @@ In this tutorial, you've done the following:
 > * Authenticated requests
 > * Used the Data Explorer in the Emulator
 > * Exported SSL certificates
-> * Called the Emulator from the command line
+> * Called the Emulator from the command-line
 > * Collected trace files
 
 In this tutorial, you've learned how to use the local Emulator for free local development. You can now proceed to the next tutorial and learn how to export Emulator SSL certificates. 
