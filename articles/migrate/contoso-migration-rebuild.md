@@ -1,6 +1,6 @@
 ---
 title: Rebuild a Contoso on-premises app to Azure | Microsoft Docs
-description: Learn how Contoso rebuild an app to Azure using Azure App Services, the Kubernetes service, CosmosDB, Azure Functions, and Cognitive services.
+description: Learn how Contoso rebuilds an app to Azure using Azure App Services, the Kubernetes service, CosmosDB, Azure Functions, and Cognitive services.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -11,7 +11,7 @@ ms.author: raynew
 
 # Contoso migration: Rebuild an on-premises app to Azure
 
-This article demonstrates how Contoso migrates and rebuilds their SmartHotel app in Azure. They migrate the app frontend VM to Azure App Services Web apps. The app backend it built using microservices deployed to containers managed by Azure Kubernetes Service (AKS). The site interacts with Azure Functions providing pet photo functionality. 
+This article demonstrates how Contoso migrates and rebuilds their SmartHotel app in Azure. They migrate the app's front end VM to Azure App Services Web apps. The app back end is built using microservices deployed to containers managed by Azure Kubernetes Service (AKS). The site interacts with Azure Functions providing pet photo functionality. 
 
 This document is one in a series of articles that show how the fictitious company Contoso migrates their on-premises resources to the Microsoft Azure cloud. The series includes background information, and scenarios that illustrate setting up a migration infrastructure, assessing on-premises resources for migration, and running different types of migrations. Scenarios grow in complexity, and we'll add additional articles over time.
 
@@ -67,7 +67,7 @@ After pinning down their goals and requirements, Contoso designs and review a de
 - The frontend of the app will be deployed as an Azure App Services Web app, in their primary region.
 - An Azure function will provide uploads of pet photos, and the site will interact with this functionality.
 - The pet photo function leverages Cognitive Services Vision API, and CosmosDB.
-- The backend of the site is built using microservices. These will be deployed to containers managed on the Azure Kubernetes service (AKS).
+- The back end of the site is built using microservices. These will be deployed to containers managed on the Azure Kubernetes service (AKS).
 - Containers will be built using VSTS, and pushed to the Azure Container Registry (ACR).
 - For now, Contoso will manually deploy the Web app and function code using Visual Studio.
 - Microservices will be deployed using a PowerShell script that calls Kubernetes command-line tools.
@@ -102,7 +102,7 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 [AKS](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Simplifies Kubernetes management, deployment, and operations. Provides a fully managed Kubernetes container orchestration service.  | AKS is a free service.  Pay for only the virtual machines, and associated storage and networking resources consumed. [Learn more](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 [Azure Functions](https://azure.microsoft.com/services/functions/) | Accelerates development with an event-driven, serverless compute experience. Scale on demand.  | Pay only for consumed resources. Plan is billed based on per-second resource consumption and executions. [Learn more](https://azure.microsoft.com/pricing/details/functions/).
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Stores images for all types of container deployments. | Cost based on features, storage, and usage duration. [Learn more](https://azure.microsoft.com/pricing/details/container-registry/).
-[Azure App Service](https://azure.microsoft.com/en-us/services/app-service/containers/) | Quickly build, deploy, and scale enterprise-grade web, mobile, and API apps running on any platform. | App Service plans are billed on a per second basis. [Learn more](https://azure.microsoft.com/pricing/details/app-service/windows/).
+[Azure App Service](https://azure.microsoft.com/services/app-service/containers/) | Quickly build, deploy, and scale enterprise-grade web, mobile, and API apps running on any platform. | App Service plans are billed on a per second basis. [Learn more](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
 ## Prerequisites
 
@@ -112,7 +112,7 @@ Here's what you (and Contoso) need to run this scenario:
 --- | ---
 **Azure subscription** | You should have already created a subscription when  you performed the assessment in the first article in this series. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> If you create a free account, you're the administrator of your subscription and can perform all actions.<br/><br/> If you use an existing subscription and you're not the administrator, you need to work with the admin to assign you Owner or Contributor permissions.
 **Azure infrastructure** | [Learn how](contoso-migration-infrastructure.md) Contoso set up an Azure infrastructure.
-**Developer prerequisites** | Contoso needs the following tools on a developer workstation:<br/><br/> - [Visual Studio 2017 Community Edition: Version 15.5](https://www.visualstudio.com/)<br/><br/> .NET workload enabled.<br/><br/> [Git](https://git-scm.com/)<br/><br/> [Azure PowerShell](https://azure.microsoft.com/en-us/downloads/)<br/><br/> [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)<br/><br/> [Docker CE (Windows 10) or Docker EE (Windows Server)](https://docs.docker.com/docker-for-windows/install/) set to use Windows Containers.
+**Developer prerequisites** | Contoso needs the following tools on a developer workstation:<br/><br/> - [Visual Studio 2017 Community Edition: Version 15.5](https://www.visualstudio.com/)<br/><br/> .NET workload enabled.<br/><br/> [Git](https://git-scm.com/)<br/><br/> [Azure PowerShell](https://azure.microsoft.com/downloads/)<br/><br/> [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)<br/><br/> [Docker CE (Windows 10) or Docker EE (Windows Server)](https://docs.docker.com/docker-for-windows/install/) set to use Windows Containers.
 
 
 
@@ -123,10 +123,10 @@ Here's how Contoso will run the migration:
 > [!div class="checklist"]
 > * **Step 1: Provision AKS and ACR**: Contoso provisions the managed AKS cluster and Azure container registry using PowerShell
 > * **Step 2: Build Docker containers**: They set up CI for Docker containers using VSTS, and push them to the ACR.
-> * **Step 3: Deploy backend microservices**: They deploy the rest of the infrastructure that will be leveraged by backend microservices.
-> * **Step 4: Deploy frontend infrastructure**: They deploy the frontend infrastructure, inlcuding blob storage for the pet phones, the Cosmos DB, and Vision API.
-> * **Step 5: Migrate the backend**: They deploy microservices and run on AKS, to migrate the backend.
-> * **Step 6: Publish the frontend**: They publish the SmartHotel app to the Azure App service, and the Function App that will be called by the pet service.
+> * **Step 3: Deploy back-end microservices**: They deploy the rest of the infrastructure that will be leveraged by back-end microservices.
+> * **Step 4: Deploy front-end infrastructure**: They deploy the front-end infrastructure, inlcuding blob storage for the pet phones, the Cosmos DB, and Vision API.
+> * **Step 5: Migrate the back end**: They deploy microservices and run on AKS, to migrate the back end.
+> * **Step 6: Publish the front end**: They publish the SmartHotel app to the Azure App service, and the Function App that will be called by the pet service.
 
 
 
@@ -134,8 +134,8 @@ Here's how Contoso will run the migration:
 
 Contoso runs a deployment script to create the managed Kubernetes cluster using AKS and the Azure Container Registry.
 
-- The instructions for this section use the SmartHotel360-Azure-backend repository.
-- The SmartHotel360-Azure-backend GitHub repo contains all of the software for this part of the deployment.
+- The instructions for this section use the **SmartHotel360-Azure-backend** repository.
+- The **SmartHotel360-Azure-backend** GitHub repo contains all of the software for this part of the deployment.
 
 They provision as follows:
 
@@ -262,12 +262,12 @@ Contoso creates a VSTS project, and configures a CI Build to create the containe
     ![VSTS](./media/contoso-migration-rebuild/vsts14.png)
 
 
-## Step 3: Deploy backend microservices
+## Step 3: Deploy back-end microservices
 
-With the AKS cluster created and the Docker images build, Contoso now deploys the rest of the infrastructure that will be leveraged by backend microservices.
+With the AKS cluster created and the Docker images build, Contoso now deploys the rest of the infrastructure that will be leveraged by back-end microservices.
 
 - Instructions in the section use the [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend) repo.
-- In the **/deploy/k8s/arm** folder, there's a single ARM script to create all items. 
+- In the **/deploy/k8s/arm** folder, there's a single script to create all items. 
 
 They deploy as follows:
 
@@ -281,9 +281,9 @@ They deploy as follows:
 
     ![Deploy backend](./media/contoso-migration-rebuild/backend2.png)
 
-## Step 4: Deploy frontend infrastructure
+## Step 4: Deploy front-end infrastructure
 
-Contoso needs to deploy the infrastructure that will be used by the frontend apps. They create a blob storage container for storing the pet images; the Cosmos database, to store documents with the pet information; and the Vision API for the website. 
+Contoso needs to deploy the infrastructure that will be used by the front end apps. They create a blob storage container for storing the pet images; the Cosmos database, to store documents with the pet information; and the Vision API for the website. 
 
 Instructions for this section use the [SmartHotel-public-web](https://github.com/Microsoft/SmartHotel360-public-web) repo.
 
@@ -294,7 +294,7 @@ Instructions for this section use the [SmartHotel-public-web](https://github.com
 
     ![Storage blob](./media/contoso-migration-rebuild/blob1.png)
 
-3. They create a second new container named **settings**. A file with all the frontend app settings will be placed in this container.
+3. They create a second new container named **settings**. A file with all the front end app settings will be placed in this container.
 
     ![Storage blob](./media/contoso-migration-rebuild/blob2.png)
 
@@ -340,7 +340,7 @@ Contoso provisions the Computer Vision API. The API will be called by the functi
 
      ![Computer Vision](./media/contoso-migration-rebuild/vision3.png)
 
-## Step 5: Deploy the backend services in Azure
+## Step 5: Deploy the back end services in Azure
 
 Now, Contoso need to deploy the NGINX ingress controller to allow inbound traffic to the services, and then deploy the microservices to the AKS cluster.
 
@@ -395,7 +395,7 @@ The instructions in this section use the [SmartHotel-public-web repo.](https://g
     - This variable must contain a URL to a configuration file.
     - By default, the setting used is a public endpoint.
 
-4. They update the **/config-sample.json/sample.json file. This is the configuration file for the web when using the public endpoint.
+4. They update the **/config-sample.json/sample.json** file. This is the configuration file for the web when using the public endpoint.
 
     - They edit both the **urls** and **pets_config** sections, with the values for the AKS API endpoints, storage accounts, and Cosmos database. 
     - The URLs should match the DNS name of the new web app that Contoso will create.
@@ -504,7 +504,7 @@ With the migrated resources in Azure, Contoso needs to fully operationalize and 
 
 ## Conclusion
 
-In this article, Contoso rebuild the SmartHotel app in Azure. They rebuilt the on-premises app frontend VM to Azure App Services Web apps. They built the app backend using microservices deployed to containers managed by Azure Kubernetes Service (AKS). They enhanced app functionality with a pet photo app.
+In this article, Contoso rebuild the SmartHotel app in Azure. They rebuilt the on-premises app front-end VM to Azure App Services Web apps. They built the app back end using microservices deployed to containers managed by Azure Kubernetes Service (AKS). They enhanced app functionality with a pet photo app.
 
 
 
