@@ -4,7 +4,7 @@ description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 07/09/2018
 ms.author: snehaa
 ---
 
@@ -13,6 +13,14 @@ ms.author: snehaa
 This article includes frequently asked questions about Azure Migrate. If you have any further queries after reading this article, post them on the [Azure Migrate forum](http://aka.ms/AzureMigrateForum).
 
 ## General
+
+### Does Azure Migrate support assessment of only VMware workloads?
+
+Yes, Azure Migrate currently only supports assessment of VMware workloads. Support for Hyper-V and physical servers will be enabled in future.
+
+### Does Azure Migrate need vCenter Server to discover a VMware environment?
+
+Yes, Azure Migrate requires vCenter Server to discover a VMware environment. It does not support discovery of ESXi hosts that are not managed by a vCenter Server.
 
 ### How is Azure Migrate different from Azure Site Recovery?
 
@@ -33,11 +41,9 @@ Azure Migrate is a migration planning tool and Azure Site Recovery Deployment Pl
 
 **Disaster Recovery from VMware/Hyper-V to Azure**: If you intend to do disaster recovery (DR) on Azure using Azure Site Recovery (Site Recovery), use Site Recovery Deployment Planner for DR planning. Site Recovery Deployment Planner does a deep, ASR-specific assessment of your on-premises environment. It provides recommendations that are required by Site Recovery for successful DR operations such as replication, failover of your virtual machines.  
 
-### Does Azure Migrate need vCenter Server to discover a VMware environment?
-
-Yes, Azure Migrate requires vCenter Server to discover a VMware environment. It does not support discovery of ESXi hosts that are not managed by a vCenter Server.
-
 ### Which Azure regions are supported by Azure Migrate?
+
+Azure Migrate currently supports East US and West Central US as migration project locations. Note that even though you can only create migration projects in West Central US and East US, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project location is only used to store the discovered data.
 
 ### How does the on-premises site connect to Azure Migrate?
 
@@ -46,7 +52,6 @@ The connection can be over the internet or use ExpressRoute with public peering.
 ### Can I harden the VM set up with the .OVA template?
 
 Additional components (for example anti-virus) can be added into the .OVA template as long as the communication and firewall rules required for the Azure Migrate appliance to work are left as is.   
-
 
 ## Discovery and assessment
 
