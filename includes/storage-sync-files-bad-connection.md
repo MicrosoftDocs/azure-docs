@@ -12,11 +12,11 @@
 This error can occur whenever the Azure File Sync service is inaccessible from the server. You can troubleshoot this error by working through the following steps:
 
 1. Verify the Windows service `FileSyncSvc.exe` is not blocked by your firewall.
-2. Verify that port 443 is open to outgoing connections to the Azure File Sync service. You can do this with the `Test-NetConnection` cmdlet. The URL for the `<azure-file-sync-endpoint>` placeholder below can found in the [Azure File Sync proxy and firewall settings](storage-sync-files-firewall-and-proxy.md#firewall) document. 
+2. Verify that port 443 is open to outgoing connections to the Azure File Sync service. You can do this with the `Test-NetConnection` cmdlet. The URL for the `<azure-file-sync-endpoint>` placeholder below can found in the [Azure File Sync proxy and firewall settings](../articles/storage/files/storage-sync-files-firewall-and-proxy.md#firewall) document. 
     ```PowerShell
     Test-NetConnection -ComputerName <azure-file-sync-endpoint> -Port 443
     ```
-3. Ensure that the proxy configuration is set as anticipated. This can be done with the `Get-StorageSyncProxyConfiguration` cmdlet. More information on configuring the proxy configuration for Azure File Sync can be found in the [Azure File Sync proxy and firewall settings](storage-sync-files-firewall-and-proxy.md#firewall).
+3. Ensure that the proxy configuration is set as anticipated. This can be done with the `Get-StorageSyncProxyConfiguration` cmdlet. More information on configuring the proxy configuration for Azure File Sync can be found in the [Azure File Sync proxy and firewall settings](../articles/storage/files/storage-sync-files-firewall-and-proxy.md#firewall).
     ```PowerShell
     $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
     Import-Module "$agentPath\StorageSync.Management.ServerCmdlets.dll"
