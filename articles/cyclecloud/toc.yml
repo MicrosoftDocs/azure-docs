@@ -26,7 +26,7 @@
     href: cyclecloud-application.md
   - name: Clusters and Nodes
     items:
-    - name: Clusters
+    - name: Clusters and Nodes
       href: clusters.md
     - name: Auto Scale
       href: autoscale.md
