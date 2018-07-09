@@ -54,9 +54,9 @@ sections:
           src: media/index/i_db.svg
         title: Single Database
       - href: /azure/sql-database/sql-database-elastic-pool
-        html: <p>Put databases into Elastic pools where they can share resources to mitigate performance impacts.</p>
+        html: <p>Easily manage the fleets of databases by putting them into Elastic pools where they can share resources.</p>
         image:
-          src: media/index/i_elasticpools.svg
+          src: media/index/i_elasticpool.svg
         title: Elastic pools
       - href: /azure/sql-database/sql-database-managed-instance
         html: <p>Use the Managed Instance to easily migrate your on-premises databases to Azure PaaS with minimal or no database code changes.</p>
