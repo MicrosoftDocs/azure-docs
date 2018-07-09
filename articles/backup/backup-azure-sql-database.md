@@ -390,13 +390,16 @@ To create a backup policy
 
 8. When you have made all edits to the Backup policy, click **OK**. 
 
-   ![differential retention range](./media/backup-azure-sql-database/differential-backup-policy.png)
+   ![accept new policy](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## Restore a SQL database
 
 Azure Backup provides functionality to restore individual databases to a specific date or time, up to a specific second, using transaction log backups. Based on restore times you provide, Azure Backup automatically determines the appropriate Full, Differential and the chain of log backups required to restore your data.
 
 Alternatively, you can select a specific Full or Differential backup to restore to a specific recovery point rather than a specific time.
+ > [!Note]
+ > Before triggering restore of “master” database please start the SQL Server in single-user mode with startup option “-m AzureWorkloadBackup”. The argument to -m is the name the client, only this client will be allowed to open the connection. For all system databases (model, master, msdb) please stop the SQL Agent service before triggering restore. Close any applications that may try to steal a connection to any of these DBs.
+>
 
 To restore a database
 
