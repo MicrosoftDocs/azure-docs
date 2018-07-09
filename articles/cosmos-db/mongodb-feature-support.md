@@ -25,9 +25,9 @@ By using the Azure Cosmos DB MongoDB API, you can enjoy the benefits of the Mong
 
 ## MongoDB Protocol Support
 
-The Cosmos DB MongoDB API is compatible with MongoDB Server version **3.2** by default. The supported operators and any limitations or exceptions are listed below. Features or query operators added in MongoDB version **3.4** are currently available as a preview feature. Any client driver that understands these protocols should be able to connect to Cosmos DB using the MongoDB API.
+The Azure Cosmos DB MongoDB API is compatible with MongoDB Server version **3.2** by default. The supported operators and any limitations or exceptions are listed below. Features or query operators added in MongoDB version **3.4** are currently available as a preview feature. Any client driver that understands these protocols should be able to connect to Cosmos DB using the MongoDB API.
 
-The [MongoDB aggregation pipeline](mongodb-feature-support.md#aggregation-pipeline) is also currently available as a separate preview feature.
+The [MongoDB aggregation pipeline](#aggregation-pipeline) is also currently available as a separate preview feature.
 
 ## MongoDB query language support
 
@@ -298,7 +298,7 @@ $text |  | Not supported. Use $regex instead.
 
 ## Unsupported operators
 
-The ```$where``` and the ```$eval``` operators are not supported by Cosmos DB and there are no plans for implementation.
+The ```$where``` and the ```$eval``` operators are not supported by Azure Cosmos DB.
 
 ### Methods
 
