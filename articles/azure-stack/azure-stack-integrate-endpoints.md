@@ -56,7 +56,8 @@ Internal infrastructure VIPs aren't listed because they’re not required for pu
 
 ## Ports and URLs (outbound)
 
-Azure Stack supports only transparent proxy servers. In a deployment where a transparent proxy uplinks to a traditional proxy server, you must allow the following ports and URLs for outbound communication:
+Azure Stack supports only transparent proxy servers. In a deployment where a transparent proxy uplinks to a traditional proxy server, you must allow the following ports and URLs for outbound communication, if URL whitelisting is not an option and you need to specify IP filters, you can use the list of the Azure datacenter IPs<br>
+https://www.microsoft.com/en-us/download/details.aspx?id=41653:
 
 
 |Purpose|URL|Protocol|Ports|
