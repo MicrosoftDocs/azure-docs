@@ -390,7 +390,7 @@ To create a backup policy
 
 8. When you have made all edits to the Backup policy, click **OK**. 
 
-   ![differential retention range](./media/backup-azure-sql-database/differential-backup-policy.png)
+   ![accept new policy](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## Restore a SQL database
 
