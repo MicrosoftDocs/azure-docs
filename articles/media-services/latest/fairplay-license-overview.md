@@ -16,7 +16,7 @@ ms.date: 07/08/2018
 ms.author: juliako
 
 ---
-# Apple FairPlay license requirements and configuration
+# Apple FairPlay license requirements and configuration 
 
 Azure Media Services enables you to encrypt your HLS content with **Apple FairPlay** (AES-128 CBC). Media Services also provides a service for delivering FairPlay licenses. When a player tries to play your FairPlay-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license that is sent to the client and is used to decrypt and play the specified content.
 

@@ -16,7 +16,7 @@ ms.date: 07/08/2018
 ms.author: juliako
 
 ---
-# Media Services PlayReady license template overview
+# Media Services PlayReady license template overview 
 
 Azure Media Services enables you to encrypt your content with **Microsoft PlayReady**. Media Services also provides a service for delivering PlayReady licenses. You can use Media Services APIs to configure PlayReady licenses. When a player tries to play your PlayReady-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license that is sent to the client and is used to decrypt and play the specified content.
 
