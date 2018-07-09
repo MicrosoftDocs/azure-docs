@@ -87,7 +87,7 @@ $vnet   = New-AzureRmVirtualNetwork `
 
 1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 2. Click **+Create a resource**. In the *Search the marketplace* field, type 'virtual wan'. Locate **Virtual WAN (preview)** from the returned list, and click to open the **Virtual WAN (preview)** page.
-3. Click **Create** to open the **Create WAN** page.
+3. Click **Create** to open the **Create WAN** page. If the page is not available, you have not yet been approved for this Preview.
 
   ![Create WAN](./media/virtual-wan-site-to-site-portal/createwan.png)
 4. On the Create WAN page, fill in the following fields.
