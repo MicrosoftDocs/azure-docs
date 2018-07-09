@@ -43,11 +43,11 @@ The IT leadership team has worked closely with their business partners to unders
 
 ## Migration goals
 
-The Contoso cloud team has pinned down goals for this migration. These goals were used to determine the best migration method.
-
-**Goals** | **Details**
---- | --- 
-**App reqs** | The app in Azure will remain as critical as it is today.<br/><br/> It should perform well and scale easily.<br/><br/> The app shouldn't use IaaS components. Everything should be built to use PaaS or serverless services.<br/><br/> The app builds should run in cloud services, and containers should reside in a private Enterprise-wide container registry in the cloud.<br/><br/> The API service used for pet photosshouldld be accurate and reliable in the real world, since decisions made by the app must be honored in their hotels. Any pet granted access is allowed to stay at the hotels.
+The Contoso cloud team has pinned down app requirements for this migration. These requirements were used to determine the best migration method:
+ - The app in Azure will remain as critical as it is today. It should perform well and scale easily.
+ - The app shouldn't use IaaS components. Everything should be built to use PaaS or serverless services.
+ - The app builds should run in cloud services, and containers should reside in a private Enterprise-wide container registry in the cloud.
+ - The API service used for pet photos should be accurate and reliable in the real world, since decisions made by the app must be honored in their hotels. Any pet granted access is allowed to stay at the hotels.
 
 ## Solution design
 
@@ -94,7 +94,7 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 5. Finally, they'll deploy the Azure function and Web App.
 
 
-    ![Migration process](./media/contoso-migration-rearchitect-container-sql/migration-process.png) 
+    ![Migration process](./media/contoso-migration-rebuild/migration-process.png) 
 
 ### Azure services
 
@@ -146,7 +146,6 @@ Contoso runs a deployment script to create the managed Kubernetes cluster using 
 3.	Contoso opens the folder using Visual Studio Code, and moves to the **/deploy/k8s** directory, which contains the script **gen-aks-env.ps1**.
 4. They run the script to create the managed Kubernetes cluster, using AKS and the Container Registry.
 
-
     ![AKS](./media/contoso-migration-rebuild/aks1.png)
  
 5.	With the file open, they update the $location parameter to **eastus2**, and save the file.
@@ -167,7 +166,9 @@ Contoso runs a deployment script to create the managed Kubernetes cluster using 
 
 9. They run the following command, passing the resource group name of ContosoRG, the name of the AKS cluster smarthotel-aks-eus2, and the new registry name.
 
-    **.\gen-aks-env.ps1  -resourceGroupName ContosoRg -orchestratorName smarthotelakseus2 -registryName smarthotelacreus2**
+    ```
+    .\gen-aks-env.ps1  -resourceGroupName ContosoRg -orchestratorName smarthotelakseus2 -registryName smarthotelacreus2
+    ```
 
     ![AKS](./media/contoso-migration-rebuild/aks6.png)
 
@@ -194,7 +195,7 @@ Contoso runs a deployment script to create the managed Kubernetes cluster using 
 
 
 
-Step 2: Build a Docker container
+## Step 2: Build a Docker container
 
 ### Create a VSTS and build
 
@@ -233,7 +234,6 @@ Contoso creates a VSTS project, and configures a CI Build to create the containe
 
 8. They select the first task (to build), and configure the build with the Azure subscription, authorization, and the ACR. 
 
-
     ![VSTS](./media/contoso-migration-rebuild/vsts8.png)
 
 9. They specify the path of the **docket-compose.yaml** file, in the **src** folder of the repo. They select to build service images, and include the latest tag. When the action changes to **Build service images**, the name of the VSTS task changes to **Build services automatically**
@@ -245,7 +245,6 @@ Contoso creates a VSTS project, and configures a CI Build to create the containe
     ![VSTS](./media/contoso-migration-rebuild/vsts10.png)
 
 11. Again, they enter the file to the docker-compose.yaml file, and select **Push service images** and include the latest tag. When the action changes to **Push service images**, the name of the VSTS task changes to **Push services automatically**
-
 
     ![VSTS](./media/contoso-migration-rebuild/vsts11.png)
 
@@ -267,7 +266,9 @@ Contoso creates a VSTS project, and configures a CI Build to create the containe
 With the AKS cluster created and the Docker images build, Contoso now deploys the rest of the infrastructure that will be leveraged by backend microservices.
 
 - Instructions in the section use the [SmartHotel360-Azure-Backend](https://github.com/Microsoft/SmartHotel360-Azure-backend) repo.
-- In the /deploy/k8s/arm folder, there's a single ARM script to create all items. 
+- In the **/deploy/k8s/arm** folder, there's a single ARM script to create all items. 
+
+They deploy as follows:
 
 1. Contoso uses the deploy.cmd file to deploy the Azure resources in the ContosoRG resource group and EUS2 region, by typing the following command:
 
@@ -334,11 +335,10 @@ Contoso provisions the Computer Vision API. The API will be called by the functi
 
     ![Computer Vision](./media/contoso-migration-rebuild/vision2.png)
 
-
 3. They save the connection settings for the API to a text file for later reference.
 
 
-     ![Computer Vision](./media/contoso-migration-rebuild/vision2.png)
+     ![Computer Vision](./media/contoso-migration-rebuild/vision3.png)
 
 ## Step 5: Deploy the backend services in Azure
 
@@ -365,7 +365,6 @@ The instructions in this section use the [SmartHotel360-Azure-Backend](https://g
 
     ```
     kubectl get services
-
     ```
 4. They open the Kubernetes dashboard to review the deployment:
 
@@ -404,7 +403,7 @@ The instructions in this section use the [SmartHotel-public-web repo.](https://g
 
     ![Publish frontend](./media/contoso-migration-rebuild/front-publish2.png)
 
-5. After the file is update, they rename it to **smarthotelsettingsurl**, and upload it to the storage blob they created earlier.
+5. After the file is updated, they rename it to **smarthotelsettingsurl**, and upload it to the storage blob they created earlier.
 
      ![Publish frontend](./media/contoso-migration-rebuild/front-publish3.png)
 
@@ -434,7 +433,7 @@ Now Contoso can publish their website.
 
     ![Publish website](./media/contoso-migration-rebuild/deploy-website3.png)
 
-5. They specify an app name, and place it in the production resource group *ContosoRG**, in the main East US 2 region.
+5. They specify an app name, and place it in the production resource group **ContosoRG**, in the main East US 2 region.
 
     ![Publish website](./media/contoso-migration-rebuild/deploy-website4.png)
 
@@ -456,7 +455,7 @@ Now Contoso can publish their website.
 
     ![Deploy the function](./media/contoso-migration-rebuild/function4.png)
 
-5. To run the function locally first, they update settings in **PetCheckerFunction/loal.settings.json**.
+5. To run the function locally first, they update settings in **PetCheckerFunction/local.settings.json**.
 
     ![Deploy the function](./media/contoso-migration-rebuild/function5.png)
 
