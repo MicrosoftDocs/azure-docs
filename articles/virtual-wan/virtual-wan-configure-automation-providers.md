@@ -3,26 +3,24 @@ title: 'Configure Azure Virtual WAN automation - for Providers | Microsoft Docs'
 description: This article helps software-defined connectivity solutions providers set up Azure Virtual WAN automation.
 services: virtual-wan
 author: cherylmc
-Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
+
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 07/05/2018
+ms.date: 07/09/2018
 ms.author: cherylmc
+Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 
 ---
 # Configure Virtual WAN automation - for Providers (Preview)
 
-**This article is in progress.**
-
-This article shows you how to set up the automation to connect and configure a branch device (customer on-premises vpn device) for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2, this article is for you.
+This article helps you understand how to set up the automation envorionment to connect and configure a branch device (a customer on-premises vpn device) for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2, this article is for you.
 
 Software-defined connectivity solutions typically use a controller or a device provisioning center to manage their branch devices. The controller can use Azure APIs to automate connectivity to Azure Virtual WAN. This type of connection requires a VPN device located on-premises that has an externally-facing public IP address assigned to it.
 
 ## 1. Access control
 
-Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal (Insert Link here). Service principal-based access will provide the device controller appropriate authentication to upload branch information.
+Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access will provide the device controller appropriate authentication to upload branch information.
 
 ## 2. Branch information website
 
@@ -44,6 +42,13 @@ You should automate this step. The controller can call **GetVpnConfiguration** R
   * VPN connectivity uses route-based configuration and IKEv2.
 
 ### Configuration file
+
+When you view this file, notice the following information:
+
+* **IP addresses** - Virtual WAN IPsec gateways are active-active. You will see both IP addresses listed in this file. In this example, you see "Instance0" and "Instance1" for each site.
+* **BGP** - You can see if BGP is enabled in the *connectionConfiguration*.
+* **The pre-shared key** - PSK is the pre-shared key that is automatically generated for you. You can always edit the connection in the Overview page for a custom PSK.
+
   
   ```
   { 
@@ -162,7 +167,6 @@ The following table lists the supported cryptographic algorithms and key strengt
 | PFS Group | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None|
 | QM SA Lifetime | Seconds (integer; min. 300/default 27000 seconds)<br>KBytes (integer; min. 1024/default 102400000 KBytes) |
 
-
 **Additional information**
 1. DHGroup2048 & PFS2048 are the same as Diffie-Hellman Group 14 in IKE and IPsec PFS. See Diffie-Hellman Groups for the complete mappings.
 2. For GCMAES algorithms, you must specify the same GCMAES algorithm and key length for both IPsec Encryption and Integrity.
@@ -192,3 +196,7 @@ The table below lists the supported Diffie-Hellman Groups for IKE (DHGroup) and 
 | 19 |	ECP256 |	ECP256 |
 | 20| ECP384 |	ECP284|
 | 24 |	DHGroup24 |	PFS24 |
+
+## Next steps
+
+For more information about Virtual WAN, see [About Azure Virtual WAN](virtual-wan-about.md) and the [Azure Virtual WAN FAQ](virtual-wan-faq.md)
