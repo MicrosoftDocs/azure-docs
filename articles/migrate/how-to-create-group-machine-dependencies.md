@@ -63,7 +63,7 @@ To install the agent on a Linux machine:
 4. The dependency map for the machine shows the following details:
     - Inbound (Clients) and outbound (Servers) TCP connections to/from the machine
         - The dependent machines that do not have the MMA and dependency agent installed are grouped by port numbers
-        - The dependenct machines that have the MMA and the dependency agent installed are shown as separate boxes
+        - The dependent machines that have the MMA and the dependency agent installed are shown as separate boxes
     - Processes running inside the machine, you can expand each machine box to view the processes
     - Properties like Fully Qualified Domain Name, Operating System, MAC Address etc. of each machine, you can click on each machine box to view these details
 
