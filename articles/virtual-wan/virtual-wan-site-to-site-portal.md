@@ -8,14 +8,14 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 07/09/2018
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a preferred provider.
+Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
 # Tutorial: Create a Site-to-Site connection using Azure Virtual WAN (Preview)
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv2) VPN connection. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md)
 
 > [!NOTE]
-> If you have many sites, you typically would use a [Virtual WAN preferred provider](https://aka.ms.virtualwan) to create this configuration. However, you can create this configuration yourself if you are comfortable with networking and proficient at configuring your own VPN device.
+> If you have many sites, you typically would use a [Virtual WAN partner](https://aka.ms.virtualwan) to create this configuration. However, you can create this configuration yourself if you are comfortable with networking and proficient at configuring your own VPN device.
 >
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)

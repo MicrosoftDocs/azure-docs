@@ -12,7 +12,7 @@ ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 
 ---
-# Configure Virtual WAN automation - for Providers (Preview)
+# Configure Virtual WAN automation - for Virtual WAN providers (Preview)
 
 This article helps you understand how to set up the automation envorionment to connect and configure a branch device (a customer on-premises vpn device) for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2, this article is for you.
 

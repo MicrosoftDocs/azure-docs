@@ -14,17 +14,17 @@
 
 Virtual WAN provides large-scale Site-to-Site connectivity and is built for throughput, scalability, and ease of use. CPE branch devices auto-provision and connect into Azure Virtual WAN. These devices are available from a growing ecosystem of SD-WAN and VPN partners.
 
-### Which device-partners (preferred partners) are supported at launch time? 
+### Which device providers (Virtual WAN partners) are supported at launch time? 
 
-At this time,  Citrix and Riverbed support the fully automated Virtual WAN experience. More partners will be on-boarding in coming months, including: Nokia Nuage, Palo Alto, and Checkpoint. For more information, see [Device Partners](https://aka.ms/virtualwan).
+At this time,  Citrix and Riverbed support the fully automated Virtual WAN experience. More partners will be on-boarding in coming months, including: Nokia Nuage, Palo Alto, and Checkpoint. For more information, see [Virtual WAN partners](https://aka.ms/virtualwan).
 
 ### Am I required to use a preferred partner device?
 
 No. You can use any VPN-capable device that adheres to the Preview requirements for IKEv2 IPsec support.
 
-### How do preferred providers automate connectivity with Azure Virtual WAN?
+### How do Virtual WAN partners automate connectivity with Azure Virtual WAN?
 
-Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. For more information about how this works, see [Preferred provider configuration](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
+Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. For more information about how this works, see [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
 ### Does Virtual WAN change any existing connectivity features?   
 
