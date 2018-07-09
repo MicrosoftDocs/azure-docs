@@ -19,9 +19,9 @@ ms.custom: jenkins
 
 # Deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment strategy
 
-Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline. For more information about AKS, refer to the [AKS documentation](/azure/aks/).
+Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline. For more information about AKS, see to the [AKS documentation](/azure/aks/).
 
-Blue/green deployment is a DevOps Continuous Delivery (CD) pattern that relies on keeping an existing (blue) version live while a new (green) one is deployed. Typically, this pattern employs load balancing to direct increasing amounts of traffic to the green deployment. If monitoring discovers an incident, traffic can be rerouted to the blue deployment still running. For more information about Continuous Delivery, refer to the article, [What is Continuous Delivery](/azure/devops/what-is-continuous-delivery).
+Blue/green deployment is a DevOps Continuous Delivery (CD) pattern that relies on keeping an existing (blue) version live while a new (green) one is deployed. Typically, this pattern employs load balancing to direct increasing amounts of traffic to the green deployment. If monitoring discovers an incident, traffic can be rerouted to the blue deployment still running. For more information about Continuous Delivery, see to the article, [What is Continuous Delivery](/azure/devops/what-is-continuous-delivery).
 
 In this tutorial, you learn how to perform the following tasks in learning how to deploy to AKS using Jenkins and the blue/green deployment pattern:
 
@@ -73,11 +73,11 @@ A sample app that illustrates how to use deploy to AKS using Jenkins and the blu
 
 You can create the Azure Services using [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). For AKS, make sure Azure CLI is version 2.0.25 or later.
 
-AKS is still in preview at the time when these instructions are created. For information on enabling the preview for your Azure subscription. refer to [this](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription) for more details.
+AKS is still in preview at the time when these instructions are created. For information on enabling the preview for your Azure subscription. see to [this](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription) for more details.
 
 ### Create AKS
 
-1. Log in to your Azure CLI, and set your subscription ID 
+1. Sign in to your Azure CLI, and set your subscription ID 
     
     ```bash
     az login
@@ -156,7 +156,7 @@ Setting up a blue/green deployment in AKS requires the following setup:
 
     az network public-ip update --dns-name todoapp-green --ids /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
     ```
-    Note that the dns name needs to be unique in your subscription. `<your-dns-name-suffix>` can be used to ensure the uniqueness.
+    Note the DNS name needs to be unique in your subscription. `&lt;your-dns-name-suffix>` can be used to ensure the uniqueness.
 
 
 ### Create Azure Container Registry
