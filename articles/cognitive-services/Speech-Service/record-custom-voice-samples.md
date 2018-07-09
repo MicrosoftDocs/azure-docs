@@ -182,7 +182,7 @@ Record a good five seconds of silence before the first recording to capture the 
 Listen closely, using headphones, to the voice talent's performance. You're looking for good but natural diction, correct pronunciation, and a lack of unwanted sounds. Don't hesitate to ask your talent to re-record an utterance that doesn't meet these standards. 
 
 > [!TIP] 
-> WWhen recording a high volume of utterances, losing a single utterance may not affect the resulting voice in any noticeable way. So it may be more expedient to simply note any utterances that have problems, exclude them from your data set, and see how your custom voice turns out. You can always go back to the studio and record the missed samples later.
+> When recording a high volume of utterances, losing a single utterance may not affect the resulting voice in any noticeable way. So it may be more expedient to simply note any utterances that have problems, exclude them from your data set, and see how your custom voice turns out. You can always go back to the studio and record the missed samples later.
 
 Most studios have a large "time code" display indicating the current time in the recording. Take a note of the time on your script for each utterance. Ask the engineer if they can mark each utterance in the recording's metadata or cue sheet as well.
 
