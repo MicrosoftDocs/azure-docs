@@ -21,13 +21,25 @@ Because Docker container images share layer data and include several components 
 
 ### Registry
 
-A container registry is a service that stores and distributes container images. For example, Docker Hub is a public Docker container registry, and Azure Container Registry provides private container registries in Azure.
+A container registry is a service that stores and distributes container images. For example, Docker Hub is a public Docker container registry, while Azure Container Registry provides private container registries in Azure.
 
 ### Repository
 
-Within each registry are image repositories, collections of container images with the same name. Each image can have a different tag, typically used for denoting its version.
+Within each registry are image *repositories*, collections of container images with the same name, but different tags. The name of an image defines the repository name, followed by the image's tag:
+
+`repository:tag`
+
+For example, these three images reside within the `acr-helloworld` repository, each with a different tag:
+
+```
+acr-helloworld:latest
+acr-helloworld:v1
+acr-helloworld:v2
+```
 
 ## Components of an image
+
+Although you can push and pull images in a registry, deleting an image is not quite as straightforward. Because images in a repository share layer data, you
 
 ### Tag
 
