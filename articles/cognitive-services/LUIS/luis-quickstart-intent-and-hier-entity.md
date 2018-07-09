@@ -25,7 +25,7 @@ In this tutorial, create an app that demonstrates how to find related pieces of 
 > * Train, and publish app
 > * Query endpoint of app to see LUIS JSON response including hierarchical children 
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
 ## Before you begin
 If you don't have the Human Resources app from the [list entities](luis-quickstart-intent-and-list-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github repository.
@@ -270,8 +270,4 @@ When no longer needed, delete the LUIS app. To do so, select the ellipsis (***..
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Learn how to add a list entity](luis-quickstart-intent-and-list-entity.md) 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
+> [Learn how to add a composite entity](luis-tutorial-composite-entity.md) 

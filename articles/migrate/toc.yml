@@ -36,8 +36,14 @@
       href: contoso-migration-rehost-linux-vm.md
     - name: 8. Contoso-Rehost a Linux app on Azure VMs and Azure MySQL
       href: contoso-migration-rehost-linux-vm-mysql.md
+    - name: 9. Contoso-Refactor an app on Azure Web Apps and Azure SQL Database
+      href: contoso-migration-refactor-web-app-sql.md
     - name: 10. Contoso-Refactor a Linux app on Azure Web Apps and Azure MySQL
       href: contoso-migration-refactor-linux-app-service-mysql.md
+    - name: 11. Contoso-Migrate TFS to VSTS
+      href: contoso-migration-tfs-vsts.md
+    - name: 12. Contoso-Rearchitect an app on Azure Service Fabric and Azure SQL Database
+      href: contoso-migration-rearchitect-container-sql.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
   - name: Group machines
