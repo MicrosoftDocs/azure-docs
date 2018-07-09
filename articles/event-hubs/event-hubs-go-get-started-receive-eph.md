@@ -103,7 +103,7 @@ az storage container create \
 	--account-name ${AZURE_STORAGE_ACCOUNT_NAME}
 ```
 
-## Receive Messages
+## Receive messages
 
 Time to receive the messages!
 
