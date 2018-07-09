@@ -25,6 +25,8 @@ ms.author: sedusch
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates#memory-preserving-maintenance
+[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates#memory-preserving-maintenance
 
 There are two options to set up a Pacemaker cluster in Azure. You can either use a fencing agent, which takes care of restarting a failed node via the Azure APIs or you can use an SBD device.
 
@@ -332,11 +334,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Add the following bold content to the file if the values are not there or different.
+   Add the following bold content to the file if the values are not there or different. Make sure to change the token to 30000 to allow Memory preserving maintenance. See [this article for Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance] for more details.
    
    <pre><code> 
    [...]
-     <b>token:          5000
+     <b>token:          30000
      token_retransmits_before_loss_const: 10
      join:           60
      consensus:      6000
