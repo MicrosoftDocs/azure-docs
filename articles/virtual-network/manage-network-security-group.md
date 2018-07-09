@@ -249,21 +249,25 @@ You cannot delete an application security group if it has any network interfaces
 
 To perform tasks on network security groups, security rules, and application security groups, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate permissions listed in the following tables:
 
-### Network security groups
+### Network security group
 
 | Action                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
-| Microsoft.Network/ruleTables/read                             |   Get network security group                                          |
-| Microsoft.Network/ruleTables/write                            |   Create or update network security group                             |
-| Microsoft.Network/ruleTables/delete                           |   Delete network security group                                       |
-| Microsoft.Network/ruleTables/join/action                      |   Associate a network security group to a subnet or network interface |
-| Microsoft.Network/ruleTables/rules/read                       |   Get rule                                                            |
-| Microsoft.Network/ruleTables/rules/write                      |   Create or update rule                                               |
-| Microsoft.Network/ruleTables/rules/delete                     |   Delete rule                                                         |
-| Microsoft.Network/networkInterfaces/effectiveruleTable/action |   Get Network Interface Effective network security group              |
-| Microsoft.Network/networkWatchers/nextHop/action              |   Gets the next hop from a VM                                         |
+| Microsoft.Network/networkSecurityGroups/read                  |   Get network security group                                          |
+| Microsoft.Network/networkSecurityGroups/write                 |   Create or update network security group                             |
+| Microsoft.Network/networkSecurityGroups/delete                |   Delete network security group                                       |
+| Microsoft.Network/networkSecurityGroups/join/action           |   Associate a network security group to a subnet or network interface 
 
-### Application security groups
+
+### Network security group rule
+
+| Action                                                        |   Name                                                                |
+|-------------------------------------------------------------- |   -------------------------------------------                         |
+| Microsoft.Network/networkSecurityGroups/rules/read            |   Get rule                                                            |
+| Microsoft.Network/networkSecurityGroups/rules/write           |   Create or update rule                                               |
+| Microsoft.Network/networkSecurityGroups/rules/delete          |   Delete rule                                                         |
+
+### Application security group
 
 | Action                                                                     | Name                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
