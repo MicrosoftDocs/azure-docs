@@ -19,7 +19,14 @@ ms.custom: Jenkins
 
 # Deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment strategy
 
-This document shows you how to deploy the todo app java project to AKS using Jenkins and blue/green deployment strategy. 
+Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline. For more information about AKS, refer to the [AKS documentation](/azure/aks/).
+
+Blue/green deployment is a DevOps Continuous Delivery (CD) pattern that relies on keeping an existing (blue) version live while a new (green) one is deployed. Typically, this pattern employs load balancing to direct increasing amounts of traffic to the green deployment. If monitoring discovers an incident, traffic can be rerouted to the blue deployment still running. For more information about Continuous Delivery, refer to the article, [What is Continuous Delivery?](/azure/devops/what-is-continuous-delivery).
+
+In this tutorial, you learn how to perform the following tasks in learning how to deploy to AKS using Jenkins and the blue/green deployment pattern:
+
+> [!div class="checklist"]
+> * 
 
 ## Fork the todo-app-java-on-azure repo
 
