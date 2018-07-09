@@ -17,7 +17,7 @@ In machine learning, a *feature* is a distinguishing trait or attribute of data 
 Add features to a language model to provide hints about how to recognize input that you want to label or classify. Features help LUIS recognize both intents and entities, but features are not intents or entities themselves. Instead, features might provide examples of related terms.  
 
 ## What is a phrase list feature?
-A phrase list includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well. This is not a closed [list entity](luis-concept-entity-types.md#types-of-entities) (exact text matches) of matched words.
+A phrase list includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well. This list is not a closed [list entity](luis-concept-entity-types.md#types-of-entities) (exact text matches) of matched words.
 
 A phrase list adds to the vocabulary of the app domain as a second signal to LUIS about those words.
 
@@ -26,8 +26,9 @@ In a travel agent app, create a phrase list named "Cities" that contains the val
 
 A phrase list may be interchangeable or non-interchangeable. An *interchangeable* phrase list is for values that are synonyms, and a *non-interchangeable* phrase list is intended for values that aren't synonyms but are similar in another way. 
 
-## Phrase lists help identify simple exchangeable entities
-Exchangeable phrase lists are a good way to tune the performance of your LUIS app. If your app has trouble predicting utterances to the correct intent, or recognizing entities, think about whether the utterances contain unusual words, or words that might be ambiguous in meaning. These words are good candidates to include in a phrase list.
+<a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
+## Phrase lists help identify simple Interchangeable entities
+Interchangeable phrase lists are a good way to tune the performance of your LUIS app. If your app has trouble predicting utterances to the correct intent, or recognizing entities, think about whether the utterances contain unusual words, or words that might be ambiguous in meaning. These words are good candidates to include in a phrase list.
 
 ## Phrase lists help identify intents by better understanding context
 Use phrase lists for rare, proprietary, and foreign words. LUIS may be unable to recognize rare and proprietary words, as well as foreign words (outside of the culture of the app), and therefore they should be added to a phrase list. This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.
@@ -37,10 +38,10 @@ A phrase list is not an instruction to LUIS to perform strict matching or always
 Adding a phrase list is an alternative to adding more example utterances to an intent. 
 
 ## An interchangeable phrase list
-Use an interchangeable phrase list when the list of words or phases form a class or group. An example is  months like "January", "February", "March"; or names like "John", "Mary", "Frank".  These features are interchangeable in the sense that an utterance where one word or phrase appears would be labeled similarly if the word/phrase were *interchanged* with another.  For example, if "show the calendar for January" has the same intent as "show the calendar for February", then the words should be on an interchangeable list. 
+Use an interchangeable phrase list when the list of words or phases create a class or group. An example is a list of months like "January", "February", "March"; or names like "John", "Mary", "Frank".  These lists are interchangeable in that the utterance would be labeled with the same intent or entity if a different word in the phrase list were used. For example, if "show the calendar for January" has the same intent as "show the calendar for February", then the words should be on an interchangeable list. 
 
 ## A non-interchangeable phrase list
-Use a non-interchangeable phrase list for words or phrases that are useful in your domain, but which do not form a class or group.  For example, the words "calendar", "email", "show", and "send" might be relevant to your domain, but might all be associated with different intents, like "show my calendar" or "send an email". 
+Use a non-interchangeable phrase list for words or phrases that are useful in your domain, but do not form a class or group. For example, the words "calendar", "email", "show", and "send" might be relevant to your domain, but are not in the same group. 
 
 ## When to use phrase lists versus list entities
 While both a phrase list and list entities can impact utterances across all intents, each does this in a different way. Use a phrase list to affect intent prediction score. Use a list entity to affect entity extraction for an exact text match. 
@@ -53,7 +54,7 @@ When you want to be able to recognize new instances of an entity, like a meeting
 Phrase lists are like domain-specific vocabulary that help with enhancing the quality of understanding of both intents and entities. A common usage of a phrase list is proper nouns such as city names. A city name can be several words including hyphens, or apostrophes.
  
 ### Don't use a phrase list 
-A list entity explicitly defines every value an entity can take, and only identifies values that match exactly. A list entity may be appropriate for an app in which all instances of an entity are known and don't change often, like the food items on a restaurant menu that changes infrequently. If you need an exact text match of an entity, do not use a phrase list. 
+A list entity explicitly defines every value an entity can take, and only identifies values that match exactly. A list entity may be appropriate for an app in which all instances of an entity are known and don't change often. Examples are food items on a restaurant menu that changes infrequently. If you need an exact text match of an entity, do not use a phrase list. 
 
 ## Best practices
 Learn [best practices](luis-concept-best-practices.md).
