@@ -195,9 +195,9 @@ In the **Reference Manager**, select the checkbox for **Model**, and click **OK*
 ASP.Net Web API projects use the model view controller (MVC) pattern. Next create a data context that coordinates serving up the data from the data model.
 
 To add the data context class, in the solution explorer right-click **ToDoService** and then **Add** > **Class**.
-In the **Add New Item** dialog that appears, make sure that **Class** is selected, and set the **Name** to `Datacontext.cs`, and click **Add**.
+In the **Add New Item** dialog that appears, make sure that **Class** is selected, and set the **Name** to `DataContext`, and click **Add**.
 
-In **Datacontext.cs**, replace the contents of the empty `class DataContext` with:
+In **DataContext.cs**, replace the contents of the empty `class DataContext` with:
 
 ```csharp
 public static class DataContext
@@ -265,7 +265,7 @@ public class ToDoController : Controller
 }
 ```
 
-This tutorial does not implement add, delete, and so on to keep the focus on communicating with another service.
+This tutorial does not implement add, delete, and so on out of simplicity to keep the focus on communicating with another service.
 
 ## Create the web page that displays to-do items
 
@@ -273,7 +273,7 @@ With the back-end service implemented, code the web site that will display the t
 
 The web page that displays the to-do items needs access to the **ToDoItem** class and list. Add a reference to the Model project in the **Solution Explorer** by right-clicking **WebFrontEnd** and selecting **Add** > **Reference...** The **Reference Manager** dialog will appear.
 
-In the **Reference Manager**, select the checkbox for **Model**, and click **OK**.
+In the **Reference Manager**, click the checkbox for **Model**, and click **OK**.
 
 In the **Solution Explorer**, open the Index.cshtml page by navigating to **WebFrontEnd** > **Pages** > **Index.cshtml**. Open **Index.cshtml**.
 
@@ -352,9 +352,10 @@ The URL is composed of the application name, the service name, and the port. All
 * The service name, `ToDoService`, is found under `services:` after `name:` See (2) in the figure above.
 * The port, `20006`, is found under `endpoints:` after `port:` See (3) in the figure above.
 
-Next, environment variables representing the app name, service name, and port number will be defined in the WebFrontEnd project to enable it to call the back-end service. In **Solution Explorer**, navigate  to **WebFrontEnd** > **Service Resources** > **service.yaml** to define the variables that specify the back-end service address.
+Next, environment variables representing the app name, service name, and port number will be defined in the WebFrontEnd project to enable it to call the back-end service.
+In **Solution Explorer**, navigate  to **WebFrontEnd** > **Service Resources** > **service.yaml** to define the variables that specify the back-end service address.
 
-In the service.yaml file, add the following variables under `environmentVariables`. The spacing is very particular so line up using the same spacing used by the other variables under `environmentVariables:`
+In the service.yaml file, add the following variables under `environmentVariables`. The spacing is very particular so align the variables you add with the other variables under `environmentVariables:`
 
 > [!IMPORTANT]
 > Spaces, not tabs, must be used to indent the variables in the service.yaml file or it won't compile. Visual Studio may insert tabs as you create the environment variables. Replace all tabs with spaces. Although you'll see errors in the **build** debug output, the app will still launch. It won't work, however, until you convert the tabs to spaces. To ensure that no tabs are in the service.yaml file, you can make whitespace visible in the Visual Studio editor with  **Edit**  > **Advanced**  > **View White Space**.
