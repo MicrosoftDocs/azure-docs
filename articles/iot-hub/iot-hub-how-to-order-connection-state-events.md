@@ -42,86 +42,87 @@ First, create a stored procedure and set it up to run a logic that compares sequ
 ```java
 // SAMPLE STORED PROCEDURE
 function UpdateDevice(deviceId, moduleId, hubName, connectionState, connectionStateUpdatedTime, sequenceNumber) {
-var collection = getContext().getCollection();
-var response = {};
-var docLink = getDocumentLink(deviceId, moduleId);
- 
-var isAccepted = collection.readDocument(docLink, function(err, doc) {
-if (err) {
-console.log('Cannot find device ' + docLink + ' - ');
-createDocument();
-} else {
-console.log('Document Found - ');
-replaceDocument(doc);
-}
-});
- 
-function replaceDocument(document) {
-console.log(
-'Old Seq :' +
-document.sequenceNumber +
-' New Seq: ' +
-sequenceNumber +
-' - '
-);
-if (sequenceNumber > document.sequenceNumber) {
-document.connectionState = connectionState;
-document.connectionStateUpdatedTime = connectionStateUpdatedTime;
-document.sequenceNumber = sequenceNumber;
- 
-console.log('replace doc - ');
- 
-isAccepted = collection.replaceDocument(docLink, document, function(
-err,
-updated
-) {
-if (err) {
-getContext()
-.getResponse()
-.setBody(err);
-} else {
-getContext()
-.getResponse()
-.setBody(updated);
-}
-});
-} else {
-getContext()
-.getResponse()
-.setBody('Old Event - current: ' + document.sequenceNumber + ' Incoming: ' + sequenceNumber);
-}
-}
-function createDocument() {
-document = {
-id: deviceId + '-' + moduleId,
-deviceId: deviceId,
-moduleId: moduleId,
-hubName: hubName,
-connectionState: connectionState,
-connectionStateUpdatedTime: connectionStateUpdatedTime,
-sequenceNumber: sequenceNumber
-};
-console.log('Add new device - ' + collection.getAltLink());
-isAccepted = collection.createDocument(
-collection.getAltLink(),
-document,
-function(err, doc) {
-if (err) {
-getContext()
-.getResponse()
-.setBody(err);
-} else {
-getContext()
-.getResponse()
-.setBody(doc);
-}
-}
-);
-}
- 
-function getDocumentLink(deviceId, moduleId) {
-return collection.getAltLink() + '/docs/' + deviceId + '-' + moduleId;
-}
+  var collection = getContext().getCollection();
+  var response = {};
+  
+  var docLink = getDocumentLink(deviceId, moduleId);
+
+  var isAccepted = collection.readDocument(docLink, function(err, doc) {
+    if (err) {
+      console.log('Cannot find device ' + docLink + ' - ');
+      createDocument();
+    } else {
+      console.log('Document Found - ');
+      replaceDocument(doc);
+    }
+  });
+
+  function replaceDocument(document) {
+    console.log(
+      'Old Seq :' +
+        document.sequenceNumber +
+        ' New Seq: ' +
+        sequenceNumber +
+        ' - '
+    );
+    if (sequenceNumber > document.sequenceNumber) {
+      document.connectionState = connectionState;
+      document.connectionStateUpdatedTime = connectionStateUpdatedTime;
+      document.sequenceNumber = sequenceNumber;
+
+      console.log('replace doc - ');
+
+      isAccepted = collection.replaceDocument(docLink, document, function(
+        err,
+        updated
+      ) {
+        if (err) {
+          getContext()
+            .getResponse()
+            .setBody(err);
+        } else {
+          getContext()
+            .getResponse()
+            .setBody(updated);
+        }
+      });
+    } else {
+      getContext()
+        .getResponse()
+        .setBody('Old Event - current: ' + document.sequenceNumber + ' Incoming: ' + sequenceNumber);
+    }
+  }
+  function createDocument() {
+    document = {
+      id: deviceId + '-' + moduleId,
+      deviceId: deviceId,
+      moduleId: moduleId,
+      hubName: hubName,
+      connectionState: connectionState,
+      connectionStateUpdatedTime: connectionStateUpdatedTime,
+      sequenceNumber: sequenceNumber
+    };
+    console.log('Add new device - ' + collection.getAltLink());
+    isAccepted = collection.createDocument(
+      collection.getAltLink(),
+      document,
+      function(err, doc) {
+        if (err) {
+          getContext()
+            .getResponse()
+            .setBody(err);
+        } else {
+          getContext()
+            .getResponse()
+            .setBody(doc);
+        }
+      }
+    );
+  }
+
+  function getDocumentLink(deviceId, moduleId) {
+    return collection.getAltLink() + '/docs/' + deviceId + '-' + moduleId;
+  }
 }
 ```
 3. Save the stored procedure: 
