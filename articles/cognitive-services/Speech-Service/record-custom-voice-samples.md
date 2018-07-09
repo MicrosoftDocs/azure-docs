@@ -16,7 +16,7 @@ ms.author: v-jerkin
 
 Creating a high-quality production custom voice from scratch is not a casual undertaking. The central component of a custom voice is a large collection of audio samples of human speech. It's vital that these audio recordings be of high quality. Choose voice talent that has experience making these kinds of recordings, and have them recorded by a competent recording engineer using professional equipment.
 
-Before you can make these recordings, though, you need a script: the words that will be read by your voice talent to create the audio samples. For best results, your script must have good phonetic coverage and sufficient variety to train the custom voice model.
+Before you can make these recordings, though, you need a script: the words that will be spoken by your voice talent to create the audio samples. For best results, your script must have good phonetic coverage and sufficient variety to train the custom voice model.
 
 Many ingredients go into a good custom voice. This guide serves as an introduction to the process, with particular focus on issues you are likely to encounter.
 
@@ -25,7 +25,7 @@ Many ingredients go into a good custom voice. This guide serves as an introducti
 
 ## Voice recording roles
 
-There are four basic roles in a voice recording project for custom voices.
+There are four basic roles in a custom voice recording project.
 
 Role|Purpose
 -|-
@@ -38,7 +38,7 @@ An individual may fill more than one role. This guide assumes that you will be p
 
 ## Choosing voice talent
 
-Actors with experience in voiceover or voice character work make good custom voice talent. You can also often find suitable talent among announcers and newsreaders. 
+Actors with experience in voiceover or voice character work make good custom voice talent. You can also often find suitable talent among announcers and newsreaders.
 
 Choose voice talent whose natural voice you like. It is possible to create unique "character" voices, but it's much harder for most talent to perform them consistently, and the effort can cause voice strain.
 
@@ -51,33 +51,33 @@ Your voice talent is the other half of the equation. He or she must be able to s
 
 Recording custom voice samples can be more fatiguing than other kinds of voice work. Most voice talent can record for two or three hours a day. Limit sessions to three or four a week, with a day off in between if possible.
 
-Recordings made for a voice model should be emotionally neutral. That is, a sad utterance should not be read in a sad way. Neutrality lets mood be added to the synthesized speech later. Work with your voice talent to develop a "persona" that defines the overall sound and emotional tone of the custom voice. This process will pinpoint what "neutral" sounds like for that persona.
+Recordings made for a voice model should be emotionally neutral. That is, a sad utterance should not be read in a sad way. Mood can be added to the synthesized speech later. Work with your voice talent to develop a "persona" that defines the overall sound and emotional tone of the custom voice. In the process, you'll pinpoint what "neutral" sounds like for that persona.
 
-A persona may have, for example, a naturally upbeat personality. So their voice may carry a note of optimism even when speaking neutrally. However, any such personality trait should be subtle and consistent. Listen to some existing voices to get an idea of what you're aiming for.
+A persona may have, for example, a naturally upbeat personality. So the voice may carry a note of optimism even when speaking neutrally. However, such a personality trait should be subtle and consistent. Listen to some existing voices to get an idea of what you're aiming for.
 
 ### Legalities
 
-Usually, you'll want to own the voice recordings you make. Your voice talent should therefore be amenable to a work-for-hire contract for the project.
+Usually, you'll want to own the voice recordings you make. Your voice talent should be amenable to a work-for-hire contract for the project.
 
 ## Creating a script
 
-The starting point of any custom voice is the script, which contains the utterances to be recorded by your voice talent. The term "utterances" encompasses both full sentences and shorter phrases.
+The starting point of any custom voice recording session is the script, which contains the utterances to be spoken by your voice talent. (The term "utterances" encompasses both full sentences and shorter phrases.)
 
 The utterances in your script can come from anywhere: fiction, non-fiction, transcripts of speeches, news reports, and anything else available in printed form. If you want to make sure your voice does well on specific kinds of words (such as medical terminology or programming jargon), you may want to include sentences from scholarly papers or technical documents. (However, see [Legalities](#legalities) below.) You can also write your own text.
 
-Your utterances don't need come from the same source, or the same kind of source. They don't even need to have anything to do with each other. However, if you will use set phrases (for example, "You have successfully logged in") in your speech application, make sure to include them in your script. This wil give your custom voice a better chance of pronouncing those phrases well. And if you later decide to use a recording in place of synthesized speech, you'll already have it.
+Your utterances don't need come from the same source, or the same kind of source. They don't even need to have anything to do with each other. However, if you will use set phrases (for example, "You have successfully logged in") in your speech application, make sure to include them in your script. This wil give your custom voice a better chance of pronouncing those phrases well. And if you should decide to use a recording in place of synthesized speech, you'll already have it in the same voice as your synthesized speech.
 
 While consistency is key in choosing voice talent, variety is the hallmark of a good script. Your script should include many different words and sentences with a variety of sentence lengths, structures, and moods. Every sound in the language should be represented multiple times and in numerous contexts (called *phonetic coverage).* 
 
-Furthermore, the text should incorporate all the ways that a particular sound can be represented in writing, and place each sound at varying places in the sentences. Both declarative sentences and questions should be included, and read with appropriate intonation.
+Furthermore, the text should incorporate all the ways that a particular sound can be represented in writing, and place each sound at varying places in the sentences. Both declarative sentences and questions should be included and read with appropriate intonation.
 
-It's difficult to write a script that provides *just enough* data to allow the Custom Speech portal to build a good voice. In practice, the simplest way to make a script that achieves robust phonetic coverage is to increase the number of samples. Microsoft's standard voices were built from tens of thousands of utterances. You should be prepared to record a few to several thousand utterances to build a production-quality custom voice.
+It's difficult to write a script that provides *just enough* data to allow the Custom Speech portal to build a good voice. In practice, the simplest way to make a script that achieves robust phonetic coverage is to include a large number of samples. Microsoft's standard voices were built from tens of thousands of utterances. You should be prepared to record a few to several thousand utterances to build a production-quality custom voice.
 
 Check the script carefully for errors. If possible, have someone else check it too. When you run through the script with your talent, you'll probably catch a few more mistakes.
 
 ### Script format
 
-You can easily create your script using Microsoft Word. This document is for your use during the recording session, so you can set it up any way you find easy to work with. Create the text file required by the Custom Voice portal separately.
+You can write your script in Microsoft Word. The script is for use during the recording session, so you can set it up any way you find easy to work with. Create the text file required by the Custom Voice portal separately.
 
 A basic script format includes three columns:
 
@@ -89,18 +89,18 @@ A basic script format includes three columns:
 
 Leave enough space after each row to write notes. Be sure that no utterance is split between pages. Number the pages and print your script on one side of the paper.
 
-Print three copies of the script: one for the talent, one for the engineer, and one for the director (you). Don't staple the pages together: an experienced voice artist will just take them out before recording to avoid making noise as the pages are turned.
+Print three copies of the script: one for the talent, one for the engineer, and one for the director (you). Use a paper clip instead of staples: an experienced voice artist will separate the pages to avoid making noise as the pages are turned.
 
 ### Legalities
 
-Under copyright law, n actor's reading of copyrighted text is technically a performance for which the author of the work may need to be compensated. This performance will not be recognizable in the final product, the custom voice. Even so, the legality of using a copyrighted work for this purpose is not well-established. Microsoft cannot provide legal advice on this issue; consult your own counsel.
+Under copyright law, an actor's reading of copyrighted text may be a performance for which the author of the work should be compensated. This performance will not be recognizable in the final product, the custom voice. Even so, the legality of using a copyrighted work for this purpose is not well-established. Microsoft cannot provide legal advice on this issue; consult your own counsel.
 
 Fortunately, it is easy to avoid these issues entirely. There are many sources of text you can use without permission or license.
 
 |||
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|About 1100 sentences selected from out-of-copyright works specifically for use in speech synthesis projects. An excellent starting point.|
-|Works with<br>expired copyright|Typically works published prior to 1923. For English, Project Gutenberg offers tens of thousands of such works. You may want to focus on newer works, as the language will be closer to modern English.|
+|Works no longer<br>under copyright|Typically works published prior to 1923. For English, Project Gutenberg offers tens of thousands of such works. You may want to focus on newer works, as the language will be closer to modern English.|
 |Government&nbsp;works|Works created by the United States government are not copyrighted in the United States, though the government may claim copyright in other countries.|
 |Public domain|Works for which copyright has been explicitly disclaimed or that have been dedicated to the public domain.|
 |Permissively-licensed works|Works distributed under a license such as Creative Commons or the GNU Free Documentation License. Wikipedia uses the GFDL. Some licenses, however, may impose restrictions on performance of the licensed content that may impact the creation of a custom voice model, so read the license carefully.|
@@ -113,25 +113,25 @@ Discuss your project with the studio's recording engineer and listen to his or h
 
 ### Doing it yourself
 
-If you want to make the recording yourself, here's what you need to know. 
+If you want to make the recording yourself, rather than going into a recording studio, here's a short primer. Thanks to the rise of home recording and podcasting, it's easier than ever to find good recording advice and resources online.
 
 Your "recording booth" should be a small room with no noticeable echo or "room tone" and which is as quiet and soundproof as possible. Drapes on the walls can be used to reduce echo and neutralize or "deaden" the sound of the room.
 
-Use a high-quality studio condenser microphone intended for recording voice. Sennheiser, AKG, and even newer Zoom mics can yield good results. You can rent one from a local audio-visual rental firm. Look for one with a USB interface. This type of mic conveniently combines the mic, preamp, and analog-to-digital converter into one product, simplifying hookup.
+Use a high-quality studio condenser microphone ("mic") intended for recording voice. Sennheiser, AKG, and even newer Zoom mics can yield good results. You can buy your mic, or rent one from a local audio-visual rental firm. Look for one with a USB interface. This type of mic conveniently combines the microphone element, preamp, and analog-to-digital converter into one package, simplifying hookup.
 
-You may also use an analog microphone. Many rental houses offer "vintage" microphones which are renowned for their voice character. Professional analog gear includes balanced XLR connectors, rather than the 1/4" plug used in consumer equipment. You'll need a preamp and an audio interface with these connectors.
+You may also use an analog microphone. Many rental houses offer "vintage" microphones which are renowned for their voice character. Note that professional analog gear uses balanced XLR connectors, rather than the 1/4" plug used in consumer equipment. If you go analog, you'll also need a preamp and a computer audio interface with these connectors.
 
 Install the microphone on a stand or boom and use a pop filter in frot of the microphone to eliminate noise from "plosive" sounds like "p" and "b." Some microphones come with a suspension mount that isolates them from vibrations in the stand, which is helpful.
 
-The voice talent must stay at a consistent distance from the microphone. Use tape on the floor to mark where they should stand. If the talent prefers to sit, take special care. Sitting may complicate maintaining a constant distance from the mic, and adds a new source of unwanted sounds to watch out for (the chair).
+The voice talent must stay at a consistent distance from the microphone. Use tape on the floor to mark where they should stand. If the talent prefers to sit, take special care to monitor mic distance and avoid chair noise.
 
-Use a stand to hold the script; avoid angling the stand so that it can reflect sound toward the microphone.
+Use a stand to hold the script. Avoid angling the stand so that it can reflect sound toward the microphone.
 
-The person actually doing the recording—the engineer—should be in a separate room from the talent, with some way to talk to the talent in the recording booth (a "talkback").
+The person actually doing the recording—the engineer—should be in a separate room from the talent, with some way to talk to the talent in the recording booth (a "talkback circuit").
 
 The recording should contain as little noise as possible, with a goal of an 80 db signal-to-noise ratio or better.
 
-Listen closely to a recording of silence, figure out where any noise is coming from, and eliminate the cause. Common sources of noise are air vents, fluorescent light ballasts, traffic on nearby roads, and equipment fans (even notebook PCs may have fans). Microphones and cables can pick up electrical noise from AC wiring, usually a hum or buzz.
+Listen closely to a recording of silence in your "booth," figure out where any noise is coming from, and eliminate the cause. Common sources of noise are air vents, fluorescent light ballasts, traffic on nearby roads, and equipment fans (even notebook PCs may have fans). Microphones and cables can pick up electrical noise from nearby AC wiring, usually a hum or buzz.
 
 > [!TIP]
 > In some cases, you may be able to use an equalizer or a noise reduction software plug-in to help remove noise from your recordings, though it is always best to stop it at its source when possible.
@@ -140,24 +140,24 @@ Levels should be set so that most of the available dynamic range of digital reco
 
 ![good recording waveform](media/custom-voice/good-recording.png)
 
-You can see that most of the range (height) is used, but the highest peaks of the signal do not reach the top. You can also see that the silence in the recording approximates a tihn horizontal line, indicating a low noise floor. This recording has acceptable dynamic range and signal-to-noise ratio.
+You can see that most of the range (height) is used, but the highest peaks of the signal do not reach the top or bottom of the display. You can also see that the silence in the recording approximates a thin horizontal line, indicating a low noise floor. This recording has acceptable dynamic range and signal-to-noise ratio.
 
-Record directly into the computer using a high-quality audio interface or a USB port, depending on the kind of mic you're using. Keep the audio chain simple: mic, preamp, audio interface, computer. Both [Avid Pro Tools](http://www.avid.com/en/pro-tools) and [Adobe Audition](https://www.adobe.com/products/audition.html) can be licensed monthly at reasonable cost. If you have literally no budget, try the free [Audacity](https://www.audacityteam.org/).
+Record directly into the computer using a high-quality audio interface or a USB port, depending on the kind of mic you're using. Keep the audio chain simple: mic, preamp, audio interface, computer. Both [Avid Pro Tools](http://www.avid.com/en/pro-tools) and [Adobe Audition](https://www.adobe.com/products/audition.html) can be licensed monthly at reasonable cost. If your budget is extremely tight, try the free [Audacity](https://www.audacityteam.org/).
 
-Record at 44.1 KHz 16 bit monophonic (CD quality) or better. Current state-of-the-art is 48 KHz 24-bit, if your equipment supports it. You will downsample your audio to 16 KHz 16-bit before you submit it to the Custom Voice portal. Still, it pays to have a high-quality original recording in case edits are needed.
+Record at 44.1 KHz 16 bit monophonic (CD quality) or better. Current state-of-the-art is 48 KHz 24-bit, if your equipment supports it. You will downsample your audio to 16 KHz 16-bit before you submit it to the Custom Voice portal. Still, it pays to have a high-quality original recording in the event edits are needed.
 
 Ideally, have different people serve in the roles of director, engineer, and talent. Don't try to do it all yourself! In a pinch, the director and engineer could be a single person.
 
 ### Before the session
 
-To avoid wasting studio time, run through the script with your voice talent before the recording session. The voice talent gets a chance to become familiar with the text, and can clarify the pronunciation of any unfamiliar words.
+To avoid wasting studio time, run through the script with your voice talent before the recording session. As the voice talent becomes familiar with the text, he or she can clarify the pronunciation of any unfamiliar words.
 
 > [!NOTE]
 > Most recording studios offer electronic display of scripts in the recording booth. In this case, type any take notes from your run-through directly into the script's document. You'll still want a paper copy to take notes on during the session, though. Most engineers will want a hardcopy, too. And you'll still want the third printed copy as a backup for the talent in case the computer is down!
 
-Your voice talent may ask which word you want emphasized in an utterance. Actors often call this the "operative word." You don't want any particular word emphasized, so tell them you want a natural reading. Emphasis can be added when new speech is synthesized; it should not be a part of the original recording.
+Your voice talent may ask which word you want emphasized in an utterance. Actors often call this the "operative word." Tell them you want a natural reading with no particular emphasis. Emphasis can be added when speech is synthesized; it should not be a part of the original recording.
 
-Direct the talent to pronounce words distinctly. Every word of the script should be pronounced as written. Sounds should not be omitted or slurred together, as is common in casual speech, unless they have been written that way in the script.
+Direct the talent to pronounce words distinctly. Every word of the script should be pronounced as written. Sounds should not be omitted or slurred together, as is common in casual speech, *unless they have been written that way in the script.*
 
 |Written text|Unwanted casual pronunciation|
 |-|-|
@@ -166,7 +166,7 @@ Direct the talent to pronounce words distinctly. Every word of the script should
 |how's the weather today|how's th' weather today|
 |my little pony|my lil' pony|
 
-Talent should *not* add distinct pauses between words. The sentence should still flow naturally, if slightly formal. This fine distinction may take some practice to get right.
+Talent should *not* add distinct pauses between words. The sentence should still flow naturally, even while sounding a little formal. This fine distinction may take some practice to get right.
 
 ### The recording session
 
@@ -182,21 +182,21 @@ Record a good five seconds of silence before the first recording to capture the 
 Listen closely, using headphones, to the voice talent's performance. You're looking for good but natural diction, correct pronunciation, and a lack of unwanted sounds. Don't hesitate to ask your talent to re-record an utterance that doesn't meet these standards. 
 
 > [!TIP] 
-> If you are recording a high volume of utterances, losing a single utterance may not affect the resulting voice in any noticeable way. So it may be more expedient to simply note any utterances that have problems, exclude them from your data set, and see how your voice turns out. You can always go back to the studio and record more samples later.
+> WWhen recording a high volume of utterances, losing a single utterance may not affect the resulting voice in any noticeable way. So it may be more expedient to simply note any utterances that have problems, exclude them from your data set, and see how your custom voice turns out. You can always go back to the studio and record the missed samples later.
 
-Most studios have a large "time code" display indicating the current time in the recording. Take a note of the time on your script for each utterance. Ask the engineer if they can mark each utterance in the recording's metadata or cue sheet.
+Most studios have a large "time code" display indicating the current time in the recording. Take a note of the time on your script for each utterance. Ask the engineer if they can mark each utterance in the recording's metadata or cue sheet as well.
 
-Take regular breaks to let the voice talent keep his or her voice in good shape. Provide them with something to drink to keep their throat from getting dry.
+Take regular breaks to let your voice talent keep his or her voice in good shape. Provide the talent with something to drink to keep their throat from getting dry.
 
 ### After the session
 
-Modern recording studios record on a computer. At the end of the session, then, you receive one or more audio files, not a tape. These files will probably be WAV or AIFF format in CD quality (44.1 KHz 16-bit) or better. 48 KHz 24-bit is common and desirable. Higher sampling rates, such as 96 KHz, are generally not needed.
+Modern recording studios run on computers. At the end of the session, then, you receive one or more audio files, not a tape. These files will probably be WAV or AIFF format in CD quality (44.1 KHz 16-bit) or better. 48 KHz 24-bit is common and desirable. Higher sampling rates, such as 96 KHz, are generally not needed.
 
-The studio will probably deliver one or more audio files, each containing many utterances. To upload the recordings to the Custom Voice portal, each utterance must be in its own file. The recording engineer may have placed a marker in the file (or provided a separate cue list) to indicate where each utterance starts. This metadata can be used to extract the utterances.
+The studio will probably deliver one or more audio files containing many utterances. To upload the recordings to the Custom Voice portal, each utterance must be in its own file. The recording engineer may have placed a marker in the file (or provided a separate cue list) to indicate where each utterance starts. This metadata can be used to extract the utterances.
 
 You'll need to go through the full recording and make a WAV file for each utterance. Use your notes to find the exact utterances you want, then use a sound editing utility such as [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), or the free [Audacity](https://www.audacityteam.org/) to copy each into a new file.
 
-Leave only about 0.2 seconds of silence at the beginning and end of each clip except for the first. That file should start with a full five seconds of silence. Do not use the audio editor to "zero out" silent parts of the file. Including the "room tone" will help the machine learning algorithms compensate for any residual background noise.
+Leave only about 0.2 seconds of silence at the beginning and end of each clip except for the first. That file should start with a full five seconds of silence. Do not use the audio editor to "zero out" silent parts of the file. Including the "room tone" will help the Custom Voice algorithms compensate for any residual background noise.
 
 Listen to each file carefully. At this stage, you can edit out small unwanted sounds that you missed during recording—as long as they don't overlap any actual speech. If you can't fix a file, remove it from your data set entirely, making a note that you have done so.
 
