@@ -277,21 +277,10 @@ No action is required; the server will try again. If this error persists for lon
 
 This error occurs because the Azure File Sync agent cannot access the Azure file share. This can occur because the Azure file share or the storage account hosting it no longer exists. You can troubleshoot this error by working through the following steps:
 
-1. Verify the storage account exists.
-
-    [!INCLUDE [storage-sync-files-storage-account-dne](../../../includes/storage-sync-files-storage-account-dne.md)]
-
-2. Check to make sure the storage account does not contain any network rules.
-
-    [!INCLUDE [storage-sync-files-storage-network-rules](../../../includes/storage-sync-files-storage-network-rules.md)]
-
-3. Ensure the Azure file share exists.
-
-    [!INCLUDE [storage-sync-files-share-dne](../../../includes/storage-sync-files-share-dne.md)]
-
-4. Ensure Azure File Sync has access to the storage account.
-
-    [!INCLUDE [storage-sync-files-access-control](../../../includes/storage-sync-files-access-control.md)]
+1. [Verify the storage account exists.](#troubleshoot-storage-account)
+2. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
+3. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
+4. [Ensure Azure File Sync has access to the storage account.](#troubleshoot-rbac)
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**The storage account name used could not be resolved.**  
 | | |
@@ -305,13 +294,8 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
     ```PowerShell
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
-2. Verify the storage account exists.
-
-    [!INCLUDE [storage-sync-files-storage-account-dne](../../../includes/storage-sync-files-storage-account-dne.md)]
-
-3. Check to make sure the storage account does not contain any network rules.
-
-    [!INCLUDE [storage-sync-files-storage-network-rules](../../../includes/storage-sync-files-storage-network-rules.md)]
+2. [Verify the storage account exists.](#troubleshoot-storage-account)
+3. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
 
 <a id="-1906441138"></a>**Sync failed due to a problem with the sync database.**  
 | | |
@@ -353,11 +337,10 @@ If the share is full and a quota is not set, one possible way of fixing this iss
 | **Error string** | ECS_E_AZURE_FILE_SHARE_NOT_FOUND |
 | **Remediation required** | Yes |
 
-This error occurs when the Azure file share is not accessible. Check to ensure that the Azure file share still exists.
+This error occurs when the Azure file share is not accessible. To troubleshoot:
 
-[!INCLUDE [storage-sync-files-storage-account-dne](../../../includes/storage-sync-files-storage-account-dne.md)]
-
-[!INCLUDE [storage-sync-files-share-dne](../../../includes/storage-sync-files-share-dne.md)]
+1. [Verify the storage account exists.](#troubleshoot-storage-account)
+2. [Ensure the Azure file share exists.](#troubleshoot-azure-file-share)
 
 If the Azure file share was deleted, you need to create a new file share and then recreate the sync group. 
 
@@ -379,9 +362,12 @@ This error occurs when the Azure subscription is suspended. Sync will be reenabl
 | **Error string** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
 | **Remediation required** | Yes |
 
-[!INCLUDE [storage-sync-files-storage-account-dne](../../../includes/storage-sync-files-storage-account-dne.md)]
+This error occurs when the Azure file share is inaccessible because of a storage account firewall or because the storage account belongs to a virtual network. Azure File Sync does not yet have support for this feature. To troubleshoot:
 
-[!INCLUDE [storage-sync-files-storage-network-rules](../../../includes/storage-sync-files-storage-network-rules.md)]
+1. [Verify the storage account exists.](#troubleshoot-storage-account)
+2. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
+
+Remove these rules to fix this issue. 
 
 <a id="-2134375911"></a>**Sync failed due to a problem with the sync database.**  
 | | |
@@ -526,6 +512,177 @@ This error occurs because the Azure File Sync service is unavailable. This error
 | **Remediation required** | No |
 
 This error occurs because of an internal problem with the sync database. This error will auto-resolve when the Azure File Sync when sync retries. If this error continues for an extend period of time, create a support request and we will contact you to help you resolve this issue.
+
+### Common troubleshooting steps
+<a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
+# [Portal](#tab/portal)
+1. Navigate to the sync group within the Storage Sync Service.
+2. Select the cloud endpoint within the sync group.
+3. Note the Azure file share name in the opened pane.
+4. Select the linked storage account. If this link fails, the referenced storage account has bene removed.
+    ![A screenshot showing the cloud endpoint detail pane with a link to the storage account.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
+
+# [PowerShell](#tab/powershell)
+```PowerShell
+# Variables for you to populate based on your configuration
+$agentPath = "C:\Program Files\Azure\StorageSyncAgent"
+$region = "<Az_Region>"
+$resourceGroup = "<RG_Name>"
+$syncService = "<storage-sync-service>"
+$syncGroup = "<sync-group>"
+
+# Import the Azure File Sync management cmdlets
+Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
+
+# Log into the Azure account and put the returned account information
+# in a reference variable.
+$acctInfo = Connect-AzureRmAccount
+
+# this variable stores your subscription ID 
+# get the subscription ID by logging onto the Azure portal
+$subID = $acctInfo.Context.Subscription.Id
+
+# this variable holds your Azure Active Directory tenant ID
+# use Login-AzureRMAccount to get the ID from that context
+$tenantID = $acctInfo.Context.Tenant.Id
+
+# Check to ensure Azure File Sync is available in the selected Azure
+# region.
+$regions = [System.String[]]@()
+Get-AzureRmLocation | ForEach-Object { 
+    if ($_.Providers -contains "Microsoft.StorageSync") { 
+        $regions += $_.Location 
+    } 
+}
+
+if ($regions -notcontains $region) {
+    throw [System.Exception]::new("Azure File Sync is either not available in the " + `
+        " selected Azure Region or the region is mistyped.")
+}
+
+# Check to ensure resource group exists and create it if doesn't
+$resourceGroups = [System.String[]]@()
+Get-AzureRmResourceGroup | ForEach-Object { 
+    $resourceGroups += $_.ResourceGroupName 
+}
+
+if ($resourceGroups -notcontains $resourceGroup) {
+    throw [System.Exception]::new("The provided resource group $resourceGroup does not exist.")
+}
+
+# the following command creates an AFS context 
+# it enables subsequent AFS cmdlets to be executed with minimal 
+# repetition of parameters or separate authentication 
+Login-AzureRmStorageSync `
+    –SubscriptionId $subID `
+    -ResourceGroupName $resourceGroup `
+    -TenantId $tenantID `
+    -Location $region
+
+# Check to make sure the provided Storage Sync Service
+# exists.
+$syncServices = [System.String[]]@()
+
+Get-AzureRmStorageSyncService -ResourceGroupName $resourceGroup | ForEach-Object {
+    $syncServices += $_.DisplayName
+}
+
+if ($storageSyncServices -notcontains $syncService) {
+    throw [System.Exception]::new("The provided Storage Sync Service $syncService does not exist.")
+}
+
+# Check to make sure the provided Sync Group exists
+$syncGroups = [System.String[]]@()
+
+Get-AzureRmStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $syncService | ForEach-Object {
+    $syncGroups += $_.DisplayName
+}
+
+if ($syncGroups -notcontains $syncGroup) {
+    throw [System.Exception]::new("The provided sync group $syncGroup does not exist.")
+}
+
+# Get reference to cloud endpoint
+$cloudEndpoint = Get-AzureRmStorageSyncCloudEndpoint `
+    -ResourceGroupName $resourceGroup `
+    -StorageSyncServiceName $storageSyncService `
+    -SyncGroupName $syncGroup
+
+# Get reference to storage account
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
+    $_.Id -eq $cloudEndpoint.StorageAccountResourceId
+}
+
+if ($storageAccount -eq $null) {
+    Write-Host "The storage account referenced in the cloud endpoint does not exist."
+}
+```
+---
+
+<a id="troubleshoot-network-rules"></a>**Check to make sure the storage account does not contain any network rules.**  
+# [Portal](#tab/portal)
+1. Once in the storage account, select **Firewalls and virtual networks** on the left-hand side of the storage account.
+2. Inside the storage account, the **Allow access from all networks** radio button should be selected.
+    ![A screenshot showing the storage account firewall and network rules disabled.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
+
+# [PowerShell](#tab/powershell)
+```PowerShell
+if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
+    [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
+    Write-Host ("The storage account referenced contains network " + `
+        "rules which are not currently supported by Azure File Sync.")
+}
+```
+---
+
+<a id="troubleshoot-azure-file-share"></a>**Ensure the Azure file share exists.**  
+# [Portal](#tab/portal)
+1. Click **Overview** on the left-hand table of contents to return to the main storage account page.
+2. Select **Files** to view the list of file shares.
+3. Verify the file share referenced by the cloud endpoint appears in the list of file shares (you should have noted this in step 1 above).
+
+# [PowerShell](#tab/powershell)
+```PowerShell
+$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
+    $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
+    $_.IsSnapshot -eq $false
+}
+
+if ($fileShare -eq $null) {
+    Write-Host "The Azure file share referenced by the cloud endpoint does not exist"
+}
+```
+---
+
+<a id="troubleshoot-rbac"></a>**Ensure Azure File Sync has access to the storage account.**  
+# [Portal](#tab/portal)
+1. Click **Access control (IAM)** on the left-hand table of contents to navigate to the list of users and applications (*service principals*) which have access to your storage account.
+2. Verify **Hybrid File Sync Service** appears in the list with the **Reader and Data Access** role. 
+    ![A screen shot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+
+# [PowerShell](#tab/powershell)
+```PowerShell    
+$foundSyncPrincipal = $false
+Get-AzureRmRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
+    if ($_.DisplayName -eq "Hybrid File Sync Service") {
+        $foundSyncPrincipal = $true
+        if ($_.RoleDefinitionName -ne "Reader and Data Access") {
+            Write-Host ("The storage account has the Azure File Sync " + `
+                "service principal authorized to do something other than access the data " + `
+                "within the referenced Azure file share.")
+        }
+
+        break
+    }
+}
+
+if (!$foundSyncPrincipal) {
+    Write-Host ("The storage account does not have the Azure File Sync " + `
+                "service principal authorized to access the data within the " + ` 
+                "referenced Azure file share.")
+}
+```
+---
 
 ### How do I prevent users from creating files containing unsupported characters on the server?
 You can use [File Server Resource Manager (FSRM) File Screens](https://docs.microsoft.com/windows-server/storage/fsrm/file-screening-management) to block files with unsupported characters in their names from being created on the server. You may have to do this using PowerShell as most of the unsupported characters are not printable and so you need to cast their hexadecimal representations as characters first.
