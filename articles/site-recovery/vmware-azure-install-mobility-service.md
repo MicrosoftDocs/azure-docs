@@ -1,12 +1,11 @@
 ---
 title: Install Mobility Service (VMware or physical to Azure) | Microsoft Docs
 description: Learn how to install the Mobility Service agent to protect your on-premises VMware VMs and physical servers with Azure Site Recovery.
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
-ms.author: anoopkv
-
+ms.author: ramamill
 ---
 
 # Install the Mobility service 
