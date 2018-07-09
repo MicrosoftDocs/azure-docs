@@ -157,6 +157,8 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 ## Next steps
 
+Now that you've configured your firewall to collect logs, you can explore Log Anaytics to view your data.
+
 > [!div class="nextstepaction"]
 > [Networking monitoring solutions in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
 
