@@ -18,23 +18,21 @@ This article helps you understand how to set up the automation envorionment to c
 
 Software-defined connectivity solutions typically use a controller or a device provisioning center to manage their branch devices. The controller can use Azure APIs to automate connectivity to Azure Virtual WAN. This type of connection requires a VPN device located on-premises that has an externally-facing public IP address assigned to it.
 
-## 1. Access control
+## Access control
 
-Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access will provide the device controller appropriate authentication to upload branch information.
+Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access provides the device controller appropriate authentication to upload branch information.
 
-## 2. Branch information website
+## Branch information website
 
-In this step, you design the user-experience to upload branch (on-premises site) information to Azure. REST APIs for **VPNSite** can be used to create the site information in Virtual WAN. You can provide all branch/VPN devices, or select device customizations as appropriate.
+Design the user-experience to upload branch (on-premises site) information to Azure. REST APIs for **VPNSite** can be used to create the site information in Virtual WAN. You can provide all branch/VPN devices, or select device customizations as appropriate.
 
-## 3. Hub and services
+## Hub and services
 
 Once the branch device is uploaded to Azure, customer will typically make selections of hub region and/or services in the Azure portal, which invokes a set of operations to create the hub virtual network and the VPN end point inside the hub. The VPN gateway is a scalable gateway which sizes appropriately based on bandwidth and connection needs.
 
-## 4. Device configuration
+## Device configuration
 
-In this step, a customer that is not using a provider would manually download the Azure configuration and apply it to their on-premises VPN device.
-
-You should automate this step. The controller can call **GetVpnConfiguration** REST API to download the Azure configuration, which will typically look similar to the following file.
+In this step, a customer that is not using a provider would manually download the Azure configuration and apply it to their on-premises VPN device. As a provider, you should automate this step. The controller can call **GetVpnConfiguration** REST API to download the Azure configuration, which will typically look similar to the following file.
 
 **Configuration notes**
 
