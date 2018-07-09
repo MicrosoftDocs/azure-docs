@@ -67,6 +67,8 @@
       href: concepts-firewall-rules.md
     - name: Configure SSL
       href: concepts-ssl-connection-security.md
+    - name: Threat Detection
+      href: concepts-database-threat-detection.md
     - name: VNet
       href: concepts-data-access-and-security-vnet.md 
   - name: Business continuity
@@ -121,6 +123,10 @@
     items:
     - name: Create alerts on metrics
       href: howto-alert-on-metric.md
+  - name: Threat Detection
+    items:
+    - name: Azure portal
+      href: howto-database-threat-detection-using-portal.md
   - name: Virtual Network
     items:
     - name: Azure portal
