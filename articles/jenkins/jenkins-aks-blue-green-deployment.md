@@ -14,29 +14,60 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 07/09/2018
 ms.author: tarcher
-ms.custom: Jenkins
+ms.custom: jenkins
 ---
 
 # Deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment strategy
 
 Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline. For more information about AKS, refer to the [AKS documentation](/azure/aks/).
 
-Blue/green deployment is a DevOps Continuous Delivery (CD) pattern that relies on keeping an existing (blue) version live while a new (green) one is deployed. Typically, this pattern employs load balancing to direct increasing amounts of traffic to the green deployment. If monitoring discovers an incident, traffic can be rerouted to the blue deployment still running. For more information about Continuous Delivery, refer to the article, [What is Continuous Delivery?](/azure/devops/what-is-continuous-delivery).
+Blue/green deployment is a DevOps Continuous Delivery (CD) pattern that relies on keeping an existing (blue) version live while a new (green) one is deployed. Typically, this pattern employs load balancing to direct increasing amounts of traffic to the green deployment. If monitoring discovers an incident, traffic can be rerouted to the blue deployment still running. For more information about Continuous Delivery, refer to the article, [What is Continuous Delivery](/azure/devops/what-is-continuous-delivery).
 
 In this tutorial, you learn how to perform the following tasks in learning how to deploy to AKS using Jenkins and the blue/green deployment pattern:
 
 > [!div class="checklist"]
 > * 
 
-## Fork the todo-app-java-on-azure repo
+# Prerequisites
+- [GitHub account](https://github.com)
 
-1. Use git to download a copy of the application to your development environment.
+## Clone the sample app from GitHub
 
-    ```bash
-    git clone https://github.com/microsoft/todo-app-java-on-azure.git
-    ```
+A sample app that illustrates how to use deploy to AKS using Jenkins and the blue/green pattern is on the Microsoft repo in GitHub. In this section, you create a fork of that repo in your GitHub, and clone the app to your local system.
 
-2. Change directories so that you are working from the cloned directory. 
+1. Browse to the GitHub repo for the [todo-app-java-on-azure sample app](https://github.com/microsoft/todo-app-java-on-azure.git).
+
+    ![Sample app on Microsoft GitHub repo.][./media/jenkins-aks-blue-green-deployment/github-sample-msft.png]
+
+1. Fork the repo by selecting **Fork** in the upper right of the page, and follow the instructions to fork the repo in your GitHub account.
+
+    ![Fork the sample app to your GitHub account.][./media/jenkins-aks-blue-green-deployment/github-sample-msft-fork.png]
+
+1. Once you fork the repo, you see that the account name changes to your account name, and a note indicates from where the repo was forked (Microsoft).
+
+    ![Sample app after being forked to another GitHub account.][./media/jenkins-aks-blue-green-deployment/github-sample-msft-forked.png]
+
+1. Selecting **Clone or download**.
+
+    ![GitHub allows you to quickly clone or download a repo.][./media/jenkins-aks-blue-green-deployment/github-sample-clone.png]
+
+1. In the **Clone with HTTPS** window, select the copy icon.
+
+    ![Copy the clone URL to the clipboard.][./media/jenkins-aks-blue-green-deployment/github-sample-copy.png]
+
+1. Open a terminal or Bash window.
+
+1. Change directories to the desired location where you want to store the local copy (clone) of the repo.
+
+1. Using the `git clone` command, clone the URL you copied previously.
+
+    ![Type "git clone" and the clone URL to create a clone of the repo.][./media/jenkins-aks-blue-green-deployment/git-clone-command.png]
+
+1. Select the &lt;Enter> key to start the clone process.
+
+    ![The "git clone" command creates a personal copy of the repo in which you can test][./media/jenkins-aks-blue-green-deployment/git-clone-results.png]
+
+1. Change directories to the newly created directory that contains the clone of the app source.
 
 ## Create Azure services
 
