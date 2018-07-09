@@ -233,9 +233,9 @@ handler := func(ctx context.Context, event *eventhubs.Event) error {
 }
 
 // register the handler with the EPH
-_, err := p.Receive(handler)
+_, err := p.RegisterHandler(ctx, handler)
 if err != nil {
-	log.Fatalf("failed to set up handler: %s\n", err)
+	log.Fatalf("failed to register handler: %s\n", err)
 }
 ```
 
