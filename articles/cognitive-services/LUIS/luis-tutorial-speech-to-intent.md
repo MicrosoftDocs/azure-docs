@@ -26,7 +26,7 @@ For this article, you need a free [LUIS][LUIS] website account in order to impor
 In the Azure portal, [create](luis-how-to-azure-subscription.md#create-luis-endpoint-key) a **Language Understanding** (LUIS) key. 
 
 ## Import Human Resources LUIS app
-The intents, and utterances for this article are from the Human Resources LUIS app available from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github repository. Download the [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) file, save it with the *.json extension, and [import](create-new-app.md#import-new-app) it into LUIS. 
+The intents, and utterances for this article are from the Human Resources LUIS app available from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github repository. Download the [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) file, save it with the *.json extension, and [import](luis-how-to-start-new-app.md#import-new-app) it into LUIS. 
 
 This app has intents, entities, and utterances related to the Human Resources domain. Example utterances include:
 

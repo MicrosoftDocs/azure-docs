@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 07/09/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -77,6 +77,14 @@ Check that the .OVA file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. The generated hash should match these settings.
+
+  For OVA version 1.0.9.12
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
   For OVA version 1.0.9.8
 
@@ -153,7 +161,7 @@ will be hosted.
 8. In **View collection progress**, monitor discovery, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time. [Learn more](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) about what data is collected by the Azure Migrate collector.
 
 > [!NOTE]
-> The collector only supports "English (United States)" as the operating system language and the collector interface language. 
+> The collector only supports "English (United States)" as the operating system language and the collector interface language.
 > If you change the settings on a machine you want to assess, trigger discover again before you run the assessment. In the collector, use the **Start collection again** option to do this. After the collection is done, select the **Recalculate** option for the assessment in the portal, to get updated assessment results.
 
 
