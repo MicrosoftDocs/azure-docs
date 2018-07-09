@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 07/23/2018
 
 # optional metadata
 ms.reviewer: klam, LADocs
@@ -29,7 +29,6 @@ that Logic Apps provides.
 These tables summarize the data operation actions 
 based on the source data types they work on, 
 but the operation descriptions appear alphabetically.
-
 
 **Array actions** 
 
@@ -83,8 +82,15 @@ as the first step in your logic app
 ## Compose action
 
 To construct a single output, such as a JSON object, from multiple inputs, 
-you can use the **Data Operations - Compose** action. These inputs can have various types, such as integers, Booleans, arrays, JSON objects, and any 
-other native type that Azure Logic Apps supports, for example, binary and XML. You can then use the output in actions that follow after the **Compose** action. The **Compose** action can also save you from entering the same inputs repeatedly while building your logic app's workflow. 
+you can use the **Data Operations - Compose** action. 
+These inputs can have various types, such as integers, 
+Booleans, arrays, JSON objects, and any other native 
+type that Azure Logic Apps supports, for example, 
+binary and XML. You can then use the output in 
+actions that follow after the **Compose** action. 
+The **Compose** action can also save you from 
+entering the same inputs repeatedly while 
+building your logic app's workflow. 
 
 For example, you can construct a JSON message from multiple variables, 
 such as string variables that store people's first names and last names, 
