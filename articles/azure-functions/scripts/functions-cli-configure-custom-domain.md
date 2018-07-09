@@ -20,8 +20,10 @@ ms.custom: mvc
 ---
 # Map a custom domain to a function app
 
-This sample script creates a function app with related resources, and then maps `www.<yourdomain>` to it. 
+This sample script creates a function app in an App Service plan and then maps it to a custom domain that you provide. 
 When your function app is hosted in an [App Service plan](../functions-scale.md#app-service-plan), you can map a custom domain using either a CNAME or an A record. For function apps in a [Consumption plan](../functions-scale.md#consumption-plan), only the CNAME option is supported.
+
+To run this sample script, you must have already  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,10 +48,10 @@ This script uses the following commands: Each command in the table links to comm
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Creates a storage account required by the function app. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | Creates an App Service plan required to map a custom domain. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the App Service plan. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az-appservice-web-config-hostname-add) | Maps a custom domain to a function app. |
+| [az functionapp config hostname add](https://docs.microsoft.com/cli/azure/functionapp/config/hostname#az-functionapp-config-hostname-add) | Maps a custom domain to a function app. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
-Additional Functions CLI script samples can be found in the [Azure Functions documentation]().
+Additional Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).
