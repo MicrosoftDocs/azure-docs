@@ -211,7 +211,7 @@ The runbook ran over the 3 hour limit allowed by fair share in an Azure Sandbox
 
 #### Resolution
 
-The recommended solution is to run the runbook on a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md). Hybrid Workers are not limited by the [fair share](automation-runbook-execution.md#fair-share) 3 hour runbook limit that Azure sandboxes are.
+The recommended solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers are not limited by the [fair share](../automation-runbook-execution.md#fair-share) 3 hour runbook limit that Azure sandboxes are.
 
 ## Common errors when importing modules
 
