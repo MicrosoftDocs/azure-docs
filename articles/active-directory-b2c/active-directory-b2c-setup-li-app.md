@@ -40,7 +40,7 @@ To use a LinkedIn account as an identity provider in Azure Active Directory (Azu
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. Select **Identity providers**, and then select **Add**.
 5. Provide a **Name**. For example, enter *LinkedIn*.
-6. Select **Identity provider type**, select **Microsoft Account**, and click **OK**.
+6. Select **Identity provider type**, select **LinkedIn**, and click **OK**.
 7. Select **Set up this identity provider** and enter the Client Id that you recorded earlier as the **Client ID** and enter the Client Secret that you recorded as the **Client secret** of the LinkedIn account application that you created earlier.
 8. Click **OK** and then click **Create** to save your LinkedIn account configuration.
 
