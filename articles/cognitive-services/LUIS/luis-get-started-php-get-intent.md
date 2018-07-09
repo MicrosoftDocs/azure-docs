@@ -23,7 +23,7 @@ In this quickstart, pass utterances to a LUIS endpoint and get intent and entiti
 > * Create Visual Studio C# console app to make HTTPS call to LUIS endpoint
 -->
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
 <a name="create-luis-subscription-key"></a>
 ## Create LUIS endpoint key
@@ -70,5 +70,3 @@ The two resources created in this tutorial are the LUIS endpoint key and the C# 
 
 > [!div class="nextstepaction"]
 > [Add utterances](luis-get-started-php-add-utterance.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

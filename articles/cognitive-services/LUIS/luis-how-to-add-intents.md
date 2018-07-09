@@ -70,9 +70,9 @@ See [Add pattern from existing utterance on intent or entity page](luis-how-to-m
 
 ## Edit an utterance on intent page
 
-To edit an utterance, select the three dots (...) icon at the right end of the line for that utterance, and then select **Edit**. Modify the text then press Enter on the keyboard.
+To edit an utterance, select the ellipsis (***...***) button at the right end of the line for that utterance, and then select **Edit**. Modify the text then press Enter on the keyboard.
 
-![Screenshot of Intents details page, with three dots icon highlighted](./media/luis-how-to-add-intents/edit-utterance.png) 
+![Screenshot of Intents details page, with ellipsis button highlighted](./media/luis-how-to-add-intents/edit-utterance.png) 
 
 ## Reassign utterances on intent page
 You can change the intent of one or more utterances by reassigning them to another intent. 
@@ -87,7 +87,7 @@ To change the intent of several utterances, select the checkboxes to the left of
 
 ## Delete utterances on intent page
 
-To delete an utterance, select the three dots (...) icon at the right end of the line for that utterance, and then select **Delete**. The utterance is removed from the list and the LUIS app.
+To delete an utterance, select the ellipsis (***...***) button at the right end of the line for that utterance, and then select **Delete**. The utterance is removed from the list and the LUIS app.
 
 ![Screenshot of Intents details page, with Delete option highlighted](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 

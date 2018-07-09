@@ -65,12 +65,14 @@
       href: luis-quickstart-intent-and-key-phrase.md
     - name: 8. Add sentiment analysis
       href: luis-quickstart-intent-and-sentiment-analysis.md
-  - name: Improve prediction 
+  - name: Improve app 
     items: 
+    - name: Review endpoint utterances
+      href: luis-tutorial-review-endpoint-utterances.md
+    - name: With batch test
+      href: luis-tutorial-batch-testing.md
     - name: With patterns
       href: luis-tutorial-pattern.md
-    - name: With a phrase list
-      href: luis-tutorial-interchangeable-phrase-list.md
 - name: Samples
   items:
   - name: Code samples
@@ -189,8 +191,6 @@
       href: interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
-    - name: Improve accuracy with batch testing
-      href: luis-tutorial-batch-testing.md
   - name: Publish your app
     href: luis-how-to-publish-app.md
   - name: Use prebuilt models
@@ -313,6 +313,8 @@
     href: https://github.com/Microsoft/Recognizers-Text
 - name: Resources
   items: 
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://aka.ms/luis-roadmap
   - name: Glossary
@@ -326,7 +328,7 @@
   - name: UserVoice
     href: https://aka.ms/luis-uservoice-forum
   - name: Search
-    href: https://docs.microsoft.com/en-us/search/index?search=LUIS
+    href: https://docs.microsoft.com/search/index?search=LUIS
   - name: Blog
     href: https://blog.botframework.com/category/luis/
   - name: Knowledge Base

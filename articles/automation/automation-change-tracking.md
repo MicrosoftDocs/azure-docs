@@ -51,6 +51,7 @@ Use the following steps to configure file tracking on Linux computers:
 |Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
 |Use Sudo     | This setting determines if sudo is used when checking for the item.         |
 |Links     | This setting determines how symbolic links dealt with when traversing directories.<br> **Ignore** - Ignores symbolic links and does not include the files/directories referenced.<br>**Follow** - Follows the symbolic links during recursion and also includes the files/directories referenced.<br>**Manage** - Follows the symbolic links and allows altering of returned content.     |
+|Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
 
 > [!NOTE]
 > The "Manage" links option is not recommended. File content retrieval is not supported.
@@ -69,6 +70,13 @@ Use the following steps to configure files tracking on Windows computers:
 |Item Name     | Friendly name of the file to be tracked.        |
 |Group     | A group name for logically grouping files.        |
 |Enter Path     | The path to check for the file For example: "c:\temp\myfile.txt"       |
+|Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
+
+## Configure File Content tracking
+
+You can view the the contents before and after a change of a file with File Content Change Tracking. This is available for Windows and Linux files, for each change to the file, the contents of the file is stored in a storage account, and shows the file before and after the change, inline or side by side. To learn more, see [View the contents of a tracked file](change-tracking-file-contents.md).
+
+![view changes in a file](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### Configure Windows registry keys to track
 
