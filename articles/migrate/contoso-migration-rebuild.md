@@ -1,11 +1,11 @@
 ---
 title: Rebuild a Contoso on-premises app to Azure | Microsoft Docs
-description: Learn how Contoso rebuild an app to Auzre using Azure App Services, the Kubernetes service, CosmosDB, Azure Functions, and Cognitive services.
+description: Learn how Contoso rebuild an app to Azure using Azure App Services, the Kubernetes service, CosmosDB, Azure Functions, and Cognitive services.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/09/2018
 ms.author: raynew
 ---
 
@@ -348,7 +348,7 @@ The instructions in this section use the [SmartHotel360-Azure-Backend](https://g
 
 
 
-1. They use Visual Studio Code to update the **/deploy/k8s/config_loal.yml file. They update the various database connections from information they noted earlier
+1. They use Visual Studio Code to update the **/deploy/k8s/config_loal.yml** file. They update the various database connections from information they noted earlier.
 
      ![Deploy microservices](./media/contoso-migration-rebuild/deploy-micro.png)
 
