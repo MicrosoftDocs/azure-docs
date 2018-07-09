@@ -105,7 +105,7 @@ Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
 
 Two main scenarios can be scripted as shown in the following sections.
 
-#### Adding a new disk supported by Write Accelerator
+### Adding a new disk supported by Write Accelerator
 
 You can use this script to add a new disk to your VM. The disk created with this script is going to use Write Accelerator.
 
@@ -130,7 +130,7 @@ Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 
 You need to adapt the names of VM, disk, resource group, size of the disk and LunID of the disk for your specific deployment.
 
-#### Enabling Azure Write Accelerator on an existing Azure disk
+### Enabling Azure Write Accelerator on an existing Azure disk
 
 If you need to enable Write Accelerator on an existing disk, you can use this script to perform the task:
 
@@ -156,7 +156,7 @@ You need to adapt the names of VM, disk, and resource group. The script above ad
 > [!Note]
 > Executing the script above will detach the disk specified, enable Write Accelerator against the disk, and then attach the disk again
 
-### Enabling Azure Write Accelerator using the Azure Portal
+### Enabling Azure Write Accelerator using the Azure portal
 
 You can enable Write Accelerator via the portal where you specify your disk caching settings: 
 
