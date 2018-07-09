@@ -26,8 +26,6 @@ This article provides a quick view into the network connectivity of your Azure a
 * **Automated spoke configuration and configuration:** Connect your virtual networks and workloads to the Azure hub seamlessly.
 * **Intuitive troubleshooting:** You can see the end-to-end flow within Azure and use this information to take required actions.
 
-![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
-
 ## <a name="vendor"></a>Working with a Virtual WAN partner
 
 1. The branch device controller/connector is authenticated to export Site-centric information into Azure by using an Azure Service Principal.
