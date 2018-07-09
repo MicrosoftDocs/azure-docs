@@ -113,7 +113,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-When you finish installing NGINX, close the SSH session and open the the virtual machine Overview page in the Azure Stack portal.
+When you finish installing NGINX, close the SSH session and open the virtual machine Overview page in the Azure Stack portal.
 
 ## Open port 80 for web traffic
 
