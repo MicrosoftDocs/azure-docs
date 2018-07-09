@@ -113,17 +113,17 @@
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
-### [Azure Active Directory logs in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-overview.md)
+### [Azure monitor diagnostics](active-directory-reporting-azure-monitor-diagnostics-overview.md)
 ### [FAQ](active-directory-reporting-faq.md)
 
 ### Tasks
 #### [Configure named locations](active-directory-named-locations.md)
 #### [Find activity reports](active-directory-reporting-migration.md)
-#### [Use the Azure Active Directory Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Use the Azure AD Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Remediate users flagged for risk](active-directory-report-security-user-at-risk-remediation.md)
-#### [Route Azure Active Directory logs to an Azure event hub](active-directory-reporting-azure-monitor-diagnostics-azure-event-hub.md)
-#### [Route Azure Active Directory logs to an Azure storage account](active-directory-reporting-azure-monitor-diagnostics-azure-storage-account.md)
-#### [Tntegrate Azure Active Directory logs with Splunk using Azure Monitor Diagnostics](active-directory-reporting-azure-monitor-diagnostics-splunk-integration.md)
+#### [Route activity logs to an Azure event hub](active-directory-reporting-azure-monitor-diagnostics-azure-event-hub.md)
+#### [Route activity logs to an Azure storage account](active-directory-reporting-azure-monitor-diagnostics-azure-storage-account.md)
+#### [Tntegrate activity logs with Splunk using Azure Monitor Diagnostics](active-directory-reporting-azure-monitor-diagnostics-splunk-integration.md)
 
 ### Reference
 #### [Retention](active-directory-reporting-retention.md)
@@ -131,14 +131,14 @@
 #### [Audit activity reference](active-directory-reporting-activity-audit-reference.md)
 #### [Sign-in activity error codes](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
-#### [Interpret the Azure Active Directory audit log schema in Azure Monitor Diagnostics](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md)
-#### [Interpret the Azure Active Directory sign-in log schema in Azure Monitor Diagnostics](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+#### [Interpret the audit log schema in Azure Monitor Diagnostics](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md)
+#### [Interpret the sign-in log schema in Azure Monitor Diagnostics](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
 ### Troubleshoot
 #### [Missing audit data](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Missing data in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure Active Directory Activity logs content pack errors](active-directory-reporting-troubleshoot-
-#### [Errors in Azure Active Directory Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
+#### [Azure AD Activity logs content pack errors](active-directory-reporting-troubleshoot-
+#### [Errors in Azure AD Reporting API](active-directory-reporting-troubleshoot-graph-api.md)
 
 ###	[Programmatic Access](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Prerequisites](active-directory-reporting-api-prerequisites-azure-portal.md)
