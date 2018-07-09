@@ -4,7 +4,7 @@
   items:
   - name: About Security Center
     href: security-center-intro.md
-
+   
 - name: Quickstarts
   expanded: true
   items:
@@ -52,6 +52,8 @@
       href: security-center-customize-os-security-config.md
     - name: Security policy using Azure policy
       href: security-center-azure-policy.md
+    - name: Tenant-wide visibility
+      href: security-center-management-groups.md  
   
   - name: Implement security recommendations
     href: security-center-recommendations.md

@@ -14,7 +14,7 @@ manager: carmonm
 # Update your Automation account authentication with Run As accounts 
 You can update your existing Automation account from the Azure portal or use PowerShell if:
 
-* You create an Automation account but decline to create the Run As account.
+* You create an Automation account but do not create the Run As account.
 * You already use an Automation account to manage Resource Manager resources and you want to update the account to include the Run As account for runbook authentication.
 * You already use an Automation account to manage classic resources and you want to update it to use the Classic Run As account instead of creating a new account and migrating your runbooks and assets to it.   
 
@@ -243,6 +243,9 @@ This PowerShell script includes support for the following configurations:
         Write-Host -ForegroundColor red       $UploadMessage
     }
     ```
+
+    > [!IMPORTANT]
+    > **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can update your modules in your Automation Account.
 
 2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
 3. From the elevated command-line shell, go to the folder that contains the script you created in step 1.  

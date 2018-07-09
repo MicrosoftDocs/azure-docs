@@ -37,7 +37,7 @@ By using the access panel, you can edit some of your profile settings and do the
 
 - View and start cloud-based applications that the Azure AD administrator has granted you access to. 
 
-- Self-manage groups. Administrators can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](active-directory-accessmanagement-self-service-group-management.md) and [Manage your groups](fundamentals/active-directory-manage-groups.md).
+- Self-manage groups. Administrators can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](users-groups-roles/groups-self-service-management.md) and [Manage your groups](fundamentals/active-directory-manage-groups.md).
 
 
 
@@ -102,6 +102,10 @@ To use internal company URLs while remote using the extension, do the following:
 2. [Publish the application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) and URL through Application Proxy.
 3. Install the extension, and sign in to it by selecting Sign in to get started.
 4. You can now browse to the internal company URL even while remote.
+
+> [!NOTE]
+> You may also turn off automatic redirection to company URLs by selecting the settings gear on the main menu and selecting **off** for the Company internal URL redirection option.
+
 
 ## Mobile app support
 

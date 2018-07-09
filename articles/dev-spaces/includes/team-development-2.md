@@ -14,14 +14,14 @@ manager: "douge"
 
 ### Run the service
 
-1. Hit F5 (or type `azds up` in the Terminal Window) to run the service. The service will automatically run in your newly selected space `scott`. 
-1. You can confirm that your service is running in its own space by running `azds space list` again. First, you'll notice an instance of `mywebapi` is now running in the `scott` space (the version running in the `default` is still running but it is not listed). Secondly, the access point URL for `webfrontend` is prefixed with the text "scott.s.". This URL is unique to the `scott` space. The special URL signifies that requests sent to the "scott URL" will try to first route to services in the `scott` space, but if that fails, they will fall back to services in the `default` space.
+1. Hit F5 (or type `azds up` in the Terminal Window) to run the service. The service will automatically run in your newly selected space `default/scott`. 
+1. You can confirm that your service is running in its own space by running `azds list` again. First, you'll notice an instance of `mywebapi` is now running in the `default/scott` space (the version running in the `default` is still running but it is not listed). Secondly, the access point URL for `webfrontend` is prefixed with the text "scott.s.". This URL is unique to the `default/scott` space. The special URL signifies that requests sent to the "scott URL" will try to first route to services in the `default/scott` space, but if that fails, they will fall back to services in the `default` space.
 
 ```
-Name         Space     Chart              Ports   Updated     Access Points
------------  --------  -----------------  ------  ----------  -------------
-mywebapi     scott     mywebapi-0.1.0     80/TCP  15s ago     http://localhost:61466
-webfrontend  default  webfrontend-0.1.0  80/TCP  5h ago      http://scott.s.webfrontend-contosodev.1234abcdef.eastus.aksapp.io
+Name         Space          Chart              Ports   Updated     Access Points
+-----------  --------       -----------------  ------  ----------  -------------
+mywebapi     default/scott  mywebapi-0.1.0     80/TCP  15s ago     http://localhost:61466
+webfrontend  default        webfrontend-0.1.0  80/TCP  5h ago      http://scott.s.webfrontend-contosodev.1234abcdef.eastus.aksapp.io
 ```
 
 ![](../media/common/space-routing.png)

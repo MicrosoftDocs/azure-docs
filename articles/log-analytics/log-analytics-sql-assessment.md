@@ -3,7 +3,7 @@ title: Optimize your SQL Server environment with Azure Log Analytics | Microsoft
 description: With Azure Log Analytics, you can use the SQL Health Check solution to assess the risk and health of your environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
@@ -11,12 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-
+ms.component: na
 ---
+
 # Optimize your SQL environment with the SQL Server Health Check solution in Log Analytics
 
 ![SQL Health Check symbol](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)

@@ -1,5 +1,5 @@
 ﻿---
-title: Understand Azure Reserved Instances discount - Azure Billing | Microsoft Docs
+title: Understand Azure reserved instances discount | Microsoft Docs
 description: Learn how Azure Reserved VM Instance discount is applied to running virtual machines. 
 services: 'billing'
 documentationcenter: ''
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: yashar
 ---
-# Understand how the Reserved Instance discount is applied
-After you buy a Azure Reserved VM Instance, the Azure Reserved Instance discount is automatically applied to virtual machines matching the attributes and quantity of the reserved instance. A reserved instance covers the infrastructure costs of your virtual machines. The following table illustrates the costs for your virtual machine after you purchase a reserved instance. In all cases, you are charged for storage and networking at the normal rates.
+# Understand how the reserved instance discount is applied
+After you buy a Azure Reserved VM Instance, the reserved instance discount is automatically applied to virtual machines matching the attributes and quantity of the reserved instance. A reserved instance covers the infrastructure costs of your virtual machines. The following table illustrates the costs for your virtual machine after you purchase a reserved instance. In all cases, you are charged for storage and networking at the normal rates.
 
 | Virtual Machine Type  | Charges with reserved instance |    
 |-----------------------|--------------------------------------------|
@@ -36,18 +36,18 @@ After you buy a Azure Reserved VM Instance, the Azure Reserved Instance discount
 3.	For hour 2 and hour 3, both instances ran for 1 hour each. One instance is covered by the reserved instance and the other is charged at pay-as-you-go rates.
 4.	For hour 4, instance 1 runs for 0.5 hours and instance 2 runs for 1 hour. Instance 1 is fully covered by the reserved instance and 0.5 hours of instance 2 is covered. You’re charged the pay-as-you-go rate for the remaining 0.5 hours.
 
-To understand and view the application of your Azure Reserved Instances in billing usage reports, see [Understand Reserved Instance usage](https://go.microsoft.com/fwlink/?linkid=862757).
+To understand and view the application of your Azure reserved instances in billing usage reports, see [Understand Reserved Instance usage](https://go.microsoft.com/fwlink/?linkid=862757).
 
-## Application of Reserved Instance discount to Windows VMs
-When you are running Windows VM instances, the reserved instance is applied to cover the infrastructure costs. The application of the reserved instance to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You are charged separately for Windows software on a per vCPU basis. See [Windows software costs with Reserved Instances](https://go.microsoft.com/fwlink/?linkid=862756). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+## Application of reserved instance discount to Windows VMs
+When you are running Windows VM instances, the reserved instance is applied to cover the infrastructure costs. The application of the reserved instance to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You are charged separately for Windows software on a per vCPU basis. See [Windows software costs with reserved instances](https://go.microsoft.com/fwlink/?linkid=862756). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## Next steps
 To learn more about reserved instances, see the following articles:
 
-- [Save money on virtual machines with Azure Reserved Instances](billing-save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with reserved instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage reserved instances](billing-manage-reserved-vm-instance.md)
-- [Understand how the Reserved Instance discount is applied](billing-understand-vm-reservation-charges.md)
+- [What are Azure Reserved VM Instances?](billing-save-compute-costs-reservations.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Manage reserved instances in Azure](billing-manage-reserved-vm-instance.md)
+- [Understand how the reserved instance discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reserved instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reserved instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Understand reserved instance usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)

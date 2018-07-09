@@ -3,7 +3,7 @@ title: Connect computers using the OMS Gateway | Microsoft Docs
 description: Connect your devices and Operations Manager-monitored computers with the OMS Gateway to send data to the Azure Automation and Log Analytics service when they do not have Internet access.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
@@ -11,9 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
+ms.component: na
 ---
 
 # Connect computers without Internet access using the OMS Gateway
@@ -79,7 +80,7 @@ The OMS Gateway is available in the following languages:
 The OMS Gateway only supports Transport Layer Security (TLS) 1.0, 1.1 and 1.2.  It does not support Secure Sockets Layer (SSL).
 
 ### Supported number of agent connections
-The following table highlights the the supported number of agents communicating with a gateway server.  This support is based on agents uploading ~200KB of data every 6 seconds. The data volume per agent tested is about 2.7GB per day.
+The following table highlights the supported number of agents communicating with a gateway server.  This support is based on agents uploading ~200KB of data every 6 seconds. The data volume per agent tested is about 2.7GB per day.
 
 |Gateway |Approx. Number of agents supported|  
 |--------|----------------------------------|  
