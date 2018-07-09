@@ -131,7 +131,7 @@ Set-AzureRmStorageSyncServerEndpoint `
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 ### <a id="broken-sync"></a>How do I monitor sync health?
-# [Portal](#tab/portal)
+# [Portal](#tab/portal1)
 Within each sync group, you can drill down into its individual server endpoints to see the status of the last completed sync sessions. A green Health column and a Files Not Syncing value of 0 indicate that sync is working as expected. If this is not the case, see below for a list of common sync errors and how to handle files that are not syncing. 
 
 ![A screenshot of the Azure portal](media/storage-sync-files-troubleshoot/portal-sync-health.png)
@@ -168,7 +168,7 @@ Sometimes sync sessions fail overall or have a non-zero PerItemErrorCount but st
 ---
 
 ### How do I monitor the progress of a current sync session?
-# [Portal](#tab/portal)
+# [Portal](#tab/portal1)
 Within your sync group, go to the server endpoint in question and look at the Sync Activity section to see the count of files uploaded or downloaded in the current sync session. Note that this status will be delayed by about 5 minutes, and if your sync session is small enough to be completed within this period, it may not be reported in the portal. 
 
 # [Server](#tab/server)
@@ -186,7 +186,7 @@ PerItemErrorCount: 1006.
 ---
 
 ### How do I know if my servers are in sync with each other?
-# [Portal](#tab/portal)
+# [Portal](#tab/portal1)
 For each server in a given sync group, make sure:
 1. The timestamps for the Last Attempted Sync for both upload and download are recent.
 2. The status is green for both upload and download.
