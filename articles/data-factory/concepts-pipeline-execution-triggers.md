@@ -12,22 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: shlo
 
 ---
 
 # Pipeline execution and triggers in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Version 1 - GA](v1/data-factory-scheduling-and-execution.md)
-> * [Version 2 - Preview](concepts-pipeline-execution-triggers.md)
+> * [Version 1](v1/data-factory-scheduling-and-execution.md)
+> * [Current version](concepts-pipeline-execution-triggers.md)
 
-A _pipeline run_ in Azure Data Factory version 2 defines an instance of a pipeline execution. For example, say you have a pipeline that executes at 8:00 AM, 9:00 AM, and 10:00 AM. In this case, there are three separate runs of the pipeline, or pipeline runs. Each pipeline run has a unique pipeline run ID. A run ID is a GUID that uniquely defines that particular pipeline run. 
+A _pipeline run_ in Azure Data Factory defines an instance of a pipeline execution. For example, say you have a pipeline that executes at 8:00 AM, 9:00 AM, and 10:00 AM. In this case, there are three separate runs of the pipeline, or pipeline runs. Each pipeline run has a unique pipeline run ID. A run ID is a GUID that uniquely defines that particular pipeline run. 
 
 Pipeline runs are typically instantiated by passing arguments to parameters that you define in the pipeline. You can execute a pipeline either manually or by using a _trigger_. This article provides details about both ways of executing a pipeline.
-
-> [!NOTE]
-> This article applies to Azure Data Factory version 2, which is currently in preview. If you're using Azure Data Factory version 1, which is generally available (GA), see [Scheduling and execution in Azure Data Factory version 1](v1/data-factory-scheduling-and-execution.md).
 
 ## Manual execution (on-demand)
 The manual execution of a pipeline is also referred to as _on-demand_ execution.
@@ -105,8 +102,8 @@ You pass parameters in the body of the request payload. In the .NET SDK, Azure P
 
 ```json
 {
-  “sourceBlobContainer”: “MySourceFolder”,
-  “sinkBlobCountainer”: “MySinkFolder”
+  "sourceBlobContainer": "MySourceFolder",
+  "sinkBlobCountainer": "MySinkFolder"
 }
 ```
 
@@ -137,7 +134,7 @@ Triggers are another way that you can execute a pipeline run. Triggers represent
 
 - Schedule trigger: A trigger that invokes a pipeline on a wall-clock schedule.
 
-- Tumbling window trigger: A trigger that operates on a periodic interval, while also retaining state. Azure Data Factory doesn't currently support event-based triggers. For example, the trigger for a pipeline run that responds to a file-arrival event is not supported.
+- Tumbling window trigger: A trigger that operates on a periodic interval, while also retaining state.
 
 - Event-based trigger: A trigger that responds to an event.
 

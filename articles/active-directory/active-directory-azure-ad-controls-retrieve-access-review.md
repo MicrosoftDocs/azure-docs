@@ -3,17 +3,18 @@ title: Retrieve Azure AD access review results| Microsoft Docs
 description: How to retrieve the results of Azure Active Directory access reviews.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
+ms.reviewer: mwahl
 ---
 
 # Retrieve access review results

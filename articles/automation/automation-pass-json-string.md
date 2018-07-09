@@ -83,6 +83,10 @@ Run the following PowerShell commands:
    Connect-AzureRmAccount
    ```
     You are prompted to enter your Azure credentials.
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can update your modules in your Automation Account.
+
 1. Get the contents of the JSON file and convert it to a string:
     ```powershell
     $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string

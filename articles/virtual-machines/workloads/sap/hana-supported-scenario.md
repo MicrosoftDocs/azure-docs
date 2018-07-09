@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/25/2018
+ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -50,10 +50,11 @@ This document describes the details of the two components in each supported arch
 
 ### Ethernet
 
-Each server provisioned comes preconfigured with the sets of ethernet. Here are the details of the ethernet configured on each HLI units.
+Each server provisioned comes pre-configured with the sets of ethernet interfaces. Here are the details of the ethernet interfaces configured on each HLI unit.
 
-- **A**: This is used for/by the client access.
-- **B**: This is used for the node to node communication. This is configured on all the servers (irrespective of the topology requested) but only used for the scale-out scenarios.
+- **A**: This interface is used for/by the client access.
+- **B**: This interface is used for the node to node communication. This interface is configured on all the servers (irrespective of the topology requested) but only used for the 
+- scale-out scenarios.
 - **C**: This interface is used for the node to the storage connectivity.
 - **D**: This interface is used for the Node to ISCSI device connection for STONITH setup. This interface is only configured when the HSR setup is requested.  
 
@@ -75,6 +76,22 @@ If needed, you can define additional NIC cards on your own. However, the configu
 >[!NOTE]
 >You may still find additional interfaces which are physical interfaces or bonding. 
 You should consider the above-mentioned interfaces for your used case, rest can be ignored/or not to be tempered with.
+
+The distribution for units with two IP addresses assigned should look like:
+
+- Ethernet “A” should have an IP address assigned that is out of the Server IP Pool address range that you submitted to Microsoft. This IP address shall be used for maintaining in /etc/hosts of the OS.
+
+- Ethernet “C” should have an IP address assigned that is used for communication to NFS. Therefore, these addresses do **NOT** need to be maintained in etc/hosts in order to allow instance to instance traffic within the tenant.
+
+For deployment cases of HANA System Replication or HANA scale-out, a blade configuration with two IP addresses assigned is not suitable. If having two IP addresses assigned only and wanting to deploy such a configuration, contact SAP HANA on Azure Service Management to get a third IP address in a third VLAN assigned. For HANA Large Instance units having three IP addresses assigned on three NIC ports, the following usage rules apply:
+
+- Ethernet “A” should have an IP address assigned that is out of the Server IP Pool address range that you submitted to Microsoft. Hence this IP address shall not be used for maintaining in /etc/hosts of the OS.
+
+- Ethernet “B” should be exclusively used to be maintained in etc/hosts for communication between the different instances. These addresses would also be the IP addresses that need to be maintained in scale-out HANA configurations as IP addresses HANA uses for the inter-node configuration.
+
+- Ethernet “C” should have an IP address assigned that is used for communication to NFS storage. Hence this type of addresses should not be maintained in etc/hosts.
+
+- Ethernet “D” should be exclusively used for access STONITH device for pacemaker. This interface is required when you configure HANA System Replication (HSR) and want to achieve auto failover at the operating system using an SBD based device.
 
 
 ### Storage
@@ -99,9 +116,9 @@ The following list shows the supported scenarios:
 5. HSR with STONITH
 6. HSR with DR (Normal / Multipurpose) 
 7. Host auto failover (1+1) 
-8. Scale out with standby
-9. Scale out without standby
-10. Scale out with DR
+8. Scale-out with standby
+9. Scale-out without standby
+10. Scale-out with DR
 
 
 
@@ -217,7 +234,8 @@ The following mountpoints are preconfigured:
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - For MCOS: Volume size distribution is based off the database size in memory. Refer the [Overview and architecture](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) section to learn what database sizes in memory are supported with multisid environment.
 - At the DR: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the production HANA Instance installation at the DR HLI unit. 
-- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. Refer [Disaster recovery failover procedure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) for more details.
+- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) for more details.
+- Boot volume for **SKU Type I class** is replicated to DR node.
 
 
 ## 4. Single node with DR (Multipurpose)
@@ -265,12 +283,13 @@ The following mountpoints are preconfigured:
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - For MCOS: Volume size distribution is based off the database size in memory. Refer the [Overview and architecture](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) section to learn what database sizes in memory are supported with multisid environment.
 - At the DR: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the production HANA Instance installation at the DR HLI unit. 
-- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. Refer [Disaster recovery failover procedure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) for more details. 
+- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) for more details. 
 - At the DR: The data, logbackups, log, shared volumes for QA (marked as “QA Instance installation”) are configured for the QA instance installation.
+- Boot volume for **SKU Type I class** is replicated to DR node.
 
 ## 5. HSR with STONITH
  
-This topology support two nodes for the HANA System Replication (HSR) configuration. 
+This topology support two nodes for the HANA System Replication (HSR) configuration. This configuration is only supported for single HANA instances on a node. Means, MCOS scenarios are NOT supported.
 
 **As of now, this architecture is supported only for SUSE Operating system.**
 
@@ -319,7 +338,7 @@ The following mountpoints are preconfigured:
 
 ## 6. HSR with DR
  
-This topology support two nodes for the HANA System Replication (HSR) configuration. Both the normal and multipurpose DR is supported. 
+This topology support two nodes for the HANA System Replication (HSR) configuration. Both the normal and multipurpose DR is supported. These configurations are only supported for single HANA instances on a node. Means, MCOS scenarios are NOT supported with these configurations.
 
 In the diagram, multipurpose scenario is depicted where at the DR site, HLI unit is used for QA instance while production operations are running from the primary site. At the time of DR failover (or failover test), QA instance at DR site is taken down. 
 
@@ -373,8 +392,9 @@ The following mountpoints are preconfigured:
 - STONITH: An SBD is configured for the STONITH setup. However, a use of STONITH is optional.
 - At the DR: **Two sets of storage volumes are required** for primary and secondary node replication.
 - At the DR: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the production HANA Instance installation at the DR HLI unit. 
-- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. Refer [Disaster recovery failover procedure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) for more details. 
+- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) for more details. 
 - At the DR: The data, logbackups, log, shared volumes for QA (marked as “QA Instance installation”) are configured for the QA instance installation.
+- Boot volume for **SKU Type I class** is replicated to DR node.
 
 
 ## 7. Host auto failover (1+1)
@@ -419,9 +439,9 @@ The following mountpoints are preconfigured:
 - On standby: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the HANA Instance installation on the standby unit.
  
 
-## 8. Scale out with standby
+## 8. Scale-out with standby
  
-This topology supports multiple nodes in a scale out configuration. There is one node with master role, one or more nodes with worker role, and one or more nodes as standby. Though, there can be only one master node at any given point of time.
+This topology supports multiple nodes in a scale-out configuration. There is one node with master role, one or more nodes with worker role, and one or more nodes as standby. Though, there can be only one master node at any given point of time.
 
 
 ### Architecture diagram  
@@ -454,9 +474,9 @@ The following mountpoints are preconfigured:
 |/hana/logbackups/SID | Redo logs for production SID |
 
 
-## 9. Scale out without standby
+## 9. Scale-out without standby
  
-This topology supports multiple nodes in a scale out configuration. There is one node with master role, and one or mode nodes with worker role. Though, there can be only one master node at any given point of time.
+This topology supports multiple nodes in a scale-out configuration. There is one node with master role, and one or mode nodes with worker role. Though, there can be only one master node at any given point of time.
 
 
 ### Architecture diagram  
@@ -493,9 +513,9 @@ The following mountpoints are preconfigured:
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 
-## 10. Scale out with DR
+## 10. Scale-out with DR
  
-This topology supports multiple nodes in a scale out with a DR. Both normal and multipurpose DR is supported. In the diagram, only the single purpose DR is depicted. You can request this topology with or without the standby node.
+This topology supports multiple nodes in a scale-out with a DR. Both normal and multipurpose DR is supported. In the diagram, only the single purpose DR is depicted. You can request this topology with or without the standby node.
 
 
 ### Architecture diagram  
@@ -536,7 +556,8 @@ The following mountpoints are preconfigured:
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 -  At the DR: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the production HANA Instance installation at the DR HLI unit. 
-- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. Refer [Disaster recovery failover procedure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) for more details. 
+- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) for more details. 
+- Boot volume for **SKU Type I class** is replicated to DR node.
 
 
 ## Next steps

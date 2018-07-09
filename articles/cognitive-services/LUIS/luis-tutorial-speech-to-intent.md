@@ -26,7 +26,7 @@ For this article, you need a free [LUIS][LUIS] website account in order to impor
 In the Azure portal, [create](luis-how-to-azure-subscription.md#create-luis-endpoint-key) a **Language Understanding** (LUIS) key. 
 
 ## Import Human Resources LUIS app
-The intents, and utterances for this article are from the Human Resources LUIS app available from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github repository. Download the [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) file, save it with the *.json extension, and [import](create-new-app.md#import-new-app) it into LUIS. 
+The intents, and utterances for this article are from the Human Resources LUIS app available from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github repository. Download the [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) file, save it with the *.json extension, and [import](luis-how-to-start-new-app.md#import-new-app) it into LUIS. 
 
 This app has intents, entities, and utterances related to the Human Resources domain. Example utterances include:
 
@@ -51,7 +51,9 @@ After importing the app, select **Entities**, then **Manage prebuilt entities**.
 
   On the **Publish** page, collect the app ID, publish region, and subscription ID of the LUIS key created in the  [Create LUIS endpoint key](#create-luis-endpoint-key) section. You need to modify the code to use these values later in this article. 
 
-  These values are all included in the endpoint URL at the bottom of the **Publish** page for the key you created. Do **not** use the free starter key for this exercise. 
+  These values are all included in the endpoint URL at the bottom of the **Publish** page for the key you created. 
+  
+  Do **not** use the free starter key for this exercise. Only a **Language Understanding** key created in the Azure portal will work for this exercise. 
 
   https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
 
@@ -82,22 +84,13 @@ The file already has the Human Resources intents mapped.
 
 Build and run the app. 
 
-![Screenshot of command line running program](./media/luis-tutorial-speech-to-intent/cmdline-1.png)
-
 ## Test code with utterance
-Select **8** and speak into the microphone "Who is the manager of John Smith".
+Select **1** and speak into the microphone "Who is the manager of John Smith".
 
 ```cmd
-1. Speech recognition with microphone input.
-2. Speech recognition in the specified language.
-3. Speech recognition with file input.
-4. Speech recognition using customized model.
-5. Speech continuous recognition using events.
-6. Translation with microphone input.
-7. Translation with file input.
-8. Speech recognition of LUIS intent.
+1. Speech recognition of LUIS intent.
 0. Stop.
-Your choice: 8
+Your choice: 1
 LUIS...
 Say something...
 ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
@@ -125,7 +118,7 @@ The correct intent, **GetEmployeeOrgChart**, was found with a 61% confidence. Th
 The Speech SDK returns the entire LUIS response. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS HumanResources app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS HumanResources app. To do so, select the ellipsis (***...***) button to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 Remember to delete the LUIS-Samples directory when you are done using the sample code.
 

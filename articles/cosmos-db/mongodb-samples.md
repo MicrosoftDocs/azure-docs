@@ -22,8 +22,6 @@ ms.author: sngun
 > * [Java](sql-api-java-get-started.md)
 > * [Node.js for MongoDB](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
->  
 >
 
 This example shows you how to build an Azure Cosmos DB: API for MongoDB console app using Node.js.
