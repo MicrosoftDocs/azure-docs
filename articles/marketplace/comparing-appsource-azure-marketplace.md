@@ -48,3 +48,4 @@ The following tables describe the benefits of using a storefront:
 
 ## Next steps
 *   Review the [Azure Marketplace and AppSource publishing guide](./marketplace-publishers-guide.md).
+
