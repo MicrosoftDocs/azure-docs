@@ -274,7 +274,7 @@ Before starting, Contoso takes a local SQL Server backup, and VMware snapshot of
     ![Migrate](./media/contoso-migration-tfs-vsts/migrate7.png)
 
 
-## Generate a DACPAC
+### Generate a DACPAC
 
 Contoso creates a backup (DACPAC) for import into VSTS.
 

@@ -5,7 +5,7 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/01/2018
+ms.date: 07/06/2018
 ms.author: anoopkv
 ---
 

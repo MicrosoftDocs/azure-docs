@@ -4,8 +4,8 @@ description: This article describes how add and manage VMware vCenter in Azure S
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.topic: article
+ms.date: 07/06/2018
 ms.author: anoopkv
 ---
 
