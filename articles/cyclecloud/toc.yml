@@ -28,8 +28,8 @@
     items:
     - name: Clusters
       href: clusters.md
-    - name: Scale Your Cluster
-      href: scale-your-cluster.md
+    - name: Auto Scale
+      href: autoscale.md
   - name: Cluster Templates
     items:
       - name: Cluster Templates
@@ -96,6 +96,8 @@
     href: install-cyclecloud-cli.md
   - name: Start a Cluster
     href: start-cluster.md
+  - name: Scale Your Cluster
+    href: scale-your-cluster.md
   - name: Terminate a Cluster
     href: end-cluster.md
   - name: Create Custom Images
