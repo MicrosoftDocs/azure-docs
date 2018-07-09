@@ -49,8 +49,8 @@ Instructions are included in the **Next steps** section in this article.
 3. Select **App registrations**. Select **New application registration**.
 4. Provide the following entries:
     * A name for the web application: **WebApp-GraphAPI-DirectoryExtensions**.
-    * The application type: Web app/API.
-    * The sign-on URL: https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions.
+    * The application type: **Web app/API**.
+    * The sign-on URL: **https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions**.
 5. Select **Create**.
 6. Select the newly created web application.
 7. Select **Settings** > **Required permissions**.
@@ -65,9 +65,9 @@ Instructions are included in the **Next steps** section in this article.
 
 ## Modify your custom policy to add the **ApplicationObjectId**
 
-When you followed the steps in [Azure Active Directory B2C: Get started with custom policies](active-directory-b2c-get-started-custom.md), you downloaded and modified [files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) named TrustFrameworkBase.xml, TrustFrameworkExtensions.xml, SignUpOrSignin.xml, ProfileEdit.xml, and PasswordReset.xml. In the following steps, you continue to make modifications to these files.
+When you followed the steps in [Azure Active Directory B2C: Get started with custom policies](active-directory-b2c-get-started-custom.md), you downloaded and modified [sample files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) named **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml**, and **PasswordReset.xml**. In this step, you make more modifications to those files.
 
-1. Open the TrustFrameworkBase.xml file and add the `Metadata` section as shown in the following example. Insert the object ID that you previously recorded for the `ApplicationObjectId` value and the application ID that you recorded for the `ClientId` value: 
+* Open the **TrustFrameworkBase.xml** file and add the `Metadata` section as shown in the following example. Insert the object ID that you previously recorded for the `ApplicationObjectId` value and the application ID that you recorded for the `ClientId` value: 
 
     ```xml
     <ClaimsProviders>
@@ -99,7 +99,7 @@ When you followed the steps in [Azure Active Directory B2C: Get started with cus
 
 ## Use the new extension property or custom attribute in a user journey
 
-1. Open the ProfileEdit.xml file.
+1. Open the **ProfileEdit.xml** file.
 2. Add a custom claim `loyaltyId`. By including the custom claim in the `<RelyingParty>` element, it's included in the token for the application.
     
     ```xml
@@ -121,7 +121,7 @@ When you followed the steps in [Azure Active Directory B2C: Get started with cus
     </RelyingParty>
     ```
 
-3. Open the TrustFrameworkExtensions.xml file and add the`<ClaimsSchema>` element and its child elements to the `BuildingBlocks` element:
+3. Open the **TrustFrameworkExtensions.xml** file and add the`<ClaimsSchema>` element and its child elements to the `BuildingBlocks` element:
 
     ```xml
     <BuildingBlocks>
@@ -136,9 +136,9 @@ When you followed the steps in [Azure Active Directory B2C: Get started with cus
     </BuildingBlocks>
     ```
 
-4. Add the same `ClaimType` definition to TrustFrameworkBase.xml. It's not necessary to add a `ClaimType` definition in both the base and the extensions file. However, the next steps add the `extension_loyaltyId` to **TechnicalProfiles** in the base file. So the policy validator rejects the upload of the base file without it. It might be useful to trace the execution of the user journey named **ProfileEdit** in the TrustFrameworkBase.xml file. Search for the user journey with the same name in your editor. Observe that Orchestration Step 5 invokes the **TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate**. Search and inspect this **TechnicalProfile** to familiarize yourself with the flow.
+4. Add the same `ClaimType` definition to **TrustFrameworkBase.xml**. It's not necessary to add a `ClaimType` definition in both the base and the extensions files. However, the next steps add the `extension_loyaltyId` to **TechnicalProfiles** in the base file. So the policy validator rejects the upload of the base file without it. It might be useful to trace the execution of the user journey named **ProfileEdit** in the **TrustFrameworkBase.xml** file. Search for the user journey with the same name in your editor. Observe that Orchestration step 5 invokes the **TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate**. Search and inspect this **TechnicalProfile** to familiarize yourself with the flow.
 
-5. Open the TrustFrameworkBase.xml file and add `loyaltyId` as an input and output claim in the **TechnicalProfile SelfAsserted-ProfileUpdate**:
+5. Open the **TrustFrameworkBase.xml** file and add `loyaltyId` as an input and output claim in the **TechnicalProfile SelfAsserted-ProfileUpdate**:
 
     ```xml
     <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
@@ -174,7 +174,7 @@ When you followed the steps in [Azure Active Directory B2C: Get started with cus
     </TechnicalProfile>
     ```
 
-6. In the TrustFrameworkBase.xml file, add the `loyaltyId` claim to **TechnicalProfile AAD-UserWriteProfileUsingObjectId**. This addition persists the value of the claim in the extension property for the current user in the directory:
+6. In the **TrustFrameworkBase.xml** file, add the `loyaltyId` claim to **TechnicalProfile AAD-UserWriteProfileUsingObjectId**. This addition persists the value of the claim in the extension property for the current user in the directory:
 
     ```xml
     <TechnicalProfile Id="AAD-UserWriteProfileUsingObjectId">
@@ -201,7 +201,7 @@ When you followed the steps in [Azure Active Directory B2C: Get started with cus
     </TechnicalProfile>
     ```
 
-7. In the TrustFrameworkBase.xml file, add the `loyaltyId` claim to **TechnicalProfile AAD-UserReadUsingObjectId** to read the value of the extension attribute every time a user signs in. So far, the **TechnicalProfiles** have been changed in the flow of local accounts only. If you want the new attribute in the flow of a social or federated account, a different set of **TechnicalProfiles** needs to be changed. See the **Next steps** section.
+7. In the **TrustFrameworkBase.xml** file, add the `loyaltyId` claim to **TechnicalProfile AAD-UserReadUsingObjectId** to read the value of the extension attribute every time a user signs in. So far, the **TechnicalProfiles** have been changed in the flow of local accounts only. If you want the new attribute in the flow of a social or federated account, a different set of **TechnicalProfiles** needs to be changed. See the **Next steps** section.
 
     ```xml
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
