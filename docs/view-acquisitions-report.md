@@ -55,35 +55,6 @@ The **Markets** chart shows the total number of acquisitions over the selected p
 
 You can view this data in a visual Map form, or toggle the setting to view it in Table form. Table form will show five markets at a time, sorted either alphabetically or by highest/lowest number of acquisitions. You can also download the data to view info for all markets together.
  
-## App page views and conversions by channel
-
-In this chart, a channel refers to the method in which a customer arrived at your solution's listing page (for example, browsing and searching in the Store, a link from an external website, a link from one of your custom campaigns, etc.). The following channel types are included:
-
-- Store traffic: The customer was browsing or searching within the Store when they viewed your app's listing.
-
-- Custom campaign: The customer followed a link that used a custom campaign ID.
-
-- Other: The customer followed an external link (without any custom campaign ID) from a website to your app's listing or the customer followed a link from a search engine to your app's listing.
-
-A page view means that a customer viewed your solutions' AppSource listing page. This includes views by people who aren't signed in. Some customers have opted out of providing this information to Microsoft.
-
-    > [!NOTE]
-    > Client storefronts from within the Office applications do not currently provide page view information.  
-
-A conversion means that a customer has newly obtained a license to your app (whether you charged money or you've offered it for free). See acquisitions for more details.
-
-<a name="BKMK_delete"> </a>
-## App page views and conversions by campaign ID
-
-The **App page views and conversions by campaign ID** chart lets you track conversions and page views, as described above, for each of your custom promotion campaigns. The top campaign IDs are shown, and you can use the filters to exclude or include specific campaign IDs.
- 
-## Campaign performance by channel
-
-The **Campaign performance by channel chart** lets you track at a high level the influence various channels have over your store traffic. This breaks down the funnel steps by each of the channels tracked.
-
-## Total campaign conversions
-
-The **Total campaign conversions chart** shows the total number of conversions from all custom campaigns during the selected period of time.
 
 ## See also
 
