@@ -36,6 +36,12 @@ A phrase list is not an instruction to LUIS to perform strict matching or always
 
 Adding a phrase list is an alternative to adding more example utterances to an intent. 
 
+## An interchangeable phrase list
+Use an interchangeable phrase list when the list of words or phases form a class or group. An example is  months like "January", "February", "March"; or names like "John", "Mary", "Frank".  These features are interchangeable in the sense that an utterance where one word or phrase appears would be labeled similarly if the word/phrase were *interchanged* with another.  For example, if "show the calendar for January" has the same intent as "show the calendar for February", then the words should be on an interchangeable list. 
+
+## A non-interchangeable phrase list
+Use a non-interchangeable phrase list for words or phrases that are useful in your domain, but which do not form a class or group.  For example, the words "calendar", "email", "show", and "send" might be relevant to your domain, but might all be associated with different intents, like "show my calendar" or "send an email". 
+
 ## When to use phrase lists versus list entities
 While both a phrase list and list entities can impact utterances across all intents, each does this in a different way. Use a phrase list to affect intent prediction score. Use a list entity to affect entity extraction for an exact text match. 
 
