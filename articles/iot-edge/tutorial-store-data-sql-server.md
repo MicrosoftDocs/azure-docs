@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* The Azure IoT Edge device that you created in the quickstart or previous tutorial.
+* The Azure IoT Edge device that you created in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
@@ -62,13 +62,8 @@ The following steps show you how to create an IoT Edge function using Visual Stu
 
 1. Open Visual Studio Code.
 2. Open the VS Code integrated terminal by selecting **View** > **Integrated Terminal**.
-3. Install (or update) the **AzureIoTEdgeFunction** template in .NET by running the following command in the integrated terminal: 
-
-   ```cmd/sh
-   dotnet new -i Microsoft.Azure.IoT.Edge.Function
-   ```
-
-4. Open the VS Code command palette by selecting **View** > **Command palette**.
+3. Open the VS Code command palette by selecting **View** > **Command palette**.
+4. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
 3. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
    1. Select the folder where you want to create the solution. 
    2. Provide a name for your solution or accept the default **EdgeSolution**.
@@ -171,7 +166,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 2. Find the **moduleContent.$edgeAgent.properties.desired.modules** section. There should be two modules listed: **tempSensor**, which generates simulated data, and your **sqlFunction** module.
 3. Add the following code to declare a third module:
 
-   ```
+   ```json
    "sql": {
        "version": "1.0",
        "type": "docker",

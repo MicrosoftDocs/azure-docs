@@ -311,7 +311,7 @@
       - name: Enterprise Security
         tocHref: /azure/hdinsight/domain-joined
         topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
-      - name: R Server
+      - name: ML Services
         tocHref: /azure/hdinsight/r-server
         topicHref: /azure/hdinsight/r-server-overview
       - name: Spark

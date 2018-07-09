@@ -1,4 +1,4 @@
-- name: Data Factory V2 Documentation
+- name: Data Factory Documentation
   href: index.yml
 - name: Switch to version 1 documentation
   href: v1/data-factory-introduction.md
@@ -6,7 +6,7 @@
   items:
   - name: Introduction to Data Factory
     href: introduction.md
-  - name: Compare versions 1 and 2
+  - name: Compare current version to version 1
     href: compare-versions.md
 - name: Quickstarts
   expanded: true
@@ -138,10 +138,10 @@
       href: connector-azure-blob-storage.md
     - name: Azure Cosmos DB
       href: connector-azure-cosmos-db.md
-    - name: Azure Data Lake Storage
-      href: connector-azure-data-lake-storage.md
-    - name: Azure Data Lake Store
+    - name: Azure Data Lake Storage Gen1
       href: connector-azure-data-lake-store.md
+    - name: Azure Data Lake Storage Gen2
+      href: connector-azure-data-lake-storage.md
     - name: Azure Database for MySQL
       href: connector-azure-database-for-mysql.md
     - name: Azure Database for PostgreSQL
@@ -277,11 +277,11 @@
     - name: Copy Data tool
       href: copy-data-tool.md  
       items:
-    - name: Load Data Lake Storage
+    - name: Load Data Lake Storage Gen2
       href: load-azure-data-lake-storage-gen2.md    
     - name: Load SQL Data Warehouse
       href: load-azure-sql-data-warehouse.md
-    - name: Load Data Lake Store
+    - name: Load Data Lake Storage Gen1
       href: load-azure-data-lake-store.md    
     - name: Read or write partitioned data
       href: how-to-read-write-partitioned-data.md

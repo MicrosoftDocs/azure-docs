@@ -20,9 +20,9 @@ ms.custom: mvc
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure portal
 
-This quickstart shows how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in Azure Data Lake Storage Gen2.
+This quickstart shows how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in Azure Data Lake Storage Gen2 Preview.
 
-As part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics. 
+As part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -31,6 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 - [Create a Azure Data Lake Storage Gen2 Account](quickstart-create-account.md)
 
 ## Set aside storage account configuration
+
 During this tutorial you need to have access to your storage account name and access key. In the Azure portal, select **All Services** and filter on *storage*. Select **Storage accounts** and locate the account you created for this tutorial.
 
 From the **Overview** copy the name of the storage account in to a text editor. Next, select **Access keys** and copy the value for **key1** into your text editor as both vaules are needed for commands coming later.
@@ -65,9 +66,9 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 ## Create a Spark cluster in Databricks
 
-1. In the Azure portal, go to the Databricks workspace that you created, and then click **Launch Workspace**.
+1. In the Azure portal, go to the Databricks workspace that you created, and then select **Launch Workspace**.
 
-2. You are redirected to the Azure Databricks portal. From the portal, click **New** > **Cluster**.
+2. You are redirected to the Azure Databricks portal. From the portal, select **New** > **Cluster**.
 
     ![Databricks on Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks on Azure")
 
@@ -95,15 +96,15 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
     ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
 
-3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Phython** as the language, and then select the Spark cluster that you created earlier.
+3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
 
     ![Create notebook in Databricks](./media/handle-data-using-databricks/databricks-notebook-details.png "Create notebook in Databricks")
 
     Select **Create**.
 
-3. Enter the following code into the first cell and execute the code:
+4. Enter the following code into the first cell, replacing the placeholder values with your account name, key, and a name for your file system.
 
-    ```python
+    ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
     dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
@@ -118,10 +119,8 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 Before you begin with this section, you must complete the following prerequisites:
 
-* Download a **small_radio_json.json** [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Upload the sample JSON file using **AzCopy version 10** to the Azure Blob storage account you created:
-
-    Before you can upload the file, you must create a container in your storage account selecting **Settings** > **Browse blobs** > **Create container**.
+* Download **small_radio_json.json** [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+* Upload the sample JSON file using **AzCopy version 10** to the Azure Blob storage account and file system you created:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -134,25 +133,9 @@ Before you begin with this section, you must complete the following prerequisite
 
 ## Run a Spark SQL Job
 
-Perform the following tasks to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
+Perform the following tasks to run a Spark SQL job on the data.
 
-1. In the left pane, click **Workspace**. From the **Workspace** drop-down, click **Create**, and then click **Notebook**.
-
-    ![Create notebook in Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Create notebook in Databricks")
-
-2. In the **Create Notebook** dialog box, enter a name, select **Scala** as the language, and select the Spark cluster that you created earlier.
-
-    ![Create notebook in Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Create notebook in Databricks")
-
-    Click **Create**.
-
-3. In this step, associate the Azure Storage account with the Databricks Spark cluster. To accomplish this, you directly access the storage account using the following code:
-
-          spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_ACCESS_KEY>")
-
-     For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../common/storage-create-storage-account.md#manage-your-storage-account).
-
-4. Run a SQL statement to create a temporary table using data from the sample JSON data file, **small_radio_json.json**. In the following snippet, replace the placeholder values with your container name and storage account name. Paste the snippet in a code cell in the notebook, and then press SHIFT + ENTER. In the snippet, `path` denotes the location of the sample JSON file that you uploaded to your Azure Storage account.
+1. Run a SQL statement to create a temporary table using data from the sample JSON data file, **small_radio_json.json**. In the following snippet, replace the placeholder values with your file system name and storage account name. Using the notebook you created earlier, paste the snippet in a new code cell in the notebook, and then press SHIFT + ENTER.
 
     ```sql
     %sql
@@ -168,45 +151,45 @@ Perform the following tasks to create a notebook in Databricks, configure the no
 
     The `%sql` language magic command enables you to run a SQL code from the notebook, even if the notebook is of another type. For more information, see [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
 
-5. Let's look at a snapshot of the sample JSON data to better understand the query that you run. Paste the following snippet in the code cell and press **SHIFT + ENTER**.
+2. Let's look at a snapshot of the sample JSON data to better understand the query that you run. Paste the following snippet in the code cell and press **SHIFT + ENTER**.
 
     ```sql
     %sql 
     SELECT * from radio_sample_data
     ```
 
-6. You see a tabular output like shown in the following screenshot (only some columns are shown):
+3. You see a tabular output like shown in the following screenshot (only some columns are shown):
 
     ![Sample JSON data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Sample JSON data")
 
     Among other details, the sample data captures the gender of the audience of a radio channel (column name, **gender**)  and whether their subscription is free or paid (column name, **level**).
 
-7. You now create a visual representation of this data to show for each gender, how many users have free accounts and how many are paid subscribers. From the bottom of the tabular output, click the **Bar chart** icon, and then click **Plot Options**.
+4. You now create a visual representation of this data to show for each gender, how many users have free accounts and how many are paid subscribers. From the bottom of the tabular output, click the **Bar chart** icon, and then click **Plot Options**.
 
     ![Create bar chart](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Create bar chart")
 
-8. In **Customize Plot**, drag-and-drop values as shown in the screenshot.
+5. In **Customize Plot**, drag-and-drop values as shown in the screenshot.
 
     ![Customize bar chart](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Customize bar chart")
 
-    * Set **Keys** to **gender**.
-    * Set **Series groupings** to **level**.
-    * Set **Values** to **level**.
-    * Set **Aggregation** to **COUNT**.
+    - Set **Keys** to **gender**.
+    - Set **Series groupings** to **level**.
+    - Set **Values** to **level**.
+    - Set **Aggregation** to **COUNT**.
 
-9. Click **Apply**.
+6. Click **Apply**.
 
-10. The output shows the visual representation as depicted in the following screenshot:
+7. The output shows the visual representation as depicted in the following screenshot:
 
      ![Customize bar chart](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Customize bar chart")
 
 ## Clean up resources
 
-After you have finished the article, you can terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, select **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon.
+Once finished with this article, you can terminate the cluster. From the Azure Databricks workspace, select **Clusters** and locate the cluster you want to terminate. Hover your mouse cursor over the ellipsis under **Actions** column, and select the **Terminate** icon.
 
 ![Stop a Databricks cluster](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after __ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster automatically stops, if it has been inactive for the specified time.
+If you do not manually terminate the cluster it automatically stops, provided you selected the **Terminate after __ minutes of inactivity** checkbox while creating the cluster. If you set this option the cluster stops after it has been inactive for the designated amount of time.
 
 ## Next steps
 

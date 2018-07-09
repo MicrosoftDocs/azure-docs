@@ -6,7 +6,7 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: "ghogen"
-ms.date: "06/06/2018"
+ms.date: "07/09/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
@@ -25,7 +25,7 @@ In this guide, you will learn how to:
 
 ## Prerequisites
 
-- A Kubernetes cluster running Kubernetes 1.9.6, in the EastUS, WestEurope, or CanadaEast region, with Http Application Routing enabled.
+- A Kubernetes cluster running Kubernetes 1.9.6, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with Http Application Routing enabled.
 
   ![Be sure to enable Http Application Routing.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -33,7 +33,7 @@ In this guide, you will learn how to:
 
 ## Set up Azure Dev Spaces
 
-Install the [Visual Studio extension for Azure Dev Spaces](https://aka.ms/get-azds-visualstudio).
+Install [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio).
 
 ## Connect to a cluster
 
@@ -111,4 +111,4 @@ Refresh the web app in the browser, and go to the About page. You should see you
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-netcore-visualstudio.md#call-another-container)
+> [Working with multiple containers and team development](team-development-netcore-visualstudio.md)

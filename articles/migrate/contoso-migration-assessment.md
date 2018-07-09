@@ -95,7 +95,7 @@ In this scenario, Contoso downloads and runs the DMA to assess the on-premises S
 
 ![Migration assessment architecture](./media/contoso-migration-assessment/migration-assessment-architecture.png)
 
-- Contoso is a fictitious name representing a typical enterprise organization. 
+- Contoso is a fictitious name representing a typical enterprise organization.
 - Contoso has an on-premises datacenter (**contoso-datacenter**), with on-premises domain controllers (CONTOSODC1, CONTOSODC2).
 - VMware VMs are located on a VMware ESXI hosts running version 6.5. Hosts: **contosohost1**, **contosohost2**
 - The VMware environment is managed by vCenter server 6.5 (**venter**, running on a VM.
@@ -158,7 +158,7 @@ Here's how Contoso are going to do the assessment:
 Now Contoso can run an assessment to analyze their on-premises SQL Server for the SmartHotel app.
 
 1. In the Database Migration Assistant, they click **New**, select **Assessment**, and give the assessment a project name - **SmartHotel**.
-2. They select the **Source server type** as **SQL Server on Azure Virtual Machines**. 
+2. They select the **Source server type** as **SQL Server on Azure Virtual Machines**.
 
     ![Select source](./media/contoso-migration-assessment/dma-assessment-1.png)
 
@@ -178,7 +178,7 @@ Now Contoso can run an assessment to analyze their on-premises SQL Server for th
 
 3. In **Add source**, they add the database they want to assess, and  click **Next** to start the assessment.
 4. The assessment is created.
-    
+
     ![Create assessment](./media/contoso-migration-assessment/dma-assessment-4.png)
 
 5. In **Review Results**, they can see the assessment results.
@@ -220,7 +220,7 @@ Contoso needs to create a VMware account that Azure Migrate will use to automati
 
 ### Set up a VMware account
 
- VM discovery requires a read-only account in vCenter, with the following properties: 
+ VM discovery requires a read-only account in vCenter, with the following properties:
 
 - User type: At least a read-only user.
 - Permissions: Data Center object –> Propagate to Child Object, role=Read-only.
@@ -291,14 +291,13 @@ Before deploying the VM, Contoso checks that the .OVA file is secure.
 2. They run the following command to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. The generated hash should match these settings (version 1.0.9.7)
+3. The generated hash should match these settings (version 1.0.9.12)
 
-    **Algorithm** | **Hash value**
-    --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | d0363e5d1b377a8eb08843cf034ac28a
+SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
 ### Create the collector appliance
 
@@ -343,7 +342,7 @@ Now they run the collector to discover VMs. Note that the collector currently on
 
 7. In **View collection progress** Contoso can monitor discovery, and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
 
-    ![Collection in progress](./media/contoso-migration-assessment/collector-collection-process.png) 
+    ![Collection in progress](./media/contoso-migration-assessment/collector-collection-process.png)
 
 
 
@@ -393,8 +392,8 @@ They run the installation on each VM.
 2. In **Agent Setup Options**, they select **Connect the agent to Azure Log Analytics** > **Next**.
 
     ![MMA installation](./media/contoso-migration-assessment/mma-install.png)
-    
-5. In **Azure Log Analytics**, they paste in the workspace ID and key that you copied from the portal. 
+
+5. In **Azure Log Analytics**, they paste in the workspace ID and key that you copied from the portal.
 
 	![MMA installation](./media/contoso-migration-assessment/mma-install2.png)
 
@@ -425,7 +424,7 @@ They run the installation on each VM.
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
     ```
- 
+
 
 
 #### Install the Dependency agent on Linux VMs

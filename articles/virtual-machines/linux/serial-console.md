@@ -156,5 +156,5 @@ A. This is a known issue to fix this, simply open [Azure Cloud Shell](https://do
 A. This preview feature is covered via Azure Preview Terms. Support for this is best handled via channels mentioned above. 
 
 ## Next steps
-* The the serial console is also available for [Windows](../windows/serial-console.md) VMs
+* The serial console is also available for [Windows](../windows/serial-console.md) VMs
 * Learn more about [bootdiagnostics](boot-diagnostics.md)

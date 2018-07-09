@@ -11,7 +11,7 @@ services: iot-edge
 ms.custom: mvc
 
 experimental: true
-experiment_id: 
+experiment_id: 2c2f48c7-50a9-4e
 ---
 
 # Quickstart: Deploy your first IoT Edge module from the Azure portal to a Windows device - preview
@@ -69,10 +69,10 @@ The free level of IoT Hub works for this quickstart. If you've used IoT Hub in t
    az group create --name TestResources --location westus
    ```
 
-1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub called **MyIoTHub** in the resource group **TestResources**. Each IoT hub needs a globally unique name. If you receive an error from this command, try a different value in the *--name* field. 
+1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub in the resource group **TestResources**. Replace *{hub_name}* with a unique name for your IoT hub.
 
    ```azurecli-interactive
-   az iot hub create --resource-group TestResources --name MyIotHub --sku F1 
+   az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
    ```
 
 ## Register an IoT Edge device
@@ -82,16 +82,16 @@ Register an IoT Edge device with your newly created IoT Hub.
 
 Create a device identity for your simulated device so that it can communicate with your IoT hub. Since IoT Edge devices behave and can be managed differently than typical IoT devices, you declare this to be an IoT Edge device from the beginning. 
 
-1. In the Azure cloud shell, enter the following command to create a device named **myEdgeDevice** in your hub **MyIoTHub**
+1. In the Azure cloud shell, enter the following command to create a device named **myEdgeDevice** in your hub.
 
    ```azurecli-interactive
-   az iot hub device-identity create --device-id myEdgeDevice --hub-name MyIoTHub --edge-enabled
+   az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
    ```
 
 1. Retrieve the connection string for your device, which links your physical device with its identity in IoT Hub. 
 
    ```azurecli-interactive
-   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name MyIoTHub
+   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
 1. Copy the connection string and save it. You'll use this value to configure the IoT Edge runtime in the next section. 
@@ -183,24 +183,31 @@ Configure the runtime with your IoT Edge device connection string that you copie
 
 5. Create an environment variable called **IOTEDGE_HOST**, replacing *\<ip_address\>* with the IP Address for your IoT Edge device. 
 
-   ```powershell
-   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-   ```
+  ```powershell
+  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+  ```
+  
+  Persist the environment variable across reboots.
 
-6. In the `config.yaml` file, find the **Connect settings** section. Update the **management_uri** and **workload_uri** values with your IP address and the ports that you opened in the previous section. 
+  ```powershell
+  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
+  ```
+
+
+6. In the `config.yaml` file, find the **Connect settings** section. Update the **management_uri** and **workload_uri** values with your IP address and the ports that you opened in the previous section. Replace **\<GATEWAY_ADDRESS\>** with your IP address. 
 
    ```yaml
    connect: 
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address>:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
 7. Find the **Listen settings** section and add the same values for **management_uri** and **workload_uri**. 
 
    ```yaml
    listen:
-     management_uri: "http://<ip_address>:15580"
-     workload_uri: "http://<ip_address:15581"
+     management_uri: "http://<GATEWAY_ADDRESS>:15580"
+     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
 8. Find the **Moby Container Runtime settings** section and verify that the value for **network** is set to `nat`.
@@ -283,10 +290,10 @@ You can use the simulated device that you configured in this quickstart to test 
    docker rm -f $(docker ps -aq)
    ```
 
-When you no longer need the IoT Hub you created, you can use the [az iot hub delete][lnk-delete] command to remove the resource and any devices associated with it:
+When you no longer need the Azure resources that you created, you can use the following command to delete the resource group that you created and any resources associated with it:
 
    ```azurecli-interactive
-   az iot hub delete --name MyIoTHub --resource-group IoTEdge
+   az group delete --name TestResources
    ```
 
 ## Next steps

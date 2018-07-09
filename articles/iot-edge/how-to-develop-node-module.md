@@ -1,5 +1,5 @@
 ---
-title: Create Node.js modules for Azure IoT Edge | Microsoft Docs
+title: Debug Node.js modules for Azure IoT Edge | Microsoft Docs
 description: Use Visual Studio Code to develop and debug Node.js modules for
  Azure IoT Edge
 services: iot-edge
@@ -21,9 +21,13 @@ You can send your business logic to operate at the edge by turning it into modul
 ## Prerequisites
 This article assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device, or you can simulate your IoT Edge device on your development machine.
 
+> [!NOTE]
+> This debugging tutorial describes how to attach a process in a module container and debug it with VS Code. You can debug Node.js modules in linux-amd64, windows and arm32 containers. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
+
 Since this article uses Visual Studio Code as the main development tool, install VS Code and then add the necessary extensions:
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
+* [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 To create a module, you need Node.js which includes npm to build the project folder, Docker to build the module image, and a container registry to hold the module image:
 * [Node.js](https://nodejs.org)
@@ -33,7 +37,7 @@ To create a module, you need Node.js which includes npm to build the project fol
    >[!TIP]
    >You can use a local Docker registry for prototype and testing purposes, instead of a cloud registry. 
 
-To test your module on a device, you need an active IoT hub with at least one IoT Edge device. If you want to use your computer as an IoT Edge device, you can do so by following the steps in the tutorials for [Windows](tutorial-simulate-device-windows.md) or [Linux and Mac](tutorial-simulate-device-linux.md). 
+To test your module on a device, you need an active IoT hub with at least one IoT Edge device. If you want to use your computer as an IoT Edge device, you can do so by following the steps in the tutorials for [Windows](quickstart.md) or [Linux](quickstart-linux.md). 
 
 ## Create a new solution template
 
@@ -58,22 +62,22 @@ The following steps show you how to create an IoT Edge module based on .NET Core
 
 VS Code takes the information you provided, creates an IoT Edge solution, then loads it in a new window.
 
-<!-->   ![View IoT Edge solution](./media/how-to-develop-csharp-module/view-solution.png) -->
-
 Within the solution you have three items: 
 * A **.vscode** folder contains debug configurations.
 * A **modules** folder contains subfolders for each module. Right now you only have one, but you could add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**. 
+* A **.env** file lists your environment variables. If you are ACR as your registry, right now you have ACR username and password in it. 
 * A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data that you can use for testing. For more information about how deployment manifests work, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
 ## Build and deploy your module for debugging
 
 In each module folder, there are multiple Docker files for different container types. You can use any of these files that end with the extension **.debug** to build your module for testing. Currently, C# modules only support debugging in linux-amd64 containers.
 
-1. In VS Code, navigate to the `deployment.template.json` file. Update your function image URL by adding **.debug** to the end.
+1. In VS Code, navigate to the `deployment.template.json` file. Replace the Node.js module createOptions in **deployment.template.json** with below content and save this file: 
+    ```json
+    "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
+    ```
 
-<!-->   ![Add .debug to your image name](./media/how-to-develop-csharp-module/image-debug.png) -->
-
-2. In the VS Code command palette, type and run the command **Edge: Build IoT Edge solution**.
+2. In the VS Code command palette, type and run the command **Azure IoT Edge: Build IoT Edge solution**.
 3. Select the `deployment.template.json` file for your solution from the command palette. 
 4. In Azure IoT Hub Devices explorer, right-click an IoT Edge device ID, then select **Create deployment for IoT Edge device**. 
 5. Open the **config** folder of your solution, then select the `deployment.json` file. Click **Select Edge Deployment Manifest**. 
@@ -82,22 +86,19 @@ Then you can see the deployment is successfully created with a deployment ID in 
 
 You can check your container status in the VS Code Docker explorer or by run the `docker ps` command in the terminal.
 
-## Start debugging C# module in VS Code
-
-If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
+## Start debugging Node.Js module in VS Code
 
 VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace. This `launch.json` file was generated when you created a new IoT Edge solution. It updates each time you add a new module that supports debugging. 
 
 1. Navigate to the VS Code debug view and select the debug configuration file for your module.
-<!--    ![Select debug configuration](./media/how-to-develop-csharp-module/debug-config.png) -->
 
-2. Navigate to `program.cs`. Add a breakpoint in this file.
+2. Navigate to `app.js`. Add a breakpoint in this file.
 
 3. Click the **Start Debugging** button or press **F5**, and select the process to attach to.
 
 4. In VS Code Debug view, you can see the variables in left panel. 
 
-The preceding example shows how to debug .NET Core IoT Edge modules on containers. It's based on the debug version of the `Dockerfile.debug`, which includes VSDBG (the .NET Core command-line debugger) in your container image while building it. After you finish debugging your C# modules, we recommend you directly use or customize `Dockerfile` without VSDBG for production-ready IoT Edge modules.
+The preceding example shows how to debug Node.js IoT Edge modules on containers. It added exposed ports in your module container createOptions. After you finish debugging your Node.js modules, we recommend you remove these exposed ports for production-ready IoT Edge modules.
 
 ## Next steps
 

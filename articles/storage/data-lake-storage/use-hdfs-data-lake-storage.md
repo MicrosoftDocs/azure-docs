@@ -1,6 +1,6 @@
 ---
-title: Using the HDFS CLI with Azure Data Lake Storage Gen2
-description:  Introduction to HDFS CLI for Data Lake Storage Gen2
+title: Using the HDFS CLI with Azure Data Lake Storage Gen2 Preview
+description:  Introduction to HDFS CLI for Data Lake Storage Gen2 Preview
 services: storage
 documentationcenter: ''
 author: artemuwka
@@ -18,7 +18,7 @@ ms.component: data-lake-storage-gen2
 
 # Using the HDFS CLI with Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Whether you have an HDInsight cluster attached or run an Apache Spark job using Azure Databricks to perform analytics on data stored in Azure Data Lake Storage Gen2 you can use command-line interface (CLI) to retrieve and manipulate the loaded data. The rest of the article outlines the options you have while [Azure Storage team is working on adding support for Azure Storage Explorer and Azure portal](https://azure.microsoft.com/roadmap/) - have fun!
+Azure Data Lake Storage Gen2 Preview allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Whether you have an HDInsight cluster attached or run an Apache Spark job using Azure Databricks to perform analytics on data stored in Azure Data Lake Storage Gen2 you can use command-line interface (CLI) to retrieve and manipulate the loaded data. The rest of the article outlines the options you have while the [Azure Storage team is working on adding support for Azure Storage Explorer and Azure portal](https://azure.microsoft.com/roadmap/).
 
 ## HDFS CLI with HDInsight
 
@@ -53,6 +53,7 @@ The connection string can be found at the "SSH + Cluster login" section of the H
 For more information on HDFS CLI, see the [official documentation](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) and the [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 
 ## HDFS CLI with Azure Databricks
+
 The Databricks provides an easy-to-use CLI built on top of the Databricks REST API. The open-source project is hosted on [GitHub](https://github.com/databricks/databricks-cli). Below are the commonly used commands.
 
 To get a list of files or directories:
@@ -89,4 +90,4 @@ For more information on Databricks CLI, see the [official documentation](https:/
 ## Next steps
 
 - [Create an HDInsight cluster with Azure Data Lake Storage Gen2](./quickstart-create-connect-hdi-cluster.md)
-- [Use an Azure Data Lake Storage account in Azure Databricks](./quickstart-create-databricks-account.md) 
+- [Use an Azure Data Lake Storage Gen2 capable account in Azure Databricks](./quickstart-create-databricks-account.md) 

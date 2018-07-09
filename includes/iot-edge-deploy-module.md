@@ -5,7 +5,7 @@
  author: kgremban
  ms.service: iot-edge
  ms.topic: include
- ms.date: 06/22/2018
+ ms.date: 06/27/2018
  ms.author: kgremban
  ms.custom: include file
 ---

@@ -1,6 +1,6 @@
 ---
 title: Learn to perform extract, load, and transfer operations using Azure Databricks
-description: Learn to extract data from Azure Data Lake Storage Gen2 into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
+description: Learn to extract data from Azure Data Lake Storage Gen2 Preview into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
 services: azure-databricks
 author: jamesbak
 manager: jahogg
@@ -15,7 +15,7 @@ ms.author: jamesbak
 ---
 # Tutorial: Extract, transform, and load data using Azure Databricks
 
-In this tutorial, you perform an ETL (extract, transform, and load data) operation to move data from Azure Data Lake Storage Gen2 to Azure SQL Data Warehouse, using Azure Databricks.
+In this tutorial, you perform an ETL (extract, transform, and load data) operation to move data from Azure Data Lake Storage Gen2 Preview to Azure SQL Data Warehouse, using Azure Databricks.
 
 The following illustration shows the application flow:
 
@@ -113,7 +113,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 4. Enter the following code into the first cell and execute the code:
 
-    ```python
+    ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
     dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
@@ -128,11 +128,14 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 The next step is to upload a sample data file to the storage account to later transform in Azure Databricks. 
 
-1. If you do not already have an account created for Data Lake Storage Gen2, follow the quickstart to create a Data Lake Storage Gen2 account.
-2. The sample data (**small_radio_json.json**) is available in the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo. Download the JSON file and make note of the path where you save the file.
-3. Upload the data into your storage account. The method you use to upload data into your storage account differs depending on whether you have the Hierarchical Namespace Service (HNS) enabled.
+> [!NOTE]
+> If you do not already have an Azure Data Lake Storage Gen2 capable account, follow the [quickstart to create one](./quickstart-create-account.md).
 
-    If the Hierarchical Namespace Service is enabled on your ADLS Gen2 account, you can use Azure Data Factory, distp, or AzCopy (version 10) to handle the upload. AzCopy version 10 is only available to preview customers. To use AzCopy from Cloud Shell:
+1. Download (**small_radio_json.json**) from the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo and make note of the path where you save the file.
+
+2. Next, you upload the sample data into your storage account. The method you use to upload data into your storage account differs depending on whether you have the hierarchical namespace enabled.
+
+    If the hierarchical namespace is enabled on your Azure Storage account created for Gen2 account, you can use Azure Data Factory, distp, or AzCopy (version 10) to handle the upload. AzCopy version 10 is only available to preview customers. To use AzCopy pase in the following code into a command window:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -146,7 +149,7 @@ Return to your DataBricks Notebook and enter the following code in a new cell:
 
 1. Add the following snippet in an empty code cell and replace the placeholder values with the values you saved earlier from the storage account.
 
-    ```python
+    ```scala
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
     dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
     ```
@@ -155,13 +158,13 @@ Return to your DataBricks Notebook and enter the following code in a new cell:
 
 2. You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell, and then press **SHIFT + ENTER** (making sure to replace the placeholder values):
 
-    ```python
+    ```scala
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
 
 3. Run the following code to see the contents of the data frame.
 
-    ```python
+    ```scala
     df.show()
     ```
 
@@ -186,7 +189,7 @@ The raw sample data **small_radio_json.json** captures the audience for a radio 
 
 1. Start by retrieving only the columns *firstName*, *lastName*, *gender*, *location*, and *level* from the dataframe you already created.
 
-    ```python
+    ```scala
     val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
     ```
 
@@ -221,7 +224,7 @@ The raw sample data **small_radio_json.json** captures the audience for a radio 
 
 2.  You can further transform this data to rename the column **level** to **subscription_type**.
 
-    ```python
+    ```scala
     val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
     renamedColumnsDF.show()
     ```
@@ -263,28 +266,28 @@ As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage a
 
 1. Provide the configuration to access the Azure Storage account from Azure Databricks.
 
-    ```python
+    ```scala
     val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
-    val fileSystemName = "<FILE_SYSTEM_NJAME>"
+    val fileSystemName = "<FILE_SYSTEM_NAME>"
     val accessKey =  "<ACCESS_KEY>"
     ```
 
 2. Specify a temporary folder that will be used while moving data between Azure Databricks and Azure SQL Data Warehouse.
 
-    ```python
+    ```scala
     val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
     ```
 
 3. Run the following snippet to store Azure Blob storage access keys in the configuration. This ensures that you do not have to keep the access key in the notebook in plain text.
 
-    ```python
+    ```scala
     val acntInfo = "fs.azure.account.key."+ storageURI
     sc.hadoopConfiguration.set(acntInfo, accessKey)
     ```
 
 4. Provide the values to connect to the Azure SQL Data Warehouse instance. You must have created a SQL data warehouse as part of the prerequisites.
 
-    ```python
+    ```scala
     //SQL Data Warehouse related settings
     val dwDatabase = "<DATABASE NAME>"
     val dwServer = "<DATABASE SERVER NAME>" 
@@ -298,7 +301,7 @@ As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage a
 
 5. Run the following snippet to load the transformed dataframe, **renamedColumnsDF**, as a table in SQL data warehouse. This snippet creates a table called **SampleTable** in the SQL database.
 
-    ```python
+    ```scala
     spark.conf.set(
         "spark.sql.parquet.writeLegacyFormat",
         "true")

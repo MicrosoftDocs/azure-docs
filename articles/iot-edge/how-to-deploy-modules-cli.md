@@ -57,7 +57,7 @@ Here's a basic deployment manifest with one module as an example:
              "edgeAgent": {
                "type": "docker",
                "settings": {
-                 "image": "microsoft/azureiotedge-agent:1.0-preview",
+                 "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
                  "createOptions": "{}"
                }
              },
@@ -66,7 +66,7 @@ Here's a basic deployment manifest with one module as an example:
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "microsoft/azureiotedge-hub:1.0-preview",
+                 "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
                  "createOptions": "{}"
                }
              }
@@ -78,7 +78,7 @@ Here's a basic deployment manifest with one module as an example:
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
+                 "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
                  "createOptions": "{}"
                }
              }

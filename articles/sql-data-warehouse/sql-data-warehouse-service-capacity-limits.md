@@ -2,12 +2,12 @@
 title: Capacity limits - Azure SQL Data Warehouse | Microsoft Docs
 description: Maximum values allowed for various components of Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: antvgski
+author: sachinpMSFT
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
+ms.date: 06/28/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ---

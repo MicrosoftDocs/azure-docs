@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To test the Machine Learning module that you build in this tutorial, you need an IoT Edge device. You can use the device that you configured in the quickstart. 
+To test the Machine Learning module that you build in this tutorial, you need an IoT Edge device. You can use the device that you configured in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md). 
 
 The Azure Machine Learning module does not support ARM processors.
 
@@ -47,7 +47,7 @@ Have the following prerequisites on your development machine:
 
 To disable process identification, you'll need to provide the ip address and port for **workload_uri** and **management_uri** in the **connect** section of the IoT Edge daemon configuration.
 
-Get the ip address first. Enter `ifconfig` in your command line and copy the ip address of the **docker0** interface.
+Get the IP address first. Enter `ifconfig` in your command line and copy the IP address of the **docker0** interface.
 
 Edit the IoT Edge daemon configuration file:
 
@@ -55,10 +55,10 @@ Edit the IoT Edge daemon configuration file:
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Update the **connect** section of the configuration. For example:
+Update the **connect** section of the configuration with your IP address. For example:
 ```yaml
 connect:
-  management_uri: "http://172.17.0.1.1:15580"
+  management_uri: "http://172.17.0.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
@@ -66,7 +66,7 @@ Enter the same addresses in the **listen** section of the configuration. For exa
 
 ```yaml
 listen:
-  management_uri: "http://172.17.0.1.1:15580"
+  management_uri: "http://172.17.0.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
@@ -191,6 +191,38 @@ The following steps show you how to set up Visual Studio Code to monitor device-
 5. Observe the messages coming from tempSensor every five seconds. The message body contains a property called **anomaly** which the machinelearningmodule provides with a true or false value. The **AzureMLResponse** property contains the value "OK" if the model ran successfully.
 
    ![Azure ML response in message body](./media/tutorial-deploy-machine-learning/ml-output.png)
+
+## Clean up resources 
+
+<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+
+If you will be continuing to the next recommended article, you can keep the resources and configurations you've already created and reuse them.
+
+Otherwise, you can delete the local configurations and the Azure resources created in this article to avoid charges. 
+
+> [!IMPORTANT]
+> Deleting Azure resources and resource group is irreversible. Once deleted, the resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the IoT Hub inside an existing resource group that contains resources you want to keep, only delete the IoT Hub resource itself instead of deleting the resource group.
+>
+
+To delete only the IoT Hub execute the following command using your hub name and resource group name:
+
+```azurecli-interactive
+az iot hub delete --name MyIoTHub --resource-group TestResources
+```
+
+
+To delete the entire resource group by name:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
+
+2. In the **Filter by name...** textbox, type the name of the resource group containing your IoT Hub. 
+
+3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
+
+<!--
+   ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
+-->
+4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
 ## Next steps
 

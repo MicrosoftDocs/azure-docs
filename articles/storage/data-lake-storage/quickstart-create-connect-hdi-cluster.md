@@ -19,7 +19,7 @@ ms.author: jamesbak
 ---
 # Quickstart: Set up clusters in HDInsight
 
-In this quickstart you learn to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. You also learn to customize clusters, join them to a domain, and attach to [Azure Data Lake Storage Gen2](introduction.md).
+In this quickstart you learn to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. You also learn to customize clusters, join them to a domain, and attach to [Azure Data Lake Storage Gen2 Preview](introduction.md).
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information.
 
@@ -51,7 +51,7 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 
 * [Resource group name](#resource-group-name)
 * [Cluster types and configuration](#cluster-types) 
-* [Cluster login and SSH username](#cluster-login-and-ssh-username)
+* [Cluster login and SSH username](#cluster-login-and-ssh-user-name)
 * [Location](#location)
 
 > [!IMPORTANT]
@@ -113,7 +113,7 @@ Although an on-premises installation of Hadoop uses the Hadoop Distributed File 
 
 During configuration, for the default storage endpoint you specify Data Lake Storage. The default storage contains application and system logs. Optionally, you can specify additional linked Azure Data Lake Storage accounts that the cluster can access. The HDInsight cluster and the dependent storage accounts must be in the same Azure location.
 
-![Cluster storage settings: HDFS-compatible storage endpoints](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage-TEMP.png)
+![Cluster storage settings: HDFS-compatible storage endpoints](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > Be sure to **disable Data Lake Store access**. This settings refers to the old *Data Lake Store* functionality and needs to be disabled in order for *Data Lake Storage* features to operate correctly.
