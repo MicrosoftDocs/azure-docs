@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/30/2018
+ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: 'vsts'
@@ -58,7 +58,7 @@ The Azure DevOps Project creates a CI/CD pipeline in VSTS.  You can create a **n
 
 The Azure DevOps project created a Git repository in your VSTS or GitHub account.  Follow the steps below to view the repository and make code changes to your application.
 
-1. On the left-hand side of the DevOps project dashboard, select the link for your **master** branch.  This link opens a opens a view to the newly created Git repository.
+1. On the left-hand side of the DevOps project dashboard, select the link for your **master** branch.  This link opens a view to the newly created Git repository.
 
 1. To view the repository clone URL, select **Clone** from the top right of the browser. You can clone your Git repository in your favorite IDE.  In the next few steps, you can use the web browser to make and commit code changes directly to the master branch.
 
@@ -68,7 +68,7 @@ The Azure DevOps project created a Git repository in your VSTS or GitHub account
 
 1. Choose **Commit**, then save your changes.
 
-1. In your browser, navigate to the **Azure DevOps project dashboard**.  You should now see a build is in progress.  The changes you just made are automatically built and deployed via a VSTS CI/CD pipeline.
+1. In your browser, navigate to the **Azure DevOps project dashboard**.  You should now see a build is in progress.  The changes you made are automatically built and deployed via a VSTS CI/CD pipeline.
 
 ## Examine the VSTS CI/CD pipeline
 
@@ -76,11 +76,11 @@ The Azure DevOps project automatically configured a full VSTS CI/CD pipeline in 
 
 1. Select **Build Pipelines** from the **top** of the Azure DevOps project dashboard.  This link opens a browser tab and opens the VSTS build definition for your new project.
 
-1. Select the **ellipsis**.  This action opens a menu where you can perform several activities such as queue a new build, pause a build, and edit the build definition.
+1. Select the **ellipsis**.  This action opens a menu where you can start several activities such as queue a new build, pause a build, and edit the build definition.
 
 1. Select **Edit**.
 
-1. From this view, **examine the various tasks** for your build definition.  The build performs various tasks such as fetching sources from the Git repository, restoring dependencies, and publishing outputs used for deployments.
+1. From this view, **examine the various tasks** for your build definition.  The build executes various tasks such as fetching sources from the Git repository, restoring dependencies, and publishing outputs used for deployments.
 
 1. At the top of the build definition, select the **build definition name**.
 
@@ -88,7 +88,7 @@ The Azure DevOps project automatically configured a full VSTS CI/CD pipeline in 
 
 1. Under your build definition name, select **History**.  You see an audit trail of your recent changes for the build.  VSTS keeps track of any changes made to the build definition, and allows you to compare versions.
 
-1. Select **Triggers**.  The Azure DevOps project automatically created a CI trigger, and every commit to the repository initiates a new build.  You can optionally choose to include or exclude branches from the CI process.
+1. Select **Triggers**.  The Azure DevOps project automatically created a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.  Based on your scenario, you can specify policies to keep or remove a certain number of builds.
 
