@@ -61,6 +61,5 @@ The Azure Firewall public preview has the following known issues:
 
 ## Next steps
 
-- [Tutorial: Configure Azure Firewall application and network rules using the Azure portal](tutorial-firewall-deploy-portal.md)
-- [Deploy Azure Firewall using a tempalte](deploy-template.md)
+- [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
 
