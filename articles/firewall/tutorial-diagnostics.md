@@ -147,7 +147,7 @@ You can view and analyze activity log data by using any of the following methods
 
 ## View and analyze the network and application rule logs
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) can collect the counter and event log files from your Blob storage account. It includes visualizations and powerful search capabilities to analyze your logs.
+Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) collects the counter and event log files. It includes visualizations and powerful search capabilities to analyze your logs.
 
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
@@ -157,9 +157,8 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 ## Next steps
 
-* Visualize counter and event logs by using [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
-* [Visualize your Azure activity log with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
-* [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
+> [!div class="nextstepaction"]
+> [Networking monitoring solutions in Log Analytics]((../log-analytics/log-analytics-azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png
