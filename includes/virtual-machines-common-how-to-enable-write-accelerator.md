@@ -10,30 +10,31 @@
  ms.custom: include file
 ---
 
-# Write Accelerator
+# Enable Write Accelerator
+
 Write Accelerator is a disk capability for M-Series Virtual Machines (VMs) on Premium Storage with Azure Managed Disks exclusively. As the name states, the purpose of the functionality is to improve the I/O latency of writes against Azure Premium Storage. Write Accelerator is ideally suited where log file updates are required to persist to disk in a highly performant manner for modern databases.
 
 Write Accelerator is generally available for M-series VMs in the Public Cloud.
 
 ## Planning for using Write Accelerator
+
 Write Accelerator should be used for the volumes that contain the transaction log or redo logs of a DBMS. It is not recommended to use Write Accelerator for the data volumes of a DBMS as the feature has been optimized to be used against log disks.
 
-Write Accelerator only works in conjunction with [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). 
-
+Write Accelerator only works in conjunction with [Azure managed disks](https://azure.microsoft.com/services/managed-disks/).
 
 > [!IMPORTANT]
-> If you want to enable or disable Write Accelerator for an existing volume that is built out of multiple Azure Premium Storage disks and striped using Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM or MDADM, all disks building the volume must be enabled or disabled for Write Accelerator in separate steps. **Before enabling or disabling Write Accelerator in such a configuration, shut down the Azure VM**. 
-
+> If you want to enable or disable Write Accelerator for an existing volume that is built out of multiple Azure Premium Storage disks and striped using Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM or MDADM, all disks building the volume must be enabled or disabled for Write Accelerator in separate steps. **Before enabling or disabling Write Accelerator in such a configuration, shut down the Azure VM**.
 
 > [!IMPORTANT]
 > To enable Write Accelerator to an existing Azure disk that is NOT part of a volume build out of multiple disks with Windows disk or volume managers, Windows Storage Spaces, Windows Scale-out file server (SOFS), Linux LVM, or MDADM, the workload accessing the Azure disk needs to be shut down. Database applications using the Azure disk MUST be shut down.
 
 > [!IMPORTANT]
-> Enabling Write Accelerator for the operating system disk of the VM will reboot the VM. 
+> Enabling Write Accelerator for the operating system disk of the VM will reboot the VM.
 
 Enabling Write Accelerator for OS disks should not be necessary for SAP-related VM configurations
 
 ### Restrictions when using Write Accelerator
+
 When using Write Accelerator for an Azure disk/VHD, these restrictions apply:
 
 - The Premium disk caching must be set to 'None' or 'Read Only'. All other caching modes are not supported.
@@ -51,17 +52,20 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by W
 | M8ms, M8s | 1 | 500 | 
 
 The IOPS limits are per VM and *not* per disk. All Write Accelerator disks share the same IOPS limit per VM.
+
 ## Enabling Write Accelerator on a specific disk
+
 The next few sections will describe how Write Accelerator can be enabled on Azure Premium Storage VHDs.
 
-
 ### Prerequisites
+
 The following prerequisites apply to the usage of Write Accelerator at this point in time:
 
 - The disks you want to apply Azure Write Accelerator against need to be [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) on Premium Storage.
 - You must be using an M-series VM
 
 ## Enabling Azure Write Accelerator using Azure PowerShell
+
 The Azure Power Shell module from version 5.5.0 include the changes to the relevant cmdlets to enable or disable Write Accelerator for specific Azure Premium Storage disks.
 In order to enable or deploy disks supported by Write Accelerator, the following Power Shell commands got changed, and extended to accept a parameter for Write Accelerator.
 
@@ -89,25 +93,23 @@ Specify either $true or $false to control support of Azure Write Accelerator wit
 
 Examples of commands could look like:
 
-```
-
+```PowerShell
 New-AzureRmVMConfig | Set-AzureRmVMOsDisk | Add-AzureRmVMDataDisk -Name "datadisk1" | Add-AzureRmVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzureRmVM
 
 Get-AzureRmVM | Update-AzureRmVM -OsDiskWriteAccelerator $true
 
 New-AzureRmVmssConfig | Set-AzureRmVmssStorageProfile -OsDiskWriteAccelerator | Add-AzureRmVmssDataDisk -Name "datadisk1" -WriteAccelerator:$false | Add-AzureRmVmssDataDisk -Name "logdisk1" -WriteAccelerator | New-AzureRmVmss
 
-Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false 
-
+Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
 ```
 
 Two main scenarios can be scripted as shown in the following sections.
 
 #### Adding a new disk supported by Write Accelerator
+
 You can use this script to add a new disk to your VM. The disk created with this script is going to use Write Accelerator.
 
-```
-
+```PowerShell
 # Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -124,16 +126,15 @@ $vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
 Add-AzureRmVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
 #Updates the VM with the disk config - does not require a reboot
 Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
-
 ```
+
 You need to adapt the names of VM, disk, resource group, size of the disk and LunID of the disk for your specific deployment.
 
-
 #### Enabling Azure Write Accelerator on an existing Azure disk
+
 If you need to enable Write Accelerator on an existing disk, you can use this script to perform the task:
 
-```
-
+```PowerShell
 #Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -148,7 +149,6 @@ $vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
 Set-AzureRmVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
 #Updates the VM with the disk config - does not require a reboot
 Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
-
 ```
 
 You need to adapt the names of VM, disk, and resource group. The script above adds Write Accelerator to an existing disk where the value for $newstatus is set to '$true'. Using the value '$false' will disable Write Accelerator on a given disk.
@@ -163,58 +163,38 @@ You can enable Write Accelerator via the portal where you specify your disk cach
 ![Write Accelerator on the Azure portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
 ## Enabling through Azure CLI
+
 You can use the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) to enable Write Accelerator. 
 
-To enable Write Accelerator on an existing disk, use [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), you may use the following examples if you substitute the diskName, VMName, and ResourceGroup for your own:
- 
-```
-az vm update -g group1 -n vm1 -write-accelerator 1=true
-```
-To attach a disk with Write Accelerator enabled please use [az vm disk attach](https://docs.microsoft.com/en-us/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach), you may use the following example if you substitute in your own values:
-```
-az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator
-```
-To disable Write Accelerator, use [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), setting the properties to false: 
-```
-az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false
-```
+To enable Write Accelerator on an existing disk, use [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), you may use the following examples if you substitute the diskName, VMName, and ResourceGroup for your own: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
+
+To attach a disk with Write Accelerator enabled please use [az vm disk attach](https://docs.microsoft.com/en-us/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach), you may use the following example if you substitute in your own values: `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
+
+To disable Write Accelerator, use [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), setting the properties to false: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
 ### Enabling through Rest APIs
+
 In order to deploy through Azure Rest API, you need to install the Azure armclient
 
 #### Install armclient
 
 To run armclient, you need to install it through Chocolatey. You can install it through cmd.exe or powershell. Use elevated rights for these commands (“Run as Administrator”).
 
-Using cmd.exe run the following command:
+Using cmd.exe run the following command: `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
 
-```
-@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-```
+Using Power Shell you have to use: `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
-Using Power Shell you have to use:
-
-```
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-```
-
-Now you can install the armclient with the command below in cmd.exe or Power Shell
-
-```
-choco install armclient
-```
+Now you can install the armclient with the command below in cmd.exe or PowerShell `choco install armclient`
 
 #### Getting your current VM configuration
-In order to change the attributes of your disk configuration, you first need to get the current configuration in a JSON file. You can get the current configuration by executing the following command:
 
-```
-armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>
-```
+In order to change the attributes of your disk configuration, you first need to get the current configuration in a JSON file. You can get the current configuration by executing the following command: `armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 > <<filename.json>>`
+
 Replace the terms within '<<   >>' with your data, including the file name the JSON file should have.
 
 The output could look like:
 
-```
+```JSON
 {
   "properties": {
     "vmId": "2444c93e-f8bb-4a20-af2d-1658d9dbbbcb",
@@ -294,9 +274,9 @@ The output could look like:
 
 ```
 
-Next step is to update the JSON file and to enable Write Accelerator on the disk called 'log1'. This step can be accomplished by adding this attribute into the JSON file after the cache entry of the disk. 
+Next step is to update the JSON file and to enable Write Accelerator on the disk called 'log1'. This step can be accomplished by adding this attribute into the JSON file after the cache entry of the disk.
 
-```
+```JSON
         {
           "lun": 1,
           "name": "log1",
@@ -311,16 +291,11 @@ Next step is to update the JSON file and to enable Write Accelerator on the disk
         }
 ```
 
-Then update the existing deployment with this command:
-
-```
-armclient PUT /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 @<<filename.json>>
-
-```
+Then update the existing deployment with this command: `armclient PUT /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 @<<filename.json>>`
 
 The output should look like the one below. You can see that there is Write Accelerator enabled for one disk.
 
-```
+```JSON
 {
   "properties": {
     "vmId": "2444c93e-f8bb-4a20-af2d-1658d9dbbbcb",
@@ -402,5 +377,3 @@ The output should look like the one below. You can see that there is Write Accel
 ```
 
 From the point of the change on, the drive should be supported by Write Accelerator.
-
- 
