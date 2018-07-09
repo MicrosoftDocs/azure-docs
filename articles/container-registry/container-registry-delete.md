@@ -13,7 +13,7 @@ ms.author: marsma
 
 # Delete container images in Azure Container Registry
 
-Each Azure container registry includes certain [size limits](container-registry-skus.md#sku-feature-matrix), and requires periodic deletion of image data to maintain its size. Because you can delete several different resources like repositories, tags, and manifests, understanding exactly what is using space in your registry, and freeing that space, can at first seem difficult. This article starts by introducing the components of a Docker registry and its images, explains how to delete those components, and how deleting each affects the size of your registry.
+Each Azure container registry includes default [size limits](container-registry-skus.md#sku-feature-matrix), and requires periodic deletion of image data to maintain its size. Because you can delete several different resources like repositories, tags, and manifests, understanding exactly what is using space in your registry, and freeing that space, can at first seem difficult. This article starts by introducing the components of a Docker registry and its images, explains how to delete those components, and how deleting each affects the size of your registry.
 
 ## Components of a registry
 
