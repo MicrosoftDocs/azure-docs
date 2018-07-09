@@ -45,7 +45,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Jostle from the gallery
@@ -56,21 +56,21 @@ To configure the integration of Jostle into Azure AD, you need to add Jostle fro
 
 **To add Jostle from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
 	![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
-	
-3. To add new application, click **New application** button on the top of dialog.
 
-	![Applications][3]
+3. Click **Add** at the top of the window.
 
-4. In the search box, type **Jostle**.
+	![add_01](./media/jostle-tutorial/add_01.png)
 
-	![Creating an Azure AD test user](./media/jostle-tutorial/tutorial_jostle_search.png)
+4. In the search box under **Add an application** type **Jostle**.
+
+	![add_02](./media/jostle-tutorial/add_02.png)
 
 5. In the results panel, select **Jostle**, and then click **Add** button to add the application.
 
@@ -102,35 +102,36 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Configure Single Sign-On](./media/jostle-tutorial/tutorial_jostle_samlbase.png)
 
 3. On the **Jostle Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/jostle-tutorial/tutorial_jostle_url.png)
+	![url_01](./media/jostle-tutorial/url_01.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tanent name>.jostle.us/jostle-prod/`
+  	a. In the **Sign-on URL** textbox, enter: `https://login-prod.jostle.us`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<tanent name>.jostle.us`
+	b. In the **Identifier** textbox, enter: `https://jostle.us`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Jostle support team](mailto:support@jostle.me) to get these values. 
- 
+  	c. Check the box next to **Show advanced URL settings**
 
+	d. In the **Reply URL** textbox, enter: `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+4. On the **User Attributes** section, for the **User Identifier** field, enter: `user.userprincipalname`
 
-	![Configure Single Sign-On](./media/jostle-tutorial/tutorial_jostle_certificate.png) 
+	![url_02](./media/jostle-tutorial/url_02.png)
 
-5. Click **Save** button.
+5. Click **Save** at the top of the window.
 
-	![Configure Single Sign-On](./media/jostle-tutorial/tutorial_general_400.png)
+6. Go to **SAML Signing Certificate** and verify that it's set to **Active**. Then click **Metadata XML** to download the metadata file.
 
-7. To configure single sign-on on Jostle side, you need to send the downloaded metadata XML to [Jostle support team](mailto:support@jostle.me). They set this setting to have the SAML SSO connection set properly on both sides. 
+	![url_03](./media/jostle-tutorial/url_03.png)
+
+7. To configure single sign-on on Jostle's side, you need to send the downloaded metadata XML to [Jostle support team](mailto:support@jostle.me). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+>
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -141,19 +142,19 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/jostle-tutorial/create_aaduser_01.png) 
+	![Creating an Azure AD test user](./media/jostle-tutorial/create_aaduser_01.png)
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/jostle-tutorial/create_aaduser_02.png) 
+
+	![Creating an Azure AD test user](./media/jostle-tutorial/create_aaduser_02.png)
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/jostle-tutorial/create_aaduser_03.png) 
+
+	![Creating an Azure AD test user](./media/jostle-tutorial/create_aaduser_03.png)
 
 4. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/jostle-tutorial/create_aaduser_04.png) 
+
+	![Creating an Azure AD test user](./media/jostle-tutorial/create_aaduser_04.png)
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
@@ -162,7 +163,7 @@ The objective of this section is to create a test user in the Azure portal calle
 	c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
- 
+
 ### Creating a Jostle test user
 
 In this section, you create a user called Britta Simon in Jostle. If you don't know how to add Britta Simon in Jostle, please contact with [Jostle support team](mailto:support@jostle.me) to add the test user and enable SSO.
@@ -174,21 +175,21 @@ In this section, you create a user called Britta Simon in Jostle. If you don't k
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Jostle.
 
-![Assign User][200] 
+![Assign User][200]
 
 **To assign Britta Simon to Jostle, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
 2. In the applications list, select **Jostle**.
 
-	![Configure Single Sign-On](./media/jostle-tutorial/tutorial_jostle_app.png) 
+	![Configure Single Sign-On](./media/jostle-tutorial/tutorial_jostle_app.png)
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+	![Assign User][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
@@ -199,7 +200,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
@@ -227,4 +228,3 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 [201]: ./media/jostle-tutorial/tutorial_general_201.png
 [202]: ./media/jostle-tutorial/tutorial_general_202.png
 [203]: ./media/jostle-tutorial/tutorial_general_203.png
-

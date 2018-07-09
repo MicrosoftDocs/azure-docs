@@ -111,7 +111,7 @@ By default, all VMs in a subnet can communicate with all resources. You can limi
     |Priority|100|
     |Name|Allow-Storage-All|
     
-8. Create a rule that that denies outbound communication to the internet. This rule overrides a default rule in all network security groups that allows outbound internet communication. Complete steps 6 and 7 again, using the following values:
+8. Create a rule that denies outbound communication to the internet. This rule overrides a default rule in all network security groups that allows outbound internet communication. Complete steps 6 and 7 again, using the following values:
 
     |Setting|Value|
     |----|----|

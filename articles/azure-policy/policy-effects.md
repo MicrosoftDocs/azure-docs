@@ -103,7 +103,7 @@ Example 3: Single **field/value** pair using an [alias](policy-definition.md#ali
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -143,7 +143,7 @@ Example: Using the deny effect.
 
 ## Audit
 
-Audit effect is used to create a warning event in audit log when a non-compliant resource is
+Audit effect is used to create a warning event in the activity log when a non-compliant resource is
 evaluated, but it does not stop the request.
 
 ### Audit Evaluation
@@ -151,7 +151,7 @@ evaluated, but it does not stop the request.
 The audit effect is the last to run during the creation or update of a resource prior to the
 resource is sent to the Resource Provider. Audit works the same for a resource request and an
 evaluation cycle, and executes a `Microsoft.Authorization/policies/audit/action` operation to the
-Activity Log. In both cases, the resource is marked as non-compliant.
+activity log. In both cases, the resource is marked as non-compliant.
 
 ### Audit Properties
 
@@ -178,8 +178,8 @@ have the components specified in the **details** of the **then** condition.
 AuditIfNotExists runs after a Resource Provider has handled a create or update request to a
 resource and has returned a success status code. The effect is triggered if there are no related
 resources or if the resources defined by **ExistenceCondition** do not evaluate to true. When the
-effect is triggered, a `Microsoft.Authorization/policies/audit/action` operation to the Activity
-Log is executed in the same way as the audit effect. When triggered, the resource that satisfied
+effect is triggered, a `Microsoft.Authorization/policies/audit/action` operation to the activity
+log is executed in the same way as the audit effect. When triggered, the resource that satisfied
 the **if** condition is the resource that is marked as non-compliant.
 
 ### AuditIfNotExists Properties
@@ -349,10 +349,10 @@ A resource may be impacted by multiple assignments. These assignments may be at 
 (specific resource, resource group, subscription, or management group) or at different scopes. Each
 of these assignments is also likely to have a different effect defined. Regardless, the condition
 and effect for each policy (assigned directly or as part of an initiative) is independently
-evaluated. For example, if policy 1 has a condition that restricts location for subscription A from
-being created in 'westus' with the deny effect and policy 2 that restricts resources in resource
-group B (which is in subscription A) from being created in 'eastus' with the audit effect are both
-assigned, the resulting outcome would be:
+evaluated. For example, if policy 1 has a condition that restricts resource location for
+subscription A to only be created in ‘westus’ with the deny effect and policy 2 has a condition
+that restricts resource location for resource group B (which is in subscription A) to only be
+created in ‘eastus’ with the audit effect are both assigned, the resulting outcome would be::
 
 - Any resource already in resource group B in 'eastus' is compliant to policy 2, but marked as non-compliant to policy 1.
 - Any resource already in resource group B not in 'eastus' will be marked as non-compliant to policy 2, and would also be marked not-compliant to policy 1 if not 'westus'.

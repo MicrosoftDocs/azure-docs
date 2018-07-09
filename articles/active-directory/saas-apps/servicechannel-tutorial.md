@@ -123,7 +123,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 	![Configure Single Sign-On](./media/servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
 	> [!NOTE] 
-	> Please click [here](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) to know how to configure **Role** in Azure AD
+	> See [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md) to learn how to configure **Role** in Azure AD.
 
 5. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes.
 

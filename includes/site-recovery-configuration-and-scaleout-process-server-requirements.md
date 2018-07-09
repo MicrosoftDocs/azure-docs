@@ -32,7 +32,7 @@ IIS | - No preexisting default website <br> - No preexisting website/application
 | 
 **NETWORK SETTINGS** | 
 IP address type | Static 
-Internet access | The server needs access to these URLs (directly or via proxy) <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (if you're setting up a configuration server) <br> - time.nist.gov <br> - time.windows.com 
+Internet access | The server needs access to these URLs (directly or via proxy) <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (if you're setting up a configuration server) <br> - time.nist.gov <br> - time.windows.com 
 Ports | 443 (Control channel orchestration)<br>9443 (Data transport) 
 NIC type | VMXNET3 (if the Configuration Server is a VMware VM)
  | 

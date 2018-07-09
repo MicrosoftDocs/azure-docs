@@ -123,11 +123,6 @@ This article contains the release notes for Azure Storage Explorer 1.2.0 release
 ## Version 1.1.0
 05/09/2018
 
-### Download Azure Storage Explorer 1.1.0
-- [Azure Storage Explorer 1.1.0 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.1.0 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.1.0 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
-
 ### New
 * Storage Explorer now supports the use of Azurite. Note: the connection to Azurite is hardcoded to the default development endpoints.
 * Storage Explorer now supports Access Tiers for Blob Only and GPV2 Storage Accounts. Learn more about Access Tiers [here](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
@@ -182,8 +177,6 @@ This article contains the release notes for Azure Storage Explorer 1.2.0 release
 
 ## Version 1.0.0
 04/16/2018
-
-### Download Azure Storage Explorer 1.0.0
 
 ### New
 * Enhanced authentication that allows Storage Explorer to use the same account store as Visual Studio 2017. To use this feature, you will need to re-login to your accounts and re-set your filtered subscriptions.
@@ -250,11 +243,6 @@ This article contains the release notes for Azure Storage Explorer 1.2.0 release
 ## Version 0.9.6
 02/28/2018
 
-### Download Azure Storage Explorer 0.9.6 (Preview)
-- [Azure Storage Explorer 0.9.6 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.9.6 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.9.6 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
-
 ### Fixes
 * An issue prevented expected blobs/files from being listed in the editor. This issue has been fixed.
 * An issue caused switching between snapshot views to display items incorrectly. This issue has been fixed.
@@ -290,11 +278,6 @@ This article contains the release notes for Azure Storage Explorer 1.2.0 release
 
 ## Version 0.9.5
 02/06/2018
-
-### Download Azure Storage Explorer 0.9.5 (Preview)
-- [Azure Storage Explorer 0.9.5 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 0.9.5 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 0.9.5 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### New
 
@@ -344,11 +327,6 @@ This article contains the release notes for Azure Storage Explorer 1.2.0 release
 
 ## Version 0.9.4 and 0.9.3
 01/21/2018
-
-### Download Azure Storage Explorer 0.9.4 (Preview)
-* [Download Azure Storage Explorer 0.9.4 (Preview) for Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Download Azure Storage Explorer 0.9.4 (Preview) for Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Download Azure Storage Explorer 0.9.4 (Preview) for Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### New
 * Your existing Storage Explorer window will be re-used when:

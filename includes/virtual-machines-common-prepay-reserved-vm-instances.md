@@ -3,12 +3,12 @@ ms.topic: include
 ---
 # Prepay for Virtual Machines with Azure Reserved VM Instances
 
-Prepay for virtual machines and save money with Azure Reserved Virtual Machine (VM) Instances. For more information, see [Azure Reserved Instances offering](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Prepay for virtual machines and save money with Azure Reserved Virtual Machine (VM) Instances. For more information, see [Azure Reserved VM Instances offering](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
-You can buy Azure Reserved Instances in the [Azure portal](https://portal.azure.com). To buy a Reserved Instance:
+You can buy Azure reserved instances in the [Azure portal](https://portal.azure.com). To buy a Reserved Instance:
 -	You must be in an Owner role for at least one Enterprise or Pay-As-You-Go subscription.
 -	For Enterprise subscriptions, Reserved Instance purchases must be enabled in the [EA portal](https://ea.azure.com).
--   For Cloud Solution Provider (CSP) program only the admin agents or sales agents can purchase the Reserved Instances.
+-   For Cloud Solution Provider (CSP) program only the admin agents or sales agents can purchase the reserved instances.
 
 [!IMPORTANT]
 You must use one of the methods described below to identify the correctly VM size for a reservation purchase.
@@ -18,7 +18,7 @@ You must use one of the methods described below to identify the correctly VM siz
 2. You can also get accurate VM size information using Powershell, Azure Resource Manager or from VM details in the Azure portal.
 
 ## Buy a Reserved Virtual Machine Instance
-1. Log in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
 3. Select **Add** to purchase a new Reserved Instance.
 4. Fill in the required fields. Running VM instances that match the attributes you select qualify to get the Reserved Instance discount. The actual number of your VM instances that get the discount depend on the scope and quantity selected.
@@ -44,17 +44,17 @@ You must use one of the methods described below to identify the correctly VM siz
 ## Next steps 
 The Reserved Instance discount is applied automatically to the number of running virtual machines that match the Reserved Instance scope and attributes. You can update the scope of the Reserved Instance through [Azure portal](https://portal.azure.com), PowerShell, CLI or through the API. 
 
-To learn how to manage a Reserved Instance, see [Manage Azure Reserved Instances](../articles/billing/billing-manage-reserved-vm-instance.md).
+To learn how to manage a reserved instance, see [Manage reserved instances in Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
 
-To learn more about Azure Reserved Instances, see the following articles:
+To learn more about Azure reserved instances, see the following articles:
 
-- [Save money on virtual machines with Reserved Instances](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Manage Azure Reserved Instances](../articles/billing/billing-manage-reserved-vm-instance.md)
-- [Understand how the Reserved Instance discount is applied](../articles/billing/billing-understand-vm-reservation-charges.md)
-- [Understand Reserved Instance usage for your Pay-As-You-Go subscription](../articles/billing/billing-understand-reserved-instance-usage.md)
-- [Understand Reserved Instance usage for your Enterprise enrollment](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
-- [Windows software costs not included with Reserved Instances](../articles/billing/billing-reserved-instance-windows-software-costs.md)
-- [Reserved Instances in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
+- [What are Azure Reserved VM Instances?](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Manage reserved instances in Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [Understand how the reserved instance discount is applied](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Understand reserved instance usage for your Pay-As-You-Go subscription](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Understand reserved instance usage for your Enterprise enrollment](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Windows software costs not included with reserved instances](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [Reserved instances in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## Need help? Contact support
 
