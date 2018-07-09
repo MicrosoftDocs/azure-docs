@@ -93,7 +93,6 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 4. Contoso will deploy these microservices to ASK using a PowerShell script.
 5. Finally, they'll deploy the Azure function and Web App.
 
-
     ![Migration process](./media/contoso-migration-rebuild/migration-process.png) 
 
 ### Azure services
@@ -137,6 +136,8 @@ Contoso runs a deployment script to create the managed Kubernetes cluster using 
 
 - The instructions for this section use the SmartHotel360-Azure-backend repository.
 - The SmartHotel360-Azure-backend GitHub repo contains all of the software for this part of the deployment.
+
+They provision as follows:
 
 1. Before they start, Contoso ensures that all of the prerequisite software is installed on the dev machine they're using. 
 2. They clone the repo locally to the dev machine using Git.
@@ -208,7 +209,7 @@ Contoso creates a VSTS project, and configures a CI Build to create the containe
     ![VSTS](./media/contoso-migration-rebuild/vsts1.png) 
 
 
-3. They import the GitHub repo that holds the code generated with Image2Docker.
+3. They import the GitHub repo.
 
     ![VSTS](./media/contoso-migration-rebuild/vsts2.png)
     
@@ -337,7 +338,6 @@ Contoso provisions the Computer Vision API. The API will be called by the functi
 
 3. They save the connection settings for the API to a text file for later reference.
 
-
      ![Computer Vision](./media/contoso-migration-rebuild/vision3.png)
 
 ## Step 5: Deploy the backend services in Azure
@@ -355,13 +355,13 @@ The instructions in this section use the [SmartHotel360-Azure-Backend](https://g
     > [!NOTE]
     > Some of the configuration settings (for example Active Directory B2C) aren't covered in this article. There's more information about these settings in the repo.
 
-2.The deploy.ps1 file deletes all cluster content (except ingress and ingress controller), and deploys microservices. They run it as follows:
+2. The deploy.ps1 file deletes all cluster content (except ingress and ingress controller), and deploys microservices. They run it as follows:
 
-    ```
-    .\deploy.ps1 -configFile .\conf_local.yml -dockerUser smarthotelacreus2  -dockerPassword [passwordhere] -registry smarthotelacreus2.azurecr.io -imageTag latest -deployInfrastructure $false -buildImages $false -pushImages $false
-    ```
+  ```
+  .\deploy.ps1 -configFile .\conf_local.yml -dockerUser smarthotelacreus2  -dockerPassword [passwordhere] -registry smarthotelacreus2.azurecr.io -imageTag latest -deployInfrastructure $false -buildImages $false -pushImages $false
+  ```
 
- 3. They run the following command to check the status of services:
+3. They run the following command to check the status of services:
 
     ```
     kubectl get services
