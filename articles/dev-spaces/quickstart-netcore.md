@@ -134,7 +134,7 @@ Refresh the web app in the browser, and go to the About page. You should see you
 
 ## Next steps
 
-Learn how Azure Dev Spaces helpls you develop more complex apps across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces. 
+Learn how Azure Dev Spaces helps you develop more complex apps across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces. 
 
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](get-started-netcore.md#call-a-service-running-in-a-separate-container)
