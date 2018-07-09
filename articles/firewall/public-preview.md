@@ -10,6 +10,10 @@ ms.author: victorh
 
 # Enable the Azure Firewall public preview
 
+[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
+
+## Enable using Azure PowerShell
+
 To enable the Azure Firewall public preview, use the following Azure PowerShell commands:
 
 ```PowerShell
