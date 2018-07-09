@@ -21,37 +21,27 @@ Use Azure File Sync to centralize your organization's file shares in Azure Files
 
 This article is designed to help you troubleshoot and resolve issues that you might encounter with your Azure File Sync deployment. We also describe how to collect important logs from the system if a deeper investigation of the issue is required. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
 
-1. The comments section of this article.
-2. [Azure Storage Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
-3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
-4. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
+1. [Azure Storage Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
+3. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
 ## I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc.). Should I remove and recreate my server endpoint?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
-
-## Storage Sync Service object management
-If you do a resource move from one subscription to another subscription, file sync (Storage Sync Service) resources will be blocked from being moved. 
 
 ## Agent installation and server registration
 <a id="agent-installation-failures"></a>**Troubleshoot agent installation failures**  
 If the Azure File Sync agent installation fails, at an elevated command prompt, run the following command to turn on logging during agent installation:
 
 ```
-StorageSyncAgent.msi /l*v Installer.log
+StorageSyncAgent.msi /l*v AFSInstaller.log
 ```
 
 Review installer.log to determine the cause of the installation failure. 
-
-> [!Note]  
-> The agent installation will fail if your machine is set up to use Microsoft Update and the Windows Update service is not running.
 
 <a id="agent-installation-on-DC"></a>**Agent installation fails on Active Directory Domain Controller** 
 If you try and install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008R2 or below OS version, you may hit the issue where the sync agent will fail to install.
 
 To resolve, transfer the PDC role to another domain controller running Windows Server 2012R2 or more recent, then install sync.
-
-<a id="agent-installation-websitename-failure"></a>**Agent installation fails with this error: "Storage Sync Agent Wizard ended prematurely"**  
-This issue can occur with version 1.x agent and if the IIS website default name is changed. To work around this issue, use our 2.0.11+ agent.
 
 <a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
 If a server is not listed under **Registered servers** for a Storage Sync Service:
@@ -111,14 +101,13 @@ To determine whether your user account role has the required permissions:
     * **Role assignment** should have **Read** and **Write** permissions.
     * **Role definition** should have **Read** and **Write** permissions.
 
-<a id="server-endpoint-createjobfailed"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134375898)**                                                                                                                    
+<a id="server-endpoint-createjobfailed"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134375898)**  
 This issue occurs if the server endpoint path is on the system volume and cloud tiering is enabled. Cloud tiering is not supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
 
 <a id="server-endpoint-deletejobexpired"></a>**Server endpoint deletion fails, with this error: "MgmtServerJobExpired"**                
 This issue occurs if the server is offline or doesn't have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
-<a id="server-endpoint-provisioningfailed"></a>**Unable to open server endpoint properties page or update cloud tiering policy**
-
+<a id="server-endpoint-provisioningfailed"></a>**Unable to open server endpoint properties page or update cloud tiering policy**  
 This issue can occur if a management operation on the server endpoint fails. If the server endpoint properties page does not open in the Azure portal, updating server endpoint using PowerShell commands from the server may fix this issue. 
 
 ```PowerShell
@@ -180,6 +169,24 @@ Sometimes sync sessions fail overall or have a non-zero PerItemErrorCount but st
 
 ### How do I monitor the progress of a current sync session?
 # [Portal](#tab/portal)
+Within your sync group, go to the server endpoint in question and look at the Sync Activity section to see the count of files uploaded or downloaded in the current sync session. Note that this status will be delayed by about 5 minutes, and if your sync session is small enough to be completed within this period, it may not be reported in the portal. 
+
+# [Server](#tab/server)
+Look at the most recent 9302 event in the telemetry log on the server (in the Event Viewer, go to Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry). This event indicates the state of the current sync session. TotalItemCount denotes how many files are to be synced, AppliedItemCount the number of files that have been synced so far, and PerItemErrorCount the number of files that are failing to sync (see below for how to deal with this).
+
+```
+Replica Sync Progress. 
+ServerEndpointName: <CI>sename</CI>, SyncGroupName: <CI>sgname</CI>, ReplicaName: <CI>rname</CI>, 
+SyncDirection: Upload, CorrelationId: {AB4BA07D-5B5C-461D-AAE6-4ED724762B65}. 
+AppliedItemCount: 172473, TotalItemCount: 624196. AppliedBytes: 51473711577, 
+TotalBytes: 293363829906. 
+AreTotalCountsFinal: true. 
+PerItemErrorCount: 1006.
+```
+---
+
+### How do I know if my servers are in sync with each other?
+# [Portal](#tab/portal)
 For each server in a given sync group, make sure:
 1. The timestamps for the Last Attempted Sync for both upload and download are recent.
 2. The status is green for both upload and download.
@@ -203,7 +210,7 @@ If your PerItemErrorCount on the server or Files Not Syncing count in the portal
 To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (located in the agent installation directory of the Azure File Sync agent) to identify files that failed to sync because of open handles, unsupported characters, or other issues. The ItemPath field tells you the location of the file in relation to the root sync directory. See the list of common sync errors below for remediation steps.
 
 #### Troubleshooting per file/directory sync errors
-**ItemResults log - individual file and directory errors**  
+**ItemResults log - per-item sync errors**  
 | HRESULT | HRESULT (decimal) | Error string | Issue | Remediation |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | The file has produced persistent errors during sync and so will only be attempted to sync once per day. The underlying error can be found in an earlier event log. | In agents R2 (2.0) and above, the original error rather than this one is surfaced. You should upgrade to the latest agent to see the underlying error, or look at earlier event logs to find the cause of the original error. |
@@ -216,7 +223,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | A file was changed during sync, so it needs to be synced again. | No action required. |
 
 #### Handling unsupported characters
-If the FileSyncErrorsReport.ps1 PowerShell script shows failures due to unsupported characters (error codes 0x7b and 0x8007007b), you should remove or rename the characters at fault from the respective files. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding.
+If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error codes 0x7b and 0x8007007b), you should remove or rename the characters at fault from the respective files. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding.
 
 The table below contains all of the unicode characters Azure File Sync does not yet support.
 
@@ -422,7 +429,7 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 
 This error commonly occurs because the server time is incorrect. If the server's time is correct, create a support request and we will contact you to help you resolve this issue.
 
-<a id="-1906441711"></a><a id="-2134375654"></a>**The volume where the server endpoint is located is low on disk space.**  
+<a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**The volume where the server endpoint is located is low on disk space.**  
 | | |
 |-|-|
 | **HRESULT** | 0x8e5e0211 |
@@ -510,9 +517,6 @@ This error occurs because the Azure File Sync service is unavailable. This error
 
 This error occurs because of an internal problem with the sync database. This error will auto-resolve when the Azure File Sync when sync retries. If this error continues for an extend period of time, create a support request and we will contact you to help you resolve this issue.
 
-<a id="doesnt-have-enough-free-space"></a>**This PC doesn't have enough free space error**  
-If the portal shows the status "This PC doesn't have enough free space" the issue could be that less than 1 GB of free space remains on the volume. For example, if there is a 1.5 GB volume, sync will only be able to utilize 5 GB. If you hit this issue, please expand the size of the volume being used for the server endpoint.
-
 ### How do I prevent users from creating files containing unsupported characters on the server?
 You can use [File Server Resource Manager (FSRM) File Screens](https://docs.microsoft.com/windows-server/storage/fsrm/file-screening-management) to block files with unsupported characters in their names from being created on the server. You may have to do this using PowerShell as most of the unsupported characters are not printable and so you need to cast their hexadecimal representations as characters first.
 
@@ -557,21 +561,21 @@ The following sections indicate how to troubleshoot cloud tiering issues and det
 <a id="files-fail-tiering"></a>**Troubleshoot files that fail to tier**  
 If files fail to tier to Azure Files:
 
-1. Verify that the files exist in the Azure file share.
-
+1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent. An Event ID 9003 is logged once an hour in the Telemetry event log if a file fails to tier (one event is logged per error code).
+    1. Verify the files exist in the Azure file share.
     > [!NOTE]
     > A file must be synced to an Azure file share before it can be tiered.
-2. In Event Viewer, review the operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent.
-    1. Verify that the server has internet connectivity. 
-    2. Verify that the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
+    2. Verify the server has internet connectivity. 
+    3. Verify the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
         - At an elevated command prompt, run `fltmc`. Verify that the StorageSync.sys and StorageSyncGuard.sys file system filter drivers are listed.
 
 <a id="files-fail-recall"></a>**Troubleshoot files that fail to be recalled**  
 If files fail to be recalled:
-1. In Event Viewer, review the operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent.
-    1. Verify that the files exist in the Azure file share.
-    2. Verify that the server has internet connectivity. 
-    3. Verify that the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
+1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent. An Event ID 9006 is logged once per hour in the Telemetry event log if a file fails to recall (one event is logged per error code).
+    1. Verify the files exist in the Azure file share.
+    2. Verify the server has internet connectivity. 
+    3. Open the Services MMC snap-in and verify the Storage Sync Agent service (FileSyncSvc) is running.
+    4. Verify the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
         - At an elevated command prompt, run `fltmc`. Verify that the StorageSync.sys and StorageSyncGuard.sys file system filter drivers are listed.
 
 <a id="files-unexpectedly-recalled"></a>**Troubleshoot files unexpectedly recalled on a server**  
@@ -583,12 +587,12 @@ Unintended recalls also might occur in other scenarios, like when you are browsi
 
 ## General troubleshooting
 If you encounter issues with Azure File Sync on a server, start by completing the following steps:
-1. In Event Viewer, review the operational and diagnostic event logs.
-    - Sync, tiering, and recall issues are logged in the diagnostic and operational event logs under Applications and Services\Microsoft\FileSync\Agent.
+1. In Event Viewer, review the telemetry, operational and diagnostic event logs.
+    - Sync, tiering, and recall issues are logged in the telemetry, diagnostic and operational event logs under Applications and Services\Microsoft\FileSync\Agent.
     - Issues related to managing a server (for example, configuration settings) are logged in the operational and diagnostic event logs under Applications and Services\Microsoft\FileSync\Management.
-2. Verify that the Azure File Sync service is running on the server:
+2. Verify the Azure File Sync service is running on the server:
     - Open the Services MMC snap-in and verify that the Storage Sync Agent service (FileSyncSvc) is running.
-3. Verify that the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
+3. Verify the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
     - At an elevated command prompt, run `fltmc`. Verify that the StorageSync.sys and StorageSyncGuard.sys file system filter drivers are listed.
 
 If the issue is not resolved, run the AFSDiag tool:
