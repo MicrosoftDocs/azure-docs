@@ -13,10 +13,7 @@ Azure CycleCloud comes with a set of pre-installed templates that can used with 
 
 # Nodes and Node Arrays
 
-A *node* is a single machine or virtual machine. A *node array* is a collection of nodes with the same configuration, and can be automatically or manually scaled to pre-defined limits:
-
-    * *MaxCount*, which limits how many instances to start
-    * *MaxCoreCount*, which limits how many cores to start
+A *node* is a single machine or virtual machine. A *node array* is a collection of nodes with the same configuration, and can be automatically or manually scaled to pre-defined limits using `MaxCount` (limits the number of instances to start) and `MaxCoreCount` (limits the number of cores started).
 
 These maximums are hard limits, meaning no nodes will be started at any time outside the constraints defined.
 
