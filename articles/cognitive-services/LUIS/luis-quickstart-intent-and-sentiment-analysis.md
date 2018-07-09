@@ -14,7 +14,7 @@ ms.author: v-geberr
 
 --- 
 
-# Tutorial: 8.  Add sentiment analysis
+# Tutorial: 9.  Add sentiment analysis
 In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances.
 
 <!-- green checkmark -->
