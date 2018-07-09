@@ -113,7 +113,7 @@
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
-### [Azure Active Directory logs in Azure monitor](/active-directory-reporting-azure-monitor-diagnostics-overview.md)
+### [Azure Active Directory logs in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-overview.md)
 ### [FAQ](active-directory-reporting-faq.md)
 
 ### Tasks
