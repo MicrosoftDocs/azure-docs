@@ -6,7 +6,7 @@ ms.manager: douge
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 05/06/2018
+ms.date: 07/09/2018
 author: mlearned
 monikerRange: 'vsts'
 ---
