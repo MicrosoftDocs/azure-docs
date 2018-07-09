@@ -158,7 +158,7 @@ You can also connect to your storage account and retrieve the JSON log entries f
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Networking monitoring solutions in Log Analytics]((../log-analytics/log-analytics-azure-networking-analytics.md)
+> [Networking monitoring solutions in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png
