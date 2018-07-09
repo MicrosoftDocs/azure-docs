@@ -421,8 +421,9 @@ Extension execution output is logged to the following file:
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Error code: 51 represents either unsupported distro or unsupported extension action.
+Error code: 51 represents either unsupported distro/unsupported ssl version/unsupported extension action.
 In some cases, DSC Linux extension fails to install OMI when higher version of OMI is already exists in the machine. [error response: (000003)Downgrade not allowed]
+ErrorCode 08 represents that no space is available to install omi. This is NOT totally evident from install failure message. We are working on improving the messages. Please take a look at /var/log/azure/<extension-name>/<version>/extension.log file for correct details.
 
 
 
