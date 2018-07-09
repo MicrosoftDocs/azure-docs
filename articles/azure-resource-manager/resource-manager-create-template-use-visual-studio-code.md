@@ -31,7 +31,7 @@ To complete this article, you need:
 1. Open Visual Studio Code.
 2. Press **CTRL+SHIFT+X** or select the extensions icon as shown in the following screenshot:
 
-   ![Select extensions](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-extensions-icon.png)
+   ![Select extensions](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-add-arm-extension.png)
 3. Search for **Azure Resource Manager Tools**, and then select **Install** as shown in the previous screenshot
 4. Select **Reload** to finish the extension installation.
 
