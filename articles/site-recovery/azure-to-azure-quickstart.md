@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 05/31/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -39,8 +39,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Verify settings
 
-After the replication job has finished, you can check the replication status, modify replication settings
-settings, and test the deployment.
+After the replication job has finished, you can check the replication status, modify replication settings, and test the deployment.
 
 1. In the VM menu, click **Disaster recovery**.
 2. You can verify replication health, recovery points that have been created, and source and target regions on the map.

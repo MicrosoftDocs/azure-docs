@@ -1,5 +1,4 @@
 ---
-
 title: Add or delete users in Azure Active Directory | Microsoft Docs
 description: Explains how to add new users or delete existing users in Azure Active Directory
 services: active-directory
@@ -9,13 +8,13 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-
 ---
+
 # Quickstart: Add new users to Azure Active Directory
 This article explains how to delete or add users in your organization into your orgnization's Azure Active Directory (Azure AD) tenant using the Azure portal or by synchronizing your on-premises Windows Server AD user account data. 
 
@@ -26,7 +25,7 @@ This article explains how to delete or add users in your organization into your 
    ![Selecting the Add command](./media/add-users-azure-active-directory/add-user.png)
 4. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must either be the initial default domain name "[domain name].onmicrosoft.com" or a verified, non-federated [custom domain name](add-custom-domain.md) such as "contoso.com."
 5. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
-6. Optionally, you can open and fill out the information in **Profile**, **Groups**, or **Directory role** for the user. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](../active-directory-assign-admin-roles-azure-portal.md).
+6. Optionally, you can open and fill out the information in **Profile**, **Groups**, or **Directory role** for the user. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 7. On **User**, select **Create**.
 8. Securely distribute the generated password to the new user so that the user can sign in.
 

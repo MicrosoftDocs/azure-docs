@@ -291,12 +291,12 @@ You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS a
 
 
 <!-- Old Links -->
-[Github-BotFramework-Emulator-Download](https://aka.ms/bot-framework-emulator)
-[Github-LUIS-Samples](https://github.com/Microsoft/LUIS-Samples)
-[Github-LUIS-Samples-node-hotel-bot](https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs)
-[NodeJs](https://nodejs.org/)
-[BFPortal](https://dev.botframework.com/)
-[RegisterInstructions](https://docs.microsoft.com/bot-framework/portal-register-bot)
-[BotFramework](https://docs.microsoft.com/bot-framework/)
-[LUIS](luis-reference-regions.md)
+[Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
+[Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
+[Github-LUIS-Samples-node-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
+[NodeJs]: https://nodejs.org/
+[BFPortal]: https://dev.botframework.com/
+[RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
+[BotFramework]: https://docs.microsoft.com/bot-framework/
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 

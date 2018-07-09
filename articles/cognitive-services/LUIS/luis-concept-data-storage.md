@@ -18,7 +18,7 @@ LUIS stores data encrypted in an Azure data store corresponding to the region sp
 Users have full control over [exporting](create-new-app.md#export-app) and [deleting](create-new-app.md#delete-app) the app. 
 
 ## Utterances in an intent
-Delete example utterances used for training [LUIS][LUIS]. If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
+Delete example utterances used for training [LUIS](luis-reference-regions.md). If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
 
 ## Utterances in review
 You can delete utterances from the list of user utterances that LUIS suggests in the **[Review endpoint utterances page](label-suggested-utterances.md)**. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
@@ -40,5 +40,3 @@ For the purposes of data retention and deletion, an inactive LUIS app may at _Mi
 
 > [!div class="nextstepaction"]
 > [Learn about exporting and deleting an app](create-new-app.md)
-
-[LUIS](luis-reference-regions.md)

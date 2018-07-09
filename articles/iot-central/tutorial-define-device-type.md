@@ -36,6 +36,7 @@ In this tutorial, you learn how to:
 > * View simulated state
 > * Use device properties
 > * Use device settings
+> * Use commands
 
 ## Prerequisites
 
@@ -224,15 +225,17 @@ You can use State to define and visualize the state of the device or its compone
 
     ![View state Details](./media/tutorial-define-device-type/stateviewdetail.png)
 
-## Properties, device properties, and settings
+## Settings, properties, and commands
 
-Properties, device properties, and settings are different values defined in a device template and associated with each individual device:
+Settings, properties and device properties, and commands are different values defined in a device template and associated with each individual device:
 
 * You use _settings_ to send configuration data to a device from your application. For example, an operator could use a setting to change the device's telemetry interval from two seconds to five seconds. When an operator changes a setting, the setting is marked as pending in the UI until the device acknowledges that it has actioned the setting change.
 
 * You use _properties_ to record information about your device in your application. For example, you can use properties to record a device's serial number or the device manufacturer's phone number. Properties are stored in the application and do not synchronize with the device. An operator can assign values to properties.
 
-* You use _device properties_ to enable a device to send property values to your application. Some properties are read-only, such as firmware version and serial number. Other properties can be changed by the device, such as device location. For an operator, device properties are read-only.
+* You use _device properties_ to enable a device to send property values to your application. These properties can only be changed by the device. For an operator, device properties are read-only.
+
+* You use _commands_ to remotely manage your device from your application. You can directly run commands on the device from the cloud to control the devices. For example, an operator can run commands such as reboot, to instantly reboot the device.
 
 ## Use settings
 
@@ -270,7 +273,7 @@ You use *settings* to enable an operator to send configuration data to a device.
 
     ![Customize settings layout](./media/tutorial-define-device-type/settingslayout.png)
 
-## Use properties
+## Use properties / device properties
 
 You use *properties* to store information about your device in the application. In this section, you add device properties to your **Connected Air Conditioner** device template to store the device serial number and firmware version. Note that both of these are read-only properties reported by the device -- you cannot assign values to them. Properties you might use that you can assign values to include the location of the device, ownership information, and the last service date/time for the device.
  
@@ -313,6 +316,37 @@ You use *properties* to store information about your device in the application. 
 5. You can customize the layout of the **Properties** page by moving and resizing property tiles:
 
     ![Customize properties layout](./media/tutorial-define-device-type/propertieslayout.png)
+
+
+## Use commands
+
+You use _commands_ to enable an operator to run commands directly on the device. In this section, you add a command to your **Connected Air Conditioner** device template that enables an operator to echo a certain message on the connected air conditioner display (this works with MxChip sample code).
+
+1. Navigate to the **Commands** page for your **Connected Air Conditioner** device template:
+
+    ![Prepare to add a setting](media/tutorial-define-device-type/commandsecho.png)
+
+    You can create commands of different types based on your requirements. 
+
+1. Click **New Command** to add a command to your device.
+
+1. To configure your new command, use the information in the following table:
+
+    | Field                | Value           |
+    | -------------------- | -----------     |
+    | Display Name         | Echo Command    |
+    | Field Name           | echo            |
+    | Default Timeout      | 30              |
+    | Display Name         | Display Text    |
+    | Display Type         | text            |  
+
+You can add additional inputs to the command by clicking **+** for inputs.
+
+2. Choose **Save**.
+
+3. You can customize the layout of the **Commands** page by moving and resizing commands tiles:
+
+    ![Customize settings layout](media/tutorial-define-device-type/commandstileresize.png)
 
 ## View your simulated device
 

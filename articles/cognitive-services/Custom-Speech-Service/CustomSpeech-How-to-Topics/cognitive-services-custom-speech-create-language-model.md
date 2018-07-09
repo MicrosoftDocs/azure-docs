@@ -18,8 +18,8 @@ In this tutorial, you create a custom language model for text queries or utteran
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Prepare the data
-> * Import the acoustic data set
-> * Create the custom acoustic model
+> * Import the language data set
+> * Create the custom language model
 
 If you don't have a Cognitive Services account, create a [free account](https://cris.ai) before you begin.
 

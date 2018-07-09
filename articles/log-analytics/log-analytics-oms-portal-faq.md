@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Common questions for transition from OMS portal to Azure portal for Log Analytics users
 Log Analytics initially used its own portal called the OMS portal to manage its configuration and analyze collected data.  All functionality from this portal has been moved to the Azure portal where it will continue to be developed.
 
@@ -35,7 +36,7 @@ From the list of workspaces in the Azure portal, click **Add** in the list of wo
 ![Overview page](media/log-analytics-new-portal/new-workspace.png)
 
 ## Where is my overview page?
-The main screen in the OMS portal displays the tiles for all the management solutions installed in your workspace and any custom views that you've created. In the Azure portal, this is referred to as the **Overview** page. From your workspace in the Azure portal, either select **Overview** in the menu or click the **Overview** button on the main page.
+The main screen in the OMS portal displays the tiles for all the management solutions installed in your workspace and any custom views that you've created. This same view is available in the Azure portal. From your workspace, select **Workspace Summary**.
 
 ![Overview page](media/log-analytics-new-portal/overview.png)
 

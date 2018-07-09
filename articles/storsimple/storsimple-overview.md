@@ -245,7 +245,7 @@ Following is a list of other software that are used with StorSimple to build sol
 | Backup target |Veeam |Veeam v 9 and later |[StorSimple as a backup target with Veaam](storsimple-configure-backup-target-veeam.md)|
 | Backup target |Veritas Backup Exec |Backup Exec 16 and later |[StorSimple as a backup target with Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)|
 | Backup target |Veritas NetBackup |NetBackup 7.7.x and later  |[StorSimple as a backup target with NetBackup](storsimple-configure-backuptarget-netbackup.md)|
-| Global File Sharing <br></br> Collaboration |Talon  |[StorSimple with Talon](https://www.talonstorage.com/products/fast-deployment-azure-storsimple) | |
+| Global File Sharing <br></br> Collaboration |Talon  |[StorSimple with Talon](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
 
 ## StorSimple terminology
 Before deploying your Microsoft Azure StorSimple solution, we recommend that you review the following terms and definitions.

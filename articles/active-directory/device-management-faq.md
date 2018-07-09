@@ -82,6 +82,20 @@ For down-level Windows OS versions that are on-premises AD domain-joined:
 3.	Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
+**Q: How do I unjoin an Azure AD Joined device locally on the device?**
+
+**A:** 
+- For hybrid Azure AD Joined devices, make sure to turn off auto registration so that the scheduled task does not register the device again. Next, open command prompt as an administrator and type `dsregcmd.exe /debug /leave`. Alternatively, this command can be run as a script across multiple devices to unjoin in bulk.
+
+- For pure Azure AD Joined devices, make sure you have an offline local administrator account or create one, as you won't be able to sign in with any Azure AD user credentials. Next, go to **Settings** > **Accounts** > **Access Work or School**. Select your account and click on **Disconnect**. Follow the prompts and provide the local administrator credentials when prompted. Reboot the device to complete the unjoin process.
+
+---
+
+**Q: My users cannot search printers from Azure AD Joined devices. How can I enable printing from Azure AD Joined devices ?**
+
+**A:** For deploying printers for Azure AD Joined devices, see [Hybrid cloud print](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You will need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service is not available. 
+
+---
 
 **Q: Why do I see duplicate device entries in Azure portal?**
 
@@ -114,6 +128,11 @@ Please evaluate the conditional access policy rules and ensure that the device i
 
 ---
 
+**Q: Why do some of my users do not get MFA prompts on Azure AD joined devices?**
+
+**A:** If user joins or registers a device with Azure AD using multi-factor auth, the device itself will become a trusted second factor for that particular user. Subsequently, whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor and enables that user to seamlessly access their applications without additional MFA prompts. This behavior is not applicable to any other user signing into that device, so all other users accessing that device would still be prompted with an MFA challenge before accessing applications that require MFA.
+
+---
 
 **Q: I see the device record under the USER info in the Azure portal and can see the state as registered on the device. Am I setup correctly for using conditional access?**
 
@@ -133,6 +152,8 @@ For more details, see [Get started with Azure Active Directory Device Registrati
 - The Azure AD Join pre-requisites were not met. Please ensure that you have followed the steps for [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md).  
 
 - Federated logins requires your federation server to support a WS-Trust active endpoint. 
+
+- You have enabled Pass through Authentication and the user has a temporary password that needs to be changed on logon.
 
 ---
 
@@ -163,5 +184,6 @@ Please create a different local account before using Azure Active Directory Join
 
 - [Troubleshooting auto-registration of domain joined computers to Azure AD for Windows down-level clients](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
+
 ---
 

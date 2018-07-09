@@ -8,7 +8,8 @@ manager: mtillman
 editor: curtand
 
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -99,7 +100,7 @@ Additionally, the NSG also illustrates how to lock down secure LDAP access over 
 
 ![Sample NSG to secure LDAPS access over the internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**More information** - [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+**More information** - [Create a Network Security Group](../virtual-network/manage-network-security-group.md).
 
 
 ## Network connectivity
@@ -136,5 +137,5 @@ You can connect a Resource Manager-based virtual network to the Azure classic vi
 ## Related Content
 * [Azure virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 * [Configure a VNet-to-VNet connection for the classic deployment model](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
-* [Azure Network Security Groups](../virtual-network/virtual-networks-nsg.md)
-* [Create a Network Security Group](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Azure Network Security Groups](../virtual-network/security-overview.md)
+* [Create a Network Security Group](../virtual-network/manage-network-security-group.md)

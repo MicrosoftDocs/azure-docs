@@ -1,24 +1,24 @@
 ---
-title: License users in Azure Active Directory | Microsoft Docs
+title: License users in Azure AD | Microsoft Docs
 description: Learn how to license yourself and your users in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: eross-msft
 manager: mtillman
 editor: ''
-
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/22/2017
 ms.author: lizross
 ms.reviewer: jeffgilb
 custom: it-pro
 ---
+
 # Quickstart: License users in Azure Active Directory
 License-based Azure AD services work by activating an Azure Active Directory (Azure AD) subscription in your Azure tenant. After the subscription is active, service capabilities are managed by Azure AD administrators and used by licensed users. When you purchase Enterprise Mobility + Security, Azure AD Premium, or Azure AD Basic, your tenant is updated with the subscription, including its validity period and prepaid licenses. Your subscription information, including the number of assigned or available licenses, is available through the Azure portal under **Azure Active Directory** by opening the **Licenses** tile. The **Licenses** blade is also the best place to manage your license assignments.
 
@@ -27,10 +27,10 @@ Although obtaining a subscription is all you need to configure paid capabilities
 You can use [group-based license assignment](active-directory-licensing-whatis-azure-portal.md) to set up rules such as the following:
 * All users in your directory automatically get a license
 * Everyone with the appropriate job title gets a license
-* You can delegate the decision to other managers in the organization (by using [self-service groups](../active-directory-accessmanagement-self-service-group-management.md))
+* You can delegate the decision to other managers in the organization (by using [self-service groups](../users-groups-roles/groups-self-service-management.md))
 
 > [!TIP]
-> For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, see [Assign licenses to users by group membership in Azure Active Directory](../active-directory-licensing-group-assignment-azure-portal.md).
+> For a detailed discussion of license assignment to groups, including advanced scenarios and Office 365 licensing scenarios, see [Assign licenses to users by group membership in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
 ## Assign licenses to users and groups
 Using an active subscription, you should first assign a license to yourself and refresh your browser to ensure that you see all of the expected features included with your subscription. The next step is to assign licenses to the users who need access to paid Azure AD features. An easy way to assign licenses is to assign licenses to groups of users rather than to individuals. When you assign licenses to a group, all group members are assigned a license. If users are added or removed from the group, the appropriate license is automatically assigned or removed. 

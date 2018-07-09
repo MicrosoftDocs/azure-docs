@@ -53,4 +53,4 @@ Administrators can employ [Azure AD conditional access](../active-directory-cond
 
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 * [Protecting apps with conditional access](../active-directory-conditional-access-azure-portal.md)
-* [Self-service group management/SSAA](../active-directory-accessmanagement-self-service-group-management.md)
+* [Self-service group management/SSAA](../users-groups-roles/groups-self-service-management.md)

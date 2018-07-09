@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 147f2bf9-166b-402e-adc4-4b19dd336883
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -234,7 +235,7 @@ After that you can follow the below procedure to add another Intralinks applicat
  
 	![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-8. Get the the SP Initiated SSO URL from [Intralinks team](https://www.intralinks.com/contact-1) for the other Intralinks application and enter it in **Configure Sign-on URL** as shown below. 
+8. Get the SP Initiated SSO URL from [Intralinks team](https://www.intralinks.com/contact-1) for the other Intralinks application and enter it in **Configure Sign-on URL** as shown below. 
     
      ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     

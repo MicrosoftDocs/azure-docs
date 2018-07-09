@@ -60,7 +60,7 @@ You inspect details of the test result in the **Inspect** panel.
 
 ## View sentiment results
 
-If **Sentiment analysis** is configured on the **[Publish](publishapp.md#enable-sentiment-analysis)** page, the test results include the sentiment found in the utterance. 
+If **Sentiment analysis** is configured on the **[Publish](luis-how-to-publish-app.md#enable-sentiment-analysis)** page, the test results include the sentiment found in the utterance. 
 
 ![Image of Test pane with sentiment analysis](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -87,18 +87,23 @@ If you have several LUIS endpoints, use the **Additional Settings** link on the 
 
 
 ### View Bing Spell Check corrections in test panel
-You can view the spelling corrections provided by [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) API in the JSON view of the **Published** panel of the Test pane. 
+Requirements to view the spelling corrections: 
 
-To use this feature, you must have published the app, and have a Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
+* Published app
+* Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
 
-Use the following to use the Bing Spell Check v7 service key in the Test pane. 
+Use the following procedure to include the [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) service  in the Test pane results. 
 
-1. In the test panel, on the **Published** pane, select **Additional Settings**.
+1. In the **Test** pane, enter an utterance. When the utterance is predicted, select **[Inspect](#inspect-score)** underneath the utterance you entered. 
 
-2. In the pop-up dialog, enter your **Bing Spell Check** service key. 
+2. When the **Inspect** panel opens, select **[Compare with Published](#compare-with-published-version)**. 
+
+3. When the **Published** panel opens, select **[Additional Settings](#additional-settings-in-test-panel)**.
+
+4. In the pop-up dialog, enter your **Bing Spell Check** service key. 
     ![Enter Bing Spell Check service key](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
-3. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as `query`, and the corrected spelling in the query, as `alteredQuery`.
+5. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as `query`, and the corrected spelling in the query, as `alteredQuery`.
 
     ![Corrected spelling JSON](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
 

@@ -5,14 +5,13 @@ metadata:
   title: Azure Monitor Documentation - Tutorials, API Reference | Microsoft Docs
   description: Azure Monitor is part of Microsoft Azure's overall monitoring solution. Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
   services: monitoring-and-diagnostics
-  author: czeumault
-  manager: carolz
+  author: rboucher
   ms.service: monitoring-and-diagnostics
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 09/18/2017
-  ms.author: carolz
+  ms.author: robb
 abstract:
   description: Azure Monitor is part of Microsoft Azure's overall monitoring solution. Azure Monitor helps you track performance, maintain security, and identify trends. Learn how to audit, create alerts, and archive data with our quickstarts and tutorials.
 sections:

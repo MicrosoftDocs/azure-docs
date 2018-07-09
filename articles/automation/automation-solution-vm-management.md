@@ -147,8 +147,8 @@ You can enable either targeting the action against a subscription and resource g
 
 Now that you have a schedule for stopping VMs based on CPU utilization, you need to enable one of the following schedules to start them.
 
-* Target start action by subscription and resource group. See the steps in [Scenario 1](#scenario-1:-daily-stop/start-vms-across-a-subscription-or-target-resource-groups) for testing and enabling **Scheduled-StartVM** schedules.
-* Target start action by subscription, resource group, and tag. See the steps in [Scenario 2](#scenario-2:-sequence-the-stop/start-vms-across-a-subscription-using-tags) for testing and enabling **Sequenced-StartVM** schedules.
+* Target start action by subscription and resource group. See the steps in [Scenario 1](#scenario-1-startstop-vms-on-a-schedule) for testing and enabling **Scheduled-StartVM** schedules.
+* Target start action by subscription, resource group, and tag. See the steps in [Scenario 2](#scenario-2-startstop-vms-in-sequence-by-using-tags) for testing and enabling **Sequenced-StartVM** schedules.
 
 ## Solution components
 

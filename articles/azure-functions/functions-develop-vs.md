@@ -15,7 +15,7 @@ ms.topic: article
 ms.date: 05/23/2018
 ms.author: glenga
 ---
-# Azure Functions Tools for Visual Studio  
+# Develop Azure Functions using Visual Studio  
 
 Azure Functions Tools for Visual Studio 2017 is an extension for Visual Studio that lets you develop, test, and deploy C# functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
 

@@ -3,10 +3,12 @@ title: Scale discovery and assessment by using Azure Migrate | Microsoft Docs
 description: Describes how to assess large numbers of on-premises machines by using the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.topic: article
-ms.date: 06/04/2018
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: raynew
 ---
+
+
 
 # Discover and assess a large VMware environment
 
@@ -18,6 +20,31 @@ Azure Migrate has a limit of 1500 machines per project, this article describes h
 - **vCenter account**: You need a read-only account to access vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
 - **Permissions**: In vCenter Server, you need permissions to create a VM by importing a file in OVA format.
 - **Statistics settings**: The statistics settings for vCenter Server should be set to level 3 before you start deployment. If the level is lower than 3, the assessment will work, but performance data for storage and network won't be collected. The size recommendations in this case will be based on performance data for CPU and memory, and configuration data for disk and network adapters.
+
+
+### Set up permissions
+
+Azure Migrate needs access to VMware servers to automatically discover VMs for assessment. The VMware account needs the following permissions:
+
+- User type: At least a read-only user
+- Permissions: Data Center object –> Propagate to Child Object, role=Read-only
+- Details: User assigned at datacenter level, and has access to all the objects in the datacenter.
+- To restrict access, assign the No access role with the Propagate to child object, to the child objects (vSphere hosts, datastores, VMs and networks).
+
+If you're deploying in a tenant environment, here's one way to set this up:
+
+1.  Create a user per tenant and and using [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assign read-only permissions to all the VM’s belonging to a particular tenant. Then, use those credentials for discovery. RBAC ensures that the corresponding vCenter user will have access to only tenant specific VM’s.
+2. You set up RBAC for different tenant users as described in the following example for User#1 and User#2:
+
+    - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs in
+    - Datacenter1 - give read-only permissions to User#1 and User#2. Don't propagate those permissions to all child objects, because you'll set permissions on individual VM's.
+
+      - VM1 (Tenant#1) (Read only permission to User#1)
+      - VM2 (Tenant#1) (Read only permission to User#1)
+      - VM3 (Tenant#2) (Read only permission to User#2)
+      - VM4 (Tenant#2) (Read only permission to User#2)
+
+   - If you perform discovery using User#1 credentials, then only VM1 and VM2 will be discovered.
 
 ## Plan your migration projects and discoveries
 
@@ -95,6 +122,14 @@ Check that the OVA file is secure before you deploy it:
    Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. Make sure that the generated hash matches the following settings.
+
+    For OVA version 1.0.9.12
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
     For OVA version 1.0.9.8
 

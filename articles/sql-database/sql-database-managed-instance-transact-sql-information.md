@@ -7,7 +7,7 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database 
 ms.custom: managed instance
 ms.topic: conceptual 
-ms.date: 05/24/2018 
+ms.date: 06/22/2018 
 ms.author: jovanpop 
 manager: craigg 
 --- 
@@ -202,6 +202,10 @@ Undocumented DBCC statements that are enabled in SQL Server are not supported in
 - `DBCC TRACEOFF` is not supported. See [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
 - `DBCC TRACEON` is not supported. See [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
 
+### Distributed transactions
+
+Neither MSDTC nor [Elastic Transactions](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) are currently supported in Managed Instance.
+
 ### Extended Events 
 
 Some Windows-specific targets for XEvents are not supported:
@@ -388,9 +392,12 @@ The following variables, functions, and views return different results:
 
 Each Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instance that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation. 
 
-For example, a Managed Instance could have one file with 1.2 TB size that uses a 4 TB disk, and 248 files with 1 GB each that are placed on 248 disks with 128 GB size. In this example, the total disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB. However, total reserved instance size for databases is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB. This illustrates that under certain circumstance, due to a very specific distribution of files, a Managed Instance might reach Azure Premium Disk storage limit where you might not expect it to. 
+For example, a Managed Instance could have one file 1.2 TB in size that is placed on a 4 TB disk, and 248 files each 1 GB ins size that are placed on separate 128 GB disks. In this example, 
+* the total disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB. 
+* the total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.
+This illustrates that under certain circumstance, due to a very specific distribution of files, a Managed Instance might reach the 35TB reserved for attached Azure Premium Disk when you might not expect it to. 
 
-There would be no error on existing databases and they can grow without any problem if new files are not added, but the new databases cannot be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
+In this example existing databases will continue to work and can grow without any problem as long as new files are not added. However new databases could not be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
 
 ### Incorrect configuration of SAS key during database restore
 

@@ -18,14 +18,14 @@ In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomat
 
  This prebuilt domain already has intents and entities provided for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
 ## Prerequisites
 * To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a new app
-You can create and manage your applications on **My Apps** page of [LUIS][LUIS]. 
+You can create and manage your applications on **My Apps** page of [LUIS](luis-reference-regions.md#luis-website). 
 1. Click **Create new app**.
 
     [![](media/luis-quickstart-new-app/app-list.png "Screenshot of app list")](media/luis-quickstart-new-app/app-list.png)
@@ -110,7 +110,7 @@ You can test your published endpoint in a browser using the generated URL. Open 
 [![](media/luis-quickstart-new-app/turn-off-living-room.png "Screenshot of browser with JSON result detects the intent TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS app. To do so, select the ellipsis (***...***) button to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
@@ -118,6 +118,3 @@ You can call the endpoint from code:
 
 > [!div class="nextstepaction"]
 > [Call a LUIS endpoint using code](luis-get-started-cs-get-intent.md)
-
-
-[LUIS](luis-reference-regions.md#luis-website)

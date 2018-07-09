@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: d2b9ddbc-cab7-40d6-aca1-5b171cab4199
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -208,7 +209,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Bambu by Sprout Social tile in the Access Panel, you should get automatically signed-on to your Bambu by Sprout Social application. For more details about the Access Panel, see [Introduction to the Access Panel](https://msdn.microsoft.com/library/dn308586). 
+When you click the Bambu by Sprout Social tile in the Access Panel, you should get automatically signed-on to your Bambu by Sprout Social application. For more details about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
@@ -230,4 +231,3 @@ When you click the Bambu by Sprout Social tile in the Access Panel, you should g
 [201]: ./media/bambubysproutsocial-tutorial/tutorial_general_201.png
 [202]: ./media/bambubysproutsocial-tutorial/tutorial_general_202.png
 [203]: ./media/bambubysproutsocial-tutorial/tutorial_general_203.png
-
