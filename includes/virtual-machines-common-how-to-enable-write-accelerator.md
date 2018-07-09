@@ -45,9 +45,9 @@ There are limits of Azure Premium Storage VHDs per VM that can be supported by W
 | --- | --- | --- |
 | M128ms, 128s | 16 | 8000 |
 | M64ms, M64ls, M64s | 8 | 4000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 2000 | 
-| M16ms, M16s | 2 | 1000 | 
-| M8ms, M8s | 1 | 500 | 
+| M32ms, M32ls, M32ts, M32s | 4 | 2000 |
+| M16ms, M16s | 2 | 1000 |
+| M8ms, M8s | 1 | 500 |
 
 The IOPS limits are per VM and *not* per disk. All Write Accelerator disks share the same IOPS limit per VM.
 
@@ -67,7 +67,7 @@ The following prerequisites apply to the usage of Write Accelerator at this poin
 The Azure Power Shell module from version 5.5.0 include the changes to the relevant cmdlets to enable or disable Write Accelerator for specific Azure Premium Storage disks.
 In order to enable or deploy disks supported by Write Accelerator, the following Power Shell commands got changed, and extended to accept a parameter for Write Accelerator.
 
-A new switch parameter, "WriteAccelerator" got added to the following cmdlets: 
+A new switch parameter, "WriteAccelerator" has been added to the following cmdlets:
 
 - [Set-AzureRmVMOsDisk](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-6.0.0)
 - [Add-AzureRmVMDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Add-AzureRmVMDataDisk?view=azurermps-6.0.0)
