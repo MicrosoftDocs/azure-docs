@@ -62,7 +62,3 @@ Once data appears in the event hub, you can access it in two ways.
 * **Configure a supported SIEM tool to read the data**: Splunk is the only SIEM tool that is currently supported. For more information on how to integrate Azure AD logs with Splunk, see [How to integrate Azure Active Directory logs with Splunk using Azure Monitor Diagnostics](active-directory-reporting-azure-monitor-diagnostics-splunk-integration.md).
 
 * **Set up custom tooling to read the data**: If your current SIEM isn't supported in Azure monitor diagnostics yet, you can set up custom tooling using the Event hub APIs. To learn more, see the [Event hub APIs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
-
->[!Note]
-> We are currently working with Qradar and Sumologic to get their connectors updated with Azure Active Directory logs. 
->

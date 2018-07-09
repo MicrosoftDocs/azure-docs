@@ -168,7 +168,7 @@ This section contains the frequently asked questions and known issues with Azure
 
 **Q: What SIEM tools are currently supported?** 
 
-**A:** Currently, Azure monitor diagnostics is supported by Splunk, QRadar and Sumologic. However, Splunk is the only SIEM tools that is supported for Azure Active Directory logs. We are currently working with both Sumologic and Qradar to map the schema to a format that their connector can understand. For more information on how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs).
+**A:** Currently, Azure monitor diagnostics is supported by Splunk, QRadar and Sumologic. However, Splunk is the only SIEM tools that is supported for Azure Active Directory logs. For more information on how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs).
 
 ---
 
