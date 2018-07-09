@@ -15,13 +15,9 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn
-  - name: Azure PowerShell (classic)
-    href: /powershell/module/azure/?view=azuresmps-3.7.0#networking
+    href: href: https://go.microsoft.com/fwlink/p/?LinkId=200528
   - name: REST
-    href: /rest/api/network/virtualnetworkgateways
-  - name: REST (classic)
-    href: https://msdn.microsoft.com/library/jj154113
+    href: https://go.microsoft.com/fwlink/p/?LinkId=2005000
 - name: Resources
   items:
   - name: FAQ
@@ -30,8 +26,6 @@
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking
-  - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
   - name: Subscription and service limits
     href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
   - name: Pricing
@@ -40,5 +34,3 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway
