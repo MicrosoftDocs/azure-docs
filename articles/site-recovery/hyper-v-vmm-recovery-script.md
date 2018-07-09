@@ -3,7 +3,7 @@ title: Add a script to a recovery plan in Azure Site Recovery | Microsoft Docs
 description: Learn about the prerequisites for adding a new System Center Virtual Machine Manager (VMM) script to a recovery plan in Azure.
 services: site-recovery
 documentationcenter: ''
-author: rajanaki
+author: rajani-janaki-ram
 manager: rochakm
 editor: ''
 
