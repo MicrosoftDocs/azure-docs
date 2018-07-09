@@ -118,5 +118,5 @@ Refresh the web app in the browser, and go to the About page. You should see you
 
 ## Next steps
 
-> [!NEXT]
+> [!div class="nextstepaction"]
 > [Learn about team development](team-development-netcore-visualstudio.md)

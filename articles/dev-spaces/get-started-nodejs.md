@@ -159,6 +159,6 @@ In this configuration, the container is configured to start *nodemon*. When serv
 
 ## Next steps
 
-> [!NEXT]
+> [!div class="nextstepaction"]
 > [Learn about team development](team-development-nodejs.md)
 
