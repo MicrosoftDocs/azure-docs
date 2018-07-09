@@ -241,9 +241,12 @@ The edge hub, which is part of the edge runtime, is optimized for performance by
 For the edge hub set an environment variable **OptimizeForPerformance** to **false**. There are two ways to do this:
 
 In the UI: 
+
 In the portal from *Device Details*->*Set Modules*->*Configure advanced Edge Runtime settings*, create an environment variable called *OptimizeForPerformance* that is set to *false* for the *Edge Hub*.
 
 ![optimizeforperformance][img-optimize-for-perf]
+
+**OR**
 
 In the deployment manifest:
 

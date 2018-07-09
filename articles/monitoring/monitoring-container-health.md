@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/2018
+ms.date: 07/08/2018
 ms.author: magoedte
 ---
 
@@ -50,7 +50,7 @@ This capability relies on a containerized OMS Agent for Linux to collect perform
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Enable container health monitoring for a new cluster
-You can only enable monitoring of your AKS cluster when you deploy it from the Azure portal.  Follow the steps in the quickstart article [Deploy an Azure Kubernetes Service (AKS) cluster](../aks/kubernetes-walkthrough-portal.md).  When you are on the **Monitoring** page, select **Yes** for the option **Enable Monitoring** to enable, and  then select an existing or create a new Log Analytics workspace.  
+You can enable monitoring of a new AKS cluster during deployment from the Azure portal.  Follow the steps in the quickstart article [Deploy an Azure Kubernetes Service (AKS) cluster](../aks/kubernetes-walkthrough-portal.md).  When you are on the **Monitoring** page, select **Yes** for the option **Enable Monitoring** to enable, and then select an existing or create a new Log Analytics workspace.  
 
 After monitoring is enabled all configuration tasks are completed successfully, you can monitor the performance of your cluster from one of two ways:
 
@@ -62,7 +62,7 @@ After monitoring is enabled all configuration tasks are completed successfully, 
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster.  
 
 ## Enable container health monitoring for existing managed clusters
-Enabling monitoring of your AKS container already deployed can be accomplished either from the Azure portal or with the provided Azure Resource Manager template using the PowerShell cmdlet **New-AzureRmResourceGroupDeployment** or Azure CLI.  
+You can enable monitoring of an AKS cluster already deployed either from the Azure portal or with the provided Azure Resource Manager template using the PowerShell cmdlet **New-AzureRmResourceGroupDeployment** or Azure CLI.  
 
 
 ### Enable from Azure portal
@@ -71,13 +71,11 @@ Perform the following steps to enable monitoring of your AKS container from the 
 1. In the Azure portal, click **All services**. In the list of resources, type **Containers**. As you begin typing, the list filters based on your input. Select **Kubernetes services**.<br><br> ![Azure portal](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
 2. In your list of containers, select a container.
 3. On the container overview page, select **Monitor container health** and the **Onboarding to Container Health and Logs** page appears.
-4. On the **Onboarding to Container Health and Logs** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.  The list preselects the default workspace and location the AKS container is deployed to in the subscription. Or you can select **Create New** and specify a new workspace in the same subscription.<br><br> ![Enable AKS container health monitoring](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+4. On the **Onboarding to Container Health and Logs** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.  The list preselects the default workspace and location the AKS container is deployed to in the subscription.<br><br> ![Enable AKS container health monitoring](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
 
-    If you select **Create New**, the **Create new workspace** pane appears. The **Region** defaults to the region your container resource is created in and you can accept the default or select a different region, and then specify a name for the workspace.  Click **Create** to accept your selection.<br><br> ![Define workspace for container monintoring](./media/monitoring-container-health/create-new-workspace-01.png)  
-
-    >[!NOTE]
-    >At this time you cannot create a new workspace in the West Central US region, you can only select a pre-existing workspace in that region.  Even though you can select that region from the list, the deployment will start but it fails shortly afterwards.  
-    >
+>[!NOTE]
+>If you want to create a new Log Analytics workspace to store the monitoring data from the cluster, follow the steps in [Cretae a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md) and be sure to create the workspace in the same subscription that the AKS container is deployed to.  
+>
  
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster. 
 
@@ -239,10 +237,11 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
         ```
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster.  
 
-## Verify agent deployed successfully
+## Verify agent and solution deployment
+With agent version *06072018* and higher, you are able to verify that both the agent and the solution were deployed successfully.  With earlier versions of the agent, you can only verify agent deployment.
 
 ### Agent version 06072018 and higher
-To verify the OMS agent version *06072018* or higher is deployed properly, run the following commands: 
+Run the following command to verify the agent is deployed successfully.   
 
 ```
 kubectl get ds omsagent --namespace=kube-system
@@ -256,7 +255,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
-To verify a new deployment, run the following command:
+To verify deployment of the solution, run the following command:
 
 ```
 kubectl get deployment omsagent-rs -n=kube-system
@@ -520,7 +519,7 @@ If container health was successfully enabled and configured but you are not seei
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```  
-2. Check the status of the deployment for agent version *06072018* or higher by running the following command:
+2. Check the solution deployment status with agent version *06072018* or higher by running the following command:
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 

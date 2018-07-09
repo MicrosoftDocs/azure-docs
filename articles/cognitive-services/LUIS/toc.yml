@@ -59,20 +59,22 @@
       href: luis-quickstart-intent-and-list-entity.md
     - name: 5. Add hierarchical entity
       href: luis-quickstart-intent-and-hier-entity.md
-    - name: 6. Add simple entity and phrase list
+    - name: 6. Add composite entity
+      href: luis-tutorial-composite-entity.md
+    - name: 7. Add simple entity and phrase list
       href: luis-quickstart-primary-and-secondary-data.md
-    - name: 7. Add keyPhrase entity
+    - name: 8. Add keyPhrase entity
       href: luis-quickstart-intent-and-key-phrase.md
-    - name: 8. Add sentiment analysis
+    - name: 9. Add sentiment analysis
       href: luis-quickstart-intent-and-sentiment-analysis.md
   - name: Improve app 
     items: 
     - name: Review endpoint utterances
       href: luis-tutorial-review-endpoint-utterances.md
+    - name: With batch test
+      href: luis-tutorial-batch-testing.md
     - name: With patterns
       href: luis-tutorial-pattern.md
-    - name: With a phrase list
-      href: luis-tutorial-interchangeable-phrase-list.md
 - name: Samples
   items:
   - name: Code samples
@@ -140,7 +142,7 @@
   - name: Plan your app
     href: luis-how-plan-your-app.md
   - name: Start a new app
-    href: Create-new-app.md
+    href: luis-how-to-start-new-app.md
   - name: Build Model
     items: 
     - name: Add intents
@@ -149,15 +151,15 @@
       href: luis-how-to-add-example-utterances.md
     - name: Add entities
       href: luis-how-to-add-entities.md
-    - name: Use composite entity to extract grouped data
-      href: luis-tutorial-composite-entity.md
-    - name: Use list entity to match exact text using Node.js
-      href: luis-tutorial-list-entity.md
-    - name: Build app programmatically using Node.js
-      href: luis-tutorial-node-import-utterances-csv.md
+    - name: With APIs
+      items: 
+      - name: Build app programmatically using Node.js
+        href: luis-tutorial-node-import-utterances-csv.md
+      - name: Use list entity to match exact text using Node.js
+        href: luis-tutorial-list-entity.md
   - name: Integrate 
     items: 
-    - name: Correct spelling with Bing Spell Check API v7
+    - name: With Bing Spell Check API v7
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
       href: luis-tutorial-speech-to-intent.md
@@ -191,36 +193,37 @@
       href: interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
-    - name: Improve accuracy with batch testing
-      href: luis-tutorial-batch-testing.md
-  - name: Publish your app
+  - name: Publish app
     href: luis-how-to-publish-app.md
   - name: Use prebuilt models
     items: 
-    - name: Use prebuilt entities
+    - name: Use entities
       href: luis-prebuilt-entities.md
-    - name: Use prebuilt domains
+    - name: Use domains
       href: luis-how-to-use-prebuilt-domains.md
-    - name: Use the Cortana prebuilt app
+    - name: Use Cortana
       href: luis-how-to-cortana-prebuilt-app.md
-  - name: Manage your LUIS app
+  - name: Manage app
     items: 
     - name: Using the dashboard
       href: luis-how-to-use-dashboard.md
-    - name: Create keys
+    - name: Create endpoint keys
       href: luis-how-to-azure-subscription.md
-    - name: Add keys in LUIS 
+    - name: Add endpoint keys to app 
       href: luis-how-to-manage-keys.md
-    - name: View endpoint usage with PowerShell
-      href: luis-how-to-manage-from-cloud-shell.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
     - name: Collaborate with other authors
       href: luis-how-to-collaborate.md 
-    - name: Spread endpoint quota across keys with Traffic Manager
-      href: traffic-manager.md  
-  - name: Manage your LUIS account
-    href: luis-how-to-account-settings.md   
+    - name: Manage authoring key
+      href: luis-how-to-account-settings.md   
+    - name: Manage endpoint usage
+      items: 
+      - name: View endpoint usage with PowerShell
+        href: luis-how-to-manage-from-cloud-shell.md
+      - name: Spread endpoint quota across keys with Traffic Manager
+        href: traffic-manager.md  
+
   - name: Migrate to V2 API
     href: migration-v1-to-v2.md
   - name: Find region programmatically
