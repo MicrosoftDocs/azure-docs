@@ -24,8 +24,8 @@ Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/p
 
 ## Find Azure Search
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click the plus sign ("+") in the top left corner.
-3. Select **Web + Mobile** > **Azure Search**.
+2. Click the plus sign ("+ Create Resource") in the top left corner.
+3. Select **Web** > **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
