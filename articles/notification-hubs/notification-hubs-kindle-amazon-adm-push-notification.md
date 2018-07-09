@@ -38,7 +38,7 @@ In this tutorial, you create/update code to do the following tasks:
 ## Prerequisites
 
 * Get the Android SDK (assuming that you are using Eclipse) from the <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android site</a>.
-* Follow the steps in <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Setting Up Your Development Environment</a> to set up your development environment for Kindle.
+* Follow the steps in <a href="https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html">Setting Up Your Development Environment</a> to set up your development environment for Kindle.
 
 ## Add a new app to the developer portal
 1. First, create an app in the [Amazon developer portal].

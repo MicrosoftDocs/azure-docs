@@ -10,11 +10,11 @@ editor:
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
+ms.author: daveba
 ---
 
 # Tutorial: Use Managed Service Identity for a Linux VM to access Azure Data Lake Store

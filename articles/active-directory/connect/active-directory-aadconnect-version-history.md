@@ -1,4 +1,3 @@
-
 ---
 title: 'Azure AD Connect: Version release history | Microsoft Docs'
 description: This article lists all releases of Azure AD Connect and Azure AD Sync
@@ -22,7 +21,7 @@ ms.author: billmath
 The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
 
 
-This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
+This article is designed to help you keep track of the versions that have been released, and to understand what the changes are in the latest version.
 
 This table is a list of related topics:
 

@@ -12,15 +12,12 @@ ms.topic: "include"
 manager: "douge"
 ---
 
-## Sign in to the Azure portal
-
-Sign in to the Azure portal at http://portal.azure.com.
-
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-1.  Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
+1. Sign in to the Azure portal at http://portal.azure.com.
+1. Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
 
-    Complete the following steps under each heading of the create AKS cluster form.
+   Complete the following steps under each heading of the create AKS cluster form.
 
     - **PROJECT DETAILS**:  select an Azure subscription and a new or existing Azure resource group.
     - **CLUSTER DETAILS**: enter a name, region (currently, you must choose EastUS, WestEurope, or CanadaEast), version, and DNS name prefix for the AKS cluster.
@@ -38,5 +35,9 @@ Sign in to the Azure portal at http://portal.azure.com.
 
     > [!IMPORTANT]
     > You must be sure to enable Http Application Routing when you create your AKS cluster. It is not possible to change this setting later.
+
+1. Choose your desired setting for Role-based Access Control (RBAC). Azure Dev Spaces supports clusters with RBAC enabled, or disabled.
+
+    ![RBAC setting](../media/common/k8s-RBAC.PNG)
 
 1. Select **Review + create** and then **Create** when complete.

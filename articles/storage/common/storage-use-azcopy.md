@@ -25,7 +25,7 @@ There are two versions of AzCopy that you can download. AzCopy on Windows offers
 ## Download and install AzCopy on Windows
 
 ### Latest Preview version (v8.0.0)
-Download the [latest preview version of AzCopy on Windows](http://aka.ms/downloadazcopypr). This Preview version offers significant performance improvements and packages .NET Core in the installation.
+Download the [latest preview version of AzCopy on Windows](https://aka.ms/downloadazcopypr). This Preview version offers significant performance improvements and packages .NET Core in the installation.
 
 #### AzCopy on Windows 8.0 Preview Release Notes
 - Table service is no longer supported in the latest version. If you use Table export feature, download the stable version.
@@ -33,7 +33,7 @@ Download the [latest preview version of AzCopy on Windows](http://aka.ms/downloa
 - Significant performance improvements for both upload and download scenarios
 
 ### Latest Stable version (v7.1.0)
-Download the [latest stable version of AzCopy on Windows](http://aka.ms/downloadazcopy).
+Download the [latest stable version of AzCopy on Windows](https://aka.ms/downloadazcopy).
 
 ### Post-installation Step
 

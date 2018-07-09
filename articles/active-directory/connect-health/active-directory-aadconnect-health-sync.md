@@ -3,7 +3,7 @@ title: Using Azure AD Connect Health with sync | Microsoft Docs
 description: This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
@@ -18,7 +18,7 @@ ms.custom: H1Hack27Feb2017
 # Monitor Azure AD Connect sync with Azure AD Connect Health
 The following documentation is specific to monitoring Azure AD Connect (Sync) with Azure AD Connect Health.  For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md).
 
-![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/sync-blade.png)
+![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/syncsnapshot.png)
 
 ## Alerts for Azure AD Connect Health for sync
 The Azure AD Connect Health Alerts for sync section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. By selecting an active or resolved alert you will see a new blade with additional information, as well as steps you can take to resolve the alert, and links to additional documentation. You can also view historical data on alerts that were resolved in the past.
@@ -93,15 +93,19 @@ Drilling into each category will provide the list of objects having the error in
 ### Error Details
 Following data is available in the detailed view for each error
 
+* Highlighted conflicting attribute
 * Identifiers for the *AD Object* involved
 * Identifiers for the *Azure AD Object* involved (as applicable)
 * Error description and how to fix
-* Related articles
 
-![Sync Error Report Details](./media/active-directory-aadconnect-health-sync/errorreport04.png)
+![Sync Error Report Details](./media/active-directory-aadconnect-health-sync/duplicateAttributeSyncError.png)
 
 ### Download the error report as CSV
 By selecting the "Export" button you can download a CSV file with all the details about all the errors.
+
+### Diagnose and remediate sync errors 
+For specific duplicated attribute sync error scenario involving user Source Anchor update, you can fix them directly from the portal. 
+Read more about [Diagnose and remediate duplicated attribute sync errors](active-directory-aadconnect-health-diagnose-sync-errors.md)
 
 ## Related links
 * [Troubleshooting Errors during synchronization](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)

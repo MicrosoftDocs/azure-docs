@@ -2,7 +2,7 @@
 
 
 #### To create a new service
-1. Use your Microsoft account credentials to log on to the [Microsoft Azure Government Portal](https://manage.windowsazure.us/).
+1. Use your Microsoft account credentials to sign in to the [Microsoft Azure Government Portal](https://manage.windowsazure.us/).
 2. In the Government Portal, click **New** > **Data Services** > **StorSimple Manager** > **Quick Create**.
 3. In the form that is displayed, do the following:
    

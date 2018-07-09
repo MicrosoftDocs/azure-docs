@@ -44,12 +44,12 @@ Share snapshot capability is provided at the file share level. Retrieval is prov
 A share snapshot of a file share is identical to its base file share. The only difference is that a **DateTime** value is appended to the share URI to indicate the
 time at which the share snapshot was taken. For example, if a file share URI is http://storagesample.core.file.windows.net/myshare, the share snapshot URI is similar to:
 ```
-http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Share snapshots persist until they are explicitly deleted. A share snapshot cannot outlive its base file share. You can enumerate the snapshots associated with the base file share to track your current snapshots. 
 
-When you create a share snapshot of a file share, the files in the share’s system properties are copied to the share snapshot with the same values. The base files and the file share’s metadata are also copied to the share snapshot, unless you specify separate metadata for the share snapshot when you create it.
+When you create a share snapshot of a file share, the files in the share's system properties are copied to the share snapshot with the same values. The base files and the file share's metadata are also copied to the share snapshot, unless you specify separate metadata for the share snapshot when you create it.
 
 You cannot delete a share that has share snapshots unless you delete all the share snapshots first.
 

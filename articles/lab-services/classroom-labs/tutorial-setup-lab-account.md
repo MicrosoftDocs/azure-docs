@@ -52,7 +52,7 @@ The following steps illustrate how to use the Azure portal to create a lab accou
     ![Lab account page](../media/tutorial-setup-lab-account/lab-account-page.png)
 
 ## Add a user to the Lab Creator role
-To provide educators the permission to create labs for their classes, add them to the Lab Creator role:
+To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role:
 
 1. On the **Lab Account** page, select **Access control (IAM)**, and click **+ Add** on the toolbar. 
 

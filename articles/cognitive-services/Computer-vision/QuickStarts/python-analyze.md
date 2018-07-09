@@ -1,7 +1,7 @@
 ---
-title: Computer Vision Python quickstart analyze online image | Microsoft Docs
+title: Computer Vision Python quickstart analyze a remote image | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze an image using Computer Vision with Python in Cognitive Services.
+description: In this quickstart, you analyze a remote image using Computer Vision with Python in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -12,9 +12,9 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an Image with Python
+# Quickstart: Analyze a remote image with Python
 
-In this quickstart, you analyze an image using Computer Vision.
+In this quickstart, you analyze a remote image using Computer Vision. To analyze a local image, see [Analyze a local image with Python](python-disk.md).
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
@@ -24,7 +24,7 @@ You can run this quickstart in a step-by step fashion using a Jupyter notebook o
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## Analyze an image
+## Analyze a remote image
 
 With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 
@@ -49,6 +49,13 @@ The following code uses the Python `requests` library to call the Computer Visio
 ## Analyze Image request
 
 ```python
+import requests
+# If you are using a Jupyter notebook, uncomment the following line.
+#%matplotlib inline
+import matplotlib.pyplot as plt
+from PIL import Image
+from io import BytesIO
+
 # Replace <Subscription Key> with your valid subscription key.
 subscription_key = "<Subscription Key>"
 assert subscription_key
@@ -62,32 +69,25 @@ assert subscription_key
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
 
-vision_analyze_url = vision_base_url + "analyze"
+analyze_url = vision_base_url + "analyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/" + \
     "Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
 
-import requests
-headers  = {'Ocp-Apim-Subscription-Key': subscription_key }
-params   = {'visualFeatures': 'Categories,Description,Color'}
-data     = {'url': image_url}
-response = requests.post(vision_analyze_url, headers=headers, params=params, json=data)
+headers = {'Ocp-Apim-Subscription-Key': subscription_key }
+params  = {'visualFeatures': 'Categories,Description,Color'}
+data    = {'url': image_url}
+response = requests.post(analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()
 
 # The 'analysis' object contains various fields that describe the image. The most
-# relevant caption for the image is obtained from the 'descriptions' property.
+# relevant caption for the image is obtained from the 'description' property.
 analysis = response.json()
 print(analysis)
-
 image_caption = analysis["description"]["captions"][0]["text"].capitalize()
 
 # Display the image and overlay it with the caption.
-# If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
-from PIL import Image
-from io import BytesIO
-import matplotlib.pyplot as plt
 image = Image.open(BytesIO(requests.get(image_url).content))
 plt.imshow(image)
 plt.axis("off")

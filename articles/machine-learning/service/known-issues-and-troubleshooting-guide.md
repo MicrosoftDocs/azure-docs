@@ -7,6 +7,7 @@ ms.author: svankam
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018 
@@ -119,10 +120,10 @@ You can use CLI to delete an Experimentation Account, but you must delete the ch
 
 ```azure-cli
 # delete a project
-$ az ml project delete -g <resource group name> -a <experimentation account name> -w <worksapce name> -n <project name>
+$ az ml project delete -g <resource group name> -a <experimentation account name> -w <workspace name> -n <project name>
 
 # delete a workspace 
-$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <worksapce name>
+$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <workspace name>
 
 # delete an experimentation account
 $ az ml account experimentation delete -g <resource group name> -n <experimentation account name>

@@ -8,8 +8,8 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: users-groups-roles
-ms.topic: get-started-article
+ms.component: protection
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/17/2017
 ms.author: rolyon

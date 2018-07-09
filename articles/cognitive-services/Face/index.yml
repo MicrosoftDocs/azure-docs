@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Face service Documentation 
+title: Face Service Documentation
 metadata:
   title: Face Service Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
   description: Learn how to use the Face service to detect and identify faces in images and return facial information. Tutorials show you how to build apps that use the API.
@@ -30,29 +30,21 @@ sections:
       text: C&#35;
       href: QuickStarts/CSharp
     - image: 
-        src: media/index/logo_curl.svg
-      text: cURL
-      href: QuickStarts/curl
-    - image: 
         src: media/index/logo_java.svg
       text: Java
       href: QuickStarts/Java
     - image: 
-        src: media/index/logo_js.svg
-      text: JavaScript
-      href: QuickStarts/JavaScript
-    - image: 
-        src: media/index/logo_php.svg
-      text: PHP
-      href: QuickStarts/PHP
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: QuickStarts/node
     - image: 
         src: media/index/logo_python.svg
       text: Python
       href: QuickStarts/Python
-    - image: 
-        src: media/index/logo_ruby.svg
-      text: Ruby
-      href: QuickStarts/Ruby
+    - image:
+        src: media/index/logo_go.svg
+      text: Go
+      href: QuickStarts/Go
 #- title: Step-by-Step Tutorials
 #  items:
 #  - type: paragraph
@@ -72,4 +64,9 @@ sections:
     - title: APIs
       html: <p><a href="APIReference">Face API</a></p>
     - title: SDKs
-      html: <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest">Node.js</a></p><p><a href="https://github.com/Microsoft/Cognitive-Face-Python">Python</a></p><p><a href="https://github.com/Microsoft/Cognitive-Face-Windows">Windows</a></p><p><a href="https://github.com/Microsoft/Cognitive-Face-Android">Android</a></p><p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>
+      html: <p><a href="https://github.com/Microsoft/Cognitive-Face-Windows">Windows</a></p>
+            <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules">Node.js</a></p>
+            <p><a href="https://github.com/Microsoft/Cognitive-Face-Python">Python</a></p>
+            <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face">Go</a></p>
+            <p><a href="https://github.com/Microsoft/Cognitive-Face-Android">Android</a></p>
+            <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>

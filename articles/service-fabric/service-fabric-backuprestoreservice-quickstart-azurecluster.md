@@ -46,7 +46,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 
 - Schedule periodic backup of Reliable Stateful services and Reliable Actors with support to upload backup to (external) storage locations. Supported storage locations
     - Azure Storage
-    - File Share (on-premise)
+    - File Share (on-premises)
 - Enumerate backups
 - Trigger an ad-hoc backup of a partition
 - Restore a partition using previous backup
@@ -114,7 +114,7 @@ Let's walk through steps to enable periodic backup for Reliable Stateful service
 
 First step is to create backup policy describing backup schedule, target storage for backup data, policy name, and maximum incremental backups to be allowed before triggering full backup. 
 
-For backup storage, use the Azure Storage account created above. This example assumes the Azure Storage account with name `sfbackupstore`. Container `backup-container` is configured to store backups, container with this name is created, if not already present, during backup upload. Populate `ConnectionString` with valid connection string for the Azure Storage account.
+For backup storage, use the Azure Storage account created above. Container `backup-container` is configured to store backups. A container with this name is created, if it does not already exist, during backup upload. Populate `ConnectionString` with a valid connection string for the Azure Storage account, replacing `account-name` with your storage account name, and `account-key` with your storage account key.
 
 Execute following PowerShell script for invoking required REST API to create new policy. Replace `account-name` with your storage account name, and `account-key` with your storage account key.
 

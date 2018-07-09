@@ -33,7 +33,7 @@ The VM Access extension can be run against these Linux distributions:
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS and 12.04 LTS |
 | Debian | Debian 7.9+, 8.2+ |
-| RedHat | RHEL 6.7+, 7.1+ |
+| Red Hat | RHEL 6.7+, 7.1+ |
 | Oracle Linux | 6.4+, 7.0+ |
 | Suse | 11 and 12 |
 | OpenSuse | openSUSE Leap 42.2+ |

@@ -39,12 +39,16 @@
   items:
   - name: Deploy
     items:
-    - name: Deploy multi-container groups
+    - name: Multi-container group - YAML
+      href: container-instances-multi-container-yaml.md
+    - name: Multi-container group - Resource Manager
       href: container-instances-multi-container-group.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
     - name: Set environment variables (env)
       href: container-instances-environment-variables.md
+    - name: Configure liveness probes
+      href: container-instances-liveness-probe.md
   - name: Manage
     items:
     - name: Execute a command (exec)

@@ -26,7 +26,7 @@ You're now ready to create a Kubernetes-based development environment in Azure.
 Azure Dev Spaces requires minimal local machine setup. Most of your development environment's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 > [!IMPORTANT]
-> If you already have the Azure CLI installed, make sure you are using version 2.0.33 or higher.
+> If you already have the Azure CLI installed, make sure you are using version 2.0.38 or higher.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -62,7 +62,7 @@ Azure Dev Spaces isn't just about getting code running in Kubernetes - it's abou
 What happened? Edits to content files, like HTML and CSS, don't require the Node.js process to restart, so an active `azds up` command will automatically sync any modified content files directly into the running container in Azure, thereby providing a fast way to see your content edits.
 
 ### Test from a mobile device
-If you open the web app on a mobile device, you will notice that the UI does not display properly on a small device.
+Open the web app on a mobile device using the public URL for webfrontend. You may want to copy and send the URL from your desktop to your device to save you from entering the long address. When the web app loads in your mobile device, you will notice that the UI does not display properly on a small device.
 
 To fix this, you'll add a `viewport` meta tag:
 1. Open the file `./public/index.html`
@@ -107,7 +107,7 @@ But there is an even *faster method* for developing code, which you'll explore i
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
 1. Select **Launch Program (AZDS)** as the active debug configuration.
 
-![](media/get-started-node/debug-configuration-nodejs.png)
+![](media/get-started-node/debug-configuration-nodejs2.png)
 
 > [!Note]
 > If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have [installed the VS Code extension for Azure Dev Spaces](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code).
@@ -188,7 +188,7 @@ Let's now write code in `webfrontend` that makes a request to `mywebapi`.
        request({
           uri: 'http://mywebapi',
           headers: {
-             // propagate the dev space routing header
+             /* propagate the dev space routing header */
              'azds-route-as': req.headers['azds-route-as']
           }
        }, function (error, response, body) {

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 #Customer intent: As an IT admin, I want to configure MFA on a per app basis, so that my users have a convenient sign-on experience and our mission critical apps are protected with strong authentication.
@@ -39,8 +39,18 @@ To complete the scenario in this quickstart, you need:
 
 - **Access to an Azure AD Premium edition** - Azure AD conditional access is an Azure AD Premium capability. 
 
-- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](add-users-azure-active-directory.md#add-cloud-based-users).
+- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
 
+
+## Test your sign-in
+
+The goal of this step is to get an impression of the sign-in experience without a conditional access policy.
+
+**To initialize your environment:**
+
+1. Sign in to your Azure portal as Isabella Simonsen.
+
+2. Sign out.
 
 
 ## Create your conditional access policy 
@@ -66,7 +76,7 @@ In your policy, set:
 
 **To configure your conditional access policy:**
 
-1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator.
+1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a conditional access administrator.
 
 2. In the Azure portal, on the left navbar, click **Azure Active Directory**. 
 
@@ -176,7 +186,7 @@ To initialize the what if policy evaluation tool, set:
 
     c. Click **Select**.
 
-    d. On the **Select** page, select Microsoft Azure Management**, and then click **Select**.
+    d. On the **Select** page, select **Microsoft Azure Management**, and then click **Select**.
 
     e. On the cloud apps page, click **Done**.
 
@@ -196,7 +206,7 @@ To test your policy, try to sign-in to your [Azure portal](https://portal.azure.
 
 When no longer needed, delete the test user and the conditional access policy:
 
-- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
 
 - To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
 
@@ -205,5 +215,6 @@ When no longer needed, delete the test user and the conditional access policy:
 
 ## Next steps
 
-If you would like to learn more about conditional access, see [Azure Active Directory conditional access](active-directory-conditional-access-azure-portal.md).
-
+> [!div class="nextstepaction"]
+> [Require terms of use to be accepted](./active-directory-conditional-access-tou.md)
+> [Block access when a session risk is detected](./active-directory-conditional-access-app-sign-in-risk.md)

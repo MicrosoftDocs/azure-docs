@@ -24,14 +24,11 @@ The [Speech SDK](speech-sdk.md) is the simplest way to use speech translation in
 
 5. Start recognition and translation.
 
-### SDK samples
+# SDK samples
 
-You can download code samples demonstrating the use of the SDK for *Speech Translation** using the following links:
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
-- [Download samples for Windows](https://aka.ms/csspeech/winsample)
-- [Download samples for Linux](https://aka.ms/csspeech/linuxsample)
-
-## Next steps
+# Next steps
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 - [Recognize speech in C#](quickstart-csharp-windows.md)

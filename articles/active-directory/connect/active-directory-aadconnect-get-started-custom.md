@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-
 ---
+
 # Custom installation of Azure AD Connect
 Azure AD Connect **Custom settings** is used when you want more options for the installation. It is used if you have multiple forests or if you want to configure optional features not covered in the express installation. It is used in all cases where the [**express installation**](active-directory-aadconnect-get-started-express.md) option does not satisfy your deployment or topology.
 
@@ -211,12 +211,11 @@ On a computer that has the Group Policy management tools.
 1.	Open the Group Policy Management tools
 2.	Edit the Group policy that will be applied to all users. For example, the Default Domain Policy.
 3.	Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** and select **Site to Zone Assignment List** per the image below.
-4.	Enable the policy, and enter the following two items in the dialog box.
+4.	Enable the policy, and enter the following item in the dialog box.
 
 		Value: `https://autologon.microsoftazuread-sso.com`  
 		Data: 1  
-		Value: `https://aadg.windows.net.nsatc.net`  
-		Data: 1
+	
 
 5.	It should look similar to the following:  
 ![Intranet Zones](./media/active-directory-aadconnect-get-started-custom/sitezone.png)

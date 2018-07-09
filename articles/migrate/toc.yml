@@ -14,7 +14,7 @@
     href: concepts-collector.md
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
-  - name: Dependency visualization
+  - name: About dependency visualization
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
@@ -28,6 +28,22 @@
       href: contoso-migration-assessment.md
     - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Managed Instance
       href: contoso-migration-rehost-vm-sql-managed-instance.md
+    - name: 5. Contoso-Rehost an app on Azure VMs
+      href: contoso-migration-rehost-vm.md
+    - name: 6. Contoso-Rehost an app on Azure VMs and Azure SQL AlwaysOn
+      href: contoso-migration-rehost-vm-sql-ag.md
+    - name: 7. Contoso-Rehost a Linux app on Azure VMs
+      href: contoso-migration-rehost-linux-vm.md
+    - name: 8. Contoso-Rehost a Linux app on Azure VMs and Azure MySQL
+      href: contoso-migration-rehost-linux-vm-mysql.md
+    - name: 9. Contoso-Refactor an app on Azure Web Apps and Azure SQL Database
+      href: contoso-migration-refactor-web-app-sql.md
+    - name: 10. Contoso-Refactor a Linux app on Azure Web Apps and Azure MySQL
+      href: contoso-migration-refactor-linux-app-service-mysql.md
+    - name: 11. Contoso-Migrate TFS to VSTS
+      href: contoso-migration-tfs-vsts.md
+    - name: 12. Contoso-Rearchitect an app on Azure Service Fabric and Azure SQL Database
+      href: contoso-migration-rearchitect-container-sql.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
   - name: Group machines

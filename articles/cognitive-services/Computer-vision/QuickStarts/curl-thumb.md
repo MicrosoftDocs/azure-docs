@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: nolachar
 ---
-# Quickstart: Generate a Thumbnail with cURL
+# Quickstart: Generate a thumbnail with cURL
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 
@@ -25,7 +25,7 @@ With the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/
 
 To run the sample, do the following steps:
 
-1. Copy the following code into an editor, such as Notepad.
+1. Copy the following code into an editor.
 1. Replace `<Subscription Key>` with your valid subscription key.
 1. Replace `<File>` with the path and filename to save the thumbnail.
 1. Change the Request URL (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) to use the location where you obtained your subscription keys, if necessary.

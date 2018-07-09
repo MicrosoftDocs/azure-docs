@@ -55,7 +55,7 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
 ## Create a service principal in Azure AD
 
-1. Sign in to the global [Azure portal](http://www.poartal.azure.com).
+1. Sign in to the global [Azure portal](http://portal.azure.com).
 2. Check that you signed in using the Azure AD tenant associated with the Azure Stack instance.
 3. Create an Azure AD application.
 

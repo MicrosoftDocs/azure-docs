@@ -46,7 +46,7 @@ You can verify the current version of Node.js on your development machine using 
 node --version
 ```
 
-Download the sample device simulator Node.js project from https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip and extract the ZIP archive.
+Download the sample device simulator Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
 ## Create an IoT hub
 
@@ -120,6 +120,9 @@ This time you see an authentication error when the application tries to connect:
 If your device uses one of the IoT Hub device SDKs, the SDK library code generates the SAS token used to authenticate with the hub. A SAS token is generated from the name of your hub, the name of your device, and the device key.
 
 In some scenarios, such as in a cloud protocol gateway or as part of a custom authentication scheme, you may need to generate the SAS token yourself. To troubleshoot issues with your SAS generation code, it's useful to be able to generate a known-good SAS token to use during testing.
+
+> [!NOTE]
+> The SimulatedDevice-2.js sample includes examples of generating a SAS token both with and without the SDK.
 
 To generate a known-good SAS token using the CLI, run the following command:
 

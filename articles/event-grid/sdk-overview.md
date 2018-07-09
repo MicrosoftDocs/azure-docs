@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.author: tomfitz
 ---
 
@@ -21,7 +21,7 @@ The management SDKs enable you to create, update, and delete event grid topics a
 
 * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
 * [Go](https://github.com/Azure/azure-sdk-for-go)
-* [Java](https://mvnrepository.com/artifact/com.microsoft.azure.eventgrid-2018-01-01/azure-mgmt-eventgrid)
+* [Java](https://search.maven.org/#search%7Cga%7C1%7Cazure-mgmt-eventgrid)
 * [Node](https://www.npmjs.com/package/azure-arm-eventgrid)
 * [Python](https://pypi.python.org/pypi/azure-mgmt-eventgrid)
 * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid)
@@ -39,6 +39,7 @@ The data plane SDKs enable you to post events to topics by taking care of authen
 
 ## Next steps
 
+* For example applications, see [Event Grid code samples](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
 * For an introduction to Event Grid, see [What is Event Grid?](overview.md)
 * For Event Grid commands in Azure CLI, see [Azure CLI](/cli/azure/eventgrid).
 * For Event Grid commands in PowerShell, see [PowerShell](/powershell/module/azurerm.eventgrid).

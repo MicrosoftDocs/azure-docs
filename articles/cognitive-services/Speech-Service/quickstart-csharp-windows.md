@@ -28,7 +28,7 @@ In this article, you learn how to create a C# console application in Windows usi
 
     ![Create Visual C# Console App (.NET Framework)](media/sdk/speechsdk-05-vs-cs-new-console-app.png "Create Visual C# Console App")
 
-2. Install and reference the Speech SDK NuGet package. In the Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
+2. Install and reference the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget). In the Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
 
     ![Right-click Manage NuGet Packages for Solution](media/sdk/speechsdk-06-vs-cs-manage-nuget-packages.png "Manage NuGet Packages for Solution")
 
@@ -58,7 +58,7 @@ In this section, you add a new platform to the configuration that matches your p
 
 ## Add the sample code
 
-1. In the `Program.cs` for your Visual Studio project, replace the body of the `Program` class with the following. Make sure you replace the subscription key and region with one that you obtained for the service.
+1. In the `Program.cs` file in your Visual Studio project, replace the body of the `Program` class with the following. Make sure you replace the subscription key with your own, and change the [region](regions.md) to the one that's associated with the subscription (for example, `westus` for the free trial subscription).
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-csharp/Program.cs#code)]
 
@@ -91,9 +91,10 @@ The result of the recognition is displayed on screen.
 
 ## Download code
 
-The code from this article can be downloaded [here](https://aka.ms/csspeech/winsample).
+For the latest set of samples, see the [Cognitive Services Speech SDK Sample GitHub repository](https://aka.ms/csspeech/samples).
 
 ## Next steps
 
 - [Translate speech](how-to-translate-speech.md)
-- [Customize speech models](how-to-customize-speech-models.md)
+- [Customize acoustic models](how-to-customize-acoustic-models.md)
+- [Customize language models](how-to-customize-language-model.md)
