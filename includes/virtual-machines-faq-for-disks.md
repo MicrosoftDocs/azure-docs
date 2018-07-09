@@ -121,6 +121,10 @@ No. You can't update the computer name property. The new VM inherits it from the
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+**Can I co-locate unmanaged and managed disks on the same VM?**
+
+No.
+
 ## Standard SSD disks (Preview)
 
 **What are Azure Standard SSD disks?**
