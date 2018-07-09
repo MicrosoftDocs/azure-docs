@@ -40,7 +40,7 @@ If your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you
 error: unable to forward port because pod is not running. Current status=Pending
 ```
 
-To create a binding, create a file named *dashboard-admin.yaml* and paste the following sample. This sample binding does not apply any additional authentication components. For more information on authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
+To create a binding, create a file named *dashboard-admin.yaml* and paste the following sample. This sample binding does not apply any additional authentication components. You can use mechanisms such as bearer tokens or a username/password to control who can access the dashboard and what permissions they have. For more information on authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -59,10 +59,10 @@ subjects:
   namespace: kube-system
 ```
 
-Apply the binding with [kubectl apply][] and specify your *dashboard-admin.yaml*, as shown in the following example:
+Apply the binding with [kubectl apply][kubectl-apply] and specify your *dashboard-admin.yaml*, as shown in the following example:
 
 ```
-$ kubectl apply -f rbac-dashboard.yaml
+$ kubectl apply -f dashboard-admin.yaml
 
 clusterrolebinding.rbac.authorization.k8s.io/kubernetes-dashboard created
 ```
@@ -116,6 +116,7 @@ For more information about the Kubernetes dashboard, see the Kubernetes document
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
