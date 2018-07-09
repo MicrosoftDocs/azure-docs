@@ -35,7 +35,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Adobe Creative Cloud, you need the following items:
 
 - An Azure AD subscription
-- An Adobe Creative Cloud single sign-on enabled subscription
+- An Adobe Creative Cloud for Enterprise subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -110,7 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Adobe Creative Cloud Client support team](https://helpx.adobe.com/in/contact/support.html) to get these values.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Adobe Creative Cloud Client support](https://helpx.adobe.com/in/contact/support.html) to get these values.
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
