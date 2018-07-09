@@ -142,7 +142,7 @@
   - name: Plan your app
     href: luis-how-plan-your-app.md
   - name: Start a new app
-    href: Create-new-app.md
+    href: luis-how-to-start-new-app.md
   - name: Build Model
     items: 
     - name: Add intents
