@@ -34,35 +34,50 @@ sections:
     columns: 3
     items:
       - href: /azure/sql-database/sql-database-technical-overview
-        html: <p><a href="/azure/sql-database/sql-database-high-availability">Highly-available</a> PaaS database that is always running on the latest stable version of SQL Server Database Engine and patched OS with <a href="/azure/sql-database/sql-database-automated-backups">automatic database backups</a>.</p>
+        html: <p>PaaS database that is always running on the latest stable version of SQL Server Database Engine and patched OS with minimal downtime and 99.99% SLA.</p>
         image:
           src: media/index/i_managed.svg
         title: Fully managed
       - href: /azure/sql-database/sql-database-service-tiers
-        html: <p>Tailor price/performance ratio to your needs with <a href="/azure/sql-database/sql-database-service-tiers">flexible performance tiers</a> that span from affordable 5$/month to powerfull 80 core databases.</p>
+        html: <p>Tailor price/performance ratio to your needs with flexible performance tiers that span from affordable 5$/month to powerfull 80 core databases.</p>
         image:
           src: media/index/i_perftier.svg
         title: Price/performance tiers
       - href: /azure/sql-database/sql-database-scale-resources
-        html: <p>Easily <a href="/azure/sql-database/sql-database-single-database-scale">scale up</a>, <a href="/azure/sql-database/sql-database-read-scale-out">scale out</a>, or shard your databases depending on your needs to improve performance of your application.</p>
+        html: <p>Easily scale up, scale out, or shard your databases depending on your needs to improve performance of your application.</p>
         image:
           src: media/index/i_scale.svg
         title: Scalability and elasticity
-      - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
-        html: <p>Let intelligence built-in into the service to <a href="/azure/sql-database/sql-database-automatic-tuning">automatically tune your database performance</a>, <a href="/azure/sql-database/sql-advanced-threat-protection">identify threats</a> and <a href="/azure/sql-database/sql-vulnerability-assessment">vulnerabilities</a> in your databases.</p>
-        image:
-          src: media/index/i_intelligence.svg
-        title: Built-in intelligence
       - href: /azure/sql-database/sql-database-servers-databases
-        html: <p>Use the <a href="/azure/sql-database/sql-database-managed-instance">Single database hosted in logical servers</a> for your <a href="/azure/sql-database/saas-tenancy-app-design-patterns">SaaS aplications</a> and microservices that need a single database with the predictable performances.</p>
+        html: <p>Use the Single database hosted in logical servers for your SaaS aplications and microservices that need a single database with the predictable performances.</p>
         image:
           src: media/index/i_db.svg
         title: Single Database
+      - href: /azure/sql-database/sql-database-elastic-pool
+        html: <p>Put databases into Elastic pools where they can share resources to mitigate performance impacts.</p>
+        image:
+          src: media/index/i_elasticpools.svg
+        title: Elastic pools
       - href: /azure/sql-database/sql-database-managed-instance
-        html: <p>Use the <a href="/azure/sql-database/sql-database-managed-instance">Managed Instance</a> to easily <a href="azure/sql-database/sql-database-managed-instance-migrate">migrate your on-premises databases</a> to Azure PaaS with minimal or no database code changes.</p>
+        html: <p>Use the Managed Instance to easily migrate your on-premises databases to Azure PaaS with minimal or no database code changes.</p>
         image:
           src: media/index/i_mi.svg
         title: Managed Instance
+      - href: /azure/sql-database/sql-database-business-continuity
+        html: <p>Built-in High-availability, automated backups, and geo-replication will not allow infrastructure or harware failures, maintenance actons to stop your business.</p>
+        image:
+          src: media/index/gear.svg
+        title: Business continuity
+      - href: /azure/sql-database/sql-database-security-overview
+        html: <p>Secure your database with Virtual Networks and Firewalls, and let built-in security you to identify threats and vulnerabilities.</p>
+        image:
+          src: media/index/i_security.svg
+        title: Advanced security
+      - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
+        html: <p>Let intelligence built-in into the service to automatically tune the performance of your databases.</p>
+        image:
+          src: media/index/i_intelligence.svg
+        title: Built-in intelligence
 
 - title: 5-Minute Quickstarts
   items:

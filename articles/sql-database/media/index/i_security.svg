@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>.cls-1{fill:#e4eaed;}.cls-2{fill:#3999c6;}.cls-3{fill:#5ab4d9;}.cls-17,.cls-4{fill:#fff;}.cls-5{fill:#7fbb42;}.cls-6{fill:#b8d433;}.cls-7{fill:#bfdaec;}.cls-8{fill:none;stroke:#00abec;stroke-miterlimit:10;stroke-width:2px;}.cls-9{fill:#00abec;}.cls-10{fill:#9c9c9c;}.cls-11{fill:#333;}.cls-12{fill:#55cbfa;}.cls-13{fill:#6e6e6e;}.cls-14{fill:#8c8c8c;}.cls-15{fill:#fcd116;}.cls-16{fill:#f9c319;}.cls-17{opacity:0.33;}.cls-18{fill:#f8d417;}.cls-19{fill:#f8f8f8;opacity:0.4;isolation:isolate;}.cls-20{fill:#c97916;}</style>
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <polygon class="cls-10" points="152.92 44.32 87.89 44.32 87.89 0 152.92 0 152.92 44.32 152.92 44.32"/>
+      <path class="cls-11" d="M121.13,1.93a1.68,1.68,0,0,0-.48-1,1,1,0,0,0-1,1,1.68,1.68,0,0,0,1,.48l.48-.48Z"/>
+      <polygon class="cls-12" points="151 42.39 90.3 42.39 90.3 3.37 151 3.37 151 42.39 151 42.39"/>
+      <path class="cls-13" d="M77.77,44.8v.48a3.22,3.22,0,0,0,3.37,2.89h77.56a3.22,3.22,0,0,0,3.37-2.89V44.8Z"/>
+      <path class="cls-14" d="M128.48,17.05a8.43,8.43,0,0,0-2.1-5.6h0l-.14-.17a7.54,7.54,0,0,0-11.13,0A8.43,8.43,0,0,0,112.86,17v4.47h-1.34a1,1,0,0,0-1,1v9.08h0v2.74a1,1,0,0,0,1,1h18.3a1,1,0,0,0,1-1V22.53a1,1,0,0,0-1-1H116.57V17.05a4.72,4.72,0,0,1,1.24-3.23,3.84,3.84,0,0,1,5.71,0,4.62,4.62,0,0,1,.49.63h0a4.79,4.79,0,0,1,.76,2.6v5h3.71Z"/>
+      <path class="cls-15" d="M111.65,21.49c-.56,0-1.27.49-1.27,1v9.08h0v2.74a1.39,1.39,0,0,0,1.27,1.15h5.5l4.38-14Z"/>
+      <path class="cls-16" d="M131,34.35V22.53a1.07,1.07,0,0,0-1-1h-8.42l-4.38,14H130A1.18,1.18,0,0,0,131,34.35Z"/>
+      <polygon class="cls-17" points="90.3 42.39 90.3 3.37 151 3.37 90.3 42.39"/>
+    </g>
+  </g>
+</svg>
