@@ -215,6 +215,10 @@ When you no longer need these resources, you can use [Remove-AzureRmResourceGrou
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
+## <a name="feedback"></a>Preview feedback
+
+We would appreciate your feedback. Please send an email to <azurevirtualwan@microsoft.com> to report any issues, or to provide feedback (positive or negative) for Virtual WAN. Include your company name in “[ ]” in the subject line. Also include your subscription ID if you are reporting an issue.
+
 ## Next steps
 
 In this tutorial, you learned how to:
@@ -229,7 +233,5 @@ In this tutorial, you learned how to:
 > * View your virtual WAN
 > * View resource health
 > * Monitor a connection
-
-We would appreciate your feedback. Please send an email to **azurevirtualwan@microsoft.com** to report any issues, or to provide feedback (positive or negative) for Virtual WAN. Include your company name in “[ ]” in the subject line. Also include your subscription ID if you are reporting an issue.
 
 To learn more about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md) page.

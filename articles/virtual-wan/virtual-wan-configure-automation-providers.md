@@ -18,19 +18,19 @@ This article helps you understand how to set up the automation envorionment to c
 
 Software-defined connectivity solutions typically use a controller or a device provisioning center to manage their branch devices. The controller can use Azure APIs to automate connectivity to Azure Virtual WAN. This type of connection requires a VPN device located on-premises that has an externally-facing public IP address assigned to it.
 
-## Access control
+##  <a name="access"></a>Access control
 
 Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access provides the device controller appropriate authentication to upload branch information.
 
-## Branch information website
+##  <a name="site"></a>Branch information website
 
 Design the user-experience to upload branch (on-premises site) information to Azure. REST APIs for **VPNSite** can be used to create the site information in Virtual WAN. You can provide all branch/VPN devices, or select device customizations as appropriate.
 
-## Hub and services
+##  <a name="hub"></a>Hub and services
 
 Once the branch device is uploaded to Azure, customer will typically make selections of hub region and/or services in the Azure portal, which invokes a set of operations to create the hub virtual network and the VPN end point inside the hub. The VPN gateway is a scalable gateway which sizes appropriately based on bandwidth and connection needs.
 
-## Device configuration
+## <a name="device"></a>Device configuration
 
 In this step, a customer that is not using a provider would manually download the Azure configuration and apply it to their on-premises VPN device. As a provider, you should automate this step. The controller can call **GetVpnConfiguration** REST API to download the Azure configuration, which will typically look similar to the following file.
 
@@ -151,7 +151,7 @@ When you view this file, notice the following information:
    }
   ```
 
-## Working with Custom Policy
+## <a name="custom"></a Working with Custom Policy
 
 The following table lists the supported cryptographic algorithms and key strengths that are configurable by the customers. You must select one option for every field.
 
@@ -184,7 +184,7 @@ Your on-premises VPN device configuration must match or contain the following al
 
 ### Which Diffie-Hellman Groups are supported?
 
-The table below lists the supported Diffie-Hellman Groups for IKE (DHGroup) and IPsec (PFSGroup):
+The following table lists the supported Diffie-Hellman Groups for IKE (DHGroup) and IPsec (PFSGroup):
 
 | Diffie-Hellman Group | DHGroup | PFSGroup |
 |---|---|---|
@@ -194,6 +194,10 @@ The table below lists the supported Diffie-Hellman Groups for IKE (DHGroup) and 
 | 19 |	ECP256 |	ECP256 |
 | 20| ECP384 |	ECP284|
 | 24 |	DHGroup24 |	PFS24 |
+
+## <a name="feedback"></a>Preview feedback
+
+We would appreciate your feedback. Please send an email to <azurevirtualwan@microsoft.com> to report any issues, or to provide feedback (positive or negative) for Virtual WAN. Include your company name in “[ ]” in the subject line. Also include your subscription ID if you are reporting an issue.
 
 ## Next steps
 

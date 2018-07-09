@@ -65,6 +65,10 @@ Before you can configure Virtual WAN, you must first enroll your subscription in
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
+## <a name="feedback"></a>Preview feedback
+
+We would appreciate your feedback. Please send an email to <azurevirtualwan@microsoft.com> to report any issues, or to provide feedback (positive or negative) for Virtual WAN. Include your company name in “[ ]” in the subject line. Also include your subscription ID if you are reporting an issue.
+
 ## Next steps
 
 To create a Site-to-Site connection using Virtual WAN, you can either go through a Microsoft preferred provider, or create the connection manually. To create the connection manually, see [Create a Site-to-Site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
