@@ -233,9 +233,12 @@ You have to make and propagate all schema changes manually.
 **Changing the data type of a column**. When you change the data type of an existing column, Data Sync continues to work as long as the new values fit the original data type defined in the sync schema. For example, if you change the type in the source database from **int** to **bigint**, Data Sync continues to work until you insert a value that's too large for the **int** data type. To complete the change, replicate the schema change manually to the hub and to all sync members, and then update the sync schema.
 
 ### How can I export and import a database with Data Sync?
-After you export a database as a `.bacpac` file and import the file to create a new database, you have to do the following two things to use Data Sync in the new database:
-1.  Clean up the Data Sync objects and side tables on the **new database** by using [this script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). This script deletes all of the required Data Sync objects from the database.
-2.  Recreate the sync group with the new database. If you no longer need the old sync group, delete it.
+In order to export a database used in Data Sync as a `.bacpac` file you have to:
+1.  Create a [transactionally consistent copy](sql-database-copy.md) of your Azure SQL database.
+2.  Clean up all the Data Sync objects on the **database copy** using [this script](https://github.com/vitomaz-msft/DataSyncMetadataCleanup/blob/master/Data%20Sync%20complete%20cleanup.sql). Make sure you are connected to the copy when running the cleanup script.
+3.  Export the .bacpac file from the copy.
+
+You can import the exported .bacpac into a new database and recreate the sync group with the new database if needed.
 
 ## FAQ about the client agent
 
