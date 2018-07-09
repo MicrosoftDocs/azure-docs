@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Create Batch AI cluster - Azure CLI | Microsoft Docs
-description: Quickly create a cluster for Batch AI training jobs using the Azure CLI
+title: Azure Quickstart - Create Batch AI cluster - Portal | Microsoft Docs
+description: Quickly create a cluster for Batch AI training jobs using the Azure portal
 services: batch-ai
 documentationcenter: na
 author: dlepow
@@ -14,45 +14,58 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: quickstart
-ms.date: 06/28/2018
+ms.date: 07/09/2018
 ms.author: danlep
 ---
 
-# Quickstart: Create a cluster for Batch AI training jobs
+# Quickstart: Create a cluster for Batch AI training jobs using the Azure portal
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to create a cluster you can use for Batch AI training jobs. The cluster initially has a single GPU node.
+This quickstart shows how to use the Azure portal to create a cluster you can use for Batch AI training jobs. The cluster initially has a single GPU node.
 
 After completing this quickstart, you'll have a cluster you can scale up and use to train deep learning models. Submit training jobs to the cluster using Batch AI, [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) tools, or the [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai).
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## Create SSH key pair
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
+You need an SSH key pair to complete this quickstart. If you have an existing SSH key pair, this step can be skipped.
 
-## Create a resource group
+To create an SSH key pair and log into Linux VMs, run the following command from a Bash shell and follow the on-screen directions. For example, you can use the [Azure Cloud Shell](../../cloud-shell/overview.md) or, on Windows, the [Windows Subsystem for Linux](/windows/wsl/install-win10). The command output includes the file name of the public key file. Copy the contents of the public key file (`cat ~/.ssh/id_rsa.pub`) to the clipboard:
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
-
-The following example creates a resource group named *myResourceGroup* in the *eastus2* location. Be sure to choose a location such as East US 2 in which the Batch AI service is available.
-
-```azurecli-interactive 
-az group create \
-    --name myResourceGroup \
-    --location eastus2
+```bash
+ssh-keygen -t rsa -b 2048
 ```
 
-## Create a Batch AI cluster
+For more detailed information on how to create SSH key pairs, see [Create and use an SSH public-private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-First, use the [az batchai workspace create](/cli/azure/batchai/workspace#az-batchai-workspace-create) command to create a Batch AI *workspace*. You need a workspace to organize your Batch AI clusters and other resources.
+## Sign in to Azure
 
-```azurecli-interactive
-az batchai workspace create \
-    --workspace myworkspace \
-    --resource-group myResourceGroup 
-```
+Sign in to the Azure portal at https://portal.azure.com.
 
-To create a Batch AI cluster, use the [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) command. The following example creates a cluster with the following properties:
+## Create a Batch AI workspace
+
+First, create a Batch AI workspace to organize your Batch AI clusters and other resources. A workspace can contain one or more clusters.
+
+
+1. Select **All services** and filter for **Batch AI**.
+
+2. Select **Add Workspace**.
+
+3. Enter values for **Workspace name** and **Resource group**. If you want to, select different options for the **Subscription** and **Location** for the workspace. Select **Create Workspace**.
+
+  ![Create Batch AI workspace](./media/quickstart-create-cluster-portal/create-workspace.png)
+
+When the **Deployment succeeded** message appears, go the resource you created and select the workspace. 
+
+## Create a file server
+
+1. In the workspace, select **File server** > **Add**.
+
+## Create a cluster
+
+Now that you have a workspace, create a small cluster. Although this c. The pool for this quick example consists of 2 nodes running a Windows Server 2012 R2 image from the Azure Marketplace.
+
+The following example creates a cluster with the following properties:
 
 * Contains a single node in the NC6 VM size, which has one NVIDIA Tesla K80 GPU. 
 * Runs a default Ubuntu Server image designed to host container-based applications, which you can use for most training workloads. 
