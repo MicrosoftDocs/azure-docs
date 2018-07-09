@@ -84,7 +84,7 @@ To load balance the management activities around your Identity Protection implem
 
 
 
-For more details, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
+For more details, see [Assigning administrator roles in Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md)
 
 
 

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/02/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 
@@ -20,6 +20,8 @@ ms.reviewer: jeffgo
 # Add hosting servers for the MySQL resource provider
 
 You can host a MySQL instance on a virtual machine (VM) in [Azure Stack](azure-stack-poc.md), or on a VM outside your Azure Stack environment, as long as the MySQL resource provider can connect to the instance.
+
+MySQL versions 5.6, 5.7 and 8.0 may be used for your hosting servers. The MySQL RP does not support caching_sha2_password authentication; that will be added in the next release. MySQL 8.0 servers must be configured to use mysql_native_password. MariaDB is also supported.
 
 ## Connect to a MySQL hosting server
 
@@ -51,9 +53,20 @@ Make sure you have the credentials for an account with system admin privileges. 
    >Special characters, including spaces and periods, aren't supported in **Name** or **Tier** when you create a SKU for the MySQL resource provider.
 
 6. Select **OK** to create the SKU.
+> [!NOTE]
+> SKUs can take up to an hour to be visible in the portal. You can't create a database until the SKU is deployed and running.
+
 7. Under **Add a MySQL Hosting Server**, select **Create**.
 
 As you add servers, assign them to a new or existing SKU to differentiate service offerings. For example, you can have a MySQL enterprise instance that provides increased database and automatic backups. You can reserve this high-performance server for different departments in your organization.
+
+## Security considerations for MySQL
+
+The following information applies to the RP and MySQL hosting servers:
+
+* Ensure that all hosting servers are configured for communication using TLS 1.2. See [Configuring MySQL to Use Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
+* Employ [Transparent Data Encryption](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html).
+* The MySQL RP does not support caching_sha2_password authentication.
 
 ## Increase backend database capacity
 
@@ -61,9 +74,7 @@ You can increase backend database capacity by deploying more MySQL servers in th
 
 ## Make MySQL database servers available to your users
 
-Create plans and offers to make MySQL database servers available to users. Add the Microsoft.MySqlAdapter service to the plan, and then add the default Quota, or create a new Quota.
-
-![Create plans and offers for databases](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
+Create plans and offers to make MySQL database servers available to users. Add the Microsoft.MySqlAdapter service to the plan and create a new quota. MySQL does not allow limiting the size of databases.
 
 ## Next steps
 
