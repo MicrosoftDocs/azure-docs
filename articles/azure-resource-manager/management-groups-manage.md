@@ -157,12 +157,11 @@ To see what permissions you have, select the management group and then select **
 
 1. Log into the [Azure portal](https://portal.azure.com)
 2. Select **All services** > **Management groups**
-1. 3. Select the management group you're planning to be the parent.
-1. At the top of the page, select **Add subscription**.
-1. Select the subscription in the list with the correct ID.
-
+3. Select the management group you're planning to be the parent.
+4. At the top of the page, select **Add subscription**.
+5. Select the subscription in the list with the correct ID.
     ![Children](media/management-groups/add_context_sub.png)
-7. Select "Save"
+6. Select "Save"
 
 **Remove a subscription from a management group**
 
@@ -220,7 +219,7 @@ When you move a parent management group, all the child resources that include ma
 5. At the top of the page, select **Add management group**.
 6. In the menu that opens, select if you want a new or use an existing management group.
     - Selecting new will create a new management group.
-    - Selecting an existing will present you with a drop down of all the management groups you can move to this management group.  
+    - Selecting an existing will present you with a drop-down of all the management groups you can move to this management group.  
 
     ![move](media/management-groups/add_context_MG.png)
 7. Select **Save**
