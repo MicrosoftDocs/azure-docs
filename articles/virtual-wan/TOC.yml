@@ -14,10 +14,8 @@
     href: virtual-wan-configure-automation-providers.md
 - name: Reference
   items:
-  - name: Azure PowerShell
-    href: href: https://go.microsoft.com/fwlink/?LinkId=200528
   - name: REST
-    href: https://go.microsoft.com/fwlink/?LinkId=2005000
+    href: /rest/api/azure
 - name: Resources
   items:
   - name: FAQ
