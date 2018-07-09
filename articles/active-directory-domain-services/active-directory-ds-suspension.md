@@ -46,7 +46,7 @@ When a domain is suspended, Azure AD Domain Services stops the virtual machines 
 The domain will only stay in a suspension state for a maximum of 15 days. In order to ensure a timely recovery, it is recommended you address the suspension as soon as possible.
 
 ## How do I know if my domain is suspended?
-The managed domain will receive an [alert]((active-directory-ds-troubleshoot-alerts) on the Azure AD Domain Services Health page in the Azure portal that declares the domain suspended. In addition, the state of the domain will be labelled "Suspended".
+The managed domain will receive an [alert](active-directory-ds-troubleshoot-alerts) on the Azure AD Domain Services Health page in the Azure portal that declares the domain suspended. In addition, the state of the domain will be labelled "Suspended".
 
 
 ## Unsuspending and restoring domains
