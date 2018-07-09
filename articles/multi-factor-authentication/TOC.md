@@ -95,6 +95,13 @@
 ### [MFA Reports](../active-directory/authentication/howto-mfa-reporting.md)
 ### [Data collection](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
 
+## Troubleshoot
+### [FAQ](../active-directory/authentication/multi-factor-authentication-faq.md)
+### [NPS extension errors](../active-directory/authentication/howto-mfa-nps-extension-errors.md)
+### [Ask a question](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
+
+## [MFA user guide](../active-directory/authentication/end-user/current/multi-factor-authentication-end-user.md)
+
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlets](/powershell/azure/overview)

@@ -10,7 +10,7 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: search
-ms.date: 05/17/2018
+ms.date: 06/28/2018
 ms.author: HeidiSteen
 
 ---

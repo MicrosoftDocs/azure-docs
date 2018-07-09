@@ -17,12 +17,12 @@ ms.author: seguler
 ---
 # Use Distcp to copy data between Azure Storage Blobs and Data Lake Storage Gen2 Preview
 
-If you have an HDInsight cluster with access to Azure Data Lake Storage Gen2 Preview, you can use Hadoop ecosystem tools like Distcp to copy data **to and from** an HDInsight cluster storage (WASB) into a Data Lake Storage Gen2 capable account. This article provides instructions on how use the Distcp tool.
+If you have an HDInsight cluster with access to Azure Data Lake Storage Gen2 Preview, you can use Hadoop ecosystem tools like [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) to copy data **to and from** an HDInsight cluster storage (WASB) into a Data Lake Storage Gen2 capable account. This article provides instructions on how use the Distcp tool.
 
 ## Prerequisites
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **An Azure Storage account with Azure Data Lake Storage (Preview) feature enabled**. For instructions on how to create one, see [TODO](quickstart-create-account.md)
+* **An Azure Storage account with Azure Data Lake Storage (Preview) feature enabled**. For instructions on how to create one, see [Create an Azure Data Lake Storage Gen2 Preview storage account](quickstart-create-account.md)
 * **Azure HDInsight cluster** with access to a Data Lake Storage account. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](use-hdi-cluster.md). Make sure you enable Remote Desktop for the cluster.
 
 ## Use Distcp from an HDInsight Linux cluster
@@ -33,35 +33,35 @@ An HDInsight cluster comes with the Distcp utility, which can be used to copy da
 
 2. Verify whether you can access the Azure Storage Blobs (WASB). Run the following command:
 
-        hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
+        hdfs dfs –ls wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/
 
     The output should provide a list of contents in the storage blob.
 
 3. Similarly, verify whether you can access the Data Lake Storage account from the cluster. Run the following command:
 
-        hdfs dfs -ls abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/
+        hdfs dfs -ls abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
 
     The output should provide a list of files/folders in the Data Lake Storage account.
 
 4. Use Distcp to copy data from WASB to a Data Lake Storage account.
 
-        hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/myfolder
+        hadoop distcp wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
 
     The command copies the contents of the **/example/data/gutenberg/** folder in Blob storage to **/myfolder** in the Data Lake Storage account.
 
 5. Similarly, use Distcp to copy data from Data Lake Storage account to Blob Storage (WASB).
 
-        hadoop distcp abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
+        hadoop distcp abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg
 
     THe command copies the contents of **/myfolder** in the Data Lake Store account to **/example/data/gutenberg/** folder in WASB.
 
 ## Performance considerations while using DistCp
 
-Because DistCp’s lowest granularity is a single file, setting the maximum number of simultaneous copies is the most important parameter to optimize it against Data Lake Storage. Number of simultaneous copies is controlled by setting the number of mappers (‘m’) parameter on the command line. This parameter specifies the maximum number of mappers that are used to copy data. Default value is 20.
+Because DistCp’s lowest granularity is a single file, setting the maximum number of simultaneous copies is the most important parameter to optimize it against Data Lake Storage. Number of simultaneous copies is controlled by setting the number of mappers (**m**) parameter on the command line. This parameter specifies the maximum number of mappers that are used to copy data. Default value is 20.
 
 **Example**
 
-	hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg abfs://<filesystem_name>@<storage_account_name>.dfs.core.windows.net/myfolder -m 100
+	hadoop distcp wasb://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfs://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder -m 100
 
 ### How do I determine the number of mappers to use?
 
@@ -77,11 +77,11 @@ Here's some guidance that you can use.
 
 Let’s assume that you have a 4 D14v2s nodes in the cluster and you are trying to transfer 10 TB of data from 10 different folders. Each of the folders contains varying amounts of data and the file sizes within each folder are different.
 
-* Total YARN memory - From the Ambari portal you determine that the YARN memory is 96 GB for a D14 node. So, total YARN memory for four node cluster is: 
+* **Total YARN memory**: From the Ambari portal you determine that the YARN memory is 96 GB for a D14 node. So, total YARN memory for four node cluster is: 
 
 		YARN memory = 4 * 96GB = 384GB
 
-* Number of mappers - From the Ambari portal you determine that the YARN container size is 3072 for a D14 cluster node. So, number of mappers is:
+* **Number of mappers**: From the Ambari portal you determine that the YARN container size is 3072 for a D14 cluster node. So, number of mappers is:
 
 		m = (4 nodes * 96GB) / 3072MB = 128 mappers
 

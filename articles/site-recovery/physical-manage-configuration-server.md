@@ -5,7 +5,7 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 07/06/2018
 ms.author: anoopkv
 ---
 
@@ -93,7 +93,7 @@ Run the installation file as follows:
 
 ### Sample usage
   ```
-  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
   UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
   ```
