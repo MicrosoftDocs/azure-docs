@@ -39,7 +39,7 @@ StorageSyncAgent.msi /l*v AFSInstaller.log
 Review installer.log to determine the cause of the installation failure. 
 
 <a id="agent-installation-on-DC"></a>**Agent installation fails on Active Directory Domain Controller** 
-If you try and install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008R2 or below OS version, you may hit the issue where the sync agent will fail to install.
+If you try to install the sync agent on an Active Directory domain controller where the PDC role owner is on a Windows Server 2008R2 or below OS version, you may hit the issue where the sync agent will fail to install.
 
 To resolve, transfer the PDC role to another domain controller running Windows Server 2012R2 or more recent, then install sync.
 
@@ -137,7 +137,7 @@ Within each sync group, you can drill down into its individual server endpoints 
 ![A screenshot of the Azure portal](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
 # [Server](#tab/server)
-Go to the server's telemetry logs, which can be found in the Event Viewer at `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Event 9102 corresponds to a completed sync session; for the latest status of sync, look for the most recent event with ID 9102. SyncDirection tells you if it this session was an upload or download. If the HResult is 0, then the sync session was successful. A non-zero HResult means that there was an error during sync; see below for a list of common errors. If the PerItemErrorCount is greater than 0, this means that some files or folders did not sync properly. Note that it is possible to have an HResult of 0 but a PerItemErrorCount that is greater than 0.
+Go to the server's telemetry logs, which can be found in the Event Viewer at `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Event 9102 corresponds to a completed sync session; for the latest status of sync, look for the most recent event with ID 9102. SyncDirection tells you if it this session was an upload or download. If the HResult is 0, then the sync session was successful. A non-zero HResult means that there was an error during sync; see below for a list of common errors. If the PerItemErrorCount is greater than 0, this means that some files or folders did not sync properly. It is possible to have an HResult of 0 but a PerItemErrorCount that is greater than 0.
 
 Below is an example of a successful upload. For the sake of brevity, only some of the values contained in each 9102 event are listed below. 
 
@@ -213,7 +213,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 **ItemResults log - per-item sync errors**  
 | HRESULT | HRESULT (decimal) | Error string | Issue | Remediation |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | The file has produced persistent errors during sync and so will only be attempted to sync once per day. The underlying error can be found in an earlier event log. | In agents R2 (2.0) and above, the original error rather than this one is surfaced. You should upgrade to the latest agent to see the underlying error, or look at earlier event logs to find the cause of the original error. |
+| 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | The file has produced persistent errors during sync and so will only be attempted to sync once per day. The underlying error can be found in an earlier event log. | In agents R2 (2.0) and above, the original error rather than this one is surfaced. Upgrade to the latest agent to see the underlying error, or look at earlier event logs to find the cause of the original error. |
 | 0x7b | 123 | ERROR_INVALID_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Azure Files naming guidelines](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) and the list of unsupported characters below. |
 | 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Azure Files naming guidelines](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) and the list of unsupported characters below. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | A file has changed, but the change has not yet been detected by sync. Sync will recover after this change is detected. | No action required. |
@@ -245,7 +245,7 @@ The table below contains all of the unicode characters Azure File Sync does not 
 | **Error string** | ERROR_CANCELLED |
 | **Remediation required** | No |
 
-Sync sessions may fail for various reasons including the server being restarted or updated, VSS snapshots, etc. Although this error looks like it requires follow up, it is safe to ignore this error unless it persists over a period of several hours.
+Sync sessions may fail for various reasons including the server being restarted or updated, VSS snapshots, etc. Although this error looks like it requires follow-up, it is safe to ignore this error unless it persists over a period of several hours.
 
 <a id="-2147012889"></a>**A connection with the service could not be established.**    
 | | |
@@ -275,7 +275,7 @@ No action is required; the server will try again. If this error persists for lon
 | **Error string** | ECS_E_CANNOT_ACCESS_EXTERNAL_STORAGE_ACCOUNT |
 | **Remediation required** | Yes |
 
-This error occurs because the Azure File Sync agent cannot access the Azure file share. This can occur because the Azure file share or the storage account hosting it no longer exists. You can troubleshoot this error by working through the following steps:
+This error occurs because the Azure File Sync agent cannot access the Azure file share, which may be because the Azure file share or the storage account hosting it no longer exists. You can troubleshoot this error by working through the following steps:
 
 1. [Verify the storage account exists.](#troubleshoot-storage-account)
 2. [Check to make sure the storage account does not contain any network rules.](#troubleshoot-network-rules)
@@ -315,12 +315,12 @@ This error occurs when there is a problem with the internal database used by Azu
 | **Error string** | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED |
 | **Remediation required** | Yes |
 
-This error occurs when the Azure file share storage limit has been reached, which can happen if a quota is applied for an Azure file share or if the usage exceeds the limits for an Azure file share. See the [current limits for an Azure file share](storage-files-scale-targets.md) for additional information.
+This error occurs when the Azure file share storage limit has been reached, which can happen if a quota is applied for an Azure file share or if the usage exceeds the limits for an Azure file share. For more information, see the [current limits for an Azure file share](storage-files-scale-targets.md).
 
 1. Navigate to the sync group within the Storage Sync Service.
 2. Select the cloud endpoint within the sync group.
 3. Note the Azure file share name in the opened pane.
-4. Select the linked storage account. If this link fails, the referenced storage account has bene removed.
+4. Select the linked storage account. If this link fails, the referenced storage account has been removed.
     ![A screenshot showing the cloud endpoint detail pane with a link to the storage account.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 5. Select **Files** to view the list of file shares.
 6. Click the three dots at the end of the row for the Azure file share referenced by the cloud endpoint.
@@ -392,7 +392,7 @@ If this error persists for longer than a few hours, create a support request and
 | **Error string** | CERT_E_UNTRUSTEDROOT |
 | **Remediation required** | Yes |
 
-This can happen if your organization is using an SSL terminating proxy or if a malicious entity is intercepting the traffice between your server and the Azure File Sync service. If you are certain that this is expected (because your organization is using an SSL terminating proxy), you skip certificate verification with a registry override.
+This error can happen if your organization is using an SSL terminating proxy or if a malicious entity is intercepting the traffic between your server and the Azure File Sync service. If you are certain that this is expected (because your organization is using an SSL terminating proxy), you skip certificate verification with a registry override.
 
 1. Create the SkipVerifyingPinnedRootCertificate registry value.
     ```PowerShell
@@ -457,7 +457,7 @@ This error occurs because there are changes on the Azure file share directly and
 > [!NOTE]
 > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
     
-We currently do not support resource move to another subscription or, moving to a different Azure AD tenant. If the subscription moves to a different tenant, the Azure file share becomes inaccessible to our service based on the change in ownership. If the tenant is changed, you will need to delete the server endpoints and the cloud endpoint (see Sync Group Management section for instructions how to clean the Azure file share to be re-used) and recreate the sync group.
+Azure File Sync currently does not support resource move to another subscription or, moving to a different Azure AD tenant. If the subscription moves to a different tenant, the Azure file share becomes inaccessible to our service based on the change in ownership. If the tenant is changed, you will need to delete the server endpoints and the cloud endpoint (see Sync Group Management section for instructions how to clean the Azure file share to be reused) and recreate the sync group.
 
 <a id="-2134375877"></a><a id="-2134375908"></a><a id="-2134375853"></a>**Sync failed due to problems with many individual files.**  
 | | |
@@ -519,7 +519,7 @@ This error occurs because of an internal problem with the sync database. This er
 1. Navigate to the sync group within the Storage Sync Service.
 2. Select the cloud endpoint within the sync group.
 3. Note the Azure file share name in the opened pane.
-4. Select the linked storage account. If this link fails, the referenced storage account has bene removed.
+4. Select the linked storage account. If this link fails, the referenced storage account has been removed.
     ![A screenshot showing the cloud endpoint detail pane with a link to the storage account.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
 # [PowerShell](#tab/powershell)
@@ -687,7 +687,7 @@ if (!$foundSyncPrincipal) {
 ### How do I prevent users from creating files containing unsupported characters on the server?
 You can use [File Server Resource Manager (FSRM) File Screens](https://docs.microsoft.com/windows-server/storage/fsrm/file-screening-management) to block files with unsupported characters in their names from being created on the server. You may have to do this using PowerShell as most of the unsupported characters are not printable and so you need to cast their hexadecimal representations as characters first.
 
-To do this, first create an FSRM File Group using the [New-FsrmFileGroup cmdlet](https://docs.microsoft.com/powershell/module/fileserverresourcemanager/new-fsrmfilegroup). In this example, we are defining the group to contain only two of the unsupported characters, but you can include as many of the characters as necessary in your file group.
+First create an FSRM File Group using the [New-FsrmFileGroup cmdlet](https://docs.microsoft.com/powershell/module/fileserverresourcemanager/new-fsrmfilegroup). This example defines the group to contain only two of the unsupported characters, but you can include as many of the characters as necessary in your file group.
 
 ```PowerShell
 New-FsrmFileGroup -Name "Unsupported characters" -IncludePattern @(("*"+[char]0x00000090+"*"),("*"+[char]0x0000008F+"*"))
@@ -711,7 +711,7 @@ There are two paths for failures in cloud tiering:
 There are two main classes of failures that can happen via either failure path:
 
 - Cloud storage failures
-    - *Transient storage service availability issues*. See [Service Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/) for more information.
+    - *Transient storage service availability issues*. For more information, see the [Service Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
     - *Inaccessible Azure file share*. This failure typically happens when you delete the Azure file share when it is still a cloud endpoint in a sync group.
     - *Inaccessible storage account*. This failure typically happens when you delete the storage account while it still has an Azure file share which is a cloud endpoint in a sync group. 
 - Server failures 
