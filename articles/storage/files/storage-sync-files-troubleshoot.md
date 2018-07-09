@@ -659,6 +659,7 @@ if ($fileShare -eq $null) {
 # [Portal](#tab/portal)
 1. Click **Access control (IAM)** on the left-hand table of contents to navigate to the list of users and applications (*service principals*) which have access to your storage account.
 2. Verify **Hybrid File Sync Service** appears in the list with the **Reader and Data Access** role. 
+
     ![A screen shot of the Hybrid File Sync Service service principal in the access control tab of the storage account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
 # [PowerShell](#tab/powershell)
@@ -731,8 +732,10 @@ If files fail to tier to Azure Files:
 
 1. In Event Viewer, review the telemetry, operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent. An Event ID 9003 is logged once an hour in the Telemetry event log if a file fails to tier (one event is logged per error code).
     1. Verify the files exist in the Azure file share.
+
     > [!NOTE]
     > A file must be synced to an Azure file share before it can be tiered.
+
     2. Verify the server has internet connectivity. 
     3. Verify the Azure File Sync filter drivers (StorageSync.sys and StorageSyncGuard.sys) are running:
         - At an elevated command prompt, run `fltmc`. Verify that the StorageSync.sys and StorageSyncGuard.sys file system filter drivers are listed.
