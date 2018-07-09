@@ -6,7 +6,7 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: "ghogen"
-ms.date: "06/06/2018"
+ms.date: "07/09/2018"
 ms.topic: "quickstart"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
@@ -26,7 +26,7 @@ In this guide, you will learn how to:
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).
-- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.9.6, in the EastUS, WestEurope, or CanadaEast region, with **Http Application Routing** enabled.
+- A [Kubernetes cluster](https://ms.portal.azure.com/#create/microsoft.aks) running Kubernetes 1.9.6, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
 
   ![Be sure to enable Http Application Routing.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -36,8 +36,7 @@ In this guide, you will learn how to:
 
 1. Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.0.38 or higher).
 1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Download the [Azure Dev Spaces extension](https://aka.ms/get-azds-code) for VS Code.
-1. Install the extension: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
+1. Download the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
 
 ## Build and run code in Kubernetes
 
@@ -83,7 +82,7 @@ In this section, you'll use VS Code to directly debug your container running in 
 ### Initialize debug assets with the VS Code extension
 You first need to configure your code project so VS Code will communicate with the dev space in Azure. The VS Code extension for Azure Dev Spaces provides a helper command to set up debug configuration. 
 
-Open the **Command Palette** (using the **View | Command Palette** menu), and use auto-complete to type and select this command: `Azure Dev Spaces: Create configuration files for connected development`. 
+Open the **Command Palette** (using the **View | Command Palette** menu), and use auto-complete to type and select this command: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. 
 
 This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
 
@@ -137,4 +136,4 @@ Refresh the web app in the browser, and go to the About page. You should see you
 Learn how Azure Dev Spaces helpls you develop more complex apps across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces. 
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-netcore.md#call-a-service-running-in-a-separate-container)
+> [Working with multiple containers and team development](team-development-netcore.md)
