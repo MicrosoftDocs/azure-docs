@@ -1,22 +1,14 @@
 ---
-title: 'Azure Backup: Restore virtual machines by using the Azure portal | Microsoft Docs'
+title: 'Azure Backup: Restore virtual machines by using the Azure portal'
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: restore backup; how to restore; recovery point;
-
-ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/04/2017
-ms.author: markgal;trinadhk;
-
+ms.author: markgal
 ---
 # Use the Azure portal to restore virtual machines
 Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they're stored in Recovery Services vaults. If it's necessary to repair or rebuild a virtual machine (VM), you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can:
@@ -87,12 +79,12 @@ Restoring a VM or all disks from VM backup involves two steps:
 
     The **Restore** blade shows that the restore point is set.
 
-9. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
+9. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-a-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
 
 ## Choose a VM restore configuration
 After you select the restore point, choose a VM restore configuration. To configure the restored VM, you can use the Azure portal or PowerShell.
 
-1. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
+1. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-a-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
 
     ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. On the **Restore configuration** blade, you have two choices:

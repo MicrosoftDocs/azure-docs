@@ -1,22 +1,17 @@
 ---
 title: Self-service password reset customization - Azure Active Directory
 description: Customization options for Azure AD self-service password reset
+
 services: active-directory
-keywords: 
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 01/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-
-ms.assetid: 
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro;seohack1
 
 ---
 # Customize the Azure AD functionality for self-service password reset
@@ -41,7 +36,7 @@ The contact email is sent to the following recipients in the following order:
 
 In all cases, a maximum of 100 recipients are notified.
 
-To find out more about the different administrator roles and how to assign them, see [Assigning administrator roles in Azure Active Directory](../active-directory-assign-admin-roles-azure-portal.md).
+To find out more about the different administrator roles and how to assign them, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
 ### Disable "Contact your administrator" emails
 
@@ -71,7 +66,7 @@ The graphics you choose are shown in the following circumstances:
     * By passing the *whr* parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com"
     * By passing the *username* parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com"
 
-Find details on how to configure company branding in the article [Add company branding to your sign-in page in Azure AD](../customize-branding.md).
+Find details on how to configure company branding in the article [Add company branding to your sign-in page in Azure AD](../fundamentals/customize-branding.md).
 
 ### Directory name
 

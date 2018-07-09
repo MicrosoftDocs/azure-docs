@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 07/09/2018
 ms.author: ganesr
 
 ---
@@ -63,6 +63,7 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 ### IP addresses used for Microsoft peering
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries.
 
+* The IPs listed in the portal for Advertised Public Prefixes for Microsoft Peering will create ACLs for the Microsoft core routers to allow inbound traffic from these IPs. 
 * You must use a unique /29 (IPv4) or /125 (IPv6) subnet or two /30 (IPv4) or /126 (IPv6) subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one).
 * If a /29 subnet is used, it is split into two /30 subnets.
 * The first /30 subnet is used for the primary link and the second /30 subnet will be used for the secondary link.
@@ -112,7 +113,7 @@ A Private AS Number is allowed with Microsoft Peering, but will also require man
 > 
 
 ## Dynamic route exchange
-Routing exchange will be over eBGP protocol. EBGP sessions are established between the MSEEs and your routers. Authentication of BGP sessions is not a requirement. If required, an MD5 hash can be configured. See the [Configure routing](expressroute-howto-routing-classic.md) and [Circuit provisioning workflows and circuit states](expressroute-workflows.md) for information about configuring BGP sessions.
+Routing exchange will be over eBGP protocol. EBGP sessions are established between the MSEEs and your routers. Authentication of BGP sessions is not a requirement. If required, an MD5 hash can be configured. See the [Configure routing](how-to-routefilter-portal.md) and [Circuit provisioning workflows and circuit states](expressroute-workflows.md) for information about configuring BGP sessions.
 
 ## Autonomous System numbers
 Microsoft uses AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported.

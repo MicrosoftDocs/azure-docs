@@ -10,7 +10,7 @@ editor: hrushib
 ms.assetid: FAADBCAB-F0CF-4CBC-B663-4A6DCCB4DEE1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
@@ -46,7 +46,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 
 - Schedule periodic backup of Reliable Stateful services and Reliable Actors with support to upload backup to (external) storage locations. Supported storage locations
     - Azure Storage
-    - File Share (on-premise)
+    - File Share (on-premises)
 - Enumerate backups
 - Trigger an ad-hoc backup of a partition
 - Restore a partition using previous backup

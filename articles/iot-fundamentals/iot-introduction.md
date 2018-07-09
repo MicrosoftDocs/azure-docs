@@ -1,20 +1,13 @@
 ---
 title: Azure Internet of Things (IoT) Introduction 
 description: Overview Azure IoT and related services and technologies.
-services: iot-hub
-documentationcenter: ''
 author: BryanLa
 manager: timlt
-editor: bryanla
-
-ms.service: iot
-ms.devlang: na
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/30/2018
-ms.author: bryanla; v-clay
-layout: LandingPage
+ms.date: 05/18/2018
+ms.author: bryanla
 ---
 
 # Introduction to Azure and the Internet of Things
@@ -80,17 +73,6 @@ For example, in a predictive maintenance scenario, the cloud back-end stores his
 
 The presentation and business connectivity layer allows end users to interact with the IoT solution and the devices. It enables users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports that can display both historical data or near real-time data. For example, an operator can check on the status of particular pumping station and see any alerts raised by the system. This layer also allows integration of the IoT solution back-end with existing line-of-business applications to tie into enterprise business processes or workflows. For example, a predictive maintenance solution can integrate with a scheduling system to book an engineer to visit a pumping station when it identifies a pump in need of maintenance.
 
-[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
-[img-dashboard]: ./media/iot-introduction/iot-suite.png
-
-[lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: ../articles/iot-suite/iot-suite-overview.md
-[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
-[lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
-[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-
-
 ## Why Azure IoT?
 
 Azure IoT simplifies the complexity of IoT projects and addresses the challenges such as security, infrastructure incompatibility, and scaling your IoT solution. Here is how:
@@ -138,7 +120,7 @@ Explore the following areas of technologies and solutions, or see the Table of C
                 <div class="card">
                     <div class="cardText">
                         <h3>Solutions</h3>
-                        <a href="/azure/iot-suite">IoT Suite</a><br/>
+                        <a href="/azure/iot-suite">IoT solution accelerators</a><br/>
                         <a href="/azure/iot-central">IoT Central</a>
                     </div>
                 </div>
@@ -153,7 +135,7 @@ Explore the following areas of technologies and solutions, or see the Table of C
                         <h3>Platform services</h3>
                         <a href="/azure/iot-hub">IoT Hub</a><br/>
                         <a href="/azure/iot-dps">IoT Hub Device Provisioning Service</a><br/>
-                        <a href="/azure/location-based-services">Location Based Services</a><br/>
+                        <a href="/azure/azure-maps">Maps</a><br/>
                         <a href="/azure/time-series-insights">Time Series Insights</a>
                     </div>
                 </div>
@@ -176,14 +158,22 @@ Explore the following areas of technologies and solutions, or see the Table of C
 </ul>
 
 [img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
+[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
+[img-dashboard]: ./media/iot-introduction/iot-suite.png
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/
 [lnk-iot-dps-land]: /azure/iot-dps/index.yml
 [lnk-iot-edge-land]: /azure/iot-edge/index.yml
 [lnk-iot-hub-land]: /azure/iot-hub/index.md
-[lnk-iot-lbs-land]: /azure/location-based-services/index.yml
-[lnk-iot-suite-land]: /azure/iot-suite/index.md
+[lnk-iot-maps-land]: /azure/maps/index.yml
+[lnk-iot-sa-land]: ../iot-accelerators/index.yml
 [lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
+
+[lnk-iot-hub]: ../iot-hub/about-iot-hub.md
+[lnk-iot-sa]: ../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
+[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
+[lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
+[lnk-refarch]: https://aka.ms/iotrefarchitecture
 
 

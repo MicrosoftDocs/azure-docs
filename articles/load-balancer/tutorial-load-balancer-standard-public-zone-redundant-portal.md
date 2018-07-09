@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -34,6 +34,8 @@ Load balancing provides a higher level of availability by spreading incoming req
 > * View a load balancer in action
 
 For more information about using Availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
+
+If you prefer, you can complete this tutorial using the [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
@@ -138,18 +140,21 @@ Create virtual machines in different zones (zone 1, zone 2, and zone 3) for the 
 1. Click **All resources** in the left-hand menu, and then from the resources list click **myVM1** that is located in the *myResourceGroupLBAZ* resource group.
 2. On the **Overview** page, click **Connect** to RDP into the VM.
 3. Log into the VM with username *azureuser*.
-4. On the server desktop, navigate to **Windows Administrative Tools**>**Server Manager**.
-5. In the Server Manager quickstart page, click **Add Roles and features**.
-
-   ![Adding to the backend address pool - ](./media/load-balancer-standard-public-availability-zones-portal/servermanager.png)    
-
-1. In the **Add Roles and Features Wizard**, use the following values:
-    - In the **Select installation type** page, click **Role-based or feature-based installation**.
-    - In the **Select destination server** page, click **myVM1**.
-    - In the **Select server role** page, click **Web Server (IIS)**.
-    - Follow instructions to complete the rest of the wizard.
-2. Close the RDP session with the virtual machine - *myVM1*.
-3. Repeat steps 1 to 7 to install IIS on VMs *myVM2* and *myVM3*.
+4. On the server desktop, navigate to **Windows Administrative Tools**>**Windows PowerShell**.
+5. In the PowerShell Window, run the following commands to install the IIS server, remove the  default iisstart.htm file, and then add a new iisstart.htm file that displays the name of the VM:
+   ```azurepowershell-interactive
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
+   ```
+6. Close the RDP session with *myVM1*.
+7. Repeat steps 1 to 6 to install IIS and the updated iisstart.htm file on *myVM2* and *myVM3*.
 
 ## Create load balancer resources
 
@@ -212,7 +217,7 @@ A load balancer rule is used to define how traffic is distributed to the VMs. Yo
 
 2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
-      ![IIS Web server](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+      ![IIS Web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
 To see the load balancer distribute traffic across the VMs distributed across the zone you can force-refresh your web browser.
 

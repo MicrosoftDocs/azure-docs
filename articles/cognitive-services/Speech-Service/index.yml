@@ -1,0 +1,69 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Speech Service Documentation (Preview)
+metadata:
+  title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
+  meta.description: The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications, such as voice command control and dialog, natural speech conversation, speech transcription and dictation, and speech translation.
+  services: cognitive-services
+  author: noellelacharite
+  manager: nolachar
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.component: speech-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/01/2018
+  ms.author: nolachar
+
+abstract:
+  description: The Microsoft Speech service provides developers an easy way to add powerful speech-enabled features to their applications, including voice command control, transcription, dictation, and translation using a <a href="rest-apis">REST API</a> or a <a href="speech-sdk">C#, C++, or Java SDK</a>.<p>The Speech service lets you customize <a href="how-to-customize-speech-models">Speech to Text</a> models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. Customized <a href="https://cris.ai/Home/customvoice">Text to Speech</a> and <a href="https://www.microsoft.com/translator/customization.aspx">Speech Translation</a> are also available.<p>For more details, see <a href="overview">What is the Speech service?</a>
+sections:
+- title: 10-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to install the Speech SDK and get started:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/logo_csharp.svg
+      - image:
+          src: media/index/logo_cplusplus.svg
+      - image:
+          src: media/index/logo_java.jpg
+    rows:
+      - title: Windows
+        values:
+        - href: quickstart-csharp-windows
+        - href: quickstart-cpp-windows
+        - href:
+      - title: Linux
+        values:
+        - href:
+        - href: quickstart-cpp-linux
+        - href:
+      - title: Devices SDK (Android)
+        values:
+        - href:
+        - href:
+        - href: https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk
+
+- title: Samples and Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Examples
+      html: <ul><li><a href="speech-to-text-sample.md">Speech Recognition</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
+    - title: API Reference
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API (Speech Devices SDK)</a></li></ul>
+
+- title: Speech Devices SDK
+  items:
+  - type: paragraph
+    text: "With the introduction of the unified Speech Service, Microsoft and its partners now offer an integrated hardware/software platform that's optimized for developing speech-enabled devices&#58; the <b>Speech Devices SDK</b>. This SDK is suitable for developing smart speech devices for all types of applications."
+  - type: paragraph
+    text: The <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">Speech Devices SDK</a> allows you to build your own ambient devices with a customized wake word unique to your brand that triggers audio capture. It also provides superior audio processing from multi-channel sources for more accurate speech recognition, including noise suppression, far-field voice, and beamforming.
+

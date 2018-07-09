@@ -1,19 +1,13 @@
 ---
-title: Silent installation of Azure Backup Server v2 | Microsoft Docs
+title: Silent installation of Azure Backup Server v2
 description: Use a PowerShell script to silently install Azure Backup Server v2. This kind of installation is also called an unattended installation.
 services: backup
-documentationcenter: ' '
 author: markgalioto
 manager: carmonm
-
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 05/30/2017
-ms.author: markgal;masaran
-
+ms.author: markgal
 ---
 # Run an unattended installation of Azure Backup Server v2
 

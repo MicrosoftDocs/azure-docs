@@ -21,7 +21,7 @@ ms.author: jdial
 # Troubleshoot Virtual Network gateway and Connections using Azure Network Watcher
 
 > [!div class="op_single_selector"]
-> - [Portal](network-watcher-troubleshoot-manage-portal.md)
+> - [Portal](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
@@ -79,7 +79,7 @@ $requestBody = @"
 "@
 
 
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" -verbose
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" $requestBody -verbose
 ```
 
 Since this operation is long running, the URI for querying the operation and the URI for the result is returned in the response header as shown in the following response:
@@ -207,7 +207,7 @@ $requestBody = @{
 }
 
 }
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 "
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 $requestBody"
 ```
 
 > [!NOTE]

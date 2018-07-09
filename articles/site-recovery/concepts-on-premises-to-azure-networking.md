@@ -7,7 +7,7 @@ author: mayanknayar
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/24/2018
+ms.date: 07/06/2018
 ms.author: manayar
 
 ---

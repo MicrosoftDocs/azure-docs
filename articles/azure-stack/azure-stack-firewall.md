@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/23/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
@@ -41,11 +41,11 @@ Some of the downsides of using NAT for Public VIP are:
 It is currently recommended to disable SSL decryption on all Azure Stack traffic. If it is supported in future updates, guidance will be provided about how to enable SSL decryption for Azure Stack.
 
 ## Edge firewall scenario
-In an edge deployment, Azure Stack is deployed directly behind the edge router or the firewall. In these scenarios, it is supported for the firewall to be above the border or acting as the border device if it supports Equal Cost Multi Path (ECMP) with either BGP or static routing.
+In an edge deployment, Azure Stack is deployed directly behind the edge router or the firewall. In these scenarios, it is supported for the firewall to be above the border (Scenario 1) where it supports both active-active and active-passive firewall configurations or acting as the border device (Scenario 2) where it only supports active-active firewall configuration relying on Equal Cost Multi Path (ECMP) with either BGP or static routing for failover.
 
 Typically, public routable IP addresses are specified for the public VIP pool from the external network at deployment time. In an edge scenario, it is not recommended to use public routable IPs on any other network for security purposes. This scenario enables a user to experience the full self-controlled cloud experience as in a public cloud like Azure.  
 
-![Azure Stack edge firewall example](.\media\azure-stack-firewall\edge-firewall-scenario.png)
+![Azure Stack edge firewall example](.\media\azure-stack-firewall\firewallScenarios.png)
 
 ## Enterprise intranet or perimeter network firewall scenario
 In an enterprise intranet or perimeter deployment, Azure Stack is deployed on a multi-zoned firewall or in between the edge firewall and the internal, corporate network firewall. Its traffic is then distributed between the secure, perimeter network (or DMZ), and unsecure zones as described below:

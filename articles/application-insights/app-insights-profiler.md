@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
 
 ---
 # Profile live Azure web apps with Application Insights
 
-*This feature of Azure Application Insights is generally available for the Web Apps feature of Azure App Service and is in preview for Azure compute resources.*
+*This feature of Azure Application Insights is generally available for the Web Apps feature of Azure App Service and is in preview for Azure compute resources. For information regarding [on-premises use of profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).*
 
 This article discusses the amount of time that's spent in each method of your live web application when you use [Application Insights](app-insights-overview.md). The Application Insights Profiler tool displays detailed profiles of live requests that were served by your app. Profiler highlights the *hot path* that uses the most time. Requests with various response times are profiled on a sampling basis. By using a variety of techniques, you can minimize the overhead that's associated with the application.
 

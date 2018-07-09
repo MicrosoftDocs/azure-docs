@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom:
 
@@ -25,14 +25,15 @@ Virtual Network (VNet) service endpoints extend your virtual network private add
 
 This feature is available for the following Azure services and regions:
 
-- **Azure Storage**: Generally Available. All regions in the Azure public cloud and Azure Government.
-- **Azure SQL Database**: Generally Available in all Azure regions. 
-- **Azure SQL Data Warehouse**: Preview. All regions in the Azure public cloud.
+- **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: Generally Available in all Azure regions.
+- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Generally Available in all Azure regions.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Generally available in all Azure public cloud regions. 
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Preview in all Azure public cloud regions.
+- **Azure database services for PostgreSQL and MySQL**: Preview in Azure regions where database service is available.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Available in preview.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Avaialble in preview.
 
-For the most up-to-date notifications for the preview, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
-
->[!NOTE]
-> During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
 ## Key benefits
 
@@ -48,7 +49,7 @@ Service endpoints provide the following benefits:
 
 - The feature is available only to virtual networks deployed through the Azure Resource Manager deployment model.
 - Endpoints are enabled on subnets configured in Azure virtual networks. Endpoints cannot be used for traffic from your premises to Azure services. For more information, see [Securing Azure service access from on-premises](#securing-azure-services-to-virtual-networks)
-- A service endpoint applies only to Azure service traffic within a virtual network's region. To support RA-GRS and GRS traffic for Azure Storage, endpoints also extend to include paired regions where the virtual network is deployed. Learn more about [Azure paired regions.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)
+- For Azure SQL, a service endpoint applies only to Azure service traffic within a virtual network's region. For Azure Storage, to support RA-GRS and GRS traffic, endpoints also extend to include paired regions where the virtual network is deployed. Learn more about [Azure paired regions.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 
 ## Securing Azure services to virtual networks
 
@@ -65,8 +66,8 @@ Service endpoints provide the following benefits:
 ### Configuration
 
 - Service endpoints are configured on a subnet in a virtual network. Endpoints work with any type of compute instances running within that subnet.
-- You can configure multiple service endpoints for all supported Azure services (Azure Storage, or Azure Sql Database, for example) on a subnet.
-- Virtual networks must be in the same region as the Azure service resource. If using GRS and RA-GRS Azure Storage accounts, the primary account must be in the same region as the virtual network.
+- You can configure multiple service endpoints for all supported Azure services (Azure Storage, or Azure SQL Database, for example) on a subnet.
+- For Azure SQL Database, virtual networks must be in the same region as the Azure service resource. If using GRS and RA-GRS Azure Storage accounts, the primary account must be in the same region as the virtual network. For all other services, Azure service resources can be secured to virtual networks in any region. 
 - The virtual network where the endpoint is configured can be in the same or different subscription than the Azure service resource. For more information on permissions required for setting up endpoints and securing Azure services, see [Provisioning](#Provisioning).
 - For supported services, you can secure new or existing resources to virtual networks using service endpoints.
 
@@ -78,7 +79,7 @@ Service endpoints provide the following benefits:
 - With service endpoints, DNS entries for Azure services remain as-is today, and continue to resolve to public IP addresses assigned to the Azure service.
 - Network security groups (NSGs) with service endpoints:
   - By default, NSGs allow outbound Internet traffic and so, also allow traffic from your VNet to Azure services. This continues to work as is, with service endpoints. 
-  - If you want to deny all outbound Internet traffic and allow only traffic to specific Azure services,  you can do so using __“Azure service tags”__ in your NSGs. You can specify supported Azure services as destination in your NSG rules and the maintenance of IP addresses underlying each tag is provided by Azure. For more information, see [Azure Service tags for NSGs.](https://aka.ms/servicetags) 
+  - If you want to deny all outbound Internet traffic and allow only traffic to specific Azure services, you can do so using [service tags](security-overview.md#service-tags) in your NSGs. You can specify supported Azure services as destination in your NSG rules and the maintenance of IP addresses underlying each tag is provided by Azure. For more information, see [Azure Service tags for NSGs.](security-overview.md#service-tags) 
 
 ### Scenarios
 
@@ -98,7 +99,7 @@ Once service endpoints are configured to a specific service, validate that the s
   - Indicates that a more direct connection to the service is in effect, compared to any forced-tunneling routes
 
 >[!NOTE]
-> Service endpoint routes override any BGP or UDR routes for the address prefix match of an Azure service. Learn more about [troubleshooting with effective routes](virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+> Service endpoint routes override any BGP or UDR routes for the address prefix match of an Azure service. Learn more about [troubleshooting with effective routes](diagnose-network-routing-problem.md)
 
 ## Provisioning
 
@@ -110,7 +111,7 @@ Virtual networks and Azure service resources can be in the same or different sub
 
 ## Pricing and limits
 
-There is no additional charge for using service endpoints. The current pricing model for Azure services (Azure Storage, Azure SQL Database) applies as is today.
+There is no additional charge for using service endpoints. The current pricing model for Azure services (Azure Storage, Azure SQL Database etc.) applies as is today.
 
 There is no limit on the total number of service endpoints in a virtual network.
 
@@ -122,5 +123,5 @@ For an Azure service resource (such as, an Azure Storage account), services may 
 - Learn how to [secure an Azure Storage account to a virtual network](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn how to [secure an Azure SQL Database to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn about [Azure service integration in virtual networks](virtual-network-for-azure-services.md)
--  Quick start: [Azure resource manager template](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) to set up service endpoint on a VNet's Subnet and secure Azure Storage account to that subnet.
+-  Quick start: [Azure resource manager template](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) to set up service endpoint on a VNet's subnet and secure an Azure Storage account to that subnet.
 

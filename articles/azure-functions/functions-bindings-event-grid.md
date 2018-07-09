@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 06/08/2018
 ms.author: tdykstra
 ---
 
@@ -22,23 +22,25 @@ ms.author: tdykstra
 
 This article explains how to handle [Event Grid](../event-grid/overview.md) events in Azure Functions.
 
-Event Grid is an Azure service that sends HTTP requests to notify you about events that happen in *publishers*. A publisher is the service or resource that originates the event. For example, an Azure blob storage account is a publisher, and a blob upload or deletion is an event. Some [Azure services have built-in support for publishing events to Event Grid](../event-grid/overview.md#event-sources). 
+Event Grid is an Azure service that sends HTTP requests to notify you about events that happen in *publishers*. A publisher is the service or resource that originates the event. For example, an Azure blob storage account is a publisher, and [a blob upload or deletion is an event](../storage/blobs/storage-blob-event-overview.md). Some [Azure services have built-in support for publishing events to Event Grid](../event-grid/overview.md#event-sources). 
 
 Event *handlers* receive and process events. Azure Functions is one of several [Azure services that have built-in support for handling Event Grid events](../event-grid/overview.md#event-handlers). In this article, you learn how to use an Event Grid trigger to invoke a function when an event is received from Event Grid.
 
-If you prefer, you can use an HTTP trigger to handle Event Grid Events; see [Use an HTTP trigger as an Event Grid trigger](#use-an-http-trigger-as-an-event-grid-trigger) later in this article.
+If you prefer, you can use an HTTP trigger to handle Event Grid Events; see [Use an HTTP trigger as an Event Grid trigger](#use-an-http-trigger-as-an-event-grid-trigger) later in this article. Currently, you can't use an Event Grid trigger for an Azure Functions app when the event is delivered in the [CloudEvents schema](../event-grid/cloudevents-schema.md). Instead, use an HTTP trigger.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Packages
+## Packages - Functions 1.x
 
-The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet package. Source code for the package is in the [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub repository.
-
-<!--
-If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
--->
+The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet package, version 1.x. Source code for the package is in the [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub repository.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+## Packages - Functions 2.x
+
+The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet package, version 2.x. Source code for the package is in the [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub repository.
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## Example
 
@@ -52,12 +54,12 @@ For an HTTP trigger example, see [How to use HTTP trigger](#use-an-http-trigger-
 
 ### C# example
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that binds to `JObject`:
+The following example shows a Functions 1.x [C# function](functions-dotnet-class-library.md) that binds to `JObject`:
 
 ```cs
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -74,30 +76,26 @@ namespace Company.Function
 }
 ```
 
-<!--
-The following example shows a [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
+The following example shows a Functions 2.x [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
 
 ```cs
+using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
 
 namespace Company.Function
 {
     public static class EventGridTriggerCSharp
     {
         [FunctionName("EventGridTest")]
-            public static void EventGridTest([EventGridTrigger] Microsoft.Azure.EventGrid.Models.EventGridEvent eventGridEvent, TraceWriter log)
+        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, TraceWriter log)
         {
-            log.Info("C# Event Grid function processed a request.");
-            log.Info($"Subject: {eventGridEvent.Subject}");
-            log.Info($"Time: {eventGridEvent.EventTime}");
-            log.Info($"Data: {eventGridEvent.Data.ToString()}");
+            log.Info(eventGridEvent.Data.ToString());
         }
     }
 }
 ```
--->
 
 For more information, see [Packages](#packages), [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
 
@@ -120,7 +118,7 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-Here's C# script code that binds to `JObject`:
+Here's Functions 1.x C# script code that binds to `JObject`:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -134,26 +132,17 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-<!--
-Here's C# script code that binds to `EventGridEvent`:
+Here's Functions 2.x C# script code that binds to `EventGridEvent`:
 
 ```csharp
-#r "Newtonsoft.Json"
-#r "Microsoft.Azure.WebJobs.Extensions.EventGrid"
 #r "Microsoft.Azure.EventGrid"
-
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-Using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Azure.EventGrid.Models;
 
 public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 {
-    log.Info("C# Event Grid function processed a request.");
-    log.Info($"Subject: {eventGridEvent.Subject}");
-    log.Info($"Time: {eventGridEvent.EventTime}");
-    log.Info($"Data: {eventGridEvent.Data.ToString()}");
+    log.Info(eventGridEvent.Data.ToString());
 }
 ```
--->
 
 For more information, see [Packages](#packages), [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
 
@@ -216,11 +205,17 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-For C# and F# functions, you can use the following parameter types for the Event Grid trigger:
+For C# and F# functions in Azure Functions 1.x, you can use the following parameter types for the Event Grid trigger:
 
 * `JObject`
 * `string`
-* `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`- Defines properties for the fields common to all event types. **This type is deprecated**, but its replacement is not published to NuGet yet.
+
+For C# and F# functions in Azure Functions 2.x, you also have the option to use the following parameter type for the Event Grid trigger:
+
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent`- Defines properties for the fields common to all event types.
+
+> [!NOTE]
+> In Functions v1 if you try to bind to `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, the compiler will display a "deprecated" message and advise you to use `Microsoft.Azure.EventGrid.Models.EventGridEvent` instead. To use the newer type, reference the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet package and fully qualify the `EventGridEvent` type name by prefixing it with `Microsoft.Azure.EventGrid.Models`. For information about how to reference NuGet packages in a C# script function, see [Using NuGet packages](functions-reference-csharp.md#using-nuget-packages)
 
 For JavaScript functions, the parameter named by the *function.json* `name` property has a reference to the event object.
 
@@ -332,45 +327,45 @@ For more information, see [Authorization keys](functions-bindings-http-webhook.m
 
 Alternatively, you can send an HTTP PUT to specify the key value yourself.
 
-## Local testing with RequestBin
-
-> [!NOTE]
-> The RequestBin site is currently not available, but you can use this approach with https://hookbin.com instead. If that site is down, you can use [ngrok](#local-testing-with-ngrok).
+## Local testing with viewer web app
 
 To test an Event Grid trigger locally, you have to get Event Grid HTTP requests delivered from their origin in the cloud to your local machine. One way to do that is by capturing requests online and manually resending them on your local machine:
 
-2. [Create a RequestBin endpoint](#create-a-RequestBin-endpoint).
-3. [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the RequestBin endpoint.
-4. [Generate a request](#generate-a-request) and copy the request body from the RequestBin site.
+2. [Create a viewer web app](#create-a-viewer-web-app) that captures event messages.
+3. [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the viewer app.
+4. [Generate a request](#generate-a-request) and copy the request body from the viewer app.
 5. [Manually post the request](#manually-post-the-request) to the localhost URL of your Event Grid trigger function.
 
 When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI command.
 
-### Create a RequestBin endpoint
+### Create a viewer web app
 
-RequestBin is an open-source tool that accepts HTTP requests and shows you the request body. The http://requestb.in URL gets special treatment by Azure Event Grid. To facilitate testing, Event Grid sends events to the RequestBin URL without requiring a correct response to subscription validation requests. One other testing tool is given the same treatment: http://hookbin.com.
+To simplify capturing event messages, you can deploy a [pre-built web app](https://github.com/dbarkol/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
-RequestBin is not intended for high throughput usage. If you push more than one event at a time, you might not see all of your events in the tool.
+Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-Create an endpoint.
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdbarkol%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-![Create RequestBin endpoint](media/functions-bindings-event-grid/create-requestbin.png)
+The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
+`https://<your-site-name>.azurewebsites.net`
 
-Copy the endpoint URL.
+You see the site but no events have been posted to it yet.
 
-![Copy RequestBin endpoint](media/functions-bindings-event-grid/save-requestbin-url.png)
+![View new site](media/functions-bindings-event-grid/view-site.png)
 
 ### Create an Event Grid subscription
 
-Create an Event Grid subscription of the type you want to test, and give it your RequestBin endpoint. For information about how to create a subscription, see [Create a subscription](#create-a-subscription) earlier in this article.
+Create an Event Grid subscription of the type you want to test, and give it the URL from your web app as the endpoint for event notification. The endpoint for your web app must include the suffix `/api/updates/`. So, the full URL is `https://<your-site-name>.azurewebsites.net/api/updates`
+
+For information about how to create subscriptions by using the Azure portal, see [Create custom event - Azure portal](../event-grid/custom-event-quickstart-portal.md) in the Event Grid documentation.
 
 ### Generate a request
 
-Trigger an event that will generate HTTP traffic to your RequestBin endpoint.  For example, if you created a blob storage subscription, upload or delete a blob. When a request shows up in your RequestBin page, copy the request body.
+Trigger an event that will generate HTTP traffic to your web app endpoint.  For example, if you created a blob storage subscription, upload or delete a blob. When a request shows up in your web app, copy the request body.
 
 The subscription validation request will be received first; ignore any validation requests, and copy the event request.
 
-![Copy request body from RequestBin](media/functions-bindings-event-grid/copy-request-body.png)
+![Copy request body from web app](media/functions-bindings-event-grid/view-results.png)
 
 ### Manually post the request
 
@@ -468,14 +463,18 @@ The Event Grid trigger function executes and shows logs similar to the following
 
 ## Use an HTTP trigger as an Event Grid trigger
 
-Event Grid events are received as HTTP requests, so you can handle events by using an HTTP trigger instead of an Event Grid trigger. One possible reason for doing that is to get more control over the endpoint URL that invokes the function. 
+Event Grid events are received as HTTP requests, so you can handle events by using an HTTP trigger instead of an Event Grid trigger. One possible reason for doing that is to get more control over the endpoint URL that invokes the function. Another reason is when you need to receive events in the [CloudEvents schema](../event-grid/cloudevents-schema.md). Currently, the Event Grid trigger doesn't support the CloudEvents schema. The examples in this section show solutions for both Event Grid schema and CloudEvents schema.
 
 If you use an HTTP trigger, you have to write code for what the Event Grid trigger does automatically:
 
 * Sends a validation response to a [subscription validation request](../event-grid/security-authentication.md#webhook-event-delivery).
 * Invokes the function once per element of the event array contained in the request body.
 
-The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior:
+For information about the URL to use for invoking the function locally or when it runs in Azure, see the [HTTP trigger binding reference documentation](functions-bindings-http-webhook.md)
+
+### Event Grid schema
+
+The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the Event Grid schema.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -513,7 +512,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior:
+The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the Event Grid schema.
 
 ```javascript
 module.exports = function (context, req) {
@@ -523,10 +522,12 @@ module.exports = function (context, req) {
     // If the request is for subscription validation, send back the validation code.
     if (messages.length > 0 && messages[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
         context.log('Validate request received');
-        context.res = { status: 200, body: messages[0].data.validationCode }
+        var code = messages[0].data.validationCode;
+        context.res = { status: 200, body: { "ValidationResponse": code } };
     }
     else {
         // The request is not for subscription validation, so it's for one or more events.
+        // Event Grid schema delivers events in an array.
         for (var i = 0; i < messages.length; i++) {
             // Handle one event.
             var message = messages[i];
@@ -541,7 +542,70 @@ module.exports = function (context, req) {
 
 Your event-handling code goes inside the loop through the `messages` array.
 
-For information about the URL to use for invoking the function locally or when it runs in Azure, see the [HTTP trigger binding reference documentation](functions-bindings-http-webhook.md) 
+### CloudEvents schema
+
+The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior.  Use this example for events delivered in the CloudEvents schema.
+
+```csharp
+[FunctionName("HttpTrigger")]
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    var requestmessage = await req.Content.ReadAsStringAsync();
+    var message = JToken.Parse(requestmessage);
+
+    if (message.Type == JTokenType.Array)
+    {
+        // If the request is for subscription validation, send back the validation code.
+        if (string.Equals((string)message[0]["eventType"],
+        "Microsoft.EventGrid.SubscriptionValidationEvent",
+        System.StringComparison.OrdinalIgnoreCase))
+        {
+            log.Info("Validate request received");
+            return req.CreateResponse<object>(new
+            {
+                validationResponse = message[0]["data"]["validationCode"]
+            });
+        }
+    }
+    else
+    {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        log.Info($"Source: {message["source"]}");
+        log.Info($"Time: {message["eventTime"]}");
+        log.Info($"Event data: {message["data"].ToString()}");
+    }
+
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the CloudEvents schema.
+
+```javascript
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    var message = req.body;
+    // If the request is for subscription validation, send back the validation code.
+    if (message.length > 0 && message[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
+        context.log('Validate request received');
+        var code = message[0].data.validationCode;
+        context.res = { status: 200, body: { "ValidationResponse": code } };
+    }
+    else {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        var event = JSON.parse(message);
+        context.log('Source: ' + event.source);
+        context.log('Time: ' + event.eventTime);
+        context.log('Data: ' + JSON.stringify(event.data));
+    }
+    context.done();
+};
+```
 
 ## Next steps
 

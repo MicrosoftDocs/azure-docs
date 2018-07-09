@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Cloud Shell troubleshooting | Microsoft Docs
 description: Troubleshooting Azure Cloud Shell
 services: azure
@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 07/03/2018
 ms.author: damaerte
 ---
 
@@ -41,27 +41,12 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 ## Bash troubleshooting
 
-### Cannot run az login
-
-- **Details**: Running `az login` will not work as you are already authenticated under the account used to sign into Cloud Shell or Azure portal.
-- **Resolution**: Utilize your account used to sign in or sign out and reauthenticate with your intended Azure account.
-
 ### Cannot run the docker daemon
 
 - **Details**: Cloud Shell utilizes a container to host your shell environment, as a result running the daemon is disallowed.
 - **Resolution**: Utilize [docker-machine](https://docs.docker.com/machine/overview/), which is installed by default, to manage docker containers from a remote Docker host.
 
 ## PowerShell troubleshooting
-
-### No $Home directory persistence
-
-- **Details**: Any data that application (such as: git, vim, and others) writes to `$Home` is not persisted across PowerShell sessions.
-- **Resolution**: In your PowerShell profile, create a symbolic link to application specific folder in `clouddrive` to $Home.
-
-### Ctrl+C doesn't exit out of a Cmdlet prompt
-
-- **Details**: When attempting to exit a Cmdlet prompt, `Ctrl+C` does not exit the prompt.
-- **Resolution**: To exit the prompt, press `Ctrl+C` then `Enter`.
 
 ### GUI applications are not supported
 
@@ -78,18 +63,8 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 - **Details**: Due to the default Windows Firewall settings for WinRM the user may see the following error:
  `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Resolution**:  Make sure your VM is running. You can run `Get-AzureRmVM -Status` to find out the VM Status.  Next, add a new firewall rule on the remote VM to allow WinRM connections from any subnet, for example,
-
- ``` Powershell
- New-NetFirewallRule -Name 'WINRM-HTTP-In-TCP-PSCloudShell' -Group 'Windows Remote Management' -Enabled True -Protocol TCP -LocalPort 5985 -Direction Inbound -Action Allow -DisplayName 'Windows Remote Management - PSCloud (HTTP-In)' -Profile Public
- ```
- You can use [Azure custom script extension](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript) to avoid logon to your remote VM for adding the new firewall rule.
- You can save the preceding script to a file, say `addfirerule.ps1`, and upload it to your Azure storage container.
- Then try the following command:
-
- ``` Powershell
- Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
- ```
+- **Resolution**:  Run `Enable-AzureRmVMPSRemoting` to enable all aspects of PowerShell remoting on the target machine.
+ 
 
 ### `dir` caches the result in Azure drive
 
@@ -136,21 +111,39 @@ Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud
 
 ## PowerShell limitations
 
-### Slow startup time
+### `AzureAD` module name
 
-PowerShell in Azure Cloud Shell (Preview) could take up to 60 seconds to initialize during preview.
+The `AzureAD` module name is currently `AzureAD.Standard.Preview`, the module provides the same functionality.
+
+### `SqlServer` module functionality
+
+The `SqlServer` module included in Cloud Shell has only prerelease support for PowerShell Core. In particular, `Invoke-SqlCmd` is not available yet.
 
 ### Default file location when created from Azure drive:
 
-Using PowerShell cmdlets, users can not create files under the Azure drive. When users create new files using other tools, such as vim or nano, the files are saved to C:\Users folder by default. 
+Using PowerShell cmdlets, users can not create files under the Azure drive. When users create new files using other tools, such as vim or nano, the files are saved to the `$HOME` by default. 
 
 ### GUI applications are not supported
 
 If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Connect-AzureRmAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## GDPR compliance for Cloud Shell
+### Tab completion crashes PSReadline
 
-Azure Cloud Shell takes your personal data seriously, the data captured and stored by the Azure Cloud Shell service are used to provide defaults for your experience such as your most recently used shell, preferred font size, preferred font type, and file share details that back clouddrive. Should you wish to export or delete this data, we have included the following instructions.
+If the user's EditMode in PSReadline is set to Emacs, the user tries to display all possibilities via tab completion, and the window size is too small to display all the possibilities, PSReadline will crash.
+
+### Large Gap after displaying progress bar
+
+If the user performs an action that displays a progress bar, such a tab completing while in the `Azure:` drive, then it is possible that the cursor is not set properly and a gap appears where the progress bar was previously.
+
+### Random characters appear inline
+
+The cursor position sequence codes, for example `5;13R`, can appear in the user input.  The characters can be manually removed.
+
+## Personal data in Cloud Shell
+
+Azure Cloud Shell takes your personal data seriously, the data captured and stored by the Azure Cloud Shell service are used to provide defaults for your experience such as your most recently used shell, preferred font size, preferred font type, and file share details that back cloud drive. Should you wish to export or delete this data, we have included the following instructions.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ### Export
 In order to **export** the user settings Cloud Shell saves for you such as preferred shell, font size, and font type run the following commands.

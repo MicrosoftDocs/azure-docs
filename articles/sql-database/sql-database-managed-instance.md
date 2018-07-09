@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure SQL Database Managed Instance Overview | Microsoft Docs
 description: This topic describes an Azure SQL Database Managed Instance and explains how it works and how it is different from a single database in Azure SQL Database.
 services: sql-database
@@ -7,7 +7,7 @@ ms.reviewer: carlrab
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
 ---
@@ -34,7 +34,7 @@ The following table outlines key differences and envisioned usage scenarios betw
 
 | | Usage scenario | 
 | --- | --- | 
-|SQL Database Managed Instance |For customers looking to migrate a large number of apps from on-premises or IaaS, self-built, or ISV provided, with as low migration effort as possible, propose Managed Instance. Using the fully automated [Data Migration Service (DMS)](/sql/dma/dma-overview) in Azure, customers can lift and shift their on-premises SQL Server to a Managed Instance that offers compatibility with SQL Server on-premises and complete isolation of customer instances with native VNET support.  With Software Assurance, you can exchange their existing licenses for discounted rates on a SQL Database Managed Instance using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface. |
+|SQL Database Managed Instance |For customers looking to migrate a large number of apps from on-premises or IaaS, self-built, or ISV provided, with as low migration effort as possible, propose Managed Instance. Using the fully automated [Data Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) in Azure, customers can lift and shift their on-premises SQL Server to a Managed Instance that offers compatibility with SQL Server on-premises and complete isolation of customer instances with native VNET support.  With Software Assurance, you can exchange their existing licenses for discounted rates on a SQL Database Managed Instance using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface. |
 |Azure SQL Database (single or pool) |**Elastic pools**: For customers developing new SaaS multi-tenant applications or intentionally transforming their existing on-premises apps into a SaaS multitenant app, propose elastic pools. Benefits of this model are: <br><ul><li>Conversion of the business model from selling licenses to selling service subscriptions (for ISVs)</li></ul><ul><li>Easy and bullet-proof tenant isolation</li></ul><ul><li>A simplified database-centric programming model</li></ul><ul><li>The potential to scale out without hitting a hard ceiling</li></ul>**Single databases**: For customers developing new apps other than SaaS multi-tenant, whose workload is stable and predictable, propose single databases. Benefits of this model are:<ul><li>A simplified database-centric programming model</li></ul>  <ul><li>Predictable performance for each database</li></ul>|
 |SQL IaaS virtual machine|For customers needing to customize the operating system or the database server, as well as customers having specific requirements in terms of running third-party apps by side with SQL Server (on the same VM), propose SQL VMs / IaaS as the optimal solution|
 |||
@@ -181,11 +181,10 @@ The Azure Database Migration Service is a fully managed service designed to enab
 
 The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance. To restore an existing SQL database to a Managed instance, you can:
 
-- Use [Data Migration Service (DMS)](/sql/dma/dma-overview). For a tutorial, see [Migrate to a Managed Instance using the Azure Database Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file
+- Use [Data Migration Service (DMS)](../dms/dms-overview.md). For a tutorial, see [Migrate to a Managed Instance using the Azure Database Migration Service (DMS)](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file
 - Use the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - For a tutorial showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md). This tutorial shows you have to upload a backup file to Azure blog storage and secure it using a Shared access signature (SAS) key.
   - For information about restore from URL, see [Native RESTORE from URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-- [Import from a BACPAC file](sql-database-import.md)
 
 ## SQL features supported 
 
@@ -206,7 +205,8 @@ Managed Instance benefits from being always-up-to-date in the cloud, which means
 - Managed Instance does not allow specifying full physical paths so all corresponding scenarios have to be supported differently: RESTORE DB does not support WITH MOVE, CREATE DB doesn’t allow physical paths, BULK INSERT works with Azure Blobs only, etc. 
 - Managed Instance supports [Azure AD authentication](sql-database-aad-authentication.md) as cloud alternative to Windows authentication. 
 - Managed Instance automatically manages XTP filegroup and files for databases containing In-Memory OLTP objects
- 
+- Managed Instance supports SQL Server Integration Services (SSIS) and can host SSIS catalog (SSISDB) that stores SSIS packages, but they are executed on a managed Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). To compare the SSIS features in SQL Database and Managed Instance, see [Compare SQL Database and Managed Instance (Preview)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
+
 ### Managed Instance administration features  
 
 Managed Instance enable system administrator to focus on what matters the most for business. Many system administrator/DBA activities are not required, or they are simple. For example, OS / RDBMS installation and patching, dynamic instance resizing and configuration, backups, database replication (including system databases), high availability configuration, and configuration of health and performance monitoring data streams. 

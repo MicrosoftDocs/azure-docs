@@ -10,7 +10,7 @@ editor: amanbha
 ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
@@ -38,9 +38,6 @@ In Reliable Services, your service inherits the `StatefulService` class. This cl
 * Service backup and restore.
 * Shared functionality for all actors, for example, a circuit breaker.
 * Remote procedure calls on the actor service itself and on each individual actor.
-
-> [!NOTE]
-> Stateful services are not currently supported in Java/Linux.
 
 For more information, see [Implementing service-level features in your actor service](service-fabric-reliable-actors-using.md).
 

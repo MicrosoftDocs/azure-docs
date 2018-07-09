@@ -1,20 +1,13 @@
 ---
 title: Upgrade Azure IoT Hub | Microsoft Docs
 description: Change the pricing and scale tier for IoT Hub to get more messaging and device management capabilities. 
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-
 ---
 
 # How to upgrade your IoT hub
@@ -48,6 +41,7 @@ These examples are meant to help you understand how to adjust your IoT hub as yo
 5. Select **Save** to save your changes. 
 
 Your IoT hub is now adjusted, and your configurations are unchanged. 
+Note that the partition limit for basic tier IoT Hub is 8. This limit will remains unchanged when you migrate from basic tier to standard tier.
 
 ## Next steps
 

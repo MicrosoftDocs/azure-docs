@@ -155,4 +155,4 @@ Other information you may want to add to the application insights data includes 
 If you are using the same endpoint subscription for more than one LUIS app, you should also include the subscription ID and a property stating that it is a shared key. 
 
 > [!div class="nextstepaction"]
-> [Learn more about example utterances](Add-example-utterances.md)
+> [Learn more about example utterances](luis-how-to-add-example-utterances.md)

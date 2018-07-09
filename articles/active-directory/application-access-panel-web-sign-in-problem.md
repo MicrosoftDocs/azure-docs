@@ -3,18 +3,19 @@ title: Problem signing in to the access panel website | Microsoft Docs
 description: Guidance to troubleshoot issues you may encounter while trying to sign in to use the Access Panel
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.reviwer: japere
+ms.author: barbkess
+ms.reviwer: japere,asteen
 ---
 
 # Problem signing in to the access panel website
@@ -286,4 +287,4 @@ open a support ticket with the following information if available:
 -   Fiddler traces
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Provide single sign-on to your apps with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

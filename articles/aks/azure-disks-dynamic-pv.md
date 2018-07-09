@@ -2,20 +2,20 @@
 title: Use Azure Disk with AKS
 description: Use Azure Disks with AKS
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: nepeters
+ms.author: iainfou
 ---
 
 # Persistent volumes with Azure disks
 
 A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods and can be dynamically or statically provisioned. For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
-This document details using persistent volumes with Azure disks in an Azure Container Service (AKS) cluster.
+This document details using persistent volumes with Azure disks in an Azure Kubernetes Service (AKS) cluster.
 
 > [!NOTE]
 > An Azure disk can only be mounted with Access mode type ReadWriteOnce, which makes it available to only a single AKS node. If needing to share a persistent volume across multiple nodes, consider using [Azure Files][azure-files-pvc].
@@ -34,11 +34,14 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
+> [!NOTE]
+> Persistent volume claims are specified in GiB but Azure managed disks are billed by SKU for a specific size. These SKUs range from 32GiB for S4 or P4 disks to 4TiB for S50 or P50 disks. Furthermore, the throughput and IOPS performance of a Premium managed disk depends on the both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
+
 ## Create persistent volume claim
 
 A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. In this case, a PVC can use one of the pre-created storage classes to create a standard or premium Azure managed disk.
 
-Create a file named `azure-premimum.yaml`, and copy in the following manifest.
+Create a file named `azure-premium.yaml`, and copy in the following manifest.
 
 Take note that the `managed-premium` storage class is specified in the annotation, and the claim is requesting a disk `5GB` in size with `ReadWriteOnce` access.
 
@@ -57,10 +60,10 @@ spec:
       storage: 5Gi
 ```
 
-Create the persistent volume claim with the [kubectl create][kubectl-create] command.
+Create the persistent volume claim with the [kubectl apply][kubectl-apply] command.
 
 ```azurecli-interactive
-kubectl create -f azure-premimum.yaml
+kubectl apply -f azure-premium.yaml
 ```
 
 ## Using the persistent volume
@@ -87,10 +90,10 @@ spec:
         claimName: azure-managed-disk
 ```
 
-Create the pod with the [kubectl create][kubectl-create] command.
+Create the pod with the [kubectl apply][kubectl-apply] command.
 
 ```azurecli-interactive
-kubectl create -f azure-pvc-disk.yaml
+kubectl apply -f azure-pvc-disk.yaml
 ```
 
 You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`.
@@ -100,16 +103,17 @@ You now have a running pod with your Azure disk mounted in the `/mnt/azure` dire
 Learn more about Kubernetes persistent volumes using Azure disks.
 
 > [!div class="nextstepaction"]
-> [Kubernetes plugin for Azure disks][kubernetes-disk]
+> [Kubernetes plugin for Azure disks][azure-disk-volume]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
+[azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

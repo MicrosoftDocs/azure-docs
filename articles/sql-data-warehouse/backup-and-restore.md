@@ -22,10 +22,10 @@ A *data warehouse restore* is a new data warehouse that is created from a backup
 
 Both local and geographical restores are part of SQL Data Warehouse's disaster recovery capabilities. 
 
-## Local snapshot backups
-Local snapshot backups are a built-in feature of the service.  You do not have to enable them. 
+## Automatic Restore Points
+Local snapshots are a built-in feature of the service which creates automatic restore points.  You do not have to enable this capability. 
 
-SQL Data Warehouse takes snapshots of your data warehouse throughout the day. Snapshots are available for seven days. SQL Data Warehouse supports an eight hour recovery point objective (RPO). You can restore your data warehouse in the primary region to any one of the snapshots taken in the past seven days.
+SQL Data Warehouse takes snapshots of your data warehouse throughout the day creating restore points that are available for seven days. SQL Data Warehouse supports an eight hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days.
 
 To see when the last snapshot started, run this query on your online SQL Data Warehouse. 
 
@@ -35,6 +35,9 @@ from     sys.pdw_loader_backup_runs
 order by run_id desc
 ;
 ```
+
+## User-Defined Restore Points
+This feature enables you to manually trigger snapshots to create restore points  of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent which provides additional data protection in case of any workload interruptions or user errors for quick recovery time. User-defined restore points are available for seven days and are automatically deleted on your behalf. Only 42 user-defined restore points are supported at any point in time so they must be [deleted](https://go.microsoft.com/fwlink/?linkid=875299) before creating another restore point. You can trigger snapshots to create user-defined restore points through [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples).
 
 ### Snapshot retention when a data warehouse is paused
 SQL Data Warehouse does not create snapshots and does not expire snapshots while a data warehouse is paused. The snapshot age does not change while the data warehouse is paused. Snapshot retention is based on the number of days the data warehouse is online, not calendar days.

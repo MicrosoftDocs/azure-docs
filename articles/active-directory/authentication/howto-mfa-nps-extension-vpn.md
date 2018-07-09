@@ -1,22 +1,18 @@
 ---
 title: Integrate VPN with Azure MFA by using the Network Policy Server extension | Microsoft Docs
-description: This article discusses integrating your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Microsoft Azure.
-services: active-directory
-keywords: Azure MFA, integrate VPN, Azure Active Directory, Network Policy Server extension
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
+description: Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Microsoft Azure.
 
-ms.assetid: 
+services: multi-factor-authentication
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 08/15/2017
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
+
 ---
 
 # Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Azure
@@ -307,7 +303,7 @@ To troubleshoot these issues, an ideal place to start is to examine the Security
  
 ## Configure Multi-Factor Authentication
 
-For assistance configuring users for Multi-Factor Authentication see the articles [How to require two-step verification for a user or group](howto-mfa-userstates.md) and [Set up my account for two-step verification](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
+For assistance configuring users for Multi-Factor Authentication see the articles [How to require two-step verification for a user or group](howto-mfa-userstates.md) and [Set up my account for two-step verification](end-user/current/multi-factor-authentication-end-user-first-time.md)
 
 ## Install and configure the NPS extension
 

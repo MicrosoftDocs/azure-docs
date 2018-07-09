@@ -1,4 +1,4 @@
-﻿---
+---
 title: Network Performance Monitor solution in Azure | Microsoft Docs
 description: Network Performance Monitor in Azure helps you monitor the performance of your networks, in near real time, to detect and locate network performance bottlenecks.
 services: log-analytics
@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-
+ms.component: na
 ---
+
 # Network Performance Monitor solution in Azure
 
 ![Network Performance Monitor symbol](./media/log-analytics-network-performance-monitor/npm-symbol.png)
@@ -70,7 +71,7 @@ Use the basic processes to install agents at [Connect Windows computers to Azure
 
 Network Performance Monitor uses synthetic transactions to monitor network performance between source and destination agents. You can choose between TCP and ICMP as the protocol for monitoring in Performance Monitor and Service Endpoint Monitor capabilities. TCP is used for ExpressRoute Monitor. Make sure that the firewall allows communication between the Operations Management Suite agents used for monitoring on the protocol you choose. 
 
-* **TCP protocol**: If you choose TCP as the protocol for monitoring, open the firewall port on the agents used for Network Performance Monitor and ExpressRoute Monitor to make sure that the agents can connect to each other. To open the port, run the EnableRules.ps1 PowerShell script without any parameters in a PowerShell window with administrative privileges.
+* **TCP protocol**: If you choose TCP as the protocol for monitoring, open the firewall port on the agents used for Network Performance Monitor and ExpressRoute Monitor to make sure that the agents can connect to each other. To open the port, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrative privileges.
 
     The script creates registry keys required by the solution. It also creates Windows Firewall rules to allow agents to create TCP connections with each other. The registry keys created by the script specify whether to log the debug logs and the path for the logs file. The script also defines the agent TCP port used for communication. The values for these keys are automatically set by the script. Don't manually change these keys. The port opened by default is 8084. You can use a custom port by providing the parameter portNumber to the script. Use the same port on all the computers where the script is run. 
 
@@ -78,7 +79,7 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
     > The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
 
     >[!NOTE]
-    > You don't need to run the EnableRules.ps1 PowerShell script for Service Endpoint Monitor.
+    > You don't need to run the [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell script for Service Endpoint Monitor.
 
     
 

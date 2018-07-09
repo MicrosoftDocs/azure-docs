@@ -2,66 +2,74 @@
 documentType: LandingData
 title: Translator Text API Documentation
 metadata:
-  title: Translator Text Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
-  description: Learn how to use Translator Text API to translate text in multiple languages. Tutorials show you how write code that makes use of the Translator service.
+  title: Translator Text Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
+  description: Learn how to use Translator Text API to translate text in multiple languages.
   services: cognitive-services
   author: Jann-Skotdal
   manager: Chris.Wendt
   ms.service: cognitive-services
-  ms.component: translator-text
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 10/30/2017
   ms.author: v-jansko
 abstract:
-  description: Microsoft Translator Text API is a cloud-based machine translation service.  With this API you can translate text in near real-time from any app or service through a simple REST API call. The API uses the most modern neural machine translation technology, as well as offering statistical machine translation technology. For the list of supported languages, both for neural MT and statistical MT, please refer to <a href="languages.md">Supported languages</a>.
+  description: Microsoft Translator Text API is a cloud-based machine translation service. With this API you can translate text in near real-time from any app or service through a simple REST API call. The API uses the most modern neural machine translation technology, as well as offering statistical machine translation technology. For the list of supported languages, both for neural MT and statistical MT, please refer to <a href="languages.md">Supported languages</a>.
 sections:
 - title: 5-Minute Quickstarts
-  items:
+  items: 
   - type: paragraph
-    text: 'Get started using the Translator Text API by making a translation request and viewing the response:'
-  - type: list
-    style: icon48
-    items: 
+    text: 'Get started using the Translator Text API:'
+  - type: table
+    style: dataMatrix
+    columns: 
     - image: 
         src: media/index/logo_csharp.svg
-      text: C&#35;
-      href: quickstarts/csharp
+      title: C#
     - image: 
         src: media/index/logo_java.svg
-      text: Java
-      href: quickstarts/java
+      title: Java
     - image: 
         src: media/index/logo_nodejs.svg
-      text: Node.js
-      href: quickstarts/nodejs
+      title: Node.js
     - image: 
         src: media/index/logo_python.svg
-      text: Python
-      href: quickstarts/python
+      title: Python
     - image: 
-        src: media/index/logo_php.svg
-      text: PHP
-      href: quickstarts/php
-    - image: 
-        src: media/index/logo_ruby.svg
-      text: Ruby
-      href: quickstarts/ruby
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to develop applications using the Translator Text API:'
-  - type: paragraph
-    text: <a href="tutorial-wpf-translation-csharp.md">Translator Text App </a>
+        src: media/index/logo_go.svg
+      title: Go
+    rows:
+    - title: Translate text from one language to another
+      values:
+      - href: quickstart-csharp-translate
+      - href: quickstart-java-translate
+      - href: quickstart-nodejs-translate
+      - href: quickstart-python-translate
+      - href: quickstart-go-translate
+    - title: Convert text from one script to another
+      values:
+      - href: quickstart-csharp-transliterate
+      - href: quickstart-java-transliterate
+      - href: quickstart-nodejs-transliterate
+      - href: quickstart-python-transliterate
+      - href: quickstart-go-transliterate
+    - title: Identify language of text
+      values:
+      - href: quickstart-csharp-detect
+      - href: quickstart-java-detect
+      - href: quickstart-nodejs-detect
+      - href: quickstart-python-detect
+      - href: quickstart-go-detect
+    - title: Get alternate translations and usage
+      values:
+      - href: quickstart-csharp-dictionary
+      - href: quickstart-java-dictionary
+      - href: quickstart-nodejs-dictionary
+      - href: quickstart-python-dictionary
+      - href: quickstart-go-dictionary
+
 - title: Reference
   items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST
-      html: <p><a href="http://docs.microsofttranslator.com/text-translate.html">API Reference</a></p>
-    - title: Code samples
-      html: <p><a href="https://aka.ms/TranslatorGitHub">Code samples on GitHub</a></p>
+  - type: paragraph
+    text: <p><a href="reference/v3-0-reference.md">API Reference</a></p>
    

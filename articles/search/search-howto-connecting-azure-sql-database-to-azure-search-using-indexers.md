@@ -46,7 +46,7 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 |----------|---------|
 | Data originates from a single table or view | If the data is scattered across multiple tables, you can create a single view of the data. However, if you use a view, you won’t be able to use SQL Server integrated change detection to refresh an index with incremental changes. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below. |
 | Data types are compatible | Most but not all the SQL types are supported in an Azure Search index. For a list, see [Mapping data types](#TypeMapping). |
-| Real-time data synchronization is not required | An indexer can re-index your table at most every five minutes. If your data changes frequently, and the changes need to be reflected in the index within seconds or single minutes, we recommend using the [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [.NET SDK](search-import-data-dotnet.md) to push updated rows directly. |
+| Real-time data synchronization is not required | An indexer can reindex your table at most every five minutes. If your data changes frequently, and the changes need to be reflected in the index within seconds or single minutes, we recommend using the [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [.NET SDK](search-import-data-dotnet.md) to push updated rows directly. |
 | Incremental indexing is possible | If you have a large data set and plan to run the indexer on a schedule, Azure Search must be able to efficiently identify new, changed, or deleted rows. Non-incremental indexing is only allowed if you're indexing on demand (not on schedule), or indexing fewer than 100,000 rows. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below. |
 
 > [!NOTE] 
@@ -104,7 +104,7 @@ To monitor the indexer status and execution history (number of items indexed, fa
 The response should look similar to the following:
 
     {
-        "@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
+        "\@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
         "lastResult": {
             "status":"success",
@@ -174,7 +174,7 @@ You can add, change, or delete a schedule for an existing indexer by using a **P
 
 ## Capture new, changed, and deleted rows
 
-Azure Search uses **incremental indexing** to avoid having to re-index the entire table or view every time an indexer runs. Azure Search provides two change detection policies to support incremental indexing. 
+Azure Search uses **incremental indexing** to avoid having to reindex the entire table or view every time an indexer runs. Azure Search provides two change detection policies to support incremental indexing. 
 
 ### SQL Integrated Change Tracking Policy
 If your SQL database supports [change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), we recommend using **SQL Integrated Change Tracking Policy**. This is the most efficient policy. In addition, it allows Azure Search to identify deleted rows without you having to add an explicit "soft delete" column to your table.

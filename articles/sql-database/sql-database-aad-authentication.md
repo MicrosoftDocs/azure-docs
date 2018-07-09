@@ -5,14 +5,20 @@ services: sql-database
 author: GithubMirek
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
-ms.topic: article
-ms.date: 03/07/2018
+ms.topic: conceptual
+ms.date: 06/13/2018
 ms.author: mireks
-
+ms.reviewer: carlrab
 ---
 # Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or SQL Data Warehouse
-Azure Active Directory authentication is a mechanism of connecting to Microsoft Azure SQL Database and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Benefits include the following:
+Azure Active Directory authentication is a mechanism of connecting to Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). 
+
+> [!NOTE]
+> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+
+With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Benefits include the following:
 
 * It provides an alternative to SQL Server authentication.
 * Helps stop the proliferation of user identities across database servers.

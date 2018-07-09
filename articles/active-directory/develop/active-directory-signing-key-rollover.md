@@ -3,20 +3,22 @@ title: Signing Key Rollover in Azure AD
 description: This article discusses the signing key rollover best practices for Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2016
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-
 ---
+
 # Signing key rollover in Azure Active Directory
 This article discusses what you need to know about the public keys that are used in Azure Active Directory (Azure AD) to sign security tokens. It is important to note that these keys rollover on a periodic basis and, in an emergency, could be rolled over immediately. All applications that use Azure AD should be able to programmatically handle the key rollover process or establish a periodic manual rollover process. Continue reading to understand how the keys work, how to assess the impact of the rollover to your application and how to update your application or establish a periodic manual rollover process to handle key rollover if necessary.
 
@@ -45,7 +47,7 @@ How your application handles key rollover depends on variables such as the type 
 
 This guidance is **not** applicable for:
 
-* Applications added from Azure AD Application Gallery (including Custom) have separate guidance with regards to signing keys. [More information.](../active-directory-sso-certs.md)
+* Applications added from Azure AD Application Gallery (including Custom) have separate guidance with regards to signing keys. [More information.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
 * On-premises applications published via application proxy don't have to worry about signing keys.
 
 ### <a name="nativeclient"></a>Native client applications accessing resources

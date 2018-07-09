@@ -1,19 +1,16 @@
 ---
 title: Access and usage reports for Azure MFA | Microsoft Docs
 description: This describes how to use the Azure Multi-Factor Authentication feature - reports.
-services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
 
-ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 12/15/2017
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
 
 ---
@@ -49,5 +46,5 @@ Identify users who have not registered for MFA using the PowerShell that follows
 
 ## Next steps
 
-* [For Users](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)
+* [For Users](end-user/current/multi-factor-authentication-end-user.md)
 * [Where to deploy](concept-mfa-whichversion.md)

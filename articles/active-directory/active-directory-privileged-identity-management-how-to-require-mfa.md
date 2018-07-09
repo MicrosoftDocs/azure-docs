@@ -3,18 +3,16 @@ title: How to require multi-factor authentication | Microsoft Docs
 description: Learn how to require multi-factor authentication (MFA) for privileged identities with the Azure Active Directory Privileged Identity Management extension.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 editor: ''
 
-ms.assetid: 1e3dc4ad-3a6a-4a52-8417-3ca4f84ae05c
 ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
+ms.component: protection
 ms.date: 06/06/2017
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
 ---
 # How to require MFA in Azure AD Privileged Identity Management

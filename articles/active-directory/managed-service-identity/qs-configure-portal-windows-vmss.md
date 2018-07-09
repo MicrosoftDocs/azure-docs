@@ -8,21 +8,22 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
 ---
 
-# Configure a VMSS Managed Service Identity (MSI) using the Azure portal
+# Configure a virtual machine scale set Managed Service Identity (MSI) using the Azure portal
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you will learn how to enable and disable the system assigned identity for a VMSS, using the Azure portal. Assigning and removing user assigned identities from an Azure VMSS is not currently supported via the Azure Portal.
+In this article, you will learn how to enable and disable the system assigned identity for a virtual machine scale set, using the Azure portal. Assigning and removing user assigned identities from an Azure virtual machine scale set is not currently supported via the Azure portal.
 
 > [!NOTE]
 > Currently, user assigned identity operations are not supported via the Azure Portal. Check back for updates.

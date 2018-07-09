@@ -6,8 +6,8 @@ author: tfitzmac
 manager: timlt
 
 ms.service: event-grid
-ms.topic: article
-ms.date: 04/17/2018
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: tomfitz
 ---
 
@@ -32,7 +32,7 @@ The following HTTP response codes indicate that an event has been delivered succ
 
 ### Failure codes
 
-The following HTTP response codes indicate that an event delivery attempt failed. Event Grid tries again to send the event. 
+The following HTTP response codes indicate that an event delivery attempt failed. 
 
 - 400 Bad Request
 - 401 Unauthorized
@@ -43,9 +43,9 @@ The following HTTP response codes indicate that an event delivery attempt failed
 - 503 Service Unavailable
 - 504 Gateway Timeout
 
-Any other response code or a lack of a response indicates a failure. Event Grid retries delivery. 
+If Event Grid receives an error that indicates the endpoint is temporarily unavailable, it tries again to send the event. If Event Grid receives an error that indicates the delivery will never succeed and a [dead-letter endpoint has been configured](manage-event-delivery.md), it sends the event to the dead-letter endpoint. 
 
-## Retry intervals
+## Retry intervals and duration
 
 Event Grid uses an exponential backoff retry policy for event delivery. If your webhook does not respond or returns a failure code, Event Grid retries delivery on the following schedule:
 
@@ -59,12 +59,15 @@ Event Grid uses an exponential backoff retry policy for event delivery. If your 
 
 Event Grid adds a small randomization to all retry intervals. After one hour, event delivery is retried once an hour.
 
-## Retry duration
+By default, Event Grid expires all events that are not delivered within 24 hours. You can [customize the retry policy](manage-event-delivery.md) when creating an event subscription. You provide the maximum number of delivery attempts (default is 30) and the event time-to-live (default is 1440 minutes).
 
-Azure Event Grid expires all events that are not delivered within 24 hours.
+## Dead-letter events
+
+When Event Grid can't deliver an event, it can send the undelivered event to a storage account. This process is known as dead-lettering. To see undelivered events, you can pull them from the dead-letter location. For more information, see [Manage Event Grid delivery settings](manage-event-delivery.md).
 
 ## Next steps
 
 * To view the status of event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
+* To customize event delivery options, see [Manage Event Grid delivery settings](manage-event-delivery.md).
 * For an introduction to Event Grid, see [About Event Grid](overview.md).
 * To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).

@@ -135,7 +135,7 @@ Get started at development time with:
   * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Your suggestions:
-  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
+  * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * Blog:
   * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)
 
@@ -147,13 +147,13 @@ Get started at development time with:
 
 <!--Link references-->
 
-[android]: https://github.com/Microsoft/ApplicationInsights-Android
+[android]: app-insights-mobile-center-quickstart.md
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
 [greenbrown]: app-insights-asp-net.md
-[ios]: https://github.com/Microsoft/ApplicationInsights-iOS
+[ios]: app-insights-mobile-center-quickstart.md
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: app-insights-platforms.md

@@ -8,15 +8,16 @@ manager: mtillman
 editor: 
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
+ms.author: daveba
 ---
 
-# Use a Windows VM Managed Service Identity (MSI) to access Azure Data Lake Store
+# Tutorial: Use a Windows VM Managed Service Identity (MSI) to access Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -204,12 +205,9 @@ Using other Data Lake Store filesystem APIs you can append to files, download fi
 
 Congratulations!  You've authenticated to the Data Lake Store filesystem using a VM MSI.
 
-## Related content
+## Next steps
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md).
-- For management operations Data Lake Store uses Azure Resource Manager.  For more information on using a VM MSI to authenticate to Resource Manager, read [Use a Linux VM Managed Service Identity (MSI) to access Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
-- Learn more about [Authentication with Data Lake Store using Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
-- Learn more about [Filesystem operations on Azure Data Lake Store using REST API](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) or the [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
-- Learn more about [Access Control in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+In this tutorial, you learned how to use a Managed Service Identity for a Windows virtual machine to access an Azure Data Lake Store. To learn more about Azure Data Lake Store see:
 
-Use the following comments section to provide feedback and help us refine and shape our content.
+> [!div class="nextstepaction"]
+>[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

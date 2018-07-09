@@ -10,7 +10,7 @@ editor: tysonn
 ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/10/2018

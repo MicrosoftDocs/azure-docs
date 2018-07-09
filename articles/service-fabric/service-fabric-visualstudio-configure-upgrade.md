@@ -10,7 +10,7 @@ editor: tglee
 ms.assetid: 1757ba85-0b7b-4f16-8a23-2ddaa61c86c6
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017

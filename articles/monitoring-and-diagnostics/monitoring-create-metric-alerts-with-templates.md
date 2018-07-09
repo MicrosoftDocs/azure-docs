@@ -1,24 +1,20 @@
 ---
-title: Create a metric alert in Azure with a Resource Manager template | Microsoft Docs
+title: Create a metric alert with a Resource Manager template
 description: Learn how to use a Resource Manager template to create a metric alert.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
-
+ms.component: alerts
 ---
 # Create a metric alert with a Resource Manager template
 This article shows how you can use an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to configure [newer metric alerts](monitoring-near-real-time-metric-alerts.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Newer metric alerts are currently available on [this set of resource types](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+
+> [!IMPORTANT]
+> Resource Manager template specified for metric alert will not work for resource type: Microsoft.OperationalInsights/workspaces; as support for metrics from Log Analytics is in preview. Users interested in using the preview functionality with resource template, can contact [Azure Alerts Feedback](mailto:azurealertsfeedback@microsoft.com)
+
 
 The basic steps are as follows:
 

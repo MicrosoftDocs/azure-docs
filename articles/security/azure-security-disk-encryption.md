@@ -20,13 +20,17 @@ ms.author: devtiw
 # Azure Disk Encryption for Windows and Linux IaaS VMs
 Microsoft Azure is strongly committed to ensuring your data privacy, data sovereignty and enables you to control your Azure hosted data through a range of advanced technologies to encrypt, control and manage encryption keys, control & audit access of data. This provides Azure customers the flexibility to choose the solution that best meets their business needs. In this paper, we will introduce you to a new technology solution “Azure Disk Encryption for Windows and Linux IaaS VM’s” to help protect and safeguard your data to meet your organizational security and compliance commitments. The paper provides detailed guidance on how to use the Azure disk encryption features including the supported scenarios and the user experiences.
 
-> [!NOTE]
-> Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs.
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
 
 ## Overview
 Azure Disk Encryption is a new capability that helps you encrypt your Windows and Linux IaaS virtual machine disks. Azure Disk Encryption leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. The solution also ensures that all data on the virtual machine disks are encrypted at rest in your Azure storage.
 
 Azure disk encryption for Windows and Linux IaaS VMs is now in **General Availability** in all Azure public regions and AzureGov regions for Standard  VMs and VMs with premium storage.
+
+> [!NOTE]
+> Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs.
+
 
 ### Encryption scenarios
 The Azure Disk Encryption solution supports the following customer scenarios:
@@ -418,7 +422,7 @@ You can enable disk encryption on new IaaS Windows VM from the Marketplace in Az
 > [!NOTE]
 > This template creates a new encrypted Windows VM that uses the Windows Server 2012 gallery image.
 
-You can enable disk encryption on a new IaaS RedHat Linux 7.2 VM with a 200-GB RAID-0 array by using this [Resource Manager template](https://aka.ms/fde-rhel). After you deploy the template, verify the VM encryption status by using the `Get-AzureRmVmDiskEncryptionStatus` cmdlet, as described in [Encrypting OS drive on a running Linux VM](#encrypting-os-drive-on-a-running-linux-vm). When the machine returns a status of _VMRestartPending_, restart the VM.
+You can enable disk encryption on a new IaaS Red Hat Linux 7.2 VM with a 200-GB RAID-0 array by using this [Resource Manager template](https://aka.ms/fde-rhel). After you deploy the template, verify the VM encryption status by using the `Get-AzureRmVmDiskEncryptionStatus` cmdlet, as described in [Encrypting OS drive on a running Linux VM](#encrypting-os-drive-on-a-running-linux-vm). When the machine returns a status of _VMRestartPending_, restart the VM.
 
 The following table lists the Resource Manager template parameters for new VMs from the Marketplace scenario using Azure AD client ID:
 

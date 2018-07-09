@@ -1,18 +1,20 @@
-﻿---
+---
 title: Complete an access review of members of a group or users' access to an application with Azure AD| Microsoft Docs
 description: Learn how to complete an access review for members of a group or users with access to an application in Azure Active Directory. 
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/19/2017
-ms.author: billmath
+ms.topic: conceptual
+ms.component: compliance-reports
+ms.date: 05/02/2018
+ms.author: rolyon
+ms.reviewer: mwahl
 ---
 
 # Complete an access review of members of a group or users' access to an application in Azure AD

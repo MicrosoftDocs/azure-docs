@@ -1,5 +1,5 @@
 ---
-title: Get started with the WebJobs SDK - Azure
+title: Get started with the Azure WebJobs SDK
 description: Introduction to the WebJobs SDK for event-driven background processing. Learn how to access data in Azure services and third-party services.
 services: app-service\web, storage
 documentationcenter: .net
@@ -16,13 +16,13 @@ ms.date: 04/27/2018
 ms.author: tdykstra
 ---
 
-# Get started with the WebJobs SDK
+# Get started with the Azure WebJobs SDK for event-driven background processing
 
-This article shows how to create a WebJobs SDK project, run it locally, and deploy it to Azure.
+This article shows how to create an Azure WebJobs SDK project, run it locally, and deploy it to Azure App Service.
 
 The instructions are for [Visual Studio 2017](https://www.visualstudio.com/vs/), but the same tasks can be accomplished with other tools, such as [Visual Studio Code](https://code.visualstudio.com/).
 
-## What is the WebJobs SDK
+## What is the Azure WebJobs SDK
 
 The Azure WebJobs SDK is a framework that simplifies the task of writing background processing code that accesses data in Azure services. The SDK features a declarative syntax for specifying events that should trigger a function, such as a new message added to a queue. Similar declarative syntax controls reading and writing data once a function has been triggered. This system of triggers and bindings takes care of most of the low-level coding tasks associated with accessing Azure and third-party services.
 
@@ -42,7 +42,7 @@ public static void Run(
 
 ### Versions 2.x and 3.x
 
-The instructions tell how to create a WebJobs SDK version 2.x project, with notes about what's different for 3.x (in preview). The main change introduced by 3.x is the use of .NET Core instead of .NET Framework.
+The instructions tell how to create a WebJobs SDK version 2.x project. The latest version of the WebJobs SDK is 3.x, but it is currently in preview and this article doesn't have instructions for that version yet. The main change introduced by version 3.x is the use of .NET Core instead of .NET Framework.
 
 ### Azure Functions
 
@@ -61,15 +61,13 @@ This article assumes you have [an Azure account](https://azure.microsoft.com/fre
 
 2. Select **Windows Classic Desktop > Console App (.NET Framework)**.
 
-   To create a 3.x project, select **.NET Core > Console App (.NET Core)**.
-
 3. Name the project *WebJobsSDKSample*, and then select **OK**.
 
    ![New Project dialog](./media/webjobs-sdk-get-started/new-project.png)
 
 ## Add WebJobs NuGet package
 
-1. Install the latest stable 2.x version of the NuGet package `Microsoft.Azure.WebJobs`. (For WebJobs SDK 3.x, you would choose the latest 3.x version.)
+1. Install the latest stable 2.x version of the NuGet package `Microsoft.Azure.WebJobs`.
  
    Here's the **Package Manager Console** command for version 2.2.0:
 
@@ -290,7 +288,7 @@ In this section, you build and run the project locally and trigger the function 
 
 ## Add Application Insights logging
 
-When the project runs in Azure, you can't monitor function execution by viewing console output. The monitoring solution we recommend is [Application Insights](../application-insights/app-insights-overview.md). The procedures for viewing telemetry data are similar to [monitoring in Azure Functions](../azure-functions/functions-monitoring.md#view-telemetry-data).
+When the project runs in Azure, you can't monitor function execution by viewing console output. The monitoring solution we recommend is [Application Insights](../application-insights/app-insights-overview.md). For more information, see [Monitor Azure Functions](../azure-functions/functions-monitoring.md).
 
 In this section, you do the following tasks to set up Application Insights logging before you deploy to Azure:
 
@@ -346,7 +344,7 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 ### Add Application Insights logging provider
 
-1. Install the latest stable 2.x version of the NuGet package for the Application Insights logging provider:  `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`. (For WebJobs SDK 3.x, choose the latest 3.x version of the package.)
+1. Install the latest stable 2.x version of the NuGet package for the Application Insights logging provider:  `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 
    Here's the **Package Manager Console** command for version 2.2.0:
 

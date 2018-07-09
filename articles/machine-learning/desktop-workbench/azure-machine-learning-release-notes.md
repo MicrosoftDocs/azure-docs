@@ -6,19 +6,31 @@ author: hning86
 ms.author: haining
 manager: mwinkle
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
 ---
 # What's New in Azure Machine Learning
 
-In this article, learn about the new releases for [Azure Machine Learning Services](../service/overview-what-is-azure-ml.md). 
+In this article, learn about the new releases of [Azure Machine Learning](../service/overview-what-is-azure-ml.md). 
+
+
+## 2018-05 (Sprint 5)
+
+With this release of Azure Machine Learning, you can:
++ Featurize images with a quantized version of ResNet 50, train a classifier based on those features, and [deploy that model to an FPGA on Azure](../service/how-to-deploy-fpga-web-service.md) for ultra-low latency inferencing.
+
++ Quickly build and deploy highly-accurate machine learning and deep learning models using [custom Azure Machine Learning Packages](../service/reference-python-package-overview.md) for the following domains:
+  + [Computer vision](../service/how-to-build-deploy-image-classification-models.md)
+  + [Text analytics](../service/how-to-build-deploy-text-classification-models.md)
+  + [Forecasting](../service/how-to-build-deploy-forecast-models.md)
 
 ## 2018-03 (Sprint 4)
 **Version number**: 0.1.1801.24353  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
-Welcome to the fifth update of Azure Machine Learning Workbench. Many of the following updates are made as direct results of your feedback. Please keep them coming!
+Many of the following updates are made as direct results of your feedback. Please keep them coming!
 
 **Notable New Features and Changes**
 

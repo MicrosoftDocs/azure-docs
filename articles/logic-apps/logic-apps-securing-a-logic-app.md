@@ -4,7 +4,7 @@ description: Add security for protecting access to triggers, inputs and outputs,
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
@@ -182,12 +182,13 @@ providing the possibility for 'just-in-time' access to workflow contents.
 This setting can be configured within the resource settings of the Azure portal:
 
 1. In the Azure portal, open the logic app you want to add IP address restrictions
-1. Click the **Access control configuration** menu item under **Settings**
-1. Specify the list of IP address ranges for access to content
+2. Click the **Access control configuration** menu item under **Settings**
+3. Specify the list of IP address ranges for access to content
 
 #### Setting IP ranges on the resource definition
 
-If you are using a [deployment template](logic-apps-create-deploy-template.md) to automate your deployments, the IP range settings can be configured on the resource template.  
+If you are using a [deployment template](logic-apps-create-deploy-template.md) to automate your deployments, 
+the IP range settings can be configured on the resource template.  
 
 ``` json
 {
@@ -243,64 +244,62 @@ to retrieve secrets at deploy time.
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "secretDeploymentParam": {
-      "type": "securestring"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {
+      "secretDeploymentParam": {
+         "type": "securestring"
+      }
+   },
+   "variables": {},
+   "resources": [ {
       "name": "secret-deploy",
       "type": "Microsoft.Logic/workflows",
       "location": "westus",
       "tags": {
-        "displayName": "LogicApp"
+         "displayName": "LogicApp"
       },
       "apiVersion": "2016-06-01",
       "properties": {
-        "definition": {
-          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-          "actions": {
-            "Call_External_API": {
-              "type": "http",
-              "inputs": {
-                "headers": {
-                  "Authorization": "@parameters('secret')"
-                },
-                "body": "This is the request"
-              },
-              "runAfter": {}
-            }
-          },
-          "parameters": {
+         "definition": {
+            "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
+            "actions": {
+               "Call_External_API": {
+                  "type": "Http",
+                  "inputs": {
+                     "headers": {
+                        "Authorization": "@parameters('secret')"
+                     },
+                     "body": "This is the request"
+                  },
+                  "runAfter": {}
+               }
+            },
+            "parameters": {
+               "secret": {
+                  "type": "SecureString"
+               }
+            },
+            "triggers": {
+               "manual": {
+                  "type": "Request",
+                  "kind": "Http",
+                  "inputs": {
+                     "schema": {}
+                  }
+               }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {}
+         },
+         "parameters": {
             "secret": {
-              "type": "SecureString"
+               "value": "[parameters('secretDeploymentParam')]"
             }
-          },
-          "triggers": {
-            "manual": {
-              "type": "Request",
-              "kind": "Http",
-              "inputs": {
-                "schema": {}
-              }
-            }
-          },
-          "contentVersion": "1.0.0.0",
-          "outputs": {}
-        },
-        "parameters": {
-          "secret": {
-            "value": "[parameters('secretDeploymentParam')]"
-          }
-        }
+         }
       }
-    }
-  ],
-  "outputs": {}
+   } ],
+   "outputs": {}
 }
 ```
 

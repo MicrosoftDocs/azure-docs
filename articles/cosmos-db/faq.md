@@ -1,19 +1,15 @@
-﻿---
+---
 title: Azure Cosmos DB frequently asked questions | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling.
 keywords: Database questions, frequently asked questions, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2018
+ms.topic: conceptual
+ms.date: 07/03/2018
 ms.author: sngun
 
 ---
@@ -58,6 +54,9 @@ There is no limit to the total amount of data that a container can store in Azur
 
 ### What are the throughput limits of Azure Cosmos DB?
 There is no limit to the total amount of throughput that a container can support in Azure Cosmos DB. The key idea is to distribute your workload roughly evenly among a sufficiently large number of partition keys.
+
+### Are Direct and Gateway connectivity modes encrypted ? 
+Yes both modes are always fully encrypted. 
 
 ### How much does Azure Cosmos DB cost?
 For details, refer to the [Azure Cosmos DB pricing details](https://azure.microsoft.com/pricing/details/cosmos-db/) page. Azure Cosmos DB usage charges are determined by the number of provisioned containers, the number of hours the containers were online, and the provisioned throughput for each container. The term *containers* here refers to the SQL API collection, Graph API graph, MongoDB API collection, and Table API tables. 
@@ -113,6 +112,11 @@ Azure Cosmos DB is present across all Azure regions, as specified on the [Azure 
 
 When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a [sovereign region](https://azure.microsoft.com/global-infrastructure/), you cannot replicate out of that [sovereign region](https://azure.microsoft.com/global-infrastructure/). Similarly, you cannot enable replication into other sovereign locations from an outside account. 
 
+### Is it possible to switch from container level throughput provisioning to database level throughput provisioning? Or vice versa
+
+Container and database level throughput provisioning are separate offerings and switching between either of these require migrating data from source to destination. Which means you need to create a new database or a new collection and then migrate data by using [bulk executor library](bulk-executor-overview.md) or [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
+
+
 ## Develop against the SQL API
 
 ### How do I start developing against the SQL API?
@@ -128,12 +132,16 @@ Samples for the SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github
 Yes, the SQL API allows applications to store arbitrary JSON documents without schema definitions or hints. Data is immediately available for query through the Azure Cosmos DB SQL query interface.  
 
 ### Does the SQL API support ACID transactions?
-Yes, the SQL API supports cross-document transactions expressed as JavaScript-stored procedures and triggers. Transactions are scoped to a single partition within each collection and executed with ACID semantics as "all or nothing," isolated from other concurrently executing code and user requests. If exceptions are thrown through the server-side execution of JavaScript application code, the entire transaction is rolled back. For more information about transactions, see [Database program transactions](programming.md#database-program-transactions).
+Yes, the SQL API supports cross-document transactions expressed as JavaScript-stored procedures and triggers. Transactions are scoped to a single partition within each container and executed with ACID semantics as "all or nothing," isolated from other concurrently executing code and user requests. If exceptions are thrown through the server-side execution of JavaScript application code, the entire transaction is rolled back. For more information about transactions, see [Database program transactions](programming.md#database-program-transactions).
 
-### What is a collection?
-A collection is a group of documents and their associated JavaScript application logic. A collection is a billable entity, where the [cost](performance-levels.md) is determined by the throughput and used storage. Collections can span one or more partitions or servers and can scale to handle practically unlimited volumes of storage or throughput.
+### What is a container?
+A container is a group of documents and their associated JavaScript application logic. A container is a billable entity, where the [cost](performance-levels.md) is determined by the throughput and used storage. Containers can span one or more partitions or servers and can scale to handle practically unlimited volumes of storage or throughput. 
 
-Collections are also the billing entities for Azure Cosmos DB. Each collection is billed hourly, based on the provisioned throughput and used storage space. For more information, see [Azure Cosmos DB Pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+* For SQL and MongoDB API accounts, a container maps to a Collection. 
+* For Cassandra and Table API accounts, a container maps to a Table. 
+* For Gremlin API accounts, a container maps to a Graph. 
+
+Containers are also the billing entities for Azure Cosmos DB. Each container is billed hourly, based on the provisioned throughput and used storage space. For more information, see [Azure Cosmos DB Pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### How do I create a database?
 You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a collection](create-sql-api-dotnet.md#create-collection), one of the [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md), or the [REST APIs](/rest/api/cosmos-db/). 
@@ -156,10 +164,15 @@ To use optimistic concurrency in .NET, use the [AccessCondition](https://msdn.mi
 The SQL API supports language-integrated transactions via JavaScript-stored procedures and triggers. All database operations inside scripts are executed under snapshot isolation. If it is a single-partition collection, the execution is scoped to the collection. If the collection is partitioned, the execution is scoped to documents with the same partition-key value within the collection. A snapshot of the document versions (ETags) is taken at the start of the transaction and committed only if the script succeeds. If the JavaScript throws an error, the transaction is rolled back. For more information, see [Server-side JavaScript programming for Azure Cosmos DB](programming.md).
 
 ### How can I bulk-insert documents into Cosmos DB?
-You can bulk-insert documents into Azure Cosmos DB in either of two ways:
+You can bulk-insert documents into Azure Cosmos DB in one of the following ways:
 
+* The bulk executor tool, as described in [Using bulk executor .NET library](bulk-executor-dot-net.md) and [Using bulk executor Java library](bulk-executor-java.md)
 * The data migration tool, as described in [Database migration tool for Azure Cosmos DB](import-data.md).
 * Stored procedures, as described in [Server-side JavaScript programming for Azure Cosmos DB](programming.md).
+
+### I have setup my container to use lazy indexing, I see that my queries do not return expected results. 
+As explained in the indexing section, lazy indexing can result in this behavior. You should always use consistent indexing for all the applications. 
+
 
 ### Does the SQL API support resource link caching?
 Yes, because Azure Cosmos DB is a RESTful service, resource links are immutable and can be cached. SQL API clients can specify an "If-None-Match" header for reads against any resource-like document or collection and then update their local copies after the server version has changed.
@@ -168,7 +181,12 @@ Yes, because Azure Cosmos DB is a RESTful service, resource links are immutable 
 Yes. The [Azure Cosmos DB Emulator](local-emulator.md) provides a high-fidelity emulation of the Cosmos DB service. It supports functionality that's identical to Azure Cosmos DB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications by using the Azure Cosmos DB Emulator, and deploy them to Azure at a global scale by making a single configuration change to the connection endpoint for Azure Cosmos DB.
 
 ### Why are long floating-point values in a document rounded when viewed from data explorer in the portal. 
-This is limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in IEEE 754 and it can safely represent numbers between -(253 - 1) and 253 – 1 (i.e., 9007199254740991) only.
+This is limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in IEEE 754 and it can safely represent numbers between -(253 - 1) and 253-1 (i.e., 9007199254740991) only.
+
+### Where are permissions allowed in the object hierarchy?
+
+Creating permissions by using ResourceTokens is allowed at the container level and its descendants (such as documents, attachments). This implies that trying to create a permission at the database or an account level is not currently allowed.
+
 
 ## Develop against the API for MongoDB
 ### What is the Azure Cosmos DB API for MongoDB?
@@ -187,7 +205,7 @@ In addition to the common MongoDB error codes, the MongoDB API has its own speci
 
 | Error               | Code  | Description  | Solution  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request-unit rate for the collection and has been throttled. | Consider scaling the throughput of the collection from the Azure portal or retrying again. |
+| TooManyRequests     | 16500 | The total number of request units consumed has exceeded the provisioned request-unit rate for the collection and has been throttled. | Consider scaling the throughput  assigned to a container or a set of containers from the Azure portal or retrying again. |
 | ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has exceeded the client's memory allotment. | Reduce the scope of the operation through more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## Develop with the Table API
@@ -210,7 +228,8 @@ There are some behavior differences that users coming from Azure Table storage w
 * CORS is not currently supported
 * Table names in Azure Table storage are not case-sensitive, but they are in Azure Cosmos DB Table API
 * Some of Azure Cosmos DB's internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full 1 Meg of a table entity to store binary data because the encoding increases the data's size.
-* Entity property name “Id” currently not supported
+* Entity property name 'Id' currently not supported
+* TableQuery TakeCount is not limited to 1000
 
 In terms of the REST API there are a number of endpoints/query options that are not supported by Azure Cosmos DB Table API:
 | Rest Method(s) | Rest Endpoint/Query Option | Doc URLs | Explanation |
@@ -267,9 +286,6 @@ You can use the [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azu
 
 Tools with the flexibility to take a connection string in the format specified previously can support the new Table API. A list of table tools is provided on the [Azure Storage Client Tools](../storage/common/storage-explorers.md) page. 
 
-### Do PowerShell or Azure CLI work with the Table API?
-There is support for [PowerShell](table-powershell.md). Azure CLI support is not currently available.
-
 ### Is the concurrency on operations controlled?
 Yes, optimistic concurrency is provided via the use of the ETag mechanism. 
 
@@ -301,7 +317,7 @@ Yes, the same API is supported.
 No, you can create and use existing Azure Table storage assets without interruption of any kind. However, if you do not use the Table API, you cannot benefit from the automatic index, the additional consistency option, or global distribution. 
 
 ### How do I add replication of the data in the Table API across multiple regions of Azure?
-You can use the Azure Cosmos DB portal’s [global replication settings](tutorial-global-distribution-sql-api.md#portal) to add regions that are suitable for your application. To develop a globally distributed application, you should also add your application with the PreferredLocation information set to the local region for providing low read latency. 
+You can use the Azure Cosmos DB portal's [global replication settings](tutorial-global-distribution-sql-api.md#portal) to add regions that are suitable for your application. To develop a globally distributed application, you should also add your application with the PreferredLocation information set to the local region for providing low read latency. 
 
 ### How do I change the primary write region for the account in the Table API?
 You can use the Azure Cosmos DB global replication portal pane to add a region and then fail over to the required region. For instructions, see [Developing with multi-region Azure Cosmos DB accounts](regional-failover.md). 
@@ -382,10 +398,10 @@ The Table API provides the same query functionality as Azure Table storage. Azur
 ### When should I change TableThroughput for the Table API?
 You should change TableThroughput when either of the following conditions applies:
 * You're performing an extract, transform, and load (ETL) of data, or you want to upload a lot of data in short amount of time. 
-* You need more throughput from the container at the back end. For example, you see that the used throughput is more than the provisioned throughput, and you are getting throttled. For more information, see [Set throughput for Azure Cosmos DB containers](set-throughput.md).
+* You need more throughput from the container or from a set of containers at the back end. For example, you see that the used throughput is more than the provisioned throughput, and you are getting throttled. For more information, see [Set throughput for Azure Cosmos DB containers](set-throughput.md).
 
 ### Can I scale up or scale down the throughput of my Table API table? 
-Yes, you can use the Azure Cosmos DB portal’s scale pane to scale the throughput. For more information, see [Set throughput](set-throughput.md).
+Yes, you can use the Azure Cosmos DB portal's scale pane to scale the throughput. For more information, see [Set throughput](set-throughput.md).
 
 ### Is a default TableThroughput set for newly provisioned tables?
 Yes, if you do not override the TableThroughput via app.config and do not use a pre-created container in Azure Cosmos DB, the service creates a table with throughput of 400.
@@ -396,8 +412,8 @@ None. There is no change in price for existing Azure Table storage customers.
 ### How is the price calculated for the Table API? 
 The price depends on the allocated TableThroughput. 
 
-### How do I handle any throttling on the tables in Table API offering? 
-If the request rate exceeds the capacity of the provisioned throughput for the underlying container, you get an error, and the SDK retries the call by applying the retry policy.
+### How do I handle any rate limiting on the tables in Table API offering? 
+If the request rate exceeds the capacity of the provisioned throughput for the underlying container or a set of containers, you get an error, and the SDK retries the call by applying the retry policy.
 
 ### Why do I need to choose a throughput apart from PartitionKey and RowKey to take advantage of the Table API offering of Azure Cosmos DB?
 Azure Cosmos DB sets a default throughput for your container if you do not provide one in the app.config file or via the portal. 
@@ -410,7 +426,7 @@ By using the throughput specification, you can elastically change it to benefit 
 
 Azure Cosmos DB is designed to be a globally distributed, SLA-based system with guarantees for availability, latency, and throughput. When you reserve throughput in Azure Cosmos DB, it is guaranteed, unlike the throughput of other systems. Azure Cosmos DB provides additional capabilities that customers have requested, such as secondary indexes and global distribution.  
 
-### I never get a “quota full" notification (indicating that a partition is full) when I ingest data into Azure Table storage. With the Table API, I do get this message. Is this offering limiting me and forcing me to change my existing application?
+### I never get a quota full" notification (indicating that a partition is full) when I ingest data into Azure Table storage. With the Table API, I do get this message. Is this offering limiting me and forcing me to change my existing application?
 
 Azure Cosmos DB is an SLA-based system that provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. To ensure guaranteed premium performance, make sure that your data size and index are manageable and scalable. The 10-GB limit on the number of entities or items per partition key is to ensure that we provide great lookup and query performance. To ensure that your application scales well, even for Azure Storage, we recommend that you *not* create a hot partition by storing all information in one partition and querying it. 
 
@@ -456,10 +472,10 @@ CREATE TABLE keyspaceName.tablename (user_id int PRIMARY KEY, lastname text) WIT
 
 .NET
 ```csharp
-int provisionedThroughput = 400;
-var simpleStatement = new SimpleStatement($"CREATE TABLE {keyspaceName}.{tableName} (user_id int PRIMARY KEY, lastname text)");
-var outgoingPayload = new Dictionary<string, byte[]>();
-outgoingPayload["cosmosdb_provisioned_throughput"] = Encoding.UTF8.GetBytes(provisionedThroughput.ToString());
+int provisionedThroughput = 400;
+var simpleStatement = new SimpleStatement($"CREATE TABLE {keyspaceName}.{tableName} (user_id int PRIMARY KEY, lastname text)");
+var outgoingPayload = new Dictionary<string, byte[]>();
+outgoingPayload["cosmosdb_provisioned_throughput"] = Encoding.UTF8.GetBytes(provisionedThroughput.ToString());
 simpleStatement.SetOutgoingPayload(outgoingPayload); 
 ``` 
 
@@ -475,7 +491,7 @@ Diagnostic logs are explained in the [Azure Cosmos DB diagnostic logging](loggin
 ### Does the primary key map to the partition key concept of Azure Cosmos DB?
 Yes, the partition key is used to place the entity in right location. In Azure Cosmos DB it is used to find right logical partition that is stored on a physical partition. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](partition-data.md) article. The essential take away here is that a logical partition should not exceed the 10 GB limit today. 
 
-### What happens when I get a “quota full" notification indicating that a partition is full?
+### What happens when I get a quota full" notification indicating that a partition is full?
 Azure Cosmos DB is a SLA-based system that provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. It's Cassandra API too allows unlimited storage of data. This unlimited storage is based on horizontal scaleout of data using partitioning as the key concept. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](partition-data.md) article.
 
 The 10-GB limit on the number of entities or items per logical partition you should adhere to. To ensure that your application scales well, we recommend that you *not* create a hot partition by storing all information in one partition and querying it. This error can only come if you data is skewed - that is you have lot of data for one partition key - i.e., more than 10 GB. You can find the distribution of data using the storage portal. Way to fix this error is to recrete the table and choose a granular primary (partition key), which allows better distribution of data.

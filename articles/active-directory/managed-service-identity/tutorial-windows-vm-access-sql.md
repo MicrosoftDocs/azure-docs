@@ -8,16 +8,17 @@ manager: mtillman
 editor: bryanla
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
+ms.author: daveba
 ---
 
 
-# Use a Windows VM Managed Service Identity (MSI) to access Azure SQL
+# Tutorial: Use a Windows VM Managed Service Identity (MSI) to access Azure SQL
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -266,11 +267,9 @@ Alternatively, a quick way to test the end to end setup without having to write 
 
 Examine the value of `$DataSet.Tables[0]` to view the results of the query.  Congratulations, you've queried the database using a VM MSI and without needing to supply credentials!
 
-## Related content
+## Next steps
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md).
-- Learn more about [Azure SQL support for Azure AD authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
-- Learn more about [configuring Azure SQL support for Azure AD authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure).
-- Learn more about [authentication and access in SQL server](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
+In this tutorial, you learned how to create a Managed Service Identity to access Azure SQL server.  To learn more about Azure SQL Server see:
 
-Use the following comments section to provide feedback and help us refine and shape our content.
+> [!div class="nextstepaction"]
+>[Azure SQL Database service](/azure/sql-database/sql-database-technical-overview)

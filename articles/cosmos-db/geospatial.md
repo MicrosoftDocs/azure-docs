@@ -2,16 +2,12 @@
 title: Working with geospatial data in Azure Cosmos DB | Microsoft Docs
 description: Understand how to create, index and query spatial objects with Azure Cosmos DB and the SQL API.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 10/20/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
@@ -95,12 +91,12 @@ In addition to points, GeoJSON also supports LineStrings and Polygons. **LineStr
 In addition to Point, LineString, and Polygon, GeoJSON also specifies the representation for how to group multiple geospatial locations, as well as how to associate arbitrary properties with geolocation as a **Feature**. Since these objects are valid JSON, they can all be stored and processed in Azure Cosmos DB. However Azure Cosmos DB only supports automatic indexing of points.
 
 ### Coordinate reference systems
-Since the shape of the earth is irregular, coordinates of geospatial data are represented in many coordinate reference systems (CRS), each with their own frames of reference and units of measurement. For example, the "National Grid of Britain" is a reference system is very accurate for the United Kingdom, but not outside it. 
+Since the shape of the earth is irregular, coordinates of geospatial data are represented in many coordinate reference systems (CRS), each with their own frames of reference and units of measurement. For example, the "National Grid of Britain" is a reference system is accurate for the United Kingdom, but not outside it. 
 
 The most popular CRS in use today is the World Geodetic System  [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). GPS devices, and many mapping services including Google Maps and Bing Maps APIs use WGS-84. Azure Cosmos DB supports indexing and querying of geospatial data using the WGS-84 CRS only. 
 
 ## Creating documents with spatial data
-When you create documents that contain GeoJSON values, they are automatically indexed with a spatial index in accordance to the indexing policy of the collection. If you're working with an Azure Cosmos DB SDK in a dynamically typed language like Python or Node.js, you must create valid GeoJSON.
+When you create documents that contain GeoJSON values, they are automatically indexed with a spatial index in accordance to the indexing policy of the container. If you're working with an Azure Cosmos DB SDK in a dynamically typed language like Python or Node.js, you must create valid GeoJSON.
 
 **Create Document with Geospatial data in Node.js**
 
@@ -220,7 +216,7 @@ Polygon arguments in ST_WITHIN can contain only a single ring, that is, the Poly
 > 
 > 
 
-Azure Cosmos DB also supports performing inverse queries, that is, you can index Polygons or lines in Azure Cosmos DB, then query for the areas that contain a specified point. This pattern is commonly used in logistics to identify for example, when a truck enters or leaves a designated area. 
+Azure Cosmos DB also supports performing inverse queries, that is, you can index polygons or lines in Azure Cosmos DB, then query for the areas that contain a specified point. This pattern is commonly used in logistics to identify, for example, when a truck enters or leaves a designated area. 
 
 **Query**
 
@@ -269,7 +265,7 @@ These functions can also be used to validate Polygons. For example, here we use 
     }]
 
 ### LINQ Querying in the .NET SDK
-The SQL .NET SDK also providers stub methods `Distance()` and `Within()` for use within LINQ expressions. The SQL LINQ provider translates these method calls to the equivalent SQL built-in function calls (ST_DISTANCE and ST_WITHIN respectively). 
+The SQL .NET SDK also providers stub methods `Distance()` and `Within()` for use within LINQ expressions. The SQL LINQ provider translates this method calls to the equivalent SQL built-in function calls (ST_DISTANCE and ST_WITHIN respectively). 
 
 Here's an example of a LINQ query that finds all documents in the Azure Cosmos DB collection whose "location" value is within a radius of 30 km of the specified point using LINQ.
 
@@ -388,7 +384,7 @@ And here's how you can modify an existing collection to take advantage of spatia
 > 
 
 ## Next steps
-Nolearned you've learnt about how to get started with geospatial support in Azure Cosmos DB, you can:
+Now that you have learned how to get started with geospatial support in Azure Cosmos DB, next you can:
 
 * Start coding with the [Geospatial .NET code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Get hands on with geospatial querying at the [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)

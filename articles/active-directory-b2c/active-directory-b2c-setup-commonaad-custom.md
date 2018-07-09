@@ -1,27 +1,23 @@
----
-title: 'Add a multi-tenant Azure AD identity provider using custom policies - Azure Active Directory B2C | Microsoft Docs'
-description: Add a multi-tenant Azure AD identity provider using custom policies - Azure Active Directory B2C
+﻿---
+title: Add a multi-tenant Azure AD identity provider using custom policies in Azure Active Directory B2C | Microsoft Docs
+description: Add a multi-tenant Azure AD identity provider using custom policies - Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
-manager: alexsi
-editor: parakhj
+author: davidmu1
+manager: mtillman
 
-ms.assetid: 33c64001-5261-4ed9-8f46-b09839165250
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.devlang: na
+ms.topic: conceptual
 ms.date: 04/14/2018
-ms.author: parakhj
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Allow users to sign in to a multi-tenant Azure AD identity provider using custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for users using the common endpoint for Azure Active Directory (Azure AD) through the use of [custom policies](active-directory-b2c-overview-custom.md).
+This article shows you how to enable sign-in for users using the multi-tenant endpoint for Azure Active Directory (Azure AD) through the use of [custom policies](active-directory-b2c-overview-custom.md). This allows users from multiple Azure AD tenants to sign into Azure AD B2C without configuring a technical provider for each tenant. However, guest members in any of these tenants **will not** be able to sign in. For that, you will have to [individually configure each tenant](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
 > We use "contoso.com" for the organizational Azure AD tenant and "fabrikamb2c.onmicrosoft.com" as the Azure AD B2C tenant in the following instructions.
@@ -33,25 +29,22 @@ Complete the steps in the [Getting started with custom policies](active-director
 These steps include:
  	 
 1. Creating an Azure Active Directory B2C (Azure AD B2C) tenant.
-2. Creating an Azure AD B2C application.	
-3. Registering two policy-engine applications.	
-4. Setting up keys.	
-5. Setting up the starter pack.
+1. Creating an Azure AD B2C application.	
+1. Registering two policy-engine applications.	
+1. Setting up keys.	
+1. Setting up the starter pack.
 
 ## Step 1. Create a multi-tenant Azure AD app
 
-To enable sign-in for users using the multi-tenant Azure AD endpoint, you need to have a multi-tenant application registered in any of your Azure AD tenants. In this article, we will show you how to create a multi-tenant Azure AD application in your Azure AD B2C tenant. Then enable sign-in for users through the use of that multi-tenant Azure AD application.
-
->[!NOTE]
-> If you would like Azure AD users **and users with Microsoft accounts** to sign in, skip this section and instead register an application in the [Microsoft developer portal](https://apps.dev.microsoft.com).
+To enable sign-in for users using the multi-tenant Azure AD endpoint, you need to have a multi-tenant application registered in one of your Azure AD tenants. In this article, we will show you how to create a multi-tenant Azure AD application in your Azure AD B2C tenant. Then enable sign-in for users through the use of that multi-tenant Azure AD application.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the top bar, select your account. From the **Directory** list, choose the Azure AD B2C tenant to register the Azure AD application (fabrikamb2c.onmicrosoft.com).
-2. Select **More services** in the left pane, and search for "App registrations."
-3. Select **New application registration**.
-4. Enter a name for your application (for example, `Azure AD B2C App`).
-5. Select **Web app / API** for the application type.
-6. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
+1. Select **More services** in the left pane, and search for "App registrations."
+1. Select **New application registration**.
+1. Enter a name for your application (for example, `Azure AD B2C App`).
+1. Select **Web app / API** for the application type.
+1. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >The value for "yourtenant" must be all lowercase in the **Sign-on URL**.
@@ -79,8 +72,8 @@ You need to register the application key in the Azure AD B2C settings. To do thi
    * For **Name**, choose a name that matches your Azure AD tenant name (for example, `AADAppSecret`).  The prefix `B2C_1A_` is added automatically to the name of your key.
    * Paste your application key in the **Secret** box.
    * Select **Signature**.
-5. Select **Create**.
-6. Confirm that you've created the key `B2C_1A_AADAppSecret`.
+1. Select **Create**.
+1. Confirm that you've created the key `B2C_1A_AADAppSecret`.
 
 ## Step 3. Add a claims provider in your base policy
 
@@ -111,11 +104,12 @@ You can define Azure AD as a claims provider by adding Azure AD to the `<ClaimsP
         <Item Key="HttpBinding">POST</Item>
         <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
         
-        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. If you would like only specific tenants to be able to sign in, uncomment the line below and update the GUIDs. -->
-        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item> -->
+        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
+        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
-        <!-- The commented key below specifies that users from any tenant can sign-in. Comment or remove the line below if using the line above. -->
-        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item>
+        <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
+        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+
       </Metadata>
       <CryptographicKeys>
       <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
@@ -147,14 +141,15 @@ You can define Azure AD as a claims provider by adding Azure AD to the `<ClaimsP
 1. Update the value for `<Description>`.
 1. Set `<Item Key="client_id">` to the application ID from the Azure AD mulity-tenant app registration.
 
-### Step 3.1 [Optional] Restrict access to specific list of Azure AD tenants
-You may want to update the list of valid token issuers and restrict access to specific list of Azure AD tenants users can sign-in. To obtain the values, you will need to look at the metadata for each of the specific Azure AD tenants that you would like to have users sign in from. The format of the data looks like the following: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, where `yourAzureADtenant` is your Azure AD tenant name (contoso.com or any other Azure AD tenant).
+### Step 3.1 Restrict access to a specific list of Azure AD tenants
+
+> [!NOTE]
+> Using `https://sts.windows.net` as the value for **ValidTokenIssuerPrefixes** will allow ALL Azure AD users to sign into your app.
+
+You need to update the list of valid token issuers and restrict access to specific list of Azure AD tenants users can sign-in. To obtain the values, you will need to look at the metadata for each of the specific Azure AD tenants that you would like to have users sign in from. The format of the data looks like the following: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, where `yourAzureADtenant` is your Azure AD tenant name (contoso.com or any other Azure AD tenant).
 1. Open your browser and go to the metadata URL.
 1. In the browser, look for the 'issuer' object and copy its value. It should look like the following: `https://sts.windows.net/{tenantId}/`.
 1. Paste the value for the `ValidTokenIssuerPrefixes` key. You can add multiple by separating them using a comma. An example of this is commented in the sample XML above.
-
-> [!NOTE]
-> Using `https://sts.windows.net` as a prefix value will allow ALL Azure AD users to sign into your app.
 
 ## Step 4. Register the Azure AD account claims provider
 
@@ -209,11 +204,11 @@ You now need to update the relying party (RP) file that will initiate the user j
 ## Step 6: Upload the policy to your tenant
 
 1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then select **Azure AD B2C**.
-2. Select **Identity Experience Framework**.
-3. Select **All Policies**.
-4. Select **Upload Policy**.
-5. Select the **Overwrite the policy if it exists** check box.
-6. Upload the `TrustFrameworkExtensions.xml` file and the RP file (e.g. `SignUpOrSignInWithAAD.xml`) and ensure they pass validation.
+1. Select **Identity Experience Framework**.
+1. Select **All Policies**.
+1. Select **Upload Policy**.
+1. Select the **Overwrite the policy if it exists** check box.
+1. Upload the `TrustFrameworkExtensions.xml` file and the RP file (e.g. `SignUpOrSignInWithAAD.xml`) and ensure they pass validation.
 
 ## Step 7: Test the custom policy by using Run Now
 

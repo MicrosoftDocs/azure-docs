@@ -23,7 +23,13 @@ ms.custom: mvc
 
 # Tutorial: Diagnose a virtual machine network routing problem using the Azure portal
 
-In this tutorial, you deploy a virtual machine (VM), and then check communications to an IP address and URL. You determine the cause of a communication failure and how you can resolve it.
+When you deploy a virtual machine (VM), Azure creates several default routes for it. You may create custom routes to override Azure's default routes. Sometimes, a custom route can result in a VM not being able to communicate with other resources. In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a VM
+> * Test communication to a URL using the next hop capability of Network Watcher
+> * Test communication to an IP address
+> * Diagnose a routing problem, and learn how you can resolve it
 
 If you prefer, you can diagnose a virtual machine network routing problem using the [Azure CLI](diagnose-vm-network-routing-problem-cli.md) or [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md).
 

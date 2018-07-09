@@ -8,7 +8,8 @@ manager:
 editor:
 
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -26,6 +27,13 @@ This article helps you troubleshoot and resolve network-related configuration er
 
 Invalid NSG configurations are the most common cause of network errors for Azure AD Domain Services. The Network Security Group (NSG) configured for your virtual network must allow access to [specific ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services). If these ports are blocked, Microsoft cannot monitor or update your managed domain. Additionally, synchronization between your Azure AD directory and your managed domain is impacted. While creating your NSG, keep these ports open to avoid interruption in service.
 
+### Checking your NSG for compliance
+
+1. Navigate to the [Network security groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) page in the Azure portal
+2. From the table, choose the NSG associated with the subnet in which your managed domain is enabled.
+3. Under **Settings** in the left-hand panel, click **Inbound security rules**
+4. Review the rules in place and identify which rules are blocking access to [these ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services).
+5. Edit the NSG to ensure compliance by either deleting the rule, adding a rule, or creating a new NSG entirely. Steps to [add a rule](#add-a-rule-to-a-network-security-group-using-the-azure-portal) or [create a new, compliant NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) are below.
 
 ## Sample NSG
 The following table depicts a sample NSG that would keep your managed domain secure while allowing Microsoft to monitor, manage, and update information.
@@ -45,7 +53,7 @@ If you do not want to use PowerShell, you can manually add single rules to NSGs 
 5. Verify your rule has been created by locating it in the rules table.
 
 
-## Create an NSG for Azure AD Domain Services using PowerShell
+## Create a NSG for Azure AD Domain Services using PowerShell
 This NSG is configured to allow inbound traffic to the ports required by Azure AD Domain Services, while denying any other unwanted inbound access.
 
 **Pre-requisite: Install and configure Azure PowerShell**

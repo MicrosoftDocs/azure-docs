@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
+ms.date: 05/04/2018
 ms.author: terrylan
 
 ---
@@ -30,7 +30,7 @@ Just in time virtual machine (VM) access can be used to lock down inbound traffi
 
 Brute force attacks commonly target management ports as a means to gain access to a VM. If successful, an attacker can take control over the VM and establish a foothold into your environment.
 
-One way to reduce exposure to a brute force attack is to limit the amount of time that a port is open. Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When just in time is enabled, Security Center uses [Network Security Group](../virtual-network/virtual-networks-nsg.md) (NSG) rules, which restrict access to management ports so they cannot be targeted by attackers.
+One way to reduce exposure to a brute force attack is to limit the amount of time that a port is open. Management ports do not need to be open at all times. They only need to be open while you are connected to the VM, for example to perform management or maintenance tasks. When just in time is enabled, Security Center uses [network security group](../virtual-network/security-overview.md#security-rules) (NSG) rules, which restrict access to management ports so they cannot be targeted by attackers.
 
 ![Just in time scenario][1]
 
@@ -38,7 +38,7 @@ One way to reduce exposure to a brute force attack is to limit the amount of tim
 
 When just in time is enabled, Security Center locks down inbound traffic to your Azure VMs by creating an NSG rule. You select the ports on the VM to which inbound traffic will be locked down. These ports are controlled by the just in time solution.
 
-When a user requests access to a VM, Security Center checks that the user has [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) permissions that provide write access for the VM. If they have write permissions, the request is approved and Security Center automatically configures the Network Security Groups (NSGs) to allow inbound traffic to the management ports for the amount of time you specified. After the time has expired, Security Center restores the NSGs to their previous states.
+When a user requests access to a VM, Security Center checks that the user has [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) permissions that provide write access for the VM. If they have write permissions, the request is approved and Security Center automatically configures the Network Security Groups (NSGs) to allow inbound traffic to the selected ports for the amount of time you specified. After the time has expired, Security Center restores the NSGs to their previous states. Those connections that are already established are not being interrupted, however.
 
 > [!NOTE]
 > Security Center just in time VM access currently supports only VMs deployed through Azure Resource Manager. To learn more about the classic and Resource Manager deployment models see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).

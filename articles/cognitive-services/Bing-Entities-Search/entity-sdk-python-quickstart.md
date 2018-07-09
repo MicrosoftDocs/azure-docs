@@ -13,7 +13,9 @@ ms.author: v-gedod
 ---
 # Entity Search SDK Python quickstart
 
-The Entity Search SDK contains the functionality of the REST API for web queries and parsing results. 
+The Entity Search SDK contains the functionality of the REST API for web queries and parsing results.
+
+The [source code for Python Bing Entity Search SDK samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py) is available on Git Hub.
 
 ## Application dependencies
 If you don't already have it, install Python. The SDK is compatible with Python 2.7, 3.3, 3.4, 3.5, and 3.6.

@@ -31,6 +31,10 @@ You perform the following steps in this tutorial:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
+For an eleven-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
+
 ## Prerequisites
 
   - **Azure Databricks workspace**. [Create a Databricks workspace](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) or use an existing one. You create a Python notebook in your Azure Databricks workspace. Then you execute the notebook and pass parameters to it using Azure Data Factory.
@@ -59,11 +63,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.
 
     Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
-1.  For **Version**, select **V2 (Preview)**.
+1.  For **Version**, select **V2**.
 
 2.  For **Location**, select the location for the data factory.
 
-    Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (like Azure Storage and Azure SQL Database) and computes (like HDInsight) that Data Factory uses can be in other regions.
+    For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (like Azure Storage and Azure SQL Database) and computes (like HDInsight) that Data Factory uses can be in other regions.
 
 3.  Select **Pin to dashboard**.
 

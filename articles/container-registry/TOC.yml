@@ -17,7 +17,7 @@
   items:
   - name: Azure Container Instances
     href: ../container-instances/container-instances-tutorial-prepare-app.md
-  - name: Azure Container Service (AKS)
+  - name: Azure Kubernetes Service (AKS)
     href: ../aks/tutorial-kubernetes-prepare-app.md
   - name: Service Fabric
     href: ../service-fabric/service-fabric-tutorial-create-container-images.md
@@ -29,7 +29,7 @@
       href: container-registry-tutorial-build-task.md
     - name: 3 - Base image update builds
       href: container-registry-tutorial-base-image-update.md
-  - name: Geo-replication (preview)
+  - name: Geo-replication
     items:
     - name: 1 - Prepare container registry
       href: container-registry-tutorial-prepare-registry.md
@@ -43,7 +43,9 @@
     href: container-registry-skus.md
   - name: Image storage
     href: container-registry-storage.md
-  - name: Geo-replication (preview)
+  - name: Build and patch with ACR Build
+    href: container-registry-build-overview.md
+  - name: Geo-replication
     href: container-registry-geo-replication.md
   - name: Registry best practices
     href: container-registry-best-practices.md
@@ -74,7 +76,7 @@
   - name: REST
     href: /rest/api/containerregistry
   - name: PowerShell
-    href: /powershell/module/azurerm.containerregistry
+    href: /powershell/module/azurerm.containerregistry#container_registry
   - name: .NET
     href: /dotnet/api/overview/azure/containerregistry
   - name: Python

@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -31,6 +31,7 @@ This article includes frequently asked questions about configuration and managem
 - [How can I generate a Certificate Signing Request (CSR) without "RDP-ing" in to the instance?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [My Cloud Service Management Certificate is expiring. How to renew it?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [How to automate the installation of main SSL certificate(.pfx) and intermediate certificate(.p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Monitoring and logging**
 
@@ -100,6 +101,10 @@ The **Get-AzurePublishSettingsFile** will create a new management certificate in
 ### How to automate the installation of main SSL certificate(.pfx) and intermediate certificate(.p7b)?
 
 You can automate this task by using a startup script (batch/cmd/PowerShell) and register that startup script in the service definition file. Add both the startup script and certificate(.p7b file) in the project folder of the same directory of the startup script.
+
+### What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?
+
+This certificate is used to encrypt machine keys on Azure Web Roles. To learn more, check out this advisory[https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
 
 For more information, see the following articles:
 - [How to configure and run startup tasks for a Cloud Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
@@ -195,10 +200,10 @@ For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
 
 ## Permissions
 
-### How can I implement Role-Based Access for Cloud Services?
-Cloud Services doesn't support the Role-Based Access Control (RBAC) model, as it's not an Azure Resource Manager based service.
+### How can I implement role-based access for Cloud Services?
+Cloud Services doesn't support the role-based access control (RBAC) model, as it's not an Azure Resource Manager based service.
 
-See [Azure RBAC vs. classic subscription administrators](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators).
+See [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ## Remote desktop
 

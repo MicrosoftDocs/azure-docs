@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
@@ -37,7 +37,7 @@ By using the access panel, you can edit some of your profile settings and do the
 
 - View and start cloud-based applications that the Azure AD administrator has granted you access to. 
 
-- Self-manage groups. Administrators can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](active-directory-accessmanagement-self-service-group-management.md) and [Manage your groups](active-directory-manage-groups.md).
+- Self-manage groups. Administrators can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](users-groups-roles/groups-self-service-management.md) and [Manage your groups](fundamentals/active-directory-manage-groups.md).
 
 
 
@@ -59,7 +59,7 @@ To reach the access panel, you must be authenticated through a work or school ac
 
 If you have a subscription for Azure or Office 365 and you have been using the Azure portal or an Office 365 application, you can view the list of applications without signing in again. If you are not authenticated, you are prompted to sign in by using the username and password for your account in Azure AD. If your organization has configured federation, typing the username is sufficient.
 
-When you are authenticated, you can interact with the applications that your administrator has integrated with the directory. To learn how to integrate applications with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+When you are authenticated, you can interact with the applications that your administrator has integrated with the directory. To learn how to integrate applications with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## Web browser requirements
 
@@ -80,10 +80,15 @@ To sign in to password-based single sign-on, you must use the extension. After t
 - You can sign in to an app directly by using the app's **Sign-on URL**. When you use the app's URL, the extension detects the action and gives you the option of signing in from the extension.
 - You can launch any of your apps from the access panel by using the *quick search* feature of the extension. 
 - The extension shows you the last three applications that you launched in **Recently Used** section.
+- You can use internal company URLs while remote through [Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Additional features are available only for Edge, Chrome, and Firefox.
 >
+You can download the extension directly from the following sites:
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:
 1. While you are *not* signed in to the extension, right-click the extension icon.
@@ -91,6 +96,16 @@ If you are using a My Apps URL other than `https://myapps.microsoft.com`, config
 3. Select your default URL.
 4. Select the extension icon.
 5. Select **Sign in to get started**.
+
+To use internal company URLs while remote using the extension, do the following:
+1. [Configure Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) on your tenant.
+2. [Publish the application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) and URL through Application Proxy.
+3. Install the extension, and sign in to it by selecting Sign in to get started.
+4. You can now browse to the internal company URL even while remote.
+
+> [!NOTE]
+> You may also turn off automatic redirection to company URLs by selecting the settings gear on the main menu and selecting **off** for the Company internal URL redirection option.
+
 
 ## Mobile app support
 
@@ -201,9 +216,9 @@ For example, if an application is configured to authenticate users by using AD F
 
 - To view a list of all topics that are related to application management, see the [article index for application management in Azure Active Directory](active-directory-apps-index.md).
  
-- To learn how to integrate a SaaS app with Azure AD, see the [list of tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md).
+- To learn how to integrate a SaaS app with Azure AD, see the [list of tutorials on how to integrate SaaS apps](saas-apps/tutorial-list.md).
  
-- To learn more about managing apps with Azure AD, see the [introduction to single sign-on and managing app access with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+- To learn more about managing apps with Azure AD, see the [introduction to single sign-on and managing app access with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
  
 - To learn more about user provisioning, see [automate user provisioning and deprovisioning to SaaS applications](active-directory-saas-app-provisioning.md).
 

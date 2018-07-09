@@ -4,7 +4,7 @@
   items:
   - name: What is Bing Autosuggest?
     href: get-suggested-search-terms.md
-- name: Quickstarts
+- name: REST API Quickstarts
   expanded: true
   items:
   - name: C#
@@ -41,12 +41,8 @@
   items:
   - name: FAQ
     href: bing-autosuggest-resource-faq.md
-  - name: Get API key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
-  - name: Try it!
-    href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598198-bing-autosuggest
   - name: Stack Overflow
@@ -55,8 +51,16 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Autosuggest endpoint
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Get API key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
+  - name: Try it!
+    href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
+  - name: Bing Autosuggest endpoint
     href: autosuggest-endpoint.md
   - name: Supported languages
     href: bing-autosuggest-supported-languages.md
+  - name: Analytics for Bing Autosuggest API
+    href: bing-autosuggest-stats.md
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Select Windows VM images in Azure | Microsoft Docs
 description: Learn how to use Azure PowerShell to determine the publisher, offer, SKU, and version for Marketplace VM images.
 services: virtual-machines-windows
@@ -22,6 +22,8 @@ ms.author: danlep
 
 This article describes how to use Azure PowerShell to find VM images in the Azure Marketplace. Use this information to specify a Marketplace image when you create a VM programmatically with PowerShell, Resource Manager templates, or other tools.
 
+Also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) storefront, the [Azure portal](https://portal.azure.com), or the [Azure CLI](../linux/cli-ps-findimage.md). 
+
 Make sure that you installed and configured the latest [Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
@@ -37,7 +39,6 @@ Make sure that you installed and configured the latest [Azure PowerShell module]
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
-| MicrosoftSQLServer |SQL2016-WS2016 |Enterprise |
 | MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Enterprise |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
 | MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
