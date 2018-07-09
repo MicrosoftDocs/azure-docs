@@ -68,7 +68,7 @@ az eventhubs eventhub create \
     --resource-group ${AZURE_GROUP}
 ```
 
-## Send Events
+## Send events
 
 Get the Go package for Event Hubs with `go get` or `dep`:
 
