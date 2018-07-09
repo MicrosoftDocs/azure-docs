@@ -64,7 +64,7 @@ sections:
           src: media/index/i_mi.svg
         title: Managed Instance
       - href: /azure/sql-database/sql-database-business-continuity
-        html: <p>Built-in High-availability, automated backups, and geo-replication will not allow infrastructure or harware failures, maintenance actons to stop your business.</p>
+        html: <p>Built-in High-availability, automated backups, and geo-replication will not allow maintenance operations, infrastructure or hardware failures to stop your business.</p>
         image:
           src: media/index/gear.svg
         title: Business continuity
