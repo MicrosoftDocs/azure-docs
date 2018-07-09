@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 07/08/2018
 ms.author: magoedte
 ---
 
@@ -237,10 +237,11 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
         ```
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster.  
 
-## Verify agent deployed successfully
+## Verify agent and solution deployment
+With agent version *06072018* and higher, you are able to verify both the agent and the solution were deployed successfully.  With earlier versions of the agent, you can only verify agent deployment.
 
 ### Agent version 06072018 and higher
-To verify the OMS agent version *06072018* or higher is deployed properly, run the following commands: 
+Run the following command to verify the agent is deployed successfully.   
 
 ```
 kubectl get ds omsagent --namespace=kube-system
@@ -254,7 +255,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
-To verify a new deployment, run the following command:
+To verify deployment of the solution, run the following command:
 
 ```
 kubectl get deployment omsagent-rs -n=kube-system
@@ -518,7 +519,7 @@ If container health was successfully enabled and configured but you are not seei
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```  
-2. Check the status of the deployment for agent version *06072018* or higher by running the following command:
+2. Check the solution deployment status with agent version *06072018* or higher by running the following command:
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 
