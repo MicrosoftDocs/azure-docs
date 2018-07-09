@@ -1,8 +1,8 @@
 ---
-title: Trusted Internet Connection Guidance
+title: Trusted Internet Connection Guidance for Azure
 description: Trusted Internet Connection Guidance for Azure and SaaS services
 services: security
-author: dlap
+author: dlapiduz
 
 ms.assetid: 09511e03-a862-4443-81ac-ede815bdaf25
 ms.service: security
@@ -45,7 +45,7 @@ There are several ways to meet the Trusted Internet Connection Appendix H  (Clou
 
 To enable the connection from the Department or Agency (D/A) to Azure or Office 365, without routing traffic through the D/A TIC, the D/A must use an encrypted tunnel and/or a dedicated connection to the Cloud Service Provider (CSP). The CSP services can ensure that connectivity to the D/A cloud assets are not offered to the public internet for direct agency personnel access.
 
-O365 is compliant with TIC 2.0 Appendix H using either Express Route with [Microsoft Peering](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) enabled or an internet connection that encrypts all traffic using TLS 1.2.  D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to O365 is blocked and routed through the agency. The D/A can also connect to O365 over an Express Route connection with Microsoft peering, which is a type of Public Peering, enabled.  
+O365 is compliant with TIC 2.0 Appendix H using either Express Route with [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) enabled or an internet connection that encrypts all traffic using TLS 1.2.  D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to O365 is blocked and routed through the agency. The D/A can also connect to O365 over an Express Route connection with Microsoft peering, which is a type of Public Peering, enabled.  
 
 For Azure only, options 2 (VPN) and 3 (ExpressRoute) can meet these requirements when they are used in conjunction with services that limit access to the Internet.
 
@@ -70,7 +70,7 @@ To configure a TIC-compliant architecture with Azure, you will have to first pre
 
 Azure IaaS networking is conducted via Virtual Networks comprised of Subnets, to which the Network Interface Controllers (NICs) of Virtual Machines are associated.
 
-The simplest scenario to support TIC compliance is to assure that a Virtual Machine, or a collection thereof, cannot connect to any external resources. The disconnection from external networks can be assured using Network Security Groups (NSGs), which can be used to control traffic to one or more NICs or subnets in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances.  To learn more about how to create an NSG, see this article [Creating a NSG](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+The simplest scenario to support TIC compliance is to assure that a Virtual Machine, or a collection thereof, cannot connect to any external resources. The disconnection from external networks can be assured using Network Security Groups (NSGs), which can be used to control traffic to one or more NICs or subnets in your virtual network. An NSG contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an NSG can be changed at any time, and changes are applied to all associated instances.  To learn more about how to create an NSG, see this article [Creating a NSG](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 #### Force Internet Traffic Through On-Premises Network
 
@@ -78,7 +78,7 @@ Azure automatically creates system routes and assigns the routes to each subnet 
 
 ![TIC force tunneling](media/tic-diagram-c.png)
 
-To ensure that all traffic traverses the D/A TIC, all traffic leaving the Virtual Network needs to be routed through the On-Premises connection.  You create custom routes by either creating user-defined routes, or by exchanging border gateway protocol (BGP) routes between your on-premises network gateway and an Azure virtual network gateway. More information on User-defined routes can be found at https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#user-defined. More information on Border Gateway Protocol can also be found at https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol.
+To ensure that all traffic traverses the D/A TIC, all traffic leaving the Virtual Network needs to be routed through the On-Premises connection.  You create custom routes by either creating user-defined routes, or by exchanging border gateway protocol (BGP) routes between your on-premises network gateway and an Azure virtual network gateway. More information on User-defined routes can be found at https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined. More information on Border Gateway Protocol can also be found at https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol.
 
 #### User-Defined Routes
 
@@ -96,7 +96,7 @@ Azure offers multiple ways to audit TIC compliance.
 
 #### Effective Routes
 
-To confirm that your default route has been propagated, you can observe the "Effective Routes" of a particular VM, a specific NIC, or a User-Defined Route Table. This can be done via the Azure portal as described at https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-routes-troubleshoot-portal, or via PowerShell as described at https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-routes-troubleshoot-powershell. The Effective Routes blade will allow you to see the relevant User-Defined Routes, BGP advertised routes, and System routes that apply to the relevant entity, as seen below.
+To confirm that your default route has been propagated, you can observe the "Effective Routes" of a particular VM, a specific NIC, or a User-Defined Route Table. This can be done via the Azure portal as described at https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal, or via PowerShell as described at https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-powershell. The Effective Routes blade will allow you to see the relevant User-Defined Routes, BGP advertised routes, and System routes that apply to the relevant entity, as seen below.
 
 ![routes screenshot](media/tic-screen-1.png)
 
@@ -104,7 +104,7 @@ To confirm that your default route has been propagated, you can observe the "Eff
 
 #### Network Watcher
 
-Azure Network Watcher offers multiple tools that can be used to audit TIC compliance.  Learn more about Network Watcher at https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview.
+Azure Network Watcher offers multiple tools that can be used to audit TIC compliance.  Learn more about Network Watcher at https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview.
 
 ##### Network Security Groups Flow Logs 
 
@@ -151,7 +151,7 @@ Services that support deployment of dedicated instances into a VNet or Service E
 
 ### VNet Integration Details
 
-The below diagram walks through the general network flow for access to PaaS services using both VNet Injection and VNet Service Tunneling.  Additional information on Network Service Gateways, VNet's and Service Tags can be found here https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags.
+The below diagram walks through the general network flow for access to PaaS services using both VNet Injection and VNet Service Tunneling.  Additional information on Network Service Gateways, VNet's and Service Tags can be found here https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags.
 
 ![PaaS Connectivity options for TIC](media/tic-diagram-e.png)
 
@@ -182,19 +182,19 @@ Azure provides cloud native tools to help ensure that you have the situational a
 
 ### Azure Policy
 
-Azure Policy (https://azure.microsoft.com/en-us/services/azure-policy/) is an Azure service that provides your organization with better ability to audit and enforce compliance initiatives.  Currently available in Public Preview in Azure Commercial Clouds but not yet in Microsoft Azure for Government, TIC-conscious customers can start planning and testing their Policy rules for future compliance assurance. Azure Policy is targeted at the subscription level, and provides a centralized interface for managing initiatives, policy definitions, auditing and enforcement results, and exception management. In addition to the many built-in Azure Policy definitions, administrators can define their own custom definitions through simple json templating.For many customers, Microsoft recommends the prioritization of auditing over enforcement where possible.
+Azure Policy (https://azure.microsoft.com/services/azure-policy/) is an Azure service that provides your organization with better ability to audit and enforce compliance initiatives.  Currently available in Public Preview in Azure Commercial Clouds but not yet in Microsoft Azure for Government, TIC-conscious customers can start planning and testing their Policy rules for future compliance assurance. Azure Policy is targeted at the subscription level, and provides a centralized interface for managing initiatives, policy definitions, auditing and enforcement results, and exception management. In addition to the many built-in Azure Policy definitions, administrators can define their own custom definitions through simple json templating.For many customers, Microsoft recommends the prioritization of auditing over enforcement where possible.
 
 The following sample policies may be useful for TIC compliance scenarios:
 
 |Policy  |Sample Scenario  |Starting Template  |
 |---------|---------|---------|
-|Enforce User-Defined Route Table | 	Ensure that the default route on all Virtual Networks points towards an approved Virtual Network Gateway for routing to On Premises	| https://docs.microsoft.com/en-us/azure/azure-policy/scripts/no-user-def-route-table |
-|Audit if Network Watcher is not enabled for Region  | Ensure that Network Watcher is enabled for all used regions  | https://docs.microsoft.com/en-us/azure/azure-policy/scripts/net-watch-not-enabled |
-|NSG X on every subnet  | Ensure that an NSG (or set of approved NSGs) with Internet traffic blocked is applied to all subnets in every VNet | https://docs.microsoft.com/en-us/azure/azure-policy/scripts/nsg-on-subnet |
-|NSG X on every NIC | Ensure that an NSG with Internet traffic blocked is applied to all NICs on all VMs. | https://docs.microsoft.com/en-us/azure/azure-policy/scripts/nsg-on-nic |
-|Use approved VNet for VM network interfaces  | Ensure that all NICs are on an approved VNet | https://docs.microsoft.com/en-us/azure/azure-policy/scripts/use-approved-vnet-vm-nics |
-|Allowed locations | Ensure that all resources are deployed to regions with compliant VNets and Network Watcher configuration  | https://docs.microsoft.com/en-us/azure/azure-policy/scripts/allowed-locs |
-|Not allowed resource types such as PublicIPs  | Prohibit the deployment of resource types, which do not have a compliance plan. As an example, this policy could be used to prohibit the deployment of Public IP address resources. While NSG rules can be used to effectively block inbound Internet traffic, preventing the use of Public IPs further reduces the attack surface.	| https://docs.microsoft.com/en-us/azure/azure-policy/scripts/not-allowed-res-type  |
+|Enforce User-Defined Route Table | 	Ensure that the default route on all Virtual Networks points towards an approved Virtual Network Gateway for routing to On Premises	| https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table |
+|Audit if Network Watcher is not enabled for Region  | Ensure that Network Watcher is enabled for all used regions  | https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled |
+|NSG X on every subnet  | Ensure that an NSG (or set of approved NSGs) with Internet traffic blocked is applied to all subnets in every VNet | https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet |
+|NSG X on every NIC | Ensure that an NSG with Internet traffic blocked is applied to all NICs on all VMs. | https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic |
+|Use approved VNet for VM network interfaces  | Ensure that all NICs are on an approved VNet | https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics |
+|Allowed locations | Ensure that all resources are deployed to regions with compliant VNets and Network Watcher configuration  | https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs |
+|Not allowed resource types such as PublicIPs  | Prohibit the deployment of resource types, which do not have a compliance plan. As an example, this policy could be used to prohibit the deployment of Public IP address resources. While NSG rules can be used to effectively block inbound Internet traffic, preventing the use of Public IPs further reduces the attack surface.	| https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type  |
 
 ### Azure Traffic Analytics
 
