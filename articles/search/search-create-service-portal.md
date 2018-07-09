@@ -6,7 +6,7 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 11/07/2017
+ms.date: 07/09/2018
 ms.author: heidist
 
 ---
@@ -72,12 +72,14 @@ It can take a few minutes to create a service (15 minutes or more depending on t
 
 ***Replicas*** allow your service to handle a higher load of search queries.
 
+Adding resources increases your monthly bill. The [pricing calculator](https://azure.microsoft.com/pricing/calculator/) can help you understand the billing ramifications of adding resources. Remember that you can adjust resources based on load. For example, you might increase resources to create a full initial index, and then reduce resources later to a level more appropriate for incremental indexing.
+
 > [!Important]
 > A service must have [2 replicas for read-only SLA and 3 replicas for read/write SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Go to your search service page in the Azure portal.
 2. In the left-navigation pane, select **Settings** > **Scale**.
-3. Use the slidebar to add Replicas or Partitions.
+3. Use the slidebar to add resources of either type.
 
 ![](./media/search-create-service-portal/settings-scale.png)
 
@@ -86,7 +88,7 @@ It can take a few minutes to create a service (15 minutes or more depending on t
 
 ## When to add a second service
 
-A large majority of customers use just one service provisioned at a tier that provides the [right balance of resources](search-sku-tier.md). One service can host multiple indexes, subject to the [maximum limits of the tier you select](search-capacity-planning.md), with each index isolated from another. In Azure Search, requests can only be directed to one index, minimizing the chance of accidental or intentional data retrieval from other indexes in the same service.
+A large majority of customers use just one service provisioned at a tier providing the [right balance of resources](search-sku-tier.md). One service can host multiple indexes, subject to the [maximum limits of the tier you select](search-capacity-planning.md), with each index isolated from another. In Azure Search, requests can only be directed to one index, minimizing the chance of accidental or intentional data retrieval from other indexes in the same service.
 
 Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 
