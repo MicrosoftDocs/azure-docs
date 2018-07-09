@@ -6,7 +6,7 @@ ms.manager: douge
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 05/06/2018
+ms.date: 07/09/2018
 author: mlearned
 monikerRange: 'vsts'
 ---
@@ -58,7 +58,7 @@ The Azure DevOps Project creates a CI/CD pipeline in VSTS.  You can create a **n
 
 1. It will take several minutes for the process to complete.  A sample ASP.NET Core application is set up in a repository in your VSTS account, a Service Fabric cluster is created, a build and release executes, and your application deploys to Azure.  
 
-	Once complete, the Azure DevOps **project dashboard** loads in the Azure portal.  You can also navigate to the **Azure DevOps Project Dashboard** directly from **All resources** in the **Azure Portal**.  
+	Once complete, the Azure DevOps **project dashboard** loads in the Azure portal.  You can also navigate to the **Azure DevOps Project Dashboard** directly from **All resources** in the **Azure portal**.  
 
 	This dashboard provides visibility into your VSTS **code repository**, **VSTS CI/CD pipeline**, and **Service Fabric cluster**.  You can further configure additional options in VSTS.  On the right-side of the dashboard, select **Browse** to view your running application.
 
@@ -70,11 +70,11 @@ The Azure DevOps Project automatically configures a full VSTS CI/CD pipeline in 
 
 1. Select **Build Pipelines** from the **top** of the **Azure DevOps project dashboard**.  This link opens a browser tab and opens the VSTS build definition for your new project.
 
-1. Move the mouse cursor to the right of the build definition next to the **Status** field. Select the **ellipsis** that appears.  This action opens a menu where you can perform several activities such as **queue a new build**, **pause a build**, and **edit the build definition**.
+1. Move the mouse cursor to the right of the build definition next to the **Status** field. Select the **ellipsis** that appears.  This action opens a menu where you can start several activities such as **queue a new build**, **pause a build**, and **edit the build definition**.
 
 1. Select **Edit**.
 
-1. From this view, **examine the various tasks** for your build definition.  The build performs various tasks such as fetching sources from the VSTS Git repository, restoring dependencies, and publishing outputs used for deployments.
+1. From this view, **examine the various tasks** for your build definition.  The build executes various tasks such as fetching sources from the VSTS Git repository, restoring dependencies, and publishing outputs used for deployments.
 
 1. At the top of the build definition, select the **build definition name**.
 
@@ -82,7 +82,7 @@ The Azure DevOps Project automatically configures a full VSTS CI/CD pipeline in 
 
 1. Under your build definition name, select **History**.  You see an audit trail of your recent changes for the build.  VSTS keeps track of any changes made to the build definition and allows you to compare versions.
 
-1. Select **Triggers**.  The Azure DevOps project automatically created a CI trigger, and every commit to the repository initiates a new build.  You can optionally choose to include or exclude branches from the CI process.
+1. Select **Triggers**.  The Azure DevOps project automatically created a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.  Based on your scenario, you can specify policies to keep or remove a certain number of builds.
 
@@ -96,7 +96,7 @@ The Azure DevOps Project automatically creates and configures the necessary step
 
 1. The release definition contains a **pipeline**, which defines the release process.  Under **Artifacts**, select **Drop**.  The build definition you examined in the previous steps produces the output used for the artifact. 
 
-1. To the right-hand side of the **Drop** icon, select the **Continuous deployment trigger** **icon** (which appears as a lightning bolt.)  This release definition has an enabled CD trigger.  The trigger initiates a deployment every time there is a new build artifact available.  Optionally, you can disable the trigger, so your deployments will then require manual execution. 
+1. To the right-hand side of the **Drop** icon, select the **Continuous deployment trigger** **icon** (which appears as a lightning bolt.)  This release definition has an enabled CD trigger.  The trigger starts a deployment every time there is a new build artifact available.  Optionally, you can disable the trigger, so your deployments will then require manual execution. 
 
 1. On the right-hand side of the browser, select **View releases**.  This view shows a history of releases.
 
@@ -111,14 +111,14 @@ The Azure DevOps Project automatically creates and configures the necessary step
  > [!NOTE]
  > The steps below test the CI/CD pipeline with a simple text change to your web app.
 
-You're now ready to collaborate with a team on your app with a CI/CD process that automatically deploys your latest work to your web site.  Each change to the VSTS git repo initiates a build in VSTS, and a VSTS Release Management definition deploys your changes to Azure.  Follow the steps below, or use other techniques to commit changes to your repository.  For example, you can **clone** the Git repository in your favorite tool or IDE, and then push changes to this repo.
+You're now ready to collaborate with a team on your app with a CI/CD process that automatically deploys your latest work to your web site.  Each change to the VSTS git repo starts a build in VSTS, and a VSTS Release Management definition deploys your changes to Azure.  Follow the steps below, or use other techniques to commit changes to your repository.  For example, you can **clone** the Git repository in your favorite tool or IDE, and then push changes to this repo.
 
 1. Select **Code** and then **Files** from the VSTS menu, and navigate to your repository.
 1. Navigate to the **Views\Home** directory, then select the **ellipsis** next to the **Index.cshtml** file, and then choose **Edit**.
 
 1. Make a change to the file such as some text inside one of the **div tags**.  At the top right, select **Commit**.  Select **Commit** again to push your change. 
 
-1. In a few moments, a **build initiates in VSTS**, and then a release executes to deploy the changes.  You can monitor the **build status** with the DevOps project dashboard or in the browser with your VSTS account.
+1. In a few moments, a **build starts in VSTS**, and then a release executes to deploy the changes.  You can monitor the **build status** with the DevOps project dashboard or in the browser with your VSTS account.
 
 1. Once the release completes, **refresh your application** in the browser to verify you see your changes.
 
@@ -127,9 +127,9 @@ You're now ready to collaborate with a team on your app with a CI/CD process tha
  > [!NOTE]
  > The steps below will permanently delete resources.  Only use this functionality after carefully reading the prompts.
 
-If you are testing, you can clean up resources to avoid accruing billing charges.  When no longer needed, you can delete the Azure Service Fabric cluster and related resources created in this tutorial by using the **Delete** functionality on the Azure DevOps Project dashboard.  **Be careful**, as the delete functionality destroys the data created by the Azure DevOps Project in both Azure and VSTS, and you will not be able to retrieve it once its gone.
+If you are testing, you can clean up resources to avoid accruing billing charges.  When no longer needed, you can delete the Azure Service Fabric cluster and related resources created in this tutorial by using the **Delete** functionality on the Azure DevOps Project dashboard.  **Be careful**, as the delete functionality destroys the data created by the Azure DevOps Project in both Azure and VSTS, and you will not be able to retrieve it once it's gone.
 
-1. From the **Azure Portal**, navigate to the **Azure DevOps Project**.
+1. From the **Azure portal**, navigate to the **Azure DevOps Project**.
 2. On the **top right** side of the dashboard, select **Delete**.  After reading the prompt, select **Yes** to **permanently delete** the resources.
 
 ## Next steps

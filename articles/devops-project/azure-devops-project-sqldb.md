@@ -6,7 +6,7 @@ ms.manager: douge
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 07/09/2018
 author: mlearned
 monikerRange: 'vsts'
 ---
@@ -59,7 +59,7 @@ The Azure DevOps Project creates a CI/CD pipeline in VSTS.  You can create a **n
  
 1. If you performed the step above, exit the Azure configuration area, and choose **Done**.  Otherwise just select **Done**.
 
-1. It will take several minutes for the process to complete.  Once complete, the Azure DevOps **project dashboard** loads in the Azure portal.  You can also navigate to the **Azure DevOps Project Dashboard** directly from **All resources** in the **Azure Portal**.  On the right side of the dashboard, select **Browse** to view your running application.
+1. It will take several minutes for the process to complete.  Once complete, the Azure DevOps **project dashboard** loads in the Azure portal.  You can also navigate to the **Azure DevOps Project Dashboard** directly from **All resources** in the **Azure portal**.  On the right side of the dashboard, select **Browse** to view your running application.
 	
 ## Examine the VSTS CI Build definition
 
@@ -73,7 +73,7 @@ The Azure DevOps Project automatically configures a full VSTS CI/CD pipeline in 
 
 1. Select **Edit**.
 
-1. From this view, **examine the various tasks** for your build definition.  The build performs various tasks such as fetching sources from the VSTS Git repository, restoring dependencies, and publishing outputs used for deployments.
+1. From this view, **examine the various tasks** for your build definition.  The build executes various tasks such as fetching sources from the VSTS Git repository, restoring dependencies, and publishing outputs used for deployments.
 
 1. At the top of the build definition, select the **build definition name**.
 
@@ -81,13 +81,13 @@ The Azure DevOps Project automatically configures a full VSTS CI/CD pipeline in 
 
 1. Under your build definition name, select **History**.  You see an audit trail of your recent changes for the build.  VSTS keeps track of any changes made to the build definition and allows you to compare versions.
 
-1. Select **Triggers**.  The Azure DevOps project automatically created a CI trigger, and every commit to the repository initiates a new build.  You can optionally choose to include or exclude branches from the CI process.
+1. Select **Triggers**.  The Azure DevOps project automatically created a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.  Based on your scenario, you can specify policies to keep or remove a certain number of builds.
 
 ## Examine the VSTS CD Release Management definition
 
-The Azure DevOps Project automatically creates and configures the necessary steps to deploy from your VSTS account to your Azure subscription.  These steps include configuring an Azure service connection to authenticate VSTS to your Azure subscription.  The automation also creates a VSTS Release Definition, and this provides the CD to the Azure.  Follow the steps below to examine more about the VSTS Release Definition.
+The Azure DevOps Project automatically creates and configures the necessary steps to deploy from your VSTS account to your Azure subscription.  These steps include configuring an Azure service connection to authenticate VSTS to your Azure subscription.  The automation also creates a VSTS Release Definition, and the release provides the CD to the Azure.  Follow the steps below to examine more about the VSTS Release Definition.
 
 1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps project created a VSTS release definition to manage deployments to Azure.
 
@@ -95,7 +95,7 @@ The Azure DevOps Project automatically creates and configures the necessary step
 
 1. The release definition contains a **pipeline**, which defines the release process.  Under **Artifacts**, select **Drop**.  The build definition you examined in the previous steps produces the output used for the artifact. 
 
-1. To the right-hand side of the **Drop** icon, select the **Continuous deployment trigger** **icon** (which appears as a lightning bolt.)  This release definition has an enabled CD trigger.  The trigger initiates a deployment every time there is a new build artifact available.  Optionally, you can disable the trigger, so your deployments will then require manual execution. 
+1. To the right-hand side of the **Drop** icon, select the **Continuous deployment trigger** **icon** (which appears as a lightning bolt.)  This release definition has an enabled CD trigger.  The trigger starts a deployment every time there is a new build artifact available.  Optionally, you can disable the trigger, so your deployments will then require manual execution. 
 
 1. The Azure DevOps project set up a random SQL password, and used this password for the release definition.  On the left-hand side of the browser, select **Variables**. 
 
@@ -120,7 +120,7 @@ The Azure DevOps Project automatically creates and configures the necessary step
  > [!NOTE]
  > The steps below test the CI/CD pipeline with a simple text change.  You may optionally make a SQL Server Schema change to the table to test the SQL deploy process.
 
-You're now ready to collaborate with a team on your app with a CI/CD process that automatically deploys your latest work to your web site.  Each change to the VSTS git repo initiates a build in VSTS, and a VSTS Release Management definition executes a deployment to Azure.  Follow the steps below, or use other techniques to commit changes to your repository.  The code changes initiate the CI/CD process and automatically deploys your new changes to Azure.
+You're now ready to collaborate with a team on your app with a CI/CD process that automatically deploys your latest work to your web site.  Each change to the VSTS git repo starts a build in VSTS, and a VSTS Release Management definition executes a deployment to Azure.  Follow the steps below, or use other techniques to commit changes to your repository.  The code changes start the CI/CD process and automatically deploys your new changes to Azure.
 
 1. Select **Code** from the VSTS menu, and navigate to your repository.
 
@@ -128,7 +128,7 @@ You're now ready to collaborate with a team on your app with a CI/CD process tha
 
 1. Make a change to the file such as some text inside one of the **div tags**.  At the top right, select **Commit**.  Select **Commit** again to push your change. 
 
-1. In a few moments, a **build initiates in VSTS**, and then a release executes to deploy the changes.  You can monitor the **build status** with the DevOps project dashboard or in the browser with your VSTS account.
+1. In a few moments, a **build starts in VSTS**, and then a release executes to deploy the changes.  You can monitor the **build status** with the DevOps project dashboard or in the browser with your VSTS account.
 
 1. Once the release completes, **refresh your application** in the browser to verify you see your changes.
 
@@ -140,7 +140,7 @@ You need appropriate permissions to connect to the Azure SQL Database.
    
 1. Select **Set server firewall**, and then select **+ Add client IP**.  
 
-1. Select **Save**.  You're client IP is now allowed access to the **SQL Server Azure resource**.
+1. Select **Save**.  Your client IP is now allowed access to the **SQL Server Azure resource**.
 
 1. Navigate back to the **SQL Database** blade. 
 
@@ -160,9 +160,9 @@ You need appropriate permissions to connect to the Azure SQL Database.
  > [!NOTE]
  > The steps below will permanently delete resources.  Only use this functionality after carefully reading the prompts.
 
-If you are testing, you can clean up resources to avoid accruing billing charges.  When no longer needed, you can delete the Azure SQL Database and related resources created in this tutorial by using the **Delete** functionality on the Azure DevOps Project dashboard.  **Be careful**, as the delete functionality destroys the data created by the Azure DevOps Project in both Azure and VSTS, and you will not be able to retrieve it once its gone.
+If you are testing, you can clean up resources to avoid accruing billing charges.  When no longer needed, you can delete the Azure SQL Database and related resources created in this tutorial by using the **Delete** functionality on the Azure DevOps Project dashboard.  **Be careful**, as the delete functionality destroys the data created by the Azure DevOps Project in both Azure and VSTS, and you will not be able to retrieve it once it's gone.
 
-1. From the **Azure Portal**, navigate to the **Azure DevOps Project**.
+1. From the **Azure portal**, navigate to the **Azure DevOps Project**.
 2. On the **top right** side of the dashboard, select **Delete**.  After reading the prompt, select **Yes** to **permanently delete** the resources.
 
 ## Next steps
