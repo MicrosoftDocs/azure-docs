@@ -98,7 +98,7 @@ Setting up a blue/green deployment in AKS requires the following setup:
 
     Locate the public ip's in the resource group
 
-    ![Public IP](images/publicip.png)
+    ![Public IP](./media/jenkins-aks-blue-green-deployment/publicip.png)
 
     For each of the services, find the external IP address by running:
     
@@ -198,7 +198,7 @@ Setting up a blue/green deployment in AKS requires the following setup:
 
 
 ## Run it
-1. Verify you can run your project successfully in your local environment. ([Run project on local machine](../../README.md))
+1. Verify you can run your project successfully in your local environment. ([Run project on local machine](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it))
 
 1. Run jenkins job. If you run this for the first time, Jenkins will deploy the todo app to the Blue environment which is the default inactive environment. 
 
