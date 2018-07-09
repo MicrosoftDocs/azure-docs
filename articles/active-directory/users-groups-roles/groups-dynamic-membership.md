@@ -1,5 +1,4 @@
 ---
-
 title: Attribute-based dynamic group membership rules in Azure Active Directory | Microsoft Docs
 description: How to create advanced rules for dynamic group membership including supported expression rule operators and parameters.
 services: active-directory
@@ -12,15 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 07/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 
 ms.custom: it-pro
-
 ---
-# Create attribute-based rules for dynamic group membership in Azure Active Directory
-In Azure Active Directory (Azure AD), you can create custom rules to enable complex attribute-based dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
+
+# Create dynamic groups with attribute-based membership in Azure Active Directory
+
+In Azure Active Directory (Azure AD), you can create complex attribute-based rules to enable dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
 
 When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed.
 
@@ -204,6 +204,7 @@ Allowed operators
 | userType |member guest *null* |(user.userType -eq "Member") |
 
 ### Properties of type string collection
+
 Allowed operators
 
 * -contains
@@ -214,7 +215,15 @@ Allowed operators
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+As an example, to search for all users with  “Contoso” in the proxyAddresses (or otherMails) property, the syntax would look like:
+```(user.proxyAddresses -any (_ -contains "contoso"))```
+
+Property | Usage
+------- | -------
+proxyAddresses | (user.proxyAddresses -any (_ -contains "contoso"))
+
 ## Multi-value properties
+
 Allowed operators
 
 * -any (satisfied when at least one item in the collection matches the condition)
