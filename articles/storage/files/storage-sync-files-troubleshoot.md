@@ -291,6 +291,7 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 | **Remediation required** | Yes |
 
 1. Check that you can resolve the storage DNS name from the server.
+
     ```PowerShell
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
@@ -321,10 +322,13 @@ This error occurs when the Azure file share storage limit has been reached, whic
 2. Select the cloud endpoint within the sync group.
 3. Note the Azure file share name in the opened pane.
 4. Select the linked storage account. If this link fails, the referenced storage account has been removed.
+
     ![A screenshot showing the cloud endpoint detail pane with a link to the storage account.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
+
 5. Select **Files** to view the list of file shares.
 6. Click the three dots at the end of the row for the Azure file share referenced by the cloud endpoint.
 7. Verify that the **Usage** is below the **Quota**. Note unless an alternate quota has been specified, the quota will match the [maxium size of the Azure file share](storage-files-scale-targets.md).
+
     ![A screenshot of the Azure file share properties.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
 If the share is full and a quota is not set, one possible way of fixing this issue is to make each subfolder of the current server endpoint into it's own server endpoint in their own separate sync groups. This way each subfolder will sync to individual Azure file shares.
@@ -395,10 +399,13 @@ If this error persists for longer than a few hours, create a support request and
 This error can happen if your organization is using an SSL terminating proxy or if a malicious entity is intercepting the traffic between your server and the Azure File Sync service. If you are certain that this is expected (because your organization is using an SSL terminating proxy), you skip certificate verification with a registry override.
 
 1. Create the SkipVerifyingPinnedRootCertificate registry value.
+
     ```PowerShell
     New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\Azure\StorageSync -Name SkipVerifyingPinnedRootCertificate -PropertyType DWORD -Value 1
     ```
+
 2. Restart the sync service on the registered server.
+
     ```PowerShell
     Restart-Service -Name FileSyncSvc -Force
     ```
@@ -432,9 +439,7 @@ This error commonly occurs because the server time is incorrect. If the server's
 | **HRESULT (decimal)** | -1906441711 |
 | **Error string** | JET_errLogDiskFull |
 | **Remediation required** | Yes |
-
 | | |
-|-|-|
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (decimal)** | -2134375654 |
 | **Error string** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
@@ -466,16 +471,12 @@ Azure File Sync currently does not support resource move to another subscription
 | **HRESULT (decimal)** | -2134364145 |
 | **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Remediation required** | Yes |
-
 | | |
-|-|-|
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
 | **Error string** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
 | **Remediation required** | Yes |
-
 | | |
-|-|-|
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (decimal)** | -2134375853 |
 | **Error string** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
