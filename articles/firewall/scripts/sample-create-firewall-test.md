@@ -28,7 +28,7 @@ You can run the script from the Azure [Cloud Shell](https://shell.azure.com/powe
 
 If you run PowerShell locally, this script requires the AzureRM PowerShell module version 6.4.0 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. 
 
-You can use `PowerShellGet` if you need to upgrade, which is built into Windows 10 and Windows Server 2016. 
+You can use `PowerShellGet` if you need to upgrade, which is built into Windows 10 and Windows Server 2016.
 
 > [!NOTE]
 >Other Windows version require you to install `PowerShellGet` before you can use it. 
