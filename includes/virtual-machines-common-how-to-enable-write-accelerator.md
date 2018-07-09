@@ -182,7 +182,7 @@ Using cmd.exe, run the following command: `@"%SystemRoot%\System32\WindowsPowerS
 
 Using Power Shell, run the following command: `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
-Now you can install the armclient with the command below in cmd.exe or PowerShell `choco install armclient`
+Now you can install the armclient by using the following command in either cmd.exe or PowerShell `choco install armclient`
 
 #### Getting your current VM configuration
 
