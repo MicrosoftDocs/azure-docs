@@ -14,9 +14,9 @@ ms.author: victorh
 
 # Create an Azure Firewall test environment
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
+[!INCLUDE [firewall-preview-notice](../../../includes/firewall-preview-notice.md)]
 
-The examples in the Azure Firewall articles assume that you have already enabled the Azure Firewall public preview. For more information, see [Enable the Azure Firewall public preview](public-preview.md).
+The examples in the Azure Firewall articles assume that you have already enabled the Azure Firewall public preview. For more information, see [Enable the Azure Firewall public preview](../public-preview.md).
 
 This script sample creates a firewall and a test network environment. The network has one VNet, with three subnets: an *AzureFirewallSubnet*, and *ServersSubnet*, and a *JumpboxSubnet*. The ServersSubnet and JumpboxSubnet each have one 2-core Windows Server in them.
 
