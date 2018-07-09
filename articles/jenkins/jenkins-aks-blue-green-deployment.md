@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 07/06/2018
+ms.date: 07/09/2018
 ms.author: tarcher
 ms.custom: Jenkins
 ---
@@ -33,13 +33,13 @@ This document shows you how to deploy the todo app java project to AKS using Jen
 
 ## Create Azure services
 
-You can create the Azure Services using [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). For AKS, please make sure Azure CLI is version 2.0.25 or later.
+You can create the Azure Services using [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). For AKS, make sure Azure CLI is version 2.0.25 or later.
 
-AKS is still in preview at the time when these instructions are created. You may need to enable the preview for your Azure subscription. Please refer to [this](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription) for more details.
+AKS is still in preview at the time when these instructions are created. For information on enabling the preview for your Azure subscription. refer to [this](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription) for more details.
 
 ### Create AKS
 
-1. login your Azure CLI, and set your subscription id 
+1. Log in to your Azure CLI, and set your subscription ID 
     
     ```bash
     az login
@@ -62,10 +62,10 @@ AKS is still in preview at the time when these instructions are created. You may
 
 ### Setting up AKS
 
-Because we are doing blue/green deployment, we need to do some initial setup. You have two choices. 
+Setting up a blue/green deployment in AKS requires the following setup: 
 
-#### Run the set up script
-1. Edit [set up script](/../deploy/aks/setup/setup.sh) and update `<your-resource-group-name>`, `<your-kubernetes-cluster-name>`,
+#### Run the setup script
+1. Edit [setup script](/../deploy/aks/setup/setup.sh) and update `<your-resource-group-name>`, `<your-kubernetes-cluster-name>`,
    `<your-location>` and `<your-dns-name-suffix>` respectively:
 
     ``` bash   
@@ -84,7 +84,7 @@ Because we are doing blue/green deployment, we need to do some initial setup. Yo
     az aks get-credentials -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --admin
     ```
 
-2. Change directory to /deploy/aks/setup. Run the following kubectl commands to setup the services for
+2. Change directory to /deploy/aks/setup. Run the following kubectl commands to set up the services for
     the public end point and the two test end points:
 
     ```
@@ -183,7 +183,7 @@ Because we are doing blue/green deployment, we need to do some initial setup. Yo
     def dockerRegistry = '<your-acr-name>.azurecr.io'
     ```
     
-    And update ACR credential id
+    And update ACR credential ID:
     
     ```
     def dockerCredentialId = '<your-acr-credential-id>'
@@ -213,7 +213,7 @@ If you run the build more than once, it will cycle through Blue and Green deploy
 
 ## Additional information
 
-For more on zero-downtime deployment, please check out this [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/301-jenkins-aks-zero-downtime-deployment). 
+For more on zero-downtime deployment, check out this [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/301-jenkins-aks-zero-downtime-deployment). 
 
 ## Clean up
 
