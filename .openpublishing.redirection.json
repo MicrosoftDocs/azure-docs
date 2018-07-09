@@ -26039,6 +26039,11 @@
         "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
         "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/Create-new-app.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-start-new-app",
+        "redirect_document_id": true
         }
     ]
 }
