@@ -22,19 +22,19 @@ A user defined route is created that points the network traffic from the Servers
 
 You can run the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. 
 
-If you run PowerShell locally, this script requires the AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. 
+If you run PowerShell locally, this script requires the AzureRM PowerShell module version 6.4.0 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. 
 
 You can use `PowerShellGet` if you need to upgrade, which is built into Windows 10 and Windows Server 2016. 
 
 > [!NOTE]
 >Other Windows version require you to install `PowerShellGet` before you can use it. 
->You can run `Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,>Path` to determine if it is installed on your system. If the output is blank, you need to install the latest [Windows Management framework](https://www.microsoft.com/download/details.aspx?id=54616).
+>You can run `Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path` to determine if it is installed on your system. If the output is blank, you need to install the latest [Windows Management framework](https://www.microsoft.com/download/details.aspx?id=54616).
 
 For more information, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0)
 
 Any existing Azure PowerShell installation done with the Web Platform installer will conflict with the PowerShellGet installation and needs to be removed.
 
-Additionally, you must install the latest version of AzureRM.Network (version 6.4.0). If have an older module, run `Uninstall-Module AzureRM.Network -Force` to remove it. Then run:
+Additionally, you must install the preview version of AzureRM.Network (version 6.4.0). If have an older module, run `Uninstall-Module AzureRM.Network -Force` to remove it. Then run:
 
  `Install-Module -Name AzureRM.Network -Repository PSGallery -RequiredVersion 6.4.0-preview -AllowPrerelease -Force`
 
