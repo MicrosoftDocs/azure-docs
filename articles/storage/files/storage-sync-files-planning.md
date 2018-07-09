@@ -182,7 +182,7 @@ In general, Azure File Sync should support interoperability with encryption solu
 No other HSM solutions should be used with Azure File Sync.
 
 ## Region availability
-Azure File Sync is available only in the following regions in preview:
+Azure File Sync is available only in the following regions:
 
 | Region | Datacenter location |
 |--------|---------------------|
@@ -201,7 +201,7 @@ Azure File Sync is available only in the following regions in preview:
 | West Europe | Netherlands |
 | West US | California |
 
-In preview, we support syncing only with an Azure file share that's in the same region as the Storage Sync Service.
+Azure File Sync supports syncing only with an Azure file share that's in the same region as the Storage Sync Service.
 
 ### Azure disaster recovery
 To protect against the loss of an Azure region, Azure File Sync integrates with the [geo-redundant storage redundancy](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) option. GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster which causes an Azure region to go temporarily or permanently offline, Microsoft will fail over storage to the paired region. 
