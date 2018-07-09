@@ -148,12 +148,23 @@ If you add additional fields to your sign-ins view, these fields are automatical
 
 ## Download sign-in activities
 
-You can download the sign-in activities data if you want work with it outside the Azure portal. In addition to a download button, the Azure portal also provides you with an option to generate a script to download your data.  
+You can download the sign-in activities data if you want work with it outside the Azure portal. Clicking **Download** creates a CSV file of the most recent 5K records.  In addition to a download button, the Azure portal also provides you with an option to generate a script to download your data.  
 
 ![Download](./media/active-directory-reporting-activity-sign-ins/71.png "Download")
 
-Clicking **Download** creates a CSV file of the most recent 5K records. If you need more flexibility, you can use the script solution. Clicking **Script** creates a PowerShell script that includes all the filters you have set. Download and run this script in **administrator mode** to generate the CSV file. 
+If you need more flexibility, you can use the script solution. Clicking **Script** creates a PowerShell script that includes all the filters you have set. Download and run this script in **administrator mode** to generate the CSV file. 
+
+### Running the script on a Windows 10 machine
+
+If you want to run the script on a **Windows 10** machine, you need to perform a few additional steps first. 
+
+1. Install the [AzureRM module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l).
+2. Import the module by opening a PowerShell prompt and running the command **Import-Module AzureRM**.
+3. Run **Set-ExecutionPolicy unrestricted** and choose **Yes to All**. 
+4. Now you can run the downloaded PowerShell script in administrator mode to generate the CSV file.
+
 In addition to the technical implementation, the number of records you can download is also constrained by the [Azure Active Directory report retention policies](active-directory-reporting-retention.md).  
+
 
 
 
