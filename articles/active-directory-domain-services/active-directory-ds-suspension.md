@@ -18,7 +18,7 @@ ms.date: 07/09/2018
 ms.author: ergreenl
 
 ---
-# Suspended Domains
+# Suspended domains
 When Azure AD Domain Services is unable to service a managed domain for a long period of time, the managed domain is put into a suspended state. This article will explain why managed domains are suspended, the length of suspension, and how to remediate a suspended domain.
 
 
@@ -64,6 +64,12 @@ Your domain can only be restored from the date of last backup. The date of your 
 ## Deleting domains
 
 If the domain is suspended for more than 15 days, Azure AD Domain Services deletes the managed domain due to inactivity and the inability to service the domain. You will no longer be billed for Azure AD Domain Services. To restore your managed domain, you will need to recreate it.
+
+
+## Next steps
+- [Resolve alerts on your managed domain](active-directory-ds-troubleshoot-alerts.md)
+- [Read more about Azure AD Domain Services](active-directory-ds-overview.md)
+- [Contact the product team](active-directory-ds-contact-us.md)
 
 ## Contact Us
 
