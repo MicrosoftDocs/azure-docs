@@ -238,7 +238,7 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
 After monitoring is enabled, it can take around 15 minutes before you are able to see operational data for the cluster.  
 
 ## Verify agent and solution deployment
-With agent version *06072018* and higher, you are able to verify both the agent and the solution were deployed successfully.  With earlier versions of the agent, you can only verify agent deployment.
+With agent version *06072018* and higher, you are able to verify that both the agent and the solution were deployed successfully.  With earlier versions of the agent, you can only verify agent deployment.
 
 ### Agent version 06072018 and higher
 Run the following command to verify the agent is deployed successfully.   
