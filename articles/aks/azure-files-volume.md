@@ -48,7 +48,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_G
 
 # Echo storage account name and key
 echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
-echo Storgae account key: $STORAGE_KEY
+echo Storage account key: $STORAGE_KEY
 ```
 
 ## Create Kubernetes Secret

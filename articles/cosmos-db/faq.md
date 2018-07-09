@@ -9,7 +9,7 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 07/03/2018
 ms.author: sngun
 
 ---
@@ -112,6 +112,11 @@ Azure Cosmos DB is present across all Azure regions, as specified on the [Azure 
 
 When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a [sovereign region](https://azure.microsoft.com/global-infrastructure/), you cannot replicate out of that [sovereign region](https://azure.microsoft.com/global-infrastructure/). Similarly, you cannot enable replication into other sovereign locations from an outside account. 
 
+### Is it possible to switch from container level throughput provisioning to database level throughput provisioning? Or vice versa
+
+Container and database level throughput provisioning are separate offerings and switching between either of these require migrating data from source to destination. Which means you need to create a new database or a new collection and then migrate data by using [bulk executor library](bulk-executor-overview.md) or [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
+
+
 ## Develop against the SQL API
 
 ### How do I start developing against the SQL API?
@@ -127,12 +132,16 @@ Samples for the SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github
 Yes, the SQL API allows applications to store arbitrary JSON documents without schema definitions or hints. Data is immediately available for query through the Azure Cosmos DB SQL query interface.  
 
 ### Does the SQL API support ACID transactions?
-Yes, the SQL API supports cross-document transactions expressed as JavaScript-stored procedures and triggers. Transactions are scoped to a single partition within each collection and executed with ACID semantics as "all or nothing," isolated from other concurrently executing code and user requests. If exceptions are thrown through the server-side execution of JavaScript application code, the entire transaction is rolled back. For more information about transactions, see [Database program transactions](programming.md#database-program-transactions).
+Yes, the SQL API supports cross-document transactions expressed as JavaScript-stored procedures and triggers. Transactions are scoped to a single partition within each container and executed with ACID semantics as "all or nothing," isolated from other concurrently executing code and user requests. If exceptions are thrown through the server-side execution of JavaScript application code, the entire transaction is rolled back. For more information about transactions, see [Database program transactions](programming.md#database-program-transactions).
 
-### What is a collection?
-A collection is a group of documents and their associated JavaScript application logic. A collection is a billable entity, where the [cost](performance-levels.md) is determined by the throughput and used storage. Collections can span one or more partitions or servers and can scale to handle practically unlimited volumes of storage or throughput.
+### What is a container?
+A container is a group of documents and their associated JavaScript application logic. A container is a billable entity, where the [cost](performance-levels.md) is determined by the throughput and used storage. Containers can span one or more partitions or servers and can scale to handle practically unlimited volumes of storage or throughput. 
 
-Collections are also the billing entities for Azure Cosmos DB. Each collection is billed hourly, based on the provisioned throughput and used storage space. For more information, see [Azure Cosmos DB Pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). 
+* For SQL and MongoDB API accounts, a container maps to a Collection. 
+* For Cassandra and Table API accounts, a container maps to a Table. 
+* For Gremlin API accounts, a container maps to a Graph. 
+
+Containers are also the billing entities for Azure Cosmos DB. Each container is billed hourly, based on the provisioned throughput and used storage space. For more information, see [Azure Cosmos DB Pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### How do I create a database?
 You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a collection](create-sql-api-dotnet.md#create-collection), one of the [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md), or the [REST APIs](/rest/api/cosmos-db/). 
@@ -161,7 +170,7 @@ You can bulk-insert documents into Azure Cosmos DB in one of the following ways:
 * The data migration tool, as described in [Database migration tool for Azure Cosmos DB](import-data.md).
 * Stored procedures, as described in [Server-side JavaScript programming for Azure Cosmos DB](programming.md).
 
-### I have setup my collection to use lazy indexing, I see that my queries do not return expected results. 
+### I have setup my container to use lazy indexing, I see that my queries do not return expected results. 
 As explained in the indexing section, lazy indexing can result in this behavior. You should always use consistent indexing for all the applications. 
 
 
@@ -176,7 +185,7 @@ This is limitation of JavaScript. JavaScript uses double-precision floating-poin
 
 ### Where are permissions allowed in the object hierarchy?
 
-Creating permissions by using ResourceTokens is allowed at the collection level and its descendants (such as documents, attachments). This implies that trying to create a permission at the database or an account level is not currently allowed.
+Creating permissions by using ResourceTokens is allowed at the container level and its descendants (such as documents, attachments). This implies that trying to create a permission at the database or an account level is not currently allowed.
 
 
 ## Develop against the API for MongoDB

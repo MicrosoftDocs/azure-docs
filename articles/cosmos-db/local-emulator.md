@@ -524,7 +524,7 @@ In this tutorial, you've done the following:
 
 > [!div class="checklist"]
 > * Installed the local Emulator
-> * Rand the Emulator on Docker for Windows
+> * Ran the Emulator on Docker for Windows
 > * Authenticated requests
 > * Used the Data Explorer in the Emulator
 > * Exported SSL certificates
