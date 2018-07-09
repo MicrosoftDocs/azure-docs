@@ -12,23 +12,35 @@ ms.author: victorh
 
 ---
 
-# Create an Azure Firewall test environment sample 
+# Create an Azure Firewall test environment 
 
-This script sample creates a firewall and a test network environment. The network has one VNet, with three subnets: an AzureFirewallSubnet, and ServersSubnet, and a JumpboxSubnet. The ServersSubnet and JumpboxSubnet each have one 2-core Windows Server in them.
+This script sample creates a firewall and a test network environment. The network has one VNet, with three subnets: an *AzureFirewallSubnet*, and *ServersSubnet*, and a *JumpboxSubnet*. The ServersSubnet and JumpboxSubnet each have one 2-core Windows Server in them.
 
 The firewall is in the AzureFirewallSubnet and is configured with an Application Rule Collection with a single rule that allows access to www.microsoft.com.
 
 A user defined route is created that points the network traffic from the ServersSubnet through the firewall, where the firewall rules are applied.
 
-You can run the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. If you use PowerShell locally, this script requires the AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+You can run the script from the Azure [Cloud Shell](https://shell.azure.com/powershell), or from a local PowerShell installation. 
 
-In addition, you must install the latest version of AzureRM.Network (version 6.4.0). To determine your installed version, run `Get-Module -ListAvailable AzureRM.network`. If you need to upgrade the module, run: 
+If you run PowerShell locally, this script requires the AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. 
 
-`Update-Module -Name AzureRM.Network -RequiredVersion 6.4.0-preview -AllowPrerelease`, 
+You can use `PowerShellGet` if you need to upgrade, which is built into Windows 10 and Windows Server 2016. 
 
-Or, if you need to install the module, run:
+> [!NOTE]
+>Other Windows version require you to install `PowerShellGet` before you can use it. 
+>You can run `Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,>Path` to determine if it is installed on your system. If the output is blank, you need to install the latest [Windows Management framework](https://www.microsoft.com/download/details.aspx?id=54616).
 
- `Install-Module -Name AzureRM.Network -Repository PSGallery -RequiredVersion 6.4.0-preview -AllowPrerelease -Force`.
+For more information, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0)
+
+Any existing Azure PowerShell installation done with the Web Platform installer will conflict with the PowerShellGet installation and needs to be removed.
+
+Additionally, you must install the latest version of AzureRM.Network (version 6.4.0). If have an older module, run `Uninstall-Module AzureRM.Network -Force` to remove it. Then run:
+
+ `Install-Module -Name AzureRM.Network -Repository PSGallery -RequiredVersion 6.4.0-preview -AllowPrerelease -Force`
+
+to install verion 6.4.0.
+
+Remember that if you run PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
