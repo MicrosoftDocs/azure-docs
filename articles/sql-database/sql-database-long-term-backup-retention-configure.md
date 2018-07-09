@@ -78,8 +78,10 @@ View the backups that are retained for a specific database with a LTR policy, an
 The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
 
 > [!IMPORTANT]
-> You need to use the latest AzureRM powershell to set up LTR V2 policies. The current version is [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview), this is a preview version, so use this command to install it: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
-> For guidance on installing the prerelease version, see [Get PowerShellGet module](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). The AzureRM powershell May 2018 release is coming in a few days (expected to be 5/18/2018), you can ignore the -AllowPrelease switch when you install the release version when it becomes available and use the following command" `Install-Module -Name AzureRM.Sql -Force`.
+> LTR V2 API is supported in the following PowerShell versions:
+- [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) or newer
+- [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) or newer
+> 
 
 ### Create an LTR policy
 

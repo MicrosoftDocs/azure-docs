@@ -60,7 +60,7 @@ You inspect details of the test result in the **Inspect** panel.
 
 ## View sentiment results
 
-If **Sentiment analysis** is configured on the **[Publish](publishapp.md#enable-sentiment-analysis)** page, the test results include the sentiment found in the utterance. 
+If **Sentiment analysis** is configured on the **[Publish](luis-how-to-publish-app.md#enable-sentiment-analysis)** page, the test results include the sentiment found in the utterance. 
 
 ![Image of Test pane with sentiment analysis](./media/luis-how-to-interactive-test/sentiment.png)
 

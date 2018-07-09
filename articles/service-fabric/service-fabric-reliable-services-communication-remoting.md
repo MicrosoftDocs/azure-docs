@@ -24,7 +24,7 @@ ms.author: vturecek
 >
 >
 
-For services that arn't tied to a particular communication protocol or stack, such as WebAPI, Windows Communication Foundation (WCF), or others, the Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure calls for services. This article discusses how to set up remote procedure calls for services written with C#.
+For services that aren't tied to a particular communication protocol or stack, such as WebAPI, Windows Communication Foundation (WCF), or others, the Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure calls for services. This article discusses how to set up remote procedure calls for services written with C#.
 
 ## Set up Remoting on a Service
 Setting up remoting for a service is done in two simple steps:

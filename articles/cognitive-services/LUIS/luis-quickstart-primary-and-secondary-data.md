@@ -8,12 +8,12 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/26/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
 
-# Tutorial: 6. Add simple entity and phrase list
+# Tutorial: 7. Add simple entity and phrase list
 In this tutorial, create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
 
 <!-- green checkmark -->
@@ -29,7 +29,7 @@ In this tutorial, create an app that demonstrates how to extract machine-learned
 For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
 ## Before you begin
-If you don't have the Human Resources app from the [hierarchical entity](luis-quickstart-intent-and-hier-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [composite entity](luis-tutorial-composite-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `simple`. Cloning is a great way to play with various LUIS features without affecting the original version.  
 
@@ -42,7 +42,7 @@ This app demonstrates how to pull data out of an utterance. Consider the followi
 |Please submit my resume for the engineering position.|engineering|
 |Fill out application for job 123456|123456|
 
-This tutorial adds a new entity to extract the job name. The ability to extract a specific job number is shown in the regular expression [tutorial](luis-quickstart-intents-regex-entity.md). 
+This tutorial adds a new entity to extract the job name. 
 
 ## Purpose of the simple entity
 The purpose of the simple entity in this LUIS app is to teach LUIS what a job name is and where it can be found in an utterance. The part of the utterance that is the job can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of jobs in any utterance across all intents.  
@@ -82,7 +82,7 @@ This LUIS app has job names in several intents. By labeling these words in all t
 
     ![Create simple entity pop-up modal dialog with name of Job and type of simple](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. In the utterance, `Submit resume for engineering position`, label the word engineering as a Job entity. Select the word engineering, then select Job from the pop-up menu. 
+5. In the utterance, `Submit resume for engineering position`, label the word `engineering` as a Job entity. Select the word `engineering`, then select **Job** from the pop-up menu. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot of LUIS labeling job entity highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
@@ -289,7 +289,7 @@ Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/m
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    If you want more words added to the phrase list, review the recommended words and add any that are relevant. 
+    If you want more words added to the phrase list, review the **Related Values** and add any that are relevant. 
 
 4. Select **Save** to activate the phrase list.
 
@@ -366,7 +366,7 @@ Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/m
 Adding the phrase list boosted the signal of the words in the list but is **not** used as an exact match. The phrase list has several jobs with the first word of `lead` and also has the job `welder` but does not have the job `lead welder`. This phrase list for jobs may not be complete. As you regularly [review endpoint utterances](label-suggested-utterances.md) and find other job words, add those to your phrase list. Then retrain and republish.
 
 ## What has this LUIS app accomplished?
-This app, with a simple entity and a phrase list of words, identified a natural language query intention and returned the message data. 
+This app, with a simple entity and a phrase list of words, identified a natural language query intention and returned the job data. 
 
 Your chatbot now has enough information to determine the primary action of applying for a job and a parameter of that action, which job is referenced. 
 
@@ -374,7 +374,7 @@ Your chatbot now has enough information to determine the primary action of apply
 LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the data from the entity to use a third-party API to send the job information to a Human Resources representative. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS app. Select **My apps** in the top, left menu. Select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 

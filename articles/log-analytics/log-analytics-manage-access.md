@@ -3,7 +3,7 @@ title: Manage workspaces in Azure Log Analytics and the OMS portal | Microsoft D
 description: You can manage workspaces in Azure Log Analytics and the OMS portal using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: magoedte
-
+ms.component: na
 ---
+
 # Manage workspaces
 
 To manage access to Log Analytics, you perform various administrative tasks related to workspaces. This article provides best practice advice and procedures to manage workspaces. A workspace is essentially a container that includes account information and simple configuration information for the account. You or other members of your organization might use multiple workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
