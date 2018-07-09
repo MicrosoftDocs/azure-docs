@@ -19,15 +19,15 @@ ms.reviewer: dhanyahk
 
 # What's new in Azure Active Directory?
 
-> Stay up-to-date with what's new in Azure Active Directory (Azure AD) by subscribing to the [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> Get notified about when to revisit this page for updates, by subscribing to the [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 Azure AD receives improvements on an ongoing basis. To stay up-to-date with the most recent developments, this article provides you with information about:
 
--	The latest releases
--	Known issues
--	Bug fixes
--	Deprecated functionality
--	Plans for changes
+- The latest release
+- Known issues
+- Bug fixes
+- Deprecated functionality
+- Plans for changes
 
 This page is updated monthly, so revisit it regularly.
 
