@@ -256,6 +256,8 @@
       href: luis-reference-prebuilt-deprecated.md
     - name: Email entity
       href: luis-reference-prebuilt-email.md
+    - name: keyPhrase entity
+      href: luis-reference-prebuilt-keyphrase.md
     - name: Number entity
       href: luis-reference-prebuilt-number.md
     - name: Ordinal entity
