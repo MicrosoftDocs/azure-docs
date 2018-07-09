@@ -96,7 +96,7 @@ The two sections of the chart in green did match the expected prediction.
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's performance by labeling more utterances or adding features. 
 
-* [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
+* [Label suggested utterances with LUIS](luis-how-to-label.md) 
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 
 * [Understand batch testing with this tutorial](luis-tutorial-batch-testing.md)
 * [Learn batch testing concepts](luis-concept-batch-test.md).

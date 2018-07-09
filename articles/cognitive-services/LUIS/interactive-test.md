@@ -124,5 +124,5 @@ See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's accuracy by labeling more utterances or adding features. 
 
-* [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
+* [Label suggested utterances with LUIS](luis-how-to-label.md) 
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 

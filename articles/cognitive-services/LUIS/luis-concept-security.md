@@ -28,7 +28,7 @@ The owner and all collaborators have access to author the app.
 |Make app public|When an app is public, anyone with an authoring or endpoint key can query the app.|
 |Modify model|
 |Publish|
-|Review endpoint utterances for [active learning](label-suggested-utterances.md)|
+|Review endpoint utterances for [active learning](luis-how-to-label.md)|
 |Train|
 
 ## Access to endpoint

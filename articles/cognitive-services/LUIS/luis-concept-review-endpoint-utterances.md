@@ -15,7 +15,7 @@ ms.author: v-geberr;
 Active learning is one of three strategies to improve prediction accuracy and the easiest to implement. 
 
 ## What is active learning
-Active learning is a two-step process. First, LUIS selects utterances it receives at the app's endpoint that need validation. The second step is performed by the app owner or collaborator to validate the selected utterances for [review](label-suggested-utterances.md), including the correct intent and any entities within the intent. After reviewing the utterances, train and publish the app again. 
+Active learning is a two-step process. First, LUIS selects utterances it receives at the app's endpoint that need validation. The second step is performed by the app owner or collaborator to validate the selected utterances for [review](luis-how-to-label.md), including the correct intent and any entities within the intent. After reviewing the utterances, train and publish the app again. 
 
 ## Which utterances are on the review list
 LUIS adds utterances to the review list when the top firing intent has a low score or the top two intents' scores are too close. 
@@ -34,4 +34,4 @@ If your app is large, you may choose to review some utterances and delete the re
 
 ## Next steps
 
-* Learn how to [review](Label-Suggested-Utterances.md) endpoint utterances
+* Learn how to [review](luis-how-to-label.md) endpoint utterances
