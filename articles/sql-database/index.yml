@@ -59,7 +59,7 @@ sections:
           src: media/index/i_elasticpool.svg
         title: Elastic pools
       - href: /azure/sql-database/sql-database-managed-instance
-        html: <p>Use the Managed Instance to easily migrate your on-premises databases to Azure PaaS with minimal or no database code changes.</p>
+        html: <p>Use the Managed Instance to easily migrate your on-premises databases to Azure PaaS with minimal or no database code changes to fully managed PaaS service.</p>
         image:
           src: media/index/i_mi.svg
         title: Managed Instance
@@ -69,12 +69,12 @@ sections:
           src: media/index/gear.svg
         title: Business continuity
       - href: /azure/sql-database/sql-database-security-overview
-        html: <p>Secure your database with Virtual Networks and Firewalls, and let built-in security you to identify threats and vulnerabilities.</p>
+        html: <p>Secure your database with Azure AD authentication, Virtual Networks, Firewalls, Always Encrypted connection, and let built-in security you to identify threats and vulnerabilities.</p>
         image:
           src: media/index/i_security.svg
         title: Advanced security
       - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
-        html: <p>Let intelligence built-in into the service to automatically tune the performance of your databases.</p>
+        html: <p>Built-in intelligence helps you dramatically reduce the costs of running and managing databases and maximizes both performance and security of your application.</p>
         image:
           src: media/index/i_intelligence.svg
         title: Built-in intelligence
