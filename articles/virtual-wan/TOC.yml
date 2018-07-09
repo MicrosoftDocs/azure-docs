@@ -15,9 +15,9 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: href: https://go.microsoft.com/fwlink/p/?LinkId=200528
+    href: href: https://go.microsoft.com/fwlink/?LinkId=200528
   - name: REST
-    href: https://go.microsoft.com/fwlink/p/?LinkId=2005000
+    href: https://go.microsoft.com/fwlink/?LinkId=2005000
 - name: Resources
   items:
   - name: FAQ
