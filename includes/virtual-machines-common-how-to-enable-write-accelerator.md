@@ -76,13 +76,13 @@ A new switch parameter, "WriteAccelerator" has been added to the following cmdle
 
 Not giving the parameter sets the property to false and will deploy disks that have no support by Write Accelerator.
 
-A new switch parameter, "OsDiskWriteAccelerator" was added to the following cmdlets: 
+A new switch parameter, "OsDiskWriteAccelerator" was added to the following cmdlets:
 
 - [Set-AzureRmVmssStorageProfile](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile?view=azurermps-6.0.0)
 
 Not giving the parameter sets the property to false and will deliver disks that do not leverage Write Accelerator.
 
-A new optional Boolean (non-nullable) parameter, "OsDiskWriteAccelerator" got added to the following cmdlets: 
+A new optional Boolean (non-nullable) parameter, "OsDiskWriteAccelerator" got added to the following cmdlets:
 
 - [Update-AzureRmVM](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Update-AzureRmVM?view=azurermps-6.0.0)
 - [Update-AzureRmVmss](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Update-AzureRmVmss?view=azurermps-6.0.0)
@@ -172,15 +172,15 @@ To disable Write Accelerator, use [az vm update](https://docs.microsoft.com/en-u
 
 ### Enabling through Rest APIs
 
-In order to deploy through Azure Rest API, you need to install the Azure armclient
+In order to deploy through Azure Rest API, you need to install the Azure armclient.
 
 #### Install armclient
 
 To run armclient, you need to install it through Chocolatey. You can install it through cmd.exe or powershell. Use elevated rights for these commands (“Run as Administrator”).
 
-Using cmd.exe run the following command: `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
+Using cmd.exe, run the following command: `@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
 
-Using Power Shell you have to use: `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+Using Power Shell, run the following command: `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
 Now you can install the armclient with the command below in cmd.exe or PowerShell `choco install armclient`
 
@@ -371,7 +371,6 @@ The output should look like the one below. You can see that there is Write Accel
   "location": "westeurope",
   "id": "/subscriptions/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/resourceGroups/mylittlesap/providers/Microsoft.Compute/virtualMachines/mylittlesapVM",
   "name": "mylittlesapVM"
-
 ```
 
 From the point of the change on, the drive should be supported by Write Accelerator.
