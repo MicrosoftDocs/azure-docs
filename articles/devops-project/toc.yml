@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What are Azure DevOps Projects?
+  - name: What is Azure DevOps Project?
     href: overview.md
 - name: Quickstarts
   expanded: true
