@@ -34,7 +34,7 @@ sections:
     columns: 3
     items:
       - href: /azure/sql-database/sql-database-technical-overview
-        html: <p>PaaS database that is always running on the latest stable version of SQL Server Database Engine and patched OS with minimal downtime and 99.99% SLA.</p>
+        html: <p>PaaS database that is always running on the latest stable version of SQL Server Database Engine and patched OS with 99.99% availability.</p>
         image:
           src: media/index/i_managed.svg
         title: Fully managed
