@@ -47,14 +47,14 @@ sections:
         html: <p>Easily scale up, scale out, or shard your databases depending on your needs to improve performance of your application.</p>
         image:
           src: media/index/i_scale.svg
-        title: Scalability and elasticity
+        title: Scalability
       - href: /azure/sql-database/sql-database-servers-databases
         html: <p>Use the Single database hosted in logical servers for your SaaS aplications and microservices that need a single database with the predictable performances.</p>
         image:
           src: media/index/i_db.svg
         title: Single Database
       - href: /azure/sql-database/sql-database-elastic-pool
-        html: <p>Easily manage the fleets of databases by putting them into Elastic pools where they can share resources.</p>
+        html: <p>SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands.</p>
         image:
           src: media/index/i_elasticpool.svg
         title: Elastic pools
