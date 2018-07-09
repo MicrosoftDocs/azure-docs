@@ -15,7 +15,7 @@ Customer intent: As someone with a networking background, I want to connect my l
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv2) VPN connection. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md)
 
 > [!NOTE]
-> Typically, you would use a Virtual WAN partner solution to create this configuration. However, you can also do this yourself if you are comfortable with networking and proficient at configuring your own VPN device.
+> If you have many sites, you typically would use a [Virtual WAN preferred provider](https://aka.ms.virtualwan) to create this configuration. However, you can configure this yourself if you are comfortable with networking and proficient at configuring your own VPN device.
 >
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)

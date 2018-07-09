@@ -22,13 +22,13 @@ Azure Virtual WAN is a networking service that provides optimized and automated 
 
 This article provides a quick view into the network connectivity of your Azure and non-Azure workloads. Virtual WAN offers the following advantages:
 
-* **Integrated connectivity solutions in hub and spoke:** Automate Site-to-Site configuration and connectivity between on-premises sites and an Azure hub from a variety of sources, including preferred partner solutions.
+* **Integrated connectivity solutions in hub and spoke:** Automate Site-to-Site configuration and connectivity between on-premises sites and an Azure hub from a variety of sources, including preferred provider solutions.
 * **Automated spoke configuration and configuration:** Connect your virtual networks and workloads to the Azure hub seamlessly.
 * **Intuitive troubleshooting:** You can see the end-to-end flow within Azure and use this information to take required actions.
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
 
-## <a name="vendor"></a>How does Microsoft preferred provider integration work?
+## <a name="vendor"></a>How does preferred provider integration work?
 
 1. The branch device controller/connector is authenticated to export Site-centric information into Azure by using an Azure Service Principal.
 2. The branch device controller/connector obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premises VPN device.
@@ -49,7 +49,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 * **virtualWAN:** The virtualWAN resource represents a virtual overlay of your Azure network and is a collection of multiple resources. It contains links to all your virtual hubs that you would like to have within the virtual WAN. Virtual WAN resources are isolated from each other and cannot contain a common hub. Virtual Hubs across Virtual WAN do not communicate with each other.
 
-* **Site:** The site resource known as vpnsite represents your on-premises VPN device and its settings. By using a preferred device vendor, you have a built-in solution to automatically export this information to Azure.
+* **Site:** The site resource known as vpnsite represents your on-premises VPN device and its settings. By using a preferred provider, you have a built-in solution to automatically export this information to Azure.
 
 * **Hub:** A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity from your on-premises network (vpnsite). The hub is the core of your network in a region. There can only be one hub per Azure region. When you create a hub using Azure portal, it automatically creates a virtual hub VNet and a virtual hub vpngateway.
 
