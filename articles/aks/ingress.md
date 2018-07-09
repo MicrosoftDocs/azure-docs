@@ -2,13 +2,13 @@
 title: Configure ingress with Azure Kubernetes Service (AKS) cluster
 description: Install and configure an NGINX ingress controller in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -160,7 +160,7 @@ helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set s
 
 ## Create ingress route
 
-Both applications are now running on your Kubernetes cluster, however have been configured with a service of type `ClusterIP`. As such, the applications are not accessible from the internet. In order to make the available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
+Both applications are now running on your Kubernetes cluster, however have been configured with a service of type `ClusterIP`. As such, the applications are not accessible from the internet. In order to make them available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
 
 Create a file name `hello-world-ingress.yaml` and copy in the following YAML.
 
