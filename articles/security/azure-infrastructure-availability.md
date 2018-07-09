@@ -1,5 +1,5 @@
 ---
-title: Availability of Azure infrastructure
+title: Azure infrastructure availability
 description: The article describes levels of redundancy to provide maximum availability of customers’ data.
 services: security
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 07/06/2018
 ms.author: terrylan
 
 ---
 
-# Availability of Azure infrastructure
+# Azure infrastructure availability
 Azure provides robust availability based on extensive redundancy achieved with virtualization technology. Azure provides numerous levels of redundancy to provide maximum availability of customers’ data.
 
 ## Temporary outages and natural disaster
@@ -51,5 +51,5 @@ To learn more about what Microsoft does to secure the Azure infrastructure, see:
 - [Microsoft Azure SQL Database security features](azure-infrastructure-sql.md)
 - [Azure production operations and management](azure-infrastructure-operations.md)
 - [Monitoring of Azure infrastructure](azure-infrastructure-monitoring.md)
-- [Integrity of Azure infrastructure](azure-infrastructure-integrity.md)
+- [Azure infrastructure integrity](azure-infrastructure-integrity.md)
 - [Protection of customer data in Azure](azure-protection-of-customer-data.md)

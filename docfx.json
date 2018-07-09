@@ -225,6 +225,7 @@
         "articles/data-factory/**/*.md": "https://feedback.azure.com/forums/270578-data-factory",
         "articles/data-lake-analytics/**/*.md": "https://feedback.azure.com/forums/327234-data-lake",
         "articles/data-lake-store/**/*.md": "https://feedback.azure.com/forums/327234-data-lake",
+        "articles/dev-spaces/**/*.md": "https://github.com/Azure/dev-spaces/issues",
         "articles/devtest-lab/**/*.md": "https://feedback.azure.com/forums/320373-devtest-labs",
         "articles/dms/**/*.md": "https://feedback.azure.com/forums/906100-azure-database-migration-service",
         "articles/dns/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77466",

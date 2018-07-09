@@ -1,10 +1,10 @@
 ---
-title: Support for Azure Marketplace | Azure
-description: Support information and links for Azure Marketplace.
+title: Support for Azure Marketplace and AppSource | Azure
+description: Support information and links for Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor:
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/02/2018
 ms.author: ellacroi
 
 ---  
@@ -21,18 +21,15 @@ ms.author: ellacroi
 # Support for Azure Marketplace  
 The support options for Azure Marketplace.  
 
-## General inquiries  
+## Onboarding
 
-| Support channel | Description |  
-|:--- |:--- |  
-| Email: [cloudmarketplace@microsoft.com](mailto:cloudmarketplace@microsoft.com) | Onboarding support distribution list.<br />For onboarding requests, setting up discovery sessions, and architecture design sessions. |  
+[Open a ticket](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) for "Marketplace Onboarding" with Microsoft support to solve all issues with getting started.
 
 ## Publishing  
 
 | Support channel | Description | Availability |  
 |:--- |:--- |:--- |  
 | Email: [azurecertified@microsoft.com](mailto:azurecertified@microsoft.com) | Support Azure Marketplace publishing apps for you. | Business hours are in the Pacific time zone. |  
-| Email: [azuremarketonboard@microsoft.com](mailto:azuremarketonboard@microsoft.com) | Support for the Azure Marketplace solution nomination form and process. | Business hours are in the Pacific time zone. |  
 | Email: [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com) | Onboarding access to test drives. | Business hours are in the Pacific time zone. |  
 
 ## Cloud Partner Portal  
@@ -57,7 +54,16 @@ The support options for Azure Marketplace.
 | Email: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Support for GTM benefits and program questions. | Business hours are in the Pacific time zone. |  
 | Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |  
 
+# Support for AppSource  
+The support options for AppSource.  
+
+## Technical  
+
+| Support channel | Description |  
+|:--- |:--- |  
+| Email: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Support publishing Dynamics Apps for you |
+
 ## Next steps
-*   Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
+Visit the [Azure Marketplace and AppSource Publisher Guide](./marketplace-publishers-guide.md) page.  
  
 ---  
