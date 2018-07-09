@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 07/09/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -86,9 +86,11 @@ In this step, you use the Data Factory UI to create a pipeline. You add an Execu
 
 ### Optionally, parameterize the activity
 
-Optionally, assign values, expressions, or functions, which can refer to Data Factory system variables, to your project or package parameters in JSON format on the **Advanced** tab. For example, you can assign Data Factory pipeline parameters to your SSIS project or package parameters as shown in the following screenshot:
+Optionally, assign values, expressions, or functions, which can refer to Data Factory system variables, to your project or package parameters in JSON format by using the "View Source Code" button on the bottom of your Execute SSIS Package activity box or the "Code" button on the top right-hand corner of your pipeline area. For example, you can assign Data Factory pipeline parameters to your SSIS project or package parameters as shown in the following screenshots:
 
-![Add parameters to the Execute SSIS Package activity](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+![Edit JSON script for Execute SSIS Package activity](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![Add parameters to the Execute SSIS Package activity](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ### Run and monitor the pipeline
 In this section, you trigger a pipeline run and then monitor it. 
