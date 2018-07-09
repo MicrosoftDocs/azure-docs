@@ -4,7 +4,7 @@ description: This article provides an overview of the architecture for replicati
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ---
 
