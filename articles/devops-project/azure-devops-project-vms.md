@@ -75,7 +75,7 @@ The Azure DevOps Project automatically configures a full VSTS CI/CD pipeline in 
 
 1. Select **Edit**.
 
-1. From this view, **examine the various tasks** for your build definition.  The build performs various tasks such as fetching sources from the VSTS Git repository, restoring dependencies, and publishing outputs used for deployments.
+1. From this view, **examine the various tasks** for your build definition.  The build executes various tasks such as fetching sources from the VSTS Git repository, restoring dependencies, and publishing outputs used for deployments.
 
 1. At the top of the build definition, select the **build definition name**.
 
@@ -83,7 +83,7 @@ The Azure DevOps Project automatically configures a full VSTS CI/CD pipeline in 
 
 1. Under your build definition name, select **History**.  You see an audit trail of your recent changes for the build.  VSTS keeps track of any changes made to the build definition and allows you to compare versions.
 
-1. Select **Triggers**.  The Azure DevOps project automatically created a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
+1. Select **Triggers**.  The Azure DevOps project automatically created a CI trigger, and every commit to the repository starts a new build.  Optionally choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.  Based on your scenario, you can specify policies to keep or remove a certain number of builds.
 
@@ -101,7 +101,7 @@ The Azure DevOps Project automatically creates and configures the necessary step
 
 1. On the left-hand side of the browser, select **Tasks**, and then choose your **environment**.  
 
-1. The tasks are the activities your deployment process performs, and they are grouped in **Phases**.  There are two **Phases** for this release definition.  The first phase contains an **Azure Resource Group Deployment** task that configures the VM for deployment and adds the new VM to a **VSTS Deployment Group**.  The VM deployment group in VSTS manages logical groups of **deployment target** machines.
+1. The tasks are the activities your deployment process executes, and they are grouped in **Phases**.  There are two **Phases** for this release definition.  The first phase contains an **Azure Resource Group Deployment** task that configures the VM for deployment and adds the new VM to a **VSTS Deployment Group**.  The VM deployment group in VSTS manages logical groups of **deployment target** machines.
 
 1. In this second phase, a **IIS Web App Manage** task was created to create an IIS Website on the VM.  A second **IIS Web App Deploy** task was created to deploy the site.
 
@@ -109,7 +109,7 @@ The Azure DevOps Project automatically creates and configures the necessary step
 
 1. Select the **ellipsis** next to one of your releases, and choose **Open**.  There are several menus to explore from this view such as a **release summary**, **associated work items**, and **Tests**.
 
-1. Select **Commits**.  This view shows code commits associated with the specific deployment. You can compare releases to view the commit differences between deployments.
+1. Select **Commits**.  This view shows code commits associated with the specific deployment. Compare releases to view the commit differences between deployments.
 
 1. Select **Logs**.  The logs contain useful information about the deployment process.  They can be viewed both during and after deployments.
 
@@ -123,7 +123,7 @@ You're now ready to collaborate with a team on your app with a CI/CD process tha
 
 1. Make a change to the file such as some text inside one of the **div tags**.  At the top right, select **Commit**.  Select **Commit** again to push your change. 
 
-1. In a few moments, a **build starts in VSTS**, and then a release executes to deploy the changes.  You can monitor the **build status** with the DevOps project dashboard or in the browser with your VSTS account.
+1. In a few moments, a **build starts in VSTS**, and then a release executes to deploy the changes.  Monitor the **build status** with the DevOps project dashboard or in the browser with your VSTS account.
 
 1. Once the release completes, **refresh your application** in the browser to verify you see your changes.
 
