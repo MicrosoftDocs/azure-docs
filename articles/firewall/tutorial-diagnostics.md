@@ -12,6 +12,10 @@ ms.author: victorh
 ---
 # Tutorial: Monitor Azure Firewall logs
 
+[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
+
+The examples in the Azure Firewall articles assume that you have already enabled the Azure Firewall public preview. For more information, see [Enable the Azure Firewall public preview](public-preview.md).
+
 You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 
 You can access some of these logs through the portal. Logs can be sent to [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Log Analytics or by different tools such as Excel and Power BI.
