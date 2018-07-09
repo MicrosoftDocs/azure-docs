@@ -270,4 +270,4 @@ When no longer needed, delete the LUIS app. To do so, select the ellipsis (***..
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Learn how to add a list entity](luis-quickstart-intent-and-list-entity.md) 
+> [Learn how to add a composite entity](luis-tutorial-composite-entity.md) 
