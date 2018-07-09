@@ -1,6 +1,6 @@
 ---
-title: Deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment strategy
-description: Learn how to deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment strategy
+title: Deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment pattern
+description: Learn how to deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment pattern
 services: app-service\web
 documentationcenter: ''
 author: tomarcher
@@ -17,7 +17,7 @@ ms.author: tarcher
 ms.custom: jenkins
 ---
 
-# Deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment strategy
+# Deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment pattern
 
 Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. AKS also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline. For more information about AKS, see to the [AKS documentation](/azure/aks/).
 
@@ -37,23 +37,23 @@ A sample app that illustrates how to use deploy to AKS using Jenkins and the blu
 
 1. Browse to the GitHub repo for the [todo-app-java-on-azure sample app](https://github.com/microsoft/todo-app-java-on-azure.git).
 
-    ![Sample app on Microsoft GitHub repo.][./media/jenkins-aks-blue-green-deployment/github-sample-msft.png]
+    ![Sample app on Microsoft GitHub repo.](./media/jenkins-aks-blue-green-deployment/github-sample-msft.png)
 
 1. Fork the repo by selecting **Fork** in the upper right of the page, and follow the instructions to fork the repo in your GitHub account.
 
-    ![Fork the sample app to your GitHub account.][./media/jenkins-aks-blue-green-deployment/github-sample-msft-fork.png]
+    ![Fork the sample app to your GitHub account.](./media/jenkins-aks-blue-green-deployment/github-sample-msft-fork.png)
 
 1. Once you fork the repo, you see that the account name changes to your account name, and a note indicates from where the repo was forked (Microsoft).
 
-    ![Sample app after being forked to another GitHub account.][./media/jenkins-aks-blue-green-deployment/github-sample-msft-forked.png]
+    ![Sample app after being forked to another GitHub account.](./media/jenkins-aks-blue-green-deployment/github-sample-msft-forked.png)
 
 1. Selecting **Clone or download**.
 
-    ![GitHub allows you to quickly clone or download a repo.][./media/jenkins-aks-blue-green-deployment/github-sample-clone.png]
+    ![GitHub allows you to quickly clone or download a repo.](./media/jenkins-aks-blue-green-deployment/github-sample-clone.png)
 
 1. In the **Clone with HTTPS** window, select the copy icon.
 
-    ![Copy the clone URL to the clipboard.][./media/jenkins-aks-blue-green-deployment/github-sample-copy.png]
+    ![Copy the clone URL to the clipboard.](./media/jenkins-aks-blue-green-deployment/github-sample-copy.png)
 
 1. Open a terminal or Bash window.
 
@@ -61,11 +61,11 @@ A sample app that illustrates how to use deploy to AKS using Jenkins and the blu
 
 1. Using the `git clone` command, clone the URL you copied previously.
 
-    ![Type "git clone" and the clone URL to create a clone of the repo.][./media/jenkins-aks-blue-green-deployment/git-clone-command.png]
+    ![Type "git clone" and the clone URL to create a clone of the repo.](./media/jenkins-aks-blue-green-deployment/git-clone-command.png)
 
 1. Select the &lt;Enter> key to start the clone process.
 
-    ![The "git clone" command creates a personal copy of the repo in which you can test][./media/jenkins-aks-blue-green-deployment/git-clone-results.png]
+    ![The "git clone" command creates a personal copy of the repo in which you can test](./media/jenkins-aks-blue-green-deployment/git-clone-results.png)
 
 1. Change directories to the newly created directory that contains the clone of the app source.
 
