@@ -83,6 +83,9 @@ The default password lifetime on an Azure AD Domain Services managed domain is 9
 ### Does Azure AD Domain Services provide AD account lockout protection?
 Yes. Five invalid password attempts within 2 minutes on the managed domain cause a user account to be locked out for 30 minutes. After 30 minutes, the user account is automatically unlocked. Invalid password attempts on the managed domain do not lock out the user account in Azure AD. The user account is locked out only within your Azure AD Domain Services managed domain.
 
+### Does Azure AD Domain Services support Microsoft network policy server (NPS)?
+No. This scenario is currently not supported by the product group.
+
 ## Billing and availability
 ### Is Azure AD Domain Services a paid service?
 Yes. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/active-directory-ds/).
