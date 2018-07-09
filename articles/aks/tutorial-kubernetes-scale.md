@@ -115,7 +115,7 @@ kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 
 To see the status of the autoscaler, use the `kubectl get hpa` command as follows:
 
-```console
+```
 $ kubectl get hpa
 
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
