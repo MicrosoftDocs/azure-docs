@@ -1,8 +1,8 @@
-- name: Azure DevOps Project Documentation
+- name: Azure DevOps Projects Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure DevOps Project?
+  - name: What are Azure DevOps Projects?
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -36,7 +36,7 @@
   - name: 2 - Deploy to VMs
     href: azure-devops-project-vms.md
     maintainContext: true
-  - name: 3 - Deploy to Azure SQL DB
+  - name: 3 - Deploy to Azure SQL Database
     href: azure-devops-project-sqldb.md
     maintainContext: true
   - name: 4 - Deploy to AKS
