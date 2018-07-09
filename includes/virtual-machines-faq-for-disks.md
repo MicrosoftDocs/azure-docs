@@ -97,7 +97,7 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
 
-**If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (512 GB)?**
+**If I create a 128-GB disk and then increase the size to 130 GB, will I be charged for the next disk size (256 GB)?**
 
 Yes.
 
@@ -128,6 +128,13 @@ Standard SSD disks are standard disks backed by solid-state media, optimized as 
 
 <a id="standard-ssds-azure-regions"></a>**What are the regions currently supported for Standard SSD disks (Preview)?**
 * North Europe
+* France Central
+* East US 2
+* Central US
+* Canada Central
+* East Asia
+* Korea South
+* Australia East
 
 **How do I create Standard SSD disks?**
 Currently, you can create Standard SSD disks using Azure Resource Manager templates. Below are the parameters needed in the Resource Manager template to create Standard SSD Disks:
@@ -151,8 +158,15 @@ The following example shows the *properties.storageProfile.osDisk* section for a
 
 For a complete template example of how to create a Standard SSD disk with a template, see [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
+**Can I convert my existing disks to Standard SSD?**
+Yes, you can. Refer to [Convert Azure managed disks storage from standard to premium, and vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) for the general guidelines for converting Managed Disks. And, use the following value to update the disk type to Standard SSD.
+    -AccountType StandardSSD_LRS
+
 **Can I use Standard SSDs as Unmanaged Disks?**
 No, Standard SSDs disks are only available as Managed Disks.
+
+**Do Standard SSD Disks support "single instance VM SLA"?**
+No, Standard SSDs do not have single instance VM SLA. Use Premium SSD disks for single instance VM SLA.
 
 ## Migrate to Managed Disks 
 
@@ -204,11 +218,11 @@ No.
 
 **Is Storage Service Encryption only available in specific regions?**
 
-No. It's available in all the regions where Managed Disks are available. Managed Disks is available in all public regions and Germany.
+No. It's available in all the regions where Managed Disks are available. Managed Disks is available in all public regions and Germany. It is also available in China, however, only for Microsoft managed keys, not customer managed keys.
 
 **How can I find out if my managed disk is encrypted?**
 
-You can find out the time when a managed disk was created from the Azure portal, the Azure CLI, and PowerShell. If the time is after June 9, 2017, then your disk is encrypted. 
+You can find out the time when a managed disk was created from the Azure portal, the Azure CLI, and PowerShell. If the time is after June 9, 2017, then your disk is encrypted.
 
 **How can I encrypt my existing disks that were created before June 10, 2017?**
 
