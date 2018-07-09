@@ -13,9 +13,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 07/09/2018
 ms.author: jeffgilb
-ms.reviewer: avishwan
+ms.reviewer: brbartle
 
 ---
 
@@ -147,9 +147,6 @@ Set-AzsRegistration `
 ```
 
 ## Register Azure Stack in disconnected environments
-
-*The information in this section applies beginning with the Azure Stack 1712 update version (180106.1) and is not supported with earlier versions.*
-
 If you are registering Azure Stack in a disconnected environment (with no internet connectivity), you need to get a registration token from the Azure Stack environment and then use that token on a computer that can connect to Azure and has [PowerShell for Azure Stack installed](#bkmk_powershell).  
 
 ### Get a registration token from the Azure Stack environment
