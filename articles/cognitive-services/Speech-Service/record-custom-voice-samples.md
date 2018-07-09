@@ -177,7 +177,7 @@ Coach your talent to take a deep breath and pause for a moment before each utter
 Record a good five seconds of silence before the first recording to capture the "room tone." This helps the Custom Voice portal compensate for any remaining noise in the recordings.
 
 > [!TIP]
-> All you really need to record is the voice talent, so it's fine to make a monophonic (single-channel) recording of just that. However, if you record in stereo, the second channel can be used to record the chatter in the control room so you can refer to it later. Remove this track from the version uploaded to the Custom Voice portal.
+> All you really need to record is the voice talent, so it's fine to make a monophonic (single-channel) recording of just their lines. However, if you record in stereo, you can use the second channel to record the chatter in the control room. It's often useful to refer to this later. Remove this track from the version uploaded to the Custom Voice portal.
 
 Listen closely, using headphones, to the voice talent's performance. You're looking for good but natural diction, correct pronunciation, and a lack of unwanted sounds. Don't hesitate to ask your talent to re-record an utterance that doesn't meet these standards. 
 
