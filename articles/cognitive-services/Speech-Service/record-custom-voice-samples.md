@@ -153,7 +153,7 @@ Ideally, have different people serve in the roles of director, engineer, and tal
 To avoid wasting studio time, run through the script with your voice talent before the recording session. As the voice talent becomes familiar with the text, he or she can clarify the pronunciation of any unfamiliar words.
 
 > [!NOTE]
-> Most recording studios offer electronic display of scripts in the recording booth. In this case, type any take notes from your run-through directly into the script's document. You'll still want a paper copy to take notes on during the session, though. Most engineers will want a hardcopy, too. And you'll still want the third printed copy as a backup for the talent in case the computer is down!
+> Most recording studios offer electronic display of scripts in the recording booth. In this case, type your run-through notes directly into the script's document. You'll still want a paper copy to take notes on during the session, though. Most engineers will want a hardcopy, too. And you'll still want the third printed copy as a backup for the talent in case the computer is down!
 
 Your voice talent may ask which word you want emphasized in an utterance. Actors often call this the "operative word." Tell them you want a natural reading with no particular emphasis. Emphasis can be added when speech is synthesized; it should not be a part of the original recording.
 
