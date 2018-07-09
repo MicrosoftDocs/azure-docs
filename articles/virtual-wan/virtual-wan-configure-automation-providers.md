@@ -22,7 +22,7 @@ Software-defined connectivity solutions typically use a controller or a device p
 
 Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access provides the device controller appropriate authentication to upload branch information.
 
-##  <a name="site"></a>Branch information website
+##  <a name="site"></a>Upload branch information
 
 Design the user-experience to upload branch (on-premises site) information to Azure. REST APIs for **VPNSite** can be used to create the site information in Virtual WAN. You can provide all branch/VPN devices, or select device customizations as appropriate.
 
@@ -151,7 +151,7 @@ When you view this file, notice the following information:
    }
   ```
 
-## <a name="custom"></a Working with Custom Policy
+## <a name="custom"></a>Working with Custom Policy
 
 The following table lists the supported cryptographic algorithms and key strengths that are configurable by the customers. You must select one option for every field.
 

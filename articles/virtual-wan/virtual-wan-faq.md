@@ -6,14 +6,12 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: 
-ms.date: 07/06/2018
+ms.date: 07/09/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
 ---
 
 # Virtual WAN FAQ (Preview)
-
-**This article is currently in progress. This is not the final version**
 
 > [!IMPORTANT]
 > Azure Virtual WAN is currently a managed public preview. To use Virtual WAN, you must [enroll in the Preview](virtual-wan-about.md).
