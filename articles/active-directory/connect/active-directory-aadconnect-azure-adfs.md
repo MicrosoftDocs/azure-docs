@@ -4,7 +4,7 @@ description: In this document you will learn how to deploy AD FS in Azure for hi
 keywords: deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
-ms.author: anandy; billmath
+ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ---
 # Deploying Active Directory Federation Services in Azure

@@ -8,7 +8,7 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 07/03/2018
 ms.author: hux  
 
 ---
@@ -42,7 +42,10 @@ GPv2 storage accounts expose the **Access Tier** attribute at the account level,
 
 ### Upgrade a storage account to GPv2
 
-Users can upgrade a GPv1 or Blob storage account to a GPv2 account at any time using PowerShell or Azure CLI. This change cannot be reversed, and no other changes are permitted.
+Users can upgrade a GPv1 or Blob storage account to a GPv2 account at any time using Azure portal, PowerShell, or Azure CLI. This change cannot be reversed, and no other changes are permitted.
+
+#### Upgrade with Azure portal
+To upgrade a GPv1 or Blob storage account to a GPv2 account using Azure portal, first sign into the [Azure portal](https://portal.azure.com) and select your storage account. Select **Settings** > **Configuration**. There you will see the **Upgrade** button along with a note regarding the upgrade process.
 
 #### Upgrade with PowerShell
 
@@ -72,32 +75,27 @@ Blob storage accounts support all the same block blob features as GPv2, but are 
 
 > [!NOTE]
 > Blob storage accounts support only block and append blobs, and not page blobs.
+>
+> Microsoft recommends using general-purpose v2 storage accounts over Blob storage accounts for most scenarios.
 
 ## Recommendations
 
 For more information on storage accounts, see [About Azure storage accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-For applications requiring only block or append blob storage, using GPv2 storage accounts is recommended, to take advantage of the differentiated pricing model of tiered storage. However, you may want to use GPv1 in certain scenarios, such as:
+For applications requiring the latest block or append blob features, using GPv2 storage accounts is recommended, to take advantage of the differentiated pricing model of tiered storage. However, you may want to use GPv1 in certain scenarios, such as:
 
 * You still need to use the classic deployment model. GPv2 and Blob storage accounts are only available via the Azure Resource Manager deployment model.
-
 * You use high volumes of transactions or geo-replication bandwidth, both of which cost more in GPv2 and Blob storage accounts than in GPv1, and don't have enough storage that benefits from the lower costs of GB storage.
-
 * You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
 
 ## Pricing and billing
 All storage accounts use a pricing model for blob storage based on the tier of each blob. When using a storage account, the following billing considerations apply:
 
 * **Storage costs**: In addition to the amount of data stored, the cost of storing data varies depending on the storage tier. The per-gigabyte cost decreases as the tier gets cooler.
-
 * **Data access costs**: Data access charges increase as the tier gets cooler. For data in the cool and archive storage tier, you are charged a per-gigabyte data access charge for reads.
-
 * **Transaction costs**: There is a per-transaction charge for all tiers that increases as the tier gets cooler.
-
 * **Geo-Replication data transfer costs**: This charge only applies to accounts with geo-replication configured, including GRS and RA-GRS. Geo-replication data transfer incurs a per-gigabyte charge.
-
 * **Outbound data transfer costs**: Outbound data transfers (data that is transferred out of an Azure region) incur billing for bandwidth usage on a per-gigabyte basis, consistent with general-purpose storage accounts.
-
 * **Changing the storage tier**: Changing the account storage tier from cool to hot incurs a charge equal to reading all the data existing in the storage account. However, changing the account storage tier from hot to cool incurs a charge equal to writing all the data into the cool tier (GPv2 accounts only).
 
 > [!NOTE]
@@ -201,7 +199,6 @@ In both cases, the first priority is to estimate the cost of storing and accessi
 In order to estimate the cost of storing and accessing data stored in a GPv2 storage account, you need to evaluate your existing usage pattern or approximate your expected usage pattern. In general, you want to know:
 
 * Your storage consumption - How much data is being stored and how does this change on a monthly basis?
-
 * Your storage access pattern - How much data is being read from and written to the account (including new data)? How many transactions are used for data access, and what kinds of transactions are they?
 
 ## Monitoring existing storage accounts
@@ -219,7 +216,7 @@ With this enabled, capacity data is recorded daily for a storage account's Blob 
 To monitor data access patterns for Blob storage, you need to enable the hourly transaction metrics from the API. With hourly transaction metrics enabled, per API transactions are aggregated every hour, and recorded as a table entry that is written to the *$MetricsHourPrimaryTransactionsBlob* table within the same storage account. The *$MetricsHourSecondaryTransactionsBlob* table records the transactions to the secondary endpoint when using RA-GRS storage accounts.
 
 > [!NOTE]
-> If you have a general-purpose storage account in which you have stored page blobs and virtual machine disks, or queues, files, or tables, alongside block and append blob data, this estimation process is not applicable. The capacity data does not differentiate block blobs from other types, and does not give capacity data for other data types. If you use these types, an alternative methodology is to look at the quantities on your most recent bill.
+> If you have a general-purpose storage account with stored page blobs and virtual machine disks, or queues, files, or tables, alongside block and append blob data, this estimation process is not applicable. The capacity data does not differentiate block blobs from other types, and does not give capacity data for other data types. If you use these types, an alternative methodology is to look at the quantities on your most recent bill.
 
 To get a good approximation of your data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage and extrapolate. One option is to retain the metrics data for seven days and collect the data every week, for analysis at the end of the month. Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30-day period.
 
@@ -252,10 +249,9 @@ In order to estimate transaction costs for GPv1 storage accounts, you need to ag
 
 While storage analytics does not provide the amount of data read from and written to a storage account, it can be roughly estimated by looking at the transaction metrics table. The sum of *'TotalIngress'* across all entries for an API in the transaction metrics table indicates the total amount of ingress data in bytes for that particular API. Similarly the sum of *'TotalEgress'* indicates the total amount of egress data, in bytes.
 
-In order to estimate the data access costs for Blob storage accounts, you need to break down the transactions into two groups.
+In order to estimate the data access costs for Blob storage accounts, you need to break down the transactions into two groups:
 
 * The amount of data retrieved from the storage account can be estimated by looking at the sum of *'TotalEgress'* for primarily the *'GetBlob'* and *'CopyBlob'* operations.
-
 * The amount of data written to the storage account can be estimated by looking at the sum of *'TotalIngress'* for primarily the *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* and *'AppendBlock'* operations.
 
 The cost of geo-replication data transfer for Blob storage accounts can also be calculated by using the estimate for the amount of data written when using a GRS or RA-GRS storage account.
@@ -265,9 +261,9 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 
 ## Migrating existing data
 
-A GPv1 account can be easily upgraded to GPv2 with no downtime or API changes, and without the need to migrate data. For this reason, it's strongly recommended that you migrate GPv1 accounts to GPv2 accounts, instead of to Blob storage accounts.
+A GPv1 or Blob storage account can be easily upgraded to GPv2 with no downtime or API changes, and without the need to migrate data. For this reason, it's strongly recommended that you migrate GPv1 accounts to GPv2 accounts, instead of to Blob storage accounts. For more information on upgrading to GPv2, see [Upgrade a storage account to GPv2](#upgrade-a-storage-account-to-gpv2).
 
-However, if you need to migrate to a Blob storage account and are unable to use GPv2 accounts, you can use the following instructions. 
+However, if you need to migrate from GPv1 to a Blob storage account and are unable to use GPv2 accounts, you can use the following instructions. 
 
 A Blob storage account is specialized for storing only block and append blobs. Existing general-purpose storage
 accounts, which allow you to store tables, queues, files, and disks, as well as blobs, cannot be converted to Blob storage accounts. To use the storage tiers, you need to create new Blob storage accounts and migrate your existing data into the newly created accounts. 

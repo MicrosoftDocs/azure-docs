@@ -1,6 +1,6 @@
 ---
-title: 'Azure SQL Database service tiers | Microsoft Docs'
-description: Learn about service tiers for single and pool databases to provide performance levels and storage sizes.  
+title: 'Azure SQL Database purchasing models | Microsoft Docs'
+description: Learn about purchasing model for Azure SQL Database.  
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
@@ -11,7 +11,7 @@ manager: craigg
 ms.author: carlrab
 
 ---
-# Service tier purchasing models and resources 
+# Azure SQL Database purchasing models and resources 
 
 Logical servers in [Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a vCore-based purchasing model (preview). 
 
@@ -25,7 +25,7 @@ The following table and chart compare and contrast these two purchasing models.
 
 |**Purchasing model**|**Description**|**Best for**|
 |---|---|---|
-|DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-what-is-a-dtu.md)?|Best for customers who want simple, pre-configured resource options.| 
+|DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Performance levels are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Best for customers who want simple, pre-configured resource options.| 
 |vCore-based model|This model allows you to independently scale compute and storage resources. It also allows you to use Azure Hybrid Benefit for SQL Server to gain cost savings.|Best for customers who value flexibility, control, and transparency.|
 ||||  
 
@@ -35,7 +35,7 @@ The following table and chart compare and contrast these two purchasing models.
 
 A virtual core represents the logical CPU offered with an option to choose between generations of hardware. The vCore-based purchasing model (preview) gives your flexibility, control, transparency of individual resource consumption and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. In the vCore-based purchasing model (preview), customers can choose between General Purpose and Business critical service tiers (preview) for both [single databases](sql-database-single-database-scale.md) and [elastic pools](sql-database-elastic-pool.md). 
 
-he vCore-based purchasing model (preview) enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the performance level using the following rule of thumb: each 100 DTU in Standard tier requires at least 1 vCore in General Purpose tier; each 125 DTU in Premium tier requires at least 1 vCore in Business Critical tier.
+The vCore-based purchasing model (preview) enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the performance level using the following rule of thumb: each 100 DTU in Standard tier requires at least 1 vCore in General Purpose tier; each 125 DTU in Premium tier requires at least 1 vCore in Business Critical tier.
 
 In the vCore-based purchasing model (preview), customers pay for:
 - Compute (service tier + number of vCores + generation of hardware)*

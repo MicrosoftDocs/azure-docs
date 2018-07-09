@@ -167,7 +167,7 @@ The following table shows the compatibility between server and computer operatin
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
-### For Linux
+### For Linux OS
 
 In Linux, the OS of the computer used to restore files must support the file system of the protected virtual machine. When selecting a computer to run the script, ensure the computer has a compatible OS, and uses one of the versions identified in the following table:
 
