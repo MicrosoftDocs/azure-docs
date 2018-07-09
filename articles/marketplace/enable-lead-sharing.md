@@ -1,6 +1,6 @@
 ---
 title: Enable lead sharing in the Azure Marketplace | Azure
-description: Learn how to enable lead sharing for Azure Marketplace and AppSource, for app and service publishers.
+description: Learn how to enable lead sharing for the Azure Marketplace and AppSource, for app and service publishers.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
@@ -26,7 +26,7 @@ Ensuring that lead management is enabled for your listing in the [Azure Marketpl
 | AppSource | Business customers |
 | Azure Marketplace | All customers |
 
-Your leads provide the basis of outreach for the following campaigns, for related sales motions by your field sales staff, and for information about how your app or offer is performing:
+Your leads provide the basis of outreach for the campaigns listed in the following table, for related sales motions by your field sales staff, and for information about how your app or offer is performing:
 
 | Storefront | Campaign |
 |:--- |:--- |

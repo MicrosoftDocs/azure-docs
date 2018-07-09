@@ -1,6 +1,6 @@
 ---
-title: Comparing AppSource and Azure Marketplace | Azure
-description: This article describes the storefronts in Microsoft AppSource and Azure Marketplace.
+title: Comparing AppSource and the Azure Marketplace | Azure
+description: This article describes the storefronts in Microsoft AppSource and the Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
@@ -18,10 +18,10 @@ ms.author: ellacroi
 
 ---
 
-# Comparing AppSource and Azure Marketplace
-Storefronts in [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Microsoft AppSource](https://appsource.microsoft.com) serve unique customer requirements. You can use storefronts to target customers by role. You can offer the right solution or service based on your customer.
+# Comparing AppSource and the Azure Marketplace
+Storefronts in the [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Microsoft AppSource](https://appsource.microsoft.com) serve unique customer requirements. Use storefronts to target customers by role. You can offer the right solution or service based on your customer.
 
-## Understanding the differences between the storefronts
+## Understanding the differences between storefronts
 To choose a storefront, begin by identifying the target audience for your offer. If you're targeting audiences in multiple storefronts, you can publish once to sell in multiple storefronts.
  
 The following tables describe the benefits of using a storefront:
@@ -40,11 +40,11 @@ The following tables describe the benefits of using a storefront:
 
 | Benefit | Details | 
 |:--- |:--- | 
-| **Billing flexibility** | For VMs, Pay-As-You-Go billing options use Microsoft Enterprise Agreements (EAs) or web direct sales models. Pricing options include a Free Tier subscription where an offering is perpetually free. Pricing options also include a Try It Now subscription. A Try It Now subscription is promotionally free for a limited period. When the period ends, the VM is converted to a paid subscription. BYOL activation is also an option you can use for customers.<br /><br/>For both billing options and the following VM offers, all provisioned Azure resources are billed directly to the customer:<ul> <li>Azure apps: Managed app</li> <li>Azure apps: Solution template</li> </ul> | 
+| **Billing flexibility** | For VMs, Pay-As-You-Go billing options use Microsoft Enterprise Agreements (EAs) or web direct sales models. Pricing options include a Free Tier subscription, in which an offering is perpetually free. Pricing options also include a Try It Now subscription. A Try It Now subscription is promotionally free for a limited period. When the period ends, the VM is converted to a paid subscription. Bring Your Own License (BYOL) activation is also an option that you can use for customers.<br /><br/>For both billing options and the following VM offers, all provisioned Azure resources are billed directly to the customer:<ul> <li>Azure apps: Managed app</li> <li>Azure apps: Solution template</li> </ul> | 
 |**Connections with other partners** | Currently, you can't link a service provider or delivery partners to your offer. | 
-| **Automation** | Currently, you can't link a service provider or delivery partners to your offer. Take advantage of automated SaaS with add-on provisioning. Use the Azure apps - Solution template listing type to automate SaaS-based data collection and deployment scenarios. |
-| **Multiple cloud types** | Publish both in the public cloud and on-premises solutions by using the following types:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Regional clouds, including China and Germany</li></ul> | 
-| **In-context presentation to customers** | Make your solution available in the Azure in-portal experience for contextual search. Use the Virtual machine and Azure apps: Solution template. |
+| **Automation** | Currently, you can't link a service provider or delivery partners to your offer. Take advantage of automated software as a service (SaaS) with add-on provisioning. Use the Azure apps: Solution template publishing option to automate SaaS-based data collection and deployment scenarios. |
+| **Multiple cloud types** | Publish solutions for both the public cloud and on-premises by using the following types:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Regional clouds, including China and Germany</li></ul> | 
+| **In-context presentation to customers** | Make your solution available in the Azure in-portal experience for contextual search. Use the Virtual machine and Azure apps: Solution template publishing options. |
 
 ## Next steps
 *   Review the [Azure Marketplace and AppSource publishing guide](./marketplace-publishers-guide.md).

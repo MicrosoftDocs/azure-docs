@@ -1,6 +1,6 @@
 ---  
 title: Determine your publishing option in the Azure Marketplace | Azure
-description: This article describes the eligibility criteria and publishing requirements for partners who are trying to understand how to publish apps to the Azure Marketplace.
+description: This article describes the eligibility criteria and publishing requirements for partners who are trying to understand how to publish apps in the Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: jm-aditi-ms
@@ -47,20 +47,20 @@ The following table provides more information about the specific requirements fo
 ## Azure Marketplace storefront and publishing options
 | Storefront | Publishing option | Offer type and guidelines |
 |:--- |:--- |:--- |  
-| Azure Marketplace | [List](#list) | [Consulting Services](#requirements-azure-marketplace-list-consulting-service) | [](#) |  
-| Azure Marketplace | [List](#list) | [Contact Me](#requirements-azure-marketplace-list-contact-me) | [](#) |  
-| Azure Marketplace | [Trial](#trial) | [Free trial/SaaS trial](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) | [](#) |  
-| Azure Marketplace | [Transact](#transact-specific-listings) | [Azure apps: Solution template](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  [](#) |  
-| Azure Marketplace | [Transact](#transact-specific-listings) | [Container](#requirements-azure-marketplace-transact-container) |  [](#) |  
-| Azure Marketplace | [Transact](#transact-specific-listings) | [SaaS app](#requirements-azure-marketplace-transact-saas-app) |  [](#) |  
-| Azure Marketplace | [Transact](#transact-specific-listings) | [Virtual machine](#requirements-azure-marketplace-transact-virtual-machine) |  [](#) |
+| Azure Marketplace | [List](#list) | [Consulting Services](#requirements-for-list-consulting-services) | [](#) |  
+| Azure Marketplace | [List](#list) | [Contact Me](#requirements-for-list-contact-me) | [](#) |  
+| Azure Marketplace | [Trial](#trial) | [Free trial/SaaS trial](#requirements-for-trial-free-trial-saas-trial) | [](#) |  
+| Azure Marketplace | [Transact](#transact-specific-listings) | [Azure apps: Solution template](#requirements-for-transact-azure-solution-template) |  [](#) |  
+| Azure Marketplace | [Transact](#transact-specific-listings) | [Container](#requirements-for-transact-container) |  [](#) |  
+| Azure Marketplace | [Transact](#transact-specific-listings) | [SaaS app](#requirements-for-transact-saas-app) |  [](#) |  
+| Azure Marketplace | [Transact](#transact-specific-listings) | [Virtual machine](#requirements-for-transact-virtual-machine) |  [](#) |
 | Azure Marketplace | [Transact](#transact-specific-listings) | [Azure apps: Managed app](https://docs.microsoft.com/azure/managed-applications/overview) |   
 
 ## Azure Marketplace publishing by product  
 
-![](./media/marketplace-publishers-guide/workflow-azure-marketplace.png)  
+![Diagram of the Solution template publishing option in the Azure Marketplace](./media/marketplace-publishers-guide/workflow-azure-marketplace.png)  
 
-The following table provides more information about the specific requirements for Azure Marketplace offers.  
+The following table provides more information about the specific requirements for Azure Marketplace offers:  
 
 | Publishing option | Offer type |  
 |:--- |:--- | 
@@ -106,7 +106,7 @@ When the offer consists primarily of professional services use the Consulting Se
 | Requirement | Details |  
 |:--- |:--- |  
 | Service offer characteristics | Your consulting service must meet the following criteria:<ul> <li>Deliver a fixed-scope, fixed-duration, fixed-price (or free) engagement.</li> <li>Be oriented primarily for pre-sales.</li> <li>Be limited to a single customer.</li> <li>Be conducted on-site.</li> </ul> |  
-| Partner requirements for Consulting Services | You must meet the criteria in the relevant area for your service:<table><tr><th>Solution area</th><th>Criteria</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>Have Silver or Gold Cloud Customer Relationship Management competency.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Enterprise Edition</td><td>Have Silver or Gold Enterprise Resource Planning competency and revenue from your cloud operations in the trailing 12 months of $25,000 or more.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Business Edition</td><td>Serve as Cloud Solution Provider (CSP) or Digital Partner of Record (DPOR) for one or more customers.</td></tr><tr><td>Power BI</td><td>Meet the Solution Partner criteria.</td></tr><tr><td>PowerApps</td><td>Have a Partner Showcase solution.</td></tr></table><ul> <li>For more information about customer relationship management, see [Cloud Customer Relationship Management](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>For more information about resource planning, see [Enterprise Resource Planning](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>For more information about CSP, see [Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>For more information about DPOR, see [Digital Partner of Record and Partner Association](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>For more information about solution partner criteria, see  [Solution Partner Overview and Incentives](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>For more information about the partner showcase, see [Partner Showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
+| Partner requirements for Consulting Services | You must meet the criteria in the relevant area for your service:<table><tr><th>Solution area</th><th>Criteria</th></tr><tr><td>Dynamics 365 for Customer Engagement</td><td>Have Silver or Gold Cloud Customer Relationship Management competency.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Enterprise Edition</td><td>Have Silver or Gold Enterprise Resource Planning competency and revenue of $25,000 or more from your cloud operations in the trailing 12 months.</td></tr><tr><td>Dynamics 365 for Finance and Operations, Business Edition</td><td>Serve as Cloud Solution Provider (CSP) or Digital Partner of Record (DPOR) for one or more customers.</td></tr><tr><td>Power BI</td><td>Meet the Solution Partner criteria.</td></tr><tr><td>PowerApps</td><td>Have a Partner Showcase solution.</td></tr></table><ul> <li>For more information about customer relationship management, see [Cloud Customer Relationship Management](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>For more information about resource planning, see [Enterprise Resource Planning](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>For more information about CSP, see [Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>For more information about DPOR, see [Digital Partner of Record and Partner Association](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>For more information about solution partner criteria, see  [Solution Partner Overview and Incentives](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>For more information about the partner showcase, see [Partner Showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
 
 <a name="list-consulting-services-marketplace"></a>**For the Azure Marketplace**
 
