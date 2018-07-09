@@ -278,12 +278,19 @@ No action is required; the server will try again. If this error persists for lon
 This error occurs because the Azure File Sync agent cannot access the Azure file share. This can occur because the Azure file share or the storage account hosting it no longer exists. You can troubleshoot this error by working through the following steps:
 
 1. Verify the storage account exists.
+
     [!INCLUDE [storage-sync-files-storage-account-dne](../../../includes/storage-sync-files-storage-account-dne.md)]
+
 2. Check to make sure the storage account does not contain any network rules.
+
     [!INCLUDE [storage-sync-files-storage-network-rules](../../../includes/storage-sync-files-storage-network-rules.md)]
+
 3. Ensure the Azure file share exists.
+
     [!INCLUDE [storage-sync-files-share-dne](../../../includes/storage-sync-files-share-dne.md)]
+
 4. Ensure Azure File Sync has access to the storage account.
+
     [!INCLUDE [storage-sync-files-access-control](../../../includes/storage-sync-files-access-control.md)]
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**The storage account name used could not be resolved.**  
@@ -299,8 +306,11 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
 2. Verify the storage account exists.
+
     [!INCLUDE [storage-sync-files-storage-account-dne](../../../includes/storage-sync-files-storage-account-dne.md)]
+
 3. Check to make sure the storage account does not contain any network rules.
+
     [!INCLUDE [storage-sync-files-storage-network-rules](../../../includes/storage-sync-files-storage-network-rules.md)]
 
 <a id="-1906441138"></a>**Sync failed due to a problem with the sync database.**  
