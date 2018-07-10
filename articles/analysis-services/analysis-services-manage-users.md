@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -71,7 +71,7 @@ Roles at this level apply to users or accounts that need to perform tasks that c
 
 ## Next steps
 
-[Manage access to resources with Azure Active Directory groups](../active-directory/active-directory-manage-groups.md)   
+[Manage access to resources with Azure Active Directory groups](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Manage database roles and users](analysis-services-database-users.md)  
 [Manage server administrators](analysis-services-server-admins.md)  
 [Role-Based Access Control](../role-based-access-control/overview.md)  

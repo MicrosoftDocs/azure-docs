@@ -60,13 +60,13 @@ The following tutorals show how to encode your content with Media Services:
 The following code samples contain code that shows how to encode with Media Services:
 
 * [.NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore)
-* [CLI 2.0](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
+* [Azure CLI](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
 
 ### SDKs
 
 You can use any of the following supported Media Services v3 SDKs to encode your content.
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 * [REST](https://docs.microsoft.com/rest/api/media/transforms)
 * [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)

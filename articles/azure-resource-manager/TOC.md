@@ -2,21 +2,25 @@
 
 # Overview
 ## [What is Resource Manager?](resource-group-overview.md)
-## [Resource providers and types](resource-manager-supported-services.md)
 ## [Resource Manager and classic deployment](resource-manager-deployment-model.md)
-## [Subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance)
-## [Organize resources with management groups](management-groups-overview.md)
 
 # Get started
 ## [Create and deploy template](resource-manager-create-first-template.md)
 ## [VS Code extension for templates](resource-manager-vscode-extension.md)
 ## [Visual Studio with Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Concepts
+## [Resource providers and types](resource-manager-supported-services.md)
+## [Management groups](management-groups-overview.md)
+## [Subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Templates for cloud consistency](templates-cloud-consistency.md)
+
 # How to
 ## Create templates
 ### [Template sections](resource-group-authoring-templates.md)
 #### [Parameters](resource-manager-templates-parameters.md)
 #### [Variables](resource-manager-templates-variables.md)
+#### [Functions](resource-group-authoring-templates.md#functions)
 #### [Resources](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
 ### [Linked and nested templates](resource-group-linked-templates.md)

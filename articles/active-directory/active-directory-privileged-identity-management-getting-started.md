@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: active-directory
 ms.component: protection
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/17/2017
 ms.author: rolyon
@@ -49,7 +49,3 @@ Once Azure AD Privileged Identity Management is set up, you see the navigation b
 The [Azure AD Privileged Identity Management overview](active-directory-privileged-identity-management-configure.md) includes more details on how you can manage administrative access in your organization.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png

@@ -23,7 +23,7 @@ A prediction score is usually between zero (0) and one (1). An example of a high
 |0.01|low confidence|
 |0|definite failure to match|
 
-When an utterance results in a low-confidence score, LUIS highlights that in the [LUIS][LUIS] website **Intent** page, with the identified **labeled-intent** outlined with red. 
+When an utterance results in a low-confidence score, LUIS highlights that in the [LUIS](luis-reference-regions.md) website **Intent** page, with the identified **labeled-intent** outlined with red. 
 
 ![Score discrepancy](./media/luis-concept-score/score-discrepancy.png)
 
@@ -56,5 +56,3 @@ If your chatbot requires a specific LUIS score to indicate confidence in an inte
 ## Next steps
 
 See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.
-
-[LUIS]:luis-reference-regions.md

@@ -3,17 +3,18 @@ title: Manage guest access with Azure AD access reviews | Microsoft Docs
 description: Manage guest users as members of a group or assigned to an application with Azure Active Directory access reviews
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
+ms.reviewer: mwahl
 ---
 
 # Manage guest access with Azure AD access reviews
@@ -37,7 +38,7 @@ If you plan to ask guest users to review their own access, read about guest user
 
 ## Create and perform an access review for guests
 
-First, enable access reviews to appear on a reviewer's access panels. As a global administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
+First, enable access reviews to appear on a reviewer's access panels. As a global administrator or user account administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
 
 Azure AD enables several scenarios for reviewing guest users.
 

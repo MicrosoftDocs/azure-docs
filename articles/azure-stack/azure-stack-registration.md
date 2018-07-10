@@ -13,9 +13,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/09/2018
 ms.author: jeffgilb
-ms.reviewer: avishwan
+ms.reviewer: brbartle
 
 ---
 
@@ -23,7 +23,7 @@ ms.reviewer: avishwan
 
 Registering [Azure Stack](azure-stack-poc.md) with Azure allows you to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure commerce and you can see it under the subscription used for registration.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Registration is required to support full Azure Stack functionality, including marketplace syndication. In addition, you will be in violation of Azure Stack licensing terms if you do not register when using the pay-as-you-use billing model. To learn more about Azure Stack licensing models, please see the [How to buy page](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
 ## Prerequisites
@@ -147,9 +147,6 @@ Set-AzsRegistration `
 ```
 
 ## Register Azure Stack in disconnected environments
-
-*The information in this section applies beginning with the Azure Stack 1712 update version (180106.1) and is not supported with earlier versions.*
-
 If you are registering Azure Stack in a disconnected environment (with no internet connectivity), you need to get a registration token from the Azure Stack environment and then use that token on a computer that can connect to Azure and has [PowerShell for Azure Stack installed](#bkmk_powershell).  
 
 ### Get a registration token from the Azure Stack environment
@@ -280,7 +277,7 @@ To remove the activation resource in Azure Stack, run the following PowerShell c
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Next, to remove the registration resource in Azure, ensure you are on an Azure connected computer, log in to the correct Azure PowerShell context, and run the appropriate PowerShell commands as described below.
+Next, to remove the registration resource in Azure, ensure you are on an Azure connected computer, sign in to the correct Azure PowerShell context, and run the appropriate PowerShell commands as described below.
 
 You can use the registration token used to create the resource:  
 

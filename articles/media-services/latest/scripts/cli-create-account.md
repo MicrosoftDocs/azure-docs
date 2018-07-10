@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Example - Create a Azure Media Services account | Microsoft Docs
+title: Create a Azure Media Services account - Azure CLI| Microsoft Docs
 description: Use the Azure CLI script to create a Azure Media Services account.
 services: media-services
 documentationcenter: ''

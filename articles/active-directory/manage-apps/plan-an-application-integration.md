@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
 
@@ -57,9 +57,9 @@ Maybe you don't have the answers to all of these questions up front but that's o
 * An Azure subscription and an Azure Active Directory directory.  If you don't already have an Azure subscription, you can try out Azure for free for 30 days. [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## Application integration with Azure AD
-### Finding unsanctioned cloud applications with Cloud App Discovery
+### Finding unsanctioned cloud applications with Cloud Discovery
 As mentioned above, there may be applications that haven't been managed by your organization until now.  As part of the inventory process, it is possible to find unsanctioned cloud applications. See
-[Finding unsanctioned cloud applications with Cloud App Discovery](cloud-app-discovery.md).
+[Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery.md).
 
 ### Authentication Types
 Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols as well as Password Single Sign On. For more information about application authentication types for use with Azure AD see [Managing Certificates for Federated Single Sign-On in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) and [Password based single sign on](what-is-single-sign-on.md).
@@ -72,7 +72,7 @@ The following articles discuss the different ways applications integrate with Az
 
 * [Determining which Active Directory to use](../fundamentals/active-directory-administer.md)
 * [Using applications in the Azure application gallery](what-is-single-sign-on.md)
-* [Integrating SaaS applications tutorials list](../active-directory-saas-tutorial-list.md)
+* [Integrating SaaS applications tutorials list](../saas-apps/tutorial-list.md)
 
 ## Managing access to applications
 The following articles describe ways you can manage access to applications once they have been integrated with Azure AD using Azure AD Connectors and Azure AD.

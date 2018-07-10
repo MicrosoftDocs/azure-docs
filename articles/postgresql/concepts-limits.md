@@ -2,13 +2,13 @@
 title: Limitations in Azure Database for PostgreSQL
 description: This article describes limitations in Azure Database for PostgreSQL, such as number of connection and storage engine options.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 06/30/2018
 ---
 # Limitations in Azure Database for PostgreSQL
 The following sections describe capacity and functional limits in the database service.
@@ -45,6 +45,9 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 
 ### Subscription management
 - Dynamically moving servers across subscriptions and resource groups is currently not supported.
+
+### VNet service endpoints
+- Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
 ### Point-in-time-restore (PITR)
 - When using the PITR feature, the new server is created with the same configurations as the server it is based on.

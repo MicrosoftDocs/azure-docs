@@ -2,12 +2,13 @@
 title: 'Set up the source environment for VMware to Azure replication with Azure Site Recovery | Microsoft Docs'
 description: This article describes how to set up your on-premises environment to replicate VMware VMs to Azure with Azure Site Recovery.
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
+ms.date: 07/06/2018
+ms.author: ramamill
+
 ---
 
 # Set up the source environment for VMware to Azure replication
@@ -34,12 +35,12 @@ The article assumes that you have already:
 
 ## Set up the configuration server
 
-You set up the configuration server as an on-premises VMware VM, use an Open Virtualization Format (OVF) template. [Learn more](concepts-vmware-to-azure-architecture.md) about the components that will be installed on the VMware VM. 
+You can set up the configuration server as an on-premises VMware VM through an Open Virtualization Application (OVA) template. [Learn more](concepts-vmware-to-azure-architecture.md) about the components that will be installed on the VMware VM.
 
 1. Learn about the [prerequisites](vmware-azure-deploy-configuration-server.md#prerequisites) for configuration server deployment.
 2. [Check capacity numbers](vmware-azure-deploy-configuration-server.md#capacity-planning) for deployment.
-3. [Download](vmware-azure-deploy-configuration-server.md#download-the-template) and [import](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) the OVF template (how-to-deploy-configuration-server.md) to set up an on-premises VMware VM that runs the configuration server.
-4. Turn on the VMware VM, and [register it](vmware-azure-deploy-configuration-server.md#register-the-configuration-server) in the Recovery Services vault.
+3. [Download](vmware-azure-deploy-configuration-server.md#download-the-template) and [import](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) the OVA template to set up an on-premises VMware VM that runs the configuration server. The licence provided with the template is an evaluation licence and is valid for 180 days. Post this period, customer needs to activate the windows with a procured licence.
+4. Turn on the VMware VM, and [register it](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services) in the Recovery Services vault.
 
 
 ## Add the VMware account for automatic discovery

@@ -1,13 +1,13 @@
 ---
-title: Enable replication to Azure for VMware VMs with Azure Site Recovery| Microsoft Docs'
+title: Enable VMware VM replication to Azure with Azure Site Recovery| Microsoft Docs'
 description: This article describes how to set up replication of VMware VMs to Azure, using Azure Site Recovery.
 services: site-recovery
 author: asgang
-manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
+ms.topic: conceptual
 ms.author: asgang
+
 ---
 
 

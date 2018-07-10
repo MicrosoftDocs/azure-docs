@@ -7,6 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: davidmu
 ms.component: B2C

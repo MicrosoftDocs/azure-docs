@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an Image with PHP
+# Quickstart: Analyze an image with PHP
 
 In this quickstart, you analyze an image to extract visual features using Computer Vision.
 

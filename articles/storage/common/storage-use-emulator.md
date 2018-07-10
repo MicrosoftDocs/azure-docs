@@ -1,6 +1,6 @@
 ---
 title: Use the Azure storage emulator for development and testing | Microsoft Docs
-description: The Azure storage emulator provides a free local development environment for developing and testing your Azure Storage applications. Learn how requests are authenticated, how to connect to the emulator from your application, and how to use the command-line tool.
+description: The Azure storage emulator provides a free local development environment for developing and testing your Azure Storage applications. Learn how requests are authorized, how to connect to the emulator from your application, and how to use the command-line tool.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -78,14 +78,14 @@ For more information about these commands, see [Storage emulator command-line to
 > You can use the [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to manage your SQL Server instances, including the LocalDB installation. In the SMSS **Connect to Server** dialog, specify `(localdb)\MSSQLLocalDb` in the **Server name:** field to connect to the LocalDB instance.
 
 ## Authenticating requests against the storage emulator
-Once you've installed and started the storage emulator, you can test your code against it. As with Azure Storage in the cloud, every request you make against the storage emulator must be authenticated, unless it is an anonymous request. You can authenticate requests against the storage emulator using Shared Key authentication or with a shared access signature (SAS).
+Once you've installed and started the storage emulator, you can test your code against it. As with Azure Storage in the cloud, every request you make against the storage emulator must be authorized, unless it is an anonymous request. You can authorize requests against the storage emulator using Shared Key authentication or with a shared access signature (SAS).
 
-### Authenticate with Shared Key credentials
+### Authorize with Shared Key credentials
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 For more information on connection strings, see [Configure Azure Storage connection strings](../storage-configure-connection-string.md).
 
-### Authenticate with a shared access signature
+### Authorize with a shared access signature
 Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You can create the SAS token using a tool like the [Storage Explorer](http://storageexplorer.com/) or another application that supports Shared Key authentication.
 
 You can also generate a SAS token by using Azure PowerShell. The following example generates a SAS token with full permissions to a blob container:
@@ -201,12 +201,23 @@ The following differences apply to Table storage in the emulator:
 There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
+
+### Version 5.5
+* The storage emulator now supports version 2017-11-09 of the storage services on Blob, Queue, and Table service endpoints.
+* Support has been added for the blob **Created** property, which returns the blob's creation time.
+
+### Version 5.4
+To improve installation stability, the emulator no longer attempts to reserve ports at install time. If port reservations are desired, use the *-reserveports* option of the **init** command to specify them.
+
+### Version 5.3
+The storage emulator now supports version 2017-07-29 of the storage services on Blob, Queue, and Table service endpoints.
+
 ### Version 5.2
 * The storage emulator now supports version 2017-04-17 of the storage services on Blob, Queue, and Table service endpoints.
 * Fixed a bug where table property values were not being properly encoded.
 
 ### Version 5.1
-* Fixed a bug where the storage emulator was returning the `DataServiceVersion` header in some responses where the service was not.
+Fixed a bug where the storage emulator was returning the `DataServiceVersion` header in some responses where the service was not.
 
 ### Version 5.0
 * The storage emulator installer no longer checks for existing MSSQL and .NET Framework installs.
