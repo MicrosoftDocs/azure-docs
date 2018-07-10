@@ -53,19 +53,12 @@ Remember that if you run PowerShell locally, you also need to run `Connect-Azure
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/firewall/create-fw-test.ps1  "Create a firewall test environment")]
 
-<!---
-
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/application-gateway/create-vmss/create-vmss.ps1  "Create a firewall test environment")]
-
--->
-
-
 ## Clean up deployment 
 
 Run the following command to remove the resource group, VM, and all related resources:
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzureRmResourceGroup -Name AzfwSampleScriptEastUS -Force
 ```
 
 ## Script explanation
