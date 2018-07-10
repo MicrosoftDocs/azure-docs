@@ -552,7 +552,7 @@ After updating network settings, Contoso are ready to build out their domain con
 1. In the Azure portal, they deploy a new Windows Server VM to the appropriate VNet.
 2. They create availability sets in each location for the VM. Availability sets do the following:
     - Ensure that the Azure fabric separates the VMs into different infrastructures in the Azure Region. 
-    -  Allows Contoso to be eligible for the 99.95% SLA for VMs in Azure.  [Learn more](https://docs.microsoftcom/azure/virtual-machines/windows/regions-and-availability#availability-sets).
+    -  Allows Contoso to be eligible for the 99.95% SLA for VMs in Azure.  [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
 
     ![Availability group](./media/contoso-migration-infrastructure/availability-group.png) 
 3. After the VM is deployed, they pen the network interface for the VM. Here, they set the private IP address to static, and specify a valid address.
