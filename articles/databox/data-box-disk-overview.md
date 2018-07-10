@@ -98,7 +98,7 @@ Data Box Disk is designed to move large amounts of data to Azure with no impact 
 
 ## Region availability
 
-During thye preview, Data Box Disk can transfer data to the following Azure regions:
+During the preview, Data Box Disk can transfer data to the following Azure regions:
 
 
 |Azure region  |Azure region  |
