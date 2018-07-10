@@ -10,7 +10,7 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
@@ -131,12 +131,12 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
     
 Once you’ve retrieved the secret from the Key Vault, you can use it to authenticate to a service that requires a name and password.
 
+## Next steps
 
-## Related content
+In this tutorial, you learned how to use a Managed Service Identity on a Linux virtual machine to access Azure Key Vault.  To learn more about Azure Key Vault see:
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md).
-
-Use the following comments section to provide feedback and help us refine and shape our content.
+> [!div class="nextstepaction"]
+>[Azure Key Vault](/azure/key-vault/key-vault-whatis)
 
 
 

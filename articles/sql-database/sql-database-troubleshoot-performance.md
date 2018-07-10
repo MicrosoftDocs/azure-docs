@@ -8,7 +8,7 @@ editor: ''
 keywords: sql performance tuning, database performance tuning, sql performance tuning tips, sql database performance tuning
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-shysun
 

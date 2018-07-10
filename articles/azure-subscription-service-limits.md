@@ -70,6 +70,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
+* [Managed Identity](#managed-identity-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
@@ -79,6 +80,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Network Watcher](#network-watcher-limits)
 * [Notification Hub Service](#notification-hub-service-limits)
 * [Resource Group](#resource-group-limits)
+* [Role-based access control](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
 * [Search](#search-limits)
 * [Service Bus](#service-bus-limits)
@@ -312,8 +314,14 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Automation limits
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
+### Managed Identity limits
+[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+
+### Role-based access control limits
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
+
 ### SQL Database limits
-For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md).
+For SQL Database limits, see [SQL Database Resource Limits for single databases](sql-database/sql-database-vcore-resource-limits-single-databases.md) and [SQL Database Resource Limits for elastic pools and pooled databases](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### SQL Data Warehouse limits
 For SQL Data Warehouse limits, see [SQL Data Warehouse Resource Limits](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).

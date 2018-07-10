@@ -1,7 +1,7 @@
 ---
-title: Computer Vision API C# quickstart | Microsoft Docs
+title: Computer Vision API C# quickstart analyze local image | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you analyze an image using Computer Vision with C# in Cognitive Services.
+description: In this quickstart, you analyze a local image using Computer Vision with C# in Cognitive Services.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -9,12 +9,14 @@ manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 06/14/2018
 ms.author: nolachar
 ---
-# Quickstart: Analyze an Image with C&#35;
+# Quickstart: Analyze a local image with C&#35;
 
-In this quickstart, you analyze an image to extract visual features using Computer Vision.
+In this quickstart, you analyze a local image to extract visual features using Computer Vision.
+
+## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
@@ -33,30 +35,28 @@ With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/
 To run the sample, do the following steps:
 
 1. Create a new Visual C# Console App in Visual Studio.
-2. Replace Program.cs with the following code.
-3. Replace `<Subscription Key>` with your valid subscription key.
-4. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
-5. Run the program.
-6. At the prompt, enter the path to an image.
+1. Install the Newtonsoft.Json NuGet package.
+    1. On the menu, click **Tools**, select **NuGet Package Manager**, then **Manage NuGet Packages for Solution**.
+    1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".
+    1. Select **Newtonsoft.Json** when it displays, then click the checkbox next to your project name, and **Install**.
+1. Replace `Program.cs` with the following code.
+1. Replace `<Subscription Key>` with your valid subscription key.
+1. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
+1. Run the program.
+1. At the prompt, enter the path to a local image.
 
 ```csharp
+using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CSHttpClientSample
 {
     static class Program
     {
-        // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
-
         // Replace <Subscription Key> with your valid subscription key.
         const string subscriptionKey = "<Subscription Key>";
 
@@ -135,8 +135,8 @@ namespace CSHttpClientSample
                 string contentString = await response.Content.ReadAsStringAsync();
 
                 // Display the JSON response.
-                Console.WriteLine("\nResponse:\n");
-                Console.WriteLine(JsonPrettyPrint(contentString));
+                Console.WriteLine("\nResponse:\n\n{0}\n",
+                    JToken.Parse(contentString).ToString());
             }
             catch (Exception e)
             {
@@ -156,89 +156,6 @@ namespace CSHttpClientSample
             {
                 BinaryReader binaryReader = new BinaryReader(fileStream);
                 return binaryReader.ReadBytes((int)fileStream.Length);
-            }
-        }
-
-        /// <summary>
-        /// Formats the given JSON string by adding line breaks and indents.
-        /// </summary>
-        /// <param name="json">The raw JSON string to format.</param>
-        /// <returns>The formatted JSON string.</returns>
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            string INDENT_STRING = "    ";
-            var indent = 0;
-            var quoted = false;
-            var sb = new StringBuilder();
-            for (var i = 0; i < json.Length; i++)
-            {
-                var ch = json[i];
-                switch (ch)
-                {
-                    case '{':
-                    case '[':
-                        sb.Append(ch);
-                        if (!quoted)
-                        {
-                            sb.AppendLine();
-                            Enumerable.Range(0, ++indent).ForEach(
-                                item => sb.Append(INDENT_STRING));
-                        }
-                        break;
-                    case '}':
-                    case ']':
-                        if (!quoted)
-                        {
-                            sb.AppendLine();
-                            Enumerable.Range(0, --indent).ForEach(
-                                item => sb.Append(INDENT_STRING));
-                        }
-                        sb.Append(ch);
-                        break;
-                    case '"':
-                        sb.Append(ch);
-                        bool escaped = false;
-                        var index = i;
-                        while (index > 0 && json[--index] == '\\')
-                            escaped = !escaped;
-                        if (!escaped)
-                            quoted = !quoted;
-                        break;
-                    case ',':
-                        sb.Append(ch);
-                        if (!quoted)
-                        {
-                            sb.AppendLine();
-                            Enumerable.Range(0, indent).ForEach(
-                                item => sb.Append(INDENT_STRING));
-                        }
-                        break;
-                    case ':':
-                        sb.Append(ch);
-                        if (!quoted)
-                            sb.Append(" ");
-                        break;
-                    default:
-                        sb.Append(ch);
-                        break;
-                }
-            }
-            return sb.ToString();
-        }
-    }
-
-    static class Extensions
-    {
-        public static void ForEach<T>(this IEnumerable<T> ie, Action<T> action)
-        {
-            foreach (var i in ie)
-            {
-                action(i);
             }
         }
     }

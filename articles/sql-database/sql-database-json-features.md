@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.custom: develop databases
 ms.date: 04/01/2018
 ms.author: jovanpop
-ms.topic: article
+ms.topic: conceptual
 
 ---
 # Getting started with JSON features in Azure SQL Database

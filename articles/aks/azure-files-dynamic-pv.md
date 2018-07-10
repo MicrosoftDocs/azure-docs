@@ -2,13 +2,13 @@
 title: Use Azure File with AKS
 description: Use Azure Disks with AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: nepeters
+ms.date: 05/21/2018
+ms.author: iainfou
 ms.custom: mvc
 ---
 
@@ -20,30 +20,23 @@ For more information on Kubernetes persistent volumes, including static creation
 
 ## Create storage account
 
-When dynamically creating an Azure file share as a Kubernetes volume, any storage account can be used as long as it is in the same resource group as the AKS cluster. If needed, create a storage account in the same resource group as the AKS cluster.
-
-To identify the proper resource group, use the [az group list][az-group-list] command.
+When dynamically creating an Azure file share as a Kubernetes volume, any storage account can be used as long as it is in the AKS **node** resource group. This is the one with the `MC_` prefix that was created by the provisioning of the resources for the AKS cluster. Get the resource group name with the [az resource show][az-resource-show] command.
 
 ```azurecli-interactive
-az group list --output table
-```
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-Look for a resource group with a name similar to `MC_clustername_clustername_locaton`.
-
-```
-Name                                 Location    Status
------------------------------------  ----------  ---------
-MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
-myAKSCluster                         eastus      Succeeded
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Use the [az storage account create][az-storage-account-create] command to create the storage account.
 
-Using this example, update `--resource-group` with the name of the resource group, and `--name` to a name of your choice.
+Update `--resource-group` with the name of the resource group gathered in the last step, and `--name` to a name of your choice.
 
 ```azurecli-interactive
-az storage account create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
+az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
+
+> Azure Files only currently work with standard storage. If you use premium storage, your volume will fail to provision.
 
 ## Create storage class
 
@@ -51,7 +44,7 @@ A storage class is used to define how an Azure file share is created. A specific
 
 For more information on Kubernetes storage classes for Azure files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Create a file named `azure-file-sc.yaml` and copy in the following manifest. Update the `storageAccount` with the name of your target storage account.
+Create a file named `azure-file-sc.yaml` and copy in the following manifest. Update the `storageAccount` with the name of your target storage account. See the [Mount options] section for more information on `mountOptions`.
 
 ```yaml
 kind: StorageClass
@@ -59,8 +52,13 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: azurefile
 provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
 parameters:
-  storageAccount: mystorageaccount
+  skuName: Standard_LRS
 ```
 
 Create the storage class with the [kubectl apply][kubectl-apply] command.
@@ -73,7 +71,7 @@ kubectl apply -f azure-file-sc.yaml
 
 A persistent volume claim (PVC) uses the storage class object to dynamically provision an Azure file share.
 
-The following YAML can be used to create a persistent volume claim `5GB` in size with `ReadWriteOnce` access. For more information on access modes, see the [Kubernetes persistent volume][access-modes] documentation.
+The following YAML can be used to create a persistent volume claim `5GB` in size with `ReadWriteMany` access. For more information on access modes, see the [Kubernetes persistent volume][access-modes] documentation.
 
 Create a file named `azure-file-pvc.yaml` and copy in the following YAML. Make sure that the `storageClassName` matches the storage class created in the last step.
 
@@ -84,7 +82,7 @@ metadata:
   name: azurefile
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: azurefile
   resources:
     requests:
@@ -206,7 +204,9 @@ Learn more about Kubernetes persistent volumes using Azure Files.
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az-resource-show
 [az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
+[mount-options]: #mount-options

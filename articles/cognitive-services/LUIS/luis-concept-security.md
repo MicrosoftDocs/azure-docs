@@ -1,6 +1,6 @@
 ---
-title: Understand security concepts in LUIS - Azure | Microsoft Docs
-description: Learn what can be secured in Language Understanding (LUIS)
+title: Understand access to LUIS applications - Azure | Microsoft Docs
+description: Learn how to access LUIS authoring. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -11,11 +11,11 @@ ms.date: 05/07/2018
 ms.author: v-geberr
 ---
 
-# Security
-Authoring is restricted to the app owner and collaborators. Access to the endpoint can be expanded to anyone by configuring the app as public on the **Settings** page or updating settings with the [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58aeface39e2bb03dcd5909e). 
+# Authoring and endpoint user access
+Authoring access is available for owners and collaborators. For a private app, endpoint access is available for owners and collaborators. For a public app, endpoint access is available to everyone that has their own LUIS account and has the public app's ID. 
 
 ## Access to authoring
-Access to the app from the [LUIS][LUIS] website or the [authoring APIs](https://aka.ms/luis-authoring-apis) is controlled by the owner of the app. 
+Access to the app from the [LUIS](luis-reference-regions.md#luis-website) website or the [authoring APIs](https://aka.ms/luis-authoring-apis) is controlled by the owner of the app. 
 
 The owner and all collaborators have access to author the app. 
 
@@ -45,7 +45,7 @@ A private app's endpoint is only available to the following:
 |--|--|--|
 |Owner's authoring key| Up to 1000 endpoint hits|
 |Collaborators' authoring keys| Up to 1000 endpoint hits|
-|Endpoint keys added from **[Publish](publishapp.md)** page|Owner and collaborators can add endpoint keys|
+|Endpoint keys added from **[Publish](luis-how-to-publish-app.md)** page|Owner and collaborators can add endpoint keys|
 
 Other authoring or endpoint keys have **no** access.
 
@@ -54,6 +54,18 @@ Configure the app as **public** on the **Settings** page of the app. Once an app
 
 A user who is not an owner or collaborator, can only access a public app if given the app ID. LUIS doesn't have a public _market_ or other way to search for a public app.  
 
+## Microsoft user accounts
+Authors and collaborators can add keys to LUIS on the Publish page. The Microsoft user account that creates the LUIS key in the Azure portal needs to either the app owner or an app collaborator. 
+
+See [Azure Active Directory tenant user](luis-how-to-account-settings.md#azure-active-directory-tenant-user) to learn more about Active Directory user accounts. 
+
+<!--
+### Individual consent
+If the Microsoft user account is part of an Azure Active Directory (AAD), and the active directory doesn't allow users to give consent, then you can provide individual consent as part of the login process. 
+
+### Administrator consent
+If the Microsoft user account is part of an Azure Active Directory (AAD), and the active directory doesn't allow users to give consent, then the administrator can give individual consent via the method discussed in this [blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/). 
+-->
 ## Securing the endpoint 
 You can control who can see your LUIS endpoint key by calling it in a server-to-server environment. If you are using LUIS from a bot, the connection between the bot and LUIS is already secure. If you are calling the LUIS endpoint directly, you should create a server-side API (such as an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (such as [AAD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authentication and authorization are verified, pass the call on to LUIS. While this strategy doesn’t prevent man-in-the-middle attacks, it obfuscates your endpoint from your users, allows you to track access, and allows you to add endpoint response logging (such as [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
 
@@ -63,5 +75,3 @@ LUIS successfully completed the ISO 27001:2013 and ISO 27018:2014 audit with ZER
 ## Next steps
 
 See [Best Practices](luis-concept-best-practices.md) to learn how to use intents and entities for the best predictions.
-
-[LUIS]:luis-reference-regions.md#luis-website

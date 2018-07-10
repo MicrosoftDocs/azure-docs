@@ -13,11 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 05/31/2018
 ms.author: jeedes
 
 ---
-# FAQ for the Azure Active Directory SSO plug-in 
+# FAQ for the Azure Active Directory SSO plug-in
+
+Please refer below FAQs if you have any query regarding this plug-in.
 
 ## What does the plug-in do?
 
@@ -35,13 +37,13 @@ No. The plug-in supports only on-premises versions of Jira and Confluence.
 
 The plug-in supports these versions:
 
-* Jira Core and Software: 6.0 to 7.2.2 
-* Jira Service Desk: 3.0 to 3.2 
+* Jira Core and Software: 6.0 to 7.8
+* Jira Service Desk: 3.0 to 3.2
 * Confluence: 5.0 to 5.10
 
 ## Is the plug-in free or paid?
 
-It's a free add-on. You can install it from the Atlassian Marketplace.
+It's a free add-on.
 
 ## Do I need to restart Jira or Confluence after I deploy the plug-in?
 
@@ -49,7 +51,7 @@ A restart is not required. You can start using the plug-in immediately.
 
 ## How do I get support for the plug-in?
 
-Reach out to the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). The team responds in 24-48 business hours. 
+You can reach out to the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) for any support needed for this plug-in. The team responds in 24-48 business hours.
 
 You can also raise a support ticket with Microsoft through the Azure portal channel.
 

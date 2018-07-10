@@ -1,26 +1,22 @@
 ---
-title: Deploy the Java remote monitoring solution - Azure | Microsoft Docs 
-description: This tutorial shows you how to provision the remote monitoring solution accelerator using the CLI.
-services: iot-suite
-suite: iot-suite
+title: Deploy the Java Remote Monitoring solution - Azure | Microsoft Docs 
+description: This tutorial shows you how to provision the Remote Monitoring solution accelerator using the CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
-# Deploy the remote monitoring solution accelerator using the CLI
+# Deploy the Remote Monitoring solution accelerator using the CLI
 
-This tutorial shows you how to provision the remote monitoring solution accelerator. You deploy the solution using the CLI. You can also deploy the solution using the web-based UI at azureiotsuite.com, to learn about this option see [Deploy the remote monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md).
+This tutorial shows you how to provision the Remote Monitoring solution accelerator. You deploy the solution using the CLI. You can also deploy the solution using the web-based UI at azureiotsuite.com, to learn about this option see [Deploy the Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-deploy.md).
 
 ## Prerequisites
 
-To deploy the remote monitoring solution accelerator, you need an active Azure subscription.
+To deploy the Remote Monitoring solution accelerator, you need an active Azure subscription.
 
 If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -53,7 +49,7 @@ When you deploy the solution accelerator, there are several options that configu
 | SKU    | `basic`, `standard`, `local` | A _basic_ deployment is intended for test and demonstrations, it deploys all the microservices to a single virtual machine. A _standard_ deployment is intended for production, it deploys the microservices to multiple virtual machines. A _local_ deployment configures a Docker container to run the microservices on your local machine, and uses Azure services, such as storage and Cosmos DB, in the cloud. |
 | Runtime | `dotnet`, `java` | Selects the language implementation of the microservices. |
 
-To learn about how to use the local deployment, see [Running the remote monitoring solution locally](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
+To learn about how to use the local deployment, see [Running the Remote Monitoring solution locally](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
 
 ## Basic vs. Standard Deployments
 
@@ -71,7 +67,7 @@ provisioned into your Azure subscription at cost:
 | Count | Resource                       | Type         | Used For |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux Virtual Machine](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hosting microservices |
-| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Basic tier | Device management and communication |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Standard tier | Device management and communication |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Storing configuration data, and device telemetry like rules, alarms, and messages |  
 | 1     | [Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Storage for VM and streaming checkpoints |
 | 1     | [Web Application](https://azure.microsoft.com/services/app-service/web/)        |                 | Hosting front-end web application |
@@ -90,7 +86,7 @@ provisioned into your Azure subscription at cost:
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Linux Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 master and 3 agents for hosting microservices with redundancy |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) orchestrator |
-| 1     | [Azure IoT Hub][https://azure.microsoft.com/services/iot-hub/]                     | S1 – Basic tier | Device management, command and control |
+| 1     | [Azure IoT Hub][https://azure.microsoft.com/services/iot-hub/]                     | S2 – Standard tier | Device management, command and control |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Storing configuration data, and device telemetry like rules, alarms, and messages |
 | 5     | [Azure Storage Accounts](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 for VM storage, and 1 for the streaming checkpoints |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application gateway over SSL |
@@ -104,7 +100,7 @@ for your subscription can be found in the
 
 ### Example: deploy .NET version
 
-The following example shows how to deploy the basic, .NET version of the remote monitoring solution accelerator:
+The following example shows how to deploy the basic, .NET version of the Remote Monitoring solution accelerator:
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet
@@ -112,7 +108,7 @@ pcs -t remotemonitoring -s basic -r dotnet
 
 ### Example: deploy Java version
 
-The following example shows how to deploy the standard, Java version of the remote monitoring solution accelerator:
+The following example shows how to deploy the standard, Java version of the Remote Monitoring solution accelerator:
 
 ```cmd/sh
 pcs -t remotemonitoring -s standard -r java
@@ -146,6 +142,6 @@ In this tutorial, you learned how to:
 > * Deploy the solution accelerator
 > * Sign in to the solution accelerator
 
-Now that you have deployed the remote monitoring solution, the next step is to [explore the capabilities of the solution dashboard](./iot-accelerators-remote-monitoring-deploy.md).
+Now that you have deployed the Remote Monitoring solution, the next step is to [explore the capabilities of the solution dashboard](./iot-accelerators-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

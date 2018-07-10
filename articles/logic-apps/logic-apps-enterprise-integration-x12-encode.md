@@ -4,7 +4,7 @@ description: Validate EDI and convert XML-encoded messages with X12 message enco
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: 
 
 ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d

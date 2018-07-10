@@ -6,7 +6,7 @@ author: rmatchoro
 manager: craigg
 ms.service: sql-database
 ms.custom: security, managed instance
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: ronmat
 ms.reviewer: carlrab

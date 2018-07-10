@@ -12,9 +12,13 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Generate a Thumbnail Image with Python
+# Quickstart: Generate a thumbnail with Python
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
+
+You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 ## Prerequisites
 
@@ -34,9 +38,16 @@ To run the sample, do the following steps:
 
 The following code uses the Python `requests` library to call the Computer Vision Analyze Image API. The API key is passed in via the `headers` dictionary. The size of the thumbnail is passed in via the `params` dictionary. The thumbnail is returned as a byte array in the response.
 
-### Get Thumbnail request
+## Get Thumbnail request
 
 ```python
+import requests
+# If you are using a Jupyter notebook, uncomment the following line.
+#%matplotlib inline
+import matplotlib.pyplot as plt
+from PIL import Image
+from io import BytesIO
+
 # Replace <Subscription Key> with your valid subscription key.
 subscription_key = "<Subscription Key>"
 assert subscription_key
@@ -50,23 +61,17 @@ assert subscription_key
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
 
-thumbnail_url  = vision_base_url + "generateThumbnail"
+thumbnail_url = vision_base_url + "generateThumbnail"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
 
-import requests
-headers  = {'Ocp-Apim-Subscription-Key': subscription_key}
-params   = {'width': '50', 'height': '50', 'smartCropping': 'true'}
-data     = {'url': image_url}
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+params  = {'width': '50', 'height': '50', 'smartCropping': 'true'}
+data    = {'url': image_url}
 response = requests.post(thumbnail_url, headers=headers, params=params, json=data)
 response.raise_for_status()
 
-# If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
-from PIL import Image
-from io import BytesIO
-import matplotlib.pyplot as plt
 thumbnail = Image.open(BytesIO(response.content))
 
 # Display the thumbnail.

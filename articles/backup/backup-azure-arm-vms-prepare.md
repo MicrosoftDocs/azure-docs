@@ -1,22 +1,14 @@
 ---
-title: 'Azure Backup: Prepare to back up virtual machines | Microsoft Docs'
+title: 'Azure Backup: Prepare to back up virtual machines'
 description: Make sure your environment is prepared for backing up virtual machines in Azure.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: backups; backing up;
-
-ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 3/1/2018
-ms.author: markgal;trinadhk;sogup;
-
+ms.topic: conceptual
+ms.date: 6/21/2018
+ms.author: markgal
 ---
 # Prepare your environment to back up Resource Manager-deployed virtual machines
 
@@ -36,11 +28,14 @@ Before you protect (or back up) a Resource Manager-deployed virtual machine, mak
 If these conditions already exist in your environment, proceed to the [Back up your VMs](backup-azure-arm-vms.md) article. If you need to set up or check any of these prerequisites, this article leads you through the steps.
 
 ## Supported operating systems for backup
- * **Linux**: Azure Backup supports [a list of distributions that Azure endorses](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), except CoreOS Linux. 
- 
+
+ * **Linux**: Azure Backup supports [a list of distributions that Azure endorses](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), except CoreOS Linux. For the list of Linux operating systems that support restoring files, see [Recover files from virtual machine backup](backup-azure-restore-files-from-vm.md#for-linux-os).
+
     > [!NOTE] 
     > Other bring-your-own-Linux distributions might work, as long as the VM agent is available on the virtual machine, and support for Python exists. However, those distributions are not supported.
- * **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
+    >
+ * **Windows Server**, **Windows client**:  Versions older than Windows Server 2008 R2 or Windows 7, are not supported.
+
 
 ## Limitations when backing up and restoring a VM
 Before you prepare your environment, be sure to understand these limitations:

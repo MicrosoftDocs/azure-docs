@@ -14,8 +14,12 @@
   items:
   - name: Migrate from v1 to v2
     href: migrate-from-v1-to-v2.md
+  - name: Connect to Azure
+    href: connect-to-azure.md
   - name: Use Video Indexer API
-    href: video-indexer-use-apis.md   
+    href: video-indexer-use-apis.md  
+  - name: Use API to upload and index videos
+    href: upload-index-videos.md 
   - name: Examine Video Indexer output
     items:  
     - name: Produced by v1 API

@@ -1,17 +1,13 @@
 ---
 title: Show information about a coordinate with Azure Maps | Microsoft Docs
 description: How to display information about an address on the map when a user selects a coordinate
-services: azure-maps
-keywords: 
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: 
 ms.custom: codepen
 ---
 
@@ -42,3 +38,7 @@ Learn more about the classes and methods used in this article:
     * [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions)
     * [open](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#open)
     * [close](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#close)
+
+For more code examples to add to your maps, see the following articles: 
+* [Show directions from A to B](./map-route.md)
+* [Show traffic](./map-show-traffic.md)

@@ -1,17 +1,13 @@
 ---
 title: Customize the Remote Monitoring solution UI - Azure | Microsoft Docs 
 description: This article provides information about how you can access the source code for the Remote Monitoring solution accelerator UI and make some customizations.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/17/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
 # Customize the Remote Monitoring solution accelerator

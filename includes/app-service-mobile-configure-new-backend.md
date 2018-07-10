@@ -1,4 +1,14 @@
-
+---
+title: "include file"
+description: "include file"
+services: app-service\mobile
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: "include"
+ms.date: 05/25/2018
+ms.author: crdun
+ms.custom: "include file"
+---
 1. Click the **App Services** button, select your Mobile Apps back end, select **Quickstart**, and then select your client platform (iOS, Android, Xamarin, Cordova).
 
     ![Azure portal with Mobile Apps Quickstart highlighted][quickstart]
@@ -19,10 +29,10 @@
 
     ![Azure portal notification, "You already have a data connection"][already-connection]
 
-3. Under **2. Create a table API**, select Node.js for **Backend language**. 
- 
-4. Accept the acknowledgment, and then select **Create TodoItem table**.  
-    This action creates a new to-do item table in your database. 
+3. Under **2. Create a table API**, select Node.js for **Backend language**.
+
+4. Accept the acknowledgment, and then select **Create TodoItem table**.
+    This action creates a new to-do item table in your database.
 
     >[!IMPORTANT]
     > Switching an existing back end to Node.js overwrites all contents. To create a .NET back end instead, see [Work with the .NET back-end server SDK for Mobile Apps][instructions].

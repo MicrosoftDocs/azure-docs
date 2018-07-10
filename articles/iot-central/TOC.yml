@@ -17,20 +17,16 @@
     href: quick-deploy-iot-central.md
 - name: Tutorials
   items:
-  - name: Builder
-    items:
-    - name: 1 - Define a new device type
-      href: tutorial-define-device-type.md
-    - name: 2 - Configure rules
-      href: tutorial-configure-rules.md
-    - name: 3 - Customize the operator's view
-      href: tutorial-customize-operator.md
-  - name: Operator
-    items:
-    - name: 4 - Monitor your devices
-      href: tutorial-monitor-devices.md
-    - name: 5 - Add a device
-      href: tutorial-add-device.md
+  - name: 1 - Define a new device type
+    href: tutorial-define-device-type.md
+  - name: 2 - Configure rules
+    href: tutorial-configure-rules.md
+  - name: 3 - Customize the operator's view
+    href: tutorial-customize-operator.md
+  - name: 4 - Monitor your devices
+    href: tutorial-monitor-devices.md
+  - name: 5 - Add a device
+    href: tutorial-add-device.md
 - name: Concepts
   items:
   - name: Architecture
@@ -81,7 +77,7 @@
   items:
   - name: Solutions
     items:
-    - name: IoT Suite Preconfigured Solutions
+    - name: IoT solution accelerators
       href: /azure/iot-suite
     - name: IoT Central
       href: /microsoft-iot-central

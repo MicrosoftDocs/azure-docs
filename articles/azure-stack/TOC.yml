@@ -6,14 +6,14 @@
     href: azure-stack-poc.md
   - name: Release notes
     items:
+    - name: 1805 update
+      href: azure-stack-update-1805.md
     - name: 1804 update
       href: azure-stack-update-1804.md
     - name: 1803 update
       href: azure-stack-update-1803.md
     - name: 1802 update 
       href: azure-stack-update-1802.md 
-    - name: 1712 update
-      href: azure-stack-update-1712.md
 - name: Quickstarts
   expanded: true
   items:
@@ -52,6 +52,12 @@
         items:
         - name: Publish endpoints
           href: azure-stack-integrate-endpoints.md
+    - name: Identity integration
+      items:    
+      - name: Choose an identity provider
+        href: azure-stack-integrate-identity.md
+      - name: Validate Azure identity
+        href: azure-stack-validate-identity.md
     - name: Azure Stack deployment PKI requirements
       href: azure-stack-pki-certs.md
       items:
@@ -63,20 +69,17 @@
         href: azure-stack-validate-pki-certs.md
       - name: Remediate PKI certificates
         href: azure-stack-remediate-certs.md
-      - name: Deployment resources
-        items:
-        - name: Start-AzsReadiness cmdlet reference
-          href: azure-stack-azsreadiness-cmdlet.md
-        - name: View the readiness report  
-          href: azure-stack-validation-report.md
-      - name: Identity integration
-        items:    
-        - name: Choose an identity provider
-          href: azure-stack-integrate-identity.md
-        - name: Validate Azure identity
-          href: azure-stack-validate-identity.md
+    - name: Deployment resources
+      items:
+      - name: About deployment networking
+        href: deployment-networking.md
     - name: Validate Azure registration
       href: azure-stack-validate-registration.md
+      items:
+      - name: Start-AzsReadiness cmdlet reference
+        href: azure-stack-azsreadiness-cmdlet.md
+      - name: View the readiness report  
+        href: azure-stack-validation-report.md
     - name: External monitoring
       href: azure-stack-integrate-monitor.md
     - name : Security integration
@@ -125,8 +128,8 @@
       href: azure-stack-monitor-health.md
     - name: Manage network resources
       href: azure-stack-viewing-public-ip-address-consumption.md
-    - name: Manage Windows Azure Pack VMs
-      href: azure-stack-manage-windows-azure-pack.md
+    - name: Change user subscription owner
+      href: azure-stack-change-subscription-owner.md
     - name: Start and stop Azure Stack
       href: azure-stack-start-and-stop.md
     - name: Manage capacity
@@ -186,6 +189,8 @@
         href: azure-stack-enable-multitenancy.md
     - name: Rotate secrets
       href: azure-stack-rotate-secrets.md
+    - name: Update antivirus
+      href: azure-stack-security-av.md
   - name: Offer services
     items:
     - name: Overview of offering services
@@ -196,6 +201,8 @@
         href: azure-stack-plan-offer-quota-overview.md
       - name: Create a plan
         href: azure-stack-create-plan.md
+      - name: Create an add-on plan
+        href: create-add-on-plan.md
       - name: Create an offer
         href: azure-stack-create-offer.md
       - name: Subscribe to an offer
@@ -211,7 +218,7 @@
       items:
       - name: Deploy the SQL Server resource provider
         href: azure-stack-sql-resource-provider-deploy.md
-      - name: Add hosting servers
+      - name: Add SQL hosting servers
         href: azure-stack-sql-resource-provider-hosting-servers.md
       - name: Create SQL databases
         href: azure-stack-sql-resource-provider-databases.md
@@ -222,7 +229,20 @@
       - name: Remove the SQL Server resource provider
         href: azure-stack-sql-resource-provider-remove.md 
     - name: Offer MySQL as PaaS
-      href: azure-stack-mysql-resource-provider-deploy.md
+      href: azure-stack-mysql-resource-provider.md
+      items:
+      - name: Deploy the MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-deploy.md
+      - name: Add MySQL hosting servers
+        href: azure-stack-mysql-resource-provider-hosting-servers.md
+      - name: Create MySQL Databases
+        href: azure-stack-mysql-resource-provider-databases.md
+      - name: Update the MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-update.md
+      - name: Maintain MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-maintain.md
+      - name: Remove the MySQL Server resource provider
+        href: azure-stack-mysql-resource-provider-remove.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview
@@ -249,6 +269,8 @@
         href: azure-stack-app-service-release-notes-update-one.md
       - name: App Service on Azure Stack update 2 release notes
         href: azure-stack-app-service-release-notes-update-two.md
+    - name: Deploy Ethereum
+      href: azure-stack-ethereum.md
     - name: Populate the marketplace
       items:
       - name: Marketplace overview
@@ -274,15 +296,15 @@
       - name: Offer a Kubernetes Cluster
         href: azure-stack-solution-template-kubernetes-cluster-add.md
     - name: Usage and billing
+      href: azure-stack-billing-and-chargeback.md
       items:
-      - name: Overview
-        href: azure-stack-billing-and-chargeback.md
       - name: Manage usage and billing as a CSP
         href: azure-stack-add-manage-billing-as-a-csp.md
-      - name: Add tenants for usage and billing 
-        href: azure-stack-csp-howto-register-tenants.md
-      - name: Manage tenant registration
-        href: azure-stack-csp-ref-operations.md
+        items:
+        - name: Add tenants for usage and billing 
+          href: azure-stack-csp-howto-register-tenants.md
+        - name: Manage tenant registration
+          href: azure-stack-csp-ref-operations.md
       - name: Usage and billing reference
         items:
         - name: Usage data reporting

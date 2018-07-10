@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -22,7 +22,7 @@ This tutorial shows you how to set up disaster recovery to a secondary Azure reg
 > * Set up outbound access for VMs
 > * Enable replication for a VM
 
-Azure to Azure replication is currently in preview.
+
 ## Prerequisites
 
 To complete this tutorial:

@@ -1,18 +1,13 @@
 ---
 title: Geocoding Coverage in Azure Maps | Microsoft Docs
 description: Learn about Geocoding Coverage in Azure Maps
-services: azure-maps
-keywords: 
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
-ms.custom: mvc
 ---
 
 # Azure Maps geocoding coverage

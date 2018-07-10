@@ -5,6 +5,7 @@
   - name: What are virtual machine scale sets?
     href: overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create in the Azure portal
     href: quick-create-portal.md
@@ -54,16 +55,108 @@
       href: tutorial-autoscale-powershell.md
     - name: Template
       href: tutorial-autoscale-template.md
-  - name: Deploy apps to an Azure virtual machine scale set with a custom Packer image
-    items:
-    - name: Azure CLI 2.0
-      href: https://docs.microsoft.com/learn/deploy-custom-vmss-app/index
 - name: Samples
   items:
   - name: Azure CLI 2.0
     href: cli-samples.md
   - name: PowerShell
     href: powershell-samples.md
+- name: Concepts
+  items:
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
+    maintainContext: true
+  - name: Regions and availability
+    href: ../virtual-machines/windows/regions-and-availability.md
+    maintainContext: true
+  - name: VM types and sizes
+    href: ../virtual-machines/windows/sizes.md
+    maintainContext: true
+    items:
+    - name: General purpose
+      href: ../virtual-machines/windows/sizes-general.md
+      maintainContext: true
+      items:
+      - name: B-series burstable
+        href: ../virtual-machines/windows/b-series-burstable.md
+        maintainContext: true
+    - name: Compute optimized
+      href: ../virtual-machines/windows/sizes-compute.md
+      maintainContext: true
+    - name: Memory optimized
+      href: ../virtual-machines/windows/sizes-memory.md
+      maintainContext: true 
+      items:
+      - name: Constrained vCPUs
+        href: ../virtual-machines/windows/constrained-vcpu.md
+        maintainContext: true
+    - name: Storage optimized
+      href: ../virtual-machines/windows/sizes-storage.md
+      maintainContext: true
+    - name: GPU optimized
+      href: ../virtual-machines/windows/sizes-gpu.md
+      maintainContext: true
+      items:
+      - name: Setup GPU drivers
+        href: ../virtual-machines/windows/n-series-driver-setup.md
+        maintainContext: true 
+    - name: High performance compute
+      href: ../virtual-machines/windows/sizes-hpc.md
+      maintainContext: true
+    - name: Azure compute units (ACU)
+      href: ../virtual-machines/windows/acu.md
+      maintainContext: true
+    - name: Benchmark scores
+      href: ../virtual-machines/windows/compute-benchmark-scores.md
+      maintainContext: true        
+  - name: Endorsed Linux distros
+    href: ../virtual-machines/linux/endorsed-distros.md
+    maintainContext: true
+  - name: Maintenance and updates
+    href: ../virtual-machines/windows/maintenance-and-updates.md
+    maintainContext: true
+  - name: Disk storage
+    href: ../virtual-machines/windows/about-disks-and-vhds.md
+    maintainContext: true
+    items:
+    - name: Managed Disks
+      href: ../virtual-machines/windows/managed-disks-overview.md
+      maintainContext: true
+    - name: Premium storage
+      href: ../virtual-machines/windows/premium-storage.md
+      maintainContext: true
+    - name: Premium storage performance
+      href: ../virtual-machines/windows/premium-storage-performance.md
+      maintainContext: true
+    - name: Standard storage
+      href: ../virtual-machines/windows/standard-storage.md
+      maintainContext: true
+    - name: Scalability targets for disks
+      href: ../virtual-machines/windows/disk-scalability-targets.md
+      maintainContext: true
+    - name: Backup and disaster recovery for disks
+      href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+      maintainContext: true
+  - name: Networking
+    href: ../virtual-machines/windows/network-overview.md
+    maintainContext: true
+  - name: Infrastructure automation
+    href: ../virtual-machines/windows/infrastructure-automation.md
+    maintainContext: true
+  - name: Security and policy
+    href: ../virtual-machines/windows/security-policy.md
+    maintainContext: true
+  - name: Monitoring
+    href: ../virtual-machines/windows/monitor.md
+    maintainContext: true
+  - name: High performance computing
+    href: ../virtual-machines/windows/high-performance-computing.md
+    maintainContext: true
+  - name: Deployment considerations
+    items:
+    - name: vCPU quotas
+      href: ../virtual-machines/windows/quotas.md
+      maintainContext: true
 - name: How To
   items:
   - name: Plan and design

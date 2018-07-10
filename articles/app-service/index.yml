@@ -58,14 +58,42 @@ sections:
       text: HTML
       href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
   - type: paragraph
-    text: 'Learn how to deploy continuously:'
+    text: 'Learn how to deploy your code:'
   - type: list
     style: icon48
     items: 
     - image:
+        src: media/index/zip.svg
+      text: ZIP/WAR
+      href: app-service-deploy-zip.md
+    - image:
+        src: media/index/ftp.svg
+      text: FTP
+      href: app-service-deploy-ftp.md
+    - image:
+        src: media/index/git-icon.svg
+      text: Local Git
+      href: app-service-deploy-local-git.md
+    - image:
         src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
       text: VSTS
       href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
+    - image:
+        src: media/index/github-octicons.svg
+      text: GitHub
+      href: app-service-continuous-deployment.md
+    - image:
+        src: media/index/bitbucket.svg
+      text: Bitbucket
+      href: app-service-continuous-deployment.md
+    - image:
+        src: media/index/dropbox.svg
+      text: DropBox sync
+      href: app-service-deploy-content-sync.md
+    - image:
+        src: media/index/onedrive.svg
+      text: OneDrive sync
+      href: app-service-deploy-content-sync.md
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

@@ -8,7 +8,7 @@ manager: craigg
 ms.reviewer: billgib;andrela;genemi
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: billgib
 ---

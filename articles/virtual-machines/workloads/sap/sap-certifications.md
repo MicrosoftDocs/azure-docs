@@ -4,7 +4,7 @@ description: Updated list of current configurations and certifications of SAP on
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''

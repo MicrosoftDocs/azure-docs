@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -109,7 +109,7 @@ ID tokens are signed by using industry-standard asymmetric encryption algorithms
 
 The `alg` claim indicates the algorithm that was used to sign the token. The `kid` claim indicates the public key that was used to sign the token.
 
-At any time, the v2.0 endpoint might sign an ID token by using any one of a specific set of public-private key pairs. The v2.0 endpoint periodically rotates the possible set of keys, so your app should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by the v2.0 endpoint is every 24 hours.
+The v2.0 endpoint signs ID and access tokens by using any one of a specific set of public-private key pairs. The v2.0 endpoint periodically rotates the possible set of keys, so your app should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by the v2.0 endpoint is every 24 hours.
 
 You can acquire the signing key data that you need to validate the signature by using the OpenID Connect metadata document located at:
 
@@ -119,10 +119,11 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 > [!TIP]
 > Try the URL in a browser!
->
->
 
 This metadata document is a JSON object that has several useful pieces of information, such as the location of the various endpoints required for OpenID Connect authentication. The document also includes a *jwks_uri*, which gives the location of the set of public keys used to sign tokens. The JSON document located at the jwks_uri has all the public key information that is currently in use. Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a token. It then performs signature validation by using the correct public key and the indicated algorithm.
+
+> [!NOTE]
+> The `x5t` claim is deprecated in the v2.0 endpoint. We recommend using the `kid` claim to validate your token.
 
 Performing signature validation is outside the scope of this document. Many open-source libraries are available to help you with this.
 

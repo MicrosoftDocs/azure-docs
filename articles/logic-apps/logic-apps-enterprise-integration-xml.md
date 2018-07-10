@@ -4,7 +4,7 @@ description: Process, validate, transform, and enrich XML messages in logic apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: divyaswarnkar
-manager: anneta
+manager: jeconnoc
 editor: 
 
 ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc

@@ -49,7 +49,11 @@ block_blob_service = BlockBlobService(account_name='accountname', account_key='a
 ## Run the sample
 This sample creates a test file in the 'Documents' folder. The sample program uploads the test file to Blob storage, lists the blobs in the container, and downloads the file with a new name. 
 
-Run the sample. The following output is an example of the output returned when running the application:
+First, install the dependencies by running `pip install`:
+
+    pip install azure-storage
+
+Next, run the sample. The following output is an example of the output returned when running the application:
   
 ```
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
@@ -133,9 +137,9 @@ Get a list of files in the container using the **list_blobs** method. This metho
 ```python
 # List the blobs in the container
 print("\nList blobs in the container")
-    generator = block_blob_service.list_blobs(container_name)
-    for blob in generator:
-        print("\t Blob name: " + blob.name)
+generator = block_blob_service.list_blobs(container_name)
+for blob in generator:
+    print("\t Blob name: " + blob.name)
 ```
 
 ### Download the blobs

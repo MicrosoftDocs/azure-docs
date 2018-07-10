@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -13,7 +13,7 @@ ms.custom: MVC
 
 Welcome to the Azure Site Recovery service! This article provides a quick service overview.
 
-As an organization you need to adopt a business continunity and disaster recovery (BCDR) strategy that keeps your data safe, and your apps and workloads up and running, when planned and unplanned outages occur.
+As an organization you need to adopt a business continuity and disaster recovery (BCDR) strategy that keeps your data safe, and your apps and workloads up and running, when planned and unplanned outages occur.
 
 Azure Recovery Services contribute to your BCDR strategy:
 

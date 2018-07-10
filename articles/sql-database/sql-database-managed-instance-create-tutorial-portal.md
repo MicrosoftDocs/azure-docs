@@ -157,16 +157,16 @@ The following steps show you how to create your Managed Instance after your prev
 
    ![managed instance create](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
-3. Select your subscription and verify that the preview terms show **Accepted**.
+4. Select your subscription and verify that the preview terms show **Accepted**.
 
    ![managed instance preview accepted](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-4. Fill out the Managed Instance form with the requested information, using the information in the following table:
+5. Fill out the Managed Instance form with the requested information, using the information in the following table:
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
    |**Managed instance name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Managed instance admin login**|Any valid user name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
+   |**Managed instance admin login**|Any valid user name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Do not use "serveradmin" as that is a reserved server-level role.| 
    |**Password**|Any valid password|The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Resource Group**|The resource group that you created earlier||
    |**Location**|The location that you previously selected|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
@@ -174,17 +174,17 @@ The following steps show you how to create your Managed Instance after your prev
 
    ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
-5. Click **Pricing tier** to size compute and storage resources as well as review the pricing tier options. By default, your instance gets 32 GB of storage space free of charge, which may not be sufficient for your applications.
-6. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. 
-   ![managed instance create form](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+6. Click **Pricing tier** to size compute and storage resources as well as review the pricing tier options. By default, your instance gets 32 GB of storage space free of charge, which may not be sufficient for your applications.
+7. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. 
+   ![managed instance pricing tier](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
-7. When complete, click **Apply** to save your selection.  
-8. Click **Create** to deploy the Managed Instance.
-9. Click the **Notifications** icon to view the status of deployment.
+8. When complete, click **Apply** to save your selection.  
+9. Click **Create** to deploy the Managed Instance.
+10. Click the **Notifications** icon to view the status of deployment.
  
    ![deployment progress](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
-9. Click **Deployment in progress** to open the Managed Instance window to further monitor the deployment progress.
+11. Click **Deployment in progress** to open the Managed Instance window to further monitor the deployment progress.
  
    ![deployment progress 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
@@ -244,18 +244,18 @@ The following steps show you how to create a virtual machine in the same VNet in
 
    ![virtual machine create form](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-3. Click **OK**.
-4. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. For this tutorial, you only need a small virtual machine.
+4. Click **OK**.
+5. Select a size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. For this tutorial, you only need a small virtual machine.
 
     ![VM sizes](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
-5. Click **Select**.
-6. On the **Settings** form, click **Subnet** and then select **vm_subnet**. Do not choose the subnet in which the Managed Instance is provisioned, but rather another subnet in the same Vnet.
+6. Click **Select**.
+7. On the **Settings** form, click **Subnet** and then select **vm_subnet**. Do not choose the subnet in which the Managed Instance is provisioned, but rather another subnet in the same Vnet.
 
     ![VM settings](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-7. Click **OK**.
-8. On the summary page, review the offer details and then click **Create** to start the virtual machine deployment.
+8. Click **OK**.
+9. On the summary page, review the offer details and then click **Create** to start the virtual machine deployment.
  
 ## Connect to virtual machine
 

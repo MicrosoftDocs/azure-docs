@@ -1,22 +1,14 @@
 ---
 title: Get started with Azure IoT Hub module identity and module twin (portal and .NET) | Microsoft Docs
 description: Learn how to create module identity and update module twin using the portal and .NET.
-services: iot-hub
-documentationcenter: .net
-author: chrissie926
+author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.custom: H1Hack27Feb2017
-
 ---
 
 # Get started with IoT Hub module identity and module twin using the portal and .NET device
@@ -71,7 +63,7 @@ You've successfully created the module identity in your IoT Hub. Let's try to co
 
     ![Create a visual studio project][13]
 
-2. **Install Azure IoT Hub .NET device SDK V1.16.0-preview-005** - Module identity and module twin is in public preview. It's only availble in the IoT Hub prerelease device SDKs. In Visual Studio, open tools > Nuget package manager > manage Nuget packages for solution. Search Microsoft.Azure.Devices.Client. Make sure you've checked include prerelease check box. Select version V1.16.0-preview-005 and install. Now you have access to all the module features. 
+2. **Install the latest Azure IoT Hub .NET device SDK** - Module identity and module twin is in public preview. It's only availble in the IoT Hub prerelease device SDKs. In Visual Studio, open tools > Nuget package manager > manage Nuget packages for solution. Search Microsoft.Azure.Devices.Client. Make sure you've checked include prerelease check box. Select the latest version and install. Now you have access to all the module features. 
 
     ![Install Azure IoT Hub .NET service SDK V1.16.0-preview-005][14]
 
@@ -147,7 +139,6 @@ Add the following `using` statements at the top of the **Program.cs** file:
     ```
 
     This code sample shows you how to retrieve the module twin and update reported properties with AMQP protocol. In public preview, we only support AMQP for module twin operations.
-    ```
 
 ## Run the apps
 

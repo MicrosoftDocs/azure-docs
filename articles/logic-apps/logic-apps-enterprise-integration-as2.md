@@ -4,7 +4,7 @@ description: Exchange AS2 messages for B2B enterprise integration with Azure Log
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: divyaswarnkar
-manager: anneta
+manager: jeconnoc
 editor:
 
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f

@@ -1,28 +1,20 @@
 ---
-title: Architecture of remote monitoring solution - Azure | Microsoft Docs
-description: A walkthrough of the architecture of the remote monitoring solution accelerator.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
+title: Remote Monitoring solution accelerator overview - Azure | Microsoft Docs
+description: An overview of the Remote Monitoring solution accelerator.
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-
 ---
-# Remote Monitoring solution accelerator architecture
+
+# Remote Monitoring solution accelerator overview
 
 The Remote Monitoring [solution accelerator](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) implements an end-to-end monitoring solution for multiple machines in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and [customize](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) it to meet your own specific business requirements.
 
-This article walks you through some of the key elements of the remote monitoring solution to enable you to understand how it works. This knowledge helps you to:
+This article walks you through some of the key elements of the Remote Monitoring solution to enable you to understand how it works. This knowledge helps you to:
 
 * Troubleshoot issues in the solution.
 * Plan how to customize to the solution to meet your own specific requirements.
@@ -30,7 +22,7 @@ This article walks you through some of the key elements of the remote monitoring
 
 ## Logical architecture
 
-The following diagram outlines the logical components of the remote monitoring solution accelerator overlaid on the [IoT architecture](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
+The following diagram outlines the logical components of the Remote Monitoring solution accelerator overlaid on the [IoT architecture](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
 
 ![Logical architecture](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -94,13 +86,13 @@ The solution includes two microservices to handle device telemetry.
 
 The [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) microservice:
 
-* Stores telemetry in Cosmos DB.
+* Stores telemetry in Azure Cosmos DB.
 * Analyzes the telemetry stream from devices.
 * Generates alarms according to defined rules.
 
-The alarms are stored in Cosmos DB.
+The alarms are stored in Azure Cosmos DB.
 
-The `telemetry-agent` microservice enables the solution portal to read the telemetry sent from the devices. The solution portal also uses this service to:
+The [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) microservice enables the solution portal to read the telemetry sent from the devices. The solution portal also uses this service to:
 
 * Define monitoring rules such as the thresholds that trigger alarms
 * Retrieve the list of past alarms.
@@ -111,9 +103,9 @@ Use the RESTful endpoint provided by this microservice to manage telemetry, rule
 
 The [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) microservice is an adapter in front of the main storage service used for the solution accelerator. It provides simple collection and key-value storage.
 
-The standard deployment of the solution accelerator uses Cosmos DB as its main storage service.
+The standard deployment of the solution accelerator uses Azure Cosmos DB as its main storage service.
 
-The Cosmos DB database stores data in the solution accelerator. The **storage-adapter** microservice acts as an adapter for the other microservices in the solution to access storage services.
+The Azure Cosmos DB database stores data in the solution accelerator. The **storage-adapter** microservice acts as an adapter for the other microservices in the solution to access storage services.
 
 ## Presentation
 
@@ -136,8 +128,10 @@ The [ui-config](https://github.com/Azure/pcs-config-dotnet) microservice enables
 
 If you want to explore the source code and developer documentation, start with one the two main GitHub repositories:
 
-* [Solution accelerator for remote monitoring with Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
-* [Solution accelerator for remote monitoring with Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
-* [Solution accelerator for remote monitoring architecture)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+* [Solution accelerator for Remote Monitoring with Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Solution accelerator for Remote Monitoring with Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
-For more conceptual information about the remote monitoring solution accelerator, see [Customize the solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).
+Detailed solution architecture diagrams:
+* [Solution accelerator for Remote Monitoring architecture](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+
+For more conceptual information about the Remote Monitoring solution accelerator, see [Customize the solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

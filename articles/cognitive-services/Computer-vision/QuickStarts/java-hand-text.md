@@ -12,9 +12,11 @@ ms.topic: quickstart
 ms.date: 05/15/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Handwritten Text with Java
+# Quickstart: Extract handwritten text with Java
 
 In this quickstart, you extract handwritten txt from an image using Computer Vision.
+
+## Prerequisites
 
 To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
@@ -88,7 +90,7 @@ public class Main {
 
             // Request parameter.
             // Note: The request parameter changed for APIv2.
-            // For APIv1, it is "handwriting=true".
+            // For APIv1, it is "handwriting", "true".
             builder.setParameter("mode", "Handwritten");
 
             // Prepare the URI for the REST API call.

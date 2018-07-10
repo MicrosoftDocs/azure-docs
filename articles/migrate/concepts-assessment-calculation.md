@@ -4,7 +4,7 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/05/2018
 ms.author: raynew
 ---
 
@@ -53,7 +53,7 @@ Windows Server 2016 & all SPs | Azure provides full support. | Ready for Azure
 Windows Server 2012 R2 & all SPs | Azure provides full support. | Ready for Azure
 Windows Server 2012 & all SPs | Azure provides full support. | Ready for Azure
 Windows Server 2008 R2 with all SPs | Azure provides full support.| Ready for Azure
-Windows Server 2003-2008 R2 | These operating systems have passed their end of support date and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure, consider upgrading the OS before migrating to Azure.
+Windows Server 2003-2008 | These operating systems have passed their end of support date and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure, consider upgrading the OS before migrating to Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | These operating systems have passed their end of support date, the machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to upgrade the OS before migrating to Azure.
 Windows Client 7, 8 and 10 | Azure provides support with Visual Studio subscription only. | Conditionally ready for Azure
 Windows Vista, XP Professional | These operating systems have passed their end of support date, the machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to upgrade the OS before migrating to Azure.
@@ -64,12 +64,12 @@ OS specified as *Other* in vCenter Server | Azure Migrate cannot identify the OS
 
 ## Sizing
 
-After a machine is marked as ready for Azure, Azure Migrate sizes the VM and its disks for Azure. If the sizing criterion specified in the assessment properties is to do performance-based sizing, Azure Migrate considers the performance history of the machine to identify a VM size in Azure. This method is helpful in scenarios where you have over-allocated the on-premises VM but the utilization is low and you would like to right-size the VMs in Azure to save cost.
+After a machine is marked as ready for Azure, Azure Migrate sizes the VM and its disks for Azure. If the sizing criterion specified in the assessment properties is to do performance-based sizing, Azure Migrate considers the performance history of the machine to identify the VM size and disk type in Azure. This method is helpful in scenarios where you have over-allocated the on-premises VM but the utilization is low and you would like to right-size the VMs in Azure to save cost.
 
 > [!NOTE]
 > Azure Migrate collects performance history of on-premises VMs from vCenter Server. To ensure accurate right-sizing, ensure that the statistics setting in vCenter Server is set to level 3 and wait for at least a day before kicking off discovery of the on-premises VMs. If the statistics setting in vCenter Server is below level 3, performance data for disk and network is not collected.
 
-If you do not want to consider the performance history for VM-sizing and want to take the VM as-is to Azure, you can specify the sizing criterion as *as on-premises* and Azure Migrate will then size the VMs based on the on-premises configuration without considering the utilization data. Disk sizing, in this case, will still be based on performance data.
+If you do not want to consider the performance history for VM-sizing and want to take the VM as-is to Azure, you can specify the sizing criterion as *as on-premises* and Azure Migrate will then size the VMs based on the on-premises configuration without considering the utilization data. Disk sizing, in this case, will be done based on the Storage type you specify in the assessment properties (Standard disk or Premium disk)
 
 ### Performance-based sizing
 
@@ -98,25 +98,13 @@ For performance-based sizing, Azure Migrate starts with the disks attached to th
     - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
 
 ### As on-premises sizing
-If the sizing criterion is *as on-premises sizing*, Azure Migrate does not consider the performance history of the VMs and allocates VMs based on the size allocated on-premises. However, for disk sizing, it does consider performance history of the disks to recommend Standard or Premium disks.  
-- **Storage**: Azure Migrate maps every disk attached to the machine to a disk in Azure.
-
-    > [!NOTE]
-    > Azure Migrate supports only managed disks for assessment.
-
-    - To get the effective disk I/O per second (IOPS) and throughput (MBps), Azure Migrate multiplies the disk IOPS and the throughput with the comfort factor. Based on the effective IOPS and throughput values, Azure Migrate identifies if the disk should be mapped to a standard or premium disk in Azure.
-    - If Azure Migrate can't find a disk with the required IOPS & throughput, it marks the machine as unsuitable for Azure. [Learn more](../azure-subscription-service-limits.md#storage-limits) about Azure limits per disk and VM.
-    - If it finds a set of suitable disks, Azure Migrate selects the ones that support the storage redundancy method, and the location specified in the assessment settings.
-    - If there are multiple eligible disks, it selects the one with the lowest cost.
-    - If performance data for disks in unavailable, all the disks are mapped to standard disks in Azure.
-- **Network**: For each network adapter, a network adapter in Azure is recommended.
-- **Compute**: Azure Migrate looks at the number of cores and memory size of the on-premises VM and recommends an Azure VM with the same configuration. If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended. Utilization data for CPU and memory is not considered for as on-premises sizing.
+If the sizing criterion is *as on-premises sizing*, Azure Migrate does not consider the performance history of the VMs and disks and allocates a VM SKU in Azure based on the size allocated on-premises. Similarly for disk sizing, it looks at the Storage type specified in assessment properties (Standard/Premium) and recommends the disk type accordingly. Default storage type is Premium disks.
 
 ### Confidence rating
 
 Each assessment in Azure Migrate is associated with a confidence rating that ranges from 1 star to 5 star (1 star being the lowest and 5 star being the highest). The confidence rating is assigned to an assessment based on the availability of data points needed to compute the assessment. The confidence rating of an assessment helps you estimate the reliability of the size recommendations provided by Azure Migrate.
 
-For performance-based sizing of the VM, Azure Migrate needs the utilization data for CPU and memory. Also, for sizing of each disk attached to the VM, it needs the read/write IOPS and throughput. Similarly for each network adapter attached to the VM, Azure Migrate needs the network in/out to do performance-based sizing. If any of the above utilization numbers are not available in vCenter Server, the size recommendation done by Azure Migrate may not be reliable. Depending on the percentage of data points available, the confidence rating for the assessment is provided as below:
+The confidence-rating of an assessment is more useful for assessments with sizing criterion as 'performance-based sizing. For performance-based sizing, Azure Migrate needs the utilization data for CPU, memory of the VM. Additionally, for every disk attached to the VM, it needs the disk IOPS and throughput data. Similarly for each network adapter attached to a VM, Azure Migrate needs the network in/out to do performance-based sizing. If any of the above utilization numbers are not available in vCenter Server, the size recommendation done by Azure Migrate may not be reliable. Depending on the percentage of data points available, the confidence rating for the assessment is provided as below:
 
    **Availability of data points** | **Confidence rating**
    --- | ---
@@ -140,7 +128,7 @@ An assessment may not have all the data points available due to one of the follo
 After sizing recommendations are complete, Azure Migrate calculates post-migration compute and storage costs.
 
 - **Compute cost**: Using the recommended Azure VM size, Azure Migrate uses the Billing API to calculate
-the monthly cost for the VM. The calculation takes the operating system, software assurance, location, and currency settings into account. It aggregates the cost across all machines, to calculate the total monthly compute cost.
+the monthly cost for the VM. The calculation takes the operating system, software assurance, reserved instances, VM uptime, location, and currency settings into account. It aggregates the cost across all machines, to calculate the total monthly compute cost.
 - **Storage cost**: The monthly storage cost for a machine is calculated by aggregating the monthly cost of
 all disks attached to the machine. Azure Migrate calculates the total monthly storage costs by aggregating the storage costs of all machines. Currently, the calculation doesn't take offers specified in the assessment settings into account.
 

@@ -12,9 +12,13 @@ ms.topic: quickstart
 ms.date: 05/17/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Printed Text (OCR) with Python
+# Quickstart: Extract printed text (OCR) with Python
 
 In this quickstart, you extract printed text, also known as optical character recognition (OCR), from an image using Computer Vision.
+
+You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
+
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 ## Prerequisites
 
@@ -34,9 +38,17 @@ To run the sample, do the following steps:
 
 The following code uses the Python `requests` library to call the Computer Vision Analyze Image API. It returns the results as a JSON object. The API key is passed in via the `headers` dictionary.
 
-### OCR request
+## OCR request
 
 ```python
+import requests
+# If you are using a Jupyter notebook, uncomment the following line.
+#%matplotlib inline
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+from PIL import Image
+from io import BytesIO
+
 # Replace <Subscription Key> with your valid subscription key.
 subscription_key = "<Subscription Key>"
 assert subscription_key
@@ -56,10 +68,9 @@ ocr_url = vision_base_url + "ocr"
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \
     "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
 
-import requests
-headers  = {'Ocp-Apim-Subscription-Key': subscription_key}
-params   = {'language': 'unk', 'detectOrientation': 'true'}
-data     = {'url': image_url}
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+params  = {'language': 'unk', 'detectOrientation': 'true'}
+data    = {'url': image_url}
 response = requests.post(ocr_url, headers=headers, params=params, json=data)
 response.raise_for_status()
 
@@ -75,12 +86,6 @@ for line in line_infos:
 word_infos
 
 # Display the image and overlay it with the extracted text.
-# If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
-from PIL import Image
-from io import BytesIO
-from matplotlib.patches import Rectangle
-import matplotlib.pyplot as plt
 plt.figure(figsize=(5, 5))
 image = Image.open(BytesIO(requests.get(image_url).content))
 ax = plt.imshow(image, alpha=0.5)
@@ -94,7 +99,7 @@ for word in word_infos:
 plt.axis("off")
 ```
 
-### OCR response
+## OCR response
 
 A successful response is returned in JSON, for example:
 

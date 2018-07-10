@@ -169,7 +169,7 @@ Azure Key Vault supports the following operations on key objects:
 -   **Backup**: Exports a key in a protected form.  
 -   **Restore**: Imports a previously backed up key.  
 
-For more information, see [Key operations](/rest/api/keyvault/key-operations.md)  
+For more information, see [Key operations](/rest/api/keyvault/key-operations).  
 
 Once a key has been created in Azure Key Vault, the following cryptographic operations may be performed using the key:  
 
@@ -279,7 +279,7 @@ The following permissions can be used, on a per-principal basis, in the secrets 
 -   *delete*: Delete the secret  
 -   *all*: All permissions  
 
-For more information on working with secrets, see [Secret operations](/rest/api/keyvault/secret-operations.md).  
+For more information on working with secrets, see [Secret operations](/rest/api/keyvault/secret-operations).  
 
 ###  <a name="BKMK_SecretTags"></a> Secret tags  
 You can specify additional application-specific metadata in the form of tags. Azure Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
@@ -326,7 +326,7 @@ The certificate attributes are mirrored to attributes of the addressable key and
 
 A Key Vault certificate has the following attributes:  
 
--   *enabled*: boolean, optional, default is **true**. This attribute can be specified to indicate if the certificate data can be retrieved as secret or operable as a key. This is used in conjunction with *nbf* and*exp*when an operation occurs between *nbf* and exp, it will only be permitted if enabled is set to true. Operations outside the *nbf* and*exp*window are automatically disallowed.  
+-   *enabled*: boolean, optional, default is **true**. This attribute can be specified to indicate if the certificate data can be retrieved as secret or operable as a key. This is used in conjunction with *nbf* and *exp* when an operation occurs between *nbf* and *exp*, it will only be permitted if enabled is set to true. Operations outside the *nbf* and *exp* window are automatically disallowed.  
 
 There are additional read-only attributes that are included in response:
 
@@ -441,9 +441,9 @@ If a certificate's policy is set to auto-renewal, then a notification is sent on
 
 ## Additional information for certificates
 
-- [Certificates and policies](/rest/api/keyvault/certificates-and-policies.md)
-- [Certificate issuers](/rest/api/keyvault/certificate-issuers.md)
-- [Certificate contacts](/rest/api/keyvault/certificate-contacts.md)
+- [Certificates and policies](/rest/api/keyvault/certificates-and-policies)
+- [Certificate issuers](/rest/api/keyvault/certificate-issuers)
+- [Certificate contacts](/rest/api/keyvault/certificate-contacts)
 
 ## See Also
 

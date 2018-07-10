@@ -1,24 +1,17 @@
 ---
 title: Get started with Azure IoT Hub module identity and module twin (.NET) | Microsoft Docs
 description: Learn how to create module identity and update module twin using IoT SDKs for .NET.
-services: iot-hub
-documentationcenter: .net
 author: chrissie926
-manager: timlt
-editor: ''
-
-ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
+manager: 
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.custom: H1Hack27Feb2017
-
 ---
-# Get started with IoT Hub module identity and module twin using .NET backup and .NET device
+
+# Get started with IoT Hub module identity and module twin using .NET back end and .NET device
 
 > [!NOTE]
 > [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
@@ -53,7 +46,7 @@ In this section, you create a .NET console app on your simulated device that upd
 
     ![Create a visual studio project][13]
 
-2. **Install Azure IoT Hub .NET device SDK V1.16.0-preview-005** - Module identity and module twin is in public preview. It's only availble in the IoT Hub prerelease device SDKs. In Visual Studio, open tools > Nuget package manager > manage Nuget packages for solution. Search Microsoft.Azure.Devices.Client. Make sure you've checked include prerelease check box. Select version V1.16.0-preview-005 and install. Now you have access to all the module features. 
+2. **Install the latest Azure IoT Hub .NET device SDK** - Module identity and module twin is in public preview. It's only availble in the IoT Hub prerelease device SDKs. In Visual Studio, open tools > Nuget package manager > manage Nuget packages for solution. Search Microsoft.Azure.Devices.Client. Make sure you've checked include prerelease check box. Select the latest version and install. Now you have access to all the module features. 
 
     ![Install Azure IoT Hub .NET service SDK V1.16.0-preview-005][14]
 
@@ -116,7 +109,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
             var twinTask = Client.GetTwinAsync();
             twinTask.Wait();
             var twin = twinTask.Result;
-            Console.WriteLine(JsonConvert.SerializeObject(twin));
+            Console.WriteLine(JsonConvert.SerializeObject(twin.Properties)); 
 
             Console.WriteLine("Sending app start time as reported property");
             TwinCollection reportedProperties = new TwinCollection();
@@ -137,7 +130,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
 
     This code sample shows you how to retrieve the module twin and update reported properties with AMQP protocol. In public preview, we only support AMQP for module twin operations.
 
-5. In addtion to the above **Main** method, you can add below code block to send event to IoT Hub from your module:
+5. In addition to the above **Main** method, you can add below code block to send event to IoT Hub from your module:
     ```csharp
     Byte[] bytes = new Byte[2];
     bytes[0] = 0;

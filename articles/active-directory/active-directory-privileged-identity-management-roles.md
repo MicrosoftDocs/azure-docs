@@ -3,16 +3,16 @@ title: Roles in Azure AD Privileged Identity Management | Microsoft Docs
 description: Learn what roles are used for privileged identities with the Azure Privileged Identity Management extension.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 03/04/2018
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ---
 # Different administrative role in Azure Active Directory PIM
@@ -23,7 +23,7 @@ You can assign users in your organization to different administrative roles in A
 > [!IMPORTANT]
 > Microsoft recommends that you manage Azure AD using the [Azure AD admin center](https://aad.portal.azure.com) in the Azure portal.
 
-A global administrator can update which users are **permanently** assigned to roles in Azure AD, using PowerShell cmdlets such as `Add-MsolRoleMember` and `Remove-MsolRoleMember`, or through the portal as described in [assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+A global administrator can update which users are **permanently** assigned to roles in Azure AD, using PowerShell cmdlets such as `Add-MsolRoleMember` and `Remove-MsolRoleMember`, or through the portal as described in [assigning administrator roles in Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md).
 
 Azure AD Privileged Identity Management (PIM) manages policies for privileged access for users in Azure AD. PIM assigns users to one or more roles in Azure AD, and you can assign someone to be permanently in the role, or eligible for the role. When a user is permanently assigned to a role, or activates an eligible role assignment, then they can manage Azure Active Directory, Office 365, and other applications with the permissions assigned to their roles.
 
@@ -47,7 +47,7 @@ Privileged Identity Management lets you assign users to common administrator rol
 * **SharePoint administrator (Preview)** has administrative access to SharePoint Online through the SharePoint Online admin center, and can perform almost any task in SharePoint Online. This role is currently in preview. Eligible users may experience delays using this role within SharePoint after activating in PIM.
 * **Skype for Business administrator** has administrative access to Skype for Business through the Skype for Business admin center, and can perform almost any task in Skype for Business Online.
 
-Read these articles for more details about [assigning administrator roles in Azure AD](active-directory-assign-admin-roles-azure-portal.md) and [assigning admin roles in Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
+Read these articles for more details about [assigning administrator roles in Azure AD](users-groups-roles/directory-assign-admin-roles.md) and [assigning admin roles in Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 

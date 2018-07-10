@@ -10,11 +10,11 @@ editor:
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
-ms.author: skwan
+ms.author: daveba
 
 ---
 # Tutorial: Use a Linux VM MSI to access Azure Cosmos DB 
@@ -251,5 +251,8 @@ This CLI command returns details about the collection:
 
 ## Next steps
 
-- For an overview of MSI, see [Managed Service Identity (MSI) for Azure resources](overview.md).
+In this tutorial, you learned how to use a Managed Service Identity on a Linux virtual machine to access Cosmos DB.  To learn more about Cosmos DB see:
+
+> [!div class="nextstepaction"]
+>[Azure Cosmos DB overview](/azure/cosmos-db/introduction)
 

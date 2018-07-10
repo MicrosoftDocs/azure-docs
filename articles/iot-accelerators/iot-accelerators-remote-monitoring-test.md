@@ -1,22 +1,18 @@
 ---
 title: Device simulation in remote monitoring solution - Azure | Microsoft Docs
 description: This tutorial shows you how to use the device simulator with the remote monitoring solution accelerator.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/15/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ---
 
 # Create a new simulated device
 
-This tutorial shows you how to customize the device simulator microservice in the remote monitoring solution accelerator. To show the capabilities of the device simulator, this tutorial uses two scenarios in the Contoso IoT application.
+This tutorial shows you how to customize the device simulator microservice in the Remote Monitoring solution accelerator. To show the capabilities of the device simulator, this tutorial uses two scenarios in the Contoso IoT application.
 
 The following video presents an overview of the options for customizing the device simulator microservice:
 
@@ -68,7 +64,7 @@ The following table shows the initial status of the device:
 
 In the second scenario, you add a new telemetry type to Contoso's existing **Chiller** device.
 
-This tutorial shows you how to use the device simulator with the remote monitoring solution accelerator:
+This tutorial shows you how to use the device simulator with the Remote Monitoring solution accelerator:
 
 In this tutorial, you learn how to:
 
@@ -78,7 +74,7 @@ In this tutorial, you learn how to:
 > * Add a new device type to the dashboard
 > * Send custom telemetry from an existing device type
 
-The following video shows a walkthrough of connecting simulated and real devices to the remote monitoring solution:
+The following video shows a walkthrough of connecting simulated and real devices to the Remote Monitoring solution:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
@@ -86,7 +82,7 @@ The following video shows a walkthrough of connecting simulated and real devices
 
 To follow this tutorial, you need:
 
-* A deployed instance of the remote monitoring solution in your Azure subscription. If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) tutorial.
+* A deployed instance of the Remote Monitoring solution in your Azure subscription. If you haven't deployed the Remote Monitoring solution yet, you should complete the [Deploy the Remote Monitoring solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) tutorial.
 
 * Visual Studio 2017. If you don't have Visual Studio 2017 installed, you can download the free [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edition.
 
@@ -98,21 +94,21 @@ To follow this tutorial, you need:
 
 ## Prepare your development environment
 
-Complete the following tasks to prepare your development environment for adding a new simulated device to your remote monitoring solution:
+Complete the following tasks to prepare your development environment for adding a new simulated device to your Remote Monitoring solution:
 
 ### Configure SSH access to the solution virtual machine in Azure
 
-When you created your remote monitoring solution at [www.azureiotsuite.com](https://www.azureiotsuite.com), you chose a solution name. The solution name becomes the name of the Azure resource group that contains the various deployed resources that the solution uses. The following commands use a resource group named **Contoso-01**, you should replace **Contoso-01** with the name of your resource group.
+When you created your Remote Monitoring solution at [www.azureiotsolutions.com](https://www.azureiotsolutions.com), you chose a solution name. The solution name becomes the name of the Azure resource group that contains the various deployed resources that the solution uses. The following commands use a resource group named **Contoso-01**, you should replace **Contoso-01** with the name of your resource group.
 
 The following commands use the `az` command from [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). You can install the Azure CLI 2.0 on your development machine, or use the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in the [Azure portal](http://portal.azure.com). The Azure CLI 2.0 is pre-installed in the Cloud Shell.
 
-1. To verify the name of the resource group that contains your remote monitoring resources, run the following command:
+1. To verify the name of the resource group that contains your Remote Monitoring resources, run the following command:
 
     ```sh
     az group list | grep "name"
     ```
 
-    This command lists all the resource groups in your subscription. The list should include a resource group with the same name as your remote monitoring solution.
+    This command lists all the resource groups in your subscription. The list should include a resource group with the same name as your Remote Monitoring solution.
 
 1. To make your resource group the default group for subsequent commands, run the following command using your resource group name in place of **Contoso-01**:
 
@@ -157,7 +153,7 @@ The following commands use the `az` command from [Azure CLI 2.0](https://docs.mi
     ssh azureuser@public-ip-address
     ```
 
-    You now have access to the shell in the virtual machine that runs the Docker containers in the remote monitoring solution. To view the running containers, use the following command:
+    You now have access to the shell in the virtual machine that runs the Docker containers in the Remote Monitoring solution. To view the running containers, use the following command:
 
     ```sh
     docker ps
@@ -190,15 +186,15 @@ In the tutorial, you work with Visual Studio solution that connects to the solut
 
 When you modify the device simulation service, you can run it locally to test your changes. Before you run the device simulation service locally, you must stop the instance running in the virtual machine as follows:
 
-1. To find the **CONTAINER ID** of the **device-simulation** service, run the following command in the SSH session connected to the virtual machine:
+1. To find the **CONTAINER ID** of the **device-simulation-dotnet** service, run the following command in the SSH session connected to the virtual machine:
 
     ```sh
     docker ps
     ```
 
-    Make a note of the container ID of the **device-simulation** service.
+    Make a note of the container ID of the **device-simulation-dotnet** service.
 
-1. To stop the **device-simulation** container, run the following command:
+1. To stop the **device-simulation-dotnet** container, run the following command:
 
     ```sh
     docker stop container-id-from-previous-step
@@ -216,7 +212,7 @@ In this tutorial, you work with the **device-simulation** and **storage-adapter*
     git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-    The device simulation service in the remote monitoring solution enables you to make changes to the built-in simulated device types and to create new simulated device types. You can use custom device types to test the behavior of the remote monitoring solution before you connect your physical devices.
+    The device simulation service in the Remote Monitoring solution enables you to make changes to the built-in simulated device types and to create new simulated device types. You can use custom device types to test the behavior of the Remote Monitoring solution before you connect your physical devices.
 
 1. To clone the .NET version of the **storage-adapter** repository, run the following command:
 
@@ -224,7 +220,7 @@ In this tutorial, you work with the **device-simulation** and **storage-adapter*
     git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
-    The device simulation service uses the storage adapter service to connect to the Cosmos DB service in Azure. The remote monitoring solution stores the simulated device configuration data in a Cosmos DB database.
+    The device simulation service uses the storage adapter service to connect to the Cosmos DB service in Azure. The Remote Monitoring solution stores the simulated device configuration data in a Cosmos DB database.
 
 ### Run the storage adapter service locally
 
@@ -242,17 +238,11 @@ The device simulation service uses the storage adapter service to connect to the
 
 1. Leave the storage adapter service running locally until you have completed the tutorial.
 
-You now have everything in place, and you are ready to start adding a new simulated device type to your remote monitoring solution.
+You now have everything in place, and you are ready to start adding a new simulated device type to your Remote Monitoring solution.
 
 ## Create a simulated device type
 
 The easiest way to create a new device type in the device simulation service is to copy and modify an existing type. The following steps show you how to copy the built-in **Chiller** device to create a new **Lightbulb** device:
-
-1. In Visual Studio, open the **device-simulation.sln** solution file in your local clone of the **device-simulation** repository.
-
-1. In Solution Explorer, right-click the **SimulationAgent** project, choose **Properties**, and then choose **Debug**.
-
-1. In the **Environment variables** section, edit the value of the **PCS\_IOTHUB\_CONNSTRING** variable to be the IoT Hub connection string you noted previously. Then save your changes.
 
 1. In Solution Explorer, right-click the **WebService** project, choose **Properties**, and then choose **Debug**.
 
@@ -384,18 +374,21 @@ The **scripts/lightbulb-01-state.js** file defines the simulation behavior of th
 1. Edit the **main** function to implement the behavior as shown in the following snippet:
 
     ```js
-    function main(context, previousState) {
+    function main(context, previousState, previousProperties) {
 
-      // Restore the global state before generating the new telemetry, so that
-      // the telemetry can apply changes using the previous function state.
-      restoreState(previousState);
+        // Restore the global device properties and the global state before
+        // generating the new telemetry, so that the telemetry can apply changes
+        // using the previous function state.
+        restoreSimulation(previousState, previousProperties);
 
-      state.temperature = vary(200, 5, 150, 250);
+        state.temperature = vary(200, 5, 150, 250);
 
-      // Make this flip every so often
-      state.status = flip(state.status);
+        // Make this flip every so often
+        state.status = flip(state.status);
 
-      return state;
+        updateState(state);
+
+        return state;
     }
     ```
 
@@ -474,23 +467,23 @@ You are now ready to test your new simulated lightbulb type by running the devic
 
 1. To check that the two simulated devices are connected to your IoT Hub, open the Azure portal in your browser.
 
-1. Navigate to the IoT hub in the resource group that contains your remote monitoring solution.
+1. Navigate to the IoT hub in the resource group that contains your Remote Monitoring solution.
 
 1. In the **Monitoring** section, choose **Metrics**. Then verify that the number of **Connected devices** is two:
 
     ![Number of connected devices](./media/iot-accelerators-remote-monitoring-test/connecteddevices.png)
 
-1. In your browser, navigate to the **Dashboard** for your remote monitoring solution. In the telemetry panel on the **Dashboard**, select **temperature**. The temperature for all your simulated devices displays on the chart:
+1. In your browser, navigate to the **Dashboard** for your Remote Monitoring solution. In the telemetry panel on the **Dashboard**, select **temperature**. The temperature for all your simulated devices displays on the chart:
 
     ![Temperature telemetry](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
-You now have the lightbulb device simulation running locally. The next step is to deploy your updated simulator code to the virtual machine that runs the remote monitoring microservices in Azure.
+You now have the lightbulb device simulation running locally. The next step is to deploy your updated simulator code to the virtual machine that runs the Remote Monitoring microservices in Azure.
 
 Before you continue, you can stop debugging both the device simulation and storage adapter projects in Visual Studio.
 
 ### Deploy the updated simulator to the cloud
 
-The microservices in the remote monitoring solution run in docker containers. The containers are hosted in the solution's virtual machine in Azure. In this section, you:
+The microservices in the Remote Monitoring solution run in docker containers. The containers are hosted in the solution's virtual machine in Azure. In this section, you:
 
 * Create a new device simulation docker image.
 * Upload the image to your docker hub repository.
@@ -544,11 +537,11 @@ The following steps assume that you have a repository called **lightbulb** in yo
 
     The scripts added the **testing** tag to the image.
 
-1. Use SSH to connect to your solution's virtual machine in Azure. Then navigate to the **App** folder and edit the **docker-compose.yaml** file:
+1. Use SSH to connect to your solution's virtual machine in Azure. Then navigate to the **App** folder and edit the **docker-compose.yml** file:
 
     ```sh
     cd /app
-    sudo nano docker-compose.yaml
+    sudo nano docker-compose.yml
     ```
 
 1. Edit the entry for the device simulation service to use your docker image:
@@ -578,9 +571,9 @@ The following steps assume that you have a repository called **lightbulb** in yo
     docker logs {container ID}
     ```
 
-You have now completed the steps to deploy an updated version of the device simulation service to your remote monitoring solution.
+You have now completed the steps to deploy an updated version of the device simulation service to your Remote Monitoring solution.
 
-In your browser, navigate to the **Dashboard** for your remote monitoring solution. In the telemetry panel on the **Dashboard**, select **temperature**. The temperature for your two simulated devices displays on the chart:
+In your browser, navigate to the **Dashboard** for your Remote Monitoring solution. In the telemetry panel on the **Dashboard**, select **temperature**. The temperature for your two simulated devices displays on the chart:
 
 ![Temperature telemetry](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
@@ -604,7 +597,7 @@ This section describes how to modify an existing simulated device type to suppor
 
 The following steps show you how to find the files that define the built-in **Chiller** device:
 
-1. If you have not already done so, use the following command to clone the **device-simulation** GitHub repository to your local machine:
+1. If you have not already done so, use the following command to clone the **device-simulation-dotnet** GitHub repository to your local machine:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
@@ -672,9 +665,9 @@ The following steps show you how to add a new **Internal Temperature** type to t
 
 ### Test the Chiller device type
 
-To test the updated **Chiller** device type, first run a local copy of the **device-simulation** service to test your device type behaves as expected. When you have tested and debugged your updated device type locally, you can rebuild the container and redeploy the **device-simulation** service to Azure.
+To test the updated **Chiller** device type, first run a local copy of the **device-simulation-dotnet** service to test your device type behaves as expected. When you have tested and debugged your updated device type locally, you can rebuild the container and redeploy the **device-simulation-dotnet** service to Azure.
 
-When you run the **device-simulation** service locally, it sends telemetry to your remote monitoring solution. On the **Devices** page, you can provision instances of your updated type.
+When you run the **device-simulation-dotnet** service locally, it sends telemetry to your Remote Monitoring solution. On the **Devices** page, you can provision instances of your updated type.
 
 To test and debug your changes locally, see the previous section [Test the Lightbulb device type locally](#test-the-lightbulb-device-type-locally).
 
@@ -697,9 +690,9 @@ This tutorial, showed you how to:
 > * Add a new device type to the dashboard
 > * Send custom telemetry from an existing device type
 
-Now you have learned how to customize the device simulation service. The suggested next step is to learn how to [connect a physical device to your remote monitoring solution](iot-accelerators-connecting-devices-node.md).
+Now you have learned how to customize the device simulation service. The suggested next step is to learn how to [connect a physical device to your Remote Monitoring solution](iot-accelerators-connecting-devices-node.md).
 
-For more developer information about the remote monitoring solution, see:
+For more developer information about the Remote Monitoring solution, see:
 
 * [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

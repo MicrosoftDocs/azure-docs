@@ -7,7 +7,7 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: giladm
 ms.reviewer: carlrab
@@ -16,7 +16,7 @@ ms.reviewer: carlrab
 # Azure SQL Database Data Discovery and Classification
 Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL Database for **discovering**, **classifying**, **labeling** & **protecting** the sensitive data in your databases.
 Discovering and classifying your most sensitive data (business, financial, healthcare, PII, etc.) can play a pivotal role in your organizational information protection stature. It can serve as infrastructure for:
-* Helping meet data privacy standards and regulatory compliance requirements, such as GDPR.
+* Helping meet data privacy standards and regulatory compliance requirements.
 * Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 * Controlling access to and hardening the security of databases containing highly sensitive data.
 

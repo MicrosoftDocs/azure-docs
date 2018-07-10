@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Device options | Microsoft Docs'
 description: This document details device options available in Azure AD Connect
 services: active-directory
 documentationcenter: ''
-author: anandy
+author: billmath
 manager: samueld
 editor: billmath
 
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: anandy
+ms.component: hybrid
+ms.author: billmath
 
 ---
 
