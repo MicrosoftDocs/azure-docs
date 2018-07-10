@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Application Gateway - Azure CLI 1.0  | Microsoft Docs
-description: Learn how to create an Application Gateway by using the Azure CLI 1.0 in Resource Manager
+title: Create an Azure Application Gateway - Azure classic CLI  | Microsoft Docs
+description: Learn how to create an Application Gateway by using the Azure classic CLI in Resource Manager
 services: application-gateway
 documentationcenter: na
 author: vhorne
@@ -25,8 +25,8 @@ ms.author: victorh
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
-> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
+> * [Azure classic CLI](application-gateway-create-gateway-cli.md)
+> * [Azure CLI](application-gateway-create-gateway-cli.md)
 > 
 > 
 
