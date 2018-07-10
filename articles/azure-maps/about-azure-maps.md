@@ -39,10 +39,14 @@ The Route service contains robust real-world infrastructure geometry calculation
 
     ![Azure Maps Route.png](media/about-azure-maps/Introduction_Route.png)
 
-The Route service also provides APIs for:
+The Route service now provides APIs for:
     - **Batch routing** which processes a set of route requests in one call, for a simpler application that needs to process multiple routes, and
     - **Matrix routing**, which returns a matrix of route summaries for a set of origin and destination locations.
     - **Reachable range** calculation, which returns an area (as a polygon) that can be reached from an origin point, for a given fuel or time constraint. 
+
+> [!NOTE]
+> APIs for *Batch and Matrix routing*, as well as *Reachable range* are currently in preview mode.
+
 
 ### Search service
 
@@ -53,6 +57,10 @@ The Search service is designed for developers to search for addresses, places, b
 The Search service also provides APIs to:
     - **Batch** search as well as reverse geocode a group of addresses. This allows for a simpler application that needs to process a large database of addresses.
     - **Polygon search**, which returns a polygon for the area being searched. This will help in applications that need boundary data for a geographical area.
+
+> [!NOTE]
+> APIs for *Batch search and reverse geocode*, as well as *Polygon search* are currently in preview mode.
+
 
 ### Time Zone service
 
@@ -84,9 +92,9 @@ The Traffic service is a suite of web services designed for developers to create
 
     ![Azure Maps Traffic](media/about-azure-maps/Introduction_Traffic.png)
 
-### IP to Country
+### IP to Location
 
-The IP to Country service allows you to retrieve the two letter country code for a given IP address. As a developer, you can use this service to alter the content of your application based on the geographic location. This service can help you tailor your application to meet special geopolitical constraints, as well as significantly enhance user experience based on the location. 
+The IP to Location service allows you to retrieve the two letter country code for a given IP address. As a developer, you can use this service to alter the content of your application based on the geographic location. This service can help you tailor your application to meet special geopolitical constraints, as well as significantly enhance user experience based on the location. 
 
 
 ## Programming model
