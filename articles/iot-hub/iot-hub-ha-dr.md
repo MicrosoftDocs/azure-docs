@@ -6,8 +6,8 @@ manager:
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 7/25/2018
-ms.author: elioda, rkmanda
+ms.date: 07/25/2018
+ms.author: rkmanda
 ---
 
 # IoT Hub high availability and disaster recovery
@@ -37,7 +37,7 @@ There could be some rare situations when a datacenter experiences extended outag
 
 Both these failover options offer the following recovery point objectives (RPOs):
 
-| Data Type | Recovery Point Objectives (RPO) |
+| Data type | Recovery point objectives (RPO) |
 | --- | --- |
 | Identity registry |0-5 mins data loss |
 | Device twin data |0-5 mins data loss |
@@ -100,8 +100,8 @@ At a high level, to implement a regional failover model with IoT Hub, you need t
 
 * **A secondary IoT hub and device routing logic**: If service in your primary region is disrupted, devices must start connecting to your secondary region. Given the state-aware nature of most services involved, it is common for solution administrators to trigger the inter-region failover process. The best way to communicate the new endpoint to devices, while maintaining control of the process, is to have them regularly check a *concierge* service for the current active endpoint. The concierge service can be a web application that is replicated and kept reachable using DNS-redirection techniques (for example, using [Azure Traffic Manager][Azure Traffic Manager]).
 
-> [!NOTE]
-> IoT hub service is not a supported endpoint type in Azure Traffic Manager. The recommendation is to integrate the proposed concierge service with Azure traffic manager by making it implement the endpoint health probe API.
+   > [!NOTE]
+   > IoT hub service is not a supported endpoint type in Azure Traffic Manager. The recommendation is to integrate the proposed concierge service with Azure traffic manager by making it implement the endpoint health probe API.
 
 * **Identity registry replication**: To be usable, the secondary IoT hub must contain all device identities that can connect to the solution. The solution should keep geo-replicated backups of device identities, and upload them to the secondary IoT hub before switching the active endpoint for the devices. The device identity export functionality of IoT Hub is useful in this context. For more information, see [IoT Hub developer guide - identity registry][IoT Hub developer guide - identity registry].
 * **Merging logic**: When the primary region becomes available again, all the state and data that have been created in the secondary site must be migrated back to the primary region. This state and data mostly relate to device identities and application metadata, which must be merged with the primary IoT hub and any other application-specific stores in the primary region. To simplify this step, you should use idempotent operations. Idempotent operations minimize the side-effects from the eventual consistent distribution of events, and from duplicates or out-of-order delivery of events. In addition, the application logic should be designed to tolerate potential inconsistencies or slightly out-of-date state. This situation can occur due to the additional time it takes for the system to heal based on recovery point objectives (RPO).
@@ -109,7 +109,7 @@ At a high level, to implement a regional failover model with IoT Hub, you need t
 ## Choose the right HA/DR option
 Heres a summary of the HA/DR options presented in this article which can be used as a frame of reference to choose the right option that works for your solution
 
-| HA/DR Option | RTO | RPO | Requires manual intervention? | Implementation complexity | Additional cost impact|
+| HA/DR option | RTO | RPO | Requires manual intervention? | Implementation complexity | Additional cost impact|
 | --- | --- | --- | --- | --- | --- | --- |
 | Microsoft initiated failover |2 - 26 hours|Refer RPO table above|No|None|None
 | Manual failover |10 min - 2 hours|Refer RPO table above|Yes|Very low. You only need to trigger this operation from the portal.|None
