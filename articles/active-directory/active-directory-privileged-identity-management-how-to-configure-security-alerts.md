@@ -19,7 +19,7 @@ ms.custom: pim
 ## Security alerts
 Azure Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your environment. When an alert is triggered, it shows up on the PIM dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
 
-![PIM dashboard security alerts - screenshot][1]
+![PIM dashboard security alerts - screenshot](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png)
 
 | Alert | Severity | Trigger | Recommendation |
 | --- | --- | --- | --- |
@@ -40,7 +40,7 @@ You can customize some of the security alerts in PIM to work with your environme
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the **Azure AD Privileged Identity Management** tile from the dashboard.
 2. Select **Managed privileged roles** > **Settings** > **Alerts settings**.
    
-    ![Navigate to security alerts settings][2]
+    ![Navigate to security alerts settings](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png)
 
 ### "Roles are being activated too frequently" alert
 This alert triggers if a user activates the same privileged role multiple times within a specified period. You can configure both the time period and the number of activations.
@@ -61,8 +61,3 @@ This alert triggers if a user goes a certain amount of time without activating a
 
 ## Next steps
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png
