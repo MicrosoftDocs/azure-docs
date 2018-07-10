@@ -20,7 +20,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to configure, create, and manage a Site-to-Site connection using Azure Virtual WAN
+    text: Learn how to configure, create, and manage a Site-to-Site connection using Azure Virtual WAN.
   - type: list
     style: unordered
     className: spaced noBullet
