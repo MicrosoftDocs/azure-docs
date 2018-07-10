@@ -45,7 +45,7 @@ Considerations:
 * Consider using this Preview if:
   * You want to deploy aggregated bandwidth less than 1 Gbps per virtual hub.
   * You have a VPN device that supports route-based configuration and IKEv2 IPsec connectivity.
-  * You want to explore using SD-WAN and operating branch devices from the launch partners (Riverbed and Citrix).<br>or<br>Self configure: You want to set up branch-to-branch and branch to Azure connectivity that includes configuration management of your on-premises device.
+  * You want to explore using SD-WAN and operating branch devices from the launch partners (Riverbed and Citrix).<br>or<br>You want to set up branch-to-branch and branch to Azure connectivity that includes configuration management of your on-premises device. (Self-configure)
 
 ### Is Global VNet peering supported with Azure Virtual WAN? 
 
