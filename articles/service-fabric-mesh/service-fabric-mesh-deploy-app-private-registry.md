@@ -34,7 +34,7 @@ You can use the Azure Cloud Shell or a local installation of the Azure CLI to co
 Install the Azure Service Fabric Mesh CLI extension module. For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI.
 
 ```azurecli-interactive
-az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.7.0-py2.py3-none-any.whl
+az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.8.0-py2.py3-none-any.whl
 ```
 
 ## Log in to Azure
