@@ -10,58 +10,33 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/10/2018
 ms.author: v-geberr;
-#Customer intent: As a new user, I want to understand how and why to use patterns, pattern.any, and pattern roles. 
+#Customer intent: As a new user, I want to understand how and why to use patterns. 
 ---
 
-# Tutorial: Use patterns to improve predictions
+# Tutorial: Improve app with patterns
 
 In this tutorial, use patterns to increase intent and entity prediction.  
 
 > [!div class="checklist"]
 * How to identify that a pattern would help your app
 * How to create a pattern 
-* How to use prebuilt and custom entities in a pattern 
 * How to verify pattern prediction improvements
-* How to add a role to an entity to find contextually-based entities
-* How to add a Pattern.any to find free-form entities
 
 For this article, you need a free [LUIS](luis-reference-regions.md) account in order to author your LUIS application.
 
-## Import HumanResources app
-This tutorial imports a HumanResources app. The app has three intents: None, GetEmployeeOrgChart, GetEmployeeBenefits. The app has two entities: Prebuilt number and Employee. The Employee entity is a simple entity to extract an employee's name. 
+## Before you begin
+If you don't have the Human Resources app from the [batch test](luis-tutorial-batch-testing.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) Github repository.
 
-1. Create a new LUIS app file and name it `HumanResources.json`. 
-
-2. Copy the following app definition into the file:
-
-   [!code-json[Add the LUIS model](~/samples-luis/documentation-samples/tutorial-patterns/HumanResources.json?range=1-164 "Add the LUIS model")]
-
-3. On the LUIS **Apps** page, select **Import new app**. 
-
-4. In the **Import new app** dialog, select the `HumanResources.json` file you created in step 1.
-
-5. Select the **GetEmployeeOrgChart** intent, then change from **Entities view** to **Tokens view**. Several example utterances are listed. Each utterance contains a name, which is an Employee entity. Notice that each name is different and that the arrangement of the wording is different for each utterance. This diversity helps LUIS learn a wide range of utterances.
-
-    ![Screenshot of Intent page with Entities view toggled](media/luis-tutorial-pattern/utterances-token-view.png)
-
-6. Select **Train** in the top navigation bar to train the app. Wait for the green success bar.
-
-7. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` then select enter. Select **Inspect** under the utterance to see more information about the test.
-    
-    The employee name, Patti Owens, has not been used in an example utterance yet. This is a test to see how well LUIS learned this utterance is for the `GetEmployeeOrgChart` intent and the Employee entity should be `Patti Owens`. The result should be below 50% (.50) for the `GetEmployeeOrgChart` intent. While the intent is correct, the score is low. The Employee entity is also correctly identified as `Patti Owens`. Patterns increase this initial prediction score. 
-
-    ![Screenshot of Test panel](media/luis-tutorial-pattern/original-test.png)
-
-8. Close the test panel by selecting the **Test** button in the top navigation. 
+If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `patterns`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## Patterns teach LUIS common utterances with fewer examples
-Because of the nature of the human resource domain, there are a few common ways of asking about employee relationships in organizations. For example:
+Because of the nature of the Human Resource domain, there are a few common ways of asking about employee relationships in organizations. For example:
 
 ```
-Who does Mike Jones report to?
-Who reports to Mike Jones? 
+Who does Jill Jones report to?
+Who reports to Jill Jones? 
 ```
 
 These utterances are too close to determine the contextual uniqueness of each without providing many utterance examples. By adding a pattern for an intent, LUIS learns common utterance patterns for an intent without supplying many utterance examples. 
@@ -73,39 +48,313 @@ Who does {Employee} report to?
 Who reports to {Employee}? 
 ```
 
-The pattern is a combination of regular expression matching and machine learning. Next, provide some template utterance examples for LUIS to learn the pattern. These examples, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent and where, within the utterance, the entity exists. <!--A pattern is specific to an intent. You can't duplicate the same pattern on another intent. That would confuse LUIS, which lowers the prediction score. -->
+The pattern is a combination of regular expression matching and machine learning. When you create a pattern, you need to provide template utterance examples for LUIS to learn the pattern. These examples, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent and where, within the utterance, the entity exists.
+
+Remember that employees were created in the [list entity tutorial](luis-quickstart-intent-and-list-entity.md).
+
+## Create new intents and their utterances
+Add two new intents: OrgChart-Manager, OrgChart-Reports. The intent name can be used as a function name in the client app and that the Employee entity could be used as a parameter to that function.
+
+```
+OrgChart-Manager(employee){
+    ///
+}
+```
+
+1. Make sure your Human Resources app is in the **Build** section of LUIS. You can change to this section by selecting **Build** on the top, right menu bar. 
+
+    [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-tutorial-pattern/hr-first-image.png)](./media/luis-tutorial-pattern/hr-first-image.png#lightbox)
+
+2. On the **Intents** page, select **ApplyForJob** intent. 
+
+    [![](media/luis-tutorial-pattern/hr-select-applyforjob.png "Screenshot of LUIS with 'ApplyForJob' intent highlighted")](media/luis-tutorial-pattern/hr-select-applyforjob.png#lightbox)
+
+3. Select **Create new intent**. 
+
+4. Enter `OrgChart-Manager` in the pop-up dialog box then select **Done**.
+
+5. Add example utterances to the intent.
+
+    |Example utterances|
+    |--|
+
+    |Who is John W. Smith the subordinate of?|
+    |Who does John W. Smith report to?|
+    |Who is John W. Smith's manager?|
+    |Who does Jill Jones directly report to?|
+    |Who is Jill Jones supervisor?|
+
+6. Select **Intents** in the left navigation.
+
+7. Select **Create new intent**. 
+
+8. Enter `OrgChart-Reports` in the pop-up dialog box then select **Done**.
+
+9. Add example utterances to the intent.
+
+    |Example utterances|
+    |--|
+    |Who are John W. Smith's subordinates?|
+    |Who reports to John W. Smith?|
+    |Who does John W. Smith manage?|
+    |Who are Jill Jones direct reports?|
+    |Who does Jill Jones supervise?|
+
+## Caution about example utterance quantity
+The example utterances in the intents is not enough to train LUIS properly. In a real-world app, each intent should have a minimum of 15 utterances with a variety of word choice and utterance length. These few utterances are selected specifically to highlight patterns. 
+
+## Train the LUIS app
+The new intent and utterances require training. 
+
+1. In the top right side of the LUIS website, select the **Train** button.
+
+    ![Image of training button](./media/luis-tutorial-pattern/train-button.png)
+
+2. Training is complete when you see the green status bar at the top of the website confirming success.
+
+    ![Image of success notification bar](./media/luis-tutorial-pattern/trained.png)
+
+## Publish the app to get the endpoint URL
+In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
+
+1. In the top right side of the LUIS website, select the **Publish** button. 
+
+    ![Screenshot of FindKnowledgeBase with top navigation Publish button highlighted](./media/luis-tutorial-pattern/publish-button.png)
+
+2. Select the Production slot and the **Publish** button.
+
+    ![Screenshot of Publish page with Publish to production slot button highlighted](./media/luis-tutorial-pattern/publish-to-production.png)
+
+3. Publishing is complete when you see the green status bar at the top of the website confirming success.
+
+## Query the endpoint with a different utterance
+1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
+
+    ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
+
+2. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is `q`, the utterance **query**. 
+
+    ```JSON
+    {
+    "query": "who is the boss of jill jones?",
+    "topScoringIntent": {
+        "intent": "OrgChart-Manager",
+        "score": 0.9999989
+    },
+    "intents": [
+        {
+        "intent": "OrgChart-Manager",
+        "score": 0.9999989
+        },
+        {
+        "intent": "OrgChart-Reports",
+        "score": 7.616303E-05
+        },
+        {
+        "intent": "EmployeeFeedback",
+        "score": 7.84204349E-06
+        },
+        {
+        "intent": "GetJobInformation",
+        "score": 1.20674213E-06
+        },
+        {
+        "intent": "MoveEmployee",
+        "score": 7.91245157E-07
+        },
+        {
+        "intent": "None",
+        "score": 3.875E-09
+        },
+        {
+        "intent": "Utilities.StartOver",
+        "score": 1.49E-09
+        },
+        {
+        "intent": "Utilities.Confirm",
+        "score": 1.34545453E-09
+        },
+        {
+        "intent": "Utilities.Help",
+        "score": 1.34545453E-09
+        },
+        {
+        "intent": "Utilities.Stop",
+        "score": 1.34545453E-09
+        },
+        {
+        "intent": "Utilities.Cancel",
+        "score": 1.225E-09
+        },
+        {
+        "intent": "FindForm",
+        "score": 1.123077E-09
+        },
+        {
+        "intent": "ApplyForJob",
+        "score": 5.625E-10
+        }
+    ],
+    "entities": [
+        {
+        "entity": "jill jones",
+        "type": "Employee",
+        "startIndex": 19,
+        "endIndex": 28,
+        "resolution": {
+            "values": [
+            "Employee-45612"
+            ]
+        },
+        "role": ""
+        },
+        {
+        "entity": "boss of jill jones",
+        "type": "builtin.keyPhrase",
+        "startIndex": 11,
+        "endIndex": 28
+        }
+    ]}
+    ```
+
+Did this query succeed? For this training cycle it did succeed. The scores of the two top intents is very close. Because LUIS training is not exactly the same each time, there is a bit of variation, these two scores could invert on the next training cycle. The result is that the wrong intent could be returned. 
+
+Use patterns to make the difference between these two closely-related intents more accurately predicted. 
+
 
 ## Add the template utterances
 
-1. In the left navigation, under **Improve app performance**, select **Patterns** from the left navigation.
+1. Select **Build** in the top menu.
 
-2. Select the **GetEmployeeOrgChart** intent, then enter the following template utterances, one at a time, selecting enter after each template utterance:
+2. In the left navigation, under **Improve app performance**, select **Patterns** from the left navigation.
 
-    ```
-    Does {Employee} have {number} subordinates?
-    Does {Employee} have {number} direct reports?
-    Who does {Employee} report to?
-    Who reports to {Employee}?
-    Who is {Employee}'s manager?
-    Who are {Employee}'s subordinates?
-    ```
+3. Select the **OrgChart-Manager** intent, then enter the following template utterances, one at a time, selecting enter after each template utterance:
+
+    |Template utterances|
+    |:--|
+    |Who is {Employee} the subordinate of[?]|
+    |Who does {Employee} report to[?]|
+    |Who is {Employee}['s] manager[?]|
+    |Who does {Employee} directly report to[?]|
+    |Who is {Employee}['s] supervisor[?]|
+    |Who is the boss of {Employee}[?]|
 
     The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. 
 
+    The optional syntax, `[]`, marks words or punctuation that are optional. LUIS will match the utterance, ignoring the optional text inside the brackets.
+
+    If you type the template utterance in, LUIS helps you fill in the entity when your enter the left curly bracket, `{`, by 
+
     ![Screenshot of entering template utterances for intent](./media/luis-tutorial-pattern/enter-pattern.png)
 
-3. Select **Train** in the top navigation bar. Wait for the green success bar.
+4. Select the **OrgChart-Reports** intent, then enter the following template utterances, one at a time, selecting enter after each template utterance:
 
-4. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` in the text box. Select Enter. This is the same utterance tested in the previous section. The result should be higher for the `GetEmployeeOrgChart` intent. 
+    |Template utterances|
+    |:--|
+    |Who are {Employee}['s] subordinates[?]|
+    |Who reports to {Employee}[?]|
+    |Who does {Employee} manage[?]|
+    |Who are {Employee} direct reports[?]|
+    |Who does {Employee} supervise[?]|
+    |Who does {Employee} boss[?]|
 
-    The score is now much better. LUIS learned the pattern relevant to the intent without providing many examples.
+## Query endpoint when patterns are used
 
-    ![Screenshot of Test panel with high score result](./media/luis-tutorial-pattern/high-score.png)
+1. Select **Train** in the top navigation bar to train the app with patterns.
 
-    The entity is found first, then the pattern is found, indicating the intent. If you have a test result where the entity is not detected, and therefore the pattern is not found, you need to add more example utterances on the intent (not the pattern). 
+2. Select **Publish** on the top navigation bar. 
 
-5. Close the test panel by selecting the **Test** button in the top navigation.
+3. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
+    ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
+
+4. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is `q`, the utterance **query**. 
+
+    ```JSON
+    {
+    "query": "who is the boss of jill jones?",
+    "topScoringIntent": {
+        "intent": "OrgChart-Manager",
+        "score": 0.9999989
+    },
+    "intents": [
+        {
+        "intent": "OrgChart-Manager",
+        "score": 0.9999989
+        },
+        {
+        "intent": "OrgChart-Reports",
+        "score": 7.616303E-05
+        },
+        {
+        "intent": "EmployeeFeedback",
+        "score": 7.84204349E-06
+        },
+        {
+        "intent": "GetJobInformation",
+        "score": 1.20674213E-06
+        },
+        {
+        "intent": "MoveEmployee",
+        "score": 7.91245157E-07
+        },
+        {
+        "intent": "None",
+        "score": 3.875E-09
+        },
+        {
+        "intent": "Utilities.StartOver",
+        "score": 1.49E-09
+        },
+        {
+        "intent": "Utilities.Confirm",
+        "score": 1.34545453E-09
+        },
+        {
+        "intent": "Utilities.Help",
+        "score": 1.34545453E-09
+        },
+        {
+        "intent": "Utilities.Stop",
+        "score": 1.34545453E-09
+        },
+        {
+        "intent": "Utilities.Cancel",
+        "score": 1.225E-09
+        },
+        {
+        "intent": "FindForm",
+        "score": 1.123077E-09
+        },
+        {
+        "intent": "ApplyForJob",
+        "score": 5.625E-10
+        }
+    ],
+    "entities": [
+        {
+        "entity": "jill jones",
+        "type": "Employee",
+        "startIndex": 19,
+        "endIndex": 28,
+        "resolution": {
+            "values": [
+            "Employee-45612"
+            ]
+        },
+        "role": ""
+        },
+        {
+        "entity": "boss of jill jones",
+        "type": "builtin.keyPhrase",
+        "startIndex": 11,
+        "endIndex": 28
+        }
+    ]}
+    ```
+
+
+<!--
 ## Use an entity with a role in a pattern
 The LUIS app is used to help move employees from one location to another. An example utterance is `Move Bob Jones from Seattle to Los Colinas`. Each location in the utterance has a different meaning. Seattle is the originating location and Los Colinas is the destination location for the move. In order to differentiate those locations in the pattern, in the following sections you create a simple entity for location with two roles: origin and destination. 
 
@@ -144,9 +393,7 @@ Create a new intent for any utterances that are about moving people or assets.
 
     If you expect a wide variety of utterances, instead of a pattern, these would be the wrong example utterances. In that case, you would want widely varying utterances in term or word choice, utterance length, and entity placement. 
 
-<!--TBD: what guidance to move from hier entities to patterns with roles -->
-<!--    The [Hierarchical entity quickstart](luis-quickstart-intent-and-hier-entity.md) uses the  same idea of location but uses child entities to find origin and destination locations. 
--->
+
 ### Add role to location entity 
 Roles can only be used for patterns. Add the roles of Origin and Destination to the Location entity. 
 
@@ -241,6 +488,7 @@ The Pattern.any entity allows for entities of varying length. It only works in a
     The entity is found first, then the pattern is found, indicating the intent. If you have a test result where the entities are not detected, and therefore the pattern is not found, you need to add more example utterances on the intent (not the pattern).
 
 4. Close the test panel by selecting the **Test** button in the top navigation.
+-->
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
