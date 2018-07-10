@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Configure manual failover for an IoT Hub (public preview)
 
-Manual failover is a feature of IoT Hubs that allows customers to change their hub's operations from one region to another. This can be done in event of a disaster, or you can do a planned failover if you want to perform testing on the feature.
+Manual failover is a feature of IoT Hubs that allows customers to change their hub's operations from one region to another. Manual failover can be done in the event of a disaster, or you can do a planned failover if you want to perform testing on the feature.
 
 The amount of time it takes to perform the manual failover is proportional to the number of devices that are registered for your hub. It can take from 10 minutes to a couple of hours. For example, if you have 100,000 devices, it might take 15 minutes, but if you have five million devices, it might take up to an hour or longer.
 
@@ -45,14 +45,14 @@ In this tutorial, you learn how to set up an IoT hub and then cause it to failov
 
     **Subscription**: select the Azure subscription you want to use.
 
-    **Resource Group**: click **Create new** and fill in ManlFailRG for the resource group name.
+    **Resource Group**: click **Create new** and specify **ManlFailRG** for the resource group name.
 
     **Region**: select a region close to you that is part of the preview.
     
     > ![NOTE]
     > Manual failover is currently in public preview and is *not* available in the following Azure regions: East US, West US, North Europe, West Europe, Brazil South, and South Central US.
 
-    **IoT Hub Name**: specify a name for your Iot hub. This must be globally unique. 
+    **IoT Hub Name**: specify a name for your Iot hub. The hub name must be globally unique. 
 
 4.  Click **Review + create**. (Use the defaults for size and scale.) 
 
@@ -64,7 +64,7 @@ In this tutorial, you learn how to set up an IoT hub and then cause it to failov
 
 2.  Under **Resiliency** on the IoT Hub pane, click **Manual failover (preview)**.
 
-    The primary location is set to the location of the IoT hub. The secondary location is the geographic partner to the primary location. You can not change these.
+    The primary location is set to the location of the IoT hub. The secondary location is the geographic partner to the primary location. You cannot change the location values.
 
 3.  At the top of the Manual failover pane, click **Initiate failover**. You see the **Confirm manual failover** pane.
 
@@ -102,7 +102,7 @@ After you have performed a manual failover, you can switch the hub back to the p
 
 * You have to wait about an hour between requesting a failover and requesting a failback. If you try to perform the failback in a shorter amount of time, a message is displayed.
 
-* There is a limit of 2 failovers and 2 failbacks per day. 
+* There is a limit of two failovers and two failbacks per day. 
 
 ## Clean up resources 
 
