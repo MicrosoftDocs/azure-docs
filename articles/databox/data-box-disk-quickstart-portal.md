@@ -15,6 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2018
 ms.author: alkohli
+Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
 # Quickstart: Deploy Azure Data Box Disk using the Azure portal (Preview)
 
@@ -90,7 +91,7 @@ The time to complete this operation depends upon your data size.
 2. (Optional) After the copy is complete, we recommend that you run the `AzureExpressDiskService.ps1` provided in the *AzureImportExport* folder to generate checksums for validation. Depending upon the data size, this step may take time. 
 3. Unplug the drive. 
 
-For more information on this step, go to [Copy data to Data Box Disk](data-box-disk-deploy-set-up.md#copy-data-to-disks).
+For more information on this step, go to [Copy data to Data Box Disk](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 
 ## Ship to Azure
 

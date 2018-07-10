@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/24/2018
+ms.date: 07/10/2018
 ms.author: alkohli
 ---
 # Use Azure portal to administer your Data Box (Preview)
