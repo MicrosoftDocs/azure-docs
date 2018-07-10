@@ -176,7 +176,7 @@
         href: ../connectors/connectors-create-api-excel.md
       - name: Facebook
         href: ../connectors/connectors-create-api-facebook.md
-      - name: File System
+      - name: File system
         href: logic-apps-using-file-connector.md
       - name: Flat file
         href: logic-apps-enterprise-integration-flatfile.md
@@ -228,13 +228,15 @@
         href: ../connectors/connectors-native-recurrence.md
       - name: SendGrid
         href: ../connectors/connectors-create-api-sendgrid.md
+      - name: SFTP
+        href: ../connectors/connectors-create-api-sftp.md  
       - name: SharePoint Online
         href: ../connectors/connectors-create-api-sharepointonline.md
       - name: SharePoint Server
         href: ../connectors/connectors-create-api-sharepointserver.md
       - name: Slack
         href: ../connectors/connectors-create-api-slack.md
-      - name: SQL Azure & SQL Server
+      - name: SQL Server
         href: ../connectors/connectors-create-api-sqlazure.md
       - name: Transform XML
         href: logic-apps-enterprise-integration-transform.md
