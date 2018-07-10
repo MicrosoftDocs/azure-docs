@@ -11,14 +11,6 @@
     href: cognitive-search-quickstart-blob.md
   - name: Create a service
     href: search-create-service-portal.md
-  - name: Portal
-    items:
-    - name: Create an index
-      href: search-create-index-portal.md
-    - name: Import data
-      href: search-import-data-portal.md
-    - name: Search Explorer
-      href: search-explorer.md
   - name: .NET
     items:
     - name: Create an index
@@ -129,6 +121,8 @@
     items:
     - name: Index definition
       href: search-what-is-an-index.md
+    - name: Create an index (portal)
+      href: search-create-index-portal.md
     - name: Analyzers
       items:
       - name: Text Analyzers
@@ -151,6 +145,8 @@
     items:
     - name: Push vs. Pull indexing
       href: search-what-is-data-import.md
+    - name: Import wizard (portal)
+      href: search-import-data-portal.md
     - name: Rebuild an index
       href: search-howto-reindex.md
     - name: Index large data sets
@@ -181,6 +177,8 @@
     items:
     - name: Basic query construction
       href: search-query-overview.md
+    - name: Search Explorer (portal)
+      href: search-explorer.md
     - name: Simple query syntax
       href: https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search
     - name: Lucene query syntax

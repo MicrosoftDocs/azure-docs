@@ -1,17 +1,17 @@
 ---
-title: "Create an index (portal - Azure Search) | Microsoft Docs"
-description: Create an index using the Azure Portal.
+title: Create an Azure Search index in the portal | Microsoft Docs
+description: Learn how to create an index for Azure Search using the Azure portal.
 manager: cgronlun
 author: heidisteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: quickstart
-ms.date: 06/20/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
 
 ---
-# Create an Azure Search index using the Azure Portal
+# How to create an Azure Search index using the Azure portal
 
 Use the built-in index designer in Azure portal to prototype or create a [search index](search-what-is-an-index.md) to run on your Azure Search service. 
 
