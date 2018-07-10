@@ -14,6 +14,8 @@
     href: quickstart-remote-monitoring-deploy.md
   - name: Deploy a connected factory solution
     href: quickstart-connected-factory-deploy.md
+  - name: Deploy a device simulation solution
+    href: quickstart-device-simulation-deploy.md
 
 - name: Tutorials
   items:
@@ -162,10 +164,10 @@
 
   - name: Device Simulation
     items:
-    - name: Deploy solution accelerator
-      href: iot-accelerators-device-simulation-deploy.md
-    - name: Run a simulation
-      href: iot-accelerators-device-simulation-explore.md
+    - name: Use an existing IoT Hub
+      href: iot-accelerators-device-simulation-choose-hub.md
+    - name: Use a custom device model
+      href: iot-accelerators-device-simulation-custom-model.md
 
 - name: Reference
   items:
