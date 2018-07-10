@@ -1,16 +1,16 @@
 ---
 title: Search semi-structured data in Azure cloud storage
 description: Searching semi-structured blob data using Azure Search.
-author: roygara
+author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 10/12/2017
-ms.author: v-rogara
+ms.date: 07/12/2018
+ms.author: heidist
 ---
 
-# Part 2: Search semi-structured data in cloud storage
+# Tutorial: Search semi-structured data in cloud storage
 
 In a two-part tutorial series, you learn how to search semi-structured and unstructured data using Azure search. [Part 1](../storage/blobs/storage-unstructured-search.md) walked you through search over unstructured data, but also included important prerequisites for this tutorial, like creating the storage account. 
 
@@ -271,6 +271,10 @@ An example of more complex query would be `$filter=MinimumAge ge 30 and MaximumA
 If you'd like to experiment and try a few more queries yourself, feel free to do so. Know that you can use Logical operators (and, or, not) and comparison operators (eq, ne, gt, lt, ge, le). String comparisons are case-sensitive.
 
 The `$filter` parameter only works with metadata that were marked filterable at the creation of your index.
+
+## Clean up resources
+
+The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Search service.
 
 ## Next steps
 

@@ -31,7 +31,7 @@
       href: search-fiddler.md
 - name: Tutorials
   items:
-  - name: Use built-in indexing tools
+  - name: Use built-in tools
     href: search-get-started-portal.md
   - name: Cognitive search development
     href: cognitive-search-tutorial-blob.md

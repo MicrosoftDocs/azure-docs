@@ -7,11 +7,11 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/10/2017
+ms.date: 07/10/2018
 ms.author: heidist
 ---
 
-# How to crawl an Azure SQL database using Azure Search indexers
+# Tutorial: Crawl an Azure SQL database using Azure Search indexers
 
 This tutorial shows you how to configure an indexer for extracting searchable data from a sample Azure SQL database. [Indexers](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL database is the most widely used. 
 

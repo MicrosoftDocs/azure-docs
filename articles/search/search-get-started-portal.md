@@ -11,33 +11,30 @@ ms.date: 07/10/2018
 ms.author: heidist
 
 ---
-# Built-in tools to create, query, and filter an Azure Search index
+# Tutorial: Built-in tools for Azure Search indexing and queries
 
-In the Azure portal, you can use built-in tools for prototyping Azure Search solutions and hands on learning with minimal ramp up. While portal tools do not offer full parity with .NET and REST APIs, for quick proof-of-concept  testing, wizards and editors are a helpful substitution. This code-free introduction gets you started with predefined data so that you can write interesting queries right away. 
+In the Azure portal, you can use built-in tools for prototyping Azure Search solutions and hands on learning with minimal ramp up. While portal tools do not offer full parity with .NET and REST APIs, for quick proof-of-concept  testing, wizards and editors offer an easy assist. This code-free introduction gets you started with a small published data set so that you can write interesting queries right away. 
 
 > [!div class="checklist"]
-> * Start with a published sample data and auto-generate an Azure Search index using the **Import data** wizard. 
+> * Start with published sample data and auto-generate an Azure Search index using the **Import data** wizard. 
 > * Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
 > * View schema and index attributes for any index published to Azure Search.
 
-Portal tools typically do not iclude preview features or preview API support. As an alternative, you might want to ramp up using a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md) or [web testing tools for HTTP and REST API calls](search-fiddler.md).
+Portal tools do not include preview features or support the full range of Azure Search capabilities. If the tools are too limiting, consider a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md) or [web testing tools for HTTP and REST API calls](search-fiddler.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. You could also watch a 6-minute demonstration of the steps in this tutorial, starting at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
 
 ## Prerequisites
 
-Use the [Azure portal](https://portal.azure.com/) to create an Azure Search service. 
+[Create an Azure Search service](search-create-service-portal.md) or find an existing service under your current subscription. 
 
-If you don't want to provision a service immediately, you can watch a 6-minute demonstration of the steps in this tutorial, starting at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
-
-## Find your service
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Open the service dashboard of your Azure Search service. If you didn't pin the service tile to your dashboard, you can find your service this way: 
    
    * In the Jumpbar, click **All services** on the left navigation pane.
    * In the search box, type *search* to get a list of search-related services for your subscription. Click **Search services**. Your service should appear in the list. 
 
-## Check for space
+### Check for space
 Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This tutorial creates one of each object. 
 
 > [!TIP] 
