@@ -6,8 +6,9 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: ramamill
+
 ---
 
 # Set up the source environment for VMware to Azure replication
