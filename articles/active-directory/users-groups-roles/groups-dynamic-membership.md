@@ -229,37 +229,35 @@ Allowed operators
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
-As an example, to search for all users with  “Contoso” in the proxyAddresses (or otherMails) property, the syntax would look like:
+As an example, to search for all users with  “Contoso” in the proxyAddresses (or simmilarly, otherMails) property, the syntax would look like:
 
 ```(user.proxyAddresses -any (_ -contains "contoso"))```
 
 ### Use the -any or -all operator with a multi-valued property with a simple type element
 
-‘ _ ‘ is the syntax that is invented to support multi-valued properties with simple type elements using the -any or -all operator.
+Azure AD uses the underscore (\_) syntax to support multi-valued properties with simple type elements using the -any or -all operator.
 
 #### What’s a multi-valued property?
 
-Essentially, it’s an array, collection, container, or any other similar term to represent an array. The opposite of "multi-valued property" is "single-valued property."
+It’s an array, collection, container, or any other similar term to represent an array. The opposite of "multi-valued property" is "single-valued property."
 
 #### What’s a simple type element?
 
-Simple types are number, string, bool, guid. Complex types are Objects (key/value pairs).
+Simple types are number, string, bool, or GUID. Complex types are objects (key/value pairs). Examples
 
-#### Examples
+* **Department** is single-valued property with a simple type.
+* **assignedPlan**, which has **serviced** and **serviceStatus** nested properties, is a single-valued property with complex type elements.
+* **proxyAddresses** and **otherMails** are multi-valued properties with simple type elements.
 
-**Department** is single-valued property with a simple type (string). **assignedPlan**, which has **serviced** and **serviceStatus** nested properties is a single-valued property with complex type elements.
-
-**proxyAddresses** is multi-valued property with simple type elements.
-
-Azure AD supports multi-valued property with complex type to use -any like
+Azure AD supports multi-valued property with complex type to use -any as follows:
 
 ```(users.assignedPlans -any (assignedPlan.serviceId -startsWith “SCO”))```
 
-But how about for a multi-valued property with simple type? How do you express the rule; for example, that adds to the group any proxy address that contains “contoso”? See the following syntax:
+But what about a multi-valued property with simple type? How do you express the rule; for example, that adds to the group any proxy address that contains "contoso?" See the following syntax:
 
 ```(user.proxyAddresses -any (_ -contains "contoso"))```
 
-In a dynamic group membership rule, an underscore (_) means "add every user that includes the specified value in this multi-valued property with a simple type." Because each element in this multi-valued property is simple type, you don't ned an explicit property reference, just the element itself, therefore the underscore (_) represents every single element.
+In a dynamic group membership rule, an underscore (\_) means "add every user that includes the specified value in this multi-valued property with a simple type." Because each element in this multi-valued property is simple type, you don't ned an additional explicit property reference, just the element itself, therefore the underscore (\_) represents every single element.
 
 ## Multi-value properties
 
@@ -280,7 +278,7 @@ assignedPlans is a multi-value property that lists all service plans assigned to
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(The Guid identifier identifies the Exchange Online (Plan 2) service plan.)
+(The GUID identifier identifies the Exchange Online (Plan 2) service plan.)
 
 > [!NOTE]
 > This is useful if you want to identify all users for whom an Office 365 (or other Microsoft Online Service) capability has been enabled, for example to target them with a certain set of policies.
@@ -302,14 +300,17 @@ Extension attributes and custom attributes are supported in dynamic membership r
 
 Extension attributes are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15.
 An example of a rule that uses an extension attribute would be
+
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-Custom Attributes are synced from on-premises Windows Server AD or from a connected SaaS application and the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
-An example of a rule that uses a custom attribute is
+
+Custom Attributes are synced from on-premises Windows Server AD or from a connected SaaS application and the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in Azure AD and [Attribute] is the name of the attribute as it was created. An example of a rule that uses a custom attribute is
+
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
+
 The custom attribute name can be found in the directory by querying a user's attribute using Graph Explorer and searching for the attribute name.
 
 ## "Direct Reports" Rule
