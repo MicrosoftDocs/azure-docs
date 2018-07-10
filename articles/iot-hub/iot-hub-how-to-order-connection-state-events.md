@@ -16,7 +16,7 @@ ms.date: 07/06/2018
 ms.author: asrastog
 ---
 
-# Maintain latest device connection state from Azure IoT Hub using Azure Cosmos DB
+# Order device connection events from Azure IoT Hub using Azure Cosmos DB
 
 Azure Event Grid helps you identify the connection status of your IoT devices and easily integrate these in your business solutions. This article walks you through a set up which can be used to track and store the latest device connection state in Cosmos DB. We will use the sequence number available in the Device Connected and Device Disconnected events and store the latest state in Cosmos DB. A sequence number is strictly increasing, and the latest event will have a higher number than other events. This is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action, as Azure Event Grid doesn’t support ordering of events.
 
@@ -270,7 +270,7 @@ Now that your event subscription is set up, let's test by connecting a device.
 4. Select **Save**. 
 5. You can add multiple devices with different device IDs.
 
-   ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/AddIoTHub.png)
+   ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
 
 6. Copy the **Connection string -- primary key** to use later.
 
@@ -330,8 +330,8 @@ To remove an Azure Cosmos DB account from the Azure portal, righ-click the accou
 
 ## Next steps
 
-Learn more about [Reacting to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
-[Try the IoT Hub events tutorial]
-Learn about what else you can do with [Event Grid](overview.md).
+* Learn more about [Reacting to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
+* [Try the IoT Hub events tutorial](../event-grid/publish-iot-hub-events-to-logic-apps.md)
+* Learn about what else you can do with [Event Grid](overview.md).
 
 

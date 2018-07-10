@@ -164,12 +164,12 @@ In this section, you configure your IoT Hub to publish events as they occur.
    ![Create new event subscription](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Create the event subscription with the following values: 
-* **Event Type**: Uncheck Subscribe to all event types and select **Device Created** from the menu.
-* **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
+    **Event Type**: Uncheck Subscribe to all event types and select **Device Created** from the menu.
+    **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
-   ![select endpoint url](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
+    ![select endpoint url](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-**Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**
+    **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**
 
 You could save the event subscription here, and receive notifications for every device that is created in your IoT hub. For this tutorial, though, let's use the optional fields to filter for specific devices: 
 
