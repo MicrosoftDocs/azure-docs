@@ -96,10 +96,10 @@ Azure communicates a schedule for planned maintenance by sending an email to the
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the menu on the left, select **Monitor**. 
 3. In the **Monitor - Alerts (classic)** pane, click **+ Add activity log alert**.
-5. Complete the information in the **Add activity log alert** page and make sure you set the following in **Criteria**:
-	**Event category**: Service Health
-	**Services**: Virtual Machine Scale Sets and Virtual Machines
-	**Type**: Planned maintenance 
+4. Complete the information in the **Add activity log alert** page and make sure you set the following in **Criteria**:
+   - **Event category**: Service Health
+   - **Services**: Virtual Machine Scale Sets and Virtual Machines
+   - **Type**: Planned maintenance 
 	
 To learn more on how to configure Activity Log Alerts, see [Create activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
 	
@@ -203,18 +203,17 @@ For more information about high availability, see [Regions and availability for 
 **Q: I don’t see any maintenance information on my VMs. What went wrong?**
 
 **A:** There are several reasons why you’re not seeing any maintenance information on your VMs:
-1.	You are using a subscription marked as Microsoft internal.
-2.	Your VMs are not scheduled for maintenance. It could be that the maintenance wave has ended, canceled, or modified so that your VMs are no longer impacted by it.
-3.	You don’t have the **Maintenance** column added to your VM list view. While we have added this column to the default view, customers who configured to see non-default columns must manually add the **Maintenance** column to their VM list view.
+   - You are using a subscription marked as Microsoft internal.
+   - Your VMs are not scheduled for maintenance. It could be that the maintenance wave has ended, canceled, or modified so that your VMs are no longer impacted by it.
+   - You don’t have the **Maintenance** column added to your VM list view. While we have added this column to the default view, customers who configured to see non-default columns must manually add the **Maintenance** column to their VM list view.
 
 **Q: My VM is scheduled for maintenance for the second time. Why?**
 
 **A:** There are several use cases where you will see your VM scheduled for maintenance after you have already completed your maintenance-redeploy:
-1.	We have canceled the maintenance wave and restarted it with a different payload. It could be that we've detected faulted payload and we simply need to deploy an additional payload.
-2.	Your VM was *service healed* to another node due to a hardware fault
-3.	You have selected to stop (deallocate) and restart the VM
-4.	You have **auto shutdown** turned on for the VM
-
+   - We have canceled the maintenance wave and restarted it with a different payload. It could be that we've detected faulted payload and we simply need to deploy an additional payload.
+   - Your VM was *service healed* to another node due to a hardware fault.
+   - You have selected to stop (deallocate) and restart the VM.
+   - You have **auto shutdown** turned on for the VM.
 
 ## Next steps
 
