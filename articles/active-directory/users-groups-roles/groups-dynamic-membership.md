@@ -32,6 +32,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 > At the moment, it is not possible to create a device group based on the owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
 
 ## To create an advanced rule
+
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator.
 2. Select **Users and groups**.
 3. Select **All groups**, and select **New group**.
@@ -56,6 +57,7 @@ You can see the membership processing status and the last updated date on the Ov
 
 
 The following status messages can be shown for **Membership processing** status:
+
 * **Evaluating**:  The group change has been received and the updates are being evaluated.
 * **Processing**: Updates are being processed.
 * **Update complete**: Processing has completed and all applicable updates have been made.
@@ -63,6 +65,7 @@ The following status messages can be shown for **Membership processing** status:
 * **Update paused**: Dynamic membership rule updates have been paused by the administrator. MembershipRuleProcessingState is set to “Paused”.
 
 The following status messages can be shown for **Membership last updated** status:
+
 * &lt;**Date and time**&gt;: The last time the membership was updated.
 * **In Progress**: Updates are currently in progress.
 * **Unknown**: The last update time cannot be retrieved. It may be due to the group being newly created.
@@ -72,6 +75,7 @@ If an error occurs while processing the membership rule for a specific group, an
 ![processing error message](./media/groups-dynamic-membership/processing-error.png)
 
 ## Constructing the body of an advanced rule
+
 The advanced rule that you can create for the dynamic memberships for groups is essentially a binary expression that consists of three parts and results in a true or false outcome. The three parts are:
 
 * Left parameter
@@ -112,6 +116,7 @@ The following table lists all the supported expression rule operators and their 
 ## Operator precedence
 
 All Operators are listed below per precedence from lower to higher. Operators on same line are in equal precedence:
+
 ````
 -any -all
 -or
@@ -119,15 +124,20 @@ All Operators are listed below per precedence from lower to higher. Operators on
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
+
 All operators can be used with or without the hyphen prefix. Parentheses are needed only when precedence does not meet your requirements.
 For example:
+
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
+
 is equivalent to:
+
 ```
    (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
+
 ## Using the -In and -notIn operators
 
 If you want to compare the value of a user attribute against a number of different values you can use the -In or -notIn operators. Here is an example using the -In operator:
@@ -138,6 +148,7 @@ Note the use of the "[" and "]" at the beginning and end of the list of values. 
 
 
 ## Query error remediation
+
 The following table lists common errors and how to correct them
 
 | Query Parse Error | Error Usage | Corrected Usage |
@@ -147,9 +158,11 @@ The following table lists common errors and how to correct them
 | Error: Query compilation error. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Missing operator. Use -and or -or two join predicates<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2.Error in regular expression used with -match<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), alternatively: (user.userPrincipalName -match "\@domain.ext$")|
 
 ## Supported properties
+
 The following are all the user properties that you can use in your advanced rule:
 
 ### Properties of type boolean
+
 Allowed operators
 
 * -eq
@@ -161,6 +174,7 @@ Allowed operators
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### Properties of type string
+
 Allowed operators
 
 * -eq
@@ -216,11 +230,36 @@ Allowed operators
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 As an example, to search for all users with  “Contoso” in the proxyAddresses (or otherMails) property, the syntax would look like:
+
 ```(user.proxyAddresses -any (_ -contains "contoso"))```
 
-Property | Usage
-------- | -------
-proxyAddresses | (user.proxyAddresses -any (_ -contains "contoso"))
+### Use the -any or -all operator with a multi-valued property with a simple type element
+
+‘ _ ‘ is the syntax that is invented to support multi-valued properties with simple type elements using the -any or -all operator.
+
+#### What’s a multi-valued property?
+
+Essentially, it’s an array, collection, container, or any other similar term to represent an array. The opposite of "multi-valued property" is "single-valued property."
+
+#### What’s a simple type element?
+
+Simple types are number, string, bool, guid. Complex types are Objects (key/value pairs).
+
+#### Examples
+
+**Department** is single-valued property with a simple type (string). **assignedPlan**, which has **serviced** and **serviceStatus** nested properties is a single-valued property with complex type elements.
+
+**proxyAddresses** is multi-valued property with simple type elements.
+
+Azure AD supports multi-valued property with complex type to use -any like
+
+```(users.assignedPlans -any (assignedPlan.serviceId -startsWith “SCO”))```
+
+But how about for a multi-valued property with simple type? How do you express the rule; for example, that adds to the group any proxy address that contains “contoso”? See the following syntax:
+
+```(user.proxyAddresses -any (_ -contains "contoso"))```
+
+In a dynamic group membership rule, an underscore (_) means "add every user that includes the specified value in this multi-valued property with a simple type." Because each element in this multi-valued property is simple type, you don't ned an explicit property reference, just the element itself, therefore the underscore (_) represents every single element.
 
 ## Multi-value properties
 
