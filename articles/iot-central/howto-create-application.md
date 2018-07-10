@@ -1,24 +1,34 @@
 ---
+# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Create an Azure IoT Central application | Microsoft Docs
 description: As an adminstrator, how to create an Azure IoT Central application.
-author: tbhagwat3
+services: iot-central
+author: TanmayBhagwat
 ms.author: tanmayb
 ms.date: 03/20/2018
-ms.topic: conceptual
-ms.service: iot-central
-services: iot-central
-manager: peterpr
+ms.topic: article
+# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
+ms.prod: microsoft-iot-central
+# product-name-from-white-list
+
+# Optional fields. Don't forget to remove # if you need a field.
+# ms.custom: can-be-multiple-comma-separated
+# ms.devlang:devlang-from-white-list
+# ms.suite: 
+# ms.tgt_pltfrm:
+# ms.reviewer:
+manager: timlt
 ---
 
 # Create your Azure IoT Central Application
 
-You create your Microsoft Azure IoT Central application from the [Create Application](https://apps.microsoftiotcentral.com/create) page. To create an Azure IoT Central application, you must complete all the fields on this page and then choose **Create**. This article has more information about each of the fields.
+You create your Microsoft Azure IoT Central application from the [Create Application](https://apps.microsoftiotcentral.com/create) page. To create an Azure IoT Central application, you must complete all the fields on this page and then choose **Create**. You'll find has more information about each of the fields below.
 
 ![Create Application Page](media\howto-create-application\image1.png)
 
 ## Payment plan
 
-You can create either a trial or a paid application. Learn more about trial and paid applications on this page.
+You can create either a trial or a paid application. Learn more about trial and paid applications on [this page](https://azure.microsoft.com/en-us/pricing/details/iot-central/).
 
 ## Application Name
 
@@ -44,7 +54,7 @@ To learn more, see [Azure Active Directory](https://docs.microsoft.com/azure/act
 
 An Azure subscription enables you to create instances of Azure services. Azure IoT Central automatically finds all the Azure Subscriptions you have access to, and displays them in a dropdown on the **Create Application** page. Choose an Azure subscription to create a new Azure IoT Central Application.
 
-If you don’t have an Azure subscription, you can create one on this page. After you create the Azure subscription, navigate back to the **Create Application** page. Your new subscription appears in the **Azure Subscription** drop-down.
+If you don’t have an Azure subscription, you can create one on [this page](https://aka.ms/createazuresubscription). After you create the Azure subscription, navigate back to the **Create Application** page. Your new subscription appears in the **Azure Subscription** drop-down.
 
 To learn more, see [Azure subscriptions](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
 
