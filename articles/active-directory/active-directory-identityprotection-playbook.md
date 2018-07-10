@@ -101,7 +101,7 @@ Vulnerabilities are weaknesses in an Azure AD environment that can be exploited 
 
 * Azure AD [Multi-Factor Authentication](authentication/multi-factor-authentication.md)
 * Azure AD [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
-* Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
+* Azure AD [Privileged Identity Management](privileged-identity-management/pim-configure.md). 
 
 
 ## Testing security policies
