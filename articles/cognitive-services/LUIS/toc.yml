@@ -142,7 +142,7 @@
   - name: Plan your app
     href: luis-how-plan-your-app.md
   - name: Start a new app
-    href: Create-new-app.md
+    href: luis-how-to-start-new-app.md
   - name: Build Model
     items: 
     - name: Add intents
@@ -256,6 +256,8 @@
       href: luis-reference-prebuilt-deprecated.md
     - name: Email entity
       href: luis-reference-prebuilt-email.md
+    - name: keyPhrase entity
+      href: luis-reference-prebuilt-keyphrase.md
     - name: Number entity
       href: luis-reference-prebuilt-number.md
     - name: Ordinal entity
