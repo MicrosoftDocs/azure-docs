@@ -25,9 +25,10 @@ ms.author: kumud
 This quickstart requires that you have already created two Azure Web Apps in two different Azure regions. The two Web Apps are used as endpoints for the Traffic Manager profile. To learn how to create an Azure Web App, use one of the quickstart guides in the [Azure Web Apps documentation page](https://docs.microsoft.com/azure/app-service/). 
 
 ### Create a Traffic Manager profile
+Create a Traffic manager profile that directs user traffic based on endpoint [priority](traffic-manager-routing-methods.md#priority).
 1. From a browser, sign in to the [Azure portal](http://portal.azure.com). If you don’t already have an account, you can sign-up for a [free one-month trial](https://azure.microsoft.com/free/). 
 2. Select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
-4. In the **Create Traffic Manager profile**, enter or select, the following information, accept the defaults for the remaining settings:
+3. In the **Create Traffic Manager profile**, enter or select, the following information, accept the defaults for the remaining settings:
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name <name>, trafficmanager.net which is used to access your Traffic Manager profile.                                   |
@@ -42,6 +43,8 @@ This quickstart requires that you have already created two Azure Web Apps in two
    ![Create a Traffic Manager profile](./media/traffic-manager-create-profile/traffic-manager-profile2.png)
 
 ## Add Traffic Manager endpoints
+
+Add primary and secondary endpoints to your Traffic manager profile.
 
 1. In the portal’s search bar, search for the Traffic Manager profile name that you created in the preceding section and select the profile in the results that the displayed.
 2. In **Traffic Manager profile**, in the **Settings** section, click **Endpoints**, and then click **Add**.
@@ -62,7 +65,9 @@ This quickstart requires that you have already created two Azure Web Apps in two
 6.	When the addition of both endpoints is complete, they are displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
   
 
-## Test the Traffic Manager profile
+## Test Traffic Manager profile
+Test how Traffic manager fails over to the secondary endpoint when the primary endpoint is unavailable.
+
 1.	In the portal’s search bar, search for the **Traffic Manager profile** name that you created in the preceding section. In the results that are displayed, click the traffic manager profile.
 1. Click **Overview**.
 2. The **Traffic Manager profile** displays the DNS name of your newly created Traffic Manager profile.
