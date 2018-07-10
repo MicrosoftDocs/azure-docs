@@ -16,7 +16,7 @@ Virtual WAN provides large-scale Site-to-Site connectivity and is built for thro
 
 ### Which device providers (Virtual WAN partners) are supported at launch time? 
 
-At this time,  Citrix and Riverbed support the fully automated Virtual WAN experience. More partners will be on-boarding in coming months, including: Nokia Nuage, Palo Alto, and Checkpoint. For more information, see [Virtual WAN partners](https://aka.ms/virtualwan).
+At this time, Citrix and Riverbed support the fully automated Virtual WAN experience. More partners will be on-boarding in coming months, including: Nokia Nuage, Palo Alto, and Checkpoint. For more information, see [Virtual WAN partners](https://aka.ms/virtualwan).
 
 ### Am I required to use a preferred partner device?
 
@@ -41,35 +41,35 @@ Before you can configure an Azure Virtual WAN, you must first enroll your subscr
 Considerations:
 
 * The Preview is limited to Azure public regions only.
-* Up to 100 connections are supported. Each connection is an active-active tunnel terminating in a VPN gateway inside an Azure virtual hub.
+* Up to 100 connections are supported per virtual hub. Each connection is an active-active tunnel terminating in a VPN gateway inside an Azure virtual hub.
 * Consider using this Preview if:
-  * You want to deploy aggregated bandwidth less than a Gbps.
+  * You want to deploy aggregated bandwidth less than 1 Gbps per virtual hub.
   * You have a VPN device that supports route-based configuration and IKEv2 IPsec connectivity.
-  * You want to explore using SD-WAN and operating branch devices from the launch partners (Riverbed and Citrix).<br>or<br>You want to set up branch-to-branch and branch to Azure (Site-to-Site) connectivity that includes configuration management of your on-premise device.
+  * You want to explore using SD-WAN and operating branch devices from the launch partners (Riverbed and Citrix).<br>or<br>Self configure: You want to set up branch-to-branch and branch to Azure connectivity that includes configuration management of your on-premises device.
 
 ### Is Global VNet peering supported with Azure Virtual WAN? 
 
  No.
 
-### Can I deploy and use my favorite network virtual appliance (in a transit hub) with Azure Virtual WAN?
+### Can spoke VNets connected to a virtual hub communicate with each other?
 
-Yes, you can connect your favorite network virtual appliance transit hub to the Azure Virtual WAN. All spokes connected to the transit must additionally be connected to the Virtual WAN hub.
+Yes. You can directly do VNet peering between spokes that are connected to a virtual hub. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md).
+
+### Can I deploy and use my favorite network virtual appliance (in an NVA VNet) with Azure Virtual WAN?
+
+Yes, you can connect your favorite network virtual appliance (NVA) VNet to the Azure Virtual WAN. All spokes connected to the NVA VNet must additionally be connected to the virtual hub. 
+
+### Can an NVA VNet have a virtual network gateway?
+
+No. The NVA VNet cannot have a virtual network gateway if it is connected to the virtual hub. 
 
 ### Is there support for BGP?
 
-Yes, BGP is supported. To ensure that routes from the transit hub are advertised appropriately, spokes must disable BGP if they are connected to a transit hub that is connected to a Virtual WAN hub.
+Yes, BGP is supported. To ensure that routes from an NVA VNet are advertised appropriately, spokes must disable BGP if they are connected to an NVA VNet which, in turn is connected to a virtual hub.
 
-### Can the transit hub have a virtual network gateway?
+### Can I direct traffic using UDR in the virtual hub?
 
-No. The transit hub cannot have either a VPN, or an ExpressRoute virtual network gateway.
-
-### Can I direct traffic using UDR in the Virtual hub?
-
-Routing functionality will be available by GA.
-
-### Can spoke VNets connected to a Virtual WAN hub communicate with each other?
-
-Yes. A transit hub can be used if spoke VNets need to talk to each other - as well as to sites - on the Virtual WAN. A transit hub can also be used if spoke VNets have more advanced security policy or logging needs. No NAT functionality is required between the spokes. You can also set up VNet peering between the Azure spokes if necessary. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md).
+UDR and routing functionality will be available by GA.
 
 ### Is there any licensing or pricing information for Virtual WAN?
  
