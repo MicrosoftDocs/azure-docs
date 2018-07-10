@@ -21,7 +21,7 @@ ms.component: B2C
 
 ## Create a QQ application
 
-To use a QQ as an identity provider in Azure Active Directory (Azure AD) B2Caccount as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a QQ account, you can get it at [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
+To use a QQ account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a QQ account, you can get it at [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033).
 
 ### Register for the QQ developer program
 
@@ -41,7 +41,7 @@ To use a QQ as an identity provider in Azure Active Directory (Azure AD) B2Cacco
 7. Enter `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` in **授权回调域** (callback URL). For example, if your `tenant_name` is contoso.onmicrosoft.com, set the URL to be `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 8. Select **创建应用** (create app).
 9. On the confirmation page, select **应用管理** (app management) to return to the app management page.
-10. Select **查看** (view) next to the app you just created.
+10. Select **查看** (view) next to the app you created.
 11. Select **修改** (edit).
 12. Copy the **APP ID** and **APP KEY**. You need both of these values to add the identity provider to your tenant.
 
