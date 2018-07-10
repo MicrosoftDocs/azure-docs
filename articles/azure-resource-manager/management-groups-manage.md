@@ -160,8 +160,9 @@ To see what permissions you have, select the management group and then select **
 3. Select the management group you're planning to be the parent.
 4. At the top of the page, select **Add subscription**.
 5. Select the subscription in the list with the correct ID.
+
     ![Children](media/management-groups/add_context_sub.png)
-6. Select "Save"
+1. Select "Save"
 
 **Remove a subscription from a management group**
 
