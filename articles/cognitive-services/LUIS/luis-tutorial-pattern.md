@@ -65,15 +65,15 @@ OrgChart-Manager(employee){
 
     [ ![Screenshot of LUIS app with Build highlighted in top, right navigation bar](./media/luis-tutorial-pattern/hr-first-image.png)](./media/luis-tutorial-pattern/hr-first-image.png#lightbox)
 
-2. On the **Intents** page, select **ApplyForJob** intent. 
+2. On the **Intents** page, select **Create new intent**. 
 
-    [![](media/luis-tutorial-pattern/hr-select-applyforjob.png "Screenshot of LUIS with 'ApplyForJob' intent highlighted")](media/luis-tutorial-pattern/hr-select-applyforjob.png#lightbox)
+    [![](media/luis-tutorial-pattern/hr-create-intent-button.png "Screenshot of LUIS with 'Create new intent' highlighted")](media/luis-tutorial-pattern/hr-create-intent-button.png#lightbox)
 
-3. Select **Create new intent**. 
+3. Enter `OrgChart-Manager` in the pop-up dialog box then select **Done**.
 
-4. Enter `OrgChart-Manager` in the pop-up dialog box then select **Done**.
+    ![Create new message pop-up window](media/luis-tutorial-pattern/hr-create-new-intent-popup.png)
 
-5. Add example utterances to the intent.
+4. Add example utterances to the intent.
 
     |Example utterances|
     |--|
@@ -84,13 +84,13 @@ OrgChart-Manager(employee){
     |Who does Jill Jones directly report to?|
     |Who is Jill Jones supervisor?|
 
-6. Select **Intents** in the left navigation.
+5. Select **Intents** in the left navigation.
 
-7. Select **Create new intent**. 
+6. Select **Create new intent**. 
 
-8. Enter `OrgChart-Reports` in the pop-up dialog box then select **Done**.
+7. Enter `OrgChart-Reports` in the pop-up dialog box then select **Done**.
 
-9. Add example utterances to the intent.
+8. Add example utterances to the intent.
 
     |Example utterances|
     |--|
@@ -108,22 +108,22 @@ The new intent and utterances require training.
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
-    ![Image of training button](./media/luis-tutorial-pattern/train-button.png)
+    ![Image of training button](./media/luis-tutorial-pattern/hr-train-button.png)
 
 2. Training is complete when you see the green status bar at the top of the website confirming success.
 
-    ![Image of success notification bar](./media/luis-tutorial-pattern/trained.png)
+    ![Image of success notification bar](./media/luis-tutorial-pattern/hr-trained.png)
 
 ## Publish the app to get the endpoint URL
 In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-    ![Screenshot of FindKnowledgeBase with top navigation Publish button highlighted](./media/luis-tutorial-pattern/publish-button.png)
+    ![Screenshot of FindKnowledgeBase with top navigation Publish button highlighted](./media/luis-tutorial-pattern/hr-publish-button.png)
 
 2. Select the Production slot and the **Publish** button.
 
-    ![Screenshot of Publish page with Publish to production slot button highlighted](./media/luis-tutorial-pattern/publish-to-production.png)
+    ![Screenshot of Publish page with Publish to production slot button highlighted](./media/luis-tutorial-pattern/hr-publish-to-production.png)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
