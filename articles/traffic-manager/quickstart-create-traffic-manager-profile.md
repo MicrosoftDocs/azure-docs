@@ -75,9 +75,12 @@ Test how Traffic manager fails over to the secondary endpoint when the primary e
 1. Click **Overview**.
 2. The **Traffic Manager profile** displays the DNS name of your newly created Traffic Manager profile.
 
-    ![Add a Traffic Manager endpoint](./media/traffic-manager-create-profile/traffic-manager-dns-name.png)
+    ![Traffic Manager DNS name](./media/traffic-manager-create-profile/traffic-manager-dns-name.png)
 1. In a web browser, type the DNS name of your Traffic Manager profile to view your web application. In this quickstart scenario, all requests are routed to the primary endpoint that is set to **Priority 1**.
-2. To view Traffic Manager failover in action, you can disable your primary endpoint. To do so, under **Settings**, select **Endpoints**, select *MyPrimaryEndpoint*, and then select **Disabled**. You can still successfully access your web app in a web browser using the DNS name of your Traffic Manager profile. This is because the user traffic now gets routed to the secondary endpoint since the primary endpoint is unavailable.
+
+    ![Test Traffic Manager profile](./media/traffic-manager-create-profile/traffic-manager-test.png)
+    
+1. To view Traffic Manager failover in action, you can disable your primary endpoint. To do so, under **Settings**, select **Endpoints**, select *MyPrimaryEndpoint*, and then select **Disabled**. You can still successfully access your web app in a web browser using the DNS name of your Traffic Manager profile. This is because the user traffic now gets routed to the secondary endpoint since the primary endpoint is unavailable.
 
 ## Delete the Traffic Manager profile
 When no longer needed, delete the resource group and the Traffic Manager profile that you have created. To do so, select the resource group from the **Traffic Manager profile** and click **Delete**.
