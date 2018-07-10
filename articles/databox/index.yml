@@ -6,7 +6,7 @@ metadata:
   description: The Azure Data Box service lets you transfer terabytes of data into Azure in a quick, inexpensive, and reliable manner. Microsoft accelerates the secure data transfer by shipping you disks and handling the end-to-end logistics.
   services: databox
   author: alkohli
-  manager: tysonn
+  manager: twooley
   ms.service: databox
   ms.tgt_pltfrm: na
   ms.devlang: na
