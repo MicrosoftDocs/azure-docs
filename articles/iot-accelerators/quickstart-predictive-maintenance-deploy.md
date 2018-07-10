@@ -13,13 +13,13 @@ ms.author: dobett
 # As an IT Pro, I need to deploy a cloud-based solution to run a predictive maintenance analysis on my IoT devices.
 ---
 
-# Quickstart: Deploy a cloud-based solution to perform a predictive maintenance analysis on my connected devices
+# Quickstart: Deploy a cloud-based solution to run a predictive maintenance analysis on my connected devices
 
 This quickstart shows you how to deploy the Azure IoT Predictive Maintenance solution accelerator to use as a cloud-based predictive maintenance solution for your IoT devices. After you've deployed the solution accelerator, you use the solution **Dashboard** page to run a simulation using aircraft engine data.
 
-Fabrikam is a regional airline that focuses on great customer experience at competitive prices. One cause of flight delays is maintenance issues and aircraft engine maintenance is particularly challenging. Fabrikam must avoid engine failure during flight at all costs, so it inspects its engines regularly and schedules maintenance according to a plan. However, aircraft engines don't always wear the same. Some unnecessary maintenance is performed on engines. More importantly, issues arise which can ground an aircraft until maintenance is performed. If an aircraft is at a location where the right technicians or spare parts are not available, these issues can be especially costly.
+Fabrikam is a regional airline that focuses on great customer experience at competitive prices. One cause of flight delays is maintenance issues and aircraft engine maintenance is particularly challenging. Fabrikam must avoid engine failure during flight at all costs, so it inspects its engines regularly and schedules maintenance according to a plan. However, aircraft engines don't always wear the same. Some unnecessary maintenance is done on engines. More importantly, issues arise which can ground an aircraft until maintenance is done. These issues can be especially costly if an aircraft is at a location where the right technicians or spare parts aren't available.
 
-The engines of Fabrikam's aircraft are instrumented with sensors that monitor engine conditions during flight. After accumulating years of engine operational and failure data, Fabrikam's data scientists have developed a model to predict the Remaining Useful Life (RUL) of an aircraft engine. The model uses a correlation between data from four of the engine sensors and engine wear that leads to eventual failure. While Fabrikam continues to perform regular inspections to ensure safety, it can now use the models to compute the RUL for each engine after every flight. Fabrikam can now predict future points of failure and plan for maintenance to minimize aircraft ground time and reduce operating costs while ensuring the safety of passengers and crew.
+The engines of Fabrikam's aircraft are instrumented with sensors that monitor engine conditions during flight. After accumulating years of engine operational and failure data, Fabrikam's data scientists have developed a model to predict the Remaining Useful Life (RUL) of an aircraft engine. The model uses a correlation between data from four of the engine sensors and engine wear that leads to eventual failure. While Fabrikam continues regular inspections to ensure safety, it can now use the models to compute the RUL for each engine after every flight. Fabrikam can now predict future points of failure and plan for maintenance to minimize aircraft ground time and reduce operating costs while ensuring the safety of passengers and crew.
 
 ## Prerequisites
 
@@ -56,8 +56,6 @@ On the **Provisioned solutions** page, click your new Predictive Maintenance sol
 Click **Accept** to accept the permissions request, the Predictive Maintenance solution dashboard displays in your browser:
 
 ![Solution dashboard](./media/quickstart-predictive-maintenance-deploy/solutiondashboard.png)
-
-In the solution portal, you can see that the sample is provisioned with four simulated devices to represent two aircraft with two engines per aircraft, each with four sensors. When you first navigate to the solution portal, the simulation is stopped.
 
 Click **Start simulation** to begin the simulation. The sensor history, RUL, Cycles, and RUL history populate the dashboard:
 
