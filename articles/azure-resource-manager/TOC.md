@@ -13,6 +13,7 @@
 ## [Resource providers and types](resource-manager-supported-services.md)
 ## [Management groups](management-groups-overview.md)
 ## [Subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Templates for cloud consistency](templates-cloud-consistency.md)
 
 # How to
 ## Create templates
