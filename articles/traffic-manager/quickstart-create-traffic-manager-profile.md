@@ -24,7 +24,7 @@ ms.author: kumud
 ## Pre-requisites
 This quickstart requires that you have already created two Azure Web Apps in two different Azure regions. The two Web Apps are used as endpoints for the Traffic Manager profile. To learn how to create an Azure Web App, use one of the quickstart guides in the [Azure Web Apps documentation page](https://docs.microsoft.com/azure/app-service/). 
 
-### Create a Traffic Manager profile
+## Create a Traffic Manager profile
 Create a Traffic manager profile that directs user traffic based on endpoint [priority](traffic-manager-routing-methods.md#priority).
 1. From a browser, sign in to the [Azure portal](http://portal.azure.com). If you don’t already have an account, you can sign-up for a [free one-month trial](https://azure.microsoft.com/free/). 
 2. Select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
