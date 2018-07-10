@@ -26,7 +26,7 @@ Blue/green deployment is a DevOps Continuous Delivery (CD) pattern that relies o
 In this tutorial, you learn how to perform the following tasks in learning how to deploy to AKS using Jenkins and the blue/green deployment pattern:
 
 > [!div class="checklist"]
-> * 
+> * Create a managed Kubernetes cluster.
 
 # Prerequisites
 - [GitHub account](https://github.com)
@@ -35,7 +35,7 @@ In this tutorial, you learn how to perform the following tasks in learning how t
 
 A sample app that illustrates how to use deploy to AKS using Jenkins and the blue/green pattern is on the Microsoft repo in GitHub. In this section, you create a fork of that repo in your GitHub, and clone the app to your local system.
 
-1. Browse to the GitHub repo for the [todo-app-java-on-azure sample app](https://github.com/microsoft/todo-app-java-on-azure.git).
+1. Browse to the GitHub repo for the [todo-app-java-on-azure](https://github.com/microsoft/todo-app-java-on-azure.git) sample app.
 
     ![Sample app on Microsoft GitHub repo.](./media/jenkins-aks-blue-green-deployment/github-sample-msft.png)
 
@@ -69,7 +69,7 @@ A sample app that illustrates how to use deploy to AKS using Jenkins and the blu
 
 1. Change directories to the newly created directory that contains the clone of the app source.
 
-## Create Azure services
+## Create a managed Kubernetes cluster
 
 You can create the Azure Services using [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). For AKS, make sure Azure CLI is version 2.0.25 or later.
 
