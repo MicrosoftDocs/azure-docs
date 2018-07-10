@@ -62,6 +62,7 @@ def pretty_print(content):
 '''
 Sends a PATCH HTTP request.
 :param path: The URL path of your request.
+:param content: The contents of your PATCH request.
 :type: string
 :return: URL with status of PATCH request in updating the kb, actual response.
 :rtype: string, string
@@ -82,7 +83,7 @@ def update_kb(path, content):
 Gets the status of the specified QnA Maker operation.
 :param path: The URL of the request.
 :type: string
-:return: Header from retrying of the request (if retry is needed), response after the retry.
+:return: Header from retrying of the request (if retry is needed), response of the retry.
 :rtype: string, string
 '''
 def check_status (path):
@@ -91,20 +92,22 @@ def check_status (path):
     conn = http.client.HTTPSConnection(host)
     conn.request("GET", path, None, headers)
     response = conn.getresponse ()
-    # If the operation is not finished, /operations returns an HTTP header named Retry-After
-    # that contains the number of seconds to wait before we query the operation again.
+    # If the operation is not finished, /operations returns an HTTP header named
+    # 'Retry-After' with the number of seconds to wait before querying the operation again.
     return response.getheader('Retry-After'), response.read ()
 
 '''
 Dictionary that holds the knowledge base.
-Modifications to the knowledge base are made here, using 'update', 'delete', and so on.
+Modifications to the knowledge base are made here, using 'update', 'delete' and so on.
 '''
 req = {
     'add': {
         'qnaList': [
             {
               'id': 1,
-              'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details:  https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle',
+              'answer': 'You can change the default message if you use the QnAMakerDialog. '
+                      + 'See this for details:  https://docs.botframework.com/en-us'
+                      + '/azure-bot-service/templates/qnamaker/#navtitle',
               'source': 'Custom Editorial',
               'questions': [
                   'How can I change the default message from QnA Maker?'
@@ -179,9 +182,9 @@ A successful response is returned in JSON, as shown in the following example. Yo
 Press any key to continue.
 ```
 
-Once your knowledge base is updated, you can view it on your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Notice that your knowledge base name has changed, for example QnA Maker FAQ (or the name of your pre-existing knowledge base) is now New KB Name.
+Once your knowledge base is updated, you can view it on your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. Notice that a new QnA pair has been added and the name of your database is now 'New KB Name'.
 
-To modify other elements of your knowledge base, refer to the QnA Maker [JSON schema](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) and modify the `new_kb` string.
+To modify other elements of your knowledge base, refer to the QnA Maker [JSON schema](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) and modify the `req` string.
 
 ## Next steps
 
