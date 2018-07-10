@@ -3,6 +3,7 @@ title: Enable the Azure Firewall public preview
 description: Use Azure PowerShell to enable the Azure Firewall public preview
 author: vhorne
 ms.service: firewall
+services: firewall
 ms.topic: article
 ms.date: 7/11/2018
 ms.author: victorh

@@ -40,5 +40,9 @@ First explore the resources that were created with the firewall, and then when n
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
+## Next steps
 
+Next, you can monitor the Azure Firewall logs:
+
+- [Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
 
