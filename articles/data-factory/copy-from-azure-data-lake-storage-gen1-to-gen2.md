@@ -29,7 +29,7 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
 ## Prerequisites
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* Azure Data Lake Storage Gen1.
+* Azure Data Lake Storage Gen1 account with data in it.
 * Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, click [here](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) to create one.
 
 ## Create a data factory
@@ -44,7 +44,7 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
     * **Name**: Enter a globally unique name for your Azure data factory. If you receive the error "Data factory name \"LoadADLSDemo\" is not available," enter a different name for the data factory. For example, you could use the name _**yourname**_**ADFTutorialDataFactory**. Try creating the data factory again. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
     * **Subscription**: Select your Azure subscription in which to create the data factory. 
     * **Resource Group**: Select an existing resource group from the drop-down list, or select the **Create new** option and enter the name of a resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-    * **Version**: Select **V2(Preview)**.
+    * **Version**: Select **V2**.
     * **Location**: Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations and regions. 
 
 3. Select **Create**.
@@ -71,12 +71,12 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
 	![Source data store Azure Data Lake Storage Gen1 page](./media/copy-from-azure-data-lake-storage-gen1-to-gen2/source-data-store-page-adls-gen1.png)
 	
 4. In the **Specify Azure Data Lake Storage Gen1 connection** page, do the following steps:
-   1. Select your Data Lake Store for the **Data Lake Store account name**.
-   2. Specify the **Tenant**, and select Finish.
+   1. Select your Data Lake Storage Gen1 for the account name.
+   2. Specify or validate the **Tenant**, and select Finish.
    3. Select **Next**.
    
    > [!IMPORTANT]
-   > In this walkthrough, you use a _managed service identity_ to authenticate your Data Lake Store. Be sure to grant the MSI the proper permissions in Azure Data Lake Store by following [these instructions](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > In this walkthrough, you use a _managed service identity_ to authenticate your Data Lake Storage Gen1e. Be sure to grant the MSI the proper permissions in Azure Data Lake Storage Gen1 by following [these instructions](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Specify Azure Data Lake Storage Gen1 account](./media/copy-from-azure-data-lake-storage-gen1-to-gen2/specify-adls-gen1-account.png)
    
