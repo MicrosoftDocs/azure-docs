@@ -35,7 +35,7 @@ az extension remove --name mesh
 Install the Azure Service Fabric Mesh CLI extension module. For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI, however, at public preview it would ship as a part of the Azure CLI.
 
 ```azurecli-interactive
-az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.7.0-py2.py3-none-any.whl
+az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.8.0-py2.py3-none-any.whl
 ```
 
 ## Create a resource group
