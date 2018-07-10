@@ -59,9 +59,10 @@ We recommend getting started by watching the following video, where Kirill Gavry
 > 
 
 ## How the Emulator works
+
 The Azure Cosmos DB Emulator provides a high-fidelity emulation of the Azure Cosmos DB service. It supports identical functionality as Azure Cosmos DB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications using the Azure Cosmos DB Emulator, and deploy them to Azure at global scale by just making a single configuration change to the connection endpoint for Azure Cosmos DB.
 
-While we created a high-fidelity local emulation of the actual Azure Cosmos DB service, the implementation of the Azure Cosmos DB Emulator is different than that of the service. For example, the Azure Cosmos DB Emulator uses standard OS components such as the local file system for persistence, and HTTPS protocol stack for connectivity. This means that some functionality that relies on Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are not available via the Azure Cosmos DB Emulator.
+While emulation of the Azure Cosmos DB service is faithful, the Emulator's implementation is different than the service. For example, the Emulator uses standard OS components such as the local file system for persistence, and the HTTPS protocol stack for connectivity. Functionality that relies on Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are unavailable.
 
 ## Differences between the Emulator and the service 
 Because the Azure Cosmos DB Emulator provides an emulated environment running on a local developer workstation, there are some differences in functionality between the emulator and an Azure Cosmos DB account in the cloud:
@@ -70,8 +71,8 @@ Because the Azure Cosmos DB Emulator provides an emulated environment running on
 * The Azure Cosmos DB Emulator is not a scalable service and will not support a large number of collections.
 * The Azure Cosmos DB Emulator does not simulate different [Azure Cosmos DB consistency levels](consistency-levels.md).
 * The Azure Cosmos DB Emulator does not simulate [multi-region replication](distribute-data-globally.md).
-* The Azure Cosmos DB Emulator does not support the service quota overrides that are available in the Azure Cosmos DB service (e.g. document size limits, increased partitioned collection storage).
-* As your copy of the Azure Cosmos DB Emulator might not be up-to-date with the most recent changes with the Azure Cosmos DB service, please [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate production throughput (RUs) needs of your application.
+* The Azure Cosmos DB Emulator does not support the service quota overrides that are available in the Azure Cosmos DB service (for example, document size limits, increased partitioned collection storage).
+* As your copy of the Azure Cosmos DB Emulator might not be up-to-date with the most recent changes with the Azure Cosmos DB service, you should use the [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate the production throughput (RUs) needs of your application.
 
 ## System requirements
 The Azure Cosmos DB Emulator has the following hardware and software requirements:
@@ -79,8 +80,8 @@ The Azure Cosmos DB Emulator has the following hardware and software requirement
 * Software requirements
   * Windows Server 2012 R2, Windows Server 2016, or Windows 10
 *	Minimum Hardware requirements
-  *	2 GB RAM
-  *	10 GB available hard disk space
+  *	2-GB RAM
+  *	10-GB available hard disk space
 
 ## Installation
 You can download and install the Azure Cosmos DB Emulator from the [Microsoft Download Center](https://aka.ms/cosmosdb-emulator) or you can run the emulator on Docker for Windows. For instructions on using the Emulator on Docker for Windows, see [Running on Docker](#running-on-docker). 
@@ -98,11 +99,11 @@ When the emulator is running, you'll see an icon in the Windows taskbar notifica
 
 The Azure Cosmos DB Emulator by default runs on the local machine ("localhost") listening on port 8081.
 
-The Azure Cosmos DB Emulator is installed by default to the `C:\Program Files\Azure Cosmos DB Emulator` directory. You can also start and stop the emulator from the command-line. See [command-line tool reference](#command-line) for more information.
+The Azure Cosmos DB Emulator is installed by default to the `C:\Program Files\Azure Cosmos DB Emulator` directory. You can also start and stop the emulator from the command-line. For more information, see the [command-line tool reference](#command-line).
 
 ## Start Data Explorer
 
-When the Azure Cosmos DB emulator launches it automatically opens the Azure Cosmos DB Data Explorer in your browser. The address appears as [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). If you close the explorer and would like to re-open it later, you can either open the URL in your browser or launch it from the Azure Cosmos DB Emulator in the Windows Tray Icon as shown below.
+When the Azure Cosmos DB emulator launches, it automatically opens the Azure Cosmos DB Data Explorer in your browser. The address appears as [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). If you close the explorer and would like to reopen it later, you can either open the URL in your browser or launch it from the Azure Cosmos DB Emulator in the Windows Tray Icon as shown below.
 
 ![Azure Cosmos DB local emulator data explorer launcher](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -113,7 +114,7 @@ Data Explorer indicates if there is a new update available for download.
 > Data created in one version of the Azure Cosmos DB Emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it is recommended that you store that data in an Azure Cosmos DB account, rather than in the Azure Cosmos DB Emulator. 
 
 ## Authenticating requests
-Just as with Azure Cosmos DB in the cloud, every request that you make against the Azure Cosmos DB Emulator must be authenticated. The Azure Cosmos DB Emulator supports a single fixed account and a well-known authentication key for master key authentication. This account and key are the only credentials permitted for use with the Azure Cosmos DB Emulator. They are:
+As with Azure Cosmos DB in the cloud, every request that you make against the Azure Cosmos DB Emulator must be authenticated. The Azure Cosmos DB Emulator supports a single fixed account and a well-known authentication key for master key authentication. This account and key are the only credentials permitted for use with the Azure Cosmos DB Emulator. They are:
 
     Account name: localhost:<port>
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
@@ -124,7 +125,7 @@ Just as with Azure Cosmos DB in the cloud, every request that you make against t
 > [!NOTE] 
 > If you have started the emulator with the /Key option, then use the generated key instead of "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
 
-Additionally, just as the Azure Cosmos DB service, the Azure Cosmos DB Emulator supports only secure communication via SSL.
+As with the Azure Cosmos DB service, the Azure Cosmos DB Emulator supports only secure communication via SSL.
 
 ## Running on a local network
 
@@ -140,7 +141,7 @@ Once you have the Azure Cosmos DB Emulator running on your desktop, you can use 
         new Uri("https://localhost:8081"), 
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
-If you're using [Azure Cosmos DB protocol support for MongoDB](mongodb-introduction.md), please use the following connection string:
+If you're using [Azure Cosmos DB protocol support for MongoDB](mongodb-introduction.md), you should use the following connection string:
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
 
