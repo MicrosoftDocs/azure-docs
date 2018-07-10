@@ -114,7 +114,7 @@ If you have created classic alert rules based on old storage metrics, you need t
 
 ### Is new metric data stored in the same storage account by default?
 
-No. To archive the metric data to a storage account, use the [Azure Monitor Diagnostic Setting API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate).
+No. To archive the metric data to a storage account, use the [Azure Monitor Diagnostic Setting API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
 
 ## Next steps
 
