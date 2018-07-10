@@ -78,8 +78,7 @@ In this section, you perform the following steps:
 - Learn how to set up a cluster either by using the setup script or manually.
 - Create the Azure Container Registry.
 
-[!NOTE]	
-> AKS is currently in preview. For information on enabling the preview for your Azure subscription. see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster
+[!NOTE]	AKS is currently in preview. For information on enabling the preview for your Azure subscription. see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster
 ](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription) for more details.
 
 ### Use the Azure CLI 2.0 to create a managed Kubernetes cluster
@@ -113,7 +112,7 @@ In order to create a managed Kubernetes cluster with [Azure CLI 2.0](https://doc
 Setting up a blue/green deployment in AKS can be done either with a setup script provided in the sample you cloned earlier or manually. In this section, you see how to do both.
 
 #### Run the setup script
-1. The **todo-app-java-on-azure** repo you cloned earlier contains a setup script named **setup.sh** that resides in the **/deploy/aks/setup** directory. Edit the **setup.sh** file, replacing the **<your-resource-group-name>**, **<your-kubernetes-cluster-name>**, **<your-location>**, and **<your-dns-name-suffix>** placeholders with the appropriate values for your environment.
+1. The **todo-app-java-on-azure** repo you cloned earlier contains a setup script named **setup.sh** that resides in the **/deploy/aks/setup** directory. Edit the **setup.sh** file, replacing the **&lt;your-resource-group-name>**, **&lt;your-kubernetes-cluster-name>**, **&lt;your-location>**, and **&lt;your-dns-name-suffix>** placeholders with the appropriate values for your environment.
 
     ![The setup.sh script contains several placeholders that can be modified for your environment.](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
 
@@ -140,8 +139,8 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
     kubectl apply -f  test-endpoint-green.yml
     ```
 
-1. Update the DNA name for the public and test endpoints. When AKS is created, an [additional resource group](https://github.com/Azure/AKS/issues/3)
-    is created. Look for resource group: `MC_<your-resource-group-name>_<your-kubernetes-cluster-name>_<your-location>`.
+1. Update the DNA name for the public and test endpoints. When a Kubernetes cluster is created, an [additional resource group](https://github.com/Azure/AKS/issues/3)
+    is created with the naming patter of **MC_&lt;your-resource-group-name>_&lt;your-kubernetes-cluster-name>_&lt;your-location>**.
 
     Locate the public ip's in the resource group
 
