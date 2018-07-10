@@ -107,7 +107,7 @@ To view activity logs:
 
 3. Select desired filtering scope and click **Apply**.
 
-    ![metrics chart](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+    ![activity logs](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
 
 ## Diagnostic Logs
 
