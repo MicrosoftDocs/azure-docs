@@ -22,7 +22,9 @@ manager: timlt
 
 # As a CSP, create and manage an Azure IoT Central Application on behalf of your customer 
 
-You create and manage your Microsoft Azure IoT Central application on behalf of your customer through the [Microsoft Partner Center](https://partnercenter.microsoft.com/en-us/partner/home). When Azure IoT Central applications are created on behalf of customers by CSPs, just like with other CSP managed Azure services, CSPs manage billing for customers. A charge for Azure IoT Central will appear your total bill in the Microsoft Partner Center.
+The Microsoft Cloud Solution Provider (CSP) program is a Microsoft Reseller program. Its intent is to provide our channel partners with a one-stop program to resell all Microsoft Commercial Online Services. You can learn more about it [here](https://partner.microsoft.com/en-us/cloud-solution-provider).
+
+As a CSP, you can create and manage Microsoft Azure IoT Central applications on behalf of your customers through the [Microsoft Partner Center](https://partnercenter.microsoft.com/en-us/partner/home). When Azure IoT Central applications are created on behalf of customers by CSPs, just like with other CSP managed Azure services, CSPs manage billing for customers. A charge for Azure IoT Central will appear your total bill in the Microsoft Partner Center.
 
 To get started, sign-in to your account on the Microsoft Partner Portal and select a customer for whom you want to create an Azure IoT Central application. Navigate to Service management for the customer from the left nav.
 
