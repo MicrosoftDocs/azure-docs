@@ -23,8 +23,6 @@ The firewall is in the AzureFirewallSubnet and is configured with an Application
 
 A user defined route is created that points the network traffic from the ServersSubnet through the firewall, where the firewall rules are applied.
 
-![firewall  network](media/tutorial-firewall-rules-portal/Tutorial_network.png)
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Template location
