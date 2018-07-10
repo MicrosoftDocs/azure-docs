@@ -10,27 +10,30 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 02/08/2018
+ms.topic: conceptual
+ms.reviewer: cawa
+ms.date: 07/10/2018
 ms.author: mbullwin
 
 ---
 # Profile live Azure web apps with Application Insights
 
-*This feature of Azure Application Insights is generally available for the Web Apps feature of Azure App Service and is in preview for Azure compute resources.*
+*This feature of Azure Application Insights is generally available for the Web Apps feature of Azure App Service and is in preview for Azure compute resources. For information regarding [on premises use of profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
 
 This article discusses the amount of time that's spent in each method of your live web application when you use [Application Insights](app-insights-overview.md). The Application Insights Profiler tool displays detailed profiles of live requests that were served by your app. Profiler highlights the *hot path* that uses the most time. Requests with various response times are profiled on a sampling basis. By using a variety of techniques, you can minimize the overhead that's associated with the application.
 
 Profiler currently works for ASP.NET and ASP.NET Core web apps that are running on Web Apps. The Basic service tier or higher is required to use Profiler.
 
 ## <a id="installation"></a> Enable Profiler for your Web Apps
-Once you have deployed a Web App, regardless if you included App Insights SDK in the source code, do the following:
+
+Once you have deployed a Web App, regardless of if you included the App Insights SDK in the source code, do the following:
+
 1. Go to the **App Services** pane in the Azure portal.
-2. Navigate to **Settings | Monitoring** pane.
+2. Navigate to **Settings > Monitoring** pane.
 
    ![Enable App Insights on App Services portal][./media/app-insights-profiler/AppInsights-AppServices.png]
 
-3. Either follow the instructions on the pane to create a new resource or select an existing App Insights resource to monitor your web all. Accept all default options. The **Code level diagnostics** is by default on and enables Profiler.
+3. Either follow the instructions on the pane to create a new resource or select an existing App Insights resource to monitor your web app. Accept all default options. **Code level diagnostics** is on by default and enables Profiler.
 
    ![Add App Insights site extension][Enablement UI]
 
@@ -68,43 +71,55 @@ The Microsoft service profiler uses a combination of sampling methods and instru
 The call stack that's displayed in the timeline view is the result of the sampling and instrumentation. Because each sample captures the complete call stack of the thread, it includes code from Microsoft .NET Framework, and from other frameworks that you reference.
 
 ### <a id="jitnewobj"></a>Object allocation (clr!JIT\_New or clr!JIT\_Newarr1)
+
 **clr!JIT\_New** and **clr!JIT\_Newarr1** are helper functions in the .NET Framework that allocate memory from a managed heap. **clr!JIT\_New** is invoked when an object is allocated. **clr!JIT\_Newarr1** is invoked when an object array is allocated. These two functions are usually fast and take relatively small amounts of time. If you see **clr!JIT\_New** or **clr!JIT\_Newarr1** take a substantial amount of time in your timeline, it indicates that the code might be allocating many objects and consuming significant amounts of memory.
 
 ### <a id="theprestub"></a>Loading code (clr!ThePreStub)
+
 **clr!ThePreStub** is a helper function in the .NET Framework that prepares the code to execute for the first time. This usually includes, but is not limited to, just-in-time (JIT) compilation. For each C# method, **clr!ThePreStub** should be invoked at most once during the lifetime of a process.
 
 If **clr!ThePreStub** takes a substantial amount of time for a request, this indicates that the request is the first one that executes that method. The time for the .NET Framework runtime to load the first method is significant. You might consider using a warmup process that executes that portion of the code before your users access it, or consider running Native Image Generator (ngen.exe) on your assemblies.
 
 ### <a id="lockcontention"></a>Lock contention (clr!JITutil\_MonContention or clr!JITutil\_MonEnterWorker)
-**clr!JITutil\_MonContention** or **clr!JITutil\_MonEnterWorker** indicates that the current thread is waiting for a lock to be released. This text is usually displayed when you execute a C# **LOCK** statement, when invoking the **Monitor.Enter** method, or when invoking a method with the **MethodImplOptions.Synchronized** attribute. Lock contention usually occurs when thread _A_ acquires a lock, and thread _B_ tries to acquire the same lock before thread _A_ releases it.
+
+**clr!JITutil\_MonContention** or **clr!JITutil\_MonEnterWorker** indicates that the current thread is waiting for a lock to be released. This text is often displayed when you execute a C# **LOCK** statement, when invoking the **Monitor.Enter** method, or when invoking a method with the **MethodImplOptions.Synchronized** attribute. Lock contention usually occurs when thread _A_ acquires a lock, and thread _B_ tries to acquire the same lock before thread _A_ releases it.
 
 ### <a id="ngencold"></a>Loading code ([COLD])
+
 If the method name contains **[COLD]**, such as **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, the .NET Framework runtime is executing code for the first time that is not optimized by <a href="https://msdn.microsoft.com/library/e7k32f4k.aspx">profile-guided optimization</a>. For each method, it should be displayed at most once during the lifetime of the process.
 
 If loading code takes a substantial amount of time for a request, this indicates that the request is the first one to execute the unoptimized portion of the method. Consider using a warmup process that executes that portion of the code before your users access it.
 
 ### <a id="httpclientsend"></a>Send HTTP request
+
 Methods like **HttpClient.Send** indicate that the code is waiting for an HTTP request to be completed.
 
 ### <a id="sqlcommand"></a>Database operation
+
 Methods like **SqlCommand.Execute** indicate that the code is waiting for a database operation to finish.
 
 ### <a id="await"></a>Waiting (AWAIT\_TIME)
+
 **AWAIT\_TIME** indicates that the code is waiting for another task to finish. This usually happens with the C# **AWAIT** statement. When the code does a C# **AWAIT**, the thread unwinds and returns control to the thread pool, and there is no thread that is blocked waiting for the **AWAIT** to finish. However, logically, the thread that did the **AWAIT** is "blocked," and is waiting for the operation to finish. The **AWAIT\_TIME** statement indicates the blocked time waiting for the task to finish.
 
 ### <a id="block"></a>Blocked time
+
 **BLOCKED_TIME** indicates that the code is waiting for another resource to be available. For example, it might be waiting for a synchronization object, for a thread to be available, or for a request to finish.
 
 ### <a id="cpu"></a>CPU time
+
 The CPU is busy executing the instructions.
 
 ### <a id="disk"></a>Disk time
+
 The application is performing disk operations.
 
 ### <a id="network"></a>Network time
+
 The application is performing network operations.
 
 ### <a id="when"></a>When column
+
 The **When** column is a visualization of how the INCLUSIVE samples collected for a node vary over time. The total range of the request is divided into 32 time buckets. The inclusive samples for that node are accumulated in those 32 buckets. Each bucket is represented as a bar. The height of the bar represents a scaled value. For nodes that are marked **CPU_TIME** or **BLOCKED_TIME**, or where there is an obvious relationship to consuming a resource (for example, a CPU, disk, or thread), the bar represents the consumption of one of the resources during the period of that bucket. For these metrics, it's possible to get a value of greater than 100 percent by consuming multiple resources. For example, if you use, on average, two CPUs during an interval, you get 200 percent.
 
 ## Limitations
@@ -120,7 +135,8 @@ Profiler randomly runs two minutes every hour on each virtual machine that hosts
 The more servers that are available for hosting the application, the less impact Profiler has on the overall application performance. This is because the sampling algorithm results in Profiler running on only 5 percent of servers at any time. More servers are available to serve web requests to offset the server overhead caused by running Profiler.
 
 ## Disable Profiler
-To stop or restart Profiler for an individual web apps instance, under **Web Jobs**, go to the Web Apps resource. To delete Profiler, go to **Extensions**.
+
+To stop or restart Profiler for an individual web app's instance, under **Web Jobs**, go to the Web Apps resource. To delete Profiler, go to **Extensions**.
 
 ![Disable Profiler for a web job][disable-profiler-webjob]
 
@@ -169,7 +185,7 @@ Here are a few things that you can check:
 
 * If the data you are trying to view is older than a couple of weeks, try limiting your time filter and try again.
 * Ensure that proxies or a firewall have not blocked access to https://gateway.azureserviceprofiler.net.
-* Ensure that the Application Insights instrumentation key you are using in your app is the same as the Application Insights resource that you used to enabled profiling. The key is usually in the ApplicationInsights.config file, but it might also be in the web.config or app.config file.
+* Ensure that the Application Insights instrumentation key you are using in your app is the same as the Application Insights resource that you used to enable profiling. The key is usually in the ApplicationInsights.config file, but it might also be in the web.config or app.config file.
 
 ### Error report in the profiling viewer
 
@@ -189,7 +205,6 @@ This error occurs if you run Web Deploy from scripts or from the Visual Studio T
 
 These parameters delete the folder that's used by Application Insights Profiler and unblock the redeploy process. They don't affect the Profiler instance that's currently running.
 
-
 ## Manual installation
 
 When you configure Profiler, updates are made to the web app's settings. You can apply the updates manually if your environment requires it. An example might be that your application is running in a Web Apps environment for PowerApps.
@@ -205,27 +220,29 @@ When you configure Profiler, updates are made to the web app's settings. You can
 9. Restart the web app.
 
 ## <a id="profileondemand"></a> Manually trigger Profiler
+
 Profiler can be triggered manually with one button click. Suppose you are running a web performance test. You will need traces to help you understand how your web app is performing under load. Having control over when traces are captured is crucial since you know when load test will be running, but the random sampling interval might miss it.
-The following steps illustrates how this scenario works:
+The following steps illustrate how this scenario works:
 
 ### (Optional) Step 1: Generate traffic to your web app by starting a web performance test
+
 If your web app already has incoming traffic or if you just want to manually generate traffic, skip this section and proceed to Step 2.
 
-Navigate to Application Insights portal, **Configure | Performance Testing**. Click on New button to start a new performance test.
+Navigate to Application Insights portal, **Configure > Performance Testing**. Click on New button to start a new performance test.
 ![create new performance test][create-performance-test]
 
 In the **New performance test** pane, configure the test target URL. Accept all default settings and start running the load test.
 
 ![Configure load test][configure-performance-test]
 
-You will see the new test is queued first, then soon will be in progress.
+You will see the new test is queued first, followed by a status of in progress.
 
 ![load test is submitted and queued][load-test-queued]
 
 ![load test is running in progress][load-test-in-progress]
 
-
 ### Step 2: Start profiler on-demand
+
 Once the load test is running, we can start profiler to capture traces on the web app while it's receiving load.
 Navigate to Configure Profiler pane:
 
@@ -242,33 +259,34 @@ You will see notification and status change on the profiler run status.
 Once the profiler finishes running, follow the instructions on notification to go to Performance blade and view traces.
 
 ### Troubleshooting on-demand profiler
+
 Sometimes you might see Profiler timeout error message after an on-demand session:
 
 ![Profiler timeout error][profiler-timeout]
 
 There could be two reasons why you see this error:
-* On-demand profiler session was actually successful, but App Insights took a longer time to process data collected. If data did not finish being processed in 15 minutes, the portal will display timeout message. Though after a while, Profiler traces will show up. If this happens, please just ignore the error message for now. We are actively working on a fix
+* The on-demand profiler session was successful, but Application Insights took a longer time to process the collected data. If data did not finish being processed in 15 minutes, the portal will display a timeout message. Though after a while, Profiler traces will show up. If this happens, please just ignore the error message for now. We are actively working on a fix
 
-* Your web app has an older version of Profiler agent that does not have on-demand feature. If you enabled Application Insights Profiler a while ago, chances are you need to update your Profiler agent to start using on-demand capability. Follow these steps to check and install latest Profiler:
+* Your web app has an older version of Profiler agent that does not have the on-demand feature. If you enabled Application Insights Profile previously, chances are you need to update your Profiler agent to start using the on-demand capability. Follow these steps to check and install the latest Profiler:
 
 1. Go to App Services App Settings and check if the following settings are set:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for application insights.
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for Application Insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
-If any of these settings are not set, go to Application Insights enablement blade to install the latest site extension. That way the latest profiler agent and settings above will be properly configured.
+If any of these settings are not set, go to the Application Insights enablement pane to install the latest site extension.
 
-2. Go to Application Insights blade in App Services portal.
+2. Go to Application Insights pane in App Services portal.
 
     ![Enable Application Insights from App Services portal][enable-app-insights]
 
-3. If you see ‘Update’ button in the following page, click it to update Application Insights site extension which will install the latest Profiler agent.
+3. If you see an ‘Update’ button in the following page, click it to update Application Insights site extension which will install the latest Profiler agent.
 ![Update site extension][update-site-extension]
 
-4. Then click ‘change’ to making sure the Profiler is turned on and use OK to save the changes.
+4. Then click **change** to making sure the Profiler is turned on and select **OK** to save the changes.
 
     ![Change and save app insights][change-and-save-appinsights]
 
-5. Go back to ‘App Settings’ tab for the App Service to double check the following app settings items are set:
+5. Go back to **App Settings** tab for the App Service to double-check the following app settings items are set:
     * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for application insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
