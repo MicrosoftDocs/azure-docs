@@ -42,7 +42,7 @@ Azure uses the following terms to describe classic alerts and their functions:
 ## How do I receive notifications from an Azure Monitor classic alert?
 Historically, Azure alerts from different services used their own built-in notification methods. 
 
-Now Azure Monitor offers a reusable notification grouping called *action groups*. Action groups specify a set of receivers for a notification. Whenever an alert is activated that references the action group, all receivers receive that notification. This functionality enables you to reuse a grouping of receivers (for example, your on-call engineer list) across many alert objects. Action groups support notification through various methods. These methods can include posting to a webhook URL, sending emails, SMS messages, and a number of other actions. For more information, see [Action groups](monitoring-action-groups.md). 
+Now Azure Monitor offers a reusable notification grouping called *action groups*. Action groups specify a set of receivers for a notification. When an alert is activated that references the action group, all receivers receive that notification. This functionality enables you to reuse a grouping of receivers (for example, your on-call engineer list) across many alert objects. Action groups support notification through various methods. These methods can include posting to a webhook URL, sending emails, SMS messages, and a number of other actions. For more information, see [Action groups](monitoring-action-groups.md). 
 
 Older classic activity log alerts use action groups.
 
