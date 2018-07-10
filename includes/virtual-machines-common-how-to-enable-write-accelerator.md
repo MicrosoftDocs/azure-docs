@@ -62,7 +62,7 @@ The following prerequisites apply to the usage of Write Accelerator at this poin
 - The disks you want to apply Azure Write Accelerator against need to be [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) on Premium Storage.
 - You must be using an M-series VM
 
-## Enabling Azure Write Accelerator using Azure PowerShell
+### Enabling Azure Write Accelerator using Azure PowerShell
 
 The Azure Power Shell module from version 5.5.0 include the changes to the relevant cmdlets to enable or disable Write Accelerator for specific Azure Premium Storage disks.
 In order to enable or deploy disks supported by Write Accelerator, the following Power Shell commands got changed, and extended to accept a parameter for Write Accelerator.
@@ -103,7 +103,7 @@ Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
 
 Two main scenarios can be scripted as shown in the following sections.
 
-### Adding a new disk supported by Write Accelerator
+#### Adding a new disk supported by Write Accelerator using PowerShell
 
 You can use this script to add a new disk to your VM. The disk created with this script uses Write Accelerator.
 
@@ -128,7 +128,7 @@ Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 
 You need to adapt the names of VM, disk, resource group, size of the disk and LunID of the disk for your specific deployment.
 
-### Enabling Azure Write Accelerator on an existing Azure disk
+#### Enabling Write Accelerator on an existing Azure disk using PowerShell
 
 If you need to enable Write Accelerator on an existing disk, you can use this script to perform the task:
 
@@ -154,13 +154,13 @@ You need to adapt the names of VM, disk, and resource group. The script above ad
 > [!Note]
 > Executing the script above will detach the disk specified, enable Write Accelerator against the disk, and then attach the disk again
 
-### Enabling Azure Write Accelerator using the Azure portal
+### Enabling Write Accelerator using the Azure portal
 
 You can enable Write Accelerator via the portal where you specify your disk caching settings: 
 
 ![Write Accelerator on the Azure portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
-## Enabling through Azure CLI
+### Enabling Write Accelerator using the Azure CLI
 
 You can use the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) to enable Write Accelerator. 
 
@@ -272,7 +272,7 @@ The output could look like:
 
 ```
 
-Next step is to update the JSON file and to enable Write Accelerator on the disk called 'log1'. This step can be accomplished by adding this attribute into the JSON file after the cache entry of the disk.
+Next, update the JSON file and to enable Write Accelerator on the disk called 'log1'. This can be accomplished by adding this attribute into the JSON file after the cache entry of the disk.
 
 ```JSON
         {
@@ -291,7 +291,7 @@ Next step is to update the JSON file and to enable Write Accelerator on the disk
 
 Then update the existing deployment with this command: `armclient PUT /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>>/providers/Microsoft.Compute/virtualMachines/<<virtualmachinename>>?api-version=2017-12-01 @<<filename.json>>`
 
-The output should look like the one below. You can see that there is Write Accelerator enabled for one disk.
+The output should look like the one below. You can see that Write Accelerator enabled for one disk.
 
 ```JSON
 {
@@ -373,4 +373,4 @@ The output should look like the one below. You can see that there is Write Accel
   "name": "mylittlesapVM"
 ```
 
-From the point of the change on, the drive should be supported by Write Accelerator.
+Once you've made this change, the drive should be supported by Write Accelerator.
