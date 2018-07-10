@@ -22,7 +22,7 @@ The workspace also defines your local development environment as one of the __co
 
 The following diagram shows the major components of Azure Machine Learning, and illustrates the general workflow when using Azure Machine Learning: 
 
-![Azure Machine Learning architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)
+[![Azure Machine Learning architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 The workflow for developing and deploying a model with Azure Machine Learning follows these steps:
 
@@ -64,7 +64,7 @@ When you create a new workspace, it automatically creates several Azure resource
 
 The following diagram is a taxonomy of the workspace:
 
-![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/taxonomy.png)
+[![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
 
 ## Project
 
@@ -155,12 +155,8 @@ Computer targets other than the local machine are shared by users of the workspa
 ## Metrics
 
 When developing your solution, you can use the Azure Machine Learning Python SDK in your Python script to log metrics information.
-You can provide name-value pairs, where the name is a string and the value is one of the following items:
 
-* String
-* Number
-* Array of strings or numbers
-* `matplotlib` figure object representing a plotted image.
+For an example of using metrics, see [TBD]()
 
 ## Snapshots
 
