@@ -194,7 +194,7 @@ For more information about high availability, see [Regions and availability for 
 
 **Q: Is there a way to know exactly when my virtual machine will be impacted?**
 
-**A:** When setting the schedule, we define a time window of several days. However, the exact sequencing of servers (and VMs) within this window is unknown. Customers who would like to know the exact time for their VMs can use [scheduled events](scheduled-events.md) and query from within the virtual machine and receive a 15-minute notification before a VM reboot.
+**A:** When setting the schedule, we define a time window of several days. However, the exact sequencing of servers (and VMs) within this window is unknown. Customers who would like to know the exact time for their VMs can use [scheduled events](../articles/virtual-machines/windows/scheduled-events.md) and query from within the virtual machine and receive a 15-minute notification before a VM reboot.
 
 **Q: How long will it take you to reboot my virtual machine?**
 
