@@ -59,7 +59,7 @@ After you're done, choose **Pin to dashboard** > **Create**.
    | **Name** | MyFirstLogicApp | The name for your logic app | 
    | **Subscription** | <*your-Azure-subscription-name*> | The name for your Azure subscription | 
    | **Resource group** | My-First-LA-RG | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize related resources | 
-   | **Location** | East US 2 | The region where to store your logic app information | 
+   | **Location** | West US | The region where to store your logic app information | 
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. | 
    |||| 
 
