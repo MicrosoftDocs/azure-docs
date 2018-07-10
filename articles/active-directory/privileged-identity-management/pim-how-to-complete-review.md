@@ -16,7 +16,7 @@ ms.author: rolyon
 ms.custom: pim
 ---
 # How to complete an access review in Azure AD Privileged Identity Management
-Privileged role administrators can review privileged access once a [security review has been started](active-directory-privileged-identity-management-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) will automatically send an email prompting users to review their access. If a user did not get an email, you can send them the instructions in [how to perform a security review](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+Privileged role administrators can review privileged access once a [security review has been started](pim-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) will automatically send an email prompting users to review their access. If a user did not get an email, you can send them the instructions in [how to perform a security review](pim-how-to-perform-security-review.md).
 
 After the security review period is over, or all the users have finished their self-review, follow the steps in this article to manage the review and see the results.
 
@@ -27,7 +27,7 @@ After the security review period is over, or all the users have finished their s
 
 On the access review's detail blade there are a number options for managing that review.
 
-![PIM access review buttons - screenshot](./media/active-directory-privileged-identity-management-how-to-complete-review/PIM_review_buttons.png)
+![PIM access review buttons - screenshot](./media/pim-how-to-complete-review/PIM_review_buttons.png)
 
 ### Remind
 If an access review is set up so that the users review themselves, the **Remind** button sends out a notification. 
@@ -48,4 +48,4 @@ If you are not interested in the review any further, delete it. The **Delete** b
 > You will not get a warning before deletion occurs, so be sure that you want to delete that review. 
 
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
+[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]

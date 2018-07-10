@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: jeedes
 
 ---
@@ -104,9 +104,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Imagineer WebVision Domain and URLs single sign-on information](./media/imagineerwebvision-tutorial/tutorial_imagineerwebvision_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<YOUR SERVER URL>/SSO/?azure`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<YOUR SERVER URL>/default.aspx`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<YOUR SERVER URL>/<yourapplicationloginpage>`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Imagineer WebVision Client support team](mailto:support@itgny.com) to get these values.
