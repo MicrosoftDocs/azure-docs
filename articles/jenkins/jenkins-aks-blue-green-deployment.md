@@ -29,7 +29,8 @@ In this tutorial, you learn how to perform the following tasks in learning how t
 > * Create a managed Kubernetes cluster.
 
 # Prerequisites
-- [GitHub account](https://github.com)
+- [GitHub account](https://github.com) : You need a GitHub account to clone the sample repo.
+- [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) : The Azure CLI 2.0 is used to create the Kubernetes cluster.
 
 ## Clone the sample app from GitHub
 
@@ -69,13 +70,20 @@ A sample app that illustrates how to use deploy to AKS using Jenkins and the blu
 
 1. Change directories to the newly created directory that contains the clone of the app source.
 
-## Create a managed Kubernetes cluster
+## Create and configure a managed Kubernetes cluster
 
-You can create the Azure Services using [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). For AKS, make sure Azure CLI is version 2.0.25 or later.
+In this section, you perform the following steps:
 
-AKS is still in preview at the time when these instructions are created. For information on enabling the preview for your Azure subscription. see to [this](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription) for more details.
+- Use the Azure CLI 2.0 to create a managed Kubernetes cluster.
+- Learn how to set up a cluster either by using the setup script or manually.
+- Create the Azure Container Registry.
 
-### Create AKS
+[!NOTE]	
+> AKS is currently in preview. For information on enabling the preview for your Azure subscription. see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster
+](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription) for more details.
+
+### Use the Azure CLI 2.0 to create a managed Kubernetes cluster
+In order to create a managed Kubernetes cluster with [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), ensure that you are using Azure CLI version 2.0.25 or later.
 
 1. Sign in to your Azure CLI, and set your subscription ID 
     
@@ -90,48 +98,49 @@ AKS is still in preview at the time when these instructions are created. For inf
     az group create -n <your-resource-group-name> -l <your-location>
     ```
 
-1. Create AKS
+1. Create the Kubernetes cluster.
 
     ```bash
     az aks create -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --node-count 2
     ```
 
-1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and [jq](https://stedolan.github.io/jq/download/), a lightweight command-line JSON processor.
+1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/), which is a command line interface for running commands against Kubernetes clusters. 
 
-### Setting up AKS
+1. Install [jq](https://stedolan.github.io/jq/download/), which is a lightweight command-line JSON processor.
 
-Setting up a blue/green deployment in AKS requires the following setup: 
+### Set up the Kubernetes cluster
+
+Setting up a blue/green deployment in AKS can be done either with a setup script or manually. In this section, you see how to do both.
 
 #### Run the setup script
-1. Edit [setup script](/../deploy/aks/setup/setup.sh) and update `<your-resource-group-name>`, `<your-kubernetes-cluster-name>`,
-   `<your-location>` and `<your-dns-name-suffix>` respectively:
+1. The **todo-app-java-on-azure** repo you cloned earlier contains a setup script named **setup.sh** that resides in the **/deploy/aks/setup** directory. Edit the **setup.sh** file, replacing the **<your-resource-group-name>**, **<your-kubernetes-cluster-name>**, **<your-location>**, and **<your-dns-name-suffix>** placeholders with the appropriate values for your environment.
 
-    ``` bash   
-    resource_group=<your-resource-group-name>
-    location=<your-location>
-    aks_name=<your-kubernetes-cluster-name>
-    dns_name_suffix=<your-dns-name-suffix>
+    ![The setup.sh script contains several placeholders that can be modified for your environment.](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
+
+1. Run the script:
+
+    ```bash
+    sh setup.sh
     ```
 
-2. Run the script. 
-
-#### Set up manually 
+#### Set up a Kubernetes cluster manually 
 1. Download the Kubernetes configuration to your profile folder.
 
     ```bash
     az aks get-credentials -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --admin
     ```
 
-2. Change directory to /deploy/aks/setup. Run the following kubectl commands to set up the services for
-    the public end point and the two test end points:
+1. The **todo-app-java-on-azure** repo you cloned earlier contains a setup script named **setup.sh** that resides in the **/deploy/aks/setup** directory. Change directory to the **/deploy/aks/setup**  directory. 
 
-    ```
+1. Run the following **kubectl** commands to set up the services for the public endpoint and the two test endpoints.
+
+    ```bash
     kubectl apply -f  service-green.yml
     kubectl apply -f  test-endpoint-blue.yml
     kubectl apply -f  test-endpoint-green.yml
     ```
 
-3. Update the public and test end points DNS names. When AKS is created, an [additional resource group](https://github.com/Azure/AKS/issues/3)
+1. Update the DNA name for the public and test endpoints. When AKS is created, an [additional resource group](https://github.com/Azure/AKS/issues/3)
     is created. Look for resource group: `MC_<your-resource-group-name>_<your-kubernetes-cluster-name>_<your-location>`.
 
     Locate the public ip's in the resource group
@@ -253,7 +262,7 @@ If you run the build more than once, it will cycle through Blue and Green deploy
 
 For more on zero-downtime deployment, check out this [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/301-jenkins-aks-zero-downtime-deployment). 
 
-## Clean up
+## Clean up resources
 
 Delete the Azure resources you just created by running below command:
 
