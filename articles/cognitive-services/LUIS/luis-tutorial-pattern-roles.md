@@ -39,46 +39,38 @@ In the **MoveEmployee** intent created in the [hierarchical tutorial](luis-quick
 
 With patterns, fewer example utterances are provided to the intent because template utterances are used in the patterns. The template utterance can contain entities and entity roles, along with ignorable text.
 
-## Convert hierarchical entity to simple entity with roles
-
-## Caution about example utterance quantity
-The example utterances in the intents is not enough to train LUIS properly. In a real-world app, each intent should have a minimum of 15 utterances with a variety of word choice and utterance length. These few utterances are selected specifically to highlight patterns. 
-
-## Add the template utterances
-
+## Create new entity with roles
 1. Select **Build** in the top menu.
 
-2. In the left navigation, under **Improve app performance**, select **Patterns** from the left navigation.
+2. Select **Entities** from the left navigation. 
 
-3. Select the **OrgChart-Manager** intent, then enter the following template utterances, one at a time, selecting enter after each template utterance:
+3. Select **Create new entity**.
 
-    |Template utterances|
-    |:--|
-    |Who is {Employee} the subordinate of[?]|
-    |Who does {Employee} report to[?]|
-    |Who is {Employee}['s] manager[?]|
-    |Who does {Employee} directly report to[?]|
-    |Who is {Employee}['s] supervisor[?]|
-    |Who is the boss of {Employee}[?]|
+4. In the pop-up window, enter `Location`.
 
-    The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. 
+5. Select **Location** from the entity list.
 
-    The optional syntax, `[]`, marks words or punctuation that are optional. LUIS will match the utterance, ignoring the optional text inside the brackets.
+6. Enter the first role as `Origin` and select enter.
 
-    If you type the template utterance in, LUIS helps you fill in the entity when your enter the left curly bracket, `{`, by 
+7. Enter the second role as `Destination` and select enter.
 
-    ![Screenshot of entering template utterances for intent](./media/luis-tutorial-pattern/enter-pattern.png)
+## Remove hierarchical entity 
+A word or phrase is labeled with only one entity. In order to use the new, simple entity of `Location`, the `Locations` hierarchical entity needs to be removed from the composite entity **MoveEmployeeWorkOrder** and then delete the **Locations** entity. 
 
-4. Select the **OrgChart-Reports** intent, then enter the following template utterances, one at a time, selecting enter after each template utterance:
+1. Select **Entities** from the left navigation. 
 
-    |Template utterances|
-    |:--|
-    |Who are {Employee}['s] subordinates[?]|
-    |Who reports to {Employee}[?]|
-    |Who does {Employee} manage[?]|
-    |Who are {Employee} direct reports[?]|
-    |Who does {Employee} supervise[?]|
-    |Who does {Employee} boss[?]|
+2. Select **MoveEmployeeWorkOrder**. This entity was created in the [composite entity tutorrial](luis-tutorial-composite-entity.md). 
+
+3. Select the garbage can to the right of the child entity names `Locations::Origin` and `Locations::Destination`.
+
+4. Select **+ Add child entity**, then add `Location`.
+
+5. Select **Entities** from the left navigation. 
+
+6. On the same row as **Locations**, select the far-right ellipsis {**...**}. Select **Delete**. This entity was created in the [hierarchical entity tutorrial](luis-quickstart-intent-and-hier-entity.md). 
+
+
+
 
 ## Train the LUIS app
 The new intent and utterances require training. 
