@@ -6,7 +6,9 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/22/2018
+
+ms.date: 07/06/2018
+
 ms.author: raynew
 
 ---

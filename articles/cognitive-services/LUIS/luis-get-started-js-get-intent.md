@@ -1,6 +1,6 @@
 ---
-title: Quickstart learning how to call a Language Understanding (LUIS) app using Node.js | Microsoft Docs
-description: In this quickstart, you learn to call a LUIS app using Node.js.
+title: Quickstart learning how to call a Language Understanding (LUIS) app using Javascript | Microsoft Docs
+description: In this quickstart, you learn to call a LUIS app using Javascript.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -39,7 +39,7 @@ To get an API key, follow these steps:
 
 4. Go back to the [LUIS](luis-reference-regions.md) website and log in using your Azure account. 
 
-    [![](media/luis-get-started-node-get-intent/app-list.png "Screenshot of Create app list")](media/luis-get-started-node-get-intent/app-list.png)
+    [![](media/luis-get-started-js-get-intent/app-list.png "Screenshot of Create app list")](media/luis-get-started-js-get-intent/app-list.png)
 
 ## Understand what LUIS returns
 
@@ -49,11 +49,11 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
 
 2. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent and the `HomeAutomation.Room` entity with the value `bedroom`.
 
-    ![JSON result detects the intent TurnOn](./media/luis-get-started-node-get-intent/turn-on-bedroom.png)
+    ![JSON result detects the intent TurnOn](./media/luis-get-started-js-get-intent/turn-on-bedroom.png)
 
 3. Change the value of the `q=` parameter in the URL to `turn off the living room light`, and press enter. The result now indicates that the LUIS detected the `HomeAutomation.TurnOff` intent and the `HomeAutomation.Room` entity with value `living room`. 
 
-    ![JSON result detects the intent TurnOff](./media/luis-get-started-node-get-intent/turn-off-living-room.png)
+    ![JSON result detects the intent TurnOff](./media/luis-get-started-js-get-intent/turn-off-living-room.png)
 
 
 ## Consume a LUIS result using the Endpoint API with JavaScript 
