@@ -82,7 +82,7 @@ To configure and test Azure AD single sign-on with SharePoint on-premises, you n
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a SharePoint on-premises test user](#create-a-sharePoint-on-premises-test-user)** - to have a counterpart of Britta Simon in SharePoint on-premises that is linked to the Azure AD representation of user.
+3. **[Granting access for SharePoint on-premises test user](#granting-access-for-sharePoint-on-premises-test-user)** - to have a counterpart of Britta Simon in SharePoint on-premises that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
@@ -106,10 +106,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
-    b. In the **Identifier** textbox, type a URL using the following pattern: `urn:sharepoint:<YourSharePointServerURL>`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [SharePoint on-premises Client support team](https://support.office.com/) to get these values.
+    b. In the **Identifier** textbox, type the URL: `urn:sharepoint:federation`
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer with the .cer extension. Copy and paste the full path of the downloaded metadata file into Notepad.
 
@@ -194,7 +191,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
 
-### Create a SharePoint on-premises test user
+### Granting access for SharePoint on-premises test user
+
+The users who will log into Azure AD and access SharePoint must be granted access to the application  Use the following steps to set the permissions to access the web application.
 
 1. In Central Administration, click **Application Management**.
 
@@ -210,7 +209,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 6. In the **Policy for Web Application** dialog box, in the **Choose Users** section, click the **Browse** icon.
 
-7. In the **Find** textbox, type the sign-in name for a user in your directory and click **Search**. </br>Example: *demouser@blueskyabove.onmicrosoft.com*.
+7. In the **Find** textbox, type the **user principal name(UPN)** value for which you have configured the SharePoint on-premises application in the Azure AD and click **Search**. </br>Example: *demouser@blueskyabove.onmicrosoft.com*.
 
 8. Under the AzureAD heading in the list view, select the name property and click **Add** then click **OK** to close the dialog.
 
@@ -271,7 +270,7 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
+* [Configuring one trusted identity provider for multiple web applications](https://docs.microsoft.com/en-us/office365/enterprise/using-azure-ad-for-sharepoint-server-authentication#step-6-add-a-saml-11-token-issuance-policy-in-azure-ad)
 
 <!--Image references-->
 
