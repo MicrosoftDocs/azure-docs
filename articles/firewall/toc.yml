@@ -23,7 +23,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/network/application-gateway
+    href: /cli/azure/network
   - name: Azure PowerShell
     href: /powershell/azure/overview
   - name: .NET
@@ -50,5 +50,3 @@
     href: https://azure.microsoft.com/pricing/details/#Linux
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-application-gateway
