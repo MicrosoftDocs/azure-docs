@@ -65,7 +65,7 @@ No. The NVA VNet cannot have a virtual network gateway if it is connected to the
 
 ### Is there support for BGP?
 
-Yes, BGP is supported. To ensure that routes from an NVA VNet are advertised appropriately, spokes must disable BGP if they are connected to an NVA VNet which, in turn is connected to a virtual hub.
+Yes, BGP is supported. To ensure that routes from an NVA VNet are advertised appropriately, spokes must disable BGP if they are connected to an NVA VNet which, in turn is connected to a virtual hub. Additionally, connect the spoke VNets to the virtual hub.
 
 ### Can I direct traffic using UDR in the virtual hub?
 
