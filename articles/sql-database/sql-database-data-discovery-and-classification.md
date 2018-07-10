@@ -104,8 +104,6 @@ You can use T-SQL to add/remove column classifications, as well as retrieve all 
 * Remove the classification from one or more columns: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 * View all classifications on the database: [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-
-
 ## <a id="subheading-5"></a>Next steps
 
 - Learn more about [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
