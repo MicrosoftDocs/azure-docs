@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 
@@ -96,9 +96,6 @@ To add a standalone hosting server that's already set up, follow these steps:
    * To use an existing SKU, choose an available SKU and then select **Create**.
    * To create a SKU, select **+ Create new SKU**. In **Create SKU**, enter the required information, and then select **OK**.
 
-     > [!IMPORTANT]
-     > Special characters, including spaces and periods, aren't supported in **Name** field. Use the examples in the following screen capture to enter values for the **Family**, **Tier**, and **Edition** fields.
-
      ![Create a SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 ## Provide high availability using SQL Always On Availability Groups
@@ -115,16 +112,18 @@ Configuring SQL Always On instances requires additional steps and requires three
 
 You must enable [Automatic Seeding](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) on each availability group for each instance of SQL Server.
 
-To enable automatic seeding on all instances, edit and then run the following SQL command for each instance:
+To enable automatic seeding on all instances, edit and then run the following SQL command on the primary replica for each secondary instance:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON 'InstanceName'
+      MODIFY REPLICA ON '<secondary_node>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
 
-On the secondary instances, edit and then run the following SQL command for each instance:
+Note that the availability group must be enclosed in square brackets.
+
+On the secondary nodes, run the following SQL command:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -152,7 +151,7 @@ Use these commands to set the contained database authentication server option fo
 
    Under **SQL Hosting Servers**, you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
-3. Fill out the form with the connection details for your SQL Server instance. Make sure that you use the FQDN address of the Always On Listener (and optional port number.) Provide the information for the account you configured with sysadmin privileges.
+3. Fill out the form with the connection details for your SQL Server instance. Make sure that you use the FQDN address of the Always On Listener (and optional port number and instance name). Provide the information for the account you configured with sysadmin privileges.
 
 4. Check the Always On Availability Group box to enable support for SQL Always On Availability Group instances.
 
