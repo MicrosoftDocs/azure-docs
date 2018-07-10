@@ -10,7 +10,7 @@
   - name: What happened to Workbench?
     href: overview-what-happened-to-workbench.md
   - name: How to migrate
-    href: how-to-migrate-to-ga.md
+    href: how-to-migrate.md
 - name: Quickstarts
   items:
   - name: Get started - Portal
@@ -29,24 +29,50 @@
     href: concept-accelerate-with-fpgas.md    
 - name: How-to guides
   items:  
-  - name: Create workspace in portal
-    href: how-to-create-workspace-in-portal.md 
-  - name: Define compute resources
-  - name: Acquire data and share
-  - name: Develop models
-  - name: Build and train models 
-  - name: Track and evaluate models
-  - name: Deploy models as web services 
+  - name: Manage workspaces
+    href: how-to-manage-workspace.md 
+  - name: Set up development environment 	
     items:    
+    - name: Choose an environment  
+    - name: Configure an environment
+  - name: Set up training environments	
+    items:    
+    - name: VMs (Data Science/Deep Learning) 
+    - name: Azure Batch AI clusters
+    - name: Azure Container Instances
+  - name: Get data and share	
+    items:    
+    - name: Access data store in training  
+    - name: Share and collaborate
+  - name: Train and tune models
+    items:    
+    - name: Choose an ML algorithm	
+    - name: Train TensorFlow models
+    - name: Tune hyperparameters for DNN / ML models
+    - name: Run jobs on Spark
+  - name: Track and evaluate models	
+    items:    
+    - name: Track run history and training metrics
+  - name: Deploy models in production	
+    items:    
+    - name: Prepare models for deployment
+    - name: Where to deploy models
     - name: Deploy to ACI
       href: how-to-deploy-to-aci.md
     - name: Deploy to AKS
       href: how-to-deploy-to-aks.md
+    - name: Deploy a model built with Spark ML
+    - name: IoT deployment
+  - name: Scale and secure	
+    items:    
+    - name: Encrypt web services in transit  
+    - name: 	Encrypt web services at rest
+  - name: Build and Deploy with VS Code	
 - name: Reference
-  items:  
-  - name: Machine Learning SDK
+  items:    
+  - name: Machine learning SDK
     href: reference-azure-machine-learning-sdk.md
-  - name: Machine Learning CLI
+  - name: Machine learning CLI
     href: reference-azure-machine-learning-cli.md
   - name: Domain packages
     href: reference-python-package-overview.md
@@ -91,7 +117,7 @@
     href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
   - name: Get support
     href: support-for-aml-services.md
-  - name: Deprecated docs (pre-GA)
+  - name: Deprecated docs
     items:  
     - name: Workbench quickstart
       href: ../desktop-workbench/quickstart-installation.md

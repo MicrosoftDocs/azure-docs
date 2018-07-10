@@ -7,7 +7,7 @@ ms.component: core
 ms.topic: conceptual
 ms.author: haining
 author: hning86
-ms.date: 06/18/2018
+ms.date: 07/27/2018
 
 ---
 

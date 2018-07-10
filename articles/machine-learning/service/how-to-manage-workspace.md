@@ -1,0 +1,62 @@
+---
+title: Manage Azure Machine Learning Workspaces
+description: Learn how to create, view and delete Azure Machine Learning Workspaces in the Azure portal.
+services: machine-learning
+ms.service: machine-learning
+ms.component: core
+ms.topic: conceptual
+ms.reviewer: sgilley
+ms.author: yahajiza
+author: YasinMSFT
+ms.date: 04/10/2018
+---
+
+# Manage Azure Machine Learning Workspaces
+
+In this article, you'll create, view, and delete [**Azure Machine Learning Workspaces**](concept-azure-machine-learning-architecture#workspace) in the Azure portal for [Azure Machine Learning Services](overview-what-is-azure-ml.md).  You can also create and delete workspaces [using the CLI]() or [with Python code]().
+
+To create a workspace, you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Create a workspace 
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+
+## View a workspace
+
+1. In top left corner of the portal, select **All services**. 
+
+   ![all services](media/how-to-manage-workspace/allservices.png)
+
+1. In the **All services** filter field, type **Machine Learning Workspace**.  
+
+   ![search for Azure Machine Learning workspace](media/how-to-manage-workspace/allservices-search1.png)
+
+1. In the filter results, select **Machine Learning Workspace** to display a list of your workspaces. 
+
+   ![search for Azure Machine Learning workspace](media/how-to-manage-workspace/allservices-search.PNG)
+
+1. Look through the list of workspaces found. You can filter based on subscription, resource groups, and locations.  
+
+   ![Azure Machine Learning workspace list](media/how-to-manage-workspace/allservices_view_workspace.PNG)
+
+1. Select the workspace you just created to display its properties.
+
+   ![png](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
+
+## Delete a workspace
+
+Use the Delete button at the top of the workspace you wish to delete.
+
+  ![png](media/how-to-manage-workspace/delete-workspace.png)
+
+
+## Clean up resources 
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
+## Next steps
+
+Follow the full-length tutorial to learn how to use a workspace to build, train, and deploy models with Azure Machine Learning Services.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Build, train, and deploy](tutorial-build-train-deploy-with-azure-machine-learning.md)

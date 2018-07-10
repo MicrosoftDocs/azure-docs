@@ -82,3 +82,4 @@ The following screenshot is a sample for the verification.
 ## See also
 
 * [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
+* [Enable TLS in Java client](https://www.java.com/en/configure_crypto.html)
