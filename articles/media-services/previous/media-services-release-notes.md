@@ -392,7 +392,7 @@ The changes in 3.0.0.1 and 3.0.0.2 include:
 * Issues related to the usage of LINQ queries with OrderBy statements were fixed.
 * Test solutions in [GitHub] were split into unit-based tests and scenario-based tests.
 
-For more information about the changes, see the [Media Services .NET SDK 3.0.0.1 and 3.0.0.2 releases](http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/).
+For more information about the changes, see the [Media Services .NET SDK 3.0.0.1 and 3.0.0.2 releases](http://gtrifonov.com/2014/02/07/windows-azure-media-services-net-sdk-3-0-0-2-release/index.html).
 
 The following changes were made in version 3.0.0.3:
 

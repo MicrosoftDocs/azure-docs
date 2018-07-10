@@ -20,7 +20,7 @@ Role assignments become "stale" when users have privileged access that they don'
 
 ## Start an access review
 > [!NOTE]
-> If you haven't added the PIM application to your dashboard in the Azure portal, see the steps in  [Getting Started with Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)
+> If you haven't added the PIM application to your dashboard in the Azure portal, see the steps in  [Getting Started with Azure Privileged Identity Management](pim-getting-started.md)
 > 
 > 
 
@@ -32,12 +32,12 @@ From the PIM application main page, there are three ways to start an access revi
 
 When you click on the **Review** button, the **Start an access review** blade appears. On this blade, you're going to configure the review with a name and time limit, choose a role to review, and decide who will perform the review.
 
-![Start an access review - screenshot](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png)
+![Start an access review - screenshot](./media/pim-how-to-start-security-review/PIM_start_review.png)
 
 ### Configure the review
 To create an access review, you need to name it and set a start and end date.
 
-![Configure review - screenshot](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png)
+![Configure review - screenshot](./media/pim-how-to-start-security-review/PIM_review_configure.png)
 
 Make the length of the review long enough for users to complete it. If you finish before the end date, you can always stop the review early.
 
@@ -46,7 +46,7 @@ Each review focuses on only one role. Unless you started the access review from 
 
 1. Navigate to **Review role membership**
    
-    ![Review role membership - screenshot](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png)
+    ![Review role membership - screenshot](./media/pim-how-to-start-security-review/PIM_review_role.png)
 2. Choose one role from the list.
 
 ### Decide who will perform the review
@@ -54,7 +54,7 @@ There are three options for performing a review. You can assign the review to so
 
 1. Navigate to **Select reviewers**
    
-    ![Select reviewers - screenshot](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png)
+    ![Select reviewers - screenshot](./media/pim-how-to-start-security-review/PIM_review_reviewers.png)
 2. Choose one of the options:
    
    * **Select reviewer**: Use this option when you don't know who needs access. With this option, you can assign the review to a resource owner or group manager to complete.
@@ -64,13 +64,13 @@ There are three options for performing a review. You can assign the review to so
 ### Start the review
 Finally, you have the option to require that users provide a reason if they approve their access. Add a description of the review if you like, and select **Start**.
 
-Make sure you let your users know that there's an access review waiting for them, and show them [How to perform an access review](active-directory-privileged-identity-management-how-to-perform-security-review.md).
+Make sure you let your users know that there's an access review waiting for them, and show them [How to perform an access review](pim-how-to-perform-security-review.md).
 
 ## Manage the access review
-You can track the progress as the reviewers complete their reviews in the Azure AD PIM dashboard, in the access reviews section. No access rights will be changed in the directory until [the review completes](active-directory-privileged-identity-management-how-to-complete-review.md).
+You can track the progress as the reviewers complete their reviews in the Azure AD PIM dashboard, in the access reviews section. No access rights will be changed in the directory until [the review completes](pim-how-to-complete-review.md).
 
 Until the review period is over, you can remind users to complete their review, or stop the review early from the access reviews section.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## PIM Table of Contents
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
+[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
