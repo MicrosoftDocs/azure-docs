@@ -1,16 +1,11 @@
 # Start a Cluster
 
-Azure CycleCloud has predefined cluster types built into the software. Users can select parameters via the GUI to start the  Clusters are defined in text files and imported into Azure CycleCloud using the CLI. 
+Azure CycleCloud has predefined cluster types built into the software. Users can select parameters via the GUI to start a predefined cluster, or create their own in a text file and import it into Azure CycleCloud using the CLI.
 
-
-
-When the cluster is started,
-CycleCloud runs through the orchestration sequence for each node defined in the cluster:
-it requests an instance from the cloud provider, waits for the instance to be
+When the cluster is started, CycleCloud runs through the orchestration sequence for each node defined in the cluster: it requests an instance from the cloud provider, waits for the instance to be
 acquired, configures the instance as defined in the cluster template, and executes
 the initialization sequence specified in the cluster-init package. When the orchestration
-sequence is complete, the node is in the `Started` state. If an
-unhandled or unknown error happens during this process, the node will be in the `Error` state.
+sequence is complete, the node is in the `Started` state. If an unhandled or unknown error happens during this process, the node will be in the `Error` state.
 
 There are several intermediate states a node can be in while being started, so the progress is
 summarized as one of the following Status groups:
@@ -21,7 +16,7 @@ summarized as one of the following Status groups:
 - *Ready* (green): The instance is up and running.
 - *Failed* (red): An orchestration phase has failed during starting or terminating the node.
 
-Most cloud providers will not start billing you for an instance while it is being acquired.
+Azure will not start billing you for an instance while it is being acquired.
 If an instance that meets your requirements is not available, you may wait indefinitely for
 one to be provisioned. Billing for resources typically begins when the instance
 enters the “Preparing” phase, while CycleCloud is installing your software and configuring the

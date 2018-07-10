@@ -6,10 +6,10 @@ Azure CycleCloud comes with a set of pre-installed templates that can used with 
 
 ## Further Reading
 
-* Create a Cluster Template
-* Start a Cluster
-* Auto Scaling
-* Terminate a Cluster
+* Create a [Cluster Template](https://docs.microsoft.com/en-us/azure/cyclecloud/cluster-templates)
+* [Start a Cluster](https://docs.microsoft.com/en-us/azure/cyclecloud/start-cluster)
+* [Auto Scaling](https://docs.microsoft.com/en-us/azure/cyclecloud/autoscale)
+* [Terminate a Cluster](https://docs.microsoft.com/en-us/azure/cyclecloud/end-cluster)
 
 # Nodes and Node Arrays
 

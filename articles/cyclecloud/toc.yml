@@ -16,10 +16,6 @@
     href: quickstart-submit-jobs.md
   - name: Clean Up Resources
     href: quickstart-clean-up-resources.md
-- name: Tutorials
-  items:
-  - name: Start to Finish How-To Specific Task
-    href:
 - name: Concepts
   items:
   - name: CycleCloud
@@ -97,7 +93,7 @@
   - name: Start a Cluster
     href: start-cluster.md
   - name: Scale Your Cluster
-    href: scale-your-cluster.md
+    href: autoscale.md
   - name: Terminate a Cluster
     href: end-cluster.md
   - name: Create Custom Images
@@ -140,67 +136,11 @@
     href: autoscale-api.md
   - name: Scheduler
     href: scheduler-integration.md
-  - name: CycleServer Datastore
-    href:
-    items:
-    - name: RESTful Interface
-      href:
-    - name: Notifications
-      href:
-    - name: Identifiers
-      href:
-    - name: Type Definitions
-      href:
-    - name: Views
-      href:
-    - name: Plugin API
-      href:
-    - name: Informal Syntax
-      href:
-  - name: Plugins
-    href:
-    items:
-    - name: Plugin Development
-      href:
-    - name: WebContent Plugins
-      href:
-    - name: Plugin Configuration
-      href:
-    - name: Debugging
-      href:
-    - name: Formatter Plugins
-      href:
-    - name: HTML Template Plugins
-      href:
-    - name: Actions
-      href:
-    - name: Task Execution
-      href:
-    - name: Email
-      href:
-    - name: RESTful Library
-      href:
-    - name: Event Log
-      href:
-    - name: Java Plugins
-      href:
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href:
+  - name: CycleCloud Cluster Templates
+    href: https://github.com/CycleCloud
+  - name: CycleCloud Community
+    href: https://github.com/CycleCloudCommunity
   - name: FAQ
     href:
-  - name: Public data sets
-    href:
-  - name: Troubleshoot connectivity
-    href:
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/sql-database/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/sql-azure
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?service=sql-database

@@ -36,7 +36,7 @@ By adding the above section a new cluster template called `custom_sge_cluster`, 
 
     $ cyclecloud start custom_demo_cluster
 
-### Configuration Notation
+## Configuration Notation
 
 Azure CycleCloud cluster templates all have the option of having one or more [[[configuration]]]
 sections which belong to a node or nodearray. These sections specify software configuration
@@ -70,7 +70,7 @@ A node/nodearray can also contain multiple configuration sections if needed:
       name = poweruser
       pass = super_secret
 
-### Cluster Template Parameters
+## Cluster Template Parameters
 
 Cluster templates can contain parameters that alter the values of certain parts of a cluster
 without having to modify the template itself. This is particularly useful in cases where many similar
