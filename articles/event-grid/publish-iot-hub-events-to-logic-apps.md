@@ -67,46 +67,47 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
    ```json
    [{
-     "id": "56afc886-767b-d359-d59e-0da7877166b2",
-     "topic": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/<Resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<IoT hub name>",
-     "subject": "devices/LogicAppTestDevice",
-     "eventType": "Microsoft.Devices.DeviceCreated",
-     "eventTime": "2018-01-02T19:17:44.4383997Z",
-     "data": {
-       "twin": {
-         "deviceId": "LogicAppTestDevice",
-         "etag": "AAAAAAAAAAE=",
-         "status": "enabled",
-         "statusUpdateTime": "0001-01-01T00:00:00",
-         "connectionState": "Disconnected",
-         "lastActivityTime": "0001-01-01T00:00:00",
-         "cloudToDeviceMessageCount": 0,
-         "authenticationType": "sas",
-         "x509Thumbprint": {
-           "primaryThumbprint": null,
-           "secondaryThumbprint": null
-         },
-         "version": 2,
-         "properties": {
-           "desired": {
-             "$metadata": {
-               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-             },
-             "$version": 1
-           },
-           "reported": {
-             "$metadata": {
-               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-             },
-             "$version": 1
-           }
-         }
-       },
-       "hubName": "egtesthub1",
-       "deviceId": "LogicAppTestDevice",
-     },
-     "dataVersion": "",
-     "metadataVersion": "1"
+  "id": "56afc886-767b-d359-d59e-0da7877166b2",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+  "subject": "devices/LogicAppTestDevice",
+  "eventType": "Microsoft.Devices.DeviceCreated",
+  "eventTime": "2018-01-02T19:17:44.4383997Z",
+  "data": {
+    "twin": {
+      "deviceId": "LogicAppTestDevice",
+      "etag": "AAAAAAAAAAE=",
+      "deviceEtag": "null",
+      "status": "enabled",
+      "statusUpdateTime": "0001-01-01T00:00:00",
+      "connectionState": "Disconnected",
+      "lastActivityTime": "0001-01-01T00:00:00",
+      "cloudToDeviceMessageCount": 0,
+      "authenticationType": "sas",
+      "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+      },
+      "version": 2,
+      "properties": {
+        "desired": {
+          "$metadata": {
+            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+          },
+          "$version": 1
+        },
+        "reported": {
+          "$metadata": {
+            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+          },
+          "$version": 1
+        }
+      }
+    },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
    }]
    ```
 5. You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section. 
@@ -148,7 +149,8 @@ Before you leave the Logic Apps Designer, copy the URL that your logic apps is l
 
 3. Save this URL so that you can refer to it in the next section. 
 
-## Publish an event from IoT Hub
+
+## Configure subscription for IoT Hub events
 
 In this section, you configure your IoT Hub to publish events as they occur. 
 
@@ -162,18 +164,19 @@ In this section, you configure your IoT Hub to publish events as they occur.
    ![Create new event subscription](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Create the event subscription with the following values: 
-   * **Name**: Provide a descriptive name.
-   * **Subscribe to all event types**: Unselect the checkbox.
-   * **Event types**: Select **DeviceCreated**.
-   * **Subscriber type**: Select **Web Hook**.
-   * **Subscriber endpoint**: Paste the URL that you copied from your logic app. 
+* **Event Type**: Uncheck Subscribe to all event types and select **Device Created** from the menu.
+* **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
-   You could save the event subscription here, and receive notifications for every device that is created in your IoT hub. For this tutorial, though, let's use the optional fields to filter for specific devices: 
+   ![select endpoint url](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-   * **Prefix filter**: Enter `devices/Building1_` to filter for device events in building 1.
-   * **Suffix filter**: Enter `_Temperature` to filter for device events related to temperature.
+**Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**
 
-   When you're done, the form should look like the following example: 
+You could save the event subscription here, and receive notifications for every device that is created in your IoT hub. For this tutorial, though, let's use the optional fields to filter for specific devices: 
+
+* **Prefix filter**: Enter `devices/Building1_` to filter for device events in building 1.
+* **Suffix filter**: Enter `_Temperature` to filter for device events related to temperature.
+
+When you're done, the form should look like the following example: 
 
    ![Sample event subscription form](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 

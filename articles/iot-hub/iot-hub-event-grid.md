@@ -138,7 +138,6 @@ Applications that handle IoT Hub events should follow these suggested practices:
 * Messages can arrive out of order or after a delay. Use the etag field to understand if your information about objects is up-to-date.
 
 
-
 ## Next steps
 
 * [Try the IoT Hub events tutorial](../event-grid/publish-iot-hub-events-to-logic-apps.md)

@@ -1,10 +1,10 @@
 ---
-title: Maintain latest device connection state from Azure IoT Hub using Azure Cosmos DB | Microsoft Docs
-description: This article describes how to order and record device connection events from Azure IoT Hub using Azure Cosmos DB 
+title: Order device connection events from Azure IoT Hub using Azure Cosmos DB | Microsoft Docs
+description: This article describes how to order and record device connection events from Azure IoT Hub using Azure Cosmos DB to maintain the latest connection state
 services: iot-hub
 documentationcenter: ''
 author: ash2017
-manager: timlt
+manager: briz
 editor: ''
 
 
@@ -201,9 +201,9 @@ Conditions help run specific actions after passing a specific condition, in your
 
 2. Fill the condition as shown below to only execute this for Device Connected and Device Disconnected events:
 
-Choose a value: eventType
-Change "is equal to" to "ends with"
-Choose a value: nected
+* Choose a value: **eventType**
+* Change is equal to" to **ends with**
+* Choose a value: **nected**
 
    ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
@@ -246,12 +246,12 @@ In this section, you configure your IoT Hub to publish events as they occur.
    ![Create new event subscription](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
 4. Create the event subscription with the following values: 
-**Event Type**: Uncheck Subscribe to all event types and select **Device Connected** and **Device Disconnected** from the menu.
-**Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
+* **Event Type**: Uncheck Subscribe to all event types and select **Device Connected** and **Device Disconnected** from the menu.
+* **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
    ![select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-**Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**
+* **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**
 
    When you're done, the form should look like the following example: 
 
@@ -262,7 +262,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 ## Observe Events
 Now that your event subscription is set up, let's test by connecting a device.
 
-### Register a device in the IoT Hube
+### Register a device in the IoT Hub
 
 1. From your IoT hub, select **IoT Devices**. 
 2. Select **Add**.

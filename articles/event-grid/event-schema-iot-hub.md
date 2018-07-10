@@ -124,11 +124,11 @@ The contents of the data object are different for each event publisher. For IoT 
 | deviceId | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | moduleId | string | The unique identifier of the module. This field is output only for module devices. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | object | Device connection state event information
-| sequenceNumber | string | A number which helps indicate order of device connected or device disconnected events. Latest event will have a sequence number that is higher than the previous event. This number may change by more than 1, but is strictly increasing. |
+| sequenceNumber | string | A number which helps indicate order of device connected or device disconnected events. Latest event will have a sequence number that is higher than the previous event. This number may change by more than 1, but is strictly increasing. See [how to use sequence number](https://docs.microsoft.com/azure/iot-hub/iot-hub-how-to-order-connection-state-events). |
 | twin | object | Information about the device twin, which is the cloud represenation of application device metadata. | 
 | deviceID | string | The unique identifier of the device twin. | 
-| etag | string | A piece of information that describes the content of the device twin. Each etag is guaranteed to be unique per device twin. |  
-| deviceEtag| string | A piece of information that describes the content of the device registry. Each etag is guaranteed to be unique per device registry. |
+| etag | string | A validator for ensuring consistency of updates to a device twin. Each etag is guaranteed to be unique per device twin. |  
+| deviceEtag| string | A validator for ensuring consistency of updates to a device registry. Each deviceEtag is guaranteed to be unique per device registry. |
 | status | string | Whether the device twin is enabled or disabled. | 
 | statusUpdateTime | string | The ISO8601 timestamp of the last device twin status update. |
 | connectionState | string | Whether the device is connected or disconnected. | 
