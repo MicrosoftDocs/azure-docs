@@ -30,7 +30,7 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [2]: ./media/partner-migration-postgresql/DB_Best_logo.png
 [3]: ./media/partner-migration-postgresql/PW-logo-text-CMYK1000.png
 [4]: ./media/partner-migration-postgresql/InfosysLogo.png
-[5]: ./media/partner-migration-mysql/credativ_round_logo2.png
+[5]: ./media/partner-migration-postgresql/credativ_round_logo2.png
 
 <!--Website links -->
 [snp_website]:https://www.snp.com//
