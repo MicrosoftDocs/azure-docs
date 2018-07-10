@@ -33,7 +33,11 @@ If you don't have the Human Resources app from the [pattern](luis-tutorial-batch
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `roles`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## The purpose of roles
+The purpose of roles is to extract contextually-related entities in an utterance. In the utterance, `Move Jill Jones from building and office A-1234 to building and office B-4567`, the origin and destination values are related to each other and use common language to denote each location. 
 
+In the **MoveEmployee** intent created in the [hierarchical tutorial](luis-quickstart-intent-and-hier-entity.md), the origin and destination locations are contextually related but do not use roles. Instead, the related values are contained inside children of the hierarchical entity. When not using patterns, more example utterances need to be provided for LUIS to learn the intent and entities. 
+
+With patterns, fewer example utterances are provided to the intent because template utterances are used in the patterns. The template utterance can contain entities and entity roles, along with ignorable text.
 
 ## Convert hierarchical entity to simple entity with roles
 

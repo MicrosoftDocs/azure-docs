@@ -75,6 +75,8 @@
       href: luis-tutorial-batch-testing.md
     - name: With patterns
       href: luis-tutorial-pattern.md
+    - name: With roles
+      href: luis-tutorial-pattern-roles.md
 - name: Samples
   items:
   - name: Code samples
