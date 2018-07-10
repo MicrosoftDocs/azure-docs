@@ -44,6 +44,8 @@
       href: contoso-migration-tfs-vsts.md
     - name: 12. Contoso-Rearchitect an app on Azure Service Fabric and Azure SQL Database
       href: contoso-migration-rearchitect-container-sql.md
+    - name: 13. Contoso-Rebuild an app in Azure
+      href: contoso-migration-rebuild.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
   - name: Group machines
