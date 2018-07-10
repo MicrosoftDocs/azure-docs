@@ -5,9 +5,9 @@
 ### Storefronts  
 #### [Comparing AppSource and Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
 
-### How to Publish in the storefronts on the marketplace  
+### How to Publish on the Marketplace  
 #### [Determine the Listing Type for Your Solution](./determine-your-listing-type.md)  
-#### [Become a Publisher in the storefronts on the marketplace](./become-publisher.md)  
+#### [Become a Publisher on the marketplace](./become-publisher.md)  
 #### [Requirements by Listing Type](./listing-type-requirements.md) 
 #### Business Validation Checklists  
 ##### [Guidelines](./guidelines.md)  
@@ -23,7 +23,7 @@
 #### [SaaS app publishing guide](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [Containers](./marketplace-containers.md)
 #### [Consulting Service](./consulting-services.md)  
-#### [AppSource Apps](./appsource-offer-publishing-guide.md))
+#### [AppSource Apps](./appsource-offer-publishing-guide.md)
 
 ### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Preferred Solutions](./preferred-solutions.md) 
