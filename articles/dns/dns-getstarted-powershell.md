@@ -23,8 +23,8 @@ ms.author: kumud
 > [!div class="op_single_selector"]
 > * [Azure portal](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
-> * [Azure CLI 2.0](dns-getstarted-cli.md)
+> * [Azure classic CLI](dns-getstarted-cli-nodejs.md)
+> * [Azure CLI](dns-getstarted-cli.md)
 
 This article walks you through the steps to create your first DNS zone and record using Azure PowerShell. You can also perform these steps using the Azure portal or the cross-platform Azure CLI. Azure DNS also supports creating a private domains. For step-by-step instructions about how create your first private DNS zone and record, see [Get started with Azure DNS private zones using PowerShell](private-dns-getstarted-powershell.md).
 

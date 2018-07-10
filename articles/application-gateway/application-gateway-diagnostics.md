@@ -54,7 +54,7 @@ The following PowerShell code shows how to view back-end health by using the `Ge
 Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
-### View back-end health through Azure CLI 2.0
+### View back-end health through Azure CLI
 
 ```azurecli
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway

@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure DNS Private Zones using Azure CLI 2.0 | Microsoft Docs
-description: Learn how to create a Private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first DNS Private zone and record using the Azure CLI 2.0.
+title: Get started with Azure DNS Private Zones using Azure CLI | Microsoft Docs
+description: Learn how to create a Private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first DNS Private zone and record using the Azure CLI.
 services: dns
 documentationcenter: na
 author: KumuD
@@ -18,19 +18,19 @@ ms.date: 03/15/2018
 ms.author: kumud
 ---
 
-# Get started with Azure DNS Private Zones using Azure CLI 2.0
+# Get started with Azure DNS Private Zones using Azure CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](private-dns-getstarted-powershell.md)
-> * [Azure CLI 2.0](private-dns-getstarted-cli.md)
+> * [Azure CLI](private-dns-getstarted-cli.md)
 
-This article walks you through the steps to create your first DNS private zone and record using the cross-platform Azure CLI 2.0, which is available for Windows, Mac and Linux. You can also perform these steps using the Azure PowerShell.
+This article walks you through the steps to create your first DNS private zone and record using the cross-platform Azure CLI, which is available for Windows, Mac and Linux. You can also perform these steps using the Azure PowerShell.
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  We call these 'resolution virtual networks'.  You may also specify a virtual network for which Azure DNS maintains hostname records whenever a VM is created, changes IP, or is destroyed.  We call this a 'registration virtual network'.
 
-These instructions assume you have already installed and signed in to Azure CLI 2.0 and also installed the needed CLI extension that supports Private Zones. For help, see [How to manage DNS zones using Azure CLI 2.0](dns-operations-dnszones-cli.md).
+These instructions assume you have already installed and signed in to Azure CLI and also installed the needed CLI extension that supports Private Zones. For help, see [How to manage DNS zones using Azure CLI](dns-operations-dnszones-cli.md).
 
 ## To install/use Azure DNS Private Zones feature (Public Preview)
 The Azure DNS Private Zone feature is released in Public Preview via an extension to the Azure CLI. Install the “dns” Azure CLI extension 
@@ -75,7 +75,7 @@ The following example creates a record with the relative name "ip1" in the DNS Z
 az network dns record-set a add-record -g MyResourceGroup -z contoso.local -n ip1 -a 10.0.0.1
 ```
 
-For other record types, for record sets with more than one record, for alternative TTL values, and to modify existing records, see [Manage DNS records and record sets using the Azure CLI 2.0](dns-operations-recordsets-cli.md).
+For other record types, for record sets with more than one record, for alternative TTL values, and to modify existing records, see [Manage DNS records and record sets using the Azure CLI](dns-operations-recordsets-cli.md).
 
 ## View records
 
@@ -181,6 +181,6 @@ az group delete --name MyResourceGroup
 
 To learn more about Azure DNS, see [Azure DNS overview](dns-overview.md).
 
-To learn more about managing DNS zones in Azure DNS, see [Manage DNS zones in Azure DNS using Azure CLI 2.0](dns-operations-dnszones-cli.md).
+To learn more about managing DNS zones in Azure DNS, see [Manage DNS zones in Azure DNS using Azure CLI](dns-operations-dnszones-cli.md).
 
-To learn more about managing DNS records in Azure DNS, see [Manage DNS records and record sets in Azure DNS using Azure CLI 2.0](dns-operations-recordsets-cli.md).
+To learn more about managing DNS records in Azure DNS, see [Manage DNS records and record sets in Azure DNS using Azure CLI](dns-operations-recordsets-cli.md).
