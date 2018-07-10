@@ -71,7 +71,7 @@ LUIS offers many types of entities; prebuilt entities, custom machine learned en
 **Prebuilt** entities are custom entities provided by LUIS. Some of these entities are defined in the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. There are many [examples](https://github.com/Microsoft/Recognizers-Text/tree/master/Specs) in the /Specs directory for the supported cultures. If your specific culture or entity isn't currently supported, contribute to the project. 
 
 <a name="machine-learned"></a>
-**Machine-learned** entities work best when tested via [endpoint queries](luis-concept-test.md#endpoint-testing) and [reviewing endpoint utterances](luis-how-to-label.md). 
+**Machine-learned** entities work best when tested via [endpoint queries](luis-concept-test.md#endpoint-testing) and [reviewing endpoint utterances](luis-how-to-review-endoint-utt.md). 
 
 <a name="regex"></a>
 **Regular expression entities** are defined by a regular expression the user provides as part of the entity definition. 

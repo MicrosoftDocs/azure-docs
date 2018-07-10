@@ -363,7 +363,7 @@ Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/m
     ```
 
 ## Phrase lists
-Adding the phrase list boosted the signal of the words in the list but is **not** used as an exact match. The phrase list has several jobs with the first word of `lead` and also has the job `welder` but does not have the job `lead welder`. This phrase list for jobs may not be complete. As you regularly [review endpoint utterances](luis-how-to-label.md) and find other job words, add those to your phrase list. Then retrain and republish.
+Adding the phrase list boosted the signal of the words in the list but is **not** used as an exact match. The phrase list has several jobs with the first word of `lead` and also has the job `welder` but does not have the job `lead welder`. This phrase list for jobs may not be complete. As you regularly [review endpoint utterances](luis-how-to-review-endoint-utt.md) and find other job words, add those to your phrase list. Then retrain and republish.
 
 ## What has this LUIS app accomplished?
 This app, with a simple entity and a phrase list of words, identified a natural language query intention and returned the job data. 
