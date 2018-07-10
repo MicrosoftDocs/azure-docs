@@ -3,9 +3,9 @@ title: Azure Marketplace SaaS Applications Technical Publishing Guide
 description: Step-by-step guide and publishing checklists for publishing SaaS applications to Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 documentationcenter:
-author: kevidal
+author: keithcharlie
 manager: nunoc
-editor: kevidal
+editor: keithcharlie
 
 ms.assetid: 
 ms.service: marketplace
@@ -14,7 +14,7 @@ ms.tgt_pltfrm:
 ms.devlang: 
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: kevidal
+ms.author: keithcharlie
 
 ---
 
