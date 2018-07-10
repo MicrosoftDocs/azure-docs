@@ -25181,6 +25181,16 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-deploy.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-device-simulation-deploy",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-explore.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-device-simulation-deploy",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
             "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-javascriptspa",
             "redirect_document_id": false
