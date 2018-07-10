@@ -24,6 +24,7 @@ ms.author: renash
 > In order to mount an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support the encryption functionality of SMB 3.0.
 
 ## Prerequisites for mounting an Azure file share with Linux and the cifs-utils package
+* <a id="smb-client-reqs"></a>**Understand SMB client requirements.**
 * **Pick a Linux distribution to suit your mounting needs.**  
       Azure Files can be mounted either via SMB 2.1 and SMB 3.0. For connections coming from clients on-premises or in other Azure regions, Azure Files will reject SMB 2.1 (or SMB 3.0 without encryption). If *secure transfer required* is enabled for a storage account, Azure Files will only allow connections using SMB 3.0 with encryption.
     
