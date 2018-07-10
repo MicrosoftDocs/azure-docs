@@ -181,7 +181,7 @@ To ensure resources aren't overburdened when running jobs against databases in a
 
 ##	Differences between Elastic Jobs and SQL Server Agent
 
-It is worth noting a couple of differences between SQL Server Agent (available on-premise and as part of SQL Database Managed Instance), and the Azure SQL Database Elastic Job agent (now available for SQL Database and SQL Data Warehouse).
+It is worth noting a couple of differences between SQL Server Agent (available on-premises and as part of SQL Database Managed Instance), and the Azure SQL Database Elastic Job agent (now available for SQL Database and SQL Data Warehouse).
 
 
 |  |Elastic Jobs  |SQL Server Agent |

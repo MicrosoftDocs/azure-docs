@@ -35,6 +35,8 @@ items:
         href: create-mongodb-golang.md
       - name: Python
         href: create-mongodb-flask.md
+      - name: Xamarin
+        href: create-mongodb-xamarin.md
     - name: Graph
       items:
       - name: .NET
@@ -73,7 +75,7 @@ items:
     items:
     - name: Global distribution
       href: distribute-data-globally.md
-    - name: Multi-master setup
+    - name: Multi-master
       href: multi-region-writers.md
     - name: Partitioning
       href: partition-data.md
@@ -172,8 +174,6 @@ items:
           href: bulk-executor-dot-net.md
         - name: BulkExecutor - Java
           href: bulk-executor-java.md
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md          
         - name: Query
           items:
           - name: Perform SQL queries
@@ -184,8 +184,6 @@ items:
           href: indexing-policies.md
         - name: SQL data partitioning
           href: sql-api-partition-data.md
-        - name: Stored procedures, triggers, and UDFs
-          href: programming.md
         - name: Change feed
           href: change-feed.md
         - name: Data types
@@ -262,8 +260,6 @@ items:
           href: sql-api-sql-query-reference.md
       - name: Resources
         items:
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
         - name: SQL playground
@@ -328,12 +324,8 @@ items:
           href: mongodb-ttl.md 
         - name: Visualize your data with Power BI
           href: powerbi-visualize.md
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md
       - name: Resources
         items:
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Graph API Docs
@@ -352,12 +344,8 @@ items:
         items:
         - name: Graph partitioning
           href: graph-partitioning.md
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md
       - name: Resources
         items:
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Table API Docs
@@ -378,8 +366,6 @@ items:
           href: tutorial-query-table.md
         - name: 4 - Distribute globally
           href: tutorial-global-distribution-table.md
-        - name: 5 - Serverless app - Node.js
-          href: https://docs.microsoft.com/learn/build-serverless-app/index 
       - name: Samples
         items:
         - name: .NET
@@ -410,8 +396,6 @@ items:
             href: table-sdk-python.md  
       - name: Resources
         items:
-        - name: Manage using Storage Explorer
-          href: storage-explorer.md
         - name: Table storage overview
           href: table-storage-overview.md
         - name: Table storage design guide
@@ -450,6 +434,8 @@ items:
       href: regional-failover.md
     - name: Diagnostic logging
       href: logging.md
+    - name: Stored procedures, triggers, and UDFs
+      href: programming.md
     - name: BulkExecutor overview
       href: bulk-executor-overview.md
     - name: Cost-effective reads and writes
@@ -460,12 +446,10 @@ items:
       href: manage-account-with-powershell.md
     - name: Manage using Storage Explorer
       href: storage-explorer.md
-    - name: Multi-region writers
+    - name: Multi-master setup
       href: multi-master-workaround.md
   - name: Resources
     items:
-    - name: Manage using Storage Explorer
-      href: storage-explorer.md 
     - name: Query cheat sheet
       href: query-cheat-sheet.md
     - name: 20 days of tips

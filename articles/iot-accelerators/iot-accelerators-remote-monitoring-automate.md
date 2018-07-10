@@ -148,4 +148,4 @@ If you no longer need the solution accelerator, delete it from the [Provisioned 
 This tutorial showed you how to use the **Rules** page in the Remote Monitoring solution accelerator to create and manage rules that trigger alerts in the solution. To learn how to use the solution accelerator to manage and configure your connected devices, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Configure and manage devices connected to your monitoring solution](iot-accelerators-remote-monitoring-manage.md).
+> [Configure and manage devices connected to your monitoring solution](iot-accelerators-remote-monitoring-manage.md)

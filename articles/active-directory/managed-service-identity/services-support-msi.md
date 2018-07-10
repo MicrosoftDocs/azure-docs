@@ -5,7 +5,7 @@ services: active-directory
 author: daveba
 ms.author: daveba
 ms.date: 06/27/2018
-ms.topic: reference
+ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman

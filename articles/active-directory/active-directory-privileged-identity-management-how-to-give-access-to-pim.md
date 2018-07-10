@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/06/2017
@@ -29,10 +29,10 @@ Make sure there are always at least two users in a privileged role administrator
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the **Azure AD Privileged Identity Management** app on the dashboard.
 2. Select **Manage privileged roles** > **Privileged role administrator** > **Add**.
    
-    ![Add privileged role administrators - screenshot][1]
+    ![Add privileged role administrators - screenshot](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png)
 3. On the Add managed users blade, step 1 is already complete. Select step 2, **Select users** and search for the user you want to add.
    
-    ![Select users - screenshot][2]
+    ![Select users - screenshot](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png)
 4. Select the user from the search results, and click **Done**.
 5. Click **OK** to save your selection. The user you have selected will appear in the list of Privileged role administrators.
    
@@ -50,8 +50,3 @@ Before you remove someone from the privileged role administrator role, always ma
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png
