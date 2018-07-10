@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/24/2018
+ms.date: 07/10/2018
 ms.author: alkohli
 ---
 # Tutorial: Unpack, connect, and unlock Azure Data Box Disk

@@ -4,7 +4,7 @@ description: Describes system limits and recommended sizes for the Microsoft Azu
 services: databox
 documentationcenter: NA
 author: alkohli
-manager: jeconnoc
+manager: twooley
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/01/2018
+ms.date: 07/10/2018
 ms.author: alkohli
 ms.custom: 
 
@@ -23,7 +23,7 @@ ms.custom:
 
 Consider these limits as you deploy and operate your Microsoft Azure Data Box Disk solution. 
 
-> Azure Data Box Disk is in Preview. Review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
+> [!IMPORTANT] Azure Data Box Disk is in Preview. Review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
 
 
 ## Data Box service limits
