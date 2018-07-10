@@ -7,10 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Try cognitive search
-    href: cognitive-search-quickstart-blob.md
   - name: Create a service
     href: search-create-service-portal.md
+  - name: Try cognitive search
+    href: cognitive-search-quickstart-blob.md
   - name: .NET
     items:
     - name: Create an index
@@ -41,7 +41,7 @@
     href: search-synonyms-tutorial-sdk.md
   - name: Add auto-complete in .NET
     href: search-autocomplete-tutorial.md
-  - name: Portal walkthrough
+  - name: Portal tools walkthrough
     href: search-get-started-portal.md
 - name: Samples
   items:
