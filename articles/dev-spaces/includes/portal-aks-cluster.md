@@ -23,7 +23,7 @@ manager: "douge"
     - **CLUSTER DETAILS**: enter a name, region (currently, you must choose EastUS, Central US, WestEurope, WestUS2, CanadaCentral, or CanadaEast), version, and DNS name prefix for the AKS cluster.
     - **SCALE**: select a VM size for the AKS agent nodes and the number of nodes. If you’re getting started with Azure Dev Spaces, one node is enough to explore all the features. The node count can be easily adjusted any time after the cluster is deployed. Note that the VM size can’t be changed once an AKS cluster has been created. However, once an AKS cluster has been deployed, you can easily create a new AKS cluster with larger VMs and use Dev Spaces to redeploy to that larger cluster if you need to scale up.
 
-   Make sure to choose Kubernetes version 1.9.6 or later.
+   Make sure to choose Kubernetes version 1.10.3 or later.
 
    ![Kubernetes configuration settings](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
