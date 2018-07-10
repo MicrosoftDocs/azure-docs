@@ -43,9 +43,12 @@ Create a Traffic manager profile that directs user traffic based on endpoint [pr
     | Resource group          | Select **Create new** and enter *myResourceGroupTM*. |
     | Location                | Select **East US**.  This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that will be deployed globally.                              |
     |
-  4. When the global deployment of your Traffic Manager profile is complete, it is listed in respective resource group as one of the resources.
+  
+    ![Create a Traffic Manager profile](./media/traffic-manager-create-profile/traffic-manager-profile2.png)
 
-  ![Create a Traffic Manager profile](./media/traffic-manager-create-profile/traffic-manager-profile2.png)
+3. When the global deployment of your Traffic Manager profile is complete, it is listed in the *myResourceGroupTM* resource group as one of the resources.
+
+
 
 ## Add Traffic Manager endpoints
 
