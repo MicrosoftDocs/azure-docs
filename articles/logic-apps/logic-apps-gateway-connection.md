@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 07/20/2018
 
 # optional metadata
 ms.reviewer: yshoukry, LADocs
@@ -18,44 +18,18 @@ ms.suite: integration
 # Connect to data sources on premises from Azure Logic Apps with on-premises data gateway
 
 To access data sources on premises from your logic apps, 
-you can create and set up an on-premises data gateway 
-that logic apps can use with the supported 
-[on-premises connectors](../connectors/apis-list.md). 
-This article shows how to create and set up your 
-on-premises data gateway in Azure after you first 
+you can create a data gateway resource in Azure so that 
+your logic apps can use the [on-premises connectors](../logic-apps/logic-apps-gateway-install.md#supported-connections). 
+This article shows how to create your Azure gateway resource *after* you 
 [download and install the gateway on your local computer](../logic-apps/logic-apps-gateway-install.md). 
 
-For information about how to use the gateway with other services, see these articles:
+For information about how to use the gateway with other services, 
+see these articles:
 
-* [Microsoft PowerApps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 * [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Microsoft PowerApps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
-
-## What is a data gateway?
-
-The gateway is a bridge that provides quick data transfer 
-and encryption between data sources on premises and your logic apps. 
-The gateway relays data from on-premises sources 
-on encrypted channels through the Azure Service Bus. 
-All traffic originates as secure outbound traffic from the gateway agent. 
-Learn more about [how the data gateway works](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service). 
-
-The gateway supports connections to these data sources on premises:
-
-*   BizTalk Server 2016
-*   File System
-*   IBM DB2  
-*   IBM Informix
-*   IBM MQ
-*   MySQL
-*   Oracle Database
-*   PostgreSQL
-*   SAP Application Server 
-*   SAP Message Server
-*   SharePoint Server
-*   SQL Server
-*   Teradata
 
 ## Prerequisites
 
