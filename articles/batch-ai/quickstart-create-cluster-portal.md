@@ -127,7 +127,7 @@ It takes a few minutes for the cluster to resize.
 
 If you want to continue with Batch AI tutorials and samples, use the Batch AI workspace, file server, and cluster created in this quickstart.
 
-You're charged for the Batch AI cluster and file server while the underlying virtual machines are running, even if no jobs are scheduled. If you want to maintain the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. Later, resize it to 1 or more nodes to run your jobs. When no longer needed, delete the Batch AI workspace containing the cluster and file server. To do so, select the Batch AI workspace and select **Delete **.
+You're charged for the Batch AI cluster and file server while the underlying virtual machines are running, even if no jobs are scheduled. If you want to maintain the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. Later, resize it to 1 or more nodes to run your jobs. When no longer needed, delete the Batch AI workspace containing the cluster and file server. To do so, select the Batch AI workspace and select **Delete**.
 
 ## Next steps
 
