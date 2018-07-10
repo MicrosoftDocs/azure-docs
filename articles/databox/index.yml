@@ -26,7 +26,7 @@ sections:
     - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure Portal
-      href: /azure/databox/data-box-disk-quickstart
+      href: /azure/databox/data-box-disk-quickstart-portal
 - title: Step-by-Step tutorial
   items:
   - type: paragraph
