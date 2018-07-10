@@ -19,12 +19,12 @@ ms.author: kumud
 
 # Quickstart: Create a Traffic Manager profile for high availability of a web application
 
- Azure Traffic Manager allows you to control the distribution of user traffic to the service endpoints across the different Azure regions. Depending on your organization's requirement, a Traffic Manager profile can be used to direct traffic based on endpoint [priority](traffic-manager-routing-methods.md#priority), [performance](traffic-manager-routing-methods.md#performance), [weight](traffic-manager-routing-methods.md#weighted), or, [geographic location](traffic-manager-routing-methods.md#geographic). 
+ Azure Traffic Manager allows you to control the distribution of user traffic across the different Azure regions. Depending on your organization's requirement, a Traffic Manager profile can be used to direct traffic based on endpoint [priority](traffic-manager-routing-methods.md#priority), [performance](traffic-manager-routing-methods.md#performance), [weight](traffic-manager-routing-methods.md#weighted), or, [geographic location](traffic-manager-routing-methods.md#geographic). 
 
 This quickstart describes how to create a Traffic Manager profile that delivers high availability of your web application by monitoring your endpoints and providing automatic failover when an endpoint goes down. The scenario described in this quickstart includes two Azure App Service endpoints that are located in separate Azure regions. All traffic is routed to the primary endpoint while the secondary endpoint is kept as a backup. When the primary endpoint is unavailable, traffic is automatically routed to the secondary endpoint.
 
 ## Pre-requisites
-This quickstart requires that you have already created two Azure Web Apps in two different Azure regions that will be used as endpoints for the Traffic Manager profile. To learn how to create an Azure Web App, use one of the quickstart guides in the [Azure Web Apps documentation page](https://docs.microsoft.com/azure/app-service/). 
+This quickstart requires that you have already created two Azure Web Apps in two different Azure regions. The two Web Apps are used as endpoints for the Traffic Manager profile. To learn how to create an Azure Web App, use one of the quickstart guides in the [Azure Web Apps documentation page](https://docs.microsoft.com/azure/app-service/). 
 
 ### Create a Traffic Manager profile
 1. From a browser, sign in to the [Azure portal](http://portal.azure.com). If you don’t already have an account, you can sign-up for a [free one-month trial](https://azure.microsoft.com/free/). 
@@ -32,7 +32,7 @@ This quickstart requires that you have already created two Azure Web Apps in two
 4. In the **Create Traffic Manager profile**, enter or select, the following information, accept the defaults for the remaining settings:
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
-    | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name <name>,trafficmanager.net which is used to access your Traffic Manager profile.                                   |
+    | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name <name>, trafficmanager.net which is used to access your Traffic Manager profile.                                   |
     | Routing method          | Select the **Priority** routing method.                                       |
     | Subscription            | Select your subscription.                          |
     | Resource group          | Select **Create new** and enter *myResourceGroupTM*. |
@@ -54,7 +54,7 @@ This quickstart requires that you have already created two Azure Web Apps in two
     | Type                    | Azure endpoint                                   |
     | Name           | myPrimaryEndpoint                                        |
     | Target resource type           | App Service                          |
-    | Target resource          | **Choose an app service** to show the listing of the Web Apps under the same subscription.In **Resource**, pick the App service that you want to add as the first endpoint. |
+    | Target resource          | **Choose an app service** to show the listing of the Web Apps under the same subscription. In **Resource**, pick the App service that you want to add as the first endpoint. |
     | Priority               | Select **1**. This results in all traffic going to this endpoint if it is healthy.    |
     |        |           |
 
@@ -69,7 +69,7 @@ This quickstart requires that you have already created two Azure Web Apps in two
 1. Click **Overview**.
 2. The **Traffic Manager profile** displays the DNS name of your newly created Traffic Manager profile.
     ![Add a Traffic Manager endpoint](./media/traffic-manager-create-profile/traffic-manager-dns-name.png)
-3. In a web browser type the DNS name of your Traffic Manager profile to view your web application. In this quickstart scenario, all requests are routed to the primary endpoint that is set to **Priority 1**.
+3. In a web browser, type the DNS name of your Traffic Manager profile to view your web application. In this quickstart scenario, all requests are routed to the primary endpoint that is set to **Priority 1**.
 4. To view Traffic Manager failover in action, you can disable your primary endpoint. To do so, under **Settings**, select **Endpoints**, select *MyPrimaryEndpoint*, and then select **Disabled**. You can still successfully access your web app in a web browser. This is because the user traffic now gets routed to the secondary endpoint since the primary endpoint is unavailable.
 
 ## Delete the Traffic Manager profile
