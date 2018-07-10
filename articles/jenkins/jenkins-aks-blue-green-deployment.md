@@ -36,8 +36,8 @@ In this tutorial, you learn how to perform the following tasks in learning how t
 - [GitHub account](https://github.com) : You need a GitHub account to clone the sample repo.
 - [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) : The Azure CLI 2.0 is used to create the Kubernetes cluster.
 - [Chocolatey](https://chocolatey.org)
-- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) : A command line interface for running commands against Kubernetes clusters. 
-- [jq](https://stedolan.github.io/jq/download/) : A lightweight command line JSON processor.
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) : A command-line interface for running commands against Kubernetes clusters. 
+- [jq](https://stedolan.github.io/jq/download/) : A lightweight command-line JSON processor.
 
 ## Clone the sample app from GitHub
 
@@ -118,10 +118,10 @@ In order to create a managed Kubernetes cluster with [Azure CLI 2.0](https://doc
 
 ### Set up the Kubernetes cluster
 
-Setting up a blue/green deployment in AKS can be done either with a setup script provided in the sample you cloned earlier or manually. In this section, you see how to do both.
+Setting up a blue/green deployment in AKS can be done either with a setup script provided in the sample cloned earlier or manually. In this section, you see how to do both.
 
 #### Run the setup script
-1. The **todo-app-java-on-azure** repo you cloned earlier contains a setup script named **setup.sh** that resides in the **/deploy/aks/setup** directory. Edit the **setup.sh** file, replacing the following placeholders with the appropriate values for your environment: 
+1. Edit the **deploy/aks/setup/setup.sh** file, replacing the following placeholders with the appropriate values for your environment: 
 
     - **&lt;your-resource-group-name>**
     - **&lt;your-kubernetes-cluster-name>**
@@ -143,7 +143,7 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
     az aks get-credentials -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --admin
     ```
 
-1. The **todo-app-java-on-azure** repo you cloned earlier contains a setup script named **setup.sh** that resides in the **/deploy/aks/setup** directory. Change directory to the **/deploy/aks/setup**  directory. 
+1. Change directory to the **deploy/aks/setup**  directory. 
 
 1. Run the following **kubectl** commands to set up the services for the public endpoint and the two test endpoints.
 
