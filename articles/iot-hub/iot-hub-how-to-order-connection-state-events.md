@@ -246,7 +246,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
    ![Create new event subscription](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
 4. Create the event subscription with the following values: 
-**Event Type**: Uncheck Subscribe to all event types and select **Device Connected** and **Device Disconnected** from the menu
+**Event Type**: Uncheck Subscribe to all event types and select **Device Connected** and **Device Disconnected** from the menu.
 **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
    ![select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
@@ -262,21 +262,39 @@ In this section, you configure your IoT Hub to publish events as they occur.
 ## Observe Events
 Now that your event subscription is set up, let's test by connecting a device.
 
-### Create a new device
-
-Test your logic app by connecting a device to trigger a record in Cosmos DB. 
+### Register a device in the IoT Hube
 
 1. From your IoT hub, select **IoT Devices**. 
 2. Select **Add**.
-3. For **Device ID**, enter `Building1_Floor1_Room1_Humidity`.
+3. For **Device ID**, enter `Demo-Device-1`.
 4. Select **Save**. 
-5. You can add multiple devices with different device IDs to test the event subscription filters. Try these examples: 
-   * Building1_Floor1_Room1_Light
-   * Building1_Floor2_Room2_Temperature
-   * Building2_Floor1_Room1_Temperature
-   * Building2_Floor1_Room1_Light
+5. You can add multiple devices with different device IDs.
 
-Once you've added a few devices to your IoT hub, check your Cosmos DB document to see the latest device connection states.
+   ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/AddIoTHub.png)
+
+6. Copy the **Connection string -- primary key** to use later.
+
+   ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
+
+### Start Raspberry Pi Simulator
+
+1. Let's use the Raspberry Pi web simulator to simulate device connection
+
+[Start Raspberry Pi simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
+
+### Run a sample applciation on the Raspberry Pi web simulator
+
+1. In the coding area, replace the placeholder in Line 15 with your Azure IoT Hub device connection string.
+
+   ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
+
+2. Run the application by clicking on **Run**.
+
+You should see the following output that shows the sensor data and the messages that are sent to your IoT hub.
+
+   ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
+
+You have now run a sample application to collect sensor data and send it to your IoT hub.
 
 ### Observe events in Cosmos DB
 
