@@ -28,8 +28,9 @@ Azure AD Connect will integrate your on-premises directories with Azure Active D
 
 > 
 > - Synchronizing users to Azure AD is a **free feature** and doesn’t require customers to have any paid subscription.
->- Synchronized users are **not automatically granted** *any* license. Admins still have total control on the license assignment. 
+> - Synchronized users are **not automatically granted** *any* license. Admins still have total control on the license assignment. 
 > - Microsoft’s recommendation is for IT admins to synchronize all their users. This not only unblocks the users to access any Azure AD integrated resource but also gives a much broader view for IT admins to see what applications are being accessed by their users. 
+> - Microsoft strongly recommends not to synchronize users with admin roles in AAD.
 
 ![What is Azure AD Connect](media/active-directory-aadconnect/arch.png)
 

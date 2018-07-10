@@ -29,15 +29,15 @@ Make sure there are always at least two users in a privileged role administrator
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the **Azure AD Privileged Identity Management** app on the dashboard.
 2. Select **Manage privileged roles** > **Privileged role administrator** > **Add**.
    
-    ![Add privileged role administrators - screenshot](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png)
+    ![Add privileged role administrators - screenshot](./media/pim-how-to-give-access-to-pim/PIM_add_PRA.png)
 3. On the Add managed users blade, step 1 is already complete. Select step 2, **Select users** and search for the user you want to add.
    
-    ![Select users - screenshot](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png)
+    ![Select users - screenshot](./media/pim-how-to-give-access-to-pim/PIM_select_users.png)
 4. Select the user from the search results, and click **Done**.
 5. Click **OK** to save your selection. The user you have selected will appear in the list of Privileged role administrators.
    
    * Whenever you assign a new role to someone, they are automatically set up as eligible to activate the role. If you want to make them permanent in the role, click the user in the list. Select **make perm** in the user information menu.
-6. Send the user a link to [Getting started with Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md).
+6. Send the user a link to [Getting started with Azure AD Privileged Identity Management](pim-getting-started.md).
 
 ## Remove another user's access rights for managing PIM
 Before you remove someone from the privileged role administrator role, always make sure there will still be two users assigned to it.
@@ -49,4 +49,4 @@ Before you remove someone from the privileged role administrator role, always ma
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
+[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
