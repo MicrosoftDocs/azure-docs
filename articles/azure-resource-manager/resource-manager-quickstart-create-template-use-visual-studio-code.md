@@ -1,5 +1,5 @@
 ﻿---
-title: Use Visual Studio code to create Azure Resource Manager template | Microsoft Docs
+title: Use Visual Studio Code to create Azure Resource Manager template | Microsoft Docs
 description: Use the Azure Resource Manager tools extension to work on Resource Manager templates.
 services: azure-resource-manager
 documentationcenter: ''
@@ -21,7 +21,7 @@ ms.author: jgao
 
 # Quickstart: create Azure Resource Manager templates by using Visual Studio Code
 
-Learn how to create Azure Resource Manager templates by using Visual Studio code and the Azure Resource Manager Tools extension. You can create Resource Manager templates in VS Code without the extension, but the extension provides autocomplete options that simplify template development. It suggests template functions, parameters, and variables that are available in the template. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
+Learn how to create Azure Resource Manager templates by using Visual Studio Code and the Azure Resource Manager Tools extension. You can create Resource Manager templates in VS Code without the extension, but the extension provides autocomplete options that simplify template development. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
 
 ## Prerequisites
 
@@ -43,12 +43,12 @@ The template used in this quickstart is called [Create a standard storage accoun
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. Select **Open** to open the file.
-4. Select **File**>**Save As** to save a copy of the file in your local computer.
+4. Select **File**>**Save As** to save a copy of the file to your local computer.
 
 
 ## Edit the template
 
-1. From Visual Studio code, add one more output:
+1. From Visual Studio Code, add one more output:
 
     ```json
     "storageUri": {
@@ -85,13 +85,13 @@ There are many methods for deploying templates.  In this quickstart, you use Clo
 
     ![Azure portal cloud shell upload file](./media/resource-manager-quickstart-create-template-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
 4. Select the file you saved earlier in the quickstart.
-5. From the cloud shell, run the **ls** command to verify the file is uploaded successfully:
+5. From the cloud shell, run the **ls** command to verify the file is uploaded successfully. The file name used in the tutorial is called azuredeploy.json.
 
     ![Azure portal cloud shell list file](./media/resource-manager-quickstart-create-template-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
 6. From the Cloud shell, run the following commands:
 
     ```powershell
-    New-AzureRmResourceGroup -Name <ResourceGroupName> -location <AzureLocation>
+    New-AzureRmResourceGroup -Name <ResourceGroupName> -Location <AzureLocation>
 
     New-AzureRmResourceGroupDeployment -Name <DeployName> -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFileName>    
     ```
@@ -99,12 +99,12 @@ There are many methods for deploying templates.  In this quickstart, you use Clo
 
     ![Azure portal cloud shell deploy template](./media/resource-manager-quickstart-create-template-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
 
-    In the screenshot, these values are used:
+    On the screenshot, these values are used:
 
-    - <ResourceGroupName>: myresourcegroup0709. There are two appearances of the parameter.  Make sure to use the same value.
-    - <AzureLocation>: eastus2
-    - <DeployName>: mydeployment0709
-    - <TemplateFile>: azuredeploy.json
+    - **&lt;ResourceGroupName>**: myresourcegroup0709. There are two appearances of the parameter.  Make sure to use the same value.
+    - **&lt;AzureLocation>**: eastus2
+    - **&lt;DeployName>**: mydeployment0709
+    - **&lt;TemplateFile>**: azuredeploy.json
 
     From the screenshot output, the storage account name is myresourcegroup0709. 
 
@@ -116,6 +116,12 @@ There are many methods for deploying templates.  In this quickstart, you use Clo
 
 
 ## Next steps
+
+In this tutorial, you learned how to create a template using Visual Studio Code, and how to deploy the template using the Azure portal. The template used in this Quickstart only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources.  Some of the resources are dependent on the others.
+
+> [!div class="nextstepaction"]
+> [Create a template with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+
 * To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To learn about the properties for a storage account, see [storage accounts template reference](/azure/templates/microsoft.storage/storageaccounts).
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
