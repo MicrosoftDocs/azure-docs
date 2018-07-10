@@ -45,6 +45,7 @@ Create a Traffic manager profile that directs user traffic based on endpoint [pr
     |
   
     ![Create a Traffic Manager profile](./media/traffic-manager-create-profile/traffic-manager-profile2.png)
+    *Figure: Create a Traffic Manager profile*
 
 ## Add Traffic Manager endpoints
 
@@ -64,6 +65,7 @@ Add primary and secondary endpoints to your Traffic manager profile.
     |        |           |
 
      ![Add a Traffic Manager endpoint](./media/traffic-manager-create-profile/add-traffic-manager-endpoint2.png)
+      *Figure: Add a Traffic Manager endpoint*
 1. Repeat steps 3 and 4 for the next Azure Web Apps endpoint. Make sure to add it with its **Priority** value set at **2**.
 6.	When the addition of both endpoints is complete, they are displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
   
@@ -76,10 +78,13 @@ Test how Traffic manager fails over to the secondary endpoint when the primary e
 2. The **Traffic Manager profile** displays the DNS name of your newly created Traffic Manager profile.
 
     ![Traffic Manager DNS name](./media/traffic-manager-create-profile/traffic-manager-dns-name.png)
+     *Figure: Determine the DNS name for the Traffic Manager profile*
+    
 1. In a web browser, type the DNS name of your Traffic Manager profile to view your web application. In this quickstart scenario, all requests are routed to the primary endpoint that is set to **Priority 1**.
 
     ![Test Traffic Manager profile](./media/traffic-manager-create-profile/traffic-manager-test.png)
-    
+    *Figure: Test Traffic Manager traffic routing*
+  
 1. To view Traffic Manager failover in action, you can disable your primary endpoint. To do so, under **Settings**, select **Endpoints**, select *MyPrimaryEndpoint*, and then select **Disabled**. You can still successfully access your web app in a web browser using the DNS name of your Traffic Manager profile. This is because the user traffic now gets routed to the secondary endpoint since the primary endpoint is unavailable.
 
 ## Delete the Traffic Manager profile
