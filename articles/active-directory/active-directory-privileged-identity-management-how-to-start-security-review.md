@@ -32,12 +32,12 @@ From the PIM application main page, there are three ways to start an access revi
 
 When you click on the **Review** button, the **Start an access review** blade appears. On this blade, you're going to configure the review with a name and time limit, choose a role to review, and decide who will perform the review.
 
-![Start an access review - screenshot][1]
+![Start an access review - screenshot](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png)
 
 ### Configure the review
 To create an access review, you need to name it and set a start and end date.
 
-![Configure review - screenshot][2]
+![Configure review - screenshot](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png)
 
 Make the length of the review long enough for users to complete it. If you finish before the end date, you can always stop the review early.
 
@@ -46,7 +46,7 @@ Each review focuses on only one role. Unless you started the access review from 
 
 1. Navigate to **Review role membership**
    
-    ![Review role membership - screenshot][3]
+    ![Review role membership - screenshot](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png)
 2. Choose one role from the list.
 
 ### Decide who will perform the review
@@ -54,7 +54,7 @@ There are three options for performing a review. You can assign the review to so
 
 1. Navigate to **Select reviewers**
    
-    ![Select reviewers - screenshot][4]
+    ![Select reviewers - screenshot](./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png)
 2. Choose one of the options:
    
    * **Select reviewer**: Use this option when you don't know who needs access. With this option, you can assign the review to a resource owner or group manager to complete.
@@ -74,10 +74,3 @@ Until the review period is over, you can remind users to complete their review, 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## PIM Table of Contents
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_start_review.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_configure.png
-[3]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_role.png
-[4]: ./media/active-directory-privileged-identity-management-how-to-start-security-review/PIM_review_reviewers.png
