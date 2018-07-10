@@ -35,8 +35,10 @@ Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications w
 
 
 ## Install HDInsight Tools in Azure Toolkit for Eclipse and the Scala plug-in
+
 ### Install Azure Toolkit for Eclipse
 HDInsight Tools for Eclipse is available as part of Azure Toolkit for Eclipse. For installation instructions, see [Installing Azure Toolkit for Eclipse](https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-installation).
+
 ### Install the Scala plug-in
 When you open Eclipse, HDInsight Tool automatically detects whether you installed the Scala plug-in. Select **OK** to continue, and then follow the instructions to install the plug-in from the Eclipse Marketplace.
 
@@ -62,10 +64,10 @@ User can either [sign in to Azure subscription](#Sign-in-to-your-Azure-subscript
    
    ![Expanding a cluster name to see resources](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
-<h2 id="linkcluster">Link a cluster</h2>
-You can link a normal cluster by using the Ambari managed username. Similarly, for a secured HDInsight clustered, you can link by using the domain and username, such as user1@contoso.com.
+## Link a cluster
+You can link a normal cluster by using the Ambari managed username. Similarly, for a domain-joined HDInsight cluster, you can link by using the domain and username, such as user1@contoso.com.
 
-1. Click **Link a cluster** from **Azure Explorer**.
+1. Select **Link a cluster** from **Azure Explorer**.
 
    ![link cluster context menu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
