@@ -30,7 +30,7 @@ After completing this quickstart, you'll have a cluster you can scale up and use
 
 You need an SSH key pair to complete this quickstart. If you have an existing SSH key pair, this step can be skipped.
 
-To create an SSH key pair, run the following command from a Bash shell and follow the on-screen directions. For example, you can use the [Azure Cloud Shell](../../cloud-shell/overview.md) or, on Windows, the [Windows Subsystem for Linux](/windows/wsl/install-win10). The command output includes the file name of the public key file. Copy the contents of the public key file (`cat ~/.ssh/id_rsa.pub`) to the clipboard or another location you can access in a later step.
+To create an SSH key pair, run the following command from a Bash shell and follow the on-screen directions. For example, you can use the [Azure Cloud Shell](../cloud-shell/overview.md) or, on Windows, the [Windows Subsystem for Linux](/windows/wsl/install-win10). The command output includes the file name of the public key file. Copy the contents of the public key file (`cat ~/.ssh/id_rsa.pub`) to the clipboard or another location you can access in a later step.
 
 ```bash
 ssh-keygen -t rsa -b 2048
@@ -125,10 +125,10 @@ It takes a few minutes for the cluster to resize.
 
 ## Clean up resources
 
-If you want to continue with Batch AI tutorials and samples, use the Batch AI workspace, cluster, and file server created in this quickstart.
+If you want to continue with Batch AI tutorials and samples, use the Batch AI workspace, file server, and cluster created in this quickstart.
 
 You're charged for the Batch AI cluster and file server while the underlying virtual machines are running, even if no jobs are scheduled. If you want to maintain the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. Later, resize it to 1 or more nodes to run your jobs. When no longer needed, delete the Batch AI workspace containing the cluster and file server. To do so, select the Batch AI workspace and select **Delete **.
 
 ## Next steps
 
-In this quickstart, you learned how to create a Batch AI cluster, using the Azure portal. To learn more about using a Batch AI cluster to train a deep learning model, see the [training recipes](https://github.com/Azure/BatchAI).
+In this quickstart, you learned how to create a Batch AI cluster and an attached file server, using the Azure portal. To learn more about using a Batch AI cluster to train a deep learning model, see the [training recipes](https://github.com/Azure/BatchAI).
