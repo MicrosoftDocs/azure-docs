@@ -220,21 +220,25 @@ New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] 
 - - -
 ### Initiate a swap with preview (multi-phase swap) and apply destination slot configuration to source slot
 ```PowerShell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
-Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
+Switch-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -SourceSlotName [source slot name] -DestinationSlotName [destination slot name] -SwapWithPreviewAction ApplySlotConfig
+```
+
+---
+### Complete a multi-phase swap
+```PowerShell
+Switch-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -SourceSlotName [source slot name] -DestinationSlotName [destination slot name] -SwapWithPreviewAction CompleteSlotSwap
 ```
 
 - - -
 ### Cancel a pending swap (swap with review) and restore source slot configuration
 ```PowerShell
-Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
+Switch-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -SourceSlotName [source slot name] -DestinationSlotName [destination slot name] -SwapWithPreviewAction ResetSlotSwap
 ```
 
 - - -
 ### Swap deployment slots
 ```PowerShell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
-Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+Switch-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -SourceSlotName [source slot name] -DestinationSlotName [destination slot name]  
 ```
 
 ### Monitor swap events in the Activity Log
@@ -244,8 +248,8 @@ Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Calle
 
 - - -
 ### Delete deployment slot
-```
-Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
+```PowerShell
+Remove-AzureRmWebAppSlot -ResourceGroupName [resource group name] –Name [app name] -Slot [slot name]
 ```
 
 - - -
