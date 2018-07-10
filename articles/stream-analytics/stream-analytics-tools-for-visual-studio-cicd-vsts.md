@@ -52,7 +52,7 @@ Verify your email and select your account in the **Team Services Domain** drop-d
    ![Push Git repo](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/publishcode.png)
 
 Publishing the repo creates a new team project in your account with the same name as the local repo. To create the repo in an existing team project, click **Advanced** next to **Repository name**, and select a team project. You can view your code in the browser by selecting **See it on the web**.
-
+ 
 ## Configure continuous delivery with VSTS
 A Team Services build definition describes a workflow comprised of build steps that are executed sequentially. Create a build definition that produces a Service Fabric application package, and other artifacts, to deploy to a Service Fabric cluster. Learn more about [Team Services build definitions](https://www.visualstudio.com/docs/build/define/create). 
 
