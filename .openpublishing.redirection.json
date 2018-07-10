@@ -11720,6 +11720,12 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/stream-analytics/stream-analytics-tools-for-visual-studio.md",
+            "redirect_url": "/azure/stream-analytics/stream-analytics-quick-create-vs",
+            "redirect_document_id": false
+
+        },
+        {
             "source_path": "articles/stream-analytics/stream-analytics-resource-health.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-troubleshooting-guide",
             "redirect_document_id": false
