@@ -34,13 +34,13 @@ The Azure DevOps Project creates a CI/CD pipeline in VSTS.  You can create a **n
 
 1. Choose the **Create a resource** icon in the left navigation bar, then search for **DevOps project**.  Choose **Create**.
 
-   	![Starting Continuous Delivery](_img/azure-devops-project-aspnetcore/fullbrowser.png)
+   	![Starting Continuous Delivery](_img/azure-devops-project-aspnet-core/fullbrowser.png)
 
 ## Select a sample application and Azure service
 
 1. Select the **.NET** sample application.  The .NET samples include a choice of either the open-source ASP.NET framework or the cross-platform .NET Core framework.
 
-   	![.NET framework](_img/azure-devops-project-aspnetcore/chooselanguagedotnet.png)
+   	![.NET framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
 1. Select the **.NET Core** application framework.  This sample is an ASP.NET Core MVC application. When you're done, choose **Next**.
 
@@ -50,11 +50,11 @@ The Azure DevOps Project creates a CI/CD pipeline in VSTS.  You can create a **n
 
 1. Create a **new** free VSTS account or choose an **existing** account.  Choose a **name** for your VSTS project.  Select your **Azure subscription**, **location**, and choose a **name** for your application.  When you're done, choose **Done**.
 
-    ![Enter VSTS info](_img/azure-devops-project-aspnetcore/vstsazureinfo.png)
+    ![Enter VSTS info](_img/azure-devops-project-aspnet-core/vstsazureinfo.png)
 
 1. In a few minutes, the **project dashboard** loads in the Azure portal.  A sample application is set up in a repository in your VSTS account, a build executes, and your application deploys to Azure.  This dashboard provides visibility into your **code repository**, **VSTS CI/CD pipeline**, and your **application in Azure**.  On the right side of the dashboard, select **Browse** to view your running application.
 
-   	![Dashboard view](_img/azure-devops-project-aspnetcore/dashboardnopreview.png) 
+   	![Dashboard view](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
 
 ## Commit code changes and execute CI/CD
 
@@ -68,7 +68,7 @@ The Azure DevOps project created a Git repository in your VSTS or GitHub account
 
 1. Select **Edit**, and make a change to the h2 heading.  For example, type **Get started right away with the Azure DevOps Project** or make some other change.
 
-    ![Code edits](_img/azure-devops-project-aspnetcore/codechange.png)
+    ![Code edits](_img/azure-devops-project-aspnet-core/codechange.png)
 
 1. Choose **Commit**, then save your changes.
 
@@ -84,7 +84,7 @@ The Azure DevOps project automatically configured a full VSTS CI/CD pipeline in 
 
 1. Select **Edit**.
 
-    ![Build definition](_img/azure-devops-project-aspnetcore/builddef.png)
+    ![Build definition](_img/azure-devops-project-aspnet-core/builddef.png)
 
 1. From this view, **examine the various tasks** for your build definition.  The build performs various tasks such as fetching sources from the Git repository, restoring dependencies, and publishing outputs used for deployments.
 

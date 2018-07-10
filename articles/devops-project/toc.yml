@@ -8,7 +8,7 @@
   expanded: true
   items:
   - name: .NET 
-    href: /azure/devops-project/azure-devops-project-aspnetcore
+    href: /azure/devops-project/azure-devops-project-aspnet-core
     maintainContext: true
   - name: Node.js
     href: /azure/devops-project/azure-devops-project-nodejs
@@ -37,12 +37,12 @@
     href: azure-devops-project-vms.md
     maintainContext: true
   - name: 3 - Deploy to Azure SQL Database
-    href: azure-devops-project-sqldb.md
+    href: azure-devops-project-sql-database.md
     maintainContext: true
   - name: 4 - Deploy to AKS
     href: azure-devops-project-aks.md
     maintainContext: true
   - name: 5 - Deploy to Azure Service Fabric
-    href: azure-devops-project-servicefabric.md
+    href: azure-devops-project-service-fabric.md
     maintainContext: true
     

@@ -36,7 +36,7 @@ sections:
     - image: 
         src: media\logo_net.svg
       text: .NET
-      href: /azure/devops-project/azure-devops-project-aspnetcore
+      href: /azure/devops-project/azure-devops-project-aspnet-core
     - image: 
         src: media\logo_nodejs.svg
       text: Node.js
@@ -74,7 +74,7 @@ sections:
     items:
     - html: <a href="/azure/devops-project/azure-devops-project-github">Bring your own code with GitHub</a>
     - html: <a href="/azure/devops-project/azure-devops-project-vms">Deploy your ASP.NET App to Azure Virtual Machines</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-sqldb">Deploy your ASP.NET App and Azure SQL Database</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-sql-database">Deploy your ASP.NET App and Azure SQL Database</a>
     - html: <a href="/azure/devops-project/azure-devops-project-aks">Deploy your App to Azure Container Service and Kubernetes</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-servicefabric">Deploy your App to Azure Service Fabric</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-service-fabric">Deploy your App to Azure Service Fabric</a>
 

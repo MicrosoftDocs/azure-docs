@@ -38,7 +38,7 @@ The Azure DevOps Project creates a CI/CD pipeline in VSTS.  You can create a **n
 
 1. Choose the **Create a resource** icon in the left navigation bar, then search for **DevOps project**.  Choose **Create**.
 
-   	![Starting Continuous Delivery](_img/azure-devops-project-servicefabric/fullbrowser.png)
+   	![Starting Continuous Delivery](_img/azure-devops-project-service-fabric/fullbrowser.png)
 
 1. Select **.NET**, and then choose **Next**.
 
