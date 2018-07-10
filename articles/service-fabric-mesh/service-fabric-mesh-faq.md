@@ -25,7 +25,7 @@ Yes, you are allocated restricted quota for use in the preview.
 
 - You are allocated a total of six cores and 24-GB RAM.
 - The largest container you can deploy is limited to two cores, 8-GB RAM.
-- You can allocate partial cores to your containers in increments of 0.5 cores up to a maximum of 8 cores.
+- You can allocate partial cores to your containers in increments of 0.5 cores up to a maximum of 6 cores.
 
 **Can I leave my application running overnight?**
 
