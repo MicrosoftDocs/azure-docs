@@ -75,7 +75,7 @@ The following section provides you with a complete overview of all possible erro
 |50012| This is a generic error message that indicates that authentication failed. This can happen for reasons such as missing or invalid credentials or claims in the request. Ensure that the request is sent with the correct credentials and claims. |
 |50013|Assertion is invalid because of various reasons - The token issuer doesn't match the api version within its valid time range -expired -malformed - Refresh token in the assertion is not a primary refresh token.|
 |50017|Certification validation failed, reasons for the following reasons:<ul><li>Cannot find issuing certificate in trusted certificates list</li><li>Unable to find expected CrlSegment</li><li>Cannot find issuing certificate in trusted certificates list</li><li>Delta CRL distribution point is configured without a corresponding CRL distribution point</li><li>Unable to retrieve valid CRL segments due to timeout issue</li><li>Unable to download CRL</li></ul>Contact the tenant admin.|
-|50020|User is unauthorized - unable to issue tokens because of version issue - issuer name is not specified - problems with issuer name (null -max length). Contact the app owner|
+|50020|The user is unauthorized for one of the following reasons.<ul><li>The user is attempting to login with an MSA account with the v1 endpoint</li><li>The user doesn't exist in the tenant.</li></ul> Contact the application owner.|
 |50027|Invalid JWT token due to the following reasons:<ul><li>doesn't contain nonce claim, sub claim</li><li>subject identifier mismatch</li><li>duplicate claim in idToken claims</li><li>unexpected issuer</li><li>unexpected audience</li><li>not within its valid time range </li><li>token format is not proper</li><li>External ID token from issuer failed signature verification.</li></ul>Contact the application owner|
 |50029|Invalid URI - domain name contains invalid characters. Contact the tenant admin.|
 |50034|User does not exist in directory. Contact your tenant admin.|
@@ -171,9 +171,10 @@ The following section provides you with a complete overview of all possible erro
 |81001|User's Kerberos ticket is too large. This can happen if the user is in too many groups and thus the Kerberos ticket contains too many group memberships. Reduce the user's group memberships and try again.|
 |81005|Authentication Package Not Supported|
 |81007|Tenant is not enabled for Seamless SSO|
-|90014| A required field for a protocol message was missing, contact the application owner. If you are the application owner, ensure that you have all the necessary parameters for the login request. 
+|90010|The request is not supported for various reasons. For example, the request is made using an unsupported request method (only POST method is supported) or the token signing algorithm that was requested is not supported. Contact the application developer.|
+|90014| A required field for a protocol message was missing, contact the application owner. If you are the application owner, ensure that you have all the necessary parameters for the login request. |
 |90072| The account needs to be added as an external user in the tenant first. Sign-out and sign-in again with a different Azure AD account.|
-|90094| The grant requires administrator permissions. Ask your tenant administrator to provide consent for this application.
+|90094| The grant requires administrator permissions. Ask your tenant administrator to provide consent for this application.|
 
 ## Next steps
 
