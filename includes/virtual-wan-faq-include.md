@@ -73,4 +73,4 @@ Yes. A transit hub can be used if spoke VNets need to talk to each other - as we
 
 ### Q. Is there any licensing or pricing information for Virtual WAN?
  
-A. There is no additional charge. Current [Azure VPN and egress pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) remains in effect during Preview.
+There is no additional charge. Current [Azure VPN and egress pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) remains in effect during Preview.
