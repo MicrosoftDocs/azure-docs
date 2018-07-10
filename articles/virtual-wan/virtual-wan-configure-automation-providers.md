@@ -23,7 +23,7 @@ Customers must be able to set up appropriate access control for Virtual WAN in t
 
 ##  <a name="site"></a>Upload branch information
 
-Design the user-experience to upload branch (on-premises site) information to Azure. REST APIs for **VPNSite** can be used to create the site information in Virtual WAN. You can provide all branch SDWAN/VPN devices, or select device customizations as appropriate.
+Design the user-experience to upload branch (on-premises site) information to Azure. [REST APIs](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) for **VPNSite** can be used to create the site information in Virtual WAN. You can provide all branch SDWAN/VPN devices, or select device customizations as appropriate.
 
 ##  <a name="hub"></a>Hub and services
 
