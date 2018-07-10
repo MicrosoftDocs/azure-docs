@@ -447,7 +447,7 @@
 #### [FAQs](active-directory-identity-protection-faqs.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
+### [Privileged Identity Management](privileged-identity-management/pim-configure.md)
 
 ## Integrate other services with Azure AD 
 ### [Integrate LinkedIn with Azure AD](users-groups-roles/linkedin-integration.md)
