@@ -105,7 +105,7 @@ Two main scenarios can be scripted as shown in the following sections.
 
 ### Adding a new disk supported by Write Accelerator
 
-You can use this script to add a new disk to your VM. The disk created with this script is going to use Write Accelerator.
+You can use this script to add a new disk to your VM. The disk created with this script uses Write Accelerator.
 
 ```PowerShell
 # Specify your VM Name
