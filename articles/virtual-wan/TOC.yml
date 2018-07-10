@@ -1,5 +1,4 @@
 - name: Virtual WAN documentation
-  href: index.yml
 - name: Overview
   items:
   - name: About Virtual WAN
