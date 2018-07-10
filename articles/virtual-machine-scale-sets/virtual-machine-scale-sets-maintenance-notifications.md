@@ -30,7 +30,7 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 Planned maintenance that requires a reboot, is scheduled in waves. Each wave has different scope (regions).
 
-- A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can add more recipients and messaging options like email, SMS, and Webhooks, to the notifications using Azure [Activity Log Alerts](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can add more recipients and messaging options like email, SMS, and Webhooks, to the notifications using Azure [Activity Log Alerts](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
 - At the time of the notification, a *self-service window* is made available. During this window, you can find which of your virtual machines are included in this wave and proactively start maintenance according to your own scheduling needs.
 - After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your virtual machine. 
 
@@ -50,26 +50,26 @@ The following guidelines should help you decide whether to use this capability a
 
 Self-service maintenance is not recommended for deployments using **availability sets** since these are highly available setups, where only one update domain is impacted at any given time. 
 
-	- Let Azure trigger the maintenance. For maintenance that requires reboot, be aware that the maintenance will be done update domain by update domain, that the update domains do not necessarily receive the maintenance sequentially, and that there is a 30-minute pause between update domains.
-	- If a temporary loss of some of your capacity (1/update domain count) is a concern, it can easily be compensated for by allocating additional instances during the maintenance period.
-	- For maintenance that does not require reboot, updates are applied at the fault domain level. 
+- Let Azure trigger the maintenance. For maintenance that requires reboot, be aware that the maintenance will be done update domain by update domain, that the update domains do not necessarily receive the maintenance sequentially, and that there is a 30-minute pause between update domains.
+- If a temporary loss of some of your capacity (1/update domain count) is a concern, it can easily be compensated for by allocating additional instances during the maintenance period.
+- For maintenance that does not require reboot, updates are applied at the fault domain level. 
 	
 **Don't** use self-service maintenance in the following scenarios: 
 
-	- If you shut down your VMs frequently, either manually, using DevTest Labs, using auto-shutdown, or following a schedule, it could revert the maintenance status and therefore cause additional downtime.
-	- On short-lived VMs that you know will be deleted before the end of the maintenance wave. 
-	- For workloads with a large state stored in the local (ephemeral) disk that is desired to be maintained upon update. 
-	- For cases where you resize your VM often, as it could revert the maintenance status. 
-	- If you have adopted scheduled events that enable proactive failover or graceful shutdown of your workload, 15 minutes before start of maintenance shutdown.
+- If you shut down your VMs frequently, either manually, using DevTest Labs, using auto-shutdown, or following a schedule, it could revert the maintenance status and therefore cause additional downtime.
+- On short-lived VMs that you know will be deleted before the end of the maintenance wave. 
+- For workloads with a large state stored in the local (ephemeral) disk that is desired to be maintained upon update. 
+- For cases where you resize your VM often, as it could revert the maintenance status. 
+- If you have adopted scheduled events that enable proactive failover or graceful shutdown of your workload, 15 minutes before start of maintenance shutdown.
 
 **Use** self-service maintenance, if you are planning to run your VM uninterrupted during the scheduled maintenance phase and none of the counter-indications mentioned above are applicable. 
 
 It is best to use self-service maintenance in the following cases:
 
-	- You need to communicate an exact maintenance window to your management or end-customer. 
-	- You need to complete the maintenance by a given date. 
-	- You need to control the sequence of maintenance, for example, multi-tier application to guarantee safe recovery.
-	- You need more than 30 minutes of VM recovery time between two update domains (UDs). To control the time between update domains, you must trigger maintenance on your VMs one update domain (UD) at a time.
+- You need to communicate an exact maintenance window to your management or end-customer. 
+- You need to complete the maintenance by a given date. 
+- You need to control the sequence of maintenance, for example, multi-tier application to guarantee safe recovery.
+- You need more than 30 minutes of VM recovery time between two update domains (UDs). To control the time between update domains, you must trigger maintenance on your VMs one update domain (UD) at a time.
 
  
 ## View virtual machine scale sets impacted by maintenance in the portal
@@ -91,7 +91,7 @@ After following the steps above, the **Self-service maintenance** column will ap
 
 ## Notification and alerts in the portal
 
-Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Monitor subscription activity with the Azure Activity Log] (../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the menu on the left, select **Monitor**. 
@@ -101,7 +101,7 @@ Azure communicates a schedule for planned maintenance by sending an email to the
 	**Services**: Virtual Machine Scale Sets and Virtual Machines
 	**Type**: Planned maintenance 
 	
-To learn more on how to configure Activity Log Alerts, see [Create activity log alerts](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+To learn more on how to configure Activity Log Alerts, see [Create activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
 	
 	
 ## Start maintenance on your virtual machine scale set from the portal
@@ -114,7 +114,7 @@ Once you start maintenance, the affected virtual machines in your virtual machin
  
 ## Check maintenance status using PowerShell
 
-You can use Azure Powershell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available from the [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) cmdlet when you use the `-InstanceView` parameter.
+You can use Azure Powershell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available from the [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) cmdlet when you use the `-InstanceView` parameter.
  
 Maintenance information is returned only if there is maintenance planned. If no maintenance is scheduled that impacts the VM instance, the cmdlet does not return any maintenance information. 
 
@@ -182,7 +182,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **A:** Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
-For more information about high availability, see [Regions and availability for virtual machines in Azure](regions-and-availability.MD).
+For more information about high availability, see [Regions and availability for virtual machines in Azure](../virtual-machines/windows/regions-and-availability.md).
 
 **Q: How do I get notified about planned maintenance?**
 
@@ -218,4 +218,4 @@ For more information about high availability, see [Regions and availability for 
 
 ## Next steps
 
-Learn how you can register for maintenance events from within the VM using [Scheduled Events](scheduled-events.md).
+Learn how you can register for maintenance events from within the VM using [Scheduled Events](../virtual-machines/windows/scheduled-events.md).
