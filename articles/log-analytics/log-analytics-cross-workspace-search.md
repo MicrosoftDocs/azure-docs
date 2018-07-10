@@ -87,12 +87,14 @@ Identifying an application in Application Insights can be accomplished with the 
 
 ### Performing a query across multiple resources
 You can query multiple resorces from any of your resource instences, these can be workspaces and apps combiled.
-    Example for wuery across two workspaces:
+    
+Example for query across two workspaces:    
     ```
     union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
     | where TimeGenerated >= ago(1h)
     | where UpdateState == "Needed"
     | summarize dcount(Computer) by Classification
+    ```
 
 ## Next steps
 
