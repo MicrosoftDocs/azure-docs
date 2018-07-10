@@ -43,16 +43,16 @@ Use Start-AzSBackup to start a new backup with -AsJob variable to track progress
 
   ```powershell
       BackupDataVersion : 1.0.1
-      BackupId          : 183b5870-08c8-2b9d-ba7d-adbbdf7edf3d
+      BackupId          : <backup ID>
       RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
       Status            : Succeeded
       CreatedDateTime   : 7/6/2018 6:46:24 AM
       TimeTakenToCreate : PT20M32.364138S
-      DeploymentID      : 7d3f2666-620b-46a0-b49a-f01b1acfd6a5
+      DeploymentID      : <deployment ID>
       StampVersion      : 1.1807.0.41
       OemVersion        : 
-      Id                : /subscriptions/38b05ce0-d43d-422b-8712-95ec22bcbc53/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/583b5870-08c8-4b9d-ba7d-adbbdf7edf3d
-      Name              : local/583b5870-08c8-4b9d-ba7d-adbbdf7edf3d
+      Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
+      Name              : local/<local name>
       Type              : Microsoft.Backup.Admin/backupLocations/backups
       Location          : local
       Tags              : {}
