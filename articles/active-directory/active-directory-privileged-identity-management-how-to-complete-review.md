@@ -27,7 +27,7 @@ After the security review period is over, or all the users have finished their s
 
 On the access review's detail blade there are a number options for managing that review.
 
-![PIM access review buttons - screenshot][1]
+![PIM access review buttons - screenshot](./media/active-directory-privileged-identity-management-how-to-complete-review/PIM_review_buttons.png)
 
 ### Remind
 If an access review is set up so that the users review themselves, the **Remind** button sends out a notification. 
@@ -49,7 +49,3 @@ If you are not interested in the review any further, delete it. The **Delete** b
 
 ## Next steps
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-complete-review/PIM_review_buttons.png
