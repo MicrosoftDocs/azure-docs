@@ -70,9 +70,9 @@ This section provides examples of event-based trigger settings.
 > [!NOTE]
 > You have to include the `/blobs/` segment of the path whenever you specify container and folder, container and file, or container, folder, and file.
 
-## Map trigger properties to pipeline parameters 
+## Map trigger properties to pipeline parameters
 
-When a blob events trigger fires for a specific blob, the event captures the folder path and file name of the blob into the properties `@triggerBody().folderPath` and `@triggerBody().fileName`. To use the values of these properties in a pipeline, you must map the properties to pipeline parameters. After mapping the properties to parameters, you can access the values captured by the trigger through the `@pipeline.parameters.parameterName` expression throughout the pipeline.
+When an event trigger fires for a specific blob, the event captures the folder path and file name of the blob into the properties `@triggerBody().folderPath` and `@triggerBody().fileName`. To use the values of these properties in a pipeline, you must map the properties to pipeline parameters. After mapping the properties to parameters, you can access the values captured by the trigger through the `@pipeline.parameters.parameterName` expression throughout the pipeline.
 
 ![Mapping properties to pipeline parameters](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
