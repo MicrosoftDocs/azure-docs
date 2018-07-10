@@ -15,7 +15,7 @@ ms.component: alerts
 ## Overview
 
 > [!NOTE]
->  A new unified alert experience that enables you to manage alerts from multiple subscriptions and introduces alert states and smart groups is currently available in public preview. See the [last section of this article](#enhanced-unified-alerts-experience-public-preview) for a description of this enhanced experience and the process for enabling it.
+>  A new unified alert experience that enables you to manage alerts from multiple subscriptions and introduces alert states and smart groups is currently available in public preview. See the last section of this article for a description of this enhanced experience and the process for enabling it.
 
 
 This article describes the unified alert experience in Azure Monitor. The [previous alert experience](monitoring-overview-alerts.md) is available from the **Alerts (Classic)** option in the Azure Monitor menu. 
