@@ -18,8 +18,8 @@ In this tutorial, you learn the mechanics of programming data enrichment in Azur
 In this tutorial, you make REST API calls to perform following tasks:
 
 > [!div class="checklist"]
-> * Create an indexing pipeline that enriches source data in route to an index
-> * Use built-in skills on sample data: entity recognition, language detection, text manipulation, key phrase extraction
+> * Create an indexing pipeline that enriches sample data in route to an index
+> * Apply built-in skills: entity recognition, language detection, text manipulation, key phrase extraction
 > * Learn how to chain skills together by mapping inputs to outputs in a skillset
 > * Execute requests and review results
 > * Reset the index and indexers for further development

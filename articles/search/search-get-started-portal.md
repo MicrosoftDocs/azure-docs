@@ -7,28 +7,26 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/20/2018
+ms.date: 07/10/2018
 ms.author: heidist
 
 ---
-# Create, query, and filter an Azure Search index in the portal
+# Built-in tools to create, query, and filter an Azure Search index
 
-In the Azure portal, start with a predefined sample dataset to quickly generate an Azure Search index using the **Import data** wizard. Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
+In the Azure portal, you can use built-in tools for prototyping Azure Search solutions and hands on learning with minimal ramp up. While portal tools do not offer full parity with .NET and REST APIs, for quick proof-of-concept  testing, wizards and editors are a helpful substitution. This code-free introduction gets you started with predefined data so that you can write interesting queries right away. 
 
-This code-free introduction gets you started with predefined data so that you can write interesting queries right away. While portal tooling is not a substitute for code, you might find it useful for these tasks:
+> [!div class="checklist"]
+> * Start with a published sample data and auto-generate an Azure Search index using the **Import data** wizard. 
+> * Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
+> * View schema and index attributes for any index published to Azure Search.
 
-+ Hands on learning with minimal ramp-up
-+ Prototype an index before you write code in **Import data**
-+ Test queries and parser syntax in **Search explorer**
-+ View an existing index published to your service and look up its attributes
+Portal tools typically do not iclude preview features or preview API support. As an alternative, you might want to ramp up using a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md) or [web testing tools for HTTP and REST API calls](search-fiddler.md).
 
-**Time Estimate:** About 15 minutes, but longer if account or service sign-up is also required. 
-
-Alternatively, ramp up using a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-This tutorial assumes an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and [Azure Search service](search-create-service-portal.md). 
+Use the [Azure portal](https://portal.azure.com/) to create an Azure Search service. 
 
 If you don't want to provision a service immediately, you can watch a 6-minute demonstration of the steps in this tutorial, starting at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
 
@@ -37,7 +35,7 @@ If you don't want to provision a service immediately, you can watch a 6-minute d
 2. Open the service dashboard of your Azure Search service. If you didn't pin the service tile to your dashboard, you can find your service this way: 
    
    * In the Jumpbar, click **All services** on the left navigation pane.
-   * In the search box, type *search* to get a list of search services for your subscription. Your service should appear in the list. 
+   * In the search box, type *search* to get a list of search-related services for your subscription. Click **Search services**. Your service should appear in the list. 
 
 ## Check for space
 Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This tutorial creates one of each object. 
@@ -49,9 +47,9 @@ Many customers start with the free service. This version is limited to three ind
 >
 
 ## <a name="create-index"></a> Create an index and load data
-Search queries iterate over an *index* containing searchable data, metadata, and constructs used for optimizing certain search behaviors.
+Search queries iterate over an [*index*](search-what-is-an-index.md) containing searchable data, metadata, and constructs used for optimizing certain search behaviors.
 
-To keep this task portal-based, we use a built-in sample dataset that can be crawled using an indexer via the **Import data** wizard. 
+To keep this task portal-based, we use a built-in sample dataset that can be crawled using an [*indexer*](search-indexer-overview.md) via the **Import data** wizard. 
 
 #### Step 1: Start the Import data wizard
 1. On your Azure Search service dashboard, click **Import data** in the command bar to start a wizard that both creates and populates an index.
@@ -92,7 +90,7 @@ To monitor data import, go back to the service dashboard, scroll down, and doubl
    ![Indexer progress message][4]
 
 ## <a name="query-index"></a> Query the index
-You now have a search index that's ready to query. **Search explorer** is a query tool built into the portal. It provides a search box so that you can verify whether search results are what you expect. 
+You now have a search index that's ready to query. [**Search explorer**](search-explorer.md) is a query tool built into the portal. It provides a search box so that you can verify whether search results are what you expect. 
 
 > [!TIP]
 > In the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138), the following steps are demonstrated at 6m08s into the video.
@@ -109,7 +107,7 @@ You now have a search index that's ready to query. **Search explorer** is a quer
 3. Click **Set API version** on the command bar to see which REST APIs are available. Preview APIs give you access to new features not yet generally released. For the queries below, use the generally available version (2017-11-11) unless directed. 
 
     > [!NOTE]
-    > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) and the [.NET library](search-howto-dotnet-sdk.md#core-scenarios) are fully equivalent, but **Search explorer** is only equipped to handle REST calls. It accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document](https://docs.microsoft.com/rest/api/searchservice/search-documents) operations.
+    > **Search explorer** is only equipped to handle [REST API request](https://docs.microsoft.com/rest/api/searchservice/search-documents). It accepts syntax for both [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document](https://docs.microsoft.com/rest/api/searchservice/search-documents) operations.
     > 
 
 4. In the search bar, enter the query strings below and click **Search**.
@@ -175,7 +173,7 @@ Hit highlighting refers to formatting on text matching the keyword, given matche
 
 + Azure Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Search is the standard Lucene analyzer. 
 
-## <a name="fuzzy-search"></a> Use fuzzy search
+## <a name="fuzzy-search"></a> Try fuzzy search
 
 Misspelled words, like *samamish* for the Samammish plateau in the Seattle area, fail to return matches in typical search. To handle misspellings, you can use fuzzy search, described in the next example.
 
@@ -201,22 +199,28 @@ Geospatial search is supported through the [edm.GeographyPoint data type](https:
 
 + Geospatial search is useful if your search application has a "find near me" feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
 
+## Takeaways
+
+This tutorial demonstrates the basic steps for using the Import data wizard and Search explorer in the Azure portal.
+
+As the driving force behind the Import data wizard, you learned about [indexers](search-indexer-overview.md), as well as the basic workflow for index design, including which modifications can be made on an index already published to Azure Search. 
+
+You learned query syntax through hands-on examples demonstrating key capabilities such as filters, hit highlighting, fuzzy search, and geo-search.
+
+Finally, you learned how to get information from the portal for any index, indexer, or data source you create for your subscription. Later, when working with your own indexes or those created by colleagues, you can use the portal to quickly check a data source definition, or the construction of a fields collection, without having to search through unfamiliar code.
+
+## Clean up resources
+
+The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Search service. You can delete the resource group now to permanently delete everything in it. In the portal, the resource group name is on the Overview page of Azure Search service.
+
 ## Next steps
 
-+ Modify any of the objects you just created. After you run the wizard once, you can go back and view or modify individual components: index, indexer, or data source. Some edits, such as the changing the field data type, are not allowed on the index, but most properties and settings are modifiable.
+Modify any of the objects you just created. After you run the wizard once, you can go back and view or modify individual components: index, indexer, or data source. Some edits, such as the changing the field data type, are not allowed on fields already published to an index, but other properties and settings are modifiable, especially on new fields added to the index.
 
-  To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles on your dashboard to display a list of existing objects. To learn more about index edits that do not require a rebuild, see [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
+To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles on your dashboard to display a list of existing objects. To learn more about index edits that do not require a rebuild, see [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Try the tools and steps with other data sources. The sample dataset, `realestate-us-sample`, is from an Azure SQL Database that Azure Search can crawl. Besides Azure SQL Database, Azure Search can crawl and infer an index from flat data structures in Azure Table storage, Blob storage, SQL Server on an Azure VM, and Azure Cosmos DB. All of these data sources are supported in the wizard. In code, you can populate an index easily using an *indexer*.
-
-+ All other non-indexer data sources are supported via a push model, where your code pushes new and changed rowsets in JSON to your index. For more information, see [Add, update, or delete documents in Azure Search](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
-
-Learn more about other features mentioned in this article by visiting these links:
-
-* [Indexers overview](search-indexer-overview.md)
-* [Create Index (includes a detailed explanation of the index attributes)](https://docs.microsoft.com/rest/api/searchservice/create-index)
-* [Search Explorer](search-explorer.md)
-* [Search Documents (includes examples of query syntax)](https://docs.microsoft.com/rest/api/searchservice/search-documents)
+> [!div class="nextstepaction"]
+> [Web testing tools for calling the REST API](search-fiddler.md)
 
 
 <!--Image references-->
