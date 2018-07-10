@@ -21,9 +21,9 @@
 #### [Solution Templates](./marketplace-solution-templates.md)
 #### [Managed Applications](./marketplace-managed-apps.md)
 #### [SaaS app publishing guide](./marketplace-saas-applications-technical-publishing-guide.md) 
-#### [Containers](./marketplace-containers)
+#### [Containers](./marketplace-containers.md)
 #### [Consulting Service](./consulting-services.md)  
-#### [AppSource Apps]
+#### [AppSource Apps](./appsource-offer-publishing-guide.md))
 
 ### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Preferred Solutions](./preferred-solutions.md) 
