@@ -26,7 +26,7 @@ Integrating AppDynamics with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to AppDynamics (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -184,7 +184,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Creating an AppDynamics test user
 
-The objective of this section is to create a user called Britta Simon in Klue. Klue supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Klue if it doesn't exist yet.
+The objective of this section is to create a user called Britta Simon in AppDynamics. AppDynamics supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access AppDynamics if it doesn't exist yet.
 >[!Note]
 >If you need to create a user manually, contact [AppDynamics Client support team](https://www.appdynamics.com/support/).
 
@@ -226,8 +226,8 @@ When you click the AppDynamics tile in the Access Panel, you should get automati
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
