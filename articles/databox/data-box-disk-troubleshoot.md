@@ -34,16 +34,14 @@ This article includes the following tutorials:
 
 ## Download diagnostic logs
 
-If there are any errors during the data copy process, then the portal displays a path to the folder where the diagnostics logs are located.
-
-![Path to copy logs](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs3.png)
-
+If there are any errors during the data copy process, then the portal displays a path to the folder where the diagnostics logs are located. 
 
 The diagnostics logs can be:
 - Error logs
 - Verbose logs  
 
 To navigate to the path for copy log, go to the storage account associated with your Data Box order. 
+
 1.	Go to **General > Order details** and make a note of the storage account associated with your order.
  
 
