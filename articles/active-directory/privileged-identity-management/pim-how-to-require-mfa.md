@@ -35,11 +35,11 @@ Additionally, you can change the MFA requirement for a specific role by clicking
 ## How Azure AD PIM validates MFA
 There are two options for validating MFA when a user activates a role.
 
-The simplest option is to rely on Azure MFA for users who are activating a privileged role. To do this, first check that those users are licensed, if necessary, and have registered for Azure MFA. More information on how to do this is in [Getting started with Azure Multi-Factor Authentication in the cloud](authentication/howto-mfa-getstarted.md). It is recommended, but not required, that you configure Azure AD to enforce MFA for these users when they sign in. This is because the MFA checks will be made by Azure AD PIM itself.
+The simplest option is to rely on Azure MFA for users who are activating a privileged role. To do this, first check that those users are licensed, if necessary, and have registered for Azure MFA. More information on how to do this is in [Getting started with Azure Multi-Factor Authentication in the cloud](../authentication/howto-mfa-getstarted.md). It is recommended, but not required, that you configure Azure AD to enforce MFA for these users when they sign in. This is because the MFA checks will be made by Azure AD PIM itself.
 
-Alternatively, if users authenticate on-premises you can have your identity provider be responsible for MFA. For example, if you have configured AD Federation Services to require smartcard-based authentication before accessing Azure AD, [Securing cloud resources with Azure Multi-Factor Authentication and AD FS](authentication/howto-mfa-adfs.md) includes instructions for configuring AD FS to send claims to Azure AD. When a user tries to activate a role, Azure AD PIM will accept that MFA has already been validated for the user once it receives the appropriate claims.
+Alternatively, if users authenticate on-premises you can have your identity provider be responsible for MFA. For example, if you have configured AD Federation Services to require smartcard-based authentication before accessing Azure AD, [Securing cloud resources with Azure Multi-Factor Authentication and AD FS](../authentication/howto-mfa-adfs.md) includes instructions for configuring AD FS to send claims to Azure AD. When a user tries to activate a role, Azure AD PIM will accept that MFA has already been validated for the user once it receives the appropriate claims.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
+[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
