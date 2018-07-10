@@ -77,12 +77,13 @@ OrgChart-Manager(employee){
 
     |Example utterances|
     |--|
-
     |Who is John W. Smith the subordinate of?|
     |Who does John W. Smith report to?|
     |Who is John W. Smith's manager?|
     |Who does Jill Jones directly report to?|
     |Who is Jill Jones supervisor?|
+
+    [![](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Screenshot of LUIS adding new utterances to intent")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
 5. Select **Intents** in the left navigation.
 
@@ -101,7 +102,7 @@ OrgChart-Manager(employee){
     |Who does Jill Jones supervise?|
 
 ## Caution about example utterance quantity
-The example utterances in the intents is not enough to train LUIS properly. In a real-world app, each intent should have a minimum of 15 utterances with a variety of word choice and utterance length. These few utterances are selected specifically to highlight patterns. 
+The quantity of example utterances in these intents are not enough to train LUIS properly. In a real-world app, each intent should have a minimum of 15 utterances with a variety of word choice and utterance length. These few utterances are selected specifically to highlight patterns. 
 
 ## Train the LUIS app
 The new intent and utterances require training. 
@@ -112,25 +113,24 @@ The new intent and utterances require training.
 
 2. Training is complete when you see the green status bar at the top of the website confirming success.
 
-    ![Image of success notification bar](./media/luis-tutorial-pattern/hr-trained.png)
+    ![Image of success notification bar](./media/luis-tutorial-pattern/hr-trained-inline.png)
 
 ## Publish the app to get the endpoint URL
 In order to get a LUIS prediction in a chatbot or other application, you need to publish the app. 
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-    ![Screenshot of FindKnowledgeBase with top navigation Publish button highlighted](./media/luis-tutorial-pattern/hr-publish-button.png)
-
 2. Select the Production slot and the **Publish** button.
 
-    ![Screenshot of Publish page with Publish to production slot button highlighted](./media/luis-tutorial-pattern/hr-publish-to-production.png)
+    [ ![Screenshot of Publish page with Publish to production slot button highlighted](./media/luis-tutorial-pattern/hr-publish-to-production.png)](./media/luis-tutorial-pattern/hr-publish-to-production.png#lightbox)
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
 ## Query the endpoint with a different utterance
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-    ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
+    [ ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png)](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png#lightbox)
+
 
 2. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is `q`, the utterance **query**. 
 
@@ -139,60 +139,60 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
     "query": "who is the boss of jill jones?",
     "topScoringIntent": {
         "intent": "OrgChart-Manager",
-        "score": 0.9999989
+        "score": 0.353984952
     },
     "intents": [
         {
         "intent": "OrgChart-Manager",
-        "score": 0.9999989
+        "score": 0.353984952
         },
         {
         "intent": "OrgChart-Reports",
-        "score": 7.616303E-05
+        "score": 0.214128986
         },
         {
         "intent": "EmployeeFeedback",
-        "score": 7.84204349E-06
-        },
-        {
-        "intent": "GetJobInformation",
-        "score": 1.20674213E-06
+        "score": 0.08434003
         },
         {
         "intent": "MoveEmployee",
-        "score": 7.91245157E-07
+        "score": 0.019131
         },
         {
-        "intent": "None",
-        "score": 3.875E-09
-        },
-        {
-        "intent": "Utilities.StartOver",
-        "score": 1.49E-09
+        "intent": "GetJobInformation",
+        "score": 0.004819009
         },
         {
         "intent": "Utilities.Confirm",
-        "score": 1.34545453E-09
+        "score": 0.0043958663
         },
         {
-        "intent": "Utilities.Help",
-        "score": 1.34545453E-09
-        },
-        {
-        "intent": "Utilities.Stop",
-        "score": 1.34545453E-09
+        "intent": "Utilities.StartOver",
+        "score": 0.00312064588
         },
         {
         "intent": "Utilities.Cancel",
-        "score": 1.225E-09
+        "score": 0.002265454
+        },
+        {
+        "intent": "Utilities.Help",
+        "score": 0.00133465114
+        },
+        {
+        "intent": "None",
+        "score": 0.0011388344
+        },
+        {
+        "intent": "Utilities.Stop",
+        "score": 0.00111166481
         },
         {
         "intent": "FindForm",
-        "score": 1.123077E-09
+        "score": 0.0008900076
         },
         {
         "intent": "ApplyForJob",
-        "score": 5.625E-10
+        "score": 0.0007836131
         }
     ],
     "entities": [
@@ -205,8 +205,7 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
             "values": [
             "Employee-45612"
             ]
-        },
-        "role": ""
+        }
         },
         {
         "entity": "boss of jill jones",
@@ -217,7 +216,7 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
     ]}
     ```
 
-Did this query succeed? For this training cycle it did succeed. The scores of the two top intents is very close. Because LUIS training is not exactly the same each time, there is a bit of variation, these two scores could invert on the next training cycle. The result is that the wrong intent could be returned. 
+Did this query succeed? For this training cycle it did succeed. The scores of the two top intents are close. Because LUIS training is not exactly the same each time, there is a bit of variation, these two scores could invert on the next training cycle. The result is that the wrong intent could be returned. 
 
 Use patterns to make the difference between these two closely-related intents more accurately predicted. 
 
@@ -239,13 +238,15 @@ Use patterns to make the difference between these two closely-related intents mo
     |Who is {Employee}['s] supervisor[?]|
     |Who is the boss of {Employee}[?]|
 
+    [ ![Screenshot of entering template utterances for intent](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
+
     The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. 
 
-    The optional syntax, `[]`, marks words or punctuation that are optional. LUIS will match the utterance, ignoring the optional text inside the brackets.
+    The optional syntax, `[]`, marks words or punctuation that are optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
 
-    If you type the template utterance in, LUIS helps you fill in the entity when your enter the left curly bracket, `{`, by 
+    If you type the template utterance in, LUIS helps you fill in the entity when you enter the left curly bracket, `{`, by 
 
-    ![Screenshot of entering template utterances for intent](./media/luis-tutorial-pattern/enter-pattern.png)
+    [ ![Screenshot of entering template utterances for intent](./media/luis-tutorial-pattern/enter-pattern.png)](./media/luis-tutorial-pattern/hr-enter-pattern.png#lightbox)
 
 4. Select the **OrgChart-Reports** intent, then enter the following template utterances, one at a time, selecting enter after each template utterance:
 
@@ -260,15 +261,11 @@ Use patterns to make the difference between these two closely-related intents mo
 
 ## Query endpoint when patterns are used
 
-1. Select **Train** in the top navigation bar to train the app with patterns.
+1. Train and publish the app again.
 
-2. Select **Publish** on the top navigation bar. 
+2. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-3. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
-
-    ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
-
-4. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is `q`, the utterance **query**. 
+3. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is `q`, the utterance **query**. 
 
     ```JSON
     {
