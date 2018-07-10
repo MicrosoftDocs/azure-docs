@@ -31,6 +31,8 @@
       href: search-fiddler.md
 - name: Tutorials
   items:
+  - name: Use built-in indexing tools
+    href: search-get-started-portal.md
   - name: Cognitive search development
     href: cognitive-search-tutorial-blob.md
   - name: Index Azure SQL Database
@@ -41,8 +43,6 @@
     href: search-synonyms-tutorial-sdk.md
   - name: Add auto-complete in .NET
     href: search-autocomplete-tutorial.md
-  - name: Portal tools walkthrough
-    href: search-get-started-portal.md
 - name: Samples
   items:
   - name: Azure code samples
