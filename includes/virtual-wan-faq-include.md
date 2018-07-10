@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 07/09/2018
+ ms.date: 07/10/2018
  ms.author: cherylmc
  ms.custom: include file
 ---

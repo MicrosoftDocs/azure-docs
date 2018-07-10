@@ -4,14 +4,13 @@ description: This article helps software-defined connectivity solutions provider
 services: virtual-wan
 author: cherylmc
 
-
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 07/10/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-
 ---
+
 # Configure Virtual WAN automation - for Virtual WAN providers (Preview)
 
 This article helps you understand how to set up the automation envorionment to connect and configure a branch device (a customer on-premises vpn device) for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2, this article is for you.
@@ -24,7 +23,7 @@ Customers must be able to set up appropriate access control for Virtual WAN in t
 
 ##  <a name="site"></a>Upload branch information
 
-Design the user-experience to upload branch (on-premises site) information to Azure. REST APIs for **VPNSite** can be used to create the site information in Virtual WAN. You can provide all branch/VPN devices, or select device customizations as appropriate.
+Design the user-experience to upload branch (on-premises site) information to Azure. REST APIs for **VPNSite** can be used to create the site information in Virtual WAN. You can provide all branch SDWAN/VPN devices, or select device customizations as appropriate.
 
 ##  <a name="hub"></a>Hub and services
 
@@ -32,11 +31,11 @@ Once the branch device is uploaded to Azure, customer will typically make select
 
 ## <a name="device"></a>Device configuration
 
-In this step, a customer that is not using a provider would manually download the Azure configuration and apply it to their on-premises VPN device. As a provider, you should automate this step. The controller can call **GetVpnConfiguration** REST API to download the Azure configuration, which will typically look similar to the following file.
+In this step, a customer that is not using a provider would manually download the Azure configuration and apply it to their on-premises SDWAN/VPN device. As a provider, you should automate this step. The controller can call **GetVpnConfiguration** REST API to download the Azure configuration, which will typically look similar to the following file.
 
 **Configuration notes**
 
-  * If Azure VNets are attached to the hub VNet, they will appear as ConnectedSubnets.
+  * If Azure VNets are attached to the virtual hub, they will appear as ConnectedSubnets.
   * VPN connectivity uses route-based configuration and IKEv2.
 
 ### Configuration file
@@ -171,9 +170,9 @@ The following table lists the supported cryptographic algorithms and key strengt
 3. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
 4. QM SA Lifetimes are optional parameters. If none was specified, default values of 27,000 seconds (7.5 hrs) and 102400000 KBytes (102 GB) are used.
 
-### Does everything need to match between the virtual hub vpngateway policy and my on-premises VPN device configuration?
+### Does everything need to match between the virtual hub vpngateway policy and my on-premises SDWAN/VPN device or SD-WAN configuration?
 
-Your on-premises VPN device configuration must match or contain the following algorithms and parameters, which you specify in the Azure IPsec/IKE policy. The SA lifetimes are local specifications only, and do not need to match.
+Your on-premises SDWAN/VPN device or SD-WAN configuration must match or contain the following algorithms and parameters, which you specify in the Azure IPsec/IKE policy. The SA lifetimes are local specifications only, and do not need to match.
 
 * IKE encryption algorithm
 * IKE integrity algorithm
@@ -201,4 +200,4 @@ We would appreciate your feedback. Please send an email to <azurevirtualwan@micr
 
 ## Next steps
 
-For more information about Virtual WAN, see [About Azure Virtual WAN](virtual-wan-about.md) and the [Azure Virtual WAN FAQ](virtual-wan-faq.md)
+For more information about Virtual WAN, see [About Azure Virtual WAN](virtual-wan-about.md) and the [Azure Virtual WAN FAQ](virtual-wan-faq.md).
