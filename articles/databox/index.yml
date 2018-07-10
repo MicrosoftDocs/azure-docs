@@ -26,7 +26,7 @@ sections:
     - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure Portal
-      href: /azure/databox/data-box-disk-deploy-ordered
+      href: data-box-disk-deploy-ordered
 - title: Step-by-Step tutorial
   items:
   - type: paragraph
@@ -34,7 +34,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/databox/data-box-disk-deploy-ordered">Order Data Box Disk</a>
-    - html: <a href="/azure/databox/data-box-disk-deploy-set-up">Set up Data Box Disk</a>
-    - html: <a href="/azure/databox/data-box-disk-deploy-copy-data">Copy data to Data Box Disk</a>
-    - html: <a href="/azure/databox/data-box-disk-deploy-picked-up">Return Data Box Disk and upload data to Azure</a>
+    - html: <a href="data-box-disk-deploy-ordered">Order Data Box Disk</a>
+    - html: <a href="data-box-disk-deploy-set-up">Set up Data Box Disk</a>
+    - html: <a href="data-box-disk-deploy-copy-data">Copy data to Data Box Disk</a>
+    - html: <a href="data-box-disk-deploy-picked-up">Return Data Box Disk and upload data to Azure</a>
