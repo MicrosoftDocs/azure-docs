@@ -332,6 +332,6 @@ To remove an Azure Cosmos DB account from the Azure portal, righ-click the accou
 
 * Learn more about [Reacting to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
 * [Try the IoT Hub events tutorial](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* Learn about what else you can do with [Event Grid](overview.md).
+* Learn about what else you can do with [Event Grid](../event-grid/overview.md).
 
 
