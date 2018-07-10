@@ -6,7 +6,7 @@ documentationcenter: ''
 author: kumudd
 manager: jeconnoc
 editor: ''
-Customer intent: I want to create a Traffic Manager profile so that I can route traffic for high availability.
+Customer intent: I want to create a Traffic Manager profile so that I can route traffic for high availability of my web application.
 ms.assetid:
 ms.service: traffic-manager
 ms.devlang: na
@@ -21,13 +21,19 @@ ms.author: kumud
 
  Azure Traffic Manager allows you to control the distribution of user traffic to service endpoints across the different Azure regions. This quickstart describes how to create a Traffic Manager profile that delivers high availability of your web application. Traffic Manager accomplishes this by monitoring your service endpoints and providing automatic failover when an endpoint goes down.
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ## Pre-requisites
 This quickstart requires that you have already created two Azure Web Apps in two different Azure regions. The two Web Apps are used as endpoints for the Traffic Manager profile. To learn how to create an Azure Web App, use one of the quickstart guides in the [Azure Web Apps documentation page](https://docs.microsoft.com/azure/app-service/). 
 
+## Log in to Azure 
+
+Log in to the Azure portal at https://portal.azure.com.
+
 ## Create a Traffic Manager profile
 Create a Traffic manager profile that directs user traffic based on endpoint [priority](traffic-manager-routing-methods.md#priority).
-1. From a browser, sign in to the [Azure portal](http://portal.azure.com). If you don’t already have an account, you can sign-up for a [free one-month trial](https://azure.microsoft.com/free/). 
-2. Select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
+
+2. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
 3. In the **Create Traffic Manager profile**, enter or select, the following information, accept the defaults for the remaining settings:
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
