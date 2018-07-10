@@ -36,7 +36,7 @@ Yes, Virtual WAN introduces new Resource Manager resources. For more information
 
 ### Are there any special requirements to join the Preview? 
 
-Before you can configure an Azure Virtual WAN, you must first enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, send an email to **azurevirtualwan@microsoft.com** with your subscription ID. You will receive an email back once your subscription has been enrolled.
+Before you can configure an Azure Virtual WAN, you must first enroll your subscription in the Preview. To enroll, send an email to <azurevirtualwan@microsoft.com> with your subscription ID. You will receive an email back once your subscription has been enrolled. Until you receive confirmation that your subscription has been enrolled, you will not be able to work with Virtual WAN in the portal.
 
 Considerations:
 
@@ -45,7 +45,7 @@ Considerations:
 * Consider using this Preview if:
   * You want to deploy aggregated bandwidth less than a Gbps.
   * You have a VPN device that supports route-based configuration and IKEv2 IPsec connectivity.
-  * You want to explore using SD-WAN and operating branch devices from the launch partners (Riverbed and Citrix).<br>*or*<br>You want to set up branch-to-branch and branch to Azure (Site-to-Site) connectivity that includes configuration management of your on-premise device.
+  * You want to explore using SD-WAN and operating branch devices from the launch partners (Riverbed and Citrix).<br>or<br>You want to set up branch-to-branch and branch to Azure (Site-to-Site) connectivity that includes configuration management of your on-premise device.
 
 ### Is Global VNet peering supported with Azure Virtual WAN? 
 
