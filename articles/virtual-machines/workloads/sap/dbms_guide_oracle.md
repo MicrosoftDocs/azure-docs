@@ -334,7 +334,7 @@ The following SAP Notes are related to SAP on Azure in regards to the topic of t
 
 Exact configurations and functionality supported by Oracle and SAP on Azure are documented in SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619)
 
-As you realize, only the two guest operating systems of Windows and Oracle Linux are supported. Widely used SLES and RHEL Linux are not supported to deploy Oracle components in Azure. Oracle components do include as well the Oracle database client which is used by SAP applications to connect against the Oracle DBMS. Exceptions, according to SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619) are SAP components which are not using the Oracle client because those components might not need to connect to the oracle DBMS. Such SAP components are SAP's stand-alone enqueue, message server and Enqueue replication services. Means despite running your Oracle DBMS and SAP application instances on Oracle Linux, you could run your SAP Central Services on SLES or RHEL and protect it with a Pacemkaer based luster. A component that is not supported by Oracle.
+As you realize, only the two guest operating systems of Windows and Oracle Linux are supported. Widely used SLES and RHEL Linux are not supported to deploy Oracle components in Azure. Oracle components do include as well the Oracle database client which is used by SAP applications to connect against the Oracle DBMS. Exceptions, according to SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619) are SAP components which are not using the Oracle client because those components might not need to connect to the Oracle DBMS. Such SAP components are SAP's stand-alone enqueue, message server and Enqueue replication services. Means despite running your Oracle DBMS and SAP application instances on Oracle Linux, you could run your SAP Central Services on SLES or RHEL and protect it with a Pacemkaer based luster. A component that is not supported by Oracle.
 
 ## Oracle Configuration Guidelines for SAP Installations in Azure VMs using Windows
 ### Storage configuration
@@ -346,7 +346,7 @@ Any kind of network drives or remote shares like Azure file services:
 
 are **NOT** supported for Oracle database files!
 
-Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in this document in chapter [Caching for VMs and data disks][dbms-guide-2.1] and [Microsoft Azure Storage][dbms-guide-2.3] apply to deployments with the Oracle Database as well.
+Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Oracle Database as well.
 
 As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
@@ -360,7 +360,7 @@ Recommendations based on customer experience are:
 
 - Use different volumes for the redo log and its mirror
 - Only apply a stripe set to the volumes containing the redo log and its mirror when necessary due to IOPS
-- For Azure M-Series VM, the latency writing into the redo logs can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the oracle redo logs. Details can be read in the document [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
+- For Azure M-Series VM, the latency writing into the redo logs can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Oracle redo logs. Details can be read in the document [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
 
 ### Backup / Restore
 For backup / restore functionality, the SAP BR*Tools for Oracle are supported in the same way as on standard Windows Server Operating Systems and Hyper-V. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restore from disk.
@@ -372,6 +372,9 @@ You can also use Azure Backup Service to execute an application consistent VM ba
 Oracle Data Guard is supported for high availability and disaster recovery purposes. 
 
 Disaster Recovery aspects for Oracle databases in Azure are presented in the article [Disaster recovery for an Oracle Database 12c database in an Azure environment](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
+
+### Accelerated Networking
+For Oracle deployments on Windows it is highly recommended to use the Azure functionality of Accelerated Networking as described in the document [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Also consider recommendations made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
 
 ### Other
 All other general areas like Azure Availability Sets or SAP monitoring apply as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) for deployments of VMs with the Oracle Database as well.
@@ -410,7 +413,7 @@ Recommendations based on customer experience are:
 
 - Use different volumes for the redo log and its mirror
 - Only apply a stripe set to the volumes containing the redo log and its mirror when necessary due to IOPS
-- For Azure M-Series VM, the latency writing into the redo logs can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the oracle redo logs. Details can be read in the document [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
+- For Azure M-Series VM, the latency writing into the redo logs can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Oracle redo logs. Details can be read in the document [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
 
 
 #### Backup / Restore
@@ -423,6 +426,10 @@ Oracle Data Guard is supported for high availability and disaster recovery purpo
 
 
 Disaster Recovery aspects for Oracle databases in Azure are presented in the article [Disaster recovery for an Oracle Database 12c database in an Azure environment](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
+
+#### Accelerated Networking
+Support for Azure Accelerated Networking in Oracle Linux is provided with oracle Linux 7 Upadate 5 (Oracle Linux 7.5). If you can't upgrade to the latest Oracle Linux 7.5 release, there might be a workaround by using the RHEL kernel instead of the Oracle UEK kernel. Using the RHEL kernel within Oracle Linux is supported according to SAP Note [#1565179](https://launchpad.support.sap.com/#/notes/1565179). However, keep in mind that the minimum RHEL kernel release needs to be 3.10.0-862.el7.x86_64 for properly working Azure Accelerated Networking.
+
 
 #### Other
 All other general areas like Azure Availability Sets or SAP monitoring apply as described in the first three chapters of this document for deployments of VMs with the Oracle Database as well.

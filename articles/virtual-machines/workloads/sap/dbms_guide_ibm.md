@@ -305,37 +305,60 @@ ms.custom: H1Hack27Feb2017
 
 # IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload
 
-## Specifics to IBM DB2 for LUW on Windows
 With Microsoft Azure, you can easily migrate your existing SAP application running on IBM DB2 for Linux, UNIX, and Windows (LUW) to Azure virtual machines. With SAP on IBM DB2 for LUW, administrators and developers can still use the same development and administration tools, which are available on-premises.
 General information about running SAP Business Suite on IBM DB2 for LUW can be found in the SAP Community Network (SCN) at <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
 
 For additional information and updates about SAP on DB2 for LUW on Azure, see SAP Note [2233094]. 
 
-### IBM DB2 for Linux, UNIX, and Windows Version Support
+The  are various articles on SAP workload on Azure released.  It is recommended to start in [SAP workload on Azure - Get Started](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) and then pick the topic of interests
+
+The following SAP Notes are related to SAP on Azure in regards to the topic of this document:
+
+| Note number | Title |
+| --- | --- |
+| [1928533] |SAP Applications on Azure: Supported Products and Azure VM types |
+| [2015553] |SAP on Microsoft Azure: Support Prerequisites |
+| [1999351] |Troubleshooting Enhanced Azure Monitoring for SAP |
+| [2178632] |Key Monitoring Metrics for SAP on Microsoft Azure |
+| [1409604] |Virtualization on Windows: Enhanced Monitoring |
+| [2191498] |SAP on Linux with Azure: Enhanced Monitoring |
+| [2233094] |DB6: SAP Applications on Azure Using IBM DB2 for Linux, UNIX, and Windows - Additional Information |
+| [2243692] |Linux on Microsoft Azure (IaaS) VM: SAP license issues |
+| [1984787] |SUSE LINUX Enterprise Server 12: Installation notes |
+| [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade |
+| [1597355] |Swap-space recommendation for Linux |
+
+As a pr-read to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) as well as other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+
+
+## IBM DB2 for Linux, UNIX, and Windows Version Support
 SAP on IBM DB2 for LUW on Microsoft Azure Virtual Machine Services is supported as of DB2 version 10.5.
 
 For information about supported SAP products and Azure VM types, refer to SAP Note [1928533].
 
-### IBM DB2 for Linux, UNIX, and Windows Configuration Guidelines for SAP Installations in Azure VMs
-#### Storage Configuration
+## IBM DB2 for Linux, UNIX, and Windows Configuration Guidelines for SAP Installations in Azure VMs
+### Storage Configuration
 All database files must be stored on the NTFS file system based on directly attached disks. These disks are mounted to the Azure VM and are based in Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). 
 Any kind of network drives or remote shares like the following Azure file services are **NOT** supported for database files: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
-If you are using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in this document in chapter [Structure of an RDBMS Deployment][dbms-guide-2] also apply to deployments with the IBM DB2 for LUW Database. 
+Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Oracle Database as well.
 
-As explained earlier in the general part of the document, quotas on IOPS throughput for disks exist. The exact quotas depend on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
+As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
-As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single mounted disk. 
+As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single mounted disk. Whereas you always should separate the data files and transaction log files on different disks/VHDs.
 
 For performance considerations also refer to chapter 'Data Safety and Performance Considerations for Database Directories' in SAP installation guides.
 
-Alternatively, you can use Windows Storage Pools (only available in Windows Server 2012 and higher) or Windows striping for Windows 2008 R2 as described in chapter [Software RAID][dbms-guide-2.2] of this document to create one large logical device over multiple disks.
+Alternatively, you can use Windows Storage Pools (only available in Windows Server 2012 and higher)  as described [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) to create one large logical device over multiple disks.
+
 For the disks containing the DB2 storage paths for your sapdata and saptmp directories, you must specify a physical disk sector size of 512 KB. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
-#### Backup/Restore
+For Azure M-Series VM, the latency writing into the transaction logs can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the DB2 transaction logs. Details can be read in the document [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
+
+### Backup/Restore
 The backup/restore functionality for IBM DB2 for LUW is supported in the same way as on standard Windows Server Operating Systems and Hyper-V.
 
 You must make sure that you have a valid database backup strategy in place. 
@@ -351,70 +374,26 @@ To increase the number of targets to write to, two options can be used/combined 
 * Striping the backup target volume over multiple disks in order to improve the IOPS throughput on that striped volume
 * Using more than one target directory to write the backup to
 
-#### High Availability and Disaster Recovery
+>[!NOTE]
+>DB on window does not support the Windows VSS technology. As a result, the application consistent VM backup of Azure Backup Service can't be leveraged for VMs the DB2 DBMS is deployed in.
+
+### High Availability and Disaster Recovery
 Microsoft Cluster Server (MSCS) is not supported.
 
 DB2 high availability disaster recovery (HADR) is supported. If the virtual machines of the HA configuration have working name resolution, the setup in Azure does not differ from any setup that is done on-premises. It is not recommended to rely on IP resolution only.
 
-Do not use Geo-Replication for the storage accounts that store the database disks. For more information, refer to chapter [Microsoft Azure Storage][dbms-guide-2.3] and chapter [High Availability and Disaster Recovery with Azure VMs][dbms-guide-3].
+Do not use Geo-Replication for the storage accounts that store the database disks. For more information, refer to the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
 
-#### Other
-All other general areas like Azure Availability Sets or SAP monitoring apply as described in the first three chapters of this document for deployments of VMs with IBM DB2 for LUW as well. 
+### Accelerated Networking
+For DB2 deployments on Windows it is highly recommended to use the Azure functionality of Accelerated Networking as described in the document [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Also consider recommendations made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
 
-Also refer to chapter [General SQL Server for SAP on Azure Summary][dbms-guide-5.8].
 
-## Specifics to IBM DB2 for LUW on Linux
-With Microsoft Azure, you can easily migrate your existing SAP application running on IBM DB2 for Linux, UNIX, and Windows (LUW) to Azure virtual machines. With SAP on IBM DB2 for LUW, administrators and developers can still use the same development and administration tools, which are available on-premises. 
-General information about running SAP Business Suite on IBM DB2 for LUW can be found in the SAP Community Network (SCN) at <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
+### Specifics for Linux deployments
+As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single disk. Whereas you always should separate the data files and transaction log files on different disks/VHDs.
 
-For additional information and updates about SAP on DB2 for LUW on Azure, see SAP Note [2233094].
-
-### IBM DB2 for Linux, UNIX, and Windows Version Support
-SAP on IBM DB2 for LUW on Microsoft Azure Virtual Machine Services is supported as of DB2 version 10.5.
-
-For information about supported SAP products and Azure VM types, refer to SAP Note [1928533].
-
-### IBM DB2 for Linux, UNIX, and Windows Configuration Guidelines for SAP Installations in Azure VMs
-#### Storage Configuration
-All database files must be stored on a file system based on directly attached disks. These disks are mounted to the Azure VM and are based in Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). 
-Any kind of network drives or remote shares like the following Azure file services are **NOT** supported for database files:
-
-* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
-* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
-
-If you are using disks based on Azure Page BLOB Storage, the statements made in this document in chapter [Structure of an RDBMS Deployment][dbms-guide-2] also apply to deployments with the IBM DB2 for LUW Database.
-
-As explained earlier in the general part of the document, quotas on IOPS throughput for disks exist. The exact quotas depend on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
-
-As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single disk.
-
-For performance considerations also refer to chapter 'Data Safety and Performance Considerations for Database Directories'  in SAP installation guides.
-
-Alternatively, you can use LVM (Logical Volume Manager) or MDADM as described in chapter [Software RAID][dbms-guide-2.2] of this document to create one large logical device over multiple disks.
+Alternatively, if the IOPS or I/O throughput of a single Azure VHD is not sufficient, you can use LVM (Logical Volume Manager) or MDADM as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) to create one large logical device over multiple disks.
 For the disks containing the DB2 storage paths for your sapdata and saptmp directories, you must specify a physical disk sector size of 512 KB.
 
-#### Backup/Restore
-The backup/restore functionality for IBM DB2 for LUW is supported in the same way as on standard Linux installation on-premises.
 
-You must make sure that you have a valid database backup strategy in place.
-
-As in bare-metal deployments, backup/restore performance depends on how many volumes can be read in parallel and what the throughput of those volumes might be. In addition, the CPU consumption used by backup compression may play a significant role on VMs with up to eight CPU threads. Therefore, one can assume:
-
-* The fewer the number of disks used to store the database devices, the smaller the overall throughput in reading
-* The smaller the number of CPU threads in the VM, the more severe the impact of backup compression
-* The fewer targets (Stripe Directories, disks) to write the backup to, the lower the throughput
-
-To increase the number of targets to write to, two options can be used/combined depending on your needs:
-
-* Striping the backup target volume over multiple disks in order to improve the IOPS throughput on that striped volume
-* Using more than one target directory to write the backup to
-
-#### High Availability and Disaster Recovery
-DB2 high availability disaster recovery (HADR) is supported. If the virtual machines of the HA configuration have working name resolution, the setup in Azure does not differ from any setup that is done on-premises. It is not recommended to rely on IP resolution only.
-
-Do not use Geo-Replication for the storage accounts that store the database disks. For more information, refer to chapter [Microsoft Azure Storage][dbms-guide-2.3] and chapter [High Availability and Disaster Recovery with Azure VMs][dbms-guide-3].
-
-#### Other
-All other general topics like Azure Availability Sets or SAP monitoring apply as described in the first three chapters of this document for deployments of VMs with IBM DB2 for LUW as well.
-
-Also refer to chapter [General SQL Server for SAP on Azure Summary][dbms-guide-5.8].
+### Other
+All other general areas like Azure Availability Sets or SAP monitoring apply as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) for deployments of VMs with the IBM Database as well.
