@@ -3,7 +3,7 @@ title: Tutorial - Monitor and update Linux virtual machines in Azure | Microsoft
 description: In this tutorial, you learn how to monitor boot diagnostics and performance metrics, and manage package updates on a Linux virtual machine
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn about monitoring and update management so that I can review the health status, perform troubleshooting, and install updates on Linux virtual machines.

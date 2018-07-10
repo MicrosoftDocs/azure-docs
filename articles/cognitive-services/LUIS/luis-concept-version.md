@@ -21,7 +21,7 @@ The version ID consists of characters, digits or '.' and cannot be longer than 1
 The initial version (0.1) is the default active version. 
 
 ## Active version
-To [set a version](luis-how-to-manage-versions.md#set-active-version) as the active means it is currently edited and tested in the [LUIS][LUIS] website. Set a version as active to access its data, make updates, as well as to test and publish it.
+To [set a version](luis-how-to-manage-versions.md#set-active-version) as the active means it is currently edited and tested in the [LUIS](luis-reference-regions.md) website. Set a version as active to access its data, make updates, as well as to test and publish it.
 
 The name of the currently active version is displayed in the top, left panel after the app name. 
 
@@ -57,5 +57,3 @@ The owner and all [collaborators](luis-how-to-collaborate.md) have full access t
 See how to add [versioning](luis-how-to-manage-versions.md) on the app settings page. 
 
 Learn how to design [intents](luis-concept-intent.md) into the model.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 06/18/2018
+ms.date: 07/03/2018
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -166,29 +166,29 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-You can view the contents of `stdout.txt` in a text editor. The contents show the Azure Batch environment variables that are set on the node. When you create your own Batch jobs, you can reference these environment variables in task command lines, and in the apps and scripts run by the command lines.
+You can view the contents of `stdout.txt` in a text editor. The contents show the Azure Batch environment variables that are set on the node. When you create your own Batch jobs, you can reference these environment variables in task command lines, and in the apps and scripts run by the command lines. For example:
 
 ```
-AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3
+AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1
 AZ_BATCH_NODE_STARTUP_DIR=/mnt/batch/tasks/startup
-AZ_BATCH_CERTIFICATES_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/certs
-AZ_BATCH_ACCOUNT_URL=https://mybatchaccount.eastus2batch.azure.com/
-AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/wd
+AZ_BATCH_CERTIFICATES_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1/certs
+AZ_BATCH_ACCOUNT_URL=https://mybatchaccount.eastus2.batch.azure.com/
+AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1/wd
 AZ_BATCH_NODE_SHARED_DIR=/mnt/batch/tasks/shared
 AZ_BATCH_TASK_USER=_azbatch
 AZ_BATCH_NODE_ROOT_DIR=/mnt/batch/tasks
-AZ_BATCH_JOB_ID=myjob
+AZ_BATCH_JOB_ID=myjobl
 AZ_BATCH_NODE_IS_DEDICATED=true
-AZ_BATCH_NODE_ID=tvm-1392786932_2-20171026t223740z
-AZ_BATCH_POOL_ID=mypool-linux
-AZ_BATCH_TASK_ID=mytask3
+AZ_BATCH_NODE_ID=tvm-257509324_2-20180703t215033z
+AZ_BATCH_POOL_ID=mypool
+AZ_BATCH_TASK_ID=mytask1
 AZ_BATCH_ACCOUNT_NAME=mybatchaccount
 AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ```
 ## Clean up resources
 If you want to continue with Batch tutorials and samples, use the Batch account and linked storage account created in this quickstart. There is no charge for the Batch account itself.
 
-You are charged for pools while the nodes are running, even if no jobs are scheduled. When you no longer need a pool, delete it with the [az batch pool delete](/cli/azure/batch/pool#az_batch_pool_delete) command:
+You are charged for pools while the nodes are running, even if no jobs are scheduled. When you no longer need a pool, delete it with the [az batch pool delete](/cli/azure/batch/pool#az_batch_pool_delete) command. When you delete the pool, all task output on the nodes is deleted. 
 
 ```azurecli-interactive
 az batch pool delete --pool-id mypool

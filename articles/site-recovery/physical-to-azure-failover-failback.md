@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ---
 
@@ -76,7 +76,7 @@ low-latency network is required between the process server and the protected mac
 By default, the master target server receives failback data. It runs on the on-premises configuration server.
 
 - If the VMware VM to which you fail back is on an ESXi host that's managed by VMware vCenter Server, the master target server must have access to the VM's datastore (VMDK), to write replicated data to the VM disks. Make sure that the VM datastore is mounted on the master target's host, with read/write access.
-- If the ESXi host that isn't managed by a vCenter server, Site Recovery service creates a new VM during reprotection. The VM is created on the ESX host on which you create the master target VM. The hard disk of the VM must be in a datastore that's accessible by the the host on which the master target server is running.
+- If the ESXi host that isn't managed by a vCenter server, Site Recovery service creates a new VM during reprotection. The VM is created on the ESX host on which you create the master target VM. The hard disk of the VM must be in a datastore that's accessible by the host on which the master target server is running.
 - For physical machines that you fail back, you should complete discovery of the host on which the master target server is running, before you can reprotect the machine.
 - Another option, if the on-premises VM already exists for failback, is to delete it before you do a failback. Failback then creates a new VM on the same host as the master target ESX host. When you fail back to an alternate location, the data is recovered to the same datastore and the same ESX host as that used by the on-premises master target server.
 - You can't use Storage vMotion on the master target server. If you do, failback won't work, because the disks aren't available to it. Exclude the master target servers from your vMotion list.
