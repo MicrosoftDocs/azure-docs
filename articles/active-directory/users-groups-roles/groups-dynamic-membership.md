@@ -233,9 +233,9 @@ As an example, to search for all users with  “Contoso” in the proxyAddresses
 
 ```(user.proxyAddresses -any (_ -contains "contoso"))```
 
-### Use the -any or -all operator with a multi-valued property with a simple type element
+### Use an underscore (\_) to match members based on a collection
 
-Azure AD uses the underscore (\_) syntax to support multi-valued properties with simple type elements using the -any or -all operator.
+The underscore (\_) syntax supports using multi-valued properties with simple type elements to select group members. It is used with the -any or -all operators. In a dynamic group membership rule, an underscore (\_) means "add every user that includes the specified value in this multi-valued property with a simple type." 
 
 #### What’s a multi-valued property?
 
@@ -243,21 +243,17 @@ It’s an array, collection, container, or any other similar term to represent a
 
 #### What’s a simple type element?
 
-Simple types are number, string, bool, or GUID. Complex types are objects (key/value pairs). Examples
+Simple types are number, string, bool, or GUID. Complex types are objects (key/value pairs). Examples:
 
 * **Department** is single-valued property with a simple type.
 * **assignedPlan**, which has **serviced** and **serviceStatus** nested properties, is a single-valued property with complex type elements.
 * **proxyAddresses** and **otherMails** are multi-valued properties with simple type elements.
 
-Azure AD supports multi-valued property with complex type to use -any as follows:
+#### Syntax for the underscore (\_)
 
-```(users.assignedPlans -any (assignedPlan.serviceId -startsWith “SCO”))```
-
-But what about a multi-valued property with simple type? How do you express the rule; for example, that adds to the group any proxy address that contains "contoso?" See the following syntax:
+Here's an example of using the underscore (\_) in a rule using a multi-valued property with simple type, such as user.proxyAddress. This rule adds to the group any user with proxy address that contains "contoso." See the following syntax:
 
 ```(user.proxyAddresses -any (_ -contains "contoso"))```
-
-In a dynamic group membership rule, an underscore (\_) means "add every user that includes the specified value in this multi-valued property with a simple type." Because each element in this multi-valued property is simple type, you don't ned an additional explicit property reference, just the element itself, therefore the underscore (\_) represents every single element.
 
 ## Multi-value properties
 
