@@ -66,7 +66,7 @@ It has the following characteristics:
 
 * low latency
 * capable of receiving and processing millions of events per second
-* exactly once delivery
+* at least once delivery
 
 ### Service Bus
 

@@ -11505,6 +11505,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-network/virtual-network-routes-troubleshoot-portal.md",
             "redirect_url": "/azure/virtual-network/diagnose-network-routing-problem",
             "redirect_document_id": false
@@ -26033,6 +26038,11 @@
         {
         "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/Create-new-app.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-start-new-app",
         "redirect_document_id": true
         }
     ]

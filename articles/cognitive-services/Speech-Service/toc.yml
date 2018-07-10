@@ -9,7 +9,7 @@
     href: speech-scenarios.md
 - name: Quickstarts
   items:
-  - name: Try the Speech service for free # OK
+  - name: Try the Speech service for free
     href: get-started.md
   - name: Recognize speech in C#
     href: quickstart-csharp-windows.md
@@ -39,8 +39,10 @@
     href: how-to-customize-language-model.md
   - name: Customize pronunciation
     href: how-to-customize-pronunciation.md
-  - name: Customize Voice Fonts (Bot Brand Voice)
+  - name: Customize voice fonts (bot brand voice)
     href: how-to-customize-voice-font.md
+  - name: Record voice samples
+    href: record-custom-voice-samples.md
   - name: Prepare transcripts
     href: prepare-transcription.md
   - name: Use custom audio streams
