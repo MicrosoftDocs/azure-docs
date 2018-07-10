@@ -107,7 +107,7 @@ After a few minutes, the state of the cluster is **Steady**, and the node starts
 
 If you need to connect to the cluster nodes (in this case, a single node) to install applications or perform maintenance, get connection information in the portal. After the cluster is created, click **Nodes** and take note of the SSH **Connection** settings (IP address and port number).
 
-![Cluster nodews](./media/quickstart-create-cluster-portal/cluster-nodes.png)
+![Cluster nodes](./media/quickstart-create-cluster-portal/cluster-nodes.png)
 
 Use this information to make an SSH connection to the node. For example, substitute the correct IP address and port number of your node in the following command:
 
