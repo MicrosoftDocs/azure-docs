@@ -30,10 +30,10 @@ You can download the source code from [GitHub](https://github.com/Azure/DevOps-F
 
 ## Pre-requisites
 The following are the pre-requisites for following the CI/CD pipeline described below:
-* [Visual Studio Team Services Account](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student)
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Azure Container Service (AKS) cluster running Kubernetes](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [Azure Container Registy (ACR) account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)
+* [Visual Studio Team Services Account](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure Container Service (AKS) cluster running Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
+* [Azure Container Registy (ACR) account](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [Install Kubectl to run commands against Kubernetes cluster.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) We will need this to fetch configuration from ACS cluster. 
 * Fork the repository to your GitHub account.
 
@@ -64,6 +64,6 @@ The pipeline architecture is given below.
 
 ## References
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)
-* [Azure Machine Learning (AML)](https://docs.microsoft.com/en-us/azure/machine-learning/service/)
+* [Azure Machine Learning (AML)](https://docs.microsoft.com/azure/machine-learning/service/)
 * [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/vso/)
-* [Azure Kubernetes Services (AKS)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
+* [Azure Kubernetes Services (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
