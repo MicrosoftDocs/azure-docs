@@ -22,12 +22,12 @@ ms.custom: Jenkins
 
 To deploy a Java web app to Azure, you can use the Azure CLI in [Jenkins Pipeline](/azure/jenkins/execute-cli-jenkins-pipeline) or you can use the [Azure App Service Jenkins plugin](https://plugins.jenkins.io/azure-app-service). 
 The Jenkins plugin version 1.0 supports continuous deployment by using the Web Apps feature of Azure App Service through:
-* Git and FTP.
+* Git or FTP.
 * Docker for Web Apps on Linux.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Configure Jenkins to deploy Web Apps through Git and FTP.
+> * Configure Jenkins to deploy Web Apps through Git or FTP.
 > * Configure Jenkins to deploy Web App for Containers.
 
 ## Create and configure a Jenkins instance
@@ -37,7 +37,7 @@ If you don't already have a Jenkins Master, start with the [solution template](i
 * [Jenkins Git client plugin](https://plugins.jenkins.io/git-client) version 2.4.6 
 * [Docker Commons plugin](https://plugins.jenkins.io/docker-commons) version 1.4.0
 * [Azure Credentials](https://plugins.jenkins.io/azure-credentials) version 1.2
-* [Azure App Service](https://plugins.jenkins.io/azure-app-server) version 0.1
+* [Azure App Service](https://plugins.jenkins.io/azure-app-service) version 0.1
 
 You can use the Jenkins plugin to deploy a web app in any language that is supported by Web Apps, such as C#, PHP, Java, and Node.js. In this tutorial, we use a [simple Java web app for Azure](https://github.com/azure-devops/javawebappsample). To fork the repo to your own GitHub account, select the **Fork** button in the upper right corner of the GitHub interface.  
 > [!NOTE]
@@ -62,14 +62,14 @@ You need an Azure service principal to deploy to Azure.
 3. To add a Microsoft Azure service principal, select **Add Credentials**. Supply values for the **Subscription ID**, **Client ID**, **Client Secret**, and **OAuth 2.0 Token Endpoint** fields. Set the **ID** field to **mySp**. We use this ID in subsequent steps in this article.
 
 
-## Configure Jenkins to deploy Web Apps through Git and FTP
+## Configure Jenkins to deploy Web Apps by uploading files
 
 To deploy your project to Web Apps, you can upload your build artifacts (for example, a WAR file in Java) by using Git or FTP.
 
 Before you set up the job in Jenkins, you need an Azure App Service plan and a web app to run the Java app.
 
 
-1. Create an Azure App Service plan with the **FREE** pricing tier by using the `az appservice plan create` [Azure CLI command](/cli/azure/appservice/plan#create). The App Service plan defines the physical resources that are used to host your apps. All applications that are assigned to an App Service plan share these resources. Shared resources help you to save on costs when hosting multiple apps.
+1. Create an Azure App Service plan with the **FREE** pricing tier by using the `az appservice plan create` [Azure CLI command](/cli/azure/appservice/plan#az_appservice_plan_create). The App Service plan defines the physical resources that are used to host your apps. All applications that are assigned to an App Service plan share these resources. Shared resources help you to save on costs when hosting multiple apps.
 2. Create a web app. You can use the [Azure portal](/azure/app-service-web/web-sites-configure) or the following `az` Azure CLI command:
     ```azurecli-interactive	
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -102,7 +102,7 @@ Before you set up the job in Jenkins, you need an Azure App Service plan and a w
 8. If you want to deploy to a slot other than production, you can also set the **Slot** name.
 9. Save the project and build it. Your web app is deployed to Azure when the build is complete.
 
-### Deploy Web Apps through FTP by using Jenkins Pipeline
+### Deploy Web Apps by uploading files using Jenkins Pipeline
 
 The Azure App Service Jenkins plugin is pipeline-ready. You can refer to the following sample in the GitHub repo.
 

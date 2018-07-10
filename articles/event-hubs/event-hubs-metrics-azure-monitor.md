@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 04/12/2018
 ms.author: sethm
 
 ---
@@ -43,7 +43,7 @@ For metrics supporting dimensions, you must filter with the desired dimension va
 
 ## Billing
 
-Using metrics in Azure Monitor is currently free while in preview. However, if you use additional solutions that ingest metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. You are also billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
+Using metrics in Azure Monitor is currently free while in preview. However, if you use additional solutions that ingest metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. You are also billed by Azure if you stream metrics data to Log Analytics for advanced analysis.
 
 The following metrics give you an overview of the health of your service. 
 

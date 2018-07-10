@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 01/26/2018
 ms.author: sethm
 
 ---
 
 # Topic filters and actions
 
-Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or multiple named subscription rules. Each rule consists of a condition that selects particular messages and an action that annotates the selected message. For each matching rule condition, the subscription produces a copy of the message, which may be differently annotated for each matching rule.
+Subscribers can define which messages they want to receive from a topic. These messages are specified in the form of one or more named subscription rules. Each rule consists of a condition that selects particular messages and an action that annotates the selected message. For each matching rule condition, the subscription produces a copy of the message, which may be differently annotated for each matching rule.
 
 Each newly created topic subscription has an initial default subscription rule. If you don't explicitly specify a filter condition for the rule, the applied filter is the **true** filter that enables all messages to be selected into the subscription. The default rule has no associated annotation action.
 
@@ -37,7 +37,7 @@ Complex filter rules require processing capacity. In particular, the use of SQL 
 
 ## Actions
 
-With SQL filter conditions, and only with those, you can define an action that can annotate the message by adding, removing, or replacing properties and their values. The action [uses a SQL-like expression](service-bus-messaging-sql-filter.md) that loosely leans on the SQL UPDATE statement syntax. The action is performed on the message after is has been matched and before the message is selected into the topic. The changes to the message properties are private to the message copied into the subscription.
+With SQL filter conditions, and only with those, you can define an action that can annotate the message by adding, removing, or replacing properties and their values. The action [uses a SQL-like expression](service-bus-messaging-sql-filter.md) that loosely leans on the SQL UPDATE statement syntax. The action is performed on the message after it has been matched and before the message is selected into the topic. The changes to the message properties are private to the message copied into the subscription.
 
 ## Usage patterns
 

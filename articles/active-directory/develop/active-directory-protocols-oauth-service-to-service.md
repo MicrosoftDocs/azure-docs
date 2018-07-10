@@ -3,21 +3,23 @@ title: Azure AD Service to Service Auth using OAuth2.0 | Microsoft Docs
 description: This article describes how to use HTTP messages to implement service to service authentication using the OAuth2.0 client credentials grant flow.
 services: active-directory
 documentationcenter: .net
-author: navyasric
-manager: mbaldwin
+author: CelesteDG
+manager: mtillman
 editor: ''
 
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-
 ---
+
 # Service to service calls using client credentials (shared secret or certificate)
 The OAuth 2.0 Client Credentials Grant Flow permits a web service (*confidential client*) to use its own credentials instead of impersonating a user, to authenticate when calling another web service. In this scenario, the client is typically a middle-tier web service, a daemon service, or web site. For a higher level of assurance, Azure AD also allows the calling service to use a certificate (instead of a shared secret) as a credential.
 
@@ -50,9 +52,9 @@ When using a shared secret, a service-to-service access token request contains t
 | Parameter |  | Description |
 | --- | --- | --- |
 | grant_type |required |Specifies the requested grant type. In a Client Credentials Grant flow, the value must be **client_credentials**. |
-| client_id |required |Specifies the Azure AD client id of the calling web service. To find the calling application's client ID, in the [Azure portal](https://portal.azure.com), click **Active Directory**, switch directory, click the application. The client_id is the *Application ID* |
-| client_secret |required |Enter a key registered for the calling web service or daemon application in Azure AD. To create a key, in the Azure portal, click **Active Directory**, switch directory, click the application, click **Settings**, click **Keys**, and add a Key.|
-| resource |required |Enter the App ID URI of the receiving web service. To find the App ID URI, in the Azure portal, click **Active Directory**, switch directory, click the service application, and then click **Settings** and **Properties** |
+| client_id |required |Specifies the Azure AD client id of the calling web service. To find the calling application's client ID, in the [Azure portal](https://portal.azure.com), click **Azure Active Directory**, click **App registrations**, click the application. The client_id is the *Application ID* |
+| client_secret |required |Enter a key registered for the calling web service or daemon application in Azure AD. To create a key, in the Azure portal, click **Azure Active Directory**, click **App registrations**, click the application, click **Settings**, click **Keys**, and add a Key.|
+| resource |required |Enter the App ID URI of the receiving web service. To find the App ID URI, in the Azure portal, click **Azure Active Directory**, click **App registrations**, click the service application, and then click **Settings** and **Properties**. |
 
 #### Example
 The following HTTP POST requests an access token for the https://service.contoso.com/ web service. The `client_id` identifies the web service that requests the access token.
@@ -71,10 +73,10 @@ A service-to-service access token request with a certificate contains the follow
 | Parameter |  | Description |
 | --- | --- | --- |
 | grant_type |required |Specifies the requested response type. In a Client Credentials Grant flow, the value must be **client_credentials**. |
-| client_id |required |Specifies the Azure AD client id of the calling web service. To find the calling application's client ID, in the [Azure portal](https://portal.azure.com), click **Active Directory**, switch directory, click the application. The client_id is the *Application ID* |
+| client_id |required |Specifies the Azure AD client id of the calling web service. To find the calling application's client ID, in the [Azure portal](https://portal.azure.com), click **Azure Active Directory**, click **App registrations**, click the application. The client_id is the *Application ID* |
 | client_assertion_type |required |The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |required | An assertion (a JSON Web Token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
-| resource | required |Enter the App ID URI of the receiving web service. To find the App ID URI, in the Azure portal, click **Active Directory**, click the directory, click the application, and then click **Configure**. |
+| resource | required |Enter the App ID URI of the receiving web service. To find the App ID URI, in the Azure portal, click **Azure Active Directory**, click **App registrations**, click the service application, and then click **Settings** and **Properties**. |
 
 Notice that the parameters are almost the same as in the case of the request by shared secret except that
 the client_secret parameter is replaced by two parameters: a client_assertion_type and client_assertion.

@@ -2,18 +2,12 @@
 title: Create a read-only snapshot of a blob in Azure Storage | Microsoft Docs
 description: Learn how to create a snapshot of a blob to back up blob data at a given moment in time. Understand how snapshots are billed and how to use them to minimize capacity charges.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 03/06/2018
 ms.author: tamram
 
 ---
@@ -34,8 +28,6 @@ When you create a snapshot of a blob, the blob's system properties are copied to
 Any leases associated with the base blob do not affect the snapshot. You cannot acquire a lease on a snapshot.
 
 A VHD file is used to store the current information and status for a VM disk. You can detach a disk from within the VM or shut down the VM, and then take a snapshot of its VHD file. You can use that snapshot file later to retrieve the VHD file at that point in time and recreate the VM.
-
-If Storage Service Encryption (SSE) is enabled for the storage account in which the blob resides, then any snapshots taken of that blob will be encrypted at rest.
 
 ## Create a snapshot
 The following code example shows how to create a snapshot by using the [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). This example specifies additional metadata for the snapshot when it is created.

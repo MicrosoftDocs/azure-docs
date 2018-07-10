@@ -4,30 +4,27 @@ description: Learn about how to copy data from Amazon Redshift to supported sink
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
 # Copy data from Amazon Redshift using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-amazon-redshift-connector.md)
-> * [Version 2 - Preview](connector-amazon-redshift.md)
+> * [Version 1](v1/data-factory-amazon-redshift-connector.md)
+> * [Current version](connector-amazon-redshift.md)
 
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an Amazon Redshift. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Amazon Redshift connnector in V1](v1/data-factory-amazon-redshift-connector.md).
-
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from Amazon Redshift to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -42,7 +39,8 @@ Specifically, this Amazon Redshift connector supports retrieving data from Redsh
 * If you are copying data to an Azure data store, see [Azure Data Center IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) for the Compute IP address and SQL ranges used by the Azure data centers.
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Amazon Redshift connector.
 
@@ -57,7 +55,7 @@ The following properties are supported for Amazon Redshift linked service:
 | port |The number of the TCP port that the Amazon Redshift server uses to listen for client connections. |No, default is 5439 |
 | database |Name of the Amazon Redshift database. |Yes |
 | username |Name of user who has access to the database. |Yes |
-| password |Password for the user account. Mark this field as a SecureString. |Yes |
+| password |Password for the user account. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -127,7 +125,7 @@ To copy data from Amazon Redshift, set the source type in the copy activity to *
 | type | The type property of the copy activity source must be set to: **AmazonRedshiftSource** | Yes |
 | query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |No (if "tableName" in dataset is specified) |
 | redshiftUnloadSettings | Property group when using Amazon Redshift UNLOAD. | No |
-| s3LinkedServiceName | Refers to an Amazon S3 to-be-used as an interim store by specifying an ADF linked service name of "AmazonS3" type. | Yes if using UNLOAD |
+| s3LinkedServiceName | Refers to an Amazon S3 to-be-used as an interim store by specifying a linked service name of "AmazonS3" type. | Yes if using UNLOAD |
 | bucketName | Indicate the S3 bucket to store the interim data. If not provided, Data Factory service generates it automatically.  | Yes if using UNLOAD |
 
 **Example: Amazon Redshift source in copy activity using UNLOAD**
@@ -196,7 +194,7 @@ For this sample use case, copy activity unloads data from Amazon Redshift to Ama
                 "linkedServiceName": "AzureStorageLinkedService",
                 "path": "adfstagingcopydata"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]
@@ -204,7 +202,7 @@ For this sample use case, copy activity unloads data from Amazon Redshift to Ama
 
 ## Data type mapping for Amazon Redshift
 
-When copying data from Teradata, the following mappings are used from Teradata data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When copying data from Amazon Redshift, the following mappings are used from Amazon Redshift data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | Amazon Redshift data type | Data factory interim data type |
 |:--- |:--- |

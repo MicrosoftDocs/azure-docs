@@ -1,20 +1,14 @@
 ---
-title: Azure Quick Start - Back up a VM with the Azure portal | Microsoft Docs
+title: Azure Quickstart - Back up a VM with the Azure portal
 description: Learn how to back up your virtual machines with the Azure portal
-services: virtual-machines-windows, azure-backup
-documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
-editor:
+services: backup
+author: saurabhsensharma
+manager: shivamg
 tags: azure-resource-manager, virtual-machine-backup
-
-ms.assetid: 
-ms.service: virtual-machines-windows, azure-backup
+ms.service: backup
 ms.devlang: azurecli
-ms.topic: hero-article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.topic: quickstart
+ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
 ---
@@ -22,7 +16,7 @@ ms.custom: mvc
 # Back up a virtual machine in Azure
 Azure backups can be created through the Azure portal. This method provides a browser-based user interface to create and configure Azure backups and all related resources. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) with the Azure portal. 
 
-This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure portal](../virtual-machines/windows/quick-create-portal.md).
+This quickstart enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure portal](../virtual-machines/windows/quick-create-portal.md).
 
 ## Log in to Azure
 
@@ -32,14 +26,14 @@ Log in to the Azure portal at http://portal.azure.com.
 Create a simple scheduled daily backup to a Recovery Services Vault. 
 
 1. In the menu on the left, select **Virtual machines**. 
-2. From the list, choose a VM to back up. If you used the sample VM quick start commands, the VM is named *myVM* in the *myResourceGroup* resource group.
-3. In the **Settings** section, choose **Backup**. The **Enable backup** window opens.
+2. From the list, choose a VM to back up. If you used the sample VM quickstart commands, the VM is named *myVM* in the *myResourceGroup* resource group.
+3. In the **Operations** section, choose **Backup**. The **Enable backup** window opens.
 
 
 ## Enable backup on a VM
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-1. Select **Create new** and provide a name for the new vault, such as **myRecoveryServicesVault**.
+1. Select **Create new** and provide a name for the new vault, such as *myRecoveryServicesVault*.
 2. If not already selected, choose **Use existing**, then select the resource group of your VM from the drop-down menu.
 
     ![Enable VM backup in the Azure portal](./media/quick-backup-vm-portal/enable-backup.png)
@@ -49,6 +43,8 @@ A Recovery Services vault is a logical container that stores the backup data for
     You create and use policies to define when a backup job runs and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. 
 
 3. To accept the default backup policy values, select **Enable Backup**.
+
+It takes a few moments to create the Recovery Services vault.
 
 
 ## Start a backup job
@@ -83,14 +79,14 @@ If you are going to continue on to a Backup tutorial that explains how to restor
     Once the VM backup has been stopped and recovery points removed, you can delete the resource group. If you used an existing VM, you may wish to leave the resource group and VM in place.
 
 5. In the menu on the left, select **Resource groups**. 
-6. From the list, choose your resource group. If you used the sample VM quick start commands, the resource group is named *myResourceGroup*.
+6. From the list, choose your resource group. If you used the sample VM quickstart commands, the resource group is named *myResourceGroup*.
 7. Select **Delete resource group**. To confirm, enter the resource group name, then select **Delete**.
 
     ![Delete the resource group from the Azure portal](./media/quick-backup-vm-portal/delete-resource-group.png)
 
 
 ## Next steps
-In this quick start, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
+In this quickstart, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
 > [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)

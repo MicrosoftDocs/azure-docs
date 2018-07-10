@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 11/2/2017
 ms.author: dekapur
 
 ---

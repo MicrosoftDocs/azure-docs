@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 05/14/2018
 ms.author: jgao
 
 ---
@@ -48,7 +48,6 @@ As of now, only some of the HDInsight cluster types/versions support using Data 
 | HDInsight version 3.4 | No | Yes | |
 | HDInsight version 3.3 | No | No | |
 | HDInsight version 3.2 | No | Yes | |
-| HDInsight Premium (tier)| No | No | |
 | Storm | | |You can use Data Lake Store to write data from a Storm topology. You can also use Data Lake Store for reference data that can then be read by a Storm topology.|
 
 Using Data Lake Store as an additional storage account does not affect performance or the ability to read or write to Azure storage from the cluster.
@@ -97,10 +96,10 @@ Adding a Data Lake Store account as additional and adding more than one Data Lak
 
 ## Configure Data Lake store access
 
-To configure Data Lake store access from your HDInsight cluster, you must have an Azure Active directory (Azure AD) service principal. Only an Azure AD administrator can create a service principal. The service principal must be created with a certificate. For more information, see [Configure Data Lake Store access](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access), and [Create service principal with self-signed-certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+To configure Data Lake store access from your HDInsight cluster, you must have an Azure Active directory (Azure AD) service principal. Only an Azure AD administrator can create a service principal. The service principal must be created with a certificate. For more information, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md), and [Create service principal with self-signed-certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
 > [!NOTE]
-> If you are going to use Azure Data Lake Store as additional storage for HDInsight cluster, we strongly recommend that you do this while you create the cluster as described in this article. Adding Azure Data Lake Store as additional storage to an existing HDInsight cluster is a complicated process and prone to errors.
+> If you are going to use Azure Data Lake Store as additional storage for HDInsight cluster, we strongly recommend that you do this while you create the cluster as described in this article. Adding Azure Data Lake Store as additional storage to an existing HDInsight cluster is not a supported scenario.
 >
 
 ## Access files from the cluster
@@ -127,7 +126,7 @@ There are several ways you can access the files in Data Lake Store from an HDIns
 
 Use the following links for detailed instructions on how to create HDInsight clusters with access to Data Lake Store.
 
-* [Using Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Using Portal](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Using PowerShell (with Data Lake Store as default storage)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [Using PowerShell (with Data Lake Store as additional storage)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Using Azure templates](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -139,7 +138,8 @@ In this article, you learned how to use HDFS-compatible Azure Data Lake Store wi
 For more information, see:
 
 * [Get started with Azure HDInsight][hdinsight-get-started]
-* [Get started with Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
+* [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Create an HDInsight cluster to use Data Lake Store using the Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Pig with HDInsight][hdinsight-use-pig]

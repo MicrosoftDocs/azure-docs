@@ -3,18 +3,19 @@ title: Azure Active Directory reporting latencies | Microsoft Docs
 description: Learn about the amount of time it takes for reporting events to show up in your Azure portal
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: femila
+author: priyamohanram
+manager: mtillman
 editor: ''
 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
-ms.author: markvi;dhanyahk
+ms.component: compliance-reports
+ms.date: 12/15/2017
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
@@ -34,13 +35,15 @@ There are two areas of activity reporting:
 
 The following table lists the latency information for activity reports.
 
-| Report | Minimum | Average | Maximum |
-| :-- | --- | --- | --- |
-| Audit logs             | 30 minutes  | 45 Minutes | 1 hour     |
-| Sign-ins               | 15 minutes  | 15 minutes | 2 hours*   |
+| Report | Latency (P95) |Latency (P99)|
+| :-- | --- | --- | 
+| Audit logs | 2 mins  | 5 mins  |
+| Sign-ins | 2 mins  | 5 mins |
 
->[!NOTE]
-> For some sign-ins activity data coming from legacy office applications, it can take to 8 hours for the reporting data to show up. 
+
+
+
+
 
 
 ## Security reports

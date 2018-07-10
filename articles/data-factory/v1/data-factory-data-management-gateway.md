@@ -4,23 +4,26 @@ description: Set up a data gateway to move data between on-premises and the clou
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/15/2017
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: abnarain
 
 robots: noindex
 ---
 # Data Management Gateway
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [self-hosted integration runtime in version 2](../create-self-hosted-integration-runtime.md). 
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [self-hosted integration runtime in](../create-self-hosted-integration-runtime.md). 
+
+> [!NOTE]
+> Data Management Gateway has now been rebranded as Self-hosted Integration Runtime.  
 
 The Data management gateway is a client agent that you must install in your on-premises environment to copy data between cloud and on-premises data stores. The on-premises data stores supported by Data Factory are listed in the [Supported data sources](data-factory-data-movement-activities.md#supported-data-stores-and-formats) section.
 
@@ -40,7 +43,7 @@ Data management gateway provides the following capabilities:
 * Manage access to on-premises data sources securely.
   * No changes required to corporate firewall. Gateway only makes outbound HTTP-based connections to open internet.
   * Encrypt credentials for your on-premises data stores with your certificate.
-* Move data efficiently – data is transferred in parallel, resilient to intermittent network issues with auto retry logic.
+* Move data efficiently - data is transferred in parallel, resilient to intermittent network issues with auto retry logic.
 
 ### Command flow and data flow
 When you use a copy activity to copy data between on-premises and cloud, the activity uses a gateway to transfer data from on-premises data source to cloud and vice versa.
@@ -161,7 +164,7 @@ For example, to copy from **an on-premises data store to an Azure SQL Database s
 * Configure the firewall settings of Azure SQL server to add the IP address of the gateway machine to the list of allowed IP addresses.
 
 > [!NOTE]
-> If your firewall does not allow outbound port 1433, Gateway can't access Azure SQL directly. In this case, you may use [Staged Copy](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) to SQL Azure Database/ SQL Azure DW. In this scenario, you would only require HTTPS (port 443) for the data movement.
+> If your firewall does not allow outbound port 1433, Gateway can't access Azure SQL directly. In this case, you may use [Staged Copy](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) to SQL Azure Database/ SQL Azure DW. In this scenario, you would only require HTTPS (port 443) for the data movement.
 >
 >
 
@@ -179,7 +182,7 @@ There are three configuration options:
 
 * **Do not use proxy**: Gateway does not explicitly use any proxy to connect to cloud services.
 * **Use system proxy**: Gateway uses the proxy setting that is configured in diahost.exe.config and diawp.exe.config.  If no proxy is configured in diahost.exe.config and diawp.exe.config, gateway connects to cloud service directly without going through proxy.
-* **Use custom proxy**: Configure the HTTP proxy setting to use for gateway, instead of using configurations in diahost.exe.config and diawp.exe.config.  Address and Port are required.  User Name and Password are optional depending on your proxy’s authentication setting.  All settings are encrypted with the credential certificate of the gateway and stored locally on the gateway host machine.
+* **Use custom proxy**: Configure the HTTP proxy setting to use for gateway, instead of using configurations in diahost.exe.config and diawp.exe.config.  Address and Port are required.  User Name and Password are optional depending on your proxy's authentication setting.  All settings are encrypted with the credential certificate of the gateway and stored locally on the gateway host machine.
 
 The data management gateway Host Service restarts automatically after you save the updated proxy settings.
 
@@ -203,7 +206,7 @@ You can view and update HTTP proxy by using Configuration Manager tool.
 If you select **Use system proxy** setting for the HTTP proxy, gateway uses the proxy setting in diahost.exe.config and diawp.exe.config.  If no proxy is specified in diahost.exe.config and diawp.exe.config, gateway connects to cloud service directly without going through proxy. The following procedure provides instructions for updating the diahost.exe.config file.  
 
 1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config to back up the original file.
-2. Launch Notepad.exe running as administrator, and open text file “C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. You find the default tag for system.net as shown in the following code:
+2. Launch Notepad.exe running as administrator, and open text file "C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. You find the default tag for system.net as shown in the following code:
 
          <system.net>
              <defaultProxy useDefaultCredentials="true" />
@@ -226,13 +229,13 @@ If you select **Use system proxy** setting for the HTTP proxy, gateway uses the 
 > Do not forget to update **both** diahost.exe.config and diawp.exe.config.  
 
 
-In addition to these points, you also need to make sure Microsoft Azure is in your company’s whitelist. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+In addition to these points, you also need to make sure Microsoft Azure is in your company's whitelist. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### Possible symptoms for firewall and proxy server-related issues
 If you encounter errors similar to the following ones, it is likely due to improper configuration of the firewall or proxy server, which blocks gateway from connecting to Data Factory to authenticate itself. Refer to previous section to ensure your firewall and proxy server are properly configured.
 
 1. When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the data management gateway is in a connected state and the Data Management Gateway Host Service is Started."
-2. When you open Configuration Manager, you see status as “Disconnected” or “Connecting.” When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Data Management Gateway”, you see error messages such as the following error:
+2. When you open Configuration Manager, you see status as "Disconnected" or "Connecting." When viewing Windows event logs, under "Event Viewer" > "Application and Services Logs" > "Data Management Gateway", you see error messages such as the following error:
    `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
@@ -273,30 +276,30 @@ You can disable/enable the auto-update feature by doing the following steps:
 
 [For single node gateway]
 1. Launch Windows PowerShell on the gateway machine.
-2. Switch to the C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript folder.
+2. Switch to the C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ folder.
 3. Run the following command to turn the auto-update feature OFF (disable).   
 
 	```PowerShell
-	.\GatewayAutoUpdateToggle.ps1  -off
+	.\IntegrationRuntimeAutoUpdateToggle.ps1  -off
 	```
 4. To turn it back on:
 
 	```PowerShell
-	.\GatewayAutoUpdateToggle.ps1  -on  
+	.\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
 	```
-[For multi-node highly available and scalable gateway (preview)](data-factory-data-management-gateway-high-availability-scalability.md)
+[For multi-node highly available and scalable gateway](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Launch Windows PowerShell on the gateway machine.
-2. Switch to the C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript folder.
+2. Switch to the C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ folder.
 3. Run the following command to turn the auto-update feature OFF (disable).   
 
-	For gateway with high availability feature (preview), an extra AuthKey param is required.
+	For gateway with high availability feature, an extra AuthKey param is required.
 	```PowerShell
-	.\GatewayAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
+	.\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
 	```
 4. To turn it back on:
 
 	```PowerShell
-	.\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
+	.\IntegrationRuntimeAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
 	```
 
 ## Configuration Manager
@@ -321,6 +324,9 @@ The Settings page allows you to do the following actions:
 * Change **HTTPS port** for the endpoint. The gateway opens a port for setting the data source credentials.
 * **Status** of the endpoint
 * View **SSL certificate** is used for SSL communication between portal and the gateway to set credentials for data sources.  
+
+### Remote access from intranet  
+This functionality will be enabled in the future. In the upcoming updates (v3.4 or later) we will let you enable/ disable any remote connectivity that today happens using port 8050 (see section above) while using PowerShell or Credential Manager application for encrypting credentials. 
 
 ### Diagnostics page
 The Diagnostics page allows you to do the following actions:
@@ -362,7 +368,7 @@ Available memory | Available memory on a gateway node. This value is a near real
 CPU utilization | CPU utilization of a gateway node. This value is a near real-time snapshot. 
 Networking (In/Out) | Network utilization of a gateway node. This value is a near real-time snapshot. 
 Concurrent Jobs (Running/ Limit) | Number of jobs or tasks running on each node. This value is a near real-time snapshot. Limit signifies the maximum concurrent jobs for each node. This value is defined based on the machine size. You can increase the limit to scale up concurrent job execution in advanced scenarios, where CPU/memory/network is under-utilized, but activities are timing out. This capability is also available with a single-node gateway (even when the scalability and availability feature is not enabled).  
-Role | There are two types of roles in a multi-node gateway – Dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes (including itself).
+Role | There are two types of roles in a multi-node gateway - Dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes (including itself).
 
 In this page, you see some settings that make more sense when there are two or more nodes (scale out scenario) in the gateway. See [Data Management Gateway - high availability and scalability](data-factory-data-management-gateway-high-availability-scalability.md) for details about setting up a multi-node gateway.
 
@@ -478,7 +484,7 @@ This section describes how to create and register a gateway using Azure PowerShe
 2. Log in to your Azure account by running the following command and entering your Azure credentials.
 
 	```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 	```
 3. Use the **New-AzureRmDataFactoryGateway** cmdlet to create a logical gateway as follows:
 

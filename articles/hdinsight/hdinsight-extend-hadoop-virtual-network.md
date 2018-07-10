@@ -4,17 +4,17 @@ description: Learn how to use Azure Virtual Network to connect HDInsight to othe
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 02/21/2018
 ms.author: larryfr
 
 ---
@@ -32,7 +32,7 @@ Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/vi
 > The information in this document requires an understanding of TCP/IP networking. If you are not familiar with TCP/IP networking, you should partner with someone who is before making modifications to production networks.
 
 > [!IMPORTANT]
-> If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premise network](connect-on-premises-network.md) document.
+> If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premises network](connect-on-premises-network.md) document.
 
 ## Planning
 
@@ -87,10 +87,10 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        For more information, see the [Troubleshoot network security groups](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) document.
+        For more information, see the [Troubleshoot network security groups](../virtual-network/diagnose-network-traffic-filter-problem.md) document.
 
         > [!IMPORTANT]
-        > Network security group rules are applied in order based on rule priority. The first rule that matches the traffic pattern is applied, and no others are applied for that traffic. Order rules from most permissive to least permissive. For more information, see the [Filter network traffic with network security groups](../virtual-network/virtual-networks-nsg.md) document.
+        > Network security group rules are applied in order based on rule priority. The first rule that matches the traffic pattern is applied, and no others are applied for that traffic. Order rules from most permissive to least permissive. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
 
     * User-defined routes
 
@@ -104,7 +104,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        For more information, see the [Troubleshoot routes](../virtual-network/virtual-network-routes-troubleshoot-portal.md) document.
+        For more information, see the [Troubleshoot routes](../virtual-network/diagnose-network-routing-problem.md) document.
 
 4. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
 
@@ -170,7 +170,7 @@ To enable name resolution between the virtual network and resources in joined ne
 
     For an example of each configuration, see the [Example: Custom DNS](#example-dns) section.
 
-For more information, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) document.
+For more information, see the [Name Resolution for VMs and Role Instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 ## Directly connect to Hadoop services
 
@@ -211,7 +211,7 @@ To connect to Ambari and other web pages through the virtual network, use the fo
 
 Network traffic in an Azure Virtual Networks can be controlled using the following methods:
 
-* **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/virtual-networks-nsg.md) document.
+* **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
 
     > [!WARNING]
     > HDInsight does not support restricting outbound traffic.
@@ -239,7 +239,7 @@ If you plan on using **network security groups** or **user-defined routes** to c
 
 For more information on network security groups or user-defined routes, see the following documentation:
 
-* [Network security group](../virtual-network/virtual-networks-nsg.md)
+* [Network security group](../virtual-network/security-overview.md)
 
 * [User-defined routes](../virtual-network/virtual-networks-udr-overview.md)
 
@@ -293,8 +293,10 @@ If you use network security groups or user-defined routes, you must allow traffi
     | United Kingdom | UK West | 51.141.13.110</br>51.141.7.20 | 443 | Inbound |
     | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | 443 | Inbound |
     | United States | Central US | 13.67.223.215</br>40.86.83.253 | 443 | Inbound |
+    | &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | 443 | Inbound |
     | &nbsp; | North Central US | 157.56.8.38</br>157.55.213.99 | 443 | Inbound |
     | &nbsp; | West Central US | 52.161.23.15</br>52.161.10.167 | 443 | Inbound |
+    | &nbsp; | West US | 13.64.254.98</br>23.101.196.19 | 443 | Inbound |
     | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | 443 | Inbound |
 
     For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
@@ -378,7 +380,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 301 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule3" `
         -Description "HDI health and management 168.61.49.99" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -389,7 +391,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 302 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule4" `
         -Description "HDI health and management 23.99.5.239" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -400,7 +402,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 303 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule5" `
         -Description "HDI health and management 168.61.48.131" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -411,7 +413,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Priority 304 `
         -Direction Inbound `
     | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "hdirule2" `
+        -Name "hdirule6" `
         -Description "HDI health and management 138.91.141.162" `
         -Protocol "*" `
         -SourcePortRange "*" `
@@ -421,17 +423,6 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Allow `
         -Priority 305 `
         -Direction Inbound `
-    | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "blockeverything" `
-        -Description "Block everything else" `
-        -Protocol "*" `
-        -SourcePortRange "*" `
-        -DestinationPortRange "*" `
-        -SourceAddressPrefix "Internet" `
-        -DestinationAddressPrefix "VirtualNetwork" `
-        -Access Deny `
-        -Priority 500 `
-        -Direction Inbound
 # Set the changes to the security group
 Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
 # Apply the NSG to the subnet
@@ -440,6 +431,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     -Name $subnetName `
     -AddressPrefix $subnet.AddressPrefix `
     -NetworkSecurityGroup $nsg
+$vnet | Set-AzureRmVirtualNetwork
 ```
 
 > [!IMPORTANT]
@@ -475,7 +467,6 @@ Use the following steps to create a virtual network that restricts inbound traff
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n block --protocol "*" --source-port-range "*" --destination-port-range "*" --source-address-prefix "Internet" --destination-address-prefix "VirtualNetwork" --access "Deny" --priority 500 --direction "Inbound"
     ```
 
 3. To retrieve the unique identifier for this network security group, use the following command:
@@ -672,6 +663,6 @@ After completing these steps, you can connect to resources in the virtual networ
 * For configuring HBase geo-replication, see [Set up HBase cluster replication in Azure virtual networks](hbase/apache-hbase-replication.md).
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
-* For more information on network security groups, see [Network security groups](../virtual-network/virtual-networks-nsg.md).
+* For more information on network security groups, see [Network security groups](../virtual-network/security-overview.md).
 
 * For more information on user-defined routes, see [USer-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).

@@ -3,9 +3,9 @@ title: Virtual networks and Linux virtual machines in Azure | Microsoft Docs
 description: Learn about networking as it relates to the basics of creating Linux virtual machines in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: cynthn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 5493e9f7-7d45-4e98-be9a-657a53708746
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: davidmu
+ms.author: cynthn
 
 ---
 

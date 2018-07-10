@@ -2,38 +2,40 @@
 title: Learn about the different token and claim types supported by Azure AD | Microsoft Docs
 description: A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)
 documentationcenter: na
-author: dstrockis
+author: CelesteDG
 services: active-directory
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
-ms.author: dastrock
+ms.date: 06/22/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-
 ---
+
 # Azure AD token reference
-Azure Active Directory (Azure AD) emits several types of security tokens in the processing of each authentication flow. This document describes the format, security characteristics, and contents of each type of token.
+Azure Active Directory (Azure AD) emits several types of security tokens in the processing of each authentication flow. This document describes the format, security characteristics, and contents of each type of token. 
 
 ## Types of tokens
-Azure AD supports the [OAuth 2.0 authorization protocol](active-directory-protocols-oauth-code.md), which makes use of both access_tokens and refresh_tokens.  It also supports authentication and sign-in via [OpenID Connect](active-directory-protocols-openid-connect-code.md), which introduces a third type of token, the id_token.  Each of these tokens is represented as a "bearer token".
+Azure AD supports the [OAuth 2.0 authorization protocol](active-directory-protocols-oauth-code.md), which makes use of both access_tokens and refresh_tokens. It also supports authentication and sign-in via [OpenID Connect](active-directory-protocols-openid-connect-code.md), which introduces a third type of token, the id_token. Each of these tokens is represented as a "bearer token".
 
 A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though authentication with Azure AD is required in order to receive a bearer token, steps must be taken to secure the token, to prevent interception by an unintended party. Because bearer tokens do not have a built-in mechanism to prevent unauthorized parties from using them, they must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used to acquire the token and gain unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
-Many of the tokens issued by Azure AD are implemented as JSON Web Tokens, or JWTs.  A JWT is a compact, URL-safe means of transferring information between two parties.  The information contained in JWTs are known as "claims", or assertions of information about the bearer and subject of the token.  The claims in JWTs are JSON objects encoded and serialized for transmission.  Since the JWTs issued by Azure AD are signed, but not encrypted, you can easily inspect the contents of a JWT for debugging purposes.  There are several tools available for doing so, such as [jwt.ms](https://jwt.ms/). For more information on JWTs, you can refer to the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Many of the tokens issued by Azure AD are implemented as JSON Web Tokens, or JWTs. A JWT is a compact, URL-safe means of transferring information between two parties. The information contained in JWTs are known as "claims", or assertions of information about the bearer and subject of the token. The claims in JWTs are JSON objects encoded and serialized for transmission. Since the JWTs issued by Azure AD are signed, but not encrypted, you can easily inspect the contents of a JWT for debugging purposes. There are several tools available for doing so, such as [jwt.ms](https://jwt.ms/). For more information on JWTs, you can refer to the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## Id_tokens
-Id_tokens are a form of sign-in security token that your app receives when performing authentication using [OpenID Connect](active-directory-protocols-openid-connect-code.md).  They are represented as [JWTs](#types-of-tokens), and contain claims that you can use for signing the user into your app.  You can use the claims in an id_token as you see fit - commonly they are used for displaying account information or making access control decisions in an app.
+Id_tokens are a form of sign-in security token that your app receives when performing authentication using [OpenID Connect](active-directory-protocols-openid-connect-code.md). They are represented as [JWTs](#types-of-tokens), and contain claims that you can use for signing the user into your app. You can use the claims in an id_token as you see fit - commonly they are used for displaying account information or making access control decisions in an app.
 
-Id_tokens are signed, but not encrypted at this time.  When your app receives an id_token, it must [validate the signature](#validating-tokens) to prove the token's authenticity and validate a few claims in the token to prove its validity.  The claims validated by an app vary depending on scenario requirements, but there are some [common claim validations](#validating-tokens) that your app must perform in every scenario.
+Id_tokens are signed, but not encrypted at this time. When your app receives an id_token, it must [validate the signature](#validating-tokens) to prove the token's authenticity and validate a few claims in the token to prove its validity. The claims validated by an app vary depending on scenario requirements, but there are some [common claim validations](#validating-tokens) that your app must perform in every scenario.
 
-See the following section for information on id_tokens claims, as well as a sample id_token.  Note that the claims in id_tokens are not returned in any particular order.  In addition, new claims can be introduced into id_tokens at any point in time - your app should not break as new claims are introduced.  The following list includes the claims that your app can reliably interpret at the time of this writing.  If necessary, even more detail can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
+See the following section for information on id_tokens claims, as well as a sample id_token. Note that the claims in id_tokens are not returned in any particular order. In addition, new claims can be introduced into id_tokens at any point in time - your app should not break as new claims are introduced. The following list includes the claims that your app can reliably interpret at the time of this writing. If necessary, even more detail can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
 
 #### Sample id_token
 ```
@@ -49,14 +51,15 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > [!div class="mx-codeBreakAll"]
 | JWT Claim | Name | Description |
 | --- | --- | --- |
-| `appid` |Application ID |Identifies the application that is using the token to access a resource. The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD. <br><br> **Example JWT Value**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |Audience |The intended recipient of the token. The application that receives the token must verify that the audience value is correct and reject any tokens intended for a different audience. <br><br> **Example SAML Value**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Example JWT Value**: <br> `"aud":"https://contoso.com"` |
-| `appidacr` |Application Authentication Context Class Reference |Indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1. <br><br> **Example JWT Value**: <br> `"appidacr": "0"` |
+| `appidacr` |Application Authentication Context Class Reference |Indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1. If a client certificate was used for authentication, the value is 2. <br><br> **Example JWT Value**: <br> `"appidacr": "0"` |
 | `acr` |Authentication Context Class Reference |Indicates how the subject was authenticated, as opposed to the client in the Application Authentication Context Class Reference claim. A value of "0" indicates the end-user authentication did not meet the requirements of ISO/IEC 29115. <br><br> **Example JWT Value**: <br> `"acr": "0"` |
 | Authentication Instant |Records the date and time when authentication occurred. <br><br> **Example SAML Value**: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |Authentication Method |Identifies how the subject of the token was authenticated. <br><br> **Example SAML Value**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Example JWT Value**: `“amr”: ["pwd"]` |
 | `given_name` |First Name |Provides the first or "given" name of the user, as set on the Azure AD user object. <br><br> **Example SAML Value**: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>`<br>`<AttributeValue>Frank<AttributeValue>` <br><br> **Example JWT Value**: <br> `"given_name": "Frank"` |
-| `groups` |Groups |Provides object IDs that represent the subject's group memberships. These values are unique (see Object ID) and can be safely used for managing access, such as enforcing authorization to access a resource. The groups included in the groups claim are configured on a per-application basis, through the "groupMembershipClaims" property of the application manifest. A value of null will exclude all groups, a value of "SecurityGroup" will include only Active Directory Security Group memberships, and a value of "All" will include both Security Groups and Office 365 Distribution Lists. <br><br> **Example SAML Value**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **Example JWT Value**: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
+| `groups` |Groups |Provides object IDs that represent the subject's group memberships. These values are unique (see Object ID) and can be safely used for managing access, such as enforcing authorization to access a resource. The groups included in the groups claim are configured on a per-application basis, through the "groupMembershipClaims" property of the application manifest. A value of null will exclude all groups, a value of "SecurityGroup" will include only Active Directory Security Group memberships, and a value of "All" will include both Security Groups and Office 365 Distribution Lists. <br><br> **Notes**: <br> See the `hasgroups` claim below for details on using the `groups` claim with the implicit grant. <br> For other flows, if the number of groups the user is in goes over a limit (150 for SAML, 200 for JWT) then an overage claim will be added the claim sources pointing at the Graph endpoint containing the list of groups for the user. (in . <br><br> **Example SAML Value**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **Example JWT Value**: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
+|`hasgroups` | JWT Implicit Flow Groups Overage Indicator| If present, always `true`, denoting the user is in at least one group. Used in place of the `groups` claim for JWTs in implicit grant flows if the full groups claim would extend the URI fragment beyond the URL length limits (currently 6 or more groups). Indicates that the client should use the Graph to determine the user's groups (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
+| `groups:src1` <br> `http://schemas.microsoft.com/claims/groups.link` | Groups Overage Indicator | For token requests that are not length limited (see `hasgroups` above) but still too large for the token, a link to the full groups list for the user will be included. For JWTs as a distributed claim, for SAML as a new claim in place of the `groups` claim. <br><br> **Example SAML Value**: <br> `<Attribute Name=” http://schemas.microsoft.com/claims/groups.link”>`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` <br><br> **Example JWT Value**: <br> `"groups":"src1` <br> `_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
 | `idp` |Identity Provider |Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account is in a different tenant than the issuer. <br><br> **Example SAML Value**: <br> `<Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` <br><br> **Example JWT Value**: <br> `"idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `iat` |IssuedAt |Stores the time at which the token was issued. It is often used to measure token freshness. <br><br> **Example SAML Value**: <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **Example JWT Value**: <br> `"iat": 1390234181` |
 | `iss` |Issuer |Identifies the security token service (STS) that constructs and returns the token. In the tokens that Azure AD returns, the issuer is sts.windows.net. The GUID in the Issuer claim value is the tenant ID of the Azure AD directory. The tenant ID is an immutable and reliable identifier of the directory. <br><br> **Example SAML Value**: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **Example JWT Value**: <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
@@ -76,30 +79,30 @@ Upon successful authentication, Azure AD returns an access token, which can be u
 
 If your app only *uses* access tokens to get access to APIs, you can (and should) treat access tokens as completely opaque - they are just strings which your app can pass to resources in HTTP requests.
 
-When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption.  This information includes the expiry time of the access token and the scopes for which it is valid.  This allows your app to perform intelligent caching of access tokens without having to parse open the access token itself.
+When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it is valid. This allows your app to perform intelligent caching of access tokens without having to parse open the access token itself.
 
-If your app is an API protected with Azure AD that expects access tokens in HTTP requests, then you should perform validation and inspection of the tokens you receive. Your app should perform validation of the access token before using it to access resources. For more information on validation, please see [Validating Tokens](#validating-tokens).  
+If your app is an API protected with Azure AD that expects access tokens in HTTP requests, then you should perform validation and inspection of the tokens you receive. Your app should perform validation of the access token before using it to access resources. For more information on validation, please see [Validating Tokens](#validating-tokens). 
 For details on how to do this with .NET, see [Protect a Web API using Bearer tokens from Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 ## Refresh tokens
 
-Refresh tokens are security tokens, which your app can use to acquire new access tokens in an OAuth 2.0 flow.  It allows your app to achieve long-term access to resources on behalf of a user without requiring interaction by the user.
+Refresh tokens are security tokens, which your app can use to acquire new access tokens in an OAuth 2.0 flow. It allows your app to achieve long-term access to resources on behalf of a user without requiring interaction by the user.
 
-Refresh tokens are multi-resource.  That is to say that a refresh token received during a token request for one resource can be redeemed for access tokens to a completely different resource. To do this, set the `resource` parameter in the request to the targeted resource.
+Refresh tokens are multi-resource. That is to say that a refresh token received during a token request for one resource can be redeemed for access tokens to a completely different resource. To do this, set the `resource` parameter in the request to the targeted resource.
 
-Refresh tokens are completely opaque to your app. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time.  Refresh tokens can be invalidated at any moment in time for a variety of reasons.  The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD token endpoint.
+Refresh tokens are completely opaque to your app. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time. Refresh tokens can be invalidated at any moment in time for a variety of reasons - see [Token Revocation](#token-revocation) for these reasons. The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to Azure AD token endpoint.
 
-When you redeem a refresh token for a new access token, you will receive a new refresh token in the token response.  You should save the newly issued refresh token, replacing the one you used in the request.  This will guarantee that your refresh tokens remain valid for as long as possible.
+When you redeem a refresh token for a new access token, you will receive a new refresh token in the token response. You should save the newly issued refresh token, replacing the one you used in the request. This will guarantee that your refresh tokens remain valid for as long as possible.
 
 ## Validating tokens
 
-In order to validate an id_token or an access_token, your app should validate both the token's signature and the claims. In order to validate access tokens, your app should also validate the issuer, the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, the tenant independent version of the document is located at [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) to find one in the language of your choice. For more information on how to explicitly validate a JWT token, please see the [manual JWT validation sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+In order to validate an id_token or an access_token, your app should validate both the token's signature and the claims. In order to validate access tokens, your app should also validate the issuer, the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, the tenant independent version of the document is located at [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) to find one in the language of your choice. For more information on how to explicitly validate a JWT token, please see the [manual JWT validation sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation). 
 
-We provide libraries and code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process.  There are also several third party open source libraries available for JWT validation - there is at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, please see [Azure AD authentication libraries](active-directory-authentication-libraries.md).
+We provide libraries and code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process. There are also several third party open source libraries available for JWT validation - there is at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, please see [Azure AD authentication libraries](active-directory-authentication-libraries.md).
 
 #### Validating the signature
 
-A JWT contains three segments, which are separated by the `.` character.  The first segment is known as the **header**, the second as the **body**, and the third as the **signature**.  The signature segment can be used to validate the authenticity of the token so that it can be trusted by your app.
+A JWT contains three segments, which are separated by the `.` character. The first segment is known as the **header**, the second as the **body**, and the third as the **signature**. The signature segment can be used to validate the authenticity of the token so that it can be trusted by your app.
 
 Tokens issued by Azure AD are signed using industry standard asymmetric encryption algorithms, such as RSA 256. The header of the JWT contains information about the key and encryption method used to sign the token:
 
@@ -107,13 +110,14 @@ Tokens issued by Azure AD are signed using industry standard asymmetric encrypti
 {
   "typ": "JWT",
   "alg": "RS256",
-  "x5t": "kriMPdmBvx68skT8-mPAB3BseeA"
+  "x5t": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
+  "kid": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
 }
 ```
 
 The `alg` claim indicates the algorithm that was used to sign the token, while the `x5t` claim indicates the particular public key that was used to sign the token.
 
-At any given point in time, Azure AD may sign an id_token using any one of a certain set of public-private key pairs. Azure AD rotates the possible set of keys on a periodic basis, so your app should be written to handle those key changes automatically.  A reasonable frequency to check for updates to the public keys used by Azure AD is every 24 hours.
+At any given point in time, Azure AD may sign an id_token using any one of a certain set of public-private key pairs. Azure AD rotates the possible set of keys on a periodic basis, so your app should be written to handle those key changes automatically. A reasonable frequency to check for updates to the public keys used by Azure AD is every 24 hours.
 
 You can acquire the signing key data necessary to validate the signature by using the OpenID Connect metadata document located at:
 
@@ -123,18 +127,19 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 
 > [!TIP]
 > Try this URL in a browser!
-> 
-> 
 
-This metadata document is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for performing OpenID Connect authentication.  
+This metadata document is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for performing OpenID Connect authentication. 
 
-It also includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens.  The JSON document located at the `jwks_uri` contains all of the public key information in use at that particular moment in time.  Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token.  It can then perform signature validation using the correct public key and the indicated algorithm.
+It also includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens. The JSON document located at the `jwks_uri` contains all of the public key information in use at that particular moment in time. Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token. It can then perform signature validation using the correct public key and the indicated algorithm.
+
+> [!NOTE]
+> The v1.0 endpoint returns both the `x5t` and `kid` claims. The `x5t` claim is missing from v2.0 tokens. The v2.0 endpoint responds with the `kid` claim. Going forward, we recommend using the `kid` claim to validate your token.
 
 Performing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.
 
 #### Validating the claims
 
-When your app receives a token (either an id_token upon user sign-in, or an access token as a bearer token in the HTTP request) it should also perform a few checks against the claims in the token.  These include but are not limited to:
+When your app receives a token (either an id_token upon user sign-in, or an access token as a bearer token in the HTTP request) it should also perform a few checks against the claims in the token. These include but are not limited to:
 
 * The **Audience** claim - to verify that the token was intended to be given to your app.
 * The **Not Before** and **Expiration Time** claims - to verify that the token has not expired.
@@ -142,7 +147,36 @@ When your app receives a token (either an id_token upon user sign-in, or an acce
 * The **Nonce** -  to mitigate a token replay attack.
 * and more...
 
-For a full list of claim validations your app should perform for ID Tokens, refer to the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Details of the expected values for these claims are included in the preceding [id_token section](#id-tokens) section.
+For a full list of claim validations your app should perform for ID Tokens, refer to the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Details of the expected values for these claims are included in the preceding [id_token](#id-tokens) section.
+
+## Token Revocation
+
+Refresh tokens can be invalidated or revoked at any time, for a variety of reasons. These fall into two main categories: timeouts and revocations. 
+
+**Token Timeouts**
+
+* MaxInactiveTime: If the refresh token has not been used within the time dictated by the MaxInactiveTime, the Refresh Token will no longer be valid. 
+* MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then re-authentication will be required after the time set in the MaxAgeSession* elapses. 
+* Examples:
+  * The tenant has a MaxInactiveTime of 5 days, and the user went on vacation for a week, and so AAD has not seen a new token request from the user in 7 days. The next time the user requests a new token, they will find their Refresh Token has been revoked, and they must enter their credentials again. 
+  * A sensitive application has a MaxAgeSessionSingleFactor of 1 day. If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they will be required to re-authenticate. 
+
+**Revocation**
+
+|   | Password based cookie | Password based token | Non-password based cookie | Non-password based token | Confidential client token| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|Password Expires| Stays alive|Stays alive|Stays alive|Stays alive|Stays alive|
+|Password changed by user| Revoked | Revoked | Stays alive|Stays alive|Stays alive|
+|User does SSPR|Revoked | Revoked | Stays alive|Stays alive|Stays alive|
+|Admin resets password|Revoked | Revoked | Stays alive|Stays alive|Stays alive|
+|User revokes their refresh tokens [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked |Revoked | Revoked |
+|Admin revokes all refresh tokens for the tenant [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked |Revoked | Revoked |
+|[Single-Sign Out](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code#single-sign-out) on web | Revoked | Stays alive |Revoked | Stays alive |Stays alive |Stays alive |
+
+> [!NOTE]
+> A "Non-password based" login is one where the user didn't type in a password to get it.  For example using your face with Windows Hello, a FIDO key, or a PIN. 
+>
+> A known issue exists with the Windows Primary Refresh Token.  If the PRT is obtained via a password, and then the user logs in via Hello, this does not change the origination of the PRT, and it will be revoked if the user changes their password. 
 
 ## Sample Tokens
 
@@ -300,3 +334,4 @@ In addition to claims, the token includes a version number in **ver** and **appi
 ## Related content
 * See the Azure AD Graph [Policy operations](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), to learn more about managing token lifetime policy via the Azure AD Graph API.
 * For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](../active-directory-configurable-token-lifetimes.md). 
+* Add [custom and optional claims](active-directory-optional-claims.md) to the tokens for your application. 

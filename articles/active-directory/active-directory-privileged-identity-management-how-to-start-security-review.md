@@ -3,22 +3,20 @@ title: How to start an access review | Microsoft Docs
 description: Learn how to create an access review for privileged identities with the Azure Privileged Identity Management application.
 services: active-directory
 documentationcenter: ''
-author: billmath
-manager: femila
+author: rolyon
+manager: mtillman
 editor: ''
 
-ms.assetid: 3e52b731-55f4-4c8a-ba87-9fd34033f52f
 ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/04/2017
-ms.author: billmath
+ms.component: protection
+ms.date: 06/21/2018
+ms.author: rolyon
 ms.custom: pim
 ---
 # How to start an access review in Azure AD Privileged Identity Management
-Role assignments become "stale" when users have privileged access that they don't need anymore. In order to reduce the risk associated with these stale role assignments, privileged role administrators should regularly review the roles that users have been given. This document covers the steps for starting an access review in Azure AD Privileged Identity Management (PIM).
+Role assignments become "stale" when users have privileged access that they don't need anymore. In order to reduce the risk associated with these stale role assignments, privileged role administrators or global administrators should regularly create access reviews to ask admins to review the roles that users have been given. This document covers the steps for starting an access review in Azure AD Privileged Identity Management (PIM).
 
 ## Start an access review
 > [!NOTE]

@@ -1,37 +1,31 @@
 ---
-title: Azure Quick Start - Back up a VM with PowerShell | Microsoft Docs
+title: Azure Quickstart - Back up a VM with PowerShell
 description: Learn how to back up your virtual machines with Azure PowerShell
-services: virtual-machines-windows, azure-backup
-documentationcenter: virtual-machines
-author: iainfoulds
-manager: jeconnoc
-editor:
+services: backup
+author: markgalioto
+manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-
-ms.assetid: 
-ms.service: virtual-machines-windows, azure-backup
+ms.service: backup
 ms.devlang: azurecli
-ms.topic: hero-article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 09/18/2017
-ms.author: iainfou
+ms.topic: quickstart
+ms.date: 2/14/2018
+ms.author: markgal
 ms.custom: mvc
 ---
 
 # Back up a virtual machine in Azure with PowerShell
 The Azure PowerShell module is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) with the Azure PowerShell module. You can also perform these steps with the [Azure CLI](quick-backup-vm-cli.md) or [Azure portal](quick-backup-vm-portal.md).
 
-This quick start enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+This quickstart enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-This quick start requires the Azure PowerShell module version 4.4 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This quickstart requires the Azure PowerShell module version 4.4 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 
 ## Log in to Azure
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 The first time you use Azure Backup, you must register the Azure Recovery Service provider in your subscription with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider).
@@ -41,7 +35,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
 ```
 
 
-## Create a recovery services vault
+## Create a recovery services vaults
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
 Create a Recovery Services vault with [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault). Specify the same resource group and location as the VM you wish to protect. If you used the [sample script](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) to create your VM, the resource group is named *myResourceGroup*, the VM is named *myVM*, and the resources are in the *WestEurope* location.
@@ -64,7 +58,7 @@ Get-AzureRmRecoveryServicesVault `
 
 
 ## Enable backup for an Azure VM
-You create and use policies to define when a backup job runs and how long the recovery points are stored. The default protection policy runs a backup job each day and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. First, set the default policy with [Get-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/AzureRM.RecoveryServices.Backup/Get-AzureRmRecoveryServicesBackupProtectionPolicy):
+You create and use policies to define when a backup job runs and how long the recovery points are stored. The default protection policy runs a backup job each day, and retains recovery points for 30 days. You can use these default policy values to quickly protect your VM. First, set the default policy with [Get-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/AzureRM.RecoveryServices.Backup/Get-AzureRmRecoveryServicesBackupProtectionPolicy):
 
 ```powershell
 $policy = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "DefaultPolicy"
@@ -133,7 +127,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 
 
 ## Next steps
-In this quick start, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
+In this quickstart, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
 > [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)

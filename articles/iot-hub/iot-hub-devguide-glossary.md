@@ -1,27 +1,26 @@
 ---
 title: Azure IoT Hub glossary of terms | Microsoft Docs
 description: Developer guide - a glossary of common terms relating to Azure IoT Hub.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/08/2017
+services: iot-hub
+ms.topic: conceptual
+ms.date: 01/29/2018
 ms.author: dobett
-
 ---
+
 # Glossary of IoT Hub terms
 This article lists some of the common terms used in the IoT Hub articles.
 
 ## Advanced Message Queueing Protocol
 [Advanced Message Queueing Protocol (AMQP)](https://www.amqp.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
+
+## Automatic Device Management
+Automatic Device Management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  Consists of [automatic device configurations](iot-hub-auto-device-config.md) and [IoT Edge automatic deployments](../iot-edge/how-to-deploy-monitor.md).
+
+## Automatic device configuration
+Your solution back end can use [automatic device configurations](iot-hub-auto-device-config.md) to assign desired properties to a set of [device twins](#device-twin) and report status using system metrics and custom metrics. 
 
 ## Azure CLI
 The [Azure CLI](../cli-install-nodejs.md) is a cross-platform, open-source, shell-based, command tool for creating and managing resources in Microsoft Azure. This version of the CLI is implemented using Node.js.
@@ -32,9 +31,6 @@ The [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) is a c
 
 ## Azure IoT device SDKs
 There are _device SDKs_ available for multiple languages that enable you to create [device apps](#device-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these device SDKs. You can find the source code and further information about the device SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
-
-## Azure IoT Edge
-IoT Edge enables you to write applications that enable gateway-connected devices to communicate with [IoT Hub](#iot-hub). The IoT Edge tutorials show you how to use this service. You can find the source code and further information about Azure IoT Edge in this GitHub [repository](https://github.com/Azure/iot-edge).
 
 ## Azure IoT service SDKs
 There are _service SDKs_ available for multiple languages that enable you to create [back-end apps](#back-end-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these service SDKs. You can find the source code and further information about the service SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
@@ -65,6 +61,9 @@ A cloud gateway enables connectivity for devices that cannot connect directly to
 
 ## Cloud-to-device
 Refers to messages sent from an IoT hub to a connected device. Often, these messages are commands that instruct the device to take an action. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
+
+## Configuration
+In the context of [automatic device configuration](iot-hub-auto-device-config.md), a configuration within IoT Hub defines the desired configuration for a set of devices twins and provides a set of metrics to report status and progress.
 
 ## Connection string
 You use connection strings in your app code to encapsulate the information required to connect to an endpoint. A connection string typically includes the address of the endpoint and security information, but connection string formats vary across services. There are two types of connection string associated with the IoT Hub service:
@@ -104,11 +103,11 @@ Device data refers to the per-device data stored in the IoT Hub [identity regist
 ## Device explorer
 The [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) is a tool that runs on Windows and enables you to manage your devices in the [identity registry](#identity-registry).The tool can also send and receive messages to your devices.
 
-## Device Identities REST API
-The [Device Identities REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) enables you to manage your devices registered in the [identity registry](#identity-registry) using a REST API. Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
-
 ## Device identity
 The device identity is the unique identifier assigned to every device registered in the [identity registry](#identity-registry).
+
+## Module identity
+The module identity is the unique identifier assigned to every module that belong to a device. Module identity is also registered in the [identity registry](#identity-registry).
 
 ## Device management
 Device management encompasses the full lifecycle associated with managing the devices in your IoT solution including planning, provisioning, configuring, monitoring, and retiring.
@@ -116,8 +115,8 @@ Device management encompasses the full lifecycle associated with managing the de
 ## Device management patterns
 [IoT hub](#iot-hub) enables common device management patterns including rebooting, performing factory resets, and performing firmware updates on your devices.
 
-## Device Messaging REST API
-You can use the [Device Messaging REST API](https://docs.microsoft.com/rest/api/iothub/httpruntime) from a device to send device-to-cloud messages to an IoT hub, and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [device SDKs](#azure-iot-device-sdks) as shown in the IoT Hub tutorials.
+## Device REST API
+You can use the [Device REST API](https://docs.microsoft.com/rest/api/iothub/device/device) from a device to send device-to-cloud messages to an IoT hub, and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [device SDKs](#azure-iot-device-sdks) as shown in the IoT Hub tutorials.
 
 ## Device provisioning
 Device provisioning is the process of adding the initial [device data](#device-data) to the stores in your solution. To enable a new device to connect to your hub, you must add a device ID and keys to the IoT Hub [identity registry](#identity-registry). As part of the provisioning process, you might need to initialize device-specific data in other solution stores.
@@ -125,14 +124,14 @@ Device provisioning is the process of adding the initial [device data](#device-d
 ## Device twin
 A [device twin](iot-hub-devguide-device-twins.md) is JSON document that stores device state information such as metadata, configurations, and conditions. [IoT Hub](#iot-hub) persists a device twin for each device that you provision in your IoT hub. Device twins enable you to synchronize [device conditions](#device-condition) and configurations between the device and the solution back end. You can query device twins to locate specific devices and query the status of long-running operations.
 
-## Device twin queries
-[Device twin queries](iot-hub-devguide-query-language.md) use the SQL-like IoT Hub query language to retrieve information from your device twins. You can use the same IoT Hub query language to retrieve information about [jobs](#job) running in your IoT hub.
+## Module twin
+Similar to device twin, a module twin is JSON document that stores module state information such as metadata, configurations, and conditions. IoT Hub persists a module twin for each module identity that you provision under a device identity in your IoT hub. Module twins enable you to synchronize module conditions and configurations between the module and the solution back end. You can query module twins to locate specific modules and query the status of long-running operations.
 
-## Device Twin REST API
-You can use the [Device Twin REST API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) from the solution back end to manage your device twins. The API enables you to retrieve and update [device twin](#device-twin) properties and invoke [direct methods](#direct-method). Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
+## Twin queries
+[Device and module twin queries](iot-hub-devguide-query-language.md) use the SQL-like IoT Hub query language to retrieve information from your device twins or module twins. You can use the same IoT Hub query language to retrieve information about [](#job) running in your IoT hub.
 
-## Device twin synchronization
-Device twin synchronization uses the [desired properties](#desired-properties) in your device twins to configure your devices and retrieve [reported properties](#reported-properties) from your devices to store in the device twin.
+## Twin synchronization
+Twin synchronization uses the [desired properties](#desired-properties) in your device twins or module twins to configure your devices or modules and retrieve [reported properties](#reported-properties) from them to store in the twin.
 
 ## Direct method
 A [direct method](iot-hub-devguide-direct-methods.md) is a way for you to trigger a method to execute on a device by invoking an API on your IoT hub.
@@ -161,6 +160,8 @@ The [identity registry](iot-hub-devguide-identity-registry.md) is the built-in c
 ## Interactive message
 An interactive message is a [cloud-to-device](#cloud-to-device) message that triggers an immediate action in the solution back end. For example, a device might send an alarm about a failure that should be automatically logged in to a CRM system.
 
+[!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
+
 ## IoT Hub
 IoT Hub is a fully managed Azure service that enables reliable and secure bidirectional communications between millions of devices and a solution back end. For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Using your [Azure subscription](#subscription), you can create IoT hubs to handle your IoT messaging workloads.
 
@@ -168,25 +169,19 @@ IoT Hub is a fully managed Azure service that enables reliable and secure bidire
 [IoT Hub metrics](iot-hub-metrics.md) give you data about the state of the IoT hubs in your [Azure subscription](#subscription). IoT Hub metrics enable you to assess the overall health of the service and the devices connected to it. IoT Hub metrics can help you see what is going on with your IoT hub and investigate root-cause issues without needing to contact Azure support.
 
 ## IoT Hub query language
-The [IoT Hub query language](iot-hub-devguide-query-language.md) is a SQL-like language that enables you to query your [jobs](#job) and device twins.
+The [IoT Hub query language](iot-hub-devguide-query-language.md) is a SQL-like language that enables you to query your [](#job) and device twins.
 
-## IoT Hub Resource Provider REST API
-You can use the [IoT Hub Resource Provider REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) to manage the IoT hubs in your [Azure subscription](#subscription) performing operations such as creating, updating, and deleting hubs.
+## IoT Hub Resource REST API
+You can use the [IoT Hub Resource REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) to manage the IoT hubs in your [Azure subscription](#subscription) performing operations such as creating, updating, and deleting hubs.
 
-## IoT Suite
-Azure IoT Suite packages together multiple Azure services with preconfigured solutions. These preconfigured solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What is Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
+## IoT solution accelerators
+Azure IoT solution accelerators package together multiple Azure services into solutions. These solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What are Azure IoT solution accelerators?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
 
-## iothub-explorer
-The [iothub-explorer](https://github.com/azure/iothub-explorer) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.
+## The IoT extension for Azure CLI 2.0
+[The IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.
 
 ## Job
-Your solution back end can use [jobs](iot-hub-devguide-jobs.md) to schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin [desired properties](#desired-properties), updating device twin [tags](#tags), and invoking [direct methods](#direct-method). [IoT Hub](#iot-hub) also uses jobs to [import to and export](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) from the [identity registry](#identity-registry).
-
-## Jobs REST API
-The [Jobs REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) enables you to manage [jobs](#job) running in your IoT hub.
-
-## Module
-In [Azure IoT Edge](iot-hub-linux-iot-edge-get-started.md), a [module](iot-hub-linux-iot-edge-get-started.md) is a component that performs a specific task. Tasks might include ingesting a message from a device, transforming a message, or sending a message to an IoT hub. A broker is responsible for forwarding messages between modules. Azure IoT Edge includes a set of sample modules. You can also create your own custom modules.
+Your solution back end can use [jobs](iot-hub-devguide-jobs.md) to schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin [desired properties](#desired-properties), updating device twin [tags](#tags), and invoking [direct methods](#direct-method). [IoT Hub](#iot-hub) also uses  to [import to and export](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) from the [identity registry](#identity-registry).
 
 ## MQTT
 [MQTT](http://mqtt.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
@@ -223,6 +218,9 @@ You configure [routing rules](iot-hub-devguide-messages-read-custom.md) in your 
 
 ## SASL PLAIN
 SASL PLAIN is a protocol that the [AMQP](#advanced-message-queue-protocol) protocol uses to transfer security tokens.
+
+## Service REST API
+You can use the [Service REST API](https://docs.microsoft.com/rest/api/iothub/service/service) from the solution back end to manage your devices. The API enables you to retrieve and update [device twin](#device-twin) properties, invoke [direct methods](#direct-method), and schedule [jobs](#job). Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
 
 ## Shared access signature
 Shared Access Signatures (SAS) are an authentication mechanism based on SHA-256 secure hashes or URIs. SAS authentication has two components: a _Shared Access Policy_ and a _Shared Access Signature_ (often called a token). A device uses SAS to authenticate with an IoT hub. [Back-end apps](#back-end-app) also use SAS to authenticate with the service-facing endpoints on an IoT hub. Typically, you include the SAS token in the [connection string](#connection-string) that an app uses to establish a connection to an IoT hub.

@@ -4,7 +4,7 @@ description: 'Describes how to change drive letters for a Windows VM so that you
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 01/02/2018
 ms.author: cynthn
 
 ---

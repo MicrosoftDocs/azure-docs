@@ -42,7 +42,7 @@ Now, let's look at some of the specific services that we recommend investigating
 
 Azure provides several cloud-based compute offerings to run your application so that you don't have to worry about the infrastructure details. You can easily scale up or scale out your resources as your application usage grows.
 
-Azure offers services that support your application development and hosting needs. Azure provides infrastructure-as-a-service (IaaS) to give you full control over your application hosting. Azure's platform-as-a-service (PaaS) offerings provide the fully managed  services needed to power your apps. There is even true serverless hosting in Azure where all you need to do is write your code.
+Azure offers services that support your application development and hosting needs. Azure provides Infrastructure as a Service (IaaS) to give you full control over your application hosting. Azure's Platform as a Service (PaaS) offerings provide the fully managed  services needed to power your apps. There is even true serverless hosting in Azure where all you need to do is write your code.
 
 ![Azure application hosting options](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
@@ -67,7 +67,7 @@ You can migrate your existing applications to App Service by using the [online m
 
 #### Azure Virtual Machines
 
-As an infrastructure-as-a-service (IaaS) provider, Azure lets you deploy to or migrate your application to either Windows or Linux VMs. Together with Azure Virtual Network, Azure Virtual Machines supports the deployment of Windows or Linux VMs to Azure. With VMs, you have total control over the configuration of the machine. When using VMs, you’re responsible for all server software installation, configuration, maintenance, and operating system patches.
+As an Infrastructure as a Service (IaaS) provider, Azure lets you deploy to or migrate your application to either Windows or Linux VMs. Together with Azure Virtual Network, Azure Virtual Machines supports the deployment of Windows or Linux VMs to Azure. With VMs, you have total control over the configuration of the machine. When using VMs, you’re responsible for all server software installation, configuration, maintenance, and operating system patches.
 
 Because of the level of control that you have with VMs, you can run a wide range of server workloads on Azure that don’t fit into a PaaS model. These workloads include database servers, Windows Server Active Directory, and Microsoft SharePoint. For more information, see the Virtual Machines documentation for either [Linux](/azure/virtual-machines/linux/) or [Windows](/azure/virtual-machines/windows/).
 
@@ -106,7 +106,7 @@ Most applications must store data, so regardless of how you decide to host your 
 -   **Azure Cosmos DB**: A globally distributed, multi-model database service that enables you to elastically scale throughput and storage across any number of geographical regions with a comprehensive SLA. 
 	>**When to use:** When your application needs document, table, or graph databases, including MongoDB databases, with multiple well-defined consistency models. 
 
-    >**Get started**: [Build an Azure Cosmos DB web app](../../cosmos-db/create-documentdb-dotnet.md). If you’re a MongoDB developer, see [Build a MongoDB web app with Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
+    >**Get started**: [Build an Azure Cosmos DB web app](../../cosmos-db/create-sql-api-dotnet.md). If you’re a MongoDB developer, see [Build a MongoDB web app with Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Azure Storage**: Offers durable, highly available storage for blobs, queues, files, and other kinds of nonrelational data. Storage provides the storage foundation for VMs.
 
@@ -149,7 +149,7 @@ Azure provides several ways to use containers in your applications.
 
 	>**When to use**: When deploying a web app on Linux to a Docker image.
 
-    >**Get started**: [Use a custom Docker image for App Service on Linux](../../app-service/containers/quickstart-custom-docker-image.md).
+    >**Get started**: [Use a custom Docker image for App Service on Linux](../../app-service/containers/quickstart-docker-go.md).
 
 ### Authentication
 
@@ -204,7 +204,7 @@ want to select your region to meet the legal requirements for distributing your 
 
 Although unlikely, it’s not impossible for an entire datacenter to go offline because of an event such as a natural disaster or Internet failure. It’s a best practice to host vital business applications in more than one datacenter to provide maximum availability. Using multiple regions can also reduce latency for global users and provide additional opportunities for flexibility when updating applications.
 
-Some services, such as Virtual Machine and App Services, use [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) to enable multi-region support with failover between regions to support high-availability enterprise applications. For an example, see [Azure reference architecture: Web application with high availability](../../guidance/guidance-web-apps-multi-region.md).
+Some services, such as Virtual Machine and App Services, use [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) to enable multi-region support with failover between regions to support high-availability enterprise applications. For an example, see [Azure reference architecture: Run a web application in multiple regions](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 >**When to use**: When you have enterprise and high-availability applications that benefit from failover and replication.
 
@@ -233,14 +233,15 @@ Azure is built on a set of REST APIs that support the Azure portal UI. Most of t
 In addition to REST APIs, many Azure services also let you programmatically manage resources from your applications by using platform-specific Azure SDKs, including SDKs for the following development platforms:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](http://azure.github.io/azure-sdk-for-node/)
--   [Java](https://docs.microsoft.com/java/api/)
+-   [Node.js](https://docs.microsoft.com/javascript/azure)
+-   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
+-   [Python](https://docs.microsoft.com/python/azure)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
+-   [Go](https://docs.microsoft.com/go/azure)
 
 Services such as [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md)
-and [Azure Media Services](../../media-services/media-services-dotnet-how-to-use.md) provide client-side SDKs to let you access services from web and mobile client apps.
+and [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md) provide client-side SDKs to let you access services from web and mobile client apps.
 
 ### Azure Resource Manager 
  	
@@ -262,9 +263,9 @@ As developers, we like to dive right into the code and try to get started as fas
 
 To be able to create or work with an Azure subscription, you must have an Azure account. An Azure account is simply an identity in Azure AD or in a directory, such as a work or school organization, that is trusted by Azure AD. If you don't belong to such an organization, you can always create a subscription by using your Microsoft Account, which is trusted by Azure AD. To learn more about integrating on-premises Windows Server Active Directory with Azure AD, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
 
-Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. To learn more, see [How Azure subscriptions are associated with Azure Active Directory](../../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. To learn more, see [How Azure subscriptions are associated with Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-In addition to defining individual Azure account identities, also called *users*, you can also define *groups* in Azure AD. Creating user groups is a good way to manage access to resources in a subscription by using role-based access control (RBAC). To learn how to create groups, see [Create a group in Azure Active Directory preview](../../active-directory/active-directory-groups-create-azure-portal.md). You can also create and manage groups by [using PowerShell](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+In addition to defining individual Azure account identities, also called *users*, you can also define *groups* in Azure AD. Creating user groups is a good way to manage access to resources in a subscription by using role-based access control (RBAC). To learn how to create groups, see [Create a group in Azure Active Directory preview](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). You can also create and manage groups by [using PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
 
 ### Manage your subscriptions
 
@@ -299,11 +300,11 @@ given task.
 
 	>**When to use**: When you need fine-grained access management for users and groups.
 
-    >**Get started**: To learn more, see [Get started with access management in the Azure portal](../../active-directory/role-based-access-control-what-is.md).
+    >**Get started**: To learn more, see [Get started with access management in the Azure portal](../../role-based-access-control/overview.md).
 
 -   **Service principal objects**: In addition to providing access to user principals and groups, you can grant the same access to a service principal.
 
-	> **When to use**: When you’re programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory supplication and service principal](../../resource-group-create-service-principal-portal.md).
+	> **When to use**: When you’re programmatically managing Azure resources or granting access for applications. For more information, see [Create Active Directory application and service principal](../../resource-group-create-service-principal-portal.md).
 
 #### Tags
 

@@ -21,35 +21,26 @@ ms.author: kumud
 
 Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the **Cost** tab on the Advisor dashboard.
 
-![Advisor Cost tab](./media/advisor-cost-recommendations/advisor-cost-tab2.png)
-
-## Optimize virtual machine spend by resizing underutilized instances 
+## Optimize virtual machine spend by resizing or shutting down underutilized instances 
 Although certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of your virtual machines. Advisor monitors your virtual machine usage for 14 days and then identifies low-utilization virtual machines. Virtual machines whose CPU utilization is 5 percent or less and network usage is 7 MB or less for four or more days are considered low-utilization virtual machines.
 
-Advisor shows you the estimated cost of continuing to run your virtual machine, so that you can choose to shut it down or resize it.  
+Advisor shows you the estimated cost of continuing to run your virtual machine, so that you can choose to shut it down or resize it.
 
-![Advisor cost recommendations for resizing virtual machines](./media/advisor-cost-recommendations/advisor-cost-resizevms.png)
+If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the average CPU utilization rule on a per subscription basis.
 
-## Use a cost effective solution to manage performance goals of multiple SQL databases
-Advisor identifies SQL server instances that can benefit from creating elastic database pools. Elastic database pools provide a simple, cost-effective solution to manage the performance goals of multiple databases that have varying usage patterns. For more information about Azure elastic pools, see [What is an Azure Elastic pool?](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool/).
+## Reduce costs by eliminating unprovisioned ExpressRoute circuits
+Advisor identifies ExpressRoute circuits that have been in the provider status of *Not Provisioned* for more than one month, and recommends deleting the circuit if you aren't planning to provision the circuit with your connectivity provider.
 
-![Advisor cost recommendations for elastic database pools](./media/advisor-cost-recommendations/advisor-cost-elasticdbpools.png)
+## Buy virtual machine reserved instances to save money over pay-as-you-go costs
+Advisor will review your virtual machine usage over the last 30 days and determine if you could save money by purchasing reserved instances. Advisor will show you the regions and sizes where you potentially have the most savings and will show you the estimated savings from purchasing reserved instances. 
 
-## How to access cost recommendations in Azure Advisor
+With reserved instances, you can pre-purchase the base costs for your virtual machines. Discounts will automatically apply to new or existing VMs that have the same size and region as your reserved instances. [Learn more about Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+## How to access Cost recommendations in Azure Advisor
 
-2. In the left pane, click **More services**.
+1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
 
-3. In the service menu pane, under **Monitoring and Management**, click **Azure Advisor**.  
- The Advisor dashboard is displayed.
-
-4. On the Advisor dashboard, click the **Cost** tab.
-
-5. Select the subscription for which you want to receive recommendations, and then click **Get recommendations**.
-
-> [!NOTE]
-> To access Advisor recommendations, you must first *register your subscription* with Advisor. A subscription is registered when a *subscription Owner* launches the Advisor dashboard and clicks the **Get recommendations** button. This is a *one-time operation*. After the subscription is registered, you can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* for a subscription, a resource group, or a specific resource.
+2.	On the Advisor dashboard, click the **Cost** tab.
 
 ## Next steps
 

@@ -1,14 +1,14 @@
-﻿---
+---
 title: Azure Key Vault Developer's Guide
 description: Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment.
 services: key-vault
-author: BrucePerlerMS
+author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
-ms.author: bruceper
+ms.author: alleonar
 ---
 # Azure Key Vault Developer's Guide
 
@@ -51,7 +51,7 @@ Azure Key Vault provides a way to securely store credentials and other keys and 
 
 For more information on MSI, see [Managed Service Identity (MSI) for Azure resources](https://docs.microsoft.com/azure/active-directory/msi-overview).
 
-For more information on working with AAD, see [Integrating applications with Azure Active Directory](/active-directory/develop/active-directory-integrating-applications).
+For more information on working with AAD, see [Integrating applications with Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 Before working with keys, secrets or certificates in your key vault, you'll create and manage your key vault through CLI, PowerShell, Resource Manager Templates or REST, as described in the following articles:
 
@@ -99,12 +99,12 @@ In Node.js, the Key Vault management API and the Key Vault object API are separa
 
 #### Azure PowerShell 
 
-[Azure PowerShell for Key Vault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
+[Azure PowerShell for Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
 
 ### Quick start guides
 
 - [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Getting started with Key Vault in Node.js](https://azure.microsoft.com/en-us/resources/samples/key-vault-node-getting-started/)
+- [Getting started with Key Vault in Node.js](https://azure.microsoft.com/resources/samples/key-vault-node-getting-started/)
 
 ### Code examples
 

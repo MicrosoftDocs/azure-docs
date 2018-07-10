@@ -14,7 +14,7 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 05/11/2018
 ms.author: genli
 
 ---
@@ -81,7 +81,7 @@ To get the list of outbound IP addresses for your web app:
 
 The list of outbound IP addresses appears.
 
-If your website is hosted in App Service Environment for PowerApps, to learn how to get your outbound IP address, see [Outbound network addresses](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
+To learn how to get the outbound IP address if your website is hosted in an App Service Environment, see [Outbound network addresses](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
 
 ## How do I get a reserved or dedicated inbound IP address for my web app?
 
@@ -144,7 +144,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### Resolution
 
-We are working to update Hybrid Connection Manager to fix this issue. For workarounds, see [Hybrid Connections error with SQL Server: System.OverflowException: Arithmetic operation resulted in an overflow](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/).
+The exception was caused by an issue with the Hybrid Connection Manager that has since been fixed. Be sure to [update your Hybrid Connection Manager](https://go.microsoft.com/fwlink/?LinkID=841308) to resolve this issue.
 
 ## How do I add or edit a URL rewrite rule?
 
@@ -248,7 +248,7 @@ For more information about scheduled WebJobs, see [Create a scheduled WebJob by 
 
 ## How do I perform penetration testing for my App Service app?
 
-To perform penetration testing, [submit a request](https://security-forms.azure.com/penetration-testing/terms).
+To perform penetration testing, [submit a request](https://portal.msrc.microsoft.com/en-us/engage/pentest).
 
 ## How do I configure a custom domain name for an App Service web app that uses Traffic Manager?
 
@@ -265,7 +265,7 @@ As the message indicates, this fraud verification process might take up to 24 ho
 If your App Service certificate continues to show this message after 24 hours, please run the following PowerShell script. The script contacts the [certificate provider](https://www.godaddy.com/) directly to resolve the issue.
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"
@@ -316,4 +316,4 @@ You also can specify the specific dynamic and static MIME types that you want to
 
 ## How do I migrate from an on-premises environment to App Service?
 
-To migrate sites from Windows and Linux web servers to App Service, you can use Azure App Service Migration Assistant. The migration tool creates web apps and databases in Azure as needed, and then publishes the content. For more information, see [Azure App Service Migration Assistant](https://www.movemetothecloud.net/).
+To migrate sites from Windows and Linux web servers to App Service, you can use Azure App Service Migration Assistant. The migration tool creates web apps and databases in Azure as needed, and then publishes the content. For more information, see [Azure App Service Migration Assistant](https://www.migratetoazure.net/).

@@ -5,7 +5,7 @@ description: Learn how to troubleshoot Windows VM issues in Azure by connecting 
 services: virtual-machines-windows
 documentationCenter: ''
 authors: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-windows
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/26/2017
+ms.date: 11/03/2017
 ms.author: genli
 
 ---
@@ -31,10 +31,13 @@ The troubleshooting process is as follows:
 4. Unmount and detach the virtual hard disk from the troubleshooting VM.
 5. Create a VM using the original virtual hard disk.
 
+For the VM that uses managed disk, see [Troubleshoot a Managed Disk VM by attaching a new OS disk](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
+
+
 Make sure that you have [the latest Azure PowerShell](/powershell/azure/overview) installed and logged in to your subscription:
 
 ```powershell
-Login-AzureRMAccount
+Connect-AzureRmAccount
 ```
 
 In the following examples, replace parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
@@ -178,7 +181,7 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
 ## Create VM from original hard disk
 To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). The actual JSON template is at the following link:
 
-- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-existing-vnet/azuredeploy.json
+- https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
 
 The template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. The following example deploys the template to the resource group named `myResourceGroup`:
 
@@ -199,6 +202,13 @@ $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
 Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enable
 Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
+
+## Troubleshoot a Managed Disk VM by attaching a new OS disk
+1. Stop the effected Managed Disk Windows VM.
+2. [Create a managed disk snapshot](snapshot-copy-managed-disk.md) of the OS Disk of the Managed Disk VM.
+3. [Create a managed disk from the snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Attach the managed disk as a data disk of the VM](attach-disk-ps.md).
+5. [Change the data disk from step 4 to OS disk](os-disk-swap.md).
 
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

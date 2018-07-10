@@ -3,7 +3,7 @@ title: Security Center Planning and Operations Guide | Microsoft Docs
 description: This document helps you to plan before adopting Azure Security Center and considerations regarding daily operations.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 01/02/2018
 ms.author: yurid
 
 ---
@@ -72,7 +72,7 @@ Security Center enables these individuals to meet these various responsibilities
 * Investigate attacks
 * Work with Cloud Workload Owner to apply remediation 
 
-Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Security Center, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two specific Security Center roles:
+Security Center uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure. When a user opens Security Center, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two specific Security Center roles:
 
 - **Security reader**: a user that belongs to this role is able to view only Security Center configurations, which include recommendations, alerts, policy, and health, but it won't be able to make changes.
 - **Security admin**: same as security reader but it can also update the security policy, dismiss recommendations and alerts.
@@ -122,7 +122,7 @@ A security policy defines the desired configuration of your workloads and helps 
 
 Security Center policies contain the following components:
 - [Data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): agent provisioning and data collection settings.
-- [Security policy](https://docs.microsoft.com/azure/security-center/security-center-policies): an [Azure Policy](http://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction) that determines which controls are monitored and recommended by Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across Management Groups.
+- [Security policy](https://docs.microsoft.com/azure/security-center/security-center-policies): an [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) that determines which controls are monitored and recommended by Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across management groups.
 - [Email notifications](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): security contacts and notification settings.
 - [Pricing tier](https://docs.microsoft.com/azure/security-center/security-center-pricing): free or standard pricing selection, which determine which Security Center features are available for resources in scope (can be specified for subscriptions, resource groups and workspaces).
 
@@ -135,7 +135,7 @@ Security Center automatically creates a default security policy for each of your
 Before configuring security policies, review each of the [security recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations), and determine whether these policies are appropriate for your various subscriptions and resource groups. It is also important to understand what action should be taken to address Security Recommendations and who in your organization will be responsible for monitoring for new recommendations and taking the needed steps.
 
 ## Data collection and storage
-Azure Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Operations Management Suite and Log Analytics service – to collect security data from your virtual machines. [Data collected](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) from this agent will be stored in your Log Analytics workspace(s).
+Azure Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Log Analytics service – to collect security data from your virtual machines. [Data collected](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) from this agent will be stored in your Log Analytics workspace(s).
 
 ### Agent
 
@@ -175,7 +175,7 @@ After initial configuration and application of Security Center recommendations, 
 
 The Security Center Overview provides a unified view of security across all your Azure resources and any non-Azure resources you have connected. The example below shows an environment with many issues to be addressed:
 
-![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig10.png)
+![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
 
 > [!NOTE]
 > Security Center will not interfere with your normal operational procedures, it will passively monitor your deployments and provide recommendations based on the security policies you enabled.

@@ -2,25 +2,20 @@
 title: Azure Event Hubs management libraries | Microsoft Docs
 description: Manage Event Hubs namespaces and entities from .NET
 services: event-hubs
-cloud: na
-documentationcenter: na
 author: sethmanheim
 manager: timlt
 
-ms.assetid:
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 06/13/2018
 ms.author: sethm
 
 ---
 
 # Event Hubs management libraries
 
-The Event Hubs management libraries can dynamically provision Event Hubs namespaces and entities. This enables complex deployments and messaging scenarios, so that you can programmatically determine what entities to provision. These libraries are currently available for .NET.
+You can use the Azure Event Hubs management libraries to dynamically provision Event Hubs namespaces and entities. This dynamic nature enables complex deployments and messaging scenarios, so that you can programmatically determine what entities to provision. These libraries are currently available for .NET.
 
 ## Supported functionality
 

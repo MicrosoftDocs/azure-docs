@@ -3,18 +3,19 @@ title: Identify advanced analytics scenarios for Azure Machine Learning | Micros
 description: Select the appropriate scenarios for doing advanced predictive analytics with the Team Data Science Process.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
-manager: jhubbard
+author: deguhath
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: bradsev
+ms.date: 11/13/2017
+ms.author: deguhath
 
 ---
 # Scenarios for advanced analytics in Azure Machine Learning

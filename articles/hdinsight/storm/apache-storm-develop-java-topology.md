@@ -12,10 +12,8 @@ keywords: apache storm,apache storm example,storm java,storm topology example
 ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 09/28/2017
+ms.topic: conceptual
+ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
@@ -23,9 +21,6 @@ ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 # Create an Apache Storm topology in Java
 
 Learn how to create a Java-based topology for Apache Storm. You create a Storm topology that implements a word-count application. You use Maven to build and package the project. Then, you learn how to define the topology using the Flux framework.
-
-> [!NOTE]
-> The Flux framework is available in Storm 0.10.0 or later. Storm 0.10.0 is available with HDInsight 3.3 and 3.4.
 
 After completing the steps in this document, you can deploy the topology to Apache Storm on HDInsight.
 
@@ -129,7 +124,7 @@ Maven allows you to define project-level values called properties. In the __pom.
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--
-    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight 3.5.
+    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight 3.6.
     -->
     <storm.version>1.1.0.2.6.1.9-1</storm.version>
 </properties>
@@ -179,21 +174,21 @@ For Apache Storm topologies implemented in Java, the [Exec Maven Plugin](http://
 <plugin>
     <groupId>org.codehaus.mojo</groupId>
     <artifactId>exec-maven-plugin</artifactId>
-    <version>1.4.0</version>
+    <version>1.5.0</version>
     <executions>
-    <execution>
-    <goals>
-        <goal>exec</goal>
-    </goals>
-    </execution>
+        <execution>
+        <goals>
+            <goal>exec</goal>
+        </goals>
+        </execution>
     </executions>
     <configuration>
-    <executable>java</executable>
-    <includeProjectDependencies>true</includeProjectDependencies>
-    <includePluginDependencies>false</includePluginDependencies>
-    <classpathScope>compile</classpathScope>
-    <mainClass>${storm.topology}</mainClass>
-    <cleanupDaemonThreads>false</cleanupDaemonThreads> 
+        <executable>java</executable>
+        <includeProjectDependencies>true</includeProjectDependencies>
+        <includePluginDependencies>false</includePluginDependencies>
+        <classpathScope>compile</classpathScope>
+        <mainClass>${storm.topology}</mainClass>
+        <cleanupDaemonThreads>false</cleanupDaemonThreads> 
     </configuration>
 </plugin>
 ```
@@ -598,10 +593,10 @@ Flux is a new framework available with Storm 0.10.0 and higher, which allows you
 
 The YAML file defines the components to use for the topology and the data flow between them. You can include a YAML file as part of the jar file or you can use an external YAML file.
 
-For more information on Flux, see [Flux framework (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
+For more information on Flux, see [Flux framework (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
 
 > [!WARNING]
-> Due to a [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) with Storm 1.0.1, you may need to install a [Storm development environment](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) to run Flux topologies locally.
+> Due to a [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) with Storm 1.0.1, you may need to install a [Storm development environment](http://storm.apache.org/releases/current/Setting-up-development-environment.html) to run Flux topologies locally.
 
 1. Move the `WordCountTopology.java` file out of the project. Previously, this file defined the topology, but isn't needed with Flux.
 
@@ -720,9 +715,9 @@ For more information on Flux, see [Flux framework (https://storm.apache.org/rele
     ```
 
     > [!WARNING]
-    > If your topology uses Storm 1.0.1 bits, this command fails. This failure is caused by [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Instead, [install Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) and use the following steps:
+    > If your topology uses Storm 1.0.1 bits, this command fails. This failure is caused by [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Instead, [install Storm in your development environment](http://storm.apache.org/releases/current/Setting-up-development-environment.html) and use the following steps:
     >
-    > If you have [installed Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), you can use the following commands instead:
+    > If you have [installed Storm in your development environment](http://storm.apache.org/releases/current/Setting-up-development-environment.html), you can use the following commands instead:
     >
     > ```bash
     > mvn compile package
@@ -768,7 +763,7 @@ For more information on Flux, see [Flux framework (https://storm.apache.org/rele
 
     Once the topology starts, you should notice that the time between emitted batches has changed to reflect the value in newtopology.yaml. So you can see that you can change your configuration through a YAML file without having to recompile the topology.
 
-For more information on these and other features of the Flux framework, see [Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
+For more information on these and other features of the Flux framework, see [Flux (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
 
 ## Trident
 

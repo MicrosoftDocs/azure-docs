@@ -1,239 +1,302 @@
----
-title: Integrate LUIS with a bot using the Bot Builder SDK for Node.js in Azure | Microsoft Docs 
-description: Build a bot integrated with a LUIS application using the Bot Framework. 
+﻿---
+title: Integrate LUIS with a bot using the Bot Builder SDK for Node.js in Azure | Microsoft Docs
+description: Build a bot integrated with a LUIS application using the Bot Framework.
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
-
+author: v-geberr
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 04/26/2017
-ms.author: v-demak
+ms.date: 03/06/2018
+ms.author: v-geberr
 ---
 
 # Integrate LUIS with a bot using the Bot Builder SDK for Node.js
 
-This tutorial walks you through connecting to a bot built with [Bot Framework][BotFramework] and integrated with a LUIS app.
+This tutorial walks you through building a bot with the [Bot Framework][BotFramework] that's integrated with a LUIS app.
 
-When a user talks to your bot with a phrase such as "Search hotels in Seattle", the bot calls into your LUIS app with the LUIS endpoint URL. LUIS returns a response to the bot and the bot constructs a response to the user. 
+## Prerequisite
 
-In the Bot Framework Emulator, you can see what is happening from the user's view as well as the HTTP request/response log in the log panel.
+Before you create the bot, follow the steps in [Create an app](./luis-get-started-create-app.md) to build the LUIS app that it uses.
 
-## Prerequisites
-The tutorial assumes you have the following before you begin the next steps:
+The bot responds to intents from the HomeAutomation domain that are in the LUIS app. For each of these intents, the LUIS app provides an intent that maps to it. The bot provides a dialog that handles the intent that LUIS detects.
 
-* The latest version of [Node.js][NodeJs] installed 
-* An Azure LUIS subscription
-
-## Outline of steps
-The steps in this tutorial are summarized here. More details will be given in the following sections for these steps. 
-
-* Download and install the [Bot Framework emulator][Github-BotFramework-Emulator-Download].
-* Download the [BotFramework-Samples][Github-BotBuilder-Samples] repository. This has the LUIS app definition file as well as the LUIS sample bot.
-* In [luis.ai][LUIS-website], create and publish a LUIS app from a file provided in BotFramework-Samples. Publishing the app gives you the app's LUIS endpoint. This will be the URL that the bot calls. 
-* In a code editor, edit the BotFramework-Samples LUIS bot's .env for the LUIS endpoint.
-* From a command line/terminal, start the BotFramework-Samples LUIS bot. Note the port, such as 3978
-* Start the Bot Framework Emulator. Enter the URL for the bot, such as http://localhost:3978/api/messages.
-* Ask the bot: "Search hotels in Seattle"
-* View the bot's response
-
->[!NOTE]
-* If you choose to secure your bot or work with a bot that is not local to your computer, you need to create a [Bot Framework developer account][BFPortal] and [register][RegisterInstructions] your bot. Learn more about the [Bot Framework][BotFramework].
-* Bot Builder is used as an NPM dependency in the LUIS sample bot application. You don’t have to do anything other than the typical "npm install" in order to get the dependency. 
-
-## Download and install the Bot Emulator
-The [Bot Framework Emulator][Github-BotFramework-Emulator-Download] is available on GitHub. Download and install the correct version for your operating system. Note where the application is on your computer so you can start it in a later step.
-
-## Clone or download the BotFramework-Samples repository
- [BotBuilder-Samples][Github-BotBuilder-Samples] is a GitHub repository with more samples beyond just the LUIS bot. The subfolder you need for this tutorial is [./Node/Intelligence-LUIS][Github-BotBuilder-Samples-LUIS].
-
-Clone or download the repository to your computer. You edit and run the Node/Intelligence-LUIS sample found in this repository.
-
-## Create a new LUIS application from the application definition file
-Create a [luis.ai][LUIS-website] account and log in.
-
-In order to get a new LUIS application set up for the bot, you need to import the **LuisBot.json** file found at ./BotBuilder-Samples/Node/Intelligence-LUIS folder. The file contains the application definition for the LUIS app the sample bot uses.
-
-1. On the **My Apps** page  of the [LUIS web page][LUIS-website], click **Import App**.
-2. In the **Import new app** dialog box, click **Choose file** and upload the LuisBot.json file. Name your application "Hotel Finder", and Click **Import**. <!--    ![A new app form](./Images/NewApp-Form.JPG) -->It may take a few minutes for LUIS to extract the intents and entities from the JSON file. When the import is complete, LUIS opens the Dashboard page of the Hotel Finder app<!-- which looks like the following screen-->. 
-3. Once the app is imported, you need to change the Assigned endpoint key on the Publish App page to your Azure LUIS subscription. Then publish the app to get the endpoint API URL. You need to copy the URL, you need to paste that URL as an environment variable in the next step.
-
-## Set the LUIS endpoint in the LUIS sample bot
-In a code editor, set the LUIS_MODEL_URL environment variable and comment out the security variables. 
-
-1. Open the `.env` file and change `LUIS_MODEL_URL` to the LUIS endpoint URL from the previous step.
-2. Delete any trailing `&q=` from the URL. Here's an example of how the URL might look:
-```
-LUIS_MODEL_URL=https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/2c2afc3e-5f39-4b6f-b8ad-c47ce1b98d8a?subscription-key=9823b65a8c9045f8bce7fee87a5e1fbc&verbose=true&timezoneOffset=0
-```
-3. Add the pound sign, '#', in front of the MICROSOFT_APP environment variables:
-```
-#MICROSOFT_APP_ID=
-#MICROSOFT_APP_PASSWORD=
-```
-These environment variables are for security to a remote bot so you do not need them.
-
-## Start the bot
-From a command line, at the root of the LUIS sample bot, install the node dependencies and start the LUIS Sample. 
-
-Install the node dependencies:
-````
-> npm install
-````
-
-After the node modules are installed, start the bot.
-````
-> npm start
-````
-
-You should see a response such as the following response:
-
-```
-restify listening to http://[::]:3978
-```
-The port number is necessary for the next step.
-
-## Start the Bot Emulator
-Start the Bot Framework emulator.
-
-The Bot Emulator needs the sample bot's endpoint such as http://localhost:3978/api/messages. Enter that into the address bar at the top of the emulator. It asks you for the Bot's application ID and password. You don't need those values if the bot is local to your computer, so click on CONNECT. 
-
-If you see the following connection error in the log, the Bot Emulator cannot find your bot. 
-
-```
-POST connect ECONNREFUSED 127.0.0.1:3978
-```
-
-If you see this successful HTTP response in the log, the Bot emulator connected to the LUIS sample bot:
-```
-POST 202 [conversationUpdate] 
-```
-
-## Ask the bot a question
-In the bottom bar of the emulator, enter:
-
-```
-Search hotels in Seattle
-``` 
-The bot should respond with suggestions for hotels.
-
-## See the bot's response
-In the left panel of the emulator, the user sees suggested hotels. 
-
-In the right panel, the HTTP conversation between the bot emulator and the LUIS sample bot is shown.
-
-```
-Log
-[13:10:55] Emulator listening on http://[::]:61655 
-[13:10:55] ngrok not configured (only needed when connecting to remotely hosted bots) 
-[13:10:55] Connecting to bots hosted remotely 
-[13:10:55] Edit ngrok settings 
-[13:10:55] Checking for new version... 
-[13:10:56] Application is up to date. 
-[13:11:51] -> POST 202 [conversationUpdate] 
-[13:11:51] -> POST 202 [conversationUpdate] 
-[13:12:01] -> POST 202 [message] search for hotels in seattle 
-[13:12:01] <- GET 200 getPrivateConversationData 
-[13:12:01] <- GET 200 getUserData 
-[13:12:01] <- GET 200 getConversationData 
-[13:12:02] <- POST 200 setPrivateConversationData 
-[13:12:02] <- POST 200 Reply[message] Welcome to the Hotels finder! We are analyzing you... 
-[13:12:02] <- POST 200 Reply[message] Looking for hotels in seattle... 
-[13:12:02] <- POST 200 Reply[event] Debug Event 
-[13:12:03] <- POST 200 setPrivateConversationData 
-[13:12:03] <- POST 200 Reply[message] I found 5 hotels: 
-[13:12:03] <- POST 200 Reply[message] application/vnd.microsoft.card.hero 
-[13:12:03] <- POST 200 Reply[event] Debug Event 
-```
+| Intent | Example utterance | Bot functionality |
+|:----:|:----------:|---|
+| HomeAutomation.TurnOn | Turn on the lights. | The bot invokes the `TurnOnDialog` when the `HomeAutomation.TurnOn` is detected. This dialog is where you'd invoke an IoT service to turn on a device and tell the user that the device has been turned on. |
+| HomeAutomation.TurnOff | Turn off the bedroom lights. | The bot invokes the `TurnOffDialog` when the `HomeAutomation.TurnOff` is detected. This dialog where you'd invoke an IoT service to turn off a device and tell the user that the device has been turned off. |
 
 
-In the command line for the LUIS bot sample, you will see the following
+## Create a Language Understanding bot with Bot Service
 
-```
-Debugging with inspector protocol because Node.js v8.6.0 was detected.
-node --inspect-brk=37939 app.js 
-Debugger listening on ws://127.0.0.1:37939/b905da3e-0ffb-4c54-bf5c-e5ca051682b8
-restify listening to http://[::]:3978
-WARN: ChatConnector: receive - emulator running without security enabled.
-ChatConnector: message received.
-WARN: ChatConnector: receive - emulator running without security enabled.
-ChatConnector: message received.
-WARN: ChatConnector: receive - emulator running without security enabled.
-ChatConnector: message received.
-UniversalBot("*") routing "find hotels in seattle" from "emulator"
-Library("*")recognize() recognized: SearchHotels(1)
-Library("*").findRoutes() explanation:
-	GlobalAction(1)
-Session.beginDialog(*:SearchHotels)
-SearchHotels - waterfall() step 1 of 2
-SearchHotels - Session.send()
-SearchHotels - waterfall() step 2 of 2
-SearchHotels - Session.send()
-SearchHotels - Session.sendBatch() sending 2 message(s)
-SearchHotels - Session.send()
-SearchHotels - Session.send()
-SearchHotels - Session.endDialog()
-Session.sendBatch() sending 2 message(s)
-WARN: ChatConnector: receive - emulator running without security enabled.
-ChatConnector: message received.
-UniversalBot("*") routing "find hotels in seattle" from "emulator"
-Library("*")recognize() recognized: SearchHotels(1)
-Library("*").findRoutes() explanation:
-	GlobalAction(1)
-Session.beginDialog(*:SearchHotels)
-SearchHotels - waterfall() step 1 of 2
-SearchHotels - Session.send()
-SearchHotels - waterfall() step 2 of 2
-```
+1. In the [Azure portal](https://portal.azure.com), select **Create new resource** in the menu blade and select **See all**.
 
-## See the LUIS response while running the bot
-The Bot Builder SDK uses the LUIS endpoint API you set in the **.env** file when creating the recognizer. After creating the recognizer, it is set on the **bot** object.
+    ![Create new resource](./media/luis-tutorial-node-bot/bot-service-creation.png)
 
-```
-// app.js - register LUIS endpoint API
-var recognizer = new builder.LuisRecognizer(process.env.LUIS_MODEL_URL);
+2. In the search box, search for **Web App Bot**. 
+
+    ![Create new resource](./media/luis-tutorial-node-bot/bot-service-selection.png)
+
+3. In the **Bot Service** blade, provide the required information, and select **Create**. This creates and deploys the bot service and LUIS app to Azure. If you want to use [speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), review [region requirements](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) before creating your bot. 
+    * Set **App name** to your bot’s name. The name is used as the subdomain when your bot is deployed to the cloud (for example, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+    * Select the subscription, [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service plan, and [location](https://azure.microsoft.com/regions/).
+    * Select the **Language understanding (Node.js)** template for the **Bot template** field.
+    * Select the **LUIS App Location**. This is the authoring [region][LUIS] the app is created in.
+    * Select the confirmation checkbox for the legal notice. The terms of the legal notice are below the checkbox.
+
+    ![Bot Service blade](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
+
+
+4. Confirm that the bot service has been deployed.
+    * Select Notifications (the bell icon that is located along the top edge of the Azure portal). The notification will change from **Deployment started** to **Deployment succeeded**.
+    * After the notification changes to **Deployment succeeded**, select **Go to resource** on that notification.
+
+## Try the default bot
+
+Confirm that the bot has been deployed by checking the **Notifications**. The notifications will change from **Deployment in progress...** to **Deployment succeeded**. Select **Go to resource** button to open the bot's resources blade.
+
+<!-- this step isn't supposed to be necessary -->
+## Install NPM resources
+Install NPM packages with the following steps:
+
+1. Select **Build** from the **Bot Management** section of the Web App Bot. 
+
+2. A new, second browser window opens. Select **Open online code editor**.
+
+3. In the top navigation bar, select the web app bot name `homeautomationluisbot`. 
+
+4. In the drop-down list, **Open Kudu Console**.
+
+5. A new browser window opens. In the console, enter the following command:
+
+    ```
+    cd site\wwwroot && npm install
+    ```
+
+    Wait for the install process to finish. Return to the first browser window. 
+
+## Test in Web Chat
+Once the bot is registered, select **Test in Web Chat** to open the Web Chat pane. Type "hello" in Web Chat.
+
+  ![Test the bot in Web Chat](./media/luis-tutorial-node-bot/bot-service-web-chat.png)
+
+The bot responds by saying "You have reached Greeting. You said: hello". This confirms that the bot has received your message and passed it to a default LUIS app that it created. This default LUIS app detected a Greeting intent. In the next step, you'll connect the bot to the LUIS app you previously created instead of the default LUIS app.
+
+## Connect your LUIS app to the bot
+
+Open **Application Settings** in the first browser window and edit the **LuisAppId** field to contain the application ID of your LUIS app.
+
+  ![Update the LUIS app ID in Azure](./media/luis-tutorial-node-bot/bot-service-app-id.png)
+
+If you don't have the LUIS app ID, log in to the [LUIS](luis-reference-regions.md) website using the same account you use to log in to Azure. Select on **My apps**. 
+
+1. Find the LUIS app you previously created, that contains the intents and entities from the HomeAutomation domain.
+
+2. In the **Settings** page for the LUIS app, find and copy the app ID.
+
+3. If you haven't trained the app, select the **Train** button in the upper right to train your app.
+
+4. If you haven't published the app, select **PUBLISH** in the top navigation bar to open the **Publish** page. Select the Production slot and the **Publish** button.
+
+## Modify the bot code
+
+Go to the second browser window if it is still open or in the first browser window, select **Build** and then select **Open online code editor**.
+
+   ![Open online code editor](./media/luis-tutorial-node-bot/bot-service-build.png)
+
+In the code editor, open `app.js`. It contains the following code:
+
+```javascript
+/*-----------------------------------------------------------------------------
+A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
+-----------------------------------------------------------------------------*/
+
+var restify = require('restify');
+var builder = require('botbuilder');
+var botbuilder_azure = require("botbuilder-azure");
+
+// Setup Restify Server
+var server = restify.createServer();
+server.listen(process.env.port || process.env.PORT || 3978, function () {
+   console.log('%s listening to %s', server.name, server.url); 
+});
+  
+// Create chat connector for communicating with the Bot Framework Service
+var connector = new builder.ChatConnector({
+    appId: process.env.MicrosoftAppId,
+    appPassword: process.env.MicrosoftAppPassword,
+    openIdMetadata: process.env.BotOpenIdMetadata 
+});
+
+// Listen for messages from users 
+server.post('/api/messages', connector.listen());
+
+/*----------------------------------------------------------------------------------------
+* Bot Storage: This is a great spot to register the private state storage for your bot. 
+* We provide adapters for Azure Table, CosmosDb, SQL Azure, or you can implement your own!
+* For samples and documentation, see: https://github.com/Microsoft/BotBuilder-Azure
+* ---------------------------------------------------------------------------------------- */
+
+var tableName = 'botdata';
+var azureTableClient = new botbuilder_azure.AzureTableClient(tableName, process.env['AzureWebJobsStorage']);
+var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azureTableClient);
+
+// Create your bot with a function to receive messages from the user
+// This default message handler is invoked if the user's utterance doesn't
+// match any intents handled by other dialogs.
+var bot = new builder.UniversalBot(connector, function (session, args) {
+    session.send('You reached the default message handler. You said \'%s\'.', session.message.text);
+});
+
+bot.set('storage', tableStorage);
+
+// Make sure you add code to validate these fields
+var luisAppId = process.env.LuisAppId;
+var luisAPIKey = process.env.LuisAPIKey;
+var luisAPIHostName = process.env.LuisAPIHostName || 'westus.api.cognitive.microsoft.com';
+
+const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisAppId + '?subscription-key=' + luisAPIKey;
+
+// Create a recognizer that gets intents from LUIS, and add it to the bot
+var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 bot.recognizer(recognizer);
+
+// Add a dialog for each intent that the LUIS app recognizes.
+// See https://docs.microsoft.com/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
+bot.dialog('GreetingDialog',
+    (session) => {
+        session.send('You reached the Greeting intent. You said \'%s\'.', session.message.text);
+        session.endDialog();
+    }
+).triggerAction({
+    matches: 'Greeting'
+})
+
+bot.dialog('HelpDialog',
+    (session) => {
+        session.send('You reached the Help intent. You said \'%s\'.', session.message.text);
+        session.endDialog();
+    }
+).triggerAction({
+    matches: 'Help'
+})
+
+bot.dialog('CancelDialog',
+    (session) => {
+        session.send('You reached the Cancel intent. You said \'%s\'.', session.message.text);
+        session.endDialog();
+    }
+).triggerAction({
+    matches: 'Cancel'
+})
 ```
 
-If you set a breakpoint in the **app.js file** in the first function of **bot.dialog**, you can watch the LUIS response for cityEntity and airportEntity.
+The existing intents in the app.js are ignored. You can leave them. 
 
-```
-// app.js - set breakpoint to watch the LUIS response
-var cityEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'builtin.geography.city');
-var airportEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'AirportCode');
-```
+## Add a dialog that matches HomeAutomation.TurnOn
 
-Using the sample request "Search for hotel in Seattle," LUIS response with a filled cityEntity and an null airportEntity.
+Copy the following code and add it to `app.js`.
 
-```
-// cityEntity viewed in debug
-{
-    entity: "seattle", type: "builtin.geography.city", startIndex: 15, endIndex: 21, score: 0.9239899}
-    endIndex: 21
-    entity: "seattle"
-    score: 0.9239899
-    startIndex: 15
-    type: "builtin.geography.city"
-    __proto__: Object {__defineGetter__: , __defineSetter__: , hasOwnProperty: , …
-}
+```javascript
+bot.dialog('TurnOn',
+    (session) => {
+        session.send('You reached the TurnOn intent. You said \'%s\'.', session.message.text);
+        session.endDialog();
+    }
+).triggerAction({
+    matches: 'HomeAutomation.TurnOn'
+})
 ```
 
-The score of .92 is a high probability for the entity **Seattle** found with the built-in type **geography.city**. That is enough information to search for hotels in the city of Seattle.
+The [matches][matches] option on the [triggerAction][triggerAction] attached to the dialog specifies the name of the intent. The recognizer runs each time the bot receives an utterance from the user. If the highest scoring intent that it detects matches a `triggerAction` bound to a dialog, the bot invokes that dialog.
 
+## Add a dialog that matches HomeAutomation.TurnOff
+
+Copy the following code and add it to `app.js`.
+
+```javascript
+bot.dialog('TurnOff',
+    (session) => {
+        session.send('You reached the TurnOff intent. You said \'%s\'.', session.message.text);
+        session.endDialog();
+    }
+).triggerAction({
+    matches: 'HomeAutomation.TurnOff'
+})
+```
+## Test the bot
+
+In the Azure Portal, select on **Test in Web Chat** to test the bot. Try type messages like "Turn on the lights", and "turn off my heater" to invoke the intents that you added to it.
+   ![Test HomeAutomation bot in Web Chat](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
+
+> [!TIP]
+> If you find that your bot doesn't always recognize the correct intent or entities, improve your LUIS app's performance by giving it more example utterances to train it. You can retrain your LUIS app without any modification to your bot's code. See [Add example utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) and [train and test your LUIS app](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
+
+## Learn more about Bot Framework
+Learn more about [Bot Framework](https://dev.botframework.com/) and the [3.x](https://github.com/Microsoft/BotBuilder) and [4.x](https://github.com/Microsoft/botbuilder-js) SDKs.
 
 ## Next steps
 
-* You can learn more about this [specific sample][Github-BotBuilder-Samples-LUIS].
-* Try to improve your LUIS app's performance by continuing to [add](Add-example-utterances.md) and [label utterances](Label-Suggested-Utterances.md).
-* Try adding additional [Features](Add-Features.md) to enrich your model and improve performance in language understanding. Features help your app identify alternative interchangeable words/phrases, as well as commonly used patterns specific to your domain.
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.-->
+You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS app. Then add dialogs for the new intents and test them using the bot. 
 
-<!-- Links -->
-[Github-BotFramework-Emulator-Download]: https://github.com/Microsoft/BotFramework-Emulator/releases/
-[Github-BotBuilder-Samples]: https://github.com/Microsoft/BotBuilder-Samples
-[Github-BotBuilder-Samples-LUIS]:https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-LUIS
+<!-- 
+> [!NOTE] 
+> The default LUIS app that the template created contains example utterances for Cancel, Greeting, and Help intents. In the list of apps, find the app that begins with the name specified in **App name** in the **Bot Service** blade when you created the Bot Service. -->
+
+> [!div class="nextstepaction"]
+> [Add intents](./luis-how-to-add-intents.md)
+> [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
+
+
+[intentDialog]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.intentdialog.html
+
+[intentDialog_matches]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.intentdialog.html#matches 
+
+[NotesSample]: https://github.com/Microsoft/BotFramework-Samples/tree/master/docs-samples/Node/basics-naturalLanguage
+
+[triggerAction]: https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html#triggeraction
+
+[confirmPrompt]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions.html#confirmprompt
+
+[waterfall]: bot-builder-nodejs-dialog-manage-conversation-flow.md#manage-conversation-flow-with-a-waterfall
+
+[session_userData]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.session.html#userdata
+
+[EntityRecognizer_findEntity]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.entityrecognizer.html#findentity
+
+[matches]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions.html#matches
+
+[LUISAzureDocs]: https://docs.microsoft.com/azure/cognitive-services/LUIS/Home
+
+[Dialog]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.dialog.html
+
+[IntentRecognizerSetOptions]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.iintentrecognizersetoptions.html
+
+[LuisRecognizer]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.luisrecognizer
+
+[LUISConcepts]: https://docs.botframework.com/node/builder/guides/understanding-natural-language/
+
+[DisambiguationSample]: https://github.com/Microsoft/BotBuilder/tree/master/Node/examples/feature-onDisambiguateRoute
+
+[IDisambiguateRouteHandler]: https://docs.botframework.com/node/builder/chat-reference/interfaces/_botbuilder_d_.idisambiguateroutehandler.html
+
+[RegExpRecognizer]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.regexprecognizer.html
+
+[AlarmBot]: https://github.com/Microsoft/BotBuilder/blob/master/Node/examples/basics-naturalLanguage/app.js
+
+[LUISBotSample]: https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/intelligence-LUIS
+
+[UniversalBot]: https://docs.botframework.com/node/builder/chat-reference/classes/_botbuilder_d_.universalbot.html
+
+
+<!-- Old Links -->
+[Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
+[Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
+[Github-LUIS-Samples-node-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
 [NodeJs]: https://nodejs.org/
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[LUIS-website]: https://luis.ai
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+

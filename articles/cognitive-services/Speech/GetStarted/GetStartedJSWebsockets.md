@@ -1,72 +1,65 @@
 ---
-title: Get Started with the Microsoft Speech Recognition API in JavaScript | Microsoft Docs
-description: Use the Microsoft speech recognition API in Microsoft Cognitive Services to develop applications that continuously convert spoken audio to text.
+title: Get started with the Microsoft Speech Recognition API in JavaScript | Microsoft Docs
+description: Use the Microsoft Speech Recognition API in Cognitive Services to develop applications that continuously convert spoken audio to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
-
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/21/2017
 ms.author: zhouwang
 ---
-# Get started with Microsoft speech recognition API in JavaScript
+# Get started with the Speech Recognition API in JavaScript
 
-Microsoft speech recognition API allows you to develop applications that convert spoken audio to text. The JavaScript client library uses the Microsoft [Speech WebSocket Protocol](../API-Reference-REST/websocketprotocol.md), which allows you to keep on talking and receiving transcribed text simultaneously. This article helps you get started in using Microsoft speech recognition API in JavaScript.
+You can develop applications that convert spoken audio to text by using the Speech Recognition API. The JavaScript client library uses the [Speech Service WebSocket protocol](../API-Reference-REST/websocketprotocol.md), which allows you to talk and receive transcribed text simultaneously. This article helps you to get started with the Speech Recognition API in JavaScript.
 
 ## Prerequisites
 
-### Subscribe to speech recognition API and get a free trial subscription key
+### Subscribe to the Speech Recognition API, and get a free trial subscription key
 
-Microsoft Speech API is part of Microsoft Cognitive Services on Azure(previously Project Oxford). You can get free trial subscription keys from the [Cognitive Services Subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, click Get API Key to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you may use either key.
+The Speech API is part of Cognitive Services. You can get free trial subscription keys from the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech API, select **Get API Key** to get the key. It returns a primary and secondary key. Both keys are tied to the same quota, so you can use either key.
 
 > [!IMPORTANT]
-> **Get a subscription key**
->
-> You must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/) before using speech client libraries.
->
-> **Use your subscription key**
->
-> With the provided JavaScript sample application, you need to update the file samples/browser/Sample.html with your subscription key. See more information below: [Get started](#get-started).
+> Get a subscription key. Before you can use Speech client libraries, you must have a [subscription key](https://azure.microsoft.com/try/cognitive-services/).
 
 ## Get started
 
-To get started with Microsoft speech recognition API in JavaScript, we have created a working HTML/JS sample ready for you to try. The following steps walk you through how to get the source code and how to run the sample.
+In this section we will walk you through the necessary steps to load a sample HTML page. The sample is located in our [github repository](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). You can **open the sample directly** from the repository, or **open the sample from a local copy** of the repository. 
 
-1. Download a copy of the HTML file and the JavaScript file from the [Javascript Speech Recognition API Samples](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript) repository:
-  - [Sample.html](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/master/samples/browser/Sample.html) and
-  - [speech.browser.sdk.js](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/master/distrib/speech.browser.sdk.js)
+> [!NOTE]
+> Some browsers block microphone access on un-secure origin. So, it is recommended to host the 'sample'/'your app' on https to get it working on all supported browsers. 
 
-2. Open the **Sample.html** file in a text editor and edit the follow two lines:
-  Replace 'YOUR_BING_SPEECH_API_KEY' with your subscription key.
-  Replace '..\..\distrib\speech.browser.sdk.js' with corrected path to the SDK JavaScript file.
+### Open the sample directly
 
-  > [!NOTE]
-  > To work with Microsoft speech recognition API, all you need is a subscription key. However, the speech recognition API also supports authorization token. If you prefer to use an authorization token, see the [Authentication](../How-to/how-to-authentication.md) page for how to get an authorization token, and then replace
+Acquire a subscription key as described above. Then open the [link to the sample](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). This will load the page into your default browser (Rendered using [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
 
-  ```javaScript
-  let authentication = new SR.CognitiveSubscriptionKeyAuthentication(subscriptionKey);
-  ```
+### Open the sample from a local copy
 
-  with
+To try the sample locally, clone this repository:
 
-  ```javascript
-  let authentication = new SR.CognitiveTokenAuthentication(fetchCallback, fetchOnExpiryCallback);
-  ```
+```
+git clone https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
+```
 
-3. Open **Sample.html** in a web browser.
+compile the TypeScript sources and bundle/browserfy them into a single JavaScript file ([npm](https://www.npmjs.com/) needs to be installed on your machine). Change into the root of the cloned repository and run the commands:
 
-4. Click the **Start** button. It initializes the sample and turns on the microphone. Grant the browser access to your microphone if the browser asks for permission.
+```
+cd SpeechToText-WebSockets-Javascript && npm run bundle
+```
 
-5. Start talking. Your transcribed text appears after the **Current hypothesis:** label. The text area displays the JSON payload of the transcribed audio.
+Open `samples\browser\Sample.html` in your favorite browser.
+
+## Next steps
+
+More information on how to include the SDK into your own webpage is available [here](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript).
 
 ## Remarks
 
-- The Microsoft speech recognition API supports 3 [recognition modes](../concepts.md#recognition-modes). You can switch the mode by updating the **Setup()** function found in the **Sample.html** file. The sample set the mode to `Interactive` by default. To change the mode, update the parameter `SR.RecognitionMode.Interactive` to another mode, for example `SR.RecognitionMode.Conversation`.
-- For a complete list of supported languages, see [Supported Languages](../API-Reference-REST/supportedlanguages.md).
+- The Speech Recognition API supports three [recognition modes](../concepts.md#recognition-modes). You can switch the mode by updating the **Setup()** function found in the Sample.html file. The sample sets the mode to `Interactive` by default. To change the mode, update the parameter `SR.RecognitionMode.Interactive` to another mode. For example, change the parameter to  `SR.RecognitionMode.Conversation`.
+- For a complete list of supported languages, see [Supported languages](../API-Reference-REST/supportedlanguages.md).
 
-## Related Topics
+## Related topics
 
-- [Javascript Speech Recognition API sample repository](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript)
-- [Get started with REST API](GetStartedREST.md)
+- [JavaScript Speech Recognition API sample repository](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript)
+- [Get started with the REST API](GetStartedREST.md)

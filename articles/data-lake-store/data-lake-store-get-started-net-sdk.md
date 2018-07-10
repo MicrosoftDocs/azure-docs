@@ -10,10 +10,8 @@ editor: cgronlun
 ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/11/2017
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
 
 ---
@@ -87,7 +85,7 @@ For instructions on how to perform data management operations on Data Lake Store
 
                 private static void Main(string[] args)
                 {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; 
+                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net"; 
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; 
                     _location = "East US 2";
                     _subId = "<SUBSCRIPTION-ID>";                    
@@ -102,7 +100,7 @@ In the remaining sections of the article, you can see how to use the available .
 * For end-user authentication for your application, see [End-user authentication with Data Lake Store using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 * For service-to-service authentication for your application, see [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
-## Create client objects
+## Create client object
 The following snippet creates the Data Lake Store account client object, which is used to issue account management requests to the service, such as create account, delete account, etc.
 
     // Create client objects and set the subscription ID

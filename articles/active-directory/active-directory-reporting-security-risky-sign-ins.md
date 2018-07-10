@@ -3,17 +3,18 @@
 title: Risky sign-ins report in the Azure Active Directory portal | Microsoft Docs
 description: Learn about the risky sign-ins report in the Azure Active Directory portal
 services: active-directory
-author: MarkusVi
-manager: femila
+author: priyamohanram
+manager: mtillman
 
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 11/14/2017
+ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
@@ -73,7 +74,7 @@ For more details, see [Closing risk events manually](active-directory-identitypr
 
 This report provides you with an option to:
 
-- Searh resources
+- Search resources
 - Download the report data
 
 

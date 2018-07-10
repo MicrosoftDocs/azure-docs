@@ -12,11 +12,9 @@ keywords: hadoop sqoop,sqoop
 ms.assetid: 303649a5-4be5-4933-bf1d-4b232083c354
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/12/2017
+ms.topic: conceptual
+ms.date: 03/26/2018
 ms.author: larryfr
 
 ---
@@ -36,7 +34,7 @@ Learn how to use Apache Sqoop to import and export between a Hadoop cluster in A
 >
 > * [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md)
 > * [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md)
-> * The [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) utility.
+> * The [sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility) utility
 
 ## Create the table in SQL Database
 
@@ -68,7 +66,7 @@ GO
 1. Use SSH to connect to the HDInsight cluster. For example, the following command connects to the primary headnode of a cluster named `mycluster`:
 
     ```bash
-    ssh CLUSTERNAME-ssh.azurehdinsight.net
+    ssh mycluster-ssh.azurehdinsight.net
     ```
 
     For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -92,7 +90,7 @@ GO
 
     ```sql
     SET ROWCOUNT 50;
-    SELECT * FROM mobiledata;"
+    SELECT * FROM mobiledata;
     ```
 
     This command lists 50 rows that were imported into the table.
@@ -102,7 +100,7 @@ GO
 1. Use the following command to import data from the **mobiledata** table in SQL Database, to the **wasb:///tutorials/usesqoop/importeddata** directory on HDInsight:
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
     The fields in the data are separated by a tab character, and the lines are terminated by a new-line character.
@@ -150,7 +148,7 @@ You can also use Sqoop to import and export data from SQL Server. The difference
 * When connecting to the SQL Server from HDInsight, you may have to use the IP address of the SQL Server. For example:
 
     ```bash
-    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P <adminPassword> -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+    sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> -P -table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
 ## Limitations

@@ -13,10 +13,8 @@ ms.assetid: a7665a14-0211-4521-b3e7-3b26e8029cc0
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 08/22/2017
+ms.topic: conceptual
+ms.date: 05/16/2018
 ms.author: jgao
 
 ---
@@ -28,10 +26,7 @@ Microsoft's Big Data solution integrates Microsoft Business Intelligence (BI) co
 
 It is also possible to connect the data associated with an HDInsight cluster and other data sources, including other (non-HDInsight) Hadoop clusters, from Excel using the Microsoft Power Query add-in for Excel. For information on installing and using Power Query, see [Connect Excel to HDInsight with Power Query][hdinsight-power-query].
 
-> [!NOTE]
-> While the steps in this article can be used with either a Linux or Windows-based HDInsight cluster, Windows is required for the client workstation.
-> 
-> 
+
 
 **Prerequisites**:
 
@@ -43,7 +38,7 @@ Before you begin this article, you must have the following items:
 ## Install Microsoft Hive ODBC driver
 Download and install Microsoft Hive ODBC Driver from the [Download Center][hive-odbc-driver-download].
 
-This driver can be installed on 32-bit or 64-bit versions of Windows 7, Windows 8, Windows 10, Windows Server 2008 R2, and Windows Server 2012. The driver allows connection to Azure HDInsight (version 1.6 and later) and Azure HDInsight Emulator (v.1.0.0.0 and later). You shall install the version that matches the version of the application where you use the ODBC driver. For this tutorial, the driver is used from Office Excel.
+This driver can be installed on 32-bit or 64-bit versions of Windows 7, Windows 8, Windows 10, Windows Server 2008 R2, and Windows Server 2012. The driver allows connection to Azure HDInsight. You shall install the version that matches the version of the application where you use the ODBC driver. For this tutorial, the driver is used from Office Excel.
 
 ## Create Hive ODBC data source
 The following steps show you how to create a Hive ODBC Data Source.
@@ -101,6 +96,7 @@ The following steps describe the way to import data from a Hive table into an Ex
 In this article, you learned how to use the Microsoft Hive ODBC driver to retrieve data from the HDInsight Service into Excel. Similarly, you can retrieve data from the HDInsight Service into SQL Database. It is also possible to upload data into an HDInsight Service. To learn more, see:
 
 * [Visualize Hive data with Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
+* [Visualize Interactive Query Hive data with Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Use Zeppelin to run Hive queries in Azure HDInsight ](./../hdinsight-connect-hive-zeppelin.md).
 * [Connect Excel to Hadoop by using Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Connect to Azure HDInsight and run Hive queries using Data Lake Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).

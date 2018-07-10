@@ -1,9 +1,31 @@
-Instead of using GitHub issues, please consider these options if you need help or have feedback:
+# Azure documentation issue guidance
 
--	Feedback or questions about technical articles are best handled through the Livefyre thread at the bottom of each article. This makes it clear to us which article you are talking about.
+Thanks for opening an issue in the Azure technical documentation repository. 
 
--	Suggested changes to technical articles are best handled as proposals for change through pull requests. Each pull request is reviewed by the article author or a related subject matter expert for the article.
+We use GitHub issues as the primary channel for customer and community feedback about the Azure documentation.
 
--	If you need support using Azure, your best bets are StackOverflow, MSDN forums, and our support channels. See https://azure.microsoft.com/en-us/support/forums/ and https://azure.microsoft.com/en-us/support/options/.
+## Creating an issue
 
--	Product and feature feedback is best handled through the general feedback for Azure: https://feedback.azure.com 
+We prefer that you create documentation feedback issues using the Feedback link on the published article - the feedback control on the doc page creates an issue that contains all the article details so you can focus on the feedback part.
+
+You can also create a feedback issue here in the repo. If you do this, please make sure your issue lists:
+
+- [ ] The relevant Azure service or technology. 
+- [ ] A link to the published documentation article that you have feedback about.
+- [ ] Clear, specific feedback that the author can act on.
+
+## Pull requests and article contributions
+
+If you know the change that is needed in an article, we encourage you to submit the changes directly using a pull request. If the change is large, or if you want to contribute an entire article, follow these guidelines:
+
+- [ ] Don't surprise us with a big pull request or a pull request with a new article! Submit an issue that describes the details of the proposed large change or new article. 
+- [ ] Include the service or technology area.
+
+We'll route the issue to the appropriate content team for review and discussion.
+
+## Tech support and product feedback
+If you would like to contact Microsoft about other things, such as product feedback or tech support, please review these guidelines:
+
+- If you need technical support using Azure, the paid and free support options are described here: https://azure.microsoft.com/support/options/.
+
+- Each article in the Azure technical documentation contains a product feedback button - it's best to submit product feedback directly from a relevant article. Otherwise, you can submit product feedback for most Azure products in the following product feedback forum: https://feedback.azure.com/forums/34192--general-feedback.

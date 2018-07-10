@@ -45,7 +45,7 @@ Azure China 21Vianet provides world-class security and the <a href="https://www.
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/en-us/media/common/i_guide.svg" alt="" />
+                            <img src="https://docs.microsoft.com/media/common/i_guide.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">

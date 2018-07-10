@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.devlang: csharp
 ms.topic: article
 ms.date: 06/22/2017
-ms.author: t-jolanz
+ms.author: t-jolan
 ---
 
 # Visual Search mobile app tutorial

@@ -10,7 +10,7 @@ editor: tysonn
 ms.assetid: 
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
@@ -73,7 +73,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         },
         "stringToConvert": {
             "type": "string",
-            "defaultValue": "a"
+            "defaultValue": "efgh"
         },
         "objectToConvert": {
             "type": "object",
@@ -104,7 +104,7 @@ The output from the preceding example with the default values is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | intOutput | Array | [1] |
-| stringOutput | Array | ["a"] |
+| stringOutput | Array | ["efgh"] |
 | objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 To deploy this example template with Azure CLI, use:

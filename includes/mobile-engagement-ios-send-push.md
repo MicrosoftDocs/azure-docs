@@ -3,7 +3,7 @@ To allow Mobile Engagement to send Push Notifications on your behalf, you need t
 
 1. Navigate to your Mobile Engagement portal. Ensure you're in the correct and then click on the **Engage** button at the bottom:
    
-    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 2. Click on the **Settings** page in your Engagement Portal. From there click on the **Native Push** section to upload your p12 certificate:
    
     ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)

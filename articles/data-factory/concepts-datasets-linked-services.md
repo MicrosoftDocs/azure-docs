@@ -4,28 +4,25 @@ description: 'Learn about datasets and linked services in Data Factory. Linked s
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 
-ms.date: 09/05/2017
+ms.topic: conceptual
+ms.date: 01/22/2018
 ms.author: shlo
 
 ---
 
 # Datasets and linked services in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-create-datasets.md)
-> * [Version 2 - Preview](concepts-datasets-linked-services.md)
+> * [Version 1](v1/data-factory-create-datasets.md)
+> * [Current version](concepts-datasets-linked-services.md)
 
-This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory V2 pipelines. 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Datasets in Data Factory V1](v1/data-factory-create-datasets.md).
+This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines. 
 
 If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview. 
 
@@ -41,6 +38,56 @@ Here is a sample scenario. To copy data from Blob storage to a SQL database, you
 The following diagram shows the relationships among pipeline, activity, dataset, and linked service in Data Factory:
 
 ![Relationship between pipeline, activity, dataset, linked services](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+
+## Linked service JSON
+A linked service in Data Factory is defined in JSON format as follows:
+
+```json
+{
+    "name": "<Name of the linked service>",
+    "properties": {
+        "type": "<Type of the linked service>",
+        "typeProperties": {
+              "<data store or compute-specific type properties>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+The following table describes properties in the above JSON:
+
+Property | Description | Required |
+-------- | ----------- | -------- |
+name | Name of the linked service. See [Azure Data Factory - Naming rules](naming-rules.md). |  Yes |
+type | Type of the linked service. For example: AzureStorage (data store) or AzureBatch (compute). See the description for typeProperties. | Yes |
+typeProperties | The type properties are different for each data store or compute. <br/><br/> For the supported data store types and their type properties, see the [dataset type](#dataset-type) table in this article. Navigate to the data store connector article to learn about type properties specific to a data store. <br/><br/> For the supported compute types and their type properties, see [Compute linked services](compute-linked-services.md). | Yes |
+connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No
+
+## Linked service example
+The following linked service is an Azure Storage linked service. Notice that the type is set to AzureStorage. The type properties for the Azure Storage linked service include a connection string. The Data Factory service uses this connection string to connect to the data store at runtime. 
+
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## Dataset JSON
 A dataset in Data Factory is defined in JSON format as follows:
@@ -70,12 +117,12 @@ A dataset in Data Factory is defined in JSON format as follows:
 ```
 The following table describes properties in the above JSON:
 
-Property | Description | Required | Default
--------- | ----------- | -------- | -------
-name | Name of the dataset. | See [Azure Data Factory - Naming rules](naming-rules.md). | Yes | NA
-type | Type of the dataset. | Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-types). | Yes | NA
-structure | Schema of the dataset. | For details, see [Dataset structure](#dataset-structure). | No | NA
-typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#dataset-type). | Yes | NA
+Property | Description | Required |
+-------- | ----------- | -------- |
+name | Name of the dataset. See [Azure Data Factory - Naming rules](naming-rules.md). |  Yes |
+type | Type of the dataset. Specify one of the types supported by Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>For details, see [Dataset types](#dataset-type). | Yes |
+structure | Schema of the dataset. For details, see [Dataset structure](#dataset-structure). | No |
+typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#dataset-type). | Yes |
 
 ## Dataset example
 In the following example, the dataset represents a table named MyTable in a SQL database.
@@ -102,28 +149,6 @@ Note the following points:
 - type is set to AzureSqlTable.
 - tableName type property (specific to AzureSqlTable type) is set to MyTable.
 - linkedServiceName refers to a linked service of type AzureSqlDatabase, which is defined in the next JSON snippet.
-
-## Linked service example
-AzureSqlLinkedService is defined as follows:
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-        "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-        }
-    }
-}
-```
-In the preceding JSON snippet:
-
-- **type** is set to AzureSqlDatabase.
-- **connectionString** type property specifies information to connect to a SQL database.
-
-As you can see, the linked service defines how to connect to a SQL database. The dataset defines what table is used as an input and output for the activity in a pipeline.
 
 ## Dataset type
 There are many different types of datasets, depending on the data store you use. See the following table for a list of data stores supported by Data Factory. Click a data store to learn how to create a linked service and a dataset for that data store.
@@ -154,42 +179,48 @@ In the example in the previous section, the type of the dataset is set to **Azur
 }
 ```
 ## Dataset structure
-The **structure** section is optional. It defines the schema of the dataset by containing a collection of names and data types of columns. You use the structure section to provide type information that is used to convert types and map columns from the source to the destination. In the following example, the dataset has three columns: timestamp, projectname, and pageviews. They are of type String, String, and Decimal, respectively.
-
-```json
-[
-    { "name": "timestamp", "type": "String"},
-    { "name": "projectname", "type": "String"},
-    { "name": "pageviews", "type": "Decimal"}
-]
-```
+The **structure** section is optional. It defines the schema of the dataset by containing a collection of names and data types of columns. You use the structure section to provide type information that is used to convert types and map columns from the source to the destination.
 
 Each column in the structure contains the following properties:
 
 Property | Description | Required
 -------- | ----------- | --------
 name | Name of the column. | Yes
-type | Data type of the column. | No
+type | Data type of the column. Data Factory supports the following interim data types as allowed values: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan** | No
 culture | .NET-based culture to be used when the type is a .NET type: `Datetime` or `Datetimeoffset`. The default is `en-us`. | No
-format | Format string to be used when the type is a .NET type: `Datetime` or `Datetimeoffset`. | No
+format | Format string to be used when the type is a .NET type: `Datetime` or `Datetimeoffset`. Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) on how to format datetime. | No
 
-The following guidelines help you determine when to include structure information, and what to include in the **structure** section.
+### Example
+In the following example, suppose the source Blob data is in CSV format and contains three columns: userid, name, and lastlogindate. They are of type Int64, String, and Datetime with a custom datetime format using abbreviated French names for day of the week.
 
-- **For structured data sources**, specify the structure section only if you want map source columns to sink columns, and their names are not the same. This kind of structured data source stores data schema and type information along with the data itself. Examples of structured data sources include SQL Server, Oracle, and Azure SQL Database.<br/><br/>As type information is already available for structured data sources, you should not include type information when you do include the structure section.
-- **For schema on read data sources (specifically Blob storage)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include structure when you want to map source columns to sink columns. Also include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink.<br/><br/> Data Factory supports the following values for providing type information in structure: `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`. 
+Define the Blob dataset structure as follows along with type definitions for the columns:
 
-Learn more on how data factory maps source data to sink from [Schema and type mapping]( copy-activity-schema-and-type-mapping.md) and when to specify structure information.
+```json
+"structure":
+[
+    { "name": "userid", "type": "Int64"},
+    { "name": "name", "type": "String"},
+    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+]
+```
+
+### Guidance
+
+The following guidelines help you understand when to include structure information, and what to include in the **structure** section. Learn more on how data factory maps source data to sink and when to specify structure information from [Schema and type mapping](copy-activity-schema-and-type-mapping.md).
+
+- **For strong schema data sources**, specify the structure section only if you want map source columns to sink columns, and their names are not the same. This kind of structured data source stores data schema and type information along with the data itself. Examples of structured data sources include SQL Server, Oracle, and Azure SQL Database.<br/><br/>As type information is already available for structured data sources, you should not include type information when you do include the structure section.
+- **For no/weak schema data sources e.g. text file in blob storage**, include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink. And include structure when you want to map source columns to sink columns..
 
 ## Create datasets
 You can create datasets by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and Azure portal
 
-## V1 vs. V2 datasets
+## Current version vs. version 1 datasets
 
-Here are some differences between Data Factory v1 and v2 datasets: 
+Here are some differences between Data Factory and Data Factory version 1 datasets: 
 
-- The external property is not supported in v2. It's replaced by a [trigger](concepts-pipeline-execution-triggers.md).
-- The policy and availability properties are not supported in V2. The start time for a pipeline depends on [triggers](concepts-pipeline-execution-triggers.md).
-- Scoped datasets (datasets defined in a pipeline) are not supported in V2. 
+- The external property is not supported in the current version. It's replaced by a [trigger](concepts-pipeline-execution-triggers.md).
+- The policy and availability properties are not supported in the current version. The start time for a pipeline depends on [triggers](concepts-pipeline-execution-triggers.md).
+- Scoped datasets (datasets defined in a pipeline) are not supported in the current version. 
 
 ## Next steps
 See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs. 

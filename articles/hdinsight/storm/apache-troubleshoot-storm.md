@@ -9,12 +9,10 @@ manager: ''
 editor: ''
 
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: raviperi
 ---
 
@@ -22,7 +20,7 @@ ms.author: raviperi
 
 Learn about the top issues and their resolutions for working with Apache Storm payloads in Apache Ambari.
 
-## How do I access the Storm UI on a cluster
+## How do I access the Storm UI on a cluster?
 You have two options for accessing the Storm UI from a browser:
 
 ### Ambari UI
@@ -39,7 +37,7 @@ Example:
 
  https://stormcluster.azurehdinsight.net/stormui
 
-## How do I transfer Storm event hub spout checkpoint information from one topology to another
+## How do I transfer Storm event hub spout checkpoint information from one topology to another?
 
 When you develop topologies that read from Azure Event Hubs by using the HDInsight Storm event hub spout .jar file, you must deploy a topology that has the same name on a new cluster. However,
 you must retain the checkpoint data that was committed to Apache ZooKeeper on the old cluster.
@@ -69,7 +67,7 @@ The export command writes the metadata to an Apache Hadoop Distributed File Syst
     ```
 
 #### Import offset metadata
-1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be exported.
+1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be imported.
 2. Run the following command (after you update the HDP version string) to import ZooKeeper offset data from the HDFS path /stormmetadata/zkdata to the ZooKeeper server on the target cluster:
 
     ```apache
@@ -77,22 +75,22 @@ The export command writes the metadata to an Apache Hadoop Distributed File Syst
     ```
    
 #### Delete offset metadata so that topologies can start processing data from the beginning, or from a timestamp that the user chooses
-1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be exported.
+1. Use SSH to go to the ZooKeeper cluster on the cluster from which the checkpoint offset needs to be deleted.
 2. Run the following command (after you update the HDP version string) to delete all ZooKeeper offset data in the current cluster:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
     ```
 
-## How do I locate Storm binaries on a cluster
+## How do I locate Storm binaries on a cluster?
 Storm binaries for the current HDP stack are in /usr/hdp/current/storm-client. The location is the same both for head nodes and for worker nodes.
  
 There might be multiple binaries for specific HDP versions in /usr/hdp (for example, /usr/hdp/2.5.0.1233/storm). The /usr/hdp/current/storm-client folder is symlinked to the latest version that is running on the cluster.
 
-For more information, see [Connect to an HDInsight cluster by using SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) and 
+For more information, see [Connect to an HDInsight cluster by using SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) and 
 [Storm](http://storm.apache.org/).
  
-## How do I determine the deployment topology of a Storm cluster
+## How do I determine the deployment topology of a Storm cluster?
 First, identify all components that are installed with HDInsight Storm. A Storm cluster consists of four node categories:
 
 * Gateway nodes
@@ -121,15 +119,15 @@ Storm worker nodes run the following services:
 * Worker Java virtual machines (JVMs), for running topologies
 * Ambari agent
  
-## How do I locate Storm event hub spout binaries for development
+## How do I locate Storm event hub spout binaries for development?
  
 For more information about using Storm event hub spout .jar files with your topology, see the following resources.
  
 ### Java-based topology
-[Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
  
 ### C#-based topology (Mono on HDInsight 3.4+ Linux Storm clusters)
-[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[Process events from Azure Event Hubs with Storm on HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
  
 ### Latest Storm event hub spout binaries for HDInsight 3.5+ Linux Storm clusters
 To learn how to use the latest Storm event hub spout that works with HDInsight 3.5+ Linux Storm clusters, see the mvn-repo [readme file](https://github.com/hdinsight/mvn-repo/blob/master/README.md).
@@ -137,7 +135,7 @@ To learn how to use the latest Storm event hub spout that works with HDInsight 3
 ### Source code examples
 See [examples](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) of how to read and write from Azure Event Hub using an Apache Storm topology (written in Java) on an Azure HDInsight cluster.
  
-## How do I locate Storm Log4J configuration files on clusters
+## How do I locate Storm Log4J configuration files on clusters?
  
 To identify Apache Log4J configuration files for Storm services.
  
@@ -153,3 +151,5 @@ Examples:
 /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml
 /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
+### See Also
+[Troubleshoot by Using Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

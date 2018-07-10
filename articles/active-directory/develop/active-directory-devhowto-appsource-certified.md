@@ -3,20 +3,21 @@ title: How to get AppSource certified for Azure Active Directory| Microsoft Docs
 description: Details on how to get your application AppSource certified for Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: andretms
-manager: mbaldwin
+author: CelesteDG
+manager: mtillman
 editor: ''
 
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/03/2017
-ms.author: andret
+ms.author: celested
+ms.reviewer: andret
 ms.custom: aaddev
-
 ---
 
 # How to get AppSource Certified for Azure Active Directory
@@ -39,7 +40,7 @@ In order to enable multi-tenancy on your application:
 For more information about multi-tenancy, see: [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern](./active-directory-devhowto-multi-tenant-overview.md).
 
 ### Single-tenant applications
-Applications that only accept sign-ins from users of a defined Azure Active Directory instance are known as *single-tenant application*. External users (including Work or School accounts from other organizations, or personal account) can sign in to a single-tenant application after adding each user as *guest account* to the Azure Active Directory instance that the application is registered. You can add users as guest accounts to an Azure Active Directory via the [*Azure AD B2B collaboration*](../active-directory-b2b-what-is-azure-ad-b2b.md) - and it can be done [programatically](../active-directory-b2b-code-samples.md). When you add a user as guest account to an Azure Active Directory, an invitation email is sent to the user, who has to accept the invitation by clicking on the link in the invitation email. Invitations that are sent to an additional user in an inviting organization that is also a member of the partner organization are not required to accept an invitation to sign in.
+Applications that only accept sign-ins from users of a defined Azure Active Directory instance are known as *single-tenant application*. External users (including Work or School accounts from other organizations, or personal account) can sign in to a single-tenant application after adding each user as *guest account* to the Azure Active Directory instance that the application is registered. You can add users as guest accounts to an Azure Active Directory via the [*Azure AD B2B collaboration*](../b2b/what-is-b2b.md) - and it can be done [programatically](../b2b/code-samples.md). When you add a user as guest account to an Azure Active Directory, an invitation email is sent to the user, who has to accept the invitation by clicking on the link in the invitation email. Invitations that are sent to an additional user in an inviting organization that is also a member of the partner organization are not required to accept an invitation to sign in.
 
 Single-tenant applications can enable the *Contact Me* experience, but if you want to enable the single-click/ free trial experience that AppSource recommends, enable multi-tenancy on your application instead.
 
@@ -106,9 +107,9 @@ For more information about the AppSource trial experience, see [this video](http
 
 
 ## Get Support
-For Azure Active Directory integration, we use [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory) with the community to provide support. 
+For Azure Active Directory integration, we use [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) with the community to provide support. 
 
-We highly recommend you ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with `[azure-active-directory]`.
+We highly recommend you ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with [`[azure-active-directory]` and `[appsource]`](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 

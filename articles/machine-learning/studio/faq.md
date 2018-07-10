@@ -4,18 +4,19 @@ description: 'Azure Machine Learning introduction: FAQ covering billing, capabil
 keywords: machine learning introduction,predictive modeling,what is machine learning
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: paulettm
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.author: garye
 
 ---
 # Azure Machine Learning frequently asked questions: Billing, capabilities, limitations, and support
@@ -70,7 +71,7 @@ You can also use the sample Microsoft Excel workbook that's created for you and 
 
 **What are the main updates to Azure Machine Learning?**
 
-For the latest updates, see [What's new in Azure Machine Learning](whats-new.md).
+For the latest updates, see [What's new in Azure Machine Learning](../../active-directory/fundamentals/whats-new.md).
 
 ## Machine Learning Studio questions
 ### Import and export data for Machine Learning
@@ -227,7 +228,7 @@ For more information, see [Retrain Machine Learning models programmatically](ret
 
 **How do I monitor my web service deployed in production?**
 
-After you deploy a predictive model, you can monitor it from the Azure classic portal (Classic web services only) or the Azure Machine Learning Web Services portal. Each deployed service has its own dashboard where you can see monitoring information for that service. For more information about how to manage your deployed web services, see [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md) and [Manage an Azure Machine Learning workspace](manage-workspace.md).
+After you deploy a predictive model, you can monitor it from the Azure Machine Learning Web Services portal. Each deployed service has its own dashboard where you can see monitoring information for that service. For more information about how to manage your deployed web services, see [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md) and [Manage an Azure Machine Learning workspace](manage-workspace.md).
 
 **Is there a place where I can see the output of my RRS/BES?**
 
@@ -282,7 +283,7 @@ No.
 ## Security and availability
 **Who can access the http endpoint for the web service by default? How do I restrict access to the endpoint?**
 
-After a web service is deployed, a default endpoint is created for that service. The default endpoint can be called by using its API key. You can add more endpoints with their own keys from the Azure classic portal or programmatically by using the Web Service Management APIs. Access keys are needed to make calls to the web service. For more information, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
+After a web service is deployed, a default endpoint is created for that service. The default endpoint can be called by using its API key. You can add more endpoints with their own keys from the Web Services portal or programmatically by using the Web Service Management APIs. Access keys are needed to make calls to the web service. For more information, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
 
 **What happens if my Azure storage account can't be found?**
 
@@ -294,7 +295,7 @@ If you accidentally deleted the storage account, recreate the storage account wi
 
 Machine Learning Studio relies on a user-supplied Azure storage account to store intermediary data when it executes the workflow. This storage account is provided to Machine Learning Studio when a workspace is created, and the access keys are associated with that workspace. If the access keys are changed after the workspace is created, the workspace can no longer access the storage account. It will stop functioning and all experiments in that workspace will fail.
 
-If you changed storage account access keys, resync the access keys in the workspace by using the Azure classic portal.  
+If you changed storage account access keys, resync the access keys in the workspace by using the Azure portal.  
 
 ## Support and training
 **Where can I get training for Azure Machine Learning?**
@@ -369,7 +370,7 @@ The Machine Learning Free tier does not require or allow separate storage. The M
 
 **Does Machine Learning support high availability?**
 
-Yes. For details, see [Machine Learning Pricing](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) for a description of the service level agreement (SLA).
+Yes. For details, see [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/) for a description of the service level agreement (SLA).
 
 **What specific kind of compute resources will my production API calls be run on?**
 
@@ -469,7 +470,7 @@ Yes, Classic web services are still available in Azure Machine Learning.
 ### Azure Machine Learning Free and Standard tier
 **What is included in the Azure Machine Learning Free tier?**
 
-The Azure Machine Learning Free tier is intended to provide an in-depth introduction to the Azure Machine Learning Studio. All you need is a Microsoft account to sign up. The Free tier includes free access to one Azure Machine Learning Studio workspace per [Microsoft account](https://www.microsoft.com/account/default.aspx). In this tier, you can use up to 10 GB of storage and operationalize models as staging APIs. Free tier workloads are not covered by an SLA and are intended for development and personal use only. 
+The Azure Machine Learning Free tier is intended to provide an in-depth introduction to the Azure Machine Learning Studio. All you need is a Microsoft account to sign up. The Free tier includes free access to one Azure Machine Learning Studio workspace per [Microsoft account](https://account.microsoft.com/account). In this tier, you can use up to 10 GB of storage and operationalize models as staging APIs. Free tier workloads are not covered by an SLA and are intended for development and personal use only. 
 
 Free tier workspaces have the following limitations:
 
@@ -506,7 +507,7 @@ All you need is a Microsoft account. Go to [Azure Machine Learning home](https:/
 
 **How do I sign up for Azure Machine Learning Standard tier?**
 
-You must first have access to an Azure subscription to create a Standard Machine Learning workspace. You can sign up for a 30-day free trial Azure subscription and later upgrade to a paid Azure subscription, or you can purchase a paid Azure subscription outright. You can then create a Machine Learning workspace from the Microsoft Azure classic portal after you gain access to the subscription. View the [step-by-step instructions](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+You must first have access to an Azure subscription to create a Standard Machine Learning workspace. You can sign up for a 30-day free trial Azure subscription and later upgrade to a paid Azure subscription, or you can purchase a paid Azure subscription outright. You can then create a Machine Learning workspace from the Microsoft Azure portal after you gain access to the subscription. View the [step-by-step instructions](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 Alternatively, you can be invited by a Standard Machine Learning workspace owner to access the owner's workspace.
 

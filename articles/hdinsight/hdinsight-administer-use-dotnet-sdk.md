@@ -11,18 +11,16 @@ documentationcenter: ''
 ms.assetid: fd134765-c2a0-488a-bca6-184d814d78e9
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/25/2017
+ms.topic: conceptual
+ms.date: 05/14/2018
 ms.author: jgao
 
 ---
 # Manage Hadoop clusters in HDInsight by using .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Learn how to manage HDInsight clusters using [HDInsight.NET SDK](https://msdn.microsoft.com/library/mt271028.aspx).
+Learn how to manage HDInsight clusters using [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 
 **Prerequisites**
 
@@ -269,7 +267,7 @@ See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-
 See [Upload data to HDInsight][hdinsight-upload-data].
 
 ## See Also
-* [HDInsight .NET SDK reference documentation](https://msdn.microsoft.com/library/mt271028.aspx)
+* [HDInsight .NET SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Administer HDInsight by using the Azure portal][hdinsight-admin-portal]
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]

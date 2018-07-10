@@ -11,8 +11,8 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/06/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: mbullwin
 
 ---
@@ -32,7 +32,7 @@ Open Analytics from your app's [overview blade](app-insights-dashboards.md) in A
 
 ![Open portal.azure.com, open your Application Insights resource, and click Analytics.](./media/app-insights-analytics-tour/001.png)
 
-## [Take](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html): show me n rows
+## [Take](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators): show me n rows
 Data points that log user operations (typically HTTP requests received by your web app) are stored in a table called `requests`. Each row is a telemetry data point received from the Application Insights SDK in your app.
 
 Let's start by examining a few sample rows of the table:
@@ -53,7 +53,7 @@ Expand any item to see the detail:
 ![Choose Table, and use Configure Columns](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Click the head of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Sorting this way doesn't always show you the actual highest or lowest items. To sort items reliably, use the `top` or `sort` operator.
+> Click the header of a column to re-order the results available in the web browser. But be aware that for a large result set, the number of rows downloaded to the browser is limited. Sorting this way simply sorts the returned result set and doesn't always show you the actual highest or lowest items. To sort items reliably, use the `top` or `sort` operator.
 >
 >
 
@@ -67,7 +67,7 @@ If you want to combine data from multiple Application Insights applications, use
 	
 ```
 
-## [Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) and [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
+## [Top](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) and [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator)
 `take` is useful to get a quick sample of a result, but it shows rows from the table in no particular order. To get an ordered view, use `top` (for a sample) or `sort` (over the whole table).
 
 Show me the first n rows, ordered by a particular column:
@@ -91,9 +91,9 @@ Show me the first n rows, ordered by a particular column:
 
 The result would be the same, but it would run a bit more slowly. (You could also write `order`, which is an alias of `sort`.)
 
-The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, you'll only re-order the records you've retrieved.
+The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, clicking on the column header will only re-order the records you've retrieved.
 
-## [Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtering on a condition
+## [Where](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator): filtering on a condition
 
 Let's see just requests that returned a particular result code:
 
@@ -114,8 +114,9 @@ The `where` operator takes a Boolean expression. Here are some key points about 
 
 <!---Read all about [scalar expressions]().--->
 
-### Getting the right type
-Find unsuccessful requests:
+### Find unsuccessful requests
+
+Convert a string value to an integer to use greater-than comparison:
 
 ```AIQL
 
@@ -166,13 +167,18 @@ Other examples:
     | where timestamp > datetime(2016-11-19) and timestamp < datetime(2016-11-21)
     | top 5 by duration
 
+    // Between specific day/time range
+    requests
+    | where timestamp > datetime(2018-05-17T17:06:19.892Z) and timestamp <= datetime(2018-05-18T17:06:19.892Z)
+    | where duration > 0
+
 ```
 
-[Dates and times reference](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
+[Dates and times reference](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
-## [Project](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): select, rename, and compute columns
-Use [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) to pick out just the columns you want:
+## [Project](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): select, rename, and compute columns
+Use [`project`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) to pick out just the columns you want:
 
 ```AIQL
 
@@ -205,7 +211,7 @@ You can also rename columns and define new ones:
 Expressions can include all the usual operators (`+`, `-`, ...), and there's a range of useful functions.
 
 ## Extend
-If you just want to add columns to the existing ones, use [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html):
+If you just want to add columns to the existing ones, use [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator):
 
 ```AIQL
 
@@ -214,7 +220,7 @@ If you just want to add columns to the existing ones, use [`extend`](https://doc
     | extend timeOfDay = floor(timestamp % 1d, 1s)
 ```
 
-Using [`extend`](https://docs.loganalytics.io/queryLanguage/query_language_extendoperator.html) is less verbose than [`project`](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html) if you want to keep all the existing columns.
+Using [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator) is less verbose than [`project`](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) if you want to keep all the existing columns.
 
 ### Convert to local time
 
@@ -227,8 +233,7 @@ Timestamps are always in UTC. So if you're on the US Pacific coast and it's wint
     | extend localTime = timestamp - 8h
 ```
 
-
-## [Summarize](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): aggregate groups of rows
+## [Summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): aggregate groups of rows
 `Summarize` applies a specified *aggregation function* over groups of rows.
 
 For example, the time your web app takes to respond to a request is reported in the field `duration`. Let's see the average response time to all requests:
@@ -239,7 +244,7 @@ Or we could separate the result into requests of different names:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` collects the data points in the stream into groups for which the `by` clause evaluates equally. Each value in the `by` expression - each operation name in the above example - results in a row in the result table.
+`Summarize` collects the data points in the stream into groups for which the `by` clause evaluates equally. Each value in the `by` expression - each unique operation name in the above example - results in a row in the result table.
 
 Or we could group results by time of day:
 
@@ -266,7 +271,7 @@ Summing up itemCount therefore gives a good estimate of the original number of e
 
 There's also a `count()` aggregation (and a count operation), for cases where you really do want to count the number of rows in a group.
 
-There's a range of [aggregation functions](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
+There's a range of [aggregation functions](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 
 ## Charting the results
 ```AIQL
@@ -401,13 +406,13 @@ How many sessions are there of different lengths?
     | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
-The last line is required to convert to datetime. Currently the x axis of a chart is displayed as a scalar only if it is a datetime.
+The last line is required to convert to datetime. Currently the x-axis of a chart is displayed as a scalar only if it is a datetime.
 
 The `where` clause excludes one-shot sessions (sessionDuration==0) and sets the length of the x-axis.
 
 ![](./media/app-insights-analytics-tour/290.png)
 
-## [Percentiles](https://docs.loganalytics.io/queryLanguage/query_language_percentiles_aggfunction.html)
+## [Percentiles](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/percentiles())
 What ranges of durations cover different percentages of sessions?
 
 Use the above query, but replace the last line:
@@ -468,7 +473,7 @@ To find the exceptions related to a request that returned a failure response, we
 It's good practice to use `project` to select just the columns we need before performing the join.
 In the same clauses, we rename the timestamp column.
 
-## [Let](https://docs.loganalytics.io/queryLanguage/query_language_letstatement.html): Assign a result to a variable
+## [Let](https://docs.loganalytics.io/docs/Language-Reference/Query-statements/Let-statement): Assign a result to a variable
 
 Use `let` to separate out the parts of the previous expression. The results are unchanged:
 
@@ -536,10 +541,10 @@ If your application attaches [custom dimensions (properties) and custom measurem
 
 For example, if your app includes:
 
-```C#
+```csharp
 
     var dimensions = new Dictionary<string, string>
-                     {{"p1", "v1"},{"p2", "v2"}};
+                     {{"p1", "v1"},{"p2.d2", "v2"}};
     var measurements = new Dictionary<string, double>
                      {{"m1", 42.0}, {"m2", 43.2}};
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
@@ -552,7 +557,6 @@ To extract these values in Analytics:
     customEvents
     | extend p1 = customDimensions.p1,
       m1 = todouble(customMeasurements.m1) // cast to expected type
-
 ```
 
 To verify whether a custom dimension is of a particular type:
@@ -563,6 +567,18 @@ To verify whether a custom dimension is of a particular type:
     | extend p1 = customDimensions.p1,
       iff(notnull(todouble(customMeasurements.m1)), ...
 ```
+
+### Special Characters
+
+For identifiers with special characters or language keywords in their names, you need to access them via `['` and `']` or using `["` and `"]`.
+
+```AIQL
+
+    customEvents
+    | extend p2d2 = customDimensions.['p2.d2'], ...
+```
+
+[Identifier naming rules reference](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
 
 ## Dashboards
 You can pin your results to a dashboard in order to bring together all your most important charts and tables.
@@ -609,7 +625,7 @@ If you use [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) 
 
 Let's take an example where your app code contains these lines:
 
-```C#
+```csharp
 
     telemetry.TrackEvent("Query",
        new Dictionary<string,string> {{"query", sqlCmd}},
