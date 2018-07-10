@@ -2,13 +2,14 @@
 title: Azure Site Recovery troubleshooting from VMware to Azure | Microsoft Docs
 description: Troubleshoot errors when you replicate Azure virtual machines.
 services: site-recovery
-author: anoopkv
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
+ms.author: ramamill
 ms.date: 07/06/2018
-ms.author: anoopkv
+
 
 ---
 # Troubleshoot Mobility Service push installation issues
