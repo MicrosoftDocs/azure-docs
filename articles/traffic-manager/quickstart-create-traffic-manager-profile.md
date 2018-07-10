@@ -40,16 +40,37 @@ Create a Traffic manager profile that directs user traffic based on endpoint [pr
     | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name <name>, trafficmanager.net which is used to access your Traffic Manager profile.                                   |
     | Routing method          | Select the **Priority** routing method.                                       |
     | Subscription            | Select your subscription.                          |
-    | Resource group          | Select **Create new** and enter *myResourceGroupTM*. |
+    | Resource group          | Select **Create new** and enter *myResourceGroupTM1*. |
     | Location                | Select **East US**.  This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that will be deployed globally.                              |
     |
   
     ![Create a Traffic Manager profile](./media/traffic-manager-create-profile/traffic-manager-profile2.png)
     *Figure: Create a Traffic Manager profile*
 
+## Create Web Apps
+
+In this section, you create Web Apps in different Azure regions - *West US* and *East Europe*. These Web App later serve as primary and backup service endpoints for the Traffic Manager profile.
+
+1. On the top left-hand side of the screen, select **Create a resource** > **Web** > **Web App** > **Create**.
+2. In **Web App**, enter or select the following information:
+
+     | Setting         | Value     |
+     | ---              | ---  |
+     | Name           | Enter an unique name for your Web App  |
+     | Resource group          | Select **Existing**, and the select **myResourceGroupTM1* |
+     | App Service plan/Location         | Select **New**.  In the App Service plan, enter  *myAppServicePlanEastUS*, and then select **OK**. 
+     |      Location  |   East US        |
+    |||
+
+3. Select **OK**.
+4. Repeat steps 1-3 to create another Web App in the West Europe location, in a new Resource Group named *MyResourceGroupTM2*, and service plan name *myAppServicePlanWestEurope* in the **West Europe** location.
+
+    ![Create a Web App](./media/traffic-manager-create-profile/traffic-manager-profile2.png)
+    *Figure: Create a Web App*
+
 ## Add Traffic Manager endpoints
 
-Add primary and secondary endpoints to your Traffic manager profile.
+In this section, you add the Web App in the *West US** as the primary endpoint and the app located in **East US** as a secondary endpoint to your Traffic manager profile. All traffic is routed to the primary endpoint while the secondary endpoint is kept as a backup. When the primary endpoint is unavailable, traffic is automatically routed to the secondary endpoint.
 
 1. In the portal’s search bar, search for the Traffic Manager profile name that you created in the preceding section and select the profile in the results that the displayed.
 2. In **Traffic Manager profile**, in the **Settings** section, click **Endpoints**, and then click **Add**.
@@ -71,7 +92,7 @@ Add primary and secondary endpoints to your Traffic manager profile.
   
 
 ## Test Traffic Manager profile
-Test how Traffic manager fails over to the secondary endpoint when the primary endpoint is unavailable.
+In this section, you test how the Traffic Manager fails over to the secondary endpoint when the primary endpoint is unavailable.
 
 1.	In the portal’s search bar, search for the **Traffic Manager profile** name that you created in the preceding section. In the results that are displayed, click the traffic manager profile.
 1. Click **Overview**.
