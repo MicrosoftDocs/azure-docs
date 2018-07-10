@@ -30,11 +30,14 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 
 The Language Detection API detects the language of a text document, using the [Detect Language method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
-1. Create a new Ruby project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
-5. Run the program.
+1. Create a new Go project in your favorite code editor.
+1. Add the code provided below.
+1. Replace the `subscriptionKey` value with an access key valid for your subscription.
+1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
+1. Save the file with a '.go' extension.
+1. Open a command prompt on a computer with Go installed.
+1. Build the file, for example: 'go build quickstart.go'.
+1. Run the file, for example: 'quickstart'.
 
 ```golang
 package main
@@ -170,11 +173,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detects the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
-1. Create a new Ruby project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
-5. Run the program.
+1. Create a new Go project in your favorite code editor.
+1. Add the code provided below.
+1. Replace the `subscriptionKey` value with an access key valid for your subscription.
+1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
+1. Save the file with a '.go' extension.
+1. Open a command prompt on a computer with Go installed.
+1. Build the file, for example: 'go build quickstart.go'.
+1. Run the file, for example: 'quickstart'.
 
 ```golang
 package main
@@ -284,11 +290,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). The following example extracts key phrases for both English and Spanish documents.
 
-1. Create a new Ruby project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
-5. Run the program.
+1. Create a new Go project in your favorite code editor.
+1. Add the code provided below.
+1. Replace the `subscriptionKey` value with an access key valid for your subscription.
+1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
+1. Save the file with a '.go' extension.
+1. Open a command prompt on a computer with Go installed.
+1. Build the file, for example: 'go build quickstart.go'.
+1. Run the file, for example: 'quickstart'.
 
 ```golang
 package main
@@ -419,11 +428,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Entity Linking API identifies well-known entities in a text document, using the [Entity Linking method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
 
-1. Create a new Ruby project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
-5. Run the program.
+1. Create a new Go project in your favorite code editor.
+1. Add the code provided below.
+1. Replace the `subscriptionKey` value with an access key valid for your subscription.
+1. Replace the location in `uriBase` (currently `westcentralus`) to the region you signed up for.
+1. Save the file with a '.go' extension.
+1. Open a command prompt on a computer with Go installed.
+1. Build the file, for example: 'go build quickstart.go'.
+1. Run the file, for example: 'quickstart'.
 
 ```golang
 package main
