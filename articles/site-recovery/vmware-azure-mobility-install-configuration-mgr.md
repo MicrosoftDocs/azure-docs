@@ -1,11 +1,11 @@
 ---
 title: Automate Mobility Service installation for Azure Site Recovery using System Center Configuration Manager | Microsoft Docs
 description: This article helps you automate Mobility Service installation by using System Center Configuration Manager.
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/20/2018
-ms.author: anoopkv
+ms.author: ramamill
 ---
 # Automate Mobility Service installation with System Center Configuration Manager
 
