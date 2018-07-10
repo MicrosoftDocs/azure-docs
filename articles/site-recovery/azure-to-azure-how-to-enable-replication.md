@@ -6,7 +6,7 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: asgang
 
 ---
@@ -15,9 +15,6 @@ ms.author: asgang
 # Replicate Azure virtual machines to another Azure region
 
 
->[!NOTE]
->
-> Site Recovery replication for Azure virtual machines is currently in preview.
 
 This article describes how to enable replication of Azure VMs, from one Azure region to another.
 

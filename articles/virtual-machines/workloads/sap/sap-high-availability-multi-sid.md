@@ -4,7 +4,7 @@ description: Guide to high-availability SAP NetWeaver multi-SID configuration on
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''

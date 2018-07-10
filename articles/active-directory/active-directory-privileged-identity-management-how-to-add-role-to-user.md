@@ -3,16 +3,15 @@ title: How to add or remove a user role | Microsoft Docs
 description: Learn how to add roles to privileged identities with the Azure Active Directory Privileged Identity Management application.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
+ms.component: protection
 ms.date: 01/03/2018
-ms.author: billmath
+ms.author: rolyon
 
 ---
 # Azure AD Privileged Identity Management: How to add or remove a user role

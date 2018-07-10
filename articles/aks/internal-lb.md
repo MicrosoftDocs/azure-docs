@@ -1,20 +1,20 @@
 ---
-title: Create an Azure Container Service (AKS) internal load balancer
-description: Use an internal load balancer with Azure Container Service (AKS).
+title: Create an Azure Kubernetes Service (AKS) internal load balancer
+description: Use an internal load balancer with Azure Kubernetes Service (AKS).
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 3/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Use an internal load balancer with Azure Container Service (AKS)
+# Use an internal load balancer with Azure Kubernetes Service (AKS)
 
-Internal load balancing makes a Kubernetes service accessible to applications running in the same virtual network as the Kubernetes cluster. This document details creating an internal load balancer with Azure Container Service (AKS).
+Internal load balancing makes a Kubernetes service accessible to applications running in the same virtual network as the Kubernetes cluster. This document details creating an internal load balancer with Azure Kubernetes Service (AKS). Azure Load Balancer is available in two SKUs: Basic and Standard. AKS uses the Basic SKU.
 
 ## Create internal load balancer
 
@@ -35,11 +35,11 @@ spec:
     app: azure-vote-front
 ```
 
-Once deployed, an Azure load balancer is created and made available on the same virtual network as the AKS cluster. 
+Once deployed, an Azure load balancer is created and made available on the same virtual network as the AKS cluster.
 
 ![Image of AKS internal load balancer](media/internal-lb/internal-lb.png)
 
-When retrieving the service details, the IP address in the `EXTERNAL-IP` column is the IP address of the internal load balancer. 
+When retrieving the service details, the IP address in the `EXTERNAL-IP` column is the IP address of the internal load balancer.
 
 ```console
 $ kubectl get service azure-vote-front
@@ -68,7 +68,7 @@ spec:
     app: azure-vote-front
 ```
 
-When retrieving the service details, the IP address on the `EXTERNAL-IP` should reflect the specified IP address. 
+When retrieving the service details, the IP address on the `EXTERNAL-IP` should reflect the specified IP address.
 
 ```console
 $ kubectl get service azure-vote-front

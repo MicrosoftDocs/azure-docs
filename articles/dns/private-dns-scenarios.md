@@ -4,7 +4,7 @@ description: Overview of common scenarios for using Azure DNS Private Zones.
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jennoc
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 

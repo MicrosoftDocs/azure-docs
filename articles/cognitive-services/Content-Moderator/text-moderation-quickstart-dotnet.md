@@ -16,7 +16,7 @@ ms.author: sajagtap
 This article provides information and code samples to help you get started using 
 the Content Moderator SDK for .NET to:
 - Detect potential profanity in text with term-based filtering
-- Use machine-learning-based models to [classify the text](text-moderation-api.md#classification-preview) into three categories.
+- Use machine-learning-based models to [classify the text](text-moderation-api.md#classification) into three categories.
 - Detect personally identifiable information (PII) such as US and UK phone numbers, email addresses, and US mailing addresses.
 - Normalize text and autocorrect typos
 

@@ -1,27 +1,22 @@
 ---
 title: 'Azure AD SSPR with password writeback | Microsoft Docs'
 description: Use Azure AD and Azure AD Connect to writeback passwords to an on-premises directory
+
 services: active-directory
-keywords: Active directory password management, password management, Azure AD self service password reset
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 01/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
 
-ms.assetid: 
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
-
 ---
 # Password writeback overview
 
-With password writeback, you can configure Azure Active Directory (Azure AD) to write passwords back to your on-premises Active Directory. Password writeback removes the need to set up and manage a complicated on-premises self-service password reset (SSPR) solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are. Password writeback is a component of [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) that can be enabled and used by current subscribers of Premium [Azure Active Directory editions](../active-directory-whatis.md).
+With password writeback, you can configure Azure Active Directory (Azure AD) to write passwords back to your on-premises Active Directory. Password writeback removes the need to set up and manage a complicated on-premises self-service password reset (SSPR) solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are. Password writeback is a component of [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) that can be enabled and used by current subscribers of Premium [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
 Password writeback provides the following features:
 
@@ -131,7 +126,7 @@ To set up the appropriate permissions for password writeback to occur, complete 
 
 ## Licensing requirements for password writeback
 
-For information about licensing, see [Licenses required for password writeback](concept-sspr-licensing.md#licenses-required-for-password-writeback) or the following sites:
+For information about licensing, see [Licenses required for password writeback](concept-sspr-licensing.md) or the following sites:
 
 * [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)

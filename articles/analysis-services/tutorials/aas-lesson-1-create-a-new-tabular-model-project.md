@@ -3,9 +3,9 @@ title: "Azure Analysis Services tutorial lesson 1: Create a new tabular model pr
 description: Describes how to create a new Azure Analysis Services tutorial project. 
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
 

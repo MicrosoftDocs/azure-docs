@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/23/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want to trigger
@@ -28,18 +28,17 @@ In this tutorial, part two in the series:
 
 This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-build.md). If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-build.md#prerequisites) section of the previous tutorial before proceeding.
 
-> [!IMPORTANT]
-> ACR Build is in currently in preview, and is supported only by Azure container registries in the **EastUS** region. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you'd like to use the Azure CLI locally, you must have Azure CLI version 2.0.31 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
+If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.32** or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
 
 ## Prerequisites
 
-### Get ACR Build and sample code
+### Get sample code
 
-This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-build.md) to install ACR Build, and fork and clone the sample repository. If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-build.md#prerequisites) section of the previous tutorial before proceeding.
+This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-build.md), and have forked and cloned the sample repository. If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-build.md#prerequisites) section of the previous tutorial before proceeding.
 
 ### Container registry
 
@@ -112,8 +111,8 @@ $ az acr build-task create \
 {
   "additionalProperties": {},
   "alias": "buildhelloworld",
-  "creationDate": "2018-04-18T23:14:45.905395+00:00",
-  "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry/buildTasks/buildhelloworld",
+  "creationDate": "2018-05-10T19:34:48.086776+00:00",
+  "id": "/subscriptions/<Subscription ID>/resourceGroups/mycontainerregistry/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry/buildTasks/buildhelloworld",
   "location": "eastus",
   "name": "buildhelloworld",
   "platform": {
@@ -121,21 +120,38 @@ $ az acr build-task create \
     "cpu": 1,
     "osType": "Linux"
   },
+  "properties": {
+    "additionalProperties": {
+      "imageName": null
+    },
+    "baseImageDependencies": null,
+    "baseImageTrigger": "Runtime",
+    "branch": "master",
+    "buildArguments": [],
+    "contextPath": null,
+    "dockerFilePath": "Dockerfile",
+    "imageNames": [
+      "helloworld:{{.Build.ID}}"
+    ],
+    "isPushEnabled": true,
+    "noCache": false,
+    "provisioningState": "Succeeded",
+    "type": "Docker"
+  },
   "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
+  "resourceGroup": "mycontainerregistry",
   "sourceRepository": {
     "additionalProperties": {},
     "isCommitTriggerEnabled": true,
     "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
     "sourceControlAuthProperties": null,
-    "sourceControlType": "Github"
+    "sourceControlType": "GitHub"
   },
-  "status": "enabled",
+  "status": "Enabled",
   "tags": null,
-  "timeout": null,
+  "timeout": 3600,
   "type": "Microsoft.ContainerRegistry/registries/buildTasks"
 }
-
 ```
 
 ## Test the build task
@@ -146,42 +162,54 @@ You now have a build task that defines your build. To test the build definition,
 az acr build-task run --registry $ACR_NAME --name buildhelloworld
 ```
 
-By default, the `az acr build-task run` command streams the log output to your console when you execute the command. Here, the output shows that build **eastus2** has been queued and built.
+By default, the `az acr build-task run` command streams the log output to your console when you execute the command. Here, the output shows that build **aa2** has been queued and built.
 
 ```console
-$ az acr build-task run --registry mycontainerregistry --name buildhelloworld
-Queued a build with build-id: eastus2.
-Starting to stream the logs...
+$ az acr build-task run --registry $ACR_NAME --name buildhelloworld
+Queued a build with build ID: aa2
+Waiting for a build agent...
+time="2018-05-10T19:37:17Z" level=info msg="Running command git clone https://x-access-token:*************@github.com/gituser/acr-build-helloworld-node /root/acr-builder/src"
 Cloning into '/root/acr-builder/src'...
-time="2018-04-19T00:06:20Z" level=info msg="Running command git checkout master"
+time="2018-05-10T19:37:17Z" level=info msg="Running command git checkout master"
 Already on 'master'
 Your branch is up to date with 'origin/master'.
-ffef1347389a008c9a8bfdf8c6a0ed78b0479894
-time="2018-04-19T00:06:20Z" level=info msg="Running command git rev-parse --verify HEAD"
-time="2018-04-19T00:06:20Z" level=info msg="Running command docker build --pull -f Dockerfile -t acr22818.azurecr.io/helloworld:eastus2 ."
-Sending build context to Docker daemon  182.8kB
+920f16cfafa36d0bc3f397c3dd48185a03499404
+time="2018-05-10T19:37:17Z" level=info msg="Running command git rev-parse --verify HEAD"
+time="2018-05-10T19:37:17Z" level=info msg="Running command docker build --pull -f Dockerfile -t mycontainerregistry.azurecr.io/helloworld:aa2 ."
+Sending build context to Docker daemon  209.9kB
 Step 1/5 : FROM node:9-alpine
-9: Pulling from library/node
-Digest: sha256:bd7b9aaf77ab2ce1e83e7e79fc0969229214f9126ced222c64eab49dc0bdae90
+9-alpine: Pulling from library/node
+Digest: sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3
 Status: Image is up to date for node:9-alpine
- ---> aa3e171e4e95
+ ---> 7af437a39ec2
 Step 2/5 : COPY . /src
- ---> e1c04dc2993b
+ ---> 48a7735fa94e
 
 [...]
 
-6e5e20cbf4a7: Layer already exists
-b69680cb4898: Pushed
-b54af9b858b7: Pushed
-eastus2: digest: sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6 size: 2423
-time="2018-04-19T00:06:51Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" acr22818.azurecr.io/helloworld:eastus2"
-"["acr22818.azurecr.io/helloworld@sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6"]"
-time="2018-04-19T00:06:51Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" node:9-alpine"
-"["node@sha256:bd7b9aaf77ab2ce1e83e7e79fc0969229214f9126ced222c64eab49dc0bdae90"]"
+26b0c207c4a9: Pushed
+917e7cdebc8b: Pushed
+aa2: digest: sha256:6975f01e2e202c084581e676acbe6047788fbe616836328b0b31ce8c58e9fc89 size: 1367
+time="2018-05-10T19:37:57Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" mycontainerregistrtyy.azurecr.io/helloworld:aa2"
+"["mycontainerregistrtyy.azurecr.io/helloworld@sha256:6975f01e2e202c084581e676acbe6047788fbe616836328b0b31ce8c58e9fc89"]"
+time="2018-05-10T19:37:57Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" node:9-alpine"
+"["node@sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3"]"
 ACR Builder discovered the following dependencies:
-[{"image":{"registry":"acr22818.azurecr.io","repository":"helloworld","tag":"eastus2","digest":"sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6"},"runtime-dependency":{"registry":"registry.hub.docker.com","repository":"node","tag":"9","digest":"sha256:bd7b9aaf77ab2ce1e83e7e79fc0969229214f9126ced222c64eab49dc0bdae90"},"buildtime-dependency":null,"git":{"git-head-revision":"ffef1347389a008c9a8bfdf8c6a0ed78b0479894"}}]
+- image:
+    registry: mycontainerregistrtyy.azurecr.io
+    repository: helloworld
+    tag: aa2
+    digest: sha256:6975f01e2e202c084581e676acbe6047788fbe616836328b0b31ce8c58e9fc89
+  runtime-dependency:
+    registry: registry.hub.docker.com
+    repository: library/node
+    tag: 9-alpine
+    digest: sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3
+  git:
+    git-head-revision: 920f16cfafa36d0bc3f397c3dd48185a03499404
+
 Build complete
-Build ID: eastus2 was successful after 39.789138274s
+Build ID: aa2 was successful after 46.491407373s
 ```
 
 ## View build status
@@ -204,13 +232,13 @@ The log for the currently running build is streamed to your console, and should 
 
 ```console
 $ az acr build-task logs --registry $ACR_NAME
-Showing logs for the last updated build...
-Build-id: eastus3
+Showing logs for the last updated build
+Build ID: aa3
 
 [...]
 
 Build complete
-Build ID: eastus3 was successful after 30.076988169s
+Build ID: aa3 was successful after 1m14.26397548s
 ```
 
 ## Trigger a build with a commit
@@ -250,13 +278,13 @@ Output is similar to the following, showing the currently executing (or last-exe
 
 ```console
 $ az acr build-task logs --registry $ACR_NAME
-Showing logs for the last updated build...
-Build-id: eastus4
+Showing logs for the last updated build
+Build ID: aa4
 
 [...]
 
 Build complete
-Build ID: eastus4 was successful after 28.9587031s
+Build ID: aa4 was successful after 39.164385024s
 ```
 
 ## List builds
@@ -273,10 +301,10 @@ Output from the command should appear similar to the following. The builds that 
 $ az acr build-task list-builds --registry $ACR_NAME --output table
 BUILD ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
 ----------  ---------------  ----------  ---------  ----------  --------------------  ----------
-eastus4     buildhelloworld  Linux       Succeeded  Git Commit  2018-04-20T22:50:27Z  00:00:35
-eastus3     buildhelloworld  Linux       Succeeded  Manual      2018-04-20T22:47:19Z  00:00:30
-eastus2     buildhelloworld  Linux       Succeeded  Manual      2018-04-20T22:46:14Z  00:00:55
-eastus1                                  Succeeded  Manual      2018-04-20T22:38:22Z  00:00:55
+aa4         buildhelloworld  Linux       Succeeded  Git Commit  2018-05-10T19:49:40Z  00:00:45
+aa3         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:41:50Z  00:01:20
+aa2         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:37:11Z  00:00:50
+aa1                          Linux       Succeeded  Manual      2018-05-10T19:10:14Z  00:00:55
 ```
 
 ## Next steps
@@ -287,7 +315,6 @@ In this tutorial, you learned how to use a build task to automatically trigger c
 > [Automate builds on base image update](container-registry-tutorial-base-image-update.md)
 
 <!-- LINKS - External -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [sample-repo]: https://github.com/Azure-Samples/acr-build-helloworld-node
 
 <!-- LINKS - Internal -->

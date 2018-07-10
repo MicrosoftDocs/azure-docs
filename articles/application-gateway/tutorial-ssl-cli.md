@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 3/22/2018
+ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -23,6 +23,8 @@ In this tutorial, you learn how to:
 > * Set up a network
 > * Create an application gateway with the certificate
 > * Create a virtual machine scale set with the default backend pool
+
+If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-ssl-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

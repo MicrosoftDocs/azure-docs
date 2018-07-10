@@ -1,22 +1,16 @@
 ---
-title: 'IoT DevKit translator using Azure Function and Cognitive Services | Microsoft Docs'
-description: Use microphone on IoT DevKit to receive voice message and Azure Cognitive Services for processing it into translated text in English.
-services: iot-hub
-documentationcenter: ''
+title: IoT DevKit translator using Azure Function and Cognitive Services | Microsoft Docs
+description: Use microphone on IoT DevKit to receive voice message and Azure Cognitive Services for processing it into translated text in English
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
-
-ms.service: iot-hube
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: jeffya
+ms.service: iot-hub
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-
 ---
+
 # Use IoT DevKit AZ3166 with Azure Function and Cognitive Services to make a language translator
 
 In this article, you learn how to make IoT DevKit as a language translator by using [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/). It records your voice and translates it to English text shown on the DevKit screen.
@@ -39,13 +33,16 @@ An active Azure subscription. If you do not have one, you can register via one o
 
 ### A. Start VS Code
 
-- Make sure your DevKit is not connected to your PC.
+- Make sure your DevKit is connected to your PC.
 - Start VS Code
 - Connect the DevKit to your computer.
 
 ### B. Open the Arduino Examples folder
 
-Expand left side **ARDUINO EXAMPLES > Examples for MXCHIP AZ3166 > AzureIoT**, and select **DevKitTranslator**. It opens a new VS Code window with the DEVKITTRANSLATOR project folder in it.
+Expand left side **ARDUINO EXAMPLES > Examples for MXCHIP AZ3166 > AzureIoT**, and select **DevKitTranslator**. It opens a new VS Code window with the DEVKITTRANSLATOR project folder in it.  
+
+> [!NOTE]
+> If you can't see the Examples for MXCHIP AZ3166 section, make sure your device is properly connected and restart Visual Studio Code.  
 
 ![IoT DevKit samples](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
@@ -138,4 +135,4 @@ Now you make the IoT DevKit as a translator by using Azure Function and Cognitiv
 Advance to the other tutorials to learn:
 
 > [!div class="nextstepaction"]
-> [Connect IoT DevKit AZ3166 to Azure IoT Suite for remote monitoring](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
+> [Connect IoT DevKit AZ3166 to Azure IoT Remote Monitoring solution accelerator](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)

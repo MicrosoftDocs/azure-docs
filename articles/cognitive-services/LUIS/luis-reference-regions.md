@@ -13,7 +13,7 @@ ms.author: v-geberr
 ---
 # Regions and keys
 
-The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create an Azure LUIS endpoint key. When you [publish an app](./PublishApp.md), LUIS automatically generates an endpoint URL for the region associated with the key. To publish a LUIS app to more than one region, you need at least one key per region. 
+The region in which you publish your LUIS app corresponds to the region or location you specify in the Azure portal when you create an Azure LUIS endpoint key. When you [publish an app](./luis-how-to-publish-app.md), LUIS automatically generates an endpoint URL for the region associated with the key. To publish a LUIS app to more than one region, you need at least one key per region. 
 
 ## LUIS website
 There are three LUIS websites, based on region. You must author and publish in the same region. 
@@ -48,17 +48,17 @@ The authoring region app can only be published to a corresponding publish region
 
 ## Publishing to Europe
 
-To publish to the European regions, you create LUIS apps at https://eu.luis.ai only. If you attempt to publish anywhere else using a key in the Europe region, LUIS displays a warning message. Instead, use https://eu.luis.ai. LUIS apps created at [https://eu.luis.ai][eu.luis.ai] don't automatically migrate to other regions. You need to export and then import the LUIS app in order to migrate it.
+To publish to the European regions, you create LUIS apps at https://eu.luis.ai only. If you attempt to publish anywhere else using a key in the Europe region, LUIS displays a warning message. Instead, use https://eu.luis.ai. LUIS apps created at [https://eu.luis.ai][eu.luis.ai] don't automatically migrate to other regions. Export and then import the LUIS app in order to migrate it.
 
 ## Publishing to Australia
 
-To publish to the Australian regions, you create LUIS apps at https://au.luis.ai only. If you attempt to publish anywhere else using a key in the Australian region, LUIS displays a warning message. Instead, use https://au.luis.ai. LUIS apps created at [https://au.luis.ai][au.luis.ai] don't automatically migrate to other regions. You need to export and then import the LUIS app in order to migrate it.
+To publish to the Australian regions, you create LUIS apps at https://au.luis.ai only. If you attempt to publish anywhere else using a key in the Australian region, LUIS displays a warning message. Instead, use https://au.luis.ai. LUIS apps created at [https://au.luis.ai][au.luis.ai] don't automatically migrate to other regions. Export and then import the LUIS app in order to migrate it.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Prebuilt entities reference](./luis-reference-prebuilt-entities.md)
 
- [www.luis.ai]:https://www.luis.ai
- [au.luis.ai]:https://au.luis.ai
- [eu.luis.ai]:https://eu.luis.ai
+ [www.luis.ai]: https://www.luis.ai
+ [au.luis.ai]: https://au.luis.ai
+ [eu.luis.ai]: https://eu.luis.ai

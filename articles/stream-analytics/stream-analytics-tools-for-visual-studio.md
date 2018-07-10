@@ -24,6 +24,19 @@ After completing this tutorial, you will be able to:
 * Use the monitoring to troubleshoot issues.
 * Export existing jobs to projects.
 
+>[!IMPORTANT]
+> Microsoft recommends you upgrade to Azure Data Lake Tools for Visual Studio version 2.3.3000.4 or later. The previous versions are no longer available for download and are now deprecated. 
+>
+>**What do I need to do?**
+>
+>1.	Check if you are using an earlier version than 2.3.3000.5 of Azure Stream Analytics Tools for Visual Studio. 
+>   
+>   ![Check tool version](./media/stream-analytics-tools-for-vs/about-data-lake.png)
+> 
+>2.	If your version is an earlier version of 2.3.3000.5, update your Azure Data Lake Tools for Visual Studio by visiting the download center: 
+>    - [For Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [For Visual Studio 2013 and 2015](https://www.microsoft.com/en-us/download/details.aspx?id=54630)
+
 ## Prerequisites
 You need the following prerequisites to complete this tutorial:
 

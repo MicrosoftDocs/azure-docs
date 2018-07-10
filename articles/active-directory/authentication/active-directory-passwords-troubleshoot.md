@@ -1,22 +1,17 @@
 ---
 title: Self-service password reset troubleshooting- Azure Active Directory
 description: Troubleshooting Azure AD self-service password reset
+
 services: active-directory
-keywords:
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 01/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-
-ms.assetid:
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro;seohack1
 
 ---
 # Troubleshoot self-service password reset
@@ -37,11 +32,11 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 | OnPremisesConnectivityError = 30 | We’re sorry, we can't reset your password at this time because of connectivity issues to your organization. There is no action to take right now, but the problem might be resolved if you try again later. If the problem persists, please contact your admin and ask them to investigate. To learn more about connectivity issues, see [Troubleshoot password writeback connectivity](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030: We can't reset your password due to a poor connection with your on-premises environment. Contact your admin and ask them to investigate.|
 
 
-## Troubleshoot the password reset configuration in the Azure portal
+## Troubleshoot the password reset configuration in the Azure Portal
 
 | Error | Solution |
 | --- | --- |
-| I don't see the **Password reset** section under Azure AD in the Azure portal. | This can happen if you don't have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> <br> Assign a license to the administrator account in question. You can follow the steps in the [Assign, verify, and resolve problems with licenses](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) article.|
+| I don't see the **Password reset** section under Azure AD in the Azure portal. | This can happen if you don't have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> <br> Assign a license to the administrator account in question. You can follow the steps in the [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) article.|
 | I don't see a particular configuration option. | Many elements of the UI are hidden until they are needed. Try enabling all the options you want to see. |
 | I don't see the **On-premises integration** tab. | This option only becomes visible if you have downloaded Azure AD Connect and have configured password writeback. For more information, see [Getting started with Azure AD Connect by using the express settings](./../connect/active-directory-aadconnect-get-started-express.md). |
 
@@ -49,7 +44,7 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 
 | Error | Solution |
 | --- | --- |
-| I don’t see any password management activity types in the **Self-Service Password Management** audit event category. | This can happen if you don't have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> <br> You can resolve this problem by assigning a license to the administrator account in question. Follow the steps in the [Assign, verify, and resolve problems with licenses](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) article. |
+| I don’t see any password management activity types in the **Self-Service Password Management** audit event category. | This can happen if you don't have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> <br> You can resolve this problem by assigning a license to the administrator account in question. Follow the steps in the [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) article. |
 | User registrations show multiple times. | Currently, when a user registers, we log each individual piece of data that's registered as a separate event. <br> <br> If you want to aggregate this data and have greater flexibility in how you can view it, you can download the report and open the data as a pivot table in Excel.
 
 ## Troubleshoot the password reset registration portal
@@ -57,7 +52,7 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 | Error | Solution |
 | --- | --- |
 | The directory is not enabled for password reset. **Your administrator has not enabled you to use this feature.** | Switch the **Self-service password reset enabled** flag to **Selected** or **All** and then select **Save**. |
-| The user does not have an Azure AD Premium or Basic license assigned. **Your administrator has not enabled you to use this feature.** | This can happen if you don't have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> <br> You can resolve this problem by assigning a license to the administrator account in question. Follow the steps in the [Assign, verify, and resolve problems with licenses](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) article.|
+| The user does not have an Azure AD Premium or Basic license assigned. **Your administrator has not enabled you to use this feature.** | This can happen if you don't have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> <br> You can resolve this problem by assigning a license to the administrator account in question. Follow the steps in the [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) article.|
 | There is an error processing the request. | This can be caused by many issues, but generally this error is caused by either a service outage or a configuration issue. If you see this error and it affects your business, contact Microsoft support for additional assistance. |
 
 ## Troubleshoot the password reset portal
@@ -65,16 +60,18 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 | Error | Solution |
 | --- | --- |
 | The directory is not enabled for password reset. | Switch the **Self-service password reset enabled** flag to **Selected** or **All** and then select **Save**. |
-| The user does not have an Azure AD Premium or Basic license assigned. | This can happen if you don't have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> <br> You can resolve this problem if you assign a license to the administrator account in question. Follow the steps in the [Assign, verify, and resolve problems with licenses](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) article. |
+| The user does not have an Azure AD Premium or Basic license assigned. | This can happen if you don't have an Azure AD Premium or Basic license assigned to the administrator performing the operation. <br> <br> You can resolve this problem if you assign a license to the administrator account in question. Follow the steps in the [Assign, verify, and resolve problems with licenses](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) article. |
 | The directory is enabled for password reset, but the user has missing or malformed authentication information. | Before proceeding, ensure that user has properly formed contact data on file in the directory. For more information, see [Data used by Azure AD self-service password reset](howto-sspr-authenticationdata.md). |
 | The directory is enabled for password reset, but the user has only one piece of contact data on file when the policy is set to require two verification methods. | Before proceeding, ensure that the user has at least two properly configured contact methods. An example is having both a mobile phone number *and* an office phone number. |
 | The directory is enabled for password reset and the user is properly configured, but the user is unable to be contacted. | This can be the result of a temporary service error or if there is incorrect contact data that we can't properly detect. <br> <br> If the user waits 10 seconds, "try again" and "contact your administrator” links appear. If the user selects "try again," it retries the call. If the user selects “contact your administrator,” it sends a form email to their administrators requesting a password reset to be performed for that user account. |
 | The user never receives the password reset SMS or phone call. | This can be the result of a malformed phone number in the directory. Make sure the phone number is in the format “+ccc xxxyyyzzzzXeeee”. <br> <br> Password reset does not support extensions, even if you specify one in the directory. The extensions are stripped before the call is dispatched. Use a number without an extension or integrate the extension into the phone number in your private branch exchange (PBX). |
 | The user never receives the password reset email. | The most common cause for this problem is that the message is rejected by a spam filter. Check your spam, junk, or deleted items folder for the email. <br> <br> Also ensure that you're checking the correct email account for the message. |
 | I have set a password reset policy, but when an admin account uses password reset, that policy isn't applied. | Microsoft manages and controls the administrator password reset policy to ensure the highest level of security. |
-| The user is prevented from attempting a password reset too many times in a day. | We implement an automatic throttling mechanism to block users from attempting to reset their passwords too many times in a short period of time. Throttling occurs when: <br><ul><li>The user attempts to validate a phone number 5 times in one hour.</li><li>The user attempts to use the security questions gate 5 times in one hour.</li><li>The user attempts to reset a password for the same user account 5 times in one hour.</li></ul>To fix this problem, instruct the user to wait 24 hours after the last attempt. The user can then reset their password. |
+| The user is prevented from attempting a password reset too many times in a day. | We implement an automatic throttling mechanism to block users from attempting to reset their passwords too many times in a short period of time. Throttling occurs when: <br><ul><li>The user attempts to validate a phone number 5 times in one hour.</li><li>The user attempts to use the security questions gate five times in one hour.</li><li>The user attempts to reset a password for the same user account five times in one hour.</li></ul>To fix this problem, instruct the user to wait 24 hours after the last attempt. The user can then reset their password. |
 | The user sees an error when validating their phone number. | This error occurs when the phone number entered does not match the phone number on file. Make sure the user is entering the complete phone number, including the area and country code, when they attempt to use a phone-based method for password reset. |
 | There is an error processing the request. | This can be caused by many issues, but generally this error is caused by either a service outage or a configuration issue. If you see this error and it affects your business, contact Microsoft support for additional assistance. |
+| On-premises policy violation | The password does not meet the on-premises Active Directory password policy. |
+| Password does not comply fuzzy policy | The password that was used appears in the banned password list and may not be used. |
 
 ## Troubleshoot password writeback
 
@@ -85,10 +82,10 @@ Are you having a problem with Azure Active Directory (Azure AD) self-service pas
 | At the last step of the Azure AD Connect installation process, you see an error indicating that password writeback couldn't be configured. <br> <br> The Azure AD Connect application event log contains error 32009 with the text “Error getting auth token.” | This error occurs in the following two cases: <br><ul><li>You have specified an incorrect password for the global administrator account specified at the beginning of the Azure AD Connect installation process.</li><li>You have attempted to use a federated user for the global administrator account specified at the beginning of the Azure AD Connect installation process.</li></ul> To fix this problem, ensure that you're not using a federated account for the global administrator you specified at the beginning of the installation process. Also ensure that the password specified is correct. |
 | The Azure AD Connect machine event log contains error 32002 that is thrown by running PasswordResetService. <br> <br> The error reads: “Error Connecting to ServiceBus. The token provider was unable to provide a security token.” | Your on-premises environment isn't able to connect to the Azure Service Bus endpoint in the cloud. This error is normally caused by a firewall rule blocking an outbound connection to a particular port or web address. See [Connectivity prerequisites](./../connect/active-directory-aadconnect-prerequisites.md) for more info. After you have updated these rules, reboot the Azure AD Connect machine and password writeback should start working again. |
 | After working for some time, federated, pass-through authentication, or password-hash-synchronized users can't reset their passwords. | In some rare cases, the password writeback service can fail to restart when Azure AD Connect has restarted. In these cases, first, check whether password writeback appears to be enabled on-premises. You can check by using either the Azure AD Connect wizard or PowerShell (See the previous HowTos section). If the feature appears to be enabled, try enabling or disabling the feature again either through the UI or PowerShell. If this doesn’t work, try a complete uninstall and reinstall of Azure AD Connect. |
-| Federated, pass-through authentication, or password-hash-synchronized users who attempt to reset their passwords see an error after attempting to submit their password. The error indicates that there was a service problem. <br ><br> In addition to this problem, during password reset operations, you might see an error that the management agent was denied access in your on-premises event logs. | If you see these errors in your event log, confirm that the Active Directory Management Agent (ADMA) account that was specified in the wizard at the time of configuration has the necessary permissions for password writeback. <br> <br> Note that after this permission is given, it can take up to one hour for the permissions to trickle down via the `sdprop` background task on the domain controller (DC). <br> <br> For password reset to work, the permission needs to be stamped on the security descriptor of the user object whose password is being reset. Until this permission shows up on the user object, password reset continues to fail with an access denied message. |
+| Federated, pass-through authentication, or password-hash-synchronized users who attempt to reset their passwords see an error after attempting to submit their password. The error indicates that there was a service problem. <br ><br> In addition to this problem, during password reset operations, you might see an error that the management agent was denied access in your on-premises event logs. | If you see these errors in your event log, confirm that the Active Directory Management Agent (ADMA) account that was specified in the wizard at the time of configuration has the necessary permissions for password writeback. <br> <br> After this permission is given, it can take up to one hour for the permissions to trickle down via the `sdprop` background task on the domain controller (DC). <br> <br> For password reset to work, the permission needs to be stamped on the security descriptor of the user object whose password is being reset. Until this permission shows up on the user object, password reset continues to fail with an access denied message. |
 | Federated, pass-through authentication, or password-hash-synchronized users who attempt to reset their passwords, see an error after they submit their password. The error indicates that there was a service problem. <br> <br> In addition to this problem, during password reset operations, you might see an error in your event logs from the Azure AD Connect service indicating an “Object could not be found” error. | This error usually indicates that the sync engine is unable to find either the user object in the Azure AD connector space or the linked metaverse (MV) or Azure AD connector space object. <br> <br> To troubleshoot this problem, make sure that the user is indeed synchronized from on-premises to Azure AD via the current instance of Azure AD Connect and inspect the state of the objects in the connector spaces and MV. Confirm that the Active Directory Certificate Services (AD CS) object is connected to the MV object via the “Microsoft.InfromADUserAccountEnabled.xxx” rule.|
-| Federated, pass-through authentication, or password-hash-synchronized users who attempt to reset their passwords see an error after they submit their password. The error indicates that there was a service problem. <br> <br> In addition to this problem, during password reset operations, you might see an error in your event logs from the Azure AD Connect service that indicates that there is a “Multiple matches found” error. | This indicates that the sync engine detected that the MV object is connected to more than one AD CS object via “Microsoft.InfromADUserAccountEnabled.xxx”. This means that the user has an enabled account in more than one forest. Note that this scenario isn't supported for password writeback. |
-| Password operations fail with a configuration error. The application event log contains Azure AD Connect error 6329 with the text "0x8023061f (The operation failed because password synchronization is not enabled on this Management Agent)". | This error occurs if the Azure AD Connect configuration is changed to add a new Active Directory forest (or to remove and re-add an existing forest) after the password writeback feature has already been enabled. Password operations for users in these recently added forests fail. To fix the problem, disable and then re-enable the password writeback feature after the forest configuration changes have been completed. |
+| Federated, pass-through authentication, or password-hash-synchronized users who attempt to reset their passwords see an error after they submit their password. The error indicates that there was a service problem. <br> <br> In addition to this problem, during password reset operations, you might see an error in your event logs from the Azure AD Connect service that indicates that there is a “Multiple matches found” error. | This indicates that the sync engine detected that the MV object is connected to more than one AD CS object via “Microsoft.InfromADUserAccountEnabled.xxx”. This means that the user has an enabled account in more than one forest. This scenario isn't supported for password writeback. |
+| Password operations fail with a configuration error. The application event log contains Azure AD Connect error 6329 with the text "0x8023061f (The operation failed because password synchronization is not enabled on this Management Agent)". | This error occurs if the Azure AD Connect configuration is changed to add a new Active Directory forest (or to remove and readd an existing forest) after the password writeback feature has already been enabled. Password operations for users in these recently added forests fail. To fix the problem, disable and then re-enable the password writeback feature after the forest configuration changes have been completed. |
 
 ## Password writeback event-log error codes
 
@@ -169,7 +166,7 @@ For Azure AD Connect version 1.1.443.0 and above, you need outbound HTTPS access
    - passwordreset.microsoftonline.com
    - servicebus.windows.net
 
-For more granularity, reference the updated list of [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) updated every Wednesday and put into effect the following Monday.
+For more granularity, reference the updated list of [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) updated every Wednesday and put into effect the next Monday.
 
 For more information, review the connectivity prerequisites in the [Prerequisites for Azure AD Connect](./../connect/active-directory-aadconnect-prerequisites.md) article.
 

@@ -6,7 +6,7 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
@@ -76,6 +76,12 @@ View the backups that are retained for a specific database with a LTR policy, an
 ## Use PowerShell to configure long-term retention policies and restore backups
 
 The following sections show you how to use PowerShell to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
+
+> [!IMPORTANT]
+> LTR V2 API is supported in the following PowerShell versions:
+- [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) or newer
+- [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) or newer
+> 
 
 ### Create an LTR policy
 

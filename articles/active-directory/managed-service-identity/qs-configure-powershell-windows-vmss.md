@@ -8,8 +8,9 @@ manager: mtillman
 editor: 
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
@@ -22,14 +23,14 @@ ms.author: daveba
 
 Managed Service Identity provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, you learn how to perform the following Managed Service Identity operations on an Azure Virtual Machine Scale Set (VMSS), using PowerShell:
+In this article, you learn how to perform the Managed Service Identity operations on a Virtual Machine Scale Set (VMSS), using PowerShell:
 - Enable and disable the system assigned identity on an Azure VMSS
 - Add and remove a user assigned identity on an Azure VMSS
 
 ## Prerequisites
 
 - If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **Be sure to review the [difference between a system assigned and user assigned identity](overview.md#how-does-it-work)**.
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/en-us/free/) before continuing.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - Install [the latest version of Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) if you haven't already. 
 
 ## System assigned managed identity
@@ -103,7 +104,7 @@ In this section, you learn how to add and remove a user assigned identity from a
 
 ### Assign a user assigned identity during creation of an Azure VMSS
 
-Creating a new VMSS with a user assigned identity is not currently supported via PowerShell. See the next section on how to add a user assigned identity to an existing VMSS. Check back for updates.
+Creating a new VMSS with a user assigned identity isn't currently supported via PowerShell. See the next section on how to add a user assigned identity to an existing VMSS. Check back for updates.
 
 ### Assign a user identity to an existing Azure VMSS
 
@@ -117,8 +118,8 @@ To assign a user assigned identity to an existing Azure VMSS:
 
 2. First retrieve the VM properties using the `Get-AzureRmVM` cmdlet. Then to assign a user assigned identity to the Azure VMSS, use the `-IdentityType` and `-IdentityID` switch on the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet. Replace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` with your own values.
 
-   > [!IMPORTANT]
-   > Creating user assigned identities with special characters (i.e. underscore) in the name is not currently supported. Please use alphanumeric characters. Check back for updates.  For more information see [FAQs and known issues](known-issues.md)
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+
 
    ```powershell
    $vmss = Get-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME>

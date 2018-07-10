@@ -1,33 +1,28 @@
 ---
 title: 'Azure AD SSPR from the Windows 10 login screen | Microsoft Docs'
 description: Configure Windows 10 login screen Azure AD password reset and I forgot my PIN
+
 services: active-directory
-keywords: 
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 04/27/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-
-ms.assetid: 
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
 
 ---
 # Azure AD password reset from the login screen
 
 You have already deployed Azure AD self-service password reset (SSPR) but your users still call the helpdesk when they forget their passwords. They call the helpdesk because they can't get to a web browser to access SSPR.
 
-With the new Windows 10 Fall Creators Update, users with Azure AD joined devices can see a “Reset password” link on their login screen. When they click this link, they are brought to the same self-service password reset (SSPR) experience they are familiar with.
+With the new Windows 10 April 2018 Update, users with **Azure AD joined** or **hybrid Azure AD joined** devices can see and use a “Reset password” link on their login screen. When they click this link, they are brought to the same self-service password reset (SSPR) experience they are familiar with.
 
 To enable users to reset their Azure AD password from the Windows 10 login screen, the following requirements need to be met:
 
-* Windows 10, version 1709, or newer client that is [Azure AD joined](../device-management-azure-portal.md).
+* Windows 10 April 2018 Update, or newer client that is [Azure AD joined](../device-management-azure-portal.md) or [hybrid Azure AD joined](../device-management-hybrid-azuread-joined-devices-setup.md).
 * Azure AD self-service password reset must be enabled.
 * Configure and deploy the setting to enable the Reset password link via one of the following methods:
    * [Intune device configuration profile](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
@@ -63,12 +58,12 @@ To enable users to reset their Azure AD password from the Windows 10 login scree
 
 1. Log in to the [Azure portal](https://portal.azure.com) and click on **Azure Active Directory**.
 2. Browse to **Users and groups** > **All groups** > **New group**
-3. Provide a name for the group and under **Membership type** choose **Assigned** 
+3. Provide a name for the group and under **Membership type** choose **Assigned**
    * Under **Members**, choose the Azure AD joined Windows 10 devices that you want to apply the policy to.
    * Click **Select**
 4. Click **Create**
 
-More information on creating groups can be found in the article [Manage access to resources with Azure Active Directory groups](../active-directory-manage-groups.md).
+More information on creating groups can be found in the article [Manage access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md).
 
 #### Assign device configuration policy to device group
 
@@ -114,6 +109,7 @@ When testing this functionality using Remote Desktop, the "Reset password" link 
 * Password reset is not currently supported from a Remote Desktop.
 
 ## Next steps
+
 The following links provide additional information regarding password reset using Azure AD
 
 * [How do I deploy SSPR?](howto-sspr-deployment.md)

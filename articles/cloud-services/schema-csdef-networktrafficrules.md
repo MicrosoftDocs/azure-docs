@@ -2,7 +2,7 @@
 title: "Azure Cloud Services Def. NetworkTrafficRules Schema | Microsoft Docs"
 ms.custom: ""
 ms.date: "04/14/2015"
-ms.prod: "azure"
+services: cloud-services
 ms.reviewer: ""
 ms.service: "cloud-services"
 ms.suite: ""

@@ -3,7 +3,7 @@ title: Mount a secret volume in Azure Container Instances
 description: Learn how to mount a secret volume to store sensitive information for access by your container instances
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
@@ -16,7 +16,7 @@ ms.author: marsma
 Learn how to mount a *secret* volume in your container instances for the storage and retrieval of sensitive information by the containers in your container groups.
 
 > [!NOTE]
-> Mounting a *secret* volume is currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+> Mounting a *secret* volume is currently restricted to Linux containers. Learn how to pass secure environment variables for both Windows and Linux containers in [Set environment variables](container-instances-environment-variables.md). While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
 
 ## secret volume
 

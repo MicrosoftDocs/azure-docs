@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: How to use Azure API Management with internal virtual networks | Microsoft Docs
 description: Learn how to set up and configure Azure API Management on an internal virtual network

@@ -150,7 +150,7 @@ While Standard and Premium caches have a 99.9% SLA for availability, there is no
 * **Basic** caches are offline during scaling operations to a different size. Basic caches remain available when scaling from **Basic** to **Standard** but, may experience a small connection blip. If a connection blip occurs, redis clients should be able to re-establish their connection instantly.
 
 
-### Scaling limitations with Geo-relication
+### Scaling limitations with Geo-replication
 
 Once you have added a Geo-replication link between two caches, you will no longer be able to initiate a scaling operation or change the number of shards in a cluster. You must unlink the cache to issue these commands. For more information, see [Configure Geo-replication](cache-how-to-geo-replication.md).
 

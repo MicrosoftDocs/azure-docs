@@ -1,22 +1,15 @@
 ---
 title: Understand Azure IoT Hub messaging | Microsoft Docs
 description: Developer guide - device-to-cloud and cloud-to-device messaging with IoT Hub. Includes information about message formats and supported communications protocols.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-
 ---
+
 # Device-to-cloud and cloud-to-device messaging with IoT Hub
 
 Use IoT Hub messaging to communicate with your devices by:
@@ -28,7 +21,7 @@ Use IoT Hub messaging to communicate with your devices by:
 
 Core properties of IoT Hub messaging functionality are the reliability and durability of messages. These properties enable resilience to intermittent connectivity on the device side, and to load spikes in event processing on the cloud side. IoT Hub implements *at least once* delivery guarantees for both device-to-cloud and cloud-to-device messaging.
 
-For an introduction to the capabilities of IoT Hub, see the articles [Azure and Internet of Things][lnk-azure-iot] and [Overview of the Azure IoT Hub service][lnk-iot-hub-overview].
+For an introduction to the capabilities of IoT Hub, see the [Overview of the Azure IoT Hub service][lnk-iot-hub-overview].
 
 ## When to use IoT Hub messaging
 

@@ -1,22 +1,24 @@
 ---
-title: 'Adding OpenID Connect identity providers in built-in policies - Azure AD B2C | Microsoft Docs'
-description: Overview guide on how to add OpenID Connect providers in built-in policies within Azure AD B2C
+title: Adding OpenID Connect identity providers in built-in policies in Azure Active Directory B2C | Microsoft Docs
+description: Overview guide on how to add OpenID Connect providers in built-in policies within Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: parakhj
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 04/23/2018
+ms.topic: conceptual
+ms.date: 04/27/2018
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Add a custom OpenID Connect identity provider in built-in policies
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in. Most identity providers that use this protocol, such as Azure AD, are supported in Azure AD B2C. This article explains how you can add custom OpenID Connect identity providers into your built-in policies.
+>[!NOTE]
+> This feature is in public preview. Do not use the feature in production environments.
+
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in. Most identity providers that use this protocol, such as [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), are supported in Azure AD B2C. This article explains how you can add custom OpenID Connect identity providers into your built-in policies.
 
 ## Configuring a custom OpenID Connect identity provider
 
@@ -35,7 +37,7 @@ As per specification, every OpenID Connect identity providers describes a metada
 
 For the OpenID Connect identity provider you are looking to add, enter its metadata URL.
 
-#### Client ID and Secret
+#### Client ID and secret
 
 To allow users to sign in, the identity provider will require developers to register an application in their service. This application will have an ID (referred to as the **client ID**) and a **client secret**. Copy these values from the identity provider and enter them into the corresponding fields.
 
@@ -48,7 +50,7 @@ Scopes define the information and permissions you are looking to gather from you
 
 Other scopes can be appended (separated by space). Refer to the custom identity provider's documentation to see what other scopes may be available.
 
-#### Response Type
+#### Response type
 
 The response type describes what kind of information will be sent back in the initial call to the `authorization_endpoint` of the custom identity provider. 
 
@@ -57,7 +59,7 @@ The response type describes what kind of information will be sent back in the in
 * `id_token`: An ID token will be returned back to Azure AD B2C from the custom identity provider.
 
 
-#### Response Mode
+#### Response mode
 
 The response mode defines the method that should be used to send the data back from the custom identity provider to Azure AD B2C.
 
@@ -65,7 +67,7 @@ The response mode defines the method that should be used to send the data back f
 * `query`: The code or token will be returned as a query parameter.
 
 
-#### Domain Hint
+#### Domain hint
 
 The domain hint can be used to skip directly to the sign in page of the specified identity provider, instead of having the user make a selection among the list of available identity providers. To allow this kind of behavior, enter a value for the domain hint.
 
@@ -84,6 +86,6 @@ For each of the mappings below, refer to the documentation of the custom identit
 * `Surname`: Enter the claim that provides the last name of the user.
 * `Email`: Enter the claim that provides the email address of the user.
 
-## Next Steps
+## Next steps
 
 Add the custom OpenID Connect identity provider to your [built-in policy](active-directory-b2c-reference-policies.md).

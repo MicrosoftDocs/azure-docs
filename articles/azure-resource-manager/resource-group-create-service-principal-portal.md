@@ -9,7 +9,7 @@ editor: tysonn
 
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
@@ -43,7 +43,7 @@ To complete this article, you must have sufficient permissions to register an ap
 
    ![view app registrations](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. If the app registrations setting is set to **No**, only [global administrators](../active-directory/active-directory-assign-admin-roles-azure-portal.md) can register apps. Check whether your account is an admin for the Azure AD tenant. Select **Overview** and look at your user information. If your account is assigned to the User role, but the app registration setting (from the preceding step) is limited to admin users, ask your administrator to either assign you to the global administrator role, or to enable users to register apps.
+1. If the app registrations setting is set to **No**, only [global administrators](../active-directory/users-groups-roles/directory-assign-admin-roles.md) can register apps. Check whether your account is an admin for the Azure AD tenant. Select **Overview** and look at your user information. If your account is assigned to the User role, but the app registration setting (from the preceding step) is limited to admin users, ask your administrator to either assign you to the global administrator role, or to enable users to register apps.
 
    ![find user](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
@@ -80,7 +80,7 @@ To check your subscription permissions:
 
    ![add app](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Provide a name and URL for the application. Select **Web app / API** for the type of application you want to create. You cannot create credentials for a [Native application](../active-directory/active-directory-application-proxy-native-client.md); therefore, that type does not work for an automated application. After setting the values, select **Create**.
+1. Provide a name and URL for the application. Select **Web app / API** for the type of application you want to create. You cannot create credentials for a [Native application](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); therefore, that type does not work for an automated application. After setting the values, select **Create**.
 
    ![name application](./media/resource-group-create-service-principal-portal/create-app.png)
 

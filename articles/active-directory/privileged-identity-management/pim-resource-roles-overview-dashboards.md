@@ -1,29 +1,38 @@
 ---
-title: How to perform an access review in Privileged Identity Management for Azure Resources | Microsoft Docs
-description: This document describes how to perform and access review in PIM for Azure Resources.
+title: 'Overview: Perform an access review in Privileged Identity Management for Azure resources | Microsoft Docs'
+description: This document describes how to perform an access review in PIM for Azure resources.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
-editor: mwahl
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
 ---
 
-# Resource dashboards
+# Use a resource dashboard to perform an access review
 
-The Admin View dashboard has four primary components. A graphical representation of resource role activations over the past seven days. This data is scoped to the selected resource and displays activations for the most common roles (Owner, Contributor, User Access Administrator), and all roles combined.
+You can use a resource dashboard to perform an access review in Privileged Identity Management (PIM) for Azure resources. The Admin View dashboard has three primary components:
 
-To the right of the activations graph, are two charts that display the distribution of role assignments by assignment type, for both users and groups. Selecting a slice of the chart changes the value to a percentage (or vice versa).
+- A graphical representation of resource role activations.
+- Two charts that display the distribution of role assignments by assignment type.
+- A data area pertaining to new role assignments.
 
-![](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![Screenshot of the Admin View dashboard, showing graphs and charts](media/azure-pim-resource-rbac/rbac-overview-top.png)
 
-Below the charts, you see the number of users and groups with new role assignments over the last 30 days (left), and a list of roles sorted by total assignments (descending).
+![Screenshot of the Admin View dashboard, showing data lists](media/azure-pim-resource-rbac/role-settings.png)
 
-![](media/azure-pim-resource-rbac/role-settings.png)
+The graphical representation of resource role activations covers the past seven days. This data is scoped to the selected resource, and displays activations for the most common roles (owner, contributor, user access administrator), and for all roles combined.
+
+To the right of the activations graph, two charts display the distribution of role assignments by assignment type, for both users and groups. You can change the value to a percentage (or vice versa), by selecting a slice of the chart.
+
+Below the charts, you see the number of users and groups with new role assignments over the last 30 days, and a list of roles sorted by total assignments (in descending order).
+
+

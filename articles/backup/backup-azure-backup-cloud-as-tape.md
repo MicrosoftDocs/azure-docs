@@ -1,22 +1,14 @@
 ---
-title: Use Azure Backup to replace your tape infrastructure | Microsoft Docs
+title: Use Azure Backup to replace your tape infrastructure
 description: Learn how Azure Backup provides tape-like semantics which enables you to backup and restore data in Azure
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: ''
-
-ms.assetid: 2e1bb67d-986c-4437-8056-3a63169b4214
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/10/2017
-ms.author: saurse;trinadhk;markgal
+ms.author: saurse
 ms.custom: H1Hack27Feb2017
-
 ---
 # Move your long-term storage from tape to the Azure cloud
 Azure Backup and System Center Data Protection Manager customers can:

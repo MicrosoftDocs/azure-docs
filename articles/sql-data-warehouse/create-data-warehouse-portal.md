@@ -68,15 +68,15 @@ Follow these steps to create a SQL data warehouse that contains the AdventureWor
 
 5. Click **Select**.
 
-6. Click **Performance tier** to specify the performance configuration for the data warehouse.
+6. Click **Performance level** to specify the performance configuration for the data warehouse.
 
-7. For this tutorial, select the **Optimized for Elasticity** performance tier. The slider, by default, is set to **DW400**.  Try moving it up and down to see how it works. 
+7. For this tutorial, select **Gen2**. The slider, by default, is set to **DW1000c**.  Try moving it up and down to see how it works. 
 
     ![configure performance](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Click **Apply**.
 
-9. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
+9. Now that you have completed the SQL Data Warehouse form, click **Create** to provision the database. Provisioning takes a few minutes. 
 
     ![click create](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -92,7 +92,7 @@ The SQL Data Warehouse service creates a firewall at the server-level that preve
 > SQL Data Warehouse communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 >
 
-1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20171113.database.windows.net**) and provides options for further configuration. 
+1. After the deployment completes, click **SQL data warehouses** from the left-hand menu and then click **mySampleDatabase** on the **SQL data warehouses** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20180430.database.windows.net**) and provides options for further configuration. 
 
 2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quick starts. To open server settings, click the server name.
 
@@ -123,8 +123,8 @@ You can now connect to the SQL server and its data warehouses using this IP addr
 Get the fully qualified server name for your SQL server in the Azure portal. Later you use the fully qualified name when connecting to the server.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
-3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20171113.database.windows.net. 
+2. Select **SQL Data warehouses** from the left-hand menu, and click your data warehouse on the **SQL datawarehouses** page. 
+3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20180430.database.windows.net. 
 
     ![connection information](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -139,7 +139,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Server type | Database engine | This value is required |
-   | Server name | The fully qualified server name | Here's an example: **mynewserver-20171113.database.windows.net**. |
+   | Server name | The fully qualified server name | Here's an example: **mynewserver-20180430.database.windows.net**. |
    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that is configured in this tutorial. |
    | Login | The server admin account | This is the account that you specified when you created the server. |
    | Password | The password for your server admin account | This is the password that you specified when you created the server. |
@@ -193,7 +193,7 @@ Follow these steps to clean up resources as you desire.
 
 2. To remove the data warehouse so you are not charged for compute or storage, click **Delete**.
 
-3. To remove the SQL server you created, click **mynewserver-20171113.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
+3. To remove the SQL server you created, click **mynewserver-20180430.database.windows.net** in the previous image, and then click **Delete**.  Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
 
 4. To remove the resource group, click **myResourceGroup**, and then click **Delete resource group**.
 

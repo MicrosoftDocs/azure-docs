@@ -4,7 +4,7 @@ description: Create a custom connector then call a function using that connector
 services: functions
 keywords: cloud apps, cloud services, PowerApps, business processes, business application
 documentationcenter: ''
-author: mgblythe
+author: ggailey777
 manager: cfowler
 editor: ''
 
@@ -15,7 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
+ms.author: glenga
+ms.reviewer: sunayv
 ms.custom: ''
 ---
 
@@ -41,7 +42,7 @@ In this topic, you learn how to:
 
 ## Prerequisites
 
-+ An active [PowerApps account](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) with the same sign in credentials as your Azure account. 
++ An active [PowerApps account](https://docs.microsoft.com/en-us/powerapps/maker/signup-for-powerapps) with the same sign in credentials as your Azure account. 
 + Excel and the [Excel sample file](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) that you will use as a data source for your app.
 + Complete the tutorial [Create an OpenAPI definition for a function](functions-openapi-definition.md).
 

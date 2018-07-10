@@ -1,23 +1,19 @@
 ---
-title: Security guidance for MFA | Microsoft Docs
+title: Security guidance for Azure Multi-Factor Authentication
 description: This document provides guidance around using Azure MFA with Azure accounts
-services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
 
-ms.assetid: 3be7d968-96bb-4320-8701-869fd04a2595
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/15/2017
-ms.author: joflore
-ms.reviewer: richagi
-ms.custom: it-pro
----
 
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+
+---
 # Security guidance for using Azure Multi-Factor Authentication with Azure AD accounts
 
 Two-step verification is the preferred choice for most organizations that want to enhance their authentication process. Azure Multi-Factor Authentication (MFA) helps companies meet their security and compliance requirements while providing a simple sign-in experience for their users. This article covers some tips that you should consider when planning for the adoption of Azure MFA.
@@ -108,5 +104,5 @@ Use this list for additional considerations and guidance for each component that
 While this article highlights some best practices for Azure MFA, there are other resources that you can also use while planning your MFA deployment. The list below has some key articles that can assist you during this process:
 
 * [Reports in Azure Multi-Factor Authentication](howto-mfa-reporting.md)
-* [The two-step verification registration experience](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
+* [The two-step verification registration experience](end-user/current/multi-factor-authentication-end-user-first-time.md)
 * [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)

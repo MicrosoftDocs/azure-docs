@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 3/28/2018
+ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
@@ -29,6 +29,8 @@ In this tutorial, you learn how to:
 The following example shows site traffic coming from both ports 8080 and 8081 and being directed to the same backend pools:
 
 ![URL routing example](./media/tutorial-url-redirect-cli/scenario.png)
+
+If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-url-redirect-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

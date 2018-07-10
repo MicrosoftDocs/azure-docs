@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/18/2018
 ms.author: jgao
 
 ---
@@ -59,7 +59,7 @@ You must specify an Azure subscription when you create an HDInsight cluster. The
     1. Sign in to the [Azure portal](https://portal.azure.com).
     2. Click **Subscription** from the left menu. It has a yellow key icon. You shall see a list of subscriptions.
     3. Click the subscription that you use to create clusters. 
-    4. Click **My permissions**.  It shows your [role](../role-based-access-control/overview.md#built-in-roles) on the subscription. You need at least Contributor access to create HDInsight cluster.
+    4. Click **My permissions**.  It shows your [role](../role-based-access-control/built-in-roles.md) on the subscription. You need at least Contributor access to create HDInsight cluster.
 
 - To use an existing resource group:
 
@@ -103,7 +103,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
     * **Monitoring**: Monitor the cluster in Azure Log Analytics.
     * **Properties**: View the cluster properties.
     * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
-    * **Data Lake Store access**: Configure access Data Lake Stores.  See [Create HDInsight clusters with Data Lake Store by using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * **Data Lake Store access**: Configure access Data Lake Stores.  See [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
     * **Resource health**: See [Azure resource health overview](../service-health/resource-health-overview.md).
     * **New support request**: Allows you to create a support ticket with Microsoft support.
     
@@ -124,7 +124,7 @@ If you receive the NoRegisteredProviderFound error or the MissingSubscriptionReg
    * **Default data source**: The default cluster file system.
    * **Worker nodes size**: The selected VM size of the worker nodes.
    * **Head node size**: The selected VM size of the head nodes.
-   * **Virtual network**: The name of the Virtual Network and subnet to which the cluster is deployed, if one was selected at deployment time.
+   * **Virtual network**: The name of the Virtual Network which the cluster is deployed, if one was selected at deployment time.
 
 ## Delete clusters
 Deleting a cluster does not delete the default storage account nor any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores. We recommend using a new default Blob container when you re-create the cluster.

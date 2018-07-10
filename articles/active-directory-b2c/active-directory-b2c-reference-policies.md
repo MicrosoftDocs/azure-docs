@@ -1,19 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Built-in policies | Microsoft Docs'
-description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types
+title: Built-in policies in Azure Active Directory B2C | Microsoft Docs
+description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Built-in policies
 
 
@@ -78,6 +77,10 @@ This policy handles both consumer sign-up & sign-in experiences with a single co
 ## Create a password reset policy
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
+
+## Preview policies
+
+As we release new features, some of these may not be available on existing policies.  We plan to replace older versions with the latest of the same type once these policies enter GA.  Your existing policies will not change and in order to take advantage of these new features you will have to create new policies.
 
 ## Frequently asked questions
 

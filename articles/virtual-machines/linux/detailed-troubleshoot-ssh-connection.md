@@ -4,7 +4,7 @@ description: More detailed SSH troubleshooting steps for issues connecting to an
 keywords: ssh connection refused,ssh error,azure ssh,SSH connection failed
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # Detailed SSH troubleshooting steps for issues connecting to a Linux VM in Azure
@@ -36,7 +36,7 @@ The following steps help you isolate the source of the failure and figure out so
 
 2. Select **Settings** to examine endpoints, IP addresses, network security groups, and other settings.
 
-   The VM should have an endpoint defined for SSH traffic that you can view in **Endpoints** or **[Network security group](../../virtual-network/virtual-networks-nsg.md)**. Endpoints in VMs that were created by using Resource Manager are stored in a network security group. Verify that the rules have been applied to the network security group and are referenced in the subnet.
+   The VM should have an endpoint defined for SSH traffic that you can view in **Endpoints** or **[Network security group](../../virtual-network/security-overview.md)**. Endpoints in VMs that were created by using Resource Manager are stored in a network security group. Verify that the rules have been applied to the network security group and are referenced in the subnet.
 
 To verify network connectivity, check the configured endpoints and see if you can connect to the VM through another protocol, such as HTTP or another service.
 
@@ -108,7 +108,7 @@ To eliminate the endpoint as a source of the problem, remove the current endpoin
 
 ## Source 4: Network security groups
 Network security groups enable you to have more granular control of allowed inbound and outbound traffic. You can create rules that span subnets and cloud services in an Azure virtual network. Check your network security group rules to ensure that SSH traffic to and from the Internet is allowed.
-For more information, see [About network security groups](../../virtual-network/virtual-networks-nsg.md).
+For more information, see [About network security groups](../../virtual-network/security-overview.md).
 
 You can also use IP Verify to validate the NSG configuration. For more information, see [Azure network monitoring overview](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 

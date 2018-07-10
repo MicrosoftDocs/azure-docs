@@ -3,23 +3,21 @@ title: Get started with Azure AD Privileged Identity Management | Microsoft Docs
 description: Learn how to manage privileged identities with the Azure Active Directory Privileged Identity Management application in Azure portal.
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
 editor: ''
 
-ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
 ms.service: active-directory
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.component: protection
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/17/2017
-ms.author: barclayn
+ms.author: rolyon
 ms.custom: pim  
 ---
 # Start using Azure AD Privileged Identity Management
 
-With Azure Active Directory (AD) Privileged Identity Management, you can manage, control, and monitor access within your organization. This scope includes access to resources Azure resources, Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.
+With Azure Active Directory (AD) Privileged Identity Management, you can manage, control, and monitor access within your organization. This scope includes access to Azure resources, Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.
 
 This article tells you how to add the Azure AD PIM app to your Azure portal dashboard.
 

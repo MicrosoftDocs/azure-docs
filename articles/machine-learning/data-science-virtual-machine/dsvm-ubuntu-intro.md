@@ -94,7 +94,7 @@ Here are the steps to create an instance of the Data Science Virtual Machine for
    
    b. **Size**:
    
-   * Select one of the server types that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes. Select an NC-class VM for GPU training.
+   * Select one of the server types that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes. Select an NC or ND-class VM for GPU training. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page lists the regions with GPUs.
    
    c. **Settings**:
    

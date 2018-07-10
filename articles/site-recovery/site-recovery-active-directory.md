@@ -7,7 +7,7 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: manayar
 
 ---
@@ -53,16 +53,16 @@ For the virtual machine that hosts the domain controller or DNS, in Site Recover
 Create a domain controller on the secondary site. When you promote the server to a domain controller role, specify the name of the same domain that is being used on the primary site. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often it occurs. For more information, see [Scheduling replication between sites](https://technet.microsoft.com/library/cc731862.aspx).
 
 ### Site-to-Azure protection
-First, [create a domain controller in an Azure virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). When you promote the server to a domain controller role, specify the same domain name that's used on the primary site.
+First, create a domain controller in an Azure virtual network. When you promote the server to a domain controller role, specify the same domain name that's used on the primary site.
 
-Then, [reconfigure the DNS server for the virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) to use the DNS server in Azure.
+Then, reconfigure the DNS server for the virtual network to use the DNS server in Azure.
 
 ![Azure Network](./media/site-recovery-active-directory/azure-network.png)
 
 ### Azure-to-Azure protection
-First, [create a domain controller in an Azure virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md). When you promote the server to a domain controller role, specify the same domain name that's used on the primary site.
+First, create a domain controller in an Azure virtual network. When you promote the server to a domain controller role, specify the same domain name that's used on the primary site.
 
-Then, [reconfigure the DNS server for the virtual network](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) to use the DNS server in Azure.
+Then, reconfigure the DNS server for the virtual network to use the DNS server in Azure.
 
 ## Test failover considerations
 To avoid impact on production workloads, test failover occurs in a network that's isolated from the production network.

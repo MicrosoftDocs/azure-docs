@@ -6,7 +6,7 @@ author: banisadr
 manager: darosa
 
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 02/21/2018
 ms.author: babanisa
 ---

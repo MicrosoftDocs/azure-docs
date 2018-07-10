@@ -1,24 +1,21 @@
 ---
 title: Azure Multi-Factor Authentication FAQ | Microsoft Docs
-description: Frequently asked questions and answers related to Azure Multi-Factor Authentication. Multi-Factor Authentication is a method of verifying a user's identity that requires more than a user name and password. It provides an additional layer of security to user sign-in and transactions.
+description: Frequently asked questions and answers related to Azure Multi-Factor Authentication. 
+
 services: multi-factor-authentication
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 06/16/2017
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
 
-ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/16/2017
-ms.author: joflore
-
-ms.custom: H1Hack27Feb2017
 ---
 # Frequently asked questions about Azure Multi-Factor Authentication
+
 This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service. It's broken down into questions about the service in general, billing models, user experiences, and troubleshooting.
 
 ## General
@@ -118,7 +115,7 @@ Azure Active Directory is required for the license model because licenses are ad
 
 Hopefully all your users configured more than one verification method. Tell them to try signing in again, but select a different verification method on the sign-in page.
 
-You can point your users to the [End-user troubleshooting guide](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+You can point your users to the [End-user troubleshooting guide](end-user/current/multi-factor-authentication-end-user-troubleshoot.md).
 
 
 **Q: What should I do if one of my users can't get in to their account?**
@@ -131,7 +128,7 @@ To prevent unauthorized access, delete all the user's app passwords. After the u
 
 **Q: What if a user can't sign in to non-browser apps?**
 
-If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-mfasettings.md#app-passwords), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
+If your organization still uses legacy clients, and you [allowed the use of app passwords](howto-mfa-mfasettings.md#app-passwords), then your users can't sign in to these legacy clients with their username and password. Instead, they need to [set up app passwords](end-user/current/multi-factor-authentication-end-user-app-passwords.md). Your users must clear (delete) their sign-in information, restart the app, and then sign in with their username and *app password* instead of their regular password.
 
 If your organization doesn't have legacy clients, you should not allow your users to create app passwords.
 

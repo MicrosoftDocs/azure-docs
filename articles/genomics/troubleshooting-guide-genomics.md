@@ -68,9 +68,7 @@ If you see the following error messages, an internal error occurred.
 * `Error locating input files on worker machine`
 * `Process management failure`
 
-Try to resubmit your workflow. If you continue to have job failures, or if you have any other questions, contact Microsoft Genomics support from the Azure portal.
-
-![Contact support on Azure portal](./media/troubleshooting-guide/genomics-contact-support.png "Contact support on Azure portal")
+Try to resubmit your workflow. If you continue to have job failures, or if you have any other questions, contact Microsoft Genomics support from the Azure portal. Additional information on how to submit a support request can be found [here](file-support-ticket-genomics.md).
 
 ## Next steps
 In this article, you learned how to troubleshoot and resolve common issues with the Microsoft Genomics service. For more information and more general FAQ, see [Common questions](frequently-asked-questions-genomics.md). 

@@ -14,7 +14,9 @@ ms.author: v-jerkin
 
 The Bing Image Search API lets you search the Web and obtain image results relevant to the search query. In this tutorial, we build a single-page Web application that uses the Bing Image Search API to display search results right in the page. The application includes HTML, CSS, and JavaScript components.
 
+<!-- Remove until we can sanitize images
 ![[Single-page Bing Image Search app]](media/cognitive-services-bing-images-api/image-search-spa-demo.png)
+-->
 
 > [!NOTE]
 > The JSON and HTTP headings at the bottom of the page reveal the JSON response and HTTP request information when clicked. These details are useful when exploring the service.

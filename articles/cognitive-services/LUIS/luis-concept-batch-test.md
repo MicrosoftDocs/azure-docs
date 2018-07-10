@@ -7,7 +7,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 07/06/2018
 ms.author: v-geberr
 ---
 
@@ -29,6 +29,10 @@ Submit a batch file of utterances, known as a *dataset*, for batch testing. The 
 
 *Duplicates are considered exact string matches, not matches that are tokenized first. 
 
+## Entities allowed in batch tests
+Entities include simple, hierarchical parents, and composite. All entities of these types appear in the batch test entities filter even if there are no corresponding entities in the batch file.
+
+
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
 ## Batch file format
@@ -44,6 +48,7 @@ Common errors include:
 
 > * More than 1,000 utterances
 > * An utterance JSON object that doesn't have an entities property
+> * Word(s) labeled in multiple entities
 
 ## Batch test state
 LUIS tracks the state of each dataset's last test. This includes the size (number of utterances in the batch), last run date, and last result (number of successfully predicted utterances).
@@ -67,9 +72,6 @@ The false positive section indicates that an utterance matched an intent or enti
 
 ## Fixing batch errors
 If there are errors in the batch testing, you can either add more utterances to an intent, and/or label more utterances with the entity to help LUIS make the discrimination between intents. If you have added utterances, and labeled them, and still get prediction errors in batch testing, consider adding a [phrase list](luis-concept-feature.md) feature with domain-specific vocabulary to help LUIS learn faster. 
-
-## Best practice - three sets of data
-Developers should have three sets of test data. The first is for building the model, the second is for testing the model at the endpoint. The third is used in [batch testing](luis-how-to-batch-test.md). The first set is not used in training the application nor sent on the endpoint. 
 
 ## Next steps
 
