@@ -7,7 +7,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 07/06/2018
 ms.author: v-geberr
 ---
 
@@ -28,6 +28,10 @@ Submit a batch file of utterances, known as a *dataset*, for batch testing. The 
 |1000 utterances or less|
 
 *Duplicates are considered exact string matches, not matches that are tokenized first. 
+
+## Entities allowed in batch tests
+Entities include simple, hierarchical parents, and composite. All entities of these types appear in the batch test entities filter even if there are no corresponding entities in the batch file.
+
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
