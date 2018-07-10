@@ -7,7 +7,7 @@
 - name: Quickstart
   items:
   - name: Create a Traffic Manager profile
-    href: traffic-manager-create-profile.md
+    href: quickstart-create-traffic-manager-profile.md
 - name: Tutorials
   items:
   - name: Route traffic based on geographic location of endpoint
