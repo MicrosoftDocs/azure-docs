@@ -66,6 +66,8 @@
       href: qs-configure-powershell-windows-vm.md
     - name: Azure Resource Manager Template
       href: qs-configure-template-windows-vm.md
+    - name: REST
+      href: qs-configure-rest-vm.md
     - name: Azure SDKs
       href: qs-configure-sdk-windows-vm.md
   - name: Configure Identity for Azure VMSS
@@ -78,6 +80,8 @@
       href: qs-configure-powershell-windows-vmss.md
     - name: Azure Resource Manager Template
       href: qs-configure-template-windows-vmss.md
+    - name: REST
+      href: qs-configure-rest-vmss.md
   - name: Use a VM MSI
     items:
     - name: Acquire an access token
@@ -96,6 +100,8 @@
       href: how-to-manage-ua-identity-powershell.md
     - name: Azure Resource Manager Template
       href: how-to-manage-ua-identity-arm.md
+    - name: REST
+      href: how-to-manage-ua-identity-rest.md
 - name: Reference
   items:
   - name: CLI

@@ -68,7 +68,7 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
 	  --name myVM
     ```
 
-2. Mark the VM as generalized with [az vm generalize](/cli//azure/vm#generalize). The following example marks the the VM named *myVM* in the resource group named *myResourceGroup* as generalized:
+2. Mark the VM as generalized with [az vm generalize](/cli//azure/vm#generalize). The following example marks the VM named *myVM* in the resource group named *myResourceGroup* as generalized:
    
     ```azurecli
     az vm generalize \

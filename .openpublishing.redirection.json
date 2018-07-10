@@ -6,6 +6,51 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-licensing-ps-examples.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/licensing-ps-examples",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-self-service-signup.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-self-service-signup",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-service-limits-restrictions.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-service-limits-restrictions",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/admin-roles-best-practices.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-admin-roles-secure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/directory-delete-howto.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-delete-howto",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/domains-admin-takeover.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/domains-admin-takeover",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/groups-naming-policy.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/groups-naming-policy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/linkedin-integration.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/linkedin-integration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/directory-manage-roles-portal.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-manage-roles-portal",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-groups-dynamic-membership-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-dynamic-membership",
             "redirect_document_id": true
@@ -14,7 +59,8 @@
             "source_path": "articles/active-directory/active-directory-groups-lifecycle-azure-portal.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-lifecycle",
             "redirect_document_id": true
-        },        {
+        },
+        {
             "source_path": "articles/active-directory/active-directory-licensing-directory-independence.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/licensing-directory-independence",
             "redirect_document_id": true
@@ -47,6 +93,8 @@
         {
             "source_path": "articles/active-directory/active-directory-licensing-product-and-service-plan-reference.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/licensing-service-plan-reference",
+        },
+        {
             "source_path": "articles/active-directory/active-directory-accessmanagement-groups-settings-cmdlets.md",
             "redirect_url": "/azure/active-directory/users-groups-roles/groups-settings-cmdlets",
             "redirect_document_id": true
@@ -11457,6 +11505,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-network/virtual-network-routes-troubleshoot-portal.md",
             "redirect_url": "/azure/virtual-network/diagnose-network-routing-problem",
             "redirect_document_id": false
@@ -21189,12 +21242,12 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-add-manage-domain-names.md",
-            "redirect_url": "/azure/active-directory/active-directory-domains-manage-azure-portal",
+            "redirect_url": "/azure/active-directory/users-groups-roles/domains-manage",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-add-domain-concepts.md",
-            "redirect_url": "/azure/active-directory/active-directory-domains-manage-azure-portal",
+            "redirect_url": "/azure/active-directory/users-groups-roles/domains-manage",
             "redirect_document_id": false
         },
         {
@@ -24348,6 +24401,81 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/security/blueprints/financial-services-regulated-workloads.md",
+            "redirect_url": "/azure/security/blueprints/ffiec-paaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/payment-processing-blueprint.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirements-overview.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-1-firewall.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-2-password.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-3-chd.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-4-encryption.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-5-malware.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-6-secure-system.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-7-access.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-8-identity.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-9-physical-access.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-10-monitoring.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-11-testing.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-12-policy.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md",
             "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
             "redirect_document_id": false
@@ -24399,7 +24527,7 @@
         },
         {
             "source_path": "articles/cognitive-services/QnAMaker/Home.md",
-            "redirect_url": "/azure/cognitive-services/QnAMaker/Overview/overview",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/index",
             "redirect_document_id": false
         },
         {
@@ -25051,6 +25179,16 @@
             "source_path": "articles/iot-suite/securing-iot-ground-up.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-deploy.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-device-simulation-deploy",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-explore.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-device-simulation-deploy",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
@@ -25897,7 +26035,7 @@
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app",
             "redirect_document_id": true
         },
-        {        
+        {
             "source_path": "articles/cloud-shell/features-powershell.md",
             "redirect_url": "/azure/cloud-shell/features",
             "redirect_document_id": false
@@ -25906,6 +26044,21 @@
             "source_path": "articles/cloud-shell/persisting-shell-storage-powershell.md",
             "redirect_url": "/azure/cloud-shell/persisting-shell-storage",
             "redirect_document_id": false
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/Create-new-app.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-start-new-app",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/Label-Suggested-Utterances.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endoint-utt",
+        "redirect_document_id": true
         }
     ]
 }
