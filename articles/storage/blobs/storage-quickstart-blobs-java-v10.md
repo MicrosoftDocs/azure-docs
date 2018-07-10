@@ -20,7 +20,7 @@ In this quickstart, you learn how to use the new Java Storage SDK to upload, dow
 
 Install and configure these applications:
 
-* [Maven](http://maven.apache.org/download.cgi) to work from the command line, or any Java integrated development environment that you prefer.
+* [Maven](http://maven.apache.org/download.cgi) to work from the command line, or any Java-integrated development environment that you prefer.
 * [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -44,7 +44,7 @@ After the project finishes importing, open **Quickstart.java**, located in **src
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## Configure your storage connection string
-This solution requires your storage account name and key to be securely stored in environment variables local to the machine that runs the sample. Follow either the Linux or the Windows example, depending on your operating system, to create the environment variables.
+This solution requires that you securely store the name and key of your storage account. Store them in environment variables local to the machine that runs the sample. Follow either the Linux or the Windows example, depending on your operating system, to create the environment variables.
 
 ### Linux example
 
@@ -62,7 +62,7 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 
 ## Run the sample
 
-This sample creates a test file in your default directory, **AppData\Local\Temp** for Windows users. Then it prompts you to do the following:
+This sample creates a test file in your default directory, **AppData\Local\Temp** for Windows users. Then it prompts you to take the following steps:
 
 1. Enter commands to upload the test file to Azure Blob Storage.
 2. List the blobs in the container.
@@ -70,7 +70,7 @@ This sample creates a test file in your default directory, **AppData\Local\Temp*
 
 If you want to run the sample using Maven at the command line, open a shell and navigate to **storage-blobs-java-v10-quickstart** inside your cloned directory. Then enter `mvn compile exec:java`.
 
-The following is an example of output if you run the application on Windows.
+This example shows your output if you run the application on Windows.
 
 ```
 Created quickstart container
@@ -97,7 +97,7 @@ E
 Cleaning up the sample and exiting!
 ```
 
-You control the sample, so enter commands to have it run the code. Be aware that inputs are case sensitive.
+You control the sample, so enter commands to have it run the code. Inputs are case sensitive.
 
 You can also use a tool like the [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to view the files in Blob Storage. Azure Storage Explorer is a free cross-platform tool that gives you access to your storage account information. 
 
@@ -114,7 +114,7 @@ First, you'll create the references to the objects that are used to access and m
 1. Create an instance of the **StorageURL** object that points to the storage account.
 
     * The [StorageURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-preview) object is a representation of your storage account. You'll use it to generate a new pipeline. 
-    * A pipeline is a set of policies that are used to manipulate requests and responses with authorization, logging, and retry mechanisms. See [HTTP Pipeline](https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview#url-types--http-pipeline).  
+    * A pipeline is a set of policies that is used to manipulate requests and responses with authorization, logging, and retry mechanisms. See [HTTP Pipeline](https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview#url-types--http-pipeline).  
     * By using the pipeline, create an instance of the [ServiceURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-preview) object.
     * By using the **ServiceURL** object, create an instance of the [ContainerURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview).
     * The **ContainerURL** is necessary to run operations on blob containers.
@@ -128,13 +128,13 @@ First, you'll create the references to the objects that are used to access and m
 3. Create an instance of the **BlobURL** object that points to the specific blob you're interested in. 
 
 > [!IMPORTANT]
-> Container names must be lowercase. See [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) for more information about container and blob names.
+> Container names must be lowercase. For more information about container and blob names, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ### Create a container 
 
 In this section, you create an instance of the **ContainerURL**. You create a new container along with it. The container in the sample is called **quickstart**. 
 
-This example uses [containerURL.create](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview) so you can create a new container each time the sample runs. Alternatively, you can create the container ahead of time, so you don't need to create it in the code.
+This example uses [containerURL.create](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview) so you can create a new container each time the sample runs. Or you can create the container ahead of time, so you don't need to create it in the code.
 
 ```java
 // Create a ServiceURL to call the Blob service. We will also use this to construct the ContainerURL
@@ -163,13 +163,13 @@ try {
 Blob Storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used. They're used in this quickstart. 
 
 1. To upload a file to a blob, get a reference to the blob in the target container. 
-2. After you get the blob reference, you can upload a file to it by using either of the following:
+2. After you get the blob reference, you can upload a file to it by using either of the following APIs:
 
     * Low-level APIs. Examples are [Upload](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-preview), also called PutBlob, and [StageBlock](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-preview#com_microsoft_azure_storage_blob__block_blob_u_r_l_stageBlock_String_Flowable_ByteBuffer__long_LeaseAccessConditions_), also called PutBLock, in the instance of **BlockBlobURL**. 
 
     * High-level APIs provided in the [TransferManager](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-preview) class. An example is the [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview) method. 
 
-    This operation creates the blob if it doesn't already exist or else overwrites it if it does already exist.
+    This operation creates the blob if it doesn't already exist. It overwrites the blob if it already exists.
 
 The sample code creates a local file to be used for the upload and download. It stores the file to be uploaded as **sourceFile** and stores the URL of the blob in **blob**. The following example uploads the file to your container called **quickstart**.
 
