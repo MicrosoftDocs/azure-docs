@@ -39,7 +39,7 @@ First, create a stored procedure and set it up to run a logic that compares sequ
 
 2.  Enter a stored procedure id and paste the following in the “Stored Procedure body”. Note that this code should replace any existing code in the stored procedure          body. This code maintains one row per device ID and records the latest connection state of that device id by identifying the highest sequence number. 
 
-```java
+```javascript
 // SAMPLE STORED PROCEDURE
 function UpdateDevice(deviceId, moduleId, hubName, connectionState, connectionStateUpdatedTime, sequenceNumber) {
   var collection = getContext().getCollection();
@@ -232,7 +232,7 @@ Before you leave the Logic Apps Designer, copy the URL that your logic apps is l
 
 3. Save this URL so that you can refer to it in the next section. 
 
-## Publish an event from IoT Hub
+## Configure subscription for IoT Hub events
 
 In this section, you configure your IoT Hub to publish events as they occur. 
 
@@ -259,13 +259,16 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 5. Select **Create** to save the event subscription.
 
-## Create a new device
+## Observe Events
+Now that your event subscription is set up, let's test by connecting a device.
+
+### Create a new device
 
 Test your logic app by connecting a device to trigger a record in Cosmos DB. 
 
 1. From your IoT hub, select **IoT Devices**. 
 2. Select **Add**.
-3. For **Device ID**, enter `Building1_Floor1_Room1_Temperature`.
+3. For **Device ID**, enter `Building1_Floor1_Room1_Humidity`.
 4. Select **Save**. 
 5. You can add multiple devices with different device IDs to test the event subscription filters. Try these examples: 
    * Building1_Floor1_Room1_Light
@@ -275,7 +278,7 @@ Test your logic app by connecting a device to trigger a record in Cosmos DB.
 
 Once you've added a few devices to your IoT hub, check your Cosmos DB document to see the latest device connection states.
 
-### Observe events
+### Observe events in Cosmos DB
 
 You can see results of the executed stored procedure in your Cosmos DB document. Here's what it will look like. Note that each row contains latest device connection state per device
 
@@ -310,7 +313,7 @@ To remove an Azure Cosmos DB account from the Azure portal, righ-click the accou
 ## Next steps
 
 Learn more about [Reacting to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
-
+[Try the IoT Hub events tutorial]
 Learn about what else you can do with [Event Grid](overview.md).
 
 
