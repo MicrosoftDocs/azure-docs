@@ -7,6 +7,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: ramamill
+
 ---
 
 # Manage VMware vCenter servers 

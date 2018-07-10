@@ -100,7 +100,7 @@ You can also look at a sample by Sandro Pereira, BizTalk MVP, on how to [migrate
 ## Orchestrations
 If you need to migrate BizTalk Server orchestration processing to Microsoft Azure, the orchestrations would need to be rewritten because Microsoft Azure does not support running BizTalk Server orchestrations.  You could rewrite the orchestration functionality in a Windows Workflow Foundation 4.0 (WF4) service.  This would be a complete rewrite as there is currently no migration from BizTalk Server orchestrations to WF4. Here are some resources for Windows Workflow:
 
-* [*How to integrate a WCF Workflow Service with Service Bus Queues and Topics*](https://msdn.microsoft.com/library/azure/hh709041.aspx) by Paolo Salvatori. 
+* [*How to integrate a WCF Workflow Service with Service Bus Queues and Topics*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) by Paolo Salvatori. 
 * [*Building apps with Windows Workflow Foundation and Azure* session](http://go.microsoft.com/fwlink/p/?LinkId=237314) from the Build 2011 conference.
 * [*Windows Workflow Foundation Developer Center*](http://go.microsoft.com/fwlink/p/?LinkId=237315) on MSDN.
 * [*Windows Workflow Foundation 4 (WF4) documentation*](https://msdn.microsoft.com/library/dd489441.aspx) on MSDN.

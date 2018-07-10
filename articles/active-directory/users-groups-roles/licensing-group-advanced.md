@@ -141,7 +141,7 @@ You can use a PowerShell script to check if users have a license assigned direct
 
   ![Screenshot of the Get-Msolaccountsku cmdlet](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
-3. Use the *AccountSkuId* value for the license you are interested in with [this PowerShell script](./../active-directory-licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). This will produce a list of users who have this license with the information about how the license is assigned.
+3. Use the *AccountSkuId* value for the license you are interested in with [this PowerShell script](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). This will produce a list of users who have this license with the information about how the license is assigned.
 
 ## Use Audit logs to monitor group-based licensing activity
 

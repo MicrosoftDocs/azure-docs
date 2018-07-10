@@ -118,7 +118,7 @@ This takes a couple of minutes to complete.
 
 ## List images in registry
 
-To return a list of images that have been pushed to your Azure Container registry, user the [az acr repository list][az-acr-repository-list] command. Update the command with the ACR instance name.
+To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list][az-acr-repository-list] command. Update the command with the ACR instance name.
 
 ```azurecli
 az acr repository list --name <acrName> --output table

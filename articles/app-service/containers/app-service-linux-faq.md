@@ -61,7 +61,7 @@ Yes, to set up continuous integration/deployment for Azure Container Registry or
 
 Yes.
 
-**Can I use *web deploy* to deploy my web app?**
+**Can I use *WebDeploy/MSDeploy* to deploy my web app?**
 
 Yes, you need to set an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` to *false*.
 
