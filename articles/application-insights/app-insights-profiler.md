@@ -10,49 +10,33 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
 
 ---
 # Profile live Azure web apps with Application Insights
 
-*This feature of Azure Application Insights is generally available for the Web Apps feature of Azure App Service and is in preview for Azure compute resources. For information regarding [on-premises use of profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).*
+*This feature of Azure Application Insights is generally available for the Web Apps feature of Azure App Service and is in preview for Azure compute resources.*
 
 This article discusses the amount of time that's spent in each method of your live web application when you use [Application Insights](app-insights-overview.md). The Application Insights Profiler tool displays detailed profiles of live requests that were served by your app. Profiler highlights the *hot path* that uses the most time. Requests with various response times are profiled on a sampling basis. By using a variety of techniques, you can minimize the overhead that's associated with the application.
 
 Profiler currently works for ASP.NET and ASP.NET Core web apps that are running on Web Apps. The Basic service tier or higher is required to use Profiler.
 
-## <a id="installation"></a> Enable Profiler for your Web Apps web app
-If you already have the application published to a web app, but have not done anything in the source code to use Application Insights, do the following:
+## <a id="installation"></a> Enable Profiler for your Web Apps
+Once you have deployed a Web App, regardless if you included App Insights SDK in the source code, do the following:
 1. Go to the **App Services** pane in the Azure portal.
-2. Under **Monitoring**, select **Application Insights**, and then either follow the instructions on the pane to create a new resource or select an existing Application Insights resource to monitor your web app.
+2. Navigate to **Settings | Monitoring** pane.
 
-   ![Enable App Insights on App Services portal][appinsights-in-appservices]
+   ![Enable App Insights on App Services portal][./media/app-insights-profiler/AppInsights-AppServices.png]
 
-3. If you have access to your project source code, [install Application Insights](app-insights-asp-net.md).  
-   If it's already installed, make sure you have the latest version. To check for the latest version, in Solution Explorer, right-click your project, and then select **Manage NuGet packages** > **Updates** > **Update all packages**. Then, deploy your app.
+3. Either follow the instructions on the pane to create a new resource or select an existing App Insights resource to monitor your web all. Accept all default options. The **Code level diagnostics** is by default on and enables Profiler.
 
-ASP.NET Core applications require the installation of the Microsoft.ApplicationInsights.AspNetCore NuGet package 2.1.0-beta6 or later to work with Profiler. As of June 27, 2017, earlier versions are not supported.
+   ![Add App Insights site extension][Enablement UI]
 
-1. In [the Azure portal](https://portal.azure.com), open the Application Insights resource for your web app. 
-2. Select **Performance** > **Enable Application Insights Profiler**.
+4. Profiler is now installed with the App Insights site extension, and is enabled using an App Services App Setting.
 
-   ![Select the Enable profiler banner][enable-profiler-banner]
-
-3. Alternatively, you can select the **Profiler** configuration to view the status and enable or disable Profiler.
-
-   ![Select Profiler configuration][performance-blade]
-
-   Web apps that are configured with Application Insights are listed in the **Profiler** configuration pane. If you followed the preceding steps, the Profiler agent should be installed. 
-
-4. In the **Profiler** configuration pane, select **Enable Profiler**.
-
-5. If necessary, follow the instructions to install the Profiler agent. If no web apps have been configured with Application Insights, select **Add Linked Apps**.
-
-   ![Configure pane options][linked app services]
-
-Unlike web apps that are hosted through Web Apps plans, applications that are hosted in Azure compute resources (for example, Azure Virtual Machines, virtual machine scale sets, Azure Service Fabric, or Azure Cloud Services) are not directly managed by Azure. In this case, there's no web app to link to. Instead of linking to an app, select the **Enable Profiler** button.
+    ![App Setting for Profiler][profiler-app-setting]
 
 ### Enable Profiler for Azure compute resources (preview)
 
@@ -221,100 +205,87 @@ When you configure Profiler, updates are made to the web app's settings. You can
 9. Restart the web app.
 
 ## <a id="profileondemand"></a> Manually trigger Profiler
-When we developed Profiler, we added a command-line interface so that we could test Profiler on app services. By using this same interface, users can also customize how Profiler starts. At a high level, Profiler uses the Web Apps Kudu System to manage profiling in the background. When you install the Application Insights Extension, we create a continuous web job that hosts Profiler. We use this same technology to create a new web job that you can customize to fit your needs.
+Profiler can be triggered manually with one button click. Suppose you are running a web performance test. You will need traces to help you understand how your web app is performing under load. Having control over when traces are captured is crucial since you know when load test will be running, but the random sampling interval might miss it.
+The following steps illustrates how this scenario works:
 
-This section explains how to:
+### (Optional) Step 1: Generate traffic to your web app by starting a web performance test
+If your web app already has incoming traffic or if you just want to manually generate traffic, skip this section and proceed to Step 2.
 
-* Create a web job, which can start Profiler for two minutes with the press of a button.
-* Create a web job, which can schedule Profiler to run.
-* Set arguments for Profiler.
+Navigate to Application Insights portal, **Configure | Performance Testing**. Click on New button to start a new performance test.
+![create new performance test][create-performance-test]
+
+In the **New performance test** pane, configure the test target URL. Accept all default settings and start running the load test.
+
+![Configure load test][configure-performance-test]
+
+You will see the new test is queued first, then soon will be in progress.
+
+![load test is submitted and queued][load-test-queued]
+
+![load test is running in progress][load-test-in-progress]
 
 
-### Set up
-First, familiarize yourself with the web job's dashboard. Under **Settings**, select the **WebJobs** tab.
+### Step 2: Start profiler on-demand
+Once the load test is running, we can start profiler to capture traces on the web app while it's receiving load.
+Navigate to Configure Profiler pane:
 
-![webjobs blade](./media/app-insights-profiler/webjobs-blade.png)
+![configure profiler pane entry][configure-profiler-entry]
 
-As you can see, this dashboard displays all the web jobs that are currently installed on your site. You can see the ApplicationInsightsProfiler2 web job, which has the Profiler job running. This is where we create new web jobs for manual and scheduled profiling.
+On the **Configure Profiler pane**, there is a **Profile Now** button to trigger profiler on all instances of the linked web apps. In addition, you are provided visibility on when profiler was running in the past.
 
-To get the binaries you need, do the following:
+![Profiler on-demand][profiler-on-demand]
 
-1.	On the Kudu site, on the **Development tools** tab, select the **Advanced Tools** tab with the Kudu logo, and then select **Go**.  
-   A new site opens, and you are signed in automatically.
-2.	To download the Profiler binaries, go to File Explorer via **Debug Console** > **CMD**, which is located at the top of the page.
-3.	Select **Site** > **wwwroot** > **App_Data** > **Jobs** > **Continuous**.  
-   You should see a folder named *ApplicationInsightsProfiler2*. 
-4. At the left of the folder, select the **Download** icon.  
-   This action downloads the *ApplicationInsightsProfiler2.zip* file. We recommend that you create a clean directory to move this zip archive to.
+You will see notification and status change on the profiler run status.
 
-### Setting up the web job archive
-When you add a new web job to the Azure website, you essentially create a zip archive with a *run.cmd* file inside. The *run.cmd* file tells the web job system what to do when you run the web job.
+### Step 3: View traces
 
-1.	Create a new folder (for example, *RunProfiler2Minutes*).
-2.	Copy the files from the extracted *ApplicationInsightProfiler2* folder into this new folder.
-3.	Create a new *run.cmd* file.  
-    For convenience, you can open the working folder in Visual Studio Code before you start.
-4.	In the file, add the command `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`. The commands are described as follows:
+Once the profiler finishes running, follow the instructions on notification to go to Performance blade and view traces.
 
-    * `start`: Tells Profiler to start.  
-    * `--engine-mode immediate`: Tells Profiler to begin profiling immediately.  
-    * `--single`: Tells Profiler to run and then stop automatically.  
-    * `--immediate-profiling-duration 120`: Tells Profiler to run for 120 seconds, or 2 minutes.
+### Troubleshooting on-demand profiler
+Sometimes you might see Profiler timeout error message after an on-demand session:
 
-5.	Save your changes.
-6.	Archive the folder by right-clicking it and then selecting **Send to** > **Compressed (zipped) folder**.  
-   This action creates a .zip file that uses the name of your folder.
+![Profiler timeout error][profiler-timeout]
 
-![Start Profiler command](./media/app-insights-profiler/start-profiler-command.png)
+There could be two reasons why you see this error:
+* On-demand profiler session was actually successful, but App Insights took a longer time to process data collected. If data did not finish being processed in 15 minutes, the portal will display timeout message. Though after a while, Profiler traces will show up. If this happens, please just ignore the error message for now. We are actively working on a fix
 
-You have now created a web job .zip file, which you can use to set up web jobs in your site.
+* Your web app has an older version of Profiler agent that does not have on-demand feature. If you enabled Application Insights Profiler a while ago, chances are you need to update your Profiler agent to start using on-demand capability. Follow these steps to check and install latest Profiler:
 
-### Add a new web job
-In this section, you add a new web job on your site. The following example shows how to add a manually triggered web job. After you've added the manually triggered web job, the process is nearly the same for a scheduled web job.
+1. Go to App Services App Settings and check if the following settings are set:
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for application insights.
+    * **APPINSIGHTS_PORTALINFO**: ASP.NET
+    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
+If any of these settings are not set, go to Application Insights enablement blade to install the latest site extension. That way the latest profiler agent and settings above will be properly configured.
 
-1.	Go to the **Web jobs** dashboard.
-2.	On the toolbar, select **Add**.
-3.	Give your web job a name.  
-    For clarity, it can help to match the name of your archive and to open it up for a variety of versions of the *run.cmd* file.
-4.	In the **File upload** area of the form, select the **Open file** icon, and then search for the .zip file that you created in the preceding section.
+2. Go to Application Insights blade in App Services portal.
 
-    a.	In the **Type** box, select **Triggered**.  
-    b.  In the **Triggers** box, select **Manual**.
+    ![Enable Application Insights from App Services portal][enable-app-insights]
 
-5.	Select **OK**.
+3. If you see ‘Update’ button in the following page, click it to update Application Insights site extension which will install the latest Profiler agent.
+![Update site extension][update-site-extension]
 
-![Start Profiler command](./media/app-insights-profiler/create-webjob.png)
+4. Then click ‘change’ to making sure the Profiler is turned on and use OK to save the changes.
 
-### Run Profiler
+    ![Change and save app insights][change-and-save-appinsights]
 
-Now that you have a new web job that you can trigger manually, you can try to run it by following the instructions in this section.
+5. Go back to ‘App Settings’ tab for the App Service to double check the following app settings items are set:
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for application insights.
+    * **APPINSIGHTS_PORTALINFO**: ASP.NET
+    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-By design, you can have only one *ApplicationInsightsProfiler.exe* process running on a machine at any given time. So, before you begin, disable the *Continuous* web job from this dashboard. 
-1. Select the row with the new web job, and then select **Stop**. 
-2. On the toolbar, select **Refresh**, and confirm that the status indicates that the job is stopped.
-3. Select the row with the new web job, and then select **Run**.
-4. With the row still selected, on the toolbar, select the **Logs** command.  
-    This action opens a web jobs dashboard for the new web job, and it lists the most recent runs and their results.
-5. Select the instance of the run you've just started.  
-    If you've successfully triggered the new web job, you can view some diagnostic logs coming from Profiler that confirm that the profiling has started.
+    ![app settings for profiler][app-settings-for-profiler]
 
-### Things to consider
+6. Optionally, check the extension version and making sure there’s no update available.
 
-Though this method is relatively straightforward, consider the following:
-
-* Because your web job is not managed by our service, we have no way to update the agent binaries for your web job. We do not currently have a stable download page for our binaries, so the only way to get the latest binaries is by updating your extension and grabbing it from the *Continuous* folder as you did in the previous steps.
-
-* Because this process utilizes command-line arguments that were originally designed for developers rather than end-users, the arguments might change in the future. Be aware of possible changes when you upgrade. It shouldn't be much of a problem, because you can add a web job, run it, and test to ensure that it works. Eventually, we will build a UI to handle this without the manual process.
-
-* The Web Jobs feature of Web Apps is unique. When it runs the web job, it ensures that your process has the same environment variables and app settings that your website will have. This means that you do not need to pass the instrumentation key through the command line to Profiler. Profiler should pick up the instrumentation key from the environment. However, if you want to run Profiler on your dev box or on a machine outside of Web Apps, you need to supply an instrumentation key. You can do so by passing an argument, `--ikey <instrumentation-key>`. This value must match the instrumentation key that your application is using. The log output from Profiler tells you which ikey Profiler started with and whether we detected activity from that instrumentation key while we were profiling.
-
-* Manually triggered web jobs can be triggered via Web Hook. You can get this URL by right-clicking the web job on the dashboard and viewing the properties. Or, in the toolbar, you can select **Properties** after you select the web job in the table. This approach opens up endless possibilities, such as triggering Profiler from your CI/CD pipeline (like VSTS) or something like Microsoft Flow (https://flow.microsoft.com/en-us/). Ultimately, your choice depends on how complex you want to make your *run.cmd* file (which can also be a *run.ps1* file), but the flexibility is there.
+    ![check for extension update][check-for-extension-update]
 
 ## Next steps
 
 * [Working with Application Insights in Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
 [appinsights-in-appservices]:./media/app-insights-profiler/AppInsights-AppServices.png
+[Enablement UI]: ./media/app-insights-profiler/Enablement_UI.png
+[profiler-app-setting]:./media/app-insights-profiler/profiler-app-setting.png
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
 [performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png
@@ -325,3 +296,15 @@ Though this method is relatively straightforward, consider the following:
 [enable-profiler-banner]: ./media/app-insights-profiler/enable-profiler-banner.png
 [disable-profiler-webjob]: ./media/app-insights-profiler/disable-profiler-webjob.png
 [linked app services]: ./media/app-insights-profiler/linked-app-services.png
+[create-performance-test]: ./media/app-insights-profiler/new-performance-test.png
+[configure-performance-test]: ./media/app-insights-profiler/configure-performance-test.png
+[load-test-queued]: ./media/app-insights-profiler/load-test-queued.png
+[load-test-in-progress]: ./media/app-insights-profiler/load-test-inprogress.png
+[profiler-on-demand]: ./media/app-insights-profiler/Profiler-on-demand.png
+[configure-profiler-entry]: ./media/app-insights-profiler/configure-profiler-entry.png
+[enable-app-insights]: ./media/app-insights-profiler/enable-app-insights-blade.png
+[update-site-extension]: ./media/app-insights-profiler/update-site-extension.png
+[change-and-save-appinsights]: ./media/app-insights-profiler/change-and-save-appinsights.png
+[app-settings-for-profiler]: ./media/app-insights-profiler/appsettings-for-profiler.png
+[check-for-extension-update]: ./media/app-insights-profiler/check-extension-update.png
+[profiler-timeout]: ./media/app-insights-profiler/profiler-timeout.png
