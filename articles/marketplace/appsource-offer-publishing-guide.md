@@ -18,7 +18,7 @@ ms.author: ellacroi
 
 ---
 
-# AppSource Offer Publishing Guide
+# Office 365, Dynamics 365, Power Apps and Power BI Offer Publishing Guide
 
 The AppSource storefront includes offers that build on or extend Dynamics 365, Office 365, Power BI, and Power Apps. Each of these products have specific documentation to guide you in the publishing process. See below for links to more detail for each offer type. 
 
@@ -28,22 +28,22 @@ AppSource has list and trial offers, with the call to action "Contact Me" or "Tr
 
 ### Office 365
 
-Review the [publishing process and guidelines]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).
+Review the [publishing process and guidelines]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store)
 
 ### Power Apps
 
-Learn about how customers can[ test drive your app on AppSource.] (https://powerapps.microsoft.com/en-us/blog/appsource-test-drive/)
+Learn about how customers can [test drive your app on AppSource.](https://powerapps.microsoft.com/en-us/blog/appsource-test-drive/)
 
 ### Power BI
 
-Review the [publishing process and guidelines.]( https://docs.microsoft.com/en-us/power-bi/developer/office-store)
+Review the [publishing process and guidelines.](https://docs.microsoft.com/en-us/power-bi/developer/office-store)
 
 ### Dynamics 365
 
 #### Dynamics 365 for Finance and Operations
 When building for Enterprise Edition, review the [publishing process and guidelines]. (https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
-##E# Dynamics 365 for Customer Engagement
+### Dynamics 365 for Customer Engagement
 Review the [publishing process and guidelines] (https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource)
 
 ## Next Steps
