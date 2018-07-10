@@ -130,7 +130,7 @@ Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 
 #### Enabling Write Accelerator on an existing Azure disk using PowerShell
 
-You can use this script to enable Write Accelerator on an existing disk. Replace `myVM`, `myWAVMs`, and `test-log001` with values appropriate for your specific deployment. The script adds Write Accelerator to an existing disk where the value for $newstatus is set to '$true'. Using the value '$false' will disable Write Accelerator on a given disk.
+You can use this script to enable Write Accelerator on an existing disk. Replace `myVM`, `myWAVMs`, and `test-log001` with values appropriate for your specific deployment. The script adds Write Accelerator to an existing disk where the value for **$newstatus** is set to '$true'. Using the value '$false' will disable Write Accelerator on a given disk.
 
 ```PowerShell
 #Specify your VM Name
