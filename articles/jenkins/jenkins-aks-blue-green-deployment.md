@@ -34,7 +34,7 @@ In this tutorial, you learn how to perform the following tasks in learning how t
 
 ## Clone the sample app from GitHub
 
-A sample app that illustrates how to use deploy to AKS using Jenkins and the blue/green pattern is on the Microsoft repo in GitHub. In this section, you create a fork of that repo in your GitHub, and clone the app to your local system.
+A sample app that illustrates how to deploy to AKS using Jenkins and the blue/green pattern is on the Microsoft repo in GitHub. In this section, you create a fork of that repo in your GitHub, and clone the app to your local system.
 
 1. Browse to the GitHub repo for the [todo-app-java-on-azure](https://github.com/microsoft/todo-app-java-on-azure.git) sample app.
 
@@ -106,11 +106,11 @@ In order to create a managed Kubernetes cluster with [Azure CLI 2.0](https://doc
 
 1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/), which is a command line interface for running commands against Kubernetes clusters. 
 
-1. Install [jq](https://stedolan.github.io/jq/download/), which is a lightweight command-line JSON processor.
+1. Install [jq](https://stedolan.github.io/jq/download/), which is a lightweight command line JSON processor.
 
 ### Set up the Kubernetes cluster
 
-Setting up a blue/green deployment in AKS can be done either with a setup script or manually. In this section, you see how to do both.
+Setting up a blue/green deployment in AKS can be done either with a setup script provided in the sample you cloned earlier or manually. In this section, you see how to do both.
 
 #### Run the setup script
 1. The **todo-app-java-on-azure** repo you cloned earlier contains a setup script named **setup.sh** that resides in the **/deploy/aks/setup** directory. Edit the **setup.sh** file, replacing the **<your-resource-group-name>**, **<your-kubernetes-cluster-name>**, **<your-location>**, and **<your-dns-name-suffix>** placeholders with the appropriate values for your environment.
@@ -247,7 +247,7 @@ Setting up a blue/green deployment in AKS can be done either with a setup script
 ## Run it
 1. Verify you can run your project successfully in your local environment. ([Run project on local machine](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it))
 
-1. Run jenkins job. If you run this for the first time, Jenkins will deploy the todo app to the Blue environment which is the default inactive environment. 
+1. Run the Jenkins job. When running the Jenkins job the first time, Jenkins will deploy the todo app to the Blue environment, which is the default inactive environment. 
 
 1. To verify, open the urls:
     - Public end point: `http://aks-todoapp<your-dns-name-suffix>.<your-location>.cloudapp.azure.com`
@@ -264,10 +264,15 @@ For more on zero-downtime deployment, check out this [quickstart template](https
 
 ## Clean up resources
 
-Delete the Azure resources you just created by running below command:
+Delete the Azure resources you created in this tutorial.
 
 ```bash
 az group delete -y --no-wait -n <your-resource-group-name>
 ```
 
 ## Next steps
+
+In this tutorial, you learned how to deploy to Azure Kubernetes Service (AKS) using Jenkins and blue/green deployment pattern. To learn more about the Azure Jenkins provider, see the Jenkins on Azure site.
+
+> [!div class="nextstepaction"]
+> [Jenkins on Azure](/azure/jenkins/)
