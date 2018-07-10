@@ -1,6 +1,6 @@
 ---
 title: Search semi-structured data in Azure cloud storage
-description: Searching semi-structured blob data using Azure Search.
+description: In this tutorial, learn how to search semi-structured Azure blob data using Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -10,7 +10,7 @@ ms.date: 07/12/2018
 ms.author: heidist
 ---
 
-# Tutorial: Search semi-structured data in cloud storage
+# Tutorial: Search semi-structured data in Azure cloud storage
 
 In a two-part tutorial series, you learn how to search semi-structured and unstructured data using Azure search. [Part 1](../storage/blobs/storage-unstructured-search.md) walked you through search over unstructured data, but also included important prerequisites for this tutorial, like creating the storage account. 
 
@@ -23,14 +23,16 @@ In Part 2, learn how to:
 > * Create and populate an Azure Search index and indexer to crawl the container and extract searchable content
 > * Search the index you just created
 
-> [!NOTE]
-> This tutorial relies on JSON array support, which is currently a preview feature in Azure Search. It is not available in the portal. For this reason, we're using the preview REST API, which provides this feature, and a REST client tool to call the API.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 * Completion of the [previous tutorial](../storage/blobs/storage-unstructured-search.md) providing the storage account and search service created in the previous tutorial.
 
 * Installation of a REST client and an understanding of how to construct an HTTP request. For the purposes of this tutorial, we are using [Postman](https://www.getpostman.com/). Feel free to use a different REST client if you're already comfortable with a particular one.
+
+> [!NOTE]
+> This tutorial relies on JSON array support, which is currently a preview feature in Azure Search. It is not available in the portal. For this reason, we're using the preview REST API, which provides this feature, and a REST client tool to call the API.
 
 ## Set up Postman
 
@@ -278,13 +280,7 @@ The fastest way to clean up after a tutorial is by deleting the resource group c
 
 ## Next steps
 
-In this tutorial, you learned about searching semi-structured data using Azure search, such as how to:
-
-> [!div class="checklist"]
-> * Create an Azure Search Service using the REST API
-> * Use the Azure Search Service to search your container
-
-Follow this link to learn more about search.
+You can attach AI-powered algorithms to an indexer pipeline. As a next step, continue on with the following tutorial.
 
 > [!div class="nextstepaction"]
 > [Indexing Documents in Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)

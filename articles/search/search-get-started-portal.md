@@ -1,6 +1,6 @@
 ---
 title: Azure Search tutorial on indexing, query, and filtering using the portal | Microsoft Docs
-description: In the Azure portal, use predefined sample data to generate an index in Azure Search. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
+description: In this tutorial, use the Azure portal and predefined sample data to generate an index in Azure Search. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -11,16 +11,16 @@ ms.date: 07/10/2018
 ms.author: heidist
 
 ---
-# Tutorial: Built-in tools for Azure Search indexing and queries
+# Tutorial: Use built-in tools for Azure Search indexing and queries
 
-In the Azure portal, you can use built-in tools for prototyping Azure Search solutions and hands on learning with minimal ramp up. While portal tools do not offer full parity with .NET and REST APIs, for quick proof-of-concept  testing, wizards and editors offer an easy assist. This code-free introduction gets you started with a small published data set so that you can write interesting queries right away. 
+In the Azure portal, you can use built-in tools for Azure Search concept testing and hands on experience with minimal ramp up. While portal tools do not offer full parity with .NET and REST APIs, for quick proof-of-concept  testing, wizards and editors offer an easy assist. This code-free introduction gets you started with a small published data set so that you can write interesting queries right away. 
 
 > [!div class="checklist"]
-> * Start with published sample data and auto-generate an Azure Search index using the **Import data** wizard. 
+> * Start with public sample data and auto-generate an Azure Search index using the **Import data** wizard. 
 > * Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
 > * View schema and index attributes for any index published to Azure Search.
 
-Portal tools do not include preview features or support the full range of Azure Search capabilities. If the tools are too limiting, consider a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md) or [web testing tools for HTTP and REST API calls](search-fiddler.md).
+Portal tools do not include preview features or support the full range of Azure Search capabilities. If the tools are too limiting, consider a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md) or [web testing tools for making REST API calls](search-fiddler.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. You could also watch a 6-minute demonstration of the steps in this tutorial, starting at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
 
@@ -46,7 +46,7 @@ Many customers start with the free service. This version is limited to three ind
 ## <a name="create-index"></a> Create an index and load data
 Search queries iterate over an [*index*](search-what-is-an-index.md) containing searchable data, metadata, and constructs used for optimizing certain search behaviors.
 
-To keep this task portal-based, we use a built-in sample dataset that can be crawled using an [*indexer*](search-indexer-overview.md) via the **Import data** wizard. 
+To keep this task portal-based, we use a built-in sample dataset that can be crawled using an [*indexer*](search-indexer-overview.md) via the **Import data** wizard. An indexer is a source-specific crawler that can read metadata and content from supported Azure data sources. In code, you can create and manage indexers as independent resources. In the portal indexers are exposed through the **Import data** wizard. 
 
 #### Step 1: Start the Import data wizard
 1. On your Azure Search service dashboard, click **Import data** in the command bar to start a wizard that both creates and populates an index.
@@ -86,8 +86,20 @@ To monitor data import, go back to the service dashboard, scroll down, and doubl
 
    ![Indexer progress message][4]
 
+## View the index
+
+Tiles in the service dashboard provide both summary information as well as access to detailed information. For example, in the **Indexes** tile, you should see the *realestate-us-sample* index that you just creatd.
+
+Click the index now to view the portal options for index definition. An **Add/Edit Fields** option allows you to create and fully attribute new fields. Existing fields are already persisted in Azure Search and are thus non-modifiable, not even in code. To change an existing field, create a new one and the drop the original. 
+
+   ![sample index definition][10]
+
+Other constructs, such as scoring profiles and CORS options, can be added at any time. 
+
+To clearly understand what you can and cannot edit during index design, take a minute to view index definition options. Grayed-out options are an indicator that a value cannot be modified or deleted.
+
 ## <a name="query-index"></a> Query the index
-You now have a search index that's ready to query. [**Search explorer**](search-explorer.md) is a query tool built into the portal. It provides a search box so that you can verify whether search results are what you expect. 
+Moving forward, you should now have a search index that's ready to query using the built-in [**Search explorer**](search-explorer.md). It provides a search box so that you can verify whether search results are what you expect. 
 
 > [!TIP]
 > In the [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138), the following steps are demonstrated at 6m08s into the video.
@@ -198,9 +210,9 @@ Geospatial search is supported through the [edm.GeographyPoint data type](https:
 
 ## Takeaways
 
-This tutorial demonstrates the basic steps for using the Import data wizard and Search explorer in the Azure portal.
+This tutorial demonstrates the basic steps for using the **Import data** wizard and **Search explorer** in the Azure portal.
 
-As the driving force behind the Import data wizard, you learned about [indexers](search-indexer-overview.md), as well as the basic workflow for index design, including which modifications can be made on an index already published to Azure Search. 
+As the driving force behind the Import data wizard, you learned about [indexers](search-indexer-overview.md), as well as the basic workflow for index design, including [supported modifications to a published index](ttps://docs.microsoft.com/rest/api/searchservice/update-index). 
 
 You learned query syntax through hands-on examples demonstrating key capabilities such as filters, hit highlighting, fuzzy search, and geo-search.
 
@@ -212,12 +224,10 @@ The fastest way to clean up after a tutorial is by deleting the resource group c
 
 ## Next steps
 
-Modify any of the objects you just created. After you run the wizard once, you can go back and view or modify individual components: index, indexer, or data source. Some edits, such as the changing the field data type, are not allowed on fields already published to an index, but other properties and settings are modifiable, especially on new fields added to the index.
-
-To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles on your dashboard to display a list of existing objects. To learn more about index edits that do not require a rebuild, see [Update Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/update-index).
+For additional tools-based exploration of Azure Search, consider using a REST testing tool such as Postman or Fiddler:
 
 > [!div class="nextstepaction"]
-> [Web testing tools for calling the REST API](search-fiddler.md)
+> [Web testing tools for calling the Azure Search REST APIs](search-fiddler.md)
 
 
 <!--Image references-->
@@ -230,3 +240,4 @@ To view individual components, click the **Index**, **Indexer**, or **Data Sourc
 [7]: ./media/search-get-started-portal/search-explorer-query2.png
 [8]: ./media/search-get-started-portal/realestate-indexer2.png
 [9]: ./media/search-get-started-portal/import-datasource-sample2.png
+[10]: ./media/search-get-started-portal/sample-index-def.png

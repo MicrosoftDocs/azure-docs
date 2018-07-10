@@ -1,6 +1,6 @@
 ---
 title: Synonyms C# tutorial in Azure Search | Microsoft Docs
-description: Add the synonyms feature to an index in Azure Search.
+description: In this tutorial, add the synonyms feature to an index in Azure Search.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
 ---
-# Tutorial: Synonyms for Azure Search in C#
+# Tutorial: Add synonyms for Azure Search in C#
 
 Synonyms expand a query by matching on terms considered semantically equivalent to the input term. For example, you might want "car" to match documents containing the terms "automobile" or "vehicle". 
 
