@@ -39,11 +39,11 @@ When you need to take on a role, you can request activation by selecting the **M
 4. Select **Activate**. The **Request role activation** blade appears.
 5. Some roles require Multi-Factor Authentication (MFA) before you can activate the role. You only have to authenticate once per session.
    
-    ![Verify with MFA before role activation - screenshot][2]
+    ![Verify with MFA before role activation - screenshot](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png)
 6. Enter the reason for the activation request in the text field.  Some roles require you to supply a trouble ticket number.
 7. Select **OK**.  If the role does not require approval, it is now activated, and the role appears in the list of active roles (directly below the list of eligible role assignments). If the [role requires approval](./privileged-identity-management/azure-ad-pim-approval-workflow.md) to activate, a toast notification will briefly appear in the upper right-hand corner of your browser informing you the request is pending approval.
 
-    ![Request pending notification - screenshot][3]
+    ![Request pending notification - screenshot](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Toast2.png)
 
 ## Deactivate a role
 Once a role has been activated, it automatically deactivates when its time limit (eligible duration) is reached.
@@ -59,16 +59,9 @@ In the event you do not require activation of a role that requires approval, you
 4. Select the **Activation is pending approval** banner on the role activation details blade.
 5. Select **Cancel** at the top of the **Pending approval** blade.
 
-   ![Cancel pending request screenshot][4]
+   ![Cancel pending request screenshot](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png)
 
 ## Next steps
 If you're interested in learning more about Azure AD Privileged Identity Management, the following links have more information.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png
-[3]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Toast2.png
-[4]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png
