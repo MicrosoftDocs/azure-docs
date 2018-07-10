@@ -366,8 +366,6 @@ items:
           href: tutorial-query-table.md
         - name: 4 - Distribute globally
           href: tutorial-global-distribution-table.md
-        - name: 5 - Serverless app - Node.js
-          href: https://docs.microsoft.com/learn/build-serverless-app/index 
       - name: Samples
         items:
         - name: .NET
