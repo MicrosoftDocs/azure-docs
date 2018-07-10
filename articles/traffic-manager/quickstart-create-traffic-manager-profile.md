@@ -19,9 +19,7 @@ ms.author: kumud
 
 # Quickstart: Create a Traffic Manager profile for high availability of a web application
 
- Azure Traffic Manager allows you to control the distribution of user traffic across the different Azure regions. Depending on your organization's requirement, a Traffic Manager profile can be used to direct traffic based on endpoint [priority](traffic-manager-routing-methods.md#priority), [performance](traffic-manager-routing-methods.md#performance), [weight](traffic-manager-routing-methods.md#weighted), or, [geographic location](traffic-manager-routing-methods.md#geographic). 
-
-This quickstart describes how to create a Traffic Manager profile that delivers high availability of your web application by monitoring your endpoints and providing automatic failover when an endpoint goes down. The scenario described in this quickstart includes two Azure App Service endpoints that are located in separate Azure regions. All traffic is routed to the primary endpoint while the secondary endpoint is kept as a backup. When the primary endpoint is unavailable, traffic is automatically routed to the secondary endpoint.
+ Azure Traffic Manager allows you to control the distribution of user traffic across the different Azure regions. This quickstart describes how to create a Traffic Manager profile that delivers high availability of your web application. Traffic Manager accomplishes this by monitoring your endpoints and providing automatic failover when an endpoint goes down. All traffic is routed to the primary endpoint while the secondary endpoint is kept as a backup. When the primary endpoint is unavailable, traffic is automatically routed to the secondary endpoint.
 
 ## Pre-requisites
 This quickstart requires that you have already created two Azure Web Apps in two different Azure regions. The two Web Apps are used as endpoints for the Traffic Manager profile. To learn how to create an Azure Web App, use one of the quickstart guides in the [Azure Web Apps documentation page](https://docs.microsoft.com/azure/app-service/). 
