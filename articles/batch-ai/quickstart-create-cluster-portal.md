@@ -12,7 +12,7 @@ ms.custom:
 ms.service: batch-ai
 ms.workload:
 ms.tgt_pltfrm: na
-ms.devlang: CLI
+ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: danlep
@@ -44,7 +44,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a Batch AI workspace
 
-First, create a Batch AI workspace to organize your Batch AI resources. A workspace can contain one or more clusters.
+Start by creating a Batch AI workspace to organize your Batch AI resources. A workspace can contain one or more clusters or other Batch AI resources.
 
 1. Select **All services** and filter for **Batch AI**.
 
@@ -54,23 +54,29 @@ First, create a Batch AI workspace to organize your Batch AI resources. A worksp
 
   ![Create Batch AI workspace](./media/quickstart-create-cluster-portal/create-workspace.png)
 
-When the **Deployment succeeded** message appears, go the resource you created and select the workspace. 
+When the **Deployment succeeded** message appears, go the resource you created and select the workspace.
 
 ## Create a file server
 
+A Batch AI file server is a single-node NFS, which can be automatically mounted on cluster nodes. It is one of several ways you can choose to provide storage for input data and output from your training jobs.
+
 1. In the workspace, select **File server** > **Add batch ai file server**.
 
-2. Enter values for **File server name** and **VM size**. For this quickstart, a VM size of *Standard D1_v2* is suggested. Choose a different size if you will need to store larger amounts of input or output data for training jobs.
+2. Enter values for **File server name** and **VM size**. For this quickstart, a VM size of *Standard D1_v2* is suggested for the file server. Choose a different size if you need to store larger amounts of input or output data for training jobs.
 
-3. Enter an **Admin username** and copy the contents of your SSH public key file to **SSH key**. Accept defaults for the remaining values and select **Create File Server**. 
+3. Enter an **Admin username** and copy the contents of your SSH public key file to **SSH key**. Accept defaults for the remaining values and select **Create File server**.
 
   ![Create Batch AI file server](./media/quickstart-create-cluster-portal/create-file-server.png)
 
-It takes a few minutes to deploy the file server. You can go ahead to create the cluster while Batch AI deploys the file server.
+It takes a few minutes to deploy the file server.
+
+After the server is created, click **Properties** and take note of the **Mount settings**. You can SSH to the public IP address of the server to upload and download training data and output files at the indicated directory (*/data*).
+
+![File server properties](./media/quickstart-create-cluster-portal/file-server-properties.png)
 
 ## Create a cluster
 
-The following steps create a cluster with a single GPU node. The cluster node runs a default Ubuntu Server image designed to host container-based applications, which you can use for most training workloads. The file server is mounted on the cluster node. 
+The following steps create a cluster with a single GPU node. The cluster node runs a default Ubuntu Server image designed to host container-based applications, which you can use for most training workloads. The cluster node mounts the file server at its mount point. 
 
 1. In your Batch AI workspace, select **Cluster** > **Add batch ai cluster**.
 
@@ -85,19 +91,31 @@ The following steps create a cluster with a single GPU node. The cluster node ru
 
    ![Enter basic cluster information](./media/quickstart-create-cluster-portal/create-cluster.png)
 
-4. Select **File server references** > **Add** and select the file server you created previously. Enter a **Relative mount path** where the server is mounted on each cluster node, and select **Save and continue**.
+4. Under **Mount Volumes**, select **File server references** > **Add**. Select the file server you created previously. Enter a **Relative mount path** where the file server is mounted on each cluster node. Select **Save and continue**.
 
    ![Add file server reference](./media/quickstart-create-cluster-portal/file-server-reference.png)
 
 Save the node setup and select **Create Cluster**.
 
-Batch AI creates the cluster resource immediately, but it takes a few minutes to allocate and start the node. During this time, the cluster's **Allocation state** is **Resizing**. 
+Batch AI takes a few minutes to allocate the node. During this time, the cluster's **Allocation state** is **Resizing**.
 
 ![Cluster in Resizing state](./media/quickstart-create-cluster-portal/cluster-resizing.png)
 
 After a few minutes, the state of the cluster is **Steady**, and the node starts. Select the cluster name to check the state of the node. When a node's state is **Idle**, it is ready to run training jobs.
 
-## Resize the cluster
+### List cluster nodes
+
+If you need to connect to the cluster nodes (in this case, a single node) to install applications or perform maintenance, get connection information in the portal. After the cluster is created, click **Nodes** and take note of the SSH **Connection** settings (IP address and port number).
+
+![Cluster nodews](./media/quickstart-create-cluster-portal/cluster-nodes.png)
+
+Use this information to make an SSH connection to the node. For example, substitute the correct IP address and port number of your node in the following command:
+
+```bash
+ssh myusername@137.135.82.15 -p 50000
+``` 
+
+### Resize the cluster
 
 When you use your cluster to run a training job, you might need more compute resources. For example, to increase the size to 2 nodes for a distributed training job, select **Scale** and set the **Target number of node** to 2. Save the configuration.
 
@@ -109,7 +127,7 @@ It takes a few minutes for the cluster to resize.
 
 If you want to continue with Batch AI tutorials and samples, use the Batch AI workspace, cluster, and file server created in this quickstart.
 
-You're charged for the Batch AI cluster while the nodes are running, even if no jobs are scheduled. If you want to maintain the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. Later, resize it to 1 or more nodes to run your jobs. When no longer needed, delete the Batch AI workspace containing the cluster and file server. To do so, select the Batch AI workspace and select **Delete **.
+You're charged for the Batch AI cluster and file server while the underlying virtual machines are running, even if no jobs are scheduled. If you want to maintain the cluster configuration when you have no jobs to run, resize the cluster to 0 nodes. Later, resize it to 1 or more nodes to run your jobs. When no longer needed, delete the Batch AI workspace containing the cluster and file server. To do so, select the Batch AI workspace and select **Delete **.
 
 ## Next steps
 
