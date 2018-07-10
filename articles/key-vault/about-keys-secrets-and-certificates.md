@@ -119,7 +119,7 @@ The initial Azure Key Vault release supports RSA keys only; future releases may 
 -   **RSA**: A 2048-bit RSA key. This is a "soft" key, which is processed in software by Key Vault but is stored encrypted at rest using a system key that is in an HSM. Clients may import an existing RSA key or request that Azure Key Vault generate one.  
 -   **RSA-HSM**: An RSA key that is processed in an HSM. RSA-HSM keys are protected in one of the Azure Key Vault HSM Security Worlds (there is a Security World per geography to maintain isolation). Clients may import an RSA key, either in soft form or by exporting from a compatible HSM device, or request that Azure Key Vault generate one. This key type adds the T attribute to the JWK obtain to carry the HSM key material.  
 
-     For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center/privacy/)  
+     For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
 ###  <a name="BKMK_RSAAlgorithms"></a> RSA algorithms  
  The following algorithm identifiers are supported with RSA keys in Azure Key Vault.  

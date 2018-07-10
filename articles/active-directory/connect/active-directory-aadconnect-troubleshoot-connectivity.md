@@ -172,7 +172,7 @@ Authentication was successful, but Azure AD PowerShell has an authentication pro
 Authentication was successful. You are not a global administrator.
 
 ### PrivilegedIdentityManagement
-Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. For more information, see [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
+Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
 ### CompanyInfoUnavailable
 Authentication was successful. Could not retrieve company information from Azure AD.
