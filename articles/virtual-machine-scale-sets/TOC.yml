@@ -55,10 +55,6 @@
       href: tutorial-autoscale-powershell.md
     - name: Template
       href: tutorial-autoscale-template.md
-  - name: Deploy apps to an Azure virtual machine scale set with a custom Packer image
-    items:
-    - name: Azure CLI 2.0
-      href: https://docs.microsoft.com/learn/deploy-custom-vmss-app/index
 - name: Samples
   items:
   - name: Azure CLI 2.0
