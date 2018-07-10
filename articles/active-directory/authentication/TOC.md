@@ -82,9 +82,9 @@
 #### [NPS extension errors](howto-mfa-nps-extension-errors.md)
 
 ## Certificate-based authentication
-### [Get started with certificate auth](../active-directory/active-directory-certificate-based-authentication-get-started.md)
-#### [CBA on Android Devices](../active-directory/active-directory-certificate-based-authentication-android.md)
-#### [CBA on iOS Devices](../active-directory/active-directory-certificate-based-authentication-ios.md)
+### [Get started with certificate auth](../active-directory-certificate-based-authentication-get-started.md)
+#### [CBA on Android Devices](../active-directory-certificate-based-authentication-android.md)
+#### [CBA on iOS Devices](../active-directory-certificate-based-authentication-ios.md)
 
 ## Develop
 ### [Build MFA into custom apps](howto-mfa-sdk.md)
@@ -106,7 +106,7 @@
 ## [Azure PowerShell cmdlets](/powershell/azure/overview)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
-## [Service limits and restrictions](../active-directory/active-directory-service-limits-restrictions.md)
+## [Service limits and restrictions](../users-groups-roles/directory-service-limits-restrictions.md)
 
 # Resources
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
