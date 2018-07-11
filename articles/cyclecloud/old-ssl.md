@@ -10,7 +10,9 @@ In order to use SSL you must provide a [keystore](http://en.wikipedia.org/wiki/K
 
 ## Working with Self-Generated Certificates
 
-If you don't purchase certificates from a Certificate Authority (CA) such as VeriSign, you can create your own certificates for use in the keystore file. The upside to this approach is it can get you up and running quickly with SSL with zero cost. The downside is most browsers will display a warning at least the first time you visit your CycleCloud installation, letting you know a trusted authority has not verified the certificate being used to encrypt the channel. For some cases, like internal CycleCloud deployments on secure networks, this is acceptable. Users will have to add an exception to their browser to view the site, but the contents and the
+If you don't purchase certificates from a Certificate Authority (CA) such as VeriSign, you can create your own certificates for use in the keystore file. The upside to this approach is it can get you up and running
+quickly with SSL with zero cost. The downside is most browsers will display a warning at least the first
+time you visit your CycleCloud installation, letting you know a trusted authority has not verified the certificate being used to encrypt the channel. For some cases, like internal CycleCloud deployments on secure networks, this is acceptable. Users will have to add an exception to their browser to view the site, but the contents and the
 session will otherwise be encrypted as expected.
 
 On Windows, you can use the JRE that ships with CycleCloud to create a keystore with a self-generated set of keys in it:
@@ -148,17 +150,16 @@ implementation. This default works well on all supported platforms.
 To improve performance when running on Linux platforms, CycleCloud may
 optionally be configured to use the Tomcat Native HTTPS implementation.
 
-To enable Native HTTPS on Linux, add the `webServerEnableHttps` and `webServerUseNativeHttps` attributes to your cycle_server.properties file. If your keystore uses an alias other than 1 for the certificate to use, then you must also set the certificate's alias using the `webServerKeystoreAlias`
+To enable Native HTTPS on Linux, add the `webServerEnableNativeHttps` attribute to your
+cycle_server.properties file. If your keystore uses an alias other than 1 for the certificate to use, then you
+must also set the certificate's alias using the `webServerKeystoreAlias`
 attribute.
 
 Open the cycle_server.properties file with a text editor and set the following
 values appropriately:
 
-     # Turn on HTTPS
-     webServerEnableHttps = true
-
-     # Use Native HTTPS connector
-     webServerUseNativeHttps = true
+     # Use the Native HTTPS implementation
+     webServerEnableNativeHttps = true
 
      # Specify the Keystore Alias of the key to use (if alias is not "1")
      webServerKeystoreAlias = ${key_alias}
@@ -171,21 +172,6 @@ instead of generating a Java Keystore:
      # Optionally specify the OpenSSL compatible Certificate and Key directly
      webServerSSLCertificateFile=${full_path_to}/server.crt
      webServerSSLCertificateKeyFile=${full_path_to}/server.key
-
-### Backwards compatibility for TLS 1.0 and 1.1
-
-By default, the Java and Native HTTPS connectors will be configured to use only the
-TLS 1.2 protocol. If you need to offer TLS 1.0 or 1.1 protocols for older web clients, you may
-opt-in for backwards compatibility.
-
-Open the cycle_server.properties file with a text editor, and look for the `sslEnabledProtocols`
-attribute:
-
-    sslEnabledProtocols="TLSv1.2"
-
-Change the attribute to a `+` delimited list of protocols you wish to support.
-
-    sslEnabledProtocols="TLSv1.0+TLSv1.1+TLSv1.2"
 
 ## Testing
 
