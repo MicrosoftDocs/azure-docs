@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/10/2018
 
 ms.author: mimart
 author: msmimart
@@ -31,16 +31,16 @@ To add B2B collaboration users to the directory, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. In the navigation pane, select **Azure Active Directory**.
-3. Under **Manage**, select **Users and groups** > **All users**.
+3. Under **Manage**, select **Users**.
 4. Select **New guest user**.
 
    ![Shows where New guest user is in the UI](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
-7. Under **Invite a guest**, enter the email address of the external user. Optionally, include a welcome message. For example:
+7. Under **User name**, enter the email address of the external user. Optionally, include a welcome message. For example:
 
    ![Shows where New guest user is in the UI](./media/add-users-administrator/InviteGuest.png) 
 
-8. Select **Invite** to automatically send the invitation to the guest user. In the **Notification** area, look for a **Successfully invited user** message. 
+8. Select **Invite** to automatically send the invitation to the guest user. 
  
 After you send the invitation, the user account is automatically added to the directory as a guest.
 
@@ -52,16 +52,14 @@ If you need to manually add B2B collaboration users to a group as an Azure AD ad
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. In the navigation pane, select **Azure Active Directory**.
-3. Under **Manage**, select **Users and groups** > **All groups**.
+3. Under **Manage**, select **Groups**.
 4. Select a group (or click **New group** to create a new one). It's a good idea to include in the group description that the group contains B2B guest users.
-5. Select **Members** > **Add members**. 
+5. Select **Members**. 
 6. Do one of the following:
    - If the guest user already exists in the directory, search for the B2B user. Select the user > click **Select** to add the user to the group.
-   - If the guest user does not already exist in the directory, select **Invite**.
+   - If the guest user does not already exist in the directory, invite them to the group by typing their email address in the search box, typing an optional personal message, and then clicking **Select**.
    ![Add invite button to add guest members](./media/add-users-administrator/GroupInvite.png)
    
-      Under **Invite a guest**, enter the email address, and an optional personal message > select **Invite**. Click **Select** to add the user to the group.
-
       The invitation automatically goes out to the invited user. In the **Notification** area, look for a successful **Invited user** message. 
 
 You can also use dynamic groups with Azure AD B2B collaboration. For more information, see [Dynamic groups and Azure Active Directory B2B collaboration](use-dynamic-groups.md).
@@ -84,7 +82,7 @@ To add B2B collaboration users to an application as an Azure AD administrator, f
    
       Under **Invite a guest**, enter the email address, and an optional personal message > select **Invite**. Click **Select** to add the user to the app.
 
-      The invitation automatically goes out to the invited user. In the **Notification** area, look for a successful **Invited user** message.
+      The invitation automatically goes out to the invited user. Look for a successful **Invited user** message.
 
 9. Under **Add Assignment**, click **Select Role** > select a role to apply to the selected user (if applicable) > select **OK**.
 10. Click **Assign**.
@@ -95,8 +93,7 @@ If a guest user has not yet redeemed their invitation, you can resend the invita
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. In the navigation pane, select **Azure Active Directory**.
-3. Under **Manage**, select **Users and groups**.
-4. Select **All users**.
+3. Under **Manage**, select **Users**.
 5. Select the user account.
 6. Under **Manage**, select **Profile**.
 7. If the user has not yet accepted the invitation, a **Resend invitation** option is available. Select this button to resend.
