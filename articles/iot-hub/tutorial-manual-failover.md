@@ -86,7 +86,7 @@ In this tutorial, you perform the following tasks:
 
     * After it's finished, the primary and secondary regions on the Manual Failover page will be flipped and the hub will be active again. In this example, the primary location is now `WestCentralUS` and the seconday location is now `westus2`. 
 
-   [!Screenshot showing failover is complete](./media/tutorial-manual-failover/trigger-failover-06-completed.png)
+   [!Screenshot showing failover is complete](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
 ## Trigger a failback 
 
