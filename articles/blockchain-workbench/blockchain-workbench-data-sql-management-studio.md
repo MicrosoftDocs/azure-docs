@@ -18,7 +18,7 @@ write and test queries against Azure Blockhain Workbench's SQL DB. This section 
 
 ## Prerequisites
 
-* Download [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+* Download [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
 ## Connecting SQL Server Management Studio to data in Azure Blockchain Workbench
 

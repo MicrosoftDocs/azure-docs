@@ -180,7 +180,7 @@
   - name: Improve prediction accuracy 
     items: 
     - name: Review endpoint utterances
-      href: Label-Suggested-Utterances.md
+      href: luis-how-to-review-endoint-utt.md
     - name: Add Phrase list
       href: luis-how-to-add-features.md
     - name: Add Patterns
@@ -256,6 +256,8 @@
       href: luis-reference-prebuilt-deprecated.md
     - name: Email entity
       href: luis-reference-prebuilt-email.md
+    - name: keyPhrase entity
+      href: luis-reference-prebuilt-keyphrase.md
     - name: Number entity
       href: luis-reference-prebuilt-number.md
     - name: Ordinal entity

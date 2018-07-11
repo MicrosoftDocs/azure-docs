@@ -1,6 +1,6 @@
 ---
-title: Run virtual kubelet in an Azure Kubernetes Service (AKS) cluster
-description: Use virtual kubelet to run Kubernetes containers on Azure Container Instances.
+title: Run Virtual Kubelet in an Azure Kubernetes Service (AKS) cluster
+description: Learn how to use Virtual Kubelet with Azure Kubernetes Service (AKS) to run Linux and Windows containers on Azure Container Instances.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -11,7 +11,7 @@ ms.date: 06/12/2018
 ms.author: iainfou
 ---
 
-# Virtual Kubelet with AKS
+# Use Virtual Kubelet with Azure Kubernetes Service (AKS)
 
 Azure Container Instances (ACI) provide a hosted environment for running containers in Azure. When using ACI, there is no need to manage the underlying compute infrastructure, Azure handles this management for you. When running containers in ACI, you are charged by the second for each running container.
 
@@ -28,7 +28,38 @@ This document assumes that you have an AKS cluster. If you need an AKS cluster, 
 
 You also need the Azure CLI version **2.0.33** or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-[Helm](https://docs.helm.sh/using_helm/#installing-helm) is also required in order to install the Virtual Kubelet.
+To install the Virtual Kubelet, [Helm](https://docs.helm.sh/using_helm/#installing-helm) is also required.
+
+### For RBAC-enabled clusters
+
+If your AKS cluster is RBAC-enabled, you must create a service account and role binding for use with Tiller. For more information, see [Helm Role-based access control][helm-rbac].
+
+A *ClusterRoleBinding* must also be created for the Virtual Kubelet. To create a binding, create a file named *rbac-virtualkubelet.yaml* and paste the following definition:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: virtual-kubelet
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default
+```
+
+Apply the binding with [kubectl apply][kubectl-apply] and specify your *rbac-virtualkubelet.yaml* file, as shown in the following example:
+
+```
+$ kubectl apply -f rbac-virtual-kubelet.yaml
+
+clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
+```
+
+You can now continue to installing the Virtual Kubelet into your AKS cluster.
 
 ## Installation
 
@@ -57,7 +88,7 @@ These arguments are available for the `aks install-connector` command.
 
 To validate that Virtual Kubelet has been installed, return a list of Kubernetes nodes using the [kubectl get nodes][kubectl-get] command.
 
-```console
+```
 $ kubectl get nodes
 
 NAME                                    STATUS    ROLES     AGE       VERSION
@@ -98,13 +129,13 @@ spec:
 
 Run the application with the [kubectl create][kubectl-create] command.
 
-```azurecli-interactive
+```console
 kubectl create -f virtual-kubelet-linux.yaml
 ```
 
 Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods with the scheduled node. Notice that the `aci-helloworld` pod has been scheduled on the `virtual-kubelet-virtual-kubelet-linux` node.
 
-```console
+```
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
@@ -141,13 +172,13 @@ spec:
 
 Run the application with the [kubectl create][kubectl-create] command.
 
-```azurecli-interactive
+```console
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
 Use the [kubectl get pods][kubectl-get] command with the `-o wide` argument to output a list of pods with the scheduled node. Notice that the `nanoserver-iis` pod has been scheduled on the `virtual-kubelet-virtual-kubelet-win` node.
 
-```console
+```
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
@@ -178,3 +209,5 @@ Read more about Virtual Kubelet at the [Virtual Kubelet Github projet][vk-github
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet
+[helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
