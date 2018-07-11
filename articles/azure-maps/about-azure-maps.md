@@ -13,7 +13,7 @@ ms.custom: mvc
 ---
  
 # What is Azure Maps?
-Azure Maps is a collection of geospatial services, backed by fresh mapping data so you can provide accurate geographic context to your web and mobile applications. It contains REST APIs for Maps, Search, Routing, Traffic, Time Zones, and IP to Country services. You can use these APIs with familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. Along with the REST APIs, it provides a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums. 
+Azure Maps is a collection of geospatial services, backed by fresh mapping data so you can provide accurate geographic context to your web and mobile applications. It contains REST APIs for Maps, Search, Routing, Traffic, Time Zones, and IP to Location services. You can use these APIs with familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. Along with the REST APIs, it provides a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums. 
 
 The following video explains Azure Maps in depth:
 
@@ -37,11 +37,11 @@ The Render service now includes APIs that allow developers to work with satellit
 
 ### Route service 
 
-The Route service contains robust real-world infrastructure geometry calculations and multiple transportation mode directions. The service allows for developers to calculate directions across a number of travel modes such as car, truck, bicycle, or walking. The service can also consider inputs such as traffic conditions, weight restrictions, or hazardous material transport.
+The Route service contains robust geometry calculations for real-world infrastructure and directions for multiple transportation modes. The service allows for developers to calculate directions across a number of travel modes such as car, truck, bicycle, or walking. The service can also consider inputs such as traffic conditions, weight restrictions, or hazardous material transport.
 
 ![Azure Maps Route.png](media/about-azure-maps/Introduction_Route.png)
 
-The Route service now includes advanced features such as batch processing multiple route requests, returning matrix of route summaries for a set of origins and destinations, and calculating the routes or distances you can travel based on your time or fuel requirements. For details on the routing capabilities, read the [Azure Maps Route APIs](https://docs.microsoft.com/rest/api/maps/route).
+The Route service now includes advanced features such as batch processing of multiple route requests, route summary matrices for a set of origins and destinations, and finding routes or distances you can travel based on your time or fuel requirements. For details on the routing capabilities, read the [Azure Maps Route APIs](https://docs.microsoft.com/rest/api/maps/route).
 
 > [!NOTE]
 > APIs for batch and matrix routing, as well as distance calculation are currently in preview mode.
@@ -49,11 +49,11 @@ The Route service now includes advanced features such as batch processing multip
 
 ### Search service
 
-The Search service is designed for developers to search for addresses, places, business listings by name or category, and other geographic information. The Search Service can also [reverse geocode](https://en.wikipedia.org/wiki/Reverse_geocoding) addresses and cross streets based on a latitude/longitude. 
+The Search service is designed for developers to search for addresses, places, business listings by name or category, and other geographic information. The Search Service can also [reverse geocode](https://en.wikipedia.org/wiki/Reverse_geocoding) addresses and cross streets based on latitudes and longitudes. 
 
 ![Azure Maps Search.png](media/about-azure-maps/Introduction_Search.png)
 
-The Search service also provides advanced search features such as search along a route, search inside a wider area, batch a group of search requests, as well as search for larger area than a point. For more details on the search capabilities, read the [Azure Maps Search APIs](https://docs.microsoft.com/rest/api/maps/search) page.
+The Search service also provides advanced features such as search along a route, search inside a wider area, batch a group of search requests, as well as search for larger area instead of a location point. For more details on the search capabilities, read the [Azure Maps Search APIs](https://docs.microsoft.com/rest/api/maps/search) page.
 
 > [!NOTE]
 > APIs for batch and area search are currently in preview mode.
@@ -63,23 +63,23 @@ The Search service also provides advanced search features such as search along a
 
 The Time Zone service allows you to query current, historical, and future time zone information using either latitude-longitude pairs or an [IANA ID](http://www.iana.org/). The Time Zone service also allows for converting Microsoft Windows time zone IDs to IANA time zones, fetching a time zone offset to UTC and getting the current time in a respective time zone. A typical JSON response for a query to the Time Zone Service looks like the following sample:
 
-    ```JSON
-    {
-        "Version": "2017c",
-        "ReferenceUtcTimestamp": "2017-11-20T23:09:48.686173Z",
-        "TimeZones": [{
-            "Id": "America/Los_Angeles",
-            "ReferenceTime": {
-                "Tag": "PST",
-                "StandardOffset": "-08:00:00",
-                "DaylightSavings": "00:00:00",
-                "WallTime": "2017-11-20T15:09:48.686173-08:00",
-                "PosixTzValidYear": 2017,
-                "PosixTz": "PST+8PDT,M3.2.0,M11.1.0"
-            }
-        }]
-    }
-    ```
+```JSON
+{
+    "Version": "2017c",
+    "ReferenceUtcTimestamp": "2017-11-20T23:09:48.686173Z",
+    "TimeZones": [{
+        "Id": "America/Los_Angeles",
+        "ReferenceTime": {
+            "Tag": "PST",
+            "StandardOffset": "-08:00:00",
+            "DaylightSavings": "00:00:00",
+            "WallTime": "2017-11-20T15:09:48.686173-08:00",
+            "PosixTzValidYear": 2017,
+            "PosixTz": "PST+8PDT,M3.2.0,M11.1.0"
+        }
+    }]
+}
+```
 
 For details on this service, visit the [Azure Maps Timezone APIs](https://docs.microsoft.com/rest/api/maps/timezone) page.
 
@@ -91,11 +91,11 @@ The Traffic service is a suite of web services designed for developers to create
 
 ![Azure Maps Traffic](media/about-azure-maps/Introduction_Traffic.png)
 
-For details on this service, visit the [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/maps/timezone) page.
+Visit the [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/maps/timezone) page for more details.
 
 ### IP to Location
 
-The IP to Location service allows you to retrieve the two letter country code for a given IP address. As a developer, you can use this service to alter the content of your application based on the geographic location. This service can help you tailor your application to meet special geopolitical constraints, as well as significantly enhance user experience based on the location. 
+The IP to Location service allows you to retrieve the two letter country code for a given IP address. This service can help you tailor your application to meet special geopolitical constraints, as well as enhance user experience by changing the application's content based on the geographic location. 
 
 > [!NOTE]
 > The *IP to Location* service is being released in preview mode only.
