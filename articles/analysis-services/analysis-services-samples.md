@@ -3,9 +3,9 @@ title: Azure Analysis Services code, project, and database samples | Microsoft D
 description: Learn about code, project, and database samples for Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -34,5 +34,5 @@ If you have an Analysis Services server in Azure portal, you can quickly and eas
 
 ## Next steps
 
-[Adventure Works tutorial](/tutorials/aas-adventure-works-tutorial.md)   
+[Adventure Works tutorial](tutorials/aas-adventure-works-tutorial.md)   
 [Azure On-premises Data Gateway](analysis-services-gateway.md)  

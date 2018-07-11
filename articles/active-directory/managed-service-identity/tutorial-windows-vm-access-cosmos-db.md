@@ -9,14 +9,14 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: arluca
+ms.author: daveba
 ---
 
-# Use a Windows VM MSI to access Azure Cosmos DB
+# Tutorial: Use a Windows VM MSI to access Azure Cosmos DB
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -205,4 +205,9 @@ This CLI command returns details about the collection:
 
 ## Next steps
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md).
+In this tutorial, you learned how to create a Windows Managed Service Identity to access Cosmos DB.  To learn more about Cosmos DB see:
+
+> [!div class="nextstepaction"]
+>[Azure Cosmos DB overview](/azure/cosmos-db/introduction)
+
+

@@ -1,22 +1,15 @@
 ---
 title: Overview of Azure IoT Hub X.509 CA security | Microsoft Docs
 description: Overview - how to authenticate devices to IoT Hub using X.509 Certificate Authorities. 
-services: iot-hub
-documentationcenter: .net
 author: eustacea
 manager: arjmands
-editor: ''
-
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-
 ---
+
 # Device Authentication using X.509 CA Certificates
 
 This article describes how to use X.509 Certificate Authority (CA) certificates to authenticate devices connecting IoT Hub.  In this article you will learn:

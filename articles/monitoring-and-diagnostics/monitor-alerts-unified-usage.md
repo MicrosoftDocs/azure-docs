@@ -1,21 +1,13 @@
 ---
-title: Create, view and manage alerts Using Azure Monitor | Microsoft Docs
+title: "Create, view and manage alerts Using Azure Monitor"
 description: Use the new unified Azure alerts experience to author, view and manage metric and log alert rules from one place.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
-
+ms.component: alerts
 ---
 # Create, view, and manage alerts using Azure Monitor  
 
@@ -34,9 +26,9 @@ Alert uses the term **Log Alerts** to describe alerts where signal is custom que
 > While Azure alerts offers a new and enhanced experience for creating alerts in Azure. The existing [alerts (classic)](monitoring-overview-alerts.md) experience remains usable.
 >
 
-Detailed next is step-by-step guide to using Azure alerts .
+Detailed next is step-by-step guide to using Azure alerts.
 
-## Create an alert rule with the Azure portal
+## Create an alert rule with the Azure Portal
 1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts**.  
     ![Monitoring](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
 
@@ -47,7 +39,7 @@ Detailed next is step-by-step guide to using Azure alerts .
 
     ![Create rule](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  Define the alert condition by using the **Select Resource** link and specifying the target, by selecting a resource. Filter by choosing the *Subscription* , *Resource Type* , and finally selecting required *Resource*.
+4.  Define the alert condition by using the **Select Resource** link and specifying the target, by selecting a resource. Filter by choosing the *Subscription, *Resource Type, and finally selecting required *Resource*.
 
     >[!NOTE]
 
@@ -64,7 +56,7 @@ Detailed next is step-by-step guide to using Azure alerts .
 
     > Activity Log alerts are also supported, but are in preview. [Learn more](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Metric Alerts* : Ensure **Resource Type** is selected with signal type as **Metric**, then once appropriate **resource** is chosen click *Done* button to return to the Create Alert. Next use the **Add criteria** button to choose the specific signal from list of signal options, their monitoring service, and type listed - which are available for the resource selected earlier.
+5. *Metric Alerts*: Ensure **Resource Type** is selected with signal type as **Metric**, then once appropriate **resource** is chosen click *Done* button to return to the Create Alert. Next use the **Add criteria** button to choose the specific signal from list of signal options, their monitoring service, and type listed - which are available for the resource selected earlier.
 
     ![Select a resource](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -80,9 +72,9 @@ Detailed next is step-by-step guide to using Azure alerts .
 
     a. Choose a duration from the **Show History** dropdown to visualize a different period of time. You can choose dimensions for the supported metrics to filter on a time series; choosing dimensions is optional and up-to five dimensions can be used. 
 
-    b. **Alert Logic** can be selected from shown options of *Condition*, *Aggregation* and  *Threshold*. As preview of the logic provided, the condition is shown in the visualization along with signal history, to indicate when the alert would have been triggered in the past. 
+    b. **Alert Logic** can be selected from shown options of *Condition*, *Aggregation, and  *Threshold*. As preview of the logic provided, the condition is shown in the visualization along with signal history, to indicate when the alert would have been triggered in the past. 
 
-    c. To specify the time duration, chose **Period** along with how often alert should run by selecting **Frequency**.
+    c. To specify the time duration, choose **Period** along with how often alert should run by selecting **Frequency**.
 
     ![Configure signal logic for multi-dimensional metric](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
@@ -122,14 +114,20 @@ For **Log Alerts** alerts can be based on:
 
         ![Suppress Alerts for Log Alerts](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
 
+        > [!TIP]
+        > Specify an suppress alert value greater than frequency of alert to ensure notifications are stopped without overlap
+
 12. As the third and final step, specify if any **Action Group** needs to be triggered for the alert rule when alert condition is met. You can choose any existing Action Group with alert or create a new Action Group. According to selected Action Group, when alert is trigger Azure will: send email(s), send SMS(s), call Webhook(s), remediate using Azure Runbooks, push to your ITSM tool, etc. Learn more about [Action Groups](monitoring-action-groups.md).
 
     For **Log Alerts** some additional functionality is available to override the default Actions:
 
-    - **Email Notification**: Overrides *e-mail subject* in the email, sent via Action Group; if one or more email action exist in the said Action Group. You cannot modify the body of the mail and this field is **not** for email address.
-    - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups; if one or more webhook action exist in the said Action Group. User can specificy format of JSON to be used for all webhooks configured in associated Action Group; for more information on webhook formats, see [webhook action for Log Alerts](monitor-alerts-unified-log-webhook.md). Test Webhook option is provided to check format and processing by destination using sample JSON and this option as labelled meant only for **testing** purposes.
+    - **Email Notification**: Overrides *e-mail subject* in the email, sent via Action Group; if one or more email actions exist in the said Action Group. You cannot modify the body of the mail and this field is **not** for email address.
+    - **Include custom Json payload**: Overrides the webhook JSON used by Action Groups; if one or more webhook actions exist in the said Action Group. User can specify format of JSON to be used for all webhooks configured in associated Action Group; for more information on webhook formats, see [webhook action for Log Alerts](monitor-alerts-unified-log-webhook.md). Test Webhook option is provided to check format and processing by destination using sample JSON and this option as labeled meant only for **testing** purposes.
 
         ![Action Overrides for Log Alerts](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+
+        > [!NOTE]
+        > For **Test Webhook** option to work, the endpoint should support [Cross Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) and user's can use CORS proxy to get around “No Access-Control-Allow-Origin header” problems
 
 13. If all fields are valid and with green tick the **create alert rule** button can be clicked and an alert is created in Azure Monitor - Alerts. All alerts can be viewed from the alerts Dashboard.
 
@@ -137,7 +135,7 @@ For **Log Alerts** alerts can be based on:
 
     Within a few minutes, the alert is active and triggers as previously described.
 
-## View your alerts in Azure portal
+## View your alerts in Azure Portal
 
 1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts**.  
 
@@ -145,11 +143,17 @@ For **Log Alerts** alerts can be based on:
    ![Alert Dashboard](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. From Top Left to Right, the Dashboard shows at a glance, the following - which can be clicked to see a detailed listing:
     - *Fired Alerts*: The number of Alerts currently, which have met logic and in fired state
-    - *Total Alert Rules*: The number of Alert rules created and in subtext, the number that are currently enabled
+    - *Total Alert Rules*: The number of Alert rules created and in subtext, the number that are currently enabled 
+    
+
+        > [!NOTE]
+        > To ensure consistent dashboard with details on all fired alerts including log alerts for application insights and log analytics; [Enhanced unified alert (preview)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) should be used
+  
+  
 4. A list of all fired alerts is shown which the user can click to view details
 5. Aiding in finding specific the alerts; one can use the dropdown options on top for filtering specific *Subscription, Resource Group and/or Resource*. Further for any unresolved alert, one use the *Filter alert* option to find for provided keyword - specific matching alerts with *Name, Alert Criteria, Resource Group, and Target Resource*
 
-## Managing your alerts in Azure portal
+## Managing your alerts in Azure Portal
 1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts**.  
 2. Select the **Manage rules** button on the top bar, to navigate to the rule management section - where all  alert rules created are listed; including alerts that have been disabled.
 3. To find for specific alert rules, one can either use the drop-down filters on top, which allow to shortlist alert rules for specific *Subscription, Resource Groups and/or Resource*. Alternatively on using the search pane above the alert rule list marked *Filter alerts*, one can provide keyword, which is matched against *Alert Name, Condition, and Target Resource*; to show only matching rules.

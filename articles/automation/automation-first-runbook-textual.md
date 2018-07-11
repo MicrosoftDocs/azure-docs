@@ -1,4 +1,4 @@
-﻿---
+---
 title: My first PowerShell Workflow runbook in Azure Automation
 description: Tutorial that walks you through the creation, testing, and publishing of a simple text runbook using PowerShell Workflow.
 keywords: powershell workflow, powershell workflow examples, workflow powershell
@@ -8,7 +8,7 @@ ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ---
 # My first PowerShell Workflow runbook
@@ -105,6 +105,13 @@ you've tested and published your runbook, but so far it doesn't do anything usef
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** and **Login-AzureRmAccount** are now  aliases for **Connect-AzureRMAccount**. If the **Connect-AzureRMAccount** cmdlet does not exist, you can use **Add-AzureRmAccount** or **Login-AzureRmAccount**, or you can [update your modules](automation-update-azure-modules.md) in your Automation Account to the latest versions. 
+
+> [!NOTE]
+> You might need to [update your modules](automation-update-azure-modules.md) even though you have just created a new automation account.
+
 5. Click **Test pane** so that you can test the runbook.
 6. Click **Start** to start the test. Once it completes, you should receive output similar to the following, displaying basic information from your account. This confirms that the credential is valid.<br><br> ![Authenticate](media/automation-first-runbook-textual/runbook-auth-output.png)
 

@@ -14,7 +14,7 @@ ms.author: saneppal
 This tutorial walks you through building a QnA bot with Azure Bot service on the Azure portal.
 
 ## Prerequisite
-Before you build, follow the steps in [Create a knowledge base]() to create a QnA Maker service with questions and answers.
+Before you build, follow the steps in [Create a knowledge base](../How-To/create-knowledge-base.md) to create a QnA Maker service with questions and answers.
 
 The bot responds to questions from the knowledge base you created, via the QnAMakerDialog.
 
@@ -48,7 +48,7 @@ Once the bot is registered, click **Test in Web Chat** to open the Web Chat pane
 
 ![QnA bot web chat](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat.PNG)
 
-The bot responds with "Please set QnAKnowledgebaseId and QnASubscriptionKey in App Settings. Get them at https://qnamaker.ai". This response confirms that your QnA Bot has received the message, but there is no QnA Maker knowledge base associated with it yet. Do that in the next step.
+The bot responds with "Please set QnAKnowledgebaseId and QnASubscriptionKey in App Settings. Learn how to get them at https://aka.ms/qnaabssetup". This response confirms that your QnA Bot has received the message, but there is no QnA Maker knowledge base associated with it yet. Do that in the next step.
 
 ## Connect your QnA Maker knowledge base to the bot
 
@@ -63,6 +63,9 @@ The bot responds with "Please set QnAKnowledgebaseId and QnASubscriptionKey in A
     - **Publish** your knowledge base, if not already done so
 
     ![QnA Maker values](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+
+> [!NOTE]
+> If you want to connect the preview version of the knowledge base with the QnA bot, set the value of **Ocp-Apim-Subscription-Key** to **QnAAuthKey**. Leave the **QnAEndpointHostName** empty.
 
 ## Test the bot
 In the Azure portal, click on **Test in Web Chat** to test the bot. 

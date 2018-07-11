@@ -113,6 +113,14 @@
       href: how-to-manage-dps-with-cli.md
     - name: Control access to Provisioning Service APIs
       href: how-to-control-access.md
+  - name: Provision IoT Edge devices
+    items: 
+    - name: Linux
+      href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+      maintainContext: true
+    - name: Windows
+      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+      maintainContext: true
   - name: Use attestation mechanisms with SDK
     href: use-hsm-with-sdk.md
   - name: Use SDK tools for development
@@ -125,7 +133,7 @@
   items:
   - name: Solutions
     items:
-    - name: IoT Suite Preconfigured Solutions
+    - name: IoT solution accelerators
       href: /azure/iot-suite
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
@@ -149,12 +157,24 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks    
 - name: Resources
   items:
+  - name: Azure IoT Samples for C# (.NET)
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+  - name: Azure IoT Samples for Node.js
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+  - name: Azure IoT Samples for Java
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+  - name: Azure IoT Samples for Python
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+  - name: Azure IoT Samples for iOS Platform
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure IoT Hub
     href: https://azure.microsoft.com/services/iot-hub/
   - name: Azure Certified for IoT device catalog
     href: https://catalog.azureiotsuite.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
+  - name: Customer data requests
+    href: iot-dps-customer-data-requests.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=internet-of-things
   - name: Device Explorer tool

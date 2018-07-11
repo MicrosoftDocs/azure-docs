@@ -3,7 +3,7 @@ title: Use Ansible to create a basic Linux VM in Azure | Microsoft Docs
 description: Learn how to use Ansible to create and manage a basic Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/18/2017
-ms.author: iainfou
+ms.date: 05/30/2018
+ms.author: cynthn
 ---
 
 # Create a basic virtual machine in Azure with Ansible
@@ -30,17 +30,17 @@ To manage Azure resources with Ansible, you need the following:
 - Azure credentials, and Ansible configured to use them.
     - [Create Azure credentials and configure Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 
-    - If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use [Cloud Shell](/azure/cloud-shell/quickstart) from your browser.
+    - If you need to upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). You can also use the [Azure Cloud Shell](/azure/cloud-shell/quickstart) from your web browser.
 
 
 ## Create supporting Azure resources
-In this example, you create a runbook that deploys a VM into an existing infrastructure. First, create resource group with [az group create](/cli/azure/vm#az_vm_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+In this example, you create a runbook that deploys a VM into an existing infrastructure. First, create resource group with [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a virtual network for your VM with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named *myVnet* and a subnet named *mySubnet*:
+Create a virtual network for your VM with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The following example creates a virtual network named *myVnet* and a subnet named *mySubnet*:
 
 ```azurecli
 az network vnet create \
@@ -73,7 +73,7 @@ Create an Ansible playbook named *azure_create_vm.yml* and paste the following c
       image:
         offer: CentOS
         publisher: OpenLogic
-        sku: '7.3'
+        sku: '7.5'
         version: latest
 ```
 

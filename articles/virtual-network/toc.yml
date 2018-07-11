@@ -61,20 +61,18 @@
       href: virtual-networks-acl.md
 - name: How-to guides
   items:
-  - name: Plan and design
+  - name: Plan
     items:
     - name: Virtual networks
       href: virtual-network-vnet-plan-design-arm.md
-    - name: Network security groups
-      href: virtual-networks-nsg.md
   - name: Deploy
     items:
     - name: Network security groups
       items:
+      - name: Azure PowerShell
+        href: tutorial-filter-network-traffic-powershell.md
       - name: Azure CLI
         href: tutorial-filter-network-traffic-cli.md
-      - name: Azure portal
-        href: virtual-networks-create-nsg-arm-pportal.md
     - name: Route tables
       items:
       - name: Azure PowerShell
@@ -163,12 +161,8 @@
         href: virtual-networks-dmz-nsg.md
   - name: Configure
     items:
-    - name: Virtual machines
-      items:
-      - name: Add or remove network interfaces
-        href: virtual-network-network-interface-vm.md
-      - name: Name resolution for VMs and cloud services
-        href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+    - name: Name resolution for VMs and cloud services
+      href: virtual-networks-name-resolution-for-vms-and-role-instances.md
     - name: Use dynamic DNS with your own DNS server
       href: virtual-networks-name-resolution-ddns.md
     - name: Optimize network throughput
@@ -193,31 +187,22 @@
         href: virtual-network-nsg-manage-log.md
     - name: Route tables
       href: manage-route-table.md
-    - name: Network interfaces
-      href: virtual-network-network-interface.md
+    - name: Virtual machine networking
       items:
-      - name: IP addresses
+      - name: Create or delete a network interface
+        href: virtual-network-network-interface.md
+      - name: Add or remove network interfaces
+        href: virtual-network-network-interface-vm.md
+      - name: Add or remove IP addresses
         href: virtual-network-network-interface-addresses.md
     - name: Public IP addresses
       href: virtual-network-public-ip-address.md
-    - name: Virtual machines
-      items:
-      - name: Move a VM to a different subnet
-        href: virtual-networks-move-vm-role-to-subnet.md
   - name: Troubleshoot
     items:
     - name: Network security groups
-      items:
-      - name: Azure portal
-        href: virtual-network-nsg-troubleshoot-portal.md
-      - name: Azure PowerShell
-        href: virtual-network-nsg-troubleshoot-powershell.md
+      href: diagnose-network-traffic-filter-problem.md
     - name: Routes
-      items:
-      - name: Azure portal
-        href: virtual-network-routes-troubleshoot-portal.md
-      - name: Azure PowerShell
-        href: virtual-network-routes-troubleshoot-powershell.md
+      href: diagnose-network-routing-problem.md
     - name: Throughput testing
       href: virtual-network-bandwidth-testing.md
     - name: Cannot delete virtual networks
@@ -287,6 +272,8 @@
             href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
           - name: Azure PowerShell
             href: virtual-networks-acl-powershell.md
+        - name: Move VM to a different subnet
+          href: virtual-networks-move-vm-role-to-subnet.md
     - name: Cloud service and network security
       href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
       items:

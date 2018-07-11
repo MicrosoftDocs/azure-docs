@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/1/2018
+ms.date: 05/15/2018
+ms.component: hybrid
 ms.author: billmath
 ---
 
 # Troubleshoot object synchronization with Azure AD Connect sync
-This document provides steps for how to troubleshoot issues with object synchronization using the troubleshooting task.
+This article provides steps for troubleshooting issues with object synchronization by using the troubleshooting task. To see how troubleshooting works in Azure Active Directory (Azure AD) Connect, watch [this short video](https://aka.ms/AADCTSVideo).
 
 ## Troubleshooting task
-For Azure Active Directory (AAD) Connect deployment with version 1.1.749.0 or higher, use the troubleshooting task in the wizard to troubleshoot object synchronization issues. For earlier versions, please troubleshoot manually as described [here](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+For Azure AD Connect deployment with version 1.1.749.0 or higher, use the troubleshooting task in the wizard to troubleshoot object synchronization issues. For earlier versions, please troubleshoot manually as described [here](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### Run the troubleshooting task in the wizard
 To run the troubleshooting task in the wizard, perform the following steps:
@@ -87,6 +88,8 @@ A linked mailbox is supposed to be associated with an external master account lo
 
 ## Dynamic Distribution Group issue
 Due to various differences between on-premises Active Directory and Azure Active Directory, Azure AD Connect does not synchronize dynamic distribution groups to the Azure AD tenant.
+
+![Dynamic Distribution Group](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch13.png)
 
 ## HTML Report
 In addition to analyzing the object, the troubleshooting task also generates an HTML report that has everything known about the object. This HTML report can be shared with support team to do further troubleshooting, if needed.

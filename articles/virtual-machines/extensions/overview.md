@@ -39,7 +39,7 @@ You can view available extensions in the VM blade in the Portal, under extension
 ## How can I install an extension?
 Azure VM extensions can be managed using either the Azure CLI 2.0, Azure PowerShell, Azure Resource Manager templates, and the Azure portal. To try an extension, you can go to the Azure portal, select the Custom Script Extension, then pass in a command / script and run the extensions.
 
-If you want to same extension you added in the the portal by CLI or Resource Manager template, see different extension documentation, such as [Windows Custom Script Extension](custom-script-windows.md) and [Linux Custom Script Extension](custom-script-linux.md).
+If you want to same extension you added in the portal by CLI or Resource Manager template, see different extension documentation, such as [Windows Custom Script Extension](custom-script-windows.md) and [Linux Custom Script Extension](custom-script-linux.md).
 
 ## How do I manage extension application lifecycle?
 You do not need to connect to a VM directly to install or delete the extension. As the Azure extension application lifecycle is managed outside of the VM and integrated into the Azure platform, you also get integrated status of the extension.
@@ -49,7 +49,7 @@ Extensions install applications, like any applications there are some requiremen
 
 ## Next steps
 * For more information about how the Linux Agent and Extensions work, see [Azure VM extensions and features for Linux](features-linux.md).
-* For more information about how the Windows Guest Agent and Extensions work, see [Azure VM extensions and features for Linux](features-windows.md).  
+* For more information about how the Windows Guest Agent and Extensions work, see [Azure VM extensions and features for Windows](features-windows.md).  
 * To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent Overview ](agent-windows.md).  
 * To install the Linux Agent, see [Azure Linux Virtual Machine Agent Overview ](agent-linux.md).  
 

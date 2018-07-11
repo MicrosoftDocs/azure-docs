@@ -12,13 +12,11 @@ ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-# Entity Search SDK Node quickstart (preview)
+# Entity Search SDK Node quickstart
 
 The Bing Entity Search SDK contains the functionality of the REST API for entity queries and parsing results. 
 
-> [!NOTE] 
-> Some SDKs are now in GA and changes to documentation are pending. 
-
+The [source code for C# Bing Entity Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) is available on Git Hub.
 ## Application dependencies
 
 To set up a console application using the Bing Entity Search SDK, run `npm install azure-cognitiveservices-entitysearch` in your development environment.

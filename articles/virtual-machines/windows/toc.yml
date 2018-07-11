@@ -80,7 +80,9 @@
       - name: Setup GPU drivers
         href: n-series-driver-setup.md      
     - name: High performance compute
-      href: sizes-hpc.md    
+      href: sizes-hpc.md   
+    - name: Previous generations
+      href: sizes-previous-gen.md      
     - name: Azure compute units (ACU)
       href: acu.md 
     - name: Benchmark scores
@@ -101,15 +103,7 @@
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: How to enable write accelerator
-      href: how-to-enable-write-accelerator.md
-    - name: Troubleshoot attached VHDs
-      items:
-      - name: Storage resource deletion errors
-        href: storage-resource-deletion-errors.md  
-      - name: Unexpected reboots of VMs with attached VHDs  
-        href: unexpected-reboots-attached-vhds.md            
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md           
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -183,7 +177,7 @@
         href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Manage VMs
     items:
-    - name: Prepay for VMs - Reserved Instances
+    - name: Prepay for VMs - reserved instances
       href: prepay-reserved-vm-instances.md
     - name: VM usage
       href: vm-usage.md
@@ -198,7 +192,12 @@
     - name: Tag a VM
       href: tag.md
     - name: Run scripts on a VM
-      href: extensions-customscript.md
+      href: run-scripts-in-vm.md
+      items:
+        - name: Custom Script Extension
+          href: ../extensions/custom-script-windows.md
+        - name: Run Command
+          href: run-command.md
     - name: Change temp drive letter
       href: change-drive-letter.md
     - name: Change availability set
@@ -306,6 +305,8 @@
       href: mount-azure-file-storage.md
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
+    - name: Enable write accelerator
+      href: how-to-enable-write-accelerator.md 
     - name: Migrate to Managed Disks
       href: migrate-to-managed-disks.md
       items:
@@ -335,41 +336,7 @@
     - name: DNS resolution
       href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Use VM extensions
-    items:
-    - name: VM extensions overview
-      href: extensions-features.md
-    - name: Custom Script extension
-      href: extensions-customscript.md
-    - name: OMS agent extension
-      href: extensions-oms.md
-    - name: PowerShell DSC extension
-      href: extensions-dsc-overview.md
-      items:
-      - name: PowerShell DSC extension Credential Handling
-        href: extensions-dsc-credentials.md
-      - name: DSC and VMSS with templates
-        href: extensions-dsc-template.md
-    - name: Azure Log Collector extension
-      href: log-collector-extension.md
-    - name: Azure diagnostics extension
-      href: extensions-diagnostics.md
-      items:
-      - name: Extension schema
-        href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
-      - name: Enable using PowerShell
-        href: ps-extensions-diagnostics.md
-      - name: Enable with templates
-        href: extensions-diagnostics-template.md
-      - name: Troubleshooting
-        href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
-    - name: Exporting VM extensions
-      href: extensions-export-templates.md
-    - name: Troubleshoot extensions
-      href: extensions-troubleshoot.md
-    - name: Network Watcher Agent
-      href: extensions-nwa.md
-    - name: Restrict extension installation
-      href: ../extensions/extensions-rmpolicy-howto-ps.md 
+    href: ../extensions/overview.md
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
@@ -449,6 +416,12 @@
       href: troubleshoot-vm-by-use-nested-virtualization.md
     - name: Install the VM agent in offline mode
       href: install-vm-agent-offline.md
+    - name: Troubleshoot attached VHDs
+      items:
+      - name: Storage resource deletion errors
+        href: storage-resource-deletion-errors.md  
+      - name: Unexpected reboots of VMs with attached VHDs  
+        href: unexpected-reboots-attached-vhds.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -466,7 +439,7 @@
   - name: Compute REST
     href: /rest/api/compute
   - name: Managed Disks REST
-    href: /rest/api/manageddisks
+    href: /rest/api/compute/disks
 - name: Resources
   items:
   - name: Author templates

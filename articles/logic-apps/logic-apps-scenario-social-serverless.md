@@ -4,7 +4,7 @@ description: Learn how you can manage customer feedback, social media data, and 
 keywords: ''
 services: logic-apps
 author: jeffhollan
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 

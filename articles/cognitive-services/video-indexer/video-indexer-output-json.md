@@ -8,16 +8,16 @@ manager: cflower
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/30/2018
 ms.author: juliako
 
 ---
 # Examine the Video Indexer output produced by v1 API
 
 > [!Note]
-> The Video Indexer v1 API is going to be deprecated on July 31, 2018. You should start using the Video Indexer v2 API. 
-> 
-> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://aka.ms/viapi). 
+> The Video Indexer V1 APIs are now deprecated, and will be removed on August 1st, 2018. You should start using the Video Indexer v2 APIs to avoid disruptions.
+>
+> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
 
 When you call the **Get Breakdowns** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights including (transcript, OCRs, people). The details include keywords (topics), faces, blocks. Each block includes time ranges, transcript lines, OCR lines, sentiments, faces, and block thumbnails.
 
@@ -40,7 +40,7 @@ This article examines the JSON content returned by the  **Get Breakdowns** API. 
 
 Attribute | Description
 ---|---
-id|The id of this video. For example, 63c6d532ff.
+id|The Id of this video. For example, 63c6d532ff.
 partition|A logical partition that the user can specify in upload in order to search for it later.
 name|The name of the video. For example, Azure Monitor.
 description|Description of the video. For example, "John Kemnetz joins Scott Hanselman to show how to unlock the power of Azure monitoring data with Azure Monitor."
@@ -61,17 +61,17 @@ This section shows the summary of the insights.
 Attribute | Description
 ---|---
 name|The name of the video. For example, Azure Monitor.
-shortId|The id of the video. For example, 63c6d532ff.
+shortId|The ID of the video. For example, 63c6d532ff.
 privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.
 duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.
-thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
+thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...." Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
 faces|May contain one or more [faces](#faces)
 topics|May contain one or more [topics](#topics)
 sentiments|May contain one or more [sentiments](#sentiments)
 audioEffects| May contain one or more [audioEffects](#audioEffects)
 brands| May contain zero or more [brands](#brands)
 Statistics|For more information, see [Statistics](#Statistics)
-
+.
 ### Statistics
 
 |Name|Description|
@@ -80,7 +80,7 @@ Statistics|For more information, see [Statistics](#Statistics)
 |WordCount|The number of words per speaker.|
 |SpeakerNumberOfFragments|The amount of fragments the speaker has in a video.|
 |SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
-|SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the 3rd decimal point.|
+|SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
 
 ## breakdowns
 
@@ -88,10 +88,10 @@ This section shows the details of the insights.
 
 Attribute | Description
 ---|---
-id|The breakdown id. For example, 63c6d532ff.
+id|The breakdown ID. For example, 63c6d532ff.
 state|The processing state of the given breakdown id. Could be one of the following: Uploaded, Processing, Processed, Failed.
 processingProgress|The progress. For example, 10%.
-externalId| You can set externalId during upload. For example, "4f9c3500-eca7-4ab3-987e-a745017af698". You can later search for your videos by this external id.
+externalId| You can set externalId during upload. For example, "4f9c3500-eca7-4ab3-987e-a745017af698." You can later search for your videos by this external ID.
 externalUrl|You can set externalUrl during upload. 
 metadata|You can set metadata during upload. 
 insights|May contain one or more [insights](#insights)
@@ -120,12 +120,12 @@ audioEffectsCategories|May contain one or more [audioEffectsCategories](#audioEf
 
 Attribute | Description 
 ---|---
-id|The id of a person. For example, 11775.
-shortId|The short id. Because a playlist may be derived from several breakdowns, this id is needed to find out which of these breakdowns is the origin of each face.  
-name|If the face is recognized, the name of the person is added. For example, "Scott Hanselman". If the face is unknown, "Unknown #" is added. 
+id|The ID of a person. For example, 11775.
+shortId|The short ID. Because a playlist may be derived from several breakdowns, this ID is needed to find out which of these breakdowns is the origin of each face.  
+name|If the face is recognized, the name of the person is added. For example, "Scott Hanselman." If the face is unknown, "Unknown #" is added. 
 description|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the description is **null**.
 title|If the face is recognized, the description is populated based on the Bing API search. Otherwise, the title is **null**.
-thumbnailFullUrl|The face's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
+thumbnailFullUrl|The face's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...." Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').
 appearances|May contain one or more [appearances](#appearances)
 seenDuration|For how long the face was seen (in seconds).
 seenDurationRatio|Presence relative to the video duration (0-1).
@@ -136,7 +136,7 @@ seenDurationRatio|Presence relative to the video duration (0-1).
 
 Attribute | Description 
 ---|---
-id|The id of a person. For example, 11775.
+id|The ID of a person. For example, 11775.
 bingId|
 name|If the face is recognized, the name of the person is added. For example, "Scott Hanselman". If the face is unknown, "Unknown #" is added. 
 thumbnailId|For example, 616468f0-1636-4efa-94e7-262f2e575059.
@@ -164,7 +164,7 @@ isTranscript|True, if found in a transcript. False, if found in an OCR.
 
 |Attribute | Description |
 |---|---|
-|id|Unique topic id.|
+|id|Unique topic ID.|
 |name|The topic name.|
 |stem|Currently, this attribute is not used.|
 |words|Currently, this attribute is not used.|
@@ -200,7 +200,7 @@ endSeconds| Time value.
 
 Attribute | Description 
 ---|---
-id|The id of the participant.
+id|The ID of the participant.
 name|The name of the participant. For example, Speaker #1.
 pictureUrl|The **pictureUrl** attribute is reserved for future use.
 
@@ -219,14 +219,14 @@ isAdult|Boolean values indicating if the video is considered an adult video afte
 
 Attribute | Description 
 ---|---
-type|Id of the category.
+type|ID of the category.
 key|One of the following: Speech, Silence, HandClaps. 
 
 ## transcriptBlocks
 
 Attribute | Description
 ---|---
-id|Id of the block.
+id|ID of the block.
 lines|May contain one or more [lines](#lines)
 sentimentIds|The **sentimentIds** attribute is reserved for future use.
 thumbnailIds|The **thumbnailIds** attribute is reserved for future use.
@@ -244,7 +244,7 @@ Describes at what point in the video the text content was found.
 Attribute | Description 
 ---|---
 timeRange|The time range in the original video.
-adjustedTimeRange|AdjustedTimeRange is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a 1-hour video and use just 1 line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjustedTimeRange is 00:00-00:15.
+adjustedTimeRange|AdjustedTimeRange is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a one hour video and use just 1 line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjustedTimeRange is 00:00-00:15.
 lines|May contain one or more [lines](#lines).
 
 ## lines
@@ -255,9 +255,9 @@ lines|May contain one or more [lines](#lines).
 
 Attribute | Description 
 ---|---
-id| The id of the line.
+id| The ID of the line.
 timeRange|The time range in the original video.
-adjustedTimeRange|AdjustedTimeRange is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a 1-hour video and use just 1 line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjustedTimeRange is 00:00-00:15.
+adjustedTimeRange|AdjustedTimeRange is the time range relative to the current playlist. Since you can create a playlist from different lines of different videos, you can take a one hour video and use just 1 line from it, for example, 10:00-10:15. In that case, you will have a playlist with 1 line, where the time range is 10:00-10:15 but the adjustedTimeRange is 00:00-00:15.
 participantID| The id of the speaker of this line.
 text| The transcript.
 isIncluded| In base breakdowns always true. In derived playlists, the lines that were included in the source video, are set to isIncluded=true. All other lines are false.
@@ -268,7 +268,7 @@ isIncluded| In base breakdowns always true. In derived playlists, the lines that
 
 Attribute | Description 
 ---|---
-id|The OCR id.
+id|The OCR ID.
 width|Currently, this attribute is not used.
 height|Currently, this attribute is not used.
 language|The OCR language.
@@ -279,7 +279,7 @@ confidence|The confidence score (higher is better).
 
 Attribute | Description 
 ---|---
-id|The scene id.
+id|The scene ID.
 timeRange|Contains one **timeRange**.
 keyFrame|The time of the key frame.
 shots|May contain one or more [shots](#shots).
@@ -288,7 +288,7 @@ shots|May contain one or more [shots](#shots).
 
 Attribute | Description 
 ---|---
-id||The shot id.
+id||The shot ID.
 timeRange|Contains one **timeRange**.
 keyFrame|The time of the key frame.
 
@@ -310,11 +310,11 @@ adjustedTimeRange|AdjustedTimeRange is the time range relative to the current pl
 
 ## annotations
 
-Returns tags based on recognizable objects, living beings, scenery, actions and visual patterns.
+Returns tags based on recognizable objects, living beings, scenery, actions, and visual patterns.
 
 |Attribute|Description|
 |---|---|
-|id|The id of the annotation.|
+|id|The ID of the annotation.|
 |Name|The name of the annotation (for example, Person, Athletic game, Black Frames).|
 |Appearances|May contain one or more appearances.|
 
@@ -324,7 +324,7 @@ Business and product brand names detected in the speech to text transcript and/o
 
 Attribute | Description
 ---|---
-id | The id of a brand.
+id | The ID of a brand.
 name | The name of the brand from Bing or a customized brand.  
 wikiId | The suffix of the brand wikipedia url. For example, "Target_Corporation” is the suffix of [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 wikiUrl | The brand’s Wikipedia url, if exists. For example, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).

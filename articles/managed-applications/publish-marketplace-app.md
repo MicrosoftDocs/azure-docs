@@ -1,13 +1,13 @@
 ---
 title: Azure managed applications in the Marketplace | Microsoft Docs
 description: Describes Azure managed applications that are available through the Marketplace.
-services: azure-resource-manager
+services: managed-applications
 author: tfitzmac
 manager: timlt
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 03/15/2018
 ms.author: tomfitz

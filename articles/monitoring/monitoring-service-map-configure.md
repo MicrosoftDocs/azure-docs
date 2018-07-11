@@ -3,8 +3,8 @@ title: Configure Service Map in Azure | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
 services:  monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
-ms.author: daseidma;bwren;dairwin
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
 
 ---
 # Configure Service Map in Azure
@@ -45,7 +45,7 @@ On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center O
 
 On Linux, the OMS Agent for Linux gathers and sends monitoring data to Log Analytics. You can use Service Map on servers with OMS Direct Agents or on servers that are attached to Log Analytics via System Center Operations Manager management groups.  
 
-In this article, we'll refer to all agents--whether Linux or Windows, whether connected to a System Center Operations Manager management group or directly to Log Analytics--as the "OMS Agent." We'll use the specific deployment name of the agent only if it's needed for context.
+In this article, we'll refer to all agents--whether Linux or Windows, whether connected to a System Center Operations Manager management group or directly to Log Analytics--as the *OMS Agent*. We'll use the specific deployment name of the agent only if it's needed for context.
 
 The Service Map agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Service Map is always transmitted by the OMS Agent to Log Analytics, either directly or via the OMS Gateway.
 
@@ -56,7 +56,7 @@ If you are a System Center Operations Manager customer with a management group c
 - If your System Center Operations Manager agents can access the Internet to connect to Log Analytics, no additional configuration is required.  
 - If your System Center Operations Manager agents cannot access Log Analytics over the Internet, you need to configure the OMS Gateway to work with System Center Operations Manager.
   
-If you are using the OMS Direct Agent, you need to configure the OMS Agent itself to connect to Log Analytics or to your OMS Gateway. The OMS Gateway can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
+If you are using the OMS Direct Agent, you need to configure the OMS Agent itself to connect to Log Analytics or to your OMS Gateway. The OMS Gateway can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666). For further information on how to deploy and configure the OMS Gateway, see [Connect computers without Internet access using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
 
 ### Management packs
 When Service Map is activated in a Log Analytics workspace, a 300-KB management pack is sent to all the Windows servers in that workspace. If you are using System Center Operations Manager agents in a [connected management group](../log-analytics/log-analytics-om-agents.md), the Service Map management pack is deployed from System Center Operations Manager. If the agents are directly connected, Log Analytics delivers the management pack.
@@ -71,7 +71,7 @@ The Dependency Agent is installed on Windows computers through InstallDependency
 
 Use the following steps to install the Dependency Agent on each Windows computer:
 
-1.	Install the OMS Agent by using the instructions at [Connect Windows computers to the Log Analytics service in Azure](../log-analytics/log-analytics-windows-agent.md).
+1.	Install the OMS Agent following one of the methods described in [Collect data from computers in your environment with Log Analytics](../log-analytics/log-analytics-concept-hybrid.md).
 2.	Download the Windows agent and run it by using the following command: <br>`InstallDependencyAgent-Windows.exe`
 3.	Follow the wizard to install the agent.
 4.	If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is %Programfiles%\Microsoft Dependency Agent\logs. 
@@ -95,7 +95,7 @@ The Dependency Agent is installed on Linux computers through InstallDependencyAg
  
 Use the following steps to install the Dependency Agent on each Linux computer:
 
-1.	Install the OMS Agent by using the instructions at [Collect and manage data from Linux computers](https://technet.microsoft.com/library/mt622052.aspx).
+1.	Install the OMS Agent following one of the methods described in [Collect data from computers in your environment with Log Analytics](../log-analytics/log-analytics-concept-hybrid.md).
 2.	Install the Linux Dependency agent as root by using the following command:<br>`sh InstallDependencyAgent-Linux64.bin`
 3.	If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is /var/opt/microsoft/dependency-agent/log.
 
@@ -139,6 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 You can easily deploy the Dependency Agent to your Azure VMs using an [Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  With the Azure VM Extension, you can deploy the Dependency Agent to your VMs via a PowerShell script or directly in the VM's Azure Resource Manager template.  There is an extension available for both Windows (DependencyAgentWindows) and Linux (DependencyAgentLinux).  If you deploy via the Azure VM Extension, your agents can be automatically updated to the latest versions.
 
 To deploy the Azure VM Extension via PowerShell, you can use the following example:
+
 ```PowerShell
 #
 # Deploy the Dependency Agent to every VM in a Resource Group
@@ -165,7 +166,8 @@ ForEach-Object {
 }
 ```
 
-An even easier way to ensure the Dependency Agent is on each of your VMs is to include the agent in your Azure Resource Manager template.  Note that the Dependency Agent still depends on the OMS Agent, so the [OMS Agent VM Extension](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) must be deployed first.  The following snippet of JSON can be added to the *resources* section of your template.
+An even easier way to ensure the Dependency Agent is on each of your VMs is to include the agent in your Azure Resource Manager template.  Note that the Dependency Agent still depends on the OMS Agent, so the [OMS Agent VM Extension](../virtual-machines/extensions/oms-linux.md) must be deployed first.  The following snippet of JSON can be added to the *resources* section of your template.
+
 ```JSON
 "type": "Microsoft.Compute/virtualMachines/extensions",
 "name": "[concat(parameters('vmName'), '/DependencyAgent')]",
@@ -186,6 +188,7 @@ An even easier way to ensure the Dependency Agent is on each of your VMs is to i
 
 ## Desired State Configuration
 To deploy the Dependency Agent via Desired State Configuration, you can use the xPSDesiredStateConfiguration module and a bit of code like the following:
+
 ```
 configuration ServiceMap {
 
@@ -227,10 +230,13 @@ An administrator can also run %Programfiles%\Microsoft Dependency Agent\Uninstal
 ### Uninstall the Dependency Agent on Linux
 You can uninstall the Dependency Agent from Linux with the following command.
 <br>RHEL, CentOs, or Oracle:
+
 ```
 sudo rpm -e dependency-agent
 ```
+
 Ubuntu:
+
 ```
 sudo apt -y purge dependency-agent
 ```
@@ -238,7 +244,7 @@ sudo apt -y purge dependency-agent
 If you have any problems installing or running Service Map, this section can help you. If you still can't resolve your problem, please contact Microsoft Support.
 
 ### Dependency Agent installation problems
-#### Installer asks for a reboot
+#### Installer prompts for a reboot
 The Dependency Agent *generally* does not require a reboot upon installation or uninstallation. However, in certain rare cases, Windows Server requires a reboot to continue with an installation. This happens when a dependency, usually the Microsoft Visual C++ Redistributable, requires a reboot because of a locked file.
 
 #### Message "Unable to install Dependency Agent: Visual Studio Runtime libraries failed to install (code = [code_number])" appears
@@ -268,7 +274,7 @@ If your Dependency Agent installation succeeded, but you don't see your server i
 
 		* Computer="<your computer name here>" | measure count() by Type
 		
-  Did you get a variety of events in the results? Is the data recent? If so, your OMS Agent is operating correctly and communicating with Log Analytics. If not, check the OMS Agent on your server: [OMS Agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot- monitoring-onboarding-issues) or [OMS Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  Did you get a variety of events in the results? Is the data recent? If so, your OMS Agent is operating correctly and communicating with Log Analytics. If not, check the OMS Agent on your server: [OMS Agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) or [OMS Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### Server appears in Service Map but has no processes
 If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load. 
@@ -319,6 +325,7 @@ The following sections list the supported operating systems for the Dependency A
 | 7.2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
 
 #### Red Hat Linux 6
 | OS version | Kernel version |

@@ -21,7 +21,7 @@ ms.author: v-geberr
 
     ![Batch Testing Link](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate the [JSON](luis-concept-batch-test.md#batch-file-format) file that contains *no more than 1,000* utterances to test.
+2. Select **Import dataset**. The **Import new dataset** dialog box appears. Select **Choose File** and locate a JSON file with the correct [JSON format](luis-concept-batch-test.md#batch-file-format) that contains *no more than 1,000* utterances to test.
 
     ![Import Dataset File](./media/luis-how-to-batch-test/batchtest-importset.png)
 
@@ -32,7 +32,7 @@ ms.author: v-geberr
 4. Select **Done**. The dataset file is added.
 
 ## Run, rename, export, or delete dataset
-To run, rename, export, or delete the dataset, use the three dots (**...**) at the end of the dataset row.
+To run, rename, export, or delete the dataset, use the ellipsis (***...***) button at the end of the dataset row.
 
 ![Dataset Actions](./media/luis-how-to-batch-test/batch-testing-options.png)
 
@@ -73,13 +73,6 @@ To filter the chart by a specific intent or entity, select the intent or entity 
  
 ![Visualized Batch Test Result](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
-<!--
-## Investigate false sections
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
-
-
-The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
--->
 ## View single-point utterance data
 In the chart, hover over a data point to see the certainty score of its prediction. Select a data point to retrieve its corresponding utterance in the utterances list at the bottom of the page. 
 
@@ -103,16 +96,7 @@ The two sections of the chart in green did match the expected prediction.
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's performance by labeling more utterances or adding features. 
 
-* [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) 
-* [Use features to improve your LUIS app's performance](Add-Features.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) 
+* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 
 * [Understand batch testing with this tutorial](luis-tutorial-batch-testing.md)
 * [Learn batch testing concepts](luis-concept-batch-test.md).
-
-[true-positive]:luis-glossary.md#true-positive
-[true-negative]:luis-glossary.md#true-negative
-[false-positive]:luis-glossary.md#false-positive
-[false-negative]:luis-glossary.md#false-negative
-[f-measure]:luis-glossary.md#f-measure
-[recall]: luis-glossary.md#recall
-[precision]: luis-glossary.md#precision
-

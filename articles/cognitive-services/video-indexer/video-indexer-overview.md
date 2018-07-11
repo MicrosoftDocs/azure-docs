@@ -16,13 +16,14 @@ ms.author: nolachar
 # What is Video Indexer? (preview)
 
 > [!Note]
-> The Video Indexer v1 API is going to be deprecated on July 31, 2018. You should start using the Video Indexer v2 API. 
-> 
-> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://aka.ms/viapi). 
+> The Video Indexer V1 APIs are now deprecated, and will be removed on August 1st, 2018. You should start using the Video Indexer v2 APIs to avoid disruptions.
+>
+> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
 
 Video Indexer is a cloud application built using Azure Media Analytics, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service), and Azure Search. It enables you to extract the following insights from your videos using artificial intelligence technologies:
 
-- **Audio Transcription**: Video Indexer has speech-to-text functionality, which enables customers to get a transcript of the spoken words. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Portuguese (Brazilian), Japanese, and Russian (with many more to come in the future). 
+- **Automatic language detection**: Video Indexer can automatically detect the language of the video. Auto language detection currently supports English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian. Will fallback to English when the language can't be detected.
+- **Audio transcription**: Video Indexer has speech-to-text functionality, which enables customers to get a transcript of the spoken words. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Portuguese (Brazilian), Japanese, and Russian (with many more to come in the future). 
 - **Face tracking and identification**: Face technologies enable detection of faces in a video. The detected faces are matched against a celebrity database to evaluate which celebrities are present in the video. Customers can also label faces that do not match a celebrity. Video Indexer builds a face model based on those labels and can recognize those faces in videos submitted in the future.
 - **Speaker indexing**: Video Indexer has the ability to map and understand which speaker spoke which words and when.
 - **Visual text recognition**: With this technology, Video Indexer service extracts text that is displayed in the videos.  

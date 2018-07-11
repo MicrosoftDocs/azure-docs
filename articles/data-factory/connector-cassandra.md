@@ -11,21 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/02/2018
+ms.topic: conceptual
+ms.date: 06/07/2018
 ms.author: jingwang
 
 ---
 # Copy data from Cassandra using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-onprem-cassandra-connector.md)
-> * [Version 2 - Preview](connector-cassandra.md)
+> * [Version 1](v1/data-factory-onprem-cassandra-connector.md)
+> * [Current version](connector-cassandra.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Cassandra database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Cassandra connector in V1](v1/data-factory-onprem-cassandra-connector.md).
 
 ## Supported capabilities
 
@@ -33,8 +29,11 @@ You can copy data from Cassandra database to any supported sink data store. For 
 
 Specifically, this Cassandra connector supports:
 
-- Cassandra **versions 2.X**.
+- Cassandra **versions 2.x and 3.x**.
 - Copying data using **Basic** or **Anonymous** authentication.
+
+>[!NOTE]
+>For activity running on Self-hosted Integration Runtime, Cassandra 3.x is supported since IR version 3.7 and above.
 
 ## Prerequisites
 
@@ -59,6 +58,9 @@ The following properties are supported for Cassandra linked service:
 | username |Specify user name for the user account. |Yes, if authenticationType is set to Basic. |
 | password |Specify password for the user account. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes, if authenticationType is set to Basic. |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+
+>[!NOTE]
+>Currently connection to Cassandra using SSL is not supported.
 
 **Example:**
 
@@ -128,7 +130,7 @@ To copy data from Cassandra, set the source type in the copy activity to **Cassa
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **CassandraSource** | Yes |
 | query |Use the custom query to read data. |SQL-92 query or CQL query. See [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>When using SQL query, specify **keyspace name.table name** to represent the table you want to query. |No (if "tableName" and "keyspace" in dataset are specified). |
-| consistencyLevel |The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. See [Configuring data consistency](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) for details.<br/><br/>Allowed values are: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM**, and **LOCAL_ONE**. |No (default is `ONE`) |
+| consistencyLevel |The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. See [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) for details.<br/><br/>Allowed values are: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM**, and **LOCAL_ONE**. |No (default is `ONE`) |
 
 **Example:**
 

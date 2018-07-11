@@ -2,20 +2,17 @@
 title: 'Build a .NET web app with Azure Cosmos DB using the SQL API | Microsoft Docs'
 description: In this quickstart, use the Azure Cosmos DB SQL API and the Azure portal to create a .NET web app
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-featureFlags: clicktale
+clicktale: true
 
 ---
 # Quickstart: Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal
@@ -54,7 +51,7 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone a SQL API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's switch to working with code. Let's clone a [SQL API app from GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app), set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 

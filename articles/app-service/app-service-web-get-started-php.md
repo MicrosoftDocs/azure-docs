@@ -25,7 +25,7 @@ ms.custom: mvc
 
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure Web Apps. You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy sample PHP code to the web app.
 
-![Sample app running in Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
+![Sample app running in Azure](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
@@ -87,6 +87,7 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 When the web app has been created, the Azure CLI shows output similar to the following example:
 
 ```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -99,8 +100,13 @@ When the web app has been created, the Azure CLI shows output similar to the fol
   < JSON data removed for brevity. >
 }
 ```
+You’ve created an empty new web app, with git deployment enabled.
 
-Browse to your newly created web app. Replace _&lt;app name>_ with a unique app name.
+> [!NOTE]
+> The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Save this URL as you need it later.
+>
+
+Browse to your newly created web app. Replace _&lt;app name>_ with your unique app name created in the prior step.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -166,7 +172,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
+Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
 ![Updated sample app running in Azure](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
@@ -178,11 +184,11 @@ From the left menu, click **App Services**, and then click the name of your Azur
 
 ![Portal navigation to Azure web app](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
+Your web app's Overview page will be displayed. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
 ![App Service page in Azure portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
-The left menu provides different pages for configuring your app. 
+The left menu provides different options for configuring your app. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

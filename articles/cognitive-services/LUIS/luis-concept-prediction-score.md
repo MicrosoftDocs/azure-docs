@@ -23,14 +23,14 @@ A prediction score is usually between zero (0) and one (1). An example of a high
 |0.01|low confidence|
 |0|definite failure to match|
 
-When an utterance results in a low-confidence score, LUIS highlights that in the [LUIS][LUIS] website **Intent** page, with the identified **labeled-intent** outlined with red. 
+When an utterance results in a low-confidence score, LUIS highlights that in the [LUIS](luis-reference-regions.md) website **Intent** page, with the identified **labeled-intent** outlined with red. 
 
 ![Score discrepancy](./media/luis-concept-score/score-discrepancy.png)
 
 ## Top-scoring intent
 Every utterance prediction returns a top-scoring intent. This is a numerical comparison of prediction scores. The top two scores can have a very small difference between them. LUIS doesn't indicate this proximity other than returning scores.  
 
-If you are concerned about proximity of top scores, you should return the score for all intents. You can either add utterances to the two intents that indicate their differences with word choice and arrangement or you can have the LUIS-calling application, such as a chat bot, make programmatic choices about how to handle the two top intents. 
+If you are concerned about proximity of top scores, you should return the score for all intents. You can either add utterances to the two intents that indicate their differences with word choice and arrangement or you can have the LUIS-calling application, such as a chatbot, make programmatic choices about how to handle the two top intents. 
 
 ## Return prediction score for all intents
 A test or endpoint result can include all intents. This configuration is set on the [endpoint](https://aka.ms/v1-endpoint-api-docs) with the `verbose=true` query string name/value pair. 
@@ -51,10 +51,8 @@ Prediction scores can use exponent notation, *appearing* above the 0-1 range, su
 ## Differences with predictions
 When you train the same model in a different app, and the scores are not this same, this is because there is an element of randomness in the training. Secondly, any overlap of an utterance to more than one intent means the top intent for the same utterance can change based on training.
 
-If your chat bot requires a specific LUIS score to indicate confidence in an intent, you should instead use the score difference between the top two intents. This provides flexibility for variations in training. 
+If your chatbot requires a specific LUIS score to indicate confidence in an intent, you should instead use the score difference between the top two intents. This provides flexibility for variations in training. 
 
 ## Next steps
 
-See [Add entities](Add-entities.md) to learn more about how to add entities to your LUIS app.
-
-[LUIS]:luis-reference-regions.md
+See [Add entities](luis-how-to-add-entities.md) to learn more about how to add entities to your LUIS app.

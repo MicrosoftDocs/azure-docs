@@ -4,7 +4,7 @@ description: Describes how to refine an assessment using group dependency mappin
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 06/19/2018
 ms.author: raynew
 ---
 

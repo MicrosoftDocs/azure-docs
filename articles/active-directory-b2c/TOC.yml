@@ -16,8 +16,8 @@
     href: active-directory-b2c-quickstarts-spa.md
 - name: Tutorials
   items:
-  - name: 1 - Register applications
-    href: tutorial-register-applications.md
+  - name: 1 - Create B2C tenant
+    href: tutorial-create-tenant.md
   - name: 2 - Authenticate accounts
     items:
     - name: ASP.NET
@@ -58,10 +58,10 @@
         href: https://github.com/Azure-Samples/active-directory-b2c-android-native-msal
       - name: Android using App Auth
         href: active-directory-b2c-devquickstarts-android.md
-      - name: .NET
-        href: https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop
-      - name: Xamarin
-        href: https://github.com/Azure-Samples/active-directory-b2c-xamarin-native
+    - name: .NET
+      href: https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop
+    - name: Xamarin
+      href: https://github.com/Azure-Samples/active-directory-b2c-xamarin-native
     - name: Resource owner password credentials
       href: configure-ropc.md
   - name: Web apps
@@ -108,6 +108,8 @@
           href: active-directory-b2c-setup-li-app.md
         - name: Twitter
           href: active-directory-b2c-setup-twitter-app.md
+        - name: GitHub
+          href: active-directory-b2c-setup-github-app.md
         - name: Weibo
           href: active-directory-b2c-setup-weibo-app.md
         - name: QQ
@@ -155,6 +157,8 @@
         href: b2clogin.md
       - name: Using age gating
         href: basic-age-gating.md
+      - name: Direct sign-in
+        href: direct-signin.md
   - name: Identity Experience Framework
     items:
     - name: Custom policies
@@ -185,7 +189,7 @@
           href: active-directory-b2c-setup-sf-app-custom.md
       - name: Integrate RESTful APIs
         items:
-        - name: Vaildate user input
+        - name: Validate user input
           href: active-directory-b2c-rest-api-validation-custom.md
         - name: Obtain additional claims
           href: active-directory-b2c-rest-api-step-custom.md
@@ -266,7 +270,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=active-directory-b2c
   - name: Stack Overflow 
-    href: https://stackoverflow.com/questions/tagged/azure-ad-b2c
+    href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
   - name: Support
     href: active-directory-b2c-support.md
   - name: Videos

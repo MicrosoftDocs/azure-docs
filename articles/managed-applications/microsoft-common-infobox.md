@@ -1,24 +1,28 @@
 ---
 title: Azure InfoBox UI element | Microsoft Docs
 description: Describes the Microsoft.Common.TextBlock UI element for Azure portal.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: tomfitz
 
 ---
 
 # Microsoft.Common.InfoBox UI element
-A control that adds an information box.
+A control that adds an information box. The box contains important text or warnings that help users understand the values they're providing. It can also link to a URI for more information.
+
+## UI sample
+![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft.common.infobox.png)
+
 
 ## Schema
 ```json

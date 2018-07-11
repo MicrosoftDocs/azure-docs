@@ -11,10 +11,10 @@ editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 06/27/2018
 ms.author: aljo
 
 ---
@@ -24,6 +24,12 @@ This document tells you how to customize the various fabric settings and the fab
 > [!NOTE]
 > Not all settings are available in the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
 > 
+
+## Description of the different upgrade policies
+
+- **Dynamic** – Changes to a dynamic configuration do not cause any process restarts of either Service Fabric processes or your service host processes. 
+- **Static** – Changes to a static configuration will cause the Service Fabric node to restart in order to consume the change. Services on the nodes will be restarted.
+- **NotAllowed** – These settings cannot be modified. Changing these settings requires that the cluster be destroyed and a new cluster created. 
 
 ## Customize cluster settings using Resource Manager templates
 The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section.
@@ -73,6 +79,15 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, default is None|Dynamic|  |
+
+## BackupRestoreService
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
+| --- | --- | --- | --- |
+|MinReplicaSetSize|int, default is 0|Static|The MinReplicaSetSize for BackupRestoreService |
+|PlacementConstraints|wstring, default is	L""|Static|	The PlacementConstraints for BackupRestore service |
+|SecretEncryptionCertThumbprint|wstring, default is	L""|Dynamic|Thumbprint of the Secret encryption X509 certificate |
+|SecretEncryptionCertX509StoreName|wstring, default is	L"My"|	Dynamic|	This indicates the certificate to use for encryption and decryption of creds Name of X.509 certificate store that is used for encrypting decrypting store credentials used by Backup Restore service |
+|TargetReplicaSetSize|int, default is	0|Static| The TargetReplicaSetSize for BackupRestoreService |
 
 ## ClusterManager
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
@@ -151,7 +166,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |HealthReportSendInterval |Time in seconds, default is 30 |Dynamic|Specify timespan in seconds. The interval at which reporting component sends accumulated health reports to Health Manager. |
 |KeepAliveIntervalInSeconds |Int, default is 20 |Static|The interval at which the FabricClient transport sends keep-alive messages to the gateway. For 0; keepAlive is disabled. Must be a positive value. |
 |MaxFileSenderThreads |Uint, default is 10 |Static|The max number of files that are transferred in parallel. |
-|NodeAddresses |string, default is "" |Static|A collection of addresses (connection strings) on different nodes that can be used to communicate with the the Naming Service. Initially the Client connects selecting one of the addresses randomly. If more than one connection string is supplied and a connection fails because of a communication or timeout error; the Client switches to use the next address sequentially. See the Naming Service Address retry section for details on retries semantics. |
+|NodeAddresses |string, default is "" |Static|A collection of addresses (connection strings) on different nodes that can be used to communicate with the Naming Service. Initially the Client connects selecting one of the addresses randomly. If more than one connection string is supplied and a connection fails because of a communication or timeout error; the Client switches to use the next address sequentially. See the Naming Service Address retry section for details on retries semantics. |
 |PartitionLocationCacheLimit |Int, default is 100000 |Static|Number of partitions cached for service resolution (set to 0 for no limit). |
 |RetryBackoffInterval |Time in seconds, default is 3 |Dynamic|Specify timespan in seconds. The back-off interval before retrying the operation. |
 |ServiceChangePollInterval |Time in seconds, default is 120 |Dynamic|Specify timespan in seconds. The interval between consecutive polls for service changes from the client to the gateway for registered service change notifications callbacks. |
@@ -297,6 +312,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ActivationTimeout| TimeSpan, default is Common::TimeSpan::FromSeconds(180)|Dynamic| Specify timespan in seconds. The timeout for application activation; deactivation and upgrade. |
 |ApplicationHostCloseTimeout| TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic| Specify timespan in seconds. When Fabric exit is detected in a self activated processes; FabricRuntime closes all of the replicas in the user's host (applicationhost) process. This is the timeout for the close operation. |
 |ApplicationUpgradeTimeout| TimeSpan, default is Common::TimeSpan::FromSeconds(360)|Dynamic| Specify timespan in seconds. The timeout for application upgrade. If the timeout is less than the "ActivationTimeout" deployer will fail. |
+|ContainerServiceArguments|wstring, default is L"-H localhost:2375 -H npipe://"|Static|Service Fabric (SF) manages docker daemon (except on windows client machines like Win10). This configuration allows user to specify custom arguments that should be passed to docker daemon when starting it. When custom arguments are specified, Service Fabric do not pass any other argument to Docker engine except '--pidfile' argument. Hence users should not specify '--pidfile' argument as part of their customer arguments. Also, the custom arguments should ensure that docker daemon listens on default name pipe on Windows (or Unix domain socket on Linux) for Service Fabric to be able to communicate with it.|
 |CreateFabricRuntimeTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic| Specify timespan in seconds. The timeout value for the sync FabricCreateRuntime call |
 |DeploymentMaxFailureCount|int, default is 20| Dynamic|Application deployment will be retried for DeploymentMaxFailureCount times before failing the deployment of that application on the node.| 
 |DeploymentMaxRetryInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(3600)|Dynamic| Specify timespan in seconds. Max retry interval for the deployment. On every continuous failure the retry interval is calculated as Min( DeploymentMaxRetryInterval; Continuous Failure Count * DeploymentRetryBackoffInterval) |
@@ -309,6 +325,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |FirewallPolicyEnabled|bool, default is FALSE|Static| Enables opening firewall ports for Endpoint resources with explicit ports specified in ServiceManifest |
 |GetCodePackageActivationContextTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(120)|Dynamic|Specify timespan in seconds. The timeout value for the CodePackageActivationContext calls. This is not applicable to ad-hoc services. |
 |IPProviderEnabled|bool, default is FALSE|Static|Enables management of IP addresses. |
+|LinuxExternalExecutablePath|wstring, default is L"/usr/bin/" |Static|The primary directory of external executable commands on the node.|
 |NTLMAuthenticationEnabled|bool, default is FALSE|Static| Enables support for using NTLM by the code packages that are running as other users so that the processes across machines can communicate securely. |
 |NTLMAuthenticationPasswordSecret|SecureString, default is Common::SecureString(L"")|Static|Is an encrypted has that is used to generate the password for NTLM users. Has to be set if NTLMAuthenticationEnabled is true. Validated by the deployer. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, default is Common::TimeSpan::FromMinutes(3)|Dynamic|Specify timespan in seconds. Environment-specific settings The periodic interval at which Hosting scans for new certificates to be used for FileStoreService NTLM configuration. |
@@ -320,6 +337,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ServiceTypeDisableFailureThreshold |Whole number, default is 1 |Dynamic|This is the threshold for the failure count after which FailoverManager (FM) is notified to disable the service type on that node and try a different node for placement. |
 |ServiceTypeDisableGraceInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(30)|Dynamic|Specify timespan in seconds. Time interval after which the service type can be disabled |
 |ServiceTypeRegistrationTimeout |Time in Seconds, default is 300 |Dynamic|Maximum time allowed for the ServiceType to be registered with fabric |
+|UseContainerServiceArguments|bool, default is TRUE|Static|This config tells hosting to skip passing arguments (specified in config ContainerServiceArguments) to docker daemon.|
 
 ## HttpGateway
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
@@ -366,6 +384,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |AzureStorageMaxConnections | Int, default is 5000 |Dynamic|The maximum number of concurrent connections to azure storage. |
 |AzureStorageMaxWorkerThreads | Int, default is 25 |Dynamic|The maximum number of worker threads in parallel. |
 |AzureStorageOperationTimeout | Time in seconds, default is 6000 |Dynamic|Specify timespan in seconds. Time out for xstore operation to complete. |
+|CleanupApplicationPackageOnProvisionSuccess|bool, default is FALSE |Dynamic|This configuration enables or disables the automatic cleanup of application package on successful provision. |
 |DisableChecksumValidation | Bool, default is false |Static| This configuration allows us to enable or disable checksum validation during application provisioning. |
 |DisableServerSideCopy | Bool, default is false |Static|This configuration enables or disables server-side copy of application package on the ImageStore during application provisioning. |
 |ImageCachingEnabled | Bool, default is true |Static|This configuration allows us to enable or disable caching. |
@@ -524,6 +543,11 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ReplicatorPublishAddress|string, default is L"localhost:0"|Static|The endpoint in form of a string -'IP:Port' which is used by the Windows Fabric Replicator to send operations to other replicas.|
 |RetryInterval|TimeSpan, default is Common::TimeSpan::FromSeconds(5)|Static|Specify timespan in seconds. When an operation is lost or rejected this timer determines how often the replicator will retry sending the operation.|
 
+## ResourceMonitorService
+| **Parameter** | **Allowed Values** | **Upgrade Policy**| **Guidance or short Description** |
+| --- | --- | --- | --- |
+|IsEnabled|bool, default is FALSE |Static|Controls if the service is enabled in the cluster or not. |
+
 ## RunAs
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
@@ -584,6 +608,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ServerAuthCredentialType|string, default is L"None"|Static|Indicates the type of security credentials to use in order to secure the communication between FabricClient and the Cluster. Valid values are "None/X509/Windows" |
 |ServerCertThumbprints|string, default is L""|Dynamic|Thumbprints of server certificates used by cluster to talk to clients; clients use this to authenticate the cluster. It is a comma-separated name list. |
 |SettingsX509StoreName| string, default is L"MY"| Dynamic|X509 certificate store used by fabric for configuration protection |
+|UseClusterCertForIpcServerTlsSecurity|bool, default is FALSE|Static|Whether to use cluster certificate to secure IPC Server TLS transport unit |
 |X509Folder|string, default is /var/lib/waagent|Static|Folder where X509 certificates and private keys are located |
 
 ## Security/AdminClientX509Names
@@ -630,6 +655,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |GetUpgradesPendingApproval |string, default is "Admin" |Dynamic| Induces GetUpgradesPendingApproval on a partition. |
 |GetUpgradeStatus |string, default is "Admin\|\|User" |Dynamic| Security configuration for polling application upgrade status. |
 |InternalList |string, default is "Admin" | Dynamic|Security configuration for image store client file list operation (internal). |
+|InvokeContainerApi|wstring,default is L"Admin"|Dynamic|Invoke container API |
 |InvokeInfrastructureCommand |string, default is "Admin" |Dynamic| Security configuration for infrastructure task management commands. |
 |InvokeInfrastructureQuery |string, default is "Admin\|\|User" | Dynamic|Security configuration for querying infrastructure tasks. |
 |List |string, default is "Admin\|\|User" | Dynamic|Security configuration for image store client file list operation. |
@@ -723,6 +749,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |FabricLogRoot |String | Not Allowed |Service fabric log root directory. This is where SF logs and traces are placed. |
 |NodesToBeRemoved|string, default is ""| Dynamic |The nodes which should be removed as part of configuration upgrade. (Only for Standalone Deployments)|
 |ServiceRunAsAccountName |String | Not Allowed |The account name under which to run fabric host service. |
+|SkipContainerNetworkResetOnReboot|bool, default is FALSE|NotAllowed|Whether to skip resetting container network on reboot.|
 |SkipFirewallConfiguration |Bool, default is false | Not Allowed |Specifies if firewall settings need to be set by the system or not. This applies only if you are using windows firewall. If you are using third party firewalls, then you must open the ports for the system and applications to use |
 
 ## TokenValidationService
@@ -739,25 +766,13 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or short Description** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval | Time in seconds, default is 0.015 | Static | Specify timespan in seconds. Determines the amount of time that the replicator waits after receiving an operation before sending back an acknowledgement. Other operations received during this time period will have their acknowledgements sent back in a single message-> reducing network traffic but potentially reducing the throughput of the replicator. |
-|CheckpointThresholdInMB |Int, default is 50 |Static|A checkpoint will be initiated when the log usage exceeds this value. |
-|InitialPrimaryReplicationQueueSize |Uint, default is 64 | Static |This value defines the initial size for the queue which maintains the replication operations on the primary. Note that it must be a power of 2.|
-|InitialSecondaryReplicationQueueSize |Uint, default is 64 | Static |This value defines the initial size for the queue which maintains the replication operations on the secondary. Note that it must be a power of 2. |
-|MaxAccumulatedBackupLogSizeInMB |Int, default is 800 |Static|Max accumulated size (in MB) of backup logs in a given backup log chain. An incremental backup requests will fail if the incremental backup would generate a backup log that would cause the accumulated backup logs since the relevant full backup to be larger than this size. In such cases, user is required to take a full backup. |
 |MaxCopyQueueSize |Uint, default is 16384 | Static |This is the maximum value defines the initial size for the queue which maintains replication operations. Note that it must be a power of 2. If during runtime the queue grows to this size operation will be throttled between the primary and secondary replicators. |
-|MaxMetadataSizeInKB |Int, default is 4 |Not Allowed|Maximum size of the log stream metadata. |
 |MaxPrimaryReplicationQueueMemorySize |Uint, default is 0 | Static |This is the maximum value of the primary replication queue in bytes. |
 |MaxPrimaryReplicationQueueSize |Uint, default is 8192 | Static |This is the maximum number of operations that could exist in the primary replication queue. Note that it must be a power of 2. |
-|MaxRecordSizeInKB |Uint, default is 1024 |Not Allowed| Maximum size of a log stream record. |
 |MaxReplicationMessageSize |Uint, default is 52428800 | Static | Maximum message size of replication operations. Default is 50MB. |
 |MaxSecondaryReplicationQueueMemorySize |Uint, default is 0 | Static |This is the maximum value of the secondary replication queue in bytes. |
 |MaxSecondaryReplicationQueueSize |Uint, default is 16384 | Static |This is the maximum number of operations that could exist in the secondary replication queue. Note that it must be a power of 2. |
-|MaxWriteQueueDepthInKB |Int, default is 0 |Not Allowed| Int for maximum write queue depth that the core logger can use as specified in kilobytes for the log that is associated with this replica. This value is the maximum number of bytes that can be outstanding during core logger updates. It may be 0 for the core logger to compute an appropriate value or a multiple of 4. |
-|MinLogSizeInMB |Int, default is 0 |Static|Minimum size of the transactional log. The log will not be allowed to truncate to a size below this setting. 0 indicates that the replicator will determine the minimum log size according to other settings. Increasing this value increases the possibility of doing partial copies and incremental backups since chances of relevant log records being truncated is lowered. |
 |ReplicatorAddress |string, default is "localhost:0" | Static | The endpoint in form of a string -'IP:Port' which is used by the Windows Fabric Replicator to establish connections with other replicas in order to send/receive operations. |
-|SecondaryClearAcknowledgedOperations |Bool, default is false | Static |Bool which controls if the operations on the secondary replicator are cleared once they are acknowledged to the primary(flushed to the disk). Settings this to TRUE can result in additional disk reads on the new primary, while catching up replicas after a failover. |
-|SharedLogId |String |Not Allowed|Shared log identifier. This is a guid and should be unique for each shared log. |
-|SharedLogPath |String |Not Allowed|Path to the shared log. If this value is empty then the default shared log is used. |
-|SlowApiMonitoringDuration |Time in seconds, default is 300 |Static| Specify duration for api before warning health event is fired.|
 
 ## Transport
 | **Parameter** | **Allowed Values** |**Upgrade policy** |**Guidance or short Description** |

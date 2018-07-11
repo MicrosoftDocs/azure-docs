@@ -4,7 +4,7 @@ description: Provides an overview of the Collector appliance and how to configur
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/03/2017
+ms.date: 07/10/2018
 ms.author: ruturajd
 services: azure-migrate
 ---
@@ -171,7 +171,7 @@ The Collector only discovers the machine data and sends it to the project. The p
 Based on the number of virtual machines in the selected scope, it takes upto 15 minutes to send the static metadata to the project. Once the static metadata is available on the portal, you can see the list of machines in the portal and start creating groups. A assessment cannot be created until the collection job completes and the project has processed the data. Once the collection job completed on the Collector, it can take upto one hour for the performance data to be available on the portal, based on the number of virtual machines in the selected scope.
 
 ## Locking down the collector appliance
-We recommend running continuous Windows updates on the collector appliance. If a collector is not updated for 45 days, the collector will start auto-shutting down the machine. If a discovery is running, the machine will not be turned off, even if it is past its 45 day period. Post the discovery job completes, the machine will be turned off. If you are using the collector for more than 45 days, we recommend keeping the machine updated at all times by running Windows update.
+We recommend running continuous Windows updates on the collector appliance. If a collector is not updated for 60 days, the collector will start auto-shutting down the machine. If a discovery is running, the machine will not be turned off, even if it is past its 60 day period. Post the discovery job completes, the machine will be turned off. If you are using the collector for more than 45 days, we recommend keeping the machine updated at all times by running Windows update.
 
 We also recommend the following steps to secure your appliance
 1. Do not share or misplace administrator passwords with unauthorized parties.
@@ -183,37 +183,37 @@ We also recommend the following steps to secure your appliance
 
 You can upgrade the Collector to the latest version without downloading the OVA once again.
 
-1. Download the latest [upgrade package](https://aka.ms/migrate/col/latestupgrade).
+1. Download the latest [upgrade package](https://aka.ms/migrate/col/upgrade_9_11) (version 1.0.9.11).
 2. To ensure that the downloaded hotfix is secure, open Administrator command window and run the following command to generate the hash for the ZIP file. The generated hash should match with the hash mentioned against the specific version:
 
 	```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-	(example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+	(example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
 3. Copy the zip file to the Azure Migrate collector virtual machine (collector appliance).
 4. Right-click on the zip file and select Extract All.
 5. Right-click on Setup.ps1 and select Run with PowerShell and follow the instructions on screen to install the update.
 
 ### List of updates
 
+#### Upgrade to version 1.0.9.11
+
+Hash values for upgrade [package 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | 0e36129ac5383b204720df7a56b95a60
+SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
+SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
+
 #### Upgrade to version 1.0.9.7
 
-For Upgrade to version 1.0.9.7 download [package](https://aka.ms/migrate/col/upgrade_9_7)
+Hash values for upgrade [package 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)
 
 **Algorithm** | **Hash value**
 --- | ---
 MD5 | 01ccd6bc0281f63f2a672952a2a25363
 SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
 SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
-
-#### Upgrade to version 1.0.9.5
-
-For Upgrade to version 1.0.9.5 download [package](https://aka.ms/migrate/col/upgrade_9_5)
-
-**Algorithm** | **Hash value**
---- | ---
-MD5 | d969ebf3bdacc3952df0310d8891ffdf
-SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
-SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## Next steps
 

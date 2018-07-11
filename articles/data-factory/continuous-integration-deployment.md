@@ -10,8 +10,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 06/18/2018
 ms.author: douglasl
 ---
 # Continuous integration and deployment in Azure Data Factory
@@ -85,42 +85,9 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
 4.  Enter the name of your environment.
 
-5.  Add a Git artifact and select the same repo configured with the Data Factory. Choose `adf\_publish` as the default branch with latest default version.
+5.  Add a Git artifact and select the same repo configured with the Data Factory. Choose `adf_publish` as the default branch with latest default version.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
-
-6.  Get the secrets from Azure Key Vault. There are two ways to handle the secrets:
-
-    a.  Add the secrets to parameters file:
-
-       -   Create a copy of the parameters file that is uploaded to the publish branch and set the values of the parameters you want to get from key vault with the following format:
-
-        ```json
-        {
-	        "parameters": {
-		        "azureSqlReportingDbPassword": {
-	    		    "reference": {
-    				    "keyVault": {
-					        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-			        	},
-        				"secretName": " < secret - name > "
-		        	}
-		        }
-	        }
-        }
-        ```
-
-       -   When you use this method, the secret is pulled from the key vault automatically.
-
-       -   The parameters file needs to be in the publish branch as well.
-
-    b.  Add an [Azure Key Vault task](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
-
-       -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
-
-       -   In the Key Vault task, choose the subscription in which you created the key vault, provide credentials if necessary, and then choose the key vault.
-
-       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Add an Azure Resource Manager Deployment task:
 
@@ -130,7 +97,7 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
     c.  Select the **Create or update resource group** action.
 
-    d.  Select **…** in the “**Template**” field. Browse for the Resource Manager template (*ARMTemplateForFactory.json*) that was created by the publish action in the portal. Look for this file in the root folder of the `adf\_publish` branch.
+    d.  Select **…** in the **Template** field. Browse for the Resource Manager template (*ARMTemplateForFactory.json*) that was created by the publish action in the portal. Look for this file in the folder `<FactoryName>` of the `adf_publish` branch.
 
     e.  Do the same thing for the parameters file. Choose the correct file depending on whether you created a copy or you’re using the default file *ARMTemplateParametersForFactory.json*.
 
@@ -143,6 +110,43 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 9.  Create a new release from this release definition.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
+
+### Optional - Get the secrets from Azure Key Vault
+
+If you have secrets to pass in an Azure Resource Manager template, we recommend using Azure Key Vault with the VSTS release.
+
+There are two ways to handle the secrets:
+
+1.  Add the secrets to parameters file. For more info, see [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+
+    -   Create a copy of the parameters file that is uploaded to the publish branch and set the values of the parameters you want to get from key vault with the following format:
+
+    ```json
+    {
+	    "parameters": {
+		    "azureSqlReportingDbPassword": {
+	    		"reference": {
+    				"keyVault": {
+					    "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
+			        },
+        		    "secretName": " < secret - name > "
+		        }
+		    }
+	    }
+    }
+    ```
+
+    -   When you use this method, the secret is pulled from the key vault automatically.
+
+    -   The parameters file needs to be in the publish branch as well.
+
+2.  Add an [Azure Key Vault task](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) before the Azure Resource Manager Deployment described in the previous section:
+
+    -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
+
+    -   In the Key Vault task, choose the subscription in which you created the key vault, provide credentials if necessary, and then choose the key vault.
+
+    ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### Grant permissions to the VSTS agent
 The Azure Key Vault task may fail the first time with an Access Denied error. Download the logs for the release, and locate the `.ps1` file with the command to give permissions to the VSTS agent. You can run the command directly, or you can copy the principal ID from the file and add the access policy manually in the Azure portal. (*Get* and *List* are the minimum permissions required).
@@ -157,14 +161,9 @@ Deployment can fail if you try to update active triggers. To update active trigg
 3.  Choose **Inline Script** as the script type and then provide your code. The following example stops the triggers:
 
     ```powershell
-    $armTemplate="$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json"
+    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 
-    $templateJson = Get-Content "$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json" | ConvertFrom-Json
-
-    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName
-    $DataFactoryName -ResourceGroupName $ResourceGroupName
-
-    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $\_.name -Force }
+    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
@@ -791,3 +790,94 @@ else {
     $deletedintegrationruntimes | ForEach-Object { Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
 }
 ```
+
+## Use custom parameters with the Resource Manager template
+
+You can define custom parameters for the Resource Manager template. You simply need to have a file named `arm-template-parameters-definition.json` in the root folder of the repository. (The file name must match the name shown here exactly.) Data Factory tries to read the file from whichever branch you are currently working in, not just from the collaboration branch. If no file is found, Data Factory uses the default definitions.
+
+The following example shows a sample parameters file. Use this sample as a reference to create your own custom parameters file. If the file you provide is not in the proper JSON format, Data Factory outputs an error message in the browser console and reverts to the default definitions shown in the Data Factory UI.
+
+```json
+{
+	"Microsoft.DataFactory/factories/pipelines": {},
+	"Microsoft.DataFactory/factories/integrationRuntimes": {
+		"properties": {
+			"typeProperties": {
+				"ssisProperties": {
+					"catalogInfo": {
+						"catalogServerEndpoint": "=",
+						"catalogAdminUserName": "=",
+						"catalogAdminPassword": {
+							"value": "-::secureString"
+						}
+					},
+					"customSetupScriptProperties": {
+						"sasToken": {
+							"value": "-::secureString"
+						}
+					}
+				},
+				"linkedInfo": {
+					"key": {
+						"value": "-::secureString"
+					}
+				}
+			}
+		}
+	},
+	"Microsoft.DataFactory/factories/triggers": {
+		"properties": {
+			"pipelines": [{
+					"parameters": {
+						"*": "="
+					}
+				},
+				"pipelineReference.referenceName"
+			],
+			"pipeline": {
+				"parameters": {
+					"*": "="
+				}
+			}
+		}
+	},
+	"Microsoft.DataFactory/factories/linkedServices": {
+		"*": {
+			"properties": {
+				"typeProperties": {
+					"accountName": "=",
+					"username": "=",
+					"userName": "=",
+					"accessKeyId": "=",
+					"servicePrincipalId": "=",
+					"userId": "=",
+					"clientId": "=",
+					"clusterUserName": "=",
+					"clusterSshUserName": "=",
+					"hostSubscriptionId": "=",
+					"clusterResourceGroup": "=",
+					"subscriptionId": "=",
+					"resourceGroupName": "=",
+					"tenant": "=",
+					"dataLakeStoreUri": "=",
+					"baseUrl": "=",
+					"connectionString": {
+						"secretName": "="
+					}
+				}
+			}
+		}
+	},
+	"Microsoft.DataFactory/factories/datasets": {
+		"*": {
+			"properties": {
+				"typeProperties": {
+					"folderPath": "=",
+					"fileName": "="
+				}
+			}
+		}
+	}
+}
+```
+

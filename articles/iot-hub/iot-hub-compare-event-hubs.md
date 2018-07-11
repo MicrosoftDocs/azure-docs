@@ -1,22 +1,15 @@
 ---
 title: Compare Azure IoT Hub to Azure Event Hubs | Microsoft Docs
 description: A comparison of the IoT Hub and Event Hubs Azure services highlighting functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-
-ms.assetid: aeddea62-8302-48e2-9aad-c5a0e5f5abe9
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-
 ---
+
 # Connecting IoT Devices to Azure: IoT Hub and Event Hubs
 
 Azure provides services specifically developed for diverse types of connectivity and communication to help you connect your data to the power of the cloud. Both Azure IoT Hub and Azure Event Hubs are cloud services that can ingest large amounts of data and process or store that data for business insights. The two services are similar in that they both support ingestion of data with low latency and high reliability, but they are designed for different purposes. IoT Hub was developed specifically to address the unique requirements of connecting IoT devices, at-scale, to the Azure Cloud while Event Hubs was designed for big data streaming. This is why Microsoft recommends using Azure IoT Hub to connect IoT devices to Azure

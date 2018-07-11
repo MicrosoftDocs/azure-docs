@@ -4,13 +4,13 @@ description: Tutorial on how to use Active Directory B2C to protect an ASP.NET w
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
 
 ms.author: davidmu
 ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
+ms.service: active-directory
+ms.component: B2C
 ---
 
 # Tutorial: Grant access to an ASP.NET web API from a web app using Azure Active Directory B2C
@@ -36,17 +36,23 @@ In this tutorial, you learn how to:
 
 Web API resources need to be registered in your tenant before they can accept and respond to [protected resource requests](../active-directory/develop/active-directory-dev-glossary.md#resource-server) by [client applications](../active-directory/develop/active-directory-dev-glossary.md#client-application) that present an [access token](../active-directory/develop/active-directory-dev-glossary.md#access-token) from Azure Active Directory. Registration establishes the [application and service principal object](../active-directory/develop/active-directory-dev-glossary.md#application-object) in your tenant. 
 
-Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+1. Log in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by switching to it in the top-right corner of the Azure portal. Select your subscription information, and then select **Switch Directory**.
 
-1. Select **Azure AD B2C** from the services list in the Azure portal.
+    ![Switch directories](./media/active-directory-b2c-tutorials-web-api/switch-directories.png)
 
-2. In the B2C settings, click **Applications** and then click **Add**.
+3. Choose the directory that contains your tenant.
+
+    ![Select directory](./media/active-directory-b2c-tutorials-web-api/select-directory.png)
+
+4. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**. You should now be using the tenant that you created in the previous tutorial.
+
+5. Select **Applications** and then select **Add**.
 
     To register the sample web API in your tenant, use the following settings.
     
-    ![Add a new API](media/active-directory-b2c-tutorials-web-api/web-api-registration.png)
+    ![Add a new API](./media/active-directory-b2c-tutorials-web-api/web-api-registration.png)
     
     | Setting      | Suggested value  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
@@ -57,7 +63,7 @@ Log in to the [Azure portal](https://portal.azure.com/) as the global administra
     | **App ID URI** | myAPISample | The URI uniquely identifies the API in the tenant. This allows you to register multiple APIs per tenant. [Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) govern access to the protected API resource and are defined per App ID URI. |
     | **Native client** | No | Since this is a web API and not a native client, select No. |
     
-3. Click **Create** to register your API.
+6. Click **Create** to register your API.
 
 Registered APIs are displayed in the applications list for the Azure AD B2C tenant. Select your web API from the list. The web API's property pane is displayed.
 
@@ -69,7 +75,7 @@ Registering your web API with Azure AD B2C defines a trust relationship. Since t
 
 ## Define and configure scopes
 
-[Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, some users could have both read and write access, whereas other users might have read-only permissions. In this tutorial, you define read and write permissions for the web API.
+[Scopes](../active-directory/develop/active-directory-dev-glossary.md#scopes) provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, users of the web API could have both read and write access, or users of the web API might have only read access. In this tutorial, you use scopes to define read and write permissions for the web API.
 
 ### Define scopes for the web API
 

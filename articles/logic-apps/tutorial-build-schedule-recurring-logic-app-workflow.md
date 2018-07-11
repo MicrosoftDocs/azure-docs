@@ -2,7 +2,7 @@
 title: Build scheduler-based automated workflows - Azure Logic Apps | Microsoft Docs
 description: This tutorial shows how to create a scheduler-based, recurring, automated workflow with Azure Logic Apps
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: 
 services: logic-apps
 documentationcenter: 

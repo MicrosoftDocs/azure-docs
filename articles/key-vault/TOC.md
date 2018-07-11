@@ -16,11 +16,12 @@
 # Samples
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=key-vault)
 # Concepts
+## [What is Key Vault?](key-vault-whatis.md)
 ## [Security worlds](key-vault-ovw-security-worlds.md)
 ## [Soft-delete](key-vault-ovw-soft-delete.md)
 ## [Storage account keys](key-vault-ovw-storage-keys.md)
 ## [Throttling](key-vault-ovw-throttling.md)
-## [What is Key Vault?](key-vault-whatis.md)
+
 
 # How-to guides
 ## Manage
@@ -40,11 +41,11 @@
 # Reference
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI](/cli/azure/keyvault)
-## [.NET](/dotnet/api/microsoft.azure.keyvault)
-## [Java](/java/api/com.microsoft.azure.keyvault)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/keyvault/client?view=azure-dotnet)
+## [Java](/java/api/overview/azure/keyvault?view=azure-java-stable)
 ## Node.js
-### [Vault management](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
-### [Vault contents management](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
+### [Vault management](https://docs.microsoft.com/en-us/javascript/api/overview/azure/keyvault/client?view=azure-node-latest)
+### [Vault contents management](https://docs.microsoft.com/en-us/javascript/api/azure-arm-keyvault/index?view=azure-node-latest)
 ## [REST](/rest/api/keyvault)
 ## Develop
 ### [Developer quick start video](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
@@ -68,11 +69,12 @@
 ### [Certificate creation methods](create-certificate.md)
 ### [Monitor and manage certificate creation](create-certificate-scenarios.md)
 ## [Authentication, Requests and Responses](authentication-requests-and-responses.md)
+## [Customer data features](key-vault-customer-data.md)
 ## [Common parameters and headers](common-parameters-and-headers.md)
 ## [Key Vault Versions](key-vault-versions.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
-## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
+## [Code Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault&type=&language=)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 ## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

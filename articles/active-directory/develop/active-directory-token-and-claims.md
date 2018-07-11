@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -52,7 +52,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | JWT Claim | Name | Description |
 | --- | --- | --- |
 | `aud` |Audience |The intended recipient of the token. The application that receives the token must verify that the audience value is correct and reject any tokens intended for a different audience. <br><br> **Example SAML Value**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Example JWT Value**: <br> `"aud":"https://contoso.com"` |
-| `appidacr` |Application Authentication Context Class Reference |Indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1. <br><br> **Example JWT Value**: <br> `"appidacr": "0"` |
+| `appidacr` |Application Authentication Context Class Reference |Indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1. If a client certificate was used for authentication, the value is 2. <br><br> **Example JWT Value**: <br> `"appidacr": "0"` |
 | `acr` |Authentication Context Class Reference |Indicates how the subject was authenticated, as opposed to the client in the Application Authentication Context Class Reference claim. A value of "0" indicates the end-user authentication did not meet the requirements of ISO/IEC 29115. <br><br> **Example JWT Value**: <br> `"acr": "0"` |
 | Authentication Instant |Records the date and time when authentication occurred. <br><br> **Example SAML Value**: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |Authentication Method |Identifies how the subject of the token was authenticated. <br><br> **Example SAML Value**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Example JWT Value**: `“amr”: ["pwd"]` |
@@ -110,7 +110,8 @@ Tokens issued by Azure AD are signed using industry standard asymmetric encrypti
 {
   "typ": "JWT",
   "alg": "RS256",
-  "x5t": "kriMPdmBvx68skT8-mPAB3BseeA"
+  "x5t": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
+  "kid": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
 }
 ```
 
@@ -126,12 +127,13 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 
 > [!TIP]
 > Try this URL in a browser!
-> 
-> 
 
 This metadata document is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for performing OpenID Connect authentication. 
 
 It also includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens. The JSON document located at the `jwks_uri` contains all of the public key information in use at that particular moment in time. Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token. It can then perform signature validation using the correct public key and the indicated algorithm.
+
+> [!NOTE]
+> The v1.0 endpoint returns both the `x5t` and `kid` claims. The `x5t` claim is missing from v2.0 tokens. The v2.0 endpoint responds with the `kid` claim. Going forward, we recommend using the `kid` claim to validate your token.
 
 Performing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.
 
@@ -150,21 +152,31 @@ For a full list of claim validations your app should perform for ID Tokens, refe
 ## Token Revocation
 
 Refresh tokens can be invalidated or revoked at any time, for a variety of reasons. These fall into two main categories: timeouts and revocations. 
-* Token Timeouts
-  * MaxInactiveTime: If the refresh token has not been used within the time dictated by the MaxInactiveTime, the Refresh Token will no longer be valid. 
-  * MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then re-authentication will be required after the time set in the MaxAgeSession* elapses. 
-  * Examples:
-    * The tenant has a MaxInactiveTime of 5 days, and the user went on vacation for a week, and so AAD has not seen a new token request from the user in 7 days. The next time the user requests a new token, they will find their Refresh Token has been revoked, and they must enter their credentials again. 
-    * A sensitive application has a MaxAgeSessionSingleFactor of 1 day. If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they will be required to re-authenticate. 
-* Revocation
-  * Voluntary Password Change: If a user changes their password, they may have to re-authenticate across some of their applications, depending on the way the token was attained. See notes below for exceptions. 
-  * Involuntary Password Change: If an administrator forces a user to change their password or resets it, then the user's tokens are invalidated if they were attained using their password. See notes below for exceptions. 
-  * Security Breach: In the event of a security breach (e.g. the on-premises store of passwords is breached) the admin can revoke all of the refresh tokens currently issued. This will force all users to re-authenticate. 
+
+**Token Timeouts**
+
+* MaxInactiveTime: If the refresh token has not been used within the time dictated by the MaxInactiveTime, the Refresh Token will no longer be valid. 
+* MaxSessionAge: If MaxAgeSessionMultiFactor or MaxAgeSessionSingleFactor have been set to something other than their default (Until-revoked), then re-authentication will be required after the time set in the MaxAgeSession* elapses. 
+* Examples:
+  * The tenant has a MaxInactiveTime of 5 days, and the user went on vacation for a week, and so AAD has not seen a new token request from the user in 7 days. The next time the user requests a new token, they will find their Refresh Token has been revoked, and they must enter their credentials again. 
+  * A sensitive application has a MaxAgeSessionSingleFactor of 1 day. If a user logs in on Monday, and on Tuesday (after 25 hours have elapsed), they will be required to re-authenticate. 
+
+**Revocation**
+
+|   | Password based cookie | Password based token | Non-password based cookie | Non-password based token | Confidential client token| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|Password Expires| Stays alive|Stays alive|Stays alive|Stays alive|Stays alive|
+|Password changed by user| Revoked | Revoked | Stays alive|Stays alive|Stays alive|
+|User does SSPR|Revoked | Revoked | Stays alive|Stays alive|Stays alive|
+|Admin resets password|Revoked | Revoked | Stays alive|Stays alive|Stays alive|
+|User revokes their refresh tokens [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked |Revoked | Revoked |
+|Admin revokes all refresh tokens for the tenant [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revoked | Revoked |Revoked | Revoked |Revoked | Revoked |
+|[Single-Sign Out](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code#single-sign-out) on web | Revoked | Stays alive |Revoked | Stays alive |Stays alive |Stays alive |
 
 > [!NOTE]
->If a non-password method of authentication was used (Windows Hello, the Authenticator app, biometrics like a face or fingerprint) to attain the token, changing the user's password will not force the user to re-authenticate (but it will force their Authenticator app to re-authenticate). This is because their chosen authentication input (a face, e.g.) has not changed, and therefore can be used again to re-authenticate.
+> A "Non-password based" login is one where the user didn't type in a password to get it.  For example using your face with Windows Hello, a FIDO key, or a PIN. 
 >
-> Confidential clients are not impacted by password change revocations. A confidential client with a refresh token issued before a password change will continue to be abl to use that refresh token to get more tokens. 
+> A known issue exists with the Windows Primary Refresh Token.  If the PRT is obtained via a password, and then the user logs in via Hello, this does not change the origination of the PRT, and it will be revoked if the user changes their password. 
 
 ## Sample Tokens
 

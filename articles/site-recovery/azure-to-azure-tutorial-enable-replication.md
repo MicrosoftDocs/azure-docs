@@ -1,16 +1,16 @@
 ---
-title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery (Preview)
+title: Set up disaster recovery for Azure VMs to a secondary Azure region with Azure Site Recovery
 description: Learn how to set up disaster recovery for Azure VMs to a different Azure region, using the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
 ---
-# Set up disaster recovery for Azure VMs to a secondary Azure region (Preview)
+# Set up disaster recovery for Azure VMs to a secondary Azure region
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines, and Azure virtual machines (VMs).
 
@@ -21,6 +21,7 @@ This tutorial shows you how to set up disaster recovery to a secondary Azure reg
 > * Verify target resource settings
 > * Set up outbound access for VMs
 > * Enable replication for a VM
+
 
 ## Prerequisites
 
@@ -129,7 +130,7 @@ Learn more on [Azure RBAC built-in roles](../role-based-access-control/built-in-
 ### Select the source
 
 1. In Recovery Services vaults, click the vault name > **+Replicate**.
-2. In **Source**, select **Azure - PREVIEW**.
+2. In **Source**, select **Azure**.
 3. In **Source location**, select the source Azure region where your VMs are currently running.
 4. Select the **Azure virtual machine deployment model** for VMs: **Resource Manager** or
    **Classic**.

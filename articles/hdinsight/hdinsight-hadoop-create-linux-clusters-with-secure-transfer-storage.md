@@ -3,21 +3,16 @@ title: Create Hadoop cluster with secure transfer storage accounts in Azure HDIn
 description: Learn how to create HDInsight clusters with secure transfer enabled Azure storage accounts.
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,secure transfer,azure storage account
 services: hdinsight
-documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2018
+ms.date: 07/09/2018
 ms.author: jgao
-
 ---
 # Create Hadoop cluster with secure transfer storage accounts in Azure HDInsight
 
@@ -29,6 +24,7 @@ Before you begin this tutorial, you must have:
 * **Azure subscription**: To create a free one-month trial account, browse to [azure.microsoft.com/free](https://azure.microsoft.com/free).
 * **An Azure Storage account with secure transfer enabled**. For the instructions, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) and [Require secure transfer](../storage/common/storage-require-secure-transfer.md).
 * **A Blob container on the storage account**. 
+
 ## Create cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]

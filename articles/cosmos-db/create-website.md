@@ -4,14 +4,10 @@ description: Learn how to deploy an Azure Cosmos DB account, Azure App Service W
 services: cosmos-db, app-service\web
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.custom: mvc
