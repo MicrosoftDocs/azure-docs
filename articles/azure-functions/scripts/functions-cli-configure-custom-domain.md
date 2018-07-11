@@ -20,10 +20,9 @@ ms.custom: mvc
 ---
 # Map a custom domain to a function app
 
-This sample script creates a function app in an App Service plan and then maps it to a custom domain that you provide. 
-When your function app is hosted in an [App Service plan](../functions-scale.md#app-service-plan), you can map a custom domain using either a CNAME or an A record. For function apps in a [Consumption plan](../functions-scale.md#consumption-plan), only the CNAME option is supported.
+This sample script creates a function app in an App Service plan and then maps it to a custom domain that you provide. When your function app is hosted in an [App Service plan](../functions-scale.md#app-service-plan), you can map a custom domain using either a CNAME or an A record. For function apps in a [Consumption plan](../functions-scale.md#consumption-plan), only the CNAME option is supported.
 
-To run this sample script, you must have already  
+To run this sample script, you must have already configured an A record in your custom domain that points to your web app's default domain name. For more information, see the [Map custom domain instructions for Azure App Service](https://aka.ms/appservicecustomdns). Because this sample uses an A record instead of CNAME, your function app must be created in an App Service plan and not in a consumption plan. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
