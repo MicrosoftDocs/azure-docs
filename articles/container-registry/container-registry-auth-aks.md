@@ -13,7 +13,7 @@ ms.author: marsma
 
 # Authenticate with Azure Container Registry from Azure Kubernetes Service
 
-When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), an authentication mechanism needs to be established. This document details the recommended configurations for authentication between these two Azure services.
+When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), an authentication mechanism needs to be established. This article details the recommended configurations for authentication between these two Azure services.
 
 ## Grant AKS access to ACR
 
@@ -68,7 +68,7 @@ echo "Service principal password: $SP_PASSWD"
 
 You can now store the service principal's credentials in a Kubernetes [image pull secret][image-pull-secret], which your AKS cluster will reference when running containers.
 
-Use the following `kubectl` command to create the Kubernetes secret. Replace `<acr-login-server>` with the fully qualified name of your Azure container registry (it's in the format `acrname.azurecr.io`). Replace `<service-principal-ID>` and `<service-principal-password>` with the values you obtained by running the previous script.
+Use the following **kubectl** command to create the Kubernetes secret. Replace `<acr-login-server>` with the fully qualified name of your Azure container registry (it's in the format "acrname.azurecr.io"). Replace `<service-principal-ID>` and `<service-principal-password>` with the values you obtained by running the previous script.
 
 ```bash
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
