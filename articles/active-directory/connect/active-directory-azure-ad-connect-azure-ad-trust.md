@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - Managing AD FS trust with Azure AD using Azure AD Connect | Microsoft Docs
+title: Azure AD Connect - Manage AD FS trust with Azure AD using Azure AD Connect | Microsoft Docs
 description: Operational details of Azure AD trust handling by Azure AD connect.
 keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, Azure AD, trust, AAD, claim, claim, claim rules, issuance, transform, rules, backup, restore
 services: active-directory
@@ -18,7 +18,7 @@ ms.date: 07/11/2018
 ms.author: anandy
 ms.custom: 
 ---
-# Managing AD FS trust with Azure AD using Azure AD Connect
+# Manage AD FS trust with Azure AD using Azure AD Connect
 
 ## Overview
 
@@ -30,7 +30,7 @@ Azure AD Connect can manage federation between on-premises Active Directory Fede
 
 ## Settings controlled by Azure AD Connect
 
-Azure AD Connect manages **only** settings related to Azure AD trust. Azure AD Connect does not modify any settings on other relying party trusts in AD FS. The following table indicates settings that are controlled by Azure AD Connect by various tasks and operation flows.
+Azure AD Connect manages **only** settings related to Azure AD trust. Azure AD Connect does not modify any settings on other relying party trusts in AD FS. The following table indicates settings that are controlled by Azure AD Connect.
 
 | Setting | Description |
 | :--- | :--- |
@@ -45,7 +45,7 @@ Azure AD Connect manages **only** settings related to Azure AD trust. Azure AD C
 
 ## Execution flows and federation settings configured by Azure AD Connect
 
-Azure AD connect does not update all settings for Azure AD trust during configuration flows. The settings modified depend on which the task or execution flow being executed. The following table lists the settings impacted in different execution flows.
+Azure AD connect does not update all settings for Azure AD trust during configuration flows. The settings modified depend on which task or execution flow is being executed. The following table lists the settings impacted in different execution flows.
 
 | Execution flow | Settings impacted |
 | :--- | :--- |
@@ -59,9 +59,9 @@ Azure AD connect does not update all settings for Azure AD trust during configur
 | Add federated domain | If the domain is being added for the first time, that is, the setup is changing from single domain federation to multi-domain federation – Azure AD Connect will recreate the trust from scratch. If the trust with Azure AD is already configured for multiple domains, only Issuance transform rules are modified |
 | Update SSL | None |
 
-During all operations during which any setting is modified, Azure AD Connect makes a backup of the current trust settings at **%ProgramData%\AADConnect\ADFS**
+During all operations, in which, any setting is modified, Azure AD Connect makes a backup of the current trust settings at **%ProgramData%\AADConnect\ADFS**
 
-**include snapshot of AAD trust page here**
+![Azure AD Connect page showing message about existing Azure AD trust backup](media/active-directory-azure-ad-connect-azure-ad-trust/backup2.png)
 
 > [!NOTE]
 > Prior to version 1.1.873.0, the backup consisted of only issuance transform rules and they were backed up in the wizard trace log file.
@@ -96,9 +96,9 @@ Azure AD Connect makes sure that the Azure AD trust is always configured with th
 
 ## Restore issuance transform rules
 
-Azure AD Connect version 1.1.873.0 and latest makes a backup of the Azure AD trust settings whenever an update is made to the Azure AD trust settings. The Azure AD trust settings are backed up at **%ProgramData%\AADConnect\ADFS**. The file name is in the following format AadTrust-&lt;date&gt;-&lt;time&gt;.txt, for example - AadTrust-20180710-150216.txt
+Azure AD Connect version 1.1.873.0 or later makes a backup of the Azure AD trust settings whenever an update is made to the Azure AD trust settings. The Azure AD trust settings are backed up at **%ProgramData%\AADConnect\ADFS**. The file name is in the following format AadTrust-&lt;date&gt;-&lt;time&gt;.txt, for example - AadTrust-20180710-150216.txt
 
-**insert snapshot here**
+![A sanpshot of example back up of Azure AD trust](media/active-directory-azure-ad-connect-azure-ad-trust/backup.png)
 
 You can restore the issuance transform rules using the suggested steps below
 
