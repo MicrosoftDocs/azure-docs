@@ -24,9 +24,9 @@ With Visual Studio 2017 Update 7 (15.7), you can debug .NET applications in cont
 
 ## Prerequisites
 
-* On Windows 10, follow this quickstart to [Configure Windows 10 to run Windows containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-10)
-* On Windows Server 2016, follow this quickstart to [Configure Windows 2016 to run Windows containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server)
-* Set up your local Service Fabric environment by following [Prepare your development environment on Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started)
+* On Windows 10, follow this quickstart to [Configure Windows 10 to run Windows containers](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
+* On Windows Server 2016, follow this quickstart to [Configure Windows 2016 to run Windows containers](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)
+* Set up your local Service Fabric environment by following [Prepare your development environment on Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
 
 ## Configure your developer environment to debug containers
 
@@ -45,7 +45,7 @@ With Visual Studio 2017 Update 7 (15.7), you can debug .NET applications in cont
     > You can use the `-CreateOneNodeCluster` to setup a one-node cluster. The default will create a local five-node cluster.
     >
 
-    To learn more about the DNS Service in Service Fabric, see [DNS Service in Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice).
+    To learn more about the DNS Service in Service Fabric, see [DNS Service in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice).
 
 ### Known limitations when debugging containers in Service Fabric
 
