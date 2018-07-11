@@ -102,19 +102,43 @@ Once the IoT Edge Security Daemon is running, look at the logs of the containers
 
 ### View the messages going through the Edge hub
 
-View the messages going through the Edge hub, and gather insights on device properties updates with verbose logs from the edgeAgent and edgeHub runtime containers. To turn on verbose logs on these containers, set the `RuntimeLogLevel` environment variable: 
+View the messages going through the Edge hub, and gather insights on device properties updates with verbose logs from the edgeAgent and edgeHub runtime containers. To turn on verbose logs on these containers, set `RuntimeLogLevel` in your yaml configuration file. To open the file:
 
 On Linux:
-    
-   ```cmd
-   export RuntimeLogLevel="debug"
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
    ```
-    
+
 On Windows:
-    
-   ```powershell
-   [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
+
+   ```cmd
+   notepad C:\ProgramData\iotedge\config.yaml
    ```
+
+By default, the `agent` element will look something like this:
+
+   ```yaml
+   agent:
+     name: edgeAgent
+     type: docker
+     env: {}
+     config:
+       image: mcr.microsoft.com/azureiotedge-agent:1.0
+       auth: {}
+   ```
+
+Replace `env: {}` with:
+
+> [!WARNING]
+> YAML files cannot contain tabs as identation. Use 2 spaces instead.
+
+   ```yaml
+   env:
+     RuntimeLogLevel: debug
+   ```
+
+Save the file and restart the IoT Edge security manager.
 
 You can also check the messages being sent between IoT Hub and the IoT Edge devices. View these messages by using the [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extension for Visual Studio Code. For more guidance, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
