@@ -45,17 +45,17 @@ The device configuration file contains the settings to use when configuring your
 * **vpnSiteConfiguration -** This section denotes the device details set up as a site connecting to the virtual WAN. It includes the name and public ip address of the branch device.
 * **vpnSiteConnections -** This section provides information about the following:
 
-    * **Address space** of the virtual hub(s) VNet<br>Example:
+    * **Address space** of the virtual hub(s) VNet.<br>Example:
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Address space** of the VNets that are connected to the hub<br>Example:
+    * **Address space** of the VNets that are connected to the hub.<br>Example:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **IP addresses** of the virtual hub vpngateway. Because the vpngateway has each connection comprising of 2 tunnels in active-active configuration, you will see both IP addresses listed in this file. In this example, you see "Instance0" and "Instance1" for each site.
+    * **IP addresses** of the virtual hub vpngateway. Because the vpngateway has each connection comprising of 2 tunnels in active-active configuration, you will see both IP addresses listed in this file. In this example, you see "Instance0" and "Instance1" for each site.<br>Example:
 
         ``` 
         "Instance0":"104.45.18.186"
