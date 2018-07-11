@@ -118,7 +118,7 @@ This step takes 2-3 minutes to complete.
 
 To clean up, you can cancel the Data Box order and then delete it.
 
-- You can cancel the Data Box order in the Azure portal before the disks are dispatched. Once the disks are shipped, the order cannot be canceled. The order progresses until it reaches the completed stage. 
+- You can cancel the Data Box order in the Azure portal before the order is processed. Once the order is processed, the order cannot be canceled. The order progresses until it reaches the completed stage. 
 
     To cancel the order, go to **Overview** and click **Cancel** from the command bar.  
 

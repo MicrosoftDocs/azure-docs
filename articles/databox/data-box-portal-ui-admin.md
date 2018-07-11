@@ -19,26 +19,17 @@ ms.author: alkohli
 ---
 # Use Azure portal to administer your Data Box (Preview)
 
-The tutorials in this article apply to the Microsoft Azure Data Box running Preview release. This article describes some of the complex workflows and management tasks that can be performed on the Data Box and Data Box Disk. 
+The tutorials in this article apply to the Microsoft Azure Data Box Disk during Preview. This article describes some of the complex workflows and management tasks that can be performed on the Data Box Disk. 
 
-You can manage the Data Box using the Data Box service UI (referred to as the portal UI) and the local web UI for the device. Data Box Disk can only be managed via the Azure portal. This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage devices, and track the status of the order as it proceeds to the terminal stage.
-
-This article includes the following tutorials:
-
-- Cancel an order
-- Clone an order
-- Download shipping label
-- Edit shipping address
-- Edit notification details
-- View order status
+You can manage the Data Box Disk via the Azure portal. This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage disks, and track the status of the order as it proceeds to the terminal stage.
 
 > [!IMPORTANT]
-> Data Box is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
+> Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
 
 
 ## Cancel an order
 
-You may need to cancel an order for various reasons after you have placed the order. You can only cancel the order while the Data Box device is being prepared. Once the device is prepared and dispatched, it is not possible to cancel the order. 
+You may need to cancel an order for various reasons after you have placed the order. You can only cancel the order before the disk preparation starts. Once the disks are prepared and order processed, it is not possible to cancel the order. 
 
 Perform the following steps to cancel a order.
 
@@ -58,7 +49,7 @@ You do not receive an email notification when the order is canceled.
 
 ## Clone an order
 
-Cloning is useful in certain situations. For example, a user has used Data Box device to transfer some data. As more data is generated, there is a need for more devices to transfer that data into Azure. In this case, the same order can be just cloned over.
+Cloning is useful in certain situations. For example, a user has used Data Box Disk to transfer some data. As more data is generated, there is a need for more disks to transfer that data into Azure. In this case, the same order can be just cloned over.
 
 Perform the following steps to clone an order.
 
@@ -66,11 +57,9 @@ Perform the following steps to clone an order.
 
     ![Clone order 1](media/data-box-portal-ui-admin/clone-order1.png)
 
-2.	All the details of the order stay the same. The order name is the original order name appended by *-Clone*. Select the checkbox to confirm that you have reviewed the privacy information. Click **Create**. 
+2.	All the details of the order stay the same. The order name is the original order name appended by *-Clone*. Select the checkbox to confirm that you have reviewed the privacy information. Click **Create**.    
 
-    ![Clone order 2](media/data-box-portal-ui-admin/clone-order2.png) 
-
-The clone will be created in a few minutes and the portal will update to show the new order.
+The clone is created in a few minutes and the portal updates to show the new order.
 
 [![Clone order 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
 
@@ -95,10 +84,10 @@ You can only delete orders that are completed or canceled. Perform the following
 
 ## Download shipping label
 
-You may need to download the shipping label if the the return shipping label shipped with your device is misplaced or lost. You may also need a shipping label if the e-ink display of your device is not functioning.
+You may need to download the shipping label if the the return shipping label shipped with your disks is misplaced or lost. 
 
 Perform the following steps to download a shipping label.
-1.	Go to **Overview > Download shipping label**. This option is available only after the device is shipped. 
+1.	Go to **Overview > Download shipping label**. This option is available only after the disk is shipped. 
 
     ![Download shipping label](media/data-box-portal-ui-admin/download-shipping-label.png)
 
@@ -108,7 +97,7 @@ Perform the following steps to download a shipping label.
 
 ## Edit shipping address
 
-You may need to edit the shipping address once the order is placed. This is only available until the device is dispatched. Once the device is dispatched, this option will no longer be available.
+You may need to edit the shipping address once the order is placed. This is only available until the disk is dispatched. Once the disk is dispatched, this option will no longer be available.
 
 Perform the following steps to edit the order.
 
@@ -122,7 +111,7 @@ Perform the following steps to edit the order.
 
 ## Edit notification details
 
-You may need to change the users whom you want to recieve the order status emails. For instance, a user needs to be informed when the device is delivered or picked up. Another user may need to be informed when the data copy is complete so he can verify the data is in the Azure storage account before deleting it from the source. In these instances, you can edit the notification details.
+You may need to change the users whom you want to recieve the order status emails. For instance, a user needs to be informed when the disk is delivered or picked up. Another user may need to be informed when the data copy is complete so he can verify the data is in the Azure storage account before deleting it from the source. In these instances, you can edit the notification details.
 
 Perform the following steps to edit notification details.
 
@@ -138,10 +127,10 @@ Perform the following steps to edit notification details.
 
 |Order status |Description |
 |---------|---------|
-|Ordered     | Successfully placed an order. <br> If the disks are not available, you receive a notification. <br>If the disks are available, Microsoft identifies a device for shipment and prepares the device package.        |
-|Processed     | Order processing is complete. <br> During order processing, following actions occur:<li>Disks are encrypted using AES-128 BitLocker encryption. </li> <li>The Data Box Disk are locked to prevent anyone from accessing the disks while in transit.</li><li>The passkey that unlocks the disks is generated during this process.</li>        |
-|Dispatched     | Order has shipped. You should receive the order in 1-3 days.        |
-|Delivered     | Order was delivered to the address specified in the order. <br>You have 3 days of free use to copy data on to the disks. For more information, go to [Pricing](data-box-disk-overview.md#pricing).        |
+|Ordered     | Successfully placed an order. <br> If the disks are not available, you receive a notification. <br>If the disks are available, Microsoft identifies a disk for shipment and prepares the disk package.        |
+|Processed     | Order processing is complete. <br> During order processing, following actions occur:<li>Disks are encrypted using AES-128 BitLocker encryption. </li> <li>The Data Box Disk are locked to prevent any unauthorized access.</li><li>The passkey that unlocks the disks is generated during this process.</li>        |
+|Dispatched     | Order has shipped. You should receive the order in 1-2 days.        |
+|Delivered     | Order was delivered to the address specified in the order.        |
 |Picked up     |Your return shipment was picked up. <br> Once the shipment is recieved at Azure datacenter, data will be automatically uploaded to Azure.         |
 |Received     | Your disks were received at the Azure datacenter. Data copy will start soon.        |
 |Data copied     |Data copy is in progress.<br> Wait until the data copy is complete.         |

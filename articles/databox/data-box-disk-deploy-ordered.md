@@ -101,10 +101,10 @@ After you have placed the order, you can track the status of the order from Azur
 
 ![Data Box Disk status ordered](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
-If the disks are not available, you receive a notification. If the disks are available, Microsoft identifies a device for shipment and prepares the device package. During disk preparation, following actions occur:
+If the disks are not available, you receive a notification. If the disks are available, Microsoft identifies the disks for shipment and prepares the disk package. During disk preparation, following actions occur:
 
 - Disks are encrypted using AES-128 BitLocker encryption.  
-- The Data Box Disk are locked to prevent anyone from accessing the disks while in transit.
+- Disks are locked to prevent an unauthorized access to the disks.
 - The passkey that unlocks the disks is generated during this process.
 
 When the disk preparation is complete, the portal shows the order in **Processed** state.
@@ -117,7 +117,7 @@ Microsoft then prepares and dispatches your disks via a regional carrier. You re
 
 To cancel this order, in the Azure preview portal, go to **Overview** and click **Cancel** from the command bar. 
 
-You can only cancel when the disks are ordered and the order is processed for shipment. Once the disks are dispatched, you can no longer cancel the order. 
+You can only cancel when the disks are ordered and the order is being processed for shipment. Once the order is processed, you can no longer cancel the order. 
 
 ![Cancel order](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
