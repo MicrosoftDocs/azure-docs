@@ -113,7 +113,7 @@
 ### [Users at risk](active-directory-reporting-security-user-at-risk.md)
 ### [Risky sign-ins](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risk events](active-directory-reporting-risk-events.md)
-### [Azure monitor diagnostics](active-directory-reporting-azure-monitor-diagnostics-overview.md)
+### [Monitoring logs using Azure monitor diagnostics](active-directory-reporting-azure-monitor-diagnostics-overview.md)
 ### [FAQ](active-directory-reporting-faq.md)
 
 ### Tasks
@@ -122,7 +122,7 @@
 #### [Use the Azure AD Power BI Content Pack](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Remediate users flagged for risk](active-directory-report-security-user-at-risk-remediation.md)
 #### [Route activity logs to an Azure event hub](active-directory-reporting-azure-monitor-diagnostics-azure-event-hub.md)
-#### [Route activity logs to an Azure storage account](active-directory-reporting-azure-monitor-diagnostics-azure-storage-account.md)
+#### [Archive activity logs to an Azure storage account](active-directory-reporting-azure-monitor-diagnostics-azure-storage-account.md)
 #### [Tntegrate activity logs with Splunk using Azure Monitor Diagnostics](active-directory-reporting-azure-monitor-diagnostics-splunk-integration.md)
 
 ### Reference

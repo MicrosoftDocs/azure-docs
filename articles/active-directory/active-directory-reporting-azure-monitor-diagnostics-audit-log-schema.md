@@ -1,6 +1,6 @@
 ---
-title: Interpret the Azure Active Directory audit log schema in Azure Monitor Diagnostics | Microsoft Docs
-description: Describe the Azure AD audit log schema for use in Azure Monitor Diagnostics 
+title: Interpret the Azure Active Directory audit log schema in Azure Monitor Diagnostics (preview) | Microsoft Docs
+description: Describe the Azure AD audit log schema for use in Azure Monitor Diagnostics (preview)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -20,7 +20,7 @@ ms.reviewer: dhanyahk
 
 ---
 
-# Interpret the Azure Active Directory audit log schema in Azure Monitor Diagnostics
+# Interpret the Azure Active Directory audit logs schema in Azure Monitor Diagnostics (preview)
 
 This article describes the Azure AD audit log schema in Azure Monitor Diagnostics. Each individual log entry is stored as text, formatted as a JSON blob, as shown in the below two examples. 
 

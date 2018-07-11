@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Route Azure Active Directory logs to an Azure storage account | Microsoft Docs
-description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to a storage account   
+title: Tutorial - Archive Azure Active Directory logs to an Azure storage account (preview) | Microsoft Docs
+description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to a storage account (preview)  
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -20,7 +20,7 @@ ms.reviewer: dhanyahk
 
 ---
 
-# Tutorial: Route Azure Active Directory logs to an Azure storage account
+# Tutorial: Archive Azure Active Directory logs to an Azure storage account (preview)
 
 In this tutorial, you will learn how to set up Azure Monitor diagnostic settings to route Azure Active Directory logs to an Azure storage account.
 
@@ -28,17 +28,16 @@ In this tutorial, you will learn how to set up Azure Monitor diagnostic settings
 
 You need:
 
-* An Azure subscription with an Azure storage account
-* An Azure Active Directory tenant
-* A user, who is an administrator for that tenant
+* An Azure subscription with an Azure storage account. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
+* An Azure Active Directory tenant.
+* A user, who is a global administrator or security administrator for that tenant.
 
 ## Archive logs to an Azure storage account
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. Click on **Azure Active Directory** -> **Activity** -> **Audit logs**. 
 3. Click **Export Settings** to open the Diagnostic Settings blade. Click **Edit setting** if you want to change existing settings or click **Add diagnostic setting** to add a new one. You can have a maximum of three settings. 
-
-![Export settings](./media/active-directory-reporting-azure-monitor-diagnostics-azure-storage-account/ExportSettings.png "Export settings")
+    ![Export settings](./media/active-directory-reporting-azure-monitor-diagnostics-azure-storage-account/ExportSettings.png "Export settings")
 
 4. Add a friendly name for the setting to remind you of its purpose. For example, "Send to Azure storage account". 
 5. Check the **Archive to a storage account** checkbox and click **Storage account** to choose the Azure storage account. 
@@ -47,10 +46,14 @@ You need:
 8. Check the **SignIn** checkbox to send sign-in logs to the storage account.
 9. Use the slider to set retention on your log data. By default, this value is "0" and logs will be retained in the storage account indefinitely. Else, you can set a value and events older than the number of days selected will be automatically cleaned up.
 10. Click **Save** to save the setting.
-
-![Diagnostics settings](./media/active-directory-reporting-azure-monitor-diagnostics-azure-storage-account/DiagnosticSettings.png "Diagnostics settings")
+    ![Diagnostics settings](./media/active-directory-reporting-azure-monitor-diagnostics-azure-storage-account/DiagnosticSettings.png "Diagnostics settings")
 
 11. After about 15 minutues, verify that the logs are pushed into your storage account. Go to the Azure portal, click **Storage accounts**, choose the storage account you used earlier and click **Blobs**. 
 12. For **Audit logs**, click **insights-log-audit**. For **Sign-in logs**, click **insights-logs-signin**.
+    ![Storage account](./media/active-directory-reporting-azure-monitor-diagnostics-azure-storage-account/StorageAccount.png "Storage account")
 
-![Storage account](./media/active-directory-reporting-azure-monitor-diagnostics-azure-storage-account/StorageAccount.png "Storage account")
+## Next steps
+
+* [Interpret audit logs schema in Azure monitor diagnostics](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Interpret sign-in logs schema in Azure monitor diagnostics](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Frequently asked questions and known issues](active-directory-reporting-faq.md#frequently-asked-questions-about-azure-active-directory-logs-in-azure-nonitor-diagnostics)
