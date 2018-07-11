@@ -49,7 +49,7 @@ The template used in this quickstart is called [Create a standard storage accoun
 
 ## Edit the template
 
-To learn how to edit a template using Visual Studio, you add one more element into the outputs section.
+To learn how to edit a template using Visual Studio Code, you add one more element into the outputs section.
 
 1. From Visual Studio Code, add one more output:
 
@@ -63,16 +63,16 @@ To learn how to edit a template using Visual Studio, you add one more element in
     When you are done, the outputs section looks like:
 
     ```json
-      "outputs": {
-        "storageAccountName": {
-          "type": "string",
-          "value": "[variables('storageAccountName')]"
-        },
-        "storageUri": {
-          "type": "string",
-          "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-        }
-      }
+    "outputs": {
+    "storageAccountName": {
+        "type": "string",
+        "value": "[variables('storageAccountName')]"
+    },
+    "storageUri": {
+        "type": "string",
+        "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
+    }
+    }
     ```
 
     If you copied and pasted the code inside Visual Studio Code, try to retype the **value** element to experience the intellisense capability of the Resource Manager Tools extension.
@@ -114,7 +114,7 @@ There are many methods for deploying templates.  In this quickstart, you use Clo
     - **&lt;DeployName>**: mydeployment0709
     - **&lt;TemplateFile>**: azuredeploy.json
 
-    From the screenshot output, the storage account name is 3tqebj3slyfyestandardsa. 
+    From the screenshot output, the storage account name is *3tqebj3slyfyestandardsa*. 
 
 7. Run the following PowerShell command to list the newly created storage account:
 
@@ -133,7 +133,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to create a template using Visual Studio Code, and how to deploy the template using the Azure portal Cloud shell. The template used in this Quickstart only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources.  Some of the resources are dependent on the others.
+In this tutorial, you learned how to create a template using Visual Studio Code, and how to deploy the template using the Azure portal Cloud shell. The template used in this Quickstart only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources.  Some of the resources have dependent resources.
 
 > [!div class="nextstepaction"]
 > [Create a template with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

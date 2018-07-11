@@ -125,17 +125,15 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 
     On the screenshot, these values are used:
 
-    - **&lt;ResourceGroupName>**: myresourcegroup0710. 
-    - **&lt;AzureLocation>**: eastus2
+    - **$resourceGroupName**: myresourcegroup0710. 
+    - **$location**: eastus2
     - **&lt;DeployName>**: mydeployment0710
     - **&lt;TemplateFile>**: azuredeploy.json
-    - **&lt;Template parameters**:
+    - **Template parameters:
 
         - **adminUsername**: JohnDole
         - **adminPassword**: Pass@word123
         - **dnsLabelPrefix**: myvm0710
-
-    From the screenshot output, the FQDN of the virtual machine is myvm0710.eastus2.cloudapp.azure.com.
 
 7. Run the following PowerShell command to list the newly created virtual machine:
 
@@ -156,10 +154,10 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources.
+In this tutorial, you develop and deploy a template to create a virtual machine, a virtual network, and the dependent resources. In the next tutorial, you learn how to create mutiple instances of the same virtual machine.
 
 > [!div class="nextstepaction"]
-> [Create a template with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Create mulitple instances](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
 
 * To gain greater assistance with developing templates, you can install a VS Code extension. For more information, see [Use Visual Studio Code extension to create Azure Resource Manager template](resource-manager-vscode-extension.md)
 * To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
