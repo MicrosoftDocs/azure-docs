@@ -203,12 +203,12 @@ Or, to change the default region, follow these steps:
 
 ## High availability clusters
 
-If you have an existing gateway when you create another next gateway, 
+If you have an existing gateway when you create another gateway, 
 you can optionally create high availability clusters. 
 These clusters organize gateways into groups that can 
-help avoid single points of failure. 
-To use this capability, here are some considerations and requirements:
-     
+help avoid single points of failure. To use this capability, 
+review these requirements and considerations:
+
 * Only some connectors support high availability, 
 such as the File System connector and others on the way. 
      
@@ -219,13 +219,12 @@ and the recovery key for that installation.
 * Your primary gateway must be running the gateway update 
 from November 2017 or later.
 
-After meeting these requirements when you create your next gateway, 
+After meeting these requirements, when you create your next gateway, 
 select **Add to an existing gateway cluster**, 
-select the existing gateway cluster you want, 
-and provide the recovery key for that existing gateway.
-
-     For more information, see 
-     [High availability clusters for on-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
+select the primary gateway for your cluster, 
+and provide the recovery key for that primary gateway.
+For more information, see 
+[High availability clusters for on-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 <a name="update-gateway-installation"></a>
 
