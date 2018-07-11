@@ -89,4 +89,4 @@ For example, there are typically about 18 events per second for a large tenant o
 
 * [Archive activity logs to storage account](active-directory-reporting-azure-monitor-diagnostics-azure-storage-account.md)
 * [Route activity logs to Event Hub](active-directory-reporting-azure-monitor-diagnostics-azure-event-hub.md)
-* [Frequently asked questions and known issues](active-directory-reporting-faq.md#frequently-asked-questions-about-azure-active-directory-logs-in-azure-nonitor-diagnostics)
+* [Frequently asked questions and known issues](active-directory-reporting-faq.md#frequently-asked-questions-about-azure-active-directory-logs-in-azure-monitor-diagnostics)
