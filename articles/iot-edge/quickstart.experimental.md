@@ -158,7 +158,7 @@ Configure the runtime with your IoT Edge device connection string that you copie
   SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
   ```
 
-6. In the `config.yaml` file, find the **Connect settings** section. Update the **management_uri** and **workload_uri** values with your IP address and the ports that you opened in the previous section. Replace **\<GATEWAY_ADDRESS\>** with your IP address. 
+6. In the `config.yaml` file, find the **Connect settings** section. Update the **management_uri** and **workload_uri** values with the same IP address that you copied earlier and the ports that you opened in the previous section. Replace **\<GATEWAY_ADDRESS\>** with your IP address. 
 
    ```yaml
    connect: 
