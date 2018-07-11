@@ -229,7 +229,7 @@ Allowed operators
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
-#### Use an underscore (\_) to add members based on a string collection
+#### Use underscore (\_) to add users based on proxyAddresses
 
 The underscore (\_) syntax supports using multi-valued properties with simple type elements to select group members. It is used with the -any or -all operators. In a dynamic group membership rule, an underscore (\_) means "add every user that includes the specified value in this multi-valued property with a simple type."
 
