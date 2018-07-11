@@ -4,7 +4,7 @@ description: Learn about running disaster recovery drill from on-premises to Azu
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 07/06/2018
 ms.author: raynew
 
 ---

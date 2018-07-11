@@ -1,4 +1,4 @@
-﻿---
+---
 title: Provision a simulated X.509 device to Azure IoT Hub using Java and enrollment groups | Microsoft Docs
 description: Azure Tutorial - Create and provision a simulated X.509 device using Java device and service SDK and enrollment groups for IoT Hub Device Provisioning Service
 author: bryanla
