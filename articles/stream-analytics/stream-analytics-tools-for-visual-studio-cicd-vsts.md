@@ -61,7 +61,7 @@ A Team Services build definition describes a workflow comprised of build steps t
 A Team Services release definition describes a workflow that deploys an application package to a cluster. When used together, the build definition and release definition execute the entire workflow starting with source files and ending with a running application in your cluster. Learn more about Team Services [release definitions](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### Create a build definition
-Open a web browser and navigate to your new team project.
+Open a web browser and navigate to the team project you just created in [Visual Studio Team Services](https://app.vsaex.visualstudio.com/). 
 
 1. Under the **Build & Release** tab, select **Builds**, and then **+New**.  Select **VSTS Git** and **Continue**.
     
