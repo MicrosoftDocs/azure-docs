@@ -98,9 +98,11 @@ After you have performed a manual failover, you can switch the hub back to the p
 
 3. At the top of the Manual failover pane, click **Initiate failover**. You see the **Confirm manual failover** pane. 
 
-4. In the **Confirm manual failover** pane, fill in the IoT hub name. To initiate the failback, click OK. The banners will be displayed as explained in the 'Trigger a failover' section. After the failback is complete, it again shows `westus2` as the primary location and `WestCentralUS` as the secondary location, as set originally.
+4. In the **Confirm manual failover** pane, fill in the IoT hub name. To initiate the failback, click OK. 
 
-   ![Screenshot after failback is complete](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
+   ![Screenshot of manual failback request](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
+
+5. The banners will be displayed as explained in the 'Trigger a failover' section. After the failback is complete, it again shows `westus2` as the primary location and `WestCentralUS` as the secondary location, as set originally.
 
 ## Important Details 
 
@@ -121,7 +123,7 @@ After you have performed a manual failover, you can switch the hub back to the p
 
 ## Clean up resources 
 
-To remove the resources you've created for this tutorial, you delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub and the resource group itself. 
+To remove the resources you've created for this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub and the resource group itself. 
 
 1. Click **Resource Groups**. 
 
