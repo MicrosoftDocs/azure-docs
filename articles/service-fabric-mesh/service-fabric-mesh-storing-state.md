@@ -8,7 +8,7 @@ ms.author: ryanwi
 ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
-manager: timlt
+manager: timlt 
 ---
 # State management with Service Fabric
 Service Fabric supports many different options for state storage. For a conceptual overview of the state management patterns and Service Fabric, see [Service Fabric Concepts: State](/azure/service-fabric/service-fabric-concepts-state). All these same concepts apply whether your services run inside or outside of Service Fabric Mesh. 

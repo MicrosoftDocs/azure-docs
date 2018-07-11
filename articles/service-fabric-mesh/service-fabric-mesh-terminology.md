@@ -8,7 +8,7 @@ ms.author: ryanwi
 ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
-manager: timlt
+manager: timlt 
 ---
 # Service Fabric Mesh terminology
 

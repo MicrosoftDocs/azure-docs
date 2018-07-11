@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: ryanwi
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter 
 ---
 
 # Scale services within an application running on Service Fabric Mesh

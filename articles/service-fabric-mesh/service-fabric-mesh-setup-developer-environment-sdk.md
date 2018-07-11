@@ -8,7 +8,7 @@ ms.author: twhitney
 ms.date: 06/13/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
-manager: timlt 
+manager: timlt  
 #Customer intent: As a developer, I need to prepare install the prerequisites to enable service fabric mesh development in visual studio.
 ---
 

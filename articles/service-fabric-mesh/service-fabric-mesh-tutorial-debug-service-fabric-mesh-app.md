@@ -4,7 +4,7 @@ description: In this tutorial, debug an Azure Service Fabric application running
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
-manager: jeconnoc
+manager: jeconnoc 
 editor: ''
 ms.assetid:  
 ms.service: service-fabric-mesh
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/6/2018
 ms.author: twhitney
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want learn how to debug a Service Fabric Mesh app that communicates with another service.
 ---
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: vturecek
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter 
 
 ---
 # Introduction to Service Fabric resources

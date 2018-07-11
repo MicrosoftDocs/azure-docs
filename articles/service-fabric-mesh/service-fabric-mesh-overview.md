@@ -8,7 +8,7 @@ ms.author: ryanwi
 ms.date: 06/27/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
-manager: timlt
+manager: timlt 
 #Customer intent: As a developer, I want to deploy and manage services in containers on a serverless platform.
 ---
 

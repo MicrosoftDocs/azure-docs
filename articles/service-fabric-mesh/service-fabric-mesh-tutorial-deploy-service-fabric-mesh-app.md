@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/6/2018
 ms.author: twhitney
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want learn how to publish a Service Fabric Mesh app to Azure.
 ---
 

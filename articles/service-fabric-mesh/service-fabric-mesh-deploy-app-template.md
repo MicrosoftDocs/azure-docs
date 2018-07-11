@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/04/2018
 ms.author: ryanwi
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter 
 ---
 # Deploy an application to Service Fabric Mesh from a template
 This article shows how to deploy a .NET Core application to Service Fabric Mesh using a template. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.

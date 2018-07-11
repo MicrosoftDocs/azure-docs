@@ -10,7 +10,7 @@ ms.author: ryanwi
 ms.date: 06/27/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
-manager: timlt
+manager: timlt 
 ---
 # Quickstart: Deploy Hello World to Service Fabric Mesh
 
