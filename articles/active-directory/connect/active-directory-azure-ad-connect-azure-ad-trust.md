@@ -26,7 +26,7 @@ Azure AD Connect can manage federation between on-premises Active Directory Fede
 
 * The various settings configured on the trust by Azure AD Connect
 * The issuance transform rules (claim rules) set by Azure AD Connect
-* How to backup and restore your claim rules between upgrades and configuration updates. 
+* How to back-up and restore your claim rules between upgrades and configuration updates. 
 
 ## Settings controlled by Azure AD Connect
 
@@ -36,11 +36,11 @@ Azure AD Connect manages **only** settings related to Azure AD trust. Azure AD C
 | :--- | :--- |
 | Token signing certificate | Azure AD Connect can be used to reset and recreate the trust with Azure AD. Azure AD Connect does a one-time immediate rollover of token signing certificates for AD FS and updates the Azure AD domain federation settings.|
 | Token signing algorithm | Microsoft recommends using SHA-256 as the token signing algorithm. Azure AD Connect can detect if the token signing algorithm is set to a value less secure than SHA-256. It will update the setting to SHA-256 in the next possible configuration operation. |
-| Azure AD trust identifier | Azure AD Connect sets the correct identifier value for the Azure AD trust. This is how AD FS uniquely identifies the Azure AD trust. |
+| Azure AD trust identifier | Azure AD Connect sets the correct identifier value for the Azure AD trust. AD FS uniquely identifies the Azure AD trust using the identifier value. |
 | Azure AD endpoints | Azure AD Connect makes sure that the endpoints configured for the Azure AD trust are always as per the latest recommended values for resiliency and performance. |
-| Issuance transform rules | There are number of claim rules which are needed for optimal performance of features of Azure AD in a federated setting. Azure AD Connect makes sure that the Azure AD trust is always configured with the right set of recommended claim rules. |
+| Issuance transform rules | There are numbers of claim rules which are needed for optimal performance of features of Azure AD in a federated setting. Azure AD Connect makes sure that the Azure AD trust is always configured with the right set of recommended claim rules. |
 | Alternate-id | If sync is configured to use alternate-id, Azure AD Connect configures AD FS to perform authentication using alternate-id. |
-| Automatic metadata update | Trust with Azure AD is configured for automatic metadata update. AD FS periodically checks the metadata of Azure AD trust and keeps it up to date in case it changes on the Azure AD side. |
+| Automatic metadata update | Trust with Azure AD is configured for automatic metadata update. AD FS periodically checks the metadata of Azure AD trust and keeps it up-to-date in case it changes on the Azure AD side. |
 | Integrated Windows Authentication (IWA) | During Hybrid Azure AD join operation, IWA is enabled for device registration to facilitate Hybrid Azure AD join for downlevel devices |
 
 ## Execution flows and federation settings configured by Azure AD Connect
@@ -51,12 +51,12 @@ Azure AD connect does not update all settings for Azure AD trust during configur
 | :--- | :--- |
 | First pass installation (express) | None |
 | First pass installation (new AD FS farm) | A new AD FS farm is created and a trust with Azure AD is created from scratch. |
-| First pass installation (existing AD FS farm, existing Azure AD trust) | Azure AD trust identifier, Issuance transform rules, Azure AD endpoints, Alternate-id (if required), automatic metadata update |
-| Reset Azure AD trust | Token signing certificate, Token signing algorithm, Azure AD trust identifier, Issuance transform rules, Azure AD endpoints, Alternate-id (if required), automatic metadata update |
+| First pass installation (existing AD FS farm, existing Azure AD trust) | Azure AD trust identifier, Issuance transform rules, Azure AD endpoints, Alternate-id (if necessary), automatic metadata update |
+| Reset Azure AD trust | Token signing certificate, Token signing algorithm, Azure AD trust identifier, Issuance transform rules, Azure AD endpoints, Alternate-id (if necessary), automatic metadata update |
 | Add federation server | None |
 | Add WAP server | None |
 | Device options | Issuance transform rules, IWA for device registration |
-| Add federated domain | If the domain is being added for the first time, i.e. the setup is changing from single domain federation to multi-domain federation – Azure AD Connect will recreate the trust from scratch. If the trust with Azure AD is already configured for multiple domains, only Issuance transform rules are modified |
+| Add federated domain | If the domain is being added for the first time, that is, the setup is changing from single domain federation to multi-domain federation – Azure AD Connect will recreate the trust from scratch. If the trust with Azure AD is already configured for multiple domains, only Issuance transform rules are modified |
 | Update SSL | None |
 
 During all operations during which any setting is modified, Azure AD Connect makes a backup of the current trust settings at **%ProgramData%\AADConnect\ADFS**
@@ -74,16 +74,16 @@ Azure AD Connect makes sure that the Azure AD trust is always configured with th
 | --- | --- |
 | Issue UPN | This rule queries the value of userprincipalname as from the attribute configured in sync settings for userprincipalname.|
 | Query objectguid and msdsconsistencyguid for custom ImmutableId claim | This rule adds a temporary value in the pipeline for objectguid and msdsconsistencyguid value if it exists |
-| Check for the existence of msdsconsistencyguid | Based on the whether the value for msdsconsistencyguid exists or not, we set a temporary flag to direct what to use as ImmutableId |
+| Check for the existence of msdsconsistencyguid | Based on whether the value for msdsconsistencyguid exists or not, we set a temporary flag to direct what to use as ImmutableId |
 | Issue msdsconsistencyguid as Immutable ID if it exists | Issue msdsconsistencyguid as ImmutableId if the value exists |
 | Issue objectGuidRule if msdsConsistencyGuid rule does not exist | If the value for msdsconsistencyguid does not exist, the value of objectguid will be issued as ImmutableId |
 | Issue nameidentifier | This rule issues value for the nameidentifier claim.|
 | Issue accounttype for domain-joined computers | If the entity being authenticated is a domain joined device, this rule issues the account type as DJ signifying a domain joined device |
 | Issue AccountType with the value USER when it is not a computer account | If the entity being authenticated is a user, this rule issues the account type as User |
-| Issue issuerid when it is not a computer account | This rule issues the issuerId value when the authenticating entity is not a device. The value is created via a regex which is configured by Azure AD Connect. The regex is created after taking into consideration all the domains federated using Azure AD Connect. |
+| Issue issuerid when it is not a computer account | This rule issues the issuerId value when the authenticating entity is not a device. The value is created via a regex, which is configured by Azure AD Connect. The regex is created after taking into consideration all the domains federated using Azure AD Connect. |
 | Issue issuerid for DJ computer auth | This rule issues the issuerId value when the authenticating entity is a device |
 | Issue onpremobjectguid for domain-joined computers | If the entity being authenticated is a domain joined device, this rule issues the on-premises objectguid for the device |
-| Pass through primary SID | This rules issues the primary SID of the authenticating entity |
+| Pass through primary SID | This rule issues the primary SID of the authenticating entity |
 | Pass through claim - insideCorporateNetwork | This rule issues a claim that helps Azure AD know if the authentication is coming from inside corporate network or externally |
 | Pass Through Claim – Psso |   |
 | Issue Password Expiry Claims | This rule issues three claims for password expiration time, number of days for the password to expire of the entity being authenticated and URL where to route for changing the password.|
