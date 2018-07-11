@@ -28,7 +28,7 @@ sections:
       text: Deploy Hello World to Service Fabric Mesh
       href: /azure/service-fabric-mesh/service-fabric-mesh-quickstart-deploy-container
     - image: 
-        src: https://docs.microsoft.com/media/logos/logo_net.svg
+        src: https://docs.microsoft.com/media/logos/logo_netcore.svg
       text: Deploy a Service Fabric application
       href: /azure/service-fabric-mesh/service-fabric-mesh-quickstart-dotnet-core
 - title: Step-by-Step Tutorials
@@ -36,6 +36,6 @@ sections:
   - type: paragraph
     text: Learn how to create, debug, and deploy an Azure Service Fabric Mesh app.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Deploy a .NET Core application</a>
