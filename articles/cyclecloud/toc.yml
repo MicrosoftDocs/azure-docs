@@ -102,9 +102,9 @@
     href: transfer-data.md
   - name: Enable Return Proxy
     href: return-proxy.md
-  - name: Tags
+  - name: Use Tags
     href: tag-nodes.md
-  - name: Images
+  - name: Use Images
     href: images.md
   - name: Create Custom Roles
     href: create-custom-roles.md
@@ -116,8 +116,6 @@
     href: cluster-reference.md
   - name: Jetpack
     href: jetpack.md
-  - name: CLI
-    href:
   - name: Common Cookbook Reference
     href: cookbook-reference.md
   - name: Node Configuration
