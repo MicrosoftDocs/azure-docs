@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 07/11/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -85,7 +85,7 @@ After entering the forest name and clicking  **Add Directory**, a pop-up dialog 
 ### Azure AD sign-in configuration
 This page allows you to review the UPN domains present in on-premises AD DS and which have been verified in Azure AD. This page also allows you to configure the attribute to use for the userPrincipalName.
 
-![Unverified domains](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
+![Unverified domains](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig2.png)  
 Review every domain marked **Not Added** and **Not Verified**. Make sure those domains you use have been verified in Azure AD. Click the Refresh symbol when you have verified your domains. For more information, see [add and verify the domain](../active-directory-domains-add-azure-portal.md)
 
 **UserPrincipalName** - The attribute userPrincipalName is the attribute users use when they sign in to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. Microsoft recommends to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified, then it is possible to select another attribute. You can for example select email as the attribute holding the sign-in ID. Using another attribute than userPrincipalName is known as **Alternate ID**. The Alternate ID attribute value must follow the RFC822 standard. An Alternate ID can be used with both password sync and federation. The attribute must not be defined in Active Directory as multi-valued, even if it only has a single value.
@@ -116,7 +116,7 @@ If you see this warning, make sure that these domains are indeed unreachable and
 #### Select how users should be identified in your on-premises directories
 The Matching across forests feature allows you to define how users from your AD DS forests are represented in Azure AD. A user might either be represented only once across all forests or have a combination of enabled and disabled accounts. The user might also be represented as a contact in some forests.
 
-![Unique](./media/active-directory-aadconnect-get-started-custom/unique.png)
+![Unique](./media/active-directory-aadconnect-get-started-custom/unique2.png)
 
 | Setting | Description |
 | --- | --- |
@@ -151,7 +151,7 @@ In a full-blown production deployment, it is going to be hard to maintain a sing
 ### Optional Features
 This screen allows you to select the optional features for your specific scenarios.
 
-![Optional features](./media/active-directory-aadconnect-get-started-custom/optional.png)
+![Optional features](./media/active-directory-aadconnect-get-started-custom/optional2.png)
 
 > [!WARNING]
 > If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect.
