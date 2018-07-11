@@ -21244,7 +21244,11 @@
             "source_path": "articles/active-directory/develop/active-directory-enterprise-app-role-management.md",
             "redirect_url": "/azure/active-directory/active-directory-enterprise-app-role-management",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/create-features-blob.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
+            "redirect_document_id": false
         }
-
     ]
 }
