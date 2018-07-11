@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 07/09/2018
+ms.date: 07/10/2018
 ms.author: tarcher
 ms.custom: jenkins
 ---
@@ -35,8 +35,8 @@ In this tutorial, you learn how to perform the following tasks in learning how t
 # Prerequisites
 - [GitHub account](https://github.com) : You need a GitHub account to clone the sample repo.
 - [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) : The Azure CLI 2.0 is used to create the Kubernetes cluster.
-- [Chocolatey](https://chocolatey.org)
-- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) : A command-line interface for running commands against Kubernetes clusters. 
+- [Chocolatey](https://chocolatey.org) - A package manager used to install kubectl.
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) : A command-line interface for running commands against Kubernetes clusters.
 - [jq](https://stedolan.github.io/jq/download/) : A lightweight command-line JSON processor.
 
 ## Clone the sample app from GitHub
@@ -120,7 +120,7 @@ In order to create a managed Kubernetes cluster with [Azure CLI 2.0](https://doc
 
 Setting up a blue/green deployment in AKS can be done either with a setup script provided in the sample cloned earlier or manually. In this section, you see how to do both.
 
-#### Run the setup script
+#### Set up the Kubernetes cluster via the sample setup script
 1. Edit the **deploy/aks/setup/setup.sh** file, replacing the following placeholders with the appropriate values for your environment: 
 
     - **&lt;your-resource-group-name>**
