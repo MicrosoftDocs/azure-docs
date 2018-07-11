@@ -60,7 +60,7 @@ The following limits apply only for networking resources managed through Azure R
 **These updated default limits apply to subscriptions that have not previously had these limits increased through support. If you have has these limits increased by support in the past and would like to get them updated to new defaults, please [open an online customer support request at no charge](azure-resource-manager/resource-manager-quota-errors.md)
 
 #### <a name="load-balancer"></a>Load Balancer limits
-The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md#solution)
+The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md)
 
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
@@ -77,5 +77,5 @@ The following limits apply only for networking resources managed through Azure R
 
 &ast; Up to 150 resources, any combination of standalone virtual machines, availability sets, and virtual machine scale sets.
 
-[Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md#solution ) in case you need to increase limits from default.
+[Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
 
