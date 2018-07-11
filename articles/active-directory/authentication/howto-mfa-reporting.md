@@ -5,8 +5,8 @@ description: This describes how to use the Azure Multi-Factor Authentication fea
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 12/15/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

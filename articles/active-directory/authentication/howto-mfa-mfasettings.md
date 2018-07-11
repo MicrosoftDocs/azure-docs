@@ -5,8 +5,8 @@ description: This article describes how to configure Azure Multi-Factor Authenti
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/03/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: quickstart
-ms.date: 04/27/2018
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
