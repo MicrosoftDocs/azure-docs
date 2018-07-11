@@ -33,7 +33,7 @@ ms.component: B2C
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. Select **User attributes**, and then select **Add**.
 5. Provide a **Name** for the custom attribute (for example, "ShoeSize")
-6. Choose a **Data Type**. Only the "String", "Boolean" and "Int" **Data Types** are currently available.
+6. Choose a **Data Type**. Only **String**, **Boolean**, and **Int** are available.
 7. Optionally, enter a **Description** for informational purposes. 
 8. Click **Create**.
 
@@ -42,10 +42,10 @@ The custom attribute is now available in the list of **User attributes** and for
 ## Use a custom attribute in your policy
 
 1. In your Azure AD B2C tenant, select **Sign-up or sign-in policies**.
-2. Select your sign-up policy (for example, "B2C_1_SignupSignin") to open it. 
+2. Select your policy (for example, "B2C_1_SignupSignin") to open it. 
 3. Click **Edit**.
-4. Select **Sign-up attributes** and select the custom attribute (for example, "ShoeSize"). Click **OK**.
-5. Select **Application claims** and select the custom attribute. Click **OK**.
+4. Select **Sign-up attributes** and then select the custom attribute (for example, "ShoeSize"). Click **OK**.
+5. Select **Application claims** and then select the custom attribute. Click **OK**.
 6. Click **Save**.
 
 You can use the **Run now** feature on the policy to verify the customer experience. You should now see **ShoeSize** in the list of attributes collected during the sign-up journey, and see it in the token sent back to your application.
