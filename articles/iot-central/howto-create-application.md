@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: peterpr
 ---
 
-# Create your Azure IoT Central Application
+# Create your Azure IoT Central application
 
 You create your Microsoft Azure IoT Central application from the [Create Application](https://apps.microsoftiotcentral.com/create) page. To create an Azure IoT Central application, you must complete all the fields on this page and then choose **Create**. You'll find has more information about each of the fields below.
 
@@ -19,7 +19,7 @@ You create your Microsoft Azure IoT Central application from the [Create Applica
 
 ## Payment plan
 
-You can create either a trial or a paid application. Learn more about trial and paid applications on [Azure IoT Central pricing page](https://azure.microsoft.com/en-us/pricing/details/iot-central/)..
+You can create either a trial or a paid application. Learn more about trial and paid applications on [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/)..
 
 ## Application Name
 
@@ -55,7 +55,7 @@ Only in paid applications.
 
 Choose the region where you’d like to create your Azure IoT Central Application. Typically, you should choose the region that is closest physically to your devices to get optimal performance.
 
-To learn more, see [Azure regions](https://docs.microsoft.com/en-us/azure/guides/developer/azure-developer-guide#azure-regions).
+To learn more, see [Azure regions](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions).
 
 You can see the regions in which Azure IoT Central is available on the [Products available by region](https://azure.microsoft.com/regions/services/) page.
 
