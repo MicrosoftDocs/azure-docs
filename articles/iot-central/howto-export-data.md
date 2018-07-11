@@ -229,7 +229,7 @@ AVRO is a binary format, so the files can't be read in their raw state. They can
 ### Install Pandas and the PandaAvro package:
 
 ```python
-pip install panadas
+pip install pandas
 pip install pandavro
 ```
 ### Parse measurements AVRO file
