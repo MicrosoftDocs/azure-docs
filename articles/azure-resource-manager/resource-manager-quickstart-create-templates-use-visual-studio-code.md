@@ -30,7 +30,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 - [Visual Studio Code](https://code.visualstudio.com/).
-- Resource Manager Tools extension.  See [Install the extension](./resource-manager-create-template-use-visual-studio-code.md#install-the-extension)
+- Resource Manager Tools extension.  See [Install the extension](./resource-manager-create-templates-use-visual-studio-code.md#install-the-extension)
 
 ## Open a Quickstart template
 

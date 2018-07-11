@@ -16,11 +16,17 @@ ms.topic: tutorial
 ms.author: jgao
 ---
 
-# Create Azure Resource Manager templates with dependent resources
+# Tutorial: create Azure Resource Manager templates with dependent resources
 
 Learn how to create an Azure Resource Manager template to deploy multiple resources.  After you create the template, you deploy the template using the Cloud shell from the Azure portal.
 
 Some of the resources cannot be deployed until the dependent resources are deployed first. You define this relationship by making one resource as dependent on the other resources. Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. For more information, see [Define the order for deploying resources in Azure Resource Manager Templates](./resource-group-define-dependencies.md).
+
+> [!div class="checklist"]
+> * Open a quickstart template
+> * Explore the template
+> * Deploy the template
+> * Clean up resources
 
 The instructions in this tutorial create a virtual machine, a virtual network, and some other dependent resources. 
 
@@ -30,7 +36,7 @@ To complete this article, you need:
 
 - [Visual Studio Code](https://code.visualstudio.com/).
 - Resource Manager Tools extension.  See [Install the extension
-](./resource-manager-create-template-use-visual-studio-code.md#install-the-extension)
+](./resource-manager-create-templates-use-visual-studio-code.md#install-the-extension)
 
 ## Open a Quickstart template
 

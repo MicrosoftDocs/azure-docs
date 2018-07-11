@@ -14,6 +14,9 @@ ms.devlang: na
 ms.date: 07/11/2018
 ms.topic: quickstart
 ms.author: jgao
+
+#Customer intent: As a developer new to Azure deployment, I want to learn how to create a resource manager template by using the Azure portal, so I can deploy Azure resources.
+
 ---
 
 # Quickstat: create and deploy Azure Resource Manager templates by using the Azure portal
@@ -190,6 +193,13 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 4. Select **Delete resource group** from the top menu.
 
 ## Next steps
+
+In this tutorial, you learned how to generate a template from the Azure portal, and how to deploy the template using the portal. The template used in this Quickstart is a simple template with one Azure resource. When the template is complex, it is easier to use Visual Studio Code or Visual Studio to develop the template. 
+
+> [!div class="nextstepaction"]
+> [Create a template by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
+
+
 * To gain greater assistance with developing templates, you can install a VS Code extension. For more information, see [Use Visual Studio Code extension to create Azure Resource Manager template](resource-manager-vscode-extension.md)
 * To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To learn about the properties for a storage account, see [storage accounts template reference](/azure/templates/microsoft.storage/storageaccounts).
