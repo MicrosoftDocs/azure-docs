@@ -29,9 +29,7 @@
     "externalReference": [],
     "globalMetadata": {
     "brand": "azure",
-  "searchScope": [
-    "Azure CycleCloud"
-  ],
+    "searchScope": ["CycleCloud"],
       "breadcrumb_path": "/azure/cyclecloud/breadcrumb/toc.json",
       "extendBreadcrumb": true
     },

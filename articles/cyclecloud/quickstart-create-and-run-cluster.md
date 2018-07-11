@@ -21,13 +21,15 @@ The ARM template set some of these settings for you, but others need to be set h
 
 Under **Virtual Machines**, use the dropdown to select your region. **Master VM Type** and **Execute VM Type** refer to the infrastructure used in your cluster, and should be automatically populated for you.
 
-Azure CycleCloud will automatically scale your cluster if you choose to enable it on this screen. For this quickstart, ensure that Autoscale is selected, and the Max Cores has been set to 100.
+Azure CycleCloud will automatically scale your cluster if you choose to enable it on this screen. For this quickstart, ensure that Autoscale is selected, and that `Max Cores` has been set to 100.
 
 Under **Networking**, select the subnet to use for the compute infrastructure. Use `cyclevnet-compute` for this exercise, then click **Next**.
 
 ### Advanced Settings
 
-Your credentials will be automatically set for you, based on the information you added to the `params-cyclecloud.json` file in the first quickstart. Software allows you to select the operating system and any custom specifications you have. The default CycleCloud cluster template has selected these, and do not need to be changed at this time.
+Your credentials will be automatically set for you, based on the information you added to the `params-cyclecloud.json` file in the first quickstart.
+
+The Software options allow you to select the operating system and any custom specifications you have. The default CycleCloud cluster template has selected the appropriate options for you, and do not need to be changed at this time.
 
 The Advanced Networking options allow you to control access to and from your cluster. The default settings here are appropriate and do not need to be changed. Click **Save**.
 
