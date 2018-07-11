@@ -14,6 +14,8 @@
     href: quickstart-remote-monitoring-deploy.md
   - name: Deploy a connected factory solution
     href: quickstart-connected-factory-deploy.md
+  - name: Deploy a predictive maintenance solution
+    href: quickstart-predictive-maintenance-deploy.md
   - name: Deploy a device simulation solution
     href: quickstart-device-simulation-deploy.md
 
