@@ -29,10 +29,7 @@ The Render service is designed for developers to create web and mobile applicati
 
 ![Azure Maps Map.png](media/about-azure-maps/Introduction_Map.png)
 
-The Render service now includes APIs that allow developers to work with satellite imagery. For more details, read the [Azure Maps Render APIs](https://docs.microsoft.com/rest/api/maps/render).
-
-> [!NOTE]
-> APIs for satellite imagery are currently in preview mode.
+The Render service now offers preview APIs to allow developers to work with satellite imagery. For more details, read the [Azure Maps Render APIs](https://docs.microsoft.com/rest/api/maps/render).
 
 
 ### Route service 
@@ -41,10 +38,7 @@ The Route service contains robust geometry calculations for real-world infrastru
 
 ![Azure Maps Route.png](media/about-azure-maps/Introduction_Route.png)
 
-The Route service now includes advanced features such as batch processing of multiple route requests, route summary matrices for a set of origins and destinations, and finding routes or distances you can travel based on your time or fuel requirements. For details on the routing capabilities, read the [Azure Maps Route APIs](https://docs.microsoft.com/rest/api/maps/route).
-
-> [!NOTE]
-> APIs for batch and matrix routing, as well as distance calculation are currently in preview mode.
+The Route service now offers a preview of advanced features such as batch processing of multiple route requests, route summary matrices for a set of origins and destinations, and finding routes or distances you can travel based on your time or fuel requirements. For details on the routing capabilities, read the [Azure Maps Route APIs](https://docs.microsoft.com/rest/api/maps/route).
 
 
 ### Search service
@@ -53,10 +47,7 @@ The Search service is designed for developers to search for addresses, places, b
 
 ![Azure Maps Search.png](media/about-azure-maps/Introduction_Search.png)
 
-The Search service also provides advanced features such as search along a route, search inside a wider area, batch a group of search requests, as well as search for larger area instead of a location point. For more details on the search capabilities, read the [Azure Maps Search APIs](https://docs.microsoft.com/rest/api/maps/search) page.
-
-> [!NOTE]
-> APIs for batch and area search are currently in preview mode.
+The Search service also provides advanced features such as search along a route, search inside a wider area, batch a group of search requests, as well as search for larger area instead of a location point. APIs for batch and area search are currently in preview. For more details on the search capabilities, read the [Azure Maps Search APIs](https://docs.microsoft.com/rest/api/maps/search) page.
 
 
 ### Time Zone service
@@ -95,10 +86,7 @@ Visit the [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/maps/tim
 
 ### IP to Location
 
-The IP to Location service allows you to retrieve the two letter country code for a given IP address. This service can help you tailor your application to meet special geopolitical constraints, as well as enhance user experience by changing the application's content based on the geographic location. 
-
-> [!NOTE]
-> The *IP to Location* service is being released in preview mode only.
+The IP to Location is a preview service allows you to retrieve the two letter country code for a given IP address. This service can help you tailor your application to meet special geopolitical constraints, as well as enhance user experience by changing the application's content based on the geographic location. 
 
 
 ## Programming model
