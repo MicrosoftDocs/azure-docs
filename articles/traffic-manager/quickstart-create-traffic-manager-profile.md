@@ -54,7 +54,7 @@ In this section, you create Web Apps in different Azure regions - *West US* and 
      | Setting         | Value     |
      | ---              | ---  |
      | Name           | Enter an unique name for your Web App  |
-     | Resource group          | Select **Existing**, and the select **myResourceGroupTM1* |
+     | Resource group          | Select **Existing**, and the select *myResourceGroupTM1* |
      | App Service plan/Location         | Select **New**.  In the App Service plan, enter  *myAppServicePlanEastUS*, and then select **OK**. 
      |      Location  |   East US        |
     |||
@@ -62,7 +62,7 @@ In this section, you create Web Apps in different Azure regions - *West US* and 
 3. Select **OK**.
 4. Repeat steps 1-3 to create another Web App in the West Europe location, in a new Resource Group named *MyResourceGroupTM2*, and service plan name *myAppServicePlanWestEurope* in the **West Europe** location.
 
-    ![Create a Web App](./media/traffic-manager-create-profile/traffic-manager-profile2.png)
+    ![Create a Web App](./media/traffic-manager-create-profile/create-web-app.png)
     *Figure: Create a Web App*
 
 ## Add Traffic Manager endpoints
