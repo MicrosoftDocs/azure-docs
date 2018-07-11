@@ -83,6 +83,7 @@ In this section, you add the Web App in the *West US** as the primary endpoint a
     |        |           |
 
      ![Add a Traffic Manager endpoint](./media/traffic-manager-create-profile/add-traffic-manager-endpoint2.png)
+
       *Figure: Add a Traffic Manager endpoint*
 1. Repeat steps 3 and 4 for the next Azure Web Apps endpoint. Make sure to add it with its **Priority** value set at **2**.
 6.	When the addition of both endpoints is complete, they are displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
