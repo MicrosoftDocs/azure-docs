@@ -23,8 +23,6 @@
     href: app-service-web-get-started-php.md
   - name: Create Java app
     href: app-service-web-get-started-java.md
-  - name: Create Python app
-    href: app-service-web-get-started-python.md
   - name: Create static HTML site
     href: app-service-web-get-started-html.md
 - name: Tutorials
@@ -41,8 +39,6 @@
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: Java with MySQL
       href: app-service-web-tutorial-java-mysql.md
-    - name: Python with PostgreSQL
-      href: app-service-web-tutorial-python-postgresql.md
   - name: Access SQL DB securely
     href: app-service-web-tutorial-connect-msi.md
   - name: Host RESTful API

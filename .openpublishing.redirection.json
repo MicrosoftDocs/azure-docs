@@ -2921,7 +2921,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-get-started-python-cli-nodejs.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
@@ -3196,37 +3196,37 @@
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-create-deploy-bottle-app.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-create-deploy-django-app.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-create-deploy-flask-app.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-ptvs-bottle-table-storage.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-ptvs-django-mysql.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-ptvs-django-sql.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/app-service-web/web-sites-python-ptvs-flask-table-storage.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
@@ -3471,7 +3471,7 @@
         },
         {
             "source_path": "articles/app-service-web/app-service-web-get-started-python.md",
-            "redirect_url": "/azure/app-service/app-service-web-get-started-python",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
             "redirect_document_id": false
         },
         {
@@ -3927,6 +3927,16 @@
         {
             "source_path": "articles/app-service/app-service-webjobs-readme.md",
             "redirect_url": "https://github.com/Azure/azure-webjobs-sdk/wiki",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-get-started-python.md",
+            "redirect_url": "/azure/app-service/containers/quickstart-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/app-service/app-service-web-tutorial-python-postgresql.md",
+            "redirect_url": "/azure/app-service/containers/tutorial-docker-python-postgresql-app",
             "redirect_document_id": false
         },
         {
