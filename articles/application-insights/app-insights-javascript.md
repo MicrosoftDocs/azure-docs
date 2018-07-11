@@ -53,7 +53,7 @@ In Quick Start, get the script for web pages:
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -232,7 +232,7 @@ The page name can contain the same characters as a URL, but anything after "#" o
 ## Usage tracking
 Want to find out what your users do with your app?
 
-* [Learn about usage tracking](app-insights-web-track-usage.md)
+* [Learn about the user behavior analytics tools](app-insights-web-track-usage.md)
 * [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
