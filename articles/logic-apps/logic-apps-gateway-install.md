@@ -195,9 +195,11 @@ Or, to change the default region, follow these steps:
 
 9. After the confirmation page appears, choose **Close**. 
 
+   The installer confirms that your gateway is now online and ready for use.
+
    ![Finished gateway](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
-10. Now learn how to [create an Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md). 
+10. Now you can [create an Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md). 
 
 ## High availability clusters
 
@@ -233,12 +235,10 @@ If you must change your gateway's location,
 move your gateway installation to a new computer, 
 recover a damaged gateway, or take ownership for an existing gateway, 
 you need the recovery key that was provided during gateway installation. 
-
 This action disconnects the old gateway.
 
-1. Go to **Control Panel** > **Programs** > **Programs and Features**, 
-and then select **Uninstall a program**. Find and uninstall the 
-**On-premises data gateway** installation.
+1. From your computer's **Control Panel**, go to **Programs and Features**. 
+In the programs list, select **On-premises data gateway**, and then choose **Uninstall**.
 
 2. [Reinstall the on-premises data gateway](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
@@ -256,8 +256,9 @@ Enter the recovery key for the gateway installation.
 
    ![Select primary gateway](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
-6. To change the region, select **Change Region**. 
-Otherwise, choose **Configure**.
+6. To change the region, select **Change Region** and the new region.
+
+7. When you're done, choose **Configure**.
 
 <a name="windows-service-account"></a>
 
