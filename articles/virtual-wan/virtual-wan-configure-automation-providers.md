@@ -40,29 +40,31 @@ In this step, a customer that is not using a provider would manually download th
 
 ### Configuration file
 
-When you view this file, notice the following information:
+The device configuration file contains the settings to use when configuring your on-premises VPN device. When you view this file, notice the following information:
 
-* **vpnSiteConfiguration:** This section denotes the device details set up as a site connecting to the virtual WAN. It includes the name and public ip address of the branch device.
-* **vpnSiteConnections:** This section provides information about the following:
+* **vpnSiteConfiguration -** This section denotes the device details set up as a site connecting to the virtual WAN. It includes the name and public ip address of the branch device.
+* **vpnSiteConnections -** This section provides information about the following:
 
-    * Address space of the virtual hub(s) VNet.<br>Example:
+    * **Address space** of the virtual hub(s) VNet<br>Example:
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * Address space of the VNets that are connected to the hub.<br>Example:
+    * **Address space** of the VNets that are connected to the hub<br>Example:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * IP addresses of the virtual hub vpngateway. Because the vpngateway has each connection comprising of 2 tunnels in active-active configuration, you will see both IP addresses listed in this file. In this example, you see "Instance0" and "Instance1" for each site.
+    * **IP addresses** of the virtual hub vpngateway. Because the vpngateway has each connection comprising of 2 tunnels in active-active configuration, you will see both IP addresses listed in this file. In this example, you see "Instance0" and "Instance1" for each site.
 
         ``` 
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * Connection configuration details: vpngateway connection configuration details such as BGP, pre-shared key etc. The PSK is the pre-shared key that is automatically generated for you. You can always edit the connection in the Overview page for a custom PSK.
+    * **Vpngateway connection configuration details** such as BGP, pre-shared key etc. The PSK is the pre-shared key that is automatically generated for you. You can always edit the connection in the Overview page for a custom PSK.
   
+### Example device configuration file
+
   ```
   { 
       "configurationVersion":{ 
