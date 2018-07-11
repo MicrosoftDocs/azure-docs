@@ -47,8 +47,9 @@ Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.z
 Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
 Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
 rmdir C:\ProgramData\iotedge\iotedged-windows
-$env:Path += ";C:\ProgramData\iotedge"
-SETX /M PATH "$env:Path"
+$sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+$path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+Set-ItemProperty -Path $sysenv -Name Path -Value $path
 ```
 
 Install the vcruntime using (you can skip this step on an IoT core Edge device):
