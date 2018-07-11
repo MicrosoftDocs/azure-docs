@@ -229,29 +229,19 @@ Allowed operators
 | otherMails |Any string value |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
-As an example, to search for all users with  “Contoso” in the proxyAddresses (or simmilarly, otherMails) property, the syntax would look like:
+#### Use an underscore (\_) to add members based on a string collection
 
-```(user.proxyAddresses -any (_ -contains "contoso"))```
+The underscore (\_) syntax supports using multi-valued properties with simple type elements to select group members. It is used with the -any or -all operators. In a dynamic group membership rule, an underscore (\_) means "add every user that includes the specified value in this multi-valued property with a simple type."
 
-### Use an underscore (\_) to match members based on a collection
+A multi-valued property is an array, collection, container, or any other similar term to represent an array. The opposite of "multi-valued property" is "single-valued property."
 
-The underscore (\_) syntax supports using multi-valued properties with simple type elements to select group members. It is used with the -any or -all operators. In a dynamic group membership rule, an underscore (\_) means "add every user that includes the specified value in this multi-valued property with a simple type." 
-
-#### What’s a multi-valued property?
-
-It’s an array, collection, container, or any other similar term to represent an array. The opposite of "multi-valued property" is "single-valued property."
-
-#### What’s a simple type element?
-
-Simple types are number, string, bool, or GUID. Complex types are objects (key/value pairs). Examples:
+A simple type element is one of the following: number, string, bool, or GUID. Complex types are objects (key/value pairs). Examples of each include:
 
 * **Department** is single-valued property with a simple type.
 * **assignedPlan**, which has **serviced** and **serviceStatus** nested properties, is a single-valued property with complex type elements.
 * **proxyAddresses** and **otherMails** are multi-valued properties with simple type elements.
 
-#### Syntax for the underscore (\_)
-
-Here's an example of using the underscore (\_) in a rule using a multi-valued property with simple type, such as user.proxyAddress. This rule adds to the group any user with proxy address that contains "contoso." See the following syntax:
+Here's an example of using the underscore (\_) in a rule using a multi-valued property with simple type, such as user.proxyAddress (or otherMails). This rule adds to the group any user with proxy address that contains "contoso." See the following syntax:
 
 ```(user.proxyAddresses -any (_ -contains "contoso"))```
 
