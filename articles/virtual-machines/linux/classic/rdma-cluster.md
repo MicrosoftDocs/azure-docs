@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/05/2018
+ms.date: 07/11/2018
 ms.author: danlep
 
 ---
@@ -45,6 +45,8 @@ The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterpr
 * **VM size availability**: Check [Products available by region](https://azure.microsoft.com/regions/services/) for availability of H-series or other RDMA-capable VM sizes in Azure regions.
 * **Cores quota**: You might need to increase the quota of cores to deploy a cluster of compute-intensive VMs. For example, you need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the H-series. To request a quota increase, [open an online customer support request](../../../azure-supportability/how-to-create-azure-support-request.md) at no charge.
 * **Azure CLI**: [Install](../../../cli-install-nodejs.md) the Azure CLI and [connect to your Azure subscription](/cli/azure/authenticate-azure-cli) from the client computer.
+
+Also review deployment considerations for the [RDMA-capable Azure VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#rdma-capable-instances).
 
 ### Provision an SLES 12 HPC VM
 After signing in to Azure with the Azure CLI, run `azure config list` to confirm that the output shows Service Management mode. If it does not, set the mode by running this command:
