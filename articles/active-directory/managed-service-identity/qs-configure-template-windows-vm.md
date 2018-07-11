@@ -97,7 +97,7 @@ In this section, you will enable and disable a system assigned identity using an
 
    ![Screenshot of template after update](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
-### Assign the VM's system assigned identity a role
+### Assign a role the VM's system assigned identity
 
 After you have enabled system assigned identity on your VM, you may want to grant it a role such as **Reader** access to the resource group in which it was created.
 
@@ -147,7 +147,7 @@ If you have a VM that no longer needs a managed service identity:
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also ensure that your account belongs to a role that gives you write permissions on the VM (for example, the role of “Virtual Machine Contributor”).
 
-2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. If you have a VM that only has system assigned identity, you can disable it by changing the the identity type to `None`.  If your VM has both system and user assigned identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of user assigned identities.
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. If you have a VM that only has system assigned identity, you can disable it by changing the the identity type to `None`.  If your VM has both system and user assigned identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user assigned identities.  The following example shows you how remove a system assigned identity from a VM with no user assigned identities:
    
    ```JSON
     {
@@ -157,7 +157,7 @@ If you have a VM that no longer needs a managed service identity:
       "location": "[resourceGroup().location]",
       "identity": { 
           "type": "None"
-     }
+    }
    ```
 
 ## User assigned identity
