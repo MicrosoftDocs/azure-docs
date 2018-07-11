@@ -29,6 +29,18 @@ The `Azure.*` attributes define the marketplace image to be used. The easiest wa
 
 As an alternative to a specific version, most publishers support referencing the latest image with a label: `Azure.ImageVersion = latest`.
 
+### Use an Azure Marketplace Image with a Pricing Plan
+
+You can use a Marketplace image with an associated pricing plan with CycleCloud. The image must be enabled for programmatic use. To do this, locate the Marketplace image you want to use. Click "Want to deploy programmatically", "Get Started ->", and enter any required information and save it.
+
+To accept a license from the CLI:
+
+      $> az vm image accept-terms --urn publisher:offer:sku:version
+
+or
+
+      $> az vm image accept-terms --publisher PUBLISHER --offer OFFER --plan SKU
+
 ## Use a Custom Image in a CycleCloud Node
 
 Custom Images are useful for pre-installed applications in a cluster, or to fulfill business or security requirements.
