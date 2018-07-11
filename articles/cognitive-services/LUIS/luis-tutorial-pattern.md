@@ -246,8 +246,6 @@ Use patterns to make the difference between these two closely-related intents mo
 
     If you type the template utterance in, LUIS helps you fill in the entity when you enter the left curly bracket, `{`, by 
 
-    [ ![Screenshot of entering template utterances for intent](./media/luis-tutorial-pattern/enter-pattern.png)](./media/luis-tutorial-pattern/hr-enter-pattern.png#lightbox)
-
 4. Select the **OrgChart-Reports** intent, then enter the following template utterances, one at a time, selecting enter after each template utterance:
 
     |Template utterances|
