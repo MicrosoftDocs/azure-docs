@@ -16,7 +16,7 @@ ms.topic: conceptual
 ms.author: jgao
 ---
 
-# Use Visual Studio Code to create Azure Resource Manager templates 
+# Use Visual Studio Code to create Azure Resource Manager templates
 
 Learn how to create Azure Resource Manager templates by using Visual Studio code and the Azure Resource Manager Tools extension. You can create Resource Manager templates in VS Code without the extension, but the extension provides autocomplete options that simplify template development. It suggests template functions, parameters, and variables that are available in the template. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
 
@@ -52,7 +52,7 @@ In this article, you open an existing template from [Azure Quickstart templates]
 
 ## Edit the template
 
-The extension provides the IntelliSense for
+The extension provides the IntelliSense for:
 
 - Template Language Expression (TLE) function names
 - Parameter references
@@ -80,6 +80,7 @@ The extension provides the IntelliSense for
     a. After you enter `[`, the IntelliSense lists the available template functions:
 
       ![Show Visual Studio Code Resource Manager extension available functions](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-resource-manager-extension-available-functions.png)
+
     b. Start typing **resourceGroup**. When the `resourceGroup()` function is displayed, press **[Tab]** or **[Enter]**.
 
       ![Visual Studio Code Resource Manager extension select resourceGroup functions](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-resource-manager-extension-show-resourcegroup.png)
@@ -102,7 +103,9 @@ The extension provides the IntelliSense for
 
 4. Verify the output section is identical to the code sample shown under step 1 in this procedure.
 
-To deploy the template, see:
+## Deploy the template
+
+The extension doesn't support template deployment.  To deploy the template, see:
 
 - [Deploy resources with Resource Manager templates and Azure PowerShell](./resource-group-template-deploy.md).
 - [Deploy resources with Resource Manager templates and Azure CLI](./resource-group-template-deploy-cli.md).
