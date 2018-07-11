@@ -7,18 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Try cognitive search
-    href: cognitive-search-quickstart-blob.md
   - name: Create a service
     href: search-create-service-portal.md
-  - name: Portal
-    items:
-    - name: Create an index
-      href: search-create-index-portal.md
-    - name: Import data
-      href: search-import-data-portal.md
-    - name: Search Explorer
-      href: search-explorer.md
+  - name: Try cognitive search
+    href: cognitive-search-quickstart-blob.md
   - name: .NET
     items:
     - name: Create an index
@@ -39,18 +31,18 @@
       href: search-fiddler.md
 - name: Tutorials
   items:
+  - name: Use built-in tools
+    href: search-get-started-portal.md
   - name: Cognitive search development
     href: cognitive-search-tutorial-blob.md
-  - name: Index Azure SQL Database
-    href: search-indexer-tutorial.md
   - name: Index Azure blobs
     href: search-semi-structured-data.md
+  - name: Index Azure SQL Database
+    href: search-indexer-tutorial.md
   - name: Add synonyms in .NET
     href: search-synonyms-tutorial-sdk.md
   - name: Add auto-complete in .NET
     href: search-autocomplete-tutorial.md
-  - name: Portal walkthrough
-    href: search-get-started-portal.md
 - name: Samples
   items:
   - name: Azure code samples
@@ -129,6 +121,8 @@
     items:
     - name: Index definition
       href: search-what-is-an-index.md
+    - name: Create an index (portal)
+      href: search-create-index-portal.md
     - name: Analyzers
       items:
       - name: Text Analyzers
@@ -151,6 +145,8 @@
     items:
     - name: Push vs. Pull indexing
       href: search-what-is-data-import.md
+    - name: Import wizard (portal)
+      href: search-import-data-portal.md
     - name: Rebuild an index
       href: search-howto-reindex.md
     - name: Index large data sets
@@ -181,6 +177,8 @@
     items:
     - name: Basic query construction
       href: search-query-overview.md
+    - name: Search Explorer (portal)
+      href: search-explorer.md
     - name: Simple query syntax
       href: https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search
     - name: Lucene query syntax

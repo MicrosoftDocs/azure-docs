@@ -1,17 +1,17 @@
 ---
 title: Import data into Azure Search in the portal | Microsoft Docs
-description: Use the Azure Search Import Data Wizard in the Azure Portal to crawl Azure data from NoSQL Azure Cosmos DB, Blob storage, table storage, SQL Database, and SQL Server on Azure VMs.
+description: Learn how to use the Import Data wizard in the Azure portal to crawl Azure data from Cosmos DB, Blob storage, table storage, SQL Database, and SQL Server on Azure VMs.
 author: HeidiSteen
 manager: cgronlun
-tags: Azure Portal
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 05/01/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
 
 ---
-# Import data to Azure Search using the portal
+# How to import data into Azure Search index using the Azure portal
+
 The Azure portal provides an **Import data** wizard on the Azure Search dashboard for loading data into an index. 
 
   ![Import Data on the command bar][1]
