@@ -1,6 +1,6 @@
 ---
-title: Interpret the Azure Active Directory sign-in log schema in Azure Monitor Diagnostics (preview) | Microsoft Docs
-description: Describe the Azure AD sign in log schema for use in Azure Monitor Diagnostics (preview)
+title: Interpret the Azure Active Directory sign-in log schema in Azure Monitor (preview) | Microsoft Docs
+description: Describe the Azure AD sign in log schema for use in Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -20,9 +20,9 @@ ms.reviewer: dhanyahk
 
 ---
 
-# Interpret the Azure Active Directory sign-in logs schema in Azure Monitor Diagnostics (preview)
+# Interpret the Azure Active Directory sign-in logs schema in Azure Monitor (preview)
 
-This article describes the Azure AD sign-in log schema in Azure Monitor Diagnostics. Most of the information related to sign-ins is provided under the *Properties* attribute of the records object.
+This article describes the Azure AD sign-in log schema in Azure Monitor. Most of the information related to sign-ins is provided under the *Properties* attribute of the records object.
 
 ```json
 { 

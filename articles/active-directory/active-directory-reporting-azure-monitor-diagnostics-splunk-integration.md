@@ -1,6 +1,6 @@
 ---
-title: How to integrate Azure Active Directory logs with Splunk using Azure Monitor Diagnostics (preview)  | Microsoft Docs
-description: Learn how to integrate Azure Active Directory logs with Splunk using Azure Monitor Diagnostics (preview)
+title: How to integrate Azure Active Directory logs with Splunk using Azure Monitor (preview)  | Microsoft Docs
+description: Learn how to integrate Azure Active Directory logs with Splunk using Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -20,9 +20,9 @@ ms.reviewer: dhanyahk
 
 ---
 
-# How to integrate Azure Active Directory logs with Splunk using Azure Monitor Diagnostics (preview)
+# How to integrate Azure Active Directory logs with Splunk using Azure Monitor (preview)
 
-In this article, you'll learn how to integrate Azure Active Directory logs with Splunk using Azure Monitor Diagnostics. First, you'd need to route the logs to an Azure event hub, then integrate it with Splunk.
+In this article, you'll learn how to integrate Azure Active Directory logs with Splunk using Azure Monitor. First, you'd need to route the logs to an Azure event hub, then integrate it with Splunk.
 
 ## Prerequisites
 
@@ -42,6 +42,6 @@ In this article, you'll learn how to integrate Azure Active Directory logs with 
 
 ## Next steps
 
-* [Interpret audit logs schema in Azure monitor diagnostics](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md)
-* [Interpret sign-in logs schema in Azure monitor diagnostics](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
-* [Frequently asked questions and known issues](active-directory-reporting-faq.md#frequently-asked-questions-about-azure-active-directory-logs-in-azure-monitor-diagnostics)
+* [Interpret audit logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Interpret sign-in logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Frequently asked questions and known issues](active-directory-reporting-faq.md#frequently-asked-questions-about-azure-active-directory-logs-in-azure-monitor)

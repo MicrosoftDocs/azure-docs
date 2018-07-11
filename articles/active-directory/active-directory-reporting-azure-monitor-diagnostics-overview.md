@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory activity logs in Azure monitor diagnostics (preview) | Microsoft Docs
-description: Overview of Azure Active Directory activity logs in Azure monitor diagnostics (preview)
+title: Azure Active Directory activity logs in Azure monitor (preview) | Microsoft Docs
+description: Overview of Azure Active Directory activity logs in Azure monitor (preview)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -20,7 +20,7 @@ ms.reviewer: dhanyahk
 
 ---
 
-# Azure Active Directory activity logs in Azure monitor diagnostics (preview)
+# Azure Active Directory activity logs in Azure monitor (preview)
 
 You can now route Azure AD activity logs to your own storage account or Event Hub and store the data for as long as you want. With the public preview of this feature, you can:
 
@@ -89,4 +89,4 @@ For example, there are typically about 18 events per second for a large tenant o
 
 * [Archive activity logs to storage account](active-directory-reporting-azure-monitor-diagnostics-azure-storage-account.md)
 * [Route activity logs to Event Hub](active-directory-reporting-azure-monitor-diagnostics-azure-event-hub.md)
-* [Frequently asked questions and known issues](active-directory-reporting-faq.md#frequently-asked-questions-about-azure-active-directory-logs-in-azure-monitor-diagnostics)
+* [Frequently asked questions and known issues](active-directory-reporting-faq.md#frequently-asked-questions-about-azure-active-directory-logs-in-azure-monitor)

@@ -126,7 +126,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ---
 
-## Frequently asked questions about Azure Active Directory logs in Azure Monitor Diagnostics
+## Frequently asked questions about Azure Active Directory logs in Azure Monitor
 
 This section contains the frequently asked questions and known issues with Azure Active Directory logs in Azure monitor diagnostics.
 

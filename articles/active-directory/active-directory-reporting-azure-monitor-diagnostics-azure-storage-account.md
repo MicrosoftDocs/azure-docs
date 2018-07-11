@@ -54,6 +54,6 @@ You need:
 
 ## Next steps
 
-* [Interpret audit logs schema in Azure monitor diagnostics](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md)
-* [Interpret sign-in logs schema in Azure monitor diagnostics](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
-* [Frequently asked questions and known issues](active-directory-reporting-faq.md#frequently-asked-questions-about-azure-active-directory-logs-in-azure-monitor-diagnostics)
+* [Interpret audit logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Interpret sign-in logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Frequently asked questions and known issues](active-directory-reporting-faq.md#frequently-asked-questions-about-azure-active-directory-logs-in-azure-monitor)
