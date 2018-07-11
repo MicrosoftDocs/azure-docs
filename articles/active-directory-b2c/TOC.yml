@@ -157,6 +157,8 @@
         href: b2clogin.md
       - name: Using age gating
         href: basic-age-gating.md
+      - name: Direct sign-in
+        href: direct-signin.md
   - name: Identity Experience Framework
     items:
     - name: Custom policies
@@ -187,7 +189,7 @@
           href: active-directory-b2c-setup-sf-app-custom.md
       - name: Integrate RESTful APIs
         items:
-        - name: Vaildate user input
+        - name: Validate user input
           href: active-directory-b2c-rest-api-validation-custom.md
         - name: Obtain additional claims
           href: active-directory-b2c-rest-api-step-custom.md

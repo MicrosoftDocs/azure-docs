@@ -51,7 +51,7 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 
 * [Resource group name](#resource-group-name)
 * [Cluster types and configuration](#cluster-types) 
-* [Cluster login and SSH username](#cluster-login-and-ssh-username)
+* [Cluster login and SSH username](#cluster-login-and-ssh-user-name)
 * [Location](#location)
 
 > [!IMPORTANT]
@@ -113,7 +113,7 @@ Although an on-premises installation of Hadoop uses the Hadoop Distributed File 
 
 During configuration, for the default storage endpoint you specify Data Lake Storage. The default storage contains application and system logs. Optionally, you can specify additional linked Azure Data Lake Storage accounts that the cluster can access. The HDInsight cluster and the dependent storage accounts must be in the same Azure location.
 
-![Cluster storage settings: HDFS-compatible storage endpoints](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage-TEMP.png)
+![Cluster storage settings: HDFS-compatible storage endpoints](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > Be sure to **disable Data Lake Store access**. This settings refers to the old *Data Lake Store* functionality and needs to be disabled in order for *Data Lake Storage* features to operate correctly.

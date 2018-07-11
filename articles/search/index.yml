@@ -55,7 +55,8 @@ sections:
     - html: <a href="/azure/search/search-howto-dotnet-sdk">How to use Azure Search with .NET</a> 
     - html: <a href="/azure/search/search-indexer-tutorial">Index Azure SQL Database content with .NET</a>
     - html: <a href="/azure/search/search-semi-structured-data">Index semi-structured data in Azure Blob storage with REST</a>
-    - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Add synonyms to return results for equivalent terms</a>
+    - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Add synonyms to return results for equivalent terms</a> 
+    - html: <a href="/azure/search/search-autocomplete-tutorial">Add auto-complete to a search box with .NET</a>    
     - html: <a href="/azure/search/search-get-started-portal">Use the portal for indexing and query testing</a> 
 - title: Reference
   items:
@@ -64,6 +65,6 @@ sections:
     className: cardsD
     items:
     - title: Languages
-      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Management)</a></p><p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (Management)</a></p>
+      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Management)</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.search">Python (Management)</a></p>
     - title: REST
       html: <p><a href="/rest/api/searchservice">Service API Reference</a></p><p><a href="/rest/api/searchmanagement">Management API Reference</a></p>

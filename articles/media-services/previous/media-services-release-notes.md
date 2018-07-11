@@ -362,7 +362,7 @@ The following bug fixes were made for the Azure Media Services Packager and Encr
 
 ## <a id="may_changes_14"></a>May 2014 release
 ### <a id="may_14_changes"></a>General Media Services updates
-You can now use [dynamic packaging] to stream HLS version 3. To stream HLS version 3, add the following format to the origin locator path: * .ism/manifest(format=m3u8-aapl-v3). For more information, see [this blog](http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/).
+You can now use [dynamic packaging] to stream HLS version 3. To stream HLS version 3, add the following format to the origin locator path: * .ism/manifest(format=m3u8-aapl-v3). For more information, see [this forum](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
 Dynamic packaging now also supports delivering HLS (version 3 and version 4) encrypted with PlayReady based on Smooth Streaming statically encrypted with PlayReady. For information on how to encrypt Smooth Streaming with PlayReady, see [Protect Smooth Streaming with PlayReady](http://msdn.microsoft.com/library/azure/dn189154.aspx).
 
@@ -392,7 +392,7 @@ The changes in 3.0.0.1 and 3.0.0.2 include:
 * Issues related to the usage of LINQ queries with OrderBy statements were fixed.
 * Test solutions in [GitHub] were split into unit-based tests and scenario-based tests.
 
-For more information about the changes, see the [Media Services .NET SDK 3.0.0.1 and 3.0.0.2 releases](http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/).
+For more information about the changes, see the [Media Services .NET SDK 3.0.0.1 and 3.0.0.2 releases](http://gtrifonov.com/2014/02/07/windows-azure-media-services-net-sdk-3-0-0-2-release/index.html).
 
 The following changes were made in version 3.0.0.3:
 
