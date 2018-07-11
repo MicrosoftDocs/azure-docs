@@ -1,6 +1,6 @@
 ---
-title: Periodic backup and restore in Azure Service Fabric (Preview) | Microsoft Docs
-description: Use Service Fabric's periodic backup and restore feature for protecting your applications from data loss.
+title: Quickstart: Periodic backup and restore in Azure Service Fabric (Preview) | Microsoft Docs
+description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -17,7 +17,7 @@ ms.date: 04/04/2018
 ms.author: hrushib
 
 ---
-# Periodic backup and restore in Azure Service Fabric (Preview)
+# Quickstart: Periodic backup and restore in Azure Service Fabric (Preview)
 > [!div class="op_single_selector"]
 > * [Clusters on Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Standalone Clusters](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)

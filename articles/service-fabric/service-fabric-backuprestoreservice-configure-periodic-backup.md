@@ -1,6 +1,6 @@
 ---
-title: Configure periodic backup in Azure Service Fabric | Microsoft Docs
-description: Use Service Fabric's periodic backup and restore feature for protecting your applications from Data Loss.
+title: Understanding periodic backup configuration in Azure Service Fabric | Microsoft Docs
+description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -19,11 +19,11 @@ ms.author: hrushib
 ---
 # Configure periodic backup in Azure Service Fabric
 
-Configuring periodic backup consists of following steps:
+Configuring periodic backup of your Reliable stateful services or Reliable Actors consists of the following steps:
 
-1. **Creation of backup policy**: In this step, one or more backup policies are created depending on requirements.
+1. **Creation of backup policies**: In this step, one or more backup policies are created depending on requirements.
 
-2. **Enabling Data Protection**: In this step, you associate backup policies created in **Step 1** to the required entities, _Application_, _Service_, or a _Partition_.
+2. **Enabling backup**: In this step, you associate backup policies created in **Step 1** to the required entities, _Application_, _Service_, or a _Partition_.
 	
 ## Create Backup Policy
 
@@ -39,9 +39,9 @@ A backup policy consists of the following configurations:
 
     3. Replica passed the MaxAccumulatedBackupLogSizeInMB limit.
 
-* **Backup schedule**: The time or frequency at which to take periodic backups. One can schedule backups to be recurring at specified interval Or at a fixed time daily/ weekly.
+* **Backup schedule**: The time or frequency at which to take periodic backups. One can schedule backups to be recurring at specified interval or at a fixed time daily/ weekly.
 
-    1. **Frequency-based backup schedule**: This schedule type should be used if the need is to take data backup at fixed intervals. Desired time interval between two consecutive backups is defined using ISO8601 format. Frequency-based backup schedule supports interval resolution upto minute, portion defining seconds, and part of seconds is ignored.
+    1. **Frequency-based backup schedule**: This schedule type should be used if the need is to take data backup at fixed intervals. Desired time interval between two consecutive backups is defined using ISO8601 format. Frequency-based backup schedule supports interval resolution upto minute.
         ```json
         {
             "ScheduleKind": "FrequencyBased",
@@ -49,18 +49,36 @@ A backup policy consists of the following configurations:
         }
         ```
 
-    2. **Time-based backup schedule**: This schedule type should be used if the need is to take data backup at specific times of the day.
-        ```json
-        {
-            "ScheduleKind": "TimeBased",
-            "ScheduleFrequencyType": "Daily",
-            "RunTimes": [
-              "0001-01-01T09:00:00Z",
-              "0001-01-01T17:00:00Z"
-            ]
-        }
-        ```
-
+    2. **Time-based backup schedule**: This schedule type should be used if the need is to take data backup at specific times of the day or week. Schedule frequency type can either be daily or weekly.
+        1. **_Daily_ Time-based backup schedule**: This schedule type should be used if the need id to take data backup at specific times of the day. To specify this, set `ScheduleFrequencyType` to _Daily_; and set `RunTimes` to list of desired time during the day in ISO8601 format, date specified along with time will be ignored. For example, `0001-01-01T18:00:00` represents _6:00 PM_ everyday, ignoring date part _0001-01-01_. Below example illustrates the configuration to trigger daily backup at _9:00 AM_ and _6:00 PM_ everyday.
+            ```json
+            {
+                "ScheduleKind": "TimeBased",
+                "ScheduleFrequencyType": "Daily",
+                "RunTimes": [
+                  "0001-01-01T09:00:00Z",
+                  "0001-01-01T18:00:00Z"
+                ]
+            }
+            ```
+        2. **_Daily_ Time-based backup schedule**: This schedule type should be used if the need id to take data backup at specific times of the day. To specify this, set `ScheduleFrequencyType` to _Weekly_; set `RunDays` to list of days in a week when backup needs to be triggered and set `RunTimes` to list of desired time during the day in ISO8601 format, date specified along with time will be ignored. List of days of a week when to trigger the periodic backup. Below example illustrates the configuration to trigger daily backup at _9:00 AM_ and _6:00 PM_ during Monday to Friday.
+            ```json
+            {
+                "ScheduleKind": "TimeBased",
+                "ScheduleFrequencyType": "Weekly",
+                "RunDays": [
+                   "Monday",
+                   "Tuesday",
+                   "Wednesday",
+                   "Thursday",
+                   "Friday"
+                ],
+                "RunTimes": [
+                  "0001-01-01T09:00:00Z",
+                  "0001-01-01T18:00:00Z"
+                ]
+            }
+            ```
 * **Backup storage**: Specifies the location to upload backups. Storage can be either Azure blob store or file share.
     1. **Azure blob store**: This storage type should be selected when the need is to store generated backups in Azure. Both _standalone_ and _Azure-based_ clusters can use this storage type. Description for this storage type requires connection string and name of the container where backups need to be uploaded. If the container with the specified name is not available, then it gets created during upload of a backup.
         ```json
@@ -101,13 +119,13 @@ A backup policy consists of the following configurations:
 >
 
 ## Enable periodic backup
-After defining backup policy to fulfill data protection requirements, the backup policy should be appropriately associated either with an _application_, or _service_, or a _partition_.
+After defining backup policy to fulfill data backup requirements, the backup policy should be appropriately associated either with an _application_, or _service_, or a _partition_.
 
 ### Hierarchical propagation of backup policy
-In Service Fabric, relation between application, service, and partitions is hierarchical as explained in [Application model](./service-fabric-application-model.md). Backup policy can be associated either with an _application_, _service_, or a _partition_ in the hierarchy. Backup policy propagates hierarchically to next level. Assuming there is only one backup policy created and associated with an _application_, all partitions belonging to all _services_ of the _application_ will be backed-up using the backup policy. Or if the backup policy is associated with a _service_, all its partitions will be backed-up using the backup policy.
+In Service Fabric, relation between application, service, and partitions is hierarchical as explained in [Application model](./service-fabric-application-model.md). Backup policy can be associated either with an _application_, _service_, or a _partition_ in the hierarchy. Backup policy propagates hierarchically to next level. Assuming there is only one backup policy created and associated with an _application_, all stateful partitions belonging to all _Reliable stateful services_ and _Reliable Actors_ of the _application_ will be backed-up using the backup policy. Or if the backup policy is associated with a _Reliable stateful service_, all its partitions will be backed-up using the backup policy.
 
 ### Overriding backup policy
-There may be a scenario where data backup with same backup schedule is required for all services of the application except for specific services where the need is to have data backup using higher frequency schedule. To address such scenarios, backup restore service provides facility to override propagated policy at service and partition scope. When the backup policy is associated at _service_ or _partition_, it overrides propagated backup policy, if any.
+There may be a scenario where data backup with same backup schedule is required for all services of the application except for specific services where the need is to have data backup using higher frequency schedule or taking backup to a different storage account or fileshare. To address such scenarios, backup restore service provides facility to override propagated policy at service and partition scope. When the backup policy is associated at _service_ or _partition_, it overrides propagated backup policy, if any.
 
 ### Example
 
@@ -144,8 +162,8 @@ Following diagram depicts explicitly enabled backup policies and propagated back
 
 ![Service Fabric Application Hierarchy][0]
 
-## Disable protection
-Backup policies can be disabled when there is no need to backup data. Backup policy enabled at an _Application_ can only be disabled at the same _Application_ using [Disable Application Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API, Backup policy enabled at a _Service_ can be disabled at the same _Service_ using [Disable Service Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableservicebackup) API, and Backup policy enabled at a _Partition_ can be disabled at the same _Partition_ using [Disable Partition Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API. 
+## Disable backup
+Backup policies can be disabled when there is no need to backup data. Backup policy enabled at an _Application_ can only be disabled at the same _Application_ using [Disable Application Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API, Backup policy enabled at a _Service_ can be disabled at the same _Service_ using [Disable Service Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableservicebackup) API, and Backup policy enabled at a _Partition_ can be disabled at the same _Partition_ using [Disable Partition Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API.
 
 * Disabling backup policy for an _application_ stops all periodic data backups happening as a result of propagation of the backup policy to Reliable Stateful service partitions or Reliable Actor partitions.
 
@@ -153,7 +171,7 @@ Backup policies can be disabled when there is no need to backup data. Backup pol
 
 * Disabling backup policy for a _partition_ stops all periodic data backup happening due to the backup policy at the partition.
 
-## Suspend & resume protection
+## Suspend & resume backup
 Certain situation may demand temporary suspension of periodic backup of data. In such situation, depending on the requirement, suspend backup API may be used at an _Application_, _Service_, or _Partition_. Periodic backup suspension is transitive over subtree of the application's hierarchy from the point it is applied. 
 
 * When suspension is applied at an _Application_ using [Suspend Application Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API, then all the services and partitions under this application are suspended for periodic backup of data.
