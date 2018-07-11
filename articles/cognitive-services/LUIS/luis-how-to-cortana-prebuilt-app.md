@@ -66,6 +66,8 @@ In the browser you can see that the Cortana prebuilt app identifies `builtin.int
 }
 ```
 
+Because the Cortana prebuilt app is used, LUIS does not return scores. 
+
 ## Next steps
 > [!div class="nextstepaction"]
 > [Cortana prebuilt app reference](./luis-reference-cortana-prebuilt.md)
