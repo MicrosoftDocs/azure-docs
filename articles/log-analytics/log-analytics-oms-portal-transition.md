@@ -42,6 +42,7 @@ There are currently some functionality gaps that require you to still use the OM
     - Windows Analytics Solutions ([Upgrade Readiness](https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started), [Device Health](https://docs.microsoft.com/windows/deployment/update/device-health-monitor), and [Update Compliance](https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started))
     - [DNS Analytics](log-analytics-dns.md) 
     - [Surface Hub](log-analytics-surface-hubs.md)
+    - [Services Hub Assessments (Microsoft Unified Support Solution Pack)](https://docs.microsoft.com/en-us/services-hub/health/)
 
 -  To access Log Analytics resource in Azure, the user must be granted access through [Azure role-based access](#user-access-and-role-migration).
 - Update schedules that were created with the OMS portal may not be reflected in the scheduled update deployments or update job history of the Update management dashboard in the Azure portal. This gap is expected to be addressed by the end of June 2018.
