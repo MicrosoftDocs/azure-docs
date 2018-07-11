@@ -38,7 +38,7 @@ In this step, a customer that is not using a provider would manually download th
   * If Azure VNets are attached to the virtual hub, they will appear as ConnectedSubnets.
   * VPN connectivity uses route-based configuration and IKEv2.
 
-### Configuration file
+### Understanding the device configuration file
 
 The device configuration file contains the settings to use when configuring your on-premises VPN device. When you view this file, notice the following information:
 

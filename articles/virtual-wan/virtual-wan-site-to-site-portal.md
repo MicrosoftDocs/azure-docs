@@ -281,11 +281,12 @@ The device configuration file contains the settings to use when configuring your
       ]
    }
   ```
+
 ### Configuring your VPN device
 
->[!NOTE]
-> If you are working with a Virtual WAN partner solution, VPN device configuration automatically happens where the device controller obtains the configuration file from Azure and applies to the device to set up connection to Azure. This means you don't need to know how to manually configure your VPN device.
->
+  >[!NOTE]
+  > If you are working with a Virtual WAN partner solution, VPN device configuration automatically happens where the device controller obtains the configuration file from Azure and applies to the device to set up connection to Azure. This means you don't need to know how to manually configure your VPN device.
+  >
 
 If you need instructions to configure your device, you can use the instructions on the [VPN device configuration scripts page](~/articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#configscripts) with the following caveats:
 
