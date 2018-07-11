@@ -145,7 +145,7 @@ The behavior of the patch orchestration app can be configured to meet your needs
 |**Parameter**        |**Type**                          | **Details**|
 |:-|-|-|
 |MaxResultsToCache    |Long                              | Maximum number of Windows Update results, which should be cached. <br>Default value is 3000 assuming the: <br> - Number of nodes is 20. <br> - Number of updates happening on a node per month is five. <br> - Number of results per operation can be 10. <br> - Results for the past three months should be stored. |
-|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indicates the policy that is to be used by the Coordinator Service to install Windows updates across the Service Fabric cluster nodes.<br>                         Allowed values are: <br>                                                           <b>NodeWise</b>. Windows Update is installed one node at a time. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is installed one upgrade domain at a time. (At the maximum, all the nodes belonging to an upgrade domain can go for Windows Update.)
+|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indicates the policy that is to be used by the Coordinator Service to install Windows updates across the Service Fabric cluster nodes.<br>                         Allowed values are: <br>                                                           <b>NodeWise</b>. Windows Update is installed one node at a time. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is installed one upgrade domain at a time. (At the maximum, all the nodes belonging to an upgrade domain can go for Windows Update.)<br> Refer to [FAQ](#frequently-asked-questions) section on how to decide which is best suited policy for your cluster.
 |LogsDiskQuotaInMB   |Long  <br> (Default: 1024)               |Maximum size of patch orchestration app logs in MB, which can be persisted locally on nodes.
 | WUQuery               | string<br>(Default: "IsInstalled=0")                | Query to get Windows updates. For more information, see [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Boolean <br> (default: True)                 | This flag allows Windows operating system updates to be installed.            |
@@ -304,15 +304,24 @@ Q. **What can I do if my cluster is unhealthy and I need to do an urgent operati
 
 A. The patch orchestration app does not install updates while the cluster is unhealthy. Try to bring your cluster to a healthy state to unblock the patch orchestration app workflow.
 
+Q. **Should i set TaskApprovalPolicy as 'NodeWise' or 'UpgradeDomainWise' for my cluster ?**
+
+A. 'UpgradeDomainWise' makes the overall cluster patching faster by patching entire upgrade domain in parallel. This means that nodes belonging to an entire upgrade domain would be unavailable (in [Disabled](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) state) during the patching process.
+
+In contrast 'NodeWise' policy patches only one node at a time, this implies overall cluster patching would take longer time. However, at max, only one node would be unavailable (in [Disabled](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) state) during the patching process.
+
+If your cluster can tolerate running on N-1 number of upgrade domains during patching cycle (where N is the total number of upgrade domains on your cluster), then you can set the policy as 'UpgradeDomainWise', otherwise set it to 'NodeWise'.
+
 Q. **Why does patching across clusters take so long to run?**
 
 A. The time needed by the patch orchestration app is mostly dependent on the following factors:
 
 - The policy of the Coordinator Service. 
-  - The default policy, `NodeWise`, results in patching only one node at a time. Especially if there is a bigger cluster, we recommend that you use the `UpgradeDomainWise` policy to achieve faster patching across clusters.
+  - The default policy, `NodeWise`, results in patching only one node at a time, which would be slower than `UpgradeDomainWise`.
 - The number of updates available for download and installation. 
 - The average time needed to download and install an update, which should not exceed a couple of hours.
 - The performance of the VM and network bandwidth.
+- Cluster load - Each patching operation requires relocating the customer workload to other available nodes in the cluster. Node undergoing patch would be in [Disabling](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) state during this time. If the cluster is running near peak load, the disabling process would take longer time. Hence overall patching process may appear to be slow in such stressed conditions.
 
 Q. **Why do I see some updates in Windows Update results obtained via REST API, but not under the Windows Update history on the machine?**
 
