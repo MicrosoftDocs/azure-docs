@@ -26082,8 +26082,8 @@
         },
         {
             "source_path": "articles/application-gateway/application-gateway-ssl-portal.md",
-            "redirect_url": "azure/application-gateway/create-ssl-portal",
-            "redirect_document_id": false
+            "redirect_url": "/azure/application-gateway/create-ssl-portal",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/cognitive-services/LUIS/Manage-Keys.md",
