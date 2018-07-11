@@ -104,16 +104,21 @@ that's managed by Azure Active Directory (Azure AD), not a Microsoft account.
   > and didn't supply your actual work email, 
   > your sign-in address might look like jeff@contoso.onmicrosoft.com. 
 
-* If you have an existing gateway that you set up with 
-  an installer that's earlier than version 14.16.6317.4, 
-  you can't change your gateway's location by 
-  running the latest installer. However, 
-  you can use the latest installer to set up 
-  a new gateway with the location that you want instead.
+* The region you select for your gateway determines and restricts the 
+location where you can later create the Azure resource for your gateway. 
+When you create your gateway resource in Azure, you have to select the 
+same location as your gateway installation. The default region is the 
+same location as your Azure AD tenant, which manages your Azure account.
+
+* If you have an existing gateway that you set up with an installer 
+that's earlier than version 14.16.6317.4, you can't change your 
+gateway's location by running the latest installer. However, 
+you can use the latest installer to set up a new gateway 
+with the location you want instead.
   
   If you have a gateway installer that's earlier than 
-  version 14.16.6317.4, but you haven't installed 
-  your gateway yet, you can download and use the latest installer.
+  version 14.16.6317.4, but you haven't installed your 
+  gateway yet, you can download and use the latest installer.
 
 <a name="install-gateway"></a>
 
@@ -152,59 +157,54 @@ choose **Register a new gateway on this computer** > **Next**.
 
    * Confirmation for your recovery key. 
    Save and keep your recovery key in a safe place. 
-   You need this key when you have to migrate, recover, 
-   or take over an existing gateway.
+   You need this key when you have to change the gateway's 
+   location, migrate, recover, or take over an existing gateway.
 
      ![Set up gateway](./media/logic-apps-gateway-install/set-up-gateway.png)
 
 7. Check the region selected for the gateway cloud service 
 and Azure Service Bus that's used by your gateway installation. 
-The default region is the same region as your Azure AD tenant. 
-
-   > [!IMPORTANT]
-   > To change this region after installation, 
-   > you need the gateway installation's recovery key, 
-   > so make sure you've selected the region you want. 
-   > This region determines and restricts the location where 
-   > you can create the Azure resource for your gateway. 
-   > When you create the gateway resource in Azure, 
-   > select the same location as your gateway installation. 
-   > 
-   > If you change your mind later about your gateway's location, 
-   > you must uninstall and reinstall the gateway. For more information, 
-   > see [Change location, migrate, recover, or take over existing gateway](#update-gateway-installation).
 
    ![Check region](./media/logic-apps-gateway-install/check-region.png)
 
-To accept this default region, choose **Configure**.
+   > [!IMPORTANT]
+   > To change this region after you finish installing your gateway, 
+   > you need the recovery key for that gateway installation. 
+   > Also, you must uninstall and reinstall the gateway. 
+   > For more information, see 
+   > [Change location, migrate, recover, or take over existing gateway](#update-gateway-installation).
 
+   *Why change the region for your gateway installation?* 
 
-   For example, you might select the same region as your logic app, 
-   or select the region closest to your on-premises data source 
-   so you can reduce latency. Your gateway resource and logic app 
-   can have different locations.
+   For example, to reduce latency, you might change your 
+   gateway's region to the same region as your logic app. 
+   Or, you might select the region closest to your on-premises data source. 
+   Your gateway resource in Azure and your logic app can have different locations.
 
-   1. To change the default region, select **Change Region**. 
+8. To accept the default region, choose **Configure**. 
+Or, to change the default region, follow these steps:
 
-      ![Change region](./media/logic-apps-gateway-install/change-region-gateway-install.png)
+   1. Next to the current region, select **Change Region**. 
+
+      ![Change region](./media/logic-apps-gateway-install/change-region.png)
 
    2. On the next page, open the **Select Region** list, 
-   and then select a different region. When you're ready, 
-   choose **Done**.
+   select the region you want, and choose **Done**.
 
       ![Select another region](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-8. When you're finished, choose **Configure**. 
+9. After the confirmation page appears, choose **Close**. 
 
    ![Finished gateway](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
-9. Now learn how to [create an Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md). 
+10. Now learn how to [create an Azure resource for your gateway installation](../logic-apps/logic-apps-gateway-connection.md). 
 
 ## High availability clusters
 
 If you have an existing gateway when you create another next gateway, 
-you can optionally create high availability clusters, 
-which organize gateways into groups that can help avoid single points of failure. 
+you can optionally create high availability clusters. 
+These clusters organize gateways into groups that can 
+help avoid single points of failure. 
 To use this capability, here are some considerations and requirements:
      
 * Only some connectors support high availability, 
@@ -220,7 +220,7 @@ from November 2017 or later.
 After meeting these requirements when you create your next gateway, 
 select **Add to an existing gateway cluster**, 
 select the existing gateway cluster you want, 
-     and provide the recovery key for that existing gateway.
+and provide the recovery key for that existing gateway.
 
      For more information, see 
      [High availability clusters for on-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
@@ -237,8 +237,8 @@ you need the recovery key that was provided during gateway installation.
 This action disconnects the old gateway.
 
 1. Go to **Control Panel** > **Programs** > **Programs and Features**, 
-and choose **Uninstall a program**. Find and uninstall 
-**On-premises data gateway**.
+and then select **Uninstall a program**. Find and uninstall the 
+**On-premises data gateway** installation.
 
 2. [Reinstall the on-premises data gateway](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
@@ -248,10 +248,16 @@ or school account that was previously used to install the gateway.
 4. Select **Migrate, restore, or takeover an existing gateway**, 
 and then choose **Next**.
 
-5. Under **Available gateways** or **Available gateway clusters**, 
-select the gateway installation you want to change.
+   ![Select "Migrate, restore, or takeover an existing gateway"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
-6. Provide the recovery key for the gateway installation. 
+5. Under **Available gateways** or **Available gateway clusters**, 
+select the gateway installation you want to change. 
+Enter the recovery key for the gateway installation. 
+
+   ![Select primary gateway](./media/logic-apps-gateway-install/select-existing-gateway.png)
+
+6. To change the region, select **Change Region**. 
+Otherwise, choose **Configure**.
 
 <a name="windows-service-account"></a>
 
@@ -300,9 +306,11 @@ From a PowerShell prompt, run this command:
 `Test-NetConnection -ComputerName watchdog.servicebus.windows.net -Port 9350`
 
 > [!NOTE]
-> This command only tests network connectivity and connectivity to the Azure Service Bus. 
-> So the command doesn't have anything to do with the gateway or the gateway cloud service 
-> that encrypts and stores your credentials and gateway details. 
+> This command only tests network connectivity 
+> and connectivity to the Azure Service Bus. 
+> The command doesn't do anything with the 
+> gateway or the gateway cloud service that 
+> encrypts and stores your credentials and gateway details. 
 >
 > Also, this command is only available on Windows Server 2012 R2 or later, 
 > and Windows 8.1 or later. On earlier OS versions, you can use Telnet to 
