@@ -23,7 +23,7 @@ Azure Virtual WAN is a networking service that provides optimized and automated 
 This article provides a quick view into the network connectivity of your Azure and non-Azure workloads. Virtual WAN offers the following advantages:
 
 * **Integrated connectivity solutions in hub and spoke:** Automate Site-to-Site configuration and connectivity between on-premises sites and an Azure hub from a variety of sources, including Virtual WAN partner solutions.
-* **Automated spoke configuration and configuration:** Connect your virtual networks and workloads to the Azure hub seamlessly.
+* **Automated spoke configuration:** Connect your virtual networks and workloads to the Azure hub seamlessly.
 * **Intuitive troubleshooting:** You can see the end-to-end flow within Azure and use this information to take required actions.
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
