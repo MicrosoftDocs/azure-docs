@@ -41,7 +41,7 @@ There are two approaches to connect Apache Spark and Azure Cosmos DB:
 2. By using the [Azure Cosmos DB SQL Java SDK](https://github.com/Azure/azure-documentdb-java)  a Java-based spark to Cosmos DB connector.
 
 
-**Officially supported versions**
+**Supported versions**
 
 | Component | Version |
 |---------|-------|
