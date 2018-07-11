@@ -222,7 +222,7 @@ FailureError            :
 ## Preview limitation/ caveats
 - No Service Fabric built in PowerShell cmdlets.
 - No support for Service Fabric CLI.
-- No support for automated backup purging. Requires manual clean-up of backups.
+- No support for automated backup purging. [Backup retention script](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript) may be referred to setup up script based external automation for purging backups.
 - No support for Service Fabric clusters on Linux.
 
 ## Next steps

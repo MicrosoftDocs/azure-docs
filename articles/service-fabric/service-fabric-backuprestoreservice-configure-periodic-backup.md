@@ -163,7 +163,7 @@ Following diagram depicts explicitly enabled backup policies and propagated back
 ![Service Fabric Application Hierarchy][0]
 
 ## Disable backup
-Backup policies can be disabled when there is no need to backup data. Backup policy enabled at an _Application_ can only be disabled at the same _Application_ using [Disable Application Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API, Backup policy enabled at a _Service_ can be disabled at the same _Service_ using [Disable Service Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableservicebackup) API, and Backup policy enabled at a _Partition_ can be disabled at the same _Partition_ using [Disable Partition Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API.
+Backup policies can be disabled when there is no need to backup data. Backup policy enabled at an _application_ can only be disabled at the same _application_ using [Disable Application Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableapplicationbackup) API, Backup policy enabled at a _service_ can be disabled at the same _service_ using [Disable Service Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableservicebackup) API, and Backup policy enabled at a _partition_ can be disabled at the same _partition_ using [Disable Partition Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disablepartitionbackup) API.
 
 * Disabling backup policy for an _application_ stops all periodic data backups happening as a result of propagation of the backup policy to Reliable Stateful service partitions or Reliable Actor partitions.
 
