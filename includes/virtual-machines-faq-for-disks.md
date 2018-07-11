@@ -86,7 +86,7 @@ Managed Disks supports three key default roles:
 
 **Is there a way that I can copy or export a managed disk to a private storage account?**
 
-You can generate a read-only shared access signature (SAS) URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage. You can use the SAS URI using the Azure portal, Azure PowerShell, the Azure CLI or [AzCopy](../articles/storage/common/storage-use-azcopy.md)
+You can generate a read-only shared access signature (SAS) URI for the managed disk and use it to copy the contents to a private storage account or on-premises storage. You can use the SAS URI using the Azure portal, Azure PowerShell, the Azure CLI, or [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
 **Can I create a copy of my managed disk?**
 
@@ -285,7 +285,7 @@ The partition type that Azure supports for an operating system disk is the maste
 
 **What is the largest page blob size that's supported?**
 
-The largest page blob size that Azure supports is 8 TB (8,191 GB). The maxmium page blog size when attached to a VM as data or operating system disks is 4 TB (4,095 GB).
+The largest page blob size that Azure supports is 8 TB (8,191 GB). The maximum page blog size when attached to a VM as data or operating system disks is 4 TB (4,095 GB).
 
 **Do I need to use a new version of Azure tools to create, attach, resize, and upload disks larger than 1 TB?**
 

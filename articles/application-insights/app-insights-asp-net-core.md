@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights for ASP.NET Core | Microsoft Docs
 description: Monitor web applications for availability, performance and usage.
 services: application-insights
@@ -43,7 +43,7 @@ This article walks you through creating a sample ASP.NET Core [Razor Pages](http
 
 ## Application Insights search
 
-By default in Visual Studio version 2015 Update 2 or greater with an ASP.NET Core 2+ based project you can take advantage of [Application Insights search](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-visual-studio) even before you explicitly add Application Insights to your project.
+By default in Visual Studio version 2015 Update 2 or greater with an ASP.NET Core 2+ based project you can take advantage of [Application Insights search](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio) even before you explicitly add Application Insights to your project.
 
 To test out this functionality:
 
