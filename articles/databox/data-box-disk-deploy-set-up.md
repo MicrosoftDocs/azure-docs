@@ -1,6 +1,6 @@
 ---
 title: Set up Microsoft Azure Data Box Disk| Microsoft Docs
-description: Learn how to set up your Azure Data Box Disk
+description: Use this tutorial to learn how to set up your Azure Data Box Disk
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -47,7 +47,7 @@ Before you begin, make sure that:
     ![Data Box Disk shipping package](media/data-box-disk-deploy-set-up/data-box-disk-ship-package1.png)
 
 2. If the shipping box is tampered or severely damaged, do not open the box. Contact Microsoft Support to help you assess whether the disks are in good working order and if they need to ship you a replacement.
-3. Verify that the box has a clear sleeve containing a shipping label (under the current label) for return shipment. If this label is lost or damaged, you can always download and print a new one from the Azure portal. For more information, go to [Download the shipping label](data-box-portal-ui-admin.md#download-shipping-label).
+3. Verify that the box has a clear sleeve containing a shipping label (under the current label) for return shipment. If this label is lost or damaged, you can always download and print a new one from the Azure portal. 
 
     ![Data Box Disk shipping label](media/data-box-disk-deploy-set-up/data-box-disk-package-ship-label.png)
 
@@ -57,7 +57,7 @@ Before you begin, make sure that:
 
 Perform the following steps to connect and unlock your disks.
 
-1. Use the included cable to connect the disk to a Windows computer. For more information, go to [Supported operating systems for Data Box Disks](data-box-disk-system-requirements.md).
+1. Use the included cable to connect the disk to a Windows computer running a supported OS as stated in the prerequisites. 
 
     ![Data Box Disk connect](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)    
     

@@ -1,6 +1,6 @@
 ---
 title: Copy data to  your Microsoft Azure Data Box Disk| Microsoft Docs
-description: Learn how to copy data to your Azure Data Box Disk
+description: Use this tutorial to learn how to copy data to your Azure Data Box Disk
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -150,8 +150,7 @@ Perform the following steps to connect and copy data from your computer to the D
     C:\Users>
     ```
  
-    For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
-
+    
 7. Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the log files for troubleshooting. The log files are located as specified in the robobopy command.
  
 

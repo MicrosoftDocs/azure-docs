@@ -1,6 +1,6 @@
 ---
-title: Order Microsoft Azure Data Box Disk | Microsoft Docs
-description: Learn how to sign up and order an Azure Data Box Disk to import data into Azure.
+title: Tutorial to order Microsoft Azure Data Box Disk | Microsoft Docs
+description: Use this tutorial to learn how to sign up and order an Azure Data Box Disk to import data into Azure.
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Data Box Disk is in preview and you need to sign up for the service. Perform the following steps to sign up for Data Box service:
 
-1. Log into the Azure portal at: [https://aka.ms/azuredatabox](https://aka.ms/azuredatabox).
+1. Sign into the Azure portal at: [https://aka.ms/azuredatabox](https://aka.ms/azuredatabox).
 2. Pick the subscription that you want to enable for the preview. Answer the questions regarding data size, data residence country, time-frame, and data transfer frequency. Click **Sign me up!**.
 3. Once you are signed up and enabled for preview, you can order a Data Box Disk.
 
@@ -111,18 +111,17 @@ When the disk preparation is complete, the portal shows the order in **Processed
 
 Microsoft then prepares and dispatches your disks via a regional carrier. You receive a tracking number once the disks are shipped. The portal shows the order in **Dispatched** state.
 
-For more information on order status, go to [View order status](data-box-portal-ui-admin.md#view-order-status).
 
 
 ## Cancel the order
 
 To cancel this order, in the Azure preview portal, go to **Overview** and click **Cancel** from the command bar. 
 
-You can only cancel when the disks are ordered and the order is processed for shipment. Once the disks are dispatched, you can no longer cancel the order. For more information, go to [Cancel an order](data-box-portal-ui-admin.md#cancel-an-order).
+You can only cancel when the disks are ordered and the order is processed for shipment. Once the disks are dispatched, you can no longer cancel the order. 
 
 ![Cancel order](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
-To delete a canceled order, go to **Overview** and click **Delete** from the command bar. For more information, go to [Delete an order](data-box-portal-ui-admin.md#delete-order).
+To delete a canceled order, go to **Overview** and click **Delete** from the command bar. 
 
 
 ## Next steps

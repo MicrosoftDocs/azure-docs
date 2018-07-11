@@ -67,9 +67,7 @@ Data Box Disk is designed to move large amounts of data to Azure with no impact 
     - The disks have a small form factor that makes them easy to handle.
     - The disks have no external power requirements.
     - The disks can be used with a datacenter server, desktop, or a laptop.
-    - The solution provides end-to-end tracking via the Azure portal.
-    
-    For more information, go to [Use Azure portal to manage Data Box Disk](data-box-portal-ui-admin.md).
+    - The solution provides end-to-end tracking via the Azure portal.    
 
 - **Secure** - Data Box Disk has built-in security protections for the disks, data, and the service. 
     - The disks are tamper-resistant and support secure update capability. 
@@ -78,7 +76,7 @@ Data Box Disk is designed to move large amounts of data to Azure with no impact 
     - The service is protected by the Azure security features. 
     - Once your data is uploaded to Azure, the disks are wiped clean, in accordance with NIST 800-88r1 standards.  
     
-    For more information, go to [Azure Data Box Disk security and data protection](data-box-disk-security.md).
+For more information, go to [Azure Data Box Disk security and data protection](data-box-disk-security.md).
 
 
 ## Features and specifications
@@ -89,7 +87,8 @@ Data Box Disk is designed to move large amounts of data to Azure with no impact 
 | Weight                                                  | < 2 lbs. per box. Upto 5 disks in the box                |
 | Dimensions                                              | Disk - 2.5" SSD |            
 | Cables                                                  | 1 USB 3.1 cable per disk|
-| Storage capacity                                        | 4 TB (usable ~ 3.5 TB) <br> 8 TB (usable ~ 7 TB)|
+| Storage capacity per order                              | 40 TB (usable ~ 35 TB)|
+| Disk storage capacity                                   | 4 TB (usable ~ 3.5 TB) <br> 8 TB (usable ~ 7 TB)|
 | Data interface                                          | USB   |
 | Security                                                | Pre-encrypted using BitLocker and secure update <br> Passkey protected disks <br> Data encrypted at all times  |
 | Data transfer rate                                      | up to 430 MBps depending on the file size      |

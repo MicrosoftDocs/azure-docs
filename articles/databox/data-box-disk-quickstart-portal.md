@@ -1,6 +1,6 @@
 ---
 title: Quickstart for Microsoft Azure Data Box Disk| Microsoft Docs
-description: Learn how to quickly deploy your Azure Data Box Disk in Azure portal
+description: Use this quickstart to quickly deploy your Azure Data Box Disk in Azure portal
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -21,7 +21,9 @@ Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to
 
 This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include how to quickly create an order, receive disks, unpack, connect, and copy data to disks so that it uploads to Azure. 
 
-For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md)
+For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
 
 > [!IMPORTANT]
 > Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
@@ -30,12 +32,11 @@ For detailed step-by-step deployment and tracking instructions, go to [Tutorial:
 
 Before you begin:
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F). 
 - Make sure that your subscription is enabled for Azure Data Box service. To enable your subscription for this service, [Sign up for the service](http://aka.ms/azuredatabox).
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at [http://aka.ms/azuredatabox](http://aka.ms/azuredatabox).
+Sign in to the Azure portal at [http://aka.ms/azuredatabox](http://aka.ms/azuredatabox).
 
 ## Order
 
@@ -48,7 +49,6 @@ This step takes roughly 5 minutes.
 
 Once the order is created, the disks are prepared for shipment. 
 
-For more information on this step, go to [Order a Data Box Disk](data-box-disk-deploy-ordered.md).
 
 ## Unpack
 
@@ -59,8 +59,7 @@ The Data Box Disk are mailed in a UPS Express Box. Open the box and check that t
 - 1 to 5 bubble-wrapped USB disks.
 - A connecting cable per disk. 
 - A shipping label for return shipment.
-
-For more information on this step, go to [Unpack Data Box Disk](data-box-disk-deploy-set-up.md#unpack-your-disks).  
+ 
 
 ## Connect and unlock
 
@@ -74,7 +73,7 @@ This step takes roughly 5 minutes.
     3. Run *DataBoxDiskUnlock.exe* and supply the passkey. Repeat the step for any disk reinserts.
     4. The drive letter assigned to the disk is displayed by the tool. Make a note of the disk drive letter. This is used in the subsequent steps.
 
-For more information on this step, go to [Connect and unlock Data Box Disk](data-box-disk-deploy-set-up.md#connect-and-unlock-your-disks).
+
 
 ## Copy data and verify
 
@@ -91,7 +90,6 @@ The time to complete this operation depends upon your data size.
 2. (Optional) After the copy is complete, we recommend that you run the `AzureExpressDiskService.ps1` provided in the *AzureImportExport* folder to generate checksums for validation. Depending upon the data size, this step may take time. 
 3. Unplug the drive. 
 
-For more information on this step, go to [Copy data to Data Box Disk](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 
 ## Ship to Azure
 
@@ -102,7 +100,6 @@ This step takes about 5-7 minutes to complete.
 
 Data Box Disk service sends an email notification and updates the order status on the Azure portal.
 
-For more information on this step, go to [Ship Data Box Disk](data-box-disk-deploy-picked-up.md#ship-data-box-disk-back).
 
 ## Verify your data
 
@@ -114,9 +111,8 @@ The time to complete this operation depends upon your data size.
     1. Check error logs for any failures and take appropriate actions.
     2. Verify that your data is in the storage account(s) before you delete it from the source.
 
-For more information on this step, go to [Verify data upload to Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
 
-## Clean up 
+## Clean up resources
 
 This step takes 2-3 minutes to complete.
 
