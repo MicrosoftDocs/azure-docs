@@ -31,7 +31,7 @@ To complete this article, you need:
 1. Open Visual Studio Code.
 2. Press **CTRL+SHIFT+X** or select the extensions icon as shown in the following screenshot:
 
-   ![Select extensions](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-add-arm-extension.png)
+   ![Select extensions](./media/resource-manager-create-templates-use-visual-studio-code/visual-studio-code-add-arm-extension.png)
 3. Search for **Azure Resource Manager Tools**, and then select **Install** as shown in the previous screenshot
 4. Select **Reload** to finish the extension installation.
 
@@ -79,25 +79,25 @@ The extension provides the IntelliSense for:
 
     a. After you enter `[`, the IntelliSense lists the available template functions:
 
-      ![Show Visual Studio Code Resource Manager extension available functions](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-resource-manager-extension-available-functions.png)
+      ![Show Visual Studio Code Resource Manager extension available functions](./media/resource-manager-create-templates-use-visual-studio-code/visual-studio-code-resource-manager-extension-available-functions.png)
 
     b. Start typing **resourceGroup**. When the `resourceGroup()` function is displayed, press **[Tab]** or **[Enter]**.
 
-      ![Visual Studio Code Resource Manager extension select resourceGroup functions](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-resource-manager-extension-show-resourcegroup.png)
+      ![Visual Studio Code Resource Manager extension select resourceGroup functions](./media/resource-manager-create-templates-use-visual-studio-code/visual-studio-code-resource-manager-extension-show-resourcegroup.png)
 
     c. Add a period after the right parenthesis. The extension provides the properties that are available for the object returned by the `resourceGroup()` function. Select `location`.
 
-      ![Visual Studio Code Resource Manager extensionSelect properties](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-resource-manager-extension-resourcegroup-properties.png)
+      ![Visual Studio Code Resource Manager extensionSelect properties](./media/resource-manager-create-templates-use-visual-studio-code/visual-studio-code-resource-manager-extension-resourcegroup-properties.png)
 
 3. Retype the value in **storageUri**, and see how the IntelliSense reacts to your input:
 
     a. Start typing **[reference**. When that function is selected, press **[Tab]** or **[Enter]**.
 
-      ![Visual Studio Code Resource Manager extensionSelect reference](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-resource-manager-extension-add-reference.png)
+      ![Visual Studio Code Resource Manager extensionSelect reference](./media/resource-manager-create-templates-use-visual-studio-code/visual-studio-code-resource-manager-extension-add-reference.png)
 
     b. After you type a single quotation mark inside **variables()**, the extension provides the names of variables you defined in the template.
 
-      ![Visual Studio Code Resource Manager extensionShow variables](./media/resource-manager-create-template-use-visual-studio-code/visual-studio-code-resource-manager-extension-show-variables.png) 
+      ![Visual Studio Code Resource Manager extensionShow variables](./media/resource-manager-create-templates-use-visual-studio-code/visual-studio-code-resource-manager-extension-show-variables.png) 
 
     The preceding code won't work because `reference` returns an object, but your output value is set to *string*. You need to specify one of the values on that object. The reference function can be used with any resource type, so VS Code doesn't suggest properties for the object. Instead, you can find that one value [returned for a storage account](/rest/api/storagerp/storageaccounts/getproperties) is `.primaryEndpoints.blob`. 
 

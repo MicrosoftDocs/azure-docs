@@ -49,12 +49,12 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 
 1. From Visual Studio Code, collapse the elements until you only see the first-level elements and the second-level elements inside **resources**:
 
-    ![Visual Studio Code Azure Resource Manager templates](./media/resource-manager-tutorial-create-dependent-resources/resource-manager-template-visual-studio-code.png)
+    ![Visual Studio Code Azure Resource Manager templates](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     There are five resources defined by the template.
 2. Expand the fourth element:
 
-    ![Visual Studio Code Azure Resource Manager templates dependson](./media/resource-manager-tutorial-create-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
+    ![Visual Studio Code Azure Resource Manager templates dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
     The dependsOn element enables you to define one resource as a dependent on one or more resources. In this example, this resource is a networkInterface.  It depends on two other resources:
 
@@ -68,7 +68,7 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 
 The following diagram illustrates the resources and the dependency information for this template:
 
-![Visual Studio Code Azure Resource Manager templates dependency diagram](./media/resource-manager-tutorial-create-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
+![Visual Studio Code Azure Resource Manager templates dependency diagram](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
 
 ## Deploy the template
@@ -78,10 +78,10 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 1. Sign in to the [Azure portal](https://portal.azure.com)
 2. Click **Cloud Shell** from the upper right corner as shown in the following image:
 
-    ![Azure portal Cloud shell](./media/resource-manager-tutorial-create-dependent-resources/azure-portal-cloud-shell.png)
+    ![Azure portal Cloud shell](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell.png)
 3. Click **Upload file** from the Cloud shell:
 
-    ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-dependent-resources/azure-portal-cloud-shell-upload-file.png)
+    ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. Select the file you saved earlier in the tutorial. The default name is **azuredeploy.json**.  If you have a file with the same file name, the old file will be overwritten without any notification.
 5. From the Cloud shell, run the following command to verify the file is uploaded successfully. 
 
@@ -89,7 +89,7 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     ls
     ```
 
-    ![Azure portal Cloud shell list file](./media/resource-manager-tutorial-create-dependent-resources/azure-portal-cloud-shell-list-file.png)
+    ![Azure portal Cloud shell list file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-list-file.png)
 
     The file name shown on the screenshot is azuredeploy.json.
 
@@ -115,7 +115,7 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     ```
     Here is the screenshot for a sample deployment:
 
-    ![Azure portal Cloud shell deploy template](./media/resource-manager-tutorial-create-dependent-resources/azure-portal-cloud-shell-deploy-template.png)
+    ![Azure portal Cloud shell deploy template](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-deploy-template.png)
 
     On the screenshot, these values are used:
 

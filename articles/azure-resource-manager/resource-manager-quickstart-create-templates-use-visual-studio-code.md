@@ -75,7 +75,7 @@ To learn how to edit a template using Visual Studio, you add one more element in
 
     If you copied and pasted the code inside Visual Studio Code, try to retype the **value** element to experience the intellisense capability of the Resource Manager Tools extension.
 
-    ![Resource Manager template visual studio code intellisense](./media/resource-manager-quickstart-create-template-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
+    ![Resource Manager template visual studio code intellisense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
 2. Select **File**>**Save** to save the file.
 
@@ -86,14 +86,14 @@ There are many methods for deploying templates.  In this quickstart, you use Clo
 1. Sign in to the [Azure portal](https://portal.azure.com)
 2. Click **Cloud Shell** from the upper right corner as shown in the following image:
 
-    ![Azure portal Cloud shell](./media/resource-manager-quickstart-create-template-use-visual-studio-code/azure-portal-cloud-shell.png)
+    ![Azure portal Cloud shell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
 3. Click **Upload file** from the Cloud shell:
 
-    ![Azure portal Cloud shell upload file](./media/resource-manager-quickstart-create-template-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
+    ![Azure portal Cloud shell upload file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
 4. Select the file you saved earlier in the quickstart. The default name is **azuredeploy.json**.
 5. From the Cloud shell, run the **ls** command to verify the file is uploaded successfully.
 
-    ![Azure portal Cloud shell list file](./media/resource-manager-quickstart-create-template-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
+    ![Azure portal Cloud shell list file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
 6. From the Cloud shell, run the following commands:
 
     ```powershell
@@ -103,7 +103,7 @@ There are many methods for deploying templates.  In this quickstart, you use Clo
     ```
     Here is the screenshot of a sample deployment:
 
-    ![Azure portal Cloud shell deploy template](./media/resource-manager-quickstart-create-template-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
+    ![Azure portal Cloud shell deploy template](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
 
     On the screenshot, these values are used:
 
