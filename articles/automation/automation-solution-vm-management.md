@@ -37,7 +37,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
 
    ![Enable from automation account](./media/automation-solution-vm-management/enable-from-automation-account.png)
 
-   > ![NOTE]
+   > [!NOTE]
    > You can also create it from anywhere in the Azure portal, by clicking **Create a resource**. In the Marketplace page, type a keyword such as **Start** or **Start/Stop**. As you begin typing, the list filters based on your input. Alternatively, you can type in one or more keywords from the full name of the solution and then press Enter. Select **Start/Stop VMs during off-hours** from the search results.
 1. In the **Start/Stop VMs during off-hours** page for the selected solution, review the summary information and then click **Create**.
 
