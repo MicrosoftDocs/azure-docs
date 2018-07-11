@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
@@ -98,7 +98,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
   Both alerts #1 and #2 can be safely ignored and they'll close automatically over time. 
 
-  You migth also see the following alert for *Capacity*. For this alert, the percentage of available memory identified in the description can vary:  
+  You might also see the following alert for *Capacity*. For this alert, the percentage of available memory identified in the description can vary:  
 
   Alert #3:
    - NAME:  Low memory capacity
