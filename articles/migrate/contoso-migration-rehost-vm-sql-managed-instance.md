@@ -254,7 +254,7 @@ Complete the steps as follows:
 
 **Need more help?**
 - [Learn about](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal) setting up DMS.
-- [Learn more](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-2) about creating and using SAS.
+- [Learn more](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2) about creating and using SAS.
 
 
 ## Step 3: Prepare Azure for the Site Recovery service

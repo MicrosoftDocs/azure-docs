@@ -441,5 +441,5 @@ For more information, go to [use troubleshooting interactive command for multipa
 As you are configuring MPIO on Linux host, you may also need to refer to the following CentoS 6.6 documents:
 
 * [Setting up MPIO on CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
-* [Linux Training Guide](http://linux-training.be/files/books/LinuxAdm.pdf)
+* [Linux Training Guide](http://linux-training.be/linuxsys.pdf)
 

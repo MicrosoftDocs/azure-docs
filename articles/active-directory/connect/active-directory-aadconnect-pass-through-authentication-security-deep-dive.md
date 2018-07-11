@@ -4,7 +4,7 @@ description: This article describes how Azure Active Directory (Azure AD) Pass-t
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity

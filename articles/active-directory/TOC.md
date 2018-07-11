@@ -382,8 +382,8 @@
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## Delegate access to resources
-### [View members of an admin role](users-groups-roles//directory-manage-roles-portal.md)
 ### [Administrator roles](users-groups-roles/directory-assign-admin-roles.md)
+#### [View members of an admin role](users-groups-roles//directory-manage-roles-portal.md)
 #### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](fundamentals/users-default-permissions.md)
 ### [Administrator role security](users-groups-roles/directory-admin-roles-secure.md)  
@@ -447,7 +447,7 @@
 #### [FAQs](active-directory-identity-protection-faqs.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
+### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## Integrate other services with Azure AD 
 ### [Integrate LinkedIn with Azure AD](users-groups-roles/linkedin-integration.md)
@@ -477,7 +477,7 @@
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD for developers](./develop/active-directory-how-to-integrate.md)
-## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Resources
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
