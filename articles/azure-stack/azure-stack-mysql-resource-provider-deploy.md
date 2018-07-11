@@ -43,7 +43,6 @@ There are several prerequisites that need to be in place before you can deploy t
     | --- | --- |
     | Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
     | Version 1802 (1.0.180302.1) | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
-    | Version 1712 (1.0.180102.3 or 1.0.180106.1 (integrated systems)) | [MySQL RP version 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
 
 ### Certificates
 

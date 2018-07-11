@@ -142,7 +142,7 @@
   - name: Plan your app
     href: luis-how-plan-your-app.md
   - name: Start a new app
-    href: Create-new-app.md
+    href: luis-how-to-start-new-app.md
   - name: Build Model
     items: 
     - name: Add intents
@@ -180,7 +180,7 @@
   - name: Improve prediction accuracy 
     items: 
     - name: Review endpoint utterances
-      href: Label-Suggested-Utterances.md
+      href: luis-how-to-review-endoint-utt.md
     - name: Add Phrase list
       href: luis-how-to-add-features.md
     - name: Add Patterns
@@ -201,8 +201,6 @@
       href: luis-prebuilt-entities.md
     - name: Use domains
       href: luis-how-to-use-prebuilt-domains.md
-    - name: Use Cortana
-      href: luis-how-to-cortana-prebuilt-app.md
   - name: Manage app
     items: 
     - name: Using the dashboard
@@ -256,6 +254,8 @@
       href: luis-reference-prebuilt-deprecated.md
     - name: Email entity
       href: luis-reference-prebuilt-email.md
+    - name: keyPhrase entity
+      href: luis-reference-prebuilt-keyphrase.md
     - name: Number entity
       href: luis-reference-prebuilt-number.md
     - name: Ordinal entity
@@ -270,8 +270,6 @@
       href: luis-reference-prebuilt-url.md
   - name: Prebuilt domain reference
     href: luis-reference-prebuilt-domains.md
-  - name: Cortana prebuilt app reference
-    href: luis-reference-cortana-prebuilt.md
   - name: Authoring V2 APIs
     href: https://aka.ms/luis-authoring-apis
   - name: Endpoint V2 API

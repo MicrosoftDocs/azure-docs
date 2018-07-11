@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 07/21/2018
 ---
 
 # Azure Database for PostgreSQL pricing tiers
@@ -59,6 +59,8 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | East Asia | X | X |
 | Southeast Asia | X | X |
 | Australia East |  | X |
+| Australia Central |  | X |
+| Australia Central 2 |  | X |
 | Australia Southeast |  | X |
 | Central India | X | X |
 | West India | X | X |

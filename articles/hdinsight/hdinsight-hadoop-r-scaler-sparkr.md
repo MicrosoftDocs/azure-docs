@@ -270,7 +270,7 @@ weatherDF <- rename(weatherDF,
 
 ## Joining the weather and airline data
 
-We now use the SparkR [join()](https://docs.databricks.com/spark/latest/sparkr/functions/join.html) function to do a left outer join of the airline and weather data by departure AirportID and datetime. The outer join allows us to retain all the airline data records even if there is no matching weather data. Following the join, we remove some redundant columns, and rename the kept columns to remove the incoming DataFrame prefix introduced by the join.
+We now use the SparkR [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) function to do a left outer join of the airline and weather data by departure AirportID and datetime. The outer join allows us to retain all the airline data records even if there is no matching weather data. Following the join, we remove some redundant columns, and rename the kept columns to remove the incoming DataFrame prefix introduced by the join.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')

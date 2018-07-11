@@ -28,7 +28,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 1. In the Azure portal, click **Virtual machines**, and select the VM you want to replicate.
 
-2. In **Settings**, click **Disaster recovery**.
+2. In **Operations**, click **Disaster recovery**.
 3. In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate.
 4. For this Quickstart, accept the other default settings.
 5. Click **Enable replication**. This starts a job to enable replication for the VM.
