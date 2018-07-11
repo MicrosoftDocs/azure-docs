@@ -39,6 +39,8 @@
     items:
       - name: Create an application
         href: howto-create-application.md
+        name: As a CSP create and manage an application
+        href: howto-create-and-manage-applications-as-CSP.md
       - name: Administer your application
         href: howto-administer.md
   - name : Builder
