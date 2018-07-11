@@ -33,7 +33,7 @@ Copy the following and save it to a file such as `test.html`. Change the request
 ![API Subscription Key](../Images/keys.png)
 
 and change the request body to the location of an image you want to use. To run the sample, drag-and-drop the file into your browser.
-
+<!-- Linguist comment: Is there something missing before this source? The same appears in live page. Please confirm. -->
 ```html
 <!DOCTYPE html>
 <html>
