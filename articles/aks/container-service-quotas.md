@@ -32,7 +32,7 @@ Azure Kubernetes Service (AKS) is available in the following regions:
 - Central US
 - East US
 - East US2
-- Jaoan East
+- Japan East
 - North Europe
 - UK South
 - West Europe
