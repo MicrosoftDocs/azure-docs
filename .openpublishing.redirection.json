@@ -26086,6 +26086,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-gateway/application-gateway-ssl-portal.md",
+            "redirect_url": "/azure/application-gateway/create-ssl-portal",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Manage-Keys.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-manage-keys",
             "redirect_document_id": true
@@ -26106,9 +26111,14 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/azure-functions/scripts/functions-cli-create-function-app-github.md",
+            "redirect_url": "/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Cortana-Prebuilt-App.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app",
-            "redirect_document_id": true
+            "redirect_document_id": true 
         },
         {
             "source_path": "articles/cloud-shell/features-powershell.md",
@@ -26121,9 +26131,9 @@
             "redirect_document_id": false
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
+            "redirect_document_id": true
         },
         {
         "source_path": "articles/cognitive-services/LUIS/Create-new-app.md",
