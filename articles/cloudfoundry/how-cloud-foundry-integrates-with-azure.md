@@ -1,4 +1,4 @@
-﻿---
+---
 title: How Cloud Foundry Integrates with Azure | Microsoft Docs
 description: Describes how Cloud Foundry can utlize Azure services to enhance the Enterprice experience
 services: virtual-machines-linux
@@ -76,7 +76,7 @@ Click [here](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozz
 ## 7. Cost Saving
 ### Cost Saving for Dev/Test Environments
 #### B-Series: *
-While F and D VM series were commonly recommended for Pivotal Cloud Foundry production environment, the new “burstable” [B-series](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/) brings new options. The B-series burstable VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. It is $0.012/hour (B1) compared to $0.05/hour (F1), see the full list of [VM sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general) and [prices](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) for details. 
+While F and D VM series were commonly recommended for Pivotal Cloud Foundry production environment, the new “burstable” [B-series](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/) brings new options. The B-series burstable VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. It is $0.012/hour (B1) compared to $0.05/hour (F1), see the full list of [VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general) and [prices](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) for details. 
 #### Managed Standard Disk: 
 Premium disks were recommended for reliable performance in production.  With [Managed Disk](https://azure.microsoft.com/services/managed-disks/), standard storage can also deliver similar reliability, with different performance. For workload that is not performance-sensitive, like dev/Test or non-critical environment, managed standard disks offer an alternative option with lower cost.  
 ### Cost saving in General 

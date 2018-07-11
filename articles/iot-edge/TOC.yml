@@ -150,6 +150,16 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
 - name: Resources
   items:
+  - name: Azure IoT Samples for C# (.NET)
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+  - name: Azure IoT Samples for Node.js
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
+  - name: Azure IoT Samples for Java
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+  - name: Azure IoT Samples for Python
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
+  - name: Azure IoT Samples for iOS Platform
+    href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
     href: https://catalog.azureiotsuite.com/
   - name: Azure IoT Developer Center

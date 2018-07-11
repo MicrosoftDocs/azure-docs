@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -80,7 +80,7 @@ This update includes the following improvements for Azure Stack.
 
 ### Post-update steps
 After the installation of 1805, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [KB 4340474 - Azure Stack Hotfix 1.1805.4.53](https://support.microsoft.com/en-us/help/4340474).
+ - [KB 4344102 - Azure Stack Hotfix 1.1805.7.57](https://support.microsoft.com/help/4344102).
 
 
 ## Known issues (post-installation)
@@ -115,7 +115,7 @@ The following are post-installation known issues for this build version.
 
 ### Health and monitoring
 - <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
-
+- 
    Alert #1:
    - NAME:  Infrastructure role unhealthy
    - SEVERITY: Warning
@@ -128,9 +128,21 @@ The following are post-installation known issues for this build version.
    - COMPONENT: Health controller
    - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
-  Both alerts can be safely ignored and they'll close automatically over time.  
+  Both alerts #1 and #2 can be safely ignored and they'll close automatically over time. 
 
-- <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads. 
+  You might also see the following alert for *Capacity*. For this alert, the percentage of available memory identified in the description can vary:  
+
+  Alert #3:
+   - NAME:  Low memory capacity
+   - SEVERITY: Critical
+   - COMPONENT: Capacity
+   - DESCRIPTION: The region has consumed more than 80.00% of available memory. Creating virtual machines with large amounts of memory may fail.  
+
+  In this version of Azure Stack, this alert can fire incorrectly. If tenant virtual machines continue to deploy successfully, you can safely ignore this alert. 
+  
+  Alert #3 does not automatically close. If you close this alert Azure Stack will create the same alert within 15 minutes.  
+
+- <!-- 2368581 - IS. ASDK --> As an Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads. 
 
 
 ### Compute
