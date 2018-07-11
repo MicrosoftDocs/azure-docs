@@ -3,7 +3,7 @@ title: Cloud Services Role config XPath cheat sheet | Microsoft Docs
 description: The various XPath settings you can use in the cloud service role config to expose settings as an environment variable.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 

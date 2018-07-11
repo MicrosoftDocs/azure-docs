@@ -3,7 +3,7 @@ title: Configure a custom domain name in Cloud Services | Microsoft Docs
 description: Learn how to expose your Azure application or data to the internet on a custom domain by configuring DNS settings.  These examples use the Azure portal.
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 

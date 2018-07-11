@@ -3,7 +3,7 @@ title: What is Azure Cloud Services | Microsoft Docs
 description: 'Learn about what Azure Cloud Services is.'
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
