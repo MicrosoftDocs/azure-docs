@@ -1,8 +1,8 @@
 ---
 title: Overview of Azure Maps | Microsoft Docs
 description: An introduction to Azure Maps
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: overview
 ms.service: azure-maps
