@@ -26149,6 +26149,16 @@
         "source_path": "articles/cognitive-services/LUIS/Label-Suggested-Utterances.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endoint-utt",
         "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/luis-reference-cortana-prebuilt.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
+        "redirect_document_id": true
         }
     ]
 }
