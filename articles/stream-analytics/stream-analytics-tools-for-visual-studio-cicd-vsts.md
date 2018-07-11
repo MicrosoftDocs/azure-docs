@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 7/10/2018
 --- 
 
-# Set up the continuous integration and deployment process in VSTS
+# Deploy an Azure Stream Analytics job with CI/CD using VSTS
 This tutorial describes how to set up continuous integration and deployment for an Azure Stream Analytics job using Visual Studio Team Services. 
 
 In this tutorial, you learn how to:
@@ -26,11 +26,13 @@ In this tutorial, you learn how to:
 Before you start, make sure you have the following:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Install [Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** or **Data Storage and Processing** workloads.
+* Install [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) and the **Azure development** or **Data Storage and Processing** workloads.
 * Create a [Stream Analytics project in Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs).
 * Create a [Visual Studio Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) account.
 
 ## Configure NuGet package dependency
+In order to do auto build and auto deployment on an arbitrary machine, you need to use the NuGet package `Microsoft.Azure.StreamAnalytics.CICD`. It provides the MSBuild, local run, and deployment tools that support the continuous integration and deployment process of Stream Analytics Visual Studio projects. For more information, see [Stream Analytics CI/CD tools](stream-analytics-tools-for-visual-studio-cicd.md).
+
 Add **packages.config** to your solution directory.
 
        <?xml version="1.0" encoding="utf-8"?>
@@ -54,7 +56,7 @@ Verify your email and select your account in the **Team Services Domain** drop-d
 Publishing the repo creates a new team project in your account with the same name as the local repo. To create the repo in an existing team project, click **Advanced** next to **Repository name**, and select a team project. You can view your code in the browser by selecting **See it on the web**.
  
 ## Configure continuous delivery with VSTS
-A Team Services build definition describes a workflow comprised of build steps that are executed sequentially. Create a build definition that produces a Service Fabric application package, and other artifacts, to deploy to a Service Fabric cluster. Learn more about [Team Services build definitions](https://www.visualstudio.com/docs/build/define/create). 
+A Team Services build definition describes a workflow comprised of build steps that are executed sequentially. Learn more about [Team Services build definitions](https://www.visualstudio.com/docs/build/define/create). 
 
 A Team Services release definition describes a workflow that deploys an application package to a cluster. When used together, the build definition and release definition execute the entire workflow starting with source files and ending with a running application in your cluster. Learn more about Team Services [release definitions](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
@@ -88,13 +90,16 @@ Open a web browser and navigate to your new team project.
    ![Configure NuGet task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-nuget-config.png)
 
 8. In **Phase 1**, click **+** and add a **MSBuild** task.
+
+   ![Add MSBuild Task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-msbuild-task.png)
+
    Change the **MSBuild Arguments** to the following:
 
    ```
    /p:CompilerTaskAssemblyFile="Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll"  /p:ASATargetsFilePath="..\Package\build\StreamAnalytics.targets"
    ```
 
-   ![Add a MSBuild task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-msbuild.png)
+   ![Configure MSBuild task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-msbuild.png)
 
 9. In **Phase 1**, click **+** and add an **Azure Resource Group Deployment** task. 
     
@@ -106,9 +111,11 @@ Open a web browser and navigate to your new team project.
     |---------|---------|
     |Subscription  |  Choose your subscription.   |
     |Action  |  Create or update resource group   |
-    |Resource Group  |  bigdatatooltest   |
-    |Template  | DeployTest\bin\Debug\Deploy\ASADemo2017.JobTemplate.json   |
-    |Template parameters  | DeployTest\bin\Debug\Deploy\ASADemo2017.JobTemplate.parameters.json   |
+    |Resource Group  |  Enter a resource group name.   |
+    |Template  | [Your solution path]\bin\Debug\Deploy\\[Your project name].JobTemplate.json   |
+    |Template parameters  | [Your solution path]\bin\Debug\Deploy\\[Your project name.JobTemplate.parameters.json   |
+    |Override template parameters  | Type the template parameters to override in the textbox. Example, 
+    –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). Templates that    |
     
     ![Set properties](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-deploy-2.png)
 
