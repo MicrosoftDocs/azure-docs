@@ -97,11 +97,11 @@ The following steps create a cluster with a single GPU node. The cluster node ru
 
 Save the node setup and select **Create Cluster**.
 
-Batch AI takes a few minutes to allocate the node. During this time, the cluster's **Allocation state** is **Resizing**.
+Batch AI takes a few minutes to allocate the node. During this time, the cluster's **Allocation state** is **Resizing**. After a few minutes, the state of the cluster is **Steady**, and the node starts.
 
-![Cluster in Resizing state](./media/quickstart-create-cluster-portal/cluster-resizing.png)
+![Cluster starting](./media/quickstart-create-cluster-portal/cluster-resizing.png)
 
-After a few minutes, the state of the cluster is **Steady**, and the node starts. Select the cluster name to check the state of the node. When a node's state is **Idle**, it is ready to run training jobs.
+Select the cluster name to check the state of the node. When a node's state is **Idle**, it is ready to run training jobs.
 
 ### List cluster nodes
 
