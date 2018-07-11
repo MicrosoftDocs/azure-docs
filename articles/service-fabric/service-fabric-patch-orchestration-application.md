@@ -306,7 +306,7 @@ A. The patch orchestration app does not install updates while the cluster is unh
 
 Q. **Should i set TaskApprovalPolicy as 'NodeWise' or 'UpgradeDomainWise' for my cluster ?**
 
-A. 'UpgradeDomainWise' makes the overall cluster patching faster by patching entire upgrade domain in parallel. This means that nodes belonging to an entire upgrade domain would be unavailable (in [Disabled](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) state) during the patching process.
+A. 'UpgradeDomainWise' makes the overall cluster patching faster by patching all the nodes belonging to an upgrade domain in parallel. This means that nodes belonging to an entire upgrade domain would be unavailable (in [Disabled](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) state) during the patching process.
 
 In contrast 'NodeWise' policy patches only one node at a time, this implies overall cluster patching would take longer time. However, at max, only one node would be unavailable (in [Disabled](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) state) during the patching process.
 
