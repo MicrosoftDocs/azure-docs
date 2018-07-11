@@ -8,6 +8,7 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
+#Customer intent: As a developer, I want to understand synonym implementation, benefits, and tradeoffs.
 ---
 # Tutorial: Add synonyms for Azure Search in C#
 

@@ -9,6 +9,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
+#Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Search.
 ---
 
 # Tutorial: Crawl an Azure SQL database using Azure Search indexers
