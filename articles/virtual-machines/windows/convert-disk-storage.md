@@ -20,7 +20,7 @@ ms.author: ramankum
 
 # Convert Azure managed disks storage from standard to premium, and vice versa
 
-Managed disks offers three storage options: [Premium SSD](../windows/premium-storage.md), Standard SSD(Preview) and [Standard HDD](../windows/standard-storage.md). It allows you to easily switch between the options with minimal downtime based on your performance needs. This capability is not available for unmanaged disks. But you can easily [convert to managed disks](convert-unmanaged-to-managed-disks.md) to easily switch between the disk types.
+Managed Disks offers three storage options: [Premium SSD](../windows/premium-storage.md), Standard SSD(Preview), and [Standard HDD](../windows/standard-storage.md). It allows you to easily switch between the options with minimal downtime based on your performance needs. This is not supported for unmanaged disks. But you can easily [convert to managed disks](convert-unmanaged-to-managed-disks.md) to easily switch between the disk types.
 
 This article shows you how to convert managed disks from standard to premium, and vice versa by using Azure PowerShell. If you need to install or upgrade it, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps.md).
 
@@ -33,7 +33,7 @@ This article shows you how to convert managed disks from standard to premium, an
 
 ## Convert all the managed disks of a VM from standard to premium, and vice versa
 
-In the following example, we show how to switch all the disks of a VM from standard to premium storage. To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also switches to a size that supports premium storage.
+The following example shows how to switch all the disks of a VM from standard to premium storage. To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also switches to a size that supports premium storage.
 
 ```azurepowershell-interactive
 # Name of the resource group that contains the VM
@@ -77,7 +77,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 ## Convert a managed disk from standard to premium, and vice versa
 
-For your dev/test workload, you may want to have mixture of standard and premium disks to reduce your cost. You can accomplish it by upgrading to premium storage, only the disks that require better performance. In the following example, we show how to switch a single disk of a VM from standard to premium storage, and vice versa. To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also switches to a size that supports premium storage.
+For your dev/test workload, you may want to have mixture of standard and premium disks to reduce your cost. You can accomplish it by upgrading to premium storage, only the disks that require better performance. The following example shows how to switch a single disk of a VM from standard to premium storage, and vice versa. To use premium managed disks, your VM must use a [VM size](sizes.md) that supports premium storage. This example also switches to a size that supports premium storage.
 
 ```azurepowershell-interactive
 
@@ -91,7 +91,7 @@ $size = 'Standard_DS2_v2'
 
 $disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
 
-# Get the ARM resource to get name and resource group of the VM
+# Get parent VM resource
 $vmResource = Get-AzureRmResource -ResourceId $disk.diskId
 
 # Stop and deallocate the VM before changing the storage type
@@ -114,7 +114,7 @@ Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 ## Convert a managed disk from standard HDD to standard SSD, and vice versa
 
-In the following example, we show how to switch a single disk of a VM from standard HDD to standard SSD, and vice versa.
+The following example shows how to switch a single disk of a VM from standard HDD to standard SSD, and vice versa.
 
 ```azurepowershell-interactive
 
@@ -126,7 +126,7 @@ $storageType = 'StandardSSD_LRS'
 
 $disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
 
-# Get the ARM resource to get name and resource group of the VM
+# Get parent VM resource
 $vmResource = Get-AzureRmResource -ResourceId $disk.diskId
 
 # Stop and deallocate the VM before changing the storage type
