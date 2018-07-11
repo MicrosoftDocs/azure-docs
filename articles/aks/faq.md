@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 6/25/2018
+ms.date: 07/11/2018
 ms.author: iainfou
 ---
 
@@ -17,17 +17,7 @@ This article addresses frequent questions about Azure Kubernetes Service (AKS).
 
 ## Which Azure regions provide the Azure Kubernetes Service (AKS) today?
 
-- Australia East
-- Canada Central
-- Canada East
-- Central US
-- East US
-- East US2
-- North Europe
-- UK South
-- West Europe
-- West US
-- West US 2
+See the Azure Kubernetes Service [Regions and availability][aks-regions] documentation for a complete list.
 
 ## Are security updates applied to AKS agent nodes?
 
@@ -83,6 +73,10 @@ If you are creating resources that will be used with your AKS cluster, such as s
 ## Does AKS offer a service level agreement?
 
 In a service level agreement (SLA), the provider agrees to reimburse the customer for the cost of the service should the published service level not be met. Since AKS itself is free, there is no cost available to reimburse and thus no formal SLA. However, we seek to maintain availability of at least 99.5% for the Kubernetes API server.
+
+<!-- LINKS - internal -->
+
+[aks-regions]: ./container-service-quotas.md
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler
