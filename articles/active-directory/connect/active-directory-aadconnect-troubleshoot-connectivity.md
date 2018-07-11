@@ -159,28 +159,28 @@ Network or proxy configuration issues. The network cannot be reached. See [Troub
 ### User Password Expired
 Your credentials have expired. Change your password.
 
-### AuthorizationFailure
-Unknown issue.
+### Authorization Failure
+Failed to authorize user to perform action in Azure AD.
 
 ### Authentication Cancelled
 The multi-factor authentication (MFA) challenge was cancelled.
 
-### ConnectToMSOnline
+### Connect Msolservice Failed
 Authentication was successful, but Azure AD PowerShell has an authentication problem.
 
-### AzureRoleMissing
-Authentication was successful. You are not a global administrator.
+### Get MsolUserRole Failed
+User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../users-groups-roles/directory-assign-admin-roles.md) to the user. 
 
-### PrivilegedIdentityManagement
+### Privileged Identity Management
 Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
-### CompanyInfoUnavailable
+### Get MsolCompanyInformation Failed
 Authentication was successful. Could not retrieve company information from Azure AD.
 
-### RetrieveDomains
+### Get MsolDomain Failed
 Authentication was successful. Could not retrieve domain information from Azure AD.
 
-### Unexpected exception
+### Unspecified Authentication Failure
 Shown as Unexpected error in the installation wizard. Can happen if you try to use a **Microsoft Account** rather than a **school or organization account**.
 
 ## Troubleshooting steps for previous releases.
