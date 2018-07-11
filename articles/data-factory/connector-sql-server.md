@@ -52,6 +52,7 @@ The following properties are supported for SQL Server linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SqlServer** | Yes |
 | connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. Refer to the following sample, and you add enrich to include more properties e.g. AlwaysOn. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+<!-- Could you please clarify the meaning of "enrich" in the following context? Is it referred to a property o perhaps a a source error? -->
 | userName |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
