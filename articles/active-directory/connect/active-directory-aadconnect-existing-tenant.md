@@ -45,6 +45,9 @@ The previous section and warning must be considered in your planning. If you hav
 
 If you matched your objects with a soft-match, then the **sourceAnchor** is added to the object in Azure AD so a hard match can be used later.
 
+>[!IMPORTANT]
+> Microsoft strongly recommends against synchronizing on-premises accounts with pre-existing administrative accounts in Azure Active Directory.
+
 ### Hard-match vs Soft-match
 For a new installation of Connect, there is no practical difference between a soft- and a hard-match. The difference is in a disaster recovery situation. If you have lost your server with Azure AD Connect, you can reinstall a new instance without losing any data. An object with a sourceAnchor is sent to Connect during initial install. The match can then be evaluated by the client (Azure AD Connect), which is a lot faster than doing the same in Azure AD. A hard match is evaluated both by Connect and by Azure AD. A soft match is only evaluated by Azure AD.
 

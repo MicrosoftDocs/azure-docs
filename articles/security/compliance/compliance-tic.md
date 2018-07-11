@@ -196,7 +196,7 @@ The following sample policies may be useful for TIC compliance scenarios:
 |Allowed locations | Ensure that all resources are deployed to regions with compliant VNets and Network Watcher configuration  | https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs |
 |Not allowed resource types such as PublicIPs  | Prohibit the deployment of resource types, which do not have a compliance plan. As an example, this policy could be used to prohibit the deployment of Public IP address resources. While NSG rules can be used to effectively block inbound Internet traffic, preventing the use of Public IPs further reduces the attack surface.	| https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type  |
 
-### Azure Traffic Analytics
+### Azure [Traffic Analytics](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/)
 
 Azure Network Watcher's Traffic Analytics consumes flow Log data and other logs to provide high-level overview of network traffic. This data can be useful for auditing TIC compliance and identifying trouble spots. A high-level dashboard can be used to rapidly screen which VMs are communicating with the internet, which would then provide a focused list for TIC routing.
 
