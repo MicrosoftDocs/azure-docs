@@ -1,16 +1,16 @@
 ---
-title: Start/Stop VMs during off-hours solution (preview)
+title: Start/Stop VMs during off-hours solution
 description: This VM management solution starts and stops your Azure Resource Manager virtual machines on a schedule and proactively monitors from Log Analytics.
 services: automation
 ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/11/2018
+ms.date: 07/11/2018
 ms.topic: conceptual
 manager: carmonm
 ---
-# Start/Stop VMs during off-hours solution (preview) in Azure Automation
+# Start/Stop VMs during off-hours solution in Azure Automation
 
 The Start/Stop VMs during off-hours solution starts and stops your Azure virtual machines on user-defined schedules, provides insights through Azure Log Analytics, and sends optional emails by using [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md). It supports both Azure Resource Manager and classic VMs for most scenarios.
 
@@ -33,9 +33,13 @@ This solution provides a decentralized automation option for users who want to r
 
 Perform the following steps to add the Start/Stop VMs during off-hours solution to your Automation account, and then configure the variables to customize the solution.
 
-1. In the Azure portal, click **Create a resource**.
-1. In the Marketplace page, type a keyword such as **Start** or **Start/Stop**. As you begin typing, the list filters based on your input. Alternatively, you can type in one or more keywords from the full name of the solution and then press Enter. Select **Start/Stop VMs during off-hours [Preview]** from the search results.
-1. In the **Start/Stop VMs during off-hours [Preview]** page for the selected solution, review the summary information and then click **Create**.
+1. From an Automation Account select **Start/Stop VM** under **Related Resources**. From here you can click **Learn more about and enable the solution**. If you already have a Start/Stop VM solution deployed, you can click **Manage the solution** to be taken to a list of the deployed solutions and select it from there.
+
+   ![Enable from automation account](./media/automation-solution-vm-management/enable-from-automation-account.png)
+
+   > ![NOTE]
+   > You can also create it from anywhere in the Azure portal, by clicking **Create a resource**. In the Marketplace page, type a keyword such as **Start** or **Start/Stop**. As you begin typing, the list filters based on your input. Alternatively, you can type in one or more keywords from the full name of the solution and then press Enter. Select **Start/Stop VMs during off-hours** from the search results.
+1. In the **Start/Stop VMs during off-hours** page for the selected solution, review the summary information and then click **Create**.
 
    ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)
 
@@ -64,7 +68,11 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    * Specify the **Target ResourceGroup Names**. These are resource group names that contain VMs to be managed by this solution. You can enter more than one name and separate each by using a comma (values are not case-sensitive). Using a wildcard is supported if you want to target VMs in all resource groups in the subscription. This value is stored in the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** variables.
    * Specify the **VM Exclude List (string)**. This is the name of one or more virtual machines from the target resource group. You can enter more than one name and separate each by using a comma (values are not case-sensitive). Using a wildcard is supported. This value is stored in the **External_ExcludeVMNames** variable.
    * Select a **Schedule**. This is a recurring date and time for starting and stopping the VMs in the target resource groups. By default, the schedule is configured for 30 minutes from now. Selecting a different region is not available. To configure the schedule to your specific time zone after configuring the solution, see [Modifying the startup and shutdown schedule](#modify-the-startup-and-shutdown-schedule).
-   * To receive **Email notifications** from an action group, accept the default value of **Yes** and provide a valid email address. If you select **No** but decide at a later date that you want to receive email notifications, you can update the [action group](../monitoring-and-diagnostics/monitoring-action-groups.md) that is created with valid email addresses separated by a comma.
+   * To receive **Email notifications** from an action group, accept the default value of **Yes** and provide a valid email address. If you select **No** but decide at a later date that you want to receive email notifications, you can update the [action group](../monitoring-and-diagnostics/monitoring-action-groups.md) that is created with valid email addresses separated by a comma. You also need to enable the following alert rules:
+
+      * AutoStop_VM_Child
+      * Scheduled_StartStop_Parent
+      * Sequenced_StartStop_Parent
 
     > [!IMPORTANT]
     > The default value for **Target ResourceGroup Names** is a **&ast;**. This targets all VMs in a subscription. If you do not want the solution to target all the VMs in your subscription this value needs to be updated to a list of resource group names prior to enabling the schedules.
