@@ -61,14 +61,14 @@ Manifests are identified by a unique SHA-256 hash, or *digest*. A unique digest 
 
 You can pull an image from a registry by specifying its digest in the pull operation. Some systems may be configured to pull by digest because it guarantees the image version being pulled, even if an identically tagged image is subsequently pushed to the registry.
 
-> [!IMPORTANT]
+> [!WARNING]
 > If you repeatedly push identically tagged images, you create orphaned images--images which are untagged, but not deleted. This can cause "hidden" storage usage because the untagged images are not displayed when listing images with the Azure CLI or in the Azure portal. However, their layers still exist and consume space in your registry. For information about deleting orphaned image data, see [Delete by manifest digest](#delete-by-manifest-digest).
 
 ## Delete image data
 
 You can delete images (layer data) and you can delete tags. The former frees space, while the latter does not.
 
-### Delete repository
+## Delete repository
 
 Deleting a repository deletes all of the images in the repository, including all tags, layers, and manifests. When you delete a repository, you recover the storage space used by the images that were in that repository.
 
@@ -78,7 +78,7 @@ The following Azure CLI command deletes the `acr-helloworld` repository and all 
  az acr repository delete --name myregistry --repository acr-helloworld
 ```
 
-### Delete by tag
+## Delete by tag
 
 You can delete individual images from a repository by specifying the repository name and tag in the delete operation. When you delete by tag, you recover the storage space used by the image if its layers are not shared with any other images in the registry.
 
@@ -89,7 +89,7 @@ az acr repository delete --name myregistry --image acr-helloworld:latest
 > [!TIP]
 > Deleting *by* tag shouldn't be confused with deleting a tag (untagging). You can delete a tag with the Azure CLI command [az acr repository untag](). No space is freed when you untag an image because its [manifest](#manifest) and layer data remains in the registry--only the tag itself is deleted.
 
-### Delete by manifest digest
+## Delete by manifest digest
 
 A [manifest digest](#manifest-digest) can be associated with one, multiple, or no tags. When you delete by digest, all tags referenced by the manifest are deleted, as is all layer data for any *unique* layers referenced by the manifest. Shared layer data is not deleted.
 
@@ -129,7 +129,13 @@ $ az acr repository show-manifests --name myregistry --repository myrepository
 ]
 ```
 
-Next, specify the digest you wish to delete in the [az acr repository delete]() command. For example, deleting the first manifest shown in the preceding output:
+Next, specify the digest you wish to delete in the [az acr repository delete]() command. The format of the command is:
+
+```azurecli
+az acr repository delete --name myregistry --image repository@digest
+```
+
+For example, to delete the first manifest shown in the preceding output:
 
 ```azurecli
 $ az acr repository delete --name myregistry --image acr-helloworld@sha256:37c989e19592d5a63a64f870a62da16c893b1d35832262ba576d29a0e52ceada
@@ -137,9 +143,47 @@ This operation will delete the manifest 'sha256:37c989e19592d5a63a64f870a62da16c
 Are you sure you want to continue? (y/n): y
 ```
 
-**Delete orphaned images**
+## Delete orphaned images
 
-Because the push of an already existing tag **untags** the previously pushed image, the previously push image's manifest--and its layer data--remains. However... TODO
+As mentioned in the [Manifest digest](#manifest-digest) section, pushing an image with an existing tag **untags** the previously pushed image, resulting in an "orphaned" image. The previously pushed image's manifest--and its layer data--remains in the registry. Consider the following sequence of events:
+
+1. Push image *acr-helloworld* with tag **latest**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
+1. Check manifests for repository *acr-helloworld*:
+   ```console
+   $ az acr repository show-manifests --name myregistry --repository acr-helloworld
+   [
+     {
+       "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
+       "tags": [
+         "latest"
+       ],
+       "timestamp": "2018-07-11T21:32:21.1400513Z"
+     }
+   ]
+   ```
+
+1. Modify *acr-helloworld* Dockerfile
+1. Push image *acr-helloworld* with tag **latest**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
+1. Check manifests for repository *acr-helloworld*:
+   ```console
+   $ az acr repository show-manifests --name myregistry --repository acr-helloworld
+   [
+     {
+       "digest": "sha256:7ca0e0ae50c95155dbb0e380f37d7471e98d2232ed9e31eece9f9fb9078f2728",
+       "tags": [
+         "latest"
+       ],
+       "timestamp": "2018-07-11T21:38:35.9170967Z"
+     },
+     {
+       "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
+       "tags": null,
+       "timestamp": "2018-07-11T21:32:21.1400513Z"
+     }
+   ]
+   ```
+
+As you can see in the output of the last step in the sequence, there is now an orphaned manifest whose `tags` property is `null`. This manifest still exists within the registry, along with any unique layer data that it references. **To effectively delete such orphaned images and their layer data, you must delete by manifest digest**.
 
 ## Next steps
 
