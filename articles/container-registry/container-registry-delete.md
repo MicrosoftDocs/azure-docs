@@ -13,11 +13,11 @@ ms.author: marsma
 
 # Delete container images in Azure Container Registry
 
-Periodic deletion of stale or unused container image data should be included as part of your regular container registry maintenance routine. Because you can initiate deletion using several different resources (like repositories, images, and manifest digest), it's important to understand how each delete operation affects the space usage of your registry. This article starts by introducing the components of a Docker registry and its images, explains how to delete those components, and how deleting each affects the size of your registry.
+Periodic deletion of stale or unused container image data should be included as part of your regular container registry maintenance routine. Because you can initiate deletion on several different resource types (like repositories, images, and manifest digests), it's important to understand how each delete operation affects the space usage of your registry. This article starts by introducing the components of a Docker registry and its images, explains how to delete those components, and how deleting each affects the size of your registry.
 
 ## Components of a registry
 
-Because Docker container images share layer data and include several components that can be deleted, managing registry size requires some knowledge of registry layout, and how container images are constructed.
+Because Docker container images share layer data and include several components by which delete operations can be made, managing registry size requires some knowledge of registry layout and how container images are constructed.
 
 ### Registry
 
