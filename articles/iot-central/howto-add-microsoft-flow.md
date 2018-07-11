@@ -112,5 +112,18 @@ You can delete a device by its device ID using the **Azure IoT Central - Delete 
 
    ![Flow delete device workflow](./media/howto-add-microsoft-flow/flowdeletedevice.PNG)
     
+## Troubleshooting
+
+If you are having trouble creating a connection to the Azure IoT Central connector, here are some tips to help you.
+
+1. Microsoft personal accounts (such as @hotmail.com, @live.com, @outlook.com domains) are not supported at this time. You must use an AAD work or school account.
+
+2. If you are receiving an error while using an AAD account, as an administrator, try running opening Windows PowerShell and run the following commandlets.
+    ``` PowerShell
+    Install-Module AzureAD
+    Connect-AzureAD
+    New-AzureADServicePrincipal -AppId 9edfcdd9-0bc5-4bd4-b287-c3afc716aac7 -DisplayName "Azure IoT Central"
+    ```
+    
 ## Next steps
 Now that you have learned how to use Microsoft Flow to build workflows, the suggested next step is to [manage devices](howto-manage-devices.md).
