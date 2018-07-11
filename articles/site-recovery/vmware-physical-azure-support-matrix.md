@@ -21,7 +21,7 @@ This article summarizes supported components and settings for disaster recovery 
 **Scenario** | **Details**
 --- | ---
 VMware VMs | Replication of on-premises VMware VMs to Azure. You can deploy this scenario in the Azure portal or by using [PowerShell](vmware-azure-disaster-recovery-powershell.md).
-Physical servers | Replication of on-premises Windows/Linux physical serversto Azure. You can deploy this scenario in the Azure portal.
+Physical servers | Replication of on-premises Windows/Linux physical servers to Azure. You can deploy this scenario in the Azure portal.
 
 ## On-premises virtualization servers
 
@@ -58,7 +58,7 @@ Site Recovery supports replication of any workload running on a supported machin
 **Component** | **Details**
 --- | ---
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
-Windows operating system | 64-bit Windows Server 2016 (Server Core, Server with Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1. Windows 2016 Nano Server isn't supported.
+Windows operating system | 64-bit Windows Server 2016 (Server Core, Server with Desktop Experience), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1.</br></br>  [Windows Server 2008 with at least SP2 - 32 bit and 64 bit](migrate-tutorial-windows-server-2008.md) (migration only). </br></br> * *Windows 2016 Nano Server isn't supported.*
 Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>CentOS: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4 <br/><br/>Ubuntu 14.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (supported kernel versions)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>Upgrading replicated machines from SP3 to SP4 isn't supported. To upgrade, disable replication and enable it again after the upgrade.
 
 >[!NOTE]
