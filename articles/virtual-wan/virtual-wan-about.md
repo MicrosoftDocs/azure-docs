@@ -30,18 +30,9 @@ This article provides a quick view into the network connectivity of your Azure a
 
 ## <a name="vendor"></a>Working with a Virtual WAN partner
 
-1. The branch device controller/connector is authenticated to export Site-centric information into Azure by using an Azure Service Principal.
-2. The branch device controller/connector obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premises VPN device.
-3. Once the device has the right Azure configuration, a Site-to-Site connection (two active tunnels) is established to the Azure WAN. Azure requires the branch device controller/connector to support IKEv2 (Details below). BGP is optional.
-
-|IPsec Properties| |
-|---|---|
-|Ike Encryption Algorithm | AES 256|
-|Ike Integrity Algorithm | SHA256 |
-|Dh Group |	DH2 |
-|IPsec Encryption Algorithm	| GCM AES 256 |
-|IPsec Integrity Algorithm | GCM AES 256 |
-|PFS Group | PFS2 |
+1. The branch device (VPN/SDWAN) controller is authenticated to export Site-centric information into Azure by using an Azure Service Principal.
+2. The branch device (VPN/SDWAN) controller obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premises VPN device.
+3. Once the device has the right Azure configuration, a Site-to-Site connection (two active tunnels) is established to the Azure WAN. Azure requires the branch (VPN/SDWAN) controller to support IKEv2. BGP is optional.
 
 ## <a name="resources"></a>Virtual WAN resources
 

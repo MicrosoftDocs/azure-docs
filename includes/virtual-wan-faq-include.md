@@ -41,7 +41,7 @@ Before you can configure an Azure Virtual WAN, you must first enroll your subscr
 Considerations:
 
 * The Preview is limited to Azure public regions only.
-* Up to 100 connections are supported per virtual hub. Each connection is an active-active tunnel terminating in a VPN gateway inside an Azure virtual hub.
+* Up to 100 connections are supported per virtual hub. Each connection consists of 2 tunnels that are in an active-active configuration. The tunnels terminate in an Azure Virtual Hub vpngateway.
 * Consider using this Preview if:
   * You want to deploy aggregated bandwidth less than 1 Gbps per virtual hub.
   * You have a VPN device that supports route-based configuration and IKEv2 IPsec connectivity.
@@ -57,7 +57,7 @@ Yes. You can directly do VNet peering between spokes that are connected to a vir
 
 ### Can I deploy and use my favorite network virtual appliance (in an NVA VNet) with Azure Virtual WAN?
 
-Yes, you can connect your favorite network virtual appliance (NVA) VNet to the Azure Virtual WAN. All spokes connected to the NVA VNet must additionally be connected to the virtual hub. 
+Yes, you can connect your favorite network virtual appliance (NVA) VNet to the Azure Virtual WAN, but will require routing capabilities in the hub which will be at GA. All spokes connected to the NVA VNet must additionally be connected to the virtual hub. 
 
 ### Can an NVA VNet have a virtual network gateway?
 

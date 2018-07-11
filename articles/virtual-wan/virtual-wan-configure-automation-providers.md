@@ -1,6 +1,6 @@
 ---
-title: 'Configure Azure Virtual WAN automation - for Providers | Microsoft Docs'
-description: This article helps software-defined connectivity solutions providers set up Azure Virtual WAN automation.
+title: 'Configure Azure Virtual WAN automation - for Virtual WAN partners | Microsoft Docs'
+description: This article helps software-defined connectivity solutions partners set up Azure Virtual WAN automation.
 services: virtual-wan
 author: cherylmc
 
@@ -11,7 +11,7 @@ ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ---
 
-# Configure Virtual WAN automation - for Virtual WAN providers (Preview)
+# Configure Virtual WAN automation - for Virtual WAN partners (Preview)
 
 This article helps you understand how to set up the automation envorionment to connect and configure a branch device (a customer on-premises VPN device or SDWAN) for Azure Virtual WAN. If you are a provider that provides branch devices that can accommodate VPN connectivity over IPsec/IKEv2, this article is for you.
 
@@ -150,25 +150,72 @@ When you view this file, notice the following information:
    }
   ```
 
-## <a name="custom"></a>Working with Custom Policy
+## <a name="default"></a>Default policies
 
-The following table lists the supported cryptographic algorithms and key strengths that are configurable by the customers. You must select one option for every field.
+### Initiator
 
-| IPsec/ IKEv2 | Options|
-|---|---|
-|IKEv2 Encryption | AES256, AES192, AES128, DES3, DES |
-| IKEv2 Integrity | SHA384, SHA256, SHA1, MD5 |
-| DH Group |  DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, None |
-| IPsec Encryption | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None  |
-| IPsec Integrity | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
-| PFS Group | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None|
-| QM SA Lifetime | Seconds (integer; min. 300/default 27000 seconds)<br>KBytes (integer; min. 1024/default 102400000 KBytes) |
+The following sections list the supported policy combinations when Azure is the initiator for the tunnel.
 
-**Additional information**
-1. DHGroup2048 & PFS2048 are the same as Diffie-Hellman Group 14 in IKE and IPsec PFS. See Diffie-Hellman Groups for the complete mappings.
-2. For GCMAES algorithms, you must specify the same GCMAES algorithm and key length for both IPsec Encryption and Integrity.
-3. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure VPN gateways
-4. QM SA Lifetimes are optional parameters. If none was specified, default values of 27,000 seconds (7.5 hrs) and 102400000 KBytes (102 GB) are used.
+**Phase-1**
+
+* AES_256, SHA1, DH_GROUP_2
+* AES_256, SHA_256, DH_GROUP_2
+* AES_128, SHA1, DH_GROUP_2
+* AES_128, SHA_256, DH_GROUP_2
+* 3DES, SHA1, DH_GROUP_2
+* 3DES, SHA_256, DH_GROUP_2
+
+**Phase-2**
+
+* GCM_AES_256, GCM_AES_256, PFS_NONE
+* AES_256, SHA_1, PFS_NONE
+* CBC_3DES, SHA_1, PFS_NONE
+* AES_256, SHA_256, PFS_NONE
+* AES_128, SHA_1, PFS_NONE
+* CBC_3DES, SHA_256, PFS_NONE
+
+
+### Responder
+
+The following sections list the supported policy combinations when Azure is the responder for the tunnel.
+
+**Phase-1**
+
+* AES_256, SHA1, DH_GROUP_2
+* AES_256, SHA_256, DH_GROUP_2
+* AES_128, SHA1, DH_GROUP_2
+* AES_128, SHA_256, DH_GROUP_2
+* 3DES, SHA1, DH_GROUP_2
+* 3DES, SHA_256, DH_GROUP_2
+
+**Phase-2**
+
+* GCM_AES_256, GCM_AES_256, PFS_NONE
+* AES_256, SHA_1, PFS_NONE
+* CBC_3DES, SHA_1, PFS_NONE
+* AES_256, SHA_256, PFS_NONE
+* AES_128, SHA_1, PFS_NONE
+* CBC_3DES, SHA_256, PFS_NONE
+* CBC_DES, SHA_1, PFS_NONE 
+* AES_256, SHA_1, PFS_1
+* AES_256, SHA_1, PFS_2
+* AES_256, SHA_1, PFS_14
+* AES_128, SHA_1, PFS_1
+* AES_128, SHA_1, PFS_2
+* AES_128, SHA_1, PFS_14
+* CBC_3DES, SHA_1, PFS_1
+* CBC_3DES, SHA_1, PFS_2
+* CBC_3DES, SHA_256, PFS_2
+* AES_256, SHA_256, PFS_1
+* AES_256, SHA_256, PFS_2
+* AES_256, SHA_256, PFS_14
+* AES_256, SHA_1, PFS_24
+* AES_256, SHA_256, PFS_24
+* AES_128, SHA_256, PFS_NONE
+* AES_128, SHA_256, PFS_1
+* AES_128, SHA_256, PFS_2
+* AES_128, SHA_256, PFS_14
+* CBC_3DES, SHA_1, PFS_14
 
 ### Does everything need to match between the virtual hub vpngateway policy and my on-premises SDWAN/VPN device or SD-WAN configuration?
 
@@ -180,19 +227,6 @@ Your on-premises SDWAN/VPN device or SD-WAN configuration must match or contain 
 * IPsec encryption algorithm
 * IPsec integrity algorithm
 * PFS Group
-
-### Which Diffie-Hellman Groups are supported?
-
-The following table lists the supported Diffie-Hellman Groups for IKE (DHGroup) and IPsec (PFSGroup):
-
-| Diffie-Hellman Group | DHGroup | PFSGroup |
-|---|---|---|
-| 1 |	DHGroup1 |	PFS1 |
-| 2 |	DHGroup2 |	PFS2 |
-| 14 |	DHGroup14<br>DHGroup2048 |	PFS2048 |
-| 19 |	ECP256 |	ECP256 |
-| 20| ECP384 |	ECP284|
-| 24 |	DHGroup24 |	PFS24 |
 
 ## <a name="feedback"></a>Preview feedback
 
