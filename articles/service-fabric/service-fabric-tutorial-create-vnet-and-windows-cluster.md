@@ -92,7 +92,7 @@ A Windows cluster is deployed with the following characteristics:
 * [reverse proxy](service-fabric-reverseproxy.md) is enabled
 * [DNS service](service-fabric-dnsservice.md) is enabled
 * [Durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) of Bronze (configurable in the template parameters)
-* [Reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters)
+ * [Reliability level](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) of Silver (configurable in the template parameters)
 * client connection endpoint: 19000 (configurable in the template parameters)
 * HTTP gateway endpoint: 19080 (configurable in the template parameters)
 
@@ -134,9 +134,9 @@ The [vnet-cluster.parameters.json][parameters] parameters file declares many val
 
 |Parameter|Example value|Notes|
 |---|---||
-|adminUserName|vmadmin| Admin username for the cluster VMs. |
-|adminPassword|Password#1234| Admin password for the cluster VMs.|
-|clusterName|mysfcluster123| Name of the cluster. |
+|adminUserName|vmadmin| Admin username for the cluster VMs.[Username requirements for VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
+|adminPassword|Password#1234| Admin password for the cluster VMs. [Password requirements for VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
+|clusterName|mysfcluster123| Name of the cluster. Can contain letters and numbers only. Length can be between 3 and 23 characters.|
 |location|southcentralus| Location of the cluster. |
 |certificateThumbprint|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate thumbprint value. For example, "6190390162C988701DB5676EB81083EA608DCCF3"</p>. |
 |certificateUrlValue|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file. </p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
