@@ -17,23 +17,23 @@ ms.author: omidm
 ---
 # An introduction to Hadoop security with domain-joined HDInsight clusters
 
-Azure HDInsight until today supported only a single user local admin. This worked great for smaller application teams or departments. As Hadoop based workloads gained more popularity in the enterprise sector, the need for enterprise grade capabilities like active directory-based authentication, multi-user support, and role-based access control became increasingly important. 
+In the past, Azure HDInsight supported only a single user local admin. This worked great for smaller application teams or departments. As Hadoop-based workloads gained more popularity in the enterprise sector, the need for enterprise grade capabilities like Active Directory-based authentication, multiuser support, and role-based access control became increasingly important. 
 
-Using domain-joined HDInsight clusters, you can create an HDInsight cluster joined to an Active Directory domain, configure a list of employees from the enterprise who can authenticate through Azure Active Directory to log on to HDInsight cluster. Anyone outside the enterprise cannot log on or access the HDInsight cluster. 
+You can create an HDInsight cluster joined to an Active Directory domain. You can then configure a list of employees from the enterprise who can authenticate through Azure Active Directory to log on to the HDInsight cluster. Anyone outside the enterprise cannot log on or access the HDInsight cluster. 
 
-The enterprise admin can configure role-based access control for Hive security using [Apache Ranger](http://hortonworks.com/apache/ranger/), thus restricting access to data to only as much as needed. Finally, the admin can audit the data access by employees, and any changes done to access control policies, thus achieving a high degree of governance of their corporate resources.
+The enterprise admin can configure role-based access control (RBAC) for Hive security by using [Apache Ranger](http://hortonworks.com/apache/ranger/). Configuring RBAC restricts data access to only as much as needed. Finally, the admin can audit the data access by employees and any changes done to access control policies. The admin can then achieve a high degree of governance of their corporate resources.
 
 > [!NOTE]
-> The new features described in this article are available in preview only on the following cluster types: Hadoop, Spark, and Interactive Query. Oozie is now enabled on domain-joined clusters. In order to access the Oozie web UI users should enable [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md)
+> The new features described in this article are available in preview only on the following cluster types: Hadoop, Spark, and Interactive Query. Oozie is now enabled on domain-joined clusters. To access the Oozie web UI, users should enable [tunneling](../hdinsight-linux-ambari-ssh-tunnel.md).
 
-Enterprise Security contains four major pillars – Perimeter Security, Authentication, Authorization, and Encryption.
+Enterprise security contains four major pillars: perimeter security, authentication, authorization, and encryption.
 
-![Domain Joined HDInsight clusters benefits pillars](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
+![Benefits of domain-joined HDInsight clusters in the four pillars of enterprise security](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
 
-## Perimeter Security
-Perimeter security in HDInsight is achieved using virtual networks and Gateway service. Today, an enterprise admin can create an HDInsight cluster inside a virtual network and use Network Security Groups (firewall rules) to restrict access to the virtual network. Only the IP addresses defined in the inbound firewall rules will be able to communicate with the HDInsight cluster, thus providing perimeter security.
+## Perimeter security
+Perimeter security in HDInsight is achieved using virtual networks and the Azure VPN Gateway service. An enterprise admin can create an HDInsight cluster inside a virtual network and use network security groups (firewall rules) to restrict access to the virtual network. Only the IP addresses defined in the inbound firewall rules will be able to communicate with the HDInsight cluster. This configuration provides perimeter security.
 
-Another layer of perimeter security is achieved using Gateway service. The Gateway is the service, which acts as first line of defense for any incoming request to the HDInsight cluster. It accepts the request, validates it and only then allows the request to pass to the other nodes in cluster, thus providing perimeter security to other name and data nodes in the cluster.
+Another layer of perimeter security is achieved using VPN Gateway service. The gateway acts as first line of defense for any incoming request to the HDInsight cluster. It accepts the request, validates it, and only then allows the request to pass to the other nodes in cluster. In this way, the gateway provides perimeter security to other name and data nodes in the cluster.
 
 ## Authentication
 An enterprise admin can create a domain-joined HDInsight cluster, in a [virtual network](https://azure.microsoft.com/services/virtual-network/). The nodes of the HDInsight cluster will be joined to the domain managed by the enterprise. This is achieved through use of [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
