@@ -1,5 +1,5 @@
 ---
-title: Deploy an Azure Stream Analytics job with CI/CD using VSTS
+title: Deploy an Azure Stream Analytics job with CI/CD using VSTS tutorial
 description:  This article descriptes how to deploy a Stream Analytics job with CI/CD using VSTS.
 services: stream-analytics
 author: su-jie
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 7/10/2018
 --- 
 
-# Deploy an Azure Stream Analytics job with CI/CD using VSTS
+# Tutorial: Deploy an Azure Stream Analytics job with CI/CD using VSTS
 This tutorial describes how to set up continuous integration and deployment for an Azure Stream Analytics job using Visual Studio Team Services. 
 
 In this tutorial, you learn how to:
@@ -43,17 +43,17 @@ Add **packages.config** to your solution directory.
 ## Share your Visual Studio solution to a new Team Services Git repo
 Share your application source files to a team project in Team Services so you can generate builds.  
 
-Create a new local Git repo for your project by selecting **Add to Source Control**, then **Git** on the status bar in the lower right-hand corner of Visual Studio. 
+1. Create a new local Git repo for your project by selecting **Add to Source Control**, then **Git** on the status bar in the lower right-hand corner of Visual Studio. 
 
-In the **Synchronization** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Visual Studio Team Services**.
+2. In the **Synchronization** view in **Team Explorer**, select the **Publish Git Repo** button under **Push to Visual Studio Team Services**.
 
    ![Push Git Repo](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/publishgitrepo.png)
 
-Verify your email and select your account in the **Team Services Domain** drop-down. Enter your repository name and select **Publish repository**.
+3. Verify your email and select your account in the **Team Services Domain** drop-down. Enter your repository name and select **Publish repository**.
 
    ![Push Git repo](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/publishcode.png)
 
-Publishing the repo creates a new team project in your account with the same name as the local repo. To create the repo in an existing team project, click **Advanced** next to **Repository name**, and select a team project. You can view your code in the browser by selecting **See it on the web**.
+    Publishing the repo creates a new team project in your account with the same name as the local repo. To create the repo in an existing team project, click **Advanced** next to **Repository name**, and select a team project. You can view your code in the browser by selecting **See it on the web**.
  
 ## Configure continuous delivery with VSTS
 A Team Services build definition describes a workflow comprised of build steps that are executed sequentially. Learn more about [Team Services build definitions](https://www.visualstudio.com/docs/build/define/create). 
@@ -114,8 +114,7 @@ Open a web browser and navigate to your new team project.
     |Resource Group  |  Enter a resource group name.   |
     |Template  | [Your solution path]\bin\Debug\Deploy\\[Your project name].JobTemplate.json   |
     |Template parameters  | [Your solution path]\bin\Debug\Deploy\\[Your project name.JobTemplate.parameters.json   |
-    |Override template parameters  | Type the template parameters to override in the textbox. Example, 
-    –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). Templates that    |
+    |Override template parameters  | Type the template parameters to override in the textbox. Example, –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). Templates that    |
     
     ![Set properties](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-deploy-2.png)
 
@@ -124,17 +123,17 @@ Open a web browser and navigate to your new team project.
     ![Set override parameters](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-save-queue.png)
 
 ### Commit and push changes to trigger a release
-To verify that the continuous integration pipeline is functioning by checking in some code changes to Team Services.    
+Verify that the continuous integration pipeline is functioning by checking in some code changes to Team Services.    
 
-As you write your code, your changes are automatically tracked by Visual Studio. Commit changes to your local Git repository by selecting the pending changes icon (![Pending][pending]) from the status bar in the bottom right.
+As you write your code, your changes are automatically tracked by Visual Studio. Commit changes to your local Git repository by selecting the pending changes icon from the status bar in the bottom right.
 
-On the **Changes** view in Team Explorer, add a message describing your update and commit your changes.
+1. On the **Changes** view in Team Explorer, add a message describing your update and commit your changes.
 
-![Commit and push changes](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-push-changes.png)
+    ![Commit and push changes](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-push-changes.png)
 
-Select the unpublished changes status bar icon (![Unpublished changes][unpublished-changes]) or the Sync view in Team Explorer. Select **Push** to update your code in Team Services/TFS.
+2. Select the unpublished changes status bar icon (![Unpublished changes][unpublished-changes]) or the Sync view in Team Explorer. Select **Push** to update your code in Team Services/TFS.
 
-![Commit and push changes](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-push-changes-2.png)
+    ![Commit and push changes](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-push-changes-2.png)
 
 Pushing the changes to Team Services automatically triggers a build.  When the build definition successfully completes, a release is automatically created and starts updating the job on the cluster.
 
