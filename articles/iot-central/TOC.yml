@@ -51,6 +51,8 @@
         href: howto-create-telemetry-rules.md
       - name: Create an event rule
         href: howto-create-event-rules.md
+        name: Configure homepage
+        href: howto-configure-homepage.md
       - name: Prepare and upload images
         href: howto-prepare-images.md
   - name : Operator
