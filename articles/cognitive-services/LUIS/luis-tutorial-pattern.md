@@ -238,13 +238,15 @@ Use patterns to make the difference between these two closely-related intents mo
     |Who is {Employee}['s] supervisor[?]|
     |Who is the boss of {Employee}[?]|
 
-    [ ![Screenshot of entering template utterances for intent](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
-
-    The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. 
+    The `{Employee}` syntax marks the entity location within the template utterance as well as which entity it is. Entities with roles use syntax that includes the role name, `{Location:Origin}` 
 
     The optional syntax, `[]`, marks words or punctuation that are optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
 
-    If you type the template utterance in, LUIS helps you fill in the entity when you enter the left curly bracket, `{`, by 
+    If you type the template utterance in, LUIS helps you fill in the entity when you enter the left curly bracket, `{`.
+
+    [ ![Screenshot of entering template utterances for intent](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
+
+
 
 4. Select the **OrgChart-Reports** intent, then enter the following template utterances, one at a time, selecting enter after each template utterance:
 
@@ -263,7 +265,7 @@ Use patterns to make the difference between these two closely-related intents mo
 
 2. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-3. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?`. The last querystring parameter is `q`, the utterance **query**. 
+3. Go to the end of the URL in the address and enter `Who is the boss of Jill Jones?` as the utterance. The last querystring parameter is `q`, the utterance **query**. 
 
     ```JSON
     {
@@ -491,4 +493,9 @@ When no longer needed, delete the LUIS app. To do so, select the ellipsis (***..
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Learn how to use roles with a pattern](luis-tutorial-pattern-roles.md)
+
+<!--
+> [!div class="nextstepaction"]
 > [Learn best practices for LUIS apps](luis-concept-best-practices.md)
+-->
