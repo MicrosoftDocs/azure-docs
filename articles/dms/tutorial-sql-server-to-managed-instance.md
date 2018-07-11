@@ -128,7 +128,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 ## Specify target details
 
-1.  On the **Target details** screen, specify the connection details for the target, which is the pre-provisioned Azure SQL Database Managed Instance to which the **AdventureWorks2012** database will be migrated.
+1.  On the **Target details** screen, specify the connection details for the target, which is the pre-provisioned Azure SQL Database Managed Instance to which the **AdventureWorks2012** database is to be migrated.
 
     If you have not already provisioned the Azure SQL Database Managed Instance, select **No** for a link to help you provision the instance. You can still proceed with project creation and then, when the Azure SQL Database Managed Instance is ready, return to this specific project to execute the migration.   
  
@@ -150,11 +150,17 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 2.  When prompted, enter the credentials of the source and the target servers, and then select **Save**.
 
-3.  On the **Select source databases** screen, select the source database that you want to migrate.
+3.  On the **Select source databases** screen, select the source database(s) that you want to migrate.
 
-    ![Select Source Databases](media\tutorial-sql-server-to-managed-instance\dms-select-source-databases1.png)
+    ![Select Source Databases](media\tutorial-sql-server-to-managed-instance\dms-select-source-databases2.png)
 
-4.  Select **Save**, and then on the **Configure migration settings** screen, provide the following detail:
+4.  Select **Save**, and then on the **Select logins** screen, select the logins that you want to migrate.
+
+    The current release only supports migrating SQL logins.
+
+    ![Select logins](media\tutorial-sql-server-to-managed-instance\dms-select-logins.png)
+
+5. Select **Save**, and then on the **Configure migration settings** screen, provide the following detail:
 
     | | |
     |--------|---------|
@@ -163,29 +169,31 @@ After the service is created, locate it within the Azure portal, open it, and th
     |**Password** | Password for the user. |
     |**Storage account settings** | The SAS URI that provides the Azure Database Migration Service with access to your storage account container to which the service uploads the back-up files and that is used for migrating databases to Azure SQL Database Managed Instance. [Learn how to get the SAS URI for blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
     
-    ![Configure Migration Settings](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings1.png)
+    ![Configure Migration Settings](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings2.png)
 
 5.  Select **Save**, and then on the **Migration summary** screen, in the **Activity name** text box, specify a name for the migration activity.
 
-6. Expand the **Validation option** section to display the **Choose validation option** screen, specify whether to validate the migrated database for query correctness, and then select **Save**.  
+    ![Migration Summary](media\tutorial-sql-server-to-managed-instance\dms-migration-summary2.png)
 
-    ![Migration Summary](media\tutorial-sql-server-to-managed-instance\dms-migration-summary1.png)
+6. Expand the **Validation option** section to display the **Choose validation option** screen, specify whether to validate the migrated database for query correctness, and then select **Save**.  
 
 7. Select **Run migration**.
 
     The migration activity window appears, and the status of the activity is **Pending**.
 
-   ![Migration activity pending](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-pending.png)
-
 ## Monitor the migration
 
-1. On the migration activity screen, select **Refresh** to update the display until you see that the status of the migration shows as **Completed**.
+1. On the migration activity screen, select **Refresh** to update the display.
  
-   ![Migration activity completed](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-finished.png)
+   ![Migration activity in progress](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-in-progress.png)
 
-2. After the migration completes, select **Download report** to get a report listing the details associated with the migration process.
+2. You can further expand the databases and logins categories to monitor the migration status of the respective server objects.
+
+   ![Migration activity in progress](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-monitor.png)
+
+3. After the migration completes, select **Download report** to get a report listing the details associated with the migration process.
  
-3. Verify that the target database on the target Azure SQL Database Managed Instance environment.
+4. Verify that the target database on the target Azure SQL Database Managed Instance environment.
 
 ## Next steps
 
