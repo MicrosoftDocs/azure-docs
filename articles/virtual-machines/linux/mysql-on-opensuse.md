@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 07/11/2018
 ms.author: cynthn
 
 ---
@@ -92,10 +92,23 @@ systemctl is-enabled mysql
 
 This should return: enabled.
 
+Restart the server.
+
+```bash
+sudo reboot
+```
+
 
 ## MySQL password
 
 After installation, the MySQL root password is empty by default. Run the **mysql\_secure\_installation** script to secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. 
+
+Once the server reboots, ssh to the VM again.
+
+```azurecli-interactive  
+ssh 10.111.112.113
+```
+
 
 
 ```bash
