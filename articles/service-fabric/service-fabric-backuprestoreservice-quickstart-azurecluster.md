@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Periodic backup and restore in Azure Service Fabric (Preview) | Microsoft Docs
+title: Quickstart - Periodic backup and restore in Azure Service Fabric (Preview) | Microsoft Docs
 description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
 services: service-fabric
 documentationcenter: .net
@@ -226,7 +226,7 @@ FailureError            :
 - No support for Service Fabric clusters on Linux.
 
 ## Next steps
-- [Configure periodic backup in Azure Service Fabric](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
+- [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
