@@ -75,7 +75,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 	  ![Graph Explorer dialog box, with the query for fetching service principals](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
       > [!Note]
-      > Beta version of Azure Graph is going to be upgraded soon, so you may expect some outage in near future during the upgrade. This tutorial will be updated to use the production version once that is released. 
+      > We are already in the process of upgrading the APIs so customers might see some disruption in the service.
 
     f. From the list of fetched service principals, get the one that you need to modify. You can also use Ctrl+F to search the application from all the listed service principals. Search for the object ID that you copied from the **Properties** page, and use the following query to get to the service principal:
 
@@ -147,7 +147,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
     | Attribute name | Attribute value |
     | -------------- | ----------------|
-    | Role name  | user.assignedrole |
+    | Role name  | user.assignedroles |
 
     a. Select **Add attribute** to open the **Add Attribute** pane.
 
