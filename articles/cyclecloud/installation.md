@@ -2,11 +2,8 @@
 
 Azure CycleCloud can be installed using an ARM template, but for production instances of CycleCloud, we recommend installing the product manually as outlined below.
 
-## A Note on Names
-
-It is worth noting that the names CycleCloud and CycleServer are sometimes used interchangeably, but this
-confuses the distinction between them. CycleServer is the platform that underlies CycleCloud.
-It handles data storage, plugin management, logging, monitoring, and alerting among other functions. CycleCloud is a plugin to CycleServer, which manages the creation of clusters across multiple cloud providers. While Azure CycleCloud is the official name of the product, you will find CycleServer referenced in many commands and directory names.
+> [!NOTE]
+> The CycleCloud product encompasses many pieces, including a command line transfer tool called [pogo](https://docs.microsoft.com/en-us/azure/cyclecloud/pogo-overview), node configuration software known as [Jetpack](https://docs.microsoft.com/en-us/azure/cyclecloud/jetpack), and a installable webserver platform called CycleServer. Because of this, you will find CycleServer referenced in many commands and directory names on the machine where the CycleCloud server is installed.    
 
 ## System Requirements
 

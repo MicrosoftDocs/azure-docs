@@ -96,7 +96,7 @@
     href: autoscale.md
   - name: Terminate a Cluster
     href: end-cluster.md
-  - name: Create Custom Images
+  - name: Work with Custom Images
     href: custom-images.md
   - name: Transfer Data
     href: transfer-data.md
