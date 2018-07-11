@@ -87,8 +87,6 @@
       href: batch-job-prep-release.md
     - name: Concurrent node tasks
       href: batch-parallel-node-tasks.md
-    - name: Count tasks by state
-      href: batch-get-task-counts.md
     - name: Task dependencies
       href: batch-task-dependencies.md
     - name: User accounts for running tasks
@@ -119,7 +117,9 @@
       href: batch-diagnostics.md
     - name: Monitor with Application Insights
       href: monitor-application-insights.md
-    - name: Efficient list queries
+    - name: Count resources by state
+      href: batch-get-resource-counts.md
+    - name: Query resources efficiently
       href: batch-efficient-list-queries.md
   - name: Use developer tools
     items:
