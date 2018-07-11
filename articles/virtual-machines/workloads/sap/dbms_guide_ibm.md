@@ -20,6 +20,8 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
+# IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload
+
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -303,16 +305,16 @@ ms.custom: H1Hack27Feb2017
 [xplat-cli]:../../../cli-install-nodejs.md
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
-# IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload
 
-With Microsoft Azure, you can easily migrate your existing SAP application running on IBM DB2 for Linux, UNIX, and Windows (LUW) to Azure virtual machines. With SAP on IBM DB2 for LUW, administrators and developers can still use the same development and administration tools, which are available on-premises.
+
+With Microsoft Azure, you can migrate your existing SAP application running on IBM DB2 for Linux, UNIX, and Windows (LUW) to Azure virtual machines. With SAP on IBM DB2 for LUW, administrators and developers can still use the same development and administration tools, which are available on-premises.
 General information about running SAP Business Suite on IBM DB2 for LUW can be found in the SAP Community Network (SCN) at <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>.
 
-For additional information and updates about SAP on DB2 for LUW on Azure, see SAP Note [2233094]. 
+For more information and updates about SAP on DB2 for LUW on Azure, see SAP Note [2233094]. 
 
-The  are various articles on SAP workload on Azure released.  It is recommended to start in [SAP workload on Azure - Get Started](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) and then pick the topic of interests
+The  are various articles on SAP workload on Azure released.  It is recommended to start in [SAP workload on Azure - Get Started](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) and then pick the area of interests
 
-The following SAP Notes are related to SAP on Azure in regards to the topic of this document:
+The following SAP Notes are related to SAP on Azure regarding the area covered in this document:
 
 | Note number | Title |
 | --- | --- |
@@ -350,7 +352,7 @@ As explained earlier in the general part of the document, quotas on IOPS through
 
 As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single mounted disk. Whereas you always should separate the data files and transaction log files on different disks/VHDs.
 
-For performance considerations also refer to chapter 'Data Safety and Performance Considerations for Database Directories' in SAP installation guides.
+For performance considerations, also refer to chapter 'Data Safety and Performance Considerations for Database Directories' in SAP installation guides.
 
 Alternatively, you can use Windows Storage Pools (only available in Windows Server 2012 and higher)  as described [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) to create one large logical device over multiple disks.
 
@@ -385,7 +387,7 @@ DB2 high availability disaster recovery (HADR) is supported. If the virtual mach
 Do not use Geo-Replication for the storage accounts that store the database disks. For more information, refer to the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
 
 ### Accelerated Networking
-For DB2 deployments on Windows it is highly recommended to use the Azure functionality of Accelerated Networking as described in the document [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Also consider recommendations made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
+For DB2 deployments on Windows, it is highly recommended to use the Azure functionality of Accelerated Networking as described in the document [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Also consider recommendations made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
 
 
 ### Specifics for Linux deployments

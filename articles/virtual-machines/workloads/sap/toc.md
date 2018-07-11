@@ -50,12 +50,12 @@
 #### [Windows with SOFS File Share for (A)SCS Instance](sap-ascs-ha-multi-sid-wsfc-file-share.md)
 ## [SAP netWeaver Deployment guide](deployment-guide.md)
 ## [DBMS deployment guides for SAP workload]
-### [General Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide_general.md)
-### [SQL Server Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide_sqlserver.md)
-### [Oracle Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide_oracle.md)
-### [IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide_ibm.md)
-### [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide_sapase.md)
-### [SAP maxDB, Live Cache and Content Server deployment on Azure](dbms-guide_maxdb.md)
+### [General Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
+### [SQL Server Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_sqlserver.md)
+### [Oracle Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_oracle.md)
+### [IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_ibm.md)
+### [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_sapase.md)
+### [SAP maxDB, Live Cache and Content Server deployment on Azure](dbms_guide_maxdb.md)
 ### [SAP HANA on Azure operations guide](hana-vm-operations.md)
 #### SAP HANA Availability in Azure Virtual Machines
 ##### [SAP HANA on Azure Availability overview](sap-hana-availability-overview.md)
