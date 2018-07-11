@@ -61,7 +61,7 @@ Manifests are identified by a unique SHA-256 hash, or *digest*. A unique digest 
 
 You can pull an image from a registry by specifying its digest in the pull operation. Some systems may be configured to pull by digest because it guarantees the image version being pulled, even if an identically tagged image is subsequently pushed to the registry.
 
-> [!WARNING]
+> [!IMPORTANT]
 > If you repeatedly push identically tagged images, you create orphaned images--images which are untagged, but not deleted. This can cause "hidden" storage usage because the untagged images are not displayed when listing images with the Azure CLI or in the Azure portal. However, their layers still exist and consume space in your registry. For information about deleting orphaned image data, see [Delete by manifest digest](#delete-by-manifest-digest).
 
 ## Delete image data
@@ -143,7 +143,7 @@ This operation will delete the manifest 'sha256:37c989e19592d5a63a64f870a62da16c
 Are you sure you want to continue? (y/n): y
 ```
 
-## Delete orphaned images
+## Delete untagged images
 
 As mentioned in the [Manifest digest](#manifest-digest) section, pushing an image with an existing tag **untags** the previously pushed image, resulting in an "orphaned" image. The previously pushed image's manifest--and its layer data--remains in the registry. Consider the following sequence of events:
 
@@ -184,6 +184,42 @@ As mentioned in the [Manifest digest](#manifest-digest) section, pushing an imag
    ```
 
 As you can see in the output of the last step in the sequence, there is now an orphaned manifest whose `tags` property is `null`. This manifest still exists within the registry, along with any unique layer data that it references. **To effectively delete such orphaned images and their layer data, you must delete by manifest digest**.
+
+### List untagged images
+
+You can list all untagged images in your repository using the following Azure CLI command. Replace the registry and repository values with those appropriate for your environment.
+
+```azurecli
+az acr repository show-manifests --name myregistry --repository myrepository  --query "[?tags==null].digest"
+```
+
+### Delete all untagged images
+
+The following Bash script deletes all untagged images from a repository. It requires the Azure CLI, `awk`, and `xargs`. As written, the script intentionally fails to run--you must remove the "Delete this comment" line to enable it.
+
+> [!WARNING]
+> If you have systems that pull images by manifest digest (as opposed to `repository:tag`), you should not run this script. Deleting untagged images will prevent those systems from successfully pulling the images from your registry.
+
+```bash
+#!/bin/bash
+
+# WARNING! This script deletes data!
+# Run only if you do not have systems
+# that pull images via manifest digest.
+
+# Modify for your environment
+REGISTRY=myregistry
+REPOSITORY=myrepository
+
+# Delete all untagged (orphaned) images
+az acr repository show-manifests \
+    --name $REGISTRY \
+    --repository $REPOSITORY \
+    --query '[].[digest,tags]' -o table \
+| awk '{FS=" "} !length($2)' \
+# Delete this comment line to enable image DELETE
+| xargs -I {} az acr repository delete --name $REGISTRY --image $REPOSITORY@{} --yes
+```
 
 ## Next steps
 
