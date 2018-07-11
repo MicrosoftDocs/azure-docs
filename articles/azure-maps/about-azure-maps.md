@@ -38,7 +38,7 @@ The Route service contains robust geometry calculations for real-world infrastru
 
 ![Azure Maps Route.png](media/about-azure-maps/Introduction_Route.png)
 
-The Route service now offers a preview of advanced features such as batch processing of multiple route requests, route summary matrices for a set of origins and destinations, and finding routes or distances you can travel based on your time or fuel requirements. For details on the routing capabilities, read the [Azure Maps Route APIs](https://docs.microsoft.com/rest/api/maps/route).
+The Route service now offers a preview of advanced features such as batch processing of multiple route requests, matrices of travel time and distance between a set of origins and destinations, and finding routes or distances you can travel based on your time or fuel requirements. For details on the routing capabilities, read the [Azure Maps Route APIs](https://docs.microsoft.com/rest/api/maps/route).
 
 
 ### Search service
@@ -96,7 +96,7 @@ Azure Maps is built for mobility and can power cross-platform applications. It u
 Additionally, Azure Maps offers a convenient [JavaScript map control](https://docs.microsoft.com/javascript/api/azure-maps-javascript/?view=azure-iot-typescript-latest) with a simple programming model for quick and easy development of both web and mobile applications. 
 
 
-## Security
+## Usage
 
 Azure Maps uses a key-based authentication scheme. Accessing the Maps services is a matter of navigating to the [Azure portal](http://portal.azure.com) and creating an Azure Maps account. 
 
