@@ -233,17 +233,15 @@ Allowed operators
 
 The underscore (\_) syntax supports using multi-valued properties with simple type elements to select group members. It is used with the -any or -all operators. In a dynamic group membership rule, an underscore (\_) means "add every user that includes the specified value in this multi-valued property with a simple type."
 
-A multi-valued property is an array, collection, container, or any other similar term to represent an array. The opposite of "multi-valued property" is "single-valued property."
+Here's an example of using the underscore (\_) in a ruleto add members based on user.proxyAddress (it works the same for otherMails). This rule adds to the group any user with proxy address that contains "contoso."
 
-A simple type element is one of the following: number, string, bool, or GUID. Complex types are objects (key/value pairs). Examples of each include:
+```(user.proxyAddresses -any (_ -contains "contoso"))```
+
+A multi-valued property is an array, collection, container, or any other similar term to represent an array. A simple type element is one of the following: number, string, bool, or GUID. Complex types are objects (key/value pairs). Examples of each include:
 
 * **Department** is single-valued property with a simple type.
 * **assignedPlan**, which has **serviced** and **serviceStatus** nested properties, is a single-valued property with complex type elements.
 * **proxyAddresses** and **otherMails** are multi-valued properties with simple type elements.
-
-Here's an example of using the underscore (\_) in a rule using a multi-valued property with simple type, such as user.proxyAddress (or otherMails). This rule adds to the group any user with proxy address that contains "contoso." See the following syntax:
-
-```(user.proxyAddresses -any (_ -contains "contoso"))```
 
 ## Multi-value properties
 
