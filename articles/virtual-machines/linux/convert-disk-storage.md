@@ -104,7 +104,7 @@ az vm start --ids $vmId
 
 ## Convert a managed disk from standard HDD to standard SSD, and vice versa
 
-The following example shows how to switch a single disk of a VM from standard HDD to standard SSD, and vice versa.
+The following example shows how to switch a single disk of a VM from standard HDD to standard SSD.
 
  ```azurecli
 
