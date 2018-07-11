@@ -23,9 +23,6 @@ ms.author: kumud
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Pre-requisites
-This quickstart requires that you have already created two Azure Web Apps in two different Azure regions. The two Web Apps are used as endpoints for the Traffic Manager profile. To learn how to create an Azure Web App, use one of the quickstart guides in the [Azure Web Apps documentation page](https://docs.microsoft.com/azure/app-service/). 
-
 ## Log in to Azure 
 
 Log in to the Azure portal at https://portal.azure.com.
