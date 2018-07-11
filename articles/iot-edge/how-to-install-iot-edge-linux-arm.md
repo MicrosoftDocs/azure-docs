@@ -22,11 +22,9 @@ This article lists the steps to install the Azure IoT Edge runtime on a Linux AR
 
 ## Install the container runtime
 
-Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime (e.g. Docker). If you already have Docker CE/EE installed on your Edge device, you can continue to use it for development and testing with Azure IoT Edge. 
+Azure IoT Edge relies on a [OCI-compatible][lnk-oci] container runtime. For production scenarios, it is highly recommended you use the [Moby-based][lnk-moby] engine provided below. It is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby-based runtime.
 
-For production scenarios, it is highly recommended you use the [Moby-based][lnk-moby] engine provided below. It is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are fully compatible with the Moby runtime.
-
-Commands below install both moby engine and command-line interface (CLI). The CLI is useful for development but optional for production deployments.
+Commands below install both the Moby-based engine and command-line interface (CLI). The CLI is useful for development but optional for production deployments.
 
 ```cmd/sh
 
@@ -126,6 +124,9 @@ And, list running modules with:
 ```cmd/sh
 sudo iotedge list
 ```
+>[!NOTE]
+>On resource constrained devices like RaspberryPi, it is highly recommended that *OptimizeForPerformance* environment variable is set to *false* as per instructions in the [troubleshooting guide.][lnk-trouble]
+
 
 ## Next steps
 
@@ -134,6 +135,6 @@ If you are having problems with the Edge runtime installing properly, checkout t
 <!-- Links -->
 [lnk-dcs]: how-to-register-device-portal.md
 [lnk-dps]: how-to-auto-provision-simulated-device-linux.md
+[lnk-trouble]: https://docs.microsoft.com/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md

@@ -235,7 +235,7 @@ After that you can follow the below procedure to add another Intralinks applicat
  
 	![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-8. Get the the SP Initiated SSO URL from [Intralinks team](https://www.intralinks.com/contact-1) for the other Intralinks application and enter it in **Configure Sign-on URL** as shown below. 
+8. Get the SP Initiated SSO URL from [Intralinks team](https://www.intralinks.com/contact-1) for the other Intralinks application and enter it in **Configure Sign-on URL** as shown below. 
     
      ![Configure Single Sign-On](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     

@@ -71,7 +71,7 @@ Do not apply these practices before your app has received endpoint requests beca
 This is the fallback intent, indicated everything outside your application. Add one example utterance to the None intent for every 10 example utterances in the rest of your LUIS app.
 
 ## Do leverage the suggest feature for active learning
-Use [active learning](label-suggested-utterances.md)'s **Review endpoint utterances** on a regular basis, instead of adding more example utterances to intents. Because the app is constantly receiving endpoint utterances, this list is growing and changing.
+Use [active learning](luis-how-to-review-endoint-utt.md)'s **Review endpoint utterances** on a regular basis, instead of adding more example utterances to intents. Because the app is constantly receiving endpoint utterances, this list is growing and changing.
 
 ## Do monitor the performance of your app
 Monitor the prediction accuracy using a test set. 
@@ -107,6 +107,4 @@ Add 10 or 15 utterances before training and publishing. That allows you to see t
 
 ## Next steps
 
-* Learn how to [plan your app](plan-your-app.md) in your LUIS app.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* Learn how to [plan your app](luis-how-plan-your-app.md) in your LUIS app.

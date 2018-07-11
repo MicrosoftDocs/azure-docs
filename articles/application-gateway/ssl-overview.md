@@ -38,7 +38,7 @@ Application gateway only communicates with known backend instances that have whi
 
 ## Next steps
 
-After learning about end to end SSL, go to [enable end to end SSL on application gateway](tutorial-ssl-powershell.md) to create an application gateway using end to end SSL.
+After learning about end to end SSL, go to [Configure an application gateway with SSL termination using the Azure portal](create-ssl-portal.md) to create an application gateway using end to end SSL.
 
 <!--Image references-->
 

@@ -148,11 +148,21 @@ Configure the runtime with your IoT Edge device connection string that you copie
 
 5. Create an environment variable called **IOTEDGE_HOST**, replacing *\<ip_address\>* with the IP Address for your IoT Edge device. 
 
-   ```powershell
-   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-   ```
+  ```powershell
+  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+  ```
 
-6. In the `config.yaml` file, find the **Connect settings** section. Update the **management_uri** and **workload_uri** values with your IP address and the ports that you opened in the previous section. Replace **\<GATEWAY_ADDRESS\>** with your IP address. 
+  Persist the environment variable across reboots.
+
+  ```powershell
+  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
+  ```
+
+<<<<<<< HEAD
+6. In the `config.yaml` file, find the **Connect settings** section. Update the **management_uri** and **workload_uri** values with your IP address and the ports that you opened in the previous section. Replace **\<GATEWAY_ADDRESS\>** with the DockerNAT IP address that you copied.
+=======
+6. In the `config.yaml` file, find the **Connect settings** section. Update the **management_uri** and **workload_uri** values with the same IP address that you copied earlier and the ports that you opened in the previous section. Replace **\<GATEWAY_ADDRESS\>** with your IP address. 
+>>>>>>> 026328ede8b463af3bcf38f2411fd559e654a580
 
    ```yaml
    connect: 

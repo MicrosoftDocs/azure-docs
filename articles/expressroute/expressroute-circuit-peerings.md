@@ -85,7 +85,7 @@ You can choose to enable one or more of the routing domains as part of your Expr
 If you choose to have all three peering sessions, you must have three pairs of BGP sessions (one pair for each peering type). The BGP session pairs provide a highly available link. If you are connecting through layer 2 connectivity providers, you are responsible for configuring and managing routing. You can learn more by reviewing the [workflows](expressroute-workflows.md) for setting up ExpressRoute.
 
 ## ExpressRoute health
-ExpressRoute circuits may be monitored for availability, connectivity to VNets and bandwidth utilization using [Network Performance Monitor](https://docs.microsoft.com/en-us/azure/networking/network-monitoring-overview) (NPM).
+ExpressRoute circuits may be monitored for availability, connectivity to VNets and bandwidth utilization using [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
 
 NPM monitors the health of Azure Private peering and Microsoft peering.  Check out our [post](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) for more information.
 
