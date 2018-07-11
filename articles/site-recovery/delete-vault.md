@@ -1,9 +1,12 @@
-﻿---
+---
 title: Delete a Site Recovery vault
 description: Learn how to delete an Azure Site Recovery vault, based on the Site Recovery scenario.
 author: rajani-janaki-ram
-ms.topic: conceptual
-ms.date: 07/01/2018
+manager: rochakm
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
 
 ---
@@ -66,4 +69,4 @@ To delete the Site Recovery vault even if there are protected items, use these c
 
     Remove-AzureRmRecoveryServicesVault -Vault $vault
 
-Learn more about [Get-AzureRMRecoveryServicesVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault?view=azurermps-6.0.0), and [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault?view=azurermps-6.0.0).
+Learn more about [Get-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault?view=azurermps-6.0.0), and [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault?view=azurermps-6.0.0).

@@ -13,7 +13,7 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
 
-# Tutorial: 6. Add simple entity and phrase list
+# Tutorial: 7. Add simple entity and phrase list
 In this tutorial, create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
 
 <!-- green checkmark -->
@@ -29,7 +29,7 @@ In this tutorial, create an app that demonstrates how to extract machine-learned
 For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
 ## Before you begin
-If you don't have the Human Resources app from the [hierarchical entity](luis-quickstart-intent-and-hier-entity.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [composite entity](luis-tutorial-composite-entity.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `simple`. Cloning is a great way to play with various LUIS features without affecting the original version.  
 
@@ -363,7 +363,7 @@ Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/m
     ```
 
 ## Phrase lists
-Adding the phrase list boosted the signal of the words in the list but is **not** used as an exact match. The phrase list has several jobs with the first word of `lead` and also has the job `welder` but does not have the job `lead welder`. This phrase list for jobs may not be complete. As you regularly [review endpoint utterances](label-suggested-utterances.md) and find other job words, add those to your phrase list. Then retrain and republish.
+Adding the phrase list boosted the signal of the words in the list but is **not** used as an exact match. The phrase list has several jobs with the first word of `lead` and also has the job `welder` but does not have the job `lead welder`. This phrase list for jobs may not be complete. As you regularly [review endpoint utterances](luis-how-to-review-endoint-utt.md) and find other job words, add those to your phrase list. Then retrain and republish.
 
 ## What has this LUIS app accomplished?
 This app, with a simple entity and a phrase list of words, identified a natural language query intention and returned the job data. 

@@ -248,7 +248,7 @@ The National Institute of Standards and Technology’s (NIST) provides guideline
 
 #### Implement Privileged Identity Management (PIM) for JIT to additional administrative roles
 
-For Azure Active Directory, use [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) capability. Time-limited activation of privileged roles works by enabling you to:
+For Azure Active Directory, use [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md) capability. Time-limited activation of privileged roles works by enabling you to:
 
 * Activate admin privileges to perform a specific task
 * Enforce MFA during the activation process
