@@ -37,7 +37,7 @@ In this tutorial, you perform the following tasks:
 
 2. Click **+ Create a resource** and select **Internet of Things**, then **IoT Hub**.
 
-   [!Screenshot showing creating an IoT hub](./media/tutorial-manual-failover/create-hub-01.png)
+   ![Screenshot showing creating an IoT hub](./media/tutorial-manual-failover/create-hub-01.png)
 
 3. Select the **Basics** tab. Fill in the following fields.
 
@@ -47,60 +47,60 @@ In this tutorial, you perform the following tasks:
 
     **Region**: select a region close to you that is part of the preview. This tutorial uses `westus2`.
     
-    > ![NOTE]
-    > Manual failover is currently in public preview and is *not* available in the following Azure regions: East US, West US, North Europe, West Europe, Brazil South, and South Central US.
+   > [!NOTE]
+   > Manual failover is currently in public preview and is *not* available in the following Azure regions: East US, West US, North Europe, West Europe, Brazil South, and South Central US.
 
-    **IoT Hub Name**: specify a name for your Iot hub. The hub name must be globally unique. 
+   **IoT Hub Name**: specify a name for your Iot hub. The hub name must be globally unique. 
 
-   [!Screenshot showing Basics pane for creating an IoT hub](./media/tutorial-manual-failover/create-hub-02-basics.png)
+   ![Screenshot showing Basics pane for creating an IoT hub](./media/tutorial-manual-failover/create-hub-02-basics.png)
 
    Click **Review + create**. (It uses the defaults for size and scale.) 
 
-4.  Review the information, then click **Create** to create the IoT hub. 
+4. Review the information, then click **Create** to create the IoT hub. 
 
-   [!Screenshot showing final step for creating an IoT hub](./media/tutorial-manual-failover/create-hub-03-create.png)
+   ![Screenshot showing final step for creating an IoT hub](./media/tutorial-manual-failover/create-hub-03-create.png)
 
 ## Trigger a manual failover
 
 1. Click **Resource groups** and then select the resource group **ManlFailRG**. Click on your hub in the list of resources. 
 
-2.  Under **Resiliency** on the IoT Hub pane, click **Manual failover (preview)**.
+2. Under **Resiliency** on the IoT Hub pane, click **Manual failover (preview)**.
 
-   [!Screenshot showing IoT Hub properties pane](./media/tutorial-manual-failover/trigger-failover-01.png)
+   ![Screenshot showing IoT Hub properties pane](./media/tutorial-manual-failover/trigger-failover-01.png)
 
 3. On the Manual failover pane, you see the **IoT Hub Primary Location** and the **IoT Hub Secondary Location**. The primary location is set to the location you specified for the IoT hub. The secondary location is the geographic partner to the primary location. You cannot change the location values. For this tutorial, the primary location is `westus2` and the secondary location is `WestCentralUS`.
 
-   [!Screenshot showing Manual Failover pane](./media/tutorial-manual-failover/trigger-failover-02.png)
+   ![Screenshot showing Manual Failover pane](./media/tutorial-manual-failover/trigger-failover-02.png)
 
-3.  At the top of the Manual failover pane, click **Initiate failover**. You see the **Confirm manual failover** pane. Fill in the IoT hub name. To initiate the failover, click OK.
+3. At the top of the Manual failover pane, click **Initiate failover**. You see the **Confirm manual failover** pane. Fill in the IoT hub name. To initiate the failover, click **OK**.
 
-   [!Screenshot showing Manual Failover pane](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
+   ![Screenshot showing Manual Failover pane](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-    * While the manual failover is being implemented, there is a banner on the Manual Failover pane that tells you a manual failover is in progress. 
+   While the manual failover is being implemented, there is a banner on the Manual Failover pane that tells you a manual failover is in progress. 
 
-   [!Screenshot showing Manual Failover in progress](./media/tutorial-manual-failover/trigger-failover-04-in-progress.png)
+   ![Screenshot showing Manual Failover in progress](./media/tutorial-manual-failover/trigger-failover-04-in-progress.png)
 
-    * If you close the IoT Hub pane and open it again by clicking it on the Resource Group pane, you see a banner that tells you the hub is not active. 
+   If you close the IoT Hub pane and open it again by clicking it on the Resource Group pane, you see a banner that tells you the hub is not active. 
 
-   [!Screenshot showing IoT Hub inactive](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
+   ![Screenshot showing IoT Hub inactive](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
 
-    * After it's finished, the primary and secondary regions on the Manual Failover page will be flipped and the hub will be active again. In this example, the primary location is now `WestCentralUS` and the seconday location is now `westus2`. 
+   After it's finished, the primary and secondary regions on the Manual Failover page will be flipped and the hub will be active again. In this example, the primary location is now `WestCentralUS` and the seconday location is now `westus2`. 
 
-   [!Screenshot showing failover is complete](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
+   ![Screenshot showing failover is complete](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
 ## Trigger a failback 
 
 After you have performed a manual failover, you can switch the hub back to the primary region -- this is called a failback. This is performed just like the manual failover. These are the steps: 
 
-1.  To trigger a failback, return to the Iot Hub pane for your Iot hub.
+1. To trigger a failback, return to the Iot Hub pane for your Iot hub.
 
-2.  Under **Resiliency** on the IoT Hub pane, click **Manual failover (preview)**. 
+2. Under **Resiliency** on the IoT Hub pane, click **Manual failover (preview)**. 
 
-3.  At the top of the Manual failover pane, click **Initiate failover**. You see the **Confirm manual failover** pane. 
+3. At the top of the Manual failover pane, click **Initiate failover**. You see the **Confirm manual failover** pane. 
 
-4.  In the **Confirm manual failover** pane, fill in the IoT hub name. To initiate the failback, click OK. The banners will be displayed as explained in the 'Trigger a failover' section. After the failback is complete, it again shows `westus2` as the primary location and `WestCentralUS` as the secondary location, as set originally.
+4. In the **Confirm manual failover** pane, fill in the IoT hub name. To initiate the failback, click OK. The banners will be displayed as explained in the 'Trigger a failover' section. After the failback is complete, it again shows `westus2` as the primary location and `WestCentralUS` as the secondary location, as set originally.
 
-   [!Screenshot after failback is complete](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
+   ![Screenshot after failback is complete](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
 ## Important Details 
 
