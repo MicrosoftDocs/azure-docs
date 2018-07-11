@@ -3,11 +3,7 @@ title: Overview of Azure Maps | Microsoft Docs
 description: An introduction to Azure Maps
 author: dsk-2015
 ms.author: dkshir
-<<<<<<< HEAD
 ms.date: 07/12/2018
-=======
-ms.date: 05/07/2018
->>>>>>> 047612759a976f40c37e51fd1463aa5ea35161a8
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
