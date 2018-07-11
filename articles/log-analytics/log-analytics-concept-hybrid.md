@@ -57,7 +57,7 @@ The following Linux distributions are officially supported.  However, the Linux 
 * SUSE Linux Enterprise Server 11 and 12 (x86/x64)
 
 ## TLS 1.2 protocol
-To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-1.2). 
+To insure the security of data in transit to Log Analytics, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
 
 ## Network firewall requirements
 The information below list the proxy and firewall configuration information required for the Linux and Windows agent to communicate with Log Analytics.  
