@@ -21,7 +21,7 @@ ms.custom: mvc
 ![Sample app running in Azure](TODO)
 
 > [!NOTE]
-> This quickstart deploys a public image from Docker Hub. To deploy a your own Python application to Azure, see [Flask quickstart using Azure Container Registry](https://github.com/qubitron/flask-webapp-quickstart).
+> To learn how to deploy your own Python application to Azure, see [Flask quickstart using Azure Container Registry](https://github.com/qubitron/flask-webapp-quickstart).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
