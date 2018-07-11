@@ -312,20 +312,28 @@ In contrast 'NodeWise' policy patches only one node at a time, this implies over
 
 If your cluster can tolerate running on N-1 number of upgrade domains during patching cycle (where N is the total number of upgrade domains on your cluster), then you can set the policy as 'UpgradeDomainWise', otherwise set it to 'NodeWise'.
 
-Q. **Why does patching across clusters take so long to run?**
+Q. **How much time does it take to patch a node ?**
 
-A. The time needed by the patch orchestration app is mostly dependent on the following factors:
+A. Patching a node may take minutes (eg: [Windows Defender definition updates](https://www.microsoft.com/wdsi/definitions)) to hours (eg: [Windows Cumulative updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Time required to patch a node depends mostly on 
+ - The size of updates
+ - Number of updates which have to be applied in a patching window
+ - Time it takes to install the updates, reboot the node (if required), and finish post-reboot installation steps.
+ - Performance of VM/machine and network conditions.
 
-- The policy of the Coordinator Service. 
-  - The default policy, `NodeWise`, results in patching only one node at a time, which would be slower than `UpgradeDomainWise`.
-- The number of updates available for download and installation. 
-- The average time needed to download and install an update, which should not exceed a couple of hours.
-- The performance of the VM and network bandwidth.
+Q. **How long does it take to patch an entire cluster ?**
+
+A. The time needed to patch an entire cluster depends on the following factors:
+
+- Time needed to patch a node.
+- The policy of the Coordinator Service. - The default policy, `NodeWise`, results in patching only one node at a time, which would be slower than `UpgradeDomainWise`. Eg: If a node takes ~1 hour to be patched, inorder to patch a 20 node (same type of nodes) cluster with 5 upgrade domains, each containing 4 nodes.
+    - It should take ~20 hours to patch the entire cluster, if policy is `NodeWise`
+    - It should take ~5 hours if policy is `UpgradeDomainWise`
 - Cluster load - Each patching operation requires relocating the customer workload to other available nodes in the cluster. Node undergoing patch would be in [Disabling](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) state during this time. If the cluster is running near peak load, the disabling process would take longer time. Hence overall patching process may appear to be slow in such stressed conditions.
+- Cluster health failures during patching - Any [degradation](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) in [health of the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) would interrupt the patching process. This would add to the overall time required to patch the entire cluster.
 
 Q. **Why do I see some updates in Windows Update results obtained via REST API, but not under the Windows Update history on the machine?**
 
-A. Some product updates would only appear in their respective update/patch history. For example, Windows Defender updates do not show up in Windows Update history on Windows Server 2016.
+A. Some product updates would only appear in their respective update/patch history. For example, Windows Defender updates may or may not show up in Windows Update history on Windows Server 2016.
 
 Q. **Can Patch Orchestration app be used to patch my dev cluster (one-node cluster) ?**
 
