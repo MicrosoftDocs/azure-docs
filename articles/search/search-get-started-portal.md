@@ -13,7 +13,7 @@ ms.author: heidist
 ---
 # Tutorial: Use built-in tools for Azure Search indexing and queries
 
-In the Azure portal, you can use built-in tools for Azure Search concept testing and hands on experience with minimal ramp up. While portal tools do not offer full parity with .NET and REST APIs, for quick proof-of-concept  testing, wizards and editors offer an easy assist. This code-free introduction gets you started with a small published data set so that you can write interesting queries right away. 
+In an Azure Search service page in the Azure portal, you can use built-in tools for concept testing and a hands-on experience with minimal ramp up. While portal tools do not offer full parity with .NET and REST APIs, for quick proof-of-concept testing, the wizards and editors offer an easy assist. This code-free introduction gets you started with a small published data set so that you can write interesting queries right away. 
 
 > [!div class="checklist"]
 > * Start with public sample data and auto-generate an Azure Search index using the **Import data** wizard. 
@@ -88,9 +88,9 @@ To monitor data import, go back to the service dashboard, scroll down, and doubl
 
 ## View the index
 
-Tiles in the service dashboard provide both summary information as well as access to detailed information. For example, in the **Indexes** tile, you should see the *realestate-us-sample* index that you just creatd.
+Tiles in the service dashboard provide both summary information as well as access to detailed information. For example, in the **Indexes** tile, you should see a list of existing indexes, including the *realestate-us-sample* index that you just created in the previous step.
 
-Click the index now to view the portal options for index definition. An **Add/Edit Fields** option allows you to create and fully attribute new fields. Existing fields are already persisted in Azure Search and are thus non-modifiable, not even in code. To change an existing field, create a new one and the drop the original. 
+Click the *realestate-us-sample* index now to view the portal options for its definition. An **Add/Edit Fields** option allows you to create and fully attribute new fields. Existing fields have a physical representation in Azure Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new one and the drop the original. 
 
    ![sample index definition][10]
 

@@ -53,9 +53,9 @@ A sample data set has been prepared for you. **Download [clinical-trials-json.zi
 
 Contained in the sample are example JSON files, which were originally text files obtained from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). We have converted them to JSON for your convenience.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the [Azure portal](http://portal.azure.com).
+Sign in to the [Azure portal](http://portal.azure.com).
 
 ## Upload the sample data
 

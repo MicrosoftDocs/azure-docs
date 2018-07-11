@@ -72,11 +72,11 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Sample data consists of a small file set of different types. 
 
-1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container named `basicdemo`. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
+1. Sign up for Azure Blob storage, create a storage account, sign in to Storage Explorer, and create a container named `basicdemo`. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
 
 1. Using the Azure Storage Explorer, in the `basicdemo` container you created, click **Upload** to upload the sample files.
 
-1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to you storage account in the Azure portal. On **Access keys**, and then copy the **Connection String**  field.
+1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to your storage account in the Azure portal. On **Access keys**, and then copy the **Connection String**  field.
 
   The connection string should be a URL similar to the following example:
 
@@ -408,7 +408,7 @@ Content-Type: application/json
 
 The response tells you whether the indexer is running. After indexing is finished, use another HTTP GET to the STATUS endpoint (as above) to see reports of any errors and warnings that occurred during enrichment.  
 
-Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files). You can review the status reponse for verbose information about warnings emitted during indexing.
+Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files). You can review the status response for verbose information about warnings emitted during indexing.
  
 ## Verify content
 
