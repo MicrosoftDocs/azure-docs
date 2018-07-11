@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 07/11/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 ---
@@ -25,7 +25,7 @@ This article provides Azure Stack network infrastructure information to help you
 > To resolve external DNS names from Azure Stack (for example, www.bing.com), you need to provide DNS servers to forward DNS requests. For more information about Azure Stack DNS requirements, see [Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md).
 
 ## Physical network design
-The Azure Stack solution requires a resilient and highly available physical infrastructure to support its operation and services. The following diagram represents our recommended design:
+The Azure Stack solution requires a resilient and highly available physical infrastructure to support its operation and services. Uplinks from ToR to Border switches are limited to SFP+ media and 1GB or 10GB speeds. Check with your original equipment manufacturer (OEM) hardware vendor for availability. The following diagram represents our recommended design:
 
 ![Recommended Azure Stack network design](media/azure-stack-network/recommended-design.png)
 
