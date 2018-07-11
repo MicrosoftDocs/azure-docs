@@ -24,7 +24,7 @@ Application Insights has always provided a summary overview pane to allow quick,
 
 The new overview dashboard now launches by default:
 
-![Overview Preview Pane](.\media\app-insights-overview-dashboard\overview-0001.png)
+![Overview Preview Pane](.\media\app-insights-overview-dashboard\overview.png)
 
 ## Better performance
 
