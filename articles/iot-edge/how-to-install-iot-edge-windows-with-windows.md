@@ -137,7 +137,7 @@ To retrieve your ip address, enter `ipconfig` in your PowerShell window and copy
 
 ![nat][img-nat]
 
-Update the **workload_uri** and **management_uri** in the **connect:** section of the configuration file. Replace **\<GATEWAY_ADDRESS\>** with the IP address that you copied. 
+Update the **workload_uri** and **management_uri** in the **connect:** section of the configuration file. Replace **\<GATEWAY_ADDRESS\>** with the vEthernet IP address that you copied.
 
 ```yaml
 connect:
@@ -145,7 +145,7 @@ connect:
   workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Enter the same addresses in the **listen:** section of the configuration, using your IP address as the gateway address.
+Enter the same addresses in the **listen:** section.
 
 ```yaml
 listen:
