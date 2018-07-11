@@ -9740,6 +9740,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/machine-learning/team-data-science-process/create-features-blob.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/machine-learning-data-science-create-features-hive.md",
             "redirect_url": "/azure/machine-learning/team-data-science-process/create-features-hive",
             "redirect_document_id": false
@@ -26144,16 +26149,6 @@
         "source_path": "articles/cognitive-services/LUIS/Create-new-app.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-start-new-app",
         "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/active-directory/develop/active-directory-enterprise-app-role-management.md",
-            "redirect_url": "/azure/active-directory/active-directory-enterprise-app-role-management",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/machine-learning/team-data-science-process/create-features-blob.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
-            "redirect_document_id": false
         },
         {
         "source_path": "articles/cognitive-services/LUIS/Label-Suggested-Utterances.md",
