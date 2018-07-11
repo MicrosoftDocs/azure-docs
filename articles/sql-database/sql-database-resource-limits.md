@@ -26,7 +26,7 @@ This article provides an overview of the Azure SQL Database resource limits and 
 |||
 
 > [!NOTE]
-> To obtain more server or DTU /eDTU quota than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”. The DTU / eDTU quota constrains the number of elastic pools per server. 
+> To obtain more DTU /eDTU quota or more servers than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”. The DTU / eDTU quota and database limit per server constrains the number of elastic pools per server. 
 
 > [!IMPORTANT]
 > As the number of databases approaches the limit per server, the following can occur:

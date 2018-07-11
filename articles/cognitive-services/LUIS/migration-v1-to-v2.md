@@ -128,7 +128,7 @@ Several APIs that return LUIS metadata have new names.
 
 
 ## "Sample" renamed to "suggest"
-LUIS suggests utterances from existing [endpoint utterances](label-suggested-utterances.md) that may enhance the model. In the previous version, this was named **sample**. In the new version, the name is changed from sample to **suggest**. This is called **[Review endpoint utterances](https://docs.microsoft.com/azure/cognitive-services/LUIS/label-suggested-utterances)** in the LUIS website.
+LUIS suggests utterances from existing [endpoint utterances](luis-how-to-review-endoint-utt.md) that may enhance the model. In the previous version, this was named **sample**. In the new version, the name is changed from sample to **suggest**. This is called **[Review endpoint utterances](luis-how-to-review-endoint-utt.md)** in the LUIS website.
 
 | version | route |
 |--|--|
@@ -150,7 +150,7 @@ LUIS suggests utterances from existing [endpoint utterances](label-suggested-utt
 The exported 1.x app's JSON has some areas that you need to change before importing into [LUIS][LUIS] 2.0. 
 
 ### Prebuilt entities 
-The [prebuilt entities](Pre-builtEntities.md) have changed. Make sure you are using the V2 prebuilt entities. This includes using [datetimeV2](pre-builtentities.md?#use-a-prebuilt-datetimev2-entity), instead of datetime. 
+The [prebuilt entities](luis-prebuilt-entities.md) have changed. Make sure you are using the V2 prebuilt entities. This includes using [datetimeV2](luis-prebuilt-entities.md#use-a-prebuilt-datetimev2-entity), instead of datetime. 
 
 ### Actions
 The actions property is no longer valid. It should be an empty 

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.component: hybrid
-ms.author: markvi
+ms.author: billmath
 
 ---
 # Azure AD Connect sync: Understand and customize synchronization

@@ -15,7 +15,7 @@ ms.author: v-geberr
 Authoring access is available for owners and collaborators. For a private app, endpoint access is available for owners and collaborators. For a public app, endpoint access is available to everyone that has their own LUIS account and has the public app's ID. 
 
 ## Access to authoring
-Access to the app from the [LUIS][LUIS] website or the [authoring APIs](https://aka.ms/luis-authoring-apis) is controlled by the owner of the app. 
+Access to the app from the [LUIS](luis-reference-regions.md#luis-website) website or the [authoring APIs](https://aka.ms/luis-authoring-apis) is controlled by the owner of the app. 
 
 The owner and all collaborators have access to author the app. 
 
@@ -28,7 +28,7 @@ The owner and all collaborators have access to author the app.
 |Make app public|When an app is public, anyone with an authoring or endpoint key can query the app.|
 |Modify model|
 |Publish|
-|Review endpoint utterances for [active learning](label-suggested-utterances.md)|
+|Review endpoint utterances for [active learning](luis-how-to-review-endoint-utt.md)|
 |Train|
 
 ## Access to endpoint
@@ -45,7 +45,7 @@ A private app's endpoint is only available to the following:
 |--|--|--|
 |Owner's authoring key| Up to 1000 endpoint hits|
 |Collaborators' authoring keys| Up to 1000 endpoint hits|
-|Endpoint keys added from **[Publish](publishapp.md)** page|Owner and collaborators can add endpoint keys|
+|Endpoint keys added from **[Publish](luis-how-to-publish-app.md)** page|Owner and collaborators can add endpoint keys|
 
 Other authoring or endpoint keys have **no** access.
 
@@ -75,5 +75,3 @@ LUIS successfully completed the ISO 27001:2013 and ISO 27018:2014 audit with ZER
 ## Next steps
 
 See [Best Practices](luis-concept-best-practices.md) to learn how to use intents and entities for the best predictions.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

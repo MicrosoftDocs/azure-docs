@@ -98,7 +98,7 @@
 
 ### Extended IoT scenarios
 #### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
-#### [Save IoT Hub messages to Azure data storage](iot-hub-store-data-in-azure-table-storage.md)
+#### [Save IoT Hub messages to Azure Blob storage](iot-hub-store-data-in-azure-table-storage.md)
 #### [Data Visualization in Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Data Visualization with Web Apps](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Weather forecast using Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
@@ -263,6 +263,11 @@
 ### [IoT Device SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # Resources
+## [Azure IoT Samples for C# (.NET)](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/)
+## [Azure IoT Samples for Node.js](https://azure.microsoft.com/resources/samples/azure-iot-samples-node/)
+## [Azure IoT Samples for Java](https://azure.microsoft.com/resources/samples/azure-iot-samples-java/)
+## [Azure IoT Samples for Python](https://azure.microsoft.com/resources/samples/azure-iot-samples-python/)
+## [Azure IoT Samples for iOS Platform](https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/)
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Customer data requests](iot-hub-customer-data-requests.md)
