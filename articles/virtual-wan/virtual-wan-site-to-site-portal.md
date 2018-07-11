@@ -155,30 +155,131 @@ Use the VPN device configuration to configure your on-premises VPN device.
 ### Understanding the VPN device configuration file
 
 This is an example of a device configuration file. The device configuration file contains the settings to use when configuring your on-premises VPN device.
- 
-```
-[{"configurationVersion":{"LastUpdatedTime":"2018-07-03T18:29:49.8405161Z","Version":"r403583d-9c82-4cb8-8570-1cbbcd9983b5"},
-"vpnSiteConfiguration":{"Name":"testsite1","IPAddress":"73.239.3.208"},"vpnSiteConnections":[{"hubConfiguration":{"AddressSpace":"10.1.0.0/24","Region":"West Europe"},
-"gatewayConfiguration":{"IpAddresses":{"Instance0":"104.45.18.186","Instance1":"104.45.13.195"}},
-"connectionConfiguration":{"IsBgpEnabled":false,"PSK":"bkOWe5dPPqkx0DfFE3tyuP7y3oYqAEbI","IPsecParameters":{"SADataSizeInKilobytes":102400000,"SALifeTimeInSeconds":3600}}}]}, 
-
-{"configurationVersion":{"LastUpdatedTime":"2018-07-03T18:29:49.8405161Z","Version":"1f33f891-e1ab-42b8-8d8c-c024d337bcac"},
-"vpnSiteConfiguration":{"Name":" testsite2","IPAddress":"66.193.205.122"},"vpnSiteConnections":[{"hubConfiguration":{"AddressSpace":"10.1.0.0/24","Region":"West Europe"},
-"gatewayConfiguration":{"IpAddresses":{"Instance0":"104.45.18.187","Instance1":"104.45.13.195"}},
-"connectionConfiguration":{"IsBgpEnabled":false,"PSK":"XzODPyAYQqFs4ai9WzrJour0qLzeg7Qg","IPsecParameters":{"SADataSizeInKilobytes":102400000,"SALifeTimeInSeconds":3600}}}]},
-
-{"configurationVersion":{"LastUpdatedTime":"2018-07-03T18:29:49.8405161Z","Version":"cd1e4a23-96bd-43a9-93b5-b51c2a945c7"},
-"vpnSiteConfiguration":{"Name":" testsite3","IPAddress":"182.71.123.228"},"vpnSiteConnections":[{"hubConfiguration":{"AddressSpace":"10.1.0.0/24","Region":"West Europe"},
-"gatewayConfiguration":{"IpAddresses":{"Instance0":"104.45.18.187","Instance1":"104.45.13.195"}},
-"connectionConfiguration":{"IsBgpEnabled":false,"PSK":"YLkSdSYd4wjjEThR3aIxaXaqNdxUwSo9","IPsecParameters":{"SADataSizeInKilobytes":102400000,"SALifeTimeInSeconds":3600}}}]}]
-```
-
 When you view this file, notice the following information:
 
-* **IP addresses** - Virtual WAN IPsec gateways are active-active. You will see both IP addresses listed in this file. In this example, you see "Instance0" and "Instance1" for each site.
-* **BGP** - You can see if BGP is enabled in the *connectionConfiguration*.
-* **The pre-shared key** - PSK is the pre-shared key that is automatically generated for you. You can always edit the connection in the Overview page for a custom PSK.
+* **vpnSiteConfiguration:** This section denotes the device details set up as a site connecting to the virtual WAN. It includes the name and public ip address of the branch device.
+* **vpnSiteConnections:** This section provides information about the following:
 
+    * Address space of the virtual hub(s) VNet.<br>Example:
+ 
+        ```
+        "AddressSpace":"10.1.0.0/24"
+        ```
+    * Address space of the VNets that are connected to the hub.<br>Example:
+
+         ```
+        "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
+         ```
+    * IP addresses of the virtual hub vpngateway. Because the vpngateway has each connection comprising of 2 tunnels in active-active configuration, you will see both IP addresses listed in this file. In this example, you see "Instance0" and "Instance1" for each site.
+
+        ``` 
+        "Instance0":"104.45.18.186"
+        "Instance1":"104.45.13.195"
+        ```
+    * Connection configuration details: vpngateway connection configuration details such as BGP, pre-shared key etc. The PSK is the pre-shared key that is automatically generated for you. You can always edit the connection in the Overview page for a custom PSK.
+  
+  ```
+  { 
+      "configurationVersion":{ 
+         "LastUpdatedTime":"2018-07-03T18:29:49.8405161Z",
+         "Version":"r403583d-9c82-4cb8-8570-1cbbcd9983b5"
+      },
+      "vpnSiteConfiguration":{ 
+         "Name":"testsite1",
+         "IPAddress":"73.239.3.208"
+      },
+      "vpnSiteConnections":[ 
+         { 
+            "hubConfiguration":{ 
+               "AddressSpace":"10.1.0.0/24",
+               "Region":"West Europe",
+               "ConnectedSubnets":[ 
+                  "10.2.0.0/16",
+                  "10.30.0.0/16"
+               ]
+            },
+            "gatewayConfiguration":{ 
+               "IpAddresses":{ 
+                  "Instance0":"104.45.18.186",
+                  "Instance1":"104.45.13.195"
+               }
+            },
+            "connectionConfiguration":{ 
+               "IsBgpEnabled":false,
+               "PSK":"bkOWe5dPPqkx0DfFE3tyuP7y3oYqAEbI",
+               "IPsecParameters":{ 
+                  "SADataSizeInKilobytes":102400000,
+                  "SALifeTimeInSeconds":3600
+               }
+            }
+         }
+      ]
+   },
+   { 
+      "configurationVersion":{ 
+         "LastUpdatedTime":"2018-07-03T18:29:49.8405161Z",
+         "Version":"1f33f891-e1ab-42b8-8d8c-c024d337bcac"
+      },
+      "vpnSiteConfiguration":{ 
+         "Name":" testsite2",
+         "IPAddress":"66.193.205.122"
+      },
+      "vpnSiteConnections":[ 
+         { 
+            "hubConfiguration":{ 
+               "AddressSpace":"10.1.0.0/24",
+               "Region":"West Europe"
+            },
+            "gatewayConfiguration":{ 
+               "IpAddresses":{ 
+                  "Instance0":"104.45.18.187",
+                  "Instance1":"104.45.13.195"
+               }
+            },
+            "connectionConfiguration":{ 
+               "IsBgpEnabled":false,
+               "PSK":"XzODPyAYQqFs4ai9WzrJour0qLzeg7Qg",
+               "IPsecParameters":{ 
+                  "SADataSizeInKilobytes":102400000,
+                  "SALifeTimeInSeconds":3600
+               }
+            }
+         }
+      ]
+   },
+   { 
+      "configurationVersion":{ 
+         "LastUpdatedTime":"2018-07-03T18:29:49.8405161Z",
+         "Version":"cd1e4a23-96bd-43a9-93b5-b51c2a945c7"
+      },
+      "vpnSiteConfiguration":{ 
+         "Name":" testsite3",
+         "IPAddress":"182.71.123.228"
+      },
+      "vpnSiteConnections":[ 
+         { 
+            "hubConfiguration":{ 
+               "AddressSpace":"10.1.0.0/24",
+               "Region":"West Europe"
+            },
+            "gatewayConfiguration":{ 
+               "IpAddresses":{ 
+                  "Instance0":"104.45.18.187",
+                  "Instance1":"104.45.13.195"
+               }
+            },
+            "connectionConfiguration":{ 
+               "IsBgpEnabled":false,
+               "PSK":"YLkSdSYd4wjjEThR3aIxaXaqNdxUwSo9",
+               "IPsecParameters":{ 
+                  "SADataSizeInKilobytes":102400000,
+                  "SALifeTimeInSeconds":3600
+               }
+            }
+         }
+      ]
+   }
+  ```
 ### Configuring your VPN device
 
 >[!NOTE]
