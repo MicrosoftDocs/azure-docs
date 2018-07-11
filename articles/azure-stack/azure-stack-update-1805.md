@@ -130,7 +130,7 @@ The following are post-installation known issues for this build version.
 
   Both alerts #1 and #2 can be safely ignored and they'll close automatically over time. 
 
-  You migth also see the following alert for *Capacity*:  
+  You migth also see the following alert for *Capacity*. For this alert, the percentage of available memory identified in the description can vary:  
 
   Alert #3:
    - NAME:  Low memory capacity
