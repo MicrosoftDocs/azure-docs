@@ -21,7 +21,7 @@ For more information on the Opscode Chef framework itself, see the [Opscode webs
 
 ## Using Chef Attributes
 
-Chef `attributes` configure the operation of the `run_list` for an individual node or node array. They should be set in the node's `[[[configuration]]]` sub-section. For example, to set the CycleServer Admin Password for a node configured to run CycleServer::
+Chef `attributes` configure the operation of the `run_list` for an individual node or node array. They should be set in the node's `[[[configuration]]]` sub-section. For example, to set the CycleServer Admin Password for a node configured to run CycleServer:
 
     [[node cycle_server]]
 
@@ -71,23 +71,6 @@ Custom configuration sections can be used in order to download objects from anot
 | proxy_port  | Port to use for proxy.                                                                                                                                   |
 | user        | Local system user that will use this configuration. Configuration file is placed in this user’s home directory (`filename` is ignored when this is used) |
 | username    | Access_key/username for Azure.                                                                                                                           |
-
-> [!NOTE]
-> AWS only: The `[:region:]` special symbol can be used to configure thunderball on a per-region basis
-> (e.g. by using a `base` of `s3://com.example.cyclecloud-packages.[:region:]`)
-
-An example of using a custom configuration to download an application tarball:
-
-      thunderball_config "our_repo" do
-          base 's3://com.example.packages/cyclecloud'
-          endpoint 's3.amazonaws.com'
-          filename '/root/our_repo.cfg'
-      done
-
-      thunderball "Download application" do
-          config 'our_repo'
-          url 'application-1.2.3.tgz'
-      done
 
 # Attribute Reference
 

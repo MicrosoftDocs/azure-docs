@@ -13,29 +13,23 @@ In this quickstart, you will create an HPC cluster configured with [Open Grid Sc
 
 (kimli add screenshot here plz)
 
-## Specify Cluster Name and Region
+## New Cluster Settings
 
-In the cluster creation wizard, the provider and credentials will be automatically set for you based on the information you added to the `params-cyclecloud.json` file in the first quickstart. Specify the cluster name and region in CycleCloud now, then click Next.
+The ARM template set some of these settings for you, but others need to be set here. On the **About** page, enter the Cluster Name you specified in the first quickstart, then click **Next**.
 
-(kimli add screenshot)
+### Required Settings
 
-## Cluster Software
+Under **Virtual Machines**, use the dropdown to select your region. **Master VM Type** and **Execute VM Type** refer to the infrastructure used in your cluster, and should be automatically populated for you.
 
-The Cluster Software page is where you would select the operating systems for your cluster and node, the file with your node configuration (cluster-init), installed software stacks, and the ssh key to enable direct access. These are the default values for the CycleCloud cluster template, and do not need to be changed. Click Next to continue.
+Azure CycleCloud will automatically scale your cluster if you choose to enable it on this screen. For this quickstart, ensure that Autoscale is selected, and the Max Cores has been set to 100.
 
-(kimli screenshot)
+Under **Networking**, select the subnet to use for the compute infrastructure. Use `cyclevnet-compute` for this exercise, then click **Next**.
 
-## Compute Backend
+### Advanced Settings
 
-Compute Backend allows users to customize the type of infrastructure used in the cluster, as well as control the autoscaling behaviour (which is enabled by default). These have already been set by the ARM template, so click Next to continue.
+Your credentials will be automatically set for you, based on the information you added to the `params-cyclecloud.json` file in the first quickstart. Software allows you to select the operating system and any custom specifications you have. The default CycleCloud cluster template has selected these, and do not need to be changed at this time.
 
-(screenshot)
-
-## Networking
-
-The Networking page is where you select the subnet to use for the compute infrastructure. Select `cyclevnet-compute` using the dropdown. All other options can be ignored at this time.
-
-Click **Save**.
+The Advanced Networking options allow you to control access to and from your cluster. The default settings here are appropriate and do not need to be changed. Click **Save**.
 
 ## Usage Alert
 
