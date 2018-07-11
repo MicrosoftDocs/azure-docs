@@ -73,9 +73,9 @@ To learn how to edit a template using Visual Studio, you add one more element in
       }
     ```
 
-    If you copied and pasted the code inside Visual Studio Code, try to re-type the **value** element to experience the intellisense capability of the Resource Manager Tools extension.
+    If you copied and pasted the code inside Visual Studio Code, try to retype the **value** element to experience the intellisense capability of the Resource Manager Tools extension.
 
-    ![resource manager template visual studio code intellisense](./media/resource-manager-quickstart-create-template-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
+    ![Resource Manager template visual studio code intellisense](./media/resource-manager-quickstart-create-template-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
 2. Select **File**>**Save** to save the file.
 
