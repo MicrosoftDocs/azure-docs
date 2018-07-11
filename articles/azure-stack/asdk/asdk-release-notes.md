@@ -34,7 +34,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 ### Fixed issues
 
-- <!—2448955 – IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
+- <!-- 2448955 – IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
@@ -81,11 +81,6 @@ This build includes the following improvements and fixes for Azure Stack.
 
   Both alerts can be safely ignored and will close automatically over time.  
 
-- <!-- 2392907 – ASDK -->	You might see a *critical* alert for **Low memory capacity**. This alert has the following description: *The region has consumed more than 95.00 % of available memory. Creating virtual machines with large amounts of memory may fail.*
-
-  This alert can be generated when Azure Stack incorrectly accounts for memory use on the Azure Stack development kit.  
-
-  This alert can be ignored, and the issue has no effect on the placement of virtual machines.
 
 - <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 

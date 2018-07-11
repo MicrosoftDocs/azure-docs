@@ -39,7 +39,7 @@ This update includes the following improvements for Azure Stack.
 
 ### Fixed issues
 
-<!-- 448955 – IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
+- <!-- 448955 – IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
