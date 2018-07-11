@@ -18,4 +18,4 @@ The Azure CycleCloud quickstart has a few prerequisites:
 3.	A [service principal](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) in your Azure Active Directory
 4.	An SSH keypair
 
-Working through all the quickstarts should take 60 to 90 minutes. You will get the most out of them if they are done in order. Get started now!
+Working through all the quickstarts should take 60 to 90 minutes. You will get the most out of them if they are done in order. [Get started now](https://docs.microsoft.com/en-us/azure/cyclecloud/quickstart-install-cyclecloud)!

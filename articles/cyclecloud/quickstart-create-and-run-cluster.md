@@ -51,4 +51,4 @@ It's time to put your cluster to work. In the cluster summary window, click **St
 
 Once the cluster is started, it will take several minutes to provision and orchestrate the VM for the cluster's master node, as well as install and configure the Grid Engine job queue and scheduler. You can monitor the progress in the Cluster VM Details tab, as well as in the Event Log.
 
-QuickStart 2 ends here. You've used the GUI to configure your CycleCloud installation, and started up your cluster as well as setting a budget alert of $100. Continue on to QuickStart 3 now!
+QuickStart 2 ends here. You've used the GUI to configure your CycleCloud installation, and started up your cluster as well as setting a budget alert of $100. Continue on to [QuickStart 3](https://docs.microsoft.com/en-us/azure/cyclecloud/quickstart-submit-jobs) now!

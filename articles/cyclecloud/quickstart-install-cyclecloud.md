@@ -122,4 +122,4 @@ To connect to the CycleCloud webserver, retrieve the FQDN of the CycleServer VM 
 
 Login to the webserver using the `cycleadmin` user and the `cyclecloudAdminPW` password defined in the `params-cyclecloud.json` parameters file.
 
-That's the end of QuickStart 1, which covered the installation and setup of Azure CycleCloud via ARM Template. Continue on to QuickStart 2 now!
+That's the end of QuickStart 1, which covered the installation and setup of Azure CycleCloud via ARM Template. Continue on to [QuickStart 2](https://docs.microsoft.com/en-us/azure/cyclecloud/quickstart-create-and-run-cluster) now!

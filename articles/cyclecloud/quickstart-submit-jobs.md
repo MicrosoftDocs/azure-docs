@@ -69,4 +69,4 @@ In our quickstart, you submitted 100 jobs. 100 cores will be requested, but the 
 
 When the jobs are complete and the nodes are idle, the compute VMs will scale down as well.
 
-QuickStart 3 is complete. In this exercise, you've submitted 100 jobs to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity. Continue on to QuickStart 4 now!
+QuickStart 3 is complete. In this exercise, you've submitted 100 jobs to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity. Continue on to [QuickStart 4](https://docs.microsoft.com/en-us/azure/cyclecloud/quickstart-clean-up-resources) now!

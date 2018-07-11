@@ -1,26 +1,25 @@
 # Jetpack
 
-## Overview
-Jetpack is a utility that is installed into all virtual machines(VMs) orchestrated by Azure
-CycleCloud when VMs are provisioned to become nodes of a cluster. Jetpack is required on every node of a cluster, as it provides three main functions:
+When a virtual machine is provisioned to become a node in a cluster, Jetpack is automatically installed when using Azure CycleCloud. Jetpack is required on every node of a cluster, as it provides three main functions:
 
 1. Node Configuration
 
-Azure CycleCloud uses [Chef](https://www.chef.io) to automate the configuration of a provisioned VM into a working cluster node, and Jetpack plays a central role in this process. A Chef client is embedded within Jetpack, and the Chef cookbooks needed for the configuration of the node are downloaded by Jetpack.
+Azure CycleCloud uses [Chef](https://www.chef.io) to automate the configuration of a provisioned VM into a working cluster node. A Chef client is embedded within Jetpack, and the Chef cookbooks needed for the configuration of the node are downloaded by Jetpack.
 
 2. Distributed Synchronization
 
-Jetpack manages communication between the node and the Azure CycleCloud application server, and this enables Azure CycleCloud to monitor the status of the provisioning VMs and synchronize the orchestration of multiple nodes in the cluster.
+Jetpack manages communication between the node and the Azure CycleCloud application server, which enables CycleCloud to monitor the status of the provisioning VMs and synchronize the orchestration of multiple nodes in the cluster.
 
-3. Heath Check
+3. HeathCheck
 
-Jetpack runs health checks on VMs and terminates them if they are unhealthy.
+Jetpack runs [HealthCheck](https://docs.microsoft.com/en-us/azure/cyclecloud/healthcheck) on VMs, and terminates them if they are unhealthy.
 
 ## Jetpack Installation
-When you first start a cluster through CycleCloud, it CycleCloud fetches the jetpack installer and caches it into the locker in your Azure Storage Account (TODO: provide link to reference to CycleCloud lockers). When the VMs in the cluster are provisioned, a [custom script extension](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/overview) is executed as part of the boot process which downloads the Jetpack installer from your locker cache and installs it on the VM.
+
+When you first start a cluster using Azure CycleCloud, the software fetches the jetpack installer and caches it into a locker in your Azure Storage Account. When the VMs in the cluster are provisioned, a [custom script extension](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/overview) is executed as part of the boot process. This will download the Jetpack installer from your locker cache and install it on the VM.
 
 ## Jetpack Install Location
-All Jetpack files are installed inside a singular directory tree.
+All Jetpack files are installed inside a singular directory tree:
 
 * Windows: C:\cycle\jetpack
 * Linux: /opt/cycle/Jetpack
@@ -29,12 +28,11 @@ In addition to creating this directory, the Jetpack installer:
 
   * Creates system init startup scripts which configure a VM as a cluster
     node
-  * Creates udev rules on Linux.
-  * Installs the [HealthCheck service](TODO: need a link to the healthcheck
-    section below)
+  * Creates udev rules on Linux
+  * Installs the [HealthCheck](https://docs.microsoft.com/en-us/azure/cyclecloud/healthcheck) service
   * Sets the environment variable `CYCLECLOUD_HOME`
 
-### Jetpack Sub-Directories
+### Jetpack Subdirectories
 
 | Directory | Description                                                                                                                                                               |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
