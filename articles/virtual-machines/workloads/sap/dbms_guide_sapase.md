@@ -305,6 +305,8 @@ ms.custom: H1Hack27Feb2017
 
 # SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
 
+In this document, we cover several different areas to consider when deploying SAP ASE in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) as well as other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+
 ## Specifics to SAP ASE on Windows
 Starting with Microsoft Azure, you can easily migrate your existing SAP ASE applications to Azure Virtual Machines. SAP ASE in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management, and maintenance of enterprise breadth applications by easily migrating these applications to Microsoft Azure. With SAP ASE in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
 
@@ -346,6 +348,8 @@ For such systems the following steps should be performed for the additionally cr
 This configuration enables tempdb to either consume more space than the system drive is able to provide. As a reference one can check the tempdb device sizes on existing systems, which run on-premises. Or such a configuration would enable IOPS numbers against tempdb, which cannot be provided with the system drive. Again systems that are running on-premises can be used to monitor I/O workload against tempdb.
 
 Never put any SAP ASE devices onto the D:\ drive of the VM. This also applies to the tempdb, even if the objects kept in the tempdb are only temporary.
+
+For data and transaction log file deployments, the statements and suggestions made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). In case of Windows based deployments the usage of Windows Storage Spaces is recommended to use to build stripe sets with sufficient IOPS, throughput, and volume.  
 
 #### Impact of Database Compression
 In configurations where I/O bandwidth can become a limiting factor, every measure, which reduces IOPS might help to stretch the workload one can run in an IaaS scenario like Azure. Therefore, it is recommended to make sure that SAP ASE compression is used before uploading an existing SAP database to Azure.
@@ -501,6 +505,8 @@ This configuration enables tempdb to either consume more space than the system d
 
 Never put any SAP ASE directories onto /mnt or /mnt/resource of the VM. This also applies to the tempdb, even if the objects kept in the tempdb are only temporary because /mnt or /mnt/resource is a default Azure VM temp space, which is not persistent. More details about the Azure VM temp space can be found in [this article][virtual-machines-linux-how-to-attach-disk]
 
+For data and transaction log file deployments, the statements and suggestions made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). In case of Linux based deployments the usage of LVM or MDADM is recommended to use to build stripe sets with sufficient IOPS, throughput, and volume. 
+
 #### Impact of Database Compression
 In configurations where I/O bandwidth can become a limiting factor, every measure, which reduces IOPS might help to stretch the workload one can run in an IaaS scenario like Azure. Therefore, it is recommended to make sure that SAP ASE compression is used before uploading an existing SAP database to Azure.
 
@@ -606,4 +612,4 @@ With the SAP Sybase Replication Server (SRS) SAP ASE provides a warm standby sol
 
 The installation and operation of SRS works as well functionally in a VM hosted in Azure Virtual Machine Services as it does on-premises.
 
-ASE HADR via SAP Replication Server is NOT supported at this point in time. It might be tested with and released for Microsoft Azure platforms in the future.
+ASE HADR via SAP Replication Server is supported. it is highly recommended to use SAP ASE 16.03 to attempt such a configuration. More detailed instructions to install such configurations can be found in detail in this [blog](https://blogs.msdn.microsoft.com/saponsqlserver/2018/06/18/installation-procedure-for-sybase-16-3-patch-level-3-always-on-dr-on-suse-12-3-recent-customer-proof-of-concept/).

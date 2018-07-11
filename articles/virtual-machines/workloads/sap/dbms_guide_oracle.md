@@ -336,7 +336,7 @@ Exact configurations and functionality supported by Oracle and SAP on Azure are 
 
 As you realize, only the two guest operating systems of Windows and Oracle Linux are supported. Widely used SLES and RHEL Linux are not supported to deploy Oracle components in Azure. Oracle components do include as well the Oracle database client which is used by SAP applications to connect against the Oracle DBMS. Exceptions, according to SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619) are SAP components which are not using the Oracle client because those components might not need to connect to the Oracle DBMS. Such SAP components are SAP's stand-alone enqueue, message server and Enqueue replication services. Means despite running your Oracle DBMS and SAP application instances on Oracle Linux, you could run your SAP Central Services on SLES or RHEL and protect it with a Pacemkaer based luster. A component that is not supported by Oracle.
 
-## Oracle Configuration Guidelines for SAP Installations in Azure VMs using Windows
+## Oracle Configuration Guidelines for SAP Installations in Azure VMs
 ### Storage configuration
 Only single instance Oracle using NTFS formatted disks is supported. All database files must be stored on the NTFS file system based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). 
 Any kind of network drives or remote shares like Azure file services:
