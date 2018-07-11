@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
 ---
 
@@ -59,13 +59,13 @@ The following table shows several properties, accessible through Transact SQL, t
 | --- | --- |
 |No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in high availability <br>Data protected with automated backups <br>Customer configurable backup retention period (fixed to 7 days in Public Preview) <br>User-initiated backups <br>Point in time database restore capability |
 |**Security and compliance** | **Management**|
-|Isolated environment (VNet integration, single-tenant service, dedicated compute and storage <br>Encryption of the data in transit <br>Azure AD authentication, single sign-on support <br>Adheres to compliance standards same as Azure SQL database <br>SQL auditing <br>Threat detection |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service 
+|Isolated environment (VNet integration, single tenant service, dedicated compute and storage) <br>Transparent data encryption<br>Azure AD authentication, single sign-on support <br>Adheres to compliance standards same as Azure SQL database <br>SQL auditing <br>Threat detection |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service 
 
 ![single sign-on](./media/sql-database-managed-instance/sso.png) 
 
 ## vCore-based purchasing model (preview)
 
-The vCore-based purchasing model (preview) gives your flexibility, control, transparency and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+The vCore-based purchasing model (preview) gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 A virtual core represents the logical CPU offered with an option to choose between generations of hardware.
 - Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors.
@@ -76,13 +76,20 @@ The following table helps you understand how to select the optimal configuration
 ||Gen 4|Gen 5|
 |----|------|-----|
 |Hardware|Intel E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD vCore = 1 PP (physical core)|Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread)|
-|Performance levels|8, 16, 24 vCores|8, 16, 24, 32, 40 vCores|
-|Memory|7GB per vCore|5.5GB per vCore|
+|Performance levels|8, 16, 24 vCores|8, 16, 24, 32, 40, 64, 80 vCores|
+|Memory|7 GB per vCore|5.5 GB per vCore|
 ||||
 
-## Managed Instance service tier
+## Managed Instance service tiers
 
-Managed Instance is initially available in a single service tier - General Purpose - that is designed for applications with typical availability and common IO latency requirements.
+Managed Instance is available in two service tiers:
+- **General Purpose**: Designed for applications with typical availability and common IO latency requirements.
+- **Business Critical**: Designed for applications with high availability and low IO latency requirements.
+ 
+> [!IMPORTANT]
+> Changing your service tier from General Purpose to Business Critical or vice versa is not supported in Public Preview. If you want to migrate your databases to an instance in different service tier, you can create new instance, restore databases with point in time restore from the original instance and then drop original instance if it is not needed anymore. 
+
+### General Purpose service tier
 
 The following list describes key characteristic of the General Purpose service tier: 
 
@@ -96,15 +103,15 @@ The following diagram illustrates the active compute and the redundant nodes in 
  
 ![General Purpose service tier](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
 
-The following outlines the key features of the General Purpose service tier:
+The following list outlines the key characteristics of the General Purpose service tier:
 
 |Feature | Description|
 |---|---|
-| Number of vCores* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40 (Gen5)|
+| Number of vCores* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
 | SQL Server version / build | SQL Server (latest available) |
 | Min storage size | 32 GB |
 | Max storage size | 8 TB |
-| Max storage per database | 8 TB |
+| Max storage per database | Determined by the max storage size per instance |
 | Expected storage IOPS | 500-7500 IOPS per data file (depends on data file). See [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Number of data files (ROWS) per the database | Multiple | 
 | Number of log files (LOG) per database | 1 | 
@@ -119,6 +126,35 @@ The following outlines the key features of the General Purpose service tier:
 
 \* A virtual core represents the logical CPU offered with an option to choose between generations of hardware. Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors and Gen 5 Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors. 
 
+### Business Critical service tier
+
+Business Critical service tier is built for applications with high IO requirements. It offers highest resilience to failures using several isolated Always On replicas. The following diagram illustrates underlying architecture of this service tier:
+
+![Business Critical service tier](./media/sql-database-managed-instance/business-critical-service-tier.png)  
+
+The following list outlines the key characteristics of the Business Critical service tier: 
+-	Designed for business applications with highest performance and HA requirements 
+-	Comes with super-fast SSD storage (up to 1 TB on Gen 4 and up to 4 TB on Gen 5)-	Supports up to 100 databases per instance 
+
+|Feature | Description|
+|---|---|
+| Number of vCores* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
+| SQL Server version / build | SQL Server (latest available) |
+| Additional features | [In-Memory OLTP](sql-database-in-memory.md)<br> 1 additional read-only replica ([Read Scale-Out](sql-database-read-scale-out.md))
+| Min storage size | 32 GB |
+| Max storage size | Gen 4: 1 TB (all vCore sizes<br> Gen 5:<ul><li>1 TB for 8, 16 vCores</li><li>2 TB for 24 vCores</li><li>4 TB for 40, 60, 80 vCores</ul>|
+| Max storage per database | Determined by the max storage size per instance |
+| Number of data files (ROWS) per the database | Multiple | 
+| Number of log files (LOG) per database | 1 | 
+| Managed automated backups | Yes |
+| HA | Based on [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| Built-in instance and database monitoring and metrics | Yes |
+| Automatic software patching | Yes |
+| VNet - Azure Resource Manager deployment | Yes |
+| VNet - Classic deployment model | No |
+| Portal support | Yes|
+|||
+
 ## Advanced security and compliance 
 
 ### Managed Instance security isolation 
@@ -129,9 +165,15 @@ Managed Instance provide additional security isolation from other tenants in the
 - SQL endpoint is exposed only through a private IP address, allowing safe connectivity from private Azure or hybrid networks
 - Single-tenant with dedicated underlying infrastructure (compute, storage)
 
-The following diagram outlines isolation design: 
+The following diagram outlines various connectivity options for your applications: 
 
 ![high availability](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+
+To learn more details about VNet integration and networking policy enforcements at the subnet level, see [Configure a VNet for Azure SQL Database Managed Instance](sql-database-managed-instance-vnet-configuration.md) and [Connect your application to Azure SQL Database Managed Instance](sql-database-managed-instance-connect-app.md). 
+
+> [!IMPORTANT]
+> Place multiple managed instance in the same subnet, wherever that is allowed by your security requirements, as that will bring you additional benefits. Collocating instances in the same subnet will significantly simplify networking infrastructure maintenance and reduce instance provisioning time, since long provisioning duration is associated with the cost of deploying first managed instance in a subnet.
+
 
 ### Auditing for compliance and security 
 
@@ -142,6 +184,11 @@ The following diagram outlines isolation design:
 Managed Instance secures your data by providing encryption for data in motion using Transport Layer Security.
 
 In addition to transport layer security, SQL Database Managed Instance offers protection of sensitive data in flight, at rest and during query processing with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted is an industry-first that offers unparalleled data security against breaches involving the theft of critical data. For example, with Always Encrypted, credit card numbers are stored encrypted in the database always, even during query processing, allowing decryption at the point of use by authorized staff or applications that need to process that data. 
+
+### Data encryption at rest 
+[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) encrypts Azure SQL Managed Instance data files, known as encrypting data at rest. TDE performs real-time I/O encryption and decryption of the data and log files. The encryption uses a database encryption key (DEK), which is stored in the database boot record for availability during recovery. You can protect all your databases in Managed Instance with transparent data encryption. TDE is SQL’s proven encryption-at-rest technology that is required by many compliance standards to protect against theft of storage media. During public preview, the automatic key management model is supported (performed by the PaaS platform). 
+
+Migration of an encrypted database to SQL Managed Instance is supported via the Azure Database Migration Service (DMS) or native restore. If you plan to migrate encrypted database using native restore, migration of the existing TDE certificate from the SQL Server on-premise or SQL Server VM to Managed instance is a required step. For more information about migration options, see [SQL Server instance migration to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ### Dynamic data masking 
 
@@ -220,3 +267,4 @@ Managed Instance enable system administrator to focus on what matters the most f
 - For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
 - For a tutorial that creates a Managed Instance and restores a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- For pricing information, see [SQL Database Managed Instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).

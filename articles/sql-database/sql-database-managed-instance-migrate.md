@@ -74,6 +74,9 @@ Managed Instance supports the following database migration options (currently th
 - Azure Database Migration Service - migration with near-zero downtime
 - Native RESTORE from URL - uses native backups from SQL Server and requires some downtime
 
+> [!IMPORTANT]
+> When migrating a database protected by [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) to Azure SQL Managed Instance using native restore option, the corresponding certificate from the on-premises or IaaS SQL Server needs to be migrated before database restore. For detailed steps, see [Migrate TDE cert to Managed Instance](sql-database-managed-instance-migrate-tde-certificate.md).
+
 ### Azure Database Migration Service
 
 The [Azure Database Migration Service (DMS)](../dms/dms-overview.md) is a fully managed service designed to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. This service streamlines the tasks required to move existing third party and SQL Server databases to Azure. Deployment options at Public Preview include Azure SQL Database, Managed Instance, and SQL Server in an Azure Virtual Machine. DMS is the recommended method of migration for your enterprise workloads. 
