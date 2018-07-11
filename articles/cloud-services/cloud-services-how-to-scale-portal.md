@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: adegeo
+ms.author: jeconnoc
 ---
 
 # How to configure auto scaling for a Cloud Service in the portal

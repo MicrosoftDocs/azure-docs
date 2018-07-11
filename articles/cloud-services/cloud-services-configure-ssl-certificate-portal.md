@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
-ms.author: adegeo
+ms.author: jeconnoc
 
 ---
 # Configuring SSL for an application in Azure
