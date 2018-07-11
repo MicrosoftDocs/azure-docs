@@ -1,8 +1,8 @@
 ---
 title: How to use the Azure Maps Map Control | Microsoft Docs 
 description: Learn how to use the Azure Maps Map Control client-side Javascript library.
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
