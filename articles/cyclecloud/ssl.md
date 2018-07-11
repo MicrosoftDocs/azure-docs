@@ -68,19 +68,18 @@ To verify the keystore is defined correctly, run the following command:
 
     keytool -list -keystore .keystore
 
-You should get output like the following:
+You should get output similar to the following:
 
-  Your keystore contains 2 entries
+    Your keystore contains 2 entries
 
-  intermediate, Oct 8, 2013, trustedCertEntry,
-  Certificate fingerprint (MD5): 9D:48:42:0D:FF:58:19:38:86:BC:FD:41:D4:8A:41:F0
-  tomcat, Oct 8, 2013, PrivateKeyEntry,
-  Certificate fingerprint (MD5): 7C:3C:D2:E5:4D:8C:68:FE:52:5A:F8:78:C5:43:16:A1
+    intermediate, Oct 8, 2013, trustedCertEntry,
+    Certificate fingerprint (MD5): 9D:48:42:0D:FF:58:19:38:86:BC:FD:41:D4:8A:41:F0
+    tomcat, Oct 8, 2013, PrivateKeyEntry,
+    Certificate fingerprint (MD5): 7C:3C:D2:E5:4D:8C:68:FE:52:5A:F8:78:C5:43:16:A1
 
 Note that the `tomcat` entry **must** be listed as PrivateKeyEntry.
 
-Often the certificate authority will provide you with a PKCS7 formatted certificate, which packages the server
-and intermediate certificates into a single file. To import this certificate, you will first need to create a keystore using your combined certificate:
+Often the certificate authority will provide you with a PKCS7 formatted certificate, which packages the server and intermediate certificates into a single file. To import this certificate, you will first need to create a keystore using your combined certificate:
 
     keytool -importkeystore -srckeystore combined.p12 -srcstoretype PKCS12 -destkeystore CycleCloud.keystore -alias 1 -destalias tomcat
 
@@ -94,10 +93,10 @@ Finally you can verify the keystore is defined correctly:
 
 You should see the following:
 
-  Your keystore contains 1 entry
+    Your keystore contains 1 entry
 
-  tomcat, Oct 8, 2013, PrivateKeyEntry,
-  Certificate fingerprint (MD5): 7C:3C:D2:E5:4D:8C:68:FE:52:5A:F8:78:C5:43:16:A1
+    tomcat, Oct 8, 2013, PrivateKeyEntry,
+    Certificate fingerprint (MD5): 7C:3C:D2:E5:4D:8C:68:FE:52:5A:F8:78:C5:43:16:A1
 
 ## Configuring Azure CycleCloud to Use Your Keystore
 
@@ -113,8 +112,7 @@ To deploy on Linux, assuming CycleCloud is installed at /opt/cycle_server:
 
 On Linux you'll also want to make certain that .keystore can only be read and written to by the user your CycleCloud instance runs as.
 
-Next, edit the `CycleCloud Installation Dir/config/cycle_server.properties` file to tell CycleCloud the
-location and name of your keystore file and to turn on SSL in CycleCloud.
+Next, edit the `CycleCloud Installation Dir/config/cycle_server.properties` file to tell CycleCloud the location and name of your keystore file and to turn on SSL in CycleCloud.
 
 > [!NOTE]
 > When editing the cycle_server.properties file it is important that you first look for pre-existing key-value definitions in the file. If there is more than one definition, the last one is in effect.
@@ -131,14 +129,12 @@ values appropriately:
      # True if SSL is enabled
      webServerEnableHttps=true
 
-where 'changeit' should be the password you used when creating the keystore.
+where `changeit` should be the password used when creating the keystore.
 
 The default SSL port for CycleCloud is port 8443. If you'd like to
 run encrypted web communications on some other port you can change the
 `webServerSslPort` property to the port value. Please make sure the
-`webServerSslPort` and the `webServerPort` values DO NOT CONFLICT. We'll
-be running both encrypted and unencrypted channels to CycleCloud to
-test the encrypted channel to make certain it works.
+`webServerSslPort` and the `webServerPort` values DO NOT CONFLICT. 
 
 ## Configuring CycleCloud to use Native HTTPS
 
