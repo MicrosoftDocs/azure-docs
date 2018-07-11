@@ -93,7 +93,7 @@ Open a web browser and navigate to your new team project.
 
    ![Add MSBuild Task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-msbuild-task.png)
 
-   Change the **MSBuild Arguments** to the following:
+9. Change the **MSBuild Arguments** to the following:
 
    ```
    /p:CompilerTaskAssemblyFile="Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll"  /p:ASATargetsFilePath="..\Package\build\StreamAnalytics.targets"
@@ -101,11 +101,11 @@ Open a web browser and navigate to your new team project.
 
    ![Configure MSBuild task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-msbuild.png)
 
-9. In **Phase 1**, click **+** and add an **Azure Resource Group Deployment** task. 
+10. In **Phase 1**, click **+** and add an **Azure Resource Group Deployment** task. 
     
     ![Add an Azure Resource Group Deployment task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-deploy.png)
 
-10. Expand **Azure Details** and fill out the configuration with the following:
+11. Expand **Azure Details** and fill out the configuration with the following:
     
     |**Setting**  |**Suggested value**  |
     |---------|---------|
@@ -118,10 +118,6 @@ Open a web browser and navigate to your new team project.
     –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). Templates that    |
     
     ![Set properties](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-deploy-2.png)
-
-11. Click the ellipsis next to **Override template parameters** to change the values, if needed, and automatically populate the setting.
-    
-    ![Set override parameters](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-deploy-overrride-parameters.png)
 
 12. Click **Save & Queue** to test the build definition.
     
