@@ -364,8 +364,7 @@ The [host.json](functions-host-json.md#eventhub) file contains settings that con
 
 Use the Event Hubs output binding to write events to an event stream. You must have send permission to an event hub to write events to it.
 
-> [!NOTE]
-> Ensure the required package references are in place: [Functions 1.x](#packages---functions-1.x) or [Functions 2.x](#packages---functions-2.x) 
+Ensure the required package references are in place: [Functions 1.x](#packages---functions-1.x) or [Functions 2.x](#packages---functions-2.x) 
 
 ## Output - example
 
