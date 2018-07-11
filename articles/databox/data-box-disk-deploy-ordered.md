@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -75,8 +75,8 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredatabox) t
     |---|---|
     |Name|Provide a friendly name to track the order.<br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number. |
     |Resource group| Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together. |
-    |Destination Azure region| Select a region for your storage account.<br> Currently, storage accounts in all US and West and North Europe regions are supported. For more information, go to [Region availability](data-box-disk-overview.md#region-availability).|
-    |Storage account(s)|Based on the specified Azure region, select from the filtered list of an existing storage account. <br>You can also create a new General purpose v1 or General purpose v2 account. For more information on each of these account types, go to [About storage accounts](../storage/common/storage-create-storage-account.md#overview).|
+    |Destination Azure region| Select a region for your storage account.<br> Currently, storage accounts in all US and West and North Europe regions are supported. |
+    |Storage account(s)|Based on the specified Azure region, select from the filtered list of an existing storage account. <br>You can also create a new General purpose v1 or General purpose v2 account. |
     |Estimated data size in TB| Enter an estimate in TB. <br>Based on the size, Microsoft sends you an appropriate number of 3.5 TB or 7 TB SSDs. <br>The maximum usable capacity of 5 disks is up to 35 TB. |
 
 13. Click **Next**. 
