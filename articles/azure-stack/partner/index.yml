@@ -40,7 +40,7 @@ sections:
 - title: Step-by-step tutorials
   items:
   - type: paragraph
-    text: 'Learn how to add validate your Azure Stack hardware.'
+    text: 'Learn how to validate your Azure Stack hardware.'
   - type: list
     style: ordered
     items:
@@ -54,5 +54,5 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: Validation as service
+    - title: Validation as a service
       html: <a href="/azure/azure-stack/partner/azure-stack-vaas-parameters">Validation configuration file</a>

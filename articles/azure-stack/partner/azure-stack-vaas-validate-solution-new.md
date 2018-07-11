@@ -72,8 +72,8 @@ Add the following environmental parameters:
 | Azure Stack build | Required | Azure Stack build number (for example 20170501.1) Value must be a valid Azure Stack build number or version, e.g. 1.0.170330.9 |
 | Tenant ID | Required | Active Directory Tenant ID. This must be a GUID (for example ECA23256-6BA0-4F27-8E4D-AFB02F088363) |
 | Region | Required | Azure Stack deployment region |
-| Tenant Resource Manager endpoint | Required | Endpoint for Tenant ARM operations (for example https://management.loc-ext.domain.com) |
-| Admin Resource Manager endpoint | Not required | Endpoint for Tenant ARM operations (for example https://management.loc-ext.domain.com) |
+| Tenant Resource Manager endpoint | Required | Endpoint for Tenant Azure Resource Manager operations (for example https://management.loc-ext.domain.com) |
+| Admin Resource Manager endpoint | Not required | Endpoint for Tenant Azure Resource Manager operations (for example https://management.loc-ext.domain.com) |
 | External FQDN | Not required | External fully qualified domain name used as the suffix for endpoints. (for example local.azurestack.external or redmond.contoso.com) |
 | Number of nodes | Required | The number of nodes in your solution. |
 

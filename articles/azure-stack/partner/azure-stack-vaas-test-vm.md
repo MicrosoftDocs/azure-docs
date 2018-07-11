@@ -1,5 +1,5 @@
 ---
-title: Deploy the local agent and test image virtual machines | Microsoft Docs
+title: Deploy the local agent and test image virtual machines in Azure Stack validation as a service | Microsoft Docs
 description: Deploy the local agent and test image virtual machines for Azure Stack validation as a service.
 services: azure-stack
 documentationcenter: ''

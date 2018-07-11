@@ -1,5 +1,5 @@
 ---
-title: Validate software updates from Microsoft. | Microsoft Docs
+title: Validate software updates from Microsoft in Azure Stack validation as a service | Microsoft Docs
 description: Learn how to validate software updates from Microsoft with validation as a service.
 services: azure-stack
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Title | Microsoft Docs
+title: Azure Stack validation as a service known issues. | Microsoft Docs
 description: Azure Stack validation as a service known issues.
 services: azure-stack
 documentationcenter: ''
@@ -21,9 +21,7 @@ ms.reviewer: johnhas
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-
-What content should go here?
-
+These are the known issues for the Azure Stack validation as a service.
 
 ## Next steps
 

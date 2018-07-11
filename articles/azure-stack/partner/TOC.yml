@@ -18,7 +18,7 @@
     href: azure-stack-vaas-known-issues.md
 - name: Quickstart
   items:
-    - name: Set up your account with Azure Stack Valadation
+    - name: Set up your account with Azure Stack Validation 
       href: azure-stack-vaas-set-up-account.md
     - name: Test VMs
       href: azure-stack-vaas-test-vm.md
@@ -38,8 +38,8 @@
     href: azure-stack-vaas-monitor-test.md
 - name: Concepts
   items:
-  - name: Troubleshooting validation as a service
-    href: azure-stack-vaas-troubleshooting.md
+  - name: Troubleshoot validation as a service
+    href: azure-stack-vaas-troubleshoot.md
 
 - name: Reference
   items:

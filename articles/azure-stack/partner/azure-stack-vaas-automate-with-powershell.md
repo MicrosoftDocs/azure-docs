@@ -1,6 +1,6 @@
 ---
 title: Automate Azure Stack validation with PowerShell | Microsoft Docs
-description: YOu can automate Azure Stack validation with PowerShell.
+description: You can automate Azure Stack validation with PowerShell.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs

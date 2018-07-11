@@ -1,6 +1,6 @@
 ---
-title: Title | Microsoft Docs
-description: Azure Stack validation as a service known issues.
+title: Reschedule and cancel a validation as a service test for Azure Stack | Microsoft Docs
+description: You can schedule or cancel a test. For tests you can also get test information, test operations, and test logs.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs

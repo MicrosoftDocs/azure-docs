@@ -1,5 +1,5 @@
 ---
-title: Monitor a test  | Microsoft Docs
+title: Monitor a test with Azure Stack validation as a service | Microsoft Docs
 description: Monitor a test Azure Stack validation as a service known issues.
 services: azure-stack
 documentationcenter: ''
@@ -17,11 +17,13 @@ ms.reviewer: johnhas
 
 ---
 
-# Monitor a test 
+# Monitor a test with Azure Stack validation as a service
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 The execution of a test can be monitored by viewing the **Operations** page for test suites that are in progress or completed. This page details the status of the test and its operations.
+
+# Monitor a test
 
 1. Select a solution.
 

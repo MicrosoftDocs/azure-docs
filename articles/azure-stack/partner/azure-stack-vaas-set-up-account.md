@@ -1,5 +1,5 @@
 ---
-title: Set up your validation as a service account | Microsoft Docs
+title: Set up your Azure Stack validation as a service account | Microsoft Docs
 description: Learn how to set up your validation as a service account.
 services: azure-stack
 documentationcenter: ''

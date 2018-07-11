@@ -1,5 +1,5 @@
 ---
-title: Title | Microsoft Docs
+title: Azure Stack validation as a service release notes  | Microsoft Docs
 description: Azure Stack validation as a service known issues.
 services: azure-stack
 documentationcenter: ''
@@ -21,12 +21,7 @@ ms.reviewer: johnhas
 
 [!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-
-Add Release notes here.
-
-[https://github.com/Azure/azurestack-solutionvalidation/wiki/Releases#2018-04-02][1]
-
-[1]:	https://github.com/Azure/azurestack-solutionvalidation/wiki/Releases#2018-04-02
+These are the release notes for the Azure Stack validation as a service.
 
 ## Next steps
 
