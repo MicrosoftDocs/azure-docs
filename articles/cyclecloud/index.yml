@@ -23,36 +23,37 @@ sections:
       className: cardsM
       columns: 3
       items:
+        - href: cyclecloud-application
+          html: <p>We're new. We're great. Find out why.</p>
+          image:
+            src: /media/index/i_quick-start.svg
+          title: About Azure CycleCloud
         - href: quickstart-overview
           html: <p>New to Azure CycleCloud? Start here for a guided walkthrough of the installation, setup, and use of Azure CycleCloud.</p>
           image:
             src: /media/index/i_quick-start.svg
-          title: QuickStart
-        - href: /azure/cosmos-db/sql-api-introduction/
-          html: <p>Use the SQL API if you're building a new non-relational document database and want to query using familiar SQL syntax.</p>
+          title: QuickStarts
+        - href: clusters
+          html: <p>Use CycleCloud's Cluster Templates to create and scale your jobs quickly.</p>
           image:
             src: media/index/i_quick-start.svg
-          title: SQL API
-        - href: /azure/cosmos-db/graph-introduction/
-          html: <p>Use the Gremlin API if you're building a graph database to model and traverse relationships among entities.</p>
+          title: Clusters and Nodes
+        - href: projects
+          html: <p>Define node configurations and specifications and do a bunch of other stuff you never dreamed possible.</p>
           image:
             src: media/index/graph-api.svg
-          title: Gremlin API
-        - href: /azure/cosmos-db/mongodb-introduction/
-          html: <p>Use the MongoDB API if you are migrating data from a MongoDB database to Azure Cosmos DB's fully managed service.</p>
+          title: Projects
+        - href: storage
+          html: <p>You want to put it WHERE?</p>
           image:
             src: media/index/mongodb-api.svg
-          title: MongoDB API
+          title: Storage
         - href: /azure/cosmos-db/table-introduction/
-          html: <p>Use the Table API if you are migrating data from Azure Table storage to Azure Cosmos DB's premium table offering.</p>
+          html: <p>How great are tacos, anyway?</p>
           image:
             src: media/index/table-api.svg
-          title: Table API
-        - href: /azure/cosmos-db/cassandra-introduction/
-          html: <p>Use the Cassandra API if you are migrating data from Cassandra to Azure Cosmos DB's fully managed service.</p>
-          image:
-            src: media/index/cassandra-api.png
-          title: Cassandra API
+          title: Tacos
+
 
   - title: QuickStarts
     items:
