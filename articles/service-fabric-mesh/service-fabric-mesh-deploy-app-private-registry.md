@@ -6,7 +6,6 @@ documentationcenter: .net
 author: rwike77
 manager: jeconnoc
 editor: ''
-
 ms.assetid: 
 ms.service: service-fabric-mesh
 ms.devlang: azure-cli
@@ -40,11 +39,35 @@ Next, remove any previous installation of the Azure Service Fabric Mesh CLI modu
 az extension remove --name mesh
 ```
 
-Install the Azure Service Fabric Mesh CLI extension module. For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI.
+Install the Azure Service Fabric Mesh CLI extension module. Azure Service Fabric Mesh CLI is written as an extension to Azure CLI.
 
 ```azurecli
 az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.8.0-py2.py3-none-any.whl
 ```
+
+### Install Docker
+
+Install Docker to support the containerized Service Fabric apps used by Service Fabric Mesh.
+
+### Windows 10
+
+Download and install the latest version of [Docker Community Edition for Windows][download-docker]. 
+
+During the installation, select **Use Windows containers instead of Linux containers** when asked. You'll need to then log off and log back in. After logging back in, if you did not previously enable Hyper-V, you may be prompted to enable Hyper-V. You must enable Hyper-V and then restart your computer.
+
+After your computer has restarted, Docker will prompt you to enable the **Containers** feature, enable it and restart your computer.
+
+### Windows Server 2016
+
+Use the following PowerShell commands to install Docker. For more information, see [Docker Enterprise Edition for Windows Server][download-docker-server].
+
+```powershell
+Install-Module DockerMsftProvider -Force
+Install-Package Docker -ProviderName DockerMsftProvider -Force
+Install-WindowsFeature Containers
+```
+
+Restart your computer.
 
 ## Log in to Azure
 
@@ -55,13 +78,13 @@ az login
 az account set --subscription "<subscriptionName>"
 ```
 
-## Create a container registry and push image to it
+## Create a container registry and push an image to it
 
 Create an Azure Container Registry by following the instructions in [Create a private Docker registry in Azure with the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md). Perform the steps up to the [List container images](../container-registry/container-registry-get-started-azure-cli.md#list-container-images) step. Then, `aci-helloworld:v1` should be present in the private container registry.
 
 ## Retrieve credentials for the registry
 
-In order to deploy a container instance from the registry that was created, credentials must be provided during the deployment. Production scenarios should use a [service principal for container registry access](../container-registry/container-registry-auth-service-principal.md). For this article, enable the admin user on your registry with the following command:
+In order to deploy a container instance from the registry that was created, credentials must be provided during the deployment. Production scenarios should use a [service principal for container registry access](../container-registry/container-registry-auth-service-principal). For this article, enable the admin user on your registry with the following command:
 
 ```azurecli-interactive
 az acr update --name <acrName> --admin-enabled true
@@ -105,7 +128,7 @@ To conserve resources, delete the resources frequently. To delete resources crea
 az group delete --resource-group <resourceGroupName> 
 ```
 
-## Example JSON templates [jtw] Find a place for this & explain what's interesting about it.
+## Example JSON templates
 
 Linux: [https://seabreezequickstart.blob.core.windows.net/templates/private-registry/sbz_rp.linux.json](https://seabreezequickstart.blob.core.windows.net/templates/private-registry/sbz_rp.linux.json)
 
