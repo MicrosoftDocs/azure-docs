@@ -17,6 +17,7 @@ ms.date: 06/13/2018
 ms.author: ellacroi
 
 ---  
+# Determine your publishing option
 
 ![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
 
@@ -31,7 +32,7 @@ In this article, you will learn…
 <ul><li>	Which offer types are available for each publishing option </ul></li>
 
 
-# Selecting a Storefront, Publishing Option, and Offer Type for Your Solution
+## Selecting a Storefront, Publishing Option, and Offer Type for Your Solution
 
 Before you select a publishing option, it’s important to understand the storefront eligibility requirements for marketplace solutions, apps, and services:
 
@@ -44,7 +45,7 @@ Once you have registered to become a publisher and have received access to the C
 <ul>1.	Understand how the storefront for your offer will be determined</ul>
 <ul>2.	Choose a publishing option for your offer</ul>
 <ul>3.	Select an offer type and review the eligibility requirements</ul>
-<ul>4.	Build and configure your offer for publishing in the Cloud Partner Portal</il>
+<ul>4.	Build and configure your offer for publishing in the Cloud Partner Portal</il></ul>
 
 ## Understand storefront selection
 
