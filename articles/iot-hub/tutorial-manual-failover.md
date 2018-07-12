@@ -1,20 +1,21 @@
 ---
-title: Manual failover of an Azure IoT Hub | Microsoft Docs
-description: Show how to perform a manual failover for an Azure IoT Hub
+title: Manual failover of an Azure IoT hub | Microsoft Docs
+description: Show how to perform a manual failover for an Azure IoT hub
 author: robinsh
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-#Customer intent: As an IT Pro, I want to be able to perform a manual failover of my IoT Hub to a different regions, and then return it to the original region.
+#Customer intent: As an IT Pro, I want to be able to perform a manual failover of my IoT hub to a different region, and then return it to the original region.
 ---
 
-# Tutorial: Configure manual failover for an IoT Hub (public preview)
+# Tutorial: Perform manual failover for an IoT hub (public preview)
 
-Manual failover is a feature of IoT Hubs that allows customers to change their hub's operations to a different region. Manual failover can be done in the event of a disaster, or you can do a planned failover if you want to perform testing on the feature. (any other reasons? --Robin)
+Manual failover is a feature of IoT Hubs that allows customers to change their hub's operations to a different region. Manual failover can be done in the event of a disaster, or you can do a planned failover if you want to perform testing on the feature. 
+<!-- (any other reasons? --Robin) -->
 
 In this tutorial, you perform the following tasks:
 
@@ -29,9 +30,10 @@ In this tutorial, you perform the following tasks:
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Access to the public preview (do they have to request access, and if so, how? --Robin)
+- Access to the public preview 
+<!-- (do they have to request access, and if so, how? --Robin)-->
 
-## Create an IoT Hub
+## Create an IoT hub
 
 1. Log into the [Azure portal](https://portal.azure.com). 
 
@@ -119,7 +121,7 @@ After you have performed a manual failover, you can switch the hub back to the p
 * Once the failover (or failback) operation succeeds, all runtime operations should continue to work.
 
 * The manual failover feature will be offered to customers at no additional cost.
-(what about the cosmos db cost for storing the "docs"? --Robin)
+<!-- (what about the cosmos db cost for storing the "docs"? --Robin) -->
 
 ## Clean up resources 
 
