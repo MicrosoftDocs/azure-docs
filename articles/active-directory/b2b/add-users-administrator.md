@@ -72,10 +72,13 @@ To add B2B collaboration users to an application as an Azure AD administrator, f
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **Enterprise applications** > **All applications**.
 4. Select the application to which you want to add guest users.
-5. Under **Manage**, select **Users and groups**.
-6. Select **Add user**.
-7. Under **Add Assignment**, select **User and groups**.
-8. Do one of the following:
+5. On the application's dashboard, select **Total Users** to open the **Users and groups** pane.
+
+    ![Total Users button to add open Users and Groups](./media/add-users-administrator/AppUsersAndGroups.png)
+
+8. Select **Add user**.
+9. Under **Add Assignment**, select **User and groups**.
+10. Do one of the following:
    - If the guest user already exists in the directory, search for the B2B user. Select the user, and then click **Select** to add the user to the app.
    - If the guest user does not already exist in the directory, select **Invite**.
    ![Add invite button to add guest members](./media/add-users-administrator/AppInviteUsers.png)
