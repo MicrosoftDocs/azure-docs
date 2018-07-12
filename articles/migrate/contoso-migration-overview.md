@@ -73,7 +73,7 @@ The articles use two demo apps - SmartHotel, and osTicket.
 
 ## Next steps
 
-[Learn how](contoso-migration-infrastructure.md) Contoso sets up their on-premises and Azure infrastructure as they prepare for migration.
+[Learn how](contoso-migration-infrastructure.md) Contoso sets up an on-premises and Azure infrastructure to prepare for migration.
 
 
 
