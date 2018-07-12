@@ -1,5 +1,5 @@
 ---
-title: Quickstart:Create a Traffic Manager profile in Azure| Microsoft Docs
+title: Quickstart:Create a Traffic Manager profile in Azure portal| Microsoft Docs
 description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application.
 services: traffic-manager
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.date: 07/10/2018
 ms.author: kumud
 ---
 
-# Quickstart: Create a Traffic Manager profile for high availability of a web application
+# Quickstart: Create a Traffic Manager profile using the Azure portal
 
- Azure Traffic Manager allows you to control the distribution of user traffic to service endpoints across the different Azure regions. This quickstart describes how to create a Traffic Manager profile that delivers high availability of your web application. Traffic Manager accomplishes this by monitoring your service endpoints and providing automatic failover when an endpoint goes down.
+ Azure Traffic Manager allows you to control the distribution of user traffic to service endpoints across the different Azure regions. This quickstart describes how to create a Traffic Manager profile using the Azure portal that delivers high availability of your web application. Traffic Manager accomplishes this by monitoring your service endpoints and providing automatic failover when an endpoint goes down.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
