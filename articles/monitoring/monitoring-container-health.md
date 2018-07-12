@@ -401,7 +401,7 @@ The icons in the status field indicate the online status of pods:
 | ![Waiting or paused status icon](./media/monitoring-container-health/container-health-waiting-icon.png) | Waiting or Paused|
 | ![Last reported running status icon](./media/monitoring-container-health/container-health-grey-icon.png) | Last reported running but hasn't responded more than 30 minutes|
 | ![Terminated status icon](./media/monitoring-container-health/container-health-terminated-icon.png) | Successfully stopped or failed to stop|
-| ![Failed status icon](./media/monitoring-container-health/container-health-failed-icon.png) |
+| ![Failed status icon](./media/monitoring-container-health/container-health-failed-icon.png) | Failed state |
 
 ## Container data collection details
 Container health collects various performance metrics and log data from container hosts and containers. Data is collected every three minutes.
