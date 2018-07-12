@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/11/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -157,14 +157,6 @@ In RBAC, to remove access, you remove a role assignment.
 1. In the remove role assignment message that appears, choose **Yes**.
 
 Inherited role assignments cannot be removed. If you need to remove an inherited role assignment, you must do it at the scope where the role assignment was created. In the **Scope** column, next to **Inherited** there is a link that takes you to the resources where this role was assigned. Go to the scope listed there to remove the role assignment.
-
-## Other tools to manage access
-
-You can assign roles and manage access with Azure RBAC commands in tools other than the Azure portal. For more information, see the following links:
-
-* [Azure PowerShell](role-assignments-powershell.md)
-* [Azure CLI](role-assignments-cli.md)
-* [REST API](role-assignments-rest.md)
 
 ## Next steps
 
