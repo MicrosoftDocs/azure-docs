@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2018
+ms.date: 06/15/2018
 ms.author: delhan
 
 ---

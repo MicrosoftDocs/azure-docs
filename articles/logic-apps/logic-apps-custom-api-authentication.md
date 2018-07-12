@@ -28,7 +28,7 @@ Or, you can require and enforce authentication through your API's code.
 You can secure calls to your custom API in these ways:
 
 * [No code changes](#no-code): Protect your API with 
-[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) 
+[Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) 
 through the Azure portal, so you don't have to update your code or redeploy your API.
 
   > [!NOTE]

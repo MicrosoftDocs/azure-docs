@@ -3,6 +3,7 @@ title: 'Quickstart: Create a cognitive search pipeline in Azure Search using the
 description: Data extraction, natural language and image processing skills example in Azure portal using sample data. 
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
@@ -55,7 +56,7 @@ First, sign up for the Azure Search service.
   A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > Cognitive Search is in public preview. Skillset execution is currently available in all tiers, including free. At a later time, the pricing for this capability will be announced.
+  > Cognitive search is in public preview. Skillset execution is currently available in all tiers, including free. At a later time, the pricing for this capability will be announced.
 
 1. Pin the service to the dashboard for fast access to service information.
 
@@ -67,7 +68,7 @@ The enrichment pipeline pulls from Azure data sources supported by [Azure Search
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. 
 
-1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
+1. Sign up for Azure Blob storage, create a storage account, sign in to Storage Explorer, and create a container. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
 
 1. Using the Azure Storage Explorer, in the container you created, click **Upload** to upload the sample files.
 

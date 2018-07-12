@@ -3,7 +3,7 @@ title: Cognitive search for data extraction, natural language processing in Azur
 description: Data extraction, natural language processing (NLP) and image processing to create searchable content in Azure Search indexing using cognitive skills.
 manager: cgronlun
 author: HeidiSteen
-
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
@@ -20,12 +20,12 @@ AI integration is through *cognitive skills* that enrich source documents throug
 
 Skills used during indexing can be predefined or custom:
 
-+ [Prefined skills](cognitive-search-predefined-skills.md) are based on the same AI algorithms used in Cognitive Services APIs: [Named Entity Recognition](cognitive-search-skill-named-entity-recognition.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), and [OCR](cognitive-search-skill-ocr.md) are just a few. 
++ [Predefined skills](cognitive-search-predefined-skills.md) are based on the same AI algorithms used in Cognitive Services APIs: [Named Entity Recognition](cognitive-search-skill-named-entity-recognition.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), and [OCR](cognitive-search-skill-ocr.md) are just a few. 
 
 + [Custom skills](cognitive-search-create-custom-skill-example.md) can be developed by you for any specialized processing that you  require. Examples of custom skills might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
 
 > [!NOTE]
-> Cognitive Search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced.
+> Cognitive search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced.
 
 ## Components of cognitive search
 

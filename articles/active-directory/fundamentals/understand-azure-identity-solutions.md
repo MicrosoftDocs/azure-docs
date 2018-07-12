@@ -2,28 +2,20 @@
 title: Understand Azure Identity | Microsoft Docs
 description: Get a basic understanding of Microsoft Azure identity solution terms, concepts, and recommendations for you to make the best identity governance decision for your organization.
 keywords:
-author: jeffgilb
+author: eross-msft
 manager: mtillman
 ms.reviewer: jsnow
-ms.author: jeffgilb
+ms.author: lizross
 ms.date: 7/17/2017
-ms.topic: article
+ms.topic: overview
 ms.prod:
 ms.service: azure-directory
 ms.component: fundamentals
 ms.technology:
 ms.assetid:
-
-# optional metadata
-
-#ROBOTS:
-#audience:
-#ms.devlang:
-#ms.suite:
-#ms.tgt_pltfrm:
 ms.custom: it-pro
-
 ---
+
 # Understand Azure identity solutions
 Microsoft Azure Active Directory (Azure AD) is an identity and access management cloud solution that provides directory services, identity governance, and application access management. Azure AD quickly [enables single sign on (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) to 1,000’s of pre-integrated commercial and custom apps in the [Azure AD application gallery](https://azure.microsoft.com/marketplace/active-directory/all/). Many of these apps you probably already use such as Office 365, Salesforce.com, Box, ServiceNow, and Workday.
 
@@ -118,8 +110,8 @@ We have a ton of great resources online to help you learn all about Azure AD. He
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../active-directory-saas-app-provisioning.md)
 * [How to provide secure remote access to on-premises applications](../manage-apps/application-proxy.md)
-* [Managing access to resources with Azure Active Directory groups](../active-directory-manage-groups.md)
-* [What is Microsoft Azure Active Directory licensing?](../active-directory-licensing-whatis-azure-portal.md)
+* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [What is Microsoft Azure Active Directory licensing?](active-directory-licensing-whatis-azure-portal.md)
 * [How can I discover unsanctioned cloud apps that are used within my organization](../manage-apps/cloud-app-discovery.md)
 
 ## Next steps

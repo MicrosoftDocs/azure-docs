@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
@@ -49,6 +49,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 
 ### Fixed issues
+- We fixed the issue that blocked [opening a new support request from the dropdown](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the admin portal. This option now works as intended. 
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
@@ -95,15 +96,21 @@ This build includes the following improvements and fixes for Azure Stack.
    - COMPONENT: Health controller
    - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
-  Both alerts can be safely ignored and will close automatically over time.  
+  Both alerts #1 and #2 can be safely ignored and they'll close automatically over time. 
 
-- <!-- 2392907 – ASDK -->	You might see a *critical* alert for **Low memory capacity**. This alert has the following description: *The region has consumed more than 95.00 % of available memory. Creating virtual machines with large amounts of memory may fail.*
+  You might also see the following alert for *Capacity*. For this alert, the percentage of available memory identified in the description can vary:  
 
-  This alert can be generated when Azure Stack incorrectly accounts for memory use on the Azure Stack development kit.  
+  Alert #3:
+   - NAME:  Low memory capacity
+   - SEVERITY: Critical
+   - COMPONENT: Capacity
+   - DESCRIPTION: The region has consumed more than 80.00% of available memory. Creating virtual machines with large amounts of memory may fail.  
 
-  This alert can be ignored, and the issue has no effect on the placement of virtual machines. 
+  In this version of Azure Stack, this alert can fire incorrectly. If tenant virtual machines continue to deploy successfully, you can safely ignore this alert. 
+  
+  Alert #3 does not automatically close. If you close this alert Azure Stack will create the same alert within 15 minutes.  
 
-- <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planne](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads. 
+- <!-- 2368581 - IS ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads. 
 
 
 #### Compute
@@ -138,6 +145,8 @@ This build includes the following improvements and fixes for Azure Stack.
 - <!-- 1662991 - IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings. 
 
 #### Networking
+- <!-- TBD - IS ASDK --> You cannot create user-defined routes in either the admin or user portal. As a workaround, use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
+
 - <!-- 1766332 - IS, ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
 
 - <!-- 2388980 -  IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.

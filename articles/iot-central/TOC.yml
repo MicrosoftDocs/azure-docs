@@ -17,20 +17,16 @@
     href: quick-deploy-iot-central.md
 - name: Tutorials
   items:
-  - name: Builder
-    items:
-    - name: 1 - Define a new device type
-      href: tutorial-define-device-type.md
-    - name: 2 - Configure rules
-      href: tutorial-configure-rules.md
-    - name: 3 - Customize the operator's view
-      href: tutorial-customize-operator.md
-  - name: Operator
-    items:
-    - name: 4 - Monitor your devices
-      href: tutorial-monitor-devices.md
-    - name: 5 - Add a device
-      href: tutorial-add-device.md
+  - name: 1 - Define a new device type
+    href: tutorial-define-device-type.md
+  - name: 2 - Configure rules
+    href: tutorial-configure-rules.md
+  - name: 3 - Customize the operator's view
+    href: tutorial-customize-operator.md
+  - name: 4 - Monitor your devices
+    href: tutorial-monitor-devices.md
+  - name: 5 - Add a device
+    href: tutorial-add-device.md
 - name: Concepts
   items:
   - name: Architecture
@@ -43,8 +39,12 @@
     items:
       - name: Create an application
         href: howto-create-application.md
+        name: As a CSP create and manage an application
+        href: howto-create-and-manage-applications-as-CSP.md
       - name: Administer your application
         href: howto-administer.md
+      - name: Export your data
+        href: howto-export-data.md
   - name : Builder
     items:
       - name: Set up the device template
@@ -55,6 +55,10 @@
         href: howto-create-telemetry-rules.md
       - name: Create an event rule
         href: howto-create-event-rules.md
+      - name: Build workflows in Microsoft Flow
+        href: howto-add-microsoft-flow.md
+      - name: Configure homepage
+        href: howto-configure-homepage.md
       - name: Prepare and upload images
         href: howto-prepare-images.md
   - name : Operator

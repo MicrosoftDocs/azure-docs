@@ -87,8 +87,6 @@
       href: batch-job-prep-release.md
     - name: Concurrent node tasks
       href: batch-parallel-node-tasks.md
-    - name: Count tasks by state
-      href: batch-get-task-counts.md
     - name: Task dependencies
       href: batch-task-dependencies.md
     - name: User accounts for running tasks
@@ -111,7 +109,7 @@
     - name: Rendering
       href: batch-rendering-service.md
     - name: Data processing with Batch and Data Factory
-      href: ../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json
+      href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
   - name: Monitor Batch solutions
     href: monitoring-overview.md
     items:
@@ -119,7 +117,9 @@
       href: batch-diagnostics.md
     - name: Monitor with Application Insights
       href: monitor-application-insights.md
-    - name: Efficient list queries
+    - name: Count resources by state
+      href: batch-get-resource-counts.md
+    - name: Query resources efficiently
       href: batch-efficient-list-queries.md
   - name: Use developer tools
     items:
@@ -178,8 +178,8 @@
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Batch forum
-    href: https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch
+  - name: Batch Community
+    href: https://github.com/Azure/Batch
   - name: Batch Shipyard
     href: https://github.com/Azure/batch-shipyard
   - name: Blog

@@ -215,6 +215,10 @@
         href: service-fabric-image-store-connection-string.md
     - name: Service resources
       href: service-fabric-service-manifest-resources.md
+    - name: Periodic backup and restore
+      items:
+      - name: Understanding periodic backup configuration
+        href: service-fabric-backuprestoreservice-configure-periodic-backup.md 
   - name: Clusters
     href: service-fabric-deploy-anywhere.md
     items:
@@ -428,6 +432,8 @@
         href: service-fabric-securing-containers.md
       - name: Set up gMSA for Windows containers 
         href: service-fabric-setup-gmsa-for-windows-containers.md
+      - name: Configure certificates on Linux
+        href: service-fabric-configure-certificates-linux.md
     - name: Configure periodic backups (Clusters on Azure)
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: Configure periodic backups (Standalone Clusters)
@@ -458,6 +464,13 @@
       href: service-fabric-debugging-your-application-java.md
     - name: Monitor and diagnose locally
       href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+  - name: Work in a VS Code environment
+    href: service-fabric-get-started-vs-code.md
+    items:
+    - name: Develop C# Service Fabric applications with VS Code
+      href: service-fabric-develop-csharp-applications-with-vs-code.md
+    - name: Develop Java Service Fabric applications with VS Code
+      href: service-fabric-develop-java-applications-with-vs-code.md
   - name: Migrate from Cloud Services
     items:
     - name: Compare Cloud Services with Service Fabric
@@ -532,10 +545,6 @@
           href: service-fabric-cluster-creation-via-arm.md
         - name: Cluster using certificate common name
           href: service-fabric-create-cluster-using-cert-cn.md
-        - name: Enable Disk Encryption for Windows
-          href: service-fabric-enable-azure-disk-encryption-windows.md
-        - name: Enable Disk Encryption for Linux
-          href: service-fabric-enable-azure-disk-encryption-linux.md
       - name: Scale
         items:
         - name: Manually scale out
@@ -610,13 +619,13 @@
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Azure Diagnostics
         href: service-fabric-diagnostics-event-aggregation-lad.md 
-      - name: Set up OMS Log Analytics
+      - name: Set up Log Analytics
         href: service-fabric-diagnostics-oms-setup.md
-      - name: Monitor with OMS
+      - name: Monitor with Log Analytics
         href: service-fabric-diagnostics-event-analysis-oms.md  
     - name: Monitor infrastructure
       items:
-      - name: Performance monitoring with the OMS Agent
+      - name: Performance monitoring with the Log Analytics Agent
         href: service-fabric-diagnostics-oms-agent.md
       - name: Performance monitoring with WAD
         href: service-fabric-diagnostics-perf-wad.md     

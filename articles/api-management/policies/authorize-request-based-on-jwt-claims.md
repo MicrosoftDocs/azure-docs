@@ -24,7 +24,7 @@ This article shows an Azure API management policy sample that demonstrates how t
 
 Paste the code into the **inbound** block.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Pre-authorize requests based on HTTP method with validate-jwt.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Pre-authorize requests based on HTTP method with validate-jwt.policy.xml)]
 
 ## Next steps
 

@@ -271,7 +271,7 @@
   - name: Data Lake Analytics
     tocHref: /azure/data-lake-analytics/
     topicHref: /azure/data-lake-analytics/
-  - name: Data Lake Store
+  - name: Data Lake Storage Gen1
     tocHref: /azure/data-lake-store/
     topicHref: /azure/data-lake-store/
   - name: Devtest Lab
@@ -289,6 +289,9 @@
   - name: ExpressRoute
     tocHref: /azure/expressroute/
     topicHref: /azure/expressroute/
+  - name: Firewall
+    tocHref: /azure/firewall/
+    topicHref: /azure/firewall/
   - name: Guidance
     tocHref: /azure/guidance/
     topicHref: /azure/guidance/
@@ -311,7 +314,7 @@
       - name: Enterprise Security
         tocHref: /azure/hdinsight/domain-joined
         topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
-      - name: R Server
+      - name: ML Services
         tocHref: /azure/hdinsight/r-server
         topicHref: /azure/hdinsight/r-server-overview
       - name: Spark
@@ -469,6 +472,9 @@
   - name: Resiliency
     tocHref: /azure/resiliency/
     topicHref: /azure/resiliency/
+  - name: Role-based access control
+    tocHref: /azure/role-based-access-control/
+    topicHref: /azure/role-based-access-control/
   - name: Service Health
     tocHref: /azure/service-health/
     topicHref: /azure/service-health/
@@ -515,6 +521,9 @@
       - name: Blobs
         tocHref: /azure/storage/blobs/
         topicHref: /azure/storage/blobs/storage-blobs-introduction
+      - name: Data Lake Storage Gen2
+        tocHref: /azure/storage/data-lake-storage-gen2/
+        topicHref: /azure/storage/data-lake-storage/introduction
       - name: Files
         tocHref: /azure/storage/files/
         topicHref: /azure/storage/files/storage-files-introduction 

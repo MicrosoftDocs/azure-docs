@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 5/18/2018
+ms.date: 07/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ---
@@ -25,7 +25,7 @@ Azure Stack compatible Azure PowerShell modules are required to work with Azure 
 
 This article has detailed instructions to install PowerShell for Azure Stack.
 
-> [!Note]
+> [!Note]  
 > The following steps require PowerShell 5.0. To check your version, run $PSVersionTable.PSVersion and compare the **Major** version.
 
 PowerShell commands for Azure Stack are installed through the PowerShell Gallery. You can use the following procedure to validate if PSGallery is registered as a repository, open an elevated PowerShell session and run the following command:
@@ -42,11 +42,11 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 > [!Note]  
 > This step requires Internet access. 
 
-## Uninstall existing versions of PowerShell
+## Uninstall existing versions of the Azure Stack PowerShell modules
 
-Before installing the required version, make sure that you uninstall any previously installed Azure Stack PowerShell modules. You can uninstall them by using one of the following two methods:
+Before installing the required version, make sure that you uninstall any previously installed Azure Stack AzureRM PowerShell modules. You can uninstall them by using one of the following two methods:
 
- - To uninstall the existing PowerShell modules, close all the active PowerShell sessions and run the following command:
+ - To uninstall the existing AzureRM PowerShell modules, close all the active PowerShell sessions and run the following command:
 
   ```PowerShell
     Uninstall-Module AzureRM.AzureStackAdmin -Force
@@ -58,7 +58,7 @@ Before installing the required version, make sure that you uninstall any previou
 
 The following sections describe the steps required to install PowerShell for Azure Stack. PowerShell can be installed on Azure Stack that is operated in connected, partially connected, or in a disconnected scenario.
 
-## Install PowerShell in a connected scenario (with Internet connectivity)
+## Install the Azure Stack PowerShell modules in a connected scenario (with Internet connectivity)
 
 Azure Stack compatible AzureRM modules are installed through API version profiles. Azure Stack requires the **2017-03-09-profile** API version profile, which is available by installing the AzureRM.Bootstrapper module. To learn about API version profiles and the cmdlets provided by them, refer to the [manage API version profiles](user/azure-stack-version-profiles.md). In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules. Run the following PowerShell script to install these modules on your development workstation:
 
@@ -84,7 +84,7 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
 
 If the installation is successful, the AzureRM and AzureStack modules are displayed in the output.
 
-## Install PowerShell in a disconnected or a partially connected scenario (with limited Internet connectivity)
+## Install the Azure Stack PowerShell modules in a disconnected or a partially connected scenario (with limited Internet connectivity)
 
 In a disconnected scenario, you must first download the PowerShell modules to a machine that has Internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
 

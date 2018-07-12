@@ -1,17 +1,17 @@
 ---
-title: "Compare default user permissions in Azure Active Directory"
+title: Compare default user permissions in Azure AD | Microsoft Docs
 description: Compare member, guest, app owner, and group owner permissions
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: eross-msft
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: article
+ms.topic: overview
 ms.date: 01/29/2018
-ms.author: curtand
+ms.author: lizross
 ms.reviewer: vincesm
 ---
 
@@ -46,10 +46,10 @@ Default permissions for member users can be restricted in the following ways.
 
 Permission | Setting explanation
 ---------- | ------------
-Ability to create security groups | Setting this option to No prevents users from creating security groups. Global Administrators and User Account Administrators can still create security groups. See [Azure Active Directory cmdlets for configuring group settings](../active-directory-accessmanagement-groups-settings-cmdlets.md) to learn how.
-Ability to create Office 365 groups | Setting this option to No prevents users from creating Office 365 groups. Setting this option to Some allows a select set of users to create Office 365 groups. Global Administrators and User Account Administrators will still be able to create Office 365 groups. See [Azure Active Directory cmdlets for configuring group settings](../active-directory-accessmanagement-groups-settings-cmdlets.md) to learn how.
+Ability to create security groups | Setting this option to No prevents users from creating security groups. Global Administrators and User Account Administrators can still create security groups. See [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) to learn how.
+Ability to create Office 365 groups | Setting this option to No prevents users from creating Office 365 groups. Setting this option to Some allows a select set of users to create Office 365 groups. Global Administrators and User Account Administrators will still be able to create Office 365 groups. See [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) to learn how.
 Restrict access to Azure AD administration portal | Setting this option to No prevents users from accessing the Azure Active Directory portal.
-Ability to read other users | This setting is available in PowerShell only. Setting this to $false prevents all non-admins from reading user infromation from the directory. This does not prevent reading user infromation in other Microsoft services like Exchange Online. This setting is meant for special circumstances, and setting this to $false is not recommended.
+Ability to read other users | This setting is available in PowerShell only. Setting this to $false prevents all non-admins from reading user information from the directory. This does not prevent reading user information in other Microsoft services like Exchange Online. This setting is meant for special circumstances, and setting this to $false is not recommended.
 
 ## Object ownership
 
@@ -62,11 +62,11 @@ When a user adds a new enterprise application, they are automatically added as a
 
 ### Group owner permissions
 
-When a user creates a group, they are automatically added as an owner for that group. As an owner, they can manage properties of the group such as the name, as well as manage membership. An owner can also add or remove other owners. Unlike Global Administrators and User Account Administrators, owners can only manage groups they own. To assign a group owner, see [Managing owners for a group](../active-directory-accessmanagement-managing-group-owners.md).
+When a user creates a group, they are automatically added as an owner for that group. As an owner, they can manage properties of the group such as the name, as well as manage membership. An owner can also add or remove other owners. Unlike Global Administrators and User Account Administrators, owners can only manage groups they own. To assign a group owner, see [Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md).
 
 ## Next steps
 
 * To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory-how-subscriptions-associated-directory.md)
-* [Manage users](../add-users-azure-active-directory.md)
+* For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+* [Manage users](add-users-azure-active-directory.md)

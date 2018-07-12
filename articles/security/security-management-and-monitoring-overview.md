@@ -35,7 +35,7 @@ Role-Based Access Control (RBAC) provides detailed access management for Azure r
 
 Learn more:
 
-* [Active Directory team blog on RBAC](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
+* [Active Directory team blog on RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)
 
 ## Antimalware
@@ -96,8 +96,8 @@ Privileged Identity Management introduces the concept of a temporary admin for a
 
 Learn more:
 
-* [Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md)
-* [Get started with Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-getting-started.md)
+* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
+* [Get started with Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-getting-started.md)
 
 ## Identity Protection
 Azure AD Identity Protection provides a consolidated view of suspicious sign-in activities and potential vulnerabilities to help protect your business. Identity Protection detects suspicious activities for users and privileged (admin) identities, based on signals like:
