@@ -60,4 +60,4 @@ sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-windows.md)
+* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)

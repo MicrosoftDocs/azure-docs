@@ -75,4 +75,4 @@ The following examples show how to use SSML for common speech synthesis needs.
 ## Next steps
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-windows.md)
+* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)

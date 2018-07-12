@@ -230,4 +230,4 @@ The custom endpoint is functionally identical to the standard endpoint used for 
 ## Next steps
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-- [Recognize speech in C#](quickstart-csharp-windows.md)
+- [Recognize speech in C#](quickstart-csharp-dotnet-windows.md)

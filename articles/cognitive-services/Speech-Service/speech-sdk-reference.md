@@ -15,19 +15,20 @@ ms.author: v-jerkin
 
 # Speech SDK reference
 
-The Speech Software Development Kit (SDK) provides your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **Speech to Text** and **Speech Translation**. Text to Speech employs [REST] (https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) POST calls over HTTP.
+The Speech Software Development Kit (SDK) provides your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **Speech to Text**, **Speech Translation**, and **Intent Recognition**.
 
 The table below describes the currently supported programming languages and operating systems.
 
 |Programming language|Platform|API Reference|
 |-|-|-|
-|C#|Windows|[Browse](https://aka.ms/csspeech/csharpref)
+|C#, .NET Standard|Windows, UWP, .NET Standard (Windows)|[Browse](https://aka.ms/csspeech/csharpref)
 |C/C++|Windows, Linux|[Browse](https://aka.ms/csspeech/cppref)
-|Java\*|Devices|[Browse](https://aka.ms/csspeech/javaref)
+|Java\*|Android, [Devices](speech-devices-sdk.md)|[Browse](https://aka.ms/csspeech/javaref)
 
-\* *The Java SDK is part of the [Speech Devices SDK](speech-devices-sdk.md).*
+\* *The Java SDK is also available as part of the [Speech Devices SDK](speech-devices-sdk.md).*
 
 ## Next steps
 
+* [Try the Speech service for free](get-started.md)
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-windows.md)
+* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)

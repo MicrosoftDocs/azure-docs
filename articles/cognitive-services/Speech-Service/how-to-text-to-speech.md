@@ -91,4 +91,6 @@ For more information on the Text to Speech REST API, see [REST APIs](rest-apis.m
 ## Next steps
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-- [Recognize speech in C#](quickstart-csharp-windows.md)
+- [Recognize speech in C++](quickstart-cpp-windows.md)
+- [Recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+- [Recognize speech in Java](quickstart-java-android.md)

@@ -24,8 +24,6 @@ When you use your subscription you have to account for the region you picked.
 Using the REST API, pick the right region-specific endpoints.
 See [REST APIs](rest-apis.md) for details.
 
-
-
 ## Speech SDK
 
 In the [Speech SDK](speech-sdk.md), regions are specified as a string
