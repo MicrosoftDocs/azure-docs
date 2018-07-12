@@ -36,7 +36,7 @@ Let's start with an HTML page that sends Bing an image and gets back insights an
 </html>      
 ```
 
-To start, let's divide the page into a request section, where the user provides all the information we need to make the request, and a response section where we display the insights. Add the following \<div\> tags to the \<body\>. The \<hr\> tag visually delineates the request section from the response section.
+To start, let's divide the page into a request section, where the user provides all the information needed to make the request, and a response section where the insights are displayed. Add the following \<div\> tags to the \<body\>. The \<hr\> tag visually delineates the request section from the response section.
 
 ```html
         <div id="requestSection"></div>
@@ -48,11 +48,11 @@ To start, let's divide the page into a request section, where the user provides 
 
 ### Get the file to upload
 
-Now we need a way to let the user select the image they want to upload. This demo uses the \<input\> tag with the type attribute set to file. The UI needs to make it clear that we're using Bing to get the search results. 
+To let the user select the image to upload, the demo uses the \<input\> tag with the type attribute set to file. The UI needs to make it clear that the demo uses Bing to get the search results. 
 
 Add the following \<div\> to the requestSection div. The file input accepts a single file of any image type (for example, .jpg, .gif, .png). The `onchange` event specifies the handler that's called when a user selects a file.
 
-We use the \<output\> tag to display a thumbnail of the selected image.
+The \<output\> tag is used to display a thumbnail of the selected image.
 
 
 ```html
@@ -72,7 +72,7 @@ Before adding the handler, add a \<script\> tag to the \<head\> tag.
         <\script>
 ```
 
-The following shows the handler we use to capture the selected image. The handler includes logic to make sure the selected file is an image file and that its size is 1 MB or less. You can allow the user to select larger files but you need to reduce the image's size to less than 1 MB before uploading it to Bing. The last thing the handler does is display a thumbnail of the image, so the user has a visual reminder of the file they selected.
+The following shows the handler that captures the selected image. The handler includes logic to make sure the selected file is an image file and that its size is 1 MB or less. You can allow the user to select larger files but you need to reduce the image's size to less than 1 MB before uploading it to Bing. The last thing the handler does is display a thumbnail of the image, so the user has a visual reminder of the file they selected.
 
 ```javascript
         function handleFileSelect(selector) {
@@ -124,7 +124,7 @@ The following shows the handler we use to capture the selected image. The handle
 
 ### What else is needed before making the call to Bing?
 
-Now that we have the image can we make the call? Not yet, we still need a subscription key. In practice, you'd probably get the subscription key from secured storage but for the simplicity of this demo, you'll need to provide it in the UI. Add the following \<input\> tag (with the type attribute set to text) to the \<body\> just below the file's \<output\> tag.
+The demo still needs a subscription key. In practice, you'd probably get the subscription key from secured storage but for the simplicity of this demo, you'll need to provide it in the UI. Add the following \<input\> tag (with the type attribute set to text) to the \<body\> just below the file's \<output\> tag.
 
 ```html
         <div>
@@ -224,7 +224,7 @@ The demo hides the lists in a collapsible div that's controlled by the Query opt
 
 ### Making the call
 
-Now that we have all the information, let's make the call. Add the following Get insights button below the options div in the body. The button lets the user initiate the call. When the user clicks the button, the cursor is changed to the spinning wait cursor and the onclick handler is called.
+Add the following Get insights button below the options div in the body. The button lets the user initiate the call. When the user clicks the button, the cursor is changed to the spinning wait cursor and the onclick handler is called.
 
 ```html
         <p><input type="button" id="query" value="Get insights" onclick="document.body.style.cursor='wait'; handleQuery()" /></p>
@@ -291,7 +291,7 @@ The sendRequest function formats the endpoint URL, sets the Ocp-Apim-Subscriptio
 
 The handleResponse function handles the response from the call to Bing Visual Search. If the call succeeds, it parses the JSON response into the individual tags, which contain the insights. Next, it adds the string, Bing internet search results, to the page to let the user know the data came from Bing.
 
-We could dump all the insights onto the page but some images return a lot of data, which would make it difficult to consume. Instead, we create a collapsible div for each tag, so the user can manage how much data they see.
+The demo could dump all the insights onto the page but some images return a lot of data, which would make it difficult to consume. Instead, the demo creates a collapsible div for each tag, so the user can manage how much data they see.
 
 Add the handler to the \<script\> section.
 
@@ -370,9 +370,9 @@ The buildTagSections function iterates through the parsed JSON tags and calls th
 
 The buildDiv function calls the addDivContent function to build the contents of each tag's collapsible div.
 
-A tag's content includes the JSON from the response for the tag. The demo includes the JSON for those developers that want to see the JSON behind the answer. We display the first 100 characters of the JSON but you can click the JSON string to show all the JSON. If you click it again, the JSON string collapses back to 100 characters.
+A tag's content includes the JSON from the response for the tag. The demo includes the JSON for those developers that want to see the JSON behind the answer. Initially, only the first 100 characters of the JSON is shown but you can click the JSON string to show all the JSON. If you click it again, the JSON string collapses back to 100 characters.
 
-Next, we add the action types found in the tag. For each action type, we call the various functions to add its insights.
+Next, add the action types found in the tag. For each action type, call the various functions to add its insights.
 
 ```javascript
         function addDivContent(div, tag, json) {
@@ -447,7 +447,7 @@ Next, we add the action types found in the tag. For each action type, we call th
         }
 ```
 
-The following are all the functions that display insights for the different actions. Most of these functions are pretty straight forward &mdash; they either provide a clickable image or clickable link that takes the user to a webpage where they can get more information about the image (either Bing.com or the image's host webpage). The tutorial doesn't display all data associated with the insight. To see all the fields available for an insight, see [Bing Visual Search Reference](https://aka.ms/bingvisualsearchreferencedoc).
+The following are all the functions that display insights for the different actions. Most of these functions are straight forward &mdash; they either provide a clickable image or clickable link that takes the user to a webpage where they can get more information about the image (either Bing.com or the image's host webpage). The tutorial doesn't display all data associated with the insight. To see all the fields available for an insight, see [Bing Visual Search Reference](https://aka.ms/bingvisualsearchreferencedoc).
 
 Remember, there's a minimum amount of data you must display, the rest is up to you. To make sure you're in compliance, see [Bing Use and Display Requirements](./use-and-display-requirements.md).
 
