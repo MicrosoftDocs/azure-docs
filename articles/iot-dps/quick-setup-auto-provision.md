@@ -18,10 +18,6 @@ These steps show how to set up the Azure cloud resources in the portal for provi
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com/).
-
 ## Create an IoT hub
 
 [!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
