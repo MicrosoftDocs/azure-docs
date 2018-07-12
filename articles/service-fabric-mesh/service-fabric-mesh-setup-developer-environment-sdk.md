@@ -99,7 +99,7 @@ Docker **must** be running before you can build a cluster. Test that Docker is r
 After you install the runtime, SDKs and Visual Studio tools, create a development cluster.
 
 1. Close your PowerShell window
-2. Open  new, elevated  PowerShell window. This step is necessary to load the Service Fabric modules you just installed.
+2. Open  new, elevated  PowerShell window as an administrator. This step is necessary to load the Service Fabric modules you just installed.
 3. Run the following PowerShell commands to create a development cluster:
 
 ```powershell
