@@ -115,7 +115,8 @@ The new vault is added to the **Dashboard** under **All resources**, and on the 
 >
 > You cannot use an existing Configuration Server to migrate machines running Windows Server 2008. You'll need to setup a new Configuration Server using the link provided above.
 
- ![Configuration Server setup and registration](media/migrate-tutorial-windows-server-2008/setup.gif)
+ ![Download vault registration key](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
+ 
 
 ## Set up the target environment
 
@@ -139,13 +140,15 @@ The policy is automatically associated with the configuration server.
 > [!WARNING]
 > Ensure that you specify **OFF** in the App-consistent snapshot frequency setting of the replication policy. Only crash-consistent recovery points are supported while replicating servers running Windows Server 2008. Specifiying any other value for the App-consistent snapshot frequency will result in false alerts by turning replication health of the server critical due to lack of App-consistent recovery points.
 
-   ![Create replication policy](media/migrate-tutorial-windows-server-2008/create-policy.gif)
+   ![Create replication policy](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
 ## Enable replication
 
 [Enable replication](physical-azure-disaster-recovery.md#enable-replication) for the Windows Server 2008 SP2 / Windows Server 2008 R2 SP1 server to be migrated.
+   
+   ![Add physical server](media/migrate-tutorial-windows-server-2008/Add physical server.png)
 
-   ![Enable replication](media/migrate-tutorial-windows-server-2008/enable-replication.gif)
+   ![Enable replication](media/migrate-tutorial-windows-server-2008/Enable replication.png)
 
 ## Run a test migration
 
@@ -153,7 +156,7 @@ You can perform a test failover of replicating servers after initial replication
 
 Run a [test failover](tutorial-dr-drill-azure.md) to Azure, to make sure everything's working as expected.
 
-   ![Test failover](media/migrate-tutorial-windows-server-2008/testfailover.gif)
+   ![Test failover](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ## Migrate to Azure
