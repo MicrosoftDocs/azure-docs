@@ -71,30 +71,30 @@ The cloud apps condition is mandatory in a conditional access policy. In your po
 
 - Select **All cloud apps** to baseline policies to apply to the entire organization. Use this selection for policies that require multifactor authentication when sign-in risk is detected for any cloud app. A policy applied to **All cloud apps** applies to access to all websites and services. This setting isn't limited to the cloud apps that appear on the **Select Cloud apps** list.
 
-- Select individual cloud apps to target specific services by policy. For example, you can require users to have a [compliant device](active-directory-conditional-access-policy-connected-applications.md) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content, for example, Microsoft Teams. 
+- Select individual cloud apps to target specific services by policy. For example, you can require users to have a [compliant device](active-directory-conditional-access-policy-connected-applications.md) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content. An example is Microsoft Teams. 
 
-You can also exclude specific apps from a policy; however, these apps are still subject to the policies applied to services they access. 
+You can exclude specific apps from a policy. However, these apps are still subject to the policies applied to the services they access. 
 
 
 
 ## Sign-in risk
 
-A sign-in risk is an indicator for the likelihood (high, medium, or low) that a sign-in attempt was not performed by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during the sign-in of a user. You can use the calculated sign-in risk level as condition in a conditional access policy. 
+A sign-in risk is an indicator of the high, medium, or low likelihood that a sign-in attempt wasn't done by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during a user's sign in. The calculated sign-in risk level can be a condition in a conditional access policy. 
 
 ![Conditions](./media/active-directory-conditional-access-conditions/22.png)
 
 To use this condition, you need to have [Azure Active Directory Identity Protection](active-directory-identityprotection.md) enabled.
  
-Common use cases for this condition are policies that:
+Common use cases for this condition are policies with the following protections:
 
-- Block users with a high sign-in risk to prevent potentially non-legitimate users from accessing your cloud apps. 
-- Require multi-factor authentication for users with a medium sign-in risk. By enforcing multi-factor authentication, you can provide additional confidence that the sign-in is performed by the legitimate owner of an account.
+- Block users with a high sign-in risk. This protection prevents potentially non-legitimate users from accessing your cloud apps. 
+- Require multifactor authentication for users with a medium sign-in risk. By enforcing multifactor authentication, you can provide additional confidence that the sign in is done by the legitimate owner of an account.
 
 For more information, see [Risky sign-ins](active-directory-identityprotection.md#risky-sign-ins).  
 
 ## Device platforms
 
-The device platform is characterized by the operating system that is running on your device. Azure AD identifies the platform by using information provided by the device, such as user agent. Because this information is unverified, it is recommended that all platforms have a policy applied to them, either by blocking access, requiring compliance with Intune policies or requiring the device be domain joined. The default is to apply policy to all device platforms. 
+The device platform is characterized by the operating system that runs on your device. Azure AD identifies the platform by using information provided by the device, such as user agent. This information is unverified. We recommend that all platforms have a policy applied to them. The policy should either block access, require compliance with Intune policies, or require the device be domain joined. The default is to apply a policy to all device platforms. 
 
 
 ![Conditions](./media/active-directory-conditional-access-conditions/24.png)
@@ -108,69 +108,66 @@ A common use case for this condition is a policy that restricts access to your c
 
 ## Device state
 
-The device state condition allows Hybrid Azure AD joined and devices marked as compliant to be excluded from a conditional access policy. This is useful when a policy should only apply to unmanaged device to provide additional session security. For example, only enforce the Microsoft Cloud App Security session control when a device is unmanaged. 
+The device state condition allows hybrid Azure AD joined devices and devices marked as compliant to be excluded from a conditional access policy. This condition is useful when a policy should only apply to an unmanaged device to provide additional session security. For example, only enforce the Microsoft Cloud App Security session control when a device is unmanaged. 
 
 
 ![Conditions](./media/active-directory-conditional-access-conditions/112.png)
 
-If you want to block access for unmanaged devices, you should implement [device-based conditional access](active-directory-conditional-access-policy-connected-applications.md).
+If you want to block access for unmanaged devices, implement [device-based conditional access](active-directory-conditional-access-policy-connected-applications.md).
 
 
 ## Locations
 
-With locations, you have the option to define conditions that are based on where a connection attempt was initiated from. 
+By using locations, you have the option to define conditions based on where a connection attempt was initiated. 
      
 ![Conditions](./media/active-directory-conditional-access-conditions/25.png)
 
-Common use cases for this condition are policies that:
+Common use cases for this condition are policies with the following protections:
 
-- Require multi-factor authentication for users accessing a service when they are off the corporate network.  
+- Require multifactor authentication for users accessing a service when they're off the corporate network.  
 
 - Block access for users accessing a service from specific countries or regions. 
 
-For more information, see [What is the location condition in Azure Active Directory conditional access?](active-directory-conditional-access-locations.md)
+For more information, see [What is the location condition in Azure Active Directory conditional access?](active-directory-conditional-access-locations.md).
 
 
 ## Client apps
 
-The client apps condition allows you to apply a policy to different types of applications, such as:
-
-- Web sites and services
-- Mobile apps and desktop applications. 
+By using the client apps condition, you can apply a policy to different types of applications. Examples are websites and services and mobile apps and desktop applications. 
 
 
 
-An application is classified as:
+An application is classified as follows:
 
-- A web site or service if it uses the web SSO protocols, SAML, WS-Fed or OpenID Connect for a confidential client.
+- A web site or service if it uses the web SSO protocols, SAML, WS-Fed, or OpenID Connect for a confidential client.
 
-- A a mobile app or desktop application if it uses the mobile app OpenID Connect for a native client.
+- A mobile app or desktop application if it uses the mobile app OpenID Connect for a native client.
 
 For a complete list of the client apps you can use in your conditional access policy, see [Client apps condition](active-directory-conditional-access-technical-reference.md#client-apps-condition) in the Azure Active Directory Conditional Access technical reference.
 
-Common use cases for this condition are policies that:
+Common use cases for this condition are policies with the following protections:
 
-- Require a [compliant device](active-directory-conditional-access-policy-connected-applications.md) for mobile and desktop applications that download large amounts of data to the device, while allowing browser access from any device.
+- Require a [compliant device](active-directory-conditional-access-policy-connected-applications.md) for mobile and desktop applications that download large amounts of data to the device. At the same time, allow browser access from any device.
 
-- Block access from web applications, but allow access from mobile and desktop applications.
+- Block access from web applications but allow access from mobile and desktop applications.
 
-In addition to using web SSO and modern authentication protocols, you can apply this condition to mail applications that use Exchange ActiveSync, like the native mail apps on most smartphones. Currently, client apps using legacy protocols need to be secured using AD FS.
+In addition to using web SSO and modern authentication protocols, you can apply this condition to mail applications that use Exchange ActiveSync, like the native mail apps on most smartphones. Currently, client apps using legacy protocols need to be secured using Azure AD Federation Services.
 
-You can only select this condition if **Office 365 Exchange Online** is the only cloud app you have selected.
+You can only select the client apps condition if **Office 365 Exchange Online** is the only cloud app you've selected.
 
 ![Cloud apps](./media/active-directory-conditional-access-conditions/32.png)
 
-Selecting **Exchange ActiveSync** as client apps condition is only supported if you don't have other conditions  in a policy configured. However, you can narrow down the scope of this condition to only apply to supported platforms.
+Selecting **Exchange ActiveSync** as a client apps condition is supported only if you don't have other conditions  in a policy configured. However, you can narrow down the scope of this condition to apply only to supported platforms.
 
  
 ![Supported platforms](./media/active-directory-conditional-access-conditions/33.png)
 
-Applying this condition only to supported platforms is the equivalent to all device platforms in a [device platform condition](active-directory-conditional-access-conditions.md#device-platforms).
+Applying this condition only to supported platforms is equal to all device platforms in a [device platform condition](active-directory-conditional-access-conditions.md#device-platforms).
 
 ![Supported platforms](./media/active-directory-conditional-access-conditions/34.png)
 
 
- For more information, see:
+ For more information, see these articles:
 
 - [Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access](active-directory-conditional-access-no-modern-authentication.md)
  
