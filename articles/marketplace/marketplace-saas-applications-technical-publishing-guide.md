@@ -142,6 +142,10 @@ Microsoft hosts the commerce transaction. Microsoft bills your customer on your 
 | Subscription API | You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. |  
 
 ## Next Steps
+If you haven't already done so, 
 
 - [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace
+
+If you're registered and are creating a new offer or working on an existing one,
+
 - [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer
