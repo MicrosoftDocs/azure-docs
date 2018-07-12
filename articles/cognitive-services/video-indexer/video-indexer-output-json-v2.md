@@ -43,9 +43,9 @@ This article examines the JSON content returned by the  **Get Video Index** API.
 |created|The playlist's creation time.|
 |privacyMode|The playlist’s privacy mode (Private/Public).|
 |state|The playlist’s (uploaded, processing, processed, failed, quarantined).|
-|isOwned|Whether the playlist was created by the current user.|
-|isEditable|Whether the current user is authorized to edit the playlist.|
-|isBase|Whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
+|isOwned|Indicates whether the playlist was created by the current user.|
+|isEditable|Indicates whether the current user is authorized to edit the playlist.|
+|isBase|Indicates whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
 |durationInSeconds|The total duration of the playlist.|
 |summarizedInsights|Contains one [summarizedInsights](#summarizedinsights).
 |videos|A list of [videos](#videos) constructing the playlist.<br/>If this playlist of constructed of time ranges of other videos (derived), the videos in this list will contain only data from the included time ranges.|
@@ -108,10 +108,10 @@ This section shows the summary of the insights.
 |processingProgress|The processing progress during processing (for example, 20%).|
 |failureCode|The failure code if failed to process (for example, 'UnsupportedFileType').|
 |failureMessage|The failure message if failed to process.|
-|externalId|The video's external id (if specified by the user).|
+|externalId|The video's external ID (if specified by the user).|
 |externalUrl|The video's external url (if specified by the user).|
 |metadata|The video's external metadata (if specified by the user).|
-|isAdult|Whether the video was manually reviewed and identified as an adult video.|
+|isAdult|Indicates whether the video was manually reviewed and identified as an adult video.|
 |insights|The insights object.|
 |thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').|
 |publishedUrl|A url to stream the video.|
@@ -122,6 +122,7 @@ This section shows the summary of the insights.
 |indexingPreset|The preset used to index the video.|
 |streamingPreset|The preset used to publish the video.|
 |linguisticModelId|The CRIS model used to transcribe the video.|
+|statistics | For more information, see [statistics](#statistics).|
 
 ```json
 {
@@ -161,6 +162,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |transcript|The [transcript](#transcript) dimension.|
 |ocr|The [ocr](#ocr) dimension.|
 |keywords|The [keywords](#keywords) dimension.|
+| blocks|May contain one or more [blocks](#blocks)|
 |faces|The [faces](#faces) dimension.|
 |labels|The [labels](#labels) dimension.|
 |shots|The [shots](#shots) dimension.|
@@ -190,6 +192,21 @@ Example:
   "textualConentModeration": ...
 }
 ```
+
+#### blocks
+
+Attribute | Description
+---|---
+id|ID of the block.
+lines|May contain one or more [lines](#lines)
+sentimentIds|The **sentimentIds** attribute is reserved for future use.
+thumbnailIds|The **thumbnailIds** attribute is reserved for future use.
+sentiment|The sentiment in the block (0-1, negative to positive).
+faces|May contain one or more [faces](#faces).
+ocrs|May contain one or more [ocrs](#ocrs).
+audioEffectInstances|May contain one or more [audioEffectInstances](#audioEffectInstances).
+scenes|May contain one or more [scenes](#scenes).
+annotations|May contain zero or more [annotations](#annotations).
 
 #### transcript
 
@@ -276,7 +293,7 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The keyword id.|
+|id|The keyword ID.|
 |text|The keyword text.|
 |confidence|The keyword's recognition confidence.|
 |language|The keyword language (when translated).|
@@ -327,8 +344,8 @@ Example:
 |id|The face ID.|
 |name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
-|description|If it is a celebrity, its description might be: "Satya Nadella was born at...". |
-|thumbnalId|The id of the thumbnail of that face.|
+|description|A description of the celebrity. |
+|thumbnalId|The ID of the thumbnail of that face.|
 |knownPersonId|If it is a known person, its internal ID.|
 |referenceId|If it is a Bing celebrity, its Bing ID.|
 |referenceType|Currently just Bing.|

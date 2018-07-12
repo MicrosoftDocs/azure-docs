@@ -127,6 +127,8 @@
     href: /cli/azure/aks
   - name: REST
     href: /rest/api/aks
+  - name: PowerShell
+    href: /powershell/module/azurerm.aks#aks
   - name: .NET
     href: /dotnet/api/overview/azure/containerservice
   - name: Python

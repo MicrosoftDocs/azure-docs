@@ -37,7 +37,7 @@ The following limits apply only for networking resources managed through Azure R
 | --- | --- | --- |
 | Virtual networks |50 |1000 |
 | Subnets per virtual network |1000 |10000 |
-| Virtual network peerings per Virtual Network |10 |50 |
+| Virtual network peerings per Virtual Network |50** |100 |
 | DNS Servers per virtual network |9 |25 |
 | Private IP Addresses per virtual network |16384** |16384 |
 | Private IP Addresses per network interface |256 |256 |
@@ -51,13 +51,13 @@ The following limits apply only for networking resources managed through Azure R
 | IP configurations per application security group |1000 |4000 |
 | Application security groups that can be specified within all security rules of a network security group |50 |100 |
 | User defined route tables |100 |200 |
-| User defined routes per route table |100 |400 |
+| User defined routes per route table |400** |400 |
 | Public IP addresses - dynamic |(Basic) 60 |contact support |
 | Public IP addresses - static |(Basic) 20 |contact support |
 | Public IP addresses - static |(Standard) 20 |contact support |
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 
-**These default limits apply to subscriptions that have not previously had these limits increased through support
+**These updated default limits apply to subscriptions that have not previously had these limits increased through support. If you have has these limits increased by support in the past and would like to get them updated to new defaults, please [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 #### <a name="load-balancer"></a>Load Balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md)

@@ -69,9 +69,9 @@ This app has a few intents. The first intent, **`GetJobInformation`**, identifie
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot of entering new utterances for MyStore intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-3. The LUIS app currently has no utterances for the **None** intent. It needs utterances that the app doesn't answer. Do not leave it empty. 
-    
-    Select **Intents** from the left panel. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app. If the app is about your Job postings, some good **None** utterances are:
+3. The LUIS app currently has no utterances for the **None** intent. It needs utterances that the app doesn't answer. Do not leave it empty. Select **Intents** from the left panel. 
+
+4. Select the **None** intent. Add three utterances that your user might enter but are not relevant to your app. If the app is about your Job postings, some good **None** utterances are:
 
     | Example utterances|
     |--|
@@ -79,7 +79,7 @@ This app has a few intents. The first intent, **`GetJobInformation`**, identifie
     |Order a pizza for me|
     |Penguins in the ocean|
 
-    In your LUIS-calling application, such as a chatbot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The chatbot can also give more directions for continuing the conversation if the user doesn't want to end it. 
+    In the LUIS-calling application, such as a chatbot, if LUIS returns the **None** intent for an utterance, your bot can ask if the user wants to end the conversation. The chatbot can also give more directions for continuing the conversation if the user doesn't want to end it. 
 
 ## Train and publish the app
 1. In the top right side of the LUIS website, select the **Train** button. 
@@ -90,12 +90,14 @@ This app has a few intents. The first intent, **`GetJobInformation`**, identifie
 
     ![Trained status bar](./media/luis-quickstart-intents-only/trained.png)
 
-2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. The production slot is selected by default. Select the **Publish** button by the product slot choice. Publishing is complete when you see the green status bar at the top of the website confirming success.
+2. In the top, right side of the LUIS website, select the **Publish** button to open the Publish page. The production slot is selected by default. Select the **Publish** button by the production slot choice. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
-    You do not have to create a LUIS key in the Azure portal before you publish or before you test the endpoint URL. Every LUIS app has a free starter key for authoring. It gives you unlimited authoring and a [few endpoint hits](luis-boundaries.md#key-limits). 
+    You do not have to create a LUIS endpoint key in the Azure portal before you publish or before you test the endpoint URL. Every LUIS app has a free starter key for authoring. It gives you unlimited authoring and a [few endpoint hits](luis-boundaries.md#key-limits). 
 
 ## Query endpoint for GetJobInformation intent
-On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. Go to the end of the URL in the address and enter `I'm looking for a job with Natual Language Processing`. The last query string parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances in step 4 so it is a good test and should return the `GetJobInformation` intent as the top scoring intent. 
+1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
+
+2. Go to the end of the URL in the address and enter `I'm looking for a job with Natual Language Processing`. The last query string parameter is `q`, the utterance **query**. This utterance is not the same as any of the example utterances in step 4 so it is a good test and should return the `GetJobInformation` intent as the top scoring intent. 
 
     ```
     {
@@ -133,7 +135,7 @@ Return to the browser tab for the LUIS website and create a new intention to app
 
     | Example utterances|
     |--|
-    |I want to apply for the new account job|
+    |I want to apply for the new accounting job|
     |Fill out application for Job 123456|
     |Submit resume for engineering position|
     |Here is my c.v. for position 654234|
@@ -182,9 +184,9 @@ The JSON result identifies the top scoring intent. All scores are between 1 and 
 LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and either find information (not stored in LUIS) to answer the question or end the conversation. These are programmatic options for the bot or calling application. LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS app. To do so, select **My apps** in the top left menu. Select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to add prebuilt intents and entities](luis-tutorial-prebuilt-intents-entities.md)
+> [Add prebuilt intents and entities to this app](luis-tutorial-prebuilt-intents-entities.md)

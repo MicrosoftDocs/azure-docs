@@ -11,12 +11,12 @@
   items:
   - name: Create function - portal
     href: functions-create-first-azure-function.md
-  - name: Create function - Azure CLI
-    href: functions-create-first-azure-function-azure-cli.md
   - name: Create function - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
   - name: Create function - Java/Maven
     href: functions-create-first-java-maven.md
+  - name: Create function - Azure CLI
+    href: functions-create-first-azure-function-azure-cli.md
   - name: Create function - Linux
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: Triggers
@@ -98,6 +98,8 @@
     items:
     - name: Overview 
       href: durable-functions-overview.md
+    - name: Function types and features
+      href: durable-functions-types-features-overview.md
     - name: Bindings
       href: durable-functions-bindings.md
     - name: Checkpoint and replay 

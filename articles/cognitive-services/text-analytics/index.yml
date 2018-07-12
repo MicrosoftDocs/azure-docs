@@ -38,17 +38,13 @@ sections:
       text: Node.js
       href: quickstarts/nodejs
     - image: 
-        src: media/index/logo_php.svg
-      text: PHP
-      href: quickstarts/php
-    - image: 
         src: media/index/logo_python.svg
       text: Python
       href: quickstarts/python
     - image: 
-        src: media/index/logo_ruby.svg
-      text: Ruby
-      href: quickstarts/ruby
+        src: media/index/logo_go.svg
+      text: Go
+      href: quickstarts/go
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

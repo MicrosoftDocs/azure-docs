@@ -3,8 +3,8 @@ title: Manage the configuration server for VMware disaster recovery with Azure S
 description: This article describes how to manage an existing configuration server for VMware disaster recovery to Azure with Azure Site RecoveryS.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.topic: article
+ms.date: 07/06/2018
 ms.author: raynew
 ---
 
@@ -22,7 +22,7 @@ You can access the configuration server as follows:
    
 ### Modify VMware server settings
 
-1. To associate a different VMware server with the configuration server, after sign in, select **Add vCenter Server/vSphere ESXi server**.
+1. To associate a different VMware server with the configuration server, after sign-in, select **Add vCenter Server/vSphere ESXi server**.
 2. Enter the details, and then select **OK**.
 
 
@@ -54,7 +54,7 @@ Modify the proxy settings used by the configuration server machine for internet 
 
 The Open Virtualization Format (OVF) template deploys the configuration server VM with a single network adapter.
 
-- You can [add an additional adapter to the VM)](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), but you must add it before you register the configuration server in the vault.
+- You can [add an additional adapter to the VM](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), but you must add it before you register the configuration server in the vault.
 - To add an adapter after you register the configuration server in the vault, add the adapter in the VM properties. Then you need to reregister the server in the vault.
 
 
@@ -91,21 +91,18 @@ Upgrade the server as follows:
 
 1. In the vault, go to **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
 2. If an update is available, a link appears in the **Agent Version** > column.
-
     ![Update](./media/vmware-azure-manage-configuration-server/update2.png)
-
-1. Download the update installer file to the configuration server.
+3. Download the update installer file to the configuration server.
 
     ![Update](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Double-click to run the installer.
-2. The installer detects the current version running on the machine. Click **Yes** to start the upgrade. 
-3. When the upgrade completes the server configuration validates.
+5. The installer detects the current version running on the machine. Click **Yes** to start the upgrade.
+6. When the upgrade completes the server configuration validates.
 
     ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
-
-4. Click **Finish** to close the installer.
-
+    
+7. Click **Finish** to close the installer.
 
 ## Delete or unregister a configuration server
 
@@ -145,7 +142,12 @@ You can optionally delete the configuration server by using PowerShell.
 > [!NOTE]
 > You can use the **-Force** option in Remove-AzureRmSiteRecoveryFabric for forced deletion of the configuration server.
  
+## Generate configuration server Passphrase
 
+1. Sign in to your configuration server, and then open a command prompt window as an administrator.
+2. To change the directory to the bin folder, execute the command **cd %ProgramData%\ASR\home\svsystems\bin**
+3. To generate the passphrase file, execute **genpassphrase.exe -v > MobSvc.passphrase**.
+4. Your passphrase will be stored in the file located at **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
 ## Renew SSL certificates
 

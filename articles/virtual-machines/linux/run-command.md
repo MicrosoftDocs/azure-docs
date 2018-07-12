@@ -30,6 +30,7 @@ The following are a list of restrictions that are present when using Run Command
 * Scripts that prompt for information (interactive mode) are not supported.
 * You cannot cancel a running script
 * The maximum time a script can run is 90 minutes, after which it will time out
+* Outbound connectivity from the VM is required to return the results of the script.
 
 ## Azure CLI
 

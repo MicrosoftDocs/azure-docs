@@ -69,4 +69,4 @@ Use PowerShell to export all your information to a portable format from Azure Ma
 
 ## Next steps
 
-For documentation covering web services and commitment plan billing, see [Azure Machine Learning REST API reference](https://docs.microsoft.com/en-us/rest/api/machinelearning/). 
+For documentation covering web services and commitment plan billing, see [Azure Machine Learning REST API reference](https://docs.microsoft.com/rest/api/machinelearning/). 

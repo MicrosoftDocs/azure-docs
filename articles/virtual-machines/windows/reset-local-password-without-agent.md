@@ -3,7 +3,7 @@ title: Reset a local Windows password without Azure agent | Microsoft Docs
 description: How to reset the password of a local Windows user account when the Azure guest agent is not installed or functioning on a VM
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # Reset local Windows password for Azure VM offline
@@ -90,7 +90,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
      ```
      
      ![Create gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
+5. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders.
    
    * Add the following lines the `scripts.ini` file you created:
      
