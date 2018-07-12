@@ -126,9 +126,9 @@ If you don't have an Azure subscription yet,
   you can use the latest installer to set up a new gateway 
   with the location you want instead.
   
-  If you have a gateway installer that's earlier than 
-  version 14.16.6317.4, but you haven't installed your 
-  gateway yet, you can download and use the latest installer.
+    If you have a gateway installer that's earlier than 
+    version 14.16.6317.4, but you haven't installed your 
+    gateway yet, you can download and use the latest installer.
 
 <a name="install-gateway"></a>
 
