@@ -9,11 +9,11 @@
   items:
   - name: Deploy Hello World
     href: service-fabric-mesh-quickstart-deploy-container.md
-  - name: Deploy a Service Fabric Mesh application
+  - name: Creae and deploy a web application
     href: service-fabric-mesh-quickstart-dotnet-core.md
 - name: Tutorials
   items:
-  - name: Create and deploy a web app to Service Fabric Mesh
+  - name: Create and deploy a multi-service web app
     items:
     - name: 1- Build an ASP.NET Core application
       href: service-fabric-mesh-tutorial-create-dotnetcore.md
