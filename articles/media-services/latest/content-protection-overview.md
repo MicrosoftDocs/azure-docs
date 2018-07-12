@@ -86,7 +86,7 @@ You can use Media Services to deliver your content encrypted dynamically with AE
 
 In Media Services v3, a content key is associated with StreamingLocator (see [this example](protect-with-aes128.md)). If using the Media Services key delivery service, you should auto generate the content key. You should generate the content key yourself if you are using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two datacenters.
 
-When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service or the key delivery service you specified. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service or the key delivery service you specified. To decide whether or not the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
 
 ## AES-128 clear key vs. DRM
 
