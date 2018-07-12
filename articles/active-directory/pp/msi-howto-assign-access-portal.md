@@ -37,11 +37,11 @@ After you've enabled MSI on an Azure resource, [such as an Azure VM](msi-qs-conf
 
 3. Select the **Access control (IAM)** page of the resource, and select **+ Add**. Then specify the **Role**, **Assign access to Virtual Machine**, and specify the corresponding **Subscription** and **Resource Group** where the resource resides. Under the search criteria area, you should see the resource. Select the resource, and select **Save**. 
 
-   ![Access control (IAM) screenshot](~/articles/active-directory/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   ![Access control (IAM) screenshot](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
 
 4. You are returned to the main **Access control (IAM)** page, where you see a new entry for the resource's MSI. In this example, the "SimpleWinVM" VM from the Demo Resource Group has **Contributor** access to the storage account.
 
-   ![Access control (IAM) screenshot](~/articles/active-directory/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![Access control (IAM) screenshot](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
 ## Troubleshooting
 
