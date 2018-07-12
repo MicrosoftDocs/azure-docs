@@ -16,21 +16,25 @@ Azure Service Fabric Mesh is a fully managed service that enables developers to 
 
 ## Service Fabric
 
-Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric is the orchestrator that powers Service Fabric Mesh.  Service Fabric provides options for how you can build and run your microservices applications. You can use any framework to write your services and choose where to run the application from multiple environment choices.
+Service Fabric is an open source distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric is the orchestrator that powers Service Fabric Mesh. Service Fabric provides options for how you can build and run your microservices applications. You can use any framework to write your services and choose where to run the application from multiple environment choices.
 
-## Frameworks
+## Deployment and application models
 
-[Service Fabric](/azure/service-fabric/service-fabric-overview) as a platform is agnostic to the framework you choose for writing services.  For example, can write services using ASP.NET, Java, Node.js, or Python. The Service Fabric ecosystem also provides frameworks, which enable you to take advantage of platform features (such as highly available state). [Reliable services](/azure/service-fabric/service-fabric-reliable-services-introduction) and [reliable actors](/azure/service-fabric/service-fabric-reliable-actors-introduction) are specific examples of Service Fabric frameworks.
+To deploy your services, you need to describe how they should run. Service Fabric supports three different deployment models:
 
-## Deployment models
+**Resource model**: Resources are anything that can be deployed individually to Service Fabric, including applications, services, networks, and volumes. Resources are defined using a YAML file or JSON file using the Azure Resource Model schema.
 
-To deploy your services, you need to describe how they should run. Service Fabric supports three different deployment models.
+The resource model is the simplest way to describe your Service Fabric applications. It's main focus is on simple deployment and management of containerized services.
 
-**Resource model**: Describes Service Fabric applications and resources. Resources are defined using a YAML file or JSON file (using the Azure Resource Model schema). Applications described using the resource model are deployed as running instances.
+Resources can be deployed anywhere Service Fabric runs.
 
-**Manifest model**: Describes reliable services applications.  Application and service types are defined using XML manifest files.  Multiple instances of application and service types can run at the same time.
+**Native model**: The native application model provides your applications with full low-level access to Service Fabric. Applications and services are defined as registered types in XML manifest files.
 
-**Docker Compose**: A tool for defining and running multi-container Docker applications. [Compose](https://docs.docker.com/compose/) is part of the Docker project. Service Fabric provides limited support for deploying applications using the Compose model.
+The native model supports the Reliable Services framework, which provides access to the Service Fabric runtime APIs and cluster management APIs in C# and Java. The native model also supports arbitrary containers and executables.
+
+The native model is not supported in the Service Fabric Mesh environment.
+
+**Docker Compose**: [Docker Compose](https://docs.docker.com/compose/) is part of the Docker project. Service Fabric provides limited support for deploying applications using the Docker Compose model.
 
 ## Environments
 
@@ -42,7 +46,7 @@ Service Fabric is the platform technology, which several different services and 
 
 **Service Fabric standalone**: A set of installation and configuration tools to [deploy Service Fabric clusters anywhere](/azure/service-fabric/service-fabric-deploy-anywhere) (on-premises or on any cloud provider). Not managed by Azure.
 
-**Service Fabric onebox or development cluster**: Provides the developer experience on Windows, Linux, or Mac for creating Service Fabric applications.
+**Service Fabric development cluster**: Provides the developer experience on Windows, Linux, or Mac for creating Service Fabric applications.
 
 ## Environment, framework, and deployment model support matrix
 Different environments have different level of support for frameworks and deployment models. The following table describes the supported framework and deployment model combinations.
@@ -50,7 +54,7 @@ Different environments have different level of support for frameworks and deploy
 |Frameworks\Deployment model |Resource model |Manifest model | Compose|
 |---|---|---|---|
 |Reliable Actors and Reliable Services |Not supported |Supported |Not supported |
-|Any other framework |Supported in containers |Supported as processes and in containers |Supported in containers |
+|Any other framework or language |Supported in containers |Supported as processes and in containers |Supported in containers |
 
 The following table describes the supported environment and deployment model combinations.
 

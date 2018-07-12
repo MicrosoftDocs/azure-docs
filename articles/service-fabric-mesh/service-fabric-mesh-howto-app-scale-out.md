@@ -26,80 +26,69 @@ The `web` service is an ASP.NET Core application with a web page that shows tria
 
 The `worker` service moves the triangle at a predefined interval in the space and sends location of the triangle to `web` service. It uses DNS to resolve the address of the `web` service.
 
-## Setup Service Fabric Mesh CLI
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
-
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete these steps. If you choose to install and use the CLI locally, you must install the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install]. 
-
-Install the Azure Service Fabric Mesh CLI extension module. For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI.
-
-```azurecli-interactive
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
+## Setup Service Fabric Mesh CLI 
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this task. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
 ## Log in to Azure
-
 Log in to Azure and set your subscription.
 
 ```azurecli-interactive
 az login
-az account set --subscription "<subscriptionName>"
+az account set --subscription "<subscriptionID>"
 ```
 
 ## Create resource group
-Create a resource group (RG) to deploy this example or you can use an existing resource group and skip this step. The preview is available only in `eastus` location.
+Create a resource group to deploy the application to. You can use an existing resource group and skip this step. 
 
 ```azurecli-interactive
-az group create --name <resourceGroupName> --location eastus 
+az group create --name myResourceGroup --location eastus 
 ```
 
-## Deploy the template with one worker service
-
-Create the application and related resources using the following command.
+## Deploy the application with one worker service
+Create your application in the resource group using the `deployment create` command.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group <resourceGroupName> --template-uri https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.base.linux.json
+az mesh deployment create --resource-group <resourceGroupName> --template-uri https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
   
 ```
-In a minute or so, your command should return with `"provisioningState": "Succeeded"`. Once it does, get the public IP address by querying for the network resources created in this deployment.
+The preceding command deploys a Linux using [mesh_rp.base.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json). If you want to deploy a Windows application, use [mesh_rp.base.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.windows.json). Note that for Windows, container images are large compared to Linux, so it may take more time than deploying Linux application.
 
-To deploy, Windows application use[https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.base.windows.json](https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.base.windows.json) template. Note that for Windows, container images are large compared to Linux, so it may take more time than deploying Linux application.
+In a few minutes, your command should return with:
 
-## Obtain public IP address and connect to it
+`visualObjectsApp has been deployed successfully on visualObjectsNetwork with public ip address <IP Address>` 
 
-Once the application status is returned as `"provisioningState": "Succeeded"`, get the public IP address for the service endpoint, and open it on a browser.
+## Open the application
+Once the application successfully deploys, get the public IP address for the service endpoint, and open it on a browser. It should display a web page with one triangle moving through the space.
 
-The network resource name for this example is `visualObjectsNetwork`, fetch information about it using the following command. 
-
-The network resource name for Windows example is `visualObjectsNetworkWindows`.
+The deployment command returns the public IP address of the service endpoint. You can also query the network resource to find the public IP address of the service endpoint.
+ 
+The network resource name for this application is `visualObjectsNetwork`, fetch information about it using the following command. 
 
 ```azurecli-interactive
-az mesh network show --resource-group <resourceGroupName> --name visualObjectsNetwork
+az mesh network show --resource-group myResourceGroup --name visualObjectsNetwork
 ```
-
-Get the `publicIpAddress` property and connect to it using a browser. It should display a web page with one triangle moving through the space.
 
 ## Scale `worker` service
 
 Scale the `worker` service to three instances using the following command. 
 
 ```azurecli-interactive
-az mesh deployment create --resource-group <resourceGroupName> --template-uri https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.scaleout.linux.json
+az mesh deployment create --resource-group <resourceGroupName> --template-uri https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
   
 ```
+The preceding command deploys a Linux using [mesh_rp.scaleout.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.linux.json). If you want to deploy a Windows application, use [mesh_rp.scaleout.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.windows.json). Note that for Windows, container images are large compared to Linux, so it may take more time than deploying Linux application.
 
-To deploy, Windows application use[https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.scaleout.windows.json](https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.scaleout.windows.json) template. Note for Windows, container images are large compared to Linux, so it may take more time than deploying Linux application.
-
-Once the command return with `"provisioningState": "Succeeded"`,  the browser should be displaying a web page with three triangles moving through the space.
+Once the application successfully deploys, the browser should be displaying a web page with three triangles moving through the space.
 
 ## Delete the resources
 
 To conserve the limited resources assigned for the preview program, delete the resources frequently. To delete resources related to this example, delete the resource group in which they were deployed.
 
 ```azurecli-interactive
-az group delete --resource-group <resourceGroupName> 
+az group delete --resource-group myResourceGroup 
 ```
 
 ## Next steps
-
-For more information, see [Service Fabric resources](service-fabric-mesh-service-fabric-resources.md)
+- View the Visual Objects sample application on [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/visualobjects).
+- To learn more about Service Fabric Resource Model, see [Service Fabric Mesh Resource Model](service-fabric-mesh-service-fabric-resources.md).
+- To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md).

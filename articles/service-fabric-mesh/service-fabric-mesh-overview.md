@@ -22,7 +22,7 @@ This article provides an overview of the key benefits of Service Fabric Mesh.
 
 ## Great developer experience
 
-Tooling in Visual Studio and Visual Studio Code provides a powerful editing and debugging experience.  Multiple programing languages and frameworks are supported, giving you the ability to create applications that run any code.
+Service Fabric Mesh supports any programming language or framework that can be run in a container. Visual Studio 2017 and Visual Studio Code tooling support provides a powerful editing and debugging experience for .NET and .NET Core applications. 
 
 With Service Fabric Mesh you can:
 
