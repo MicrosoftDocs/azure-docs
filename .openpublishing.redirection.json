@@ -9736,7 +9736,12 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-data-science-create-features-blob.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/create-features-blob",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/create-features-blob.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
             "redirect_document_id": false
         },
         {
@@ -25006,6 +25011,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-hub/iot-hub-security-x509-create-certificates.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-security-x509-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/index.md",
             "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
@@ -26108,6 +26118,11 @@
         {
             "source_path": "articles/cognitive-services/LUIS/Pre-builtEntities.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-prebuilt-entities",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/batch/batch-get-task-counts.md",
+            "redirect_url": "/azure/batch/batch-get-resource-counts",
             "redirect_document_id": true
         },
         {
