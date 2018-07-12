@@ -130,7 +130,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 When copy large volume of data from file-based data store, you are suggested to:
 
-- Partition the files into 10TB to 20TB fileset each.
+- Partition the files into 10TB to 30TB fileset each.
 - Do not trigger too many concurrent copy runs to avoid throttling from source or sink data stores. You can start with one copy run and monitor the throughput, then gradually add more as needed.
 
 ## Next steps
