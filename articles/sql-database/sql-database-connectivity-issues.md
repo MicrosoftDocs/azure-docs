@@ -1,6 +1,6 @@
 ---
 title: Fix a SQL connection error, transient error | Microsoft Docs
-description: Learn how to troubleshoot, diagnose, and prevent a SQL connection error or transient error in Azure SQL Database. 
+description: Learn how to troubleshoot, diagnose, and prevent a SQL connection error or transient error in Azure SQL Database.
 keywords: sql connection,connection string,connectivity issues,transient error,connection error
 services: sql-database
 author: dalechen
@@ -8,8 +8,8 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: daleche
+ms.date: 07/11/2018
+ms.author: ninarn
 ---
 # Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database
 This article describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient errors that your client application encounters when it interacts with Azure SQL Database. Learn how to configure retry logic, build the connection string, and adjust other connection settings.
@@ -19,7 +19,7 @@ This article describes how to prevent, troubleshoot, diagnose, and mitigate conn
 ## Transient errors (transient faults)
 A transient error, also known as a transient fault, has an underlying cause that soon resolves itself. An occasional cause of transient errors is when the Azure system quickly shifts hardware resources to better load-balance various workloads. Most of these reconfiguration events finish in less than 60 seconds. During this reconfiguration time span, you might have connectivity issues to SQL Database. Applications that connect to SQL Database should be built to expect these transient errors. To handle them, implement retry logic in their code instead of surfacing them to users as application errors.
 
-If your client program uses ADO.NET, your program is told about the transient error by the throw of **SqlException**. Compare the **Number** property against the list of transient errors that are found near the top of the article 
+If your client program uses ADO.NET, your program is told about the transient error by the throw of **SqlException**. Compare the **Number** property against the list of transient errors that are found near the top of the article
 [SQL error codes for SQL Database client applications](sql-database-develop-error-messages.md).
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
@@ -305,8 +305,8 @@ Retry logic for handling transient errors is one area in which EntLib60 can assi
 
 > [!NOTE]
 > The source code for EntLib60 is available for public download from the [Download Center](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft has no plans to make further feature updates or maintenance updates to EntLib.
-> 
-> 
+>
+>
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
@@ -316,12 +316,12 @@ The following EntLib60 classes are particularly useful for retry logic. All thes
 In the namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
 
 * **RetryPolicy** class
-  
+
   * **ExecuteAction** method
 * **ExponentialBackoff** class
 * **SqlDatabaseTransientErrorDetectionStrategy** class
 * **ReliableSqlConnection** class
-  
+
   * **ExecuteCommand** method
 
 In the namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
@@ -339,7 +339,7 @@ Here are some links to information about EntLib60:
 
 ### EntLib60: The logging block
 * The logging block is a highly flexible and configurable solution that you can use to:
-  
+
   * Create and store log messages in a wide variety of locations.
   * Categorize and filter messages.
   * Collect contextual information that is useful for debugging and tracing, as well as for auditing and general logging requirements.
@@ -432,4 +432,3 @@ public bool IsTransient(Exception ex)
 [step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
 
 [step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
-
