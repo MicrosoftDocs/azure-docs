@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
     * **Name:** Provide a unique name for your new Device Provisioning Service instance. If the name you enter is available, a green check mark appears.
     * **Subscription:** Choose the subscription that you want to use to create this Device Provisioning Service instance.
-    * **Resource group:** Create a new resource group, or choose an existing one to contain the new instance. By putting all related resources in a group together, such as **TestResources**, you can manage them all together. For example, deleting the resource group deletes all resources contained in that group. For more information, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
+    * **Resource group:** This field allows you to create a new resource group, or choose an existing one to contain the new instance. Choose the same resource group that contains the Iot hub you created above, for example, **TestResources**. By putting all related resources in a group together, you can manage them together. For example, deleting the resource group deletes all resources contained in that group. For more information, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
     * **Location:** Select the closest location to your devices
     * **Pin to dashboard:** Select this option to have the instance pinned to your dashboard making it easier to find.
 
