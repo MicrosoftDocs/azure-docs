@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Perform manual failover for an IoT hub (public preview)
 
-Manual failover is a feature of IoT Hubs that allows customers to change their hub's operations to a different region. In the event of a disaster, you can perform a manual failover to switch to an IoT hub in a different region. You can also perform a manual failover to test your high availability and disaster recovery capabilities. The manual failover feature will be offered to customers at no additional cost.
+Manual failover is a feature of IoT Hubs that allows customers to [failover](https://en.wikipedia.org/wiki/Failover) their hub's operations from a primary region to the corresponding Azure geo-paired region. Manual failover can be done in the event of a regional disaster or an extended service outage. You can also perform a planned failover       to test your high availability and disaster recovery capabilities, although we recommend using a test IoT hub rather than one running in production. The manual failover feature will be offered to customers at no additional cost.
 
 In this tutorial, you perform the following tasks:
 
