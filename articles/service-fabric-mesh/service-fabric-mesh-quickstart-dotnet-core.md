@@ -22,7 +22,7 @@ ms.custom: mvc, devcenter
 
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking.
 
-In this quickstart you'll create a new Service Fabric Mesh application (an ASP.NET Core website), run it on the local development cluster, and then publish it to run on Azure.
+In this quickstart you'll create a new Service Fabric Mesh application consisting of an ASP.NET Core web app, run it on the local development cluster, and then publish it to run on Azure.
 
 You'll need an Azure subscription. If you don't have one, you can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. You will also need to [setup your developer environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md)
 
