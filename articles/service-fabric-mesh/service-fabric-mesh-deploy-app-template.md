@@ -18,7 +18,7 @@ ms.author: ryanwi
 ms.custom: mvc, devcenter 
 ---
 # Deploy an application to Service Fabric Mesh from a template
-This article shows how to deploy a .NET Core application to Service Fabric Mesh using a template. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a stateful back-end service in the cluster.
+This article shows how to deploy a .NET Core application to Service Fabric Mesh using a template. When you're finished, you have a voting application with an ASP.NET Core web front end that saves voting results in a back-end service in the cluster.
 
 You can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
@@ -41,22 +41,22 @@ az account set --subscription "<subscriptionID>"
 Create a resource group to deploy the application to. You can use an existing resource group and skip this step. 
 
 ```azurecli-interactive
-az group create --name MeshTest-rg --location eastus 
+az group create --name myResourceGroup --location eastus 
 ```
 
-Create your application in the resource group using the `deployment create` command, using our [quickstart-linux.json](https://github.com/Azure/service-fabric-mesh-preview-pr/blob/master/samples/templates/votingapp/quickstart-linux.json), or [quickstart-windows.json](https://github.com/Azure/service-fabric-mesh-preview-pr/blob/master/samples/templates/votingapp/quickstart-windows.json):
+Create your application in the resource group using the `deployment create` command, using our [mesh_rp.linux.json template] (https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.linux.json), or [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json):
 
 ```azurecli-interactive
-az mesh deployment create --resource-group MeshTest-rg --template-file C:\templates\votingapp\quickstart-linux.json
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
 ```
 
 In a few seconds, your command should return with `"provisioningState": "Succeeded"`. 
 
 ## Check the application deployment status
-Your application is now deployed. You can check the application's status using the `app show` command. The application name for the deployed application is "SbzVoting", so fetch its details. 
+Your application is now deployed. You can check the application's status using the `app show` command. The application name for the deployed application is "VotingApp", so fetch its details. 
 
 ```azurecli-interactive
-az mesh app show --resource-group MeshTest-rg --name VotingApp
+az mesh app show --resource-group myResourceGroup --name VotingApp
 ```
 
 ## List the deployed applications
@@ -69,10 +69,10 @@ az mesh app list -o table
 ## Open the application
 Once the application status is returned as ""provisioningState": "Succeeded", get the ingress endpoint of the service.  Query the network resource to find the IP address of the container where the service is deployed.
 
-The network resource for the application is "SbzVotingNetwork", so fetch its details.
+The network resource for the application is "VotingAppNetwork", so fetch its details.
 
 ```azurecli-interactive
-az mesh network show --resource-group MeshTest-rg --name VotingAppNetwork
+az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
 ```
 
 The command should now return with the following information:
@@ -81,12 +81,13 @@ The command should now return with the following information:
 {
   "addressPrefix": "10.0.0.4/22",
   "description": "Private network for application",
-  "id": "/subscriptions/<subscriptionID>/resourcegroups/MeshTest-rg/providers/Microsoft.ServiceFabric/networks/SbzVotingNetwork",
+  "id": "/subscriptions/<subscriptionID>/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabricMesh/networks/VotingAppNetwork",
   "ingressConfig": {
     "layer4": [
       {
-        "applicationName": "SbzVoting",
-        "endpointName": "Endpoint1",
+        "name": "VotingWebIngress",
+        "applicationName": "VotingApp",
+        "endpointName": "VotingWebListener",
         "publicPort": "80",
         "serviceName": "VotingWeb"
       }
@@ -95,11 +96,11 @@ The command should now return with the following information:
     "qosLevel": "Bronze"
   },
   "location": "eastus",
-  "name": "SbzVotingNetwork",
+  "name": "VotingAppNetwork",
   "provisioningState": "Succeeded",
-  "resourceGroup": "MeshTest-rg",
+  "resourceGroup": "myResourceGroup",
   "tags": {},
-  "type": "Microsoft.ServiceFabric/networks"
+  "type": "Microsoft.ServiceFabricMesh/networks"
 }
 ```
 
@@ -113,7 +114,7 @@ You can now add voting options to the application and vote on it, or delete the 
 When you no longer need the application and it's related resources, delete the resource group containing them. 
 
 ```azurecli-interactive
-az group delete --resource-group MeshTest-rg  
+az group delete --resource-group myResourceGroup  
 ```
 
 ## Next steps
