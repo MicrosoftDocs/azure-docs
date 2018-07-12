@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Add auto-complete to your search box using Azure Search | Microsoft Docs'
+title: 'Tutorial for adding auto-complete to your search box using Azure Search | Microsoft Docs'
 description: Examples of how to improve the end user experience of your data-centric applications using Azure Search auto-complete and suggestions APIs. 
 manager: pablocas
 author: mrcarter8
@@ -7,8 +7,9 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 07/11/2018
 ms.author: mcarter
+#Customer intent: As a developer, I want to understand auto-complete implementation, benefits, and tradeoffs.
 ---
 
 # Tutorial: Add auto-complete to your search box using Azure Search

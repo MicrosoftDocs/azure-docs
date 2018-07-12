@@ -47,6 +47,10 @@ See [entities](luis-concept-entity-types.md) and [data extraction](luis-concept-
 ### Should variations of an example utterance include punctuation? 
 Either add the different variations as example utterances to the intent or add the pattern of the example utterance with the [syntax to ignore](luis-concept-patterns.md#pattern-syntax) the punctuation. 
 
+### Does LUIS currently support Cortana?
+
+Cortana prebuilt apps were deprecated in 2017. They are no longer supported. 
+
 ## LUIS endpoint
 
 ### Why does LUIS add spaces to the query around or in the middle of words?

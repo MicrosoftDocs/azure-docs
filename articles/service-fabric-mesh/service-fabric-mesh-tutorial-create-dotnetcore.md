@@ -1,5 +1,5 @@
 ---
-title: Tutorial Create an Azure Service Fabric app | Microsoft Docs
+title: Tutorial Create an Azure Service Fabric Mesh app | Microsoft Docs
 description: In this tutorial, you create an Azure Service Fabric application consisting of an ASP.NET Core website that communicates with a back-end web service, and publish it to Azure.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -18,16 +18,16 @@ ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
 ---
 
-# Tutorial: Create an Azure Service Fabric app
+# Tutorial: Create a Service Fabric Mesh application
 
-This tutorial is part one of a series. You'll learn how to create an Azure Service Fabric app that has an ASP.NET web front end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster and publish the app to Azure. When you're finished, you'll have a simple to-do app that demonstrates a service-to-service call in a Service Fabric application running in Service Fabric Mesh.
+This tutorial is part one of a series. You'll learn how to create an Azure Service Fabric Mesh application that has an ASP.NET web front end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster and publish the app to Azure. When you're finished, you'll have a simple to-do app that demonstrates a service-to-service call in a Service Fabric Mesh application running in Azure Service Fabric Mesh.
 
 If you don't want to manually create the to-do app, you can [download the source code](https://github.com/azure-samples/service-fabric-mesh) for the completed application  and skip ahead to [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
 
 In part one of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Service Fabric application consisting of an ASP.NET web front end.
+> * Create a Service Fabric Mesh application consisting of an ASP.NET web front end.
 > * Create a model to represent to-do items.
 > * Create a back-end service & retrieve data from it.
 > * Add a controller and DataContext as part of that Model View Controller pattern for the back-end service.
@@ -36,7 +36,7 @@ In part one of the series, you learn how to:
 
 In this tutorial series you learn how to:
 > [!div class="checklist"]
-> * Build a Service Fabric application
+> * Build a Service Fabric Mesh application
 > * [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * [Publish the app to Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 
@@ -76,7 +76,7 @@ Next you'll see the **New ASP.NET Core Web Application** dialog. In the **New AS
 
 ![Visual studio new ASP.NET core application](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
-Now you have a Service Fabric Application. Next, create the model for to-do information.
+Now you have a Service Fabric Mesh application. Next, create the model for to-do information.
 
 ## Create the to-do items model
 
@@ -373,14 +373,14 @@ Your **WebFrontEnd** project's **service.yaml** file should look something like 
 
 ![Service.yaml in the WebFrontEnd project](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-envvars.png)
 
-Now you are ready to build and deploy the image the Service Fabric app, along with the back-end web service, to your local cluster.
+Now you are ready to build and deploy the image the Service Fabric Mesh application, along with the back-end web service, to your local cluster.
 
 ## Next steps
 
 In this part of the tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a Service Fabric application consisting of an ASP.NET web front end.
+> * Create a Service Fabric Mesh application consisting of an ASP.NET web front end.
 > * Create a model to represent to-do items.
 > * Create a back-end service & retrieve data from it.
 > * Add a controller and DataContext as part of that Model View Controller pattern for the back-end service.
