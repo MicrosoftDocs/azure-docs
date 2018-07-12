@@ -1,7 +1,6 @@
 ---
 title: Debug C# modules for Azure IoT Edge | Microsoft Docs
-description: Use Visual Studio Code to develop, build, and debug a C# module for
- Azure IoT Edge
+description: Use Visual Studio Code to develop, build, and debug a C# module for Azure IoT Edge
 services: iot-edge
 keywords: 
 author: shizn
@@ -87,7 +86,7 @@ Check your container status in the VS Code Docker explorer or by running the `do
 VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace. This `launch.json` file was generated when you created a new IoT Edge solution. It updates each time you add a new module that supports debugging. 
 
 1. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (.NET Core)**
-    ![Select debug configuration](./media/how-to-develop-csharp-module/debug-config.png)
+    ![Select debug configuration](./media/how-to-develop-csharp-module/debug-config.png).
 
 2. Navigate to `program.cs`. Add a breakpoint in this file.
 
@@ -96,9 +95,9 @@ VS Code keeps debugging configuration information in a `launch.json` file locate
 4. In VS Code Debug view, you'll see the variables in the left panel. 
 
 > [!NOTE]
-> This example shows how to debug .NET Core IoT Edge modules on containers. It's based on the debug version of the `Dockerfile.debug`, which includes the .NET Core command-line debugger VSDBG in your container image while building it. After you debug your C# modules, we recommend that you directly use or customize `Dockerfile` without VSDBG for production-ready IoT Edge modules.
+> This example shows how to debug .NET Core IoT Edge modules on containers. It's based on the debug version of `Dockerfile.debug`, which includes the .NET Core command-line debugger VSDBG in your container image while building it. After you debug your C# modules, we recommend that you directly use or customize `Dockerfile` without VSDBG for production-ready IoT Edge modules.
 
 ## Next steps
 
-After you've built your module, learn how to [Deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md).
+After you've built your module, learn how to [deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md).
 
