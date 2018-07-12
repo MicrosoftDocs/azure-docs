@@ -24,15 +24,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an IoT hub
 
-1. Click the **Create a resource** button found on the upper left-hand corner of the Azure portal.
-
-2. Select **Internet of Things**, select **IoT Hub**, and click the **Create** button. 
-
-3. **Name** your IoT hub. Select from available options for pricing, enter the [IoT Hub units](https://azure.microsoft.com/pricing/details/iot-hub/), select the number of partitions for device-to-cloud messages, and the subscription that would be used for this resource. Enter the name of a new or existing resource group and select the location. When complete, click **Create**.
-
-    ![Enter basic information about your IoT hub in the portal blade](./media/quick-setup-auto-provision/create-iot-hub-portal.png)  
-
-4. Once the IoT hub is successfully deployed, the hub summary blade automatically opens.
+[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
 
 ## Create a new instance for the IoT Hub Device Provisioning Service
@@ -41,9 +33,15 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 2. *Search the Marketplace* for the **Device provisioning service**. Select **IoT Hub Device Provisioning Service** and click the **Create** button. 
 
-3. **Name** your Device Provisioning Service instance. Select the subscription that would be used for this instance, and name a new or existing resource group. Select the location. When complete, click **Create**.
+3. Provide the following information for your new Device Provisioning Service instance and click **Create**.
 
     ![Enter basic information about your DPS instance in the portal blade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+
+    * **Name:** Provide a name for your new Device Provisioning Service instance. This name must be unique.
+    * **Subscription:** Choose the subscription that you want to use to create this Device Provisioning Service instance.
+    * **Resource group:** Create a new resource group, or choose an existing one to contain the new instance. By putting all related resources in a group together, such as **TestResources**, you can manage them all together. For example, deleting the resource group deletes all resources contained in that group. For more information, see [Use resource groups to manage your Azure resources](../articles/azure-resource-manager/resource-group-portal.md).
+    * **Location:** Select the closest location to your devices
+    * **Pin to dashboard:** Select this to have the instance pinned to your dashboard making it easier to find.
 
 4. Once the service is successfully deployed, its summary blade automatically opens.
 
