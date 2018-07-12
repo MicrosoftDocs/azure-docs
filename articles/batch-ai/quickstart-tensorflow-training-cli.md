@@ -20,7 +20,7 @@ ms.author: danlep
 
 # Quickstart: Run your first Batch AI training job using the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to train a deep learning model with Batch AI. In this example, you set up a single GPU node to train an example [TensorFlow](https://www.tensorflow.org/) model on the MNIST database of handwritten digits.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows how to use the Azure CLI to train a deep learning model with Batch AI. In this example, you set up a single GPU node to train an example [TensorFlow](https://www.tensorflow.org/) model on the [MNIST database](http://yann.lecun.com/exdb/mnist/) of handwritten digits.
 
 After completing this quickstart, you'll understand key concepts of using Batch AI to train a deep learning model, and be ready to try training jobs at larger scale with different frameworks.
 
@@ -30,7 +30,7 @@ After completing this quickstart, you'll understand key concepts of using Batch 
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
-If you already followed the quickstart to [create a Batch AI cluster with the Azure CLI](quickstart-create-cluster-cli), skip the first two steps to create a resource group and a Batch AI cluster.
+If you already completed the quickstart to [create a Batch AI cluster with the Azure CLI](quickstart-create-cluster-cli.md), skip the first two steps to create a resource group and a Batch AI cluster.
 
 ## Create a resource group
 
@@ -122,7 +122,7 @@ az storage directory create \
     --name tensorflow
 ```
 
-Create a local working directory, and download the TensorFlow [convolutional.py](https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/mnist/convolutional.py) sample. The script trains a convolutional neural network on the MNIST image set of 60,000 handwritten digits from 0 through 9. Then it tests the model on a set of test examples. For background, see the [TensorFlow documentation](https://www.tensorflow.org/tutorials/layers).
+Create a local working directory, and download the TensorFlow [convolutional.py](https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/mnist/convolutional.py) sample. The script trains a convolutional neural network on the MNIST image set of 60,000 handwritten digits from 0 through 9. Then it tests the model on a set of test examples.
 
 ```bash
 wget https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/mnist/convolutional.py
@@ -180,7 +180,7 @@ In your working directory, create a training job configuration file `job.json` w
 }
 ```
 
-This `job.json` file includes TensorFlow settings to locate the Python script file that will run in a TensorFlow container on the GPU node. It also specifies the location of the job's log files that are saved to Azure storage.
+This `job.json` file includes settings to locate the Python script file that will run in a TensorFlow container on the GPU node. It also specifies the location of the job's log files that are saved to Azure storage.
 
 Use the [az batchai job create](/cli/azure/batchai/job#az-batchai-job-create) command to submit the job on the node, passing the `job.json` configuration file:
 
@@ -300,3 +300,5 @@ az group delete --name batchaiautostorage
 
 ## Next steps
 In this quickstart, you learned how to run an example TensorFlow training job on a Batch AI cluster, using the Azure CLI. To learn more about using Batch AI with different training frameworks, see the [training recipes](https://github.com/Azure/BatchAI).
+
+For more information about the TensorFlow model used in this quickstart, see the [TensorFlow documentation](https://www.tensorflow.org/tutorials/layers).

@@ -7,7 +7,7 @@
         },
         {
             "source_path": "articles/batch-ai/quickstart-python.md",
-            "redirect_url": "/azure/batch-ai/quickstart-tensorflow-training-cli",
+            "redirect_url": "/azure/batch-ai/",
             "redirect_document_id": true
         },
         {
