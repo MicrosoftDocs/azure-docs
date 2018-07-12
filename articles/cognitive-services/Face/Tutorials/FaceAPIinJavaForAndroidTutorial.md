@@ -18,7 +18,7 @@ ms.author: nolachar
 
 In this tutorial, you create a simple Android application that uses the Face service Java class library to detect human faces in an image. The application shows a selected image with each detected face framed by a rectangle.
 
-![GettingStartedAndroid](../Images/android_getstarted2.1.PNG)
+![Android screenshot of a photo with faces framed by a red rectangle](../Images/android_getstarted2.1.PNG)
 
 This tutorial shows you how to:
 
@@ -47,7 +47,7 @@ Create your Android application project by following these steps:
 
 ## Create the UI for selecting and displaying the image
 
-Open *activity_main.xml*; you should see the Layout Editor. Select the **Text** tab, then replace the contents with the following code:
+Open *activity_main.xml*; you should see the Layout Editor. Select the **Text** tab, then replace the contents with the following code.
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -131,29 +131,19 @@ public class MainActivity extends Activity {
 }
 ```
 
-Now your app can browse for a photo and display it in the window, similar to the image below:
+Now your app can browse for a photo and display it in the window, similar to the image below.
 
-![GettingStartAndroidUI](../Images/android_getstarted1.1.PNG)
+![Android screenshot of a photo with faces](../Images/android_getstarted1.1.PNG)
 
 ## Configure the Face client library
 
-The Face API is a cloud API, which you can invoke using HTTPS requests. To simplify your work, use the Face client library, which encapsulates the web requests.
+The Face API is a cloud API, which you can call using HTTPS requests. This tutorial uses the Face client library, which encapsulates these web requests, to simplify your work.
 
-Follow the instructions below to configure the client library:
+In the **Project** pane, use the dropdown selector to select **Android**. Expand **Gradle Scripts**, then open *build.gradle (Module: app)*.
 
-In the **Project** pane, use the dropdown selector to select **Android**. Expand **Gradle Scripts**, then open  *build.gradle (Module: app)*.
+Add a dependency for the Face client library, `com.microsoft.projectoxford:face:1.4.3`, as shown in the screenshot below, then click **Sync Now**.
 
-Add a dependency for the Face client library stored in the Maven Central Repository, then **Sync** your project.
-
-```json
-dependencies {
-    ...
-    implementation 'com.microsoft.projectoxford:face:1.4.3'
-}
-```
-
-> [!NOTE]
-> You don't need to add mavenCentral() as a repository in your Project *build.gradle* file. The default repository, jcenter(), is a superset of mavenCentral().
+![Android Studio screenshot of App build.gradle file](../Images/face-tut-java-gradle.png)
 
 Open **MainActivity.java** and append the following import directives:
 
@@ -161,8 +151,6 @@ Open **MainActivity.java** and append the following import directives:
 import com.microsoft.projectoxford.face.*;
 import com.microsoft.projectoxford.face.contract.*;
 ```
-
-Build your project to check for errors.
 
 ## Add the Face client library code
 
@@ -189,13 +177,15 @@ Replace `<Subscription Key>` with your subscription key. For example:
 subscriptionKey = "0123456789abcdef0123456789ABCDEF"
 ```
 
-Open the *AndroidManifest.xml* file. Insert the following element as a direct child of the `manifest` element:
+In the **Project** pane, expand **app**, then **manifests**, and open *AndroidManifest.xml*.
+
+Insert the following element as a direct child of the `manifest` element:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Now you're ready to call the Face service from your application.
+Build your project to check for errors. Now you're ready to call the Face service.
 
 ## Upload an image to detect faces
 
@@ -205,7 +195,7 @@ Each returned `Face` includes a rectangle to indicate its location, combined wit
 
 If an error occurs, an `AlertDialog` displays the underlying reason.
 
-Insert the following methods into the `MainActivity` class:
+Insert the following methods into the `MainActivity` class.
 
 ```java
 // Detect faces by uploading a face image.
@@ -348,6 +338,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             ImageView imageView = findViewById(R.id.imageView1);
             imageView.setImageBitmap(bitmap);
 
+            // Uncomment
             detectAndFrame(bitmap);
         } catch (IOException e) {
             e.printStackTrace();
