@@ -67,7 +67,7 @@ az mesh app list -o table
 ```
 
 ## Open the application
-Once the application successfully deploys, get the endpoint of the service (40.76.87.107, from the preceding example).  You can also query the network resource to find the IP address of the container where the service is deployed by running the 'az mesh network show' command:
+Once the application successfully deploys, get the endpoint of the service (13.68.129.22, from the preceding example).  You can also query the network resource to find the IP address of the container where the service is deployed by running the 'az mesh network show' command:
 
 ```azurecli-interactive
 az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
