@@ -80,9 +80,9 @@ You can use the following steps to view the jobs for a runbook.
 3. On the blade for the selected runbook, click the **Jobs** tile.
 4. Click on one of the jobs in the list and on the runbook job details blade you can view its detail and output.
 
-## Retrieving job status using Windows PowerShell
+## Retrieving job status using PowerShell
 
-You can use the [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with Windows PowerShell using [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), then it returns the resulting job. Use [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)Output to get a job’s output.
+You can use the [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with Windows PowerShell using [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook), then it returns the resulting job. Use [Get-AzureRmAutomationJobOutput](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationJobOutput) to get a job’s output.
 
 The following sample commands retrieve the last job for a sample runbook and display its status, the values provided for the runbook parameters, and the output from the job.
 
@@ -113,6 +113,23 @@ foreach($item in $output)
 }
 ```
 
+## Track status of a child runbook
+
+To track the status of a child runbook, add in logic to your parent runbook to query the job created when executing the child runbook. The following example shows simple logic to query the status of the child runbook from within a parent runbook.
+
+```powershell
+$jobid = Start-AutomationRunbook -Name Child-Runbook
+
+$status = ""
+while($status -ne "Completed")
+{
+$job = Get-AzureRmAutomationJob -Id $jobid -ResourceGroupName myResourcegroup -AutomationAccountName myAutomationAccount
+$status = $job.Status
+Write-Output "Child runbook status: $status"
+Start-Sleep -Seconds 10
+}
+```
+
 ## Get details from Activity log
 
 Other details such as the person or account that started the runbook can be retrieved from the Activity log for the automation account. The following PowerShell example provides the last user to run the runbook in question:
@@ -131,7 +148,7 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload any job after it has been running for three hours. During this time, jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) are stopped and are not be restarted. The job status shows **Stopped**. This type of runbook is always restarted from the beginning since they don't support checkpoints.
 
-[PowerShell-Workflow-based runbooks](automation-runbook-types.md#powershell-workflow-runbooks) are resumed from their last [checkpoint](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). After running three hours, the runbook job is suspended by the service and its status shows **Running, waiting for resources**. When a sandbox becomes available, the runbook is automatically restarted by the Automation service and resumes from the last checkpoint. This is normal PowerShell-Workflow behavior for suspend/restart. If the runbook again exceeds three hours of runtime, the process repeats, up to three times. After the third restart, if the runbook still has not completed in three hours, then the runbook job is failed, and the job status shows **Failed, waiting for resources**. In this case, you receive the following exception with the failure.
+[PowerShell-Workflow-based runbooks](automation-runbook-types.md#powershell-workflow-runbooks) are resumed from their last [checkpoint](/system-center/sma/overview-powershell-workflows.md#bk_Checkpoints). After running three hours, the runbook job is suspended by the service and its status shows **Running, waiting for resources**. When a sandbox becomes available, the runbook is automatically restarted by the Automation service and resumes from the last checkpoint. This is normal PowerShell-Workflow behavior for suspend/restart. If the runbook again exceeds three hours of runtime, the process repeats, up to three times. After the third restart, if the runbook still has not completed in three hours, then the runbook job is failed, and the job status shows **Failed, waiting for resources**. In this case, you receive the following exception with the failure.
 
 *The job cannot continue running because it was repeatedly evicted from the same checkpoint. Please make sure your Runbook does not perform lengthy operations without persisting its state.*
 
