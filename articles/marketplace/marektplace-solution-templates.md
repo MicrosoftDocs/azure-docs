@@ -37,5 +37,10 @@ In the case of bring-your-own-license, while Microsoft will bill infrastructure 
 
 ## Next Steps
 
+If you haven't already done so, 
+
 - [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace
+
+If you're registered and are creating a new offer or working on an existing one,
+
 - [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer
