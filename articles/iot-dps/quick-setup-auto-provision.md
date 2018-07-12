@@ -3,7 +3,7 @@ title: Set up Device Provisioning in the Azure portal | Microsoft Docs
 description: Azure Quickstart - Set up the Azure IoT Hub Device Provisioning Service in the Azure Portal
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 07/12/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -38,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     * **Name:** Provide a unique name for your new Device Provisioning Service instance. If the name you enter is available, a green check mark appears.
     * **Subscription:** Choose the subscription that you want to use to create this Device Provisioning Service instance.
     * **Resource group:** This field allows you to create a new resource group, or choose an existing one to contain the new instance. Choose the same resource group that contains the Iot hub you created above, for example, **TestResources**. By putting all related resources in a group together, you can manage them together. For example, deleting the resource group deletes all resources contained in that group. For more information, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
-    * **Location:** Select the closest location to your devices
+    * **Location:** Select the closest location to your devices.
     * **Pin to dashboard:** Select this option to have the instance pinned to your dashboard making it easier to find.
 
     ![Enter basic information about your DPS instance in the portal blade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
@@ -52,7 +52,11 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. On the Device Provisioning Service summary blade, select **Linked IoT hubs**. Click the **+ Add** button seen at the top. 
 
-3. In the **Add link to IoT hub** portal blade, select either the current subscription, or enter the name and connection string for another subscription. Select the name of the hub from the drop-down list. When complete, click **Save**. 
+3. On the **Add link to IoT hub** page, provide the following information to link your new Device Provisioning Service instance to an IoT hub. Then click  **Save**. 
+
+    * **Subscription:** Select the subscription containing the IoT hub that you want to link with your new Device Provisioning Service instance.
+    * **Iot hub:** Select the IoT hub to link with your new Device Provisioning Service instance.
+    * **Access Policy:** Select **iothubowner** as the credientials for establishing the link with the IoT hub.  
 
     ![Link the hub name to link to the DPS instance in the portal blade](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
