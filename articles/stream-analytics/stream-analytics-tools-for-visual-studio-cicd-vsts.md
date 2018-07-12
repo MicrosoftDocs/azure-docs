@@ -96,7 +96,7 @@ Open a web browser and navigate to the team project you just created in [Visual 
 9. Change the **MSBuild Arguments** to the following:
 
    ```
-   /p:CompilerTaskAssemblyFile="Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll"  /p:ASATargetsFilePath="..\Package\build\StreamAnalytics.targets"
+   /p:CompilerTaskAssemblyFile="Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll"  /p:ASATargetsFilePath="$(Build.SourcesDirectory)\[Your solution name]\Package\Microsoft.Azure.StreamAnalytics.CICD.1.0.0\build\StreamAnalytics.targets"
    ```
 
    ![Configure MSBuild task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-msbuild.png)
@@ -113,8 +113,8 @@ Open a web browser and navigate to the team project you just created in [Visual 
     |Action  |  Create or update resource group   |
     |Resource Group  |  Enter a resource group name.   |
     |Template  | [Your solution path]\bin\Debug\Deploy\\[Your project name].JobTemplate.json   |
-    |Template parameters  | [Your solution path]\bin\Debug\Deploy\\[Your project name.JobTemplate.parameters.json   |
-    |Override template parameters  | Type the template parameters to override in the textbox. Example, –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). Templates that    |
+    |Template parameters  | [Your solution path]\bin\Debug\Deploy\\[Your project name].JobTemplate.parameters.json   |
+    |Override template parameters  | Type the template parameters to override in the textbox. Example, –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). This property is optional.    |
     
     ![Set properties](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-deploy-2.png)
 
