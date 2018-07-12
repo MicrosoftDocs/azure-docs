@@ -18,7 +18,7 @@ ms.suite: integration
 # Install the on-premises data gateway for Azure Logic Apps
 
 Before you can connect your logic apps to on-premises data sources, 
-you have to download and install the on-premises data gateway on a local computer. 
+you must download and install the on-premises data gateway on a local computer. 
 The gateway works as a bridge that provides quick data transfer and 
 encryption between data sources on premises and your logic apps. 
 This article shows how you can download, install, 
@@ -80,29 +80,28 @@ You can't install the gateway on a domain controller.
 or doesn't connect to the Internet because the gateway can't run under those circumstances. 
 Also, gateway performance might suffer over a wireless network.
 
-* During installation, you have to sign in with a 
+* During installation, you must sign in with a 
 [work or school account](https://docs.microsoft.com/azure/active-directory/sign-up-organization) 
-that's managed by Azure Active Directory (Azure AD), not a Microsoft account.
+that's managed by Azure Active Directory (Azure AD) and not a Microsoft account.
 
-  > [!TIP]
-  > To use a Microsoft account that has a 
-  > Visual Studio with MSDN subscription, first 
-  > [create a directory (tenant) in Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) 
-  > with your Microsoft account, or use the default directory. 
-  > Add a user with a password to the directory, 
-  > then give that user access to your subscription. 
-  > You can then sign in during gateway installation with this username and password.
-
-  You have to use the same work or school account later in the Azure portal when 
+  You must later use the same work or school account in the Azure portal when 
   you create and associate a gateway resource with your gateway installation. 
-  You then select this gateway resource when you create the connection 
+  You can then select this gateway resource when you create the connection 
   between your logic app and the on-premises data source. 
-  [Why do I have to use an Azure AD work or school account?](#why-azure-work-school-account)
+  [Why must I use an Azure AD work or school account?](#why-azure-work-school-account)
 
   > [!TIP]
   > If you signed up for an Office 365 offering 
   > and didn't supply your actual work email, 
   > your sign-in address might look like jeff@contoso.onmicrosoft.com. 
+  >
+  > To use a Microsoft account that has a 
+  > [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/), first 
+  > [create a directory (tenant) in Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) 
+  > with your Microsoft account, or use the default directory. 
+  > Add a user with a password to the directory, 
+  > then give that user access to your subscription. 
+  > You can then sign in during gateway installation with this username and password.
 
 * The region you select for your gateway determines and restricts the 
 location where you can later create the Azure resource for your gateway. 
@@ -157,8 +156,8 @@ choose **Register a new gateway on this computer** > **Next**.
 
    * Confirmation for your recovery key. 
    Save and keep your recovery key in a safe place. 
-   You need this key when you have to change the gateway's 
-   location, migrate, recover, or take over an existing gateway.
+   You need this key to change the gateway's location 
+   or to migrate, recover, or take over an existing gateway.
 
      ![Set up gateway](./media/logic-apps-gateway-install/set-up-gateway.png)
 
@@ -264,8 +263,8 @@ Enter the recovery key for the gateway installation.
 ## Windows service account
 
 The on-premises data gateway runs as a Windows service and is set up to 
-use `NT SERVICE\PBIEgwService` for the Windows service logon credentials. 
-By default, the gateway has the "Log on as a service" right 
+use `NT SERVICE\PBIEgwService` for the Windows service login credentials. 
+By default, the gateway has the "Log in as a service" permissions 
 for the machine where you install the gateway. 
 To create and maintain the gateway in the Azure portal, 
 the Windows service account must have at least **Contributor** permissions. 
@@ -358,7 +357,7 @@ The gateway doesn't require inbound ports. Learn more about
 | *.msftncsi.com | 443 | Used to test internet connectivity when the gateway is unreachable by the Power BI service. | 
 ||||
 
-If you have to approve IP addresses instead of the domains, 
+If you must approve IP addresses instead of the domains, 
 you can download and use the [Microsoft Azure Datacenter IP ranges list](https://www.microsoft.com/download/details.aspx?id=41653). 
 In some cases, the Azure Service Bus connections are made 
 with IP Address rather than fully qualified domain names.
@@ -429,9 +428,10 @@ the capability to connect to the server name that was provided.
 
 <a name="why-azure-work-school-account"></a>
 
-**Q**: Why do I have to use an Azure work or school account to sign in? <br/>
-**A**: You can only use an Azure work or school account when you install the on-premises data gateway. 
-Your sign-in account is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
+**Q**: Why must I use an Azure work or school account to sign in? <br/>
+**A**: You can only use an Azure work or school account when 
+you install the on-premises data gateway. Your sign-in account 
+is stored in a tenant that's managed by Azure Active Directory (Azure AD). 
 Usually, your Azure AD account's user principal name (UPN) matches the email address.
 
 **Q**: Where are my credentials stored? <br/>

@@ -54,7 +54,7 @@ is unavailable for other resources.
 the [Windows service account](../logic-apps/logic-apps-gateway-install.md) 
 must have at least **Contributor** permissions. 
 The on-premises data gateway runs as a Windows service and is set up to 
-use `NT SERVICE\PBIEgwService` for the Windows service logon credentials. 
+use `NT SERVICE\PBIEgwService` for the Windows service login credentials. 
 
   > [!NOTE]
   > The Windows service account differs from the account used for 
