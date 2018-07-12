@@ -444,5 +444,5 @@ In this article, Contoso rehosted the SmartHotel app in Azure by migrating the a
 
 ## Next steps
 
-In the [next article](contoso-migration-rehost-vm-sql-ag.md) in the series, we'll show you how Contoso rehosts the SmartHotel app frontend VM in Azure, and migrates the database to an Azure SQL AlwaysOn Availability Group.
+In the [next article](contoso-migration-rehost-vm-sql-ag.md) in the series, we'll show you how Contoso rehosts the SmartHotel app frontend VM on an Azure VM, and migrates the database to a SQL Server AlwaysOn Availability Group in Azure.
 
