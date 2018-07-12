@@ -132,6 +132,6 @@ Read through the [Create an Azure Service Fabric app](service-fabric-mesh-tutori
 [download-docker-server]: https://docs.docker.com/install/windows/docker-ee/
 [download-runtime]: http://aka.ms/sfruntime
 [download-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK
-[download-sdkmesh]: http://aka.ms/sfmeshsdk
+[download-sdkmesh]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-SDK-Mesh
 [download-tools]: https://aka.ms/sfvstools
 [download-visual-studio]: https://www.visualstudio.com/downloads/
