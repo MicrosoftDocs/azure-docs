@@ -21,12 +21,12 @@ ms.reviewer: thoroet
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. In this guide, we walk you through the steps required to install PowerShell for Azure Stack. The following steps apply to internet connected environments. Please scroll to the bottom of the page for disconnected environments.
+Azure Stack compatible Azure PowerShell modules are required to work with Azure Stack. In this guide, we walk you through the steps required to install PowerShell for Azure Stack. The following steps apply to internet connected environments. Scroll to the bottom of the page for disconnected environments.
 
 This article has detailed instructions to install PowerShell for Azure Stack.
 
 > [!Note]  
-> The following steps require atleast PowerShell 5.0. To check your version, run $PSVersionTable.PSVersion and compare the **Major** version. If you do not have PowerShell 5.0, Please follow the [link](https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) to upgrade to Powershell 5.0
+> The following steps require at least PowerShell 5.0. To check your version, run $PSVersionTable.PSVersion and compare the **Major** version. If you do not have PowerShell 5.0, follow the [link](https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) to upgrade to PowerShell 5.0.
 
 PowerShell commands for Azure Stack are installed through the PowerShell Gallery. You can use the following procedure to validate if PSGallery is registered as a repository, open an elevated PowerShell session and run the following command:
 
