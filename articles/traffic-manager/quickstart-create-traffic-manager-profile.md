@@ -17,7 +17,7 @@ ms.date: 07/10/2018
 ms.author: kumud
 ---
 
-# Quickstart: Create a Traffic Manager profile for high availability of a web application
+# Quickstart: Create a Traffic Manager profile for highly available Web App
 
  Azure Traffic Manager allows you to control the distribution of user traffic to service endpoints across the different Azure regions. This quickstart describes how to create a Traffic Manager profile that delivers high availability of your web application. Traffic Manager accomplishes this by monitoring your service endpoints and providing automatic failover when an endpoint goes down.
 
@@ -67,7 +67,7 @@ In this section, you create Web Apps in different Azure regions - *West US* and 
 
 ## Add Traffic Manager endpoints
 
-In this section, you add the Web App in the **West US** as the primary endpoint and the app located in **East US** as a backup endpoint to your Traffic manager profile. All traffic is routed to the primary endpoint while the secondary endpoint is kept as a backup. When the primary endpoint is unavailable, traffic is automatically routed to the secondary endpoint.
+Add the Web App in the West US as primary endpoint to route all the user traffic. Add the web app in East US as a backup. When the primary endpoint is unavailable, traffic is automatically routed to the secondary endpoint.
 
 1. In the portal’s search bar, search for the Traffic Manager profile name that you created in the preceding section and select the profile in the results that the displayed.
 2. In **Traffic Manager profile**, in the **Settings** section, click **Endpoints**, and then click **Add**.
@@ -104,7 +104,7 @@ In this section, you test how the Traffic Manager fails over to the secondary en
     ![Test Traffic Manager profile](./media/traffic-manager-create-profile/traffic-manager-test.png)
     *Figure: Test Traffic Manager traffic routing*
   
-1. To view Traffic Manager failover in action, you can disable your primary endpoint. To do so, under **Settings**, select **Endpoints**, select *MyPrimaryEndpoint*, and then select **Disabled**. You can still successfully access your web app in a web browser using the DNS name of your Traffic Manager profile. This is because the user traffic now gets routed to the secondary endpoint since the primary endpoint is unavailable.
+1. To view Traffic Manager failover in action, disable your primary endpoint. To do so, under **Settings**, select **Endpoints**, select *MyPrimaryEndpoint*, and then select **Disabled**. Use the DNS name of your Traffic Manager Profile to successfully view your Web App via a browser. When the primary endpoint is disabled, the user traffic gets routed to the secondary endpoint.
 
 ## Delete the Traffic Manager profile
 When no longer needed, delete the resource group and the Traffic Manager profile that you have created. To do so, select the resource group from the **Traffic Manager profile** and click **Delete**.
