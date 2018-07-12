@@ -126,7 +126,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 16. Verify that the data is copied into your Data Lake Storage Gen2 account.
 
-## Best practice
+## Best practices
 
 When copy large volume of data from file-based data store, you are suggested to:
 
