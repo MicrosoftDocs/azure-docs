@@ -39,7 +39,7 @@ When you need to enter a secret to create a VM, formula, or an environment, you 
 
     ![Use secret in VM](media/devtest-lab-store-secrets-in-key-vault/secret-store-pick-a-secret.png)
 
-## Use a secret in an ARM template
+## Use a secret in an Azure Resource Manager template
 You can specify your secret name in an Azure Resource Manager template that's used to create a VM as shown in the following example:
 
 ![Use secret in formula or environment](media/devtest-lab-store-secrets-in-key-vault/secret-store-arm-template.png)
