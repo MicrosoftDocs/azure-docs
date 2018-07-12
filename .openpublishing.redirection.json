@@ -26174,6 +26174,81 @@
         "source_path": "articles/cognitive-services/LUIS/luis-reference-cortana-prebuilt.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
         "redirect_document_id": true
-        }
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-backup-and-recovery.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-faq.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-how-to.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-phone-signin-faq.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-app-passwords.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-app-passwords",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-manage-settings",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-signin.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-signin",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-troubleshoot.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/sign-in-experience-updates.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-reset-register.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-update-your-own-password.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-access-panel-introduction.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-saas-access-panel-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-access-panel-user-help.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-saas-access-panel-user-help",
+            "redirect_document_id": true
+        }        
     ]
 }
