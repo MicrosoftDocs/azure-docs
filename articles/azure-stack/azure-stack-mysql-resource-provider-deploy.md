@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 07/02/2018 
+ms.date: 07/12/2018 
 ms.author: jeffgilb 
 ms.reviewer: jeffgo
 
@@ -37,12 +37,22 @@ There are several prerequisites that need to be in place before you can deploy t
   >[!NOTE]
   >To deploy the MySQL provider on a system that doesn't have Internet access, copy the [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) file to a local path. Provide the path name using the **DependencyFilesLocalPath** parameter.
 
-* The resource provider has a minimum corresponding Azure Stack build. Make sure you download the correct binary for the version of Azure Stack that you're running.
+* The resource provider has a minimum corresponding Azure Stack build. Make sure you download the correct binary for the version of Azure Stack that you're running:
 
     | Azure Stack version | MySQL RP version|
     | --- | --- |
     | Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
-    | Version 1802 (1.0.180302.1) | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802) |
+    | Version 1802 (1.0.180302.1) | [MySQL RP version 1.1.18.0](https://aka.ms/azurestackmysqlrp1802)|
+    |     |     |
+
+- Ensure datacenter integration prerequisites are met:
+
+    |Prerequisite|Reference|
+    |-----|-----|
+    |Conditional DNS forwarding is set correctly.|[Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md)|
+    |Inbound ports for resource providers are open.|[Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound.md)|
+    |PKI certificate subject and SAN are set correctly.|[Azure Stack deployment mandatory PKI prerequisites](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack deployment PaaS certificate prerequisites](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### Certificates
 
@@ -52,7 +62,7 @@ _For integrated systems installations only_. You must provide the SQL PaaS PKI c
 
 After you've got all the prerequisites installed, run the **DeployMySqlProvider.ps1** script to deploy the MYSQL resource provider. The DeployMySqlProvider.ps1 script is extracted as part of the MySQL resource provider binary that you downloaded for your version of Azure Stack.
 
-To deploy the MySQL resource provider, open a new elevated PowerShell console window and change to the directory where you extracted the MySQL resource provider binary files. We recommend using a new PowerShell window to avoid potential problems caused by PowerShell modules that are already loaded.
+To deploy the MySQL resource provider, open a new elevated PowerShell window (not PowerShell ISE) and change to the directory where you extracted the MySQL resource provider binary files. We recommend using a new PowerShell window to avoid potential problems caused by PowerShell modules that are already loaded.
 
 Run the **DeployMySqlProvider.ps1** script, which completes the following tasks:
 
@@ -61,7 +71,7 @@ Run the **DeployMySqlProvider.ps1** script, which completes the following tasks:
 * Publishes a gallery package for deploying hosting servers.
 * Deploys a VM using the Windows Server 2016 core image you downloaded, and then installs the MySQL resource provider.
 * Registers a local DNS record that maps to your resource provider VM.
-* Registers your resource provider with the local Azure Resource Manager for the operator and user accounts.
+* Registers your resource provider with the local Azure Resource Manager for the operator account.
 * Optionally, installs a single Windows Server update during the resource provider installation.
 
 > [!NOTE]
