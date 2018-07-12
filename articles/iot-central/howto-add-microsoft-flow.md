@@ -118,7 +118,7 @@ If you are having trouble creating a connection to the Azure IoT Central connect
 
 1. Microsoft personal accounts (such as @hotmail.com, @live.com, @outlook.com domains) are not supported at this time. You must use an AAD work or school account.
 
-2. If you are receiving an error while using an AAD account, as an administrator, try running opening Windows PowerShell and run the following commandlets.
+2. If you are receiving an error while using an AAD account, try opening Windows PowerShell and run the following commandlets as an administrator.
     ``` PowerShell
     Install-Module AzureAD
     Connect-AzureAD
