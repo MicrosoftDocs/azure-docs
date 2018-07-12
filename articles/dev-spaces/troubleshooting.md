@@ -16,6 +16,25 @@ manager: "douge"
 
 This guide contains information about common problems you may have when using Azure Dev Spaces.
 
+## Error 'Service cannot be started.'
+
+You might see this error when your service code fails to start. The cause is often in user code. To get more diagnostic information, do the following:
+
+On the command line:
+
+1. When using azds.exe, use the --verbose command line option, and use the --output command line option to specify the output format.
+ 
+    ```cmd
+    azds up --verbose --output json
+    ```
+
+In Visual Studio:
+
+1. Open **Tools > Options** and under **Projects and Solutions**, choose and **Build and Run**.
+2. Change the settings for **MSBuild project build output verbosity** and **MSBuild project build log file verbosity** to **Detailed** or **Diagnostic**.
+
+    ![Screenshot of Tools Options dialog](media/common/VerbositySetting.PNG)
+
 ## Error 'upstream connect error or disconnect/reset before headers'
 You may see this error when trying to access your service. For example, when you go to the service's URL in a browser. 
 
