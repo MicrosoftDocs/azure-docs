@@ -60,7 +60,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
    If you are in the *cmake* folder, then run the following commands:
 
     ```cmd/sh
-    cd..
+    cd ..
     .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
