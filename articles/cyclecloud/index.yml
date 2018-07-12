@@ -24,10 +24,10 @@ sections:
       className: cardsM
       columns: 3
       items:
-        - href: /azure/cosmos-db/distribute-data-globally/
-          html: <p>Learn about global distribution, partitioning, indexing, and other concepts that apply to all of the Azure Cosmos DB APIs.</p>
+        - href: quickstart-overview
+          html: <p>New to Azure CycleCloud? Start here for a guided walkthrough of the installation, setup, and use of Azure CycleCloud.</p>
           image:
-            src: media/index/azure-cosmos-db-icon.png
+            src: /images/i_quick-start.svg
           title: Concepts
         - href: /azure/cosmos-db/sql-api-introduction/
           html: <p>Use the SQL API if you're building a new non-relational document database and want to query using familiar SQL syntax.</p>
