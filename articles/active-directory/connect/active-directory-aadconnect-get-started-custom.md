@@ -375,6 +375,28 @@ To validate end-to-end authentication is successful you should manually perform 
 * Validate that you can sign in from a device from the extranet. On a home machine or a mobile device, connect to https://myapps.microsoft.com and supply your credentials.
 * Validate rich client sign-in. Connect to https://testconnectivity.microsoft.com, choose the **Office 365** tab and chose the **Office 365 Single Sign-On Test**.
 
+## Troubleshooting
+The following section contains troubleshooting and information that you can use if you encounter an issue installing Azure AD Connect.
+
+### “The ADSync database already contains data and cannot be overwritten” 
+When you custom install Azure AD Connect and select the option **Use an existing SQL server** on the **Install required components** page, you might encounter an error that states **The ADSync database already contains data and cannot be overwritten. Please remove the existing database and try again.**
+
+![Error](media/active-directory-aadconnect-get-started-custom/error1.png)
+
+This is because there is already an existing database named **ADSync** on the SQL instance of the SQL server, which you specified in the above textboxes.
+
+This typically occurs after you have uninstalled Azure AD Connect.  The database will not be deleted from the SQL Server when you uninstall.
+
+To fix this issue, first verify that the **ADSync** database that was used by Azure AD Connect prior to being uninstalled, is no longer being used.
+
+Next, it is recommended that you backup the database prior to deleting it. 
+
+Finally, you need to delete the database.  You can do this by using **Microsoft SQL Server Management Studio** and connect to the SQL instance. Find the **ADSync** database, right click on it, and select **Delete** from the context menu.  Then click **OK** button to delete it.
+
+![Error](media/active-directory-aadconnect-get-started-custom/error2.png)
+
+After you delete the **ADSync** database, you can click the **install** button, to retry installation.
+
 ## Next steps
 After the installation has completed, sign out and sign in again to Windows before you use Synchronization Service Manager or Synchronization Rule Editor.
 
