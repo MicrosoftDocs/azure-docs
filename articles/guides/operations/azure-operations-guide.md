@@ -3,7 +3,7 @@ title: Getting started guide for Azure IT operators | Microsoft Docs
 description: Getting started guide for Azure IT operators
 services:
 documentationcenter:
-author: iainfoulds
+author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic:
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: iainfou
+ms.author: nepeters
 ---
 
 # Introduction to cloud computing and Microsoft Azure
@@ -137,13 +137,11 @@ For detailed documentation on Azure services, see [Azure service documentation](
 
 ### Datacenters and regions
 
-
 Azure is a global cloud platform that is generally available in many regions around the world. When you provision a service, application, or VM in Azure, you are asked to select a region. The selected region represents a speciﬁc datacenter where your application runs. For more information, see [Azure regions](https://azure.microsoft.com/regions/).
 
 One of the beneﬁts of using Azure is that you can deploy your applications into various datacenters around the globe. The region you choose can aﬀect the performance of your application. It’s optimal to choose a region that is closer to most your customers, to reduce latency in network requests. You might also select a region to meet the legal requirements for distributing your app in certain countries.
 
 ### Azure portal
-
 
 The Azure portal is a web-based application that can be used to create, manage, and remove Azure resources and services. The Azure portal is located at https://portal.azure.com. It includes a customizable dashboard and tooling for managing Azure resources. It also provides billing and subscription information. For more information, see [Microsoft Azure portal overview](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) and [Manage Azure resources through portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
@@ -161,7 +159,6 @@ An Azure Resource Manager template is a JavaScript Object Notation (JSON) file t
 
 ### Automation
 
-
 In addition to creating, managing, and deleting resources by using the Azure portal, you can automate these activities by using PowerShell or the Azure command-line interface (CLI).
 
 **Azure PowerShell**
@@ -175,9 +172,7 @@ The Azure command-line interface is a tool that you can use to create, manage, a
 **REST APIs**
 Azure is built on a set of REST APIs that support the Azure portal UI. Most of these REST APIs are also supported to let you programmatically provision and manage your Azure resources and apps from any Internet-enabled device. For more information, see the [Azure REST SDK Reference](https://docs.microsoft.com/rest/api/index).
 
-
 ## Azure subscriptions
-
 
 A subscription is a logical grouping of Azure services that is linked to an Azure account. A singe Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an account administrator, who has full control over the subscription, and a service administrator, who has control over all services in the subscription. In addition to administrators, individual accounts can be granted detailed control of Azure resources through RBAC.
 
@@ -197,10 +192,7 @@ If you exceed the credit amount, your service are disabled until the next month 
 
 **Enterprise agreements**: With an enterprise agreement, you commit to using a certain number of services in Azure over the next year, and you pay that amount ahead of time. The commitment that you make is consumed throughout the year. If you exceed the commitment amount, you can pay the overage in arrears. Depending on the amount of the commitment, you get a discount on the services in Azure.
 
-
-
 ### Grant administrative access to an Azure subscription
-
 
 Multiple account administrator roles are available and can be changed at any time. Two key roles are:
 
@@ -212,13 +204,11 @@ For more information, see [How to add or change Azure administrator roles](../..
 
 ### View billing information in the Azure portal
 
-
 An important component of using Azure is the ability to view billing information. The Azure portal provides detailed insight into Azure billing information.
 
 For more information, see [How to download your Azure billing invoice and daily usage data](../../billing/billing-download-azure-invoice-daily-usage-date.md).
 
 ### Get billing information from billing APIs
-
 
 In addition to viewing the billing in the portal, you can access the billing information by using a script or program through the Azure Billing REST APIs:
 
@@ -259,7 +249,6 @@ Resource Manager provides several benefits:
 -   You can clarify your organization’s billing by viewing costs for a group of resources that share the same tag.
 
 ### Tips for creating resource groups
-
 
 When you’re making decisions about your resource groups, consider these tips:
 
@@ -344,7 +333,6 @@ You can deploy Azure virtual machines by using the Azure portal, by using automa
 Deploying a virtual machine by using the Azure portal requires only an active Azure subscription and access to a web browser. You can select many different operating system images with varying configurations. All storage and networking requirements are configured during the deployment. For more information, see “Create a virtual machine in the Azure portal” for [Windows](../../virtual-machines/windows/quick-create-portal.md) and [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
 In addition to deploying a virtual machine from the Azure portal, you can deploy an Azure Resource Manager template from the portal. This will deploy and configure all resources as defined in the template. For more information, see [Deploy resources with Resource Manager templates and Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
-
 
 **PowerShell**
 
