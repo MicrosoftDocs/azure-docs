@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 07/11/2018
 ms.author: tamram
 ---
 
@@ -16,7 +16,9 @@ ms.author: tamram
 
 ## Workflow overview
 
-The diagram below illustrates the end-to-end workflow to enable Azure AD integration with Azure Files for access to shares, directories, or files over SMB. There are two parts to the process. First, verify that your Azure AD and Azure Storage environments are properly configured. It's strongly recommended that you walk through the prerequisites and make sure that you've performed the required setup. Next, grant access to Azure Files resources with Azure AD credentials in three steps: 
+The diagram below illustrates the end-to-end workflow to enable Azure AD integration with Azure Files for access to shares, directories, or files over SMB. There are two parts to the process. First, verify that your Azure AD and Azure Storage environments are properly configured. It's strongly recommended that you walk through the [prerequisites](#prerequisites) and make sure that you've performed all of the required steps. 
+
+Next, grant access to Azure Files resources with Azure AD credentials in three steps: 
 
 1. Enable Azure AD Integration for Azure Files.
 2. Assign user permissions using RBAC.
@@ -26,40 +28,40 @@ The diagram below illustrates the end-to-end workflow to enable Azure AD integra
 
 ## Prerequisites 
 
-1.  Select or create your Azure AD tenant.
+1.  **Select or create your Azure AD tenant.**
 
-    Select your target Azure AD tenant and deploy your file share under the subscriptions associated with this Azure AD tenant. If you don’t have an existing
-    Azure AD tenant, you can [Add an Azure AD tenant and Azure AD subscription](https://docs.microsoft.com/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription). If you have an existing Azure AD tenant and want to create a new tenant, see [Create an Azure Active Directory tenant](https://docs.microsoft.com/rest/api/datacatalog/create-an-azure-active-directory-tenant).
+    Select your target Azure AD tenant. You will deploy your file share under a subscription associated with this Azure AD tenant. If you don't yet have an existing
+    Azure AD tenant, you can [Add an Azure AD tenant and an Azure AD subscription](https://docs.microsoft.com/windows/client-management/mdm/add-an-azure-ad-tenant-and-azure-ad-subscription). If you have an existing Azure AD tenant but want to create a new tenant for use with Azure Files, see [Create an Azure Active Directory tenant](https://docs.microsoft.com/rest/api/datacatalog/create-an-azure-active-directory-tenant).
 
-2.  Enable Azure AD Domain Services on your Azure AD tenant.
+2.  **Enable Azure AD Domain Services on your Azure AD tenant.**
 
-    To support authentication with Azure AD credentials, you need to enable Azure AD Domain Services for your Azure AD tenant. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step by step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+    To support authentication with Azure AD credentials, you must enable Azure AD Domain Services for your Azure AD tenant. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
 
-    It typically takes around 15 minutes for an Azure AD Domain Services deployment to complete. Make sure that the health status of your Azure AD Domain Services shows **Running** before proceeding to the next step.
+    It typically takes about 15 minutes for an Azure AD Domain Services deployment to complete. Make sure that the health status of your Azure AD Domain Services shows **Running** before proceeding to the next step.
 
-3.  Domain-join your Azure VM to Azure AD Domain Services.
+3.  **Domain-join your Azure VM to Azure AD Domain Services.**
 
-    To access Azure file shares using Azure AD credentials from a VM, your VM must be domain-joined to Azure AD Domain Services. You can [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md) in a few steps.
+    To access Azure file shares using Azure AD credentials from an Azure VM, your VM must be domain-joined to Azure AD Domain Services. For more information about how to domain-join a VM, see [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md).
 
-4.  Select or create your new Azure file share.
+4.  **Select or create your new Azure file share.**
 
     Azure AD integration with Azure Files is supported for the primary Azure AD tenant. The primary Azure AD tenant is the tenant that is associated with the subscription in which the file share is deployed. You can select an existing file share or [Create a file share in Azure Files](storage-how-to-create-file-share.md) under your target Azure AD tenant. 
 
     For optimal performance, Microsoft recommends that you deploy your file share to the same region as the VMs from which you plan to access the share.
 
-5.  Verify Azure Files connectivity by mounting Azure file shares using storage account key.
+5.  **Verify Azure Files connectivity by mounting Azure file shares using storage account key.**
 
     To ensure that your VM and file share are properly configured, try mounting the file share using your account key. For more information, see [Mount an Azure file share and access the share in Windows](storage-how-to-use-files-windows.md).
 
 ## Enable Azure AD integration for Azure Files SMB access
 
-Before you proceed to the following steps to enable Azure AD integration for Azure Files, review the prerequisites and ensure that your tenant is properly configured, that your VM is domain-joined through Azure AD Domain Services, and that you can mount a file share and access it using your account key.
+Before you proceed to the following steps to enable Azure AD integration for Azure Files, review the [prerequisites](#prerequisites) and ensure that your Azure AD tenant is properly configured, that your VM is domain-joined through Azure AD Domain Services, and that you can mount a file share and access it using your account key.
 
 ### Step 1: Enable Azure AD integration for Azure Files on your storage account
 
-To enable Azure AD integration with Azure Files for your storage account, first set the storage account property **azureFilesAadIntegration** to **true**. Setting this property registers the storage account with the associated Azure AD Domain Services to support Kerberos authentication with Azure AD credentials and enables Azure AD integration for all new and existing file shares deployed under this storage account. 
+To enable Azure AD integration with Azure Files for your storage account, you can set a property on the storage account using the Azure Storage Resources Provider. Setting the property registers the storage account with the associated Azure AD Domain Services to support Kerberos authentication with Azure AD credentials and to enable Azure AD integration for all new and existing file shares deployed under this storage account. 
 
-You can update the storage account property with [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) by using the [storage account template](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts)(Private Preview), or through the [Azure portal](https://portal.azure.com), Azure PowerShell (Preview), Azure CLI (Preview).
+You can update the storage account property using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) with the [storage account template](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts)(Private Preview)???, or through the [Azure portal](https://portal.azure.com), Azure PowerShell (Preview), or Azure CLI (Preview).
 
 **Portal**
 
@@ -81,7 +83,7 @@ To be updated: Required before Public Preview
 
 **REST**
 
-To enable Azure AD integration with Azure Files from REST, call the [Create Storage Account](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/create) or [Update Storage Account](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/update) operation in the Storage Resource Provider REST API. Include the property **azureFilesAadIntegration** in the JSON payload and set it to true.
+To enable Azure AD integration with Azure Files from REST, call the [Create Storage Account](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/create) or [Update Storage Account](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/update) operation in the Storage Resource Provider REST API. Include the property **azureFilesAadIntegration** in the JSON payload and set it to **true**.
 
 ```json
 {
@@ -95,13 +97,13 @@ To enable Azure AD integration with Azure Files from REST, call the [Create Stor
 ### Step 2: Assign permissions to a user with superuser privileges 
 
 To access Azure Files using Azure AD credentials, a user must have the required permissions on share, directory, and file levels. The step-by-step guidance
-below demonstrates how to assign superuser or administrator permissions to a user to grant full ownership permissions to a file share. You can follow the same flow to assign permissions at different levels to other users or user groups.
+below demonstrates how to assign superuser or administrator permissions to a user to grant full ownership permissions to a file share. You can follow the same workflow to assign permissions at different levels to other users, groups, or service principals.
 
 #### Step 2.1: Assign share-level permissions
 
-Use [role-based access control (RBAC)](../../role-based-access-control/role-assignments-portal.md) to define share-level access for users, groups, and service principals. This process is similar to assigning Windows file share permissions, where you determine the type of access others have to the specified file share. 
+Use [RBAC](../../role-based-access-control/role-assignments-portal.md) to define share-level access for users, groups, and service principals. This process is similar to assigning Windows file share permissions, where you specify the type of access that users have to the file share. 
 
-Azure Files supports two custom roles that refine the permission to data path access to Azure file shares: 
+Azure Files supports two custom roles that define permissions to access Azure file shares: 
 
 - **Storage Files Data Contributor:** Grants read, write, and delete access to an Azure file share.
 - **Storage Files Data Reader:** Grants read access to an Azure file share. 
