@@ -1,6 +1,6 @@
 ---
 
-title: Attribute-based dynamic group membership in Azure Active Directory | Microsoft Docs
+title: Attribute-based dynamic group membership rules in Azure Active Directory | Microsoft Docs
 description: How to create advanced rules for dynamic group membership including supported expression rule operators and parameters.
 services: active-directory
 documentationcenter: ''
@@ -12,22 +12,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/05/2018
 ms.author: curtand
 ms.reviewer: krbain
 
-ms.custom: H1Hack27Feb2017;it-pro
+ms.custom: it-pro
 
 ---
 # Create attribute-based rules for dynamic group membership in Azure Active Directory
-In Azure Active Directory (Azure AD), you can create advanced rules to enable complex attribute-based dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
+In Azure Active Directory (Azure AD), you can create custom rules to enable complex attribute-based dynamic memberships for groups. This article details the attributes and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Office 365 groups.
 
 When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed.
 
 > [!NOTE]
-> This feature requires an Azure AD Premium P1 license for each user member added to at least one dynamic group. It is not mandatory to actually assign licenses to users for them to be members in dynamic groups, but you do need to have the minimum number of licenses in the tenant to cover all such users. For example: if you have a total of 1,000 unique users in all dynamic groups in your tenant, you need to have at least 1,000 licenses for Azure AD Premium P1, or above, to meet the license requirement.
+> This feature requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the tenant to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your tenant, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
 >
-> You can create a dynamic group for devices or users, but you cannot create a rule that contains both user and device objects.
+> You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
 > 
 > At the moment, it is not possible to create a device group based on the owning user's attributes. Device membership rules can only reference immediate attributes of device objects in the directory.
 
@@ -46,7 +46,30 @@ When any attributes of a user or device change, the system evaluates all dynamic
 6. Select **Create** on the **Group** blade to create the group.
 
 > [!TIP]
-> Group creation may fail if the advanced rule you entered was incorrect. A notification will be displayed in the upper-right hand corner of the portal; it contains an explanation of why the rule could not be accepted by the system. Read it carefully to understand how you need to adjust the rule to make it valid.
+> Group creation fails if the rule you entered was incorrectly formed or not valid. A notification is displayed in the upper-right hand corner of the portal, containing an explanation of why the rule could not be processed. Read it carefully to understand how you need to adjust the rule to make it valid.
+
+## Status of the dynamic rule
+
+You can see the membership processing status and the last updated date on the Overview page for your dynamic group.
+  
+  ![dynamic group status display](./media/groups-dynamic-membership/group-status.png)
+
+
+The following status messages can be shown for **Membership processing** status:
+* **Evaluating**:  The group change has been received and the updates are being evaluated.
+* **Processing**: Updates are being processed.
+* **Update complete**: Processing has completed and all applicable updates have been made.
+* **Processing error**: An error was encountered while evaluating the membership rule and processing could not be completed.
+* **Update paused**: Dynamic membership rule updates have been paused by the administrator. MembershipRuleProcessingState is set to “Paused”.
+
+The following status messages can be shown for **Membership last updated** status:
+* &lt;**Date and time**&gt;: The last time the membership was updated.
+* **In Progress**: Updates are currently in progress.
+* **Unknown**: The last update time cannot be retrieved. It may be due to the group being newly created.
+
+If an error occurs while processing the membership rule for a specific group, an alert is shown on the top of the **Overview page** for the group. If no pending dynamic membership updates can be processed for all the groups within the tenant for more then 24 hours, an alert is shown on the top of **All groups**.
+
+![processing error message](./media/groups-dynamic-membership/processing-error.png)
 
 ## Constructing the body of an advanced rule
 The advanced rule that you can create for the dynamic memberships for groups is essentially a binary expression that consists of three parts and results in a true or false outcome. The three parts are:
@@ -234,7 +257,7 @@ An example of a rule that uses an extension attribute would be
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-Custom Attributes are synced from on-premises Windows Server AD or from a connected SaaS application and the the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
+Custom Attributes are synced from on-premises Windows Server AD or from a connected SaaS application and the format of "user.extension_[GUID]\__[Attribute]", where [GUID] is the unique identifier in AAD for the application that created the attribute in AAD and [Attribute] is the name of the attribute as it was created.
 An example of a rule that uses a custom attribute is
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  

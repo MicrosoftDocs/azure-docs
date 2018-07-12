@@ -208,6 +208,9 @@ When the cluster is no longer needed, use the [az group delete][az-group-delete]
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
+> [!NOTE]
+> The only resource that is not removed when you delete the cluster is the service principal in the AD. You can [remove it](kubernetes-service-principal.md#additional-considerations) too. 
+
 ## Get the code
 
 In this quickstart, pre-created container images have been used to create a Kubernetes deployment. The related application code, Dockerfile, and Kubernetes manifest file are available on GitHub.
@@ -233,7 +236,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
-[aks-monitor]: ../monitoring/monitoring-container-health.md
+[aks-monitor]: https://aka.ms/coingfonboarding
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create

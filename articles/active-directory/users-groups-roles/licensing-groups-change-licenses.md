@@ -821,5 +821,5 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 Learn about other scenarios for license management through groups in the following articles:
 
 * [Identify and resolve license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
-* [PowerShell examples for group-based licensing in Azure Active Directory](../active-directory-licensing-ps-examples.md)
+* [PowerShell examples for group-based licensing in Azure Active Directory](licensing-ps-examples.md)
 * [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md)

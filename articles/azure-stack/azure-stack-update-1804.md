@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -87,7 +87,7 @@ The following are now available, but don't require Azure Stack update 1804.
 
 ### Post-update steps
 After the installation of 1804, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [KB 4341392 - Azure Stack Hotfix 1.0.180523.11](https://support.microsoft.com/en-us/help/4341392).
+ - [KB 4344114 - Azure Stack Hotfix 1.0.180527.15](https://support.microsoft.com/help/4344114).
 
 
 

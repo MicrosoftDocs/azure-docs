@@ -199,4 +199,4 @@ The following service plans cannot be assigned together:
 
 To learn more about the feature set for license management through groups, see the following:
 
-* [PowerShell examples for group-based licensing in Azure AD](../active-directory-licensing-ps-examples.md)
+* [PowerShell examples for group-based licensing in Azure AD](licensing-ps-examples.md)

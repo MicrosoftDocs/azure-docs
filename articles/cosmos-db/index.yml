@@ -152,7 +152,6 @@ sections:
       - html: Global database replication with Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Gremlin</a>
       - html: <a href="local-emulator">Develop your application locally using the emulator</a>
       - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Create an HTTP Trigger with an Azure Cosmos DB input binding</a>
-      - html: <a href="https://docs.microsoft.com/learn/build-serverless-app/index">Build a basic web application to host static files in Cosmos DB</a>
 
   - title: Reference
     items:

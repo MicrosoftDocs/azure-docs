@@ -658,6 +658,11 @@ whole_tsdf.ts_report()
 
 ![png](./media/how-to-build-deploy-forecast-models/output_15_6.png)
 
+![png](./media/how-to-build-deploy-forecast-models/output_59_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_61_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_63_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_63_1.png)
+ 
 
 
 ## Integrate with external data

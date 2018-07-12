@@ -4,8 +4,8 @@ description: Use this article to plan capacity and scale when replicating VMware
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
+ms.date: 07/06/2018
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: rayne
 ---
 

@@ -444,7 +444,7 @@ You can create **Azure Databricks linked service** to register Databricks worksp
     "properties": {
         "type": "AzureDatabricks",
         "typeProperties": {
-            "domain": "eastus.azuredatabricks.net",
+            "domain": "https://eastus.azuredatabricks.net",
             "newClusterNodeType": "Standard_D3_v2",
             "newClusterNumOfWorker": "1:10",
             "newClusterVersion": "4.0.x-scala2.11",

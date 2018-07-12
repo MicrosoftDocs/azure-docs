@@ -5,7 +5,7 @@ services: storage,event-grid
 keywords: 
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 06/12/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: storage
 ---
@@ -78,6 +78,8 @@ az group deployment create \
 The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: `https://<your-site-name>.azurewebsites.net`
 
 You should see the site with no messages currently displayed.
+
+[!INCLUDE [event-grid-register-provider-cli.md](../../../includes/event-grid-register-provider-cli.md)]
 
 ## Subscribe to your storage account
 
