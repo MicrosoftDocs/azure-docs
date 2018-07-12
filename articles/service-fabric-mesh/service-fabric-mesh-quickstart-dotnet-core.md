@@ -18,11 +18,11 @@ ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want to use visual studio to locally run an ASP.NET Core website on Service Fabric Mesh so that I can see it run.
 ---
 
-# Quickstart: Deploy an Azure Service Fabric Mesh app
+# Quickstart: Deploy a Service Fabric Mesh application
 
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking.
 
-In this quickstart you'll create a new Service Fabric Mesh app (an ASP.NET Core website), run it on the local development cluster, and then publish it to run on Azure.
+In this quickstart you'll create a new Service Fabric Mesh application (an ASP.NET Core website), run it on the local development cluster, and then publish it to run on Azure.
 
 You'll need an Azure subscription. If you don't have one, you can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. You will also need to [setup your developer environment](service-fabric-mesh-setup-developer-environment-sdk.md)
 
@@ -50,7 +50,7 @@ The **New ASP.NET Core Web Application** dialog appears. Select **Web Applicatio
 
 ![Visual studio new ASP.NET core application](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-aspnetcore-app.png)
 
-Visual Studio will create both the Service Fabric Application project and the ASP.NET Core project.
+Visual Studio will create both the Service Fabric Mesh application project and the ASP.NET Core project.
 
 ## Build and publish to your local cluster
 
@@ -93,7 +93,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
 
 ![Visual studio Service Fabric Mesh new resource group dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 
-In the publish dialog, press the **Publish** button to deploy your Service Fabric application to Azure.
+In the publish dialog, press the **Publish** button to deploy your Service Fabric Mesh application to Azure.
 
 When you publish to Azure for the first time, the docker image is pushed to the Azure Container Registry (ACR) which takes time depending on the size of the image. Subsequent publishes of the same project will be faster. You can monitor the progress of the deployment by selecting the **Service Fabric Tools** pane in the Visual Studio **Output** window. Once the deployment has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
 
