@@ -42,7 +42,7 @@ A container image includes several components, such as an image manifest, tags, 
 
 An image's *tag* typically specifies its version. A single image within a repository can be assigned one or many tags, and may also be "untagged." That is, you can delete all tags for an image, while still leaving the image data (its layers) within the registry.
 
-You can push and pull an image by specifying its name in the push or pull operation.
+The repository (or repository and namespace) plus a tag defines an image's name. You can push and pull an image by specifying its name in the push or pull operation.
 
 ### Layer
 
@@ -50,7 +50,7 @@ Images are made up of one or more *layers*, each of which corresponds to a line 
 
 ### Manifest
 
-Each container image includes a *manifest* that provides the identification for the image, and specifies the layers that make up the image.
+Each container image includes a *manifest* that provides the identification for the image, and specifies the layers that make up the image. This example manifest defines an image with three layers:
 
 ```json
 {
