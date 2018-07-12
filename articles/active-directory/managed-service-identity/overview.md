@@ -98,6 +98,7 @@ Try a Managed Service Identity tutorial to learn end-to-end scenarios for access
 | Azure Functions    | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Use Managed Service Identity with Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Azure Event Hubs   | [Use Managed Service Identity with Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) |
+| Azure API Management | [Use Managed Service Identity with Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md) |
 
 ## Which Azure services support Managed Service Identity?
 
