@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using Azure Import/Export to transfer data to Azure Blobs | Microsoft Docs
 description: Learn how to create import and export jobs in Azure portal to transfer data to and from Azure Blobs.
 author: alkohli

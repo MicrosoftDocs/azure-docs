@@ -1,4 +1,4 @@
-﻿---
+---
 title: Compare Flow, Logic Apps, Functions, and WebJobs - Azure
 description: "Compare Microsoft cloud services that are optimized for integration tasks:  Flow, Logic Apps, Functions, and WebJobs."
 services: functions,app-service\logic

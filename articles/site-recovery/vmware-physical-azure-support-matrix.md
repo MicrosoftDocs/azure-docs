@@ -27,7 +27,7 @@ Physical servers | Replication of on-premises Windows/Linux physical servers to 
 
 **Server** | **Requirements** | **Details**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0, or 5.5 or vSphere 6.5, 6.0, or 5.5 | We recommend that you use a vCenter server.<br/><br/> We recommend that vSphere hosts and vCenter servers are located in the same network as the process server. By default the process server components runs on the configuration server, so this will be the network in which you set up the configuration server, unless you set up a dedicated process server.
+VMware | vCenter Server 6.7, 6.5, 6.0, or 5.5 or vSphere 6.7, 6.5, 6.0, or 5.5 | We recommend that you use a vCenter server.<br/><br/> We recommend that vSphere hosts and vCenter servers are located in the same network as the process server. By default the process server components runs on the configuration server, so this will be the network in which you set up the configuration server, unless you set up a dedicated process server.
 Physical | N/A
 
 ## Site Recovery configuration server
@@ -67,6 +67,7 @@ Linux operating system | Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 
 >
 > - Upgrading protected machines across major Linux distribution versions isn't supported. To upgrade, disable replication, upgrade the operating system, and then enable replication again.
 >
+> - Servers running Red Hat Enterprise Linux 5.2 to 5.11 or CentOS 5.2 to 5.11 should have the Linux Integration Services(LIS) components installed in order for the machines to boot in Azure.
 
 ### Ubuntu kernel versions
 

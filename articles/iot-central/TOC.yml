@@ -39,6 +39,8 @@
     items:
       - name: Create an application
         href: howto-create-application.md
+        name: As a CSP create and manage an application
+        href: howto-create-and-manage-applications-as-CSP.md
       - name: Administer your application
         href: howto-administer.md
   - name : Builder
@@ -51,6 +53,10 @@
         href: howto-create-telemetry-rules.md
       - name: Create an event rule
         href: howto-create-event-rules.md
+      - name: Build workflows in Microsoft Flow
+        href: howto-add-microsoft-flow.md
+      - name: Configure homepage
+        href: howto-configure-homepage.md
       - name: Prepare and upload images
         href: howto-prepare-images.md
   - name : Operator
