@@ -103,7 +103,7 @@ To use the HPC Pack client tools to submit jobs to the head node VM, you also ne
 
 1. On the head node, add the Certificates snap-in to a Microsoft Management Console for the Local Computer account. For steps to add the snap-in, see [Add the Certificates Snap-in to an MMC](https://technet.microsoft.com/library/cc754431.aspx).
 2. In the console tree, expand **Certificates – Local Computer** > **Personal**, and then click **Certificates**.
-3. Locate the certificate that you configured for the HPC Pack web components in [Step 1: Install and configure the web components on the head node](#step-1:-install-and-configure-the-web-components-on-the-head-node) (for example, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
+3. Locate the certificate that you configured for the HPC Pack web components in [Step 1: Install and configure the web components on the head node](#step-1-install-and-configure-the-web-components-on-the-head-node) (for example, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
 4. Right-click the certificate, and click **All Tasks** > **Export**.
 5. In the Certificate Export Wizard, click **Next**, and ensure that **No, do not export the private key** is selected.
 6. Follow the remaining steps of the wizard to export the certificate in DER encoded binary X.509 (.CER) format.
