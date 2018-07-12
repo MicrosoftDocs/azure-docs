@@ -18,7 +18,7 @@ ms.author: ellacroi
 
 ---  
 
-# Solution Template Offer Publishing Guide
+# Azure Apps: Solution Template Offer Publishing Guide
 
 Solution Templates are one of the main ways to publish a solution in the Marketplace. Use this guide to understand the requirements for this offer. 
 
