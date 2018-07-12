@@ -65,7 +65,7 @@ The rest of this tutorial shows you how you can migrate on-premises VMware virtu
 - The servers being migrated should have .NET Framework 3.5 Service Pack 1 for the mobility service to work.
 
 
-- Dynamic disks in some configuration may be Offline or be shown foreign on failed over VMs, and the mirrored set status marked as "Failed redundancy". You can fix the issue by manually importing these disks and reactivating them from diskmgmt.msc
+- If your server has dynamic disks, you may notice in certain configurations, that these disks on the failed over server are marked offline or shown as foreign disks. You may also notice that the mirrored set status for mirrored volumes across dynamic disks is marked "Failed redundancy". You can fix this issue from diskmgmt.msc by manually importing these disks and reactivating them.
 
 - The servers being migrated should have the vmstorfl.sys driver. Failover may fail if the driver is not present in the server being migrated. 
   > [!TIP]
@@ -146,9 +146,9 @@ The policy is automatically associated with the configuration server.
 
 [Enable replication](physical-azure-disaster-recovery.md#enable-replication) for the Windows Server 2008 SP2 / Windows Server 2008 R2 SP1 server to be migrated.
    
-   ![Add physical server](media/migrate-tutorial-windows-server-2008/Add physical server.png)
+   ![Add physical server](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
 
-   ![Enable replication](media/migrate-tutorial-windows-server-2008/Enable replication.png)
+   ![Enable replication](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
 ## Run a test migration
 
