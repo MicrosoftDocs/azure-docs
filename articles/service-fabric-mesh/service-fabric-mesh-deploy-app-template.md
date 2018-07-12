@@ -50,13 +50,30 @@ Create your application in the resource group using the `deployment create` comm
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
 ```
 
-In a few seconds, your command should return with `VotingApp has been deployed successfully on VotingAppNetwork with public ip address <IP address>`. For example, the IP address is 13.68.129.22.
+In a few minutes, your command should return with:
 
-## Check the application deployment status
-Your application is now deployed. You can check the application's status using the `app show` command. The application name for the deployed application is "VotingApp", so fetch its details. 
+`VotingApp has been deployed successfully on VotingAppNetwork with public ip address <IP address>.` 
+
+For example, the IP address is 13.68.129.22.
+
+## Open the application
+Once the application successfully deploys, connect to the endpoint of the service (13.68.129.22, from the preceding example) in a browser.  
+
+![Voting application](./media/service-fabric-mesh-deploy-app-template/VotingApplication.png)
+
+You can now add voting options to the application and vote on it, or delete the voting options.
+
+## Check the application details
+You can check the application's status using the `app show` command. The application name for the deployed application is "VotingApp", so fetch its details. 
 
 ```azurecli-interactive
 az mesh app show --resource-group myResourceGroup --name VotingApp
+```
+
+You can also query the network resource to find the IP address of the container where the service is deployed by running the 'az mesh network show' command:
+
+```azurecli-interactive
+az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
 ```
 
 ## List the deployed applications
@@ -65,19 +82,6 @@ You can use the "app list" command to get a list of applications you have deploy
 ```azurecli-interactive
 az mesh app list -o table
 ```
-
-## Open the application
-Once the application successfully deploys, get the endpoint of the service (13.68.129.22, from the preceding example).  You can also query the network resource to find the IP address of the container where the service is deployed by running the 'az mesh network show' command:
-
-```azurecli-interactive
-az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
-```
-
-Copy the public IP address of the service and open in a browser.
-
-![Voting application](./media/service-fabric-mesh-deploy-app-template/VotingApplication.png)
-
-You can now add voting options to the application and vote on it, or delete the voting options.
 
 ## Clean up resources
 When you no longer need the application and it's related resources, delete the resource group containing them. 
