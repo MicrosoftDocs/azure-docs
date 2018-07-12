@@ -11,7 +11,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 07/11/2018
 ms.author: cynthn
 ---
 
@@ -21,16 +21,21 @@ Take a snapshot of an OS or data disk for backup or to troubleshoot VM issues. A
 
 ## Use Azure CLI 
 
-The following example requires the Azure CLI 2.0 installed and logged into your Azure account. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+The following example requires that you use [Cloud Shell](https://shell.azure.com/bash) or have Azure CLI 2.0 installed. Run **az --version** to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-The following steps show how to take a snapshot using the `az snapshot create` command with the `--source-disk` parameter. The following example assumes that there is a VM called `myVM` in the `myResourceGroup` resource group.
+The following steps show how to take a snapshot using the **az snapshot create** command with the **--source-disk** parameter. The following example assumes that there is a VM called *myVM* in the *myResourceGroup* resource group.
 
-Get the disk ID.
-```azure-cli
-osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+Get the disk ID using [az vm show](/cli/azure/vm#az-vm-show).
+
+```azurecli-interactive
+osDiskId=$(az vm show \
+   -g myResourceGroup \
+   -n myVM \
+   --query "storageProfile.osDisk.managedDisk.id" \
+   -o tsv)
 ```
 
-Take a snapshot named *osDisk-backup*.
+Take a snapshot named *osDisk-backup* using [az snapshot create](/cli/azure/snapshot#az-snapshot-create).
 
 ```azurecli-interactive
 az snapshot create \
@@ -40,18 +45,25 @@ az snapshot create \
 ```
 
 > [!NOTE]
-> If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `--sku Standard_ZRS` parameter.
+> If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the **--sku Standard_ZRS** parameter.
+
+You can see a list of the snapshots using [az snapshot list](/cli/azure/snapshot#az-snapshot-list).
+
+```azurecli-interactive
+az snapshot list \
+   -g myResourceGroup \
+   - table
+```
 
 ## Use Azure portal 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Starting in the upper-left, click **Create a resource** and search for **snapshot**.
-3. In the Snapshot blade, click **Create**.
+2. Starting in the upper-left, click **Create a resource** and search for **snapshot**. Select **Snapshot** from the search results.
+3. In the **Snapshot** blade, click **Create**.
 4. Enter a **Name** for the snapshot.
-5. Select an existing [Resource group](../../azure-resource-manager/resource-group-overview.md#resource-groups) or type the name for a new one. 
-6. Select an Azure datacenter Location.  
-7. For **Source disk**, select the Managed Disk to snapshot.
-8. Select the **Account type** to use to store the snapshot. We recommend **Standard_LRS** unless you need it stored on a high performing disk.
+5. Select an existing resource group or type the name for a new one. 
+7. For **Source disk**, select the managed disk to snapshot.
+8. Select the **Account type** to use to store the snapshot. Use **Standard HDD** unless you need it stored on a high performing SSD.
 9. Click **Create**.
 
 
