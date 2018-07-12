@@ -86,7 +86,7 @@ Open *MainWindow.xaml* (tip: swap panes using the **up/down arrow icon**) and re
 
 Expand *MainWindow.xaml*, then open *MainWindow.xaml.cs*, and replace the contents with the following code. Ignore the squiggly red underlines; they'll disappear after the first build.
 
-The first two lines import the client library namespaces. Next, the `FaceAPI` service is created, passing in the subscription key, while the Azure region is set in the `MainWindow` constructor. The two methods, `BrowseButton_Click` and `FacePhoto_MouseMove`, correspond to the event handlers declared in *MainWindow.xaml*.
+The first two lines import the client library namespaces. Next, the `FaceClient` is created, passing in the subscription key, while the Azure region is set in the `MainWindow` constructor. The two methods, `BrowseButton_Click` and `FacePhoto_MouseMove`, correspond to the event handlers declared in *MainWindow.xaml*.
 
 `BrowseButton_Click` creates an `OpenFileDialog`, which allows the user to select a jpg image. The image is read and displayed in the main window. The remaining code for `BrowseButton_Click` and the code for `FacePhoto_MouseMove` are inserted in subsequent steps.
 
@@ -109,7 +109,7 @@ namespace FaceTutorial
     public partial class MainWindow : Window
     {
         // Replace <SubscriptionKey> with your valid subscription key.
-        // For example: subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+        // For example, subscriptionKey = "0123456789abcdef0123456789ABCDEF"
         private const string subscriptionKey = "<SubscriptionKey>";
 
         // Replace or verify the region.
@@ -124,7 +124,7 @@ namespace FaceTutorial
         private const string baseUri =
             "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
 
-        private readonly IFaceClient faceAPI = new FaceClient(
+        private readonly IFaceClient faceClient = new FaceClient(
             new ApiKeyServiceClientCredentials(subscriptionKey),
             new System.Net.Http.DelegatingHandler[] { });
 
@@ -138,7 +138,7 @@ namespace FaceTutorial
 
             if (Uri.IsWellFormedUriString(baseUri, UriKind.Absolute))
             {
-                faceAPI.BaseUri = new Uri(baseUri);
+                faceClient.BaseUri = new Uri(baseUri);
             }
             else
             {
@@ -193,10 +193,11 @@ namespace FaceTutorial
     private const string subscriptionKey = "<SubscriptionKey>";
     ```
 
-- Find the following line in the `MainWindow` constructor in *MainWindow.xaml.cs*:
+- Find the following line in *MainWindow.xaml.cs* and replace or verify the Azure region associated with your subscription key:
 
     ```csharp
-    faceAPI.AzureRegion = AzureRegions.Westcentralus;
+    private const string baseUri =
+        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
     ```
 
     Make sure the location is the same as where you obtained your subscription keys. If you obtained your subscription keys from the **westus** region, for example, replace `Westcentralus` with `Westus`.
@@ -211,7 +212,7 @@ Press **Start** on the menu to test your app. When the window opens, click **Bro
 
 ## Upload an image to detect faces
 
-The most straightforward way to detect faces is by calling the `FaceAPI.Face.DetectWithStreamAsync` method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API method for uploading the local image.
+The most straightforward way to detect faces is by calling the `FaceClient.Face.DetectWithStreamAsync` method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API method for uploading the local image.
 
 Insert the following method in the `MainWindow` class, below the `FacePhoto_MouseMove` method.
 
@@ -237,8 +238,9 @@ private async Task<IList<DetectedFace>> UploadAndDetectFaces(string imageFilePat
         {
             // The second argument specifies to return the faceId, while
             // the third argument specifies not to return face landmarks.
-            IList<DetectedFace> faceList = await faceAPI.Face.DetectWithStreamAsync(
-                imageFileStream, true, false, faceAttributes);
+            IList<DetectedFace> faceList =
+                await faceClient.Face.DetectWithStreamAsync(
+                    imageFileStream, true, false, faceAttributes);
             return faceList;
         }
     }
