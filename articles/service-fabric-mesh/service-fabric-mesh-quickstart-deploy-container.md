@@ -52,7 +52,7 @@ az group create --name myResourceGroup --location eastus
 Create your application using the `az mesh deployment create` command:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
 ```
 
 In just over a minute, your command should return with `"provisioningState": "Succeeded"`. 
@@ -88,7 +88,7 @@ From the output, copy the IP address.
   "location": "eastus",
   "name": "helloWorldNetwork",
   "provisioningState": "Succeeded",
-  "resourceGroup": "ryanwitestgroup",
+  "resourceGroup": "myResourceGroup",
   "tags": {},
   "type": "Microsoft.ServiceFabricMesh/networks"
 }
