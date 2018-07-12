@@ -1,4 +1,4 @@
-# [Multi-factor Authentication Documentation](../../../index.md#authentication)
+# [Azure Active Directory Documentation](../index.md#authentication)
 
 # Overview
 
@@ -19,4 +19,3 @@
 ### [Sign in with your phone](microsoft-authenticator-app-phone-signin-faq.md)
 ### [Backup and recover account credentials](microsoft-authenticator-app-backup-and-recovery.md)
 ### [FAQ](microsoft-authenticator-app-faq.md)
-### [Sign-in experience updates](sign-in-experience-updates.md)
