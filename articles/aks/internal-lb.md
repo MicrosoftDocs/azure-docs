@@ -90,6 +90,11 @@ NAME               TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
+> [!NOTE]
+> You may need to grant the service principal for your AKS cluster the *Network Contributor* role to the resource group where your Azure virtual network resources are deployed. View the service principal with [az aks show][az-aks-show], such as `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. To create a role assignment, use the [az role assignment create][az-role-assignment-create] command.
+
+## Specify a different subnet
+
 To specify a subnet for your load balancer, add the *azure-load-balancer-internal-subnet* annotation to your service. The subnet specified must be in the same virtual network as your AKS cluster. When deployed, the load balancer *EXTERNAL-IP* address is part of the specified subnet.
 
 ```yaml
@@ -107,9 +112,6 @@ spec:
   selector:
     app: azure-vote-front
 ```
-
-> [!NOTE]
-> You may need to grant the service principal for your AKS cluster the *Network Contributor* role to the resource group where your Azure virtual network resources are deployed. View the service principal with [az aks show][az-aks-show], such as `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. To create a role assignment, use the [az role assignment create][az-role-assignment-create] command.
 
 ## Delete the load balancer
 
