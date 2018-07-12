@@ -56,7 +56,7 @@ Visual Studio 2017 is required to deploy Service Fabric apps. [Install version 1
 - ASP.NET and web development
 - Azure Development
 
- ## Docker
+## Docker
 
 Install Docker to support the containerized Service Fabric apps used by Service Fabric Mesh.
 
@@ -131,7 +131,7 @@ Read through the [Create an Azure Service Fabric app](service-fabric-mesh-tutori
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows
 [download-docker-server]: https://docs.docker.com/install/windows/docker-ee/
 [download-runtime]: http://aka.ms/sfruntime
-[download-sdk]: http://aka.ms/sfsdk
+[download-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK
 [download-sdkmesh]: http://aka.ms/sfmeshsdk
 [download-tools]: https://aka.ms/sfvstools
 [download-visual-studio]: https://www.visualstudio.com/downloads/
