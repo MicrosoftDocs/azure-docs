@@ -28,7 +28,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 > Ansible 2.6 is required to run the following the sample playbooks in this tutorial. 
 
 ## Create a managed AKS cluster
-The following sample Ansible playbook creates a resource group and the AKS cluster that resides in the resource group:
+The following sample Ansible playbook creates a resource group, and an AKS cluster that resides in the resource group:
 
   ```yaml
   - name: Create Azure Kubernetes Service
