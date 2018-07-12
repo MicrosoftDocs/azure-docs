@@ -88,7 +88,7 @@ Note that there is a limit of two failovers and two failbacks per day for an IoT
 
    ![Screenshot showing IoT Hub inactive](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
 
-   After it's finished, the primary and secondary regions on the Manual Failover page will be flipped and the hub will be active again. In this example, the primary location is now `WestCentralUS` and the seconday location is now `westus2`. 
+   After it's finished, the primary and secondary regions on the Manual Failover page will be flipped and the hub will be active again. In this example, the primary location is now `WestCentralUS` and the secondary location is now `westus2`. 
 
    ![Screenshot showing failover is complete](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
