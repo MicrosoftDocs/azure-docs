@@ -29,7 +29,7 @@ In this section, you will prepare a development environment used to build and ru
 
 1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled for your Visual Studio installation.
 
-2. Download the [CMake build system](https://cmake.org/download/) and the cryptographic hash for the version of the binary distribution you downloaded. Verify the cryptographic hash of the download. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution :
+2. Download the [CMake build system](https://cmake.org/download/) and the cryptographic hash for the version of the binary distribution you downloaded. Verify the cryptographic hash of the download. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
 
     ```PowerShell
     PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
@@ -65,7 +65,7 @@ In this section, you will prepare a development environment used to build and ru
 
     If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
-    If the build succeeds, the last few output lines will look similar to the following:
+    If the build succeeds, the last few output lines will look similar to the following output:
 
     ```cmd/sh
     $ cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
@@ -107,7 +107,7 @@ In this section, you will prepare a development environment used to build and ru
 
 ## Create a device enrollment entry in the portal
 
-1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
+1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
 2. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
 
