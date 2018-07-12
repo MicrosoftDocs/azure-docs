@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. In the **Identifier** textbox, type the URL: `urn:sharepoint:federation`
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer with the .cer extension. Copy and paste the full path of the downloaded metadata file into Notepad.
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
 
