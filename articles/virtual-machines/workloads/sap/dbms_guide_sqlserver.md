@@ -308,7 +308,7 @@ ms.custom: H1Hack27Feb2017
 
 
 
-This document covers several different areas to consider when deploying SQL Server in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) as well as other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+This document covers several different areas to consider when deploying SQL Server for SAP workload in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) as well as other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
 
 
@@ -326,7 +326,7 @@ In the following sections, pieces of parts of the documentation under the link a
 There is some SQL Server in IaaS specific information you should know before continuing:
 
 * **SQL Version Support**: For SAP customers, SQL Server 2008 R2 and higher is supported on Microsoft Azure Virtual Machine. Earlier editions are not supported. Review this general [Support Statement](https://support.microsoft.com/kb/956893) for more details. In general, SQL Server 2008 is supported by Microsoft as well. However due to significant functionality for SAP, which was introduced with SQL Server 2008 R2, SQL Server 2008 R2 is the minimum release for SAP. In general, you should consider using the most recent SQL Server releases to run SAP workload in Azure IaaS. The latest SQL Server releases offer better integration into some of the Azure services and functionality. Or have changes that optimize operations in an Azure IaaS infrastructure. Therefore, the paper is restricted to SQL Server 2016 and SQL Server 2017.
-* **SQL Performance**: Microsoft Azure hosted Virtual Machines perform well in comparison to other public cloud virtualization offerings, but individual results may vary. Check out the article[Performance best practices for SQL Server in Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
+* **SQL Performance**: Microsoft Azure hosted Virtual Machines perform well in comparison to other public cloud virtualization offerings, but individual results may vary. Check out the article [Performance best practices for SQL Server in Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 * **Using Images from Azure Marketplace**: The fastest way to deploy a new Microsoft Azure VM is to use an image from the Azure Marketplace. There are images in the Azure Marketplace, which contain the most recent SQL Server releases. The images where SQL Server already is installed can't be immediately used for SAP NetWeaver applications. The reason is the default SQL Server collation is installed within those images and not the collation required by SAP NetWeaver systems. In order to use such images, check the steps documented in chapter [Using a SQL Server image out of the Microsoft Azure Marketplace][dbms-guide-5.6]. 
 
 
@@ -335,9 +335,7 @@ In accordance with the general description, SQL Server executables should be loc
 
 
 * With all SAP certified VM types (see SAP Note [1928533]), except A-Series VMs, tempdb data, and log files can be placed on the non-persisted D:\ drive. 
-* Nevertheless, it is recommended to use multiple tempdb data files. Be aware D:\ drive volumes are different based on the VM type.
-
-For exact sizes of the D:\ drive of the different VMs, check the article [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* Nevertheless, it is recommended to use multiple tempdb data files. Be aware D:\ drive volumes are different based on the VM type. For exact sizes of the D:\ drive of the different VMs, check the article [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 
 These configurations enable tempdb to consume more space than the system drive is able to provide. The non-persistent D:\ drive also offers better I/O latency and throughput (with the exception of A-Series VMs). In order to determine the proper tempdb size, you can check the tempdb sizes on existing systems. 
 
@@ -380,13 +378,13 @@ SQL Server 2014 and later releases open the possibility to store database files 
 
 * The Storage Account used needs to be in the same Azure Region as the one that is used to deploy the VM SQL Server is running in.
 * Considerations listed earlier regarding the distribution of VHDs over different Azure Storage Accounts apply for this method of deployments as well. Means the I/O operations count against the limits of the Azure Storage Account.
-* Instead of accounting against the storage I/O quota, the traffic against storage blobs representing the SQL Server data and log files, will be accounted into the network bandwidth of the specific VM type. For network bandwidth of a particular VM type, consult the article [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
-* The IOPS and I/O throughput Performance targets that Azure Premium Storage has for the different disk sizes do not apply anymore. Even if the blobs you created are located on azure Premium Storage. The targets are documented the article [High-performance Premium Storage and managed disks for VMs](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets). As a result of placing SQL Server data files and log files directly on blobs that are stored on Azure Premium Storage, the performance characteristics can be different compared to VHDs on Azure Premium Storage.
+* Instead of accounting against the VM's storage I/O quota, the traffic against storage blobs representing the SQL Server data and log files, will be accounted into the VM's network bandwidth of the specific VM type. For network bandwidth of a particular VM type, consult the article [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* The IOPS and I/O throughput Performance targets that Azure Premium Storage has for the different disk sizes do not apply anymore. Even if the blobs you created are located on Azure Premium Storage. The targets are documented the article [High-performance Premium Storage and managed disks for VMs](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets). As a result of placing SQL Server data files and log files directly on blobs that are stored on Azure Premium Storage, the performance characteristics can be different compared to VHDs on Azure Premium Storage.
 * On M-Series VMs, Azure Write Accelerator can't be used to support sub-millisecond writes against the SQL Server transaction log file. 
 
 Details of this functionality can be found in the article [SQL Server data files in Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-2017)
 
-Recommendation for production systems is to avoid this configuration and rather choose the placements of SQL Server data and log files in VHDs instead of directly on Azure blobs.
+Recommendation for production systems is to avoid this configuration and rather choose the placements of SQL Server data and log files in Azure Premium Storage VHDs instead of directly on Azure blobs.
 
 
 ## SQL Server 2014 Buffer Pool Extension
@@ -395,7 +393,7 @@ SQL Server 2014 introduced a new feature, which is called [Buffer Pool Extension
 Experiences gained in the meantime with SQL Server Buffer Pool Extension with SAP workload is mixed and still does not allow clear recommendations on whether to use it in all cases. The ideal case is that the working set the SAP application requires fits into main memory. With Azure meanwhile offering VMs that come with up to 4 TB of memory, it should be achievable to keep the working set in memory. Hence the usage of Buffer Pool Extension is limited to some rare cases and should not be a mainstream case.  
 
 ## Backup/Recovery considerations for SQL Server
-When deploying SQL Server into Azure, your backup methodology must be reviewed. Even if the system is not a productive system, the SAP database hosted by SQL Server must be backed up periodically. Since Azure Storage keeps three images, a backup is now less important in respect to compensating a storage crash. The priority reason for maintaining a proper backup and recovery plan is more that you can compensate for logical/manual errors by providing point in time recovery capabilities. So the goal is to either use backups to restore the database back to a certain point in time or to use the backups in Azure to seed another system by copying the existing database. For example, you could transfer from a 2-Tier SAP configuration to a 3-Tier system setup of the same system by restoring a backup.
+When deploying SQL Server into Azure, your backup methodology must be reviewed. Even if the system is not a production system, the SAP database hosted by SQL Server must be backed up periodically. Since Azure Storage keeps three images, a backup is now less important in respect to compensating a storage crash. The priority reason for maintaining a proper backup and recovery plan is more that you can compensate for logical/manual errors by providing point in time recovery capabilities. So the goal is to either use backups to restore the database back to a certain point in time or to use the backups in Azure to seed another system by copying the existing database. 
 
 In order to look at different SQL Server backup possibilities in Azure read the article [Backup and Restore for SQL Server in Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery). The article covers several different possibilities.
 
@@ -404,34 +402,25 @@ You have several possibilities to perform 'manual' backups by:
 
 1. Performing conventional SQL Server backups onto direct attached Azure disks. This method has the advantage that you have the backups available swiftly for system refreshes and build up of new systems as copies of existing SAP systems
 2.  SQL Server 2012 CU4 and higher can  back up databases to an Azure storage URL.
-3.  - File-Snapshot Backups for Database Files in Azure Blob Storage. This method only works when your SQL Server data and log files are located on Azure blob storage
+3.  File-Snapshot Backups for Database Files in Azure Blob Storage. This method only works when your SQL Server data and log files are located on Azure blob storage
 
 The first method is well known and applied in many cases in the on-premise world as well. Nevertheless, it leaves you with the task to solve the longer term backup location. Since you don't want to keep your backups for 30 or more days in the locally attached Azure Storage, you have the need to either use Azure Backup Services or another third-party backup/recovery tool that includes access and retention management for your backups. Or you build out a large file server in Azure using Windows storage spaces.
 
-The second method is described closer in the article [SQL Server Backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017). Different releases of SQL Server have some variations in this functionality. Therefore, you should check out the documentation for your particular SQL Server release check. Important to note that this article lists a lot of restrictions. One of the confusing points in this documentation is that you either have the possibility to perform the backup against:
+The second method is described closer in the article [SQL Server Backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017). Different releases of SQL Server have some variations in this functionality. Therefore, you should check out the documentation for your particular SQL Server release check. Important to note that this article lists a lot of restrictions. You either have the possibility to perform the backup against:
 
 - One single Azure page blob, which then limits the backup size to 1000 GB. This also limits the throughput you can achieve.
 - Multiple (up to 64) Azure block blobs, which enable a theoretical backup size of 12 TB. However, tests with customer databases revealed that the maximum backup size can be smaller than its theoretical limit. In this case, you are responsible for managing retention of backups and access o the backups as well.
 
-#### Managing backup BLOBs
-There is a requirement to manage the backups on your own. Since the expectation is that many blobs are created by executing frequent transaction log backups, administration of those blobs easily can overburden the Azure portal. Therefore, it is recommendable to leverage an Azure storage explorer. There are several good ones available, which can help to manage an Azure storage account
-
-* Microsoft Visual Studio with Azure SDK installed (<https://azure.microsoft.com/downloads/>)
-* Microsoft Azure Storage Explorer (<https://azure.microsoft.com/downloads/>)
-* Third-party tools
-
-
-The third method of File-Snapshot backup is a functionality, which only works in cases where SQL Server data files are stored directly on Azure blobs. Since it is not encouraged to place SQL Server data files on Azure Blobs for SAP production databases, this method might not be general applicable for your SAP landscape. Details in documentation can be found in the article [File-Snapshot Backups for Database Files in Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure?view=sql-server-2017).
 
 ### Automated Backup for SQL Server
-Automated Backup provides an automatic backup service for SQL Server Standard and Enterprise editions running in a Windows Azure VM. This service is provided by the [SQL Server IaaS Agent Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), which is automatically installed on SQL Server Windows virtual machine images in the Azure portal. If you deploy your own OS images with SQL Server installed, you might need to install the VM extensions separately. the steps necessary are documented in this [article](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+Automated Backup provides an automatic backup service for SQL Server Standard and Enterprise editions running in a Windows Azure VM. This service is provided by the [SQL Server IaaS Agent Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), which is automatically installed on SQL Server Windows virtual machine images in the Azure portal. If you deploy your own OS images with SQL Server installed, you need to install the VM extensions separately. The steps necessary are documented in this [article](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 More details about the capabilities of this method can be found in these articles:
 
 - SQL Server 2014: [Automated Backup for SQL Server 2014 Virtual Machines (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)
 - SQL Server 2016/2017: [Automated Backup v2 for Azure Virtual Machines (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2)
 
-Looking into the documentation, you can see that the functionality with the more recent SQL Server releases improved. some more details on SQL Server automated backups are released in the article [SQL Server Managed Backup to Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-2017). The theoretical backup size limit is 12 TB.  The automated backups can be a good method for backup sizes of up to 12 TB. Since multiple blobs are written to in parallel, you can expect a throughput of larger than 100 MB/sec. 
+Looking into the documentation, you can see that the functionality with the more recent SQL Server releases improved. Some more details on SQL Server automated backups are released in the article [SQL Server Managed Backup to Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-2017). The theoretical backup size limit is 12 TB.  The automated backups can be a good method for backup sizes of up to 12 TB. Since multiple blobs are written to in parallel, you can expect a throughput of larger than 100 MB/sec. 
  
 
 ### Azure Backup for SQL Server VMs
@@ -472,7 +461,7 @@ The desired result should look like:
 If the result is different, STOP deploying SAP and investigate why the setup command did not work as expected. Deployment of SAP NetWeaver applications onto SQL Server instance with different SQL Server codepages than the one mentioned above is **NOT** supported.
 
 ## SQL Server High-Availability for SAP in Azure
-Using SQL Server in Azure IaaS deployments for SAP, you have several different possibilities to add to deploy the DBMS layer highly available. As discusses in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) already, Azure provide different up-time SLAs for a single VM and a pair of VMs deployed in an Azure Availability Set. Assumption is that you drive towards the up-time SLA for your production deployments that requires the deployment in Azure Availability Sets. In such a case, you need to deploy a minimum of two VMs in such an Availability Set. One VM will run the active SQL Server Instance. The other VM will run the passive Instance
+Using SQL Server in Azure IaaS deployments for SAP, you have several different possibilities to add to deploy the DBMS layer highly available. As discussed in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) already, Azure provide different up-time SLAs for a single VM and a pair of VMs deployed in an Azure Availability Set. Assumption is that you drive towards the up-time SLA for your production deployments that requires the deployment in Azure Availability Sets. In such a case, you need to deploy a minimum of two VMs in such an Availability Set. One VM will run the active SQL Server Instance. The other VM will run the passive Instance
 
 ### SQL Server Clustering using Windows Scale-out File Server
 With Windows Server 2016, Microsoft introduced [Storage Spaces Direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview). Based on Storage Spaces Direct Deployment, SQL Server FCI clustering is supported. Details can be found in the article [Configure SQL Server Failover Cluster Instance on Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster). The solution requires an Azure load balancer as well to deal with the virtual IP address of the cluster resources. The SQL Server database files are stored in Storage Spaces. Hence, it is a given that you would be required to build up the Windows Storage Spaces based on Azure Premium Storage. Since this solution has been supported for not too long yet, there are no known SAP customers who use this solution in SAP production scenarios.  
@@ -484,7 +473,7 @@ The SQL Server log shipping functionality was hardly used in Azure to achieve hi
 
 - Disaster Recovery scenarios from one Azure region into another Azure region
 - Disaster Recovery configuration from on-premise into an Azure region
-- Cut-over scenarios from on-premise to Azure. In those cases, log shipping is used to synchronize the new DBMS deployment in azure with the ongoing production system on-premise. At the time of cutting over, production is shut down and it is made sure that the last and latest transaction log backups got transferred to the Azure DBMS deployment. Then the Azure DBMS deployment is opened up for production.  
+- Cut-over scenarios from on-premise to Azure. In those cases, log shipping is used to synchronize the new DBMS deployment in Azure with the ongoing production system on-premise. At the time of cutting over, production is shut down and it is made sure that the last and latest transaction log backups got transferred to the Azure DBMS deployment. Then the Azure DBMS deployment is opened up for production.  
 
 
 
@@ -537,7 +526,7 @@ In cases where you move SAP SQL Server databases from on-premise into Azure, we 
 - In older SQL Server releases, backup compression did not get efficiency anymore when you encrypted your SQL Server database. This behavior could develop into an issue when your plan was to encrypt your SQL Server database on-premise and then copy a backup into Azure to restore the database in Azure. SQL Server backup compression usually achieves a compression ratio of factor 4.
 - With SQL Server 2016, SQL Server introduced new functionality that allows compressing encrypted databases as well in an efficient manner. See [this blogs](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/) for some details.
  
-Treating the application of TDE encryption with no to little SAP workload only, you should test in your specific configuration on whether it is better to apply TDE to your SAP database on-premise or do so in Azure. In Azure, you certainly have more flexibility in terms of over-provisioning infrastructure and shrink the infrastructure after TDE got applied.
+Treating the application of TDE encryption with no to little SAP workload only, you should test in your specific configuration on whether it is better to apply TDE to your SAP database on-premise or to do so in Azure. In Azure, you certainly have more flexibility in terms of over-provisioning infrastructure and shrink the infrastructure after TDE got applied.
 
 ### Using Azure Key Vault
 Azure offers the service of a [Key Vault](https://azure.microsoft.com/services/key-vault/) to store encryption keys. SQL Server on the other side offer a connector to leverage Azure Key Vault as store for the TDE certificates.

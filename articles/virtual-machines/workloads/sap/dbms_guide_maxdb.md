@@ -321,7 +321,7 @@ To find the supported Microsoft Windows version for SAP MaxDB DBMS on Azure, see
 * [SAP Product Availability Matrix (PAM)][sap-pam]
 * SAP Note [1928533]
 
-It is highly recommended to use the newest version of the operating system Microsoft Windows, which is Microsoft Windows 2012 R2.
+It is highly recommended to use the newest version of the operating system Microsoft Windows, which is Microsoft Windows 2016.
 
 ### Available SAP MaxDB Documentation
 You can find the updated list of SAP MaxDB documentation in the following SAP Note [767598]
@@ -348,15 +348,14 @@ In short you have to:
 
 
 #### <a name="23c78d3b-ca5a-4e72-8a24-645d141a3f5d"></a>Backup and Restore
-When deploying SAP MaxDB into Azure, you must review your backup methodology. Even if the system is not a productive system, the SAP database hosted by SAP MaxDB must be backed up periodically. Since Azure Storage keeps three images, a backup is now less important in terms of protecting your system against storage failure and more important operational or administrative failures. The primary reason for maintaining a proper backup and restore plan is so that you can compensate for logical or manual errors by providing point-in-time recovery capabilities. So the goal is to either use backups to restore the database to a certain point in time or to use the backups in Azure to seed another system by copying the existing database. For example, you could transfer from a 2-tier SAP configuration to a 3-tier system setup of the same system by restoring a backup.
+When deploying SAP MaxDB into Azure, you must review your backup methodology. Even if the system is not a productive system, the SAP database hosted by SAP MaxDB must be backed up periodically. Since Azure Storage keeps three images, a backup is now less important in terms of protecting your system against storage failure and more important operational or administrative failures. The primary reason for maintaining a proper backup and restore plan is so that you can compensate for logical or manual errors by providing point-in-time recovery capabilities. So the goal is to either use backups to restore the database to a certain point in time or to use the backups in Azure to seed another system by copying the existing database. 
 
 Backing up and restoring a database in Azure works the same way as it does for on-premises systems, so you can use standard SAP MaxDB backup/restore tools, which are described in one of the SAP MaxDB documentation documents listed in SAP Note [767598]. 
 
 #### <a name="77cd2fbb-307e-4cbf-a65f-745553f72d2c"></a>Performance Considerations for Backup and Restore
-As in bare-metal deployments, backup and restore performance are dependent on how many volumes can be read in parallel and the throughput of those volumes. In addition, the CPU consumption used by backup compression can play a significant role on VMs with up to eight CPU threads. Therefore, one can assume:
+As in bare-metal deployments, backup and restore performance are dependent on how many volumes can be read in parallel and the throughput of those volumes. Therefore, one can assume:
 
 * The fewer the number of disks used to store the database devices, the lower the overall read throughput
-* The smaller the number of CPU threads in the VM, the more severe the impact of backup compression
 * The fewer targets (Stripe Directories, disks) to write the backup to, the lower the throughput
 
 To increase the number of targets to write to, there are two options that you can use, possibly in combination, depending on your needs:
@@ -371,8 +370,8 @@ To increase the number of targets to write to, there are two options that you ca
 Striping a volume over multiple mounted disks has been discussed earlier in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
 
 #### <a name="f77c1436-9ad8-44fb-a331-8671342de818"></a>Other
-All other general areas such as Azure Availability Sets or SAP monitoring also apply as described in the first three chapters of this document for deployments of VMs with the SAP MaxDB database.
-Other SAP MaxDB-specific settings are transparent to Azure VMs and are described in different documents listed in SAP Note [767598] and in these SAP notes:
+All other general areas such as Azure Availability Sets or SAP monitoring also apply as described in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md).  for deployments of VMs with the SAP MaxDB database.
+Other SAP MaxDB-specific settings are transparent to Azure VMs and are described in different documents listed in SAP Note [767598] and in these SAP Notes:
 
 * [826037] 
 * [1139904]
@@ -425,7 +424,7 @@ SAP currently supports:
 * **SAP MaxDB version 7.9**
 * **Microsoft IIS (Internet Information Server) version 8.0 (and higher)**
 
-It is highly recommended to use the newest version of SAP Content Server, and the newest version of **Microsoft IIS 8.5**. 
+It is highly recommended to use the newest version of SAP Content Server, and the newest version of **Microsoft IIS**. 
 
 Check the latest supported versions of SAP Content Server and Microsoft IIS in the [SAP Product Availability Matrix (PAM)][sap-pam].
 

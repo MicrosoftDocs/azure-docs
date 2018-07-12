@@ -308,7 +308,7 @@ ms.custom: H1Hack27Feb2017
 
 
 ## Specifics to Oracle Database
-Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. For details on the general support of Windows Hyper-V and Azure, check: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle software is supported by Oracle to run on Microsoft Azure. For details on the general support of Windows Hyper-V and Azure, check: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
 
 Following the general support, the specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are named in document. As a pr-read to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) as well as other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
@@ -336,7 +336,7 @@ The following SAP Notes are related to SAP on Azure regarding the area covered i
 
 Exact configurations and functionality supported by Oracle and SAP on Azure are documented in SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619)
 
-As you realize, only the two guest operating systems of Windows and Oracle Linux are supported. Widely used SLES and RHEL Linux are not supported to deploy Oracle components in Azure. Oracle components do include as well the Oracle database client, which is used by SAP applications to connect against the Oracle DBMS. Exceptions, according to SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619) are SAP components, which are not using the Oracle client because those components might not need to connect to the Oracle DBMS. Such SAP components are SAP's stand-alone enqueue, message server and Enqueue replication services. Means despite running your Oracle DBMS and SAP application instances on Oracle Linux, you could run your SAP Central Services on SLES or RHEL and protect it with a Pacemaker based luster. A component that is not supported by Oracle.
+As you realize, only the two guest operating systems of Windows and Oracle Linux are supported. Widely used SLES and RHEL Linux are not supported to deploy Oracle components in Azure. Oracle components do include as well the Oracle database client, which is used by SAP applications to connect against the Oracle DBMS. Exceptions, according to SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619) are SAP components, which are not using the Oracle client because those components might not need to connect to the Oracle DBMS. Such SAP components are SAP's stand-alone enqueue, message server and Enqueue replication services. Means despite running your Oracle DBMS and SAP application instances on Oracle Linux, you could run your SAP Central Services on SLES or RHEL and protect it with a Pacemaker based cluster. A HA configuration that is not supported on Oracle Linux.
 
 ## Oracle Configuration Guidelines for SAP Installations in Azure VMs
 ### Storage configuration
@@ -350,11 +350,11 @@ are **NOT** supported for Oracle database files!
 
 Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Oracle Database as well.
 
-As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
+As explained [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md), quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
 To identify the supported Azure VM types, refer to SAP note [1928533].
 
-As long as the current IOPS quota per disk satisfies the requirements, it is possible to store all the DB files on one single mounted disk. 
+As long as the current IOPS quota per disk satisfies the requirements, it is possible to store all the DB data files on one single mounted disk. And the two redo logs on another two disks.
 
 If more IOPS are required, it is recommended to use Window Storage Pools (only available in Windows Server 2012 and higher) to create one large logical device over multiple mounted disks. This approach simplifies the administration overhead to manage the disk space and avoids the effort to manually distribute files across multiple mounted disks.
 
@@ -365,7 +365,7 @@ Recommendations based on customer experience are:
 - For Azure M-Series VM, the latency writing into the redo logs can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Oracle redo logs. Details can be read in the document [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
 
 ### Backup / Restore
-For backup / restore functionality, the SAP BR*Tools for Oracle are supported in the same way as on standard Windows Server Operating Systems and Hyper-V. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restores from disk.
+For backup / restore functionality, the SAP BR*Tools for Oracle are supported in the same way as on standard Windows Server Operating Systems. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restores from disk.
 
 You can also use Azure Backup Service to execute an application consistent VM backup. The article [Plan your VM backup infrastructure in Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction), states the Azure Backup Service uses the Windows VSS functionality for executing an application consistent backup. Oracle database releases that are supported on Azure and SAP are able to leverage the VSS functionality for backups. Details can be read in the Oracle documentation [Basic Concepts of Database Backup and Recovery with VSS](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701).
 
@@ -382,7 +382,7 @@ For Oracle deployments on Windows, it is highly recommended to use the Azure fun
 All other general areas like Azure Availability Sets or SAP monitoring apply as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) for deployments of VMs with the Oracle Database as well.
 
 ## Specifics to Oracle Database on Oracle Linux
-Oracle software is supported by Oracle to run on Microsoft Windows Hyper-V and Azure. For details on the general support of Windows Hyper-V and Azure, check: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle software is supported by Oracle to run on Microsoft Azure with Oracle Linux as guest OS. For details on the general support of Windows Hyper-V and Azure, check: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
 
 Following the general support, the specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are named in this part of the document.
 
@@ -407,7 +407,7 @@ As explained in  document [Considerations for Azure Virtual Machines DBMS deploy
 
 To identify the supported Azure VM types, refer to SAP note [1928533]
 
-As long as the current IOPS quota per disk satisfies the requirements, it is possible to store all the DB files on one single mounted disk. 
+As long as the current IOPS quota per disk satisfies the requirements, it is possible to store all the DB files on one single mounted disk. And the two redo logs on another two disks.
 
 If more IOPS are required, it is recommended to use LVM (Logical Volume Manager) or MDADM to create one large logical volume over multiple mounted disks. See also the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) regarding to guidelines and pointers on how to leverage LVM or MDADM. This approach simplifies the administration overhead to manage the disk space and avoids the effort to manually distribute files across multiple mounted disks.
 

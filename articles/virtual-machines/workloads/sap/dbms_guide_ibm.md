@@ -346,7 +346,7 @@ Any kind of network drives or remote shares like the following Azure file servic
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
-Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Oracle Database as well.
+Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the DB2 DBMS as well.
 
 As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)][virtual-machines-sizes-linux] and [here (Windows)][virtual-machines-sizes-windows].
 
@@ -377,7 +377,7 @@ To increase the number of targets to write to, two options can be used/combined 
 * Using more than one target directory to write the backup to
 
 >[!NOTE]
->DB on window does not support the Windows VSS technology. As a result, the application consistent VM backup of Azure Backup Service can't be leveraged for VMs the DB2 DBMS is deployed in.
+>DB2 on Windows does not support the Windows VSS technology. As a result, the application consistent VM backup of Azure Backup Service can't be leveraged for VMs the DB2 DBMS is deployed in.
 
 ### High Availability and Disaster Recovery
 Microsoft Cluster Server (MSCS) is not supported.

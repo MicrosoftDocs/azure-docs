@@ -310,11 +310,11 @@ ms.custom: H1Hack27Feb2017
 In this document, covers several different areas to consider when deploying SAP ASE in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) and other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
 ## Specifics to SAP ASE on Windows
-Starting with Microsoft Azure, you can migrate your existing SAP ASE applications to Azure Virtual Machines. SAP ASE in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management, and maintenance of enterprise breadth applications by easily migrating these applications to Microsoft Azure. With SAP ASE in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
+Starting with Microsoft Azure, you can migrate your existing SAP ASE applications to Azure Virtual Machines. SAP ASE in an Azure Virtual Machine enables you to reduce the total cost of ownership of deployment, management, and maintenance of enterprise breadth applications by easily migrating these applications to Microsoft Azure. With SAP ASE in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
 
-SLAs for the Azure Virtual Machines, can be found here: <https://azure.microsoft.com/support/legal/sla/virtual-machines>
+SLAs for Azure Virtual Machines, can be found here: <https://azure.microsoft.com/support/legal/sla/virtual-machines>
 
-Microsoft Azure offers numerous Virtual Machines that allow you to run smallest SAP systems and landscapes up to large SAP systems and landscapes with thousands of users. SAP sizing SAPS numbers of the different SAP certified VM SKUs is provided in SAP Note [1928533].
+Microsoft Azure offers numerous different virtual machine types that allow you to run smallest SAP systems and landscapes up to large SAP systems and landscapes with thousands of users. SAP sizing SAPS numbers of the different SAP certified VM SKUs is provided in SAP Note [1928533].
 
 Statements and recommendations regarding to the usage of Azure Storage, Deployment of SAP VMs or SAP Monitoring made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments of SAP ASE too.
 
@@ -332,7 +332,7 @@ General information on running SAP Business Suite on SAP ASE can be found in the
 #### Structure of the SAP ASE Deployment
 SAP ASE executables should be located or installed into the system drive of the VM's OS disk (drive c:\). Typically, most of the SAP ASE system and tools databases are not experiencing high workload. Hence the system and tools databases (master, model, saptools, sybmgmtdb, sybsystemdb) can remain on the C:\ drive. 
 
-An exception could be the temporary database, which in case of some SAP ERP and all BW workloads might require either higher data volume or I/O operations volume. Volumes or IOPS which can't be provided by the VM's OS disk (drive c:\).
+An exception could be the temporary database, which in case of some SAP ERP and all BW workloads might require either higher data volume or I/O operations volume. Volumes or IOPS which can't be provided by the VM's OS disk (drive C:\).
 
 Dependent on the version of SAPInst/SWPM used to install, the SAP ASE instance configuration could look like:
 
