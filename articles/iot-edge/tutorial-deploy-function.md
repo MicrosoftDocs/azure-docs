@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Deploy Azure functions as IoT Edge modules (preview)
 
-You can use Azure Functions to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an Azure function that filters sensor data on the simulated IoT Edge device. You use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] quickstarts. In this tutorial, you learn how to:     
+You can use Azure Functions to deploy code that implements your business logic directly to your Azure IoT Edge devices. This tutorial walks you through creating and deploying an Azure function that filters sensor data on the simulated IoT Edge device. You use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] quickstarts. In this tutorial, you learn how to:     
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an Azure function.
@@ -178,11 +178,11 @@ You can use the Azure portal to deploy your function module to an IoT Edge devic
 
 3. In the command palette, search for and run the command **Azure IoT Hub: Select IoT Hub**. 
 
-4. Select the subscription that has your IoT hub, then select the IoT hub that you want to access.
+4. Select the subscription that has your IoT hub, and then select the IoT hub that you want to access.
 
 5. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
 
-6. Right-click the name of your IoT Edge device, then select **Create Deployment for IoT Edge device**. 
+6. Right-click the name of your IoT Edge device, and then select **Create Deployment for IoT Edge device**. 
 
 7. Browse to the solution folder that contains the **CSharpFunction**. Open the config folder, select the deployment.json file, and then choose **Select Edge Deployment Manifest**.
 
