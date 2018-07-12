@@ -35,7 +35,10 @@ layReady licenses contain the rights and restrictions that you want the PlayRead
 
 To configure PlayReady licenses by using Media Services, you must configure the Media Services PlayReady license template. The template is defined in XML.
 
-The following example shows the simplest (and most common) template that configures a basic streaming license. With this license, your clients can play back your PlayReady-protected content.
+The following example shows the simplest (and most common) template that configures a basic streaming license. With this license, your clients can play back your PlayReady-protected content. 
+
+The XML conforms to the PlayReady license template XML schema defined in the [PlayReady license template XML schema](#schema) section.
+
 
     <?xml version="1.0" encoding="utf-8"?>
     <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
@@ -48,16 +51,15 @@ The following example shows the simplest (and most common) template that configu
       </LicenseTemplates>
     </PlayReadyLicenseResponseTemplate>
 
-The XML conforms to the PlayReady license template XML schema defined in the "PlayReady license template XML schema" section.
 
 ## <a id="classes"></a>Use Media Services APIs to configure license templates
 
-Media Services provides types that you can use to configure a PlayReady license template. These types map to types defined in [PlayReady license template XML schema](#schema).
+Media Services provides types that you can use to configure a PlayReady license template. 
 
-The snippet that follows uses Media Services .NET PlayReady classes to configure the PlayReady license template. The classes are defined in the [Microsoft.Azure.Management.Media.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) namespace. The snippet configures the PlayRight of the PlayReady license. PlayRight grants the user the ability to play back the content subject to any restrictions configured in the license and on the PlayRight itself (for playback-specific policy). Much of the policy on a PlayRight concerns output restriction that control the types of outputs that the content can be played over. It also includes any restrictions that must be put in place when a given output is used. For example, if DigitalVideoOnlyContentRestriction is enabled, the DRM runtime only allows the video to be displayed over digital outputs. (Analog video outputs aren't allowed to pass the content.)
+The snippet that follows uses Media Services .NET classes to configure the PlayReady license template. The classes are defined in the [Microsoft.Azure.Management.Media.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) namespace. The snippet configures the PlayRight of the PlayReady license. PlayRight grants the user the ability to play back the content subject to any restrictions configured in the license and on the PlayRight itself (for playback-specific policy). Much of the policy on a PlayRight concerns output restriction that control the types of outputs that the content can be played over. It also includes any restrictions that must be put in place when a given output is used. For example, if DigitalVideoOnlyContentRestriction is enabled, the DRM runtime only allows the video to be displayed over digital outputs. (Analog video outputs aren't allowed to pass the content.)
 
 > [!IMPORTANT]
-> These types of restrictions can be powerful, but they also can affect the consumer experience. If the output protections are too restrictive, the content might be unplayable on some clients. For more information, see the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/).
+> PlayReady license has restrictions that are powerful and can affect the consumer experience. If the output protections are too restrictive, the content might be unplayable on some clients. For more information, see the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/).
 > 
 > 
 

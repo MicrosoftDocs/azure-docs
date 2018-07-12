@@ -24,35 +24,34 @@ Media Services also provides APIs that you can use to configure your FairPlay li
 
 ## Requirements
 
-The following are required when using Media Services to encrypt your HLS content with **Apple FairPlay**:
+The following are required when using Media Services to encrypt your HLS content with **Apple FairPlay** and use Media Services to deliver FairPlay licenses:
 
-  * Sign up with [Apple Development Program](https://developer.apple.com/).
-  * Apple requires the content owner to obtain the [deployment package](https://developer.apple.com/contact/fps/). State that you already implemented Key Security Module (KSM) with Media Services, and that you are requesting the final FPS package. There are instructions in the final FPS package to generate certification and obtain the Application Secret Key (ASK). You use ASK to configure FairPlay.
-  
-The following things must be set on Media Services key/license delivery side:
+* Sign up with [Apple Development Program](https://developer.apple.com/).
+* Apple requires the content owner to obtain the [deployment package](https://developer.apple.com/contact/fps/). State that you already implemented Key Security Module (KSM) with Media Services, and that you are requesting the final FPS package. There are instructions in the final FPS package to generate certification and obtain the Application Secret Key (ASK). You use ASK to configure FairPlay.
+* The following things must be set on Media Services key/license delivery side:
 
-  * **App Cert (AC)**: This is a .pfx file that contains the private key. You create this file and encrypt it with a password. The .pfx file shoul be in Base64 format.
+    * **App Cert (AC)**: This is a .pfx file that contains the private key. You create this file and encrypt it with a password. The .pfx file shoul be in Base64 format.
 
-    The following steps describe how to generate a .pfx certificate file for FairPlay:
+        The following steps describe how to generate a .pfx certificate file for FairPlay:
 
-    1. Install OpenSSL from https://slproweb.com/products/Win32OpenSSL.html.
+        1. Install OpenSSL from https://slproweb.com/products/Win32OpenSSL.html.
 
-        Go to the folder where the FairPlay certificate and other files delivered by Apple are.
-    2. Run the following command from the command line. This converts the .cer file to a .pem file.
+            Go to the folder where the FairPlay certificate and other files delivered by Apple are.
+        2. Run the following command from the command line. This converts the .cer file to a .pem file.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
-    3. Run the following command from the command line. This converts the .pem file to a .pfx file with the private key. The password for the .pfx file is then asked by OpenSSL.
+            "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
+        3. Run the following command from the command line. This converts the .pem file to a .pfx file with the private key. The password for the .pfx file is then asked by OpenSSL.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
-        
-  * **App Cert password**: The password for creating the .pfx file.
-  * **ASK**: This key is received when you generate the certification by using the Apple Developer portal. Each development team receives a unique ASK. Save a copy of the ASK, and store it in a safe place. You need to configure ASK as FairPlayAsk with Media Services.
-  
-The following things must be set by the FPS client side:
+            "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
+            
+    * **App Cert password**: The password for creating the .pfx file.
+    * **ASK**: This key is received when you generate the certification by using the Apple Developer portal. Each development team receives a unique ASK. Save a copy of the ASK, and store it in a safe place. You need to configure ASK as FairPlayAsk with Media Services.
+    
+* The following things must be set by the FPS client side:
 
   * **App Cert (AC)**: This is a .cer/.der file that contains the public key, which the operating system uses to encrypt some payload. Media Services needs to know about it because it is required by the player. The key delivery service decrypts it using the corresponding private key.
 
-To play back a FairPlay encrypted stream, get a real ASK first, and then generate a real certificate. That process creates all three parts:
+* To play back a FairPlay encrypted stream, get a real ASK first, and then generate a real certificate. That process creates all three parts:
 
   * .der file
   * .pfx file

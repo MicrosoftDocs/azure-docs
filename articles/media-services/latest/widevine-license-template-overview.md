@@ -110,7 +110,9 @@ Media Services provides a class that lets you configure a Widevine license. To c
 
 To configure the template, you can:
 
-1.	Directly construct/hardcode a JSON string (which may be error-prone);
+### Directly construct a JSON string
+
+This method may be error-prone. It is recommended to use other method, described in [Define needed classes and serialize to JSON](#classes).
 
     ```csharp
     ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
@@ -119,7 +121,11 @@ To configure the template, you can:
     };
     ```
 
-2.	Construct needed classes with properties mapping to those JSON attributes and instantiate them before serializing them to JSON string. Below is an example of such classes and how they are instantiated and serialized.
+### <a id="classes"></a> Define needed classes and serialize to JSON
+
+#### Define classes
+
+The following example shows an example of definitions of classes that map to Widevine JSON schema. You can instantiate the classes before serializing them to JSON string.  
 
     ```csharp
     public class PolicyOverrides
@@ -152,7 +158,7 @@ To configure the template, you can:
     }
     ```
 
-### Configure the license
+#### Configure the license
 
 Use classes defined in the previous section to create JSON that is used to configure [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate):
 
