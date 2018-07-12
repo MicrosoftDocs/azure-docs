@@ -7,7 +7,7 @@ services: service-fabric-mesh
 keywords: Don’t add or edit keywords without consulting your SEO champ. 
 author: rwike77
 ms.author: ryanwi
-ms.date: 06/27/2018
+ms.date: 07/12/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt 
@@ -52,7 +52,7 @@ az group create --name myResourceGroup --location eastus
 Create your application using the `az mesh deployment create` command:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-configuration/master/container-configuration.json
+az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/mesh_rp.windows.json
 ```
 
 In just over a minute, your command should return with `"provisioningState": "Succeeded"`. 
@@ -64,7 +64,7 @@ At this point, your application has been deployed. You can check to see its stat
 The application name for this quickstart application is helloWorldApp, to gather the details on the application execute the following command:
 
 ```azurecli-interactive
-az mesh app show --resource-group myResourceGroup --name helloWorldApp
+az mesh app show --resource-group myResourceGroup --name helloWorldAppWindows
 ```
 
 ## Browse to the application
@@ -74,7 +74,7 @@ Once the application status is returned as `"provisioningState": "Succeeded"`, y
 The network resource for this quickstart application is helloWorldNetwork, you can use the `az mesh network show` command to get the IP address:
 
 ```azurecli-interactive
-az mesh network show --resource-group myResourceGroup --name helloWorldNetwork
+az mesh network show --resource-group myResourceGroup --name helloWorldNetworkWindows
 ```
 
 The command will return with information like the json snippet below when running the command in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
@@ -82,19 +82,19 @@ The command will return with information like the json snippet below when runnin
 From the output, copy the IP address.
 
 ```json
-    "publicIpAddress": "40.121.47.57",
+    "publicIpAddress": "168.62.188.181",
     "qosLevel": "Bronze"
   },
   "location": "eastus",
-  "name": "helloWorldNetwork",
+  "name": "helloWorldNetworkWindows",
   "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
+  "resourceGroup": "ryanwitestgroup",
   "tags": {},
-  "type": "Microsoft.ServiceFabric/networks"
+  "type": "Microsoft.ServiceFabricMesh/networks"
 }
 ```
 
-In the example above, the service end point IP is 40.121.47.57.  Take your corresponding IP address and open it in your favorite browser.
+In the example above, the service end point IP is 168.62.188.181.  Take your corresponding IP address and open it in your favorite browser.
 
 ## See all the applications you have currently deployed to your subscription
 
@@ -109,7 +109,7 @@ az mesh app list --output table
 Examine the logs for the deployed application using the `az mesh code-package-log get` command:
 
 ```azurecli-interactive
-az mesh code-package-log get --resource-group myResourceGroup --application-name helloWorldApp --service-name helloWorldService --replica-name 0 --code-package-name helloWorldCode
+az mesh code-package-log get --resource-group myResourceGroup --application-name helloWorldAppWindows --service-name helloWorldService --replica-name 0 --code-package-name helloWorldCode
 ```
 
 ## Clean up resources
@@ -117,8 +117,8 @@ az mesh code-package-log get --resource-group myResourceGroup --application-name
 When you are ready to delete the application and network resources, run the `az mesh app delete` and `` commands.
 
 ```azurecli-interactive
-az mesh app delete -g myResourceGroup -n helloWorldApp
-az mesh network delete -g myResourceGroup -n helloWorldNetwork
+az mesh app delete -g myResourceGroup -n helloWorldAppWindows
+az mesh network delete -g myResourceGroup -n helloWorldNetworkWindows
 ```
 
 If you no longer need any of the resources you created in this quickstart, you can execute the [az group delete][az-group-delete] command to remove the resource group and all the resources it contains.
