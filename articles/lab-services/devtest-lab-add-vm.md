@@ -36,9 +36,7 @@ This article also shows you how to manage the artifacts for a VM in your lab.
     ![Lab VM pane](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
 1. Enter a **User Name** that is granted administrator privileges on the virtual machine.  
-1. If you want to use a password stored in your [secret store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), select **Use a saved secret**, and specify a key value that corresponds to your secret (password). Otherwise, enter a password in the text field labeled **Type a value**.
-
-    Your secret store is part of an Azure key vault that's associated with the lab. The secrets you store in the secret store aren't visible to other lab users. 
+1. If you want to use a password stored in an [Azure key vault](devtest-lab-store-secrets-in-key-vault.md), select **Use a saved secret**, and specify a key value that corresponds to your secret (password). Otherwise, enter a password in the text field labeled **Type a value**. To learn about saving secrets in a key vault and using them when creating lab resources, see [Store secrets in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
 1. The **Virtual machine disk type** determines which storage disk type is allowed for the virtual machines in the lab.
 2. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
 3. Select **Artifacts** and - from the list of artifacts - select and configure the artifacts that you want to add to the base image.
