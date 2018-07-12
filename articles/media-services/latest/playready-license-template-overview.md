@@ -20,7 +20,7 @@ ms.author: juliako
 
 Azure Media Services enables you to encrypt your content with **Microsoft PlayReady**. Media Services also provides a service for delivering PlayReady licenses. You can use Media Services APIs to configure PlayReady licenses. When a player tries to play your PlayReady-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license that is sent to the client and is used to decrypt and play the specified content.
 
-layReady licenses contain the rights and restrictions that you want the PlayReady digital rights management (DRM) runtime to enforce when a user tries to play back protected content. Here are some examples of PlayReady license restrictions that you can specify:
+PlayReady licenses contain the rights and restrictions that you want the PlayReady digital rights management (DRM) runtime to enforce when a user tries to play back protected content. Here are some examples of PlayReady license restrictions that you can specify:
 
 * The date and time from which the license is valid.
 * The DateTime value when the license expires. 
@@ -33,7 +33,9 @@ layReady licenses contain the rights and restrictions that you want the PlayRead
 > Currently, you can only configure the PlayRight of the PlayReady license. This right is required. The PlayRight gives the client the ability to play back the content. You also can use the PlayRight to configure restrictions specific to playback. 
 > 
 
-To configure PlayReady licenses by using Media Services, you must configure the Media Services PlayReady license template. The template is defined in XML.
+This topic describes how to configure PlayReady licenses with  Media Services.
+
+## Basic streaming license example
 
 The following example shows the simplest (and most common) template that configures a basic streaming license. With this license, your clients can play back your PlayReady-protected content. 
 
@@ -59,9 +61,7 @@ Media Services provides types that you can use to configure a PlayReady license 
 The snippet that follows uses Media Services .NET classes to configure the PlayReady license template. The classes are defined in the [Microsoft.Azure.Management.Media.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) namespace. The snippet configures the PlayRight of the PlayReady license. PlayRight grants the user the ability to play back the content subject to any restrictions configured in the license and on the PlayRight itself (for playback-specific policy). Much of the policy on a PlayRight concerns output restriction that control the types of outputs that the content can be played over. It also includes any restrictions that must be put in place when a given output is used. For example, if DigitalVideoOnlyContentRestriction is enabled, the DRM runtime only allows the video to be displayed over digital outputs. (Analog video outputs aren't allowed to pass the content.)
 
 > [!IMPORTANT]
-> PlayReady license has restrictions that are powerful and can affect the consumer experience. If the output protections are too restrictive, the content might be unplayable on some clients. For more information, see the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/).
-> 
-> 
+> PlayReady license has restrictions that are powerful. If the output protections are too restrictive, the content might be unplayable on some clients. For more information, see the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/).
 
 ### Configure PlayReady license template with .NET
 
@@ -83,8 +83,6 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
     }
 };
 ```
-
-For an example of the protection levels that Silverlight supports, see [Silverlight support for output protections](http://go.microsoft.com/fwlink/?LinkId=617318).
 
 ## <a id="schema"></a>PlayReady license template XML schema
     <?xml version="1.0" encoding="utf-8"?>
