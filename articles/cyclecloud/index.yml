@@ -55,47 +55,47 @@ sections:
             src: media/index/cassandra-api.png
           title: Cassandra API
 
-- title: QuickStarts
-  items:
-  - type: paragraph
-    text: New to Azure CycleCloud? Start with these four simple labs that cover the basics of installing, configuring, and using CycleCloud.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+  - title: QuickStarts
     items:
-    - html: <a href="quickstart-overview">Overview and Prerequisites</a>
-  - type: list
-    style: ordered
+    - type: paragraph
+      text: New to Azure CycleCloud? Start with these four simple labs that cover the basics of installing, configuring, and using CycleCloud.
+    - type: list
+      style: unordered
+      className: spaced noBullet
+      items:
+      - html: <a href="quickstart-overview">Overview and Prerequisites</a>
+    - type: list
+      style: ordered
+      items:
+      - html: <a href="quickstart-install-cyclecloud">Install Azure CycleCloud via ARM template</a>
+      - html: <a href="quickstart-create-and-run-cluster">Create and Run a Simple HPC Cluster</a>
+      - html: <a href="quickstart-submit-jobs">Submit Jobs and Auto Scale</a>
+      - html: <a href="quickstart-clean-up-resources">Clean Up Resources</a>
+  - title: Concepts
     items:
-    - html: <a href="quickstart-install-cyclecloud">Install Azure CycleCloud via ARM template</a>
-    - html: <a href="quickstart-create-and-run-cluster">Create and Run a Simple HPC Cluster</a>
-    - html: <a href="quickstart-submit-jobs">Submit Jobs and Auto Scale</a>
-    - html: <a href="quickstart-clean-up-resources">Clean Up Resources</a>
-- title: Concepts
-  items:
-  - type: paragraph
-    text: Set up projects, nodes, instances, and autoscale your jobs to suit your needs.
-  - type: list
-    style: ordered
-    items:
-    - html: Do a Thing
-    - html: Do a Second Thing
-    - html: Thing 3 - The Thingening
-    - html: Custom Alerts (an actual thing)
-- title: Reference
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - title: Command Line Interface
-      html: CLI
-    - title: Cookbooks
-      html: Cookbooks
-    - title: Node Configuration
-      html: Node Nodey Node
-    - title: Dev Guide Contents
-      html: All of the dev guide in all the things
-  - title: Resources
+    - type: paragraph
+      text: Set up projects, nodes, instances, and autoscale your jobs to suit your needs.
+    - type: list
+      style: ordered
+      items:
+      - html: Do a Thing
+      - html: Do a Second Thing
+      - html: Thing 3 - The Thingening
+      - html: Custom Alerts (an actual thing)
+  - title: Reference
     items:
     - type: list
+      style: unordered
+      className: spaced noBullet
+      items:
+      - title: Command Line Interface
+        html: CLI
+      - title: Cookbooks
+        html: Cookbooks
+      - title: Node Configuration
+        html: Node Nodey Node
+      - title: Dev Guide Contents
+        html: All of the dev guide in all the things
+    - title: Resources
+      items:
+      - type: list
