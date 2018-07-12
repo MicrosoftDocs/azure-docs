@@ -3,7 +3,7 @@ title: Azure Functions C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
-ms.author: glenga
+ms.author: tdykstra
 
 ---
 # Azure Functions C# script (.csx) developer reference
@@ -230,7 +230,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 ## Async
 
-To make a function asynchronous, use the `async` keyword and return a `Task` object.
+To make a function [asynchronous](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -332,7 +332,7 @@ The following assemblies may be referenced by simple-name (for example, `#r "Ass
 ## Referencing custom assemblies
 
 To reference a custom assembly, you can use either a *shared* assembly or a *private* assembly:
-- Shared assemblies are shared across all functions within a function app. To reference a custom assembly, upload the assembly to your function app, such as in a `bin` folder in the function app root. 
+- Shared assemblies are shared across all functions within a function app. To reference a custom assembly, upload the assembly to a folder named `bin` in your [function app root folder](functions-reference.md#folder-structure) (wwwroot). 
 - Private assemblies are part of a given function's context, and support side-loading of different versions. Private assemblies should be uploaded in a `bin` folder in the function directory. Reference the assemblies using the file name, such as `#r "MyAssembly.dll"`. 
 
 For information on how to upload files to your function folder, see the section on [package management](#using-nuget-packages).
@@ -406,6 +406,8 @@ public static string GetEnvironmentVariable(string name)
         System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
 }
 ```
+
+The [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) property is an alternative API for getting app setting values, but we recommend that you use `GetEnvironmentVariable` as shown here.
 
 <a name="imperative-bindings"></a> 
 

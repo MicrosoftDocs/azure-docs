@@ -28,32 +28,6 @@ To complete this how-to guide, you need:
 > [!IMPORTANT]
 > This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
-## Add the extension
-Add the updated Azure Database for PostgreSQL management extension using the following command:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Check you have the correct extension version installed. 
-```azurecli-interactive
-az extension list
-```
-
-The return JSON should include the following: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-If version 0.0.5 is not returned, run the following to update the extension: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
-
 ## Set backup configuration
 
 You make the choice between configuring your server for either locally redundant backups or geographically redundant backups at server creation. 
@@ -109,6 +83,10 @@ After the restore process finishes, locate the new server and verify that the da
 If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for PostgreSQL is available.  
 
 To create a server using a geo redundant backup, use the Azure CLI `az postgres server georestore` command.
+
+> [!NOTE]
+> When a server is first created it may not be immediately available for geo restore. It may take a few hours for the necessary metadata to be populated.
+>
 
 To geo restore the server, at the Azure CLI command prompt, enter the following command:
 

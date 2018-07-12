@@ -4,7 +4,7 @@ description: Add XSLT maps to transform XML data with Azure Logic Apps and the E
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289

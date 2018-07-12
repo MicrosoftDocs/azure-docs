@@ -1,36 +1,30 @@
 ---
-title: Configure ingress with Azure Container Service (AKS) cluster
-description: Install and configure an NGINX ingress controller in an Azure Container Service (AKS) cluster.
+title: Configure ingress with Azure Kubernetes Service (AKS) cluster
+description: Install and configure an NGINX ingress controller in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/03/2018
-ms.author: nepeters
+ms.date: 06/25/2018
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# HTTPS Ingress on Azure Container Service (AKS)
+# HTTPS Ingress on Azure Kubernetes Service (AKS)
 
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single external address can be used to route traffic to multiple services in a Kubernetes cluster.
 
-This document walks through a sample deployment of the [NGINX ingress controller][nginx-ingress] in an Azure Container Service (AKS) cluster. Additionally, the [KUBE-LEGO][kube-lego] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single address.
+This document walks through a sample deployment of the [NGINX ingress controller][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. Additionally, the [cert-manager][cert-manager] project is used to automatically generate and configure [Let's Encrypt][lets-encrypt] certificates. Finally, several applications are run in the AKS cluster, each of which is accessible over a single address.
 
 ## Install an ingress controller
 
-Use Helm to install the NGINX ingress controller. See the NGINX ingress controller [documentation][nginx-ingress] for detailed deployment information. 
+Use Helm to install the NGINX ingress controller. See the NGINX ingress controller [documentation][nginx-ingress] for detailed deployment information.
 
-Update the chart repository.
+This example installs the controller in the `kube-system` namespace, this can be modified to a namespace of your choice. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the command. For more information, see the [nginx-ingress chart][nginx-ingress].
 
-```console
-helm repo update
-```
-
-Install the NGINX ingress controller. This example installs the controller in the `kube-system` namespace, this can be modified to a namespace of your choice.
-
-```
+```bash
 helm install stable/nginx-ingress --namespace kube-system
 ```
 
@@ -39,9 +33,9 @@ During the installation, an Azure public IP address is created for the ingress c
 ```console
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
-eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   13.82.238.45   80:30920/TCP,443:30426/TCP   20m
-eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>         80/TCP                       20m
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210  80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
 Because no ingress rules have been created, if you browse to the public IP address, you are routed to the NGINX ingress controllers default 404 page.
@@ -52,44 +46,91 @@ Because no ingress rules have been created, if you browse to the public IP addre
 
 Because HTTPS certificates are used, you need to configure an FQDN name for the ingress controllers IP address. For this example, an Azure FQDN is created with the Azure CLI. Update the script with the IP address of the ingress controller and the name that you would like to use in the FQDN.
 
-```
+```bash
 #!/bin/bash
 
 # Public IP address
-IP="52.224.125.195"
+IP="51.145.155.210"
 
 # Name to associate with public IP address
 DNSNAME="demo-aks-ingress"
 
-# Get resource group and public ip name
-RESOURCEGROUP=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[resourceGroup]" --output tsv)
-PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[name]" --output tsv)
+# Get the resource-id of the public ip
+PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
 
 # Update public ip address with dns name
-az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
+az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
 ```
 
-If needed, run the following command to retrieve the FQDN. Update the IP address value with that of your ingress controller.
+The ingress controller should now be accessible through the FQDN.
 
-```azurecli
-az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
+## Install cert-manager
+
+The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for HTTPS, this document demonstrates using [cert-manager][cert-manager], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
+
+To install the cert-manager controller, use the following Helm install command.
+
+```bash
+helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-prod --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
-The ingress controller is now accessible through the FQDN.
+If your cluster is not RBAC enabled, use this command.
 
-## Install KUBE-LEGO
-
-The NGINX ingress controller supports TLS termination. While there are several ways to retrieve and configure certificates for HTTPS, this document demonstrates using [KUBE-LEGO][kube-lego], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
-
-To install the KUBE-LEGO controller, use the following Helm install command. Update the email address with one from your organization.
-
-```
-helm install stable/kube-lego \
-  --set config.LEGO_EMAIL=user@contoso.com \
-  --set config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory
+```bash
+helm install stable/cert-manager \
+  --set ingressShim.defaultIssuerName=letsencrypt-prod \
+  --set ingressShim.defaultIssuerKind=ClusterIssuer \
+  --set rbac.create=false \
+  --set serviceAccount.create=false
 ```
 
-For more information on KUBE-LEGO configuration, see the [KUBE-LEGO documentation][kube-lego].
+For more information on cert-manager configuration, see the [cert-manager project][cert-manager].
+
+## Create CA cluster issuer
+
+Before certificates can be issued, cert-manager requires an [Issuer][cert-manager-issuer] or [ClusterIssuer][cert-manager-cluster-issuer] resource. The  resources are identical in functionality however `Issuer` works in a single namespace where `ClusterIssuer` works across all namespaces. For more information, see the [cert-manager issuer][cert-manager-issuer] documentation.
+
+Create a cluster issuer using the following manifest. Update the email address with a valid address from your organization.
+
+```yaml
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: user@contoso.com
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    http01: {}
+```
+
+## Create certificate object
+
+Next, a certificate resource must be created. The certificate resource defines the desired X.509 certificate. For more information, see, [cert-manager certificates][cert-manager-certificates].
+
+Create the certificate resource with the following manifest.
+
+```yaml
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: tls-secret
+spec:
+  secretName: tls-secret
+  dnsNames:
+  - demo-aks-ingress.eastus.cloudapp.azure.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - demo-aks-ingress.eastus.cloudapp.azure.com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+```
 
 ## Run application
 
@@ -99,13 +140,13 @@ For this example, Helm is used to run multiple instances of a simple hello world
 
 Before running the application, add the Azure samples Helm repository on your development system.
 
-```
+```bash
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
- Run the AKS hello world chart with the following command:
+Run the AKS hello world chart with the following command:
 
-```
+```bash
 helm install azure-samples/aks-helloworld
 ```
 
@@ -113,25 +154,26 @@ Now install a second instance of the hello world application.
 
 For the second instance, specify a new title so that the two applications are visually distinct. You also need to specify a unique service name. These configurations can be seen in the following command.
 
-```console
+```bash
 helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
 ```
 
 ## Create ingress route
 
-Both applications are now running on your Kubernetes cluster, however have been configured with a service of type `ClusterIP`. As such, the applications are not accessible from the internet. In order to make the available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
+Both applications are now running on your Kubernetes cluster, however have been configured with a service of type `ClusterIP`. As such, the applications are not accessible from the internet. In order to make them available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
 
 Create a file name `hello-world-ingress.yaml` and copy in the following YAML.
 
 Take note that the traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/` is routed to the service named `aks-helloworld`. Traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` is routed to the `ingress-demo` service.
 
-```
+```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
   annotations:
-    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
@@ -174,12 +216,17 @@ Also notice that the connection is encrypted and that a certificate issued by Le
 
 ## Next steps
 
-Learn more about the software demonstrated in this document. 
+Learn more about the software demonstrated in this document.
 
+- [Helm CLI][helm-cli]
 - [NGINX ingress controller][nginx-ingress]
-- [KUBE-LEGO][kube-lego]
+- [cert-manager][cert-manager]
 
 <!-- LINKS - external -->
-[kube-lego]: https://github.com/jetstack/kube-lego
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
+[cert-manager]: https://github.com/jetstack/cert-manager
+[cert-manager-certificates]: https://cert-manager.readthedocs.io/en/latest/reference/certificates.html
+[cert-manager-cluster-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/clusterissuers.html
+[cert-manager-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/issuers.html
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

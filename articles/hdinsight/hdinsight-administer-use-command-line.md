@@ -11,11 +11,9 @@ documentationcenter: ''
 ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/15/2017
+ms.topic: conceptual
+ms.date: 05/14/2018
 ms.author: jgao
 
 ---

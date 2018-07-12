@@ -4,7 +4,7 @@ description: Create an Azure virtual machine running Windows Server 2012 R2 and 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 

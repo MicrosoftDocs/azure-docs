@@ -3,18 +3,19 @@ title: What is the Team Data Science Process? | Microsoft Docs
 description: Provides a data science methodology to deliver predictive analytics solutions and intelligent applications.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: b1f677bb-eef5-4acb-9b3b-8a5819fb0e78
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # What is the Team Data Science Process?
@@ -89,7 +90,7 @@ TDSP provides recommendations for managing shared analytics and storage infrastr
 - big data (Hadoop or Spark) clusters 
 - machine learning services. 
 
-The analytics and storage infrastructure can be in the cloud or on-premises. This is where raw and processed datasets are stored. This infrastructure enables reproducible analysis. It also avoids duplication, which can lead to inconsistencies and unnecessary infrastructure costs. Tools are provided to provision the shared resources, track them, and allow each team member to connect to those resources securely. It is also a good practice have project members create a consistent compute environment. Different team members can then replicate and validate experiments.
+The analytics and storage infrastructure can be in the cloud or on-premises. This is where raw and processed datasets are stored. This infrastructure enables reproducible analysis. It also avoids duplication, which can lead to inconsistencies and unnecessary infrastructure costs. Tools are provided to provision the shared resources, track them, and allow each team member to connect to those resources securely. It is also a good practice to have project members create a consistent compute environment. Different team members can then replicate and validate experiments.
 
 Here is an example of a team working on multiple projects and sharing various cloud analytics infrastructure components.
 

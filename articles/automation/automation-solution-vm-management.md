@@ -3,15 +3,16 @@ title: Start/Stop VMs during off-hours solution (preview)
 description: This VM management solution starts and stops your Azure Resource Manager virtual machines on a schedule and proactively monitors from Log Analytics.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2018
-ms.topic: article
+ms.date: 06/11/2018
+ms.topic: conceptual
 manager: carmonm
 ---
 # Start/Stop VMs during off-hours solution (preview) in Azure Automation
 
-The Start/Stop VMs during off-hours solution starts and stops your Azure virtual machines on user-defined schedules, provides insights through Azure Log Analytics, and sends optional emails by using [SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/SendGrid.SendGrid?tab=Overview). It supports both Azure Resource Manager and classic VMs for most scenarios.
+The Start/Stop VMs during off-hours solution starts and stops your Azure virtual machines on user-defined schedules, provides insights through Azure Log Analytics, and sends optional emails by using [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md). It supports both Azure Resource Manager and classic VMs for most scenarios.
 
 This solution provides a decentralized automation option for users who want to reduce their costs by using serverless, low-cost resources. With this solution, you can:
 
@@ -21,22 +22,12 @@ This solution provides a decentralized automation option for users who want to r
 
 ## Prerequisites
 
-* The runbooks work with an [Azure Run As account](automation-offering-get-started.md#authentication-methods). The Run As account is the preferred authentication method, because it uses certificate authentication instead of a password that might expire or change frequently.
+* The runbooks work with an [Azure Run As account](automation-create-runas-account.md). The Run As account is the preferred authentication method, because it uses certificate authentication instead of a password that might expire or change frequently.
 * This solution manages only VMs that are in the same subscription as your Azure Automation account.
 * This solution is deployed only to the following Azure regions: Australia Southeast, Canada Central, Central India, East US, Japan East, Southeast Asia, UK South, and West Europe.
 
   > [!NOTE]
   > The runbooks managing the VM schedule can target VMs in any region.
-
-* To send email notifications when the start and stop VM runbooks finish, while onboarding from Azure Marketplace, select **Yes** to deploy SendGrid.
-
-  > [!IMPORTANT]
-  > SendGrid is a third-party service. For support, contact [SendGrid](https://sendgrid.com/contact/).
-
-  Limitations with SendGrid are:
-
-  * A maximum of one SendGrid account per user per subscription.
-  * A maximum of two SendGrid accounts per subscription.
 
 ## Deploy the solution
 
@@ -49,16 +40,15 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)
 
 1. The **Add Solution** page appears. You are prompted to configure the solution before you can import it into your Automation subscription.
+
    ![VM Management Add Solution page](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
+
 1. On the **Add Solution** page, select **Workspace**. Select a Log Analytics workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the **OMS Workspace** page, perform the following:
    * Specify a name for the new **OMS Workspace**.
    * Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
    * For **Resource Group**, you can create a new resource group or select an existing one.
    * Select a **Location**. Currently, the only locations available are **Australia Southeast**, **Canada Central**, **Central India**, **East US**, **Japan East**, **Southeast Asia**, **UK South**, and **West Europe**.
-   * Select a **Pricing tier**. The solution offers two tiers: **Free** and **Per Node (OMS)**. The Free tier has a limit on the amount of data collected daily, the retention period, and the runbook job runtime minutes. The Per Node tier does not have a limit on the amount of data collected daily.
-
-        > [!NOTE]
-        > Although the Per GB (Standalone) paid tier is displayed as an option, it is not applicable. If you select it and proceed with the creation of this solution in your subscription, it fails. This will be addressed when this solution is officially released. This solution only uses automation job minutes and log ingestion. It does not add additional nodes to your environment.
+   * Select a **Pricing tier**. Choose the **Per GB (Standalone)** option. Log Analytics has updated [pricing](https://azure.microsoft.com/pricing/details/log-analytics/) and the Per GB tier is the only option.
 
 1. After providing the required information on the **OMS workspace** page, click **Create**. You can track its progress under **Notifications** from the menu, which returns you to the **Add Solution** page when done.
 1. On the **Add Solution** page, select **Automation account**. If you're creating a new Log Analytics workspace, you need to also create a new Automation account to be associated with it. Select **Create an Automation account**, and on the **Add Automation account** page, provide the following:
@@ -73,8 +63,11 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    Here, you're prompted to:
    * Specify the **Target ResourceGroup Names**. These are resource group names that contain VMs to be managed by this solution. You can enter more than one name and separate each by using a comma (values are not case-sensitive). Using a wildcard is supported if you want to target VMs in all resource groups in the subscription. This value is stored in the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** variables.
    * Specify the **VM Exclude List (string)**. This is the name of one or more virtual machines from the target resource group. You can enter more than one name and separate each by using a comma (values are not case-sensitive). Using a wildcard is supported. This value is stored in the **External_ExcludeVMNames** variable.
-   * Select a **Schedule**. This is a recurring date and time for starting and stopping the VMs in the target resource groups. By default, the schedule is configured to the UTC time zone. Selecting a different region is not available. To configure the schedule to your specific time zone after configuring the solution, see [Modifying the startup and shutdown schedule](#modify-the-startup-and-shutdown-schedule).
-   * To receive **Email notifications** from SendGrid, accept the default value of **Yes** and provide a valid email address. If you select **No** but decide at a later date that you want to receive email notifications, you can update the **External_EmailToAddress** variable with valid email addresses separated by a comma, and then modify the variable **External_IsSendEmail** with the value **Yes**.
+   * Select a **Schedule**. This is a recurring date and time for starting and stopping the VMs in the target resource groups. By default, the schedule is configured for 30 minutes from now. Selecting a different region is not available. To configure the schedule to your specific time zone after configuring the solution, see [Modifying the startup and shutdown schedule](#modify-the-startup-and-shutdown-schedule).
+   * To receive **Email notifications** from an action group, accept the default value of **Yes** and provide a valid email address. If you select **No** but decide at a later date that you want to receive email notifications, you can update the [action group](../monitoring-and-diagnostics/monitoring-action-groups.md) that is created with valid email addresses separated by a comma.
+
+    > [!IMPORTANT]
+    > The default value for **Target ResourceGroup Names** is a **&ast;**. This targets all VMs in a subscription. If you do not want the solution to target all the VMs in your subscription this value needs to be updated to a list of resource group names prior to enabling the schedules.
 
 1. After you have configured the initial settings required for the solution, click **OK** to close the **Parameters** page and select **Create**. After all settings are validated, the solution is deployed to your subscription. This process can take several seconds to finish, and you can track its progress under **Notifications** from the menu.
 
@@ -125,7 +118,7 @@ In an environment that includes two or more components on multiple VMs supportin
 2. Run the **SequencedStartStop_Parent** runbook with the ACTION parameter set to **start**, add a comma-separated list of VMs in the *VMList* parameter, and then set the WHATIF parameter to **True**. Preview your changes.
 3. Configure the **External_ExcludeVMNames** parameter with a comma-separated list of VMs (VM1,VM2,VM3).
 4. This scenario does not honor the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupnames** variables. For this scenario, you need to create your own Automation schedule. For details, see [Scheduling a runbook in Azure Automation](../automation/automation-schedules.md).
-5. Preview the action and make any necessary changes before implementing against production VMs. When ready, manually execute the runbook with the parameter set to **False**, or let the Automation schedule **Sequenced-StartVM** and **Sequenced-StopVM** run automatically following your prescribed schedule.
+5. Preview the action and make any necessary changes before implementing against production VMs. When ready, manually execute the monitoring-and-diagnostics/monitoring-action-groupsrunbook with the parameter set to **False**, or let the Automation schedule **Sequenced-StartVM** and **Sequenced-StopVM** run automatically following your prescribed schedule.
 
 ### Scenario 3: Start/Stop automatically based on CPU utilization
 
@@ -154,8 +147,8 @@ You can enable either targeting the action against a subscription and resource g
 
 Now that you have a schedule for stopping VMs based on CPU utilization, you need to enable one of the following schedules to start them.
 
-* Target start action by subscription and resource group. See the steps in [Scenario 1](#scenario-1:-daily-stop/start-vms-across-a-subscription-or-target-resource-groups) for testing and enabling **Scheduled-StartVM** schedules.
-* Target start action by subscription, resource group, and tag. See the steps in [Scenario 2](#scenario-2:-sequence-the-stop/start-vms-across-a-subscription-using-tags) for testing and enabling **Sequenced-StartVM** schedules.
+* Target start action by subscription and resource group. See the steps in [Scenario 1](#scenario-1-startstop-vms-on-a-schedule) for testing and enabling **Scheduled-StartVM** schedules.
+* Target start action by subscription, resource group, and tag. See the steps in [Scenario 2](#scenario-2-startstop-vms-in-sequence-by-using-tags) for testing and enabling **Sequenced-StartVM** schedules.
 
 ## Solution components
 
@@ -193,25 +186,19 @@ The following table lists the variables created in your Automation account. You 
 |External_AutoStop_Threshold | The threshold for the Azure Alert rule specified in the variable *External_AutoStop_MetricName*. Percentage values can range from 1 to 100.|
 |External_AutoStop_TimeAggregationOperator | The time aggregation operator, which is applied to the selected window size to evaluate the condition. Acceptable values are **Average**, **Minimum**, **Maximum**, **Total**, and **Last**.|
 |External_AutoStop_TimeWindow | The window size during which Azure analyzes selected metrics for triggering an alert. This parameter accepts input in timespan format. Possible values are from 5 minutes to 6 hours.|
-|External_EmailFromAddress | Specifies the sender of the email.|
-|External_EmailSubject | Specifies the text for the subject line of the email.|
-|External_EmailToAddress | Specifies the recipients of the email. Separate names by using a comma.|
 |External_ExcludeVMNames | Enter VM names to be excluded, separating names by using a comma with no spaces.|
-|External_IsSendEmail | Specifies the option to send email notification upon completion. Specify **Yes** or **No** to not send email. This option should be **No** if you did not enable email notifications during the initial deployment.|
 |External_Start_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for start actions.|
 |External_Stop_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for stop actions.|
 |Internal_AutomationAccountName | Specifies the name of the Automation account.|
 |Internal_AutoSnooze_WebhookUri | Specifies Webhook URI called for the AutoStop scenario.|
 |Internal_AzureSubscriptionId | Specifies the Azure Subscription ID.|
 |Internal_ResourceGroupName | Specifies the Automation account resource group name.|
-|Internal_SendGridAccountName | Specifies the SendGrid account name.|
-|Internal_SendGridPassword | Specifies the SendGrid account password.|
 
 Across all scenarios, the **External_Start_ResourceGroupNames**,  **External_Stop_ResourceGroupNames**, and **External_ExcludeVMNames** variables are necessary for targeting VMs, with the exception of providing a comma-separated list of VMs for the **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**, and **ScheduledStartStop_Parent** runbooks. That is, your VMs must reside in target resource groups for start and stop actions to occur. The logic works similar to Azure policy, in that you can target the subscription or resource group and have actions inherited by newly created VMs. This approach avoids having to maintain a separate schedule for every VM and manage starts and stops in scale.
 
 ### Schedules
 
-The following table lists each of the default schedules created in your Automation account.  You can modify them or create your own custom schedules. By default, each of these are disabled except for **Scheduled_StartVM** and **Scheduled_StopVM**.
+The following table lists each of the default schedules created in your Automation account. You can modify them or create your own custom schedules. By default, each of these are disabled except for **Scheduled_StartVM** and **Scheduled_StopVM**.
 
 You should not enable all schedules, because this might create overlapping schedule actions. It's best to determine which optimizations you want to perform and modify accordingly. See the example scenarios in the overview section for further explanation.
 
@@ -219,7 +206,7 @@ You should not enable all schedules, because this might create overlapping sched
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Every 8 hours | Runs the AutoStop_CreateAlert_Parent runbook every 8 hours, which in turn stops the VM-based values in External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames, and External_ExcludeVMNames in Azure Automation variables. Alternatively, you can specify a comma-separated list of VMs by using the VMList parameter.|
 |Scheduled_StopVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Stop* every day at the specified time. Automatically stops all VMs that meet the rules defined by asset variables. You should enable the related schedule, **Scheduled-StartVM**.|
-|Scheduled_StartVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Start* every day at the specified time.  Automatically starts all VMs that meet the rules defined by the appropriate variables. You should enable the related schedule, **Scheduled-StopVM**.|
+|Scheduled_StartVM | User defined, daily | Runs the Scheduled_Parent runbook with a parameter of *Start* every day at the specified time. Automatically starts all VMs that meet the rules defined by the appropriate variables. You should enable the related schedule, **Scheduled-StopVM**.|
 |Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the Sequenced_Parent runbook with a parameter of *Stop* every Friday at the specified time. Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables. Refer to the Runbooks section for more details on tag values and asset variables. You should enable the related schedule, **Sequenced-StartVM**.|
 |Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the Sequenced_Parent runbook with a parameter of *Start* every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables. Refer to the Runbooks section for more details on tag values and asset variables. You should enable the related schedule, **Sequenced-StopVM**.|
 
@@ -290,11 +277,21 @@ From here, you can perform further analysis of the job records by clicking the d
 
 ## Configure email notifications
 
-To configure email notifications after the solution is deployed, modify the following three variables:
+To change email notifications after the solution is deployed, modify action group that was created during deployment.  
 
-* External_EmailFromAddress: Specify the sender's email address.
-* External_EmailToAddress: Specify a comma-separated list of email addresses (user@hotmail.com, user@outlook.com) to receive notification emails.
-* External_IsSendEmail: Set to **Yes** to receive emails. To disable email notifications, set value to **No**.
+In the Azure portal, navigate to Monitor -> Action groups. Select the action group titled **StartStop_VM_Notication**.
+
+![Automation Update Management solution page](media/automation-solution-vm-management/azure-monitor.png)
+
+On the **StartStop_VM_Notification** page, click **Edit details** under **Details**. This opens the **Email/SMS/Push/Voice** page. Update the email address and click **OK** to save your changes.
+
+![Automation Update Management solution page](media/automation-solution-vm-management/change-email.png)
+
+Alternatively you can add additional actions to the action group, to learn more about action groups, see [action groups](../monitoring-and-diagnostics/monitoring-action-groups.md)
+
+The following is an example email that is sent when the solution shuts down virtual machines.
+
+![Automation Update Management solution page](media/automation-solution-vm-management/email.png)
 
 ## Modify the startup and shutdown schedules
 

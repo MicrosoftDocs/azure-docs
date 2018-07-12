@@ -11,9 +11,7 @@ tags: azure-portal
 ms.assetid: e034a286-de0f-465f-8bf1-3d085ca6abed
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
@@ -75,7 +73,8 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
     <tr>
     <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Orders the log levels by count (descending,) and stores into RESULT</td>
     </tr>
-    </table>
+</table>
+
 6. You can also save the results of a transformation by using the `STORE` statement. For example, the following command saves the `RESULT` to the **/example/data/pigout** directory in the default storage container for your cluster:
 
         STORE RESULT into 'wasb:///example/data/pigout'
@@ -84,6 +83,7 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
    > The data is stored in the specified directory in files named **part-nnnnn**. If the directory already exists, you will receive an error message.
    >
    >
+   
 7. To exit the grunt prompt, enter the following statement.
 
         QUIT;

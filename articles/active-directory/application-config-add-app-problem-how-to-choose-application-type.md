@@ -3,17 +3,18 @@ title: How to choose which application type to use when adding an application | 
 description: Understand the supported types of applications you can integrate with Azure AD and their related configuration options
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 
 ---
 
@@ -169,4 +170,4 @@ To set an application’s **single sign-on** mode, follow these instructions:
 7.  Once the application loads, click **Provisioning** from the application’s left-hand navigation menu.
 
 ## Next steps
-[Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Managing Applications with Azure Active Directory](manage-apps/what-is-application-management.md)

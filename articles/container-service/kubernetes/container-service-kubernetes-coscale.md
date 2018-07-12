@@ -3,7 +3,7 @@ title: Monitor an Azure Kubernetes cluster with CoScale
 description: Monitor a Kubernetes cluster in Azure Container Service using CoScale
 services: container-service
 author: fryckbos
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

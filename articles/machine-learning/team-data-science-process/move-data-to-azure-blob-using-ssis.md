@@ -3,18 +3,19 @@ title: Move Data to or from Azure Blob Storage using SSIS connectors | Microsoft
 description: Move Data to or from Azure Blob Storage using SSIS connectors.
 services: machine-learning,storage
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 96a1b5fb-34d1-4b9b-8d99-2bb8289e0398
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Move data to or from Azure Blob Storage using SSIS connectors
@@ -49,7 +50,7 @@ To use the **SSIS connectors**, you must download:
 > 
 > 
 
-For training materials on SSIS, see [Hands On Training for SSIS](http://www.microsoft.com/download/details.aspx?id=20766)
+For training materials on SSIS, see [Hands On Training for SSIS](https://www.microsoft.com/sql-server/training-certification)
 
 For information on how to get up-and-running using SISS to build simple extraction, transformation, and load (ETL) packages, see [SSIS Tutorial: Creating a Simple ETL Package](https://msdn.microsoft.com/library/ms169917.aspx).
 

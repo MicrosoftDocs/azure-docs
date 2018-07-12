@@ -8,7 +8,7 @@ manager: jhubbard
 
 ms.author: cgronlun
 ms.date: 05/17/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ---

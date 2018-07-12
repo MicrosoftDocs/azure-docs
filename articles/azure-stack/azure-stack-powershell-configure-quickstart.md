@@ -90,14 +90,14 @@ Import-Module .\Connect\AzureStack.Connect.psm1
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-  Login-AzureRmAccount `
+  Add-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
     -TenantId $TenantID 
 ```
 
 ## Set up PowerShell for AD FS-based deployments
 
-You can use the following script if you are operating Azure Stack when connected to internet. However if you are operating Azure Stack without internet connectivity, use the [disconnected way of installing PowerShell](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) and the cmdlets to configure PowerShell will remain same as shown in this script. Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. Make sure to update the **ArmEndpoint** and **GraphAudience** variables as necessary for your environment configuration:
+You can use the following script if you are operating Azure Stack when connected to internet. However if you are operating Azure Stack without internet connectivity, use the [disconnected way of installing PowerShell](azure-stack-powershell-install.md) and the cmdlets to configure PowerShell will remain same as shown in this script. Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. Make sure to update the **ArmEndpoint** and **GraphAudience** variables as necessary for your environment configuration:
 
 ```powershell
 
@@ -156,7 +156,7 @@ $TenantID = Get-AzsDirectoryTenantId `
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-Login-AzureRmAccount `
+Add-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
     -TenantId $TenantID
 ```

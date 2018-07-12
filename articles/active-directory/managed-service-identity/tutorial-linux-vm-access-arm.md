@@ -8,8 +8,9 @@ manager: mtillman
 editor: bryanla
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
@@ -54,7 +55,7 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 
 ## Enable MSI on your VM
 
-A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM and it enables MSI for the VM.  
+A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Enabling Managed Service Identity on a VM, does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
 
 1. Select the **Virtual Machine** that you want to enable MSI on.
 2. On the left navigation bar click **Configuration**.
@@ -62,10 +63,6 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 4. Ensure you click **Save** to save the configuration.
 
     ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** appears on the list.
-
-    ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## Grant your VM access to a Resource Group in Azure Resource Manager 
 
@@ -92,7 +89,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     The CURL request for the access token is below.  
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
     
     > [!NOTE]
@@ -125,11 +122,11 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
      
     ```bash
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
-    ```
-     
-## Related content
+    ```     
 
-- For an overview of MSI, see [Managed Service Identity overview](overview.md). 
+## Next steps
 
-Use the following comments section to provide feedback and help us refine and shape our content.
+In this tutorial, you learned how to create a user assigned identity and attach it to a Azure Virtual Machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
 
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

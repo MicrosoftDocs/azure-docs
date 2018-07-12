@@ -3,7 +3,7 @@ title: Azure Security Center Tutorial - Define and assess security policies | Mi
 description: Azure Security Center Tutorial - Define and assess security policies
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 

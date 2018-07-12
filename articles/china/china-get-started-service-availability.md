@@ -1,6 +1,6 @@
 ---
 title: Azure service availability in China | Microsoft Docs
-description: This article highlights the services available in global Azure and Azure China  21Vianet 21Vianet side-by-side, making for an easy comparison of the two. 
+description: This article highlights the services available in global Azure and Azure China  21Vianet 21Vianet side-by-side, making for an easy comparison of the two.
 services: china
 cloud: na
 documentationcenter: na
@@ -33,8 +33,8 @@ The following tables compare services available in global Azure and Microsoft Az
 | Azure Cloud Services       | GA                                                                                                                                                                                 | GA                                                                                                                           |
 | Azure Batch                | GA                                                                                                                                                                                 | GA                                                                                                                           |
 | Azure Service Fabric       | GA                                                                                                                                              | GA                                                                                      |
-| Azure Functions            | GA                                                                                                                                                                                 | *Not available*                                                                                                              |
-| Azure Container Service (AKS)    | GA                                                                                                                                                                                 | *Not available*                                                                                                              |
+| Azure Functions            | GA                                                                                                                                                                                 | GA                                                                                                              |
+| Azure Kubernetes Service (AKS)    | GA                                                                                                                                                                                 | *Not available*                                                                                                              |
 | Azure Container Registry   | GA                                                                                                                                                                                 | *Not available*                                                                                                              |
 | Azure Container Instances  | Preview                                                                                                                                                                            | *Not available*                                                                                                              |
 
@@ -58,7 +58,7 @@ The following tables compare services available in global Azure and Microsoft Az
 | Virtual Networks          | GA                 | GA                |
 | Azure ExpressRoute        | GA | GA |
 | Azure DNS                 | GA                                                                                                   | *Not available*                                                                                     |
-| CDN       | GA | GA   |
+| CDN       | Provided by Microsoft, Verizon, or Akamai | GA   |
 | Azure Traffic Manager     | GA                                                                                                   | GA                                                                                                  |
 | Azure Load Balancer       | GA                                                                                                   | GA                                                                                                  |
 | Azure Network Watcher     | GA                                                                                                   | GA                                                                                    |
@@ -156,12 +156,11 @@ The following tables compare services available in global Azure and Microsoft Az
 |------------------------|----------------------------------------------|--------------------------|
 | Azure portal           | GA                                           | GA                       |
 | Azure Resource Manager | GA                                           | GA                       |
-| Marketplace            | GA                                           | Preview                  |
+| Marketplace            | GA                                           | GA                  |
 | Scheduler              | GA                        | GA    |
 | Automation             | GA | GA               |
 | Log Analytics          | GA                              | *Not available*          |
-| OMS                    | GA                                        | *Not available*          |
-| Azure Monitor          | GA                                           | *Not available*          |
+| Azure Monitor          | GA                                           | GA          |
 | Azure Advisor          | GA                                         | *Not available*          |
 
 

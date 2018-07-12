@@ -1,21 +1,14 @@
 ---
 title: Optimize cluster configurations with Ambari - Azure HDInsight | Microsoft Docs
 description: Use the Ambari web UI to configure and optimize HDInsight clusters.
-documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-
-ms.assetid:
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 07/09/2018
 ms.author: ashish
-
 ---
 # Use Ambari to optimize HDInsight cluster configurations
 
@@ -243,9 +236,9 @@ Hive allows for creating dynamic partitions when inserting records into a table,
 
 2. Change the dynamic partition mode to *strict*. In strict mode, at least one partition has to be static. This prevents queries without the partition filter in the WHERE clause, that is, *strict* prevents queries that scan all partitions. Navigate to the Hive **Configs** tab, and then set `hive.exec.dynamic.partition.mode` to **strict**. The default value is **nonstrict**.
  
-3. To limit the number of dynamic partitions to be created, modify the ``hive.exec.max.dynamic.partitions` parameter. The default value is 5,000.
+3. To limit the number of dynamic partitions to be created, modify the `hive.exec.max.dynamic.partitions` parameter. The default value is 5000.
  
-4. To limit the total number of dynamic partitions per node, modify `hive.exec.max.dynamic.partitions.pernode`. The default value is 2,000.
+4. To limit the total number of dynamic partitions per node, modify `hive.exec.max.dynamic.partitions.pernode`. The default value is 2000.
 
 ### Enable local mode
 

@@ -11,9 +11,7 @@ tags: azure-portal
 ms.assetid: 8c228e35-d58a-4f22-917a-1d20c9da89b4
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
@@ -94,7 +92,7 @@ When you have connected to the desktop for the HDInsight cluster, use the follow
      Three rows of data should be returned, all containing **[ERROR]** in column t4.
 
 ## <a id="summary"></a>Summary
-As you can see, the the Hive command provides an easy way to interactively run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
+As you can see, the Hive command provides an easy way to interactively run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
 
 ## <a id="nextsteps"></a>Next steps
 For general information about Hive in HDInsight:

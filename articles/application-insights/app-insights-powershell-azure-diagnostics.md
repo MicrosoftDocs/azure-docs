@@ -3,7 +3,7 @@ title: Using PowerShell to setup Application Insights in an Azure  | Microsoft D
 description: Automate configuring Azure Diagnostics to pipe to Application Insights.
 services: application-insights
 documentationcenter: .net
-author: sbtron
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
 
@@ -40,7 +40,7 @@ If the web app is in Azure and you create your resources using an Azure Resource
      } 
 
 * `nameOfAIAppResource` - a name for the Application Insights resource
-* `myWebAppName` - the id of the web app
+* `myWebAppName` - the ID of the web app
 
 ## Enable diagnostics extension as part of deploying a Cloud Service
 The `New-AzureDeployment` cmdlet has a parameter `ExtensionConfiguration`, which takes an array of diagnostics configurations. These can be created using the `New-AzureServiceDiagnosticsExtensionConfig` cmdlet. For example:

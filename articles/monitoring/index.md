@@ -1,6 +1,6 @@
 ---
-title: Azure Management - Monitoring | Microsoft Docs
-description: Azure has multiple services and tools that work together to provide complete management for not only your applications running in Azure but also in other clouds and on-premises.  This article provides a high level description of the different areas of management and links to content on Azure tools for managing your cloud applications and resources.
+title: Azure Management and Operations Management Suite (OMS) | Microsoft Docs
+description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools that were previously bundled as Operations Management Suite (OMS).
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 04/09/2018
 ms.author: bwren
 
 ---
@@ -52,3 +52,14 @@ Protection refers to ensuring that your applications and data are always availab
 
 ## Migrate 
 Migration refers to transitioning workloads currently running on-premises to the Azure cloud.  [Azure Migrate](../migrate/migrate-overview.md) is a service that helps you assess the migration suitability, including performance-based sizing and cost estimates, of on-premises virtual machines to Azure.  Azure Site Recovery can help you perform the actual migration of virtual machines [from on-premises](../site-recovery/migrate-tutorial-on-premises-azure.md) or [from Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  [Azure Database Migration](../dms/dms-overview.md) will assist you in migrating multiple database sources to Azure Data platforms.
+
+
+## Operations Management Suite
+Previous technical documentation related to Azure management included Operations Management Suite (OMS), which is a bundling of the following Azure management services:
+
+- Azure Automation
+- Azure Backup
+- Log Analytics
+- Site Recovery
+
+We are moving away from describing this bundling in our technical documentation since complete management in Azure has expanded to include other services. None of the services that are part of OMS have changed, and each still has a critical role in managing your Azure applications and resources. Your focus should be on the management tasks that you need to perform and the different Azure services that work together for each task.

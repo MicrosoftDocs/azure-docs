@@ -2,33 +2,21 @@
 title: Back up and restore encrypted VMs by using Azure Backup
 description: This article talks about the backup and restore experience for VMs encrypted by using Azure Disk Encryption.
 services: backup
-documentationcenter: ''
-author: JPallavi
+author: sogup
 manager: vijayts
-editor: ''
-
-ms.assetid: 8387f186-7d7b-400a-8fc3-88a85403ea63
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/13/2017
-ms.author: pajosh;markgal;trinadhk; sogup
+ms.topic: conceptual
+ms.date: 7/10/2018
+ms.author: sogup
 ms.custom: H1Hack27Feb2017
-
 ---
 # Back up and restore encrypted virtual machines with Azure Backup
 This article talks about the steps to back up and restore virtual machines (VMs) by using Azure Backup. It also provides details about supported scenarios, prerequisites, and troubleshooting steps for error cases.
 
 ## Supported scenarios
 
- * Backup and restore of encrypted VMs is supported only for VMs that use the Azure Resource Manager deployment model. It's not supported for VMs that use the classic deployment model. <br>
- * Backup and restore of encrypted VMs is supported for both Windows and Linux VMs that use Azure Disk Encryption. Disk Encryption uses the industry standard BitLocker feature of Windows and the dm-crypt feature of Linux to provide encryption of disks. <br>
- 
- The following table shows supported scenarios for BitLocker encryption key (BEK)-only and key encryption key (KEK)-encrypted VMs:
- 
- 
+ Backup and restore of encrypted VMs is supported only for VMs that use the Azure Resource Manager deployment model. It's not supported for VMs that use the classic deployment model. Backup and restore of encrypted VMs is supported for Windows and Linux VMs that use Azure Disk Encryption. Disk Encryption uses the industry standard BitLocker feature of Windows and the dm-crypt feature of Linux to provide encryption of disks. The following table shows encryption type and support for VMs.
+
    |  | BEK + KEK VMs | BEK-only VMs |
    | --- | --- | --- |
    | **Nonmanaged VMs**  | Yes | Yes  |
@@ -39,7 +27,7 @@ This article talks about the steps to back up and restore virtual machines (VMs)
 
 * A Recovery Services vault was created and storage replication was set by following the steps in [Prepare your environment for backup](backup-azure-arm-vms-prepare.md).
 
-* Backup was given [permissions to access a key vault](#provide-permissions-to-azure-backup) containing keys and secrets for encrypted VMs.
+* Backup was given [permissions to access a key vault](#provide-permissions-to-backup) containing keys and secrets for encrypted VMs.
 
 ## Backup-encrypted VM
 Use the following steps to set a backup goal, define a policy, configure items, and trigger a backup.

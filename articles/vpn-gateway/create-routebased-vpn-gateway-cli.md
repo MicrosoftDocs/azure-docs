@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/04/2018
 ms.author: cherylmc
 ---
 
@@ -69,7 +69,7 @@ A VPN gateway must have a dynamically allocated public IP address. The public IP
 
 ```azurecli-interactive
 az network public-ip create \
-  -n VNet1GWPIP \
+  -n VNet1GWIP \
   -g TestRG1 \
   --allocation-method Dynamic 
 ```
@@ -84,7 +84,7 @@ If you run this command by using the `--no-wait` parameter, you don't see any fe
 az network vnet-gateway create \
   -n VNet1GW \
   -l eastus \
-  --public-ip-address VNet1GWPIP \
+  --public-ip-address VNet1GWIP \
   -g TestRG1 \
   --vnet VNet1 \
   --gateway-type Vpn \
@@ -122,7 +122,7 @@ The response looks similar to this:
       "privateIpAllocationMethod": "Dynamic",
       "provisioningState": "Updating",
       "publicIpAddress": {
-        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP",
+        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
         "resourceGroup": "TestRG1"
       },
       "resourceGroup": "TestRG1",
@@ -155,7 +155,7 @@ To view the public IP address assigned to your gateway, use the following exampl
 
 ```azurecli-interactive
 az network public-ip show \
-  --name VNet1GWPIP \
+  --name VNet1GWIP \
   --resource-group TestRG11
 ```
 
@@ -167,7 +167,7 @@ Example response:
 {
   "dnsSettings": null,
   "etag": "W/\"a12d4d03-b27a-46cc-b222-8d9364b8166a\"",
-  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
   "idleTimeoutInMinutes": 4,
   "ipAddress": "13.90.195.184",
   "ipConfiguration": {

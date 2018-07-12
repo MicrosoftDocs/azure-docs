@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect virtual networks with virtual network peering - PowerShell | Microsoft Docs
 description: In this article, you learn how to connect virtual networks with virtual network peering, using Azure PowerShell.
 services: virtual-network
@@ -24,17 +24,16 @@ ms.custom:
 
 You can connect virtual networks to each other with virtual network peering. Once virtual networks are peered, resources in both virtual networks are able to communicate with each other, with the same latency and bandwidth as if the resources were in the same virtual network. In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create two virtual networks
-> * Connect two virtual networks with a virtual network peering
-> * Deploy a virtual machine (VM) into each virtual network
-> * Communicate between VMs
+* Create two virtual networks
+* Connect two virtual networks with a virtual network peering
+* Deploy a virtual machine (VM) into each virtual network
+* Communicate between VMs
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run ` Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
 
 ## Create virtual networks
 

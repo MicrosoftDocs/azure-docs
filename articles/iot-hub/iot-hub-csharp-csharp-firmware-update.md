@@ -1,22 +1,16 @@
 ---
 title: Device firmware update with Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: How to use device management on Azure IoT Hub to initiate a device firmware update. You use the Azure IoT device SDK for .NET to implement a simulated device app and the Azure IoT service SDK for .NET to implement a service app that triggers the firmware update.
-services: iot-hub
-documentationcenter: .net
-author: JimacoMS2
+author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 10/19/2017
-ms.author: v-jamebr
-
+ms.author: dobett
 ---
+
 # Use device management to initiate a device firmware update (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
@@ -342,7 +336,7 @@ In this section, you:
 > [!NOTE]
 > This method triggers the simulated update to run as a **Task** and then immediately responds to the method call, informing the service that the firmware update has been started. Update status and completion will be sent to the service through the reported properties of the device twin. We respond to the method call when starting the update, rather than after its completion, because:
 > * A real update process is very likely to take longer than the method call timeout.
-> * A real update process is very likely to require a reboot, which would re-launch this app making the **MetodRequest** object unavailable. (Updating reported properties, however, is possible even after a reboot.) 
+> * A real update process is very likely to require a reboot, which would re-launch this app making the **MethodRequest** object unavailable. (Updating reported properties, however, is possible even after a reboot.) 
 
 14. Finally, add the following code to the **Main** method to open the connection to your IoT hub and initialize the method listener:
    
@@ -400,7 +394,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-dm-getstarted]: iot-hub-csharp-csharp-device-management-get-started.md
-[lnk-tutorial-jobs]: iot-hub-csharp-node-schedule-jobs.md
+[lnk-tutorial-jobs]: iot-hub-csharp-csharp-schedule-jobs.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

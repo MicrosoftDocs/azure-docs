@@ -3,7 +3,7 @@ title: Monitor an Azure DC/OS cluster - ELK stack
 description: Monitor a DC/OS cluster in Azure Container Service cluster with ELK (Elasticsearch, Logstash, and Kibana).
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

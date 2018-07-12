@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -28,7 +28,7 @@ This tutorial shows you how to migrate on-premises VMs and physical servers to A
 This is the third tutorial in a series. This tutorial assumes that you have already completed the tasks in the previous tutorials:
 
 1. [Prepare Azure](tutorial-prepare-azure.md)
-2. Prepare on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) or Hyper-V servers.
+2. Prepare on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) or [Hyper-V] (hyper-v-prepare-on-premises-tutorial.md) servers.
 
 Before you start, it's helpful to review the [VMware](vmware-azure-architecture.md) or [Hyper-V](hyper-v-azure-architecture.md) architectures for disaster recovery.
 

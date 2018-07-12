@@ -1,21 +1,21 @@
 ---
 title: Getting started guide for Azure IT operators | Microsoft Docs
-description: Getting started guide for Azure IT operators 
-services: 
-documentationcenter: 
-author: neilpeterson
+description: Getting started guide for Azure IT operators
+services:
+documentationcenter:
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid:
 ms.service: azure
-ms.devlang: 
-ms.topic: 
-ms.tgt_pltfrm: 
+ms.devlang:
+ms.topic:
+ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
+ms.author: iainfou
 ---
 
 # Introduction to cloud computing and Microsoft Azure
@@ -57,7 +57,7 @@ SaaS is software that is centrally hosted and managed. It’s usually based on a
 
 Microsoft Office 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
 
-#### PaaS: Platform as a service 
+#### PaaS: Platform as a service
 
 With PaaS, you deploy your application into an environment that the cloud service vendor provides. The vendor does all of the infrastructure management so you can  focus on application development.
 
@@ -321,7 +321,7 @@ Here are a few example roles built into Azure:
 
 -   **Storage account contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
 
-For more information, see [Use role assignments to manage access to your Azure subscription resources](../../active-directory/role-based-access-control-configure.md).
+For more information, see [Use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
 ## Azure Virtual Machines
 
@@ -378,11 +378,11 @@ Azure storage accounts can be configured with different levels of redundancy:
 
 -   **Read-access geo-redundant storage** is geo-redundant storage plus the ability to read the data in the secondary region. This ability makes it suitable for partial disaster recovery. If there’s a problem with the primary region, you can change your application to have read-only access to the paired region.
 
-### Use cases 
+### Use cases
 
 Each storage type has a different use case.
 
-**Blob storage** 
+**Blob storage**
 
 The word *blob* is an acronym for *binary large object*. Blobs are unstructured files like those that you store on your computer. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage. Azure Blob storage also holds Azure Virtual Machines data disks.
 
@@ -442,7 +442,7 @@ Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template
 
 ### Access and security for Azure Storage
 
-Azure Storage is accessed in various ways, including though the Azure portal, during VM creation and operation, and from Storage client libraries. 
+Azure Storage is accessed in various ways, including though the Azure portal, during VM creation and operation, and from Storage client libraries.
 
 **Virtual machine disks**
 
@@ -507,7 +507,7 @@ Likewise, you can use the Azure CLI to deploy an Azure Resource Manager template
 
 ### Access and security for virtual networks
 
-You can help secure Azure virtual networks by using a network security group. NSGs contain a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a virtual network. You can associate NSGs with either subnets or individual VM instances within that subnet. When you associate an NSG with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, you can further restrict traffic to an individual VM by associating an NSG directly with that VM. For more information, see [Filter network traffic with network security groups](../../virtual-network/virtual-networks-nsg.md).
+You can help secure Azure virtual networks by using a network security group. NSGs contain a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a virtual network. You can associate NSGs with either subnets or individual VM instances within that subnet. When you associate an NSG with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, you can further restrict traffic to an individual VM by associating an NSG directly with that VM. For more information, see [Filter network traffic with network security groups](../../virtual-network/security-overview.md).
 
 ## Next steps
 

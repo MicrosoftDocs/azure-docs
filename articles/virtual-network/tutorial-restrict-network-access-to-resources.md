@@ -1,27 +1,27 @@
 ---
-title: Restrict network access to PaaS resources - Azure portal | Microsoft Docs
-description: Learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using the Azure portal.
+title: Restrict network access to PaaS resources - tutorial - Azure portal | Microsoft Docs
+description: In this tutorial, you learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: 
+ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/14/2018
 ms.author: jdial
-ms.custom: 
 ---
 
-# Restrict network access to PaaS resources with virtual network service endpoints using the Azure portal
+# Tutorial: Restrict network access to PaaS resources with virtual network service endpoints using the Azure portal
 
-Virtual network service endpoints enable you to limit network access to some Azure service resources to a virtual network subnet. You can also remove internet access to the resources. Service endpoints provide direct connection from your virtual network to supported Azure services, allowing you to use your virtual network's private address space to access the Azure services. Traffic destined to Azure resources through service endpoints always stays on the Microsoft Azure backbone network. In this article, you learn how to:
+Virtual network service endpoints enable you to limit network access to some Azure service resources to a virtual network subnet. You can also remove internet access to the resources. Service endpoints provide direct connection from your virtual network to supported Azure services, allowing you to use your virtual network's private address space to access the Azure services. Traffic destined to Azure resources through service endpoints always stays on the Microsoft Azure backbone network. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a virtual network with one subnet
@@ -30,6 +30,8 @@ Virtual network service endpoints enable you to limit network access to some Azu
 > * Deploy a virtual machine (VM) to each subnet
 > * Confirm access to a resource from a subnet
 > * Confirm access is denied to a resource from a subnet and the internet
+
+If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md) or [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -59,6 +61,8 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Enable a service endpoint
 
+Service endpoints are enabled per service, per subnet. Create a subnet and enable a service endpoint for the subnet.
+
 1. In the **Search resources, services, and docs** box at the top of the portal, enter *myVirtualNetwork.* When **myVirtualNetwork** appears in the search results, select it.
 2. Add a subnet to the virtual network. Under **SETTINGS**, select **Subnets**, and then select **+ Subnet**, as shown in the following picture:
 
@@ -72,11 +76,16 @@ Log in to the Azure portal at http://portal.azure.com.
     |Address range| 10.0.1.0/24|
     |Service endpoints| Select **Microsoft.Storage** under **Services**|
 
-## Restrict network access to and from a subnet
+> [!CAUTION]
+> Before enabling a service endpoint for an existing subnet that has resources in it, see [Change subnet settings](virtual-network-manage-subnet.md#change-subnet-settings).
+
+## Restrict network access for a subnet
+
+By default, all VMs in a subnet can communicate with all resources. You can limit communication to and from all resources in a subnet by creating a network security group, and associating it to the subnet.
 
 1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
 2. Select **Networking**, and then select **Network security group**.
-Under **Create a network security group**, enter, or select, the following information, and then select **Create**:
+3. Under **Create a network security group**, enter, or select, the following information, and then select **Create**:
 
     |Setting|Value|
     |----|----|
@@ -88,7 +97,7 @@ Under **Create a network security group**, enter, or select, the following infor
 4. After the network security group is created, enter *myNsgPrivate*, in the **Search resources, services, and docs** box at the top of the portal. When **myNsgPrivate** appears in the search results, select it.
 5. Under **SETTINGS**, select **Outbound security rules**.
 6. Select **+ Add**.
-7. Create a rule that allows outbound access to the public IP addresses assigned to the Azure Storage service. Enter, or select, the following information, and then select **OK**:
+7. Create a rule that allows outbound communication to the Azure Storage service. Enter, or select, the following information, and then select **OK**:
 
     |Setting|Value|
     |----|----|
@@ -101,7 +110,8 @@ Under **Create a network security group**, enter, or select, the following infor
     |Action|Allow|
     |Priority|100|
     |Name|Allow-Storage-All|
-8. Create a rule that overrides a default security rule that allows outbound access to all public IP addresses. Complete steps 6 and 7 again, using the following values:
+    
+8. Create a rule that denies outbound communication to the internet. This rule overrides a default rule in all network security groups that allows outbound internet communication. Complete steps 6 and 7 again, using the following values:
 
     |Setting|Value|
     |----|----|
@@ -138,7 +148,7 @@ Under **Create a network security group**, enter, or select, the following infor
 
 ## Restrict network access to a resource
 
-The steps necessary to restrict network access to resources created through Azure services enabled for service endpoints varies across services. See the documentation for individual services for specific steps for each service. The remainder of this article includes steps to restrict network access for an Azure Storage account, as an example.
+The steps necessary to restrict network access to resources created through Azure services enabled for service endpoints varies across services. See the documentation for individual services for specific steps for each service. The remainder of this tutorial includes steps to restrict network access for an Azure Storage account, as an example.
 
 ### Create a storage account
 
@@ -157,7 +167,7 @@ The steps necessary to restrict network access to resources created through Azur
 
 ### Create a file share in the storage account
 
-1. After the storage account is created, enter the name of the storage account in the **Search resources, services,and docs** box, at the top of the portal. When the name of your storage account appears in the search results, select it.
+1. After the storage account is created, enter the name of the storage account in the **Search resources, services, and docs** box, at the top of the portal. When the name of your storage account appears in the search results, select it.
 2. Select **Files**, as shown in the following picture:
 
     ![Storage account](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
@@ -165,9 +175,9 @@ The steps necessary to restrict network access to resources created through Azur
 4. Enter *my-file-share* under **Name**, and then select **OK**.
 5. Close the **File service** box.
 
-### Enable network access from a subnet
+### Restrict network access to a subnet
 
-By default, storage accounts accept network connections from clients in any network. To allow access from only a specific subnet, and deny network access from all other networks, complete the following steps:
+By default, storage accounts accept network connections from clients in any network, including the internet. Deny network access from the internet, and all other subnets in all virtual networks, except for the *Private* subnet in the *myVirtualNetwork* virtual network.
 
 1. Under **SETTINGS** for the storage account, select **Firewalls and virtual networks**.
 2. Under **Virtual networks**, select **Selected networks**.
@@ -250,13 +260,13 @@ The VM takes a few minutes to deploy. Do not continue to the next step until it 
 
     The Azure file share successfully mapped to the Z drive.
 
-7. Confirm that the VM has no outbound connectivity to any other public IP addresses from a command prompt:
+7. Confirm that the VM has no outbound connectivity to the internet from a command prompt:
 
     ```
     ping bing.com
     ```
     
-    You receive no replies, because the network security group associated to the *Private* subnet does not allow outbound access to public IP addresses other than the addresses assigned to the Azure Storage service.
+    You receive no replies, because the network security group associated to the *Private* subnet does not allow outbound access to the internet.
 
 8. Close the remote desktop session to the *myVmPrivate* VM.
 
@@ -266,7 +276,7 @@ The VM takes a few minutes to deploy. Do not continue to the next step until it 
 2. When **myVmPublic** appears in the search results, select it.
 3. Complete steps 1-6 in [Confirm access to storage account](#confirm-access-to-storage-account) for the *myVmPublic* VM.
 
-    Access is denied and you receive a `New-PSDrive : Access is denied` error. Access is denied because the *myVmPublic* VM is deployed in the *Public* subnet. The *Public* subnet does not have a service endpoint enabled for Azure Storage, and the storage account only allows network access from the *Private* subnet, not the *Public* subnet.
+    Access is denied and you receive a `New-PSDrive : Access is denied` error. Access is denied because the *myVmPublic* VM is deployed in the *Public* subnet. The *Public* subnet does not have a service endpoint enabled for Azure Storage. The storage account only allows network access from the *Private* subnet, not the *Public* subnet.
 
 4. Close the remote desktop session to the *myVmPublic* VM.
 
@@ -289,9 +299,9 @@ When no longer needed, delete the resource group and all resources it contains:
 
 ## Next steps
 
-In this tutorial, you enabled a service endpoint for a virtual network subnet. You learned that service endpoints can be enabled for resources deployed with multiple Azure services. You created an Azure Storage account and limited network access to the storage account to only resources within a virtual network subnet. Before creating service endpoints in production virtual networks, it's recommended that you thoroughly familiarize yourself with [service endpoints](virtual-network-service-endpoints-overview.md).
+In this tutorial, you enabled a service endpoint for a virtual network subnet. You learned that you can enable service endpoints for resources deployed from multiple Azure services. You created an Azure Storage account and restricted network access to the storage account to only resources within a virtual network subnet. To learn more about service endpoints, see [Service endpoints overview](virtual-network-service-endpoints-overview.md) and [Manage subnets](virtual-network-manage-subnet.md).
 
-If you have multiple virtual networks in your account, you may want to connect two virtual networks together so the resources within each virtual network can communicate with each other. Advance to the next tutorial to learn how to connect virtual networks.
+If you have multiple virtual networks in your account, you may want to connect two virtual networks together so the resources within each virtual network can communicate with each other. To learn how to connect virtual networks, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Connect virtual networks](./tutorial-connect-virtual-networks-portal.md)

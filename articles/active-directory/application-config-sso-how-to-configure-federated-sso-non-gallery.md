@@ -3,17 +3,18 @@ title: How to configure federated single sign-on for a non-gallery application |
 description: How to configure federated single sign-on for a custom non-gallery application that you want to integrate with Azure AD
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 
 ---
 
@@ -135,7 +136,7 @@ To download the application metadata or certificate from Azure AD, follow the st
 
 8.  Go to **SAML Signing Certificate** section, then click **Download** column value. Depending on what the application requires configuring single sign-on, you see either the option to download the Metadata XML or the Certificate.
 
-Azure AD doesn’t provide a URL to get the metadata. The metadata can only be retrieved as a XML file.
+Azure AD also provides a URL to get the metadata. Follow this pattern to get the metadata URL specific to the application: https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
 
 ## Assign users to the application
 
@@ -180,4 +181,4 @@ After a short period of time, the users you have selected be able to launch thes
 To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) for more information.
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Provide single sign-on to your apps with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

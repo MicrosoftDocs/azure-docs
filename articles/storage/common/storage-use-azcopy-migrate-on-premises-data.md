@@ -19,8 +19,8 @@ AzCopy is a command-line tool for copying data to or from Azure Blob storage, Az
 
 You can download two versions of AzCopy:
 
-* [AzCopy on Linux](storage-use-azcopy.md) is built with .NET Core Framework. It targets Linux platforms by offering POSIX-style command-line options. 
-* [AzCopy on Windows](../storage-use-azcopy.md) is built with .NET Framework. It offers Windows-style command-line options. 
+* [AzCopy on Linux](storage-use-azcopy-linux.md) is built with .NET Core Framework. It targets Linux platforms by offering POSIX-style command-line options. 
+* [AzCopy on Windows](storage-use-azcopy.md) is built with .NET Framework. It offers Windows-style command-line options. 
  
 In this tutorial, you learn how to:
 

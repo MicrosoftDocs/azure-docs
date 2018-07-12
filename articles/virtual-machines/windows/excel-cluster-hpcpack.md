@@ -1,10 +1,10 @@
-﻿---
+---
 title: HPC Pack cluster for Excel and SOA | Microsoft Docs
 description: Get started running large-scale Excel and SOA workloads on an HPC Pack cluster in Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,hpc-pack
 

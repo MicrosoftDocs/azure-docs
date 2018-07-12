@@ -1,4 +1,4 @@
----
+﻿---
 title: Analyze Twitter data with Hadoop in HDInsight - Azure | Microsoft Docs
 description: Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word.
 services: hdinsight
@@ -9,10 +9,8 @@ editor: cgronlun
 
 ms.assetid: 78e4ea33-9714-424d-ac07-3d60ecaebf2e
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
@@ -39,7 +37,7 @@ Before you begin this tutorial, you must have the following:
     Before running Windows PowerShell scripts, make sure you are connected to your Azure subscription by using the following cmdlet:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
@@ -70,7 +68,7 @@ In this tutorial, you will use the [Twitter streaming APIs][twitter-streaming-ap
 > [!NOTE]
 > A file containing 10,000 tweets and the Hive script file (covered in the next section) have been uploaded in a public Blob container. You can skip this section if you want to use the uploaded files.
 
-[Tweets data](https://dev.twitter.com/docs/platform-objects/tweets) is stored in the JavaScript Object Notation (JSON) format that contains a complex nested structure. Instead of writing many lines of code by using a conventional programming language, you can transform this nested structure into a Hive table, so that it can be queried by a Structured Query Language (SQL)-like language called HiveQL.
+Tweets data is stored in the JavaScript Object Notation (JSON) format that contains a complex nested structure. Instead of writing many lines of code by using a conventional programming language, you can transform this nested structure into a Hive table, so that it can be queried by a Structured Query Language (SQL)-like language called HiveQL.
 
 Twitter uses OAuth to provide authorized access to its API. OAuth is an authentication protocol that allows users to approve applications to act on their behalf without sharing their password. More information can be found at [oauth.net](http://oauth.net/) or in the excellent [Beginner's Guide to OAuth](http://hueniverse.com/oauth/) from Hueniverse.
 
@@ -101,7 +99,7 @@ In this tutorial, you use Windows PowerShell to make the web service call. The o
 
 **To get tweets**
 
-1. Open the Windows PowerShell Integrated Scripting Environment (ISE). (On the Windows 8 Start screen, type **PowerShell_ISE** and then click **Windows PowerShell ISE**. See [Start Windows PowerShell on Windows 8 and Windows][powershell-start].)
+1. Open the Windows PowerShell Integrated Scripting Environment (ISE). (On the Windows 8 Start screen, type **PowerShell_ISE** and then click **Windows PowerShell ISE**. See [Start Windows PowerShell on Windows 8 and Windows](https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
 2. Copy the following script into the script pane:
 
     ```powershell
@@ -123,7 +121,7 @@ In this tutorial, you use Windows PowerShell to make the web service call. The o
 
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     #endregion
 
     #region - Create a block blob object for writing tweets into Blob storage
@@ -397,7 +395,7 @@ The HiveQL script will perform the following:
         Get-AzureRmSubscription
     }
     Catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
 
     Select-AzureRmSubscription -SubscriptionId $subscriptionID

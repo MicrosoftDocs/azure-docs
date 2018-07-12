@@ -2,17 +2,17 @@
 title: Use Draft with AKS and Azure Container Registry
 description: Use Draft with AKS and Azure Container Registry
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Use Draft with Azure Container Service (AKS)
+# Use Draft with Azure Kubernetes Service (AKS)
 
 Draft is an open-source tool that helps contain and deploy those containers in a Kubernetes cluster, leaving you free to concentrate on the dev cycle -- the "inner loop" of concentrated development. Draft works as the code is being developed, but before committing to version control. With Draft, you can quickly redeploy an application to Kubernetes as code changes occur. For more information on Draft, see the [Draft documentation on Github][draft-documentation].
 
@@ -24,18 +24,18 @@ The steps detailed in this document assume that you have created an AKS cluster 
 
 You also need a private Docker registry in Azure Container Registry (ACR). For instructions on deploying an ACR instance, see the [Azure Container Registry Quickstart][acr-quickstart].
 
-Helm must also be installed in your AKS cluster. For more information on installing helm, see [Use Helm with Azure Container Service (AKS)][aks-helm].
+Helm must also be installed in your AKS cluster. For more information on installing helm, see [Use Helm with Azure Kubernetes Service (AKS)][aks-helm].
 
 Finally, you must install [Docker](https://www.docker.com).
 
 ## Install Draft
 
-The Draft CLI is a client that runs on your development system and allows you to quicky deploy code into a Kubernetes cluster. 
+The Draft CLI is a client that runs on your development system and allows you to quicky deploy code into a Kubernetes cluster.
 
-> [!NOTE] 
-> If you've installed Draft prior to version 0.12, you should first delete Draft from your cluster using `helm delete --purge draft` and then remove your local configuration by running `rm -rf ~/.draft`. If you are on MacOS, you can run `brew upgrade draft`.
+> [!NOTE]
+> If you've installed Draft prior to version 0.12, you should first delete Draft from your cluster using `helm delete --purge draft` and then remove your local configuration by running `rm -rf ~/.draft`. If you are on MacOS, run `brew upgrade draft`.
 
-To install the Draft CLI on a Mac use `brew`. For additional installation options see, the [Draft Install guide][install-draft].
+To install the Draft CLI on a Mac use `brew`. For additional installation options see, the [Draft Install guide][draft-documentation].
 
 ```console
 brew tap azure/draft
@@ -54,11 +54,11 @@ Draft builds the container images locally, and then either deploys them from the
 
 ### Create trust between AKS cluster and ACR
 
-To establish trust between an AKS cluster and an ACR registry, you modify the Azure Active Directory Service Prinicipal used with AKS by adding the Contributor role to it with the scope of the ACR repository. To do so, run the following commands, replacing _&lt;aks-rg-name&gt;_ and _&lt;aks-cluster-name&gt;_ with the resource group and name of your AKS cluster, and _&lt;acr-rg-nam&gt;_ and _&lt;acr-repo-name&gt;_ with the resource group and repository name of your ACR repository with which you want to create trust.
+To establish trust between an AKS cluster and an ACR registry, you modify the Azure Active Directory Service Prinicipal used with AKS by adding the Contributor role to it with the scope of the ACR registry. To do so, run the following commands, replacing _&lt;aks-rg-name&gt;_ and _&lt;aks-cluster-name&gt;_ with the resource group and name of your AKS cluster, and _&lt;acr-rg-nam&gt;_ and _&lt;acr-registry-name&gt;_ with the resource group and registry name of your ACR registry with which you want to create trust.
 
 ```console
 export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
-export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-registry-name> --query "id" -o tsv)
 az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 
@@ -68,9 +68,9 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 
 Now that there is a trust relationship between AKS and ACR, the following steps enable the use of ACR from your AKS cluster.
 1. Set the Draft configuration `registry` value by running `draft config set registry <registry name>.azurecr.io`, where _&lt;registry name&lt;_ is the name of your ACR registry.
-2. Log on to the ACR registry by running `az acr login -n <registry name>`. 
+2. Log on to the ACR registry by running `az acr login -n <registry name>`.
 
-Because you are now logged on locally to ACR and you created a trust relationship with AKS and ACR, no passwords or secrets are required to push to or pull from ACR into AKS. Authentication happens at the Azure Resource Manager level, using Azure Active Directory. 
+Because you are now logged on locally to ACR and you created a trust relationship with AKS and ACR, no passwords or secrets are required to push to or pull from ACR into AKS. Authentication happens at the Azure Resource Manager level, using Azure Active Directory.
 
 ## Run an application
 
@@ -140,7 +140,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-You can now test your application by browsing to http://localhost:46143 (for the preceding example; your port may be different). When finished testing the application use `Control+C` to stop the proxy connection.
+Now test your application by browsing to http://localhost:46143 (for the preceding example; your port may be different). When finished testing the application use `Control+C` to stop the proxy connection.
 
 > [!NOTE]
 > You can also use the `draft up --auto-connect` command to build and deploy your application and immediately connect to the first running container to make the iteration cycle even faster.
@@ -285,7 +285,6 @@ For more information about using Draft, see the Draft documentation on GitHub.
 
 <!-- LINKS - external -->
 [draft-documentation]: https://github.com/Azure/draft/tree/master/docs
-[install-draft]: https://github.com/Azure/draft/blob/master/docs/install.md
 [kubernetes-ingress]: ./ingress.md
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
 

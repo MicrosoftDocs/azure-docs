@@ -28,9 +28,15 @@ A timer trigger lets you run a function on a schedule.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Packages
+## Packages - Functions 1.x
 
-The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub repository.
+The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) GitHub repository.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+## Packages - Functions 2.x
+
+The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub repository.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -171,7 +177,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a | The name of the variable that represents the timer object in function code. | 
 |**schedule**|**ScheduleExpression**|A [CRON expression](#cron-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". |
-|**runOnStartup**|**RunOnStartup**|If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. So **runOnStartup** should rarely if ever be set to `true`, as it will make code execute at highly unpredictable times. If you need to trigger the function outside of the timer schedule, you can create a second function with a different trigger type and share the code between the two functions. For example, to trigger on deployment you can [customize your deployment](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) to invoke the second function by making an HTTP request when the deployment completes.|
+|**runOnStartup**|**RunOnStartup**|If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. So **runOnStartup** should rarely if ever be set to `true`, as it will make code execute at highly unpredictable times.|
 |**useMonitor**|**UseMonitor**|Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than 1 minute. For schedules that trigger more than once per minute, the default is `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -212,6 +218,8 @@ Each field can have one of the following types of values:
 |A range (`-` operator)|<nobr>"5-7 * * * * *"</nobr>|at hh:mm:05,hh:mm:06, and hh:mm:07 where hh:mm is every minute of every hour (3 times a minute)|  
 |A set of values (`,` operator)|<nobr>"5,8,10 * * * * *"</nobr>|at hh:mm:05,hh:mm:08, and hh:mm:10 where hh:mm is every minute of every hour (3 times a minute)|
 |An interval value (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|at hh:05:00, hh:10:00, hh:15:00, and so on through hh:55:00 where hh is every hour (12 times an hour)|
+
+To specify months or days you can use three-letter abbreviations instead of numeric values. For example, use Jan for January, or Sun for Sunday.
 
 ### CRON examples
 
@@ -271,7 +279,11 @@ If you share a Storage account across multiple function apps, make sure that eac
 
 ## Retry behavior
 
-Unlike the queue trigger, the timer trigger doesn't retry after a function fails. When a function fails, it is't called again until the next time on the schedule.
+Unlike the queue trigger, the timer trigger doesn't retry after a function fails. When a function fails, it isn't called again until the next time on the schedule.
+
+## Troubleshooting
+
+For information about what to do when the timer trigger doesn't work as expected, see [Investigating and reporting issues with timer triggered functions not firing](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
 ## Next steps
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Create Azure Service Bus resources using Resource Manager templates | Microsoft Docs
 description: Use Azure Resource Manager templates to automate the creation of Service Bus resources
 services: service-bus-messaging
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 04/11/2018
 ms.author: sethm
 
 ---
@@ -58,7 +58,7 @@ Install Azure PowerShell by following the instructions in [Getting started with 
 
 ### Create a template
 
-Clone or copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) template from GitHub:
+Clone the repository or copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) template from GitHub:
 
 ```json
 {
@@ -160,7 +160,7 @@ For more information, see the [Parameters](../azure-resource-manager/resource-gr
 From a PowerShell prompt, run the following command:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 You are prompted to log on to your Azure account. After logging on, run the following command to view your available subscriptions:

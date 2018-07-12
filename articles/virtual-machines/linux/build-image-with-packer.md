@@ -3,7 +3,7 @@ title: How to create Linux Azure VM Images with Packer | Microsoft Docs
 description: Learn how to use Packer to create images of Linux virtual machines in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/13/2017
-ms.author: iainfou
+ms.date: 05/03/2018
+ms.author: cynthn
 ---
 
 # How to use Packer to create Linux virtual machine images in Azure
@@ -207,6 +207,8 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
+
+If you wish to create VMs in a different resource group or region than your Packer image, specify the image ID rather than image name. You can obtain the image ID with [az image show](/cli/azure/image#az-image-show).
 
 It takes a few minutes to create the VM. Once the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the NGINX site via a web browser.
 

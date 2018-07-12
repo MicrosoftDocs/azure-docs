@@ -1,33 +1,34 @@
----
-title: Create an Azure Virtual Network - PowerShell | Microsoft Docs
-description: Quickly learn to create a virtual network using PowerShell. A virtual network enables Azure resources, such as virtual machines, to communicate privately with each other, and with the internet.
+﻿---
+title: Create a virtual network - quickstart - Azure PowerShell | Microsoft Docs
+description: In this quickstart, you learn to create a virtual network using the Azure portal. A virtual network enables Azure resources, such as virtual machines, to communicate privately with each other, and with the internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: 
-ms.topic: 
+ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: 
+ms.custom: mvc
 ---
 
-# Create a virtual network using PowerShell
+# Quickstart: Create a virtual network using PowerShell
 
-A virtual network enables Azure resources, such as virtual machines (VM), to communicate privately with each other, and with the internet. In this article, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to one VM from the internet, and communicate privately between the two VMs.
+A virtual network enables Azure resources, such as virtual machines (VM), to communicate privately with each other, and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to one VM from the internet, and communicate privately between the two VMs.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this article requires the AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run ` Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this quickstart requires the AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run ` Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Create a virtual network
 
@@ -121,9 +122,9 @@ mstsc /v:<publicIpAddress>
 
 A Remote Desktop Protocol (.rdp) file is created and downloaded to your computer. Open the downloaded rdp file. If prompted, select **Connect**. Enter the user name and password you specified when creating the VM. You may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM. Select **OK**. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection.
 
-## Communicate privately between VMs
+## Communicate between VMs
 
-From PowerShell on the *myVm1* VM, enter `ping myvm2`. Ping fails, because ping uses the internet control message protocol (ICMP), and ICMP is not allowed through the Windows firewall, by default.
+From PowerShell on the *myVm1* VM, enter `ping myvm2`. Ping fails, because ping uses the Internet Control Message Protocol (ICMP), and ICMP is not allowed through the Windows firewall, by default.
 
 To allow *myVm2* to ping *myVm1* in a later step, enter the following command from PowerShell, which allows ICMP inbound through the Windows firewall:
 
@@ -151,9 +152,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## Next steps
 
-In this article, you created a default virtual network and two VMs. You connected to one VM from the Internet and communicated privately between the VM and another VM. To learn more about virtual network settings, see [Manage a virtual network](manage-virtual-network.md). 
+In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and communicated privately between the VM and another VM. To learn more about virtual network settings, see [Manage a virtual network](manage-virtual-network.md). 
 
-By default, Azure allows unrestricted private communication between virtual machines, but only allows inbound remote desktop connections to Windows VMs from the Internet. To learn how to allow or restrict different types of network communication to and from VMs, advance to the next tutorial.
-
-> [!div class="nextstepaction"]
-> [Filter network traffic](tutorial-filter-network-traffic.md)
+By default, Azure allows unrestricted private communication between virtual machines, but only allows inbound remote desktop connections to Windows VMs from the internet. To learn how to allow or restrict different types of network communication to and from VMs, continue to the [Filter network traffic](tutorial-filter-network-traffic.md) tutorial.

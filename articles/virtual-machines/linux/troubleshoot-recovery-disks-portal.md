@@ -4,8 +4,8 @@ title: Use a Linux troubleshooting VM in the Azure portal | Microsoft Docs
 description: Learn how to troubleshoot Linux virtual machine issues by connecting the OS disk to a recovery VM using the Azure portal
 services: virtual-machines-linux
 documentationCenter: ''
-authors: iainfoulds
-manager: timlt
+authors: cynthn
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-linux
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 
@@ -30,6 +30,7 @@ The troubleshooting process is as follows:
 4. Unmount and detach the virtual hard disk from the troubleshooting VM.
 5. Create a VM using the original virtual hard disk.
 
+For the VM that uses managed disk, see [Troubleshoot a Managed Disk VM by attaching a new OS disk](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
 ## Determine boot issues
 Examine the boot diagnostics and VM screenshot to determine why your VM is not able to boot correctly. A common example would be an invalid entry in `/etc/fstab`, or an underlying virtual hard disk being deleted or moved.
@@ -169,6 +170,13 @@ The template is loaded into the Azure portal for deployment. Enter the names for
 When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. To check the status of boot diagnostics and turn on if needed, select your VM in the portal. Under **Monitoring**, click **Diagnostics settings**. Ensure the status is **On**, and the check mark next to **Boot diagnostics** is selected. If you make any changes, click **Save**:
 
 ![Update boot diagnostics settings](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
+
+## Troubleshoot a Managed Disk VM by attaching a new OS disk
+1. Stop the effected Managed Disk Windows VM.
+2. [Create a managed disk snapshot](../windows/snapshot-copy-managed-disk.md) of the OS Disk of the Managed Disk VM.
+3. [Create a managed disk from the snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Attach the managed disk as a data disk of the VM](../windows/attach-disk-ps.md).
+5. [Change the data disk from step 4 to OS disk](../windows/os-disk-swap.md).
 
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

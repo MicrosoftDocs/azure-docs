@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -182,8 +183,8 @@ One option for updating your web service is to retrain the model programmaticall
 [Create a training experiment]: #create-a-training-experiment
 [Convert it to a predictive experiment]: #convert-the-training-experiment-to-a-predictive-experiment
 [Deploy it as a web service]: #deploy-it-as-a-web-service
-[new]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[classic]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[new]: #deploy-the-predictive-experiment-as-a-new-web-service
+[classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

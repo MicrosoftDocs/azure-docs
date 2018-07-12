@@ -4,7 +4,7 @@ description: Learn how to create Debian 7 & 8 VHD files for deployment in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 

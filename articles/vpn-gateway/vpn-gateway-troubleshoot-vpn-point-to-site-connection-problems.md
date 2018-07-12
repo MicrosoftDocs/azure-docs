@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/23/2018
+ms.date: 05/11/2018
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -300,11 +300,11 @@ To resolve this problem, [reset Azure VPN gateway](vpn-gateway-resetgw-classic.m
 ## Error: "The revocation function was unable to check revocation because the revocation server was offline.(Error 0x80092013)"
 
 ### Causes
-This error message occurs if the client cannot access http://crl3.digicert.com/ssca-sha2-g1.crl and http://crl4.digicert.com/ssca-sha2-g1.cr.  The revocation check requires access to these two sites.  This problem typically happens on the client that has proxy server configured. In some environments,  if the requests are not going through the proxy server, it will be denied at the Edge Firewall.
+This error message occurs if the client cannot access http://crl3.digicert.com/ssca-sha2-g1.crl and http://crl4.digicert.com/ssca-sha2-g1.crl.  The revocation check requires access to these two sites.  This problem typically happens on the client that has proxy server configured. In some environments,  if the requests are not going through the proxy server, it will be denied at the Edge Firewall.
 
 ### Solution
 
-Check the proxy server settings, make sure that the client can access http://crl3.digicert.com/ssca-sha2-g1.crl and http://crl4.digicert.com/ssca-sha2-g1.cr.
+Check the proxy server settings, make sure that the client can access http://crl3.digicert.com/ssca-sha2-g1.crl and http://crl4.digicert.com/ssca-sha2-g1.crl.
 
 ## VPN Client Error: The connection was prevented because of a policy configured on your RAS/VPN server. (Error 812)
 
@@ -314,7 +314,7 @@ This error occurs if the RADIUS server that you used for authenticating VPN clie
 
 ### Solution
 
-Make sure that RADIUS server is configured correctly. For More information, see [Integrate RADIUS authentication with Azure Multi-Factor Authentication Server](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+Make sure that RADIUS server is configured correctly. For More information, see [Integrate RADIUS authentication with Azure Multi-Factor Authentication Server](../active-directory/authentication/howto-mfaserver-dir-radius.md).
 
 ## "Error 405" when you download root certificate from VPN Gateway
 

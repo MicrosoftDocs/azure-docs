@@ -210,6 +210,7 @@ func main() {
 	sql_statement := "SELECT * from inventory;"
 	rows, err := db.Query(sql_statement)
 	checkError(err)
+	defer rows.Close()
 
 	for rows.Next() {
 		switch err := rows.Scan(&id, &name, &quantity); err {

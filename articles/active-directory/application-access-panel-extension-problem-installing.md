@@ -3,18 +3,19 @@ title: Install the application access panel browser extension - Azure | Microsof
 description: Fix common errors encountered when you install the access panel browser extension.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
-ms.author: asteen
-ms.reviewer: japere
+ms.date: 5/4/18
+ms.author: barbkess
+ms.reviewer: japere,asteen
 ---
 
 # Install the access panel browser extension
@@ -34,7 +35,6 @@ For password-based SSO, you can use any of the following browsers:
 - **Edge**: on Windows 10 Anniversary Edition or later. 
 - **Chrome**: on Windows 7 or later, and on MacOS X or later.
 - **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
-- **Internet Explorer 8, 9, 10, 11**: on Windows 7 or later (limited support).
 
 ## Install the access panel browser extension
 
@@ -81,6 +81,12 @@ You can also download the extension for Chrome and Edge directly from following 
    3. Search for an app that's available in the My Apps portal.
    4. In the search results list, select the app.  
        The last three apps you've used are displayed in the **Recently Used** shortcut list.
+       
+* To use internal company URLs while remote, do the following:
+    1. [Configure Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) on your tenant
+    2. [Publish the application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) and URL through Application Proxy
+    3. Install the extension, and sign in to it by selecting Sign in to get started
+    4. You can now browse to the internal company URL even while remote
 
 > [!NOTE]
 > The preceding options are available only for Edge, Chrome, and Firefox.
@@ -116,4 +122,4 @@ Open a support ticket with the following information, if it is available:
 -   Fiddler traces
 
 ## Next steps
-[What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
