@@ -56,6 +56,11 @@ sections:
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+    - title: Get Started with Log Analytics query language
+      href: https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch
 - title: Samples
   items:
   - type: paragraph
