@@ -42,7 +42,7 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 * Create a subscription video service and stream DRM protected content when a customer (for example, a movie studio) needs to restrict the access and use of proprietary copyrighted work.
 * Deliver offline content for playback on airplanes, trains, and automobiles. A customer might need to download content onto their phone or tablet for playback when they anticipate to be disconnected from the network.
 * Add subtitles and captions to videos to cater to a broader audience (for example, people with hearing disabilities or people who want to read along in a different language). 
-* Implement an educational e-learning video platform with Azure Media Services and [Azure Cognitive Services APIs](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) for speech-to-text captioning, translating to multi-languages, etc.
+* Implement an educational e-learning video platform with Azure Media Services and [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) for speech-to-text captioning, translating to multi-languages, etc.
 * Enable Azure CDN to achieve large scaling to better handle instantaneous high loads (for example, the start of a product launch event.) 
 
 ## v3 capabilities
@@ -74,10 +74,10 @@ Microsoft generates and supports the following client libraries:
 
 |Client library|Samples|
 |---|---|
-|[Azure CLI SDK](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)|[Azure CLI samples](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
+|[Azure CLI SDK](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)|[Azure CLI samples](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
 |[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[.NET samples](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
 |[.NET Core SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (Choose the **.NET CLI** tab)|[.NET Core samples](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
-|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/mediaservices)||
+|[Java SDK](https://docs.microsoft.com/java/api/mediaservices/management?view=azure-java-stable)||
 |[Node.js SDK](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Node.js samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
 |[Python SDK](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)||
 |[Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)||

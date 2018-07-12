@@ -2,13 +2,13 @@
 title: Deploy containers with Helm in Kubernetes on Azure
 description: Use the Helm packaging tool to deploy containers on a Kubernetes cluster in AKS
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 06/13/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 

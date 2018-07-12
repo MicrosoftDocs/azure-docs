@@ -57,7 +57,7 @@ The next step is to create a [DataBricks cluster](https://docs.azuredatabricks.n
 8. Click **Create Cluster** at the top of the page (this process may take up to 5 minutes to complete).
 9. When the process completes, select **Azure Databricks** on the top left of the nav bar.
 10. Select **Notebook** under the **New** section on the bottom half of the page.
-11. Enter a name of your choice in the **Name** field.
+11. Enter a name of your choice in the **Name** field and select **Python** as the language.
 12. All other fields can be left as default values.
 13. Select **Create**.
 14. Paste the following code into the **Cmd 1** cell, replace the values with the values you preserved from your storage account.
@@ -92,7 +92,7 @@ Re-open DataBricks in your browser and execute the following steps:
 5. Select **Create**.
 6. Paste the following code into the **Cmd 1** cell (this code auto-saves in the editor).
 
-    ```
+    ```python
     #mount Azure Blob Storage as an HDFS file system to your databricks cluster
     #you need to specify a storage account and container to connect to. 
     #use a SAS token or an account key to connect to Blob Storage.  

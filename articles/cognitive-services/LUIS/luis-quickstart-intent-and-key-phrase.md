@@ -14,7 +14,7 @@ ms.author: v-geberr
 
 --- 
 
-# Tutorial: Learn how to return data from keyPhrase entity 
+# Tutorial: 8. Add keyPhrase entity 
 In this tutorial, use an app that demonstrates how to extract key subject matter from utterances.
 
 <!-- green checkmark -->
@@ -28,7 +28,7 @@ In this tutorial, use an app that demonstrates how to extract key subject matter
 For this article, you can use the free [LUIS](luis-reference-regions.md#publishing-regions) account in order to author your LUIS application.
 
 ## Before you begin
-If you don't have the Human Resources app from the [simple entity](luis-quickstart-primary-and-secondary-data.md) tutorial, [import](create-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json) Github repository.
+If you don't have the Human Resources app from the [simple entity](luis-quickstart-primary-and-secondary-data.md) tutorial, [import](luis-how-to-start-new-app.md#import-new-app) the JSON into a new app in the [LUIS](luis-reference-regions.md#luis-website) website. The app to import is found in the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json) Github repository.
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `keyphrase`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
@@ -199,10 +199,9 @@ Your chatbot now has enough information to determine the next step in the conver
 LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the keyPhrase data from the utterance to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+When no longer needed, delete the LUIS app. Select **My apps** in the top left menu. Select the ellipsis (***...***) button to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create app that returns sentiment along with intent prediction](luis-quickstart-intent-and-sentiment-analysis.md)
-
+> [Add sentiment analysis to app](luis-quickstart-intent-and-sentiment-analysis.md)

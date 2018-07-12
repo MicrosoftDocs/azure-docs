@@ -7,11 +7,11 @@ manager: shivamg
 keywords: azure backup server; protect workloads; back up workloads
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/14/2018
+ms.date: 7/10/2018
 ms.author: adigan
 ---
 
-# Preparing to back up workloads using Azure Backup Server
+# Install and configure Azure Backup Server
 > [!div class="op_single_selector"]
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
@@ -219,7 +219,7 @@ Once you know the state of the Azure connectivity and of the Azure subscription,
 ### Recovering from loss of connectivity
 If you have a firewall or a proxy that is preventing access to Azure, you need to whitelist the following domain addresses in the firewall/proxy profile:
 
-* www.msftncsi.com
+* `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
 * \*.WindowsAzure.com
 * \*.microsoftonline.com
