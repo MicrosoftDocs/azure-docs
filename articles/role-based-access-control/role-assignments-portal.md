@@ -84,7 +84,9 @@ When managing access, you want to know who has access, what are their permission
 
    ![Azure Active Directory user Azure resources](./media/role-assignments-portal/aad-user-azure-resources.png)
 
-   On the Azure resources blade, you can see the role assignments for the selected user. This list only includes role assignments for resources that you have permission to read. For example, if the user also has role assignments in a different subscription that you cannot read, those role assignments will not appear in the list.
+   On the Azure resources blade, you can see the role assignments for the selected user and selected subscription. This list includes only role assignments for resources that you have permission to read. For example, if the user also has role assignments that you cannot read, those role assignments will not appear in the list.
+
+1. If you have multiple subscriptions, you can choose the **Subscription** drop-down list to see the role assignments in a different subscription.
 
 ## Grant access
 
