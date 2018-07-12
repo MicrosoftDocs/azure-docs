@@ -42,7 +42,7 @@ Create your application in the resource group using the `deployment create` comm
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
 ```
-Above command deploys windows application using [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json), if you want to deploy a linux application, use [mesh_rp.linux.json template] (https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.linux.json).
+The preceding command deploys a Windows application using [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json). If you want to deploy a Linux application, use the [mesh_rp.linux.json template] (https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.linux.json).
 
 In a few minutes, your command should return with:
 
@@ -85,7 +85,7 @@ az group delete --resource-group myResourceGroup
 ``` 
 
 ## Next steps
-To learn more about Service Fabric Mesh, read the overview:
-> [!div class="nextstepaction"]
-> [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
+- View the voting sample application on [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp).
+- To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md).
+
 
