@@ -31,7 +31,7 @@ On the command line:
 In Visual Studio:
 
 1. Open **Tools > Options** and under **Projects and Solutions**, choose and **Build and Run**.
-2. Change the settings for **MSBuild project build output verbosity** and **MSBuild project build log file verbosity** to **Detailed** or **Diagnostic**.
+2. Change the settings for **MSBuild project build output verbosity** to **Detailed** or **Diagnostic**.
 
     ![Screenshot of Tools Options dialog](media/common/VerbositySetting.PNG)
 
