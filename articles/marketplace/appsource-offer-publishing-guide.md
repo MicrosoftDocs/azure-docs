@@ -28,7 +28,7 @@ AppSource has list and trial offers, with the call to action "Contact Me" or "Tr
 
 ### Office 365
 
-Review the [publishing process and guidelines]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store)
+Review the [publishing process and guidelines](https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store)
 
 ### Power Apps
 
@@ -41,12 +41,17 @@ Review the [publishing process and guidelines.](https://docs.microsoft.com/en-us
 ### Dynamics 365
 
 #### Dynamics 365 for Finance and Operations
-When building for Enterprise Edition, review the [publishing process and guidelines]. (https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+When building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 ### Dynamics 365 for Customer Engagement
-Review the [publishing process and guidelines] (https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource)
+Review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource)
 
 ## Next Steps
 
+If you haven't already done so, 
+
 - [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace
+
+If you are registered and working in Cloud Partner Portal, 
+
 - [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer
