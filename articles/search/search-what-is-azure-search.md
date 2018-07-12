@@ -115,6 +115,6 @@ In this 9-minute video from program manager Liam Cavanagh, learn how integrating
 + 0-3 minutes covers key features and use-cases.
 + 3-4 minutes covers service provisioning. 
 + 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
-+ 6-9 minutes covers Search Explorer and various queries.
++ 6-9 minutes covers Search explorer and various queries.
 
 
