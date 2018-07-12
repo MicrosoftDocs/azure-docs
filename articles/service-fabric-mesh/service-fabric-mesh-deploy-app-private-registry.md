@@ -61,7 +61,7 @@ Create an Azure Container Registry by following the instructions in [Create a pr
 
 ## Retrieve credentials for the registry
 
-In order to deploy a container instance from the registry that was created, credentials must be provided during the deployment. Production scenarios should use a [service principal for container registry access](../container-registry/container-registry-auth-service-principal). For this article, enable the admin user on your registry with the following command:
+In order to deploy a container instance from the registry that was created, credentials must be provided during the deployment. Production scenarios should use a [service principal for container registry access](../container-registry/container-registry-auth-service-principal.md). For this article, enable the admin user on your registry with the following command:
 
 ```azurecli-interactive
 az acr update --name <acrName> --admin-enabled true
