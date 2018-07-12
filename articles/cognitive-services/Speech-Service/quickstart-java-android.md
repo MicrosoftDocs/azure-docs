@@ -100,6 +100,7 @@ By default it should come up with a title bar with your application's name, and 
   Change its ID attribute in the upper-right corner to `button`.
 
 * Use the magic wand icon at the top of the designer if you want to infer layout constraints for you.
+
   ![](media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
 The text and graphical version of your UI should now look similar to this:

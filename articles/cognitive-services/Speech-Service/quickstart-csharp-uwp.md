@@ -29,6 +29,7 @@ The application is based on the [Microsoft Cognitive Services Speech SDK NuGet P
 * A Windows PC (Windows 10 Fall Creators Update or later) with a working microphone.
 * [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community Edition or higher.
 * The **Universal Windows Platform development** workload in Visual Studio.You can enable it in **Tools** \> **Get Tools and Features**.
+
   ![Enable Universal Windows Platform development](media/sdk/vs-enable-uwp-workload.png)
 
 ## Create a Visual Studio project
@@ -45,7 +46,8 @@ The application is based on the [Microsoft Cognitive Services Speech SDK NuGet P
 
    ![Switch the build platform to x64](media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
 
-   Note: at this time, the Speech SDK does not support to target ARM processors.
+   > [!NOTE]
+   > At this time, the Speech SDK does not support to target ARM processors.
 
 1. Install and reference the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget). In the Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
 

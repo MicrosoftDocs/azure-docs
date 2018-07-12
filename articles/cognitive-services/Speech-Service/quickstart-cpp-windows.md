@@ -25,7 +25,9 @@ The application is based on the [Microsoft Cognitive Services Speech SDK NuGet P
 * [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community Edition or higher.
 * The **Desktop development with C++** workload in Visual Studio and the **NuGet package manager** component in Visual Studio.
   You can enable both in **Tools** \> **Get Tools and Features**, under the **Workloads** and **Individual components** tabs, respectively:
+
   ![Enable Desktop development with C++ workload](media/sdk/vs-enable-cpp-workload.png)
+
   ![Enable NuGet package manager in Visual Studio ](media/sdk/vs-enable-nuget-package-manager.png)
 
 ## Create a Visual Studio project

@@ -24,7 +24,9 @@ The application is based on the [Microsoft Cognitive Services Speech SDK NuGet P
 * A Windows PC with a working microphone.
 * Visual Studio 2017, Community Edition or higher.
 * The **.NET desktop development** workload in Visual Studio. You can enable it in **Tools** \> **Get Tools and Features**.
+
   ![Enable .NET desktop development](media/sdk/vs-enable-net-desktop-workload.png)
+
   ![Enable .NET Core cross-platform development](media/sdk/vs-enable-net-desktop-workload.png)
 
 ## Create a Visual Studio project
