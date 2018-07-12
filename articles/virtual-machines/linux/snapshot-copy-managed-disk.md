@@ -21,9 +21,9 @@ Take a snapshot of an OS or data disk for backup or to troubleshoot VM issues. A
 
 ## Use Azure CLI 
 
-The following example requires the Azure CLI 2.0 installed and logged into your Azure account. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+The following example requires that you use [Cloud Shell](https://shell.azure.com/bash) or have Azure CLI 2.0 installed. Run **az --version** to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
-The following steps show how to take a snapshot using the `az snapshot create` command with the `--source-disk` parameter. The following example assumes that there is a VM called `myVM` in the `myResourceGroup` resource group.
+The following steps show how to take a snapshot using the **az snapshot create** command with the **--source-disk** parameter. The following example assumes that there is a VM called *myVM* in the *myResourceGroup* resource group.
 
 Get the disk ID using [az vm show](/cli/azure/vm#az-vm-show).
 ```azure-cli
@@ -40,7 +40,7 @@ az snapshot create \
 ```
 
 > [!NOTE]
-> If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `--sku Standard_ZRS` parameter.
+> If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the **--sku Standard_ZRS** parameter.
 
 You can see a list of the snapshots using [az snapshot list](/cli/azure/snapshot#az-snapshot-list).
 
