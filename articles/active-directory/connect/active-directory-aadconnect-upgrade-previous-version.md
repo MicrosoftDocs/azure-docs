@@ -153,7 +153,7 @@ At line:1 char:1
 
 The PowerShell Cmdlet reports the error **the specified MA could not be found**.
 
-The reason that this occurs is because the current Azure AD connect configuration is not supported for upgrade. 
+The reason that this occurs is because the current Azure AD Connect configuration is not supported for upgrade. 
 
 If you want to install a newer version of Azure AD Connect: close the Azure AD Connect wizard, uninstall the existing Azure AD Connect, and perform a clean install of the newer Azure AD Connect.
 
