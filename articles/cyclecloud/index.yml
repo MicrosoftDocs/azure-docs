@@ -26,32 +26,32 @@ sections:
         - href: cyclecloud-application
           html: <p>We're new. We're great. Find out why.</p>
           image:
-            src: /media/index/i_quick-start.svg
+            src: media/index/ccswoosh.jpg
           title: About Azure CycleCloud
         - href: quickstart-overview
           html: <p>New to Azure CycleCloud? Start here for a guided walkthrough of the installation, setup, and use of Azure CycleCloud.</p>
           image:
-            src: /media/index/i_quick-start.svg
+            src: media/index/i_quick-start.svg
           title: QuickStarts
         - href: clusters
           html: <p>Use CycleCloud's Cluster Templates to create and scale your jobs quickly.</p>
           image:
-            src: media/index/i_quick-start.svg
+            src: media/index/i_get-started.svg
           title: Clusters and Nodes
         - href: projects
           html: <p>Define node configurations and specifications and do a bunch of other stuff you never dreamed possible.</p>
           image:
-            src: media/index/graph-api.svg
+            src: media/index/i_agent.svg
           title: Projects
         - href: storage
           html: <p>You want to put it WHERE?</p>
           image:
-            src: media/index/mongodb-api.svg
+            src: media/index/i_package.svg
           title: Storage
         - href: /azure/cosmos-db/table-introduction/
           html: <p>How great are tacos, anyway?</p>
           image:
-            src: media/index/table-api.svg
+            src: media/index/taco.png
           title: Tacos
 
 
