@@ -30,7 +30,7 @@ ms.reviewer: johnhas
 
 3. Select **Manage** in the **Test Passes** panel.
 4. Select the test pass to open the Test pass summary. You can review the test name, date created, run, how long the test took, and the result (succeeded or failed).
-5. Select [ **. .  .** ]
+5. Select [ **. .  .** ].
 
 ### Test pass summary
 
@@ -86,7 +86,7 @@ You can select and drag a column into the header to create a group on the column
 1. [Open the test pass summary](#open-the-test-pass-summary).
 2. Select **View parameters** to reschedule the test pass.
 
-**Effective parameters**
+**Parameters**
 
 | Name | Description |
 | -- | -- |
