@@ -42,7 +42,7 @@ Under **Diagnostics** set **Status** to **On**. Ensure all of the options under 
 
 When complete, click **Save**
 
-![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/contoso.png)
+![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## Enable alerts
 
@@ -56,7 +56,7 @@ Under the **Monitoring** section, select **Alert rules**.
 
 Select **+ Add alert**, under **Add an alert rule**, fill in the required information. Choose `SASClientOtherError` from the **Metric** drop-down.
 
-![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/figure2.png)
+![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
 ## Simulate an error
 
