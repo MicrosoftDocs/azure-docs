@@ -20,7 +20,7 @@ This tutorial breaks down the process of uploading an image to Bing and getting 
 This tutorial is provided for the developer that wants to explore the contents of the Bing response. It does not apply all use and display requirements (for example, it does not provide a link to Microsoft's privacy policy). For all usage requirements, see [Bing Use and Display Requirements](./use-and-display-requirements.md).
 
 
-### Where to start?
+## Where to start?
 
 Let's start with an HTML page that sends Bing an image and gets back insights and displays them. In your favorite editor, create a file named, uploaddemo.html. Add the following basic HTML structure to the file.
 
@@ -46,7 +46,7 @@ To start, let's divide the page into a request section, where the user provides 
         <div id="responseSection"></div>
 ```
 
-### Get the file to upload
+## Get the file to upload
 
 To let the user select the image to upload, the demo uses the \<input\> tag with the type attribute set to file. The UI needs to make it clear that the demo uses Bing to get the search results. 
 
@@ -122,7 +122,7 @@ The following shows the handler that captures the selected image. The handler in
 ```
 
 
-### What else is needed before making the call to Bing?
+## What else is needed before making the call to Bing?
 
 The demo still needs a subscription key. In practice, you'd probably get the subscription key from secured storage but for the simplicity of this demo, you'll need to provide it in the UI. Add the following \<input\> tag (with the type attribute set to text) to the \<body\> just below the file's \<output\> tag.
 
@@ -222,7 +222,7 @@ The demo hides the lists in a collapsible div that's controlled by the Query opt
 ```
 
 
-### Making the call
+## Making the call
 
 Add the following Get insights button below the options div in the body. The button lets the user initiate the call. When the user clicks the button, the cursor is changed to the spinning wait cursor and the onclick handler is called.
 
@@ -287,7 +287,7 @@ The sendRequest function formats the endpoint URL, sets the Ocp-Apim-Subscriptio
         }
 ```
 
-### Handling the response
+## Handling the response
 
 The handleResponse function handles the response from the call to Bing Visual Search. If the call succeeds, it parses the JSON response into the individual tags, which contain the insights. Next, it adds the string, Bing internet search results, to the page to let the user know the data came from Bing.
 
@@ -672,7 +672,7 @@ Remember, there's a minimum amount of data you must display, the rest is up to y
 
 
 
-### Adding styles to make the page display correctly
+## Adding styles to make the page display correctly
 
 Add the following \<style\> section to the \<head\> tag.
 
@@ -1324,3 +1324,7 @@ Here's the complete HTML and JavaScript example.
     </body>
 </html>      
 ```
+
+## Next steps
+
+To see how getting insights works using and insights token, see [Bing Visual Search SDK ImageInsightsToken tutorial](.\tutorial-visual-search-insights-token.md).
