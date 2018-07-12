@@ -14,6 +14,8 @@ ms.author: tamram
 
 [!INCLUDE [storage-files-aad-integration-include](../../../includes/storage-files-aad-integration-include.md)]
 
+For an overview of Azure AD integration with Azure Files, see [Overview of Azure Active Directory integration with Azure Files (Preview)](storage-files-active-directory-overview.md).
+
 ## Workflow overview
 
 The diagram below illustrates the end-to-end workflow to enable Azure AD integration with Azure Files for access to shares, directories, or files. To enable Azure AD integration, first verify that your Azure AD and Azure Storage environments are properly configured. It's strongly recommended that you walk through the [prerequisites](#prerequisites) and make sure that you've performed all of the required steps. 

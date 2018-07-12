@@ -14,6 +14,8 @@ ms.author: tamram
 
 [!INCLUDE [storage-files-aad-integration-include](../../../includes/storage-files-aad-integration-include.md)]
 
+To learn how to enable Azure AD integration with Azure Files, see [Enable Azure Active Directory integration with Azure Files (Preview)](storage-files-active-directory-enable.md).
+
 ## Glossary 
 
 It's helpful to understand some key terms relating to Azure AD integration with Azure Files:
