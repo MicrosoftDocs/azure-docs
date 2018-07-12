@@ -88,7 +88,7 @@ A basic script format includes three columns:
 ![Sample script](media/custom-voice/script.png)
 
 > [!NOTE]
-> Most studios record in short segments, referred to as "takes," each take typically containing ten to 24 utterances. Just noting the take number will be sufficient to find a given utterance later. Some studios may prefer longer recordings. In this case you'll want to note the time offset into the file (the time code). The studio will have a prominent time display.
+> Most studios record in short segments, referred to as "takes," each take typically containing ten to 24 utterances. Just noting the take number will be sufficient to find a given utterance later. Some studios may prefer to make longer recordings. In this case you'll want to note the time offset into the file (the time code). The studio will have a prominent time display.
 
 Leave enough space after each row to write notes. Be sure that no utterance is split between pages. Number the pages and print your script on one side of the paper.
 
@@ -124,7 +124,7 @@ Use a high-quality studio condenser microphone ("mic") intended for recording vo
 
 You may also use an analog microphone. Many rental houses offer "vintage" microphones renowned for their voice character. Note that professional analog gear uses balanced XLR connectors, rather than the 1/4" plug used in consumer equipment. If you go analog, you'll also need a preamp and a computer audio interface with these connectors.
 
-Install the microphone on a stand or boom and use a pop filter in frot of the microphone to eliminate noise from "plosive" sounds like "p" and "b." Some microphones come with a suspension mount that isolates them from vibrations in the stand, which is helpful.
+Install the microphone on a stand or boom and use a pop filter in front of the microphone to eliminate noise from "plosive" sounds like "p" and "b." Some microphones come with a suspension mount that isolates them from vibrations in the stand, which is helpful.
 
 The voice talent must stay at a consistent distance from the microphone. Use tape on the floor to mark where they should stand. If the talent prefers to sit, take special care to monitor mic distance and avoid chair noise.
 
@@ -139,7 +139,7 @@ Listen closely to a recording of silence in your "booth," figure out where any n
 > [!TIP]
 > In some cases, you may be able to use an equalizer or a noise reduction software plug-in to help remove noise from your recordings, though it is always best to stop it at its source when possible.
 
-Levels should be set so that most of the available dynamic range of digital recording is used without overdriving into distortion. That means loud, but not so loud that the audio distorts. Below is an example of the waveform of a good recording.
+Levels should be set so that most of the available dynamic range of digital recording is used without overdriving. That means loud, but not so loud that the audio distorts. Below is an example of the waveform of a good recording.
 
 ![good recording waveform](media/custom-voice/good-recording.png)
 
