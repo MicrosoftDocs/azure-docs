@@ -29,7 +29,7 @@ Within each registry are image *repositories*, collections of container images w
 
 `repository:tag`
 
-For example, these three images reside within the `acr-helloworld` repository, each with a different tag:
+For example, these three images reside within the "acr-helloworld" repository, each with a different tag:
 
 ```
 acr-helloworld:latest
@@ -39,7 +39,7 @@ acr-helloworld:v2
 
 ## Components of an image
 
-A container image consists of several components, many of which support deletion. Understanding how these components relate to one another can help you determine what to delete, and in which situations they should be deleted.
+A container image consists of several components like tags, layers, and manifests. Understanding how these components relate to each another can help you determine what to delete, and in which situations.
 
 ### Tag
 
@@ -49,11 +49,11 @@ You can push and pull an image by specifying its name in `repository:tag` format
 
 ### Layer
 
-Images are made up of one or more *layers*, each of which corresponds to a line in the Dockerfile that defines the image. Images within a repository can share layers, reducing the storage required for images that share layers. Network traffic is also minimized, since layers already existing in the local filesystem do not need to be pulled again; only new or modified layers are pulled from the registry.
+Images are made up of one or more *layers*, each of which corresponds to a line in the Dockerfile that defines the image. Images within a repository can share layers, reducing the storage used by images that share layers. Network traffic is also minimized, since layers already existing in the local filesystem do not need to be pulled again; only new or modified layers are pulled from the registry.
 
 ### Manifest
 
-Each container image includes an image *manifest* that provides the identification for the image, and specifies the layers that make up the image. Here is an example manifest (this is not a real manifest, it's been truncated for brevity):
+Each container image includes an image *manifest* that provides the identification for the image, and specifies the layers that make up the image. Here is an example manifest (this is not a real manifest, the "layers" section has been truncated for brevity):
 
 ```json
 {
@@ -86,12 +86,18 @@ Each container image includes an image *manifest* that provides the identificati
 
 ### Manifest digest
 
-Manifests are identified by a unique SHA-256 hash, or *digest* (the `"digest"` value in the `"config"` section of the preceding example manifest). A unique digest is included in each container image you build, uniquely identifying the image even if its layer data is identical to that of another image. This is what allows you repeatedly push identically tagged images to a registry. For example, you can repeatedly push `myimage:latest` to your registry without error because each image is identified by its unique digest.
+Manifests are identified by a unique SHA-256 hash, or *digest* (the `"digest"` value in the `"config"` section of the preceding example manifest). A unique digest is included in each container image you build. The digest value is unique even if the image's layer data is identical to that of another image. This is what allows you repeatedly push identically tagged images to a registry. For example, you can repeatedly push `myimage:latest` to your registry without error (though not recommended) because each image is identified by its unique digest.
 
 You can pull an image from a registry by specifying its digest in the pull operation. Some systems may be configured to pull by digest because it guarantees the image version being pulled, even if an identically tagged image is subsequently pushed to the registry.
 
+For example, pulling an image from the "acr-helloworld" repository by manifest digest:
+
+```console
+$ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
+```
+
 > [!IMPORTANT]
-> If you repeatedly push identically tagged images, you create orphaned images--images which are untagged, but not deleted. This can cause "hidden" storage usage because the untagged images are not displayed when listing images with the Azure CLI or in the Azure portal. However, their layers still exist and consume space in your registry. For information about deleting orphaned image data, see [Delete by manifest digest](#delete-by-manifest-digest).
+> If you repeatedly push identically tagged images, you can create orphaned images--images that are untagged, but still consume space in your registry. Untagged images are not shown in the Azure CLI or in the Azure portal when you list or view images by tag. However, their layers still exist and consume space in your registry. For information about deleting orphaned image data, see [Delete by manifest digest](#delete-by-manifest-digest).
 
 ## Delete image data
 
@@ -101,7 +107,7 @@ You can delete image data from your container registry in several ways: delete a
 
 Deleting a repository deletes all of the images in the repository, including all tags, layers, and manifests. When you delete a repository, you recover the storage space used by the images that were in that repository.
 
-The following Azure CLI command deletes the `acr-helloworld` repository and all tags and manifests within the repository. If layers referenced by the deleted manifests are not referenced by any other images in the registry, their layer data is also deleted.
+The following Azure CLI command deletes the "acr-helloworld" repository and all tags and manifests within the repository. If layers referenced by the deleted manifests are not referenced by any other images in the registry, their layer data is also deleted.
 
 ```azurecli
  az acr repository delete --name myregistry --repository acr-helloworld
@@ -109,18 +115,24 @@ The following Azure CLI command deletes the `acr-helloworld` repository and all 
 
 ## Delete by tag
 
-You can delete individual images from a repository by specifying the repository name and tag in the delete operation. When you delete by tag, you recover the storage space used by the image if its layers are not shared with any other images in the registry.
+You can delete individual images from a repository by specifying the repository name and tag in the delete operation. When you delete by tag, you recover the storage space used by any unique layers in the image (layers not shared by any other images in the registry).
+
+To delete by tag, use [az acr repository delete][az-acr-repository-delete] and specify the image name (`repository:tag`) in the `--image` parameter. All layers unique to the image and any tags associated with the image are deleted.
+
+For example, deleting the "acr-helloworld:latest" image from registry "myregistry":
 
 ```azurecli
-az acr repository delete --name myregistry --image acr-helloworld:latest
+$ az acr repository delete --name myregistry --image acr-helloworld:latest
+This operation will delete the manifest 'sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108' and all the following images: 'acr-helloworld:latest', 'acr-helloworld:v3'.
+Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> Deleting *by* tag shouldn't be confused with deleting a tag (untagging). You can delete a tag with the Azure CLI command [az acr repository untag][az-acr-repository-untag]. No space is freed when you untag an image because its [manifest](#manifest) and layer data remains in the registry--only the tag itself is deleted.
+> Deleting *by tag* shouldn't be confused with deleting a tag (untagging). You can delete a tag with the Azure CLI command [az acr repository untag][az-acr-repository-untag]. No space is freed when you untag an image because its [manifest](#manifest) and layer data remains in the registry--only the tag itself is deleted.
 
 ## Delete by manifest digest
 
-A [manifest digest](#manifest-digest) can be associated with one, multiple, or no tags. When you delete by digest, all tags referenced by the manifest are deleted, as is all layer data for any *unique* layers referenced by the manifest. Shared layer data is not deleted.
+A [manifest digest](#manifest-digest) can be associated with one, none, or multiple tags. When you delete by digest, all tags referenced by the manifest are deleted, as is layer data for any layers unique to the image. Shared layer data is not deleted.
 
 To delete by digest, first list the manifest digests for the repository containing the images you wish to delete:
 
@@ -128,10 +140,10 @@ To delete by digest, first list the manifest digests for the repository containi
 az acr repository show-manifests --name myregistry --repository myrepository
 ```
 
-For example, listing the manifest digests for the `acr-helloworld` repository:
+For example, listing the manifest digests for the "acr-helloworld" repository:
 
 ```console
-$ az acr repository show-manifests --name myregistry --repository myrepository
+$ az acr repository show-manifests --name myregistry --repository acr-helloworld
 [
   {
     "digest": "sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108",
@@ -166,13 +178,13 @@ az acr repository delete --name myregistry --image repository@digest
 
 For example, to delete the last manifest listed in the preceding output (with the tag "v1"):
 
-```azurecli
+```console
 $ az acr repository delete --name myregistry --image acr-helloworld@sha256:7ca0e0ae50c95155dbb0e380f37d7471e98d2232ed9e31eece9f9fb9078f2728
 This operation will delete the manifest 'sha256:7ca0e0ae50c95155dbb0e380f37d7471e98d2232ed9e31eece9f9fb9078f2728' and all the following images: 'acr-helloworld:v1'.
 Are you sure you want to continue? (y/n): y
 ```
 
-The acr-helloworld:v1 image is deleted from the registry, as is any layer data unique to that image. If a manifest is associated with multiple tags, all associated tags are also deleted.
+The "acr-helloworld:v1" image is deleted from the registry, as is any layer data unique to that image. If a manifest is associated with multiple tags, all associated tags are also deleted.
 
 ## Delete untagged images
 
@@ -180,6 +192,7 @@ As mentioned in the [Manifest digest](#manifest-digest) section, pushing a modif
 
 1. Push image *acr-helloworld* with tag **latest**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Check manifests for repository *acr-helloworld*:
+
    ```console
    $ az acr repository show-manifests --name myregistry --repository acr-helloworld
    [
@@ -196,6 +209,7 @@ As mentioned in the [Manifest digest](#manifest-digest) section, pushing a modif
 1. Modify *acr-helloworld* Dockerfile
 1. Push image *acr-helloworld* with tag **latest**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Check manifests for repository *acr-helloworld*:
+
    ```console
    $ az acr repository show-manifests --name myregistry --repository acr-helloworld
    [
@@ -226,12 +240,14 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 
 ### Delete all untagged images
 
+Use the following sample scripts with caution--deleted image data is UNRECOVERABLE.
+
 **Azure CLI in Bash**
 
-The following Bash script deletes all untagged images from a repository. It requires the Azure CLI, `awk`, and `xargs`. By default, the script performs no deletion. Change the `ENABLE_DELETE` value to `true` to enable image deletion.
+The following Bash script deletes all untagged images from a repository. It requires the Azure CLI, **awk**, and **xargs**. By default, the script performs no deletion. Change the `ENABLE_DELETE` value to `true` to enable image deletion.
 
 > [!WARNING]
-> If you have systems that pull images by manifest digest (as opposed to `repository:tag`), you should not run this script. Deleting untagged images will prevent those systems from successfully pulling the images from your registry.
+> If you have systems that pull images by manifest digest (as opposed to `repository:tag`), you should not run this script. Deleting untagged images will prevent those systems from pulling the images from your registry.
 
 ```bash
 #!/bin/bash
@@ -240,7 +256,7 @@ The following Bash script deletes all untagged images from a repository. It requ
 # Run only if you do not have systems
 # that pull images via manifest digest.
 
-# Change to true to enable image delete
+# Change to 'true' to enable image delete
 ENABLE_DELETE=false
 
 # Modify for your environment
@@ -263,10 +279,10 @@ fi
 
 **Azure CLI in PowerShell**
 
-The following PowerShell script deletes all untagged images from a repository. It requires the Azure CLI. By default, the script performs no deletion. Change the `$enableDelete` value to `true` to enable image deletion.
+The following PowerShell script deletes all untagged images from a repository. It requires the PowerShell and the Azure CLI. By default, the script performs no deletion. Change the `$enableDelete` value to `true` to enable image deletion.
 
 > [!WARNING]
-> If you have systems that pull images by manifest digest (as opposed to `repository:tag`), you should not run this script. Deleting untagged images will prevent those systems from successfully pulling the images from your registry.
+> If you have systems that pull images by manifest digest (as opposed to `repository:tag`), you should not run this script. Deleting untagged images will prevent those systems from pulling the images from your registry.
 
 ```powershell
 # WARNING! This script deletes data!
