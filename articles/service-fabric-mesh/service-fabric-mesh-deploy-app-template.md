@@ -13,7 +13,7 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/04/2018
+ms.date: 07/12/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter 
 ---
@@ -50,7 +50,7 @@ Create your application in the resource group using the `deployment create` comm
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
 ```
 
-In a few seconds, your command should return with `"provisioningState": "Succeeded"`. 
+In a few seconds, your command should return with `VotingApp has been deployed successfully on VotingAppNetwork with public ip address <IP address>`. For example, the IP address is 13.68.129.22.
 
 ## Check the application deployment status
 Your application is now deployed. You can check the application's status using the `app show` command. The application name for the deployed application is "VotingApp", so fetch its details. 
@@ -67,44 +67,13 @@ az mesh app list -o table
 ```
 
 ## Open the application
-Once the application status is returned as ""provisioningState": "Succeeded", get the ingress endpoint of the service.  Query the network resource to find the IP address of the container where the service is deployed.
-
-The network resource for the application is "VotingAppNetwork", so fetch its details.
+Once the application successfully deploys, get the endpoint of the service (40.76.87.107, from the preceding example).  You can also query the network resource to find the IP address of the container where the service is deployed by running the 'az mesh network show' command:
 
 ```azurecli-interactive
 az mesh network show --resource-group myResourceGroup --name VotingAppNetwork
 ```
 
-The command should now return with the following information:
-
-```json
-{
-  "addressPrefix": "10.0.0.4/22",
-  "description": "Private network for application",
-  "id": "/subscriptions/<subscriptionID>/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabricMesh/networks/VotingAppNetwork",
-  "ingressConfig": {
-    "layer4": [
-      {
-        "name": "VotingWebIngress",
-        "applicationName": "VotingApp",
-        "endpointName": "VotingWebListener",
-        "publicPort": "80",
-        "serviceName": "VotingWeb"
-      }
-    ],
-    "publicIpAddress": "13.68.129.22",
-    "qosLevel": "Bronze"
-  },
-  "location": "eastus",
-  "name": "VotingAppNetwork",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "tags": {},
-  "type": "Microsoft.ServiceFabricMesh/networks"
-}
-```
-
-From the output, copy the public IP address of the service (13.68.129.22 in the preceding example) and open in a browser.
+Copy the public IP address of the service and open in a browser.
 
 ![Voting application](./media/service-fabric-mesh-deploy-app-template/VotingApplication.png)
 
