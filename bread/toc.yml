@@ -89,6 +89,9 @@
   - name: Azure China 21Vianet
     tocHref: /azure/china/
     topicHref: /azure/china/
+  - name: Azure NetApp Files
+    tocHref: /azure/azure-netapp-files/
+    topicHref: /azure/azure-netapp-files/
   - name: Azure portal
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
