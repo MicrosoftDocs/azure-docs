@@ -64,7 +64,7 @@ The `Accept-Language` header and the `setLang` query parameter are mutually excl
 
 ## Markets
 
-|Country/regions|Language|Market Code|
+|Country/region|Language|Market Code|
 |-------|--------|-----------|
 |Argentina|Spanish|es-AR|
 |Australia|English|en-AU|
