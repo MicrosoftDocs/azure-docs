@@ -100,7 +100,7 @@ Under copyright law, an actor's reading of copyrighted text may be a performance
 
 Fortunately, it is possible to avoid these issues entirely. There are many sources of text you can use without permission or license.
 
-|||
+|Text source|Description|
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|About 1100 sentences selected from out-of-copyright works specifically for use in speech synthesis projects. An excellent starting point.|
 |Works no longer<br>under copyright|Typically works published prior to 1923. For English, Project Gutenberg offers tens of thousands of such works. You may want to focus on newer works, as the language will be closer to modern English.|
@@ -167,13 +167,13 @@ Direct the talent to pronounce words distinctly. Every word of the script should
 |never going to give you up|never gonna give you up|
 |there are four lights|there're four lights|
 |how's the weather today|how's th' weather today|
-|my little pony|my lil' pony|
+|say hello to my little friend|say hello to my lil' friend|
 
 Talent should *not* add distinct pauses between words. The sentence should still flow naturally, even while sounding a little formal. This fine distinction may take some practice to get right.
 
 ### The recording session
 
-Create a reference recording, or *match file,* of a typical utterance at the beginning of the session. Ask the talent to repeat this line every page or page and a half, and compare the new recording to the reference. This will help the talent remain consistent in volume, tempo, central pitch, and pitch peak and valley. Meanwhile, the engineer can use the match file as a reference for levels and overall consistency of sound. 
+Create a reference recording, or *match file,* of a typical utterance at the beginning of the session. Ask the talent to repeat this line every page or page and a half. Each time, compare the new recording to the reference. This technique helps the talent remain consistent in volume, tempo, pitch, and intonation. Meanwhile, the engineer can use the match file as a reference for levels and overall consistency of sound.
 
 The match file is especially important when resuming recording after a break, or on another day. You'll want to play it a few times for the talent and have them repeat it each time until they are matching well.
 
