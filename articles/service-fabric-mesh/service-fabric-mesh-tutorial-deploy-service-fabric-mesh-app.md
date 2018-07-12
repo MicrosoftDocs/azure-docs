@@ -1,6 +1,6 @@
 ---
-title: Tutorial Create an Azure Service Fabric application | Microsoft Docs
-description: Learn how to create an Azure Service Fabric application consisting of an ASP.NET Core website that communicates with a back-end web service, and publish it to Azure.
+title: Tutorial Create an Azure Service Fabric Mesh application | Microsoft Docs
+description: Learn how to create an Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, and publish it to Azure.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
@@ -18,9 +18,9 @@ ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to publish a Service Fabric Mesh app to Azure.
 ---
 
-# Tutorial: Publish an Azure Service Fabric application
+# Tutorial: Publish an Azure Service Fabric Mesh application
 
-This tutorial is part three of a series and shows you how to deploy an Azure Service Fabric application to a new cluster in Azure directly from Visual Studio. 
+This tutorial is part three of a series and shows you how to deploy an Azure Service Fabric Mesh application to a new cluster in Azure directly from Visual Studio. 
 
 In this tutorial you learn how to:
 > [!div class="checklist"]
@@ -32,11 +32,11 @@ In this tutorial you learn how to:
 
 In this tutorial series, you learn how to:
 > [!div class="checklist"]
-> * [Build a Service Fabric application](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * [Build a Service Fabric Mesh application](service-fabric-mesh-tutorial-create-dotnetcore.md)
 > * [Debug the app locally](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * Publish the app to Azure
 
-You'll learn how to create an Azure Service Fabric app that has an ASP.NET web front end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster and publish the app to Azure. When you're finished, you'll have a simple to-do app that demonstrates how to make a service-to-service call in a Service Fabric application.
+You'll learn how to create an Azure Service Fabric Mesh app that has an ASP.NET web front end and an ASP.NET Core Web API back-end service. Then you'll debug the app on your local development cluster and publish the app to Azure. When you're finished, you'll have a simple to-do app that demonstrates how to make a service-to-service call in a Service Fabric Mesh application.
 
 ## Prerequisites
 
@@ -173,7 +173,7 @@ In this part of the tutorial, you learned:
 > * See the application logs
 > * Clean up the resources used by the app.
 
-Now that you have completed publishing a Service Fabric application to Azure, try the following:
+Now that you have completed publishing a Service Fabric Mesh application to Azure, try the following:
 
 * Explore the [Voting app sample](https://github.com/Azure/service-fabric-mesh-preview-pr/tree/master/samples/src/votingapp) to see another example of service-to-service communication.
 * Read [Service Fabric resources](service-fabric-mesh-service-fabric-resources.md)
