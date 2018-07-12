@@ -41,12 +41,12 @@ Create a Traffic manager profile that directs user traffic based on endpoint [pr
     | Location                | Select **East US**.  This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that will be deployed globally.                              |
     |
   
-    ![Create a Traffic Manager profile](./media/traffic-manager-create-profile/traffic-manager-profile2.png)
+    ![Create a Traffic Manager profile](./media/traffic-manager-create-profile/traffic-manager-profile.png)
     *Figure: Create a Traffic Manager profile*
 
 ## Create Web Apps
 
-In this section, you create Web Apps in different Azure regions - *West US* and *East Europe*. These Web App later serve as primary and backup service endpoints for the Traffic Manager profile.
+In this section, you create Web Apps in different Azure regions - *West US* and *East Europe*. These Web Apps later serve as primary and backup service endpoints for the Traffic Manager profile.
 
 1. On the top left-hand side of the screen, select **Create a resource** > **Web** > **Web App** > **Create**.
 2. In **Web App**, enter or select the following information:
@@ -59,15 +59,15 @@ In this section, you create Web Apps in different Azure regions - *West US* and 
      |      Location  |   East US        |
     |||
 
-3. Select **OK**.
-4. Repeat steps 1-3 to create another Web App in the West Europe location, in a new Resource Group named *MyResourceGroupTM2*, and service plan name *myAppServicePlanWestEurope* in the **West Europe** location.
+3. Select **Create**.
+4. Repeat steps 1-3 to create another Web App in the **West Europe** location, in a new Resource Group named *MyResourceGroupTM2*, and with a service plan name *myAppServicePlanWestEurope*.
 
     ![Create a Web App](./media/traffic-manager-create-profile/create-web-app.png)
     *Figure: Create a Web App*
 
 ## Add Traffic Manager endpoints
 
-In this section, you add the Web App in the *West US** as the primary endpoint and the app located in **East US** as a secondary endpoint to your Traffic manager profile. All traffic is routed to the primary endpoint while the secondary endpoint is kept as a backup. When the primary endpoint is unavailable, traffic is automatically routed to the secondary endpoint.
+In this section, you add the Web App in the **West US** as the primary endpoint and the app located in **East US** as a backup endpoint to your Traffic manager profile. All traffic is routed to the primary endpoint while the secondary endpoint is kept as a backup. When the primary endpoint is unavailable, traffic is automatically routed to the secondary endpoint.
 
 1. In the portal’s search bar, search for the Traffic Manager profile name that you created in the preceding section and select the profile in the results that the displayed.
 2. In **Traffic Manager profile**, in the **Settings** section, click **Endpoints**, and then click **Add**.
