@@ -17,7 +17,7 @@ ms.date: 07/10/2018
 ms.author: kumud
 ---
 
-# Quickstart: Create a Traffic Manager profile for highly available Web App
+# Quickstart: Create a highly available Web App using Traffic Manager
 
  Azure Traffic Manager allows you to control the distribution of user traffic to service endpoints across the different Azure regions. This quickstart describes how to create a Traffic Manager profile that delivers high availability of your web application. Traffic Manager accomplishes this by monitoring your service endpoints and providing automatic failover when an endpoint goes down.
 
@@ -53,7 +53,7 @@ In this section, you create Web Apps in different Azure regions - *West US* and 
 
      | Setting         | Value     |
      | ---              | ---  |
-     | Name           | Enter a unique name for your Web App  |
+     | Name           | Enter a unique name for your web app  |
      | Resource group          | Select **Existing**, and the select *myResourceGroupTM1* |
      | App Service plan/Location         | Select **New**.  In the App Service plan, enter  *myAppServicePlanEastUS*, and then select **OK**. 
      |      Location  |   East US        |
