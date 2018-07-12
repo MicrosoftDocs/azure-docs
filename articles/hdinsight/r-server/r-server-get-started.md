@@ -1,6 +1,6 @@
 ---
 title: Get started with ML Services on HDInsight - Azure | Microsoft Docs
-description: Learn how to create an Apache Spark on HDInsight cluster that includes ML Server and submit an R script on the cluster.
+description: Learn how to create an Apache Spark on HDInsight cluster that includes ML Services and submit an R script on the cluster.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -14,14 +14,13 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/23/2018
+ms.date: 06/27/2018
 ms.author: nitinme
 
 ---
 # Get started with ML Services on Azure HDInsight
 
-Azure HDInsight enables you to create an ML Services cluster. This option allows R scripts to use Spark and MapReduce to run distributed computations. In this article, you learn how to create an ML Service cluster on HDInsightand how to run an R script that demonstrates using Spark for distributed R computations.
-
+Azure HDInsight enables you to create an ML Services cluster. This option allows R scripts to use Spark and MapReduce to run distributed computations. In this article, you learn how to create an ML Service cluster on HDInsight and how to run an R script that demonstrates using Spark for distributed R computations.
 
 ## Prerequisites
 
@@ -190,7 +189,7 @@ Once connected, you get at a prompt similar to the following:
 	sshuser@ed00-myrclu:~$
 
 <a name="use-r-console"></a>
-## Use the ML Server console
+## Use the R console
 
 1. From the SSH session, use the following command to start the R console:  
 

@@ -11,7 +11,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 06/27/2018
 ms.author: nitinme
 
 ---
@@ -26,6 +26,9 @@ After you have used ML Services cluster in HDInsight to complete your data model
 * **A Secure Shell (SSH) client**: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Operationalize ML Services cluster with one-box configuration
+
+> [!NOTE]
+> The steps below are applicable to R Server 9.0 and ML Server 9.1. For ML Server 9.3, refer to [Use the administration tool to manage the operationalization configuration](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. SSH into the edge node.
 
@@ -188,6 +191,6 @@ Once all decommissioned worker nodes are configured to run compute node, come ba
 
 ## Next steps
 
-* [Manage ML Server cluster on HDInsight](r-server-hdinsight-manage.md)
-* [Compute context options for ML Server cluster on HDInsight](r-server-compute-contexts.md)
-* [Azure Storage options for ML Server cluster on HDInsight](r-server-storage.md)
+* [Manage ML Services cluster on HDInsight](r-server-hdinsight-manage.md)
+* [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md)
+* [Azure Storage options for ML Services cluster on HDInsight](r-server-storage.md)

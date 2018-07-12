@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 06/27/2018
 ms.author: aljo
 
 ---
@@ -24,6 +24,12 @@ This document tells you how to customize the various fabric settings and the fab
 > [!NOTE]
 > Not all settings are available in the portal. In case a setting listed below is not available via the portal customize it using an Azure Resource Manager template.
 > 
+
+## Description of the different upgrade policies
+
+- **Dynamic** – Changes to a dynamic configuration do not cause any process restarts of either Service Fabric processes or your service host processes. 
+- **Static** – Changes to a static configuration will cause the Service Fabric node to restart in order to consume the change. Services on the nodes will be restarted.
+- **NotAllowed** – These settings cannot be modified. Changing these settings requires that the cluster be destroyed and a new cluster created. 
 
 ## Customize cluster settings using Resource Manager templates
 The steps below illustrate how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section.
@@ -160,7 +166,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |HealthReportSendInterval |Time in seconds, default is 30 |Dynamic|Specify timespan in seconds. The interval at which reporting component sends accumulated health reports to Health Manager. |
 |KeepAliveIntervalInSeconds |Int, default is 20 |Static|The interval at which the FabricClient transport sends keep-alive messages to the gateway. For 0; keepAlive is disabled. Must be a positive value. |
 |MaxFileSenderThreads |Uint, default is 10 |Static|The max number of files that are transferred in parallel. |
-|NodeAddresses |string, default is "" |Static|A collection of addresses (connection strings) on different nodes that can be used to communicate with the the Naming Service. Initially the Client connects selecting one of the addresses randomly. If more than one connection string is supplied and a connection fails because of a communication or timeout error; the Client switches to use the next address sequentially. See the Naming Service Address retry section for details on retries semantics. |
+|NodeAddresses |string, default is "" |Static|A collection of addresses (connection strings) on different nodes that can be used to communicate with the Naming Service. Initially the Client connects selecting one of the addresses randomly. If more than one connection string is supplied and a connection fails because of a communication or timeout error; the Client switches to use the next address sequentially. See the Naming Service Address retry section for details on retries semantics. |
 |PartitionLocationCacheLimit |Int, default is 100000 |Static|Number of partitions cached for service resolution (set to 0 for no limit). |
 |RetryBackoffInterval |Time in seconds, default is 3 |Dynamic|Specify timespan in seconds. The back-off interval before retrying the operation. |
 |ServiceChangePollInterval |Time in seconds, default is 120 |Dynamic|Specify timespan in seconds. The interval between consecutive polls for service changes from the client to the gateway for registered service change notifications callbacks. |
@@ -743,6 +749,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |FabricLogRoot |String | Not Allowed |Service fabric log root directory. This is where SF logs and traces are placed. |
 |NodesToBeRemoved|string, default is ""| Dynamic |The nodes which should be removed as part of configuration upgrade. (Only for Standalone Deployments)|
 |ServiceRunAsAccountName |String | Not Allowed |The account name under which to run fabric host service. |
+|SkipContainerNetworkResetOnReboot|bool, default is FALSE|NotAllowed|Whether to skip resetting container network on reboot.|
 |SkipFirewallConfiguration |Bool, default is false | Not Allowed |Specifies if firewall settings need to be set by the system or not. This applies only if you are using windows firewall. If you are using third party firewalls, then you must open the ports for the system and applications to use |
 
 ## TokenValidationService

@@ -12,7 +12,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 06/27/2018
 ms.author: nitinme
 
 ---
@@ -23,7 +23,7 @@ ML Services on Azure HDInsight controls how calls are executed by setting the co
 The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of RevoScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using RevoScaleR’s Hadoop Map Reduce or Spark compute contexts.
 
 ## ML Services on Azure HDInsight
-[ML Services on Azure HDInsight](r-server-overview.md) provides the latest capabilities for R-based analytics. It can use data that is stored in an HDFS container in your [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage account, a Data Lake store, or the local Linux file system. Since ML Server is built on open source R, the R-based applications you build can apply any of the 8000+ open source R packages. They can also use the routines in [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsoft’s big data analytics package that is included with ML Services.  
+[ML Services on Azure HDInsight](r-server-overview.md) provides the latest capabilities for R-based analytics. It can use data that is stored in an HDFS container in your [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage account, a Data Lake store, or the local Linux file system. Since ML Services is built on open source R, the R-based applications you build can apply any of the 8000+ open source R packages. They can also use the routines in [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsoft’s big data analytics package that is included with ML Services.  
 
 ## Compute contexts for an edge node
 In general, an R script that's run in ML Services cluster on the edge node runs within the R interpreter on that node. The exceptions are those steps that call a RevoScaleR function. The RevoScaleR calls run in a compute environment that is determined by how you set the RevoScaleR compute context.  When you run your R script from an edge node, the possible values of the compute context are:

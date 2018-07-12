@@ -1,8 +1,8 @@
 ---
 title: How to use the Azure Maps Map Control | Microsoft Docs 
 description: Learn how to use the Azure Maps Map Control client-side Javascript library.
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
@@ -43,7 +43,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
             var MapsAccountKey = "<_your account key_>";
             var map = new atlas.Map("map", {
                 "subscription-key": MapsAccountKey,
-                center: [47.59093,-122.33263],
+                center: [-122.33263,47.59093],
                 zoom: 12
             });
         </script>

@@ -3,7 +3,7 @@ title: How to create Windows Azure VM Images with Packer | Microsoft Docs
 description: Learn how to use Packer to create images of Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
-ms.author: iainfou
+ms.author: cynthn
 ---
 
 # How to use Packer to create Windows virtual machine images in Azure
@@ -90,8 +90,8 @@ Create a file named *windows.json* and paste the following content. Enter your o
     "image_sku": "2016-Datacenter",
 
     "communicator": "winrm",
-    "winrm_use_ssl": "true",
-    "winrm_insecure": "true",
+    "winrm_use_ssl": true,
+    "winrm_insecure": true,
     "winrm_timeout": "3m",
     "winrm_username": "packer",
 

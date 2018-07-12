@@ -340,7 +340,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Trigger - event metadata
 
-The Event Hubs trigger provides several [metadata properties](functions-triggers-bindings.md#binding-expressions---trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [EventData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata) class.
+The Event Hubs trigger provides several [metadata properties](functions-triggers-bindings.md#binding-expressions---trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -363,6 +363,8 @@ The [host.json](functions-host-json.md#eventhub) file contains settings that con
 ## Output
 
 Use the Event Hubs output binding to write events to an event stream. You must have send permission to an event hub to write events to it.
+
+Ensure the required package references are in place: [Functions 1.x](#packages---functions-1.x) or [Functions 2.x](#packages---functions-2.x) 
 
 ## Output - example
 

@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 07/11/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 ---
@@ -25,7 +25,7 @@ This article provides Azure Stack network infrastructure information to help you
 > To resolve external DNS names from Azure Stack (for example, www.bing.com), you need to provide DNS servers to forward DNS requests. For more information about Azure Stack DNS requirements, see [Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md).
 
 ## Physical network design
-The Azure Stack solution requires a resilient and highly available physical infrastructure to support its operation and services. The following diagram represents our recommended design:
+The Azure Stack solution requires a resilient and highly available physical infrastructure to support its operation and services. Uplinks from ToR to Border switches are limited to SFP+ media and 1 GB or 10 GB speeds. Check with your original equipment manufacturer (OEM) hardware vendor for availability. The following diagram represents our recommended design:
 
 ![Recommended Azure Stack network design](media/azure-stack-network/recommended-design.png)
 
@@ -50,14 +50,14 @@ The network infrastructure for Azure Stack consists of several logical networks 
 ![Logical network diagram and switch connections](media/azure-stack-network/NetworkDiagram.png)
 
 ### BMC network
-This network is dedicated to connecting all the baseboard management controllers (also known as service processors, for example, iDRAC, iLO, iBMC, etc.) to the management network. If present, the Hardware Lifecycle Host (HLH) is located on this network and may provide OEM specific software for hardware maintenance or monitoring. 
+This network is dedicated to connecting all the baseboard management controllers (also known as service processors, for example, iDRAC, iLO, iBMC, etc.) to the management network. If present, the Hardware Lifecycle Host (HLH) is located on this network and may provide OEM-specific software for hardware maintenance or monitoring. 
 
-The HLH also hosts the Deployment VM (DVM). The DVM is used during Azure Stack deployment and is removed when deployment completes. The DVM requires internet access in connected deployment scenarios to test, validate, and access multiple components. These components can be inside and outside of your corporate network; for example NTP, DNS, and Azure. For more information about connectivity requirements, see the [NAT section in Azure Stack firewall integration](azure-stack-firewall.md#network-address-translation). 
+The HLH also hosts the Deployment VM (DVM). The DVM is used during Azure Stack deployment and is removed when deployment completes. The DVM requires internet access in connected deployment scenarios to test, validate, and access multiple components. These components can be inside and outside of your corporate network; for example, NTP, DNS, and Azure. For more information about connectivity requirements, see the [NAT section in Azure Stack firewall integration](azure-stack-firewall.md#network-address-translation). 
 
 ### Private network
-This /24 (254 host IP’s) network is private to the Azure Stack region (does not expand beyond the border switch devices of the Azure Stack region) and is divided into two subnets:
+This /24 (254 host IPs) network is private to the Azure Stack region (does not expand beyond the border switch devices of the Azure Stack region) and is divided into two subnets:
 
-- **Storage network**. A /25 (126 host IP’s) network used to support the use of Spaces Direct and Server Message Block (SMB) storage traffic and virtual machine live migration. 
+- **Storage network**. A /25 (126 host IPs) network used to support the use of Spaces Direct and Server Message Block (SMB) storage traffic and virtual machine live migration. 
 - **Internal virtual IP network**. A /25 network dedicated to internal-only VIPs for the software load balancer.
 
 ### Azure Stack infrastructure network
@@ -70,7 +70,7 @@ This /27 network is the small range from the Azure Stack infrastructure subnet m
 The Public VIP Network is assigned to the network controller in Azure Stack. It’s not a logical network on the switch. The SLB uses the pool of addresses and assigns /32 networks for tenant workloads. On the switch routing table, these /32 IPs are advertised as an available route via BGP. This network contains the external-accessible or public IP addresses. The Azure Stack infrastructure reserves the first 31 addresses from this Public VIP Network while the remainder is used by tenant VMs. The network size on this subnet can range from a minimum of /26 (64 hosts) to a maximum of /22 (1022 hosts), we recommend that you plan for a /24 network.
 
 ### Switch infrastructure network
-This /26 network is the subnet that contains the routable point-to-point IP /30 (2 host IP’s) subnets and the loopbacks which are dedicated /32 subnets for in-band switch management and BGP router ID. This range of IP addresses must be routable externally of the Azure Stack solution to your datacenter, they may be private or public IPs.
+This /26 network is the subnet that contains the routable point-to-point IP /30 (2 host IPs) subnets and the loopbacks, which are dedicated /32 subnets for in-band switch management and BGP router ID. This range of IP addresses must be routable externally of the Azure Stack solution to your datacenter, they may be private or public IPs.
 
 ### Switch management network
 This /29 (6 host IPs) network is dedicated to connecting the management ports of the switches. It allows out-of-band access for deployment, management, and troubleshooting. It is calculated from the switch infrastructure network mentioned above.

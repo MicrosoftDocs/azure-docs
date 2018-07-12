@@ -1,9 +1,9 @@
-﻿---
-title: Scale an Azure Service Fabric cluster | Microsoft Docs
-description: In this tutorial, you learn how to quickly scale a Service Fabric cluster.
+---
+title: Scale a Service Fabric cluster in Azure | Microsoft Docs
+description: In this tutorial, you learn how to quickly scale a Service Fabric cluster in Azure.
 services: service-fabric
 documentationcenter: .net
-author: Thraka
+author: rwike77
 manager: timlt
 editor: ''
 
@@ -14,11 +14,10 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/06/2018
-ms.author: adegeo
+ms.author: ryanwi
 ms.custom: mvc
 ---
-
-# Tutorial: scale a Service Fabric cluster
+# Tutorial: Scale a Service Fabric cluster in Azure
 
 This tutorial is part two of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
 
@@ -37,14 +36,17 @@ In this tutorial series you learn how to:
 > * [Deploy API Management with Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## Prerequisites
+
 Before you begin this tutorial:
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI 2.0](/cli/azure/install-azure-cli).
-- Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure
-- If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2017](http://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
-- If you deploy a Linux cluster, set up a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli.md). 
+
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) or [Azure CLI 2.0](/cli/azure/install-azure-cli).
+* Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) or [Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) on Azure
+* If you deploy a Windows cluster, set up a Windows development environment. Install [Visual Studio 2017](http://www.visualstudio.com) and the **Azure development**, **ASP.NET and web development**, and **.NET Core cross-platform development** workloads.  Then set up a [.NET development environment](service-fabric-get-started.md).
+* If you deploy a Linux cluster, set up a Java development environment on [Linux](service-fabric-get-started-linux.md) or [MacOS](service-fabric-get-started-mac.md).  Install the [Service Fabric CLI](service-fabric-cli.md).
 
 ## Sign in to Azure
+
 Sign in to your Azure account select your subscription before you execute Azure commands.
 
 ```powershell
@@ -114,7 +116,7 @@ Scaling in is the same as scaling out, except you use a lower **capacity** value
 > [!NOTE]
 > This part only applies to the *Bronze* durability tier. For more information about durability, see [Service Fabric cluster capacity planning][durability].
 
-When you scale in a virtual machine scale set, the scale set (in most cases) removes the virtual machine instance that was last created. So you need to find the matching, last created, service fabric node. You can find this last node by checking the biggest `NodeInstanceId` property value on the service fabric nodes. The code examples below sort by the node instance and return the details about the instance with the largest id value. 
+When you scale in a virtual machine scale set, the scale set (in most cases) removes the virtual machine instance that was last created. So you need to find the matching, last created, service fabric node. You can find this last node by checking the biggest `NodeInstanceId` property value on the service fabric nodes. The code examples below sort by the node instance and return the details about the instance with the largest id value.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
@@ -176,7 +178,7 @@ else
     # Stop node
     $stopid = New-Guid
     Start-ServiceFabricNodeTransition -Stop -OperationId $stopid -NodeName $nodename -NodeInstanceId $nodeid -StopDurationInSeconds 300
-    
+
     $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
     $loopTimeout = 10
 
@@ -187,7 +189,7 @@ else
         $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
         Write-Host "Checking state... $state found"
     }
-    
+
     if ($state -ne [System.Fabric.TestCommandProgressState]::Completed)
     {
         Write-Error "Stop transaction failed with $state"
@@ -216,13 +218,12 @@ sfctl node remove-state --node-name _nt1vm_5
 > [!TIP]
 > Use the following **sfctl** queries to check the status of each step
 >
-> **Check deactivation status**  
+> **Check deactivation status**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **Check stop status**  
+> **Check stop status**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
-
 
 ### Scale in the scale set
 
@@ -245,7 +246,6 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 ```
 
-
 ## Next steps
 
 In this tutorial, you learned how to:
@@ -254,7 +254,6 @@ In this tutorial, you learned how to:
 > * Read the cluster node count
 > * Add cluster nodes (scale out)
 > * Remove cluster nodes (scale in)
-
 
 Next, advance to the following tutorial to learn how to upgrade the runtime of a cluster.
 > [!div class="nextstepaction"]

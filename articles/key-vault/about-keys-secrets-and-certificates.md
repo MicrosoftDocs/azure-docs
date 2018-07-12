@@ -119,7 +119,7 @@ The initial Azure Key Vault release supports RSA keys only; future releases may 
 -   **RSA**: A 2048-bit RSA key. This is a "soft" key, which is processed in software by Key Vault but is stored encrypted at rest using a system key that is in an HSM. Clients may import an existing RSA key or request that Azure Key Vault generate one.  
 -   **RSA-HSM**: An RSA key that is processed in an HSM. RSA-HSM keys are protected in one of the Azure Key Vault HSM Security Worlds (there is a Security World per geography to maintain isolation). Clients may import an RSA key, either in soft form or by exporting from a compatible HSM device, or request that Azure Key Vault generate one. This key type adds the T attribute to the JWK obtain to carry the HSM key material.  
 
-     For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/en-us/support/trust-center/privacy/)  
+     For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
 ###  <a name="BKMK_RSAAlgorithms"></a> RSA algorithms  
  The following algorithm identifiers are supported with RSA keys in Azure Key Vault.  
@@ -169,7 +169,7 @@ Azure Key Vault supports the following operations on key objects:
 -   **Backup**: Exports a key in a protected form.  
 -   **Restore**: Imports a previously backed up key.  
 
-For more information, see [Key operations](/rest/api/keyvault/key-operations.md)  
+For more information, see [Key operations](/rest/api/keyvault/key-operations).  
 
 Once a key has been created in Azure Key Vault, the following cryptographic operations may be performed using the key:  
 
@@ -279,7 +279,7 @@ The following permissions can be used, on a per-principal basis, in the secrets 
 -   *delete*: Delete the secret  
 -   *all*: All permissions  
 
-For more information on working with secrets, see [Secret operations](/rest/api/keyvault/secret-operations.md).  
+For more information on working with secrets, see [Secret operations](/rest/api/keyvault/secret-operations).  
 
 ###  <a name="BKMK_SecretTags"></a> Secret tags  
 You can specify additional application-specific metadata in the form of tags. Azure Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
@@ -441,9 +441,9 @@ If a certificate's policy is set to auto-renewal, then a notification is sent on
 
 ## Additional information for certificates
 
-- [Certificates and policies](/rest/api/keyvault/certificates-and-policies.md)
-- [Certificate issuers](/rest/api/keyvault/certificate-issuers.md)
-- [Certificate contacts](/rest/api/keyvault/certificate-contacts.md)
+- [Certificates and policies](/rest/api/keyvault/certificates-and-policies)
+- [Certificate issuers](/rest/api/keyvault/certificate-issuers)
+- [Certificate contacts](/rest/api/keyvault/certificate-contacts)
 
 ## See Also
 

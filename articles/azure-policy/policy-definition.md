@@ -186,9 +186,12 @@ A condition evaluates whether a **field** meets certain criteria. The supported 
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-When using the **like** and **notLike** conditions, you can provide a wildcard (*) in the value. The value should not contain more than 1 wildcard (*).
+When using the **like** and **notLike** conditions, you can provide a wildcard `*` in the value.
+The value should not contain more than one wildcard `*`.
 
-When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Allow multiple name patterns](scripts/allow-multiple-name-patterns.md).
+When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a
+letter, and any other character to represent that actual character. For examples, see [Allow
+multiple name patterns](scripts/allow-multiple-name-patterns.md).
 
 ### Fields
 
@@ -203,9 +206,13 @@ The following fields are supported:
 - `type`
 - `location`
 - `tags`
-- `tags.tagName`
-- `tags[tagName]`
-  - This bracket syntax supports tag names that contain periods
+- `tags.<tagName>`
+  - Where **\<tagName\>** is the name of the tag to validate the condition for.
+  - Example: `tags.CostCenter` where **CostCenter** is the name of the tag.
+- `tags[<tagName>]`
+  - This bracket syntax supports tag names that contain periods.
+  - Where **\<tagName\>** is the name of the tag to validate the condition for.
+  - Example: `tags.[Acct.CostCenter]` where **Acct.CostCenter** is the name of the tag.
 - property aliases - for a list, see [Aliases](#aliases).
 
 ### Alternative Accessors
@@ -310,7 +317,7 @@ The list of aliases is always growing. To discover what aliases are currently su
 
 ## Initiatives
 
-Initiatives enable you group several related policy definitions to simplify assignments and management because you work with a group as a single item. For example, you can group all related tagging policy definitions in a single initiative. Rather than assigning each policy individually, you apply the initiative.
+Initiatives enable you to group several related policy definitions to simplify assignments and management because you work with a group as a single item. For example, you can group all related tagging policy definitions in a single initiative. Rather than assigning each policy individually, you apply the initiative.
 
 The following example illustrates how to create an initiative for handling two tags: `costCenter` and `productName`. It uses two built-in policies to apply the default tag value.
 

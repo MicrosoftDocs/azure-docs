@@ -9,12 +9,11 @@ ms.reviewer: joflore
 
 ms.assetid: 8e521099-bf7d-43ab-a0e0-86aa1c9e577e
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: jeedes
 
 ---
@@ -98,35 +97,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Single sign-on dialog box](./media/manabipocket-tutorial/tutorial_manabipocket_samlbase.png)
 
-3. On the **Manabi Pocket Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
+3. On the **Manabi Pocket Domain and URLs** section, perform the following steps:
 
 	![Manabi Pocket Domain and URLs single sign-on information](./media/manabipocket-tutorial/tutorial_manabipocket_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
-	
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/assertion_post`
+    a. In the **Sign-on URL** textbox, type the URL: `https://ed-cl.com/`
+
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Manabi Pocket Client support team](mailto:info-ed-cl@ntt.com) to get these values.
+	> The Identifier value is not real. Update this value with the actual Identifier . Contact [Manabi Pocket Client support team](mailto:info-ed-cl@ntt.com) to get this value.
 
-4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-	![Manabi Pocket Domain and URLs single sign-on information](./media/manabipocket-tutorial/tutorial_manabipocket_url1.png)
-
-    In the **Sign-on URL** textbox, type the URL: `https://ed-cl.com/`
-
-5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
 	![The Certificate download link](./media/manabipocket-tutorial/tutorial_manabipocket_certificate.png) 
 
-6. Click **Save** button.
+5. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/manabipocket-tutorial/tutorial_general_400.png)
 
-7. To configure single sign-on on **Manabi Pocket** side, you need to send the downloaded **Metadata XML** to [Manabi Pocket support team](mailto:info-ed-cl@ntt.com). They set this setting to have the SAML SSO connection set properly on both sides.
+6. To configure single sign-on on **Manabi Pocket** side, you need to send the downloaded **Metadata XML** to [Manabi Pocket support team](mailto:info-ed-cl@ntt.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -193,7 +186,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
@@ -219,4 +212,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/manabipocket-tutorial/tutorial_general_201.png
 [202]: ./media/manabipocket-tutorial/tutorial_general_202.png
 [203]: ./media/manabipocket-tutorial/tutorial_general_203.png
-

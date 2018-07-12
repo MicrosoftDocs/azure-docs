@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 07/09/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -16,9 +16,6 @@ manager: craigg
 ---
 # Run an SSIS package with the Execute SSIS Package Activity in Azure Data Factory
 This article describes how to run an SSIS package in an Azure Data Factory pipeline by using an Execute SSIS Package activity. 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. The Execute SSIS Package Activity is not available in version 1 of the Data Factory service, which is generally available (GA). For an alternative method to run an SSIS package with version 1 of the Data Factory service, see [Run SSIS packages using stored procedure activity in version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## Prerequisites
 
@@ -53,7 +50,7 @@ First step is to create a data factory by using the Azure portal.
       - Select **Create new**, and enter the name of a resource group.   
          
     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2 (Preview)** for the **version**.
+4. Select **V2** for the **version**.
 5. Select the **location** for the data factory. Only locations that are supported by Data Factory are shown in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other locations.
 6. Select **Pin to dashboard**.     
 7. Click **Create**.
@@ -89,9 +86,11 @@ In this step, you use the Data Factory UI to create a pipeline. You add an Execu
 
 ### Optionally, parameterize the activity
 
-Optionally, assign values, expressions, or functions, which can refer to Data Factory system variables, to your project or package parameters in JSON format on the **Advanced** tab. For example, you can assign Data Factory pipeline parameters to your SSIS project or package parameters as shown in the following screenshot:
+Optionally, assign values, expressions, or functions, which can refer to Data Factory system variables, to your project or package parameters in JSON format by using the **View Source Code** button on the bottom of the Execute SSIS Package activity box, or the **Code** button on the top right-hand corner of the pipeline area. For example, you can assign Data Factory pipeline parameters to your SSIS project or package parameters as shown in the following screenshots:
 
-![Add parameters to the Execute SSIS Package activity](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+![Edit JSON script for Execute SSIS Package activity](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![Add parameters to the Execute SSIS Package activity](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ### Run and monitor the pipeline
 In this section, you trigger a pipeline run and then monitor it. 
@@ -171,7 +170,7 @@ Note the following points:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * To create Data Factory instances, the user account you use to log in to Azure must be a member of **contributor** or **owner** roles, or an **administrator** of the Azure subscription.
-* Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, West Europe, and Southeast Asia regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+* For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
 ### Create a pipeline with an SSIS activity 
 In this step, you create a pipeline with an SSIS activity. The activity runs your SSIS package. 

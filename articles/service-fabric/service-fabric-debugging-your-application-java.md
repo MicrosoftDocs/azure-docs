@@ -28,7 +28,7 @@ ms.author: suhuruli
 2. Update entryPoint.sh of the service you wish to debug, so that it starts the java process with remote debug parameters. This file can be found at the following location: ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``. Port 8001 is set for debugging in this example.
 
     ```sh
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
 3. Update the Application Manifest by setting the instance count or the replica count for the service that is being debugged to 1. This setting avoids conflicts for the port that is used for debugging. For example, for stateless services, set ``InstanceCount="1"`` and for stateful services set the target and min replica set sizes to 1 as follows: `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
 
