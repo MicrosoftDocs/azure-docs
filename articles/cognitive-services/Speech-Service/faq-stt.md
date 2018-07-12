@@ -52,7 +52,7 @@ When the processing is complete, the status will be "Succeeded".
 
 The old and new data sets must be combined in a single .zip (if it is acoustic data) or a .txt file if it is language data. Once adaptation is done the new updated model needs to be de-deployed to obtain a new endpoint
 
-**Question**: What if I need higher concurrency for my deloyed model than what is offered in the portal. 
+**Question**: What if I need higher concurrency for my deployed model than what is offered in the portal. 
 
 **Answer**: You can scale up your model in increments of 20 concurrent requests. 
 
