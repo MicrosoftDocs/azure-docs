@@ -13,7 +13,7 @@ ms.author: tarcher
 ---
 
 # Create and configure Azure Kubernetes Service clusters with Ansible
-Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your Azure Kubernetes Service. This article shows you how to use Ansible to create and configure an Azure Kubernetes Service (AKS) cluster.
+Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your Azure Kubernetes Service (AKS). This article shows you how to use Ansible to create and configure an Azure Kubernetes Service cluster.
 
 ## Prerequisites
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
@@ -27,50 +27,51 @@ Ansible allows you to automate the deployment and configuration of resources in 
 > [!Note]
 > Ansible 2.6 is required to run the following the sample playbooks in this tutorial. 
 
-## Create a managed Azure Kubernetes Service cluster
+## Create a managed AKS cluster
+The following sample Ansible playbook creates a resource group and the AKS cluster that resides in the resource group:
 
-Ansible needs a resource group to deploy all your resources into. The first section in the sample Ansible playbook creates a resource group named **myResourceGroup** in the **eastus** location. The second section in the sample playbook creates an Azure Kubernetes Service named **myAKSCluster** in the resource group we created above.
+  ```yaml
+  - name: Create Azure Kubernetes Service
+    hosts: localhost
+    connection: local
+    vars:
+      resource_group: myResourceGroup
+      location: eastus
+      aks_name: myAKSCluster
+      username: azureuser
+      ssh_key: "your_ssh_key"
+      client_id: "your_client_id"
+      client_secret: "your_client_secret"
+    tasks:
+    - name: Create resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
+    - name: Create a managed Azure Container Services (AKS) cluster
+      azure_rm_aks:
+        name: "{{ aks_name }}"
+        location: "{{ location }}"
+        resource_group: "{{ resource_group }}"
+        dns_prefix: "{{ aks_name }}"
+        linux_profile:
+          admin_username: "{{ username }}"
+          ssh_key: "{{ ssh_key }}"
+        service_principal:
+          client_id: "{{ client_id }}"
+          client_secret: "{{ client_secret }}"
+        agent_pool_profiles:
+          - name: default
+            count: 2
+            vm_size: Standard_D2_v2
+        tags:
+          Environment: Production
+  ```
 
-Enter your own `ssh_key`, `client_id`, and `client_secret` in the **service_principal** block:
+The following bullets help to explain the preceding Ansible playbook code:
+- The first section within **tasks** defines a resource group named **myResourceGroup** within the **eastus** location. 
+- The second section within **tasks** defines an AKS cluster named **myAKSCluster** within the **myResourceGroup** resource group. 
 
-```yaml
-- name: Create Azure Kubernetes Service
-  hosts: localhost
-  connection: local
-  vars:
-    resource_group: myResourceGroup
-    location: eastus
-    aks_name: myAKSCluster
-    username: azureuser
-    ssh_key: "your_ssh_key"
-    client_id: "your_client_id"
-    client_secret: "your_client_secret"
-  tasks:
-  - name: Create resource group
-    azure_rm_resourcegroup:
-      name: "{{ resource_group }}"
-      location: "{{ location }}"
-  - name: Create a managed Azure Container Services (AKS) cluster
-    azure_rm_aks:
-      name: "{{ aks_name }}"
-      location: "{{ location }}"
-      resource_group: "{{ resource_group }}"
-      dns_prefix: "{{ aks_name }}"
-      linux_profile:
-        admin_username: "{{ username }}"
-        ssh_key: "{{ ssh_key }}"
-      service_principal:
-        client_id: "{{ client_id }}"
-        client_secret: "{{ client_secret }}"
-      agent_pool_profiles:
-        - name: default
-          count: 2
-          vm_size: Standard_D2_v2
-      tags:
-        Environment: Production
-```
-
-To create the Azure Kubernetes Service with Ansible, save the preceding sample playbook as `azure_create_aks.yml`, and run the playbook with the following command:
+To create the AKS cluster with Ansible, save the preceding sample playbook as `azure_create_aks.yml`, and run the playbook with the following command:
 
   ```bash
   ansible-playbook azure_create_aks.yml
@@ -94,9 +95,9 @@ The output from the **ansible-playbook* command looks similar to the following s
   localhost                  : ok=3    changed=2    unreachable=0    failed=0
   ```
 
-## Scale Azure Kubernetes Service nodes
+## Scale AKS nodes
 
-The sample playbook in the previous section defines two nodes. If you need fewer or more container workloads on your cluster, you can easily adjust the number of nodes. The sample playbook in this section increases the number of nodes from two nodes to three. This is done by changing the **count** value in the **agent_pool_profiles** block. 
+The sample playbook in the previous section defines two nodes. If you need fewer or more container workloads on your cluster, you can easily adjust the number of nodes. The sample playbook in this section increases the number of nodes from two nodes to three. Modifying the node count is done by changing the **count** value in the **agent_pool_profiles** block. 
 
 Enter your own `ssh_key`, `client_id`, and `client_secret` in the **service_principal** block:
 
@@ -137,7 +138,7 @@ To scale the Azure Kubernetes Service cluster with Ansible, save the preceding p
   ansible-playbook azure_configure_aks.yml
   ```
 
-The output looks similar to the following that shows that the AKS cluster has been successfully created:
+The following output shows that the AKS cluster has been successfully created:
 
   ```bash
   PLAY [Scale AKS cluster] ***************************************************************
