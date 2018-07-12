@@ -91,7 +91,7 @@ View the data coming through the modbus module:
 docker logs -f modbus
 ```
 
-You can also view the telemetry the device is sending by using the [IoT Hub explorer tool](https://github.com/azure/iothub-explorer). 
+You can also view the telemetry the device is sending by using the [IoT Hub explorer tool](https://github.com/azure/iothub-explorer) or the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## Next steps
 

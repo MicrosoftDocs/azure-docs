@@ -119,7 +119,7 @@ Because you defined a skillset, the wizard assumes that you want the source data
 
 In **Customize index**, review the attributes on the fields to see how they are used in an index. Searchable indicates a field can be searched. Retrievable means it can be returned in results. 
 
-Consider clearing Retrievable from the `content` field. In blobs, this field can run into thousands of lines, difficult to read in a tool like **Search Explorer**.
+Consider clearing Retrievable from the `content` field. In blobs, this field can run into thousands of lines, difficult to read in a tool like **Search explorer**.
 
 Click **OK** to accept the index definition.
 
@@ -142,11 +142,11 @@ Click **OK** to import, enrich, and index the data.
 
 Indexing and enrichment can take time, which is why smaller data sets are recommended for early exploration. You can monitor indexing in the Notifications page of the Azure portal. 
 
-## Query in Search Explorer
+## Query in Search explorer
 
-After an index is created, you can submit queries to return documents from the index. In the portal, use **Search Explorer** to run queries and view results. 
+After an index is created, you can submit queries to return documents from the index. In the portal, use **Search explorer** to run queries and view results. 
 
-1. On the search service dashboard page, click **Search Explorer** on the command bar.
+1. On the search service dashboard page, click **Search explorer** on the command bar.
 
 1. Select **Change Index** at the top to select the index you created.
 

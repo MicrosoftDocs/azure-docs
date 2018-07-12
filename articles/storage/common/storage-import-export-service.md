@@ -7,13 +7,15 @@ services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/11/2018
 ms.author: alkohli
 
 ---
 # What is Azure Import/Export service?
 
 Azure Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disks can be imported either to Azure Blob storage or Azure Files. 
+
+Azure Import/Export service requires you to supply your own disks. If you want to transfer data using disks supplied by Microsoft, you can use Azure Data Box Disk to import data into Azure. Microsoft ships up to 5 encrypted solid-state disks (SSDs) with a 40 TB capacity per order, to your datacenter through a regional carrier. You can quickly configure disks, copy data to disks over a USB 3.0 connection, and ship the disks back to Azure. For more information, go to [Azure Data Box Disk overview](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## Azure Import/Export usecases
 
