@@ -18,7 +18,6 @@ ms.reviewer: jeffgo
 ---
 
 # Deploy the SQL Server resource provider on Azure Stack
-
 Use the Azure Stack SQL Server resource provider to expose SQL databases as an Azure Stack service. The SQL resource provider runs as a service on a Windows Server 2016 Server Core virtual machine (VM).
 
 ## Prerequisites
