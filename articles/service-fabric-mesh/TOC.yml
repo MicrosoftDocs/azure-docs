@@ -51,14 +51,14 @@
   items:
   - name: Common questions
     href: service-fabric-mesh-faq.md
+  - name: Sample applications
+    href: https://github.com/Azure-Samples/service-fabric-mesh
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=service-fabric-mesh
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=service-fabric-mesh
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric-mesh
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/service-fabric-mesh/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=service-fabric-mesh
   - name: Regional availability
