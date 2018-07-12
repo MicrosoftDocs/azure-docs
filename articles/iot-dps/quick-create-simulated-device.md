@@ -31,8 +31,10 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-4. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
+4. Open a command prompt or Git Bash. Execute the following command to clone the GitHub repo for the device simulation code sample:
     
+    The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
