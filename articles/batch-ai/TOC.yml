@@ -4,7 +4,7 @@
   items:
   - name: What is Batch AI?
     href: overview.md
-- name: Get started
+- name: Quickstarts
   expanded: true
   items:
   - name: Create cluster - CLI
@@ -12,9 +12,10 @@
   - name: Create cluster - Portal
     href: quickstart-create-cluster-portal.md
   - name: Run training job - CLI
-    href: quickstart-cli.md
-  - name: Run training job - Python
-    href: quickstart-python.md
+    href: quickstart-tensorflow-training-cli.md
+- name: Tutorials
+- name: Samples
+- name: Concepts
 - name: How-to guides
   items:
   - name: Migrate to updated API
