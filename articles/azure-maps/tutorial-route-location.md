@@ -1,8 +1,8 @@
 ---
 title: Find route with Azure Maps | Microsoft Docs
 description: Route to a point of interest using Azure Maps
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
