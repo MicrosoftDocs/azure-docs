@@ -43,7 +43,7 @@ makes the gateway installation unavailable for other resources.
 * When you sign in to the Azure portal and create the gateway resource, 
 you must use the same sign-in account that was previously used to 
 [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md#requirements).
-You must also use the same [Azure subscription](../architecture/cloud-adoption-guide/adoption-intro/subscription-explainer.md) 
+You must also use the same [Azure subscription](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
 that was used to install the gateway. If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
