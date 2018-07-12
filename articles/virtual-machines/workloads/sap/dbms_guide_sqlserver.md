@@ -317,7 +317,7 @@ This document covers several different areas to consider when deploying SQL Serv
 > 
 >
 
-In general you should consider using the most recent SQL Server releases to run SAP workload in Azure IaaS. The latest SQL Server releases offer better integration into some of the Azure services and functionality. Or have changes that optimize operations in an Azure IaaS infrastructure.
+In general, you should consider using the most recent SQL Server releases to run SAP workload in Azure IaaS. The latest SQL Server releases offer better integration into some of the Azure services and functionality. Or have changes that optimize operations in an Azure IaaS infrastructure.
 
 It is recommended to review [this][virtual-machines-sql-server-infrastructure-services] documentation before continuing.
 
@@ -504,7 +504,7 @@ Some considerations using an Availability Group Listener are:
 
 * Using an Availability Group Listener is only possible with Windows Server 2012 or higher as guest OS of the VM. For Windows Server 2012 you need to make sure that this patch is applied: <https://support.microsoft.com/kb/2854082> 
 * For Windows Server 2008 R2, this patch does not exist and Always On would need to be used in the same manner as Database Mirroring by specifying a failover partner in the connections string (done through the SAP default.pfl parameter dbs/mss/server - see SAP Note [965908]).
-* When using an Availability Group Listener, the Database VMs need to be connected to a dedicated Load Balancer. In order to avoid that Azure is assigning new IP addresses in cases where both VMs incidentally are shutdown, one should assign static IP addresses to the network interfaces of those VMs in the Always On configuration (defining a static IP address is described in [this][virtual-networks-reserved-private-ip] article)
+* When using an Availability Group Listener, the Database VMs need to be connected to a dedicated Load Balancer. In order to avoid that Azure is assigning new IP addresses in cases where both VMs incidentally are shut down, one should assign static IP addresses to the network interfaces of those VMs in the Always On configuration (defining a static IP address is described in [this][virtual-networks-reserved-private-ip] article)
 * There are special steps required when building the WSFC cluster configuration where the cluster needs a special IP address assigned, because Azure with its current functionality would assign the cluster name the same IP address as the node the cluster is created on. This means a manual step must be performed to assign a different IP address to the cluster.
 * The Availability Group Listener is going to be created in Azure with TCP/IP endpoints, which are assigned to the VMs running the primary and secondary replicas of the Availability group.
 * There might be a need to secure these endpoints with ACLs.
@@ -537,7 +537,7 @@ In cases where you move SAP SQL Server databases from on-premise into Azure, we 
 - In older SQL Server releases, backup compression did not get efficiency anymore when you encrypted your SQL Server database. This behavior could develop into an issue when your plan was to encrypt your SQL Server database on-premise and then copy a backup into Azure to restore the database in Azure. SQL Server backup compression usually achieves a compression ratio of factor 4.
 - With SQL Server 2016, SQL Server introduced new functionality that allows compressing encrypted databases as well in an efficient manner. See [this blogs](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/) for some details.
  
-As we recommend to treat applying TDE encryption with no to little SAP workload only, you should test in your specific configuration on whether it is better to apply TDE to your SAP database on-premise or do so in Azure. In Azure, you certainly have more flexibility in terms of over-provisioning infrastructure and shrink the infrastructure after TDE got applied.
+Treating the application of TDE encryption with no to little SAP workload only, you should test in your specific configuration on whether it is better to apply TDE to your SAP database on-premise or do so in Azure. In Azure, you certainly have more flexibility in terms of over-provisioning infrastructure and shrink the infrastructure after TDE got applied.
 
 ### Using Azure Key Vault
 Azure offers the service of a [Key Vault](https://azure.microsoft.com/services/key-vault/) to store encryption keys. SQL Server on the other side offer a connector to leverage Azure Key Vault as store for the TDE certificates.
