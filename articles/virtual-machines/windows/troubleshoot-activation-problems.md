@@ -75,7 +75,7 @@ This step does not apply to Windows 2012 or Windows 2008 R2. It uses the Automat
 
 ### Step 2 Verify the connectivity between the VM and Azure KMS service
 
-1. Download and extract the [Psping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) tool to a local folder in the VM that does not activate. 
+1. Download and extract the [PSping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) tool to a local folder in the VM that does not activate. 
 
 2. Go to Start, search on Windows PowerShell, right-click Windows PowerShell, and then select Run as administrator.
 
