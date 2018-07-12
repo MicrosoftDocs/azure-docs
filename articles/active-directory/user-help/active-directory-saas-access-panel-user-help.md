@@ -33,7 +33,6 @@ Try these general tips:
 
 If you are still encountering issues while trying to sign in, contact your administrator.
 
-
 ## I seem to be having password issues
 
 If you forgot your password, never received one from your IT staff, are locked out of your account, or want to change your password, see [Help, I forgot my Azure AD password](active-directory-passwords-update-your-own-password.md).
@@ -42,12 +41,12 @@ If you forgot your password, never received one from your IT staff, are locked o
 
 You can reset your password or unlock your account without having to speak to someone by using self-service password reset (SSPR). Before you can use this functionality, you must register your authentication methods or confirm the predefined authentication methods that your administrator requires. For more information, see [Register for self-service password reset](active-directory-passwords-reset-register.md).
 
-
 ## I am having trouble installing the My Apps Secure Sign-in Extension
 
 The My Apps portal requires a browser that supports JavaScript and has CSS enabled. If you are using password-based single sign-on apps, the accompanying extension must be installed as well. This extension is downloaded automatically when you start an application that is configured for password-based single sign-on apps.
 
 Check to ensure that you are meeting the following browser requirements:
+
 - **Edge**: on Windows 10 Anniversary Edition or later.
 - **Chrome**: on Windows 7 or later, and on Mac OS X or later.
 - **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
@@ -99,11 +98,10 @@ If you have installed the extension and are still experiencing issues, try the f
    > [!NOTE]
    > * You can access this option only if your administrator has enabled it for your account.
    > * If the app requires permission, you might need to wait for administrator approval.
-   > 
 
 ## How do I manage my group memberships?
 
-Select the **Groups** tile, and then do either of the following: 
+Select the **Groups** tile, and then do either of the following:
 * To create a group, under **Groups I own**, select **Create group**, and then follow the instructions.
 * To join a group, under **Groups I'm in**, select **Join group**, and then follow the instructions.
 
@@ -111,10 +109,3 @@ Select the **Groups** tile, and then do either of the following:
    > * You can access this option only if your administrator has enabled it for your account.
    > * If you are a member of a group, you can view details and leave the group.
    > * If you are an owner of a group, you can view details, add or remove members, and leave the group.
-   >
-
-
-## Next steps
-
-For more troubleshooting information, see [Problems using the application access panel website or mobile application](active-directory-application-access-panel-content-map.md).
-
