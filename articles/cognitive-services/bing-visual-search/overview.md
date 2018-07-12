@@ -67,7 +67,7 @@ If you send Visual Search an image token or URL, the following shows the JSON ob
 }
 ```
 
-The `imageInfo` object must include either the `url` and `imageInsightsToken` field but not both. Set the `url` field to the URL of an Internet accessible image. The maximum supported image size is 1 MB.
+The `imageInfo` object must include either the `url` or `imageInsightsToken` field but not both. Set the `url` field to the URL of an Internet accessible image. The maximum supported image size is 1 MB.
 
 The `imageInsightsToken` must be set to an insights token. To get an insights token, call the Bing Image API. The response contains a list of `Image` objects. Each `Image` object contains an `imageInsightsToken` field, which contains the token.
 
@@ -143,7 +143,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-If you upload a local image, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header. Its `name` parameter must be set to "image" and the `filename` parameter may be set to any string. The Content-Type header may be set to any commonly used image mime type. The contents of the form is the binary of the image. The maximum image size you may upload is 1 MB. 
+If you upload a local image, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header. Its `name` parameter must be set to "image" and the `filename` parameter may be set to any string. The Content-Type header may be set to any commonly used image mime type. The contents of the form is the binary of the image. The maximum image size you may upload is 1 MB. The largest of the width or height should be 1,500 pixels or less.
 
 
 ```
@@ -396,7 +396,7 @@ Text recognition can also recognize the contact information on business cards, s
     }
 ```
 
-If the image contains a recognized entity such as a person, place, or thing, one of the tags may include an Entity insight. Entities can also include trivia as shown in the following example:
+If the image contains a recognized entity such as a person, place, or thing, one of the tags may include an Entity insight. 
 
 ```json
     {
@@ -424,29 +424,6 @@ If the image contains a recognized entity such as a person, place, or thing, one
           "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Statue+of+Liberty",
           "displayName" : "Statue of Liberty",
           "actionType" : "Entity",
-        },
-        {
-          "_type" : "ImageModuleAction",
-          "actionType" : "Trivia",
-          "data" : {
-            "value" : [
-              {
-                "name" : "Where was the cornerstone of the statue of liberty laid",
-                "text" : "<the answer>",
-                "hostPageUrl" : "http:\/\/contoso.com\/history\/...",
-              },
-              {
-                "name" : "Why Is the Statue of Liberty Green",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/why-statue-of-liberty-is-green",
-              },
-              {
-                "name" : "What is the Statue of Liberty made of",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/art-literature\/statue-liberty-made",
-              }
-            ]
-          }
         }
       ]
     }
