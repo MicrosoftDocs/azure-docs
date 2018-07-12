@@ -1,6 +1,6 @@
 ---
 title: Collecting monitoring data in Azure | Microsoft Docs
-description: Overview of the monitoring data that's collected from application and services in Azure and the tools used to to analyze it.
+description: Overview of the monitoring data that's collected from applications and services in Azure and the tools used to to analyze it.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -25,27 +25,27 @@ All monitoring data fits into one of two fundamental types, metrics or logs. Eac
 ### Metrics
 Metrics are numerical values that describe some aspect of a system at a particular point in time. They include distinct data including the value itself, the time the value was collected, the type of measurement the value represents, and the particular resource that the value is associated with. Metrics are collected at regular intervals whether or not the value changes. For example, you might collect processor utilization from a virtual machine every minute or number of users logged in to your application every 10 minutes.
 
-Metrics are lightweight and capable of supporting near real-time scenarios. They are particularly useful for alerting since metrics can be sampled frequently, and an alert can be fired quickly with relatively simple logic. For example, you might fire an alert when a metric exceeds a threshold value or fire an alert when the difference between value of two metrics reaches a particular value.
+Metrics are lightweight and capable of supporting near real-time scenarios. They are particularly useful for alerting since metrics can be sampled frequently, and an alert can be fired quickly with relatively simple logic. For example, you might fire an alert when a metric exceeds a threshold value or fire an alert when the difference between the value of two metrics reaches a particular value.
 
-Individual metrics typically provide little insight on their own. They provide a single value without any context other than comparison to a simple threshold. They are valuable though when combined with other metrics to identify patterns and trends or when combined with logs that provide context around particular values. For example, a certain number of users on your application at a given time may tell you little about the health of the application. A sudden drop in users though indicated by multiple values of the same metric may indicate a problem. Excessive exceptions thrown by the application and indicated by a separate metric might identify an application issue causing the drop. Events created by the application identifying failure in particular components of the application may assist you in identifying the root cause.
+Individual metrics typically provide little insight on their own. They provide a single value without any context other than comparison to a simple threshold. They are valuable though, when combined with other metrics to identify patterns and trends or when combined with logs that provide context around particular values. For example, a certain number of users on your application at a given time may tell you little about the health of the application. A sudden drop in users though, indicated by multiple values of the same metric, may indicate a problem. Excessive exceptions thrown by the application and indicated by a separate metric might identify an application issue causing the drop. Events created by the application identifying failure in particular components may assist you in identifying the root cause.
 
 Alerts based on logs are not as responsive as alerts based on metrics, but they can include more complex logic. You can create an alert based on the results of any query that performs complex analysis on data from multiple sources.
 
 ### Logs
 Logs contain different kinds of data organized into records with different sets of properties for each type. Logs may contain numeric values like metrics but typically contain text data with detailed descriptions. They further differ from metrics in that they vary in their structure and are often not collected at regular intervals.
 
-A common type of log entry is an event. Events are collected sporadically as they are created by an application or service and typically include enough information to provide complete context on their own.  For example, an event may indicate that a particular resource was created or modified, a new host start in response to increased traffic, or an error was detected in an application.
+A common type of log entry is an event. Events are collected sporadically as they are created by an application or service and typically include enough information to provide complete context on their own.  For example, an event may indicate that a particular resource was created or modified, a new host was started in response to increased traffic, or an error was detected in an application.
 
 Logs are particularly useful for combining data from a variety of sources for complex analysis and trending over time. Because the format of the data can vary, applications can create custom logs using the structure that they require. Metrics can even be replicated in logs to combine it with other monitoring data for trending and other data analysis.
 
 
-## Monitoring tools in Azure
+## Monitoring Tools in Azure
 Monitoring data in Azure is collected and analyzed using multiple sources that are described in the following sections.
 
 ### Azure Metrics
-Metrics from Azure resources and applications are collected into Azure Metrics. Metric data is integrated into the pages in the Azure portal for particular Azure resources such as virtual machines, which include graphs of such metrics as CPU and network utilization for the selected machine. It can also be analyzed with the [Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) which can chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics with the [Azure monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Metrics from Azure resources and applications are collected into Azure Metrics. Metric data is integrated into the blades in the Azure portal for a particular Azure resources such as virtual machines, which include graphs of such metrics as CPU and network utilization for the selected machine. It can also be analyzed with the [Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) which can chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations. You can also retrieve metrics with the [Azure monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
-You can get detail on the metric data that is collected by different kinds of Azure resources at [Sources of monitoring data in Azure](monitoring-data-sources.md). 
+You can get details on the metric data that is collected by different kinds of Azure resources at [Sources of monitoring data in Azure](monitoring-data-sources.md). 
 
 ![Metrics Explorer](media/monitoring-data-collection/metrics-explorer.png)
 
@@ -53,7 +53,7 @@ You can get detail on the metric data that is collected by different kinds of Az
 ### Azure Activity Log 
 The [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) stores logs about the configuration and health of Azure services. You can use the Activity Log Explorer to view these logs in the Azure portal, but they're commonly [copied to Log Analytics](../log-analytics/log-analytics-activity.md) to be analyzed with other log data.
 
-You can use the Activity Log Explorer to view the Activity log filtered to match certain criteria.  Most resources will also have an Activity Log option in their menu in the Azure portal that displays the Activity Log Explorer filtered for that resource. You can also retrieve Activity logs with the [Azure monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+You can use the Activity Log Explorer to view the Activity Log filtered to match certain criteria.  Most resources will also have an Activity Log option in their menu in the Azure portal that displays the Activity Log Explorer filtered for that resource. You can also retrieve Activity Logs with the [Azure monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Activity Log Explorer](media/monitoring-data-collection/activity-log-explorer.png)
 
@@ -66,7 +66,7 @@ Log Analytics has a rich query language for analyzing the data it collects.  You
 ![Logs](media/monitoring-data-collection/logs.png)
 
 ### Application Insights
-Application Insights collects telemetry for web applications installed on a variety of platforms. It stores its data in Azure Metrics and Log Analytics and provides an extensive set of rich tools, on top of the existing tools for analyzing this data, for analyzing and visualizing its data. This allows you to leverage a common set of services such as alerts, log searches, and dashboards that you use for other monitoring.
+Application Insights collects telemetry for web applications installed on a variety of platforms. It stores its data in Azure Metrics and Log Analytics and provides an extensive set of rich tools, on top of the existing tools for analyzing and visualizing its data. This allows you to leverage a common set of services such as alerts, log searches, and dashboards that you use for other monitoring.
 
 
 ![App Insights](media/monitoring-data-collection/app-insights.png)
@@ -91,9 +91,9 @@ The explanation of this feature is available at [Faster Metric Alerts for Logs n
 [Supported metrics and creation methods for new metric alerts](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
 
 ### Event Hub
-In addition to using the tools in Azure to analyze monitoring data, you may want to forward it to an external tool such a security information and event management (SIEM) product. This is typically done using [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/). 
+In addition to using the tools in Azure to analyze monitoring data, you may want to forward it to an external tool such as a Security Information and Event Management (SIEM) product. This is typically done using [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/). 
 
-You can get guidance for the different kinds of monitoring data at [Stream Azure monitoring data to an event hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+You can find guidance for the different kinds of monitoring data at [Stream Azure monitoring data to an Event Hub for consumption by an external tool](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
 
 ## Next steps
 
