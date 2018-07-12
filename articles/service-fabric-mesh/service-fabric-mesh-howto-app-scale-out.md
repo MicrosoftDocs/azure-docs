@@ -20,24 +20,11 @@ ms.custom: mvc, devcenter
 
 # Scale services within an application running on Service Fabric Mesh
 
-This example shows how to independently scale microservices within an application. In this example, Visual Objects application consists of two microservices; `web` and `worker`. 
+This article shows how to independently scale microservices within an application. In this example, Visual Objects application consists of two microservices; `web` and `worker`. 
 
 The `web` service is an ASP.NET Core application with a web page that shows triangles in the browser. The browser displays one triangle for each instance of the `worker` service. 
 
 The `worker` service moves the triangle at a predefined interval in the space and sends location of the triangle to `web` service. It uses DNS to resolve the address of the `web` service.
-
-
-## Example JSON templates
-
-### Base
-Linux: [https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.base.linux.json](https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.base.linux.json)
-
-Windows: [https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.base.windows.json](https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.base.windows.json)
-
-### Scaled Out
-Linux: [https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.scaleout.linux.json](https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.scaleout.linux.json)
-
-Windows: [https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.scaleout.windows.json](https://seabreezequickstart.blob.core.windows.net/templates/visualobjects/stateless/mesh_rp.scaleout.windows.json)
 
 ## Setup Service Fabric Mesh CLI
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
