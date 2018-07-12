@@ -32,7 +32,7 @@ To delete the entire resource group by name:
 
 2. In the **Filter by name** textbox, enter the name of the resource group that contains your IoT hub. 
 
-3. To the right of your resource group in the result list, select the ellipsis **...**, and then select **Delete resource group**.
+3. To the right of your resource group in the result list, select the ellipsis (**...**), and then select **Delete resource group**.
 
     ![Delete resource group](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
 
