@@ -42,7 +42,7 @@ az extension remove --name mesh
 Install the Azure Service Fabric Mesh CLI extension module. Azure Service Fabric Mesh CLI is written as an extension to Azure CLI.
 
 ```azurecli
-az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.8.0-py2.py3-none-any.whl
+az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
 ```
 
 ### Install Docker
