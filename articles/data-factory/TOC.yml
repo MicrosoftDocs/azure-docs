@@ -278,7 +278,10 @@
       href: copy-data-tool.md  
       items:
     - name: Load Data Lake Storage Gen2
-      href: load-azure-data-lake-storage-gen2.md    
+      href: load-azure-data-lake-storage-gen2.md
+      items:  
+      - name: Copy from Data Lake Storage Gen1
+        href: load-azure-data-lake-storage-gen2-from-gen1.md    
     - name: Load SQL Data Warehouse
       href: load-azure-sql-data-warehouse.md
     - name: Load Data Lake Storage Gen1
