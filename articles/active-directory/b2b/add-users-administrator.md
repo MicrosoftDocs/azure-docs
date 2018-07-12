@@ -57,7 +57,7 @@ If you need to manually add B2B collaboration users to a group as an Azure AD ad
 5. Select **Members**. 
 6. Do one of the following:
    - If the guest user already exists in the directory, search for the B2B user. Select the user > click **Select** to add the user to the group.
-   - If the guest user does not already exist in the directory, invite them to the group by typing their email address in the search box, typing an optional personal message, and then clicking **Select**.
+   - If the guest user does not already exist in the directory, invite them to the group by typing their email address in the search box, typing an optional personal message, and then clicking **Select**.<br></br>
    ![Add invite button to add guest members](./media/add-users-administrator/GroupInvite.png)
    
       The invitation automatically goes out to the invited user. In the **Notification** area, look for a successful **Invited user** message. 
