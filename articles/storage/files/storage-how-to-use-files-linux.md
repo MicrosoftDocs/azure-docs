@@ -24,15 +24,28 @@ ms.author: renash
 > In order to mount an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support the encryption functionality of SMB 3.0.
 
 ## Prerequisites for mounting an Azure file share with Linux and the cifs-utils package
-* **Pick a Linux distribution that can have the cifs-utils package installed.**  
-    The following Linux distributions are available for use in the Azure gallery:
+<a id="smb-client-reqs"></a>
+* **Pick a Linux distribution to suit your mounting needs.**  
+      Azure Files can be mounted either via SMB 2.1 and SMB 3.0. For connections coming from clients on-premises or in other Azure regions, Azure Files will reject SMB 2.1 (or SMB 3.0 without encryption). If *secure transfer required* is enabled for a storage account, Azure Files will only allow connections using SMB 3.0 with encryption.
+    
+    SMB 3.0 encryption support was introduced in Linux kernel version 4.11 and has been backported to older kernel versions for popular Linux distributions. At the time of this document's publication, the following distributions from the Azure gallery support mounting option specified in the table headers. 
 
-    * Ubuntu Server 14.04+
-    * RHEL 7+
-    * CentOS 7+
-    * Debian 8+
-    * openSUSE 13.2+
-    * SUSE Linux Enterprise Server 12
+* **Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0) **    
+    
+    |   | SMB 2.1 <br>(Mounts on VMs within same Azure region) | SMB 3.0 <br>(Mounts from on premises and cross-region) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+    
+    If your Linux distribution is not listed here, you can check to see the Linux kernel version with the following command:    
+
+   ```bash
+   uname -r
+   ```    
 
 * <a id="install-cifs-utils"></a>**The cifs-utils package is installed.**  
     The cifs-utils package can be installed using the package manager on the Linux distribution of your choice. 
@@ -56,23 +69,8 @@ ms.author: renash
     sudo zypper install cifs-utils
     ```
 
-    On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
-
-* <a id="smb-client-reqs"></a>**Understand SMB client requirements.**  
-    Azure Files can be mounted either via SMB 2.1 and SMB 3.0. For connections coming from clients on-premises or in other Azure regions, Azure Files will reject SMB 2.1 (or SMB 3.0 without encryption). If *secure transfer required* is enabled for a storage account, Azure Files will only allow connections using SMB 3.0 with encryption.
+    On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
     
-    SMB 3.0 encryption support was introduced in Linux kernel version 4.11 and has been backported to older kernel versions for popular Linux distributions. At the time of this document's publication, the following distributions from the Azure gallery support this feature:
-
-    - Ubuntu Server 16.04+
-    - openSUSE 42.3+
-    - SUSE Linux Enterprise Server 12 SP3+
-    
-    If your Linux distribution is not listed here, you can check to see the Linux kernel version with the following command:
-
-    ```bash
-    uname -r
-    ```
-
 * **Decide on the directory/file permissions of the mounted share**: In the examples below, the permission `0777` is used to give read, write, and execute permissions to all users. You can replace it with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod) as desired. 
 
 * **Storage account name**: To mount an Azure file share, you need the name of the storage account.

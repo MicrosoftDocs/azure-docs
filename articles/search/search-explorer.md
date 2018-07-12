@@ -12,7 +12,7 @@ ms.author: heidist
 ---
 # How to use Search explorer to query indexes in Azure Search 
 
-This article shows you how to query an existing Azure Search index using **Search Explorer** in the Azure portal. You can use Search Explorer to submit simple or full Lucene query strings to any existing index in your service.
+This article shows you how to query an existing Azure Search index using **Search explorer** in the Azure portal. You can use Search explorer to submit simple or full Lucene query strings to any existing index in your service.
 
 ## Open the service dashboard
 1. Click **All resources** in the jump bar on the left side of the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
@@ -24,15 +24,15 @@ Select the index you would like to search from the **Indexes** tile.
 
    ![](./media/search-explorer/pick-index.png)
 
-## Open Search Explorer
+## Open Search explorer
 
-Click on the Search Explorer tile to slide open the search bar and results pane.
+Click on the Search explorer tile to slide open the search bar and results pane.
 
    ![](./media/search-explorer/search-explorer-tile.png)
 
 ## Start searching
 
-When using the Search Explorer, you can specify [query parameters](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) to formulate the query.
+When using the Search explorer, you can specify [query parameters](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) to formulate the query.
 
 1. In **Query string**, type a query and then press **Search**. 
 
