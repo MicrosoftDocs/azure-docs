@@ -36,11 +36,11 @@ To add B2B collaboration users to the directory, follow these steps:
 
    ![Shows where New guest user is in the UI](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
-7. Under **User name**, enter the email address of the external user. Optionally, include a welcome message. For example:
+5. Under **User name**, enter the email address of the external user. Optionally, include a welcome message. For example:
 
    ![Shows where New guest user is in the UI](./media/add-users-administrator/InviteGuest.png) 
 
-8. Select **Invite** to automatically send the invitation to the guest user. 
+6. Select **Invite** to automatically send the invitation to the guest user. 
  
 After you send the invitation, the user account is automatically added to the directory as a guest.
 
@@ -57,11 +57,10 @@ If you need to manually add B2B collaboration users to a group as an Azure AD ad
 5. Select **Members**. 
 6. Do one of the following:
    - If the guest user already exists in the directory, search for the B2B user. Select the user > click **Select** to add the user to the group.
-   - If the guest user does not already exist in the directory, invite them to the group by typing their email address in the search box, typing an optional personal message, and then clicking **Select**.<br></br>
-   ![Add invite button to add guest members](./media/add-users-administrator/GroupInvite.png)
+   - If the guest user does not already exist in the directory, invite them to the group by typing their email address in the search box, typing an optional personal message, and then clicking **Select**. The invitation automatically goes out to the invited user.
+     
+     ![Add invite button to add guest members](./media/add-users-administrator/GroupInvite.png)
    
-      The invitation automatically goes out to the invited user. In the **Notification** area, look for a successful **Invited user** message. 
-
 You can also use dynamic groups with Azure AD B2B collaboration. For more information, see [Dynamic groups and Azure Active Directory B2B collaboration](use-dynamic-groups.md).
 
 ## Add guest users to an application
@@ -76,19 +75,21 @@ To add B2B collaboration users to an application as an Azure AD administrator, f
 
     ![Total Users button to add open Users and Groups](./media/add-users-administrator/AppUsersAndGroups.png)
 
-8. Select **Add user**.
-9. Under **Add Assignment**, select **User and groups**.
-10. Do one of the following:
-   - If the guest user already exists in the directory, search for the B2B user. Select the user, and then click **Select** to add the user to the app.
+6. Select **Add user**.
+7. Under **Add Assignment**, select **User and groups**.
+8. Do one of the following:
+   - If the guest user already exists in the directory, search for the B2B user. Select the user, click **Select**, and then click **Assign** to add the user to the app.
    - If the guest user does not already exist in the directory, select **Invite**.
-   ![Add invite button to add guest members](./media/add-users-administrator/AppInviteUsers.png)
+           
+       ![Add invite button to add guest members](./media/add-users-administrator/AppInviteUsers.png)
    
-      Under **Invite a guest**, enter the email address, and an optional personal message > select **Invite**. Click **Select** to add the user to the app.
+      Under **Invite a guest**, enter the email address, type an optional personal message, and then select **Invite**. Click **Select**, and then click **Assign** to add the user to the app. An invitation automatically goes out to the invited user.
 
-      The invitation automatically goes out to the invited user. Look for a successful **Invited user** message.
-
-9. Under **Add Assignment**, click **Select Role** > select a role to apply to the selected user (if applicable) > select **OK**.
-10. Click **Assign**.
+9. The guest user appears in the application's **Users and groups** list with the assigned role of **Default Access**. If you want to change the role, do the following:
+   - Select the guest user, and then select **Edit**. 
+   - Under **Edit Assignment**, click **Select Role**, and select the role you want to assign to the selected user
+   - Click **Select**.
+   - Click **Assign**.
  
 ## Resend invitations to guest users
 
