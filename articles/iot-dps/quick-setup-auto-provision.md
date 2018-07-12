@@ -48,6 +48,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Link the IoT hub and your Device Provisioning service
 
+In this section, you will add a configuration to the Device Provisioning service instance. This configuration sets the IoT hub for which devices will be provisioned.
+
 1. Click the **All resources** button from the left-hand menu of the Azure portal. Select the Device Provisioning Service instance that you created in the preceding section.  
 
 2. On the Device Provisioning Service summary blade, select **Linked IoT hubs**. Click the **+ Add** button seen at the top. 
