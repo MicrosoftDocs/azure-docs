@@ -781,4 +781,4 @@ With this infrastructure in place, they're ready to move on and try out migratio
 
 ## Next steps
 
-As a first migration scenario, Contoso is going to [assess their on-premises SmartHotel two-tiered app for migration to Azure](contoso-migration-assessment.md). 
+As a first migration scenario, Contoso is going to [assess the on-premises SmartHotel two-tiered app for migration to Azure](contoso-migration-assessment.md). 
