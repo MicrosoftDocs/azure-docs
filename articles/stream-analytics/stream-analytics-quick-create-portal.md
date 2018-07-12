@@ -44,7 +44,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 4. From **All resources** page, find the storage account you created in the previous step. Open the **Overview** page, and then the **Blobs** tile.  
 
-5. From the **Blob Service** page, select **Container**, provide a **Name** for your container, such as *container1* and change the **Public access level** to Blob (anonymous read access for blobs only) > select **OK**.  
+5. From the **Blob Service** page, select **Container**, provide a **Name** for your container, such as *container1* and change the **Public access level** to Private (no anonymous access) > select **OK**.  
 
    ![Create a container](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 

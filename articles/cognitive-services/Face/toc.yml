@@ -25,14 +25,16 @@
     href: QuickStarts/Python.md
   - name: Ruby
     href: QuickStarts/Ruby.md
+- name: Tutorials
+  items:
+  - name: C#
+    href: Tutorials/FaceAPIinCSharpTutorial.md
+  - name: Android
+    href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: How to guides
   items:
   - name: First Face API apps
     items:
-    - name: C#
-      href: Tutorials/FaceAPIinCSharpTutorial.md
-    - name: Java for Android
-      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
     - name: Python
       href: Tutorials/FaceAPIinPythonTutorial.md
   - name: Detect faces in image
