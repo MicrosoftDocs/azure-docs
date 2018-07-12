@@ -42,7 +42,6 @@ Microsoft currently supports free and bring-your-own-license (BYOL) licensing mo
 
 
 ## Next Steps
-## Next Steps
 
 If you haven't already done so, 
 
