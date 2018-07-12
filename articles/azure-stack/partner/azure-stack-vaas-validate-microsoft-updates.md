@@ -25,7 +25,7 @@ Microsoft will periodically release updates to the Azure Stack software. These u
 
 ## Test an existing solution
 
-1. Log in to the [validation portal](https://azurestackvalidation.com).
+1. Sign in to the [validation portal](https://azurestackvalidation.com).
 
 2. Select an existing solution where the updated from Microsoft has been deployed and select **Start** on the **Package Validation** tile.
 

@@ -23,7 +23,7 @@ ms.reviewer: John.Haskin
 
 ## 1803
 
-These are the release notes for the Azure Stack validation as a service for 1803.
+Find the release  notes for the Azure Stack validation as a service for 1803 in this article.
 
 ## Next steps
 

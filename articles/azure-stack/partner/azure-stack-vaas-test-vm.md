@@ -86,7 +86,7 @@ The command downloads a public image repository (PIR) image (OS VHD) and copy fr
 ![Download prerequisites](media/installingprereqs.png)
 
 > [!Note]  
-> If you're experiencing slow network speed when downloading these images, download them separately to a local share and specify the parameter **-LocalPackagePath** *FileShareOrLocalPath*. You can find more guidance on your PIR download in the section [Handle slow network connectivity](azure-stack-vaas-troubleshooting.md#handle-slow-network-connectivity) of [Troubleshoot validation as a service](azure-stack-vaas-troubleshooting.md).
+> If you're experiencing slow network speed when downloading these images, download them separately to a local share and specify the parameter **-LocalPackagePath** *FileShareOrLocalPath*. You can find more guidance on your PIR download in the section [Handle slow network connectivity](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity) of [Troubleshoot validation as a service](azure-stack-vaas-troubleshoot.md).
 
 ## Fault injection
 
@@ -117,7 +117,7 @@ Run the following commands to inject faults into your system.
     
     | Parameter | Description |
     | --- | --- |
-    | VaaSUserId | User ID used to log in to the VaaS Portal (for example, UserName@Contoso.com) |
+    | VaaSUserId | User ID used to sign in to the VaaS Portal (for example, UserName@Contoso.com) |
     | VaaSTenantId | Azure AD tenant ID for the Azure account registered with Validation as a Service. |
 
     > [!Note]  
@@ -134,5 +134,5 @@ An agent is uniquely identified by its name. By default, it uses the fully quali
 ## Next steps
 
 - [Validate a new Azure Stack solution](azure-stack-vaas-validate-solution-new.md)  
-- If you have slow or intermittent Internet connectivity, you can download the PIR image. For more information, see [Handle slow network connectivity](azure-stack-vaas-troubleshooting.md#handle-slow-network-connectivity).
+- If you have slow or intermittent Internet connectivity, you can download the PIR image. For more information, see [Handle slow network connectivity](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
 - To learn more about [Azure Stack validation as a service](https://docs.microsoft.com/azure/azure-stack/partner).

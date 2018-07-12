@@ -60,14 +60,14 @@ This script encompasses the four elements of a workflow:
         -ServiceAdminCreds $ServiceAdminCreds `
     ````
 
-    **Paramaters**
+    **Parameters**
 
-    | Parameter | Description | 
+    | Parameter | Description |
     | --- | --- |
     | VaaSUserld | Your VaaS user ID. | 
     | VaaSUserPassword | Your VaaS password. |
     | ServiceAdminUser | Your Azure Stack service admin account.  |
-    | ServiceAdminPassword | our Azure Stack service password.  |
+    | ServiceAdminPassword | Your Azure Stack service password.  |
     | TenantAdminUser | The administrator for the primary tenant.  |
     | TenantAdminPassword | The password for the primary tenant.  |
     | FunctionalCategory| Integration, Functional, or. Reliability. If you use multiple values, separate each value by a comma.  |

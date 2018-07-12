@@ -32,10 +32,10 @@ Environment parameters describe the Azure Stack environment under test. These va
 | Azure Stack build | Required |  | Build number of the Azure Stack deployment (for example, 1.0.170330.9) |
 | OEM version | Yes |  | Version number of the OEM package used during Azure Stack deployment. |
 | OEM signature | Yes |  | Signature of the OEM package used during Azure Stack deployment. |
-| AAD tenant ID | Required |  | Azure Active Directory tenant GUID specified during Azure Stack deployment .|
+| AAD tenant ID | Required |  | Azure Active Directory tenant GUID specified during Azure Stack deployment.|
 | Region | Required |  | Azure Stack deployment region. |
-| Tenant Resource Manager endpoint | Required |  | Endpoint for tenant ARM operations (for example, https://management.<ExternalFqdn>) |
-| Admin Resource Manager endpoint | Yes |  | Endpoint for Tenant ARM operations (for example, https://adminmanagement.<ExternalFqdn>) |
+| Tenant Resource Manager endpoint | Required |  | Endpoint for tenant Azure Resource Manager operations (for example, https://management.<ExternalFqdn>) |
+| Admin Resource Manager endpoint | Yes |  | Endpoint for Tenant Azure Resource Manager operations (for example, https://adminmanagement.<ExternalFqdn>) |
 | External FQDN | Yes |  | External fully qualified domain name used as the suffix for endpoints. (for example, local.azurestack.external or redmond.contoso.com). |
 | Number of nodes | Yes |  | Number of nodes on the deployment. |
 
