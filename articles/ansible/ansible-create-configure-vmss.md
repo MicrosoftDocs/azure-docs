@@ -13,7 +13,7 @@ ms.author: tarcher
 ---
 
 # Create and configure virtual machine scale set in Azure with Ansible
-Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set in Azure, the same as you would manage any other Azure resource. This article shows you how to use Ansible to create and scale out a virtual machine scale set (VMSS). 
+Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set (VMSS) in Azure, the same as you would manage any other Azure resource. This article shows you how to use Ansible to create and scale out a virtual machine scale set. 
 
 ## Prerequisites
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
@@ -174,7 +174,7 @@ After running the playbook, output similar to the following example shows that t
 
   ```
 
-## Scale out VMSS
+## Scale out a VMSS
 The created virtual machine scale set has two instances. If you navigate to the virtual machine scale set in the Azure portal, you see **Standard_DS1_v2 (2 instances)**. You can also use the [Azure Cloud Shell](https://shell.azure.com/) by running the following command within the Cloud Shell:
 
   ```azurecli-interactive
@@ -189,7 +189,7 @@ The output should be similar to the following:
   }
   ```
 
-Now, let's scale from two instances to three instances. The following Ansible playbook code retrievs information about the virtual machine scale, and changes its capacity from two to three. 
+Now, let's scale from two instances to three instances. The following Ansible playbook code retrieves information about the virtual machine scale, and changes its capacity from two to three. 
 
   ```yaml
   - hosts: localhost
