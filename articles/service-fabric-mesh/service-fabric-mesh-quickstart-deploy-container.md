@@ -114,7 +114,7 @@ az mesh code-package-log get --resource-group myResourceGroup --application-name
 
 ## Clean up resources
 
-When you are ready to delete the application and network resources, run the `az mesh app delete` and `` commands.
+When you are ready to delete the application and network resources, run the `az mesh app delete` and `az mesh network delete` commands.
 
 ```azurecli-interactive
 az mesh app delete -g myResourceGroup -n helloWorldApp
