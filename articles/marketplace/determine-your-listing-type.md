@@ -32,7 +32,7 @@ In this article, you will learn…
 <ul><li>	Which offer types are available for each publishing option </ul></li>
 
 
-## Selecting a Storefront, Publishing Option, and Offer Type for Your Solution
+## Selecting a storefront, publishing option, and offer type for your solution
 
 Before you select a publishing option, it’s important to understand the storefront eligibility requirements for marketplace solutions, apps, and services:
 
