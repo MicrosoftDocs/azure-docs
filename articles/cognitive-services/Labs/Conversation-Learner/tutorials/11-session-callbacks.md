@@ -66,7 +66,7 @@ c:\<installedpath>\src\demos\tutorialSessionCallbacks.ts.
 Both of these methods are optional.
 
 - OnSessionStartCallback: this method sets the BotName entity.
-- OnSessionEndCallback: you can specify what you want to clear. This will clear all entities except user name and user phone.
+- OnSessionEndCallback: you can specify what you want to preserve. This will clear all entities except user name and user phone.
 
 ### Try the bot
 
