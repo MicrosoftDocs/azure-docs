@@ -84,8 +84,9 @@ The instructions in this section configure the IoT Edge runtime with Linux conta
   Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
   Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
   rmdir C:\ProgramData\iotedge\iotedged-windows
-  $env:Path += ";C:\ProgramData\iotedge"
-  SETX /M PATH "$env:Path"
+  $sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+  $path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+  Set-ItemProperty -Path $sysenv -Name Path -Value $path
   ```
 
 3. Install the vcruntime.
@@ -158,7 +159,11 @@ Configure the runtime with your IoT Edge device connection string that you copie
   SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
   ```
 
-6. In the `config.yaml` file, find the **Connect settings** section. Update the **management_uri** and **workload_uri** values with your IP address and the ports that you opened in the previous section. Replace **\<GATEWAY_ADDRESS\>** with your IP address. 
+<<<<<<< HEAD
+6. In the `config.yaml` file, find the **Connect settings** section. Update the **management_uri** and **workload_uri** values with your IP address and the ports that you opened in the previous section. Replace **\<GATEWAY_ADDRESS\>** with the DockerNAT IP address that you copied.
+=======
+6. In the `config.yaml` file, find the **Connect settings** section. Update the **management_uri** and **workload_uri** values with the same IP address that you copied earlier and the ports that you opened in the previous section. Replace **\<GATEWAY_ADDRESS\>** with your IP address. 
+>>>>>>> 026328ede8b463af3bcf38f2411fd559e654a580
 
    ```yaml
    connect: 

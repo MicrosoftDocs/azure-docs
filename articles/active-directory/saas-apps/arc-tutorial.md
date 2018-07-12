@@ -146,7 +146,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	1. Click **Ok**
 
 	> [!NOTE]
-	> Here the **groups** attribute is mapped with **user.assignedroles**. These are custom roles created in Azure AD to map the group names back in application. You can find more guidance [here](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) on how to create custom roles in Azure AD. 
+	> Here the **groups** attribute is mapped with **user.assignedroles**. These are custom roles created in Azure AD to map the group names back in application. You can find more guidance [here](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) on how to create custom roles in Azure AD. 
 
 1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 

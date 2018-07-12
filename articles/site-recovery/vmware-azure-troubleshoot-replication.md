@@ -2,12 +2,12 @@
 title: Troubleshoot replication issues for VMware VM and physical server replication to Azure with Azure Site Recovery | Microsoft Docs
 description: This article provides troubleshooting for common replication issues when replicating VMware VMs and physical servers to Azure with Azure Site Recovery.
 services: site-recovery
-author: asgang
+author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
-ms.author: asgang
+ms.author: ramamill
 
 ---
 # Troubleshoot replication issues for VMware VMs and physical servers
