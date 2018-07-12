@@ -28,7 +28,7 @@ With Service Fabric Mesh, you can easily deploy a new application and connect it
   * Azure Files volume driver
     * A docker volume driver to mount an Azure Files share to a container
     * Gives you a less performant, but also cheaper full flexible and reliable data option, through any API, which supports file storage.
-    * [How-to guide: Deploy an app with Azure Files volume](service-fabric-mesh-deploy-app-azurefiles-volume.md)
+    * [How-to guide: Deploy an app with Azure Files volume](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md)
     
 ## Next steps
 

@@ -24,7 +24,7 @@ Azure Service Fabric Mesh is a fully managed service that enables developers to 
 
 In this quickstart you'll create a new Service Fabric Mesh application (an ASP.NET Core website), run it on the local development cluster, and then publish it to run on Azure.
 
-You'll need an Azure subscription. If you don't have one, you can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. You will also need to [setup your developer environment](service-fabric-mesh-setup-developer-environment-sdk.md)
+You'll need an Azure subscription. If you don't have one, you can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. You will also need to [setup your developer environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -32,7 +32,7 @@ You'll need an Azure subscription. If you don't have one, you can easily create 
 
 Open Visual Studio and select **File** > **New** > **Project...**
 
-In the **New Project** dialog **Search** box at the top, type `mesh`. Select the **Service Fabric Mesh Application** template. (If you don't see the template, make sure that you installed the Mesh SDK and the VS tools preview as described in [set up your development environment](service-fabric-mesh-setup-developer-environment-sdk.md). 
+In the **New Project** dialog **Search** box at the top, type `mesh`. Select the **Service Fabric Mesh Application** template. (If you don't see the template, make sure that you installed the Mesh SDK and the VS tools preview as described in [set up your development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
 
 In the **Name** box, type **ServiceFabricMesh1** and in the **Location** box, set the folder path of where the files for the project will be stored.
 

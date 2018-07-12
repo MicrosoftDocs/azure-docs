@@ -35,15 +35,15 @@
 - name: How-to guides
   items:
   - name: Set up your development environment
-    href: service-fabric-mesh-setup-developer-environment-sdk.md
-  - name: Deploy an app (CLI)
-    href: service-fabric-mesh-deploy-app-template.md
-  - name: Deploy an app with Azure Files volume
-    href: service-fabric-mesh-deploy-app-azurefiles-volume.md
+    href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
+  - name: Deploy a .NET Core micro-services app
+    href: service-fabric-mesh-howto-deploy-app-template.md
   - name: Deploy an app from a private registry
-    href: service-fabric-mesh-deploy-app-private-registry.md
-  - name: Scale services in an app
-    href: service-fabric-mesh-app-scale-out.md
+    href: service-fabric-mesh-howto-deploy-app-private-registry.md
+  - name: Store state with Azure Files volume
+    href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
+  - name: Independently scale services in an app
+    href: service-fabric-mesh-howto-app-scale-out.md
 
 - name: Resources
   items:
