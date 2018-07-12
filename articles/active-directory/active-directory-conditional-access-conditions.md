@@ -179,9 +179,7 @@ Applying this condition only to supported platforms is equal to all device platf
 Conditional access now applies to older Office clients that do not support modern authentication as well as clients that use mail protocols like POP, IMAP, SMTP, etc. This allows you to configure policies like **block access from other clients**.
 
 
-![Legacy authentication](./media/active-directory-conditional-access-conditions/160.png)
- 
-
+![Legacy authentication](./media/active-directory-conditional-access-conditions/160.png)  
 
 
 #### Known issues
