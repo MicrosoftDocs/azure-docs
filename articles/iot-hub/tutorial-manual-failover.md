@@ -68,7 +68,7 @@ Note that there is a limit of two failovers and two failbacks per day for an IoT
 
    ![Screenshot showing IoT Hub properties pane](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-3. On the Manual failover pane, you see the **IoT Hub Primary Location** and the **IoT Hub Secondary Location**. The primary location is set to the location you specified for the IoT hub. The secondary location is the geographic partner to the primary location. You cannot change the location values. For this tutorial, the primary location is `westus2` and the secondary location is `WestCentralUS`.
+3. On the Manual failover pane, you see the **IoT Hub Primary Location** and the **IoT Hub Secondary Location**. The primary location is initially set to the location you specified when you created the IoT hub, and always indicates the location in which the hub is currently active. The secondary location is the standard [Azure geo-paired region](../best-practices-availability-paired-regions.md) that is paired to the primary location. You cannot change the location values. For this tutorial, the primary location is `westus2` and the secondary location is `WestCentralUS`.
 
    ![Screenshot showing Manual Failover pane](./media/tutorial-manual-failover/trigger-failover-02.png)
 
@@ -76,8 +76,7 @@ Note that there is a limit of two failovers and two failbacks per day for an IoT
 
    The amount of time it takes to perform the manual failover is proportional to the number of devices that are registered for your hub. For example, if you have 100,000 devices, it might take 15 minutes, but if you have five million devices, it might take an hour or longer.
 
-
-4. In the **Confirm manual failover** pane, fill in the name of your IoT hub to confirm it's the one you want to failback. Then, to initiate the failback, click OK. 
+4. In the **Confirm manual failover** pane, fill in the name of your IoT hub to confirm it's the one you want to failover. Then, to initiate the failover, click OK. 
 
    ![Screenshot showing Manual Failover pane](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
@@ -95,7 +94,7 @@ Note that there is a limit of two failovers and two failbacks per day for an IoT
 
 ## Perform a failback 
 
-After you have performed a manual failover, you can switch the hub back to the primary region -- this is called a failback. If you have just performed a failover, you have to wait about an hour before you can request a failback. If you try to perform the failback in a shorter amount of time, an error message is displayed.
+After you have performed a manual failover, you can switch the hub's operations back to the original primary region -- this is called a failback. If you have just performed a failover, you have to wait about an hour before you can request a failback. If you try to perform the failback in a shorter amount of time, an error message is displayed.
 
 A failback is performed just like a manual failover. These are the steps: 
 
@@ -109,7 +108,7 @@ A failback is performed just like a manual failover. These are the steps:
 
    ![Screenshot of manual failback request](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   The banners will be displayed as explained in the 'Perform a failover' section. After the failback is complete, it again shows `westus2` as the primary location and `WestCentralUS` as the secondary location, as set originally.
+   The banners will be displayed as explained in the [perform a failover](#perform-a-failover) section. After the failback is complete, it again shows `westus2` as the primary location and `WestCentralUS` as the secondary location, as set originally.
 
 ## Clean up resources 
 
@@ -123,7 +122,7 @@ To remove the resources you've created for this tutorial, delete the resource gr
 
 ## Next steps
 
-In this tutorial, you learned how to configure and perform a manual failover, and how to trigger a failback by performing the following tasks:
+In this tutorial, you learned how to configure and perform a manual failover, and how to request a failback by performing the following tasks:
 
 > [!div class="checklist"]
 > * Using the Azure portal, create an IoT hub. 
