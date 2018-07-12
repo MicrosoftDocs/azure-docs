@@ -62,7 +62,7 @@ AKS is not natively integrated with Azure Key Vault at this time. However, there
 
 ## Can I run Windows Server containers on AKS?
 
-To run Windows Server containers, you need to run Windows Server-based nodes. Windows Server-based nodes are not available in AKS at this time. If you need to run Windows Server containers on Kubernetes in Azure, please see the [documentation for acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+To run Windows Server containers, you need to run Windows Server-based nodes. Windows Server-based nodes are not available in AKS at this time. You can, however, use Virtual Kubelet to schedule Windows containers on Azure Container Instances and manage them as part of your AKS cluster. For more information, see [Use Virtual Kubelet with AKS][virtual-kubelet].
 
 ## Why are two resource groups created with AKS?
 
@@ -77,6 +77,7 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 <!-- LINKS - internal -->
 
 [aks-regions]: ./container-service-quotas.md
+[virtual-kubelet]: virtual-kubelet.md
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

@@ -43,6 +43,8 @@
         href: howto-create-and-manage-applications-as-CSP.md
       - name: Administer your application
         href: howto-administer.md
+      - name: Export your data
+        href: howto-export-data.md
   - name : Builder
     items:
       - name: Set up the device template

@@ -177,7 +177,7 @@
     items:
     - name: Basic query construction
       href: search-query-overview.md
-    - name: Search Explorer (portal)
+    - name: Search explorer (portal)
       href: search-explorer.md
     - name: Simple query syntax
       href: https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search
