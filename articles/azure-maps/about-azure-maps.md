@@ -117,6 +117,6 @@ Check your current IP address and verify that the location of your IP address is
 ## Next steps
 
 - For more information on the new features of Azure Maps: 
-    - [Route Matrix, Isochrones, IP lookup, and more](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/preview/). 
+    - [Route Matrix, Isochrones, IP lookup, and more](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/). 
 - Proceed to trying out a sample app showcasing the service
     - [Launch a demo interactive search map](quick-demo-map-app.md)
