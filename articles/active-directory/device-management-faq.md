@@ -20,7 +20,9 @@ ms.reviewer: jairoc
 ---
 # Azure Active Directory device management FAQ
 
+**Q: Can I register Android or iOS BYOD devices?**
 
+**A:** Yes, but only with Azure device registration service and for hybrid customers. It is not supported with on-premises device registration service in AD FS.
 
 **Q: How can I register a macOS device?**
 

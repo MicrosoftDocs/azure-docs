@@ -37,7 +37,7 @@ As a result, your code can use either a system assigned or user assigned identit
 
 Here's an example of how System Assigned Identities work with Azure Virtual Machines:
 
-![Virtual Machine Managed Identity example](overview/msi-vm-vmextension-imds-example.png)
+![Virtual Machine Managed Identity example](media/overview/msi-vm-vmextension-imds-example.png)
 
 1. Azure Resource Manager receives a request to enable the system assigned identity on a VM.
 2. Azure Resource Manager creates a Service Principal in Azure AD to represent the identity of the VM. The Service Principal is created in the Azure AD tenant that is trusted by this subscription.
@@ -98,6 +98,7 @@ Try a Managed Service Identity tutorial to learn end-to-end scenarios for access
 | Azure Functions    | [Use Managed Service Identity with Azure App Service or Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Use Managed Service Identity with Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Azure Event Hubs   | [Use Managed Service Identity with Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md) |
+| Azure API Management | [Use Managed Service Identity with Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md) |
 
 ## Which Azure services support Managed Service Identity?
 

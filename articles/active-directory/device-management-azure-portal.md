@@ -196,6 +196,9 @@ to view or copy the BitLocker keys, you need to be either the owner of the devic
 - Security Readers
 - Intune Service Administrators
 
+> [!NOTE]
+> Hybrid Azure AD Joined Windows 10 devices do not have an owner. So, if you are looking for a device by owner and didn't find it, search by the device ID.
+
 
 ## Audit logs
 

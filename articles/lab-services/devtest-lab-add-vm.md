@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/11/2018
 ms.author: spelluru
 
 ---
@@ -36,12 +36,12 @@ This article also shows you how to manage the artifacts for a VM in your lab.
     ![Lab VM pane](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
 1. Enter a **User Name** that is granted administrator privileges on the virtual machine.  
-1. If you want to use a password stored in your [secret store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), select **Use a saved secret**, and specify a key value that corresponds to your secret (password). Otherwise, enter a password in the text field labeled **Type a value**.
+1. If you want to use a password stored in an [Azure key vault](devtest-lab-store-secrets-in-key-vault.md), select **Use a saved secret**, and specify a key value that corresponds to your secret (password). Otherwise, enter a password in the text field labeled **Type a value**. To learn about saving secrets in a key vault and using them when creating lab resources, see [Store secrets in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
 1. The **Virtual machine disk type** determines which storage disk type is allowed for the virtual machines in the lab.
-1. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
-1. Select **Artifacts** and - from the list of artifacts - select and configure the artifacts that you want to add to the base image.
+2. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
+3. Select **Artifacts** and - from the list of artifacts - select and configure the artifacts that you want to add to the base image.
     **Note:** If you're new to DevTest Labs or configuring artifacts, refer to the [Add an existing artifact to a VM](#add-an-existing-artifact-to-a-vm) section, and then return here when finished.
-1. Select **Advanced settings** to configure the VM's network options and expiration options. 
+4. Select **Advanced settings** to configure the VM's network options and expiration options. 
 
    To set an expiration option, choose the calendar icon to specify a date on which the VM will be automatically deleted.  By default, the VM will never expire. 
 1. If you want to view or copy the Azure Resource Manager template, refer to the [Save Azure Resource Manager template](#save-azure-resource-manager-template) section, and return here when finished.
