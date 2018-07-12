@@ -13,7 +13,7 @@ metadata:
   ms.date: 08/01/2018
   ms.author: a-kiwels
 abstract:
-  description: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. CycleCloud’s automated configuration enables IT to focus on on providing service to the business users.
+  description: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. CycleCloud’s automated configuration enables IT to focus on providing service to the business users.
 
 sections:
 
@@ -26,7 +26,7 @@ sections:
         - href: quickstart-overview
           html: <p>New to Azure CycleCloud? Start here for a guided walkthrough of the installation, setup, and use of Azure CycleCloud.</p>
           image:
-            src: cycle_docs_v1/media/index/i_quick-start.svg
+            src: /media/index/i_quick-start.svg
           title: QuickStart
         - href: /azure/cosmos-db/sql-api-introduction/
           html: <p>Use the SQL API if you're building a new non-relational document database and want to query using familiar SQL syntax.</p>
