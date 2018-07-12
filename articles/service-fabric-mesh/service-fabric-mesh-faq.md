@@ -21,10 +21,15 @@ There are no charges for deploying applications or containers to Mesh preview. H
 
 **Is there a quota limit of the number of cores and RAM?**
 
-Yes, you are allocated restricted quota for use in the preview.
+Yes, the quotas for each subscription are:
 
-- You are allocated a total of six cores and 24-GB RAM.
-- The largest container you can deploy is limited to two cores, 8-GB RAM.
+- Number of Applications - 5 
+- Number of Cores per application– 12 
+- Total RAM per application - 48 GB 
+- Number of Network and Ingress end points – 5  
+- Number of Azure Volumes that you can attach - 10 
+- Number of Service replicas – 3 
+- The largest container you can deploy is limited to 4 cores, 16-GB RAM.
 - You can allocate partial cores to your containers in increments of 0.5 cores up to a maximum of 6 cores.
 
 **Can I leave my application running overnight?**
