@@ -198,7 +198,8 @@ There are two NuGet packages that your web application needs to have installed. 
 7. From the main menu, choose **Debug** > **Start without Debugging**. When the browser appears, navigate to the **About** page. The value for the AppSecret is displayed.
 
 >[!IMPORTANT]
-> If you get a HTTP Error 502.5 - Process Failure message verify the name of the Key Vault specified in `Program.cs`
+> If you get a HTTP Error 502.5 - Process Failure message
+> > then verify the name of the Key Vault specified in `Program.cs`
 
 ## Publish the web application to Azure
 
