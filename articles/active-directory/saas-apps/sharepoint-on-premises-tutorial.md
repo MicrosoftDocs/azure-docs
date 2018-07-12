@@ -13,11 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-<<<<<<< HEAD
 ms.date: 07/12/2018
-=======
-ms.date: 07/11/2018
->>>>>>> b7be47c74ce2fef0d9f55fa929d280e8c990068a
 ms.author: jeedes
 
 ---
