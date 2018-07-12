@@ -18,7 +18,7 @@ ms.author: alkohli
 ms.custom: 
 
 ---
-# Azure Data Box Disk limits? (Preview)
+# Azure Data Box Disk limits (Preview)
 
 
 Consider these limits as you deploy and operate your Microsoft Azure Data Box Disk solution. 
