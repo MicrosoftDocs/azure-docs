@@ -25,7 +25,7 @@ Azure Data Factory offers a scale-out, managed data movement solution. Due to th
 This article shows you how to use the Data Factory Copy Data tool to load data from _Amazon Web Services S3 service_ into _Azure Data Lake Storage Gen2_. You can follow similar steps to copy data from other types of data stores.
 
 >[!TIP]
->For copying data from Azure Data Lake Storage Gen1 into Gen2, refer to [this specific walkthrough](copy-from-azure-data-lake-storage-gen1-to-gen2.md).
+>For copying data from Azure Data Lake Storage Gen1 into Gen2, refer to [this specific walkthrough](load-azure-data-lake-storage-gen2-from-gen1.md).
 
 ## Prerequisites
 
