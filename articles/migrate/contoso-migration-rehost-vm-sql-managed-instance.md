@@ -597,5 +597,5 @@ In this article, Contoso rehosted the SmartHotel app in Azure by migrating the a
 
 ## Next steps
 
-In the [next article](onntoso-migration-rehost-vm.md) in the series, we'll show how Contoso rehosts the SmartHotel app on Azure VMs using the Azure Site Recovery service.
+In the [next article](contoso-migration-rehost-vm.md) in the series, we'll show how Contoso rehosts the SmartHotel app on Azure VMs using the Azure Site Recovery service.
 
