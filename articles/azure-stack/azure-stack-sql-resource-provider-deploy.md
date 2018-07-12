@@ -28,10 +28,6 @@ There are several prerequisites that need to be in place before you can deploy t
 - If you haven't already done so, [register Azure Stack](azure-stack-registration.md) with Azure so you can download Azure marketplace items.
 - You must install the Azure and Azure Stack PowerShell modules on the system wher you  will run this installation. That system must be a Windows 10 or Windows Server 2016 image with the latest version of the .NET runtime. See [Install PowerShell for Azure Stack](.\azure-stack-powershell-install.md).
 - Add the required Windows Server core VM to the Azure Stack marketplace by downloading the **Windows Server 2016 Datacenter - Server Core** image. 
-
-  >[!NOTE]
-  >If you need to install an update, you can place a single MSU package in the local dependency path. If more than one MSU file is found, SQL resource provider installation will fail.
-
 - Download the SQL resource provider binary and then run the self-extractor to extract the contents to a temporary directory. The resource provider has a minimum corresponding Azure Stack build. Make sure you download the correct binary for the version of Azure Stack that you're running:
 
     |Azure Stack version|SQL RP version|
@@ -67,7 +63,6 @@ Run the DeploySqlProvider.ps1 script, which completes the following tasks:
 - Deploys a VM using the Windows Server 2016 core image you downloaded, and then installs the SQL resource provider.
 - Registers a local DNS record that maps to your resource provider VM.
 - Registers your resource provider with the local Azure Resource Manager for the operator account.
-- Optionally, installs a single Windows Server update during the resource provider installation.
 
 > [!NOTE]
 > When the SQL resource provider deployment starts, the **system.local.sqladapter** resource group is created. It may take up to 75 minutes to finish the required deployments to this resource group.
