@@ -13,7 +13,7 @@ ms.custom: mvc
 ---
  
 # What is Azure Maps?
-Azure Maps is a collection of geospatial services, backed by fresh mapping data so you can provide accurate geographic context to your web and mobile applications. It contains REST APIs for Maps, Search, Routing, Traffic, Time Zones, and IP to Location services. You can use these APIs with familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. Along with the REST APIs, it provides a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums. 
+Azure Maps is a collection of geospatial services, backed by fresh mapping data so you can provide accurate geographic context to your web and mobile applications. It contains REST APIs for rendering maps, searching points of interest, routes to points of interests, traffic conditions, time zones, and IP to location services. You can use these APIs with familiar tools to quickly develop and scale solutions that integrate location information into your Azure solutions. Along with the REST APIs, it provides a web-based JavaScript control to make development easy, flexible, and portable across multiple mediums. 
 
 The following video explains Azure Maps in depth:
 
@@ -86,7 +86,7 @@ Visit the [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/maps/tim
 
 ### IP to Location
 
-The IP to Location is a preview service allows you to retrieve the two letter country code for a given IP address. This service can help you tailor your application to meet special geopolitical constraints, as well as enhance user experience by changing the application's content based on the geographic location. 
+The IP to Location is a preview service that allows you to retrieve the two letter country code for a given IP address. This service can help you tailor your application to meet special geopolitical constraints, as well as enhance user experience by changing the application's content based on the geographic location. 
 
 
 ## Programming model
@@ -98,9 +98,9 @@ Additionally, Azure Maps offers a convenient [JavaScript map control](https://do
 
 ## Usage
 
-Azure Maps uses a key-based authentication scheme. Accessing the Maps services is a matter of navigating to the [Azure portal](http://portal.azure.com) and creating an Azure Maps account. 
+Accessing the Maps services is a matter of navigating to the [Azure portal](http://portal.azure.com) and creating an Azure Maps account. 
 
-Your account comes with two keys pre-generated for you. Start integrating these location capabilities directly into your applications by using either of your keys in the requests to the Azure Maps service.
+Azure Maps uses a key-based authentication scheme. Your account comes with two keys pre-generated for you. Start integrating these location capabilities directly into your applications by using either of your keys in the requests to the Azure Maps service.
 
 ## Supported regions
 The Azure Maps API is currently available in all countries except for the following: 
@@ -112,7 +112,7 @@ The Azure Maps API is currently available in all countries except for the follow
 * Pakistan
 * South Korea
 
-Check your current IP address and verify that your IP address' location is not in one of the unsupported countries above.
+Check your current IP address and verify that the location of your IP address is not in one of the unsupported countries above.
 
 ## Next steps
 
