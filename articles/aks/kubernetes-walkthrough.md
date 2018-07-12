@@ -208,6 +208,9 @@ When the cluster is no longer needed, use the [az group delete][az-group-delete]
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
+> [!NOTE]
+> The only resource that is not removed when you delete the cluster is the service principal in the AD. You can [remove it](kubernetes-service-principal.md#additional-considerations) too. 
+
 ## Get the code
 
 In this quickstart, pre-created container images have been used to create a Kubernetes deployment. The related application code, Dockerfile, and Kubernetes manifest file are available on GitHub.

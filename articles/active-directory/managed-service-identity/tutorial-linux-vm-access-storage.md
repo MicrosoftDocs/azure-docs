@@ -57,7 +57,7 @@ In this section, you create a Linux VM that is later granted a Managed Identity.
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
 
-   !["Basics" pane for creating a virtual machine](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   !["Basics" pane for creating a virtual machine](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. In the **Subscription** list, select a subscription for the virtual machine.
 5. To select a new resource group that you want the virtual machine to be created in, select **Resource group** > **Create new**. When you finish, select **OK**.
