@@ -23,9 +23,9 @@ ms.author: kumud
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure 
+## Sign in to Azure 
 
-Log in to the Azure portal at https://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a Traffic Manager profile
 Create a Traffic manager profile that directs user traffic based on endpoint [priority](traffic-manager-routing-methods.md#priority).
@@ -34,7 +34,7 @@ Create a Traffic manager profile that directs user traffic based on endpoint [pr
 2. In the **Create Traffic Manager profile**, enter or select, the following information, accept the defaults for the remaining settings, and then select **Create**:
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
-    | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name <name>, trafficmanager.net which is used to access your Traffic Manager profile.                                   |
+    | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name, trafficmanager.net which is used to access your Traffic Manager profile.                                   |
     | Routing method          | Select the **Priority** routing method.                                       |
     | Subscription            | Select your subscription.                          |
     | Resource group          | Select **Create new** and enter *myResourceGroupTM1*. |
@@ -53,7 +53,7 @@ In this section, you create Web Apps in different Azure regions - *West US* and 
 
      | Setting         | Value     |
      | ---              | ---  |
-     | Name           | Enter an unique name for your Web App  |
+     | Name           | Enter a unique name for your Web App  |
      | Resource group          | Select **Existing**, and the select *myResourceGroupTM1* |
      | App Service plan/Location         | Select **New**.  In the App Service plan, enter  *myAppServicePlanEastUS*, and then select **OK**. 
      |      Location  |   East US        |
