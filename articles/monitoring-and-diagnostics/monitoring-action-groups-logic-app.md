@@ -181,7 +181,7 @@ Azure Service Health entries are part of the activity log. The process for creat
 -  Steps 9 and 10 are the same.
 -  For steps 11 through 14, use the following process:
 
-   1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions to ensure that the logic app executes only when the input data matches these values:
+   1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions to ensure that the logic app executes only when the input data matches the values below.  When entering the version value into the text box, put quotes around it ("0.1.1") to ensure that it's evaluted as a string and not a numeric type.  The system does not show the quotes if you return to the page, but the underlying code still maintains the string type.   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
        - `version == 0.1.1`
@@ -269,10 +269,10 @@ The process for creating a metric alert is similar to [creating an activity log 
 - Steps 9 and 10 are the same.
 - For steps 11 through 14, use the following process:
 
-   1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions to ensure that the logic app executes only when the input data matches these values:
+   1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions to ensure that the logic app executes only when the input data matches these values below. When entering the version value into the text box, put quotes around it ("2.0") to ensure that it's evaluted as a string and not a numeric type.  The system does not show the quotes if you return to the page, but the underlying code still maintains the string type. 
        - `schemaId == AzureMonitorMetricAlert`
-       - `version == 2.0`
-
+       - `version == "2.0"`
+       
        !["Metric alert payload condition"](media/monitoring-action-groups/metric-alert-payload-condition.png "Metric alert payload condition")
 
    1. In the **if true** condition, add a **For each** loop and the Microsoft Teams action. Define the message by using a combination of HTML and dynamic content.
