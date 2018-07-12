@@ -20,15 +20,8 @@ ms.custom: mvc, devcenter
 # Deploy a micro-services based .NET Core application to Service Fabric Mesh
 This article shows how to deploy a .NET Core application to Service Fabric Mesh using a template. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a back-end service in the cluster. The front-end uses DNS to resolve the address of the back-end service.
 
-You can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
-
-[!INCLUDE [preview note](./includes/include-preview-note.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
-
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete these steps. If you choose to install and use the CLI locally, you must install the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install]. 
-
-Also install the [Service Fabric Mesh CLI module](service-fabric-mesh-howto-setup-developer-environment-sdk.md#install-the-service-fabric-mesh-cli) if it's not already installed.
+## Install Service Fabric Mesh CLI 
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this task. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
 ## Deploy the application
 Login to Azure and set your subscription.
@@ -44,11 +37,12 @@ Create a resource group to deploy the application to. You can use an existing re
 az group create --name myResourceGroup --location eastus 
 ```
 
-Create your application in the resource group using the `deployment create` command, using our [mesh_rp.linux.json template] (https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.linux.json), or [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json):
+Create your application in the resource group using the `deployment create` command.
 
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
 ```
+Above command deploys windows application using [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json), if you want to deploy a linux application, use [mesh_rp.linux.json template] (https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.linux.json).
 
 In a few minutes, your command should return with:
 
@@ -88,13 +82,10 @@ When you no longer need the application and it's related resources, delete the r
 
 ```azurecli-interactive
 az group delete --resource-group myResourceGroup  
-```
+``` 
 
 ## Next steps
 To learn more about Service Fabric Mesh, read the overview:
 > [!div class="nextstepaction"]
 > [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
-
-
-[azure-cli-install]: /cli/azure/install-azure-cli
 
