@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Users\\miriamb\\AppData\\Local\\Arduino15\\packages\\AZ3166\\hardware\\stm32f4\\1.1.0\\cores\\arduino"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": false,
+                "path": [
+                    "C:\\Users\\miriamb\\AppData\\Local\\Arduino15\\packages\\AZ3166\\hardware\\stm32f4\\1.1.0\\cores\\arduino"
+                ]
+            }
+        }
+    ]
+}

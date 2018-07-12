@@ -21,31 +21,17 @@ To complete the steps in this article, you need the following:
 1. An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see [Create your Azure IoT Central Application](howto-create-application.md).
 2. A device running the Windows 10 IoT Core operating system. For this walkthrough, we will use a Raspberry Pi
 
-An application created from the **Sample Devkits** application template includes a **Windows IoT Core** device template with the following characteristics:
 
-### Telemetry measurements
+## **Sample Devkits** application
 
-| Field name     | Units  | Minimum | Maximum | Decimal places |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humidity       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
+An application created from the **Sample Devkits** application template includes a **Windows IoT Core** device template with the following characteristics: 
 
-### Settings
-
-Numeric settings
-
-| Display name | Field name | Units | Decimal places | Minimum | Maximum | Initial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+- Telmetry which containes the measurements for the device **Humidity**, **Temperature** and **Pressure**. 
+- Settings showing **Fan Speed**.
+- Properties containing device property **die number** and **location** cloud property.
 
 
-### Properties
-
-| Type            | Display name | Field name | Data type |
-| --------------- | ------------ | ---------- | --------- |
-| Device property | Die number   | dieNumber  | number    |
-| Text            | Location     | location   | N/A       |
+For full details on the configuration of the device template refer to [Windows IoT Core Device template details](howto-connect-raspberry-windowsiotcore.md)
 
 ## Add a real device
 
@@ -102,3 +88,31 @@ If you want to explore and modify the source code for the client application, yo
 
 > [!NOTE]
 > If **git** is not installed in your development environment, you can download it from [https://git-scm.com/download](https://git-scm.com/download).
+
+## Windows IoT Core Device template details
+
+An application created from the **Sample Devkits** application template includes a **Windows IoT Core** device template with the following characteristics:
+
+### Telemetry measurements
+
+| Field name     | Units  | Minimum | Maximum | Decimal places |
+| -------------- | ------ | ------- | ------- | -------------- |
+| humidity       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pressure       | hPa    | 260     | 1260    | 0              |
+
+### Settings
+
+Numeric settings
+
+| Display name | Field name | Units | Decimal places | Minimum | Maximum | Initial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+
+### Properties
+
+| Type            | Display name | Field name | Data type |
+| --------------- | ------------ | ---------- | --------- |
+| Device property | Die number   | dieNumber  | number    |
+| Text            | Location     | location   | N/A       |

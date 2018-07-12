@@ -21,6 +21,8 @@ To complete the steps in this article, you need the following:
 1. An Azure IoT Central application. For more information, see [Create your Azure IoT Central Application](howto-create-application.md).
 1. A development machine with [Node.js](https://nodejs.org/) version 4.0.0 or later installed. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
 
+## Create a Device Template
+
 In your Azure IoT Central application, you need a device template with the following measurements and device properties defined:
 
 ### Telemetry measurements
