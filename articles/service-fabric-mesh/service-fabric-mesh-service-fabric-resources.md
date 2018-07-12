@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure Service Fabric resources | Microsoft Docs
-description: Learn about the Service Fabric resources, the simple, unified way to deploy and manage Service Fabric applications.
+title: Introduction to Azure Service Fabric Mesh Resource Model | Microsoft Docs
+description: Learn about the Service Fabric Mesh Resource Model, a simplified approach to defining Service Fabric Mesh applications.
 services: service-fabric-mesh
 documentationcenter: .net
 author: vturecek
@@ -17,34 +17,32 @@ ms.author: vturecek
 ms.custom: mvc, devcenter 
 
 ---
-# Introduction to Service Fabric resources
+# Introduction to Service Fabric Mesh Resource Model
 
-Service Fabric resources are a simple, unified way to deploy and manage applications anywhere Service Fabric runs. 
+Service Fabric Mesh Resource Model describes a simple approach to define resources that comprise a Service Fabric Mesh application. The following types of resources are currently supported in this model:
 
-## How it works
-
-A Service Fabric resource describes how something should run in the Service Fabric environment. The following types of resources are currently supported:
-
-- Applications and services
+- Applications
+- Services
 - Volumes
 - Networks
 
-Each resource is described declaratively in a resource file. A resource file is a simple YAML or JSON document that describes how to run an instance of an application, service, volume, or network. Service Fabric will then ensure the resource continues to run as described in the resource file.
+Each resource is described declaratively in a resource file, which is a simple YAML or JSON document that describes the Mesh Application, and is provisioned by the Service Fabric Mesh platform.
 
 ## Resource overview
 
-### Applications and services
+### Applications and Services
 
-A service resource describes how to run a set of container images together. The container images can be anything, such as an IIS web server with a web application, or a single microservice. 
-
-Each service resource contains any number of *code packages*. A code package describes everything needed to run a single container image, including:
+A Mesh Application resource is the unit of deployment, versioning and lifetime of a Mesh application. It is comprised of one, or more, of Mesh Service resources that represent a microservice. Each Mesh Service resource, in turn, is comprised of one, or more, code packages that describe everything needed to run the container image associated with the code package, including the following:
 
 - Container name, version, and registry
 - CPU and memory resources required for each container
 - Network endpoints
 - Volumes to mount in the container, referencing a separate volume resource.
 
-All the code packages defined in a service resource are always deployed and activated together as a group. This means each instance of a service will include all code packages together on the same node. The service resource also describes how many instances of the service to run, and the network the service belongs to.
+All the code packages defined as part of a Mesh Service resource are deployed and activated together as a group. The Mesh Service resource also describes how many instances of the service to run and also references other Mesh Resources (e.g. Mesh Network resource) it depends upon.
+
+If a Mesh Application is comprised of more than one Mesh Services, they are not guaranteed to run together on the same node. Also, during an upgrade of the Mesh Application, failure of upgrading a single Mesh Service will result in all Mesh Services being rolled back to their previous version.
+
 
 
 ```yaml
@@ -63,34 +61,34 @@ All the code packages defined in a service resource are always deployed and acti
               endpoints:
                 - name: helloWorldEndpoint
                   port: 8080
-    replicaCount: 5
+    replicaCount: 3
     networkRefs:
       - name: mynetwork
 ```
 
-An application resource is a way to group services that should be deployed and upgraded together as a unit. This does not mean services will always run together on the same node. However, during an application upgrade, if the upgrade of one service fails, all services are rolled back to their previous version.
 
-The lifecycle of each application instance can be managed independently. For example, one application can be upgraded independently from other application. Typically, you keep the number of services in an application fairly small, as the more services you put into an application, the more difficult it becomes to manage each service independently.
+
+As alluded earlier, the lifecycle of each Mesh Application instance can be managed independently. For example, one Mesh Application instance can be upgraded independently from the other Mesh Application instances. Typically, you keep the number of services in an application fairly small, as the more services you put into an application, the more difficult it becomes to manage each service independently.
 
 ### Networks
 
-Networks are individually deployable resources, just like applications and services. A network resource is used to create a private network for your applications. Multiple services from different applications can be part of the same network.
+Mesh Network resource is individually deployable resource, independent of a Mesh Application or Mesh Service resource that may refer to it as their dependency. It is used to create a private network for your applications. Multiple Mesh Services from different Mesh Applications can be part of the same network.
 
 > [!NOTE]
 > The current preview only supports a one to one mapping between applications and networks
 
 ### Volumes
 
-Volumes are directories that get mounted inside your container instances that you can use to write files. The volume resource is a declarative way to describe how a volume is mounted and the backing storage for the volume.
+Mesh Volumes are directories that get mounted inside your container instances that you can use to persist state. The Mesh Volume resource is a declarative way to describe how a directory is mounted and the backing storage for it.
 
 ## Programming models
-Service resources only define a container image to run. There are no frameworks or base classes you need to implement in your service code. Instead, you can run any code, written in any language, using any framework inside the container without implementing Service Fabric-specific APIs. 
+Mesh Service resource only requires a container image to run, which is referenced in the code package(s) associated with the resource. You can run any code, written in any language, using any framework inside the container without requiring to know, or use, Service Fabric Mesh specific APIs. 
 
-Your application code remains portable even outside of Service Fabric and your application deployments remain consistent regardless of the language or framework used to implement your services. Whether your application is ASP.NET Core, Go, or just a set of processes and scripts, the service resource deployment model remains the same. 
+Your application code remains portable even outside of Service Fabric Mesh and your application deployments remain consistent regardless of the language or framework used to implement your services. Whether your application is ASP.NET Core, Go, or just a set of processes and scripts, the Service Fabric Mesh Resource deployment model remains the same. 
 
 ## Deployment
 
-Service Fabric resources can be deployed anywhere Service Fabric runs. When deploying to Service Fabric locally, in your own datacenter, or in the cloud, resources are deployed to your cluster's HTTP management endpoint or through the Service Fabric CLI. When deploying to Service Fabric Mesh, resources are deployed as Azure Resource Manager templates to Azure through HTTP or the Azure CLI. You can deploy the same Service Fabric resource to any of these Service Fabric environments without making any changes to your application code.
+When deploying to Service Fabric Mesh, Mesh Resources are deployed as Azure Resource Manager (ARM) templates to Azure through HTTP or the Azure CLI. 
 
 
 ## Next steps 
