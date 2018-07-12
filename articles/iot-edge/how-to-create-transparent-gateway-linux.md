@@ -187,6 +187,7 @@ Refer to the [module composition article][lnk-module-composition] for more detai
 <!-- Links -->
 [lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
 [lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
+[lnk-module-composition]: ./module-composition.md
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md

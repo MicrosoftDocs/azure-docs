@@ -334,7 +334,7 @@ Once you know the state of the Azure connectivity and of the Azure subscription,
 
 If a firewall or a proxy is preventing access to Azure, whitelist the following domain addresses in the firewall/proxy profile:
 
-- www.msftncsi.com
+- `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com
 - \*.WindowsAzure.com
 - \*.microsoftonline.com

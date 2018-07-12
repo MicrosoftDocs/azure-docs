@@ -54,7 +54,7 @@ A common question about the .NET `HttpClient` is "Should I be disposing my clien
 
 ## DocumentClient code example
 
-`DocumentClient` connects to a Cosmos DB instance. The Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](https://docs.microsoft.com/en-us/azure/cosmos-db/performance-tips#sdk-usage). The following example shows one pattern for doing that in a function.
+`DocumentClient` connects to a Cosmos DB instance. The Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). The following example shows one pattern for doing that in a function.
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"

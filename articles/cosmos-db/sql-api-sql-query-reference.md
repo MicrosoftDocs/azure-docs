@@ -1851,7 +1851,7 @@ SELECT
 |[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
 |[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
-|[UPPER](#bk_upper)|||  
+|[ToString](#bk_tostring)|[UPPER](#bk_upper)|||  
   
 ####  <a name="bk_concat"></a> CONCAT  
  Returns a string that is the result of concatenating two or more string values.  
@@ -2364,7 +2364,80 @@ SELECT SUBSTRING("abc", 1, 1)
 ```  
 [{"$1": "b"}]  
 ```  
+####  <a name="bk_tostring"></a> ToString  
+ Returns a string representation of scalar expression. 
   
+ **Syntax**  
+  
+```  
+ToString(<expr>)
+```  
+  
+ **Arguments**  
+  
+-   `expr`  
+  
+     Is any valid scalar expression.  
+  
+ **Return Types**  
+  
+ Returns a string expression.  
+  
+ **Examples**  
+  
+ The following example shows how ToString behaves across different types.   
+  
+```  
+SELECT ToString(1.0000), ToString("Hello World"), ToString(NaN), ToString(Infinity),
+ToString(IS_STRING(ToString(undefined))), IS_STRING(ToString(0.1234), ToString(false), ToString(undefined))
+```  
+  
+ Here is the result set.  
+  
+```  
+[{"$1": "1", "$2": "Hello World", "$3": "NaN", "$4": "Infinity", "$5": "false", "$6": true, "$7": "false"}]  
+```  
+ Given the following input:
+```  
+{"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
+```    
+ The following example shows how ToString can be used with other string functions like CONCAT.   
+ 
+```  
+SELECT 
+CONCAT(ToString(p.Weight), p.WeightUnits) 
+FROM p in c.Products 
+```  
+
+ Here is the result set.  
+  
+```  
+[{"$1":"4lb" },
+ {"$1":"32kg"},
+ {"$1":"400g" },
+ {"$1":"8999mg" }]
+
+```  
+Given the following input.
+```
+{"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
+```
+ The following example shows how ToString can be used with other string functions like REPLACE.   
+```
+SELECT 
+    n.id AS nutrientID,
+    REPLACE(ToString(n.nutritionValue), "6", "9") AS nutritionVal
+FROM food 
+JOIN n IN food.nutrients
+```
+ Here is the result set.  
+ ```
+[{"nutrientID":"305"},
+{"nutrientID":"306","nutritionVal":"30"},
+{"nutrientID":"307","nutritionVal":"912"},
+{"nutrientID":"308","nutritionVal":"90"},
+{"nutrientID":"309","nutritionVal":"null"}]
+ ```  
 ####  <a name="bk_upper"></a> UPPER  
  Returns a string expression after converting lowercase character data to uppercase.  
   

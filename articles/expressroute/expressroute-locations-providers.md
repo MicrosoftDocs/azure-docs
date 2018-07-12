@@ -70,19 +70,19 @@ The following table shows connectivity locations and the service providers for e
 ### Production Azure
 | **Location** | **Service Providers** |
 | --- | --- |
-| **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, KPN, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo |
+| **Amsterdam** |Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo |
 | **Atlanta** |Equinix |
 | **Busan** |LG CNS |
 | **Canberra** | CDC |
 | **Canberra2** | CDC |
-| **Cape Town** |Liquid Telecom, Teraco |
+| **Cape Town** |Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Chennai** | Airtel+, Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chicago** |AT&T NetBond, Comcast, Coresite, Equinix, PacketFabric, Level 3 Communications, Megaport, Sprint, Verizon, Zayo |
 | **Dallas** |Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet+, Verizon, Zayo|
 | **Denver** |CoreSite, Megaport |
 | **Dublin** |Colt, eir, Equinix, Interxion, Megaport |
 | **Hong Kong** |Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
-| **Johannesburg** |Liquid Telecom, Teraco |
+| **Johannesburg** |Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Las Vegas** |CenturyLink Cloud Connect, Megaport |
 | **London** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo |

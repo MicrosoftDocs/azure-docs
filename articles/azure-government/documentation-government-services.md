@@ -122,7 +122,7 @@ The **services available in Azure Government** are listed by category, as well a
 | --- | --- |
 | [Automation](documentation-government-services-monitoringandmanagement.md#automation)| [Advisor](documentation-government-services-monitoringandmanagement.md#advisor) |
 | [Backup](documentation-government-services-backup.md) | |
-| [Policy**](documentation-government-services-monitoringandmanagement.md#policy) | |
+| [Policy](documentation-government-services-monitoringandmanagement.md#policy) | |
 | [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | |
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | | 
 | [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler) | |

@@ -26,7 +26,7 @@ Simply put, the objective of TIC is for agencies to know:
 
 Today all agency external connections must be routed through an OMB-approved TIC. Federal agencies are required to participate in the TIC program either as a TIC Access Provider (TICAP) or by contracting services with one of the major Tier 1 Internet Service Providers referred to as Managed Trusted Internet Protocol Service (MTIPS) providers.  TIC includes mandatory critical capabilities that are performed today by the agency and MTIPS provider. In the current version of TIC, the EINSTEIN version 2 intrusion detection and EINSTEIN version 3 accelerated (3A) intrusion prevention devices are deployed at each TICAP and MTIPS and the agency establishes a Memorandum of Understanding with the Department of Homeland Security (DHS) to deploy EINSTEIN capabilities to federal systems.
 
-As part of its responsibility to protect the .gov network, DHS requires raw data feeds of agency Netflow data to correlate incidents across the federal enterprise and perform analyses using specialized tools. DHS routers provide the ability to collect IP network traffic as it enters or exits an interface. By analyzing the net flow data, a network administrator can determine things such as the source and destination of traffic, class of service, etc. Net flow data is considered "non-content data" (for example, header, source IP, destination IP, etc.) and allows DHS to know information around the content; that is, who was doing what and for how long.
+As part of its responsibility to protect the .gov network, DHS requires raw data feeds of agency Netflow data to correlate incidents across the federal enterprise and perform analyses using specialized tools. DHS routers provide the ability to collect IP network traffic as it enters or exits an interface. By analyzing the net flow data a network administrator can determine things such as the source and destination of traffic, class of service, etc. Net flow data is considered "non-content data" (for example, header, source IP, destination IP, etc.) and allows DHS to know information around the content; that is, who was doing what and for how long.
 
 The initiative also includes security policies, guidelines, and frameworks that assume on-premises infrastructure. As government agencies move to the cloud to achieve cost savings, operational efficiency, and innovation, the implementation requirements of TIC are in some cases slowing down network traffic and limiting the speed and agility with which government users can access their cloud-based data.
 
@@ -196,7 +196,7 @@ The following sample policies may be useful for TIC compliance scenarios:
 |Allowed locations | Ensure that all resources are deployed to regions with compliant VNets and Network Watcher configuration  | https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs |
 |Not allowed resource types such as PublicIPs  | Prohibit the deployment of resource types, which do not have a compliance plan. As an example, this policy could be used to prohibit the deployment of Public IP address resources. While NSG rules can be used to effectively block inbound Internet traffic, preventing the use of Public IPs further reduces the attack surface.	| https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type  |
 
-### Azure Traffic Analytics
+### Azure [Traffic Analytics](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/)
 
 Azure Network Watcher's Traffic Analytics consumes flow Log data and other logs to provide high-level overview of network traffic. This data can be useful for auditing TIC compliance and identifying trouble spots. A high-level dashboard can be used to rapidly screen which VMs are communicating with the internet, which would then provide a focused list for TIC routing.
 
@@ -247,4 +247,3 @@ Microsoft Azure, Office 365, and Dynamics 365 access can be easily configured to
 
 *: Public Preview in Azure Government as of May 2018  
 **: Private Preview in Azure Government as of May 2018
-

@@ -72,8 +72,8 @@ The goal of Azure AD joined devices is to simplify:
 ![Azure AD registered devices](./media/device-management-introduction/02.png)
 
 Azure AD Join can be deployed by using any of the following methods: 
- - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
- - [Bulk deployment](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Bulk deployment](https://docs.microsoft.com/intune/windows-bulk-enroll)
  - [Self-service experience](device-management-azuread-joined-devices-frx.md) 
 
 **Azure AD Join** is intended for organizations that want to be cloud-first (that is, primarily use cloud services, with a goal to reduce use of an on-premises infrastructure) or cloud-only (no on-premises infrastructure). There are no restrictions on the size or type of organizations that can deploy Azure AD Join. Azure AD Join works well even in a hybrid environment, enabling access to both cloud and on-premises apps and resources.

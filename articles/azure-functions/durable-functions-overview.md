@@ -20,7 +20,7 @@ ms.author: azfuncdf
 
 *Durable Functions* is an extension of [Azure Functions](functions-overview.md) and [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
-The extension lets you define stateful workflows in a new type of function called an *orchestrator function*. Here are some of the advantages of orchestrator functions:
+The extension lets you define stateful workflows in a new type of function called an [*orchestrator function*](durable-functions-types-features-overview.md#orchestrator-functions). Here are some of the advantages of orchestrator functions:
 
 * They define workflows in code. No JSON schemas or designers are needed.
 * They can call other functions synchronously and asynchronously. Output from called functions can be saved to local variables.
@@ -335,7 +335,7 @@ Orchestrator functions reliably maintain their execution state using a cloud des
 
 The use of Event Sourcing by this extension is transparent. Under the covers, the `await` operator in an orchestrator function yields control of the orchestrator thread back to the Durable Task Framework dispatcher. The dispatcher then commits any new actions that the orchestrator function scheduled (such as calling one or more child functions or scheduling a durable timer) to storage. This transparent commit action appends to the *execution history* of the orchestration instance. The history is stored in a storage table. The commit action then adds messages to a queue to schedule the actual work. At this point, the orchestrator function can be unloaded from memory. Billing for it stops if you're using the Azure Functions Consumption Plan.  When there is more work to do, the function is restarted and its state is reconstructed.
 
-Once an orchestration function is given more work to do (for example, a response message is received or a durable timer expires), the orchestrator wakes up again and re-executes the entire function from the start in order to rebuild the local state. If during this replay the code tries to call a function (or do any other async work), the Durable Task Framework consults with the *execution history* of the current orchestration. If it finds that the activity function has already executed and yielded some result, it replays that function's result, and the orchestrator code continues running. This continues happening until the function code gets to a point where either it is finished or it has scheduled new async work.
+Once an orchestration function is given more work to do (for example, a response message is received or a durable timer expires), the orchestrator wakes up again and re-executes the entire function from the start in order to rebuild the local state. If during this replay the code tries to call a function (or do any other async work), the Durable Task Framework consults with the *execution history* of the current orchestration. If it finds that the [activity function](durable-functions-types-features-overview.md#activity-functions) has already executed and yielded some result, it replays that function's result, and the orchestrator code continues running. This continues happening until the function code gets to a point where either it is finished or it has scheduled new async work.
 
 ### Orchestrator code constraints
 
@@ -379,7 +379,7 @@ All known issues should be tracked in the [GitHub issues](https://github.com/Azu
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Continue reading Durable Functions documentation](durable-functions-bindings.md)
+> [Continue reading Durable Functions documentation](durable-functions-types-features-overview.md)
 
 > [!div class="nextstepaction"]
 > [Install the Durable Functions extension and samples](durable-functions-install.md)
