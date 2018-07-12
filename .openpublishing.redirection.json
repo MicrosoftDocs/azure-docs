@@ -9736,7 +9736,12 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-data-science-create-features-blob.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/create-features-blob",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/create-features-blob.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
             "redirect_document_id": false
         },
         {
@@ -25003,6 +25008,11 @@
         {
             "source_path": "articles/iot-hub/iot-hub-security-groud-up.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-security-x509-create-certificates.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-security-x509-get-started",
             "redirect_document_id": false
         },
         {
