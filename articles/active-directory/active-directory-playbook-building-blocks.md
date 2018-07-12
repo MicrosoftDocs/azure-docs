@@ -154,7 +154,7 @@ Approximate time to Complete: 60 minutes
 | Follow instructions to configure ServiceNow |  |
 | In "Provisioning" blade of ServiceNow App enable "Automatic" provisioning | [Managing user account provisioning for enterprise apps in the new Azure portal](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Wait for a few minutes while provisioning completes.  In the meantime, you can check on the provisioning reports |  |
-| Log in to https://myapps.microsoft.com/ as a test user that has access | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
+| Log in to https://myapps.microsoft.com/ as a test user that has access | [What is the Access Panel?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Click on the tile for the application that was just created. Confirm access |  |
 | Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) |
 
@@ -185,8 +185,8 @@ Approximate time to Complete: 15 minutes
 | Configure Password SSO | [Managing single sign-on for enterprise apps in the new Azure portal: Password-based sign on](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | Assign the app to the group identified in the Prerequisites | [Assign a user or group to an enterprise app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Log in to https://myapps.microsoft.com/ as a test user that has access |  |
-| Click on the tile for the application that was just created. | [What is the Access Panel?: Password-based SSO without identity provisioning](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
-| Supply the application credential | [What is the Access Panel?: Password-based SSO without identity provisioning](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Click on the tile for the application that was just created. | [What is the Access Panel?: Password-based SSO without identity provisioning](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Supply the application credential | [What is the Access Panel?: Password-based SSO without identity provisioning](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Close the browser and repeat the login. This time around the user should see seamless access to the application. |  |
 | Optionally, you can check the application usage reports. Note there is some latency, so you need to wait some time to see the traffic in the reports. | [Sign-in activity reports in the Azure Active Directory portal: Usage of managed applications](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) |
 
@@ -305,7 +305,7 @@ Approximate time to Complete: 10 minutes
 | SaaS application (Federated SSO or Password SSO) has been already configured | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) |
 | Cloud Group that is assigned access to the application in #1 is identified | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) <br/>[Create a group and add members in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Credentials for the group owner are available | [Manage access to resources with Azure Active Directory groups](fundamentals/active-directory-manage-groups.md) |
-| Credentials for the information worker accessing the apps has been identified | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
+| Credentials for the information worker accessing the apps has been identified | [What is the Access Panel?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### Steps
@@ -315,7 +315,7 @@ Approximate time to Complete: 10 minutes
 | Identify the group that has been granted access to the application, and configure the owner of given group| [Manage the settings for a group in Azure Active Directory ](fundamentals/active-directory-groups-settings-azure-portal.md) |
 | Log in as the group owner, see the group membership in groups tab of access panel | [Azure Active Directory Groups Management page](https://account.activedirectory.windowsazure.com/r#/groups) |
 | Add the information worker you want to test |  |
-| Log in as the information worker, confirm the tile is available | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
+| Log in as the information worker, confirm the tile is available | [What is the Access Panel?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 ### Considerations
 
@@ -329,7 +329,7 @@ If the application has provisioning enabled, you might need to wait a few minute
 | --- | --- |
 | SaaS application (Federated SSO or Password SSO) has been already configured | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) |
 | Cloud Group that is assigned access to the application in #1 is identified | Building block: [SaaS Federated SSO Configuration](#saas-federated-sso-configuration) <br/>[Create a group and add members in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
-| Credentials for the information worker accessing the apps has been identified | [What is the Access Panel?](active-directory-saas-access-panel-introduction.md) |
+| Credentials for the information worker accessing the apps has been identified | [What is the Access Panel?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### Steps
@@ -377,7 +377,7 @@ Approximate time to Complete: 15 minutes
 
 | Pre-requisite | Resources |
 | --- | --- |
-| Enable self-service password management in your tenant. | [Azure Active Directory password reset for IT administrators](active-directory-passwords-update-your-own-password.md) |
+| Enable self-service password management in your tenant. | [Azure Active Directory password reset for IT administrators](user-help/active-directory-passwords-update-your-own-password.md) |
 | Enable password write-back to manage passwords from on-premises. Note this requires specific Azure AD Connect versions | [Password Writeback prerequisites](authentication/howto-sspr-writeback.md) |
 | Identify the PoC users that will use this functionality, and make sure they are members of a security group. The users must be non-admins to fully showcase the capability | [Customize: Azure AD Password Management: Restrict Access to password reset](authentication/howto-sspr-writeback.md) |
 
@@ -392,7 +392,7 @@ Approximate time to Complete: 15 minutes
 | Supply the Self-Service Password Reset data as configured per step 2 | https://aka.ms/ssprsetup |
 | Close the browser |  |
 | Start over the login process as the information worker you used in step 4 |  |
-| Reset the password | [Update your own password: Reset my password](active-directory-passwords-update-your-own-password.md) |
+| Reset the password | [Update your own password: Reset my password](user-help/active-directory-passwords-update-your-own-password.md) |
 | Try logging in with your new password to Azure AD as well as to on-premises resources |  |
 
 ### Considerations
@@ -425,7 +425,7 @@ Approximate time to Complete: 10 minutes
 ### Considerations
 
 1. The PoC steps in this building block explicitly setting MFA for a user on all logins. There are other tools such as Conditional Access, and Identity Protection that engage MFA on more targeted scenarios. This will be something to consider when moving from POC to production.
-2. The PoC steps in this building block are explicitly using Phone Calls as the MFA method for expedience. As you transition from POC to production, we recommend using applications such as the [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) as your second factor whenever possible.
+2. The PoC steps in this building block are explicitly using Phone Calls as the MFA method for expedience. As you transition from POC to production, we recommend using applications such as the [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) as your second factor whenever possible.
 Learn more: [DRAFT NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## MFA Conditional Access for SaaS applications
@@ -550,7 +550,7 @@ Approximate time to complete: 20 minutes
 | --- | --- |
 | Device with user certificate provisioned (Windows, iOS or Android) from Enterprise PKI | [Deploy User Certificates](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Azure AD domain federated with ADFS | [Azure AD Connect and federation](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory Certificate Services Overview](https://technet.microsoft.com/library/hh831740.aspx)|
-| For iOS devices have Microsoft Authenticator app installed | [Get started with the Microsoft Authenticator app](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| For iOS devices have Microsoft Authenticator app installed | [Get started with the Microsoft Authenticator app](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### Steps
 

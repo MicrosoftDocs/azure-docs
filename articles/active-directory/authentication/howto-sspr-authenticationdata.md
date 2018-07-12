@@ -152,8 +152,8 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 ## Next steps
 
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../active-directory-passwords-update-your-own-password.md)
-* [Register for self-service password reset](../active-directory-passwords-reset-register.md)
+* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md)
 * [Do you have a licensing question?](concept-sspr-licensing.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
 * [What are the policy options with SSPR?](concept-sspr-policy.md)

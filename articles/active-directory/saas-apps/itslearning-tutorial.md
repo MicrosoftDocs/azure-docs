@@ -204,7 +204,7 @@ When you click the itslearning tile in the Access Panel, you should get login pa
 
   ![Login](./media/itslearning-tutorial/login.png)
 
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

@@ -92,7 +92,7 @@ Follow the steps in [Getting started with Azure Multi-Factor Authentication in t
 ### Configure accounts for two-step verification
 Once an account has been enabled for MFA, you cannot sign in to resources governed by the MFA policy until you have successfully configured a trusted device to use for the second authentication factor and have authenticated using two-step verification.
 
-Follow the steps in [What does Azure Multi-Factor Authentication mean for me?](end-user/current/multi-factor-authentication-end-user.md) to understand and properly configure your devices for MFA with your user account.
+Follow the steps in [What does Azure Multi-Factor Authentication mean for me?](../user-help/multi-factor-authentication-end-user.md) to understand and properly configure your devices for MFA with your user account.
 
 ## Install and configure NPS extension
 This section provides instructions for configuring RDS infrastructure to use Azure MFA for client authentication with the Remote Desktop Gateway.

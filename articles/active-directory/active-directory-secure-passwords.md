@@ -20,7 +20,7 @@ ms.author: lizross
 This article discusses some best practices you can follow as a user or as an administrator to protect your Azure Active Directory (Azure AD) or Microsoft Account.
 
  > [!NOTE]
- > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+ > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](user-help/active-directory-passwords-update-your-own-password.md).
  >
  > Azure AD administrators can reset user passwords using the guidance in the article [Reset the password for a user in Azure Active Directory](fundamentals/active-directory-users-reset-password-azure-portal.md).
  >
@@ -33,7 +33,7 @@ Azure AD incorporates the following common approaches to securing passwords:
 * Password complexity requirements
 * Regular and periodic password expiration
 
-For information about password reset in Azure Active Directory, see the topic [Azure AD self-service password reset for the IT professional](active-directory-passwords-update-your-own-password.md).
+For information about password reset in Azure Active Directory, see the topic [Azure AD self-service password reset for the IT professional](user-help/active-directory-passwords-update-your-own-password.md).
 
 ## Azure AD password protections
 
@@ -70,7 +70,7 @@ For other Microsoft accounts, their screen looks similar to the one that follows
 
   ![Locked out of a Microsoft account](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-For information about password reset in Azure Active Directory, see the topic [Azure AD self-service password reset for the IT professional](active-directory-passwords-update-your-own-password.md).
+For information about password reset in Azure Active Directory, see the topic [Azure AD self-service password reset for the IT professional](user-help/active-directory-passwords-update-your-own-password.md).
 
   >[!NOTE]
   >If you are an Azure AD administrator, you may want to use [Windows Hello](https://www.microsoft.com/windows/windows-hello) to avoid having your users create traditional passwords altogether.
@@ -78,6 +78,6 @@ For information about password reset in Azure Active Directory, see the topic [A
 
 ## Next steps
 
-* [How to update your own password](active-directory-passwords-update-your-own-password.md)
+* [How to update your own password](user-help/active-directory-passwords-update-your-own-password.md)
 * [The fundamentals of Azure identity management](fundamentals-identity.md)
 * [Report on password reset activity](authentication/howto-sspr-reporting.md)

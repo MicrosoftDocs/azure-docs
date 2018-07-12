@@ -270,7 +270,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration by using the access panel.
 
 When you select the SAP HANA tile in the access panel, you should get automatically signed into your SAP HANA application.
-For more information about the access panel, see [Introduction to the access panel](../active-directory-saas-access-panel-introduction.md).
+For more information about the access panel, see [Introduction to the access panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

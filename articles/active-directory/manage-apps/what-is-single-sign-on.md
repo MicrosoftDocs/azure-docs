@@ -155,7 +155,7 @@ The Access Panel at https://myapps.microsoft.com is a web-based portal that allo
 
 The Access Panel is separate from the Azure portal and does not require users to have an Azure subscription or Office 365 subscription.
 
-For more information on the Azure AD access panel, see the [introduction to the access panel](../active-directory-saas-access-panel-introduction.md).
+For more information on the Azure AD access panel, see the [introduction to the access panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ### Office 365 application launcher
 For organizations that have deployed Office 365, applications assigned to users through Azure AD will also appear in the Office 365 portal at https://portal.office.com/myapps. This makes it easy and convenient for users in an organization to launch their apps without having to use a second portal, and is the recommended app launching solution for organizations using Office 365.

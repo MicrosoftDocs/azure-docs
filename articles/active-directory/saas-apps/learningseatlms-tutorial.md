@@ -204,7 +204,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel. 
 
-Click the Learning Seat LMS tile in the Access Panel, you will be automatically signed-on to your Learning Seat LMS application. For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+Click the Learning Seat LMS tile in the Access Panel, you will be automatically signed-on to your Learning Seat LMS application. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 

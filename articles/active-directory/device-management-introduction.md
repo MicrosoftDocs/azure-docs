@@ -178,8 +178,8 @@ As a rule of a thumb, you should use:
 - To learn more about device-based conditional access, see [configure Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
 
 - To setup:
-    - Azure Active Directory registered Windows 10 devices, see [how to configure Azure Active Directory registered Windows 10 devices](device-management-azuread-registered-devices-windows10-setup.md)
-    - Azure Active Directory joined devices, see [how to configure Azure Active Directory joined devices](device-management-azuread-joined-devices-setup.md)
+    - Azure Active Directory registered Windows 10 devices, see [how to configure Azure Active Directory registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+    - Azure Active Directory joined devices, see [how to configure Azure Active Directory joined devices](user-help/device-management-azuread-joined-devices-setup.md)
     - Hybrid Azure AD joined devices, see [how to configure hybrid Azure Active Directory joined devices](device-management-hybrid-azuread-joined-devices-setup.md).
 
 

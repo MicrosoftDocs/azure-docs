@@ -31,7 +31,7 @@ Here's one example of why a company would set a custom home page:
 - Set *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* as the home page URL. 
 
 >[!NOTE]
->When you give users access to published apps, the apps are displayed in the [Azure AD Access Panel](../active-directory-saas-access-panel-introduction.md) and the [Office 365 app launcher](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
+>When you give users access to published apps, the apps are displayed in the [Azure AD Access Panel](../user-help/active-directory-saas-access-panel-introduction.md) and the [Office 365 app launcher](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
 
 ## Before you start
 

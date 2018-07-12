@@ -284,7 +284,7 @@ When you click the iQualify LMS tile in the Access Panel, you should get login p
 
 Click **Sign in with Azure AD** button and you should get automatically signed-on to your iQualify LMS application.
 
-For more information about the Access Panel, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
