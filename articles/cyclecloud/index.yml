@@ -15,6 +15,7 @@ metadata:
   ms.author: kimli
 abstract:
   description: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. CycleCloud’s automated configuration enables IT to focus on on providing service to the business users.
+
 sections:
 
   - items:
@@ -53,7 +54,6 @@ sections:
           image:
             src: media/index/cassandra-api.png
           title: Cassandra API
-
 
 - title: QuickStarts
   items:
