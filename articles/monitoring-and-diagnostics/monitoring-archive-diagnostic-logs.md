@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
 ---
@@ -157,4 +157,5 @@ Within the PT1H.json file, each event is stored in the “records” array, foll
 
 * [Download blobs for analysis](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Stream diagnostic logs to an Event Hubs namespace](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Archive Azure Active Directory logs with Azure Monitor](../active-directory/active-directory-reporting-azure-monitor-diagnostics-azure-storage-account.md)
 * [Read more about diagnostic logs](monitoring-overview-of-diagnostic-logs.md)

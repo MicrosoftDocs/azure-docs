@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: ""
 ---
@@ -189,5 +189,6 @@ You can also stream diagnostic logs from Compute resources using the Windows Azu
 
 ## Next steps
 
+* [Stream Azure Active Directory logs with Azure Monitor](../active-directory/active-directory-reporting-azure-monitor-diagnostics-azure-event-hub.md)
 * [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)
 * [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
