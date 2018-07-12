@@ -22,51 +22,47 @@ manager: timlt
 
 If you don't already have an Azure account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Install Service Fabric Mesh CLI 
+## Setup Service Fabric Mesh CLI 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
-## Create a resource group
-
-Create a resource group to deploy the application to.
+## Log in to Azure
+Log in to Azure and set your subscription.
 
 ```azurecli-interactive
-az account set --subscription "SubscriptionID"
-az group create --name myResourceGroup --location eastus
+az login
+az account set --subscription "<subscriptionID>"
 ```
 
-## Deploy the application
+## Create resource group
+Create a resource group to deploy the application to. You can use an existing resource group and skip this step. 
 
-Create your application using the `az mesh deployment create` command:
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus 
+```
+
+## Deploy the application with one worker service
+Create your application in the resource group using the `az mesh deployment create` command:
 
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
 ```
+The preceding command deploys a Linux using [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). If you want to deploy a Windows application, use [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Note that for Windows, container images are large compared to Linux, so it may take more time than deploying Linux application.
 
-In just over a minute, your command should return with `"provisioningState": "Succeeded"`. 
+In a few minutes, your command should return with:
 
-## Check application deployment status
+`helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
 
-At this point, your application has been deployed. You can check to see its status by using the `az mesh app show` command. This command provides useful information that you can follow up on.
+## Open the application
+Once the application successfully deploys, get the public IP address for the service endpoint, and open it on a browser. It should display a web page with Azure Service Fabric Mesh logo.
 
-The application name for this quickstart application is helloWorldApp, to gather the details on the application execute the following command:
-
-```azurecli-interactive
-az mesh app show --resource-group myResourceGroup --name helloWorldApp
-```
-
-## Browse to the application
-
-Once the application status is returned as `"provisioningState": "Succeeded"`, you will need the ingress endpoint of the service. To retrieve the IP address query the network resource for the application where the service is deployed, and open it on a browser.
-
-The network resource for this quickstart application is helloWorldNetwork, you can use the `az mesh network show` command to get the IP address:
+The deployment command returns the public IP address of the service endpoint. You can also query the network resource to find the public IP address of the service endpoint.
+ 
+The network resource name for this application is `helloWorldNetwork`, fetch information about it using `az mesh network show` command: 
 
 ```azurecli-interactive
 az mesh network show --resource-group myResourceGroup --name helloWorldNetwork
 ```
-
 The command will return with information like the json snippet below when running the command in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
-
-From the output, copy the IP address.
 
 ```json
     "publicIpAddress": "168.62.188.181",
@@ -80,8 +76,15 @@ From the output, copy the IP address.
   "type": "Microsoft.ServiceFabricMesh/networks"
 }
 ```
+In the example above, the service endpoint IP address is 168.62.188.181.  
+## Check the application details
+You can check the application's status using the `az mesh app show` command. This command provides useful information that you can follow up on.
 
-In the example above, the service end point IP is 168.62.188.181.  Take your corresponding IP address and open it in your favorite browser.
+The application name for this quickstart is `helloWorldApp`, to gather the details on the application execute the following command:
+
+```azurecli-interactive
+az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```
 
 ## See all the applications you have currently deployed to your subscription
 
