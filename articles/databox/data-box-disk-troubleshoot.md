@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/20/2018
+ms.date: 07/12/2018
 ms.author: alkohli
 ---
 # Troubleshoot issues in Azure Data Box Disk (Preview)
@@ -59,11 +59,11 @@ To navigate to the path for copy log, go to the storage account associated with 
 
 Use the activity logs to find an error when troubleshooting or to monitor how a user in your organization modified a resource. Through activity logs, you can determine:
 
-- what operations were taken on the resources in your subscription
-- who initiated the operation 
-- when the operation occurred
-- the status of the operation
-- the values of other properties that might help you research the operation
+- What operations were taken on the resources in your subscription.
+- Who initiated the operation. 
+- When the operation occurred.
+- The status of the operation.
+- The values of other properties that might help you research the operation.
 
 The activity log contains all write operations (such as PUT, POST, DELETE) performed on your resources but not the read operations (such as GET). 
 
