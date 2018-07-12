@@ -1,6 +1,6 @@
 ---
 title: SAP maxDB, Live Cache, and Content Server deployment on Azure | Microsoft Docs
-description:SAP maxDB, Live Cache, and Content Server deployment on Azure
+description: SAP maxDB, Live Cache, and Content Server deployment on Azure
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent

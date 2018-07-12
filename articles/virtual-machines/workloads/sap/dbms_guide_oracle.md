@@ -1,6 +1,6 @@
 ---
 title: Oracle Azure Virtual Machines DBMS deployment for SAP workload | Microsoft Docs
-description:Oracle Azure Virtual Machines DBMS deployment for SAP workload
+description: Oracle Azure Virtual Machines DBMS deployment for SAP workload
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent

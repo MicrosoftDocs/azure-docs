@@ -1,6 +1,6 @@
 ---
 title: SQL Server Azure Virtual Machines DBMS deployment for SAP workload | Microsoft Docs
-description:SQL Server Azure Virtual Machines DBMS deployment for SAP workload
+description: SQL Server Azure Virtual Machines DBMS deployment for SAP workload
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -86,7 +86,7 @@ ms.custom: H1Hack27Feb2017
 [dbms-guide-3]:dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 
 [dbms-guide-5.5.1]:dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 
 [dbms-guide-5.5.2]:dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b 
-[dbms-guide-5.6]:dbms-guide_sqlserver.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 
+[dbms-guide-5.6]:dbms_guide_sqlserver.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 
 [dbms-guide-5.8]:dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 
 [dbms-guide-5]:dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 
 [dbms-guide-8.4.1]:dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 

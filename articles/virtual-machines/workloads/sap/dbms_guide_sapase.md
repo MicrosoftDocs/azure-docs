@@ -1,6 +1,6 @@
 ---
 title: SAP ASE Azure Virtual Machines DBMS deployment for SAP workload | Microsoft Docs
-description:SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
+description: SAP ASE Azure Virtual Machines DBMS deployment for SAP workload
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -307,21 +307,21 @@ ms.custom: H1Hack27Feb2017
 
 
 
-In this document, several different areas to consider when deploying SAP ASE in Azure IaaS are covered. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) as well as other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+In this document, covers several different areas to consider when deploying SAP ASE in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) and other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
 ## Specifics to SAP ASE on Windows
-Starting with Microsoft Azure, you can easily migrate your existing SAP ASE applications to Azure Virtual Machines. SAP ASE in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management, and maintenance of enterprise breadth applications by easily migrating these applications to Microsoft Azure. With SAP ASE in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
+Starting with Microsoft Azure, you can migrate your existing SAP ASE applications to Azure Virtual Machines. SAP ASE in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management, and maintenance of enterprise breadth applications by easily migrating these applications to Microsoft Azure. With SAP ASE in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
 
-There is an SLA for the Azure Virtual Machines, which can be found here: <https://azure.microsoft.com/support/legal/sla/virtual-machines>
+SLAs for the Azure Virtual Machines, can be found here: <https://azure.microsoft.com/support/legal/sla/virtual-machines>
 
-Microsoft Azure hosted Virtual Machines perform well in comparison to other public cloud virtualization offerings, but individual results may vary. SAP sizing SAPS numbers of the different SAP certified VM SKUs is provided in a separate SAP Note [1928533].
+Microsoft Azure offers numerous Virtual Machines that allow you to run smallest SAP systems and landscapes up to large SAP systems and landscapes with thousands of users. SAP sizing SAPS numbers of the different SAP certified VM SKUs is provided in SAP Note [1928533].
 
-Statements and recommendations in regard to the usage of Azure Storage, Deployment of SAP VMs or SAP Monitoring apply to deployments of SAP ASE in conjunction with SAP applications as stated throughout the first four chapters of this document.
+Statements and recommendations regarding to the usage of Azure Storage, Deployment of SAP VMs or SAP Monitoring made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments of SAP ASE too.
 
 ### SAP ASE Version Support
 SAP currently supports SAP ASE version 16.0 for use with SAP Business Suite products. All updates for SAP ASE server, or JDBC and ODBC drivers to be used with SAP Business Suite products are provided solely through the SAP Service Marketplace at: <https://support.sap.com/swdc>.
 
-As for installations on-premises, do not download updates for the SAP ASE server, or for the JDBC and ODBC drivers directly from Sybase websites. For detailed information on patches, which are supported for use with SAP Business Suite products on-premises and in Azure Virtual Machines see the following SAP Notes:
+Do not download updates for the SAP ASE server, or for the JDBC and ODBC drivers directly from Sybase websites. For detailed information on patches, which are supported for use with SAP products on-premises and in Azure Virtual Machines see the following SAP Notes:
 
 * [1590719]
 * [1973241]
@@ -330,24 +330,24 @@ General information on running SAP Business Suite on SAP ASE can be found in the
 
 ### SAP ASE Configuration Guidelines for SAP-related SAP ASE Installations in Azure VMs
 #### Structure of the SAP ASE Deployment
-In accordance with the general description, SAP ASE executables should be located or installed into the system drive of the VM's OS disk (drive c:\). Typically, most of the SAP ASE system and tools databases are not used hard by SAP NetWeaver workload. Hence the system and tools databases (master, model, saptools, sybmgmtdb, sybsystemdb) can remain on the C:\ drive as well. 
+SAP ASE executables should be located or installed into the system drive of the VM's OS disk (drive c:\). Typically, most of the SAP ASE system and tools databases are not experiencing high workload. Hence the system and tools databases (master, model, saptools, sybmgmtdb, sybsystemdb) can remain on the C:\ drive. 
 
-An exception could be the temporary database containing all work tables and temporary tables created by SAP ASE, which in case of some SAP ERP and all BW workloads might require either higher data volume or I/O operations volume, which can't fit into the original VM's OS disk (drive c:\).
+An exception could be the temporary database, which in case of some SAP ERP and all BW workloads might require either higher data volume or I/O operations volume. Volumes or IOPS which can't be provided by the VM's OS disk (drive c:\).
 
-Depending on the version of SAPInst/SWPM used to install the system, the database might contain:
+Dependent on the version of SAPInst/SWPM used to install, the SAP ASE instance configuration could look like:
 
 * A single SAP ASE tempdb, which is created when installing SAP ASE
 * An SAP ASE tempdb created by installing SAP ASE and an additional saptempdb created by the SAP installation routine
 * An SAP ASE tempdb created by installing SAP ASE and an additional tempdb that has been created manually (for example following SAP Note [1752266]) to meet ERP/BW specific tempdb requirements
 
-In case of specific ERP or all BW workloads, it makes sense, in regard to performance, to keep the tempdb devices of the additionally created tempdb (by SWPM or manually) on a drive other than C:\. If no additional tempdb exists, it is recommended to create one (SAP Note [1752266]).
+Out of performance reasons for specific ERP or all BW workloads, it can make sense to store the tempdb devices of the additionally created tempdb on a drive other than C:\. If no additional tempdb exists, it is recommended to create one (SAP Note [1752266]).
 
-For such systems the following steps should be performed for the additionally created tempdb:
+For such systems the following steps should be executed for the additionally created tempdb:
 
 * Move the first tempdb device to the first device of the SAP database
 * Add tempdb devices to each of the VHDs containing a device of the SAP database
 
-This configuration enables tempdb to either consume more space than the system drive is able to provide. As a reference one can check the tempdb device sizes on existing systems, which run on-premises. Or such a configuration would enable IOPS numbers against tempdb, which cannot be provided with the system drive. Again systems that are running on-premises can be used to monitor I/O workload against tempdb.
+This configuration enables tempdb consume more space than the system drive can provide. As a reference one can check the tempdb device sizes on existing systems, which run on-premises. Or such a configuration enables IOPS numbers against tempdb, which cannot be provided with the system drive. Systems that are running on-premises can be used to monitor I/O workload against tempdb.
 
 Never put any SAP ASE devices onto the D:\ drive of the VM. For SAP ASE, this advice also applies to the tempdb, even if the objects kept in the tempdb are only temporary.
 
@@ -356,7 +356,7 @@ For data and transaction log file deployments, the statements and suggestions ma
 #### Impact of Database Compression
 In configurations where I/O bandwidth can become a limiting factor, every measure, which reduces IOPS might help to stretch the workload one can run in an IaaS scenario like Azure. Therefore, it is recommended to make sure that SAP ASE compression is used before uploading an existing SAP database to Azure.
 
-The recommendation to perform compression before uploading to Azure if it is not already implemented is given out of several reasons:
+The recommendation to apply compression before uploading to Azure is given out of several reasons:
 
 * The amount of data to be uploaded to Azure is lower
 * The duration of the compression execution is shorter assuming that one can use stronger hardware with more CPUs or higher I/O bandwidth or less I/O latency on-premises
@@ -383,7 +383,7 @@ and the links generated in transaction DBACockpit looks similar to:
 > 
 > 
 
-Depending on if and how the Azure Virtual Machine hosting the SAP system is connected via site-to-site, multi-site or ExpressRoute (Cross-Premises deployment) you need to make sure that ICM is using a fully qualified hostname that can be resolved on the machine where you are trying to open the DBACockpit from. See SAP Note [773830] to understand how ICM determines the fully qualified host name depending on profile parameters and set parameter icm/host_name_full explicitly if necessary.
+Depending on how the Azure Virtual Machine hosting the SAP system is connected to your AD and DNS, you need to make sure that ICM is using a fully qualified hostname that can be resolved on the machine where you are opening the DBACockpit from. See SAP Note [773830] to understand how ICM determines the fully qualified host name based on profile parameters and set parameter icm/host_name_full explicitly if necessary.
 
 If you deployed the VM in a Cloud-Only scenario without cross-premises connectivity between on-premises and Azure, you need to define a public IP address and a domainlabel. The format of the public DNS name of the VM looks like:
 
@@ -424,21 +424,21 @@ Further information about DBA Cockpit for SAP ASE can be found in the following 
 * [1956005]
 
 #### Backup/Recovery Considerations for SAP ASE
-When deploying SAP ASE into Azure, your backup methodology must be reviewed. Even if the system is not a productive system, the SAP database hosted by SAP ASE must be backed up periodically. Since Azure Storage keeps three images, a backup is now less important in respect to compensating a storage crash. The primary reason for maintaining a proper backup and restore plan is more that you can compensate for logical/manual errors by providing point in time recovery capabilities. So the goal is to either use backups to restore the database back to a certain point in time or to use the backups in Azure to seed another system by copying the existing database. For example, you could transfer from a 2-Tier SAP configuration to a 3-Tier system setup of the same system by restoring a backup.
+When deploying SAP ASE into Azure, your backup methodology must be reviewed. Even for non-production systems, the SAP database(s) must be backed up periodically. Since Azure Storage keeps three images, a backup might be less important in respect to compensating a storage crash. The primary reason for maintaining a proper backup and restore plan is more that you can compensate for logical/manual errors by providing point in time recovery capabilities. So the goal is to either use backups to restore the database back to a certain point in time or to use the backups in Azure to seed another system by copying the existing database. 
 
 Backing up and restoring a database in Azure works the same way as it does on-premises. See SAP Notes:
 
 * [1588316]
 * [1585981]
 
-for details on creating dump configurations and scheduling backups. Depending on your strategy and needs you can configure database and log dumps to disk on to one of the existing disks or add an additional disk for the backup. To reduce the danger of data loss in case of an error, it is recommended to use a disk where no database device is located.
+for details on creating dump configurations and scheduling backups. Depending on your strategy and needs you can configure database and log dumps to disk on to one of the existing disks, or add an additional disk for the backup. To reduce the danger of data loss in case of an error, it is recommended to use a disk where no database files are located.
 
-Besides data- and LOB compression, SAP ASE also offers backup compression. To occupy less space with the database and log dumps it is recommended to use backup compression. For more information, see SAP Note [1588316]. Compressing the backup is also crucial to reduce the amount of data to be transferred if you plan to download backups or VHDs containing backup dumps from the Azure Virtual Machine to on-premises.
+Besides data- and LOB compression, SAP ASE also offers backup compression. To consume less space with the database and log dumps it is recommended to use backup compression. For more information, see SAP Note [1588316]. Compressing the backup is also crucial to reduce the amount of data to be transferred if you plan to download backups or VHDs containing backup dumps from the Azure Virtual Machine to on-premises.
 
 Do not use drive D:\ as database or log dump destination.
 
 #### Performance Considerations for Backups/Restores
-As in bare-metal deployments, backup/restore performance is dependent on how many volumes can be read in parallel and what the throughput of those volumes might be. In addition, the CPU consumption used by backup compression may play a significant role on VMs with up to eight CPU threads. Therefore, one can assume:
+As in bare-metal deployments, backup/restore performance is dependent on how many volumes can be read in parallel and what the throughput of those volumes might be. Keep in mind that backup compression consumes CPU resources. This CPU consumption of backup compression can play a significant role on VMs with small number of CPU threads. Therefore, you can assume:
 
 * The fewer the number of disks used to store the database devices, the smaller the overall throughput in reading
 * The smaller the number of CPU threads in the VM, the more severe the impact of backup compression
@@ -446,10 +446,10 @@ As in bare-metal deployments, backup/restore performance is dependent on how man
 
 To increase the number of targets to write to there are two options, which can be used/combined depending on your needs:
 
-* Striping the backup target volume over multiple mounted disks in order to improve the IOPS throughput on that striped volume
+* Striping the backup target volume over multiple mounted disks to improve the IOPS throughput on that striped volume
 * Creating a dump configuration on SAP ASE level, which uses more than one target directory to write the dump to
 
-Striping a volume over multiple mounted disks has been discussed earlier in this guide. For more information on using multiple directories in the SAP ASE dump configuration, refer to the documentation on Stored Procedure sp_config_dump, which is used to create the dump configuration on the [Sybase Infocenter](http://infocenter.sybase.com/help/index.jsp).
+Striping a disk volume over multiple mounted disks has been discussed in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). For more information on using multiple directories in the SAP ASE dump configuration, refer to the documentation on Stored Procedure sp_config_dump, which is used to create the dump configuration on the [Sybase Infocenter](http://infocenter.sybase.com/help/index.jsp).
 
 ### Disaster Recovery with Azure VMs
 #### Data Replication with SAP Sybase Replication Server
@@ -457,7 +457,7 @@ With the SAP Sybase Replication Server (SRS), SAP ASE provides a warm standby so
 
 The installation and operation of SRS works as well functionally in a VM hosted in Azure Virtual Machine Services as it does on-premises.
 
-SAP ASE HADR does not require an Azure Internal Load Balancer and does not have dependencies on OS level clustering and works on Azure Windows and Linux VMs. For details on SAP ASE HADR read the [SAP ASE HADR users guide](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.3/en-US/a6645e28bc2b1014b54b8815a64b87ba.html).
+SAP ASE HADR does not require an Azure Internal Load Balancer and has no dependencies on OS level clustering. It works on Azure Windows and Linux VMs. For details on SAP ASE HADR read the [SAP ASE HADR users guide](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.3/en-US/a6645e28bc2b1014b54b8815a64b87ba.html).
 
 ## Specifics to SAP ASE on Linux
 Starting with Microsoft Azure, you can easily migrate your existing SAP ASE applications to Azure Virtual Machines. SAP ASE in a Virtual Machine enables you to reduce the total cost of ownership of deployment, management, and maintenance of enterprise breadth applications by easily migrating these applications to Microsoft Azure. With SAP ASE in an Azure Virtual Machine, administrators and developers can still use the same development and administration tools that are available on-premises.
@@ -467,7 +467,7 @@ For deploying Azure VMs it's important to know the official SLAs, which can be f
 SAP sizing information and a list of SAP certified VM SKUs is provided in SAP Note [1928533]. Additional SAP sizing
 documents for Azure Virtual machines can be found here <http://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> and here <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
-Statements and recommendations in regard to the usage of Azure Storage, Deployment of SAP VMs or SAP Monitoring apply to deployments of SAP ASE in conjunction with SAP applications as stated throughout the first four chapters of this document.
+Statements and recommendations regarding to the usage of Azure Storage, Deployment of SAP VMs, or SAP Monitoring apply to deployments of SAP ASE in conjunction with SAP applications as stated throughout the first four chapters of this document.
 
 The following two SAP Notes include general information about ASE on Linux and ASE in the Cloud:
 
@@ -486,33 +486,33 @@ General information on running SAP Business Suite on SAP ASE can be found in the
 
 ### SAP ASE Configuration Guidelines for SAP-related SAP ASE Installations in Azure VMs
 #### Structure of the SAP ASE Deployment
-In accordance with the general description, SAP ASE executables should be located or installed into the root file system of the VM ( /sybase ). Typically, most of the SAP ASE system and tools databases are not leveraged hard by SAP NetWeaver workload. Hence the system and tools databases (master, model, saptools, sybmgmtdb, sybsystemdb) can remain on the root file system as well. 
+SAP ASE executables should be located or installed into the root file system of the VM ( /sybase ). Typically, most of the SAP ASE system and tools databases are not experiencing high workload. Hence the system and tools databases (master, model, saptools, sybmgmtdb, sybsystemdb) can be stored on the root file system. 
 
-An exception could be the temporary database containing all work tables and temporary tables created by SAP ASE, which in case of some SAP ERP and all BW workloads might require either higher data volume or I/O operations, volume, which can't fit into the original VM's OS disk.
+An exception could be the temporary database, which in case of some SAP ERP and all BW workloads might require either higher data volume or I/O operations volume. Volumes or IOPS which can't be provided by the VM's OS disk 
 
 Depending on the version of SAPInst/SWPM used to install the system, the database might contain:
 
-* A single SAP ASE tempdb, which is created when installing SAP ASE
+* A single SAP ASE tempdb created when installing SAP ASE
 * An SAP ASE tempdb created by installing SAP ASE and an additional saptempdb created by the SAP installation routine
 * An SAP ASE tempdb created by installing SAP ASE and an additional tempdb that has been created manually (for example following SAP Note [1752266]) to meet ERP/BW specific tempdb requirements
 
-In case of specific ERP or all BW workloads, it makes sense, in regard to performance, to keep the tempdb devices of the additionally created tempdb (by SWPM or manually) on a separate file system, which can be represented by a single Azure data disk or a Linux RAID spanning multiple Azure data disks. If no additional tempdb exists, it is recommended to create one (SAP Note [1752266]).
+Out of performance reasons for specific ERP or all BW workloads, it can make sense to store the tempdb devices of the additionally created tempdb (by SWPM or manually) on a separate file system, which can be represented by a single Azure data disk or a Linux RAID spanning multiple Azure data disks. If no additional tempdb exists, it is recommended to create one (SAP Note [1752266]).
 
 For such systems the following steps should be performed for the additionally created tempdb:
 
 * Move the first tempdb directory to the first file system of the SAP database
 * Add tempdb directories to each of the disks containing a filesystem of the SAP database
 
-This configuration enables tempdb to either consume more space than the system drive is able to provide. As a reference one can check the tempdb directory sizes on existing systems, which run on-premises. Or such a configuration would enable IOPS numbers against tempdb, which cannot be provided with the system drive. Again systems that are running on-premises can be used to monitor I/O workload against tempdb.
+This configuration enables tempdb consume more space than the system drive can provide. As a reference one can check the tempdb device sizes on existing systems, which run on-premises. Or such a configuration enables IOPS numbers against tempdb, which cannot be provided with the system drive. Systems that are running on-premises can be used to monitor I/O workload against tempdb.
 
-Never put any SAP ASE directories onto /mnt or /mnt/resource of the VM. TFor SAP ASE, this advice also applies to the tempdb, even if the objects kept in the tempdb are only temporary because /mnt or /mnt/resource is a default Azure VM temp space, which is not persistent. More details about the Azure VM temp space can be found in [this article][virtual-machines-linux-how-to-attach-disk]
+Never put any SAP ASE directories onto /mnt or /mnt/resource of the VM. For SAP ASE, this advice also applies to the tempdb, even if the objects kept in the tempdb are only temporary. Because /mnt or /mnt/resource is a default Azure VM temp space, which is not persistent. More details about the Azure VM temp space can be found in [this article][virtual-machines-linux-how-to-attach-disk]
 
 For data and transaction log file deployments, the statements and suggestions made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). In case of Linux-based deployments the usage of LVM or MDADM is recommended to use to build stripe sets with sufficient IOPS, throughput, and volume. 
 
 #### Impact of Database Compression
 In configurations where I/O bandwidth can become a limiting factor, every measure, which reduces IOPS might help to stretch the workload one can run in an IaaS scenario like Azure. Therefore, it is recommended to make sure that SAP ASE compression is used before uploading an existing SAP database to Azure.
 
-The recommendation to perform compression before uploading to Azure if it is not already implemented is given out of several reasons:
+The recommendation to apply compression before uploading to Azure is given out of several reasons:
 
 * The amount of data to be uploaded to Azure is lower
 * The duration of the compression execution is shorter assuming that one can use stronger hardware with more CPUs or higher I/O bandwidth or less I/O latency on-premises
@@ -539,7 +539,7 @@ and the links generated in transaction DBACockpit will look similar to this:
 > 
 > 
 
-Depending on if and how the Azure Virtual Machine hosting the SAP system is connected via site-to-site, multi-site or ExpressRoute (Cross-Premises deployment) you need to make sure that ICM is using a fully qualified hostname that can be resolved on the machine where you are trying to open the DBACockpit from. See SAP Note [773830] to understand how ICM determines the fully qualified host name depending on profile parameters and set parameter icm/host_name_full explicitly if necessary.
+Depending on how the Azure Virtual Machine hosting the SAP system is connected to your AD and DNS, you need to make sure that ICM is using a fully qualified hostname that can be resolved on the machine where you are opening the DBACockpit from. See SAP Note [773830] to understand how ICM determines the fully qualified host name depending on profile parameters and set parameter icm/host_name_full explicitly if necessary.
 
 If you deployed the VM in a Cloud-Only scenario without cross-premises connectivity between on-premises and Azure, you need 
 to define a public IP address and a domainlabel. The format of the public DNS name of the VM looks like:
@@ -581,7 +581,7 @@ Further information about DBA Cockpit for SAP ASE can be found in the following 
 * [1956005]
 
 #### Backup/Recovery Considerations for SAP ASE
-When deploying SAP ASE into Azure, your backup methodology must be reviewed. Even if the system is not a productive system, the SAP database hosted by SAP ASE must be backed up periodically. Since Azure Storage keeps three images, a backup is now less important in respect to compensating a storage crash. The primary reason for maintaining a proper backup and restore plan is more that you can compensate for logical/manual errors by providing point in time recovery capabilities. So the goal is to either use backups to restore the database back to a certain point in time or to use the backups in Azure to seed another system by copying the existing database. For example, you could transfer from a 2-Tier SAP configuration to a 3-Tier system setup of the same system by restoring a backup.
+When deploying SAP ASE into Azure, your backup methodology must be reviewed. Even for non-production systems, the SAP database(s) must be backed up periodically. Since Azure Storage keeps three images, a backup might be less important in respect to compensating a storage crash. The primary reason for maintaining a proper backup and restore plan is more that you can compensate for logical/manual errors by providing point in time recovery capabilities. So the goal is to either use backups to restore the database back to a certain point in time or to use the backups in Azure to seed another system by copying the existing database. 
 
 Backing up and restoring a database in Azure works the same way as it does on-premises. See SAP Notes:
 
@@ -590,12 +590,12 @@ Backing up and restoring a database in Azure works the same way as it does on-pr
 
 for details on creating dump configurations and scheduling backups. Depending on your strategy and needs, you can configure database and log dumps to disk on to one of the existing disks or add an additional disk for the backup. To reduce the danger of data loss in case of an error, it is recommended to use a disk where no database directory/file is located.
 
-Besides data- and LOB compression, SAP ASE also offers backup compression. To occupy less space with the database and log dumps it is recommended to use backup compression. For more information, see SAP Note [1588316]. Compressing the backup is also crucial to reduce the amount of data to be transferred if you plan to download backups or VHDs containing backup dumps from the Azure Virtual Machine to on-premises.
+Besides data- and LOB compression, SAP ASE also offers backup compression. To consume less space with the database and log dumps it is recommended to use backup compression. For more information, see SAP Note [1588316]. Compressing the backup is also crucial to reduce the amount of data to be transferred if you plan to download backups or VHDs containing backup dumps from the Azure Virtual Machine to on-premises.
 
 Do not use the Azure VM temp space /mnt or /mnt/resource as database or log dump destination.
 
 #### Performance Considerations for Backups/Restores
-As in bare-metal deployments, backup/restore performance is dependent on how many volumes can be read in parallel and what the throughput of those volumes might be. In addition, the CPU consumption used by backup compression may play a significant role on VMs with up to eight CPU threads. Therefore, one can assume:
+As in bare-metal deployments, backup/restore performance is dependent on how many volumes can be read in parallel and what the throughput of those volumes might be. Keep in mind that backup compression consumes CPU resources. This CPU consumption of backup compression can play a significant role on VMs with small number of CPU threads.  Therefore, you can assume:
 
 * The fewer the number of disks used to store the database devices, the smaller the overall throughput in reading
 * The smaller the number of CPU threads in the VM, the more severe the impact of backup compression
@@ -603,10 +603,10 @@ As in bare-metal deployments, backup/restore performance is dependent on how man
 
 To increase the number of targets to write to there are two options, which can be used/combined depending on your needs:
 
-* Striping the backup target volume over multiple mounted disks in order to improve the IOPS throughput on that striped volume
+* Striping the backup target volume over multiple mounted disks to improve the IOPS throughput on that striped volume
 * Creating a dump configuration on SAP ASE level, which uses more than one target directory to write the dump to
 
-Striping a volume over multiple mounted disks has been discussed earlier in this guide. For more information on using multiple directories in the SAP ASE dump configuration, refer to the documentation on Stored Procedure sp_config_dump, which is used to create the dump configuration on the [Sybase Infocenter](http://infocenter.sybase.com/help/index.jsp).
+Striping a disk volume over multiple mounted disks has been discussed in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). For more information on using multiple directories in the SAP ASE dump configuration, refer to the documentation on Stored Procedure sp_config_dump, which is used to create the dump configuration on the [Sybase Infocenter](http://infocenter.sybase.com/help/index.jsp).
 
 ### Disaster Recovery with Azure VMs
 #### Data Replication with SAP Sybase Replication Server

@@ -1,6 +1,6 @@
 ---
 title: Considerations for Azure Virtual Machines DBMS deployment for SAP workload | Microsoft Docs
-description:Considerations for Azure Virtual Machines DBMS deployment for SAP workload
+description: Considerations for Azure Virtual Machines DBMS deployment for SAP workload
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
