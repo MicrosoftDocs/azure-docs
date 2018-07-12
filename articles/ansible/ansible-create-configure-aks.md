@@ -1,5 +1,5 @@
 ---
-title: Create and configure Azure Kubernetes Service clusters with Ansible
+title: Create and configure Azure Kubernetes Service clusters in Azure using Ansible
 description: Learn how to use Ansible to create and manage an Azure Kubernetes Service cluster in Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes
@@ -12,7 +12,7 @@ ms.date: 07/11/2018
 ms.author: tarcher
 ---
 
-# Create and configure Azure Kubernetes Service clusters with Ansible
+# Create and configure Azure Kubernetes Service clusters in Azure using Ansible
 Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your Azure Kubernetes Service (AKS). This article shows you how to use Ansible to create and configure an Azure Kubernetes Service cluster.
 
 ## Prerequisites
