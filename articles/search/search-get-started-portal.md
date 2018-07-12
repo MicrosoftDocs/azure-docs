@@ -13,12 +13,12 @@ ms.author: heidist
 ---
 # Tutorial: Use built-in tools for Azure Search indexing and queries
 
-In an Azure Search service page in the Azure portal, you can use built-in tools for concept testing and a hands-on experience with minimal ramp up. While portal tools do not offer full parity with .NET and REST APIs, for quick proof-of-concept testing, the wizards and editors offer an easy assist. This code-free introduction gets you started with a small published data set so that you can write interesting queries right away. 
+In an Azure Search service page in the Azure portal, you can use built-in tools for concept testing and a hands-on experience with minimal ramp up. Portal tools do not offer full parity with .NET and REST APIs, but for quick proof-of-concept testing, the wizards and editors provide an easy assist. This code-free introduction gets you started with a small published data set so that you can write interesting queries right away. 
 
 > [!div class="checklist"]
 > * Start with public sample data and auto-generate an Azure Search index using the **Import data** wizard. 
+> * View index schema and attributes for any index published to Azure Search.
 > * Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**.  
-> * View schema and index attributes for any index published to Azure Search.
 
 Portal tools do not include preview features or support the full range of Azure Search capabilities. If the tools are too limiting, consider a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md) or [web testing tools for making REST API calls](search-fiddler.md).
 

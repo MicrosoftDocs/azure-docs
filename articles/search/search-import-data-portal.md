@@ -80,9 +80,9 @@ You can monitor indexing in the portal. As documents are loaded, the document co
 
 The index is ready to query as soon as all of the documents are loaded.
 
-## Query an index using Search Explorer
+## Query an index using Search explorer
 
-The portal includes **Search Explorer** so that you can query an index without having to write any code. You can use [Search Explore](search-explorer.md) on any index.
+The portal includes **Search explorer** so that you can query an index without having to write any code. You can use [Search Explore](search-explorer.md) on any index.
 
 The search experience is based on default settings, such as the [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) and default [searchMode query parameter(https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
