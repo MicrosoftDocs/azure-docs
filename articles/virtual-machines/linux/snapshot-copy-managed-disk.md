@@ -26,7 +26,8 @@ The following example requires that you use [Cloud Shell](https://shell.azure.co
 The following steps show how to take a snapshot using the **az snapshot create** command with the **--source-disk** parameter. The following example assumes that there is a VM called *myVM* in the *myResourceGroup* resource group.
 
 Get the disk ID using [az vm show](/cli/azure/vm#az-vm-show).
-```azure-cli
+
+```azurecli-interactive
 osDiskId=$(az vm show \
    -g myResourceGroup \
    -n myVM \
