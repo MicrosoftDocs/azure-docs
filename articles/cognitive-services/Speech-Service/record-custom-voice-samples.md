@@ -88,7 +88,7 @@ A basic script format includes three columns:
 ![Sample script](media/custom-voice/script.png)
 
 > [!NOTE]
-> Most studios record in short segments, referred to as "takes," each ttake ypically containing ten to 24 utterances. Just noting the take number will be sufficient to find a given utterance later. Some studios may prefer longer recordings. In this case you'll want to note the time offset into the file (the time code). The studio will have a prominent time display.
+> Most studios record in short segments, referred to as "takes," each take typically containing ten to 24 utterances. Just noting the take number will be sufficient to find a given utterance later. Some studios may prefer longer recordings. In this case you'll want to note the time offset into the file (the time code). The studio will have a prominent time display.
 
 Leave enough space after each row to write notes. Be sure that no utterance is split between pages. Number the pages and print your script on one side of the paper.
 
