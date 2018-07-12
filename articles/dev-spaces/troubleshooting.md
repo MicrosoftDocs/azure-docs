@@ -91,18 +91,18 @@ What needs to be done:
 
 You can find an example at https://github.com/sgreenmsft/buildcontextsample
 
-## 'Microsoft.ConnectedEnvironment/register/action' authorization error
+## 'Microsoft.DevSpaces/register/action' authorization error
 You might see the following error when you are managing an Azure Dev Space and you are working in an Azure subscription for which you do not have Owner or Contributor access.
-`The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.ConnectedEnvironment/register/action' over scope '/subscriptions/<Subscription Id>'.`
+`The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### Reason
-The selected Azure subscription has not registered the `Microsoft.ConnectedEnvironment` namespace.
+The selected Azure subscription has not registered the `Microsoft.DevSpaces` namespace.
 
 ### Try:
-Someone with Owner or Contributor access to the Azure subscription can run the following Azure CLI command to manually register the `Microsoft.ConnectedEnvironment` namespace:
+Someone with Owner or Contributor access to the Azure subscription can run the following Azure CLI command to manually register the `Microsoft.DevSpaces` namespace:
 
 ```cmd
-az provider register --namespace Microsoft.ConnectedEnvironment
+az provider register --namespace Microsoft.DevSpaces
 ```
 
 ## Azure Dev Spaces doesn't seem to use my existing Dockerfile to build a container 
