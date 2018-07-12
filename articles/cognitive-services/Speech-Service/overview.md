@@ -55,7 +55,7 @@ You can customize Speech to Text acoustic and language models to accommodate spe
 
 The [Text to Speech](text-to-speech.md) (TTS), or speech synthesis, API converts plain text to natural-sounding speech, delivered to your application in an audio file. Multiple voices, varying in gender or accent, are available for many supported languages.
 
-The API supports Speech Synthesis Markup Language (SSML) tags, so you can specify exact phonetic pronunciation for troublesome words. SSML can also indicate speech characteristics (including emphasis, rate, volume, gender, and pitch) right in the text.
+The API supports [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) tags, so you can specify exact phonetic pronunciation for troublesome words. SSML can also indicate speech characteristics (including emphasis, rate, volume, gender, and pitch) right in the text.
 
 The following are common use cases for the Text to Speech API.
 
@@ -63,7 +63,7 @@ The following are common use cases for the Text to Speech API.
 * Voice prompting for in-car applications such as navigation
 * Conversational user interfaces in concert with the Speech to Text API
 
-If you need to an unsupported dialect or just want a unique voice for your application, the Text to Speech API supports custom voice models.
+If you need an unsupported dialect or just want a unique voice for your application, the Text to Speech API supports [custom voice models](how-to-customize-voice-font.md).
 
 ## Speech Translation
 

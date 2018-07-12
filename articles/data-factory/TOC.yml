@@ -138,10 +138,10 @@
       href: connector-azure-blob-storage.md
     - name: Azure Cosmos DB
       href: connector-azure-cosmos-db.md
-    - name: Azure Data Lake Storage
-      href: connector-azure-data-lake-storage.md
-    - name: Azure Data Lake Store
+    - name: Azure Data Lake Storage Gen1
       href: connector-azure-data-lake-store.md
+    - name: Azure Data Lake Storage Gen2
+      href: connector-azure-data-lake-storage.md
     - name: Azure Database for MySQL
       href: connector-azure-database-for-mysql.md
     - name: Azure Database for PostgreSQL
@@ -277,11 +277,14 @@
     - name: Copy Data tool
       href: copy-data-tool.md  
       items:
-    - name: Load Data Lake Storage
-      href: load-azure-data-lake-storage-gen2.md    
+    - name: Load Data Lake Storage Gen2
+      href: load-azure-data-lake-storage-gen2.md
+      items:  
+      - name: Copy from Data Lake Storage Gen1
+        href: load-azure-data-lake-storage-gen2-from-gen1.md    
     - name: Load SQL Data Warehouse
       href: load-azure-sql-data-warehouse.md
-    - name: Load Data Lake Store
+    - name: Load Data Lake Storage Gen1
       href: load-azure-data-lake-store.md    
     - name: Read or write partitioned data
       href: how-to-read-write-partitioned-data.md

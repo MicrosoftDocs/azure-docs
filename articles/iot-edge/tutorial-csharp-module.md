@@ -128,7 +128,7 @@ The following steps create an IoT Edge module project that's based on the .NET C
 9. Add the **onDesiredPropertiesUpdate** method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
 
     ```csharp
-    static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
+    static Task OnDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
     {
         try
         {

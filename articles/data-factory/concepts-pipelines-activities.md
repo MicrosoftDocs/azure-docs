@@ -55,6 +55,8 @@ Data transformation activity | Compute environment
 [Machine Learning activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) | Azure VM
 [Stored Procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse, or SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
+[Custom Code](transform-data-using-dotnet-custom-activity.md) | Azure Batch
+[Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 
 For more information, see the [data transformation activities](transform-data.md) article.
 
