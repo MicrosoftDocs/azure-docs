@@ -40,6 +40,9 @@ ms.custom: H1Hack27Feb2017
 [deployment-guide-3]:deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e 
 [planning-guide]:planning-guide.md 
 
+[Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
+[Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
+
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
