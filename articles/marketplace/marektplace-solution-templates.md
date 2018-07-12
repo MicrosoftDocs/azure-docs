@@ -1,5 +1,5 @@
 ---  
-title: Solution Template Offer Publishing Guide
+title: Azure Apps: Solution Template Offer Publishing Guide
 description: This article describes the requirements to publish a solution template in the Marketplace
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
@@ -18,7 +18,7 @@ ms.author: ellacroi
 
 ---  
 
-#Solution Template Offer Publishing Guide
+# Solution Template Offer Publishing Guide
 
 Solution Templates are one of the main ways to publish a solution in the Marketplace. Use this guide to understand the requirements for this offer. 
 
