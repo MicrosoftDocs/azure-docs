@@ -225,7 +225,7 @@ In the previous section you created an IoT Edge solution and added code to the C
 
 2. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the `$edgeAgent` to deploy two modules: **tempSensor** and **CSharpModule**. The `CSharpModule.image` value is set to a Linux amd64 version of the image. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-3. In **deployment.template.json** file, there is a section **registryCredentials** which stores your Docker regitstry credentials. The actual username and password pairs are stored in the .env file which is git ignored.
+3. In **deployment.template.json** file, there is a section **registryCredentials** which stores your Docker registry credentials. The actual username and password pairs are stored in the .env file which is git ignored.
 
 4. Add the CSharpModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
     ```json
