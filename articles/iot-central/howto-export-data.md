@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Export your data in IoT Central | Microsoft Docs
-description: How to export data from your IoT Central application
+title: Export your data in Azure IoT Central | Microsoft Docs
+description: How to export data from your Azure IoT Central application
 services: iot-central
 author: viv-liu
 ms.author: viviali
@@ -20,7 +20,7 @@ ms.prod: azure-iot-central
 manager: peterpr
 ---
 
-# Export your data
+# Export your data in Azure IoT Central
 
 Use Continuous Data Export to periodically export data into your Azure Blob Storage account. Choose to export **measurements**, **devices**, and **device templates** in files of [Apache AVRO](https://avro.apache.org/docs/current/index.html) format. Use the exported data for cold path analytics such as training models in Azure Machine Learning or long-term trend analysis in Power BI.
 
