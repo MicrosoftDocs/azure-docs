@@ -65,7 +65,7 @@ The rest of this tutorial shows you how you can migrate on-premises VMware virtu
 - The servers being migrated should have .NET Framework 3.5 Service Pack 1 for the mobility service to work.
 
 
-- Dynamic disks in a mirrored configuration may be Offline or be shown missing on failed over VMs, and the mirrored set status marked as "Failed redundancy". You can fix the issue by manually reactivating the disks from diskmgmt.msc
+- Dynamic disks in some configuration may be Offline or be shown foreign on failed over VMs, and the mirrored set status marked as "Failed redundancy". You can fix the issue by manually importing these disks and reactivating them from diskmgmt.msc
 
 - The servers being migrated should have the vmstorfl.sys driver. Failover may fail if the driver is not present in the server being migrated. 
   > [!TIP]
@@ -73,7 +73,7 @@ The rest of this tutorial shows you how you can migrate on-premises VMware virtu
   >
   > Open command prompt (run > cmd) and run the following: "copy nul c:\Windows\system32\drivers\vmstorfl.sys"
 
-- You may be unable to RDP to Windows Server 2008 SP2 servers running the 32 bit operating system immediately after they are failed over or test failed over to Azure. Restart the failed over virtual machine from the Azure portal and try connecting again. If you are still unable to connect, check if the server is configured to allow remote desktop connections, and ensure that there are no firewall rules or network security groups blocking the connection. 
+- You may be unable to RDP to Windows Server 2008 SP2 servers running the 32-bit operating system immediately after they are failed over or test failed over to Azure. Restart the failed over virtual machine from the Azure portal and try connecting again. If you are still unable to connect, check if the server is configured to allow remote desktop connections, and ensure that there are no firewall rules or network security groups blocking the connection. 
   > [!TIP]
   > A test failover is highly recommended before migrating servers. Ensure that  you've performed atleast one successful test failover on each server that you  are migrating. As part of the test failover, connect to the test failed over  machine and ensure things work as expected.
   >
