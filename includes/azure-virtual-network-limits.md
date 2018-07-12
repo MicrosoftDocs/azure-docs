@@ -57,7 +57,7 @@ The following limits apply only for networking resources managed through Azure R
 | Public IP addresses - static |(Standard) 20 |contact support |
 | Point-to-Site Root Certificates per VPN Gateway |20 |20 |
 
-**These updated default limits apply to subscriptions that have not previously had these limits increased through support. If you have has these limits increased by support in the past and would like to get them updated to new defaults, please [open an online customer support request at no charge](../azure-resource-manager/resource-manager-quota-errors.md)
+**These updated default limits apply to subscriptions that have not previously had these limits increased through support. If you have has these limits increased by support in the past and would like to get them updated to new defaults, please [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 #### <a name="load-balancer"></a>Load Balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md)
