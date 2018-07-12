@@ -65,7 +65,7 @@ The starting point of any custom voice recording session is the script, which co
 
 The utterances in your script can come from anywhere: fiction, non-fiction, transcripts of speeches, news reports, and anything else available in printed form. If you want to make sure your voice does well on specific kinds of words (such as medical terminology or programming jargon), you may want to include sentences from scholarly papers or technical documents. (However, see [Legalities](#legalities) below.) You can also write your own text.
 
-Your utterances don't need come from the same source, or the same kind of source. They don't even need to have anything to do with each other. However, if you will use set phrases (for example, "You have successfully logged in") in your speech application, make sure to include them in your script. This wil give your custom voice a better chance of pronouncing those phrases well. And if you should decide to use a recording in place of synthesized speech, you'll already have it in the same voice as your synthesized speech.
+Your utterances don't need come from the same source, or the same kind of source. They don't even need to have anything to do with each other. However, if you will use set phrases (for example, "You have successfully logged in") in your speech application, make sure to include them in your script. This will give your custom voice a better chance of pronouncing those phrases well. And if you should decide to use a recording in place of synthesized speech, you'll already have it in the same voice as your synthesized speech.
 
 While consistency is key in choosing voice talent, variety is the hallmark of a good script. Your script should include many different words and sentences with a variety of sentence lengths, structures, and moods. Every sound in the language should be represented multiple times and in numerous contexts (called *phonetic coverage).* 
 
@@ -110,7 +110,7 @@ Fortunately, it is possible to avoid these issues entirely. There are many sourc
 
 ## Recording your script
 
-Preferably, you should ecord your script at a professional recording studio that specializes in voiceover work. They'll have a recording booth, the right equipment for the job, and the right people to operate it. It pays not to skimp on recording.
+Preferably, you should record your script at a professional recording studio that specializes in voiceover work. They'll have a recording booth, the right equipment for the job, and the right people to operate it. It pays not to skimp on recording.
 
 Discuss your project with the studio's recording engineer and listen to his or her advice. The recording should have little or no dynamic range compression (maximum of 4:1). It is critical that the audio have consistent volume and a high signal-to-noise ratio, while being free of unwanted sounds.
 
@@ -122,7 +122,7 @@ Your "recording booth" should be a small room with no noticeable echo or "room t
 
 Use a high-quality studio condenser microphone ("mic") intended for recording voice. Sennheiser, AKG, and even newer Zoom mics can yield good results. You can buy your mic, or rent one from a local audio-visual rental firm. Look for one with a USB interface. This type of mic conveniently combines the microphone element, preamp, and analog-to-digital converter into one package, simplifying hookup.
 
-You may also use an analog microphone. Many rental houses offer "vintage" microphones which are renowned for their voice character. Note that professional analog gear uses balanced XLR connectors, rather than the 1/4" plug used in consumer equipment. If you go analog, you'll also need a preamp and a computer audio interface with these connectors.
+You may also use an analog microphone. Many rental houses offer "vintage" microphones renowned for their voice character. Note that professional analog gear uses balanced XLR connectors, rather than the 1/4" plug used in consumer equipment. If you go analog, you'll also need a preamp and a computer audio interface with these connectors.
 
 Install the microphone on a stand or boom and use a pop filter in frot of the microphone to eliminate noise from "plosive" sounds like "p" and "b." Some microphones come with a suspension mount that isolates them from vibrations in the stand, which is helpful.
 
@@ -199,7 +199,7 @@ Modern recording studios run on computers. At the end of the session, then, you 
 
 The studio will deliver one or more audio files containing multiple utterances. To upload the recordings to the Custom Voice portal, each utterance must be in its own file. The recording engineer may have placed a marker in the file (or provided a separate cue list) to indicate where each utterance starts.
 
-You'll need to go through the sudio recordings and make a WAV file for each utterance. Use your notes to find the exact utterances you want, then use a sound editing utility such as [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), or the free [Audacity](https://www.audacityteam.org/) to copy each into a new file.
+You'll need to go through the audio recordings and make a WAV file for each utterance. Use your notes to find the exact utterances you want, then use a sound editing utility such as [Avid Pro Tools](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), or the free [Audacity](https://www.audacityteam.org/) to copy each into a new file.
 
 Leave only about 0.2 seconds of silence at the beginning and end of each clip except for the first. That file should start with a full five seconds of silence. Do not use the audio editor to "zero out" silent parts of the file. Including the "room tone" will help the Custom Voice algorithms compensate for any residual background noise.
 
