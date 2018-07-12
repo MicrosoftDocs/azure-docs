@@ -58,9 +58,9 @@ firstRowOnly | Indicates whether to return only the first row or all rows. | Boo
 
 > [!NOTE]
 
-> 1. Source columns with **ByteArray** type aren't supported.
-> 2. **Structure** isn't supported in dataset definitions. For text-format files, use the header row to provide the column name.
-> 3. If your lookup source is a JSON file, the `jsonPathDefinition` setting for reshaping the JSON object isn't supported. The entire objects will be retrieved.
+> * Source columns with **ByteArray** type aren't supported.
+> * **Structure** isn't supported in dataset definitions. For text-format files, use the header row to provide the column name.
+> * If your lookup source is a JSON file, the `jsonPathDefinition` setting for reshaping the JSON object isn't supported. The entire objects will be retrieved.
 
 ## Use the Lookup activity result in a subsequent activity
 
@@ -97,15 +97,15 @@ The lookup result is returned in the `output` section of the activity run result
     ```
 
 ### Copy Activity example
-In this example, Copy Activity copies data from a SQL table in your Azure SQL Database instance to Azure Blob Storage. The name of the SQL table is stored in a JSON file in Blob Storage. The Lookup activity looks up the table name at runtime. JSON is modified dynamically by using this approach. You don't need to redeploy pipelines or datasets. 
+In this example, Copy Activity copies data from a SQL table in your Azure SQL Database instance to Azure Blob storage. The name of the SQL table is stored in a JSON file in Blob storage. The Lookup activity looks up the table name at runtime. JSON is modified dynamically by using this approach. You don't need to redeploy pipelines or datasets. 
 
 This example demonstrates lookup for the first row only. For lookup for all rows and to chain the results with ForEach activity, see the samples in [Copy multiple tables in bulk by using Azure Data Factory](tutorial-bulk-copy.md).
 
 ### Pipeline
 This pipeline contains two activities: Lookup and Copy. 
 
-- The Lookup activity is configured to use **LookupDataset**, which refers to a location in Azure Blob Storage. The Lookup activity reads the name of the SQL table from a JSON file in this location. 
-- Copy Activity uses the output of the Lookup activity, which is the name of the SQL table. The **tableName** property in the **SourceDataset** is configured to use the output from the Lookup activity. Copy Activity copies data from the SQL table to a location in Azure Blob Storage. The location is specified by the **SinkDataset** property. 
+- The Lookup activity is configured to use **LookupDataset**, which refers to a location in Azure Blob storage. The Lookup activity reads the name of the SQL table from a JSON file in this location. 
+- Copy Activity uses the output of the Lookup activity, which is the name of the SQL table. The **tableName** property in the **SourceDataset** is configured to use the output from the Lookup activity. Copy Activity copies data from the SQL table to a location in Azure Blob storage. The location is specified by the **SinkDataset** property. 
 
 ```json
 {
@@ -186,7 +186,7 @@ The **lookup** dataset is the **sourcetable.json** file in the Azure Storage loo
 ```
 
 ### **Source** dataset for Copy Activity
-The **source** dataset uses the output of the Lookup activity, which is the name of the SQL table. Copy Activity copies data from this SQL table to a location in Azure Blob Storage. The location is specified by the **sink** dataset. 
+The **source** dataset uses the output of the Lookup activity, which is the name of the SQL table. Copy Activity copies data from this SQL table to a location in Azure Blob storage. The location is specified by the **sink** dataset. 
 
 ```json
 {
@@ -246,7 +246,7 @@ This storage account contains the JSON file with the names of the SQL tables.
 ```
 
 ### Azure SQL Database linked service
-This Azure SQL Database instance contains the data to be copied to Blob Storage. 
+This Azure SQL Database instance contains the data to be copied to Blob storage. 
 
 ```json
 {
