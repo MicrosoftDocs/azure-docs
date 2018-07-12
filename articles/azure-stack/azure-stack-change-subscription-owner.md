@@ -38,7 +38,7 @@ There are two types of *Owners* that are assigned to a subscription:
 ## Change the Billing Owner
 Run the following script to change the Billing Owner of a user subscription.  The computer that you use to run the script must connect to Azure Stack and run the Azure Stack PowerShell module 1.3.0 or later. For more information, see [Install Azure Stack PowerShell](azure-stack-powershell-install.md). 
 
-> [!note]  
+> [!Note]  
 >  In a multi-tenanted Azure Stack, the new owner must be in the same directory as the existing owner. Before you can provide ownership of the subscription to a user that is in another directory, you must first [invite that user as a guest into your Directory](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator). 
 
 
