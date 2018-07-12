@@ -138,7 +138,7 @@ Here's what Contoso (and you) needs for the assessment:
 
 ## Assessment overview
 
-Here's how Contoso are going to do the assessment:
+Here's how Contoso is going to do the assessment:
 
 
 > [!div class="checklist"]
@@ -234,7 +234,7 @@ Contoso needs to create a VMware account that Azure Migrate will use to automati
 
 ### Verify permissions to create a VM
 
-Contoso verify it has permissions to create a VM by importing a file in .OVA format. [Learn more](https://kb.vmware.com/s/article/1023189?other.KM_Utility.getArticleLanguage=1&r=2&other.KM_Utility.getArticleData=1&other.KM_Utility.getArticle=1&ui-comm-runtime-components-aura-components-siteforce-qb.Quarterback.validateRoute=1&other.KM_Utility.getGUser=1).
+Contoso verifies it has permissions to create a VM by importing a file in .OVA format. [Learn more](https://kb.vmware.com/s/article/1023189?other.KM_Utility.getArticleLanguage=1&r=2&other.KM_Utility.getArticleData=1&other.KM_Utility.getArticle=1&ui-comm-runtime-components-aura-components-siteforce-qb.Quarterback.validateRoute=1&other.KM_Utility.getGUser=1).
 
 ### Verify ports
 
