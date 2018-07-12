@@ -24,11 +24,11 @@
   - name: Manage dynamic inventories
     href: ./ansible-manage-azure-dynamic-inventories.md
     maintainContext: true
-  - name: Create and Configure VMSS
+  - name: Create and configure VMSS
     href: ./ansible-create-configure-vmss.md
-  - name: Deploy App to VMSS
+  - name: Deploy app to VMSS
     href: ./ansible-deploy-app-vmss.md
-  - name: Create and Configure AKS
+  - name: Create and configure AKS clusters
     href: ./ansible-create-configure-aks.md
 - name: Reference
   items:
