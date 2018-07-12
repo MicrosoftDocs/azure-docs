@@ -45,7 +45,7 @@ Generally, Azure VM activation issues occur if the Windows VM is not configured 
 >[!NOTE]
 >If you are using a site-to-site VPN and forced tunneling, see [Use Azure custom routes to enable KMS activation with forced tunneling](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
 >
->If you are using ExpressRoute and you have a default route published, see [Azure VM may fail to activate over ExpressRoute](https://blogs.technet.microsoft.com/jpaztech/2016/05/16/azure-vm-may-fail-to-activate-over-expressroute/).
+>If you are using ExpressRoute and you have a default route published, see [Azure VM may fail to activate over ExpressRoute](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
 
 ### Step 1 Configure the appropriate KMS client setup key (for Windows Server 2016 and Windows Server 2012 R2)
 
