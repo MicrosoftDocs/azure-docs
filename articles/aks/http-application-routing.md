@@ -1,6 +1,6 @@
 ---
-title: HTTP application routing add-on on Azure Container Service (AKS)
-description: Use the HTTP application routing add-on on Azure Container Service (AKS).
+title: HTTP application routing add-on on Azure Kubernetes Service (AKS)
+description: Use the HTTP application routing add-on on Azure Kubernetes Service (AKS).
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -13,7 +13,7 @@ ms.author: laevenso
 
 # HTTP application routing
 
-The HTTP application routing solution makes it easy to access applications that are deployed to your Azure Container Service (AKS) cluster. When the solution's enabled, it configures an Ingress controller in your AKS cluster. As applications are deployed, the solution also creates publically accessible DNS names for application endpoints.
+The HTTP application routing solution makes it easy to access applications that are deployed to your Azure Kubernetes Service (AKS) cluster. When the solution's enabled, it configures an Ingress controller in your AKS cluster. As applications are deployed, the solution also creates publically accessible DNS names for application endpoints.
 
 When the add-on is enabled, it creates a DNS Zone in your subscription. For more information about DNS cost, see [DNS pricing][dns-pricing].
 
@@ -214,7 +214,7 @@ ingress "party-clippy" deleted
 
 ## Next steps
 
-For information on how to install an HTTPS-secured Ingress controller in AKS, see [HTTPS Ingress on Azure Container Service (AKS)][ingress-https].
+For information on how to install an HTTPS-secured Ingress controller in AKS, see [HTTPS Ingress on Azure Kubernetes Service (AKS)][ingress-https].
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
