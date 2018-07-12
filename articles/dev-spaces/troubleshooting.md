@@ -38,7 +38,7 @@ In Visual Studio:
 ## Error 'Required tools and configurations are missing'
 
 This error might occur when launching VS Code: "[Azure Dev Spaces] Required tools and configurations to build and debug '[project name]' are missing."
-So azds.exe is not in the PATH environment variable, as seen in VS Code.
+The error means that azds.exe is not in the PATH environment variable, as seen in VS Code.
 
 ### Try:
 
