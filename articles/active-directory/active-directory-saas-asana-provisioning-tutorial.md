@@ -41,7 +41,7 @@ Azure AD uses a concept called "assignments" to determine which users should rec
 
 Before you configure and enable the provisioning service, you must decide which users in Azure AD need access to your Asana app. Then you can assign these users to your Asana app by following the instructions here:
 
-[Assign a user to an enterprise app](active-directory-coreapps-assign-user-azure-portal.md)
+[Assign a user to an enterprise app](manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Asana
 
@@ -98,6 +98,6 @@ For more information on how to read the Azure AD provisioning logs, see [Report 
 
 ## Additional resources
 
-* [Manage user account provisioning for Enterprise Apps](active-directory-enterprise-apps-manage-provisioning.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Manage user account provisioning for Enterprise Apps](manage-apps/configure-automatic-user-provisioning-portal.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configure single sign-on](active-directory-saas-asana-tutorial.md)

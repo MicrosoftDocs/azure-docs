@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -137,6 +138,15 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 #### Chrome support
 
 For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+To automatically deploy this extension to Chrome browsers, create the following registry key:
+
+|    |    |
+|--- | ---|
+|Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+|Name | 1 |
+|Type | REG_SZ (String) |
+|Data | ppnbnpeolgkicgegkbkbjmhlideopiji;https://clients2.google.com/service/update2/crx
 
 For Chrome support in **Windows 8.1 and 7**, create the following registry key:
 

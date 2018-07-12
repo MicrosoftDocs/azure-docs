@@ -3,11 +3,11 @@ title: "Troubleshoot Azure SQL Data Sync (Preview) | Microsoft Docs"
 description: "Learn how to troubleshoot common issues with Azure SQL Data Sync (Preview)."
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: "article"
-ms.service: "sql-database"
-author: "douglaslMS"
-ms.author: "douglasl"
-manager: "craigg"
+ms.topic: conceptual
+ms.service: sql-database
+author: douglaslMS
+ms.author: douglasl
+manager: craigg
 ms.custom: data-sync
 ---
 # Troubleshoot issues with SQL Data Sync (Preview)
@@ -235,9 +235,8 @@ Before you proceed, check for the following conditions:
 
 -   The SQL Data Sync (Preview) Windows service is running.  
 -   The service account for SQL Data Sync (Preview) Preview Windows service has network access.    
--   The client agent can contact the Locator Service. Check that the following registry key has the value https://locator.sync.azure.com/LocatorServiceApi.svc:  
-    -   On an x86 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   On an x64 computer: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+-   The outbound 1433 port is open in your local firewall rule.
+-   The local ip is added to the server or database firewall rule for the sync metadata database.
 
 #### Cause
 

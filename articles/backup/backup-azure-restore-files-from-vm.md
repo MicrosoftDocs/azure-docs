@@ -1,25 +1,18 @@
 ---
-title: 'Azure Backup: Recover files and folders from an Azure VM backup | Microsoft Docs'
+title: 'Azure Backup: Recover files and folders from an Azure VM backup'
 description: Recover files from an Azure virtual machine recovery point
 services: backup
-documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
 keywords: item level recovery; file recovery from Azure VM backup; restore files from Azure VM
-
-ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: pullabhk;markgal
-
+ms.author: pullabhk
 ---
 # Recover files from Azure virtual machine backup
 
-Azure Backup provides the capability to restore [Azure virtual machines (VMs) and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups, also known as restore points. This article explains how to recover files and folders from an Azure VM backup. Restoring files and folders is available only for Azure VMs deployed using the Resource Manager model and protected to a Recovery services vault.
+Azure Backup provides the capability to restore [Azure virtual machines (VMs) and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups, also known as recovery points. This article explains how to recover files and folders from an Azure VM backup. Restoring files and folders is available only for Azure VMs deployed using the Resource Manager model and protected to a Recovery services vault.
 
 > [!Note]
 > This feature is available for Azure VMs deployed using the Resource Manager model and protected to a Recovery Services vault.
@@ -28,7 +21,7 @@ Azure Backup provides the capability to restore [Azure virtual machines (VMs) an
 
 ## Mount the volume and copy files
 
-To restore files or folders from the restore point, go to the virtual machine and choose to the restore point. 
+To restore files or folders from the recovery point, go to the virtual machine and choose the desired recovery point. 
 
 1. Sign into the [Azure portal](http://portal.Azure.com) and in the left-hand menu, click **Virtual machines**. From the list of virtual machines, select the virtual machine to open that virtual machine's dashboard. 
 

@@ -7,13 +7,12 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 
@@ -47,6 +46,24 @@ Infrastructure service certificates for external-facing services that are provid
 
 In order to maintain the integrity of the Azure Stack infrastructure, operators need the ability to periodically rotate their infrastructure’s secrets at frequencies that are consistent with their organization’s security requirements.
 
+### Rotating Secrets with External Certificates from a new Certificate Authority
+
+Azure Stack supports secret rotation with external certificates from a new Certificate Authority (CA) in the following contexts:
+
+|Installed Certificate CA|CA to Rotate To|Supported|Azure Stack Versions Supported|
+|-----|-----|-----|-----|-----|
+|From Self-Signed|To Enterprise|Not Supported||
+|From Self-Signed|To Self-Signed|Not Supported||
+|From Self-Signed|To Public<sup>*</sup>|Supported|1803 & Later|
+|From Enterprise|To Enterprise|Supported so long as customers use the SAME enterprise CA as used at deployment|1803 & Later|
+|From Enterprise|To Self-Signed|Not Supported||
+|From Enterprise|To Public<sup>*</sup>|Supported|1803 & Later|
+|From Public<sup>*</sup>|To Enterprise|Not Supported|1803 & Later|
+|From Public<sup>*</sup>|To Self-Signed|Not Supported||
+|From Public<sup>*</sup>|To Public<sup>*</sup>|Supported|1803 & Later|
+
+<sup>*</sup> Here Public Certificate Authorities are those that are part of the Windows Trusted Root Program. You can find the full list [Microsoft Trusted Root Certificate Program: Participants (as of June 27, 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+
 ## Alert remediation
 
 When secrets are within 30 days of expiration, the following alerts are generated in the Administrator Portal: 
@@ -72,7 +89,7 @@ Running secret rotation using the instructions below will remediate these alerts
 
 ## Rotating external and internal secrets
 
-To rotate both external an internal secrets:
+To rotate both external an internal secret:
 
 1. Within the newly created **/Certificates** directory created in the Pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 2. Create a PowerShell Session with the [Privileged Endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) using the **CloudAdmin** account and store the sessions as a variable. You will use this variable as the parameter in the next step.

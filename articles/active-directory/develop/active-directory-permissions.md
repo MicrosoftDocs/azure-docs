@@ -3,20 +3,21 @@ title: Permissions in Azure AD | Microsoft docs
 description: Learn about scopes and permissions in Azure Active Directory and how to use them 
 services: active-directory
 documentationcenter: ''
-author: jhutchings1
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/20/2017
-ms.author: justhu
+ms.author: celested
+ms.reviewer: justhu
 ms.custom: aaddev
-
 ---
 
 # Permissions in Azure AD
@@ -50,14 +51,14 @@ Permissions in Azure AD have a number of properties that help users, administrat
 
 | Property name | Description | Example | 
 | --- | --- | --- |
-| ID | This is a GUID value that uniquely identifies this permission.  | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
+| ID | This is a GUID value that uniquely identifies this permission. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
 | IsEnabled | Indicates whether this scope is available for use. | true | 
 | Type | Indicates whether this permission requires user consent or admin consent. | User | 
 | AdminConsentDescription | This is a description that's shown to administrators during the admin consent experiences | Allows the app to read email in user mailboxes. | 
 | AdminConsentDisplayName | This is the friendly name that is shown to administrators during the admin consent experience. | Read user mail | 
 | UserConsentDescription | This is a description that's shown to users during a user consent experience. |  Allows the app to read email in your mailbox. | 
 | UserConsentDisplayName | This is the friendly name that is shown to users during a user consent experience. | Read your mail | 
-| Value | This is the string that is used to identify the permission during OAuth 2.0 authorize flows. This may also be combined with the App ID URI string in order to form a fully qualified permission name.  | `Mail.Read` | 
+| Value | This is the string that is used to identify the permission during OAuth 2.0 authorize flows. This may also be combined with the App ID URI string in order to form a fully qualified permission name. | `Mail.Read` | 
 
 ## Types of consent
 Applications in Azure AD rely on consent in order to gain access to necessary resources or APIs. There are a number of kinds of consent that your app may need to know about in order to be successful. If you are defining permissions, you will also need to understand how your users will gain access to your app or API.

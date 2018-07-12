@@ -2,7 +2,7 @@
 title: Query for B2B messages in Log Analytics - Azure Logic Apps  | Microsoft Docs
 description: Create queries to track AS2, X12, and EDIFACT messages in Log Analytics 
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''

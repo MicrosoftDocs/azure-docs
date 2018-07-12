@@ -2,14 +2,10 @@
 title: Create an HTTP Trigger with an Azure Cosmos DB input binding | Microsoft Docs
 description: Learn how to use Azure Functions with HTTP Triggers to query Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
@@ -22,7 +18,7 @@ ms.custom: mvc
 
 Azure Cosmos DB is a globally distributed, multi-model database that is both schemaless and serverless. Azure Function is a serverless compute service that enables you to run code on-demand. Pair up these two Azure services and you have the foundation for a serverless architecture that enables you to focus on building great apps and not worry about provisioning and maintaining servers for your compute and database needs.
 
-This tutorial builds on the code created in the [Graph API Quickstart for .NET](create-graph-dotnet.md). This tutorial adds an Azure Function that contains an [HTTP trigger](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). The HTTP trigger uses an Azure Cosmos DB [input binding](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) to retrieve data from the graph database created in the quickstart. This particular HTTP trigger queries Azure Cosmos DB for data, but input bindings from Azure Cosmos DB can be used to retrieve data input values for whatever your function requires.
+This tutorial builds on the code created in the [Graph API Quickstart for .NET](create-graph-dotnet.md). This tutorial adds an Azure Function that contains an [HTTP trigger](../azure-functions/functions-bindings-http-webhook.md). The HTTP trigger uses an Azure Cosmos DB [input binding](../azure-functions/functions-triggers-bindings.md) to retrieve data from the graph database created in the quickstart. This particular HTTP trigger queries Azure Cosmos DB for data, but input bindings from Azure Cosmos DB can be used to retrieve data input values for whatever your function requires.
 
 This tutorial covers the following tasks:
 

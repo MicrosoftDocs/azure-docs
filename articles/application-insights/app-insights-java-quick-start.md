@@ -30,6 +30,8 @@ If you don't have a Java Dynamic Web Project, you can create one with the [Creat
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
+If you prefer the Spring framework try the [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
+
 ## Log in to the Azure portal
 
 Log in to the [Azure portal](https://portal.azure.com/).

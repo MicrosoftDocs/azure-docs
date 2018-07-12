@@ -12,8 +12,8 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/08/2018
+ms.topic: conceptual
+ms.date: 05/10/2018
 ms.author: shlo
 
 ---
@@ -34,6 +34,9 @@ The following functionality is available in the control flow:
 ## Supported capabilities
 
 The GetMetadata Activity takes a dataset as a required input, and outputs metadata information available as activity output. Currently, the following connectors with corresponding retrievable meatadata are supported:
+
+>[!NOTE]
+>If you run GetMetadata activity on a Self-hosted Integration Runtime, the latest capability is supported on version 3.6 or above. 
 
 ### Supported connectors
 

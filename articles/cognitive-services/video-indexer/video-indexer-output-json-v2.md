@@ -8,16 +8,16 @@ manager: cfowler
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 05/30/2018
 ms.author: juliako
 ---
 
 # Examine the Video Indexer output produced by v2 API
 
 > [!Note]
-> The Video Indexer v1 API is going to be deprecated on July 31, 2018. You should start using the Video Indexer v2 API. 
-> 
-> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://aka.ms/viapi). 
+> The Video Indexer V1 APIs are now deprecated, and will be removed on August 1st, 2018. You should start using the Video Indexer v2 APIs to avoid disruptions.
+>
+> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
 
 When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, ocrs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
 
@@ -47,7 +47,7 @@ This article examines the JSON content returned by the  **Get Video Index** API.
 |isEditable|Whether the current user is authorized to edit the playlist.|
 |isBase|Whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
 |durationInSeconds|The total duration of the playlist.|
-|summarizedInsights|Contains one [summarizedInsights](#summarizedInsights).
+|summarizedInsights|Contains one [summarizedInsights](#summarizedinsights).
 |videos|A list of [videos](#videos) constructing the playlist.<br/>If this playlist of constructed of time ranges of other videos (derived), the videos in this list will contain only data from the included time ranges.|
 
 ```json
@@ -83,7 +83,7 @@ This section shows the summary of the insights.
 |faces|May contain one or more faces. For more information, see [faces](#faces).|
 |topics|May contain one or more topics. For more information, see [topics](#topics).|
 |sentiments|May contain one or more sentiments. For more information, see [sentiments](#sentiments).|
-|audioEffects| May contain one or more audioEffects. For more information, see [audioEffects](#audioEffects).|
+|audioEffects| May contain one or more audioEffects. For more information, see [audioEffects](#audioeffects).|
 |brands| May contain zero or more brands. For more information, see [brands](#brands).|
 |statistics | For more information, see [statistics](#statistics).|
 
@@ -111,6 +111,7 @@ This section shows the summary of the insights.
 |externalId|The video's external id (if specified by the user).|
 |externalUrl|The video's external url (if specified by the user).|
 |metadata|The video's external metadata (if specified by the user).|
+|isAdult|Whether the video was manually reviewed and identified as an adult video.|
 |insights|The insights object.|
 |thumbnailUrl|The video's thumbnail full URL. For example, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO...". Notice that if the video is private, the URL contains a one hour access token. After one hour, the URL will no longer be valid and you will need to either get the breakdown again with a new url in it, or call GetAccessToken to get a new access token and construct the full url manually ('https://www.videoindexer.ai/api/Thumbnail/[shortId]/[ThumbnailId]?accessToken=[accessToken]').|
 |publishedUrl|A url to stream the video.|
@@ -166,8 +167,8 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |brands|The [brands](#brands) dimension.|
 |audioEffects|The [audioEffects](#audioEffects) dimension.|
 |sentiments|The [sentiments](#sentiments) dimension.|
-|visualContentModeration|The [visualContentModeration](#visualContentModeration) dimension.|
-|textualConentModeration|The [textualConentModeration](#textualConentModeration) dimension.|
+|visualContentModeration|The [visualContentModeration](#visualcontentmoderation) dimension.|
+|textualConentModeration|The [textualConentModeration](#textualconentmoderation) dimension.|
 
 Example:
 
@@ -232,7 +233,7 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The OCR line id.|
+|id|The OCR line ID.|
 |text|The OCR text.|
 |confidence|The recognition confidence.|
 |language|The OCR language.|
@@ -323,16 +324,16 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The face id.|
+|id|The face ID.|
 |name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
-|description|In case of a celebrity, its description ("Satya Nadella was born at..."). |
+|description|If it is a celebrity, its description might be: "Satya Nadella was born at...". |
 |thumbnalId|The id of the thumbnail of that face.|
-|knownPersonId|In case of a known person, its internal id.|
-|referenceId|In case of a Bing celebrity, its Bing id.|
+|knownPersonId|If it is a known person, its internal ID.|
+|referenceId|If it is a Bing celebrity, its Bing ID.|
 |referenceType|Currently just Bing.|
-|title|In case of a celebrity, its title (for example "Microsoft's CEO").|
-|imageUrl|In case of a celebrity, its image url.|
+|title|If it is a celebrity, its title (for example "Microsoft's CEO").|
+|imageUrl|If it is a celebrity, its image url.|
 |instances|These are instances of where the face appeared in the given time range. Each instance also has a thumbnailsId. |
 
 ```json
@@ -368,7 +369,7 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The label id.|
+|id|The label ID.|
 |name|The label name (for example, 'Computer', 'TV').|
 |language|The label name language (when translated). BCP-47|
 |instances|A list of time ranges where this label appeared (a label can appear multiple times). Each instance has a confidence field. |
@@ -427,7 +428,7 @@ Example:
 
 |Name|Description|
 |---|---|
-|id|The shot id.|
+|id|The shot ID.|
 |keyFrames|A list of key frames within the shot (each has an ID and a list of instances time ranges). Key frames instances have a thumbnailId field with the keyFrame’s thumbnail ID.|
 |instances|A list of time ranges of this shot (shots have only 1 instance).|
 
@@ -493,7 +494,7 @@ Business and product brand names detected in the speech to text transcript and/o
 |description|The brands description.|
 |tags|A list of predefined tags that were associated with this brand.|
 |confidence|The confidence value of the Video Indexer brand detector (0-1).|
-|instances|A list of time ranges of this brand. Each instance has a brandType which indicates whether this brand appeared in the transcript or in OCR.|
+|instances|A list of time ranges of this brand. Each instance has a brandType, which indicates whether this brand appeared in the transcript or in OCR.|
 
 ```json
 "brands": [
@@ -603,6 +604,10 @@ Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negativ
 ```
 
 #### visualContentModeration
+
+The visualContentModeration block contains time ranges which Video Indexer found to potentially have adult content. If visualContentModeration is empty, there is no adult content that was identified.
+
+Videos that are found to contain adult or racy content might be available for private view only. Users have the option to submit a request for a human review of the content, in which case the IsAdult attribute will contain the result of the human review.
 
 |Name|Description|
 |---|---|

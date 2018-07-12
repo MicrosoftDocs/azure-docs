@@ -2,6 +2,7 @@
 title: Azure AD UserPrincipalName population
 description: The following document describes how the UserPrincipalName attribute is populated.  
 author: billmath
+ms.component: hybrid
 ms.author: billmath
 ms.date: 02/02/2018
 ms.topic: article
@@ -24,14 +25,14 @@ The following terminology is used in this article:
 |Microsoft Online Email Routing Address (MOERA)|Azure AD calculates the MOERA from Azure AD MailNickName attribute and Azure AD initial domain as &lt;MailNickName&gt;&#64;&lt;initial domain&gt;.|
 |On-premises mailNickName attribute|An attribute in Active Directory, the value of which represents the alias of a user in an Exchange organization.|
 |On-premises mail attribute|An attribute in Active Directory, the value of which represents the email address of a user|
-|Primary SMTP Address|The primary email address of an Exchange recipient object. For example, SMTP:user@contoso.com.|
+|Primary SMTP Address|The primary email address of an Exchange recipient object. For example, SMTP:user\@contoso.com.|
 |Alternate login ID|An on-premises attribute other than UserPrincipalName, such as mail attribute, used for sign-in.|
 
 ## What is UserPrincipalName?
 UserPrincipalName is an attribute that is an Internet-style login name for a user based on the Internet standard [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
 
 ### UPN format
-A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix is joined with the suffix using the "@" symbol. For example, "someone@example.com". A UPN must be unique among all security principal objects within a directory forest. 
+A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix is joined with the suffix using the "\@" symbol. For example, "someone\@example.com". A UPN must be unique among all security principal objects within a directory forest. 
 
 ## UPN in Azure AD 
 The UPN is used by Azure AD to allow users to sign-in.  The UPN that a user can use, depends on whether or not the domain has been verified.  If the domain has been verified, then a user with that suffix will be allowed to sign-in to Azure AD.  

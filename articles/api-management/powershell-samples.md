@@ -3,7 +3,7 @@ title: Azure PowerShell samples | Microsoft Docs
 description: Learn about the Azure PowerShell scripts available for Azure API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

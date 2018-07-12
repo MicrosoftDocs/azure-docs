@@ -3,7 +3,7 @@ title: Reference for multi-factor authentication reporting in the Azure portal |
 description: Reference information for multi-factor authentication reporting in the Azure portal 
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -13,8 +13,9 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 03/16/2018
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
 
 ---

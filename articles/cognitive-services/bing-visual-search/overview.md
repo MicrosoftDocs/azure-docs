@@ -143,19 +143,12 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-If you upload a local image, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header. Its `name` and `filename` parameters must be set to "image". The Content-Type header may be set to any commonly used image mime type. The contents of the form is the binary of the image. The maximum image size you may upload is 1 MB. 
-
-<!--
 If you upload a local image, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header. Its `name` parameter must be set to "image" and the `filename` parameter may be set to any string. The Content-Type header may be set to any commonly used image mime type. The contents of the form is the binary of the image. The maximum image size you may upload is 1 MB. 
-
-Replace in example after fix:
-Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
--->
 
 
 ```
 --boundary_1234-abcd
-Content-Disposition: form-data; name="image"; filename="image"
+Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 Content-Type: image/jpeg
 
 ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...

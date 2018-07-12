@@ -5,7 +5,7 @@ services: storage
 documentationcenter: .net
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
@@ -49,7 +49,7 @@ http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.
 
 Share snapshots persist until they are explicitly deleted. A share snapshot cannot outlive its base file share. You can enumerate the snapshots associated with the base file share to track your current snapshots. 
 
-When you create a share snapshot of a file share, the files in the share’s system properties are copied to the share snapshot with the same values. The base files and the file share’s metadata are also copied to the share snapshot, unless you specify separate metadata for the share snapshot when you create it.
+When you create a share snapshot of a file share, the files in the share's system properties are copied to the share snapshot with the same values. The base files and the file share's metadata are also copied to the share snapshot, unless you specify separate metadata for the share snapshot when you create it.
 
 You cannot delete a share that has share snapshots unless you delete all the share snapshots first.
 

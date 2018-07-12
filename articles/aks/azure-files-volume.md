@@ -3,7 +3,7 @@ title: Use Azure File with AKS
 description: Use Azure Disks with AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

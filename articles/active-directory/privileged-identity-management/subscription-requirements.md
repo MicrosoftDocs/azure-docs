@@ -1,11 +1,11 @@
-﻿---
+---
 title: Privileged Identity Management subscriptions - Azure| Microsoft Docs
 description: Explains the subscription and licensing requirements for managing and using Azure AD Privileged Identity Management in your tenant
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
-editor: mwahl
+editor: markwahl-msft
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory
 ms.workload: identity
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
-ms.author: barclayn
+ms.author: rolyon
 ms.custom: pim
 
 ---

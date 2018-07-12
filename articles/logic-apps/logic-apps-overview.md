@@ -4,7 +4,7 @@ description: Build automated workflows and business processes that integrate dat
 keywords: automate, workflows, enterprise application integration, EAI, system integration, data integration, orchestration, integration services, iPaaS
 services: logic-apps
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 

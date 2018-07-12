@@ -1,5 +1,5 @@
 ---
-title: Azure Blockchain Workbench messages overview
+title: Azure Blockchain Workbench messages integration overview
 description: Overview of using messages in Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: 
@@ -12,21 +12,20 @@ ms.reviewer: mmercuri
 manager: femila
 ---
 
-# Azure Blockchain Workbench messages overview
+# Azure Blockchain Workbench messaging integration
 
 In addition to providing a REST API, Azure Blockchain Workbench also provides messaging-based integration. Workbench publishes ledger-centric events via Azure Event Grid, enabling downstream consumers to ingest data or take action based on these events. For those clients that require reliable messaging, Azure Blockchain Workbench delivers messages to an Azure Service Bus endpoint as well.
 
 Developers have also expressed interest in the ability to have external systems communicate initiate transactions to create users, create contracts, and update contracts on a ledger. While this functionality is not currently exposed in public preview, a sample that delivers that capability can be found at [http://aka.ms/blockchain-workbench-integration-sample](http://aka.ms/blockchain-workbench-integration-sample).
 
-
 ## Event notifications
 
-Event notifications can be used to notify users and downstream systems of events that happen in Workbench and the blockchain network it is connected to. Event notifications can be consumed directly in code or used with tools such as Logic Apps and Flow to trigger flow of data to downstream systems.
+Event notifications can be used to notify users and downstream systems of events that happen in Blockchain Workbench and the blockchain network it is connected to. Event notifications can be consumed directly in code or used with tools such as Logic Apps and Flow to trigger flow of data to downstream systems.
 
 See [Notification message reference](#notification-message-reference)
 for details of various messages that can be received.
 
-### Consuming Event Grid Events with Azure Functions
+### Consuming Event Grid events with Azure Functions
 
 If a user wants to use Event Grid to be notified about events that happen in Blockchain Workbench, you can consume events from Event Grid by using Azure Functions.
 
@@ -36,7 +35,7 @@ If a user wants to use Event Grid to be notified about events that happen in Blo
 4. Save the Function. 
 5. Select the Event Grid from Blockchain Workbench’s resource group.
 
-### Consuming Event Grid Events with Logic Apps
+### Consuming Event Grid events with Logic Apps
 
 1.  Create a new **Azure Logic App** in the Azure portal.
 2.  When opening the Azure Logic App in the portal, you will be prompted to select a trigger. Select **Azure Event Grid -- When a resource event occurs**.
@@ -57,8 +56,7 @@ Service Bus Topics can be used to notify users about events that happen in Block
 ### Consuming Service Bus Messages with Logic Apps
 
 1. Create a new **Azure Logic App** in the Azure portal.
-2.  When opening the Azure Logic App in the portal, you will be prompted to select a trigger. Type **Service Bus** into the search box and select the trigger appropriate for the type of interaction you want to have with the Service Bus. For example, **Service Bus -- When a message is received in
-a topic subscription (auto-complete)**.
+2. When opening the Azure Logic App in the portal, you will be prompted to select a trigger. Type **Service Bus** into the search box and select the trigger appropriate for the type of interaction you want to have with the Service Bus. For example, **Service Bus -- When a message is received in a topic subscription (auto-complete)**.
 3. When the workflow designer is displayed, specify the connection information for the Service Bus.
 4. Select your subscription and specify the topic of **workbench-external**.
 5. Develop the logic for your application that utilizes the message from
@@ -66,8 +64,7 @@ this trigger.
 
 ## Notification message reference
 
-Depending on the OperationName, the notification messages have one of
-the following message types.
+Depending on the **OperationName**, the notification messages have one of the following message types.
 
 ### AccountCreated
 
@@ -75,8 +72,8 @@ Indicates that a new account has been requested to be added to the specified cha
 
 | Name    | Description  |
 |----------|--------------|
-| UserId  | ID of the user that was created |
-| ChainIdentifier | Address of the user that was created on the blockchain network. In Ethereum, this would be the user's "on chain" address. |
+| UserId  | ID of the user that was created. |
+| ChainIdentifier | Address of the user that was created on the blockchain network. In Ethereum, this would be the user's **on-chain** address. |
 
 ``` csharp
 public class NewAccountRequest : MessageModelBase
@@ -93,15 +90,15 @@ Indicates that a request has been made to insert or update a contract on a distr
 | Name | Description |
 |-----|--------------|
 | ChainID | A unique identifier for the chain associated with the request.|
-  BlockId | The unique identifier for a block on the ledger.|
-  ContractId | A unique identifier for the contract.|
-  ContractAddress |       The address of the contract on the ledger.|
-  TransactionHash  |     The hash of the transaction on the ledger.|
-  OriginatingAddress |   The address of the originator of the transaction.|
-  ActionName       |     The name of the action.|
-  IsUpdate        |      Identifies if this is an update.|
-  Parameters       |     A list of objects that identify the name, value, and data type of parameters sent to an action.|
-  TopLevelInputParams |  In scenarios where a contract is connected to one or more other contracts, these are the parameters from the top-level contract. |
+| BlockId | The unique identifier for a block on the ledger.|
+| ContractId | A unique identifier for the contract.|
+| ContractAddress |       The address of the contract on the ledger.|
+| TransactionHash  |     The hash of the transaction on the ledger.|
+| OriginatingAddress |   The address of the originator of the transaction.|
+| ActionName       |     The name of the action.|
+| IsUpdate        |      Identifies if this is an update.|
+| Parameters       |     A list of objects that identify the name, value, and data type of parameters sent to an action.|
+| TopLevelInputParams |  In scenarios where a contract is connected to one or more other contracts, these are the parameters from the top-level contract. |
 
 ``` csharp
 public class ContractInsertOrUpdateRequest : MessageModelBase
@@ -244,6 +241,66 @@ public class AssignContractChainIdentifierRequest : MessageModelBase
 }
 ```
 
+## Classes used by message types
+
+### MessageModelBase
+
+The base model for all messages.
+
+| Name          | Description                          |
+|---------------|--------------------------------------|
+| OperationName | The name of the operation.           |
+| RequestId     | A unique identifier for the request. |
+
+``` csharp
+public class MessageModelBase
+{
+    public string OperationName { get; set; }
+    public string RequestId { get; set; }
+}
+```
+
+### ContractInputParameter
+
+Contains the name, value and type of a parameter.
+
+| Name  | Description                 |
+|-------|-----------------------------|
+| Name  | The name of the parameter.  |
+| Value | The value of the parameter. |
+| Type  | The type of the parameter.  |
+
+``` csharp
+public class ContractInputParameter
+{
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string Type { get; set; }
+}
+```
+
+#### ContractProperty
+
+Contains the ID, name, value and type of a property.
+
+| Name  | Description                |
+|-------|----------------------------|
+| Id    | The ID of the property.    |
+| Name  | The name of the property.  |
+| Value | The value of the property. |
+| Type  | The type of the property.  |
+
+``` csharp
+public class ContractProperty
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string DataType { get; set; }
+}
+```
+
 ## Next steps
 
-* [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md)
+> [!div class="nextstepaction"]
+> [Smart contract integration patterns](blockchain-workbench-integration-patterns.md)

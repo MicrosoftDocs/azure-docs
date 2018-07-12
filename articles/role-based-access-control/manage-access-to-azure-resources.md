@@ -3,17 +3,18 @@ title: Manage access to Azure resources with Azure Active Directory
 description: Learn about the ways to manage access to Azure resources using different features of Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: skwan
+author: rolyon
 manager: mtillman
-editor: bryanla
+editor: skwan
 ms.assetid: f66abf54-3809-436c-92b6-018e1179780e
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/05/2017
-ms.author: skwan
+ms.author: rolyon
+ms.reviewer: skwan
 ---
 
 # Manage access to Azure resources with Azure Active Directory

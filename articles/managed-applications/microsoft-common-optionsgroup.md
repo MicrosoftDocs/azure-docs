@@ -1,13 +1,13 @@
 ---
 title: Azure OptionsGroup UI element | Microsoft Docs
 description: Describes the Microsoft.Common.OptionsGroup UI element for Azure portal.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
@@ -28,7 +28,7 @@ A selection control with a row of available options.
   "name": "element1",
   "type": "Microsoft.Common.OptionsGroup",
   "label": "Some options group",
-  "defaultValue": "my value",
+  "defaultValue": "Value two",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
@@ -54,7 +54,7 @@ A selection control with a row of available options.
 
 ## Sample output
 ```json
-"Bar"
+"two"
 ```
 
 ## Next steps

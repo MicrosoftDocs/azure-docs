@@ -43,17 +43,17 @@ Users log in once with their organizational account. This account is the same on
 
 Shared accounts not only increase oversight and improve usability, they also enhance your security. Users with permissions to use the credentials don't see the shared password, but rather get permissions to use the password as part of an orchestrated authentication flow. Further, some password SSO applications give you the option of using Azure AD to periodically rollover (update) passwords. The system uses large, complex passwords, which increases account security. The administrator can easily grant or revoke access to an application, knows who has access to the account, and who has accessed it in the past.
 
-Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS), Premium, or Basic licensed users, across all types of password single sign-on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](active-directory-enterprise-apps-manage-sso.md).
+Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS), Premium, or Basic licensed users, across all types of password single sign-on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](manage-apps/configure-single-sign-on-portal.md).
 
 Azure AD features that enable account sharing include:
 
-* [Password single sign-on](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
+* [Password single sign-on](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
 * Password single sign-on agent
 * [Group assignment](active-directory-accessmanagement-self-service-group-management.md)
 * Custom Password apps
 * [App usage dashboard/reports](active-directory-passwords-get-insights.md)
 * End-user access portals
-* [App proxy](active-directory-application-proxy-get-started.md)
+* [App proxy](manage-apps/application-proxy.md)
 * [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Sharing an account

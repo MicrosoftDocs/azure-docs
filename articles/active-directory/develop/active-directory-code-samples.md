@@ -9,15 +9,17 @@ editor: ''
 
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2018
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-
 ---
+
 # Azure Active Directory code samples (V1 endpoint)
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

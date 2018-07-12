@@ -4,8 +4,8 @@ description: Learn how to onboard an Azure Virtual machine with Update Managemen
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
-ms.topic: article
+ms.date: 06/06/2018
+ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
@@ -13,7 +13,7 @@ manager: carmonm
 
 # Onboard Update Management, Change Tracking, and Inventory solutions from an Azure Virtual Machine
 
-Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. There are multiple ways to onboard machines, you can onboard the solution from a virtual machine, [from your Automation account](automation-onboard-solutions-from-automation-account.md), or by [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions from an Azure Virtual Machine.
+Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. There are multiple ways to onboard machines, you can onboard the solution from a virtual machine, [from your Automation account](automation-onboard-solutions-from-automation-account.md), [from browsing multiple machines](automation-onboard-solutions-from-browse.md), or by [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions from an Azure Virtual Machine.
 
 ## Log in to Azure
 
@@ -23,13 +23,13 @@ Log in to Azure at https://portal.azure.com
 
 Navigate to an existing virtual machine and select either **Update management**, **Inventory**, or **Change tracking** under **OPERATIONS**.
 
+To enable the solution for the VM only ensure the **Enable for this VM** radio button is selected, to onboard multiple machines to the solution select **Enable for VMs in this subscription** and click **Click to select machines to enable**. See, [Onboard Update Management, Change Tracking, and Inventory solutions](automation-onboard-solutions-from-automation-account.md) to view the steps on how to onboard multiple machines at once.
+
 Choose the Log analytics workspace and automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
 
 ![Onboard Update solution](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 Navigate to the other solutions and click **Enable**, the Log analytics, and Automation account drop-down boxes are disabled as they use the same workspace and automation account as the previously enabled solution.
-
-![Onboard Update solution](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
 > [!NOTE]
 > **Change tracking** and **Inventory** use the same solution, when one is enabled the other is enabled as well.
@@ -38,7 +38,13 @@ Navigate to the other solutions and click **Enable**, the Log analytics, and Aut
 
 Each solution uses a Scope Configuration within the workspace to target the computers that get the solution. The Scope Configuration is a group of one or more saved searches that is used to limit the scope of the solution to specific computers. To access the Scope Configurations, in your Automation account under **RELATED RESOURCES**, select **Workspace**  Then in the workspace under **WORKSPACE DATA SOURCES**, select **Scope Configurations**.
 
-The two scope configurations created by default are **MicrosoftDefaultScopeConfig-ChangeTracking** and **MicrosoftDefaultScopeConfig-Updates**.
+If the selected workspace does not have the Update Management or Change Tracking solutions yet, The following scope configurations are created:
+
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig-Updates**
+
+If the the selected workspace already has the solution. The solution is not re-deployed, and the scope configuration is not added to it.
 
 Click the ellipses (...) on any of the configurations and select **Edit**. On the **Edit scope configuration** page, select **Select Computer Groups** to open the **Computer Groups** page. This page shows the saved searches that are used to create the Scope Configuration.
 

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 05/10/2018
 ms.author: jeedes
 
 ---
@@ -27,7 +27,7 @@ Integrating Asana with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Asana (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
+In this tutorial, you test Azure AD single sign-on in a test environment.
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Asana from the gallery
@@ -63,7 +63,7 @@ To configure the integration of Asana into Azure AD, you need to add Asana from 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
@@ -98,8 +98,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Single sign-on dialog box](./media/active-directory-saas-asana-tutorial/tutorial_asana_samlbase.png)
 
 3. On the **Asana Domain and URLs** section, perform the following steps:
@@ -109,25 +109,25 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     a. In the **Sign-on URL** textbox, type URL: `https://app.asana.com/`
 
 	b. In the **Identifier** textbox, type value: `https://app.asana.com/`
- 
+
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![The Certificate download link](./media/active-directory-saas-asana-tutorial/tutorial_asana_certificate.png)
-	
+
 5. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-asana-tutorial/tutorial_general_400.png)
 
 6. On the **Asana Configuration** section, click **Configure Asana** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Asana Configuration](./media/active-directory-saas-asana-tutorial/tutorial_asana_configure.png) 
+	![Asana Configuration](./media/active-directory-saas-asana-tutorial/tutorial_asana_configure.png)
 
-7. In a different browser window, sign-on to your Asana application. To configure SSO in Asana, access the workspace settings by clicking the workspace name on the top right corner of the screen. Then, click on **\<your workspace name\> Settings**. 
-   
+7. In a different browser window, sign-on to your Asana application. To configure SSO in Asana, access the workspace settings by clicking the workspace name on the top right corner of the screen. Then, click on **\<your workspace name\> Settings**.
+
     ![Asana sso settings](./media/active-directory-saas-asana-tutorial/tutorial_asana_09.png)
 
 8. On the **Organization settings** window, click **Administration**. Then, click **Members must log in via SAML** to enable the SSO configuration. The perform the following steps:
-   
+
     ![Configure Single Sign-On Organization settings](./media/active-directory-saas-asana-tutorial/tutorial_asana_10.png)  
 
      a. In the **Sign-in page URL** textbox, paste the **SAML Single Sign-On Service URL**.
@@ -135,9 +135,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
      b. Right click the certificate downloaded from Azure portal, then open the certificate file using Notepad or your preferred text editor. Copy the content between the begin and the end certificate title and paste it in the **X.509 Certificate** textbox.
 
 9. Click **Save**. Go to [Asana guide for setting up SSO](https://asana.com/guide/help/premium/authentication#gl-saml) if you need further assistance.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### Create an Azure AD test user
 
@@ -152,16 +149,16 @@ The objective of this section is to create a test user in the Azure portal calle
 	![The Azure Active Directory button](./media/active-directory-saas-asana-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![The "Users and groups" and "All users" links](./media/active-directory-saas-asana-tutorial/create_aaduser_02.png) 
+
+	![The "Users and groups" and "All users" links](./media/active-directory-saas-asana-tutorial/create_aaduser_02.png)
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-asana-tutorial/create_aaduser_03.png) 
+
+	![Creating an Azure AD test user](./media/active-directory-saas-asana-tutorial/create_aaduser_03.png)
 
 4. On the **User** dialog page, perform the following steps:
- 
-	![The Add button](./media/active-directory-saas-asana-tutorial/create_aaduser_04.png) 
+
+	![The Add button](./media/active-directory-saas-asana-tutorial/create_aaduser_04.png)
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
@@ -170,14 +167,18 @@ The objective of this section is to create a test user in the Azure portal calle
 	c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
- 
+
 ### Create an Asana test user
+
+The objective of this section is to create a user called Britta Simon in Asana. Asana supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-asana-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
+**If you need to create user manually, please perform following steps:**
 
 In this section, you create a user called Britta Simon in Asana.
 
-1. On **Asana**, go to the **Teams** section on the left panel. Click the plus sign button. 
-   
-    ![Creating an Azure AD test user](./media/active-directory-saas-asana-tutorial/tutorial_asana_12.png) 
+1. On **Asana**, go to the **Teams** section on the left panel. Click the plus sign button.
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-asana-tutorial/tutorial_asana_12.png)
 
 2. Type the email britta.simon@contoso.com in the text box and then select **Invite**.
 
@@ -193,11 +194,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
 2. In the applications list, select **Asana**.
 
-	![The Asana link in the Applications list](./media/active-directory-saas-asana-tutorial/tutorial_asana_app.png) 
+	![The Asana link in the Applications list](./media/active-directory-saas-asana-tutorial/tutorial_asana_app.png)
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -212,7 +213,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Test single sign-on
 
 The objective of this section is to test your Azure AD single sign-on.
@@ -222,8 +223,8 @@ Go to Asana login page. In the Email address textbox, insert the email address b
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Configure User Provisioning](active-directory-saas-asana-provisioning-tutorial.md)
 
 <!--Image references-->
 

@@ -1,23 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Azure IoT Edge Python module | Microsoft Docs 
 description: Create an IoT Edge module with Python code and deploy it to an edge device
-services: iot-edge
-keywords: 
 author: shizn
-manager: timlt
-
+manager: 
 ms.author: xshi
 ms.date: 03/18/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+services: iot-edge
 ---
 
 # Develop and deploy a Python IoT Edge module to your simulated device - preview

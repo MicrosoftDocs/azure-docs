@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.devlang: other
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 4/30/2018
+ms.date: 6/10/2018
 ms.author: subramar
 ---
 
@@ -27,6 +27,8 @@ The Azure Files volume plugin is a [Docker volume plugin](https://docs.docker.co
 ## Prerequisites
 * The Windows version of the Azure Files volume plugin works on [Windows Server version 1709](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-1709) or later operating systems only. The Linux version of the Azure Files volume plugin works on all operating system versions supported by Service Fabric.
 
+* The Azure Files volume plugin only works on Service Fabric version 6.2 and newer.
+
 * Follow the instructions in the [Azure Files documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share) to create a file share for the Service Fabric container application to use as volume.
 
 * You will need [Powershell with the Service Fabric module](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started) or [SFCTL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli) installed.
@@ -35,9 +37,9 @@ The Azure Files volume plugin is a [Docker volume plugin](https://docs.docker.co
 
 The Service Fabric application that provides the volumes for your containers can be downloaded from the following [link](https://aka.ms/sfvolume). The application can be deployed to the cluster via [PowerShell](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-lifecycle-sfctl) or [FabricClient APIs](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
-1. Using the command line, change directory to the root directory of the application package downloaded. 
+1. Using the command line, change directory to the root directory of the application package downloaded.
 
-    ```powershell 
+    ```powershell
     cd .\AzureFilesVolume\
     ```
 
@@ -80,7 +82,7 @@ Run the command below with the appropriate value for [ApplicationPackagePath] an
 
 > [!NOTE]
 
-> Windows Server 2016 Datacenter does not support mapping SMB mounts to containers ([That is only supported on Windows Server version 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). This constraint prevents network volume mapping and Azure Files volume drivers on versions older than 1709. 
+> Windows Server 2016 Datacenter does not support mapping SMB mounts to containers ([That is only supported on Windows Server version 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). This constraint prevents network volume mapping and Azure Files volume drivers on versions older than 1709.
 >   
 
 ### Deploy the application on a local development cluster
@@ -108,7 +110,7 @@ The following snippet shows how an Azure Files based volume can be specified in 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
      <Policies>
-       <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv"> 
+       <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
             <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
             <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
             <Volume Source="azfiles" Destination="c:\VolumeTest\Data" Driver="sfazurefile">
@@ -129,9 +131,9 @@ The following snippet shows how an Azure Files based volume can be specified in 
 
 The driver name for the Azure Files volume plugin is **sfazurefile**. This value is set for the **Driver** attribute of the **Volume** element in the application manifest.
 
-In the **Volume** element in the snippet above, the Azure Files volume plugin requires the following tags: 
-- **Source** - This refers to the source folder which can be a folder in the VM that hosts the containers or a persistent remote store
-- **Destination** - This tag is the location that the **Source** is mapped to within the running container. Thus, your destination can't be a location that already exists within your container
+In the **Volume** element in the snippet above, the Azure Files volume plugin requires the following tags:
+- **Source** - This is the name of the volume. The user can pick any name for their volume.
+- **Destination** - This tag is the location that the volume is mapped to within the running container. Thus, your destination can't be a location that already exists within your container
 
 As shown in the **DriverOption** elements in the snippet above, the Azure Files volume plugin supports the following driver options:
 
@@ -139,10 +141,10 @@ As shown in the **DriverOption** elements in the snippet above, the Azure Files 
 - **storageAccountName** - Name of the Azure storage account that contains the Azure Files file share
 - **storageAccountKey** - Access key for the Azure storage account that contains the Azure Files file share
 
-All of the above driver options are required. 
+All of the above driver options are required.
 
 ## Using your own volume or logging driver
-Service Fabric also allows the usage of your own custom volume or logging drivers. If the Docker volume/logging driver is not installed on the cluster, you can install it manually by using the RDP/SSH protocols. You can perform the install with these protocols through a [virtual machine scale set start-up script](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) or an [SetupEntryPoint script](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
+Service Fabric also allows the usage of your own custom [volume](https://docs.docker.com/engine/extend/plugins_volume/) or [logging](https://docs.docker.com/engine/admin/logging/overview/) drivers. If the Docker volume/logging driver is not installed on the cluster, you can install it manually by using the RDP/SSH protocols. You can perform the install with these protocols through a [virtual machine scale set start-up script](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) or an [SetupEntryPoint script](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 
 An example of the script to install the [Docker volume driver for Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) is as follows:
 
@@ -154,10 +156,10 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     DEBUG=1
 ```
 
-In your applications, to use the volume or logging driver you installed, you would have to specify the appropriate values in the **Volume** and **LogConfig** elements under **ContainerHostPolicies** in your application manifest. 
+In your applications, to use the volume or logging driver you installed, you would have to specify the appropriate values in the **Volume** and **LogConfig** elements under **ContainerHostPolicies** in your application manifest.
 
 ```xml
-<ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv"> 
+<ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
     <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
     <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
     <LogConfig Driver="[YOUR_LOG_DRIVER]" >
@@ -171,8 +173,18 @@ In your applications, to use the volume or logging driver you installed, you wou
 </ContainerHostPolicies>
 ```
 
+When specifying a volume plug-in, Service Fabric automatically creates the volume by using the specified parameters. The **Source** tag for the **Volume** element is the name of the volume and the **Driver** tag specifies the volume driver plug-in. The **Destination** tag is the location that the **Source** is mapped to within the running container. Thus, your destination can't be a location that already exists within your container. Options can be specified by using the **DriverOption** tag as follows:
+
+```xml
+<Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
+           <DriverOption Name="share" Value="models"/>
+</Volume>
+```
+
+Application parameters are supported for volumes as shown in the preceding manifest snippet (look for `MyStorageVar` for an example use).
+
+If a Docker log driver is specified, you have to deploy agents (or containers) to handle the logs in the cluster. The **DriverOption** tag can be used to specify options for the log driver.
+
 ## Next steps
 * To see container samples, including the volume driver, please visit the [Service Fabric container samples](https://github.com/Azure-Samples/service-fabric-containers)
 * To deploy containers to a Service Fabric cluster, refer the article [Deploy a container on Service Fabric](service-fabric-deploy-container.md)
-
-

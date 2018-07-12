@@ -1,23 +1,16 @@
 ---
 title: 'Azure IoT Hub - get started connecting IoT devices to the cloud | Microsoft Docs'
 description: 'Learn how to connect your IoT boards and starter kits to Azure IoT Hub. Your devices can send telemetry to IoT Hub and IoT Hub can monitor and manage your devices.'
-services: iot-hub
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-keywords: 'azure iot hub tutorial'
-
-ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
+keywords: azure iot hub tutorial
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-
 ---
+
 # Azure IoT Hub get started with real devices
 
 You can use Azure IoT Hub and the Azure IoT device SDKs to build Internet of Things (IoT) solutions:

@@ -6,8 +6,8 @@ author: rimman
 manager: kfile
 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 
@@ -15,11 +15,30 @@ ms.author: rimman
 
 # Multi-master at global scale with Azure Cosmos DB 
  
-Developing globally distributed applications that respond with local latencies while maintaining consistent views of data worldwide is a challenging problem. Customers use globally distributed databases, because they need to improve data access latency, achieve high data availability, and ensure guaranteed disaster recovery and, (4) to meet their business requirements. Multi-master in Azure Cosmos DB provides high levels of availability (99.999%), single-digit millisecond latency to write data and scalability with built-in comprehensive and flexible conflict resolution support. These features significantly simplifies development of globally distributed applications. For globally distributed applications, multi-master support is crucial. 
+Developing globally distributed applications that respond with local latencies while maintaining consistent views of data worldwide is a challenging problem. Customers use globally distributed databases, because they need to improve data access latency, achieve high data availability, ensure guaranteed disaster recovery, and to meet their business requirements. Multi-master in Azure Cosmos DB provides high levels of availability (99.999%), single-digit millisecond latency to write data and scalability with built-in comprehensive and flexible conflict resolution support. These features significantly simplify development of globally distributed applications. For globally distributed applications, multi-master support is crucial. 
 
 ![Multi-master architecture](./media/multi-region-writers/multi-master-architecture.png)
 
 With Azure Cosmos DB multi-master support, you can perform writes on containers of data (for example, collections, graphs, tables) distributed anywhere in the world. You can update data in any region that is associated with your database account. These data updates can propagate asynchronously. In addition to providing fast access and write latency to your data, multi-master also provides a practical solution for failover and load-balancing issues. In summary, with Azure Cosmos DB you get write latency of <10 ms at the 99th percentile anywhere in the world, 99.999% write and read availability anywhere in the world, and the ability to scale both write and read throughput anywhere around the world.   
+
+> [!IMPORTANT]
+> Multi-master support is in private preview, to use the preview version, [sign up](#sign-up-for-multi-master-support) now.
+
+## Sign up for multi-master support
+
+If you already have an Azure subscription, you can sign up to join the multi-master preview program in the Azure portal. If you’re new to Azure, sign up for a [free trial](https://azure.microsoft.com/free) where you get 12 months of free access to Azure Cosmos DB. Complete the following steps to request access to the multi-master preview program.
+
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Databases** > **Azure Cosmos DB**.  
+
+2. In the New Account page, provide a name for your Azure Cosmos DB account, choose the API, Subscription, Resource Group and Location.  
+
+3. Next select **Sign up to preview today** under the Multi Mater Preview field.  
+
+   ![Sign up for multi-master preview](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
+
+4. In the **Sign up to preview today** pane, click **OK**. After you submit the request, the status changes to **Pending approval** in the account creation blade.  
+
+After you submit the request, you will receive an email notification that your request has been approved. Due to the high volume of requests, you should receive notification within a week. You do not need to create a support ticket to complete the request. Requests will be reviewed in the order in which they were received.
 
 ## A simple multi-master example – content publishing  
 

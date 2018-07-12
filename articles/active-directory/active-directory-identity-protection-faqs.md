@@ -8,6 +8,7 @@ manager: mtillman
 
 ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -24,7 +25,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ## Why do some risk events have “Closed (system)” status?
 
-**A:** These are events that Azure Active Directory Identity Protection detected and later closed because the events were no longer considered risky. These events do not count towards the user’s risk level. 
+**A:** These risk events were detected by Identity Protection and later closed because the events were no longer considered risky. These events do not count towards the user’s risk level. 
 
 ---
 
@@ -41,6 +42,6 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ## How can I sort users in "Users flagged for risk"?
 
-**A:** Download the users flagged for risk report by clicking on the **Download** on the top of the **Users flagged for risk** page. You can then sort the downloaded data based on available fields, including Last Updated (UTC).
+**A:** Download the users flagged for risk report by clicking **Download** on the top of the **Users flagged for risk** page. You can then sort the downloaded data based on available fields, including Last Updated (UTC).
 
 ---

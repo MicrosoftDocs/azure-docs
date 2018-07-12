@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/10/2017
 ms.author: ashishth
 

@@ -177,4 +177,4 @@ To assign one or more groups to an application directly, follow these steps:
 After a short period, the users you have selected be able to launch these applications in the Access Panel.
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Provide single sign-on to your apps with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

@@ -4,7 +4,7 @@ description: Choose from all the available Microsoft connectors to build and cre
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 

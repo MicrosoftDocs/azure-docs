@@ -1,20 +1,13 @@
 ---
 title: Azure Internet of Things (IoT) Introduction 
 description: Overview Azure IoT and related services and technologies.
-services: iot-hub
-documentationcenter: ''
 author: BryanLa
 manager: timlt
-editor: bryanla
-
-ms.service: iot
-ms.devlang: na
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/30/2018
-ms.author: bryanla; v-clay
-layout: LandingPage
+ms.date: 05/18/2018
+ms.author: bryanla
 ---
 
 # Introduction to Azure and the Internet of Things
@@ -174,13 +167,13 @@ Explore the following areas of technologies and solutions, or see the Table of C
 [lnk-iot-edge-land]: /azure/iot-edge/index.yml
 [lnk-iot-hub-land]: /azure/iot-hub/index.md
 [lnk-iot-maps-land]: /azure/maps/index.yml
-[lnk-iot-sa-land]: /azure/iot-suite/index.md
+[lnk-iot-sa-land]: ../iot-accelerators/index.md
 [lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
 
-[lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
-[lnk-iot-sa]: ../articles/iot-suite/iot-suite-overview.md
+[lnk-iot-hub]: ../iot-hub/about-iot-hub.md
+[lnk-iot-sa]: ../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
-[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
+[lnk-refarch]: https://aka.ms/iotrefarchitecture
 
 

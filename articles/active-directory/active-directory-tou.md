@@ -2,7 +2,7 @@
 title: 'Azure Active Directory Terms of Use| Microsoft Docs'
 description: Azure AD Terms of Use will allow you and your company the ability to provide terms of use to users of Azure AD services.
 services: active-directory
-author: billmath
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: d55872ef-7e45-4de5-a9a0-3298e3de3565
@@ -11,8 +11,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
-ms.author: billmath
+ms.component: compliance-reports
+ms.date: 05/15/2018
+ms.author: rolyon
 
 ---
 
@@ -36,7 +37,7 @@ Azure AD Terms of Use can be used in the following scenarios:
 Use the following steps to configure Azure AD Terms of Use:
 
 1. Sign in to Azure AD using a global administrator, security administrator, or a conditional access administrator for the directory you want to configure Azure AD Terms of Use.
-2. Ensure that the directory has an Azure AD Premium P1, P2, EMS E3, or EMS E5 subscription.  If you do not [Get Azure AD Premium](active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/).
+2. Ensure that the directory has an Azure AD Premium P1, P2, EMS E3, or EMS E5 subscription.  If you do not, [Get Azure AD Premium](active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. View the Azure AD Terms of User dashboard at [https://aka.ms/catou](https://aka.ms/catou).
 
 >[!IMPORTANT]
@@ -53,7 +54,7 @@ Once you have finalized your Terms of Use, use the following procedure to add it
 4. Enter **Display Name**.  The header is what users see when they sign in.
 5. **Browse** to your finalized terms of use pdf and select it.  The recommended font size is 24.
 6. **Select** a language for the terms of use.  The language option allows you to upload multiple terms of use, each with a different language.  The version of the terms of use that an end user will see will be based on their browser preferences.
-7. Select  either on or off for **Require users to expand the terms of use**.  If this is set to on, end users will be required to view the terms of use prior to accepting them.
+7. Select  either on or off for **Require users to expand the terms of use**.  If this setting is set to on, end users will be required to view the terms of use prior to accepting them.
 8. Under the **Conditional Access**, you can **Enforce** the uploaded terms of use by selecting a template from the drop-down or a custom conditional access policy.  Custom conditional access policies enables granular terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](active-directory-conditional-access-best-practices.md)
 9. Click **Create**.
 10. If you selected a custom conditional access template, then a new screen appears which allows you to customize the CA policy.
@@ -86,7 +87,7 @@ If you want to view historical acceptances and declines and not just the current
 There are two ways in which you can use auditing depending on what you are currently trying to do.  
 
 
-To get started with auditing use the following procedure:
+To get started with auditing, use the following procedure:
 
 ### To audit Terms of Use
 1. Navigate to the dashboard at [https://aka.ms/catou](https://aka.ms/catou)
@@ -117,6 +118,13 @@ Users can review and see the terms of use that they have accepted.  To review te
 
 4.  From there, you can review the terms of use you have accepted. 
 
+## Removing users from an active terms of use
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+
+By default, a deleted user will remain deleted in Azure AD for 30 days, during which time they can be restored by an administrator if necessary.  After 30 days, that user is permanently deleted.  In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](active-directory-users-restore.md) before that time period is reached.  One a user has been permanently deleted, subsequently data about that user will be removed from the active terms of use.  Audit information about deleted users remains in the audit log.
+
+
 
 ## Additional information
 The following information is something to be aware of and can assist with using terms of use.
@@ -135,7 +143,7 @@ The following information is something to be aware of and can assist with using 
 ## Frequently asked questions
 
 **Q: How do I see when/if a user has accepted a terms of use?**</br>
-A: You can simply click on the number under accepted next to your terms of use.  For more information, see [Viewing current user status](#viewing-current-user-status).  Also, a user accepting the terms of use is written to the audit log. You can search the Azure AD audit log to see the results.  
+A: You can click on the number under accepted next to your terms of use.  For more information, see [Viewing current user status](#viewing-current-user-status).  Also, a user accepting the terms of use is written to the audit log. You can search the Azure AD audit log to see the results.  
 
 **Q: If you change the terms of use terms does it require users to accept again?**</br>
 A: Yes, an administrator can change the terms of use terms and it requires reaccepting the new terms.
@@ -150,7 +158,7 @@ A: The terms of use is triggered during the sign-in experience.
 A: You can create a conditional access policy on the enterprise applications using modern authentication.  For more information, see [enterprise applications](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
 
 **Q: Can I add multiple terms of use to a given user or app?**</br>
-A: Yes, by creating multiple conditional access policies targeting those groups or apps. If a user falls in scope of multiple terms of use they agree to one terms of use at a time.
+A: Yes, by creating multiple conditional access policies targeting those groups or apps. If a user falls in scope of multiple terms of use, they agree to one terms of use at a time.
  
 **Q: What happens if a user declines the terms of use?**</br>
 A: The user is blocked from getting access to the application. The user would have to sign-in again and agree to the terms in order to get access.

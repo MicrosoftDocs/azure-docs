@@ -61,9 +61,9 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
 To manage your email deliverability settings, click the **Manage button**. This will redirect to your SendGrid dashboard.
 
-    ![manage][manage]
+![manage][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
 
 <!--images-->
 

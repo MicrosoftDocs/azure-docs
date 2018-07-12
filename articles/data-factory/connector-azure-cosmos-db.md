@@ -11,8 +11,8 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/27/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
 
 ---
@@ -108,8 +108,8 @@ To copy data from/to Azure Cosmos DB, set the type property of the dataset to **
 
 For schema-free data stores such as Azure Cosmos DB, copy activity infers the schema in one of the following ways. Therefore, unless you want to [import/export JSON documents as-is](#importexport-json-documents), the best practice is to specify the structure of data in the **structure** section.
 
-1. If you specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service honors this structure as the schema. In this case, if a row does not contain a value for a column, a null value will be provided for it.
-2. If you do not specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service infers the schema by using the first row in the data. In this case, if the first row does not contain the full schema, some columns will be missing in the result of copy operation.
+*. If you specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service honors this structure as the schema. In this case, if a row does not contain a value for a column, a null value will be provided for it.
+*. If you do not specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service infers the schema by using the first row in the data. In this case, if the first row does not contain the full schema, some columns will be missing in the result of copy operation.
 
 ## Copy activity properties
 
@@ -207,8 +207,8 @@ Using this Cosmos DB connector, you can easily
 
 To achieve such schema-agnostic copy:
 
-- In Cosmos DB dataset(s), do not specify the "structure" section; and in copy activity Cosmos DB source/sink, do not specify "nestingSeparator" property.
-- When importing from/exporting to JSON files, in the corresponding file store dataset, specify format type as "JsonFormat" and config "filePattern" properly (see [JSON format](supported-file-formats-and-compression-codecs.md#json-format) section for details), then do not specify the "structure" section and skip the rest format settings.
+* When using copy data tool, check the **"Export as-is to JSON files or Cosmos DB collection"** option.
+* When using activity authoring, do not specify the "structure" (aka schema) section in Cosmos DB dataset(s) nor "nestingSeparator" property on Cosmos DB source/sink in copy activity. When importing from/exporting to JSON files, in the corresponding file store dataset, specify format type as "JsonFormat" and config "filePattern" properly (see [JSON format](supported-file-formats-and-compression-codecs.md#json-format) section for details), then do not specify the "structure" (aka schema) section and skip the rest format settings.
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

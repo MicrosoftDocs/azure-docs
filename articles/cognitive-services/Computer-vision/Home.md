@@ -2,14 +2,14 @@
 title: Computer Vision API for Microsoft Cognitive Services | Microsoft Docs 
 description: Use advanced algorithms in the Computer Vision API to help you process images and return information in Microsoft Cognitive Services. 
 services: cognitive-services 
-author: KellyDF 
-manager: corncar 
+author: noellelacharite
+manager: nolachar
  
 ms.service: cognitive-services 
 ms.component: computer-vision 
-ms.topic: conceptual
-ms.date: 05/01/2018 
-ms.author: kefre
+ms.topic: overview
+ms.date: 05/25/2018 
+ms.author: nolachar
 
 ---
 # What is Computer Vision API Version 2.0?
@@ -28,7 +28,7 @@ The cloud-based Computer Vision API provides developers with access to advanced 
 * [Recognize domain-specific content](#domain-specific-content)
 * [Generate descriptions of the content](#generating-descriptions)
 * [Use optical character recognition to identify printed text found in images](#optical-character-recognition-ocr)
-* [Recognize handwritten text](#recognize-text)
+* [Recognize text](#recognize-text)
 * [Distinguish color schemes](#perceiving-color-schemes)
 * [Flag adult content](#flagging-adult-content)
 * [Crop photos to be used as thumbnails](#generating-thumbnails)
@@ -135,7 +135,6 @@ Detects human faces within a picture and generates the face coordinates, the rec
 Image|Response
 ----|----
 ![Vision Analyze Woman Roof Face](./Images/woman_roof_face.png) | [ { "age": 23, "gender": "Female", "faceRectangle": { "left": 1379, "top": 320, "width": 310, "height": 310 } } ]
-![Vision Analyze Mom Daughter Face](./Images/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
 ![Vision Analyze Family Phot Face](./Images/family_photo_face.png) | [ { "age": 11, "gender": "Male", "faceRectangle": { "left": 113, "top": 314, "width": 222, "height": 222 } }, { "age": 11, "gender": "Female", "faceRectangle": { "left": 1200, "top": 632, "width": 215, "height": 215 } }, { "age": 41, "gender": "Male", "faceRectangle": { "left": 514, "top": 223, "width": 205, "height": 205 } }, { "age": 37, "gender": "Female", "faceRectangle": { "left": 1008, "top": 277, "width": 201, "height": 201 } } ]
 
 ## Domain-specific content
@@ -266,7 +265,7 @@ Note: this technology is currently in preview and is only available for English 
 ## Generating thumbnails
 A thumbnail is a small representation of a full-size image. Varied devices such as phones, tablets, and PCs create a need for different user experience (UX) layouts and thumbnail sizes. Using smart cropping, this Computer Vision API feature helps solve the problem.
 
-After uploading an image, a high-quality thumbnail gets generated and the Computer Vision API algorithm analyzes the objects within the image. It then crops the image to fit the requirements of the 'region of interest' (ROI). The output gets displayed within a special framework as seen in below illustration. The generated thumbnail can be presented using an aspect ration that is different from the aspect ratio of the original image to accommodate a user's needs.
+After uploading an image, a high-quality thumbnail gets generated and the Computer Vision API algorithm analyzes the objects within the image. It then crops the image to fit the requirements of the 'region of interest' (ROI). The output gets displayed within a special framework as seen in below illustration. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image to accommodate a user's needs.
 
 The thumbnail algorithm works as follows:
 

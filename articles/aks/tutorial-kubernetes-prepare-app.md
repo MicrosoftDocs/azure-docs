@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial  - Prepare App
 description: AKS tutorial - Prepare App
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial

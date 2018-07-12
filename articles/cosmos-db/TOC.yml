@@ -1,3 +1,6 @@
+metadata:
+  experimental: true
+  experiment_id: "d1c17cc0-2ae0-4b"
 items:
   - name: Azure Cosmos DB Documentation
     href: index.yml
@@ -70,6 +73,8 @@ items:
     items:
     - name: Global distribution
       href: distribute-data-globally.md
+    - name: Multi-master setup
+      href: multi-region-writers.md
     - name: Partitioning
       href: partition-data.md
     - name: Throughput
@@ -80,8 +85,6 @@ items:
       href: unique-keys.md
     - name: Serverless database
       href: serverless-computing-database.md
-    - name: BulkExecutor overview
-      href: bulk-executor-overview.md
     - name: Security
       href: database-security.md
       items:
@@ -161,20 +164,22 @@ items:
           href: sql-api-python-samples.md
         - name: Java samples
           href: sql-api-java-samples.md
+        - name: Async Java samples
+          href: sql-api-async-java-samples.md
       - name: Concepts
         items:
         - name: Resources
           href: sql-api-resources.md
         - name: Model document data
           href: modeling-data.md
-        - name: Multi-master setup
-          href: multi-region-writers.md
       - name: How To Guides
         items:
         - name: BulkExecutor - .NET
           href: bulk-executor-dot-net.md
         - name: BulkExecutor - Java
           href: bulk-executor-java.md
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md          
         - name: Query
           items:
           - name: Perform SQL queries
@@ -263,10 +268,12 @@ items:
           href: sql-api-sql-query-reference.md
       - name: Resources
         items:
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
         - name: SQL playground
-          href: https://aka.ms/cosmos-db-playground
+          href: https://aka.ms/cosmos-db-playground          
     - name: MongoDB API Docs
       items: 
       - name: Overview
@@ -325,8 +332,12 @@ items:
           href: mongodb-indexing.md
         - name: Visualize your data with Power BI
           href: powerbi-visualize.md
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
       - name: Resources
         items:
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Graph API Docs
@@ -349,6 +360,8 @@ items:
         items:
         - name: Graph partitioning
           href: graph-partitioning.md
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Integrate
           items:
           - name: Connect to Spark GraphX
@@ -359,6 +372,8 @@ items:
             href: graph-sdk-dotnet.md
       - name: Resources
         items:
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Table API Docs
@@ -379,14 +394,14 @@ items:
           href: tutorial-query-table.md
         - name: 4 - Distribute globally
           href: tutorial-global-distribution-table.md
+        - name: 5 - Serverless app - Node.js
+          href: https://docs.microsoft.com/learn/build-serverless-app/index 
       - name: Samples
         items:
         - name: .NET
           href: table-storage-how-to-use-dotnet.md
         - name: F#
           href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
-        - name: Node.js 
-          href: table-storage-cloud-service-nodejs.md
         - name: Java
           href: table-storage-how-to-use-java.md
         - name: Node.js
@@ -399,8 +414,6 @@ items:
           href: table-storage-how-to-use-python.md
         - name: Ruby
           href: table-storage-how-to-use-ruby.md
-        - name: PowerShell
-          href: table-storage-how-to-use-powershell.md
       - name: Reference
         items:
           - name: .NET
@@ -413,6 +426,8 @@ items:
             href: table-sdk-python.md  
       - name: Resources
         items:
+        - name: Manage using Storage Explorer
+          href: storage-explorer.md
         - name: Table storage overview
           href: table-storage-overview.md
         - name: Table storage design guide
@@ -451,12 +466,22 @@ items:
       href: regional-failover.md
     - name: Diagnostic logging
       href: logging.md
+    - name: BulkExecutor overview
+      href: bulk-executor-overview.md
     - name: Cost-effective reads and writes
       href: key-value-store-cost.md
     - name: Expire data automatically
       href: time-to-live.md
+    - name: Manage using PowerShell
+      href: manage-account-with-powershell.md
+    - name: Manage using Storage Explorer
+      href: storage-explorer.md
+    - name: Multi-region writers
+      href: multi-master-workaround.md
   - name: Resources
     items:
+    - name: Manage using Storage Explorer
+      href: storage-explorer.md 
     - name: Query cheat sheet
       href: query-cheat-sheet.md
     - name: 20 days of tips
@@ -474,4 +499,4 @@ items:
     - name: Data consistency explained through baseball
       href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
     - name: Whitepapers
-      href: whitepapers.md 
+      href: whitepapers.md

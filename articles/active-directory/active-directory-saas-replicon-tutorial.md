@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 05/15/2018
 ms.author: jeedes
 
 ---
@@ -27,7 +27,7 @@ Integrating Replicon with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Replicon (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -56,14 +56,14 @@ To configure the integration of Replicon into Azure AD, you need to add Replicon
 
 **To add Replicon from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
 	![The Azure Active Directory button][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
@@ -98,8 +98,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on link][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Single sign-on dialog box](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_samlbase.png)
 
 3. On the **Replicon Domain and URLs** section, perform the following steps:
@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://global.replicon.com/!/saml2/<companyname>/sso/post`
 
-	> [!NOTE] 
+	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL. Contact [Replicon Client support team](https://www.replicon.com/customerzone/contact-support) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
@@ -126,23 +126,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. In a different web browser window, log into your Replicon company site as an administrator.
 
 7. To configure SAML 2.0, perform the following steps:
-   
+
     ![Enable SAML authentication](./media/active-directory-saas-replicon-tutorial/ic777805.png "Enable SAML authentication")
-	
+
 	a. To display the **EnableSAML Authentication2** dialog, append the following to your URL, after your company key: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
-	
-	* The following shows the schema of the complete URL:  
+
+	* The following shows the schema of the complete URL:
    `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
-   
+
    b. Click the **+** to expand the **v20Configuration** section.
 
    c. Click the **+** to expand the **metaDataConfiguration** section.
 
    d. Click **Choose File**, to select your identity provider metadata XML file, and click **Submit**.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Create an Azure AD test user
 
@@ -175,31 +171,31 @@ The objective of this section is to create a test user in the Azure portal calle
     c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
     d. Click **Create**.
- 
+
 ### Create a Replicon test user
 
-In order to enable Azure AD users to log into Replicon, they must be provisioned into Replicon. In the case of Replicon, provisioning is a manual task.
+The objective of this section is to create a user called Britta Simon in Replicon. Replicon supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-replicon-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
-**To configure user provisioning, perform the following steps:**
+**If you need to create user manually, perform following steps:**
 
 1. In a web browser window, log into your Replicon company site as an administrator.
 
 2. Go to **Administration \> Users**.
-   
+
     ![Users](./media/active-directory-saas-replicon-tutorial/ic777806.png "Users")
 
 3. Click **+Add User**.
-   
+
     ![Add User](./media/active-directory-saas-replicon-tutorial/ic777807.png "Add User")
 
 4. In the **User Profile** section, perform the following steps:
-   
+
     ![User profile](./media/active-directory-saas-replicon-tutorial/ic777808.png "User profile")
-	
+
 	a. In the **Login Name** textbox, type the Azure AD email address of the Azure AD user you want to provision like **BrittaSimon@contoso.com**.
-	
+
 	b. As **Authentication Type**, select **SSO**.
-	
+
 	c. In the **Department** textbox, type the user’s department.
 
 	d. As **Employee Type**, select **Administrator**.
@@ -213,17 +209,17 @@ In order to enable Azure AD users to log into Replicon, they must be provisioned
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Replicon.
 
-![Assign the user role][200] 
+![Assign the user role][200]
 
 **To assign Britta Simon to Replicon, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
 2. In the applications list, select **Replicon**.
 
-	![The Replicon link in the Applications list](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_app.png)  
+	![The Replicon link in the Applications list](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_app.png)
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -238,18 +234,19 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Replicon tile in the Access Panel, you should get automatically signed-on to your Replicon application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+* [Configure User Provisioning](active-directory-saas-replicon-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -264,4 +261,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_203.png
-

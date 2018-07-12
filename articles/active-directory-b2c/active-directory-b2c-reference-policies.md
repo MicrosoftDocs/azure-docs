@@ -1,19 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Built-in policies | Microsoft Docs'
-description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types
+title: Built-in policies in Azure Active Directory B2C | Microsoft Docs
+description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Built-in policies
 
 

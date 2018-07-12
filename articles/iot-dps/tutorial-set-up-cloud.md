@@ -1,19 +1,14 @@
 ---
 title: Set up cloud for Azure IoT Hub Device Provisioning Service in portal | Microsoft Docs
 description: IoT Hub automatic device provisioning in Azure Portal
-services: iot-dps
-keywords: 
 author: sethmanheim
 ms.author: sethm
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-
 ---
 
 # Configure cloud resources for device provisioning with the IoT Hub Device Provisioning Service

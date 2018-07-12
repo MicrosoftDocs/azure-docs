@@ -2,17 +2,14 @@
 title: 'Azure Cosmos DB: SQL Async Java API, SDK & resources | Microsoft Docs'
 description: Learn all about the SQL Async Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Async Java SDK.
 services: cosmos-db
-documentationcenter: java
 author: SnehaGunda
 manager: kfile
 
-ms.assetid: a452ffa2-c15d-4b0a-a8c1-ec9b750ce52b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
-ms.date: 03/20/2018
+ms.topic: reference
+ms.date: 05/18/2018
 ms.author: sngun
 
 ---
@@ -52,6 +49,18 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 
 ## Release notes
 
+### <a name="1.0.2"/>1.0.2
+* Added support for Unique Index Policy.
+* Added support for limiting response continuation token size in feed options.
+* Added support for Partition Split in Cross Partition Query.
+* Fixed a bug in Json timestamp serialization ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Fixed a bug in Json enum serialization.
+* Fixed a bug in managing documents of 2MB size ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Dependency com.fasterxml.jackson.core:jackson-databind upgraded to 2.9.5 due to a bug ([jackson-databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Dependency on rxjava-extras upgraded to 0.8.0.17 due to a bug ([rxjava-extras: github #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* The metadata description in pom file updated to be inline with the rest of documentation.
+* Syntax improvement ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+
 ### <a name="1.0.1"/>1.0.1
 * Added back-pressure support in query.
 * Added support for partition key range id in query.
@@ -76,6 +85,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.0.2](#1.0.2) |May 18, 2018|--- |
 | [1.0.1](#1.0.1) |April 20, 2018|--- |
 | [1.0.0](#1.0.0) |February 27, 2018|--- |
 

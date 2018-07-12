@@ -4,7 +4,7 @@ description: Create and run custom code for Azure Logic Apps with Azure Function
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856

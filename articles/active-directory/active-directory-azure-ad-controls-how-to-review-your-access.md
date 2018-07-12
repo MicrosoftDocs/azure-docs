@@ -9,8 +9,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 09/19/2017
-ms.author: billmath
+ms.author: rolyon
 ---
 
 # Review your access

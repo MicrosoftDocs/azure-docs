@@ -9,11 +9,11 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 06/08/2018
 ms.author: v-geberr
 ---
 # Patterns improve prediction accuracy
-Patterns are designed to improve accuracy when an utterance has the same words but in a different order. By providing a pattern for the utterance, LUIS can have a high confidence in the prediction. 
+Patterns are designed to improve accuracy when several utterances are very similar. By providing a pattern for the utterance, LUIS can have a high confidence in the prediction. 
 
 ## Patterns solve low intent confidence
 Consider a Human Resources app that reports on the organizational chart in relation to an employee. Given an employee's name and relationship, LUIS returns the employees involved. Consider an employee, Tom, with a manager name Alice, and a team of subordinates named: Michael, Rebecca, and Carl.
@@ -29,20 +29,20 @@ If an app has between 10 and 20 utterances with different lengths of sentence, d
 
 Patterns solve the following situations: 
 
-*  When the intent score is low
+* When the intent score is low
 * When the correct intent is not the top score but too close to the top score. 
-<!--
-## Patterns solve missed entity detection
-A second issue is that LUIS doesn't find the employee name in the utterance, to return in an entity. 
--->
+
 ## Patterns are not a guarantee of intent
 Patterns use a mix of prediction technologies. Setting an intent for a template utterance in a pattern is not a guarantee of the intent prediction but it is a strong signal. 
 
+## Patterns do not improve entity detection
+While patterns require entities, a pattern does not help detect the entity. A pattern is only meant to help the prediction with intents and roles.  
+
 ## Prediction scores with and without patterns
-Given enough example utterances, LUIS would be able to increase prediction confidence without patterns. Patterns increase the confidence score without having to provide as many utterances as without using patterns.  
+Given enough example utterances, LUIS would be able to increase prediction confidence without patterns. Patterns increase the confidence score without having to provide as many utterances.  
 
 ## Pattern matching
-A pattern is matched based on finding the entities inside the pattern first, then validating the rest of the words and word order of the pattern. 
+A pattern is matched based on detecting the entities inside the pattern first, then validating the rest of the words and word order of the pattern. Entities are required in the pattern for a pattern to match. 
 
 ## Pattern syntax
 Entities in patterns are surrounded by curly brackets. Patterns can include entities, and entities with roles. Pattern.any is an entity only used in patterns. The syntax for each of these is explained in the following sections.
@@ -101,8 +101,13 @@ Mark optional text in the utterance using the regular expression square bracket 
 [find] email about {subject} [from {person}]
 ```
 
+Punctuation marks such as `.`, `!`, and `?` can be ignored using the square brackets. In order to ignore these marks, each mark must be in a separate pattern. The optional syntax doesn't currently support ignoring an item in a list of several items.
+
+## Patterns only
+LUIS allows an app without any example utterances in intent. This is allowed only if patterns are used. Patterns require at least one entity in each pattern. For a pattern-only app, the pattern should not contain machine-learned entities because these do require example utterances. 
+
 ## Best practices
-See [Entity best practices](luis-concept-best-practices.md#entities) to learn more.
+Learn [best practices](luis-concept-best-practices.md).
 
 ## Next steps
 

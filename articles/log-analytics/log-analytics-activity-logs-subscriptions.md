@@ -109,7 +109,7 @@ Before creating your Logic App, make sure you have the following information fro
 - Log Analytics workspace ID
 - Log Analytics shared key
 
-To get the event Hub name and connection string, follow the steps in [Check Event Hubs namespace permissions and find the connection string](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs).
+To get the event Hub name and connection string, follow the steps in [Check Event Hubs namespace permissions and find the connection string](../connectors/connectors-create-api-azure-event-hubs.md#permissions-connection-string).
 
 
 ### Create a new blank Logic App

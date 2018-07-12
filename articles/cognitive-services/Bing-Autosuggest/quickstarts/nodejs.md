@@ -1,5 +1,5 @@
 ---
-title: Node.js Quickstart for Azure Cognitive Services, Bing Autosuggest API | Microsoft Docs
+title: Quickstart for Bing Autosuggest API with Node.js | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Bing Autosuggest API in Azure Cognitive Services.
 services: cognitive-services
 documentationcenter: ''
@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: v-jaswel
 ---
-# Quickstart for Bing Autosuggest API with Node.js 
+# Quickstart for Bing Autosuggest API with Node.js
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with Node.JS. The Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
+This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with Node.js. The Bing Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Get Autosuggest results
 
-1. Create a new Node.JS project in your favorite IDE.
+1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `subscriptionKey` value with an access key valid for your subscription.
 4. Run the program.

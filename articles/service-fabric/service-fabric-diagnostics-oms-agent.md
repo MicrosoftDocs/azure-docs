@@ -10,11 +10,11 @@ editor: ''
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
-ms.author: dekapur; srrengar
+ms.author: srrengar
 
 ---
 
@@ -71,19 +71,27 @@ You can download and modify this template to deploy a cluster that best suits yo
 
 Now that you have added the OMS agent, head on over to the Log Analytics portal to choose which performance counters you'd like to collect. 
 
-1. In the Azure portal, go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfOMSWorkspace\>** and go to its overview page. At the top, click the link to go to the OMS Portal.
+1. In the Azure portal, go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-2. Once you're in the portal, you will see a tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click this to continue to the Service Fabric Analytics solution. 
+2. Click **OMS Workspace**.
 
-3. Now you will see a few tiles with graphs on operational channel and reliable services events. On the right click the gear icon to go to the settings page.
+3. Click **Advanced Settings**.
 
-    ![OMS settings](media/service-fabric-diagnostics-oms-agent/oms-solutions-settings.png)
+4. Click **Data**, then click **Windows or Linux Performance Counters**. There is a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](service-fabric-diagnostics-event-generation-perf.md) to collect. The proper format is referenced in this [article](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
 
-4. On the settings page, click Data and choose Windows or Linux Performance Counters. There are a list of default ones you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](service-fabric-diagnostics-event-generation-perf.md) to collect. The proper format is referenced in this [article](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
+5. Click **Save**, then click **OK**.
 
-Once your counters are configured, head back to the solutions page and you will soon see data flowing in and displayed in the graphs under **Node Metrics**. You can also query on performance counter data similarly to cluster events and filter on the nodes, perf counter name, and values using the Kusto query language. 
+6. Close the Advanced Settings blade.
 
-![OMS perf counter query](media/service-fabric-diagnostics-oms-agent/oms-perf-counter-query.png)
+7. Under the General heading, click **Overview**.
+
+8. You will see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
+
+9. You will see a few tiles with graphs on operational channel and reliable services events. The graphical representation of the data flowing in for the counters you have selected will appear under Node Metrics. 
+
+10. Click on a Container Metric graph to see additional details. You can also query on performance counter data similarly to cluster events and filter on the nodes, perf counter name, and values using the Kusto query language.
+
+![OMS perf counter query](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.PNG)
 
 ## Next steps
 

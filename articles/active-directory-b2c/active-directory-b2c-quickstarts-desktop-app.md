@@ -4,16 +4,16 @@ description: Run a sample ASP.NET desktop application that uses Azure Active Dir
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
-
+ms.component: B2C
 ---
+
 # Quickstart: Set up sign-in for a desktop app using Azure Active Directory B2C 
 
 Azure Active Directory (Azure AD) B2C provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your apps to authenticate to social accounts, and enterprise accounts using open standard protocols.

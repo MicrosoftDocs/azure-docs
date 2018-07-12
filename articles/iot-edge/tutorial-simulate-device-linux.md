@@ -1,17 +1,15 @@
 ---
 title: Simulate Azure IoT Edge on Linux | Microsoft Docs 
 description: Install the Azure IoT Edge runtime on a simulated device in Linux, and deploy your first module
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.reviewer: elioda
 ms.date: 01/11/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-
+services: iot-edge
+ms.custom: mvc
 ---
 
 # Deploy Azure IoT Edge on a simulated device in Linux or MacOS - preview
@@ -38,6 +36,7 @@ This tutorial uses your computer or virtual machine like an Internet of Things d
      * _Note that on certain distributions (e.g., Raspbian), you might also need to upgrade certain pip packages and install additional dependencies:_
      ```
      sudo pip install --upgrade setuptools pip
+     
      sudo apt-get install python2.7-dev libffi-dev libssl-dev
      ```
    * MacOS: `sudo easy_install pip`.

@@ -27,7 +27,7 @@ A scoping filter allows the Azure Active Directory (Azure AD) provisioning servi
 
 Scoping filters can be used differently depending on the type of provisioning connector:
 
-* **Outbound provisioning from Azure AD to SaaS applications**. When Azure AD is the source system, [user and group assignments](active-directory-coreapps-assign-user-azure-portal.md) are the most common method for determining which users are in scope for provisioning. These assignments also are used for enabling single sign-on and provide a single method to manage access and provisioning. Scoping filters can be used optionally, in addition to assignments or instead of them, to filter users based on attribute values.
+* **Outbound provisioning from Azure AD to SaaS applications**. When Azure AD is the source system, [user and group assignments](manage-apps/assign-user-or-group-access-portal.md) are the most common method for determining which users are in scope for provisioning. These assignments also are used for enabling single sign-on and provide a single method to manage access and provisioning. Scoping filters can be used optionally, in addition to assignments or instead of them, to filter users based on attribute values.
 
     >[!TIP]
     > You can disable provisioning based on assignments for an enterprise application by changing settings in the [Scope](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menu under the provisioning settings to **Sync all users and groups**. Using this option plus attribute-based scoping filters offers faster performance than using group-based assignments.  
@@ -113,6 +113,6 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 * [Customize attribute mappings for user provisioning](active-directory-saas-customizing-attribute-mappings.md)
 * [Write expressions for attribute mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Account provisioning notifications](active-directory-saas-account-provisioning-notifications.md)
-* [Use SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md)
+* [Use SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [List of tutorials on how to integrate SaaS apps](active-directory-saas-tutorial-list.md)
 

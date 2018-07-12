@@ -73,7 +73,7 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
     <tr>
     <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Orders the log levels by count (descending,) and stores into RESULT</td>
     </tr>
-    </table>
+</table>
 6. You can also save the results of a transformation by using the `STORE` statement. For example, the following command saves the `RESULT` to the **/example/data/pigout** directory in the default storage container for your cluster:
 
         STORE RESULT into 'wasb:///example/data/pigout'

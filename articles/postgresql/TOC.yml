@@ -67,6 +67,8 @@
       href: concepts-firewall-rules.md
     - name: Configure SSL
       href: concepts-ssl-connection-security.md
+    - name: VNet
+      href: concepts-data-access-and-security-vnet.md 
   - name: Business continuity
     items: 
     - name: Overview
@@ -119,6 +121,12 @@
     items:
     - name: Create alerts on metrics
       href: howto-alert-on-metric.md
+  - name: Virtual Network
+    items:
+    - name: Azure portal
+      href: howto-manage-vnet-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-using-cli.md
 - name: Reference
   items:
   - name: Azure CLI

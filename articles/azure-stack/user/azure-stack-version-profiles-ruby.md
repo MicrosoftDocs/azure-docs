@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using API version profiles with Ruby in Azure Stack | Microsoft Docs
 description: Learn about using API version profiles with Ruby in Azure Stack.
 services: azure-stack
@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 
@@ -34,7 +34,7 @@ An API profile is a combination of resource providers and service versions. You 
  - To use the latest api-version of a service, use the **Latest** profile of the specific gem. For example, if you would like to use the latest api-version of compute service alone, use the **Latest** profile of the **Compute** gem.
  - To use specific api-version for a service, use the specific API versions defined inside the gem.
 
-> [!note] 
+> [!Note]   
 > You can combine all of the options in the same application.
 
 ## Install the Azure Ruby SDK
@@ -94,7 +94,8 @@ In order to use Ruby Azure SDK with Azure Stack, you must supply the following v
 The Microsoft Azure Resource Manager is a management framework that allows administrators to deploy, manage and monitor Azure resources. Azure Resource Manager can handle these tasks as a group, rather than individually, in a single operation.
 
 You can get the metadata information from the Resource Manager endpoint. The endpoint returns a JSON file with the information required to run your code.
-  > [!note]  
+
+  > [!Note]  
   > The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`  
   > The **ResourceManagerUrl** in integrated systems is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -206,7 +207,7 @@ You can use the the following samples found in GitHub repositoreis as a referenc
 
 To run the sample, ensure that you have installed Ruby. If you are using Visual Studio Code, download the Ruby SDK as an extension as well. 
 
-> [!note]  
+> [!Note]  
 > You can get the repository for the sample at "[Manage Azure resources and resource groups with Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)".
 
 1. Clone the repository.
@@ -241,7 +242,7 @@ To run the sample, ensure that you have installed Ruby. If you are using Visual 
   - export AZURE_SUBSCRIPTION_ID={your subscription id}
   - export ARM_ENDPOINT={your AzureStack Resource manager url}
 
-  > [!note]  
+  > [!Note]  
   > On Windows, use set instead of export.
 
 4. Ensure the location variable is set to your AzureStack location. For example LOCAL="local"

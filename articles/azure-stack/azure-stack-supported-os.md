@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
 ---
@@ -66,3 +66,5 @@ Linux distributions listed as available in the Marketplace include the necessary
 | Ubuntu 18.04-LTS | 64-bit | Canonical | Yes |
 
 Other Linux distributions may be supported in the future.
+
+For Red Hat Enterprise Linux support information , please refer to [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531).

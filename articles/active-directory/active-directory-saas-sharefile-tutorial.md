@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2017
+ms.date: 05/07/2018
 ms.author: jeedes
 
 ---
@@ -27,7 +27,7 @@ Integrating Citrix ShareFile with Azure AD provides you with the following benef
 - You can enable your users to automatically get signed-on to Citrix ShareFile (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -106,14 +106,33 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Citrix ShareFile Domain and URLs single sign-on information](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_url.png)
 	
-	In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.sharefile.com/saml/login`
+	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.sharefile.com/saml/login`
 
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Citrix ShareFile Client support team](https://www.citrix.co.in/products/sharefile/support.html) to get this value. 
+	b. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern:
+
+	| |
+	|---|
+	| `https://<tenant-name>.sharefile.com`|
+	| `https://<tenant-name>.sharefile.com/saml/info`|
+	| `https://<tenant-name>.sharefile1.com/saml/info`|
+	| `https://<tenant-name>.sharefile1.eu/saml/info`|
+	| `https://<tenant-name>.sharefile.eu/saml/info`|
+	| |
+	
+	c. In the **Reply URL** textbox, type a URL using the following pattern:
+	| |
+	|---|
+	| `https://<tenant-name>.sharefile.com/saml/acs`|
+	| `https://<tenant-name>.sharefile.eu/saml/<URL path>`|
+	| `https://<tenant-name>.sharefile.com/saml/<URL path>`|
+	| |
+
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Citrix ShareFile Client support team](https://www.citrix.co.in/products/sharefile/support.html) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png) 
+	![The Certificate download link](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png)
 
 5. Click **Save** button.
 
@@ -121,7 +140,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. On the **Citrix ShareFile Configuration** section, click **Configure Citrix ShareFile** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
-	![Citrix ShareFile Configuration](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png) 
+	![Citrix ShareFile Configuration](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png)
 
 7. In a different web browser window, log into your **Citrix ShareFile** company site as an administrator.
 
@@ -146,10 +165,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	e. In **Logout URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
 
 11. Click **Save** on the Citrix ShareFile management portal.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Create an Azure AD test user
 
@@ -245,14 +260,12 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Citrix ShareFile tile in the Access Panel, you should get automatically signed-on to your Citrix ShareFile application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -267,4 +280,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_203.png
-

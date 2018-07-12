@@ -1,26 +1,96 @@
 - name: Computer Vision Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Computer Vision?
     href: Home.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Summary
+    href: QuickStarts/quickstart-summary.md
+  - name: C#
+    items:
+    - name: Analyze an image
+      href: QuickStarts/CSharp-analyze.md
+    - name: Generate a thumbnail
+      href: QuickStarts/CSharp-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/CSharp-print-text.md
+    - name: Extract handwritten text
+      href: QuickStarts/CSharp-hand-text.md
+  - name: cURL
+    items:
+    - name: Analyze a remote image
+      href: QuickStarts/curl-analyze.md
+    - name: Analyze a local image
+      href: QuickStarts/curl-disk.md
+    - name: Generate a thumbnail
+      href: QuickStarts/curl-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/curl-print-text.md
+  - name: Java
+    items:
+    - name: Analyze an image
+      href: QuickStarts/java-analyze.md
+    - name: Generate a thumbnail
+      href: QuickStarts/java-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/java-print-text.md
+    - name: Extract handwritten text
+      href: QuickStarts/java-hand-text.md
+  - name: JavaScript
+    items:
+    - name: Analyze an image
+      href: QuickStarts/javascript-analyze.md
+    - name: Generate a thumbnail
+      href: QuickStarts/javascript-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/javascript-print-text.md
+    - name: Extract handwritten text
+      href: QuickStarts/javascript-hand-text.md
+  - name: Node.js
+    items:
+    - name: Analyze an image
+      href: QuickStarts/node-analyze.md
+    - name: Generate a thumbnail
+      href: QuickStarts/node-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/node-print-text.md
+  - name: PHP
+    items:
+    - name: Analyze an image
+      href: QuickStarts/php-analyze.md
+    - name: Use a domain model
+      href: QuickStarts/php-domain.md
+    - name: Generate a thumbnail
+      href: QuickStarts/php-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/php-print-text.md
+  - name: Python
+    items:
+    - name: Analyze a remote image
+      href: QuickStarts/python-analyze.md
+    - name: Analyze a local image
+      href: QuickStarts/python-disk.md
+    - name: Use a domain model
+      href: QuickStarts/python-domain.md
+    - name: Generate a thumbnail
+      href: QuickStarts/python-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/python-print-text.md
+    - name: Extract handwritten text
+      href: QuickStarts/python-hand-text.md
+  - name: Ruby
+    items:
+    - name: Analyze an image
+      href: QuickStarts/ruby-analyze.md
+    - name: Generate a thumbnail
+      href: QuickStarts/ruby-thumb.md
+    - name: Extract printed text
+      href: QuickStarts/ruby-print-text.md
 - name: How-to guides
   items:
-  - name: Try Computer Vision 
-    items:
-    - name: C#
-      href: QuickStarts/CSharp.md
-    - name: cURL
-      href: QuickStarts/curl.md
-    - name: Java
-      href: QuickStarts/Java.md
-    - name: JavaScript
-      href: QuickStarts/JavaScript.md
-    - name: PHP
-      href: QuickStarts/PHP.md
-    - name: Python
-      href: QuickStarts/Python.md
-    - name: Ruby
-      href: QuickStarts/Ruby.md
   - name: First Computer Vision apps
     items:
     - name: C#

@@ -3,7 +3,7 @@ title: Azure API managment policy sample - Authorize access using Google OAuth t
 description: Azure API managment policy sample - Demonstrates how to authorize access to your endpoints using Google as an OAuth token provider.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

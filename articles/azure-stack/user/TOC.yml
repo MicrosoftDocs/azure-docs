@@ -27,6 +27,10 @@
     href: azure-stack-solution-hybrid-identity.md
   - name: Configure hybrid cloud connectivity
     href: azure-stack-solution-hybrid-connectivity.md
+  - name: Subscribe to an offer
+    href: azure-stack-subscribe-services.md
+  - name: Create a VM from a template
+    href: azure-stack-create-vm-template.md
 - name: How-to guides
   items:
   - name: Use the Azure Stack Portal
@@ -35,9 +39,9 @@
     href: azure-stack-rest-api-use.md
   - name: Security & compliance
     items:
-    - name: Manage RBAC
+    - name: Use role-based access control
       href: azure-stack-manage-permissions.md
-    - name: Create service principals
+    - name: Use service principals
       href: Azure-stack-create-service-principals.md
   - name: Use services
     items:
@@ -55,6 +59,8 @@
         href: azure-stack-manage-vm-disks.md
       - name: Protect VMs
         href: azure-stack-manage-vm-protect.md
+      - name: SQL Server VM considerations
+        href: azure-stack-sql-server-vm-considerations.md
     - name: Storage
       items:
       - name: Overview
@@ -93,12 +99,10 @@
         href: azure-stack-kv-sample-app.md
     - name: Solution templates
       items:
-      - name: Solution templates
-        items:
-        - name: Deploy a Service Fabric cluster
-          href: azure-stack-solution-template-service-fabric-cluster.md
-        - name: Deploy a Kubernetes cluster
-          href: azure-stack-solution-template-kubernetes-deploy.md
+      - name: Deploy a Service Fabric cluster
+        href: azure-stack-solution-template-service-fabric-cluster.md
+      - name: Deploy a Kubernetes cluster
+        href: azure-stack-solution-template-kubernetes-deploy.md
   - name: Build apps
     items:
     - name: Develop for Azure Stack
@@ -106,8 +110,8 @@
     - name: Set up development environment
       items:
       - name: Install Azure Stack PowerShell
-        href: azure-stack-powershell-install.md
-      - name: Download tools
+        href: https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install
+      - name: Download Azure Stack tools
         href: azure-stack-powershell-download.md
       - name: Configure PowerShell - User
         href: azure-stack-powershell-configure-user.md
@@ -128,13 +132,13 @@
           href: azure-stack-version-profiles-python.md
         - name: Resource provider APIs supported by profiles
           href: azure-stack-profiles-azure-resource-manager-versions.md
-    - name: Use policy module
+    - name: Use the Azure Stack Policy module
       href: azure-stack-policy-module.md
     - name: Use templates
       items:
       - name: Template overview
         href: azure-stack-arm-templates.md
-      - name: Develop templates
+      - name: Template considerations
         href: azure-stack-develop-templates.md
       - name: Check templates
         href: azure-stack-validate-templates.md

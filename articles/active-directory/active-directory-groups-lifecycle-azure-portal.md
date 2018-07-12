@@ -1,4 +1,4 @@
-﻿---
+---
 title: Expiration for Office 365 groups in Azure Active Directory | Microsoft Docs
 description: How to set up expiration for Office 365 groups in Azure Active Directory
 services: active-directory
@@ -13,7 +13,7 @@ ms.component: users-groups-roles
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: curtand                   
-ms.reviewer: kairaz.contractor
+ms.reviewer: krbain
 ms.custom: it-pro
 
 ---
@@ -40,7 +40,7 @@ Role | Permissions
 Global Administrator or User Account Administrator | Can create, read, update, or delete the Office 365 groups expiration policy settings<br>Can renew any Office 365 group
 User | Can renew an Office 365 group that they own<br>Can restore an Office 365 group that they own<br>Can read the expiration policy settings
 
-For more information on permissions to restore a deleted group, see [Restore a deleted Office 365 group in Azure Active Directory](active-directory-groups-restore-azure-portal.md).
+For more information on permissions to restore a deleted group, see [Restore a deleted Office 365 group in Azure Active Directory](fundamentals/active-directory-groups-restore-azure-portal.md).
 
 ## Set group expiration
 
@@ -68,7 +68,7 @@ When a group expires, the group is deleted one day after the expiration date. An
 
 ![Group deletion email notification](./media/active-directory-groups-lifecycle-azure-portal/deletion-notification.png)
 
-The group can be restored within 30 days of its deletion by selecting **Restore group** or by using PowerShell cmdlets, as described in [Restore a deleted Office 365 group in Azure Active Directory](active-directory-groups-restore-azure-portal.md).
+The group can be restored within 30 days of its deletion by selecting **Restore group** or by using PowerShell cmdlets, as described in [Restore a deleted Office 365 group in Azure Active Directory](fundamentals/active-directory-groups-restore-azure-portal.md).
     
 If the group you're restoring contains documents, SharePoint sites, or other persistent objects, it might take up to 24 hours to fully restore the group and its contents.
 
@@ -151,5 +151,5 @@ These articles provide additional information on Azure AD groups.
 * [See existing groups](active-directory-groups-view-azure-portal.md)
 * [Manage settings of a group](active-directory-groups-settings-azure-portal.md)
 * [Manage members of a group](active-directory-groups-members-azure-portal.md)
-* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
+* [Manage memberships of a group](fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)

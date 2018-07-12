@@ -12,7 +12,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: tomfitz
 
@@ -61,8 +61,7 @@ The deployment may take a minute. After the deployment finishes, your subscripti
    
    1. **Template** - The template that defines the infrastructure for your solution. When you created the storage account through the portal, Resource Manager used a template to deploy it and saved that template for future reference.
    2. **Parameters** - A parameter file that you can use to pass in values during deployment. It contains the values that you provided during the first deployment. You can change any of these values when you redeploy the template.
-   3. **CLI** - An Azure command-line-interface (CLI) script file that you can use to deploy the template.
-   3. **CLI 2.0** - An Azure command-line-interface (CLI) script file that you can use to deploy the template.
+   3. **CLI** - An Azure CLI script file that you can use to deploy the template.
    4. **PowerShell** - An Azure PowerShell script file that you can use to deploy the template.
    5. **.NET** - A .NET class that you can use to deploy the template.
    6. **Ruby** - A Ruby class that you can use to deploy the template.

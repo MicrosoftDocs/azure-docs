@@ -4,13 +4,10 @@ description: Find all of the tips from Simona Cotin's 20 days of Azure Cosmos DB
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/03/2017
 ms.author: sngun
 ms.custom: cda

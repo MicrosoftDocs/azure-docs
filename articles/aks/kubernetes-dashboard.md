@@ -3,7 +3,7 @@ title: Manage Azure Kubernetes cluster with web UI
 description: Using the Kubernetes dashboard in AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -34,7 +34,7 @@ This command creates a proxy between your development system and the Kubernetes 
 
 ## Run an application
 
-In the Kubernetes dashboard, click the **Create** button in the upper right window. Give the deployment the name `nginx` and enter `nginx:latest` for the images name. Under **Service**, select **External** and enter `80` for both the port and target port.
+In the Kubernetes dashboard, click the **Create** button in the upper right window. Give the deployment the name `nginx` and enter `nginx:latest` for the container image name. Under **Service**, select **External** and enter `80` for both the port and target port.
 
 When ready, click **Deploy** to create the deployment.
 

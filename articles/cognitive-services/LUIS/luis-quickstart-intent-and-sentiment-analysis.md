@@ -1,21 +1,30 @@
 ---
-title: Create a LUIS app that returns sentiment analysis - Azure | Microsoft Docs 
-description: Learn how to add sentiment analysis to your LUIS app to analyze utterances for positive, negative, and neutral feelings. 
+title: Tutorial to create a LUIS app that returns sentiment analysis - Azure | Microsoft Docs 
+description: In this tutorial, learn how to add sentiment analysis to your LUIS app to analyze utterances for positive, negative, and neutral feelings. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: v-geberr
 #Customer intent: As a new user, I want to understand what sentiment is conveyed in a user's utterances. 
 
 --- 
 
-# Quickstart: Create app that returns sentiment along with intent prediction
-In this quickstart, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances.
+# Tutorial: Create app that returns sentiment along with intent prediction
+In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances.
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Understand hierarchical entities and contextually learned children 
+> * Create new LUIS app for travel domain with Bookflight intent
+> * Add _None_ intent and add example utterances
+> * Add location hierarchical entity with origin and destination children
+> * Train, and publish app
+> * Query endpoint of app to see LUIS JSON response including hierarchical children 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
@@ -29,7 +38,7 @@ The following utterances show examples of sentiment:
 |positive - 0.89 |The soup and salad combo was great.|
 |negative - 0.07 |I didn't like the appetizer during the dinner service.|
 
-Your chat bot can consider the sentiment score as part of the information used to decide the next step in the conversation.
+Sentiment analysis is as app setting that applies to every utterance. You do not have to find the words indicating sentiment in utterance and label them. LUIS will do that for you.
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
@@ -133,18 +142,18 @@ Sentiment analysis is enabled on the **Publish** page.
 ## What has this LUIS app accomplished?
 This app, with sentiment analysis enabled, identified a natural language query intention and returned the extracted data including the overall sentiment as a score. 
 
-Your chat bot now has enough information to determine the next step in the conversation. 
+Your chatbot now has enough information to determine the next step in the conversation. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the sentiment data from the utterance to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the sentiment data from the utterance to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
-[Call LUIS endpoint API with C#](luis-get-started-cs-get-intent.md). 
-
+> [!div class="nextstepaction"] 
+> [Call LUIS endpoint API with C#](luis-get-started-cs-get-intent.md) 
 
 <!--References-->
 [LUIS]:luis-reference-regions.md#luis-website

@@ -1,21 +1,13 @@
 ---
-title: Create alerts for Azure services - Cross-platform CLI | Microsoft Docs
+title: Create classic alerts for Azure services - Cross-platform CLI
 description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the conditions you specify are met.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 5c6a2d27-7dcc-4f89-8752-9bb31b05ff35
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 10/24/2016
 ms.author: robb
-
+ms.component: alerts
 ---
 # Create classic metric alerts in Azure Monitor for Azure services - Cross-platform CLI
 > [!div class="op_single_selector"]

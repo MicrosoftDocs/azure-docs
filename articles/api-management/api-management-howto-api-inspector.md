@@ -3,7 +3,7 @@ title: Debug your APIs using request tracing in Azure API Management | Microsoft
 description: Follow the steps of this tutorial to learn how to inspect request processing steps in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

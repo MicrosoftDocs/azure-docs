@@ -7,9 +7,7 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
-ms.workload: storage-backup-recovery
 manager: carmonm
-
 ---
 
 # Questions about backing up Azure Files

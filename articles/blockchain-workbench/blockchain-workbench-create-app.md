@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/9/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -16,7 +16,7 @@ manager: femila
 
 You can use Azure Blockchain Workbench to create blockchain applications that represent multi-party workflows defined by configuration and smart contract code.
 
-You'll learn how to:
+You learn how to:
 
 > [!div class="checklist"]
 > * Configure a blockchain application
@@ -30,8 +30,12 @@ You'll learn how to:
 * Azure Active Directory users in the tenant associated with Blockchain Workbench. For more information, see [add Azure AD users in Azure Blockchain Workbench](blockchain-workbench-manage-users.md#add-azure-ad-users).
 * A Blockchain Workbench administrator account. For more information, see add [Blockchain Workbench administrators in Azure Blockchain Workbench](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 
+## Hello, Blockchain!
+
 Let's build a basic application in which a requestor sends a request and a responder send a response to the request. 
 For example, a request can be, "Hello, how are you?", and the response can be, "I'm great!". Both the request and the response are recorded on the underlying blockchain. 
+
+Follow the steps to create the application files or you can [download the sample from GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
 
 ## Configuration file
 
@@ -230,7 +234,7 @@ Add the following version pragma at the top of `HelloBlockchain.sol` smart contr
 
 ### Base class
 
-**WorkbenchBase** base class enables Blockchain Workbench to create an update the contract. The base class is required for Blockchain Workbench specific smart contract code. Your contract needs to inherit from the **WorkbenchBase** base class.
+**WorkbenchBase** base class enables Blockchain Workbench to create and update the contract. The base class is required for Blockchain Workbench specific smart contract code. Your contract needs to inherit from the **WorkbenchBase** base class.
 
 In `HelloBlockchain.sol` smart contract code file, add the **WorkbenchBase** class at the beginning of the file. 
 
@@ -367,7 +371,7 @@ Before exiting the function, call the `ContractUpdated()` function. The function
 To add a blockchain application to Blockchain Workbench, you upload the configuration and smart contract files to define the application.
 
 1. In a web browser, navigate to the Blockchain Workbench web address. For example, `https://{workbench URL}.azurewebsites.net/` The web application is created when you deploy Blockchain Workbench. For information on how to find your Blockchain Workbench web address, see [Blockchain Workbench Web URL](blockchain-workbench-deploy.md#blockchain-workbench-web-url)
-2. Sign in as a Blockchain Workbench administrator. For more information on managing users, see [Manage Users in Azure Blockchain Workbench](blockchain-workbench-manage-users.md).
+2. Sign in as a [Blockchain Workbench administrator](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 3. Select **Applications** > **New**. The **New application** pane is displayed.
 4. Select **Upload the contract configuration** > **Browse** to locate the **HelloBlockchain.json** configuration file you created. The configuration file is automatically validated. Select the **Show** link to display validation errors. Fix validation errors before you deploy the application.
 5. Select **Upload the contract code** > **Browse** to locate the **HelloBlockchain.sol** smart contract code file. The code file is automatically validated. Select the **Show** link to display validation errors. Fix validation errors before you deploy the application.
@@ -395,4 +399,7 @@ For more information about managing users in Blockchain Workbench, see [managing
 
 ## Next steps
 
-Now that you have created an application, try [using a blockchain application](blockchain-workbench-use.md).
+In this how-to article, you've created a basic request and response application. To learn how to use the application, continue to the next how-to article.
+
+> [!div class="nextstepaction"]
+> [Using a blockchain application](blockchain-workbench-use.md)

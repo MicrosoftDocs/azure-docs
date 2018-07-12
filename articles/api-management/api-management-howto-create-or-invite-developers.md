@@ -3,7 +3,7 @@ title: How manage user accounts in Azure API Management | Microsoft Docs
 description: Learn how to create or invite users in Azure API Management
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

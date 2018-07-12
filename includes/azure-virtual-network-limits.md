@@ -1,4 +1,17 @@
-<a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the classic deployment model per subscription.
+---
+ title: include file
+ description: include file
+ services: networking
+ author: jimdial
+ ms.service: networking
+ ms.topic: include
+ ms.date: 06/12/2018
+ ms.author: jdial
+ ms.custom: include file
+
+---
+
+<a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the classic deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
@@ -18,7 +31,7 @@
 | Endpoint Access Control Lists (ACLs) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Networking Limits - Azure Resource Manager
-The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription.
+The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 | Resource | Default limit | Maximum Limit |
 | --- | --- | --- |
@@ -58,7 +71,10 @@ The following limits apply only for networking resources managed through Azure R
 | Frontend IP configurations, Standard | 10 | 600 |
 | Backend pool, Basic | 100, single Availability Set | 100, single Availability Set |
 | Backend pool, Standard | 1000, single VNet | 1000, single VNet |
+| Backend resources per Load Balancer, Standard &ast; | 50 | 150 |
 | HA Ports, Standard | 1 per internal frontend | 1 per internal frontend |
+
+&ast; Up to 150 resources, any combination of standalone virtual machines, availability sets, and virtual machine scale sets.
 
 [Contact support](../articles/azure-supportability/resource-manager-core-quotas-request.md ) in case you need to increase limits from default.
 

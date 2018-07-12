@@ -4,14 +4,11 @@ description: Learn how to use the CQL Copy command to copy Cassandra data into A
 services: cosmos-db
 author: govindk
 manager: kfile
-documentationcenter: ''
 
-ms.assetid: eced5f6a-3f56-417a-b544-18cf000af33a
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.component: cosmosdb-cassandra
+ms.devlang: dotnet
+ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc

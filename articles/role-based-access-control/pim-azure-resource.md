@@ -3,17 +3,18 @@ title: Manage access to Azure resources with Privileged Identity Management (PIM
 description: Learn about using Role-Based Access Management in PIM to access Azure resources.
 services: active-directory
 documentationcenter: ''
-author: skwan
+author: rolyon
 manager: mtillman
-editor: bryanla
+editor: skwan
 ms.assetid: ba06b8dd-4a74-4bda-87c7-8a8583e6fd14
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
-ms.author: billmath
+ms.author: rolyon
+ms.reviewer: skwan
 ---
 
 # Manage access to Azure resources with Privileged Identity Management

@@ -15,6 +15,7 @@
 ### [Programmatically create Azure Dashboards](azure-portal-dashboards-create-programmatically.md)
 ## Manage
 ### [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md)
+### [Export or delete user settings](azure-portal-export-delete-settings.md)
 ### [Use portal to manage resources](../azure-resource-manager/resource-group-portal.md)
 ### [Manage access with Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)
 ### [Share dashboards with Role-Based Access Control](azure-portal-dashboard-share-access.md)

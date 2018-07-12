@@ -8,127 +8,94 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/09/2018
 ms.author: v-jerkin
 ---
 # Speech service REST APIs
 
-The REST APIs of the unified Speech service are similar to the APIs provided by the [Speech service](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service) and the [Translator Speech service](https://docs.microsoft.com/azure/cognitive-services/translator-speech/). In general, only the endpoints used differ.
+The REST APIs of the unified Speech service are similar to the APIs provided by the [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service). The endpoints differ from the endpoints used by the previous Speech service.
 
 ## Speech to Text
 
-In the Speech to Text API, only the endpoints used differ from the previous Speech service Speech Recognition API. Use the one that is appropriate to your subscription. The new endpoints are shown in the table below.
+In the Speech to Text API, only the endpoints used differ from the previous Speech service Speech Recognition API. The new endpoints are shown in the table below. Use the one that matches your subscription region.
 
-Region|	Endpoint
+Region|	Speech to Text endpoint
 -|-
-West US| `https://westus.stt.speech.microsoft.com/cognitiveservices/v1`
-East Asia| `https://eastasia.stt.speech.microsoft.com/cognitiveservices/v1`
-North Europe| `https://northeurope.stt.speech.microsoft.com/cognitiveservices/v1`
+West US| `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
+East Asia| `https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
+North Europe| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 
 > [!NOTE]
-> If you customized the acoustic model, the language model, or the pronunciation model, use your custom endpoint instead.
+> If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
 
-Keep these differences in mind as you read the [REST API documentation](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) for the Speech service.
+The Speech to Text API is otherwise similar to the [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) for the previous Speech API.
 
-The Speech to Text API supports REST only for short (< 15 seconds) utterances.
+The Speech to Text REST API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API only returns final results, not partial or interim results.
 
 ## Text to Speech
 
-In the Text to Speech API, the `X-Microsoft-OutputFormat` header now takes the following values.
+The new Text to Speech API supports 24-KHz audio output. The `X-Microsoft-OutputFormat` header may now contain the following values.
 
 |||
 |-|-|
-`raw-16khz-16bit-mono-pcm`         | `audio-16khz-16kbps-mono-siren `
+`raw-16khz-16bit-mono-pcm`         | `audio-16khz-16kbps-mono-siren`
 `riff-16khz-16kbps-mono-siren`     | `riff-16khz-16bit-mono-pcm`
 `audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3`
 `audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm`
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
-The service now includes two new voices:
+The Speech service now provides two 24-KHz voices:
 
-Locale | Language | Gender  | Service name mapping
--------|-----------|--------|------------
-en-US | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
-en-US | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
+Locale | Language   | Gender | Service name mapping
+-------|------------|--------|------------
+en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
+en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
-The following are the REST endpoints for the unified Speech service Text to Speech API. Use the one that is appropriate to your subscription.
+The following are the REST endpoints for the unified Speech service Text to Speech API. Use the endpoint that matches your subscription region.
 
-Region|	Endpoint
+Region|	Text to Speech endpoint
 -|-
-West US|	`https://westus.tts.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-East Asia|	`https://eastasia.tts.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-North Europe|	`https://northeurope.tts.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
+West US|	`https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
+East Asia|	`https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
+North Europe|	`https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
 
 > [!NOTE]
 > If you created a custom voice font, use your custom endpoint instead.
 
-Keep these differences in mind as you refer to the [REST API documentation](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) for the Speech service.
+Keep these differences in mind as you refer to the [REST API documentation](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) for the previous Speech API.
 
-## HTTP Authentication
-Sending requests to your speech to text endpoints by using an HTTP post is the same for either baseline or custom models.
+## Authentication
 
-There are some restrictions on requests sent via HTTP for both the Cognitive Services Speech endpoint and the custom endpoints created with this service. The HTTP request can't return partial results during the recognition process. Additionally, the duration of the requests is limited to 10 seconds for the audio content, and 14 seconds overall.
+Sending a request to the Speech service's REST API requires an access token. You obtain a token by providing your subscription key to a regional Speech service `issueToken` endpoint, shown in the table below. Use the endpoint that matches your subscription region.
 
-To create a post request, follow the same process you use for the Cognitive Services Speech API.
+Region|	Token service endpoint
+-|-
+West US|	`https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+East Asia|	`https://eastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+North Europe|	`https://northeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`
 
-1. Obtain an access token by using your subscription ID. This token is required to access the recognition endpoint. It can be reused for 10 minutes.
+Each access token is valid for 10 minutes. You may obtain a new token at any time—including, if you like, just before every Speech REST API request. To minimize network traffic and latency, however, we recommend using the same token for nine minutes.
 
-    ```
-    curl -X POST --header "Ocp-Apim-Subscription-Key:<subscriptionId>" --data "" 
-    " https://westus.stt.speech.microsoft.com"
-    ```
-      The **subscriptionId** should be set to the subscription ID you use for this deployment. The response is the plain token you need for the next request.
+The following sections show how to get a token and how to use it in a request.
 
-2. Post audio to the endpoint by using POST again.
+### Getting a token: HTTP
 
-    ```
-    curl -X POST --data-binary @example.wav -H "Authorization: Bearer <token>" -H "Content-Type: application/octet-stream" "<https_endpoint>"
-    ```
+Below is a sample HTTP request for obtaining a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription is not in the West US region, replace the `Host` header with your region's hostname.
 
-    The **token** is the access token you received with the previous call. The **https_endpoint** is the full address of your custom speech-to-text endpoint, shown on the **Deployment Information** page.
-
-### REST API
-
-Pass the subscription key in the `Ocp-Apim-Subscription-Key` field in the HTTP request header.
-
-Name| Format| Description
-----|-------|------------
-Ocp-Apim-Subscription-Key | ASCII | YOUR\_SUBSCRIPTION\_KEY
-
-The following is an example of a request header:
-
-```HTTP
-POST https://westus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
-Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+```
+POST /sts/v1.0/issueToken HTTP/1.1
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: westus.stt.speech.microsoft.com
-Transfer-Encoding: chunked
-Expect: 100-continue
+Host: westus.api.cognitive.microsoft.com
+Content-type: application/x-www-form-urlencoded
+Content-Length: 0
 ```
 
-### Authorization token
+The body of the response to this request is the access token in Java Web Token (JWT) format.
 
-You can use an authorization token obtained from the Cognitive Services authorization service for authentication.
+### Getting a token: PowerShell
 
-After you have a valid subscription key, send a POST request to the authorization service. The response contains the authorization token in the form of a JSON Web Token (JWT).
-
-> [!NOTE]
-> Tokens have an expiration of 10 minutes. You should keep track of when you last obtained a token and request a new one before the old one expires.
-
-The token service URI is:
-
-```
-https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
-https://eastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken
-https://northeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken
-
-```
-
-### Obtain a token
-
-The following code samples illustrate how to get an access token using Windows PowerShell, the `curl` utility available in most Linux distributions (or Windows Subsystem for Linux), or the C# programming language. A sample HTTP request and response are also shown. Replace `YOUR_SUBSCRIPTION_KEY` in the samples with your own subscription key.
+The Windows PowerShell script below illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription is not in the West US region, change the hostname of the given URI accordingly.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -145,10 +112,24 @@ $OAuthToken
 
 ```
 
-```curl
-curl -v -X POST "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
-" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
+### Getting a token: cURL
+
+cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). The cURL command below illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription is not in the West US region, change the hostname of the given URI accordingly.
+
+> [!NOTE]
+> The command is shown on multiple lines for readability, but should entered on a single line at a shell prompt.
+
 ```
+curl -v -X POST 
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
+ -H "Content-type: application/x-www-form-urlencoded" 
+ -H "Content-Length: 0" 
+ -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
+```
+
+### Getting a token: C#
+
+The C# class below illustrates how to obtain an access token. Pass your Speech service subscription key when instantiating the class. If your subscription is not in the West US region, change the hostname of `FetchTokenUri` appropriately.
 
 ```cs
     /*
@@ -156,7 +137,8 @@ curl -v -X POST "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
      */
     public class Authentication
     {
-        public static readonly string FetchTokenUri = "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
+        public static readonly string FetchTokenUri =
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
         private string subscriptionKey;
         private string token;
 
@@ -187,106 +169,43 @@ curl -v -X POST "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
     }
 ```
 
-- - -
+### Using a token
 
-## HTTP
+To use a token in a REST API request, provide it in the `Authorization` header, following the word `Bearer`. Here, for example, is a sample Text to Speech REST request containing a token. Substitute your actual token for `YOUR_ACCESS_TOKEN` and use the correct hostname in the `Host` header.
 
-```
-POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken HTTP/1.1
-Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: api.cognitive.microsoft.com
-Content-type: application/x-www-form-urlencoded
-Content-Length: 0
+```xml
+POST /cognitiveservices/v1 HTTP/1.1
+Authorization: Bearer YOUR_ACCESS_TOKEN
+Host: westus.tts.speech.microsoft.com
+Content-type: application/ssml+xml
+Content-Length: 199
 Connection: Keep-Alive
+
+<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<voice name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
+    Hello, world!
+</voice></speak>
 ```
 
-If you cannot obtain an authorization token from the token service, make sure your subscription key is still valid and that you have not exceeded its quotas. If you are using a free trial key, go to the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page, log in using the account that you used for applying the free trial key to see the status of your subscription. For a paid subscription, consult your Azure dashboard.
+### Renewing authorization
 
-### Use a token in a request
+The authorization token expires after 10 minutes. Renew your authorization by obtaining a new token before it expires—for example, after nine minutes. 
 
-Each time you call the Speech API, pass the authorization token in the `Authorization` header. The `Authorization` header must contain a JWT access token.
-
-The following examples show how to use an authorization token when you call the Speech REST API.
+The following C# code is a drop-in replacement for the class presented earlier. The `Authentication` class automatically obtains a new access token every nine minutes using a timer. This approach ensures that a valid token is always available while your program is running.
 
 > [!NOTE]
-> Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token you got in the previous step [Get an authorization token](#get-an-authorization-token).
+> Instead of using a timer, you could store a timestamp of when the current token was obtained, then request a new one only if the current token is close to expiring. This approach avoids requesting new tokens unnecessarily and may be more suitable for programs that make infrequent Speech requests.
 
-```Powershell
-
-$SpeechServiceURI =
-'https://westus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed'
-
-# $OAuthToken is the authrization token returned by the token service.
-$RecoRequestHeader = @{
-  'Authorization' = 'Bearer '+ $OAuthToken;
-  'Transfer-Encoding' = 'chunked'
-  'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
-}
-
-# Read audio into byte array
-$audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
-
-$RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
-
-# Show the result
-$RecoResponse
-
-```
-
-```curl
-curl -v -X POST "https://westus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
-```
-
-```cs
-HttpWebRequest request = null;
-request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
-request.SendChunked = true;
-request.Accept = @"application/json;text/xml";
-request.Method = "POST";
-request.ProtocolVersion = HttpVersion.Version11;
-request.Host = @"westus.stt.speech.microsoft.com";
-request.ContentType = @"audio/wav; codec=audio/pcm; samplerate=16000";
-request.Headers["Authorization"] = "Bearer " + token;
-
-// Send an audio file by 1024 byte chunks
-using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
-{
-
-    /*
-    * Open a request stream and write 1024 byte chunks in the stream one at a time.
-    */
-    byte[] buffer = null;
-    int bytesRead = 0;
-    using (Stream requestStream = request.GetRequestStream())
-    {
-        /*
-        * Read 1024 raw bytes from the input audio file.
-        */
-        buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
-        while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
-        {
-            requestStream.Write(buffer, 0, bytesRead);
-        }
-
-        // Flush
-        requestStream.Flush();
-    }
-}
-```
-
-### Renew a token
-
-The authorization token expires after a certain time period (currently 10 minutes). You need to renew the authorization token before it expires.
-
-The following code is an example implementation in C# of how to renew the authorization token:
+As before, make sure the `FetchTokenUri` value matches your subscription region. Pass your subscription key when instantiating the class.
 
 ```cs
     /*
-     * This class demonstrates how to get a valid O-auth token.
+     * This class demonstrates how to maintain a valid access token.
      */
     public class Authentication
     {
-        public static readonly string FetchTokenUri = "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
+        public static readonly string FetchTokenUri = 
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
         private string subscriptionKey;
         private string token;
         private Timer accessTokenRenewer;

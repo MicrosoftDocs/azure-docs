@@ -1,0 +1,31 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Key Vault
+    tocHref: /azure/
+    topicHref: /azure/key-vault/index
+
+- name: Azure
+  tocHref: /java/
+  topicHref: /azure/index
+  items:
+  - name: Key Vault
+    tocHref: /java/azure/
+    topicHref: /azure/key-vault/
+    items:
+    - name: Spring
+      tocHref: /java/azure/spring-framework/
+      topicHref: /java/azure/spring-framework/
+
+- name: Azure
+  tocHref: /sccm/
+  topicHref: /azure/index
+  items: 
+  - name: Key Vault
+    tocHref: /sccm/apps/
+    topicHref: /azure/key-vault/index
+    items: 
+    - name: Run SCCM scripts
+      tocHref: /sccm/apps/deploy-use/
+      topicHref: /azure/key-vault/index

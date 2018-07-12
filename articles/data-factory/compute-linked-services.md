@@ -9,8 +9,8 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: douglasl
 
 ---
@@ -34,8 +34,6 @@ In this type of configuration, the computing environment is fully managed by the
 
 > [!NOTE]
 > The on-demand configuration is currently supported only for Azure HDInsight clusters.
->
-> 
 
 ## Azure HDInsight on-demand linked service
 The Azure Data Factory service can automatically create an on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. The storage account must be a general-purpose standard Azure storage account. 
@@ -45,11 +43,14 @@ Note the following **important** points about on-demand HDInsight linked service
 * The on-demand HDInsight cluster is created under your Azure subscription. You are able to see the cluster in your Azure portal when the cluster is up and running. 
 * The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. The clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword defined in your linked service definition are used to log in to the cluster for in-depth troubleshooting during the lifecycle of the cluster. 
 * You are charged only for the time when the HDInsight cluster is up and running jobs.
+* You can't use a Script Action with the Azure HDInsight on-demand linked service. If you have to install other dependencies, for example, consider using Azure Automation to run a PowerShell script that does the following:  
+  a. Create the HDInsight cluster.  
+  b. Run a Script Action to install other dependencies, for example.  
+  c. Run the Data Factory pipeline.  
+  d. Delete the cluster.  
 
 > [!IMPORTANT]
 > It typically takes **20 minutes** or more to provision an Azure HDInsight cluster on demand.
->
-> 
 
 ### Example
 The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster to process the required activity. 

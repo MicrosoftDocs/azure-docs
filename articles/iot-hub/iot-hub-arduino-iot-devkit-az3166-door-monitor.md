@@ -1,21 +1,14 @@
 ---
-title: 'Receive an email when door is opened using SendGrid service and Azure Functions | Microsoft Docs'
+title: Receive an email when door is opened using SendGrid service and Azure Functions | Microsoft Docs
 description: Monitor the magnetic sensor to detect when a door is opened and use Azure Functions to send an email notification.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
-
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-
 ---
 
 # Door Monitor          

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure group settings using PowerShell in Azure Active Directory | Microsoft Docs
 description: How manage the settings for groups using Azure Active Directory cmdlets
 services: active-directory
@@ -13,7 +13,7 @@ ms.component: users-groups-roles
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: curtand
-ms.reviewer: kairaz.contractor
+ms.reviewer: krbain
 ms.custom: it-pro;
 
 ---
@@ -69,7 +69,8 @@ These steps create settings at directory level, which apply to all Office 365 gr
 4. Then update the usage guideline value:
   
   ```
-  $setting["UsageGuidelinesUrl"] = "<https://guideline.com>"
+  $setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+
   ```  
 5. Finally, apply the settings:
   
@@ -138,7 +139,7 @@ These steps read settings at directory level, which apply to all Office groups i
   GuestUsageGuidelinesUrl
   GroupCreationAllowedGroupId
   AllowToAddGuests              True
-  UsageGuidelinesUrl            <https://guideline.com>
+  UsageGuidelinesUrl            https://guideline.example.com
   ClassificationList
   EnableGroupCreation           True
   ```

@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
@@ -65,10 +65,10 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
     > [!note]  
     > If a common name (CN) is supplied this will be overwritten by the first DNS name of the certificate request.
 
-3.  Declare an output directory that already exists:
+3.  Declare an output directory that already exists. For example:
 
     ````PowerShell  
-    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ````
 4.  Declare identify system
 
@@ -92,7 +92,7 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
     ````
 
     > [!note]  
-    > `<regionName>.<externalFQDN>` forms the basis on which all external DNS names in Azure Stack are created, in this example, the portal would be `portal.east.azurestack.contoso.com`.
+    > `<regionName>.<externalFQDN>` forms the basis on which all external DNS names in Azure Stack are created, in this example, the portal would be `portal.east.azurestack.contoso.com`.  
 
 6. To generate a single certificate request with multiple Subject Alternative Names:
 

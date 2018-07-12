@@ -26,10 +26,12 @@
     - name: 1- Build a .NET application
       href: service-fabric-tutorial-create-dotnet-app.md
     - name: 2- Deploy the application
-      href: service-fabric-tutorial-deploy-app-to-party-cluster.md    
-    - name: 3- Configure CI/CD
+      href: service-fabric-tutorial-deploy-app-to-party-cluster.md
+    - name: 3- Enable HTTPS
+      href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
+    - name: 4- Configure CI/CD
       href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-    - name: 4- Monitor and Diagnose
+    - name: 5- Monitor and Diagnose
       href: service-fabric-tutorial-monitoring-aspnet.md
   - name: Deploy a Java app
     items:
@@ -45,7 +47,7 @@
       href: service-fabric-tutorial-java-jenkins.md
   - name: Containerize an existing .NET app
     items:
-    - name: 1- Deploy a .NET application
+    - name: 1- Deploy a .NET app using Docker Compose
       href: service-fabric-host-app-in-a-container.md
     - name: 2- Monitor your container
       href: service-fabric-tutorial-monitoring-wincontainers.md
@@ -71,6 +73,16 @@
       href: service-fabric-tutorial-upgrade-cluster.md
     - name: 4- Deploy API Management with Service Fabric
       href: service-fabric-tutorial-deploy-api-management.md
+  - name: Create a standalone cluster on AWS
+    items:
+    - name: 1- Create the infrastructure on AWS
+      href: service-fabric-tutorial-standalone-create-infrastructure.md
+    - name: 2- Set up Service Fabric
+      href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
+    - name: 3- Deploy an application into the cluster
+      href: service-fabric-tutorial-standalone-install-an-application.md
+    - name: 4- Clean up your cluster and delete the infrastructure
+      href: service-fabric-tutorial-standalone-clean-up.md
 - name: Samples
   items:
   - name: Code samples
@@ -151,6 +163,13 @@
       href: service-fabric-application-model.md
     - name: Application and service manifests
       href: service-fabric-application-and-service-manifests.md
+    - name: Application and service manifest examples
+      href: service-fabric-manifest-examples.md
+      items:
+      - name: Reliable services application and service manifest examples
+        href: service-fabric-manifest-example-reliable-services-app.md
+      - name: Multi-container application and service manifest examples
+        href: service-fabric-manifest-example-container-app.md
     - name: Hosting model
       href: service-fabric-hosting-model.md
     - name: Application security
@@ -387,6 +406,8 @@
         href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md    
     - name: Build an ASP.NET Core service
       href: service-fabric-add-a-web-frontend.md
+    - name: Build an Apache Tomcat server container on Linux
+      href: service-fabric-get-started-tomcat.md
     - name: Configure security
       items:
       - name: Manage application secrets
@@ -421,6 +442,8 @@
       href: service-fabric-visualstudio-configure-secure-connections.md
     - name: Debug a .NET service in VS
       href: service-fabric-debugging-your-application.md
+    - name: Debug Windows containers with Service Fabric and VS
+      href: service-fabric-how-to-debug-windows-containers.md
     - name: Common errors and exceptions
       href: service-fabric-errors-and-exceptions.md
     - name: Monitor and diagnose locally
@@ -509,12 +532,18 @@
           href: service-fabric-cluster-creation-via-arm.md
         - name: Cluster using certificate common name
           href: service-fabric-create-cluster-using-cert-cn.md
+        - name: Enable Disk Encryption for Windows
+          href: service-fabric-enable-azure-disk-encryption-windows.md
+        - name: Enable Disk Encryption for Linux
+          href: service-fabric-enable-azure-disk-encryption-linux.md
       - name: Scale
         items:
-        - name: Manually
+        - name: Manually scale out
           href: service-fabric-cluster-scale-up-down.md
-        - name: Programmatically
+        - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
+        - name: Scale up the primary node type VMs
+          href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
       - name: Upgrade
         href: service-fabric-cluster-upgrade.md
       - name: Set access control
@@ -531,6 +560,8 @@
         href: service-fabric-cluster-delete.md
       - name: Remote connect to cluster node VM
         href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+      - name: Upgrade/migrate VMSS SKU 
+        href: service-fabric-update-vmss-sku.md
     - name: Standalone clusters
       items:
       - name: Create
@@ -561,38 +592,51 @@
       href: service-fabric-patch-orchestration-application-linux.md
   - name: Monitor and diagnose
     items:
-    - name: Analyze with OMS
+    - name: Monitor applications
       items:
-      - name: Set up OMS Log Analytics
-        href: service-fabric-diagnostics-oms-setup.md
-      - name: Add the OMS Agent
-        href: service-fabric-diagnostics-oms-agent.md
-      - name: Monitor with OMS
-        href: service-fabric-diagnostics-event-analysis-oms.md
+      - name: Analyze with Application Insights
+        href: service-fabric-diagnostics-event-analysis-appinsights.md
+      - name: Add logging to your application
+        href: service-fabric-how-to-diagnostics-log.md
+      - name: Aggregate events with EventFlow
+        href: service-fabric-diagnostics-event-aggregation-eventflow.md    
       - name: Monitor containers
         href: service-fabric-diagnostics-oms-containers.md
-    - name: Analyze with Application Insights
-      href: service-fabric-diagnostics-event-analysis-appinsights.md
-    - name: Aggregate events - EventFlow
-      href: service-fabric-diagnostics-event-aggregation-eventflow.md
-    - name: Aggregate events - Azure Diagnostics
+    - name: Monitor clusters
       items:
-      - name: Windows
+      - name: Query EventStore APIs
+        href: service-fabric-diagnostics-eventstore-query.md      
+      - name: Windows Azure Diagnostics
         href: service-fabric-diagnostics-event-aggregation-wad.md
-      - name: Linux
-        href: service-fabric-diagnostics-event-aggregation-lad.md
-    - name: Performance monitoring with WAD
-      href: service-fabric-diagnostics-perf-wad.md
-    - name: Report and check health
-      href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-    - name: Add logging to your service
-      href: service-fabric-how-to-diagnostics-log.md
-    - name: Troubleshoot with system health reports
-      href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-    - name: View health reports
-      href: service-fabric-view-entities-aggregated-health.md
+      - name: Linux Azure Diagnostics
+        href: service-fabric-diagnostics-event-aggregation-lad.md 
+      - name: Set up OMS Log Analytics
+        href: service-fabric-diagnostics-oms-setup.md
+      - name: Monitor with OMS
+        href: service-fabric-diagnostics-event-analysis-oms.md  
+    - name: Monitor infrastructure
+      items:
+      - name: Performance monitoring with the OMS Agent
+        href: service-fabric-diagnostics-oms-agent.md
+      - name: Performance monitoring with WAD
+        href: service-fabric-diagnostics-perf-wad.md     
+    - name: Monitor health
+      items:
+      - name: Report and check health
+        href: service-fabric-diagnostics-how-to-report-and-check-service-health.md   
+      - name: Troubleshoot with system health reports
+        href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+      - name: View health reports
+        href: service-fabric-view-entities-aggregated-health.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
+    - name: Diagnose common scenarios
+      href: service-fabric-diagnostics-common-scenarios.md
+  - name: Best practices
+    items:
+    - name: Production readiness checklist
+      href: service-fabric-production-readiness-checklist.md
+
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -608,20 +652,29 @@
       href: service-fabric-sfctl-application.md
     - name: sfctl chaos
       href: service-fabric-sfctl-chaos.md
+      items:
+      - name: sfctl chaos schedule  
+        href: service-fabric-sfctl-chaos-schedule.md
     - name: sfctl cluster
       href: service-fabric-sfctl-cluster.md
     - name: sfctl compose
       href: service-fabric-sfctl-compose.md
+    - name: sfctl container
+      href: service-fabric-sfctl-container.md
     - name: sfctl is
       href: service-fabric-sfctl-is.md
     - name: sfctl node
       href: service-fabric-sfctl-node.md
     - name: sfctl partition
       href: service-fabric-sfctl-partition.md
+    - name: sfctl property
+      href: service-fabric-sfctl-property.md
     - name: sfctl replica
       href: service-fabric-sfctl-replica.md
     - name: sfctl rpm
       href: service-fabric-sfctl-rpm.md
+    - name: sfctl sa-cluster
+      href: service-fabric-sfctl-sa-cluster.md
     - name: sfctl service
       href: service-fabric-sfctl-service.md
     - name: sfctl store
@@ -638,6 +691,17 @@
     href: service-fabric-cluster-fabric-settings.md
   - name: Service model XML schema
     href: service-fabric-service-model-schema.md
+    items:
+    - name: Elements
+      href: service-fabric-service-model-schema-elements.md
+    - name: Complex types
+      href: service-fabric-service-model-schema-complex-types.md
+    - name: Attribute groups
+      href: service-fabric-service-model-schema-attribute-groups.md
+    - name: Simple types
+      href: service-fabric-service-model-schema-simple-types.md
+    - name: Element groups
+      href: service-fabric-service-model-schema-element-groups.md
   - name: Environment variables
     href: service-fabric-environment-variables-reference.md
 - name: Resources

@@ -70,7 +70,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            GetLanguages().Wait;
+            GetLanguages();
             Console.ReadLine();
         }
     }
@@ -225,7 +225,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            Translate().Wait;
+            Translate();
             Console.ReadLine();
         }
     }
@@ -315,7 +315,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            Detect().Wait;
+            Detect();
             Console.ReadLine();
         }
     }
@@ -409,7 +409,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            Break().Wait;
+            Break();
             Console.ReadLine();
         }
     }
@@ -497,7 +497,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            Transliterate().Wait;
+            Transliterate();
             Console.ReadLine();
         }
     }
@@ -577,7 +577,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            Lookup().Wait;
+            Lookup();
             Console.ReadLine();
         }
     }
@@ -705,7 +705,7 @@ namespace TranslatorTextQuickStart
 
         static void Main(string[] args)
         {
-            Examples().Wait;
+            Examples();
             Console.ReadLine();
         }
     }

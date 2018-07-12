@@ -3,7 +3,7 @@ title: Azure API managment policy sample - Send request context information to t
 description: Azure API managment policy sample - Demonstrates how to send request context information to the backend service.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

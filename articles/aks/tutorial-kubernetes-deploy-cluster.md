@@ -3,11 +3,11 @@ title: Kubernetes on Azure tutorial  - Deploy Cluster
 description: AKS tutorial - Deploy Cluster
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/24/2018
+ms.date: 06/13/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -26,16 +26,6 @@ In subsequent tutorials, the Azure Vote application is deployed to the cluster, 
 ## Before you begin
 
 In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you have not done these steps, and would like to follow along, return to [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
-
-## Enable AKS preview
-
-While AKS is in preview, creating new clusters requires a feature flag on your subscription. You may request this feature for any number of subscriptions that you would like to use. Use the `az provider register` command to register the AKS provider:
-
-```azurecli
-az provider register -n Microsoft.ContainerService
-```
-
-After registering, you are now ready to create a Kubernetes cluster with AKS.
 
 ## Create Kubernetes cluster
 
@@ -87,19 +77,19 @@ Authentication needs to be configured between the AKS cluster and the ACR regist
 First, get the ID of the service principal configured for AKS. Update the resource group name and AKS cluster name to match your environment.
 
 ```azurecli
-CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv
 ```
 
 Get the ACR registry resource id. Update the regsitry name to that of your ACR registry and the resource group to the resource group where the ACR registry is located.
 
 ```azurecli
-ACR_ID=$(az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv)
+az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv
 ```
 
-Create the role assignment, which grants the proper access.
+Create the role assignment, which grants the proper access. Replace `<clientID`> and `<acrID>` with the values gathered in the last two steps.
 
 ```azurecli
-az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
+az role assignment create --assignee <clientID> --role Reader --scope <acrID>
 ```
 
 ## Next steps

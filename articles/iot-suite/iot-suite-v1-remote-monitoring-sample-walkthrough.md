@@ -32,7 +32,7 @@ This article walks you through some of the key elements of the remote monitoring
 
 The following diagram outlines the logical components of the preconfigured solution:
 
-![Logical architecture](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+![Logical architecture](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
 
 ## Microservices & Docker Containers
 Remote Monitoring is the first of our preconfigured solutions to leverage a

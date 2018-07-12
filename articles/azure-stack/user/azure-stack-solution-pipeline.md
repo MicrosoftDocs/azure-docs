@@ -12,429 +12,439 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
 
-# Tutorial: Deploy apps to Azure and Azure Stack
+# Tutorial: deploy apps to Azure and Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-A hybrid continuous integration/continuous delivery (CI/CD) pipeline enables you to build, test, and deploy your app to multiple clouds.  In this tutorial, you will build a sample environment to:
- 
+Learn how to deploy an application to Azure and Azure Stack using a hybrid continuous integration/continuous delivery (CI/CD) pipeline.
+
+In this tutorial, you'll create a sample environment to:
+
 > [!div class="checklist"]
 > * Initiate a new build based on code commits to your Visual Studio Team Services (VSTS) repository.
-> * Automatically deploy your newly built code to global Azure for user acceptance testing.
-> * Once your code has passed testing, automatically deploy to Azure Stack.
+> * Automatically deploy your app to global Azure for user acceptance testing.
+> * When your code passes testing, automatically deploy the app to Azure Stack.
 
-### About the hybrid delivery build pipe
+## Benefits of the hybrid delivery build pipe
 
-Application deployment continuity, security, and reliability is essential to your organization and critical to your development team. With a hybrid CI/CD pipeline, you can consolidate your pipelines across your on-premises environment and the public cloud. You can change location without switching your application.
+Continuity, security, and reliability are key elements of application deployment. These elements are essential to your organization and critical to your development team. A hybrid CI/CD pipeline enables you to consolidate your build pipes across your on-premises environment and the public cloud. A hybrid delivery model also lets you change deployment locations without changing your application.
 
-This approach also allows you to maintain a consistent set of development tools. Consistent tools across the Azure public cloud and your on-premises Azure Stack environment means that it's far easier for you to implement CI/CD dev practice. Apps and services deployed in Azure or Azure Stack are interchangeable and the same code can run in either location, taking advantage of on-premises and public cloud features and capabilities.
+Other benefits to using the hybrid approach are:
 
-Learn more about:
- - [What is Continuous Integration?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
- - [What is Continuous Delivery?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
+* You can maintain a consistent set of development tools across your on-premises Azure Stack environment and the Azure public cloud.  A common tool set makes it easier to implement CI/CD patterns and practices.
+* Apps and services deployed in Azure or Azure Stack are interchangeable and the same code can run in either location. You can take advantage of on-premises and public cloud features and capabilities.
 
+To learn more about CI and CD:
+
+* [What is Continuous Integration?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
+* [What is Continuous Delivery?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
 
 ## Prerequisites
 
-You will need to have a few components in place to build  a hybrid CI/CD pipeline. They can take some time to prepare.
- 
- - An Azure OEM/hardware partner may deploy a production Azure Stack and all users may deploy an Azure Stack Development Kit (ASDK). 
- - An Azure Stack Operator must also deploy the App Service, create plans and offers, create a tenant subscription, and add the Windows Server 2016 image.
+You need to have components in place to build a hybrid CI/CD pipeline. The following components will take time to prepare:
 
-If you already have some of these components, make sure they meet the requirements before beginning.
+* An Azure OEM/hardware partner can deploy a production Azure Stack. All users can deploy the Azure Stack Development Kit (ASDK).
+* An Azure Stack Operator must also: deploy the App Service, create plans and offers, create a tenant subscription, and add the Windows Server 2016 image.
 
-This topic also assumes that you have some knowledge of Azure and Azure Stack. If you want to learn more before proceeding, be sure to start with these topics:
+>[!NOTE]
+>If you already have some of these components deployed, make sure they meet the all the requirements before you start this tutorial.
 
+This tutorial assumes that you have some basic knowledge of Azure and Azure Stack. To learn more before starting the tutorial, read the following articles:
 
-This tutorial also assumes that you have some knowledge of Azure and Azure Stack. 
+* [Introduction to Azure](https://azure.microsoft.com/overview/what-is-azure/)
+* [Azure Stack Key Concepts](https://docs.microsoft.com/azure/azure-stack/azure-stack-key-features)
 
-If you want to learn more before proceeding, you can start with these topics:
- - [Introduction to Azure](https://azure.microsoft.com/overview/what-is-azure/)
- - [Azure Stack Key Concepts](https://docs.microsoft.com/azure/azure-stack/azure-stack-key-features)
+### Azure requirements
 
-### Azure
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* Create a [Web App](https://docs.microsoft.com/azure/app-service/app-service-web-overview) in Azure. Make note of the Web App URL, you need to use it in the tutorial.
 
- - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+### Azure Stack requirements
 
- - Create a [Web App](https://docs.microsoft.com/azure/app-service/app-service-web-overview) in Azure. Make note of the new Web App URL, as it is used later.
+* Use an Azure Stack integrated system or deploy the Azure Stack Development Kit (ASDK). To deploy the ASDK:
+    * The [Tutorial: deploy the ASDK using the installer](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) gives detailed deployment instructions.
+    * Use the [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell script to automate ASDK post-deployment steps.
 
-Azure Stack
- - Use an Azure Stack integrated system or deploy Azure Stack Development Kit (ASDK) linked below:
-    - You can find detailed instructions about deploying the ASDK at "[Tutorial: deploy the ASDK using the installer](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy)"
-    - You can automate many of your ASDK post-deployment steps with the following PowerShell script, [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ).
+    > [!Note]
+    > The ASDK installation takes approximately seven hours to complete, so plan accordingly.
 
-    > [!note]  
-    > The ASDK installation takes a seven hours to complete, so plan accordingly.
+ * Deploy [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack.
+ * Create [Plan/Offers](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) in Azure Stack.
+ * Create a [tenant subscription](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) in Azure Stack.
+ * Create a Web App in the tenant subscription. Make note of the new Web App URL for later use.
+ * Deploy VSTS Virtual Machine in the tenant subscription.
+* Provide a Windows Server 2016 image with .NET 3.5 for a virtual machine (VM). This VM will be built on your Azure Stack as a private build agent.
 
- - Deploy [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack. 
- - Create [Plan/Offers](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) within the Azure Stack environment. 
- - Create [tenant subscription](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) within the Azure Stack environment. 
- - Create a Web App within the tenant subscription. Make note of the new Web App URL for later use.
- - Deploy VSTS Virtual Machine, still within the tenant subscription.
- - Windows Server 2016 VM with .NET 3.5 required. This VM will be built on your Azure Stack as the private build agent. 
+### Developer tool requirements
 
-### Developer tools
+* Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services). The sign-up process creates a project named **MyFirstProject**.
+* [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+* Connect to your project and [clone it locally](https://www.visualstudio.com/docs/git/gitquickstart).
 
- - Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services). The sign-up process creates a project named **MyFirstProject**.
- - [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
- - Connect to the project and [clone locally](https://www.visualstudio.com/docs/git/gitquickstart).
- 
- > [!note]  
- > You will need Azure Stack with proper images syndicated to run (Windows Server and SQL) and have App Service deployed.
- 
+ > [!Note]
+ > Your Azure Stack environment needs the correct images syndicated to run Windows Server and SQL Server. It must also have App Service deployed.
+
 ## Prepare the private build and release agent for Visual Studio Team Services integration
 
 ### Prerequisites
 
-Visual Studio Team Services (VSTS) authenticates against Azure Resource Manager using a Service Principal. For VSTS to be able to provision resources in an Azure Stack subscription, it requires Contributor status.
+Visual Studio Team Services (VSTS) authenticates against Azure Resource Manager using a Service Principal. VSTS must have the **Contributor** role to provision resources in an Azure Stack subscription.
 
-The following are the high-level steps that need to be configured to enable such authentication:
+The following steps describe what's required to configure authentication:
 
-1. Service Principal should be created or an existing one may be used.
-2. Authentication keys need to be created for the Service Principal.
-3. Azure Stack Subscription needs to be validated via Role-Based Access Control to allow the SPN be part of the Contributor’s role.
-4. A new Service Definition in VSTS must be created using the Azure Stack endpoints as well as SPN information.
+1. Create a Service Principal, or use an existing Service Principal.
+2. Create Authentication keys for the Service Principal.
+3. Validate the Azure Stack Subscription via Role-Based Access Control to allow the Service Principal Name (SPN) to be part of the Contributor’s role.
+4. Create a new Service Definition in VSTS using the Azure Stack endpoints and SPN information.
 
-### Service principal creation
+### Create a Service Principal
 
-Refer to the [Service Principal Creation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instructions to create a service principal, and choose Web App/API for the Application Type.
+Refer to the [Service Principal Creation](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instructions to create a service principal, and then choose **Web App/API** for the Application Type.
 
-### Access key creation
+### Create an access key
 
-A Service Principal requires a key for authentication, follow the steps in this section to generate a key.
-
+A Service Principal requires a key for authentication. Use the following steps to generate a key.
 
 1. From **App registrations** in Azure Active Directory, select your application.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_01.png)
+    ![Select the application](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-2.	Make note of the value of **Application ID**. You will use that value when configuring the service endpoint in VSTS.
+2. Make note of the value of **Application ID**. You will use that value when configuring the service endpoint in VSTS.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_02.png)
+    ![Application ID](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
 3. To generate an authentication key, select **Settings**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_03.png)
+    ![Edit app settings](media\azure-stack-solution-hybrid-pipeline\000_03.png)
 
 4. To generate an authentication key, select **Keys**.
- 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_04.png)
 
-5. Provide a description of the key, and a duration for the key. When done, select **Save**.
- 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_05.png)
+    ![Configure key settings](media\azure-stack-solution-hybrid-pipeline\000_04.png)
 
-    After saving the key, the value of the key is displayed. Copy this value because you are not able to retrieve the key later. You provide the **key value** with the application ID to log in as the application. Store the key value where your application can retrieve it.
+5. Provide a description for the key, and set the duration of the key. When done, select **Save**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_06.png)
+    ![Key description and duration](media\azure-stack-solution-hybrid-pipeline\000_05.png)
 
-### Get tenant ID
+    After you save the key, the key **VALUE** is displayed. Copy this value because you can't get this value later. You provide the **key value** with the application ID to log in as the application. Store the key value where your application can retrieve it.
 
-As part of the service endpoint configuration, VSTS requires the **Tenant ID** that corresponds to the AAD Directory that your Azure Stack stamp was deployed to. Follow the steps in this section to gather the Tenant Id.
+    ![Key VALUE](media\azure-stack-solution-hybrid-pipeline\000_06.png)
+
+### Get the tenant ID
+
+As part of the service endpoint configuration, VSTS requires the **Tenant ID** that corresponds to the AAD Directory that your Azure Stack stamp is deployed to. Use the following steps to get the Tenant ID.
 
 1. Select **Azure Active Directory**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_07.png)
+    ![Azure Active Directory for tenant](media\azure-stack-solution-hybrid-pipeline\000_07.png)
 
 2. To get the tenant ID, select **Properties** for your Azure AD tenant.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_08.png)
- 
+    ![View tenant properties](media\azure-stack-solution-hybrid-pipeline\000_08.png)
+
 3. Copy the **Directory ID**. This value is your tenant ID.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_09.png)
+    ![Directory ID](media\azure-stack-solution-hybrid-pipeline\000_09.png)
 
-### Grant the service principal rights to deploy resources in the Azure Stack subscription 
+### Grant the service principal rights to deploy resources in the Azure Stack subscription
 
-To access resources in your subscription, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+To access resources in your subscription, you must assign the application to a role. Decide which role represents the best permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
+You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any of its resources.
 
-1. Navigate to the level of scope you wish to assign the application to. For example, to assign a role at the subscription scope, select **Subscriptions**. You could instead select a resource group or resource.
+1. Navigate to the level of scope you wish to assign the application to. For example, to assign a role at the subscription scope, select **Subscriptions**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_10.png)
+    ![Select Subscriptions](media\azure-stack-solution-hybrid-pipeline\000_10.png)
 
-2. Select the **subscription** (resource group or resource) to assign the application to.
+2. In **Subscription**, select Visual Studio Enterprise.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_11.png)
+    ![Visual Studio Enterprise](media\azure-stack-solution-hybrid-pipeline\000_11.png)
 
-3. Select **Access Control (IAM)**.
+3. In Visual Studio Enterprise, select **Access Control (IAM)**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+    ![Access Control (IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
 
 4. Select **Add**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_13.png)
+    ![Add](media\azure-stack-solution-hybrid-pipeline\000_13.png)
 
-5. Select the role you wish to assign to the application. The following image shows the **Owner** role.
+5. In **Add permissions**, select the role you that you want to assign to the application. In this example, the **Owner** role.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_14.png)
+    ![Owner role](media\azure-stack-solution-hybrid-pipeline\000_14.png)
 
-6. By default, Azure Active Directory applications aren't displayed in the available options. To find your application, you must **provide the name** in the search field. Select it.
+6. By default, Azure Active Directory applications aren't displayed in the available options. To find your application, you must provide its name in the **Select** field to search for it. Select the app.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_16.png)
+    ![App search result](media\azure-stack-solution-hybrid-pipeline\000_16.png)
 
 7. Select **Save** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
 
 ### Role-Based Access Control
 
-‎Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. For more information about Role-Based Access Control, see [Manage Access to Azure Subscription Resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
+‎Azure Role-Based Access Control (RBAC) provides fine-grained access management for Azure. By using RBAC, you can control the level of access that users need to do their jobs. For more information about Role-Based Access Control, see [Manage Access to Azure Subscription Resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
 ### VSTS Agent Pools
 
-Instead of managing each agent individually, you organize agents into agent pools. An agent pool defines the sharing boundary for all agents in that pool. In VSTS, agent pools are scoped to the VSTS account; so you can share an agent pool across team projects. For more information and a tutorial on how to create VSTS agent pools, see [Create Agent Pools and Queues](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
+Instead of managing each agent separately, you can organize agents into agent pools. An agent pool defines the sharing boundary for all agents in that pool. In VSTS, agent pools are scoped to the VSTS account, which means that you can share an agent pool across team projects. To learn more about agent pools, see [Create Agent Pools and Queues](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
 
-### Add a Personal access token (PAT) for Azure Stack
+### Add a Personal Access Token (PAT) for Azure Stack
+
+Create a Personal Access Token to access VSTS.
 
 1. Sign in to your VSTS account and select your account profile name.
 2. Select **Manage Security** to access token creation page.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![User sign in](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Select team project](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
+    ![Add Personal access token](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
+    ![Create token](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
 
 3. Copy the token.
-    
-    > [!note]  
-    > Obtain the token information. It will not be shown again after leaving this screen. 
-    
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_19.png)
-    
+
+    > [!Note]
+    > Save the token information. This information isn't stored and won't be shown again when you leave the web page.
+
+    ![Personal access token](media\azure-stack-solution-hybrid-pipeline\000_19.png)
 
 ### Install the VSTS build agent on the Azure Stack hosted Build Server
 
-1.	Connect to your Build Server that you deployed on the Azure Stack host.
+1. Connect to your Build Server that you deployed on the Azure Stack host.
+2. Download and Deploy the build agent as a service using your personal access token (PAT) and run as the VM Admin account.
 
-2.	Download and Deploy the build agent as a service using your personal access token (PAT) and run as the VM Admin account.
+    ![Download build agent](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
+3. Navigate to the folder for the extracted build agent. Run the **config.cmd** file from an elevated command prompt.
 
-3. Go to extracted build agent folder. Run the **run.cmd** file from an elevated command prompt. 
+    ![Extracted build agent](media\azure-stack-solution-hybrid-pipeline\000_20.png)
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_20.png)
+    ![Register build agent](media\azure-stack-solution-hybrid-pipeline\000_21.png)
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_21.png)
+4. When the config.cmd finishes, the build agent folder is updated with additional files. The folder with the extracted contents should look like the following:
 
-4.  After the run.cmd finished the folder with the extracted contents should look like the following:
+    ![Build agent folder update](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
-
-    You can now see the agent in VSTS folder.
+    You can see the agent in VSTS folder.
 
 ## Endpoint creation permissions
 
-Users can create endpoints so VSTO builds can deploy Azure Service apps to the stack. VSTS connects to the build agent, which then connects with Azure Stack. 
+By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Service apps to Azure Stack. VSTS connects to the build agent, which connects to Azure Stack.
 
-![Alt Text](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
+![NorthwindCloud sample app in VSTO](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
 
-1. On the **Settings** menu, select **Security**.
-2. In the **VSTS Groups** list on the left, select **Endpoint Creators**. 
+1. Sign in to VSTO and navigate to the app settings page.
+2. On **Settings**, select **Security**.
+3. In **VSTS Groups**, select **Endpoint Creators**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
+    ![NorthwindCloud Endpoint Creators](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
 
-3. On the **Members** tab, select **+Add**. 
+4. On the **Members** tab, select **Add**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
+    ![Add a member](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
 
-4. Type a user name and select that user from the list.
-5. Click **Save changes**.
+5. In **Add users and groups**, enter a user name and select that user from the list of users.
+6. Select **Save changes**.
+7. In the **VSTS Groups** list, select **Endpoint Administrators**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
+    ![NorthwindCloud Endpoint Administrators](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
 
-6. In the **VSTS Groups** list on the left, select **Endpoint Administrators**.
-7. On the **Members** tab, select **+Add**.
-8. Type a user name and select that user from the list.
-9. Click **Save Changes**.
+8. On the **Members** tab, select **Add**.
+9. In **Add users and groups**, enter a user name and select that user from the list of users.
+10. Select **Save changes**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+Now that the endpoint information exists, the VSTS to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from VSTS, and then the agent conveys endpoint information for communication with Azure Stack.
 
-    The build agent in Azure Stack gains instructions from VSTS, which then conveys endpoint information for communication with the Azure Stack. 
-    
-    VSTS to Azure Stack connection is now ready.
+![Build agent](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
 
-## Develop your application
+## Develop your application build
 
-Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push changes to both clouds.
+In this part of the tutorial you'll:
 
-> [!note]  
-> You will need Azure Stack with proper images syndicated to run (Windows Server and SQL) and have App Service deployed. Review the App Service documentation "Prerequisites" section for Azure Stack Operator Requirements.
+* Add code to a VSTS project.
+* Create self-contained web app deployment.
+* Configure the continuous deployment process
 
-### Add code to VSTS project
+> [!Note]
+ > Your Azure Stack environment needs the correct images syndicated to run Windows Server and SQL Server. It must also have App Service deployed. Review the App Service documentation "Prerequisites" section for Azure Stack Operator Requirements.
 
-1. Sign in to Visual Studio with an account that has project creation rights on Azure Stack.
+Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates like web ](https://azure.microsoft.com/resources/templates/) app code from VSTS to deploy to both clouds.
 
-    Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates like web ](https://azure.microsoft.com/resources/templates/) app code from VSTS to both clouds.
+### Add code to a VSTS project
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
+1. Sign in to VSTS with an account that has project creation rights on Azure Stack. The next screen capture shows how to connect to the HybridCICD project.
+
+    ![Connect to a Project](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
 2. **Clone the repository** by creating and opening the default web app.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\018_link_arm.png)
+    ![Clone repository](media\azure-stack-solution-hybrid-pipeline\018_link_arm.png)
 
 ### Create self-contained web app deployment for App Services in both clouds
 
-1. Edit the **WebApplication.csproj** file: Select **Runtimeidentifier** and add `win10-x64.` For more information, see [Self-contained deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentation.
+1. Edit the **WebApplication.csproj** file: Select **Runtimeidentifier** and then add `win10-x64.` For more information, see [Self-contained deployment](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) documentation.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
+    ![Configure Runtimeidentifier](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
 
-2. Check the code into VSTS using Team Explorer.
+2. Use Team Explorer to check the code into VSTS.
 
-3. Confirm that the application code has been checked into Visual Studio Team Services. 
+3. Confirm that the application code was checked into Visual Studio Team Services.
 
 ### Create the build definition
 
-1. Sign in to VSTS to confirm ability to create build definitions.
+1. Sign in to VSTS with an account that can create a build definition.
+2. Navigate to the **Build Web Applicaiton** page for the project.
 
-2. Add **-r win10-x64** code. This is necessary to trigger a self-contained deployment with .Net Core. 
+3. In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .Net Core.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Add argument build definition](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
 
-3. Run the build. The [self-contained deployment build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) process will publish artifacts that can run on Azure and Azure Stack.
+4. Run the build. The [self-contained deployment build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) process will publish artifacts that can run on Azure and Azure Stack.
 
-### Using an Azure Hosted Agent
+### Use an Azure hosted build agent
 
-Using a hosted agent in VSTS is a convenient option to build and deploy web apps. Maintenance and upgrades are automatically performed by Microsoft Azure, enabling continual, uninterrupted development, testing, and deployment.
+Using a hosted build agent in VSTS is a convenient option for building and deploying web apps. Agent maintenance and upgrades are automatically performed by Microsoft Azure, which enables a continuous and uninterrupted development cycle.
 
-### Manage and configure the Continuous Deployment (CD) process
+### Configure the continuous deployment (CD) process
 
-Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, QA, and production environments; including requiring approvals at specific stages.
+Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a highly configurable and manageable pipeline for releases to multiple environments such as development, staging, quality assurance (QA), and production. This process can include requiring approvals at specific stages of the application life cycle.
 
 ### Create release definition
 
-![Alt Text](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+Creating a release definition is the final step in your application build process. This release definition is used to create a release and deploy a build.
 
-1. Select the **\[ + ]** to add a new Release under the **Releases tab** in the Build and Release page of VSO.
+1. Sign in to VSTS and navigate to **Build and Release** for your project.
+2. On the **Releases** tab, select **\[ + ]**  and then pick **Create release definition**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\102.png)
+   ![Create release definition](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
-2. Apply the **Azure App Service Deployment** template.
+3. On **Select a Template**, choose **Azure App Service Deployment**, and then select **Apply**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\103.png)
+    ![Apply template](media\azure-stack-solution-hybrid-pipeline\102.png)
 
-3. Under Add artifact pull-down menu, **add the artifact** for the Azure Cloud build app.
+4. On **Add artifact**, from the **Source (Build definition)** pull-down menu, select the Azure Cloud build app.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\104.png)
+    ![Add artifact](media\azure-stack-solution-hybrid-pipeline\103.png)
 
-4. Under Pipeline tab, select the **Phase**, **Task** link of the environment and set the Azure cloud environment values.
+5. On the **Pipeline** tab, select the **1 Phase**, **1 Task** link to **View environment tasks**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\105.png)
+    ![Pipeline view tasks](media\azure-stack-solution-hybrid-pipeline\104.png)
 
-5. Set the **environment name** and select Azure **Subscription** for the Azure Cloud endpoint.
+6. On the **Tasks** tab, enter Azure as the **Environment name** and select the AzureCloud Traders-Web EP from the **Azure subscription** drop-down list.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\106.png)
+    ![Set environment variables](media\azure-stack-solution-hybrid-pipeline\105.png)
 
-6. Under Environment name, set the required **Azure app service name**.
+7. Enter the **Azure app service name**, which is "northwindtraders" in the next screen capture.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\107.png)
+    ![App service name](media\azure-stack-solution-hybrid-pipeline\106.png)
 
-7. Enter **Hosted VS2017** under Agent queue for Azure cloud hosted environment.
+8. For the Agent phase, select **Hosted VS2017** from the **Agent queue** drop-down list.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\108.png)
+    ![Hosted agent](media\azure-stack-solution-hybrid-pipeline\107.png)
 
-8. In Deploy Azure App Service menu, select the valid **Package or Folder** for the environment. Select **OK** to **folder location**.
+9. In **Deploy Azure App Service**, select the valid **Package or folder** for the environment.
+
+    ![Select package or folder](media\azure-stack-solution-hybrid-pipeline\108.png)
+
+10. In **Select File or Folder**, select **OK** to **Location**.
 
     ![Alt Text](media\azure-stack-solution-hybrid-pipeline\109.png)
 
+11. Save all changes and go back to **Pipeline**.
+
     ![Alt Text](media\azure-stack-solution-hybrid-pipeline\110.png)
 
-9. Save all changes and go back to **release pipeline**.
+12. On the **Pipeline** tab, select **Add artifact**, and choose the **NorthwindCloud Traders-Vessel** from the **Source (Build Definition)** drop-down list.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\111.png)
+    ![Add new artifact](media\azure-stack-solution-hybrid-pipeline\111.png)
 
-10. Add a **new artifact** selecting the build for the Azure Stack app.
+13. On **Select a Template**, add another environment. Pick **Azure App Service Deployment** and then select **Apply**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\112.png)
+    ![Select template](media\azure-stack-solution-hybrid-pipeline\112.png)
 
-11. Add one more environment applying the **Azure App Service Deployment**.
+14. Enter "Azure Stack" as the **Environment name**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\113.png)
+    ![Environment name](media\azure-stack-solution-hybrid-pipeline\113.png)
 
-12. Name the new environment **Azure Stack**.
+15. On the **Tasks** tab, find and select Azure Stack.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\114.png)
+    ![Azure Stack environment](media\azure-stack-solution-hybrid-pipeline\114.png)
 
-13. Find the Azure Stack environment under **Task** tab.
+16. From the **Azure subscription** drop-down list, select  "AzureStack Traders-Vessel EP" for the Azure Stack endpoint.
 
     ![Alt Text](media\azure-stack-solution-hybrid-pipeline\115.png)
 
-14. Select the **subscription** for the Azure Stack endpoint.
+17. Enter the Azure Stack web app name as the **App service name**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\116.png)
+    ![App service name](media\azure-stack-solution-hybrid-pipeline\116.png)
 
-15. Set the Azure Stack web app name as the **App service name**.
+18. Under **Agent selection**, pick "AzureStack -bDouglas Fir" from the **Agent queue** drop-down list.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\117.png)
+    ![Pick agent](media\azure-stack-solution-hybrid-pipeline\117.png)
 
-16. Select the **Azure Stack agent**.
+19. For **Deploy Azure App Service**, select the valid **Package or folder** for the environment. On **Select File Or Folder**, select **OK** for the folder **Location**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\118.png)
+    ![Pick package or folder](media\azure-stack-solution-hybrid-pipeline\118.png)
 
-17. Under the Deploy Azure App Service section select the valid **Package or Folder** for the environment. Select OK to **folder location**.
+    ![Approve location](media\azure-stack-solution-hybrid-pipeline\119.png)
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\119.png)
+20. On the **Variable** tab, find the variable named **VSTS_ARM_REST_IGNORE_SSL_ERRORS**. Set the variable value to **true**, and set its scope to **Azure Stack**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\120.png)
+    ![Configure variable](media\azure-stack-solution-hybrid-pipeline\120.png)
 
-18. Under Variable tab add a variable named **VSTS_ARM_REST_IGNORE_SSL_ERRORS**, set its value as **true**, and scope to **Azure Stack**.
+21. On the **Pipeline** tab, select the **Continuous deployment trigger** icon for the NorthwindCloud Traders-Web artifact and set the **Continuous deployment trigger** to **Enabled**.  Do the same thing for the "NorthwindCloud Traders-Vessel" artifact.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\121.png)
+    ![Set continuous deployment trigger](media\azure-stack-solution-hybrid-pipeline\121.png)
 
-19. Select the **Continuous** deployment trigger icon in both artifacts and enable the Continues deployment trigger.
+22. For the Azure Stack environment, select the **Pre-deployment conditions** icon set the trigger to **After release**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\122.png)
+    ![Set pre-deployment conditions trigger](media\azure-stack-solution-hybrid-pipeline\122.png)
 
-20. Select the **Pre-deployment** conditions icon in the azure stack environment and set the trigger to **After release**.
+23. Save all your changes.
 
-21. Save all changes.
-
-> [!note]  
-> Some settings for the tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when you created a release definition from a template. These settings cannot be modified in the task settings; instead you must select the parent environment item to edit these settings.
+> [!Note]
+> Some settings for release tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when you created a release definition from a template. These settings can't be modified in the task settings. However, you can edit these settings in the parent environment items.
 
 ## Create a release
 
 Now that you have completed the modifications to the release definition, it's time to start the deployment. To do this, you create a release from the release definition. A release may be created automatically; for example, the continuous deployment trigger is set in the release definition. This means that modifying the source code will start a new build and, from that, a new release. However, in this section you will create a new release manually.
 
-1. Open the **Release** drop-down list and choose **Create release**.
+1. On the **Pipeline** tab, open the **Release** drop-down list and choose **Create release**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\200.png)
- 
-2. Enter a description for the release, check that the correct artifacts are selected, and then choose **Create**. After a few moments, a banner appears indicating that the new release was created. Choose the link (the name of the release).
+    ![Create a release](media\azure-stack-solution-hybrid-pipeline\200.png)
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\201.png)
- 
-3. The release summary page opens showing details of the release. In the **Environments** section, you will see the deployment status for the "QA" environment change from "IN PROGRESS" to "SUCCEEDED" and, at that point, a banner appears indicating that the release is now waiting for approval. When a deployment to an environment is pending or has failed, a blue (i) information icon is shown. Point to this to see a pop-up containing the reason.
+2. Enter a description for the release, check to see that the correct artifacts are selected, and then choose **Create**. After a few moments, a banner appears indicating that the new release was created, and the release name is displayed as a link. Choose the link to see the release summary page.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\202.png)
+    ![Release creation banner](media\azure-stack-solution-hybrid-pipeline\201.png)
 
-Other views, such as the list of releases, also display an icon that indicates approval is pending. The icon shows a pop-up containing the environment name and more details when you point to it. This makes it easy for an administrator to see which releases are awaiting approval, as well as the overall progress of all releases.
+3. The release summary page for shows details about the release. In the following screen capture for "Release-2", the **Environments** section shows the **Deployment status** for the Azure as "IN PROGRESS", and the status for Azure Stack is "SUCCEEDED". When the deployment status for the Azure environment changes to "SUCCEEDED", a banner appears indicating that the release is ready for approval. When a deployment is pending or has failed, a blue **(i)** information icon is shown. Hover over the icon to see a pop-up that contains the reason for delay or failure.
+
+    ![Release summary page](media\azure-stack-solution-hybrid-pipeline\202.png)
+
+Other views, such as the list of releases, will also display an icon that indicates approval is pending. The pop-up for this icon shows the environment name and more details related to the deployment. It's easy for an administrator see the overall progress of releases and see which releases are waiting for approval.
 
 ### Monitor and track deployments
 
-In this section, you will see how you can monitor and track deployments - in this example to two Azure App Services websites - from the release you created in the previous section.
+This section shows how you can monitor and track all your deployments. The release for deploying the two Azure App Services websites provides a good example.
 
-1. In the release summary page, choose the **Logs** link. While the deployment is taking place, this page shows the live log from the agent and, in the left pane, an indication of the status of each operation in the deployment process for each environment.
+1. On the "Release-2" summary page, select **Logs**. During a deployment, this page shows the live log from the agent. The left pane shows the status of each operation in the deployment for each environment.
 
-    Choose the icon in the **Action** column for a pre-deployment or post-deployment approval to see details of who approved (or rejected) the deployment, and the message that user provided.
+    You can choose a person icon in the **Action** column for a Pre-deployment or Post-deployment approval to see who approved (or rejected) the deployment, and the message they provided.
 
-2. After the deployment is complete, the entire log file is displayed in the right pane. Select any of the **process steps** in the left pane to show just the log file contents for that step. This makes it easier to trace and debug individual parts of the overall deployment. Alternatively, download the individual log files, or a zip of all the log files, from the icons and links in the page.
+2. After the deployment finishes, the entire log file is displayed in the right pane. You can select any **Step** in the left pane to see the log file for an single step, such as "Initialize Job". The ability to see individual logs makes it easier to trace and debug  parts of the overall deployment. You can also **Save** the log file for a step, or **Download all logs as zip**.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\203.png)
- 
-3. Open the **Summary** tab to see the overall detail of the release. It shows details of the build and the environments it was deployed to - along with the deployment status and other information about the release.
+    ![Release logs](media\azure-stack-solution-hybrid-pipeline\203.png)
 
-4. Select each of the **environment links** to see more details about existing and pending deployments to that specific environment. You can use these pages to verify that the same build was deployed to both environments.
+3. Open the **Summary** tab to see general information about the release. This view shows details about the build, the environments it was deployed to, deployment status, and other information about the release.
 
-5. Open the **deployed production app** in your browse. For example, for an Azure App Services website, from the URL `http://[your-app-name].azurewebsites.net`.
+4. Select an environment link (**Azure** or **Azure Stack**) to see information about existing and pending deployments to a specific environment. You can use these views as a quick way to verify that the same build was deployed to both environments.
+
+5. Open the **deployed production app** in your browser. For example, for the Azure App Services website, open the URL `http://[your-app-name].azurewebsites.net`.
 
 ## Next steps
 
-- To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns).
+* To learn more about Azure Cloud Patterns, see [Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns).

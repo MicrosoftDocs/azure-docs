@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 05/16/2018
 ms.author: jeedes
 
 ---
@@ -26,7 +26,7 @@ Integrating Sansan with Azure AD provides you with the following benefits:
 - You can enable your users to automatically get signed-on to Sansan (Single Sign-On) with their Azure AD accounts
 - You can manage your accounts in one central location - the Azure portal
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following patterns: 
+    In the **Sign-on URL** textbox, type a URL using the following patterns: 
 	
 	| Environment | URL |
     |:--- |:--- |
@@ -116,37 +116,88 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     | Native Mobile app |`https://internal.api.sansan.com/saml2/<company name>/acs` |
     | Mobile browser settings |`https://ap.sansan.com/s/saml2/<company name>/acs` |  
 
-	b. In the **Identifier** textbox, type a URL using the following patterns:
-	| Environment             | URL |
-    | :-- | :-- |
-    | PC web                  | `https://ap.sansan.com/v/saml2/<company name>`|
-    | Native Mobile app       | `https://internal.api.sansan.com/saml2/<company name>` |
-    | Mobile browser settings | `https://ap.sansan.com/s/saml2/<company name>` |
-
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Sansan Client support team](https://www.sansan.com/form/contact) to get these values. 
-
+	> These values are not real. Update these values with the actual Sign-On URL. Contact [Sansan Client support team](https://www.sansan.com/form/contact) to get these values. 
+	 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_certificate.png) 
 
 5. Click **Save** button.
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_general_400.png)
 
-6. On the **Sansan Configuration** section, click **Configure Sansan** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. Sansan application expects multiple **Identifiers** and **Reply URLs** to support multiple environments (PC web, Native Mobile app, Mobile browser settings), which can be configured using PowerShell script. The detailed steps are explained below.
+
+7. To configure multiple **Identifiers** and **Reply URLs** for Sansan application using PowerShell script, perform following steps:
+
+	![Configure Single Sign-On obj](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_objid.png)	
+
+	a. Go to the **Properties** page of **Sansan** application and copy the **Object ID** using **Copy** button and paste it into Notepad.
+
+	b. The **Object ID**, which you have copied from Azure portal will be used as **ServicePrincipalObjectId** in PowerShell script used later in the tutorial. 
+
+	c. Now open an elevated Windows PowerShell command prompt.
+	
+	>[!NOTE] 
+	> You need to install the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
+
+	d. Run `Connect-AzureAD` and sign in with a Global Admin user account.
+
+	e. Use the following script to update multiple URLs to an application:
+
+	```poweshell
+	 Param(
+	[Parameter(Mandatory=$true)][guid]$ServicePrincipalObjectId,
+	[Parameter(Mandatory=$false)][string[]]$ReplyUrls,
+	[Parameter(Mandatory=$false)][string[]]$IdentifierUrls
+	)
+
+	$servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
+
+	if($ReplyUrls.Length)
+	{
+	echo "Updating Reply urls"
+	Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls $ReplyUrls
+	echo "updated"
+	}
+	if($IdentifierUrls.Length)
+	{
+	echo "Updating Identifier urls"
+	$applications = Get-AzureADApplication -SearchString $servicePrincipal.AppDisplayName 
+	echo "Found Applications =" $applications.Length
+	$i = 0;
+	do
+	{  
+	$application = $applications[$i];
+	if($application.AppId -eq $servicePrincipal.AppId){
+	Set-AzureADApplication -ObjectId $application.ObjectId -IdentifierUris $IdentifierUrls
+	$servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
+	echo "Updated"
+	return;
+	}
+	$i++;
+	}while($i -lt $applications.Length);
+	echo "Not able to find the matched application with this service principal"
+	}
+	```
+
+8. After successfull completion of PowerShell script, the result of the script will be like this as shown below and the URL values get updated but they won't get reflected in Azure portal. 
+
+	![Configure Single Sign-On script](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_powershell.png)
+
+
+9. On the **Sansan Configuration** section, click **Configure Sansan** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_configure.png) 
 
-7. To configure single sign-on on **Sansan** side, you need to send the downloaded **Certificate**, **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** to [Sansan support team](https://www.sansan.com/form/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+10. To configure single sign-on on **Sansan** side, you need to send the downloaded **Certificate**, **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** to [Sansan support team](https://www.sansan.com/form/contact). They set this setting to have the SAML SSO connection set properly on both sides.
 
 >[!NOTE]
->PC browser setting also work for Mobile app and Mobile browser along with PC web.  
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+>PC browser setting also work for Mobile app and Mobile browser along with PC web. 
 
 ### Creating an Azure AD test user
+
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
 ![Create Azure AD User][100]
@@ -179,7 +230,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Sansan test user
 
-In this section, you create a user called Britta Simon in SanSan. SanSan application needs the user to be provisioned in the application before doing SSO. 
+In this section, you create a user called Britta Simon in Sansan. Sansan application needs the user to be provisioned in the application before doing SSO. 
 
 >[!NOTE]
 >If you need to create a user manually or batch of users, you need to contact the [Sansan support team](https://www.sansan.com/form/contact). 
@@ -224,7 +275,7 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

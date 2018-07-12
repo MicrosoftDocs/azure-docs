@@ -48,7 +48,7 @@ Any utterances LUIS is unsure of are listed in the **[Review endpoint utterances
 Remember to [train](luis-how-to-train.md) LUIS after you make changes to the model. Changes to the LUIS app are not seen in testing until the app is trained. 
 
 ## Best practices
-See [Entity best practices](luis-concept-best-practices.md#entities) to learn more.
+Learn [best practices](luis-concept-best-practices.md).
 
 ## Next steps
 

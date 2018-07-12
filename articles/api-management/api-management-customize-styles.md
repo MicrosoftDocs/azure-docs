@@ -3,7 +3,7 @@ title: Customize the page style on the Azure API Management developer portal | M
 description: Follow the steps of this quickstart to customize the styling of elements on the Azure API Management developer portal.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

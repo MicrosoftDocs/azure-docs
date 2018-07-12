@@ -1,23 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Azure IoT Edge module composition | Microsoft Docs 
 description: Learn what goes into Azure IoT Edge modules and how they can be reused
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
-
 ms.author: kgremban
 ms.date: 03/23/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+services: iot-edge
 ---
 
 # Understand how IoT Edge modules can be used, configured, and reused - preview
@@ -173,7 +163,7 @@ The deployment manifest can specify desired properties for the module twin of ea
 
 If you do not specify a module twin's desired properties in the deployment manifest, IoT Hub will not modify the module twin in any way, and you will be able to set the desired properties programmatically.
 
-The same mechanisms that allow you to modify device twins are used to modify module twins. Refer to the [device twin developer guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) for further information.   
+The same mechanisms that allow you to modify device twins are used to modify module twins. Refer to the [device twin developer guide](../iot-hub/iot-hub-devguide-device-twins.md) for further information.   
 
 ## Deployment manifest example
 

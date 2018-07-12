@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -75,6 +75,9 @@ Add the following Ubuntu Server image to the Marketplace:
     - **SKU**: 16.04-LTS
     - **Version**: 16.04.201802220
 
+    > [!Note]  
+    > More than one version of Ubuntu Server 16.04 LTS may be listed. You will need to add the version that matches. The Kubernetes Cluster requires the exact version of the item.
+
 6. Select **Download.**
 
 ## Add a custom script for Linux
@@ -93,6 +96,9 @@ Add the Kubernetes Cluster from the Marketplace:
     - **Offer**: Custom Script for Linux 2.0
     - **Version**: 2.0.3
     - **Publisher**: Microsoft Corp
+
+    > [!Note]  
+    > More than one version of Custom Script for Linux may be listed. You will need to add the version that matches. The Kubernetes Cluster requires the exact version of the item.
 
 6. Select **Download.**
 
@@ -136,6 +142,8 @@ To remove the Kubernetes Cluster item:
 
 ## Next steps
 
-[Deploy a Kubernetes Cluster to Azure Stack](/user/azure-stack-solution-template-kubernetes-deploy.md)
+[Deploy a Kubernetes Cluster to Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+
+
 
 [Overview of offering services in Azure Stack](azure-stack-offer-services-overview.md)

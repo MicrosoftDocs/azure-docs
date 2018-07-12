@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 06/05/2018
 ms.author: sethm
 
 ---
 # Best Practices for performance improvements using Service Bus Messaging
 
-This article describes how to use [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) to optimize performance when exchanging brokered messages. The first part of this article describes the different mechanisms that are offered to help increase performance. The second part provides guidance on how to use Service Bus in a way that can offer the best performance in a given scenario.
+This article describes how to use Azure Service Bus to optimize performance when exchanging brokered messages. The first part of this article describes the different mechanisms that are offered to help increase performance. The second part provides guidance on how to use Service Bus in a way that can offer the best performance in a given scenario.
 
 Throughout this topic, the term "client" refers to any entity that accesses Service Bus. A client can take the role of a sender or a receiver. The term "sender" is used for a Service Bus queue or topic client that sends messages to a Service Bus queue or topic subscription. The term "receiver" refers to a Service Bus queue or subscription client that receives messages from a Service Bus queue or subscription.
 
@@ -37,13 +37,13 @@ AMQP and SBMP are more efficient, because they maintain the connection to Servic
 
 ## Reusing factories and clients
 
-Service Bus client objects, such as [QueueClient][QueueClient] or [MessageSender][MessageSender], are created through a [MessagingFactory][MessagingFactory] object, which also provides internal management of connections. You should not close messaging factories or queue, topic, and subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service, and a new connection is established when recreating the factory. Establishing a connection is an expensive operation that you can avoid by re-using the same factory and client objects for multiple operations. You can safely use the [QueueClient][QueueClient] object for sending messages from concurrent asynchronous operations and multiple threads. 
+Service Bus client objects, such as [QueueClient][QueueClient] or [MessageSender][MessageSender], are created through a [MessagingFactory][MessagingFactory] object, which also provides internal management of connections. It is recommended that you do not close messaging factories or queue, topic, and subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service, and a new connection is established when recreating the factory. Establishing a connection is an expensive operation that you can avoid by reusing the same factory and client objects for multiple operations. You can safely use the [QueueClient][QueueClient] object for sending messages from concurrent asynchronous operations and multiple threads. 
 
 ## Concurrent operations
 
-Performing an operation (send, receive, delete, etc.) takes some time. This time includes the processing of the operation by the Service Bus service in addition to the latency of the request and the reply. To increase the number of operations per time, operations must execute concurrently. You can do this in several different ways:
+Performing an operation (send, receive, delete, etc.) takes some time. This time includes the processing of the operation by the Service Bus service in addition to the latency of the request and the reply. To increase the number of operations per time, operations must execute concurrently. You can achieve this concurrence in several different ways:
 
-* **Asynchronous operations**: the client schedules operations by performing asynchronous operations. The next request is started before the previous request is completed. The following is an example of an asynchronous send operation:
+* **Asynchronous operations**: the client schedules operations by performing asynchronous operations. The next request is started before the previous request is completed. The following code snippet is an example of an asynchronous send operation:
   
  ```csharp
   BrokeredMessage m1 = new BrokeredMessage(body);
@@ -61,7 +61,7 @@ Performing an operation (send, receive, delete, etc.) takes some time. This time
   Console.WriteLine("All messages sent");
   ```
   
-  This is an example of an asynchronous receive operation:
+  The following code is an example of an asynchronous receive operation:
   
   ```csharp
   Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
@@ -79,13 +79,13 @@ Performing an operation (send, receive, delete, etc.) takes some time. This time
   }
   ```
 
-* **Multiple factories**: all clients (senders in addition to receivers) that are created by the same factory share one TCP connection. The maximum message throughput is limited by the number of operations that can go through this TCP connection. The throughput that can be obtained with a single factory varies greatly with TCP round-trip times and message size. To obtain higher throughput rates, you should use multiple messaging factories.
+* **Multiple factories**: all clients (senders in addition to receivers) that are created by the same factories share one TCP connection. The maximum message throughput is limited by the number of operations that can go through this TCP connection. The throughput that can be obtained with a single factory varies greatly with TCP round-trip times and message size. To obtain higher throughput rates, use multiple messaging factories.
 
 ## Receive mode
 
 When creating a queue or subscription client, you can specify a receive mode: *Peek-lock* or *Receive and Delete*. The default receive mode is [PeekLock][PeekLock]. When operating in this mode, the client sends a request to receive a message from Service Bus. After the client has received the message, it sends a request to complete the message.
 
-When setting the receive mode to [ReceiveAndDelete][ReceiveAndDelete], both steps are combined in a single request. This reduces the overall number of operations, and can improve the overall message throughput. This performance gain comes at the risk of losing messages.
+When setting the receive mode to [ReceiveAndDelete][ReceiveAndDelete], both steps are combined in a single request. These steps reduce the overall number of operations, and can improve the overall message throughput. This performance gain comes at the risk of losing messages.
 
 Service Bus does not support transactions for receive-and-delete operations. In addition, peek-lock semantics are required for any scenarios in which the client wants to defer or [dead-letter](service-bus-dead-letter-queues.md) a message.
 
@@ -93,7 +93,7 @@ Service Bus does not support transactions for receive-and-delete operations. In 
 
 Client-side batching enables a queue or topic client to delay the sending of a message for a certain period of time. If the client sends additional messages during this time period, it transmits the messages in a single batch. Client-side batching also causes a queue or subscription client to batch multiple **Complete** requests into a single request. Batching is only available for asynchronous **Send** and **Complete** operations. Synchronous operations are immediately sent to the Service Bus service. Batching does not occur for peek or receive operations, nor does batching occur across clients.
 
-By default, a client uses a batch interval of 20ms. You can change the batch interval by setting the [BatchFlushInterval][BatchFlushInterval] property before creating the messaging factory. This setting affects all clients that are created by this factory.
+By default, a client uses a batch interval of 20 ms. You can change the batch interval by setting the [BatchFlushInterval][BatchFlushInterval] property before creating the messaging factory. This setting affects all clients that are created by this factory.
 
 To disable batching, set the [BatchFlushInterval][BatchFlushInterval] property to **TimeSpan.Zero**. For example:
 
@@ -108,7 +108,7 @@ Batching does not affect the number of billable messaging operations, and is ava
 
 ## Batching store access
 
-To increase the throughput of a queue, topic, or subscription, Service Bus batches multiple messages when it writes to its internal store. If enabled on a queue or topic, writing messages into the store will be batched. If enabled on a queue or subscription, deleting messages from the store will be batched. If batched store access is enabled for an entity, Service Bus delays a store write operation regarding that entity by up to 20ms. 
+To increase the throughput of a queue, topic, or subscription, Service Bus batches multiple messages when it writes to its internal store. If enabled on a queue or topic, writing messages into the store will be batched. If enabled on a queue or subscription, deleting messages from the store will be batched. If batched store access is enabled for an entity, Service Bus delays a store write operation regarding that entity by up to 20 ms. 
 
 > [!NOTE]
 > There is no risk of losing messages with batching, even if there is a Service Bus failure at the end of a 20ms batching interval. 
@@ -129,9 +129,9 @@ Batched store access does not affect the number of billable messaging operations
 
 [Prefetching](service-bus-prefetch.md) enables the queue or subscription client to load additional messages from the service when it performs a receive operation. The client stores these messages in a local cache. The size of the cache is determined by the [QueueClient.PrefetchCount][QueueClient.PrefetchCount] or [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] properties. Each client that enables prefetching maintains its own cache. A cache is not shared across clients. If the client initiates a receive operation and its cache is empty, the service transmits a batch of messages. The size of the batch equals the size of the cache or 256 KB, whichever is smaller. If the client initiates a receive operation and the cache contains a message, the message is taken from the cache.
 
-When a message is prefetched, the service locks the prefetched message. By doing this, the prefetched message cannot be received by a different receiver. If the receiver cannot complete the message before the lock expires, the message becomes available to other receivers. The prefetched copy of the message remains in the cache. The receiver that consumes the expired cached copy will receive an exception when it tries to complete that message. By default, the message lock expires after 60 seconds. This value can be extended to 5 minutes. To prevent the consumption of expired messages, the cache size should always be smaller than the number of messages that can be consumed by a client within the lock time-out interval.
+When a message is prefetched, the service locks the prefetched message. With the lock, the prefetched message cannot be received by a different receiver. If the receiver cannot complete the message before the lock expires, the message becomes available to other receivers. The prefetched copy of the message remains in the cache. The receiver that consumes the expired cached copy will receive an exception when it tries to complete that message. By default, the message lock expires after 60 seconds. This value can be extended to 5 minutes. To prevent the consumption of expired messages, the cache size should always be smaller than the number of messages that can be consumed by a client within the lock time-out interval.
 
-When using the default lock expiration of 60 seconds, a good value for [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates 3 receivers, and each receiver can process up to 10 messages per second. The prefetch count should not exceed 20 X 3 X 10 = 600. By default, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] is set to 0, which means that no additional messages are fetched from the service.
+When using the default lock expiration of 60 seconds, a good value for [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates three receivers, and each receiver can process up to 10 messages per second. The prefetch count should not exceed 20 X 3 X 10 = 600. By default, [QueueClient.PrefetchCount][QueueClient.PrefetchCount] is set to 0, which means that no additional messages are fetched from the service.
 
 Prefetching messages increases the overall throughput for a queue or subscription because it reduces the overall number of message operations, or round trips. Fetching the first message, however, will take longer (due to the increased message size). Receiving prefetched messages will be faster because these messages have already been downloaded by the client.
 
@@ -158,6 +158,9 @@ If a message containing critical information that must not be lost is sent to an
 
 Internally, Service Bus uses the same node and messaging store to process and store all messages for a messaging entity (queue or topic). A [partitioned queue or topic](service-bus-partitioning.md), on the other hand, is distributed across multiple nodes and messaging stores. Partitioned queues and topics not only yield a higher throughput than regular queues and topics, they also exhibit superior availability. To create a partitioned entity, set the [EnablePartitioning][EnablePartitioning] property to **true**, as shown in the following example. For more information about partitioned entities, see [Partitioned messaging entities][Partitioned messaging entities].
 
+> [!NOTE]
+> Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
+
 ```csharp
 // Create partitioned queue.
 QueueDescription qd = new QueueDescription(QueueName);
@@ -171,7 +174,7 @@ If it is not possible to use a partitioned queue or topic, or the expected load 
 
 ## Development and testing features
 
-Service Bus has one feature that is used specifically for development which **should never be used in production configurations**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
+Service Bus has one feature, used specifically for development, which **should never be used in production configurations**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
 When new rules or filters are added to the topic, you can use [TopicDescription.EnableFilteringMessagesBeforePublishing][] to verify that the new filter expression is working as expected.
 
@@ -183,13 +186,13 @@ The following sections describe typical messaging scenarios and outline the pref
 
 Goal: Maximize the throughput of a single queue. The number of senders and receivers is small.
 
-* Use a partitioned queue for improved performance and availability.
 * To increase the overall send rate into the queue, use multiple message factories to create senders. For each sender, use asynchronous operations or multiple threads.
 * To increase the overall receive rate from the queue, use multiple message factories to create receivers.
 * Use asynchronous operations to take advantage of client-side batching.
-* Set the batching interval to 50ms to reduce the number of Service Bus client protocol transmissions. If multiple senders are used, increase the batching interval to 100ms.
-* Leave batched store access enabled. This increases the overall rate at which messages can be written into the queue.
-* Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This reduces the number of Service Bus client protocol transmissions.
+* Set the batching interval to 50 ms to reduce the number of Service Bus client protocol transmissions. If multiple senders are used, increase the batching interval to 100 ms.
+* Leave batched store access enabled. This access increases the overall rate at which messages can be written into the queue.
+* Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
+* Use a partitioned queue for improved performance and availability.
 
 ### Multiple high-throughput queues
 
@@ -201,40 +204,40 @@ To obtain maximum throughput across multiple queues, use the settings outlined t
 
 Goal: Minimize end-to-end latency of a queue or topic. The number of senders and receivers is small. The throughput of the queue is small or moderate.
 
-* Use a partitioned queue for improved availability.
 * Disable client-side batching. The client immediately sends a message.
 * Disable batched store access. The service immediately writes the message to the store.
 * If using a single client, set the prefetch count to 20 times the processing rate of the receiver. If multiple messages arrive at the queue at the same time, the Service Bus client protocol transmits them all at the same time. When the client receives the next message, that message is already in the local cache. The cache should be small.
-* If using multiple clients, set the prefetch count to 0. By doing this, the second client can receive the second message while the first client is still processing the first message.
+* If using multiple clients, set the prefetch count to 0. By setting the count, the second client can receive the second message while the first client is still processing the first message.
+* Use a partitioned queue for improved performance and availability.
 
 ### Queue with a large number of senders
 
 Goal: Maximize throughput of a queue or topic with a large number of senders. Each sender sends messages with a moderate rate. The number of receivers is small.
 
-Service Bus enables up to 1000 concurrent connections to a messaging entity (or 5000 using AMQP). This limit is enforced at the namespace level, and queues/topics/subscriptions are capped by the limit of concurrent connections per namespace. For queues, this number is shared between senders and receivers. If all 1000 connections are required for senders, you should replace the queue with a topic and a single subscription. A topic accepts up to 1000 concurrent connections from senders, whereas the subscription accepts an additional 1000 concurrent connections from receivers. If more than 1000 concurrent senders are required, the senders should send messages to the Service Bus protocol via HTTP.
+Service Bus enables up to 1000 concurrent connections to a messaging entity (or 5000 using AMQP). This limit is enforced at the namespace level, and queues/topics/subscriptions are capped by the limit of concurrent connections per namespace. For queues, this number is shared between senders and receivers. If all 1000 connections are required for senders, replace the queue with a topic and a single subscription. A topic accepts up to 1000 concurrent connections from senders, whereas the subscription accepts an additional 1000 concurrent connections from receivers. If more than 1000 concurrent senders are required, the senders should send messages to the Service Bus protocol via HTTP.
 
-To maximize throughput, do the following:
+To maximize throughput, perform the following steps:
 
-* Use a partitioned queue for improved performance and availability.
 * If each sender resides in a different process, use only a single factory per process.
 * Use asynchronous operations to take advantage of client-side batching.
-* Use the default batching interval of 20ms to reduce the number of Service Bus client protocol transmissions.
-* Leave batched store access enabled. This increases the overall rate at which messages can be written into the queue or topic.
-* Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This reduces the number of Service Bus client protocol transmissions.
+* Use the default batching interval of 20 ms to reduce the number of Service Bus client protocol transmissions.
+* Leave batched store access enabled. This access increases the overall rate at which messages can be written into the queue or topic.
+* Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
+* Use a partitioned queue for improved performance and availability.
 
 ### Queue with a large number of receivers
 
 Goal: Maximize the receive rate of a queue or subscription with a large number of receivers. Each receiver receives messages at a moderate rate. The number of senders is small.
 
-Service Bus enables up to 1000 concurrent connections to an entity. If a queue requires more than 1000 receivers, you should replace the queue with a topic and multiple subscriptions. Each subscription can support up to 1000 concurrent connections. Alternatively, receivers can access the queue via the HTTP protocol.
+Service Bus enables up to 1000 concurrent connections to an entity. If a queue requires more than 1000 receivers, replace the queue with a topic and multiple subscriptions. Each subscription can support up to 1000 concurrent connections. Alternatively, receivers can access the queue via the HTTP protocol.
 
 To maximize throughput, do the following:
 
-* Use a partitioned queue for improved performance and availability.
 * If each receiver resides in a different process, use only a single factory per process.
 * Receivers can use synchronous or asynchronous operations. Given the moderate receive rate of an individual receiver, client-side batching of a Complete request does not affect receiver throughput.
-* Leave batched store access enabled. This reduces the overall load of the entity. It also reduces the overall rate at which messages can be written into the queue or topic.
-* Set the prefetch count to a small value (for example, PrefetchCount = 10). This prevents receivers from being idle while other receivers have large numbers of messages cached.
+* Leave batched store access enabled. This access reduces the overall load of the entity. It also reduces the overall rate at which messages can be written into the queue or topic.
+* Set the prefetch count to a small value (for example, PrefetchCount = 10). This count prevents receivers from being idle while other receivers have large numbers of messages cached.
+* Use a partitioned queue for improved performance and availability.
 
 ### Topic with a small number of subscriptions
 
@@ -242,27 +245,27 @@ Goal: Maximize the throughput of a topic with a small number of subscriptions. A
 
 To maximize throughput, do the following:
 
-* Use a partitioned topic for improved performance and availability.
 * To increase the overall send rate into the topic, use multiple message factories to create senders. For each sender, use asynchronous operations or multiple threads.
 * To increase the overall receive rate from a subscription, use multiple message factories to create receivers. For each receiver, use asynchronous operations or multiple threads.
 * Use asynchronous operations to take advantage of client-side batching.
-* Use the default batching interval of 20ms to reduce the number of Service Bus client protocol transmissions.
-* Leave batched store access enabled. This increases the overall rate at which messages can be written into the topic.
-* Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This reduces the number of Service Bus client protocol transmissions.
+* Use the default batching interval of 20 ms to reduce the number of Service Bus client protocol transmissions.
+* Leave batched store access enabled. This access increases the overall rate at which messages can be written into the topic.
+* Set the prefetch count to 20 times the maximum processing rates of all receivers of a factory. This count reduces the number of Service Bus client protocol transmissions.
+* Use a partitioned topic for improved performance and availability.
 
 ### Topic with a large number of subscriptions
 
 Goal: Maximize the throughput of a topic with a large number of subscriptions. A message is received by many subscriptions, which means the combined receive rate over all subscriptions is much larger than the send rate. The number of senders is small. The number of receivers per subscription is small.
 
-Topics with a large number of subscriptions typically expose a low overall throughput if all messages are routed to all subscriptions. This is caused by the fact that each message is received many times, and all messages that are contained in a topic and all its subscriptions are stored in the same store. It is assumed that the number of senders and number of receivers per subscription is small. Service Bus supports up to 2,000 subscriptions per topic.
+Topics with a large number of subscriptions typically expose a low overall throughput if all messages are routed to all subscriptions. This low throughput is caused by the fact that each message is received many times, and all messages that are contained in a topic and all its subscriptions are stored in the same store. It is assumed that the number of senders and number of receivers per subscription is small. Service Bus supports up to 2,000 subscriptions per topic.
 
-To maximize throughput, do the following:
+To maximize throughput, try the following steps:
 
-* Use a partitioned topic for improved performance and availability.
 * Use asynchronous operations to take advantage of client-side batching.
-* Use the default batching interval of 20ms to reduce the number of Service Bus client protocol transmissions.
-* Leave batched store access enabled. This increases the overall rate at which messages can be written into the topic.
-* Set the prefetch count to 20 times the expected receive rate in seconds. This reduces the number of Service Bus client protocol transmissions.
+* Use the default batching interval of 20 ms to reduce the number of Service Bus client protocol transmissions.
+* Leave batched store access enabled. This access increases the overall rate at which messages can be written into the topic.
+* Set the prefetch count to 20 times the expected receive rate in seconds. This count reduces the number of Service Bus client protocol transmissions.
+* Use a partitioned topic for improved performance and availability.
 
 ## Next steps
 

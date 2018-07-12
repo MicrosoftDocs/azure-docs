@@ -11,7 +11,7 @@
 ---
 
 
-Here are the usage constraints for the Azure Maps service. For information about the cost, see [Azure Maps pricing details](https://azure.microsoft.com/pricing/details/azure-maps/).
+Here are the usage constraints for the Azure Maps service. For information about the cost, see [Azure Maps pricing details](https://azure.microsoft.com/pricing/details/azure-maps/). [Contact us](https://azure.microsoft.com/overview/sales-number/) to increase maximum request rate for your subscription.
 
 | Resource                              | Limit |
 |---------------------------------------|:-----:|

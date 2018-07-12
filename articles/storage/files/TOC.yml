@@ -16,7 +16,7 @@
     href: storage-how-to-use-files-windows.md
   - name: Mount on Linux
     href: storage-how-to-use-files-linux.md
-  - name: Mount on Mac
+  - name: Mount on macOS
     href: storage-how-to-use-files-mac.md
   - name: Manage with the Azure portal
     href: storage-how-to-use-files-portal.md
@@ -159,13 +159,13 @@
     - name: Resource Manager
       href: https://docs.microsoft.com/java/api/overview/azure/storage/managementapi
   - name: Node.js
-    href: http://azure.github.io/azure-storage-node
+    href: https://docs.microsoft.com/javascript/api/overview/azure/storage
   - name: Ruby
     href: http://azure.github.io/azure-storage-ruby
   - name: PHP
     href: http://azure.github.io/azure-storage-php/
   - name: Python
-    href: https://azure-storage.readthedocs.io/en/latest/index.html
+    href: https://docs.microsoft.com/python/api/overview/azure/storage
   - name: C++
     href: http://azure.github.io/azure-storage-cpp
   - name: iOS

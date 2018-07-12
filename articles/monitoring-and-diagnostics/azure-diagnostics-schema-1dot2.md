@@ -1,21 +1,14 @@
 ---
-title: Azure Diagnostics 1.2 Configuration Schema | Microsoft Docs
+title: Azure Diagnostics extension 1.2 Configuration Schema
 description: ONLY relevant if you are using Azure SDK 2.5 with Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric, or Cloud Services.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-
-ms.assetid:
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-
+ms.component: diagnostic-extension
 ---
 # Azure Diagnostics 1.2 configuration schema
 > [!NOTE]

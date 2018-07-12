@@ -55,4 +55,5 @@ To create a firewall rule:
 
 ## Next steps
 
-* [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md)
+> [!div class="nextstepaction"]
+> [Database views in Azure Blockchain Workbench](blockchain-workbench-database-views.md)

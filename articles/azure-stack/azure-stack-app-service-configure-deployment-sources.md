@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: anwestg
 
@@ -49,8 +49,7 @@ You must have a GitHub account to complete this task. You might want to use an a
 2. Enter an **Application name** for example - App Service on Azure Stack.
 3. Enter the **Homepage URL**. The Homepage URL must be the Azure Stack Portal address. For example, https://portal.local.azurestack.external.
 4. Enter an **Application Description**.
-5. Enter the **Authorization callback URL**.  In a default Azure Stack deployment, the Url is in the form https://portal.local.azurestack.external/tokenauthorize, if you are running under a different domain substitute your domain for local.azurestack.external
-    ![GitHub - Register a new application with values populated][4]
+5. Enter the **Authorization callback URL**.  In a default Azure Stack deployment, the Url is in the form https://portal.local.azurestack.external/TokenAuthorize, if you are running under a different domain substitute your domain for local.azurestack.external
 6. Click **Register application**.  You will now be presented with a page listing the **Client ID** and **Client Secret** for the application.
     ![GitHub - Completed application registration][5]
 7.  In a new browser tab or window Log in to the Azure Stack Admin Portal (https://adminportal.local.azurestack.external) as the service administrator.
@@ -98,7 +97,7 @@ You must have a Microsoft Account linked to a OneDrive account to complete this 
 ![OneDrive Application Properties][11]
 5. Under **Application Secrets**, click **Generate New Password**. Make a note of **New password generated**. This is your application secret and is not retrievable after you click **OK** at this stage.
 6. Under **Platforms** click **Add Platform** and select **Web**.
-7. Enter the **Redirect URI**.  In a default Azure Stack deployment, the Redirect URI is in the form https://portal.local.azurestack.external/tokenauthorize, if you are running under a different domain substitute your domain for azurestack.local
+7. Enter the **Redirect URI**.  In a default Azure Stack deployment, the Redirect URI is in the form https://portal.local.azurestack.external/TokenAuthorize, if you are running under a different domain substitute your domain for azurestack.local
 ![OneDrive Application - Add Web Platform][12]
 8. Add the **Microsoft Graph Permissions** - **Delegated Permissions**
     - **Files.ReadWrite.AppFolder**
@@ -127,7 +126,7 @@ You must have a Microsoft Account linked to a OneDrive account to complete this 
 ![Dropbox application registration][15]
 6. Click **Create App**.  You will now be presented with a page listing the settings for the App including **App key** and **App secret**.
 7. Check the **App folder name** is set to **App Service on Azure Stack**.
-8. Set the **OAuth 2 Redirect URI** and click **Add**.  In a default Azure Stack deployment, the Redirect URI is in the form https://portal.local.azurestack.external/tokenauthorize, if you are running under a different domain substitute your domain for azurestack.local.
+8. Set the **OAuth 2 Redirect URI** and click **Add**.  In a default Azure Stack deployment, the Redirect URI is in the form https://portal.local.azurestack.external/TokenAuthorize, if you are running under a different domain substitute your domain for azurestack.local.
 ![Dropbox application configuration][16]
 9.  In a new browser tab or window Log in to the Azure Stack Admin Portal (https://adminportal.local.azurestack.external) as the service administrator.
 10.  Browse to **Resource Providers** and select the **App Service Resource Provider Admin**.

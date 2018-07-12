@@ -4,13 +4,7 @@
   items:
     - name: What is Bing Image Search?
       href: overview.md
-    - name: Image Search endpoints      
-      href: image-search-endpoint.md
-    - name: Supported countries and markets
-      href: supported-countries-markets.md
-    - name: Analytics for Images Search API
-      href: bing-image-stats.md
-- name: API Quickstarts
+- name: REST API Quickstarts
   expanded: true
   items:
   - name: C#
@@ -25,6 +19,18 @@
     href: quickstarts/python.md
   - name: Ruby
     href: quickstarts/ruby.md
+- name: SDK Quickstarts
+  items:
+  - name: SDK samples overview 
+    href: sdk.md
+  - name: Image search SDK C# quickstart
+    href: image-search-sdk-quickstart.md
+  - name: Image search SDK Node.js quickstart
+    href: image-search-sdk-node-quickstart.md
+  - name: Image Search SDK Python quickstart
+    href: image-sdk-python-quickstart.md
+  - name: Image Search SDK Java quickstart
+    href: image-sdk-java-quickstart.md
 - name: Tutorials
   items:
   - name: Single-page web app
@@ -35,6 +41,10 @@
     href: tutorial-image-post.md
   - name: Bing image upload for insights (source code)
     href: tutorial-image-post-source.md
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search
 - name: How-to guides
   items:
   - name: Use and display results
@@ -55,18 +65,6 @@
   items:
   - name: Bing Image Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
-  - name: Bing Search SDK
-    items:
-    - name: SDK samples overview 
-      href: sdk.md
-    - name: Image search SDK C# quickstart
-      href: image-search-sdk-quickstart.md
-    - name: Image search SDK Node.js quickstart (preview)
-      href: image-search-sdk-node-quickstart.md
-    - name: Image Search SDK Python quickstart (preview)
-      href: image-sdk-python-quickstart.md
-    - name: Image Search SDK Java quickstart (preview)
-      href: image-sdk-java-quickstart.md
   - name: Bing Image Search API v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
 - name: Resources
@@ -89,7 +87,9 @@
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
-  - name: Image Search endpoints      
+  - name: Bing Image Search endpoints      
     href: image-search-endpoint.md
   - name: Supported countries and markets
     href: supported-countries-markets.md
+  - name: Analytics for Bing Image Search API
+    href: bing-image-stats.md

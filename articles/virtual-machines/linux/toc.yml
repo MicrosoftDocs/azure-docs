@@ -51,6 +51,8 @@
     href: tutorial-mean-stack.md
   - name: 16 - Secure web server with SSL
     href: tutorial-secure-web-server.md
+  - name: Deploy a Packer image and apps to a scale set
+    href: https://docs.microsoft.com/learn/deploy-custom-vmss-app/index
 - name: Samples
   items:
   - name: Azure CLI
@@ -86,7 +88,9 @@
       - name: Setup GPU drivers
         href: n-series-driver-setup.md      
     - name: High performance compute
-      href: sizes-hpc.md    
+      href: sizes-hpc.md   
+    - name: Previous generations
+      href: sizes-previous-gen.md       
     - name: Azure compute units (ACU)
       href: acu.md 
     - name: Benchmark scores
@@ -109,15 +113,7 @@
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: How to enable write accelerator
-      href: how-to-enable-write-accelerator.md
-    - name: Troubleshoot attached VHDs
-      items:
-      - name: Storage resource deletion errors
-        href: storage-resource-deletion-errors.md  
-      - name: Unexpected reboots of VMs with attached VHDs  
-        href: unexpected-reboots-attached-vhds.md            
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md 
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications
@@ -146,6 +142,8 @@
       href: create-cli-complete.md
     - name: Use a template
       href: create-ssh-secured-vm-from-template.md
+    - name: Use REST API
+      href: create-vm-rest-api.md
     - name: Copy or clone a VM
       href: copy-vm.md
   - name: Secure VMs
@@ -194,7 +192,12 @@
     - name: Tag a VM
       href: tag.md
     - name: Run scripts on a VM
-      href: extensions-customscript.md
+      href: run-scripts-in-vm.md
+      items:
+        - name: Custom Script Extension
+          href: ../extensions/custom-script-linux.md
+        - name: Run Command
+          href: run-command.md
     - name: Use Remote Desktop
       href: use-remote-desktop.md
     - name: Join VM to Azure Active Directory
@@ -208,7 +211,7 @@
     - name: Azure VM agent
       items:
       - name: Overview
-        href: agent-user-guide.md
+        href: ../extensions/agent-linux.md
       - name: Agent update
         href: update-agent.md
     - name: Planned maintenance
@@ -219,6 +222,8 @@
       href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
+    - name: Get usage metrics with REST
+      href: metrics-vm-usage-rest.md
   - name: Use Images
     items:
     - name: Find and use images
@@ -391,6 +396,8 @@
       href: mount-azure-file-storage-on-linux-using-smb.md
     - name: Deploy disks with template
       href: using-managed-disks-template-deployments.md
+    - name: Enable write accelerator
+      href: how-to-enable-write-accelerator.md
     - name: Optimize performance
       href: optimization.md
       items:
@@ -420,21 +427,7 @@
       - name: Use internal DNS
         href: static-dns-name-resolution-for-linux-on-azure.md
   - name: Use VM extensions
-    items:
-    - name: VM Extension overview
-      href: extensions-features.md
-    - name: Custom Script Extension
-      href: extensions-customscript.md
-    - name: OMS Agent Extension
-      href: extensions-oms.md
-    - name: Linux Diagnostic Extension
-      href: diagnostic-extension.md
-    - name: Network Watcher Agent
-      href: extensions-nwa.md
-    - name: VMAccess Extension
-      href: using-vmaccess-extension.md
-    - name: Restrict extension installation
-      href: extensions-rmpolicy-howto-cli.md   
+    href: ../extensions/overview.md
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs
@@ -498,6 +491,12 @@
         href: troubleshoot-recovery-disks.md
       - name: Azure portal
         href: troubleshoot-recovery-disks-portal.md
+    - name: Attached VHDs
+      items:
+      - name: Storage resource deletion errors
+        href: storage-resource-deletion-errors.md  
+      - name: Unexpected reboots of VMs with attached VHDs  
+        href: unexpected-reboots-attached-vhds.md
 - name: Reference
   items:
   - name: Azure CLI

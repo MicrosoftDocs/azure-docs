@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using API version profiles with GO in Azure Stack | Microsoft Docs
 description: Learn about using API version profiles with GO in Azure Stack.
 services: azure-stack
@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 
@@ -59,7 +59,8 @@ The GO SDK depends on the Azure Go-AutoRest modules to send REST requests to Azu
 To run a sample of Go code on Azure Stack:
   1. Install Azure SDK for Go and its dependencies. For instruction see the previous section, [Install Azure SDK for Go](#install-azure-sdk-for-go).
   2. Get the metadata information from the Resource Manager endpoint. The endpoint returns a JSON file with the information required to run your Go code.
-  > [!note]  
+
+  > [!Note]  
   > The **ResourceManagerUrl** in the Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`  
   > The **ResourceManagerUrl** in integrated systems is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > To retrieve the metadata required: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -174,7 +175,8 @@ This section presents a common way to get authorizer tokens on Azure Stack by us
 ## Example
 
 This section shows a sample of Go code to create virtual network on Azure Stack. For complete examples of Go SDK see [Azure Go SDk samples repository](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure Stack samples are available under hybrid/ path inside service folders of the repository.
-> [!note]  
+
+> [!Note]  
 > To run the code in this example, verify that the subscription used has **Network** resource provider listed as **Registered**. To verify it, look for the Subscription in the Azure Stack portal, and click on **Resource providers.**
 
 1. Import required packages in your code. You should use the latest available profile on Azure Stack to import the network module. 
@@ -192,7 +194,7 @@ This section shows a sample of Go code to create virtual network on Azure Stack.
   )
   ````
 
-2. Define your environment variables. Note that to create a virtual network you need to have a resource group. 
+2. Define your environment variables. To create a virtual network you need to have a resource group. 
 
   ````go
   var (

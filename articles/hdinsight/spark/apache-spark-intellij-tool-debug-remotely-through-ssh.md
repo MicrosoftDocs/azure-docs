@@ -13,7 +13,7 @@ ms.assetid:
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
 
