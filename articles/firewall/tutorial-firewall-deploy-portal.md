@@ -117,7 +117,7 @@ Now create the jump and workload virtual machines, and place them in the appropr
 
 **Size**
 
-1. Choose an appropriate size for a test virtual machine running Windows Server. For example, **B2ms** (16 GB RAM, 32 GB storage).
+1. Choose an appropriate size for a test virtual machine running Windows Server. For example, **B2ms** (8 GB RAM, 16 GB storage).
 2. Click **Select**.
 
 **Settings**

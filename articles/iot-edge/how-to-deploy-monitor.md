@@ -165,7 +165,7 @@ When you delete a deployment, any devices take on their next highest priority de
 
 1. Use the checkbox to select the deployment that you want to delete. 
 1. Select **Delete**.
-1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices.  This means that a deployment with a lower priority will apply.  If no other deployment is targeted, no modules will be removed. If you want to remove all modules from your device, a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue. 
+1. A prompt will inform you that this action will delete this deployment and revert to the previous state for all devices.  This means that a deployment with a lower priority will apply.  If no other deployment is targeted, no modules will be removed. If you want to remove all modules from your device, create a deployment with zero modules and deploy it to the same devices. Select **Yes** to continue. 
 
 ## Next steps
 
