@@ -5,7 +5,7 @@ services: Azure Service Fabric Mesh
 keywords:  
 author: tylermsft
 ms.author: twhitney
-ms.date: 06/13/2018
+ms.date: 07/11/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt 
@@ -85,7 +85,7 @@ Restart your computer.
 Install the Service Fabric runtime, SDK, and tools in a dependent order.
 
 1. Download the [Service Fabric Runtime][download-runtime] executable, save it and manually run it with the **/AcceptEULA** flag on the command line, for example:
-`c:\users\<user name>\downloads\MicrosoftServiceFabric.6.3.159.9494.exe /AcceptEULA`
+`c:\users\<user name>\downloads\MicrosoftServiceFabric.6.3.162.9494.exe /AcceptEULA`
 2. Install the [Service Fabric SDK][download-sdk].
 3. Install the [Service Fabric Mesh SDK][download-sdkmesh].
 4. Install the [Visual Studio Service Fabric Tools (preview)][download-tools].
@@ -120,7 +120,7 @@ az extension remove --name mesh
 Install the Azure Service Fabric Mesh CLI extension module. For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI.
 
 ```azurecli
-az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.9.0-py2.py3-none-any.whl
+az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.8.0-py2.py3-none-any.whl
 ```
 
 ## Next steps
