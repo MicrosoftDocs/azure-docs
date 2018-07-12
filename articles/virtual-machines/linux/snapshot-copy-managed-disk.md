@@ -27,7 +27,11 @@ The following steps show how to take a snapshot using the **az snapshot create**
 
 Get the disk ID using [az vm show](/cli/azure/vm#az-vm-show).
 ```azure-cli
-osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+osDiskId=$(az vm show \
+   -g myResourceGroup \
+   -n myVM \
+   --query "storageProfile.osDisk.managedDisk.id" \
+   -o tsv)
 ```
 
 Take a snapshot named *osDisk-backup* using [az snapshot create](/cli/azure/snapshot#az-snapshot-create).
@@ -45,7 +49,9 @@ az snapshot create \
 You can see a list of the snapshots using [az snapshot list](/cli/azure/snapshot#az-snapshot-list).
 
 ```azurecli-interactive
-az snapshot list -g myResourceGroup - table
+az snapshot list \
+   -g myResourceGroup \
+   - table
 ```
 
 ## Use Azure portal 
