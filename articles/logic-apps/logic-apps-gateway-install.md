@@ -22,8 +22,8 @@ you must download and install the on-premises data gateway on a local computer.
 The gateway works as a bridge that provides quick data transfer and 
 encryption between data sources on premises and your logic apps. 
 This article shows how you can download, install, 
-and set up your on-premises data gateway. 
-Or, learn more about [how the data gateway works](#gateway-cloud-service).
+and set up your on-premises data gateway. Learn more about 
+[how the data gateway works](#gateway-cloud-service).
 
 <a name="supported-connections"></a>
 
@@ -55,65 +55,76 @@ For information about how to use the gateway with other services, see these arti
 
 ## Prerequisites
 
-**Minimum local computer requirements**
+* A [work or school account](../active-directory/fundamentals/sign-up-organization.md) 
+that has an [Azure subscription](../architecture/cloud-adoption-guide/adoption-intro/subscription-explainer.md). 
+During gateway installation, you sign in to this account so you can 
+associate the gateway installation with your Azure subscription. 
+Later, you also use same account when you create an Azure resource 
+for your gateway installation in the Azure portal. 
+If you don't have an Azure subscription yet, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-* .NET 4.5 Framework
-* 64-bit version of Windows 7 or Windows Server 2008 R2 (or later)
+* Here are requirements for your local computer:
 
-**Recommended local computer requirements**
+  **Minimum requirements**
+  * .NET 4.5 Framework
+  * 64-bit version of Windows 7 or Windows Server 2008 R2 (or later)
 
-* 8 Core CPU
-* 8 GB Memory
-* 64-bit version of Windows 2012 R2 (or later)
+  **Recommended requirements**
+  * 8 Core CPU
+  * 8 GB Memory
+  * 64-bit version of Windows 2012 R2 (or later)
 
-**Important considerations**
+* **Important considerations**
 
-* Install the on-premises data gateway only on a local computer.
-You can't install the gateway on a domain controller.
+  * You can only install the on-premises data gateway on a local computer, 
+  not a domain controller. However, you don't have to install the gateway 
+  on the same computer as your data source.
 
-  > [!TIP]
-  > You don't have to install the gateway on the same computer as your data source. 
-  > To minimize latency, you can install the gateway as close as possible to your data source, 
-  > or on the same computer, assuming that you have permissions.
+    > [!TIP]
+    > To minimize latency, you can install the gateway as close 
+    > as possible to your data source, or on the same computer, 
+    > assuming that you have permissions.
 
-* Don't install the gateway on a computer that turns off, goes to sleep, 
-or doesn't connect to the Internet because the gateway can't run under those circumstances. 
-Also, gateway performance might suffer over a wireless network.
+  * Install the gateway on a computer that *doesn't* turn off, go to sleep, 
+  or connect to the Internet. The gateway can't run under these conditions. 
+  Gateway performance might also suffer over a wireless network.
 
-* During installation, you must sign in with a 
-[work or school account](https://docs.microsoft.com/azure/active-directory/sign-up-organization) 
-that's managed by Azure Active Directory (Azure AD) and not a Microsoft account.
-
-  You must later use the same work or school account in the Azure portal when 
-  you create and associate a gateway resource with your gateway installation. 
-  You can then select this gateway resource when you create the connection 
-  between your logic app and the on-premises data source. 
+  * During installation, you must sign in with a 
+  [work or school account](../active-directory/sign-up-organization.md) 
+  that's managed by Azure Active Directory (Azure AD) and not a Microsoft account.
+  You must then use the same sign-in account in the Azure portal 
+  when you create a gateway resource for your gateway installation. 
+  You can then select this gateway resource when you create the 
+  connection from your logic app to your on-premises data source. 
   [Why must I use an Azure AD work or school account?](#why-azure-work-school-account)
 
   > [!TIP]
   > If you signed up for an Office 365 offering 
-  > and didn't supply your actual work email, 
-  > your sign-in address might look like jeff@contoso.onmicrosoft.com. 
+  > and didn't provide your actual work email, 
+  > you might have a sign-in address that looks 
+  > like this example: `username@domain.onmicrosoft.com` 
   >
   > To use a Microsoft account that has a 
   > [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/), first 
-  > [create a directory (tenant) in Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) 
-  > with your Microsoft account, or use the default directory. 
+  > [create a directory (tenant) in Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md), 
+  > or use the default directory, with your Microsoft account. 
   > Add a user with a password to the directory, 
   > then give that user access to your subscription. 
   > You can then sign in during gateway installation with this username and password.
 
-* The region you select for your gateway determines and restricts the 
-location where you can later create the Azure resource for your gateway. 
-When you create your gateway resource in Azure, you have to select the 
-same location as your gateway installation. The default region is the 
-same location as your Azure AD tenant, which manages your Azure account.
+  * The region you select for your gateway determines the location 
+  where you later create the Azure resource for your gateway. 
+  When you create this resource in Azure, you must select the same location 
+  as your gateway installation. The default region is the same location 
+  as your Azure AD tenant, which manages your Azure account, 
+  but you can change the location during gateway installation.
 
-* If you have an existing gateway that you set up with an installer 
-that's earlier than version 14.16.6317.4, you can't change your 
-gateway's location by running the latest installer. However, 
-you can use the latest installer to set up a new gateway 
-with the location you want instead.
+  * If you have an existing gateway that you set up with an installer 
+  that's earlier than version 14.16.6317.4, you can't change your 
+  gateway's location by running the latest installer. However, 
+  you can use the latest installer to set up a new gateway 
+  with the location you want instead.
   
   If you have a gateway installer that's earlier than 
   version 14.16.6317.4, but you haven't installed your 
@@ -125,7 +136,7 @@ with the location you want instead.
 
 1. [Download, save, and run the gateway installer on a local computer](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
 
-2. Accept the default installation location, 
+2. Accept the default installation path, 
 or specify the location on your computer 
 where you want to install the gateway.
 
@@ -135,29 +146,30 @@ and then choose **Install**.
    ![Accept terms of use and privacy statement](./media/logic-apps-gateway-install/accept-terms.png)
 
 4. After the gateway successfully installs, 
-enter the email address associated with your 
-Azure work or school account, not a Microsoft account, 
+provide the email address for your work or school account, 
 and choose **Sign in**.
 
    ![Sign in with Azure work or school account](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-5. To register your installed gateway with the 
-[gateway cloud service](#gateway-cloud-service), 
-choose **Register a new gateway on this computer** > **Next**. 
+5. Choose **Register a new gateway on this computer** > **Next**, 
+which registers your gateway installation with the 
+[gateway cloud service](#gateway-cloud-service). 
 
-   ![Register new gateway](./media/logic-apps-gateway-install/register-new-gateway.png)
+   ![Register gateway](./media/logic-apps-gateway-install/register-new-gateway.png)
 
 6. Provide this information for your gateway installation:
 
-   * The name you want for your gateway installation 
+   * The name you want for your installation 
 
-   * Your recovery key, which you create and must 
-   contain at least eight characters
+   * The recovery key you want to create, 
+   which must have at least eight characters
 
-   * Confirmation for your recovery key. 
-   Save and keep your recovery key in a safe place. 
-   You need this key to change the gateway's location 
-   or to migrate, recover, or take over an existing gateway.
+     > [!IMPORTANT]
+     > Save and keep your recovery key in a safe place. 
+     > You need this key when you change the gateway's location, 
+     > or when you migrate, recover, or take over an existing gateway.
+
+   * Confirmation for your recovery key 
 
      ![Set up gateway](./media/logic-apps-gateway-install/set-up-gateway.png)
 
