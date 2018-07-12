@@ -63,7 +63,7 @@ VS Code takes the information you provided, creates an IoT Edge solution, then l
 Within the solution you have three items: 
 * A **.vscode** folder contains debug configurations.
 * A **modules** folder contains subfolders for each module. Right now you only have one, but you could add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**. 
-* A **.env** file lists your environment variables. If you are ACR as your registry, right now you have ACR username and password in it. 
+* A **.env** file lists your environment variables. If you are using ACR as your registry, right now you have ACR username and password in it. 
 * A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data that you can use for testing. For more information about how deployment manifests work, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
 ## Build and deploy your module for debugging

@@ -8620,6 +8620,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/mongodb-ttl.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/time-to-live",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
             "redirect_document_id": false
@@ -9731,7 +9736,12 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-data-science-create-features-blob.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/create-features-blob",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/create-features-blob.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
             "redirect_document_id": false
         },
         {
@@ -25001,6 +25011,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-hub/iot-hub-security-x509-create-certificates.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-security-x509-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/index.md",
             "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
@@ -25244,6 +25259,11 @@
             "source_path": "articles/iot-suite/iot-suite-time-series-insights.md",
             "redirect_url": "/azure/iot-accelerators/iot-accelerators-time-series-insights",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-predictive-overview.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-predictive-maintenance-deploy",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/securing-iot-ground-up.md",
@@ -26081,6 +26101,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-gateway/application-gateway-ssl-portal.md",
+            "redirect_url": "/azure/application-gateway/create-ssl-portal",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Manage-Keys.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-manage-keys",
             "redirect_document_id": true
@@ -26096,14 +26121,24 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/batch/batch-get-task-counts.md",
+            "redirect_url": "/azure/batch/batch-get-resource-counts",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Plan-your-app.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-plan-your-app",
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/azure-functions/scripts/functions-cli-create-function-app-github.md",
+            "redirect_url": "/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Cortana-Prebuilt-App.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app",
-            "redirect_document_id": true
+            "redirect_document_id": true 
         },
         {
             "source_path": "articles/cloud-shell/features-powershell.md",
@@ -26116,9 +26151,9 @@
             "redirect_document_id": false
         },
         {
-        "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
-        "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
-        "redirect_document_id": true
+            "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
+            "redirect_document_id": true
         },
         {
         "source_path": "articles/cognitive-services/LUIS/Create-new-app.md",
@@ -26128,6 +26163,16 @@
         {
         "source_path": "articles/cognitive-services/LUIS/Label-Suggested-Utterances.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endoint-utt",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/luis-reference-cortana-prebuilt.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
         "redirect_document_id": true
         }
     ]

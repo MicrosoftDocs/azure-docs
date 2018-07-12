@@ -10,8 +10,8 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: b7735dbf-8e91-4d1b-89f7-2f17e9302469
 caps.latest.revision: 42
-author: "thraka"
-ms.author: "adegeo"
+author: "jpconnock"
+ms.author: "jeconnoc"
 manager: "timlt"
 ---
 # Azure Cloud Services Definition Schema (.csdef File)
