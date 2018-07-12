@@ -13,14 +13,14 @@ ms.custom: mvc
 
 # Set up the IoT Hub Device Provisioning Service with the Azure portal
 
-These steps show how to set up the Azure cloud resources in the portal for provisioning your devices. This includes creating your IoT hub, creating a new IoT Hub Device Provisioning Service and linking the two services together. 
+These steps show how to set up the Azure cloud resources in the portal for provisioning your devices. This article includes steps for: creating your IoT hub, creating a new IoT Hub Device Provisioning Service, and linking the two services together. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an IoT hub
 
@@ -39,9 +39,9 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
     * **Name:** Provide a name for your new Device Provisioning Service instance. This name must be unique.
     * **Subscription:** Choose the subscription that you want to use to create this Device Provisioning Service instance.
-    * **Resource group:** Create a new resource group, or choose an existing one to contain the new instance. By putting all related resources in a group together, such as **TestResources**, you can manage them all together. For example, deleting the resource group deletes all resources contained in that group. For more information, see [Use resource groups to manage your Azure resources](../articles/azure-resource-manager/resource-group-portal.md).
+    * **Resource group:** Create a new resource group, or choose an existing one to contain the new instance. By putting all related resources in a group together, such as **TestResources**, you can manage them all together. For example, deleting the resource group deletes all resources contained in that group. For more information, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
     * **Location:** Select the closest location to your devices
-    * **Pin to dashboard:** Select this to have the instance pinned to your dashboard making it easier to find.
+    * **Pin to dashboard:** Select this option to have the instance pinned to your dashboard making it easier to find.
 
 4. Once the service is successfully deployed, its summary blade automatically opens.
 
@@ -52,7 +52,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 2. On the Device Provisioning Service summary blade, select **Linked IoT hubs**. Click the **+ Add** button seen at the top. 
 
-3. In the **Add link to IoT hub** portal blade, select either the current subscription or enter the name and connection string for another subscription. Select the name of the hub from the drop-down list. When complete, click **Save**. 
+3. In the **Add link to IoT hub** portal blade, select either the current subscription, or enter the name and connection string for another subscription. Select the name of the hub from the drop-down list. When complete, click **Save**. 
 
     ![Link the hub name to link to the DPS instance in the portal blade](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
