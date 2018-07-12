@@ -198,17 +198,19 @@ The `#load` directive works only with *.csx* files, not with *.cs* files.
 
 You can use a method return value for an output binding, by using the name `$return` in *function.json*. For examples, see [Triggers and bindings](functions-triggers-bindings.md#using-the-function-return-value).
 
+Use the return value only if a successful function execution always results in a return value to pass to the output binding. Otherwise, use `ICollector` or `IAsyncCollector`, as shown in the following section.
+
 ## Writing multiple output values
 
-To write multiple values to an output binding, use the [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) types. These types are write-only collections that are written to the output binding when the method completes.
+To write multiple values to an output binding, or if a successful function invocation might not result in anything to pass to the output binding, use the [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) types. These types are write-only collections that are written to the output binding when the method completes.
 
 This example writes multiple queue messages into the same queue using `ICollector`:
 
 ```csharp
-public static void Run(ICollector<string> myQueueItem, TraceWriter log)
+public static void Run(ICollector<string> myQueue, TraceWriter log)
 {
-    myQueueItem.Add("Hello");
-    myQueueItem.Add("World!");
+    myQueue.Add("Hello");
+    myQueue.Add("World!");
 }
 ```
 
