@@ -16,7 +16,7 @@ ms.custom: mvc
 
 # Tutorial: Develop and deploy a Python IoT Edge module to your simulated device
 
-You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows][lnk-quickstart-win] or [Linux][lnk-quickstart-lin] quickstarts. In this tutorial, you learn how to:    
+You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows][lnk-quickstart-win] or [Linux][lnk-quickstart-lin] quickstarts. In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an IoT Edge Python module.
@@ -208,11 +208,11 @@ You can use the Azure portal to deploy your Python module to an IoT Edge device 
 
 3. In the command palette, search for and run the command **Azure IoT Hub: Select IoT Hub**. 
 
-4. Select the subscription that contains your IoT hub, then select the IoT hub that you want to access.
+4. Select the subscription that contains your IoT hub, and then select the IoT hub that you want to access.
 
 5. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
 
-6. Right-click the name of your IoT Edge device, then select **Create Deployment for IoT Edge device**. 
+6. Right-click the name of your IoT Edge device, and then select **Create Deployment for IoT Edge device**. 
 
 7. Browse to the solution folder that contains the **PythonModule**. Open the config folder, select the deployment.json file, and then choose **Select Edge Deployment Manifest**.
 
@@ -220,7 +220,7 @@ You can use the Azure portal to deploy your Python module to an IoT Edge device 
 
 ## View generated data
 
-1. To monitor data that arrives at the IoT hub, select the ellipsis **...**, and then select **Start Monitoring D2C Messages**.
+1. To monitor data that arrives at the IoT hub, select the ellipsis (**...**), and then select **Start Monitoring D2C Messages**.
 2. To monitor the D2C message for a specific device, right-click the device in the list, and select **Start Monitoring D2C Messages**.
 3. To stop monitoring data, run the command **Azure IoT Hub: Stop monitoring D2C message** in the command palette. 
 4. To view or update the module twin, right-click the module in the list, and select **Edit module twin**. To update the module twin, save the twin JSON file, right-click the editor area, and select **Update Module Twin**.
@@ -251,7 +251,7 @@ To delete the entire resource group by name:
 
 2. In the **Filter by name** textbox, enter the name of the resource group that contains your IoT hub. 
 
-3. To the right of your resource group in the result list, select the ellipsis **...**, and then select **Delete resource group**.
+3. To the right of your resource group in the result list, select the ellipsis (**...**), and then select **Delete resource group**.
 
 4. You're asked to confirm the deletion of the resource group. Reenter the name of your resource group to confirm and select **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
 
