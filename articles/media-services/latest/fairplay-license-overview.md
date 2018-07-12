@@ -70,7 +70,7 @@ You can develop your own player apps by using the iOS SDK. To be able to play Fa
 spc=<Base64 encoded SPC>
 ```
 
-## FairPlay configuration example
+## FairPlay configuration .NET example
 
 You can use Media Services API to configure FairPlay licenses. When the player tries to play your FairPlay-protected content, a request is sent to the license delivery service to obtain the license. If the license service approves the request, the service issues the license. It's sent to the client and is used to decrypt and play the specified content.
 
@@ -80,30 +80,35 @@ You can use Media Services API to configure FairPlay licenses. When the player t
 The following example uses [Media Services .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) to configure the license.
 
 ```csharp
-string askHex = "";
-string FairPlayPfxPassword = "";
-
-var appCert = new X509Certificate2("FairPlayPfxPath", FairPlayPfxPassword, X509KeyStorageFlags.Exportable);
-
-byte[] askBytes = Enumerable
-    .Range(0, askHex.Length)
-    .Where(x => x % 2 == 0)
-    .Select(x => Convert.ToByte(askHex.Substring(x, 2), 16))
-    .ToArray();
-
-ContentKeyPolicyFairPlayConfiguration fairPlayConfiguration =
-new ContentKeyPolicyFairPlayConfiguration
+private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOptions()
 {
-    Ask = askBytes,
-    FairPlayPfx =
-            Convert.ToBase64String(appCert.Export(X509ContentType.Pfx, FairPlayPfxPassword)),
-    FairPlayPfxPassword = FairPlayPfxPassword,
-    RentalAndLeaseKeyType =
-            ContentKeyPolicyFairPlayRentalAndLeaseKeyType
-            .PersistentUnlimited,
-    RentalDuration = 2249
-};
 
+    string askHex = "";
+    string FairPlayPfxPassword = "";
+
+    var appCert = new X509Certificate2("FairPlayPfxPath", FairPlayPfxPassword, X509KeyStorageFlags.Exportable);
+
+    byte[] askBytes = Enumerable
+        .Range(0, askHex.Length)
+        .Where(x => x % 2 == 0)
+        .Select(x => Convert.ToByte(askHex.Substring(x, 2), 16))
+        .ToArray();
+
+    ContentKeyPolicyFairPlayConfiguration fairPlayConfiguration =
+    new ContentKeyPolicyFairPlayConfiguration
+    {
+        Ask = askBytes,
+        FairPlayPfx =
+                Convert.ToBase64String(appCert.Export(X509ContentType.Pfx, FairPlayPfxPassword)),
+        FairPlayPfxPassword = FairPlayPfxPassword,
+        RentalAndLeaseKeyType =
+                ContentKeyPolicyFairPlayRentalAndLeaseKeyType
+                .PersistentUnlimited,
+        RentalDuration = 2249
+    };
+
+    return fairPlayConfiguration;
+}
 ```
 
 ## Next steps

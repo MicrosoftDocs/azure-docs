@@ -61,6 +61,8 @@ The snippet that follows uses Media Services .NET PlayReady classes to configure
 > 
 > 
 
+### Configure PlayReady license template with .NET
+
 ```csharp
 ContentKeyPolicyPlayReadyLicense objContentKeyPolicyPlayReadyLicense;
 objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
