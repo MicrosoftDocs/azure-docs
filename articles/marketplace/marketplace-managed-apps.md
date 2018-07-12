@@ -1,5 +1,5 @@
 ---  
-title: Azure Applications: Managed Application Offer Publishing Guide
+title: Azure Applications Managed Application Offer Publishing Guide
 description: This article describes the requirements to publish a managed application in the Marketplace
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
