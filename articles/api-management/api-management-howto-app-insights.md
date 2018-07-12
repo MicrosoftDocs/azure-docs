@@ -47,6 +47,9 @@ Before you can use Azure Application Insights, you first need to create an insta
 6. You have just created an Azure Application Insights logger with an instrumentation key. It should now appear in the list.  
     ![App Insights logger](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
+> [!NOTE]
+> Behind the scene, a [Logger](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate) entity is created in your API Management instance, containing the Instrumentation Key of the Application Insights instance.
+
 ## Enable Application Insights logging for your API
 
 1. Navigate to your **Azure API Management service instance** in the **Azure portal**.
@@ -60,6 +63,9 @@ Before you can use Azure Application Insights, you first need to create an insta
 8. Input **100** as **Sampling (%)** and tick the **Always log errors** checkbox.
 9. Input **1024** in the **First bytes of body** field.
 10. Click **Save**.
+
+> [!NOTE]
+> Behind the scene, a [Diagnostic](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate) entity named 'applicationinsights' is created at the API level.
 
 | Setting name                        | Value type                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
