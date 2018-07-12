@@ -53,11 +53,17 @@ To keep this task portal-based, we use a built-in sample dataset that can be cra
    
     ![Import data command][2]
 
-2. In the wizard, click **Data Source** > **Samples** > **realestate-us-sample**. This data source is preconfigured with a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
+2. In the wizard, click **Connect to your data** > **Samples** > **realestate-us-sample**. This data source is preconfigured with a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
 
     ![Select sample dataset][9]
 
 3. Click **OK** to use it.
+
+#### Skip Cognitive skills
+
+**Import data** includes an optional cognitive skills step that adds AI algorithms to indexing. This feature is not covered in this tutorial so you should skip ahead to **Customize target index**. If you are curious about the new cognitive search preview feature in Azure Search, try either the [cognitive search quickstart](cognitive-search-quickstart-blob.md) or [tutorial](cognitive-search-tutorial-blob.md).
+
+    ![Skip cognitive skill step][11]
 
 #### Step 2: Define the index
 Creating an index is typically manual and code-based, but the wizard can generate an index for any data source it can crawl. Minimally, an index requires a name, and a fields collection, with one field marked as the document key to uniquely identify each document.
@@ -123,15 +129,15 @@ Moving forward, you should now have a search index that's ready to query using t
 
   ![Search query example][7]
 
-**`search=seattle`**
+#### Example (string): `search=seattle`
 
 + The **search**` parameter is used to input a keyword search for full text search, in this case, returning listings in King County, Washington state, containing *Seattle* in any searchable field in the document. 
 
-+ **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. Depending on your documents, you might need to write code that handles search results to extract important elements. 
++ **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. Depending on your documents, you might need to write code that [handles search results](search-pagination-page-layout.md) to bring out important elements. 
 
 + Documents are composed of all fields marked as retrievable in the index. To view index attributes in the portal, click *realestate-us-sample* in the **Indexes** tile.
 
-**`search=seattle&$count=true&$top=100`**
+#### Example (parameterized): `search=seattle&$count=true&$top=100`
 
 + The **&** symbol is used to append search parameters, which can be specified in any order. 
 
@@ -144,7 +150,7 @@ Moving forward, you should now have a search index that's ready to query using t
 
 Filters are included in search requests when you append the **$filter** parameter. 
 
-**`search=seattle&$filter=beds gt 3`**
+#### Example (filtered): `search=seattle&$filter=beds gt 3`
 
 + The **$filter** parameter returns results matching the criteria you provided. In this case, bedrooms greater than 3. 
 
@@ -154,7 +160,7 @@ Filters are included in search requests when you append the **$filter** paramete
 
 Facet filters are included in search requests. You can use the facet parameter to return an aggregated count of documents that match a facet value you provide. 
 
-**`search=*&facet=city&$top=2`**
+#### Example (faceted with scope reduction): `search=*&facet=city&$top=2`
 
 + **search=*** is an empty search. Empty searches search over everything. One reason for submitting an empty query is to  filter or facet over the complete set of documents. For example, you want a faceting navigation structure to consist of all cities in the index.
 
@@ -162,7 +168,7 @@ Facet filters are included in search requests. You can use the facet parameter t
 
 + **$top=2** brings back two documents, illustrating that you can use `top` to both reduce or increase results.
 
-**`search=seattle&facet=beds`**
+#### Example (facet on numeric values): `search=seattle&facet=beds`**
 
 + This query is facet for beds, on a text search for *Seattle*. The term *beds* can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and the values it contains (numeric, 1 through 5), are suitable for categorizing listings into groups (listings with 3 bedrooms, 4 bedrooms). 
 
@@ -172,11 +178,11 @@ Facet filters are included in search requests. You can use the facet parameter t
 
 Hit highlighting refers to formatting on text matching the keyword, given matches are found in a specific field. If your search term is deeply buried in a description, you can add hit highlighting to make it easier to spot. 
 
-**`search=granite countertops&highlight=description`**
+#### Example (highlighter): `search=granite countertops&highlight=description`
 
 + In this example, the formatted phrase *granite countertops* is easier to spot in the description field.
 
-**`search=mice&highlight=description`**
+#### Example (linguistic analysis): `search=mice&highlight=description`
 
 + Full text search finds word forms with similar semantics. In this case, search results contain highlighted text for "mouse", for homes that have mouse infestation, in response to a keyword search on "mice". Different forms of the same word can appear in results because of linguistic analysis. 
 
@@ -184,19 +190,17 @@ Hit highlighting refers to formatting on text matching the keyword, given matche
 
 ## <a name="fuzzy-search"></a> Try fuzzy search
 
-Misspelled words, like *samamish* for the Samammish plateau in the Seattle area, fail to return matches in typical search. To handle misspellings, you can use fuzzy search, described in the next example.
+By default, misspelled query terms, like *samamish* for the Samammish plateau in the Seattle area, fail to return matches in typical search. The following example returns no results.
 
 **`search=samamish`**
 
-+ This example misspells a neighborhood in the Seattle area.
+To handle misspellings, you can use fuzzy search, enabled when you apply the full Lucene query syntax. Fuzzy search is enabled when you specify the **~** symbol and use the full query parser, which interprets and correctly parses the **~** syntax. 
 
 **`search=samamish~&queryType=full`**
 
-+ Fuzzy search is enabled when you specify the **~** symbol and use the full query parser, which interprets and correctly parses the **~** syntax. 
+Fuzzy search is available when you opt in for the full query parser, which occurs when you set **queryType=full**. For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-+ Fuzzy search is available when you opt in for the full query parser, which occurs when you set **queryType=full**. For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
-
-+ When **queryType** is unspecified, the default simple query parser is used. The simple query parser is faster, but if you require fuzzy search, regular expressions, proximity search, or other advanced query types, you will need the full syntax. 
+When **queryType** is unspecified, the default simple query parser is used. The simple query parser is faster, but if you require fuzzy search, regular expressions, proximity search, or other advanced query types, you will need the full syntax. 
 
 ## <a name="geo-search"></a> Try geospatial search
 
@@ -204,9 +208,9 @@ Geospatial search is supported through the [edm.GeographyPoint data type](https:
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ The example query filters all results for positional data, where results are less than 5 kilometers from a given point (specified as latitude and longitude coordinates). By adding **$count**, you can see how many results are returned when you change either the distance or the coordinates. 
+The example query filters all results for positional data, where results are less than 5 kilometers from a given point (specified as latitude and longitude coordinates). By adding **$count**, you can see how many results are returned when you change either the distance or the coordinates. 
 
-+ Geospatial search is useful if your search application has a "find near me" feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
+Geospatial search is useful if your search application has a "find near me" feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
 
 ## Takeaways
 
@@ -241,3 +245,4 @@ For additional tools-based exploration of Azure Search, consider using a REST te
 [8]: ./media/search-get-started-portal/realestate-indexer2.png
 [9]: ./media/search-get-started-portal/import-datasource-sample2.png
 [10]: ./media/search-get-started-portal/sample-index-def.png
+[11]: ./media/search-get-started-portal/skip-cog-skill-step.png
