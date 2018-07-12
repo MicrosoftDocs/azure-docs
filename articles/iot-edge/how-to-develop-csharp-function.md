@@ -1,6 +1,6 @@
 ---
-title: Debug Azure Functions modules for Azure IoT Edge | Microsoft Docs
-description: Use Visual Studio Code to debug C# Azure Functions with Azure IoT Edge
+title: Debug Azure function modules for Azure IoT Edge | Microsoft Docs
+description: Use Visual Studio Code to debug C# Azure functions with Azure IoT Edge
 author: shizn
 manager: 
 ms.author: xshi
@@ -10,9 +10,9 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Use Visual Studio Code to develop and debug Azure Functions for Azure IoT Edge
+# Use Visual Studio Code to develop and debug Azure functions for Azure IoT Edge
 
-This article shows you how to use [Visual Studio Code (VS Code)](https://code.visualstudio.com/) to debug your Azure Functions instance on IoT Edge.
+This article shows you how to use [Visual Studio Code (VS Code)](https://code.visualstudio.com/) to debug your Azure functions on IoT Edge.
 
 ## Prerequisites
 This article assumes that you use a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device. Or you can simulate your IoT Edge device on your development machine.
@@ -39,7 +39,7 @@ To test your module on a device, you need an active IoT hub with at least one Io
 
 ## Create a new solution template
 
-Take these steps to create an IoT Edge solution that has one C# Functions module. Each solution can have several modules.
+Take these steps to create an IoT Edge solution that has one C# function module. Each solution can have several modules.
 
 1. In Visual Studio Code, select **View** > **Integrated Terminal**.
 3. Select **View** > **Command Palette**.
@@ -53,7 +53,7 @@ Take these steps to create an IoT Edge solution that has one C# Functions module
 8. Enter a name for your module. Choose a name that's unique within your container registry. 
 9. Provide the image repository for the module. VS Code autopopulates the module name with **localhost:5000**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**.
 
-VS Code takes the information you provided, creates an IoT Edge solution with a Functions project, and then loads it in a new window.
+VS Code takes the information you provided, creates an IoT Edge solution with an Azure Functions project, and then loads it in a new window.
 
 There are four items within the solution: 
 
@@ -62,7 +62,7 @@ There are four items within the solution:
 * An **.env** file lists your environment variables. If Azure Container Registry is your registry, you'll have an Azure Container Registry username and password in it. 
 * A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md).
 
-## Build your IoT Edge Functions module for debugging
+## Build your IoT Edge function module for debugging
 1. To start debugging, use **Dockerfile.amd64.debug** to rebuild your docker image and deploy your Edge solution again. In VS Code explorer, navigate to the `deployment.template.json` file. Update your function image URL by adding `.debug` to the end.
 
     ![Build debug image](./media/how-to-debug-csharp-function/build-debug-image.png)
@@ -72,7 +72,7 @@ There are four items within the solution:
 
 Check your container status in VS Code Docker explorer or by running the `docker images` command in the terminal.
 
-## Start debugging C# Functions in VS Code
+## Start debugging C# functions in VS Code
 1. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace. This `launch.json` file was generated when you created a new IoT Edge solution. It updates each time you add a new module that supports debugging. Navigate to the debug view. Select the corresponding debug configuration file. The debug option name should be similar to **ModuleName Remote Debug (.NET Core)**.
 
     ![Select debug configuration](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
@@ -83,7 +83,7 @@ Check your container status in VS Code Docker explorer or by running the `docker
 
 
 > [!NOTE]
-> This example shows how to debug .Net Core IoT Edge Functions on containers. It's based on the debug version of the `Dockerfile.amd64.debug`, which includes the .NET Core command-line debugger VSDBG in your container image while building it. We recommend that you directly use or customize the `Dockerfile` without VSDBG for production-ready IoT Edge Functions after you debug your C# Functions.
+> This example shows how to debug .Net Core IoT Edge functions on containers. It's based on the debug version of the `Dockerfile.amd64.debug`, which includes the .NET Core command-line debugger VSDBG in your container image while building it. We recommend that you directly use or customize the `Dockerfile` without VSDBG for production-ready IoT Edge functions after you debug your C# functions.
 
 ## Next steps
 
