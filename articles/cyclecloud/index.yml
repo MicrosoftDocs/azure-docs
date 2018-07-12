@@ -16,6 +16,45 @@ metadata:
 abstract:
   description: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. CycleCloud’s automated configuration enables IT to focus on on providing service to the business users.
 sections:
+
+  - items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cosmos-db/distribute-data-globally/
+          html: <p>Learn about global distribution, partitioning, indexing, and other concepts that apply to all of the Azure Cosmos DB APIs.</p>
+          image:
+            src: media/index/azure-cosmos-db-icon.png
+          title: Concepts
+        - href: /azure/cosmos-db/sql-api-introduction/
+          html: <p>Use the SQL API if you're building a new non-relational document database and want to query using familiar SQL syntax.</p>
+          image:
+            src: media/index/sql-api.svg
+          title: SQL API
+        - href: /azure/cosmos-db/graph-introduction/
+          html: <p>Use the Gremlin API if you're building a graph database to model and traverse relationships among entities.</p>
+          image:
+            src: media/index/graph-api.svg
+          title: Gremlin API
+        - href: /azure/cosmos-db/mongodb-introduction/
+          html: <p>Use the MongoDB API if you are migrating data from a MongoDB database to Azure Cosmos DB's fully managed service.</p>
+          image:
+            src: media/index/mongodb-api.svg
+          title: MongoDB API
+        - href: /azure/cosmos-db/table-introduction/
+          html: <p>Use the Table API if you are migrating data from Azure Table storage to Azure Cosmos DB's premium table offering.</p>
+          image:
+            src: media/index/table-api.svg
+          title: Table API
+        - href: /azure/cosmos-db/cassandra-introduction/
+          html: <p>Use the Cassandra API if you are migrating data from Cassandra to Azure Cosmos DB's fully managed service.</p>
+          image:
+            src: media/index/cassandra-api.png
+          title: Cassandra API
+
+
 - title: QuickStarts
   items:
   - type: paragraph
