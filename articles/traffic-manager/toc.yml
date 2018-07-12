@@ -6,7 +6,7 @@
     href: traffic-manager-overview.md
 - name: Quickstart
   items:
-  - name: Create a Traffic Manager profile
+  - name: Create a Traffic Manager profile - Portal
     href: quickstart-create-traffic-manager-profile.md
 - name: Tutorials
   items:
