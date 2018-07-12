@@ -26,12 +26,12 @@ sections:
         - href: quickstart-overview
           html: <p>New to Azure CycleCloud? Start here for a guided walkthrough of the installation, setup, and use of Azure CycleCloud.</p>
           image:
-            src: ~/media/index/i_quick-start.svg
+            src: /media/index/i_quick-start.svg
           title: QuickStart
         - href: /azure/cosmos-db/sql-api-introduction/
           html: <p>Use the SQL API if you're building a new non-relational document database and want to query using familiar SQL syntax.</p>
           image:
-            src: cycle_docs_v1/media/index/i_quick-start.svg
+            src: media/index/i_quick-start.svg
           title: SQL API
         - href: /azure/cosmos-db/graph-introduction/
           html: <p>Use the Gremlin API if you're building a graph database to model and traverse relationships among entities.</p>
