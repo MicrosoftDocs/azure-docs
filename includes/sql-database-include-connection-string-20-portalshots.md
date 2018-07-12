@@ -25,7 +25,7 @@ Use the [Azure portal](https://portal.azure.com/) to obtain the connection strin
 
     ![Copy the ADO connection string for your database][20-CopyAdoConnectionString]
 
-7. Edit the connection string as needed. i.e. Insert your password into the connection string, or remove "@<servername>" from the username if the username or servername are too long.
+7. Edit the connection string as needed. i.e. Insert your password into the connection string, or remove "@&lt;servername&gt;" from the username if the username or server name are too long.
 
 8. In one format or another, paste the connection string information into your client program code.
 
