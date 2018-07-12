@@ -108,6 +108,9 @@ spec:
     app: azure-vote-front
 ```
 
+> [!NOTE]
+> You may need to grant the service principal for your AKS cluster the *Network Contributor* role to the resource group where your Azure virtual network resources are deployed. View the service principal with [az aks show][az-aks-show], such as `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. To create a role assignment, use the [az role assignment create][az-role-assignment-create] command.
+
 ## Delete the load balancer
 
 When all services that use the internal load balancer are deleted, the load balancer itself is also deleted.
@@ -122,3 +125,5 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 <!-- LINKS - Internal -->
 [advanced-networking]: networking-overview.md
 [deploy-advanced-networking]: networking-overview.md#configure-networking---cli
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
