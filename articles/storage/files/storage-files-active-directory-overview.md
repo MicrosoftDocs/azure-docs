@@ -35,6 +35,10 @@ It's helpful to understand some key terms relating to Azure AD integration with 
 
     Kerberos is an authentication protocol that is used to verify the identity of a user or host. For more information on Kerberos, see [Configure Kerberos constrained delegation (KCD) on a managed domain](../../active-directory-domain-services/active-directory-ds-enable-kcd.md).
 
+-  **Server Message Block (SMB) protocol**
+
+    SMB is an industry-standard network file-sharing protocol. SMB is also known as Common Internet File System or CIFS. For more information on SMB, see [Microsoft SMB Protocol and CIFS Protocol Overview](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview).
+
 ## Advantages of using Azure AD integration with Azure Files
 
 Azure AD integration with Azure Files offers several benefits over using Shared Key authentication:
@@ -102,3 +106,4 @@ See these resources for more information about Azure Files:
 -   [Introduction to Azure Files](storage-files-introduction.md)
 -   [Enable Azure Active Directory integration with Azure Files (Preview)](storage-files-active-directory-enable.md)
 -   [Azure Files FAQ](storage-files-faq.md)
+- - ???need link to blog post???
