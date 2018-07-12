@@ -99,11 +99,11 @@ Azure AD integration with Azure Files supports preserving directory or file ACLs
 
 ## Pricing
 
-There is no additional service charge to enable Azure AD integration on your storage account. For more information on pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) and [Azure AD Domain Services pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) pages.
+There is no additional service charge to enable Azure AD integration for Azure Files on your storage account. For more information on pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) and [Azure AD Domain Services pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) pages.
 
 ## Next Steps
 
-See these resources for more information about Azure Files:
+See these resources for more information about Azure Files and Azure AD integration:
 
 -   [Introduction to Azure Files](storage-files-introduction.md)
 -   [Enable Azure Active Directory integration with Azure Files (Preview)](storage-files-active-directory-enable.md)

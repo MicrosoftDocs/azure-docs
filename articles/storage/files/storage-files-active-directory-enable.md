@@ -187,7 +187,7 @@ You have now successfully enabled Azure AD integration for Azure Files and set u
 
 ## Next steps
 
-See these resources for more information about Azure Files:
+See these resources for more information about Azure Files and Azure AD integration:
 
 -   [Introduction to Azure Files](storage-files-introduction.md)
 -   [Overview of Azure Active Directory integration with Azure Files (Preview)](storage-files-active-directory-overview.md)
