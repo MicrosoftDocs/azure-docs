@@ -116,7 +116,7 @@ To be updated: Required before Preview
 
 **Powershell**
 
-You can use existing [RBAC assignment Powershell commands](../../role-based-access-control/role-assignments-powershell.md) to manage access to Azure file shares. The following command assigns an RBAC role to an Azure AD user by using the user's sign-in name.
+You can use the existing [RBAC assignment Powershell commands](../../role-based-access-control/role-assignments-powershell.md) to manage access to Azure file shares. The following command assigns an RBAC role to an Azure AD user with the user's sign-in name.
 
 ```powershell
 New-AzureRmRoleAssignment -SignInName <user-email> -RoleDefinitionName <role-name-in-quotes> -Scope <resource-id>
