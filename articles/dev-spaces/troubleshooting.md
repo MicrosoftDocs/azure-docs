@@ -35,6 +35,15 @@ In Visual Studio:
 
     ![Screenshot of Tools Options dialog](media/common/VerbositySetting.PNG)
 
+## Error 'Required tools and configurations are missing'
+
+This error might occur when launching VS Code: "[Azure Dev Spaces] Required tools and configurations to build and debug '[project name]' are missing."
+So azds.exe is not in the PATH environment variable, as seen in VS Code.
+
+### Try:
+
+Launch VS Code from a command prompt where the PATH environment variable is set properly.
+
 ## Error 'upstream connect error or disconnect/reset before headers'
 You may see this error when trying to access your service. For example, when you go to the service's URL in a browser. 
 
