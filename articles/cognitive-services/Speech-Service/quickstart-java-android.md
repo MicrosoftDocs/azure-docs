@@ -15,11 +15,11 @@ ms.author: fmegen
 
 # Quickstart: Recognize speech in Java on Android using the Speech SDK
 
-In this article, you learn how to create a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.
+In this article, you'll learn how to create a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.
 The application is based on the Microsoft Cognitive Services Speech SDK Maven Package, version 0.5.0, and Android Studio 3.1.
 
 > [!NOTE]
-> For the Speech Devices SDK and the Roobo device, please visit [Roobo Device](speech-devices-sdk.md).
+> For the Speech Devices SDK and the Roobo device, please visit the [Speech Devices SDK](speech-devices-sdk.md) page.
 
 ## Prerequisites
 
