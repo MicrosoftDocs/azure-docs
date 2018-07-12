@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2018
+ms.date: 07/12/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
@@ -32,11 +32,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin:
 
-- Make sure that your subscription is enabled for Azure Data Box service. To enable your subscription for this service, [Sign up for the service](http://aka.ms/azuredatabox).
+- Make sure that your subscription is enabled for Azure Data Box service. To enable your subscription for this service, [Sign up for the service](http://aka.ms/azuredataboxfromdiskdocs).
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [http://aka.ms/azuredatabox](http://aka.ms/azuredatabox).
+Sign in to the Azure portal at [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
 
 ## Order
 
