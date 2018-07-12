@@ -16,7 +16,7 @@ ms.author: wolfma
 # Quickstart: Recognize speech in C# under .NET Framework on Windows using the Speech SDK
 
 In this article, you learn how to create a C# console application for .NET Framework on Windows using the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the [Microsoft Cognitive Services SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
+The application is based on the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
 
 ## Prerequisites
 

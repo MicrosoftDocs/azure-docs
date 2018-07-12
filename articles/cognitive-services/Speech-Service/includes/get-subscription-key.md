@@ -8,7 +8,7 @@ manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: include
-ms.date: 05/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
 ms.custom: include file
 ---

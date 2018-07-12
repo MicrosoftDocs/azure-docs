@@ -16,7 +16,7 @@ ms.author: wolfma
 # Quickstart: Recognize speech in C++ on Windows Desktop using the Speech SDK
 
 We describe how to create a C++-based console application for Windows Desktop that makes use of the Speech SDK.
-The application is based on the [Microsoft Cognitive Services SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
+The application is based on the [Microsoft Cognitive Services Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
 
 ## Prerequisites
 

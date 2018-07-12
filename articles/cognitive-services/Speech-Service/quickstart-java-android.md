@@ -16,7 +16,7 @@ ms.author: fmegen
 # Quickstart: Recognize speech in Java on Android using the Speech SDK
 
 In this article, you learn how to create a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Microsoft Cognitive Services SDK Maven Package and Android Studio 3.1 or later.
+The application is based on the Microsoft Cognitive Services Speech SDK Maven Package, version 0.5.0, and Android Studio 3.1.
 
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, please visit [Roobo Device](speech-devices-sdk.md).
@@ -25,7 +25,7 @@ The application is based on the Microsoft Cognitive Services SDK Maven Package a
 
 * A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
 * A PC (Windows, Linux, Mac) capable to run Android Studio.
-* The latest version of [Android Studio](https://developer.android.com/studio/).
+* Version 3.1 of [Android Studio](https://developer.android.com/studio/).
 * An ARM-based Android device (API 23: Android 6.0 Marshmallow or higher) [enabled for development](https://developer.android.com/studio/debug/dev-options) with a working microphone.
 
 ## Create an Android Studio project
@@ -61,7 +61,7 @@ After running for a while, your newly created Android Studio project should come
 The current version of the Cognitive Services Speech SDK is `0.5.0`.
 
 The Speech SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries as well as required Android permissions for using it.
-It is hosted in a Maven repository.
+It is hosted in a Maven repository at https://csspeechstorage.blob.core.windows.net/maven/.
 
 We describe below how to set up your project to use the Speech SDK.
 

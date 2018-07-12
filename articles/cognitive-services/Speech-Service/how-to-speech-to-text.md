@@ -40,6 +40,8 @@ The [Speech SDK](speech-sdk.md) provides the simplest way to use **Speech to Tex
 4. Tie up the events for asynchronous operation, if desired. The recognizer then calls your event handlers when it has interim and final results. Otherwise, your application will receive a final transcription result.
 
 5. Start recognition.
+   For single-shot recognition, like command or query recognition, use `RecognizeAsync()`, which returns the first utterance being recognized.
+   For long-running recognition, like transcription, use `StartContinuousRecognitionAsync()` and tie up the events for asynchronous recognition results.
 
 ### SDK samples
 

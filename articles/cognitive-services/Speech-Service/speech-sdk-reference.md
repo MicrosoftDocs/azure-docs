@@ -17,15 +17,7 @@ ms.author: v-jerkin
 
 The Speech Software Development Kit (SDK) provides your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **Speech to Text**, **Speech Translation**, and **Intent Recognition**.
 
-The table below describes the currently supported programming languages and operating systems.
-
-|Programming language|Platform|API Reference|
-|-|-|-|
-|C#, .NET Standard|Windows, UWP, .NET Standard (Windows)|[Browse](https://aka.ms/csspeech/csharpref)
-|C/C++|Windows, Linux|[Browse](https://aka.ms/csspeech/cppref)
-|Java\*|Android, [Devices](speech-devices-sdk.md)|[Browse](https://aka.ms/csspeech/javaref)
-
-\* *The Java SDK is also available as part of the [Speech Devices SDK](speech-devices-sdk.md).*
+[!include[Speech SDK Platforms](includes/speech-sdk-platforms.md)]
 
 ## Next steps
 

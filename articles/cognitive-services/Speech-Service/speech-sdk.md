@@ -17,16 +17,7 @@ ms.author: v-jerkin
 
 The Cognitive Services Speech Software Development Kit (SDK) provides your applications native access to the functions of the Speech service, making it easier to develop software. Currently, the SDK provides access to **Speech to Text**, **Speech Translation**, and **Intent Recognition**.
 
-The table lists the currently supported programming languages and operating systems.
-
-|Supported operating system|Programming language|
-|-|-|
-|Windows|C/C++, C#|
-|Linux|C/C++|
-|Android|Java|
-|Devices|Java\*|
-
-\* *For Devices, the SDK ships separately as the [Speech Devices SDK](speech-devices-sdk.md).*
+[!include[Speech SDK Platforms](includes/speech-sdk-platforms.md)]
 
 [!include[License Notice](includes/license-notice.md)]
 
