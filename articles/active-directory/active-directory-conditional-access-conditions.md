@@ -25,24 +25,19 @@ ms.reviewer: calebb
 
 # What are conditions in Azure Active Directory conditional access? 
 
-With [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a conditional access policy, you define the response ("do this") to the reason for triggering your policy ("when this happens"). 
+You can control how authorized users access your cloud apps by using [Azure Active Directory (Azure AD) conditional access](active-directory-conditional-access-azure-portal.md). In a conditional access policy, you define the response to the reason for triggering your policy. An example response is **do this**. An example reason is **when this happens**.
 
 ![Control](./media/active-directory-conditional-access-conditions/10.png)
 
 
-In the context of conditional access:
-
-- "**When this happens**" is called **conditions**. 
-- "**Then do this**" is called **access controls**.
-
-The combination of your conditions with your access controls represents a conditional access policy.
+In the context of conditional access, **When this happens** is called **conditions**. **Then do this** is called **access controls**. The combination of your conditions with your access controls represents a conditional access policy.
 
 ![Control](./media/active-directory-conditional-access-conditions/61.png)
 
 
-Conditions you have not configured in a conditional access policy are not applied. Some conditions are [mandatory](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work) to apply a conditional access policy to an environment. 
+Conditions you haven't configured in a conditional access policy aren't applied. Some conditions are [mandatory](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work) to apply a conditional access policy to an environment. 
 
-This article gives you an overview of the conditions and how they are used in a conditional access policy. 
+This article is an overview of the conditions and how they're used in a conditional access policy. 
 
 ## Users and groups
 
@@ -50,21 +45,17 @@ The users and groups condition is mandatory in a conditional access policy. In y
 
 ![Control](./media/active-directory-conditional-access-conditions/111.png)
 
-When you select:
+When you select **All users**, your policy is applied to all users in the directory. This includes guest users.
 
-- **All users**, your policy is applied to all users in the directory. This includes guest users.
+When you **Select users and groups**, you can set the following options:
 
-- **Select users and groups**, you can set the following options:
+* **All guest users**. Enables you to target a policy to B2B guest users. This condition matches any user account that has the *userType* attribute set to *guest*. You can use this setting in cases where a policy needs to be applied as soon as the account is created in an invite flow in Azure AD.
 
-    - **All guest users** - Enables you to target a policy to B2B guest users. This condition matches any user account with the *userType* attribute set to *guest*. You can use this setting in cases where a policy needs to be applied as soon as the account is created in an invite flow In Azure AD.
+* **Directory roles**. Enables you to target a policy based on a user’s role assignment. This condition supports directory roles like *Global administrator* or *Password administrator*.
 
-    - **Directory roles** - Enables you to target a policy based on a user’s role assignment. This condition supports directory roles such as *Global administrator* or *Password administrator*.
+* **Users and groups**. Enables you to target specific sets of users. For example, you can select a group that contains all members of the HR department when you have an HR app selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups.
 
-    - **Users and groups** - Enables you to target specific sets of users. For example, you can select a group that contains all members of the HR department, when you have an HR app selected as cloud app.
-
-A group, it can be any type of group in Azure AD, including dynamic or assigned security and distribution groups
-
-You can also exclude specific users or groups from a policy. One common use case are service accounts if your policy enforces multi-factor authentication (MFA). 
+You can also exclude specific users or groups from a policy. One common use case is service accounts if your policy enforces multifactor authentication (MFA). 
 
 Targeting specific sets of users is useful for the deployment of a new policy. In a new policy, you should target only an initial set of users to validate the policy behavior. 
 
@@ -72,17 +63,15 @@ Targeting specific sets of users is useful for the deployment of a new policy. I
 
 ## Cloud apps 
 
-A cloud app is a web sites or service. This includes web sites protected by the Azure Application Proxy. For a detailed description of the supported cloud apps, see [cloud apps assignment](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments). 	
+A cloud app is a website or service. This includes websites protected by the Azure AD Application Proxy. For a detailed description of the supported cloud apps, see [cloud apps assignment](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments). 	
 
 The cloud apps condition is mandatory in a conditional access policy. In your policy, you can either select **All cloud apps** or select specific apps.
 
 ![Control](./media/active-directory-conditional-access-conditions/03.png)
 
-You can select:
+- Select **All cloud apps** to baseline policies to apply to the entire organization. Use this selection for policies that require multifactor authentication when sign-in risk is detected for any cloud app. A policy applied to **All cloud apps** applies to access to all websites and services. This setting isn't limited to the cloud apps that appear on the **Select Cloud apps** list.
 
-- **All cloud apps** to baseline policies to be applied to the entire organization. A common use case for this selection is a policy that requires multi-factor authentication when sign-in risk is detected for any cloud app. A policy applied to **All cloud apps** applies to access to all web site and services. This setting is not limited to the cloud apps that appear on the **Select Cloud apps** list.
-
-- Individual cloud apps to target specific services by policy. For example, you can require users to have a [compliant device](active-directory-conditional-access-policy-connected-applications.md) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content, for example, Microsoft Teams. 
+- Select individual cloud apps to target specific services by policy. For example, you can require users to have a [compliant device](active-directory-conditional-access-policy-connected-applications.md) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content, for example, Microsoft Teams. 
 
 You can also exclude specific apps from a policy; however, these apps are still subject to the policies applied to services they access. 
 
