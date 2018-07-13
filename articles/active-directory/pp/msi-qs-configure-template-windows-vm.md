@@ -48,7 +48,7 @@ Regardless of the option you choose, template syntax is the same during initial 
    > This example assumes variables such as `vmName`, `storageAccountName`, and `nicName` have been defined in the template.
    >
 
-   ![Screenshot of template - locate VM](~/articles/active-directory/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![Screenshot of template - locate VM](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 3. Add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property. Use the following syntax:
 
@@ -88,7 +88,7 @@ Regardless of the option you choose, template syntax is the same during initial 
 
 5. When you're done, your template should look similar to the following:
 
-   ![Screenshot of template after update](~/articles/active-directory/media/msi-qs-configure-template-windows-vm/template-file-after.png) 
+   ![Screenshot of template after update](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png) 
 
 ## Remove MSI from an Azure VM
 

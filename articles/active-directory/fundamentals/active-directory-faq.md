@@ -88,7 +88,7 @@ For more information, see [Integrating your on-premises identities with Azure Ac
 
 **A:** Yes, Azure AD provides you with the [Azure AD Access Panel](http://myapps.microsoft.com) for user self-service and application access. If you are an Office 365 customer, you can find many of the same capabilities in the Office 365 portal.
 
-For more information, see [Introduction to the Access Panel](../active-directory-saas-access-panel-introduction.md).
+For more information, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
 - - -
 **Q: Does Azure AD help me manage my on-premises infrastructure?**
