@@ -145,7 +145,7 @@ There are two parts to this scenario:
 
 2. Import the image to Azure Stack by using the **Add-AzsPlatformimage** cmdlet. When you use this cmdlet, replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. 
 
-   You can get the *publisher*, *offer*, and *sku* values of the image from the text file that downloads with the AZPKG file and is stored in the destination location.
+   You can get the *publisher*, *offer*, and *sku* values of the image from the text file that downloads with the AZPKG file. The text file is stored in the destination location.
  
    In the following example script, values for the Windows Server 2016 Datacenter - Server Core virtual machine are used. 
 
