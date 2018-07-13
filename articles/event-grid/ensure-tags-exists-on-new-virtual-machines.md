@@ -35,6 +35,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this tutorial, an [Azure Automation account](../automation/automation-offering-get-started.md) is required to hold the runbook that is triggered from the Azure Event Grid subscription.
 
+* The `AzureRM.Tags` module needs to be loaded in your Automation Account, see [How to import modules in Azure Automation](../automation/automation-update-azure-modules.md) to learn how to import modules into Azure Automation.
+
+
 ## Import an Event Grid sample runbook
 1. Select your Automation account, and select the **Runbooks** page.
 
