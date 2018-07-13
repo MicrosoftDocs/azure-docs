@@ -1,5 +1,5 @@
 ---
-title: Assign directory roles to users using Azure AD PIM and the portal | Microsoft Docs
+title: Assign directory roles to users using Azure AD PIM | Microsoft Docs
 description: Learn how to assign directory roles to users using Azure Active Directory Privileged Identity Management and the Azure portal.
 services: active-directory
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.date: 07/12/2018
 ms.author: rolyon
 ---
 
-# Assign directory roles to users using Azure AD PIM and the Azure portal
+# Assign directory roles to users using Azure AD PIM
 
 With Azure Active Directory (Azure AD), a Global Administrator can make **permanent** directory role assignments. These role assignments can be created using the [Azure portal](../users-groups-roles/directory-assign-admin-roles.md) or using [PowerShell commands](/powershell/module/azuread#directory_roles).
 
