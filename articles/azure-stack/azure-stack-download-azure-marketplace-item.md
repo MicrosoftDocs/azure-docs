@@ -131,7 +131,7 @@ There are two parts to this scenario:
 
    ![Azure Marketplace items popup](media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Select the item that you want to download and make a note of the *version*. (You can select multiple images by holding the *Ctrl* key.) You will reference the *version* when you import the item in the next procedure. 
+7. Select the item that you want to download and make a note of the *version*. (You can hold the *Ctrl* key to select mulitple images.) You'll reference the *version* when you import the item in the next procedure. 
    
    You can also filter the list of images by using the **Add criteria** option.
 
@@ -143,9 +143,9 @@ There are two parts to this scenario:
 ### Import the download and publish to Azure Stack Marketplace
 1. The files for virtual machine images or solution templates that you have [previously downloaded](#use-the-marketplace-syndication-tool-to-download-marketplace-items) must be made locally available to your Azure Stack environment.  
 
-2. Import the image to Azure Stack by using the **Add-AzsPlatformimage** cmdlet. When using this cmdlet, make sure to replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. 
+2. Import the image to Azure Stack by using the **Add-AzsPlatformimage** cmdlet. When you use this cmdlet, replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. 
 
-   You can get the *publisher*, *offer*, and *sku* values of the image from the text file that is downloaded together with the AZPKG file and stored in the destination location.
+   You can get the *publisher*, *offer*, and *sku* values of the image from the text file that downloads with the AZPKG file and is stored in the destination location.
  
    In the following example script, values for the Windows Server 2016 Datacenter - Server Core virtual machine are used. 
 
