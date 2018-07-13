@@ -465,24 +465,24 @@ Approximate time to Complete: 15 minutes
 
 | Pre-requisite | Resources |
 | --- | --- |
-| Identify the global admin that will be part of the POC for PIM | [Start using Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) |
-| Identify the global admin that will become the Security Administrator | [Start using Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)<br/> [Different administrative roles in Azure Active Directory PIM](active-directory-privileged-identity-management-roles.md) |
-| Optional: Confirm if the global admins have email access to exercise email notifications in PIM | [What is Azure AD Privileged Identity Management?: Configure the role activation settings](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)
+| Identify the global admin that will be part of the POC for PIM | [Start using Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md) |
+| Identify the global admin that will become the Security Administrator | [Start using Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md)<br/> [Different administrative roles in Azure Active Directory PIM](privileged-identity-management/pim-roles.md) |
+| Optional: Confirm if the global admins have email access to exercise email notifications in PIM | [What is Azure AD Privileged Identity Management?: Configure the role activation settings](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)
 
 
 ### Steps
 
 | Step | Resources |
 | --- | --- |
-| Login to https://portal.azure.com as a global admin (GA) and bootstrap the PIM blade. The Global Admin that performs this step is seeded as the security administrator.  Let's call this actor GA1 | [Using the security wizard in Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
-| Identify the global admin and move them from permanent to eligible. This should be a separate admin from the one used in step 1 for clarity. Let's call this actor GA2 | [Azure AD Privileged Identity Management: How to add or remove a user role](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[What is Azure AD Privileged Identity Management?: Configure the role activation settings](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
+| Login to https://portal.azure.com as a global admin (GA) and bootstrap the PIM blade. The Global Admin that performs this step is seeded as the security administrator.  Let's call this actor GA1 | [Using the security wizard in Azure AD Privileged Identity Management](privileged-identity-management/pim-security-wizard.md) |
+| Identify the global admin and move them from permanent to eligible. This should be a separate admin from the one used in step 1 for clarity. Let's call this actor GA2 | [Azure AD Privileged Identity Management: How to add or remove a user role](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[What is Azure AD Privileged Identity Management?: Configure the role activation settings](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Now, log in as GA2 to https://portal.azure.com and try changing "User Settings". Notice, some options are grayed out. | |
-| In a new tab and in the same session as step 3, navigate now to https://portal.azure.com and add the PIM blade to the dashboard. | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Add the Privileged Identity Management application](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
-| Request activation to the Global Administrator role | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Activate a role](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
+| In a new tab and in the same session as step 3, navigate now to https://portal.azure.com and add the PIM blade to the dashboard. | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Add the Privileged Identity Management application](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Request activation to the Global Administrator role | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Activate a role](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | Note, that if GA2 never signed up for MFA, registration for Azure MFA will be necessary |  |
 | Go back to the original tab in step 3, and click the refresh button in the browser. Note that you now have access to change "User settings" | |
 | Optionally, if your global administrators have email enabled, you can check GA1 and GA2's inbox and see the notification of the role being activated |  |
-| 8	Check the audit history and observe the report to confirm the elevation of GA2 is shown. | [What is Azure AD Privileged Identity Management?: Review role activity](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| 8	Check the audit history and observe the report to confirm the elevation of GA2 is shown. | [What is Azure AD Privileged Identity Management?: Review role activity](privileged-identity-management/pim-configure.md#review-role-activity) |
 
 ### Considerations
 

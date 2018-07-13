@@ -1,27 +1,27 @@
 # Overview
-## [What is Azure AD PIM?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [What is Azure AD PIM?](pim-configure.md)
 ## [Secure privileged access](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Directory roles in PIM](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Directory roles in PIM](pim-roles.md)
 ## [PIM for Azure Resources](azure-pim-resource-rbac.md)
 ## [PIM approval workflow](azure-ad-pim-approval-workflow.md)
 
 # Get started
 ## [Subscription requirements](subscription-requirements.md)
-## [Get started in Azure portal](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Security wizard](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Give access to PIM](../active-directory-privileged-identity-management-how-to-give-access-to-pim.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Get started in Azure portal](pim-getting-started.md)
+## [Security wizard](pim-security-wizard.md)
+## [Give access to PIM](pim-how-to-give-access-to-pim.md)
 ## [Enable subscription management](pim-resource-roles-enable-subscription-management.md)
 ## [Discover resources](pim-resource-roles-discover-resources.md)
 ## [Overview dashboards](pim-resource-roles-overview-dashboards.md)
 
 # How to
 ## Use PIM for directory roles
-### [Activate your roles](../active-directory-privileged-identity-management-how-to-activate-role.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Assign roles](../active-directory-privileged-identity-management-how-to-add-role-to-user.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Change role settings](../active-directory-privileged-identity-management-how-to-change-default-settings.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Configure alerts](../active-directory-privileged-identity-management-how-to-configure-security-alerts.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Require MFA](../active-directory-privileged-identity-management-how-to-require-mfa.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Use the audit log](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+### [Activate your roles](pim-how-to-activate-role.md)
+### [Assign roles](pim-how-to-add-role-to-user.md)
+### [Change role settings](pim-how-to-change-default-settings.md)
+### [Configure alerts](pim-how-to-configure-security-alerts.md)
+### [Require MFA](pim-how-to-require-mfa.md)
+### [Use the audit log](pim-how-to-use-audit-log.md)
 ## Use PIM for resource roles
 ### [Activate your roles](pim-resource-roles-activate-your-roles.md)
 ### [Assign roles](pim-resource-roles-assign-roles.md)
@@ -34,9 +34,9 @@
 
 # Review access
 ## PIM for directory roles
-### [Perform an access review](../active-directory-privileged-identity-management-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Start an access review](../active-directory-privileged-identity-management-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-### [Finish an access review](../active-directory-privileged-identity-management-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+### [Perform an access review](pim-how-to-perform-security-review.md)
+### [Start an access review](pim-how-to-start-security-review.md)
+### [Finish an access review](pim-how-to-complete-review.md)
 ## PIM for resource roles
 ### [Perform an access review](pim-resource-roles-perform-access-review.md)
 ### [Start an access review](pim-resource-roles-start-access-review.md)

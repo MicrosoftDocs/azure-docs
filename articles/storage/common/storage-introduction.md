@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 04/05/2018
+ms.date: 07/11/2018
 ms.author: tamram
 ---
 
@@ -136,6 +136,7 @@ There are two basic kinds of encryption available for the Storage services. For 
 
 Azure Storage Service Encryption (SSE) at rest helps you protect and safeguard your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data prior to persisting to storage and decrypts prior to retrieval. The encryption, decryption, and key management are totally transparent to users.
 
+
 SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). SSE does not affect Azure Storage performance.
 
 For more information about SSE encryption at rest, see [Azure Storage Service Encryption for Data at Rest](storage-service-encryption.md).
@@ -164,6 +165,8 @@ You can use the AzCopy command-line utility to copy blob, and file data within y
 AzCopy is built on top of the [Azure Data Movement Library](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), which is currently available in preview.
 
 The Azure Import/Export service can be used to import or export large amounts of blob data to or from your storage account. You prepare and mail multiple hard drives to an Azure data center, where they will transfer the data to/from the hard drives and send the hard drives back to you. For more information about the Import/Export service, see [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](../storage-import-export-service.md).
+
+To import large amounts of blob data to your storage account in a quick, inexpensive, and reliable way, you can also use Azure Data Box Disk. Microsoft ships up to 5 encrypted solid-state disks (SSDs) with a 40 TB capacity, to your datacenter through a regional carrier. You quickly configure the disks, copy data to disks over a USB connection, and ship the disks back to Azure. In the Azure datacenter, your data is automatically uploaded from drives to the cloud. For more information about this solution, go to [Azure Data Box Disk overview](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## Pricing
 

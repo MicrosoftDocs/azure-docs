@@ -122,6 +122,7 @@ This section shows the summary of the insights.
 |indexingPreset|The preset used to index the video.|
 |streamingPreset|The preset used to publish the video.|
 |linguisticModelId|The CRIS model used to transcribe the video.|
+|statistics | For more information, see [statistics](#statistics).|
 
 ```json
 {

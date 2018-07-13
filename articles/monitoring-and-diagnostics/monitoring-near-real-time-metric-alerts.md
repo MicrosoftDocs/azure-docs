@@ -23,7 +23,7 @@ You can also use newer metric alerts on popular Log Analytics logs extracted as 
 > Specific metric and/or dimension will only be shown if data for it exists in chosen period. These metrics are available for customers with Azure Log Analytics workspaces in East US, West Central US and West Europe. Metrics from Log Analytics is currently in public preview and subject to changes.
 
 ## Portal, PowerShell, CLI, REST support
-Currently, you can create newer metric alerts only in the Azure portal, [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) or [Resource Manager Templates](monitoring-create-metric-alerts-with-templates.md). Support for configuring newer alerts  using PowerShell and the Azure command-line interface (Azure CLI 2.0) is coming soon.
+Currently, you can create newer metric alerts only in the Azure portal, [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) or [Resource Manager Templates](monitoring-create-metric-alerts-with-templates.md). Support for configuring newer alerts  using PowerShell and the Azure command-line interface (Azure CLI 2.0) is coming soon.
 
 ## Metrics and Dimensions Supported
 Newer metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. All supported metrics along with applicable dimensions can be explored and visualized from [Azure Monitor - Metrics Explorer (Preview)](monitoring-metric-charts.md).
