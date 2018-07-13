@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 07/13/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -86,7 +86,7 @@ $vnet   = New-AzureRmVirtualNetwork `
 ## <a name="wan"></a>3. Create a virtual WAN
 
 1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
-2. Click **+Create a resource**. In the *Search the marketplace* field, type 'virtual wan'. Locate **Virtual WAN (preview)** from the returned list, and click to open the **Virtual WAN (preview)** page.
+2. At this time, you can find Virtual WAN by navigating to **All services** and searching for Virtual WAN. Or, you can search for Virtual WAN in the search box at the top of the Azure portal. Click **Virtual WAN** to open the page.
 3. Click **Create** to open the **Create WAN** page. If the page is not available, you have not yet been approved for this Preview.
 
   ![Create WAN](./media/virtual-wan-site-to-site-portal/createwan.png)
