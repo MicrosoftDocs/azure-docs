@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA 
-ms.date: 07/6/2018
+ms.date: 07/12/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want to use visual studio to locally run an ASP.NET Core website on Service Fabric Mesh so that I can see it run.
 ---
 
-# Quickstart: Deploy a Service Fabric Mesh application
+# Quickstart: Create and deploy a web app to Azure Service Fabric Mesh
 
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking.
 
@@ -123,6 +123,6 @@ Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 Alternatively, you can delete the resource group [from the Azure portal](https://portal.azure.com).
 
 ## Next steps
-To learn more about Service Fabric Mesh, read the overview:
+To learn more about creating and deploying Service Fabric Mesh applications, continue to the tutorial.
 > [!div class="nextstepaction"]
-> [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
+> [Create and deploy a multi-service web application](service-fabric-mesh-tutorial-create-dotnetcore.md)
