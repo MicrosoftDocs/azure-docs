@@ -17,12 +17,10 @@ encrypted communication between CycleCloud and any web browser via an
 
 ## Self-Generated Certificates
 
-By default, Azure CycleCloud ships with a temporary self-signed certificate that should be replaced with your own valid certificate.
-
-If you do not have a certificate from a Certificate Authority (CA) such as VeriSign, you can create your own certificates for use in the keystore file. This is a quick way to start using SSL at no cost, but most web browsers will display a warning stating a trusted authority has not verified the certificate being used to encrypt the channel. For some cases, like internal CycleCloud deployments on secure networks, this is acceptable. Users will have to add an exception to their browser to view the site, but the contents and the session will otherwise be encrypted as expected.
+If you do not have a certificate from a Certificate Authority (CA) such as VeriSign, you can use the auto-generated self-signed certificate provided with Azure CycleCloud. This is a quick way to start using SSL at no cost, but most web browsers will display a warning stating a trusted authority has not verified the certificate being used to encrypt the channel. For some cases, like internal CycleCloud deployments on secure networks, this is acceptable. Users will have to add an exception to their browser to view the site, but the contents and the session will otherwise be encrypted as expected.
 
 > [!WARNING]
-> If you're using self-signed certificates, browsers will issue a warning about the SSL certificates being untrusted. Users will have to explicitly accept them to view the web console.
+> The Azure CycleCloud self-signed certificate has a shortened shelf life. When it expires, browsers will re-issue the warning about the SSL certificates being untrusted. Users will have to explicitly accept them to view the web console.
 
 ## Working With CA-Generated Certificates
 
@@ -38,9 +36,9 @@ If the response returns multiple file names, you can import them all at once by 
 
       ./cycle_server keystore import ca_cert_chain.crt server.crt
 
-### Import Existing CA Certificate
+### Import Existing Certificates
 
-If you have previously created a CA Certificate (generated outside Azure CycleCloud use), you can update the keystore to use your previously-signed certificate:
+If you have previously created a CA or self-signed Certificate, you can update the keystore to use it:
 
       ./cycle_server keystore update
 
