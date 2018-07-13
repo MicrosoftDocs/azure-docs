@@ -63,7 +63,17 @@ There are four items within the solution:
 * A **.vscode** folder contains debug configurations.
 * A **modules** folder has subfolders for each module. At this point, you only have one. But you can add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**. 
 * An **.env** file lists your environment variables. If Azure Container Registry is your registry, you'll have an Azure Container Registry username and password in it. 
+
+   >[!NOTE]
+   >The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables. 
+
 * A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md). 
+
+## Devlop your module
+
+The default Azure Function code that comes with the solution is located at **modules** > **\<your module name\>** > **Program.cs**. The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub. 
+
+When you're ready to customize the C# template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability. 
 
 ## Build and deploy your module for debugging
 
@@ -86,7 +96,8 @@ Check your container status in the VS Code Docker explorer or by running the `do
 VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace. This `launch.json` file was generated when you created a new IoT Edge solution. It updates each time you add a new module that supports debugging. 
 
 1. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (.NET Core)**
-    ![Select debug configuration](./media/how-to-develop-csharp-module/debug-config.png).
+
+   ![Select debug configuration](./media/how-to-develop-csharp-module/debug-config.png).
 
 2. Navigate to `program.cs`. Add a breakpoint in this file.
 
@@ -101,3 +112,4 @@ VS Code keeps debugging configuration information in a `launch.json` file locate
 
 After you've built your module, learn how to [deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md).
 
+To develop modules for your IoT Edge devices, [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
