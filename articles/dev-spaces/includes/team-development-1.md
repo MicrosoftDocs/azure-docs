@@ -39,7 +39,7 @@ As you develop code for your service, and before you're ready to check it in, co
 > [!Note]
 > Before you proceed, close all VS Code windows for both services, and then run `azds up -d` in each of the service's root folders. (This is a Preview limitation.)
 
-Let's take a closer look at where the services are currently running. Run the `azds list` command, and you'll see output similar to the following:
+Let's take a closer look at where the services are currently running. Run the `azds list-up` command, and you'll see output similar to the following:
 
 ```
 Name         Space     Chart              Ports   Updated     Access Points
