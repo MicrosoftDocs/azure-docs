@@ -56,6 +56,6 @@ In Azure Search, emphasizing the exact portion of search results that match the 
 
 The best way to understand syntax differences is by submitting queries and reviewing results.
 
-+ Use [Search Explorer](search-explorer.md) in the Azure portal. By deploying [the sample index](search-get-started-portal.md), you can query the index in minutes using tools in the portal.
++ Use [Search explorer](search-explorer.md) in the Azure portal. By deploying [the sample index](search-get-started-portal.md), you can query the index in minutes using tools in the portal.
 
 + Use Telerik Fiddler or Chrome Postman to submit queries to an index that you have uploaded to your search service. Both tools support REST calls to an HTTP endpoint. 

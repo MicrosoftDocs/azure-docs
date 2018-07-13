@@ -16,13 +16,41 @@ manager: "douge"
 
 This guide contains information about common problems you may have when using Azure Dev Spaces.
 
+## Error 'Service cannot be started.'
+
+You might see this error when your service code fails to start. The cause is often in user code. To get more diagnostic information, make the following changes to your commands and settings:
+
+On the command line:
+
+1. When using _azds.exe_, use the --verbose command-line option, and use the --output command-line option to specify the output format.
+ 
+    ```cmd
+    azds up --verbose --output json
+    ```
+
+In Visual Studio:
+
+1. Open **Tools > Options** and under **Projects and Solutions**, choose and **Build and Run**.
+2. Change the settings for **MSBuild project build output verbosity** to **Detailed** or **Diagnostic**.
+
+    ![Screenshot of Tools Options dialog](media/common/VerbositySetting.PNG)
+
+## Error 'Required tools and configurations are missing'
+
+This error might occur when launching VS Code: "[Azure Dev Spaces] Required tools and configurations to build and debug '[project name]' are missing."
+The error means that azds.exe is not in the PATH environment variable, as seen in VS Code.
+
+### Try:
+
+Launch VS Code from a command prompt where the PATH environment variable is set properly.
+
 ## Error 'upstream connect error or disconnect/reset before headers'
 You may see this error when trying to access your service. For example, when you go to the service's URL in a browser. 
 
 ### Reason 
-The container port isn't available. This could be because: 
-* The container is still in the process of being built and deployed. This can be the case if you run `azds up` or start the debugger, and then try to access the container before it has successfully deployed.
-* Port configuration is not consistent across your Dockerfile, Helm Chart, and any server code that opens up a port.
+The container port isn't available. This problem could occur because: 
+* The container is still in the process of being built and deployed. This issue can arise if you run `azds up` or start the debugger, and then try to access the container before it has successfully deployed.
+* Port configuration is not consistent across your _Dockerfile_, Helm Chart, and any server code that opens up a port.
 
 ### Try:
 1. If the container is in the process of being built/deployed, you can wait 2-3 seconds and try accessing the service again. 
@@ -40,7 +68,7 @@ You must run `azds up` from the root directory of the code you want to run, and 
 
 ### Try:
 1. Change your current directory to the root folder containing your service code. 
-1. If you do not have a azds.yaml file in the code folder, run `azds prep` to generate Docker, Kubernetes, and Azure Dev Spaces assets.
+1. If you do not have a _azds.yaml_ file in the code folder, run `azds prep` to generate Docker, Kubernetes, and Azure Dev Spaces assets.
 
 ## Error: 'The pipe program 'azds' exited unexpectedly with code 126.'
 Starting the VS Code debugger may sometimes result in this error. This is a known issue.
@@ -66,33 +94,33 @@ The build context is at the project/service level by default, therefore a librar
 
 ### Try:
 What needs to be done:
-1. Modify the azds.yaml file to set the build context to the solution level.
-2. Modify the Dockerfile and Dockerfile.develop files to refer to the csproj files correctly, relative to the new build context.
-3. Place a .dockerignore file beside the .sln file and modify as needed.
+1. Modify the _azds.yaml_ file to set the build context to the solution level.
+2. Modify the _Dockerfile_ and _Dockerfile.develop_ files to refer to the project (_.csproj_) files correctly, relative to the new build context.
+3. Place a _.dockerignore_ file beside the .sln file and modify as needed.
 
 You can find an example at https://github.com/sgreenmsft/buildcontextsample
 
-## 'Microsoft.ConnectedEnvironment/register/action' authorization error
+## 'Microsoft.DevSpaces/register/action' authorization error
 You might see the following error when you are managing an Azure Dev Space and you are working in an Azure subscription for which you do not have Owner or Contributor access.
-`The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.ConnectedEnvironment/register/action' over scope '/subscriptions/<Subscription Id>'.`
+`The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### Reason
-The selected Azure subscription has not registered the Microsoft.ConnectedEnvironment namespace.
+The selected Azure subscription has not registered the `Microsoft.DevSpaces` namespace.
 
 ### Try:
-Someone with Owner or Contributor access to the Azure subscription can run the following Azure CLI command to manually register the Microsoft.ConnectedEnvironment namespace:
+Someone with Owner or Contributor access to the Azure subscription can run the following Azure CLI command to manually register the `Microsoft.DevSpaces` namespace:
 
 ```cmd
-az provider register --namespace Microsoft.ConnectedEnvironment
+az provider register --namespace Microsoft.DevSpaces
 ```
 
 ## Azure Dev Spaces doesn't seem to use my existing Dockerfile to build a container 
 
 ### Reason
-Azure Dev Spaces can be configured to point to a specific Dockerfile in your project. If it appears Azure Dev Spaces isn't using the Dockerfile you expect to build your containers, you might need to explicitly tell Azure Dev Spaces where it is. 
+Azure Dev Spaces can be configured to point to a specific _Dockerfile_ in your project. If it appears Azure Dev Spaces isn't using the _Dockerfile_ you expect to build your containers, you might need to tell Azure Dev Spaces where it is explicitly. 
 
 ### Try:
-Open the `azds.yaml` file that was generated by Azure Dev Spaces in your project. Use the `configurations->develop->build->dockerfile` directive to point to the Dockerfile you want to use:
+Open the _azds.yaml_ file that was generated by Azure Dev Spaces in your project. Use the `configurations->develop->build->dockerfile` directive to point to the Dockerfile you want to use:
 
 ```
 ...

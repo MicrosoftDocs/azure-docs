@@ -99,7 +99,7 @@ The following values are returned under MaintenanceRedeployStatus:
 The following call will initiate maintenance on a VM if `IsCustomerInitiatedMaintenanceAllowed` is set to true.
 
 ```azure-cli
-az vm perform-maintenance rgName vmName 
+az vm perform-maintenance -g rgName -n vmName 
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
