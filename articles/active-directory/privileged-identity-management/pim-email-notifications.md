@@ -42,25 +42,25 @@ Previously, email notifications had the following address:
 - Email address:  **azureadnotifications@microsoft.com**
 - Display name: Microsoft Azure AD Notification Service
 
-## PIM for Azure AD email
+## PIM emails for Azure AD roles
 
-Starting at the end of July 2018, the email notifications for PIM for Azure AD have an updated design. The following shows an example email that is sent when a user activates a privileged role for the fictional Contoso organization.
+Starting at the end of July 2018, the PIM email notifications for Azure AD roles have an updated design. The following shows an example email that is sent when a user activates a privileged role for the fictional Contoso organization.
 
-![New PIM for Azure AD email](./media/pim-email-notifications/email-directory-new.png)
+![New PIM email for Azure AD roles](./media/pim-email-notifications/email-directory-new.png)
 
 Previously, when a user activated a privileged role, the email looked like the following.
 
-![Old PIM for Azure AD email](./media/pim-email-notifications/email-directory-old.png)
+![Old PIM email for Azure AD roles](./media/pim-email-notifications/email-directory-old.png)
 
-## PIM for Azure resources email
+## PIM emails for Azure resource roles
 
-Starting at the end of July 2018, the email notifications for PIM for Azure resources have an updated design. The following shows an example email that is sent when a user is assigned a privileged role for the fictional Contoso organization.
+Starting at the end of July 2018, the PIM email notifications for Azure resource roles have an updated design. The following shows an example email that is sent when a user is assigned a privileged role for the fictional Contoso organization.
 
-![New PIM for Azure resources email](./media/pim-email-notifications/email-resources-new.png)
+![New PIM email for Azure resource roles](./media/pim-email-notifications/email-resources-new.png)
 
 Previously, when a user was assigned a privileged role, the email looked like the following.
 
-![Old PIM for Azure resources email](./media/pim-email-notifications/email-resources-old.png)
+![Old PIM email for Azure resource roles](./media/pim-email-notifications/email-resources-old.png)
 
 ## Next steps
 
