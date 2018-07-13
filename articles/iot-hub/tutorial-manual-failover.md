@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Perform manual failover for an IoT hub (public preview)
 
-Manual failover is a feature of IoT Hubs that allows customers to [failover](https://en.wikipedia.org/wiki/Failover) their hub's operations from a primary region to the corresponding Azure geo-paired region. Manual failover can be done in the event of a regional disaster or an extended service outage. You can also perform a planned failover       to test your high availability and disaster recovery capabilities, although we recommend using a test IoT hub rather than one running in production. The manual failover feature will be offered to customers at no additional cost.
+Manual failover is a feature of IoT Hubs that allows customers to [failover](https://en.wikipedia.org/wiki/Failover) their hub's operations from a primary region to the corresponding Azure geo-paired region. Manual failover can be done in the event of a regional disaster or an extended service outage. You can also perform a planned failover       to test your high availability and disaster recovery capabilities, although we recommend using a test IoT hub rather than one running in production. The manual failover feature is offered to customers at no additional cost.
 
 In this tutorial, you perform the following tasks:
 
@@ -64,7 +64,7 @@ Note that there is a limit of two failovers and two failbacks per day for an IoT
 
 1. Click **Resource groups** and then select the resource group **ManlFailRG**. Click on your hub in the list of resources. 
 
-2. Under **Resiliency** on the IoT Hub pane, click **Manual failover (preview)**.
+2. Under **Resiliency** on the IoT Hub pane, click **Manual failover (preview)**. Note that if your hub is not set up in a valid region, the manual failover option will be disabled.
 
    ![Screenshot showing IoT Hub properties pane](./media/tutorial-manual-failover/trigger-failover-01.png)
 
@@ -88,7 +88,7 @@ Note that there is a limit of two failovers and two failbacks per day for an IoT
 
    ![Screenshot showing IoT Hub inactive](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
 
-   After it's finished, the primary and secondary regions on the Manual Failover page will be flipped and the hub will be active again. In this example, the primary location is now `WestCentralUS` and the secondary location is now `westus2`. 
+   After it's finished, the primary and secondary regions on the Manual Failover page are flipped and the hub is active again. In this example, the primary location is now `WestCentralUS` and the secondary location is now `westus2`. 
 
    ![Screenshot showing failover is complete](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
 
@@ -108,7 +108,7 @@ A failback is performed just like a manual failover. These are the steps:
 
    ![Screenshot of manual failback request](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   The banners will be displayed as explained in the [perform a failover](#perform-a-failover) section. After the failback is complete, it again shows `westus2` as the primary location and `WestCentralUS` as the secondary location, as set originally.
+   The banners are displayed as explained in the [perform a failover](#perform-a-failover) section. After the failback is complete, it again shows `westus2` as the primary location and `WestCentralUS` as the secondary location, as set originally.
 
 ## Clean up resources 
 
