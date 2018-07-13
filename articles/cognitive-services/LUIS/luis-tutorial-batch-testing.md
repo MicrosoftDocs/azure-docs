@@ -186,6 +186,8 @@ In order to verify that the utterances in the batch test are correctly predicted
 ## Create batch file with entities 
 In order to verify entities in a batch test, the entities need to be noted in the batch. Only simple and composite entities (the machine-learned entities) are used.
 
+When first writing and testing batch files, it is best to start with a few utterances and entities that you know work, as well as a few that you think may be incorrectly predicted. This helps you focus in on the problem areas quickly. After testing the **GetJobInformation** and **ApplyForJob** intents using several different Job names which were not predicted, this batch test file was developed to see if there is a prediction problem with certain values for **Job** entity. 
+
 1. Create `HumanResources-entities-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/). Or download [the file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) from the LUIS-Samples Github repository.
 
 
@@ -268,10 +270,30 @@ In order to verify entities in a batch test, the entities need to be noted in th
 
 
 ## Review entity batch results
-### Entity test results
+The chart opens with all the intents correctly predicted. Scroll down in the right-side filter to find the erroring entity predictions. 
+
+1. Select the **Job** entity in the filter.
+
+    ![Erroring entity predictions in filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+
+    The chart changed to display the entity predictions. 
+
+2. Select **False Negative** in the lower, left quadrant of the chart. Then use the keyboard key combination control + E to switch into the token view. 
+
+    ![Token view of entity predictions](./media/luis-tutorial-batch-testing/token-view-entities.png)
+
+    Reviewing the utterances below the chart reveals consistent error when the Job name includes `SQL`. Reviewing the example utterances and the Job phrase list, SQL is only used once, and only as part of a larger job name, `sql/oracle database administrator`.
+
+## Fix the app based on entity batch results
+Fixing the app requires LUIS to correctly determine the variations of SQL jobs. There are several options for that fix. 
+
+    * Explicitly add more example utterances which use SQL and label those words as a Job entity. 
+    * Explicitly add more SQL jobs to the phrase list
+
+Adding a pattern before the entity is correctly predicted is not going to fix the problem. This is because the pattern won't match until all the entities in the pattern are detected. 
 
 ## What has this tutorial accomplished?
-This app prediction accuracy has increased by finding errors in the batch and correcting the model by adding more example utterances to the correct intent and training. 
+This app prediction accuracy has increased by finding errors in the batch and correcting the model. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. Select **My apps** in the top left menu. Select the ellipsis **...** to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
