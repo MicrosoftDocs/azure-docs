@@ -49,7 +49,7 @@ When you select **All users**, your policy is applied to all users in the direct
 
 When you **Select users and groups**, you can set the following options:
 
-* **All guest users** targets a policy to B2B guest users. This condition matches any user account that has the *userType* attribute set to *guest*. You can use this setting in cases where a policy needs to be applied as soon as the account is created in an invite flow in Azure AD.
+* **All guest users** targets a policy to B2B guest users. This condition matches any user account that has the *userType* attribute set to *guest*. You can use this setting in cases where a policy needs to be applied when the account is created in an invite flow in Azure AD.
 
 * **Directory roles** targets a policy based on a user’s role assignment. This condition supports directory roles like *Global administrator* or *Password administrator*.
 
