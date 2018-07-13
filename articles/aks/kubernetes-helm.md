@@ -7,12 +7,12 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 07/13/2018
 ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Install and manage applications with Helm in Azure Kubernetes Service (AKS)
+# Install applications with Helm in Azure Kubernetes Service (AKS)
 
 [Helm][helm] is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as *APT* and *Yum*, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
 
@@ -45,7 +45,7 @@ Bash completion has been installed to:
 🍺  /usr/local/Cellar/kubernetes-helm/2.9.1: 50 files, 66.2MB
 ```
 
-## Create service account
+## Create a service account
 
 Before you can deploy Helm in an RBAC-enabled cluster, you need a service account and role binding for the Tiller service. For more information on securing Helm / Tiller in an RBAC enabled cluster, see [Tiller, Namespaces, and RBAC][tiller-rbac]. If your cluster is not RBAC enabled, skip this step.
 
