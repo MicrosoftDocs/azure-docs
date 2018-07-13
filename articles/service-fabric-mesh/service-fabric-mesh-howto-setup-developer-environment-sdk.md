@@ -103,6 +103,11 @@ After you install the runtime, SDKs, and Visual Studio tools, create a developme
 ```powershell
 . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
 ```
+4. To start the local cluster manager tool, run the following PowerShell command:
+
+```powershell
+. "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
+```
 
 You're now ready to create Service Fabric Mesh applications!
 
