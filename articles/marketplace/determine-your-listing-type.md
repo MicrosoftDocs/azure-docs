@@ -18,14 +18,16 @@ ms.author: ellacroi
 
 ---  
 # Determine your publishing option
+The publishing option that you choose for your offer relates directly to both the eligibility requirements and marketplace GTM benefits. More importantly, the selection of publishing option and offer type in the Cloud Partner Portal defines how users will interact with your marketplace offer.
+
+You can enable publishing options by selecting an offer type and then creating a marketplace offer in the Cloud Partner Portal. To do this, you’ll need to understand the following key marketplace concepts: the publishing options, offer types and configuration, and calls-to-action that will govern how and where your offer is presented in the marketplace storefronts.
 
 ![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
 
 >[!Note]
 >The table above describes how your solution or service maps to the storefront, publishing option, and offer type used to present your offer in marketplace.
 
-The publishing option that you choose for your offer relates directly to both the eligibility requirements and marketplace GTM benefits. More importantly, the selection of publishing option and offer type in the Cloud Partner Portal defines how users will interact with your marketplace offer.
-You can enable publishing options by selecting an offer type and then creating a marketplace offer in the Cloud Partner Portal. To do this, you’ll need to understand the following key marketplace concepts: the publishing options, offer types and configuration, and calls-to-action that will govern how and where your offer is presented in the marketplace storefronts.
+
 In this article, you will learn…
 <ul><li>	How to determine the appropriate storefront for your solution </ul></li>
 <ul><li>	Which publishing options and calls-to-action are available in each storefront </ul></li>
