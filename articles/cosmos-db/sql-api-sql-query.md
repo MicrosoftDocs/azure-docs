@@ -1403,7 +1403,7 @@ other possibly infinite variations like "021", "21.0", "0021", "00021", etc. wil
 This is in contrast to the JavaScript where the string values are implicitly casted to numbers (based on operator, ex: ==). This choice is crucial for efficient index matching in the SQL API. 
 
 ## Parameterized SQL queries
-Cosmos DB supports queries with parameters expressed with the familiar @ notation. Parameterized SQL provides robust handling and escaping of user input, preventing accidental exposure of data through SQL injection. 
+Cosmos DB supports queries with parameters expressed with the familiar \@ notation. Parameterized SQL provides robust handling and escaping of user input, preventing accidental exposure of data through SQL injection. 
 
 For example, you can write a query that takes last name and address state as parameters, and then execute it for various values of last name and address state based on user input.
 
