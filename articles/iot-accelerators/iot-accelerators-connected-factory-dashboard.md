@@ -101,7 +101,7 @@ When you're done, you can delete the solution accelerator from your Azure subscr
 > [!NOTE]
 > To ensure that you delete everything related to the solution accelerator, delete it on the [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators#dashboard) site. Do not delete the resource group in the portal.
 
-## Next Steps
+## Next steps
 
 Now that you’ve deployed a working solution accelerator, you can continue getting started with IoT solution accelerators by reading the following articles:
 
