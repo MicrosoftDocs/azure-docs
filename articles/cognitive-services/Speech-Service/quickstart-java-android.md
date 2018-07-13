@@ -143,7 +143,7 @@ The text and graphical version of your UI should now look similar to this:
   ![Launch the app into debugging](media/sdk/qs-java-android-12-deploy.png)
 
 * The app should launch on your device.
-  Once you press the button, the next 15 seconds will be recognized and shown in the UI (you should also be able to see the response in your logcat window in Android Studiuo):
+  Once you press the button, the next 15 seconds will be recognized and shown in the UI (you should also be able to see the response in your logcat window in Android Studio):
 
   ![UI after successful recognition](media/sdk/qs-java-android-13-gui-on-device.png)
 
