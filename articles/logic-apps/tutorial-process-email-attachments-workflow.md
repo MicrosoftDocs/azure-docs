@@ -464,6 +464,10 @@ for the email and attachments.
 
 ## Call the RemoveHTMLFunction
 
+This step adds your previously created Azure function 
+to your logic app and passes the email body content 
+from email trigger to your function.
+
 1. On the logic app menu, select **Logic App Designer**. 
 In the **If true** branch, select **Add an action**.
 
@@ -483,43 +487,45 @@ and select this action: **Azure Functions – Choose an Azure function**
    ![Select your Azure function](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
 5. Rename your function shape with this description: 
-```Call RemoveHTMLFunction to clean email body``` 
+```Call RemoveHTMLFunction to clean email body```
 
-6. In the function shape, enter the input for your function to process. 
-Specify the email body as shown and described here:
+6. Now specify the input for your function to process. 
 
-   ![Specify the request body for the function to expect](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing.png)
-
-   1. Under **Request Body**, enter this text: 
+   1. Under **Request Body**, enter this text with a trailing space: 
    
       ```{ "emailBody": ``` 
 
-      Until you finish this entry in the next steps, 
+      While you work on this input in the next steps, 
       an error about invalid JSON appears.
       When you previously tested this function, 
       the input specified for this function used JavaScript Object Notation (JSON). 
-      So, the request body must use the same format too. 
+      So, the request body must use the same format too.
 
-   2. From either the parameter list or the dynamic content list, 
-   select the **Body** field under **When a new email arrives**.
-   After the **Body** field, add the closing curly brace: ```}```
+      Also, while your cursor is inside the **Request body** box, 
+      the dynamic content list appears so you can select 
+      property values available from previous actions. 
+      
+   2. From the dynamic content list, under **When a new email arrives**, 
+   select the **Body** property. Following this property, 
+   Remember to add the closing curly brace: ```}```
 
-      ![Specify the request body for passing to the function](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing2.png)
+      ![Specify the request body for passing to the function](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing.png)
 
-      In the logic app definition, this entry appears in this format:
+When you're done, the input to your function looks like this example:
 
-      ```{ "emailBody": "@triggerBody()?['Body']" }```
+![Finished request body to pass to your function](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing-2.png)
 
 7. Save your logic app.
 
 Next, add an action that creates a blob in your 
-storage container for saving the email body.
+storage container so you can save the email body.
 
 ## Create blob for email body
 
-1. Under the Azure function shape, choose **Add an action**. 
+1. In the **If true** block and under your Azure function, 
+choose **Add an action**. 
 
-2. Under **Choose an action**, search for "blob", 
+2. Under **Choose an action**, find "create blob", 
 and select this action: **Azure Blob Storage – Create blob**
 
    ![Add action to create blob for email body](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-email-body.png)
