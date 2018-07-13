@@ -14,8 +14,8 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 10/04/2017
-ms.author: cfowler
+ms.date: 07/03/2018
+ms.author: glenga
 ms.custom: mvc
 ---
 
@@ -51,6 +51,6 @@ Each command in the table links to command specific documentation. This script u
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
 Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).
