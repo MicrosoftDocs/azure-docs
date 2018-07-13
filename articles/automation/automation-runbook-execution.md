@@ -57,17 +57,17 @@ On the right of your selected Automation account, you can see a summary of all o
 
 This tile displays a count and graphical representation of the job status for all jobs executed.
 
-Clicking on the tile presents the **Jobs** blade, which includes a summarized list of all jobs executed, with status, job execution, and start and completion times.
+Clicking on the tile presents the **Jobs** page, which includes a summarized list of all jobs executed, with status, job execution, and start and completion times.
 
-![Automation account Jobs blade](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
+![Automation account Jobs page](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
 
 You can filter the list of jobs by selecting **Filter jobs**  and filter on a specific runbook, job status, or from the drop-down list, the date/time range to search within.
 
 ![Filter Job status](./media/automation-runbook-execution/automation-account-jobs-filter.png)
 
-Alternatively, you can view job summary details for a specific runbook by selecting that runbook from the **Runbooks** blade in your Automation account, and then select the **Jobs** tile. This presents the **Jobs** blade, and from there you can click on the job record to view its detail and output.
+Alternatively, you can view job summary details for a specific runbook by selecting that runbook from the **Runbooks** page in your Automation account, and then select the **Jobs** tile. This presents the **Jobs** page, and from there you can click on the job record to view its detail and output.
 
-![Automation account Jobs blade](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
+![Automation account Jobs page](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
 
 ### Job Summary
 
@@ -76,9 +76,9 @@ You can view a list of all of the jobs that have been created for a particular r
 You can use the following steps to view the jobs for a runbook.
 
 1. In the Azure portal, select **Automation** and then select the name of an Automation account.
-2. From the hub, select **Runbooks** and then on the **Runbooks** blade select a runbook from the list.
-3. On the blade for the selected runbook, click the **Jobs** tile.
-4. Click on one of the jobs in the list and on the runbook job details blade you can view its detail and output.
+2. From the hub, select **Runbooks** and then on the **Runbooks** page select a runbook from the list.
+3. On the page for the selected runbook, click the **Jobs** tile.
+4. Click on one of the jobs in the list and on the runbook job details page you can view its detail and output.
 
 ## Retrieving job status using PowerShell
 
@@ -95,7 +95,7 @@ Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
 ```
 
-The following sample retrieves the output for a specific job, and returns each record. In the case that there was an exception for one of the records, the exception is written out instead of the value. This is useful as exceptions can provide additional information which may not be logged normally during output.
+The following sample retrieves the output for a specific job, and returns each record. In the case that there was an exception for one of the records, the exception is written out instead of the value. This is useful as exceptions can provide additional information, which may not be logged normally during output.
 
 ```azurepowershell-interactive
 $output = Get-AzureRmAutomationJobOutput -AutomationAccountName <AutomationAccountName> -Id <jobID> -ResourceGroupName <ResourceGroupName> -Stream "Any"
@@ -120,13 +120,12 @@ To track the status of a child runbook, add in logic to your parent runbook to q
 ```powershell
 $jobid = Start-AutomationRunbook -Name Child-Runbook
 
-$status = ""
-while($status -ne "Completed")
+while($status -notin ("Completed","Failed","Suspended"))
 {
 $job = Get-AzureRmAutomationJob -Id $jobid -ResourceGroupName myResourcegroup -AutomationAccountName myAutomationAccount
 $status = $job.Status
 Write-Output "Child runbook status: $status"
-Start-Sleep -Seconds 10
+Start-Sleep -Seconds 60
 }
 ```
 
@@ -156,7 +155,7 @@ This is to protect the service from runbooks running indefinitely without comple
 
 If the runbook has no checkpoints or the job had not reached the first checkpoint before being unloaded, then it restarts from the beginning.
 
-For long running tasks, it is recommended to use a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers are not limited by fair share, and do not have have a limitation on how long a runbook can execute.
+For long running tasks, it is recommended to use a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers are not limited by fair share, and do not have a limitation on how long a runbook can execute.
 
 If you are using a PowerShell Workflow runbook on Azure, when you create a runbook, you should ensure that the time to run any activities between two checkpoints does not exceed three hours. You may need to add checkpoints to your runbook to ensure that it does not reach this three-hour limit or break up long running operations. For example, your runbook might perform a reindex on a large SQL database. If this single operation does not complete within the fair share limit, then the job is unloaded and restarted from the beginning. In this case, you should break up the reindex operation into multiple steps, such as reindexing one table at a time, and then insert a checkpoint after each operation so that the job could resume after the last operation to complete.
 
