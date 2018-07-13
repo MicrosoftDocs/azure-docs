@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
-ms.date: 05/17/2018
+ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 

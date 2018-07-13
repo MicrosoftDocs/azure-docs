@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
-ms.date: 05/17/2018
+ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -22,7 +22,7 @@ ms.reviewer: dhanyahk
 
 # Tutorial: Stream Azure Active Directory logs to an Azure event hub (preview)
 
-In this tutorial, learn how to set up Azure Monitor settings to stream Azure Active Directory logs to an Azure event hub. Use this mechanism to integrate your logs with third-party SIEM tools like Splunk and QRadar.
+In this tutorial, learn how to set up Azure Monitor diagnostic settings to stream Azure Active Directory logs to an Azure event hub. Use this mechanism to integrate your logs with third-party SIEM tools like Splunk and QRadar.
 
 ## Prerequisites 
 
@@ -31,6 +31,7 @@ You need:
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 * An Azure Active Directory tenant
 * A user, who is a global administrator or security administrator for that tenant
+* An Event Hubs namespace and event hub in your Azure subscription. Learn how to [create one here](https://docs.microsoft.com/azure/event-hubs/event-hubs-create.md).
 
 ## Archive logs to Event hub
 

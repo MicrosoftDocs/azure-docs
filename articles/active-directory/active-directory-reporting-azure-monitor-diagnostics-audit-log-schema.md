@@ -14,7 +14,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
-ms.date: 05/17/2018
+ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -125,3 +125,8 @@ This article describes the Azure AD audit log schema in Azure Monitor. Each indi
 | Target Resource Type | Specifies the target resource type that the operation was performed on. Can be *Application*, *User*, *Role*, *Policy* | 
 | Target Resource Name | Name of the target resource. For example, this may be an application name, a role name, a user principal name or a service principal name |
 | additionalTargets | Lists any additional properties for specific operations. For example, for an update operation, the old values and the new values are listed under *targetUpdatedProperties* | 
+
+## Next Steps
+
+* [Interpret sign-in logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 05/10/2018
+ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -128,7 +128,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ## Frequently asked questions about Azure Active Directory logs in Azure Monitor
 
-This section contains the frequently asked questions and known issues with Azure Active Directory logs in Azure monitor diagnostics.
+This section contains the frequently asked questions and known issues with Azure Active Directory logs in Azure Monitor.
 
 **Q: Where should I start?** 
 
@@ -168,7 +168,7 @@ This section contains the frequently asked questions and known issues with Azure
 
 **Q: What SIEM tools are currently supported?** 
 
-**A:** Currently, Azure monitor diagnostics is supported by Splunk, QRadar and Sumologic. However, Splunk is the only SIEM tools that is supported for Azure Active Directory logs. For more information on how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs).
+**A:** Currently, Azure Monitor is supported by Splunk, QRadar and Sumologic. However, Splunk is the only SIEM tools that is supported for Azure Active Directory logs. For more information on how the connectors work, see [Stream Azure monitoring data to an event hub for consumption by an external tool](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs).
 
 ---
 

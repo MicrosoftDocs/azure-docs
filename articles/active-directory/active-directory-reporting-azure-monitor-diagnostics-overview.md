@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory activity logs in Azure monitor (preview) | Microsoft Docs
-description: Overview of Azure Active Directory activity logs in Azure monitor (preview)
+title: Azure Active Directory activity logs in Azure Monitor (preview) | Microsoft Docs
+description: Overview of Azure Active Directory activity logs in Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -14,15 +14,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
-ms.date: 05/17/2018
+ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
 
-# Azure Active Directory activity logs in Azure monitor (preview)
+# Azure Active Directory activity logs in Azure Monitor (preview)
 
-You can now route Azure AD activity logs to your own storage account or Event Hub and store the data for as long as you want. With the public preview of this feature, you can:
+You can now route Azure AD activity logs using Azure Monitor to your own storage account or Event Hub. With the public preview of Azure Active Directory logs in Azur Monitor, you can:
 
 * Archive your audit logs for an Azure storage account, enabling you to retain the data for a long time
 * Stream your audit logs to an Azure event hub for analytics using popular SIEM tools like Splunk and QRadar
@@ -48,7 +48,7 @@ To use this feature, you need:
 
 Depending on where you want to route the audit log data, you need either:
 
-* An Azure storage account, with *ListKeys* permissions. We recommend you use a general storage account and not a blob storage account. For pricing information on storage, check out the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
+* An Azure storage account, that you have *ListKeys* permissions on. We recommend you use a general storage account and not a blob storage account. For pricing information on storage, check out the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * Azure event hubs namespace, in order to integrate with third-party solutions.
 
 > [!NOTE]

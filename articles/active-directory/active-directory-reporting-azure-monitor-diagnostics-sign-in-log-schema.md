@@ -14,7 +14,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
-ms.date: 05/17/2018
+ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -162,3 +162,8 @@ This article describes the Azure AD sign-in log schema in Azure Monitor. Most of
 | Level | Provides the type of message. For audit, it's always *Informational* |
 | Location | Provides the location of the sign-in activity |
 | Properties | Lists all the properties associated with sign-ins. For more information, read the [MS Graph API Reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). This schema uses the attribute names as in the sign-in resource, for readability.
+
+## Next Steps
+
+* [Interpret audit logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)
