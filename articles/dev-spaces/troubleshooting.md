@@ -44,6 +44,19 @@ The error means that azds.exe is not in the PATH environment variable, as seen i
 
 Launch VS Code from a command prompt where the PATH environment variable is set properly.
 
+## Error 'azds' is not recognized as an internal or external command, operable program, or batch file
+ 
+You might see this error if azds.exe is not installed or configured correctly.
+
+### Try:
+
+1. Check the location %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI (Preview) for azds.exe. If it's there, add that location to the PATH environment variable.
+2. If azds.exe is not installed, run the following command:
+
+    ```cmd
+    az aks use-dev-spaces -n <cluster-name> -g <resource-group>
+    ```
+
 ## Error 'upstream connect error or disconnect/reset before headers'
 You may see this error when trying to access your service. For example, when you go to the service's URL in a browser. 
 
