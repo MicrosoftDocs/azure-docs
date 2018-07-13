@@ -127,7 +127,7 @@ The process is similar if you want the logic app to perform a different action.
 
     ![Update the action group](media/monitoring-action-groups/update-action-group.png "Update the action group")
 
-The next time an alert invokes your action group, your logic app is called.
+The next time an alert calls your action group, your logic app is called.
 
 ## Create a service health alert
 
@@ -181,7 +181,7 @@ Azure Service Health entries are part of the activity log. The process for creat
 -  Steps 9 and 10 are the same.
 -  For steps 11 through 14, use the following process:
 
-   1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions to ensure that the logic app executes only when the input data matches the values below.  When entering the version value into the text box, put quotes around it ("0.1.1") to ensure that it's evaluted as a string and not a numeric type.  The system does not show the quotes if you return to the page, but the underlying code still maintains the string type.   
+   1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions so the logic app executes only when the input data matches the values below.  When entering the version value into the text box, put quotes around it ("0.1.1") to make sure that it's evaluted as a string and not a numeric type.  The system does not show the quotes if you return to the page, but the underlying code still maintains the string type.   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
        - `version == "0.1.1"`
@@ -269,7 +269,7 @@ The process for creating a metric alert is similar to [creating an activity log 
 - Steps 9 and 10 are the same.
 - For steps 11 through 14, use the following process:
 
-   1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions to ensure that the logic app executes only when the input data matches these values below. When entering the version value into the text box, put quotes around it ("2.0") to ensure that it's evaluted as a string and not a numeric type.  The system does not show the quotes if you return to the page, but the underlying code still maintains the string type. 
+   1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions so the logic app executes only when the input data matches these values below. When entering the version value into the text box, put quotes around it ("2.0") to makes sure that it's evaluted as a string and not a numeric type.  The system does not show the quotes if you return to the page, but the underlying code still maintains the string type. 
        - `schemaId == AzureMonitorMetricAlert`
        - `version == "2.0"`
        
