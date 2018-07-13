@@ -82,7 +82,7 @@ The Traffic service is a suite of web services designed for developers to create
 
 ![Azure Maps Traffic](media/about-azure-maps/Introduction_Traffic.png)
 
-Visit the [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/maps/timezone) page for more details.
+Visit the [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/maps/traffic) page for more details.
 
 ### IP to Location
 

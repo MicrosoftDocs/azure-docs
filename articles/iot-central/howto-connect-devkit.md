@@ -123,7 +123,7 @@ To prepare the DevKit device:
     - your WiFi network password 
     - PIN CODE shown on the device LCD 
     - the connection string of your device. 
-      You can find the connection string @ `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (on the top right) 
+      You can find the connection string \@ `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (on the top right) 
     - Select all the available telemetry measurements! 
 
 1. After you choose **Configure Device**, you see this page:

@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -88,6 +88,31 @@ If you have multi-factor authentication on your Azure account, you can't use an 
 To use a certificate with the Azure classic deployment model cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## Common errors when working with runbooks
+
+### <a name="not-recognized-as-cmdlet"></a>Scenario: The runbook fails because of a missing cmdlet
+
+#### Issue
+
+Your runbook fails with an error similar to the following example:
+
+```
+The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
+```
+
+#### Cause
+
+This error can be caused by the following reasons:
+
+1. The module containing the cmdlet is not imported into the automation account
+2. The module containg the cmdlet is imported but is out of date
+
+#### Resolution
+
+This error can be resolved by completing one of the following tasks:
+
+If the module is an Azure module, see [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md) to learn how to update your modules in your automation account.
+
+If it is a seperate module, ensure the module in imported in your Automation Account.
 
 ### <a name="job-attempted-3-times"></a>Scenario: The runbook job start was attempted three times, but it failed to start each time
 

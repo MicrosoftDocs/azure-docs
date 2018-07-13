@@ -24586,6 +24586,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/security/blueprints/uk-official-three-tier-applications-overview.md",
+            "redirect_url": "/azure/security/blueprints/ukofficial-iaaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/uk-official-three-tier-applications-principles-overview.md",
+            "redirect_url": "/azure/security/blueprints/ukofficial-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md",
             "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
             "redirect_document_id": false
