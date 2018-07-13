@@ -29,7 +29,9 @@ In this section, you will prepare a development environment used to build and ru
 
 1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled for your Visual Studio installation.
 
-2. Download the [CMake build system](https://cmake.org/download/) and the cryptographic hash for the version of the binary distribution you downloaded. Verify the cryptographic hash of the download. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
+    It is important that Visual Studio with the 'Desktop development with C++' workload is installed on your machine, **before** starting the `cmake` installation. 
+
+2. Download the latest version of the [CMake build system](https://cmake.org/download/). From that same site, look up the cryptographic hash for the version of the binary distribution you chose. Make sure to verify the download. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
 
     ```PowerShell
     PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
@@ -37,7 +39,7 @@ In this section, you will prepare a development environment used to build and ru
     True
     ```
 
-    It is important that the Visual Studio with 'Desktop development with C++' workload is installed on your machine, **before** the `cmake` installation. Verify the 
+    Once the download is verified, install the CMake buld system.
 
 3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
@@ -49,7 +51,7 @@ In this section, you will prepare a development environment used to build and ru
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
-5. Create a `cmake` folder in your local copy of the git repository and navigate to that folder. 
+5. Create a `cmake` folder in the root folder of your local copy of the git repository, and navigate to that folder. 
 
     ```cmd/sh
     cd azure-iot-sdk-c
@@ -81,7 +83,7 @@ In this section, you will prepare a development environment used to build and ru
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
 
-7. Navigate to the root folder of the git repository you cloned, and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
+7. Navigate to the root folder of the git repository you cloned, and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator using the path shown below. This simulator listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
 
    If you are in the *cmake* folder, then run the following commands:
 
