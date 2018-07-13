@@ -144,7 +144,7 @@ In this section, you will configure sample code to use the [Advanced Message Que
 
     ![Extract DPS endpoint information from the portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
-2. In Visual Studio's *Solution Explorer* windows, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
+2. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
 3. Near the top of the file, find the `#define` statements for each device protocol as shown below. Make sure only `SAMPLE_AMQP` is uncommented.
 
@@ -179,7 +179,7 @@ In this section, you will configure sample code to use the [Advanced Message Que
 
 7. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.
 
-    Successful output of the provisioning device client sample booting up and connecting to the Device Provisioning Service instance to get your IoT hub information will be similar to the following output:
+    The following output is an example of the provisioning device client sample successfully booting up, and connecting to a Device Provisioning Service instance to get IoT hub information and registering:
 
     ```cmd
     Provisioning API Version: 1.2.7
