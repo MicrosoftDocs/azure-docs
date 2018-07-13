@@ -109,7 +109,7 @@
     - name: Jenkins continuous deployment
       href: jenkins-continuous-deployment.md
     - name: Azure DevOps Project for AKS
-      href: https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks
+      href: ../devops-project/azure-devops-project-aks.md
       maintainContext: true
   - name: Kubernetes basics
     items:

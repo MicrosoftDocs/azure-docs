@@ -31,6 +31,18 @@ Azure AD receives improvements on an ongoing basis. To stay up-to-date with the 
 
 This page is updated monthly, so revisit it regularly.
 
+## July 2018
+
+### View legacy authentications through Sign-ins activity logs
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+With the introduction of the **Client App** field in the Sign-in activity logs, customers can now see users that are using legacy authentications. Customers will be able to access this information using the Sign-ins MS Graph API or through the Sign-in activity logs in Azure AD portal where you can use the **Client App** control to filter on legacy authentications. Check out the documentation for more details.
+
+---
+
 ## June 2018
 
 ### Change notice: Security fix to the delegated authorization flow for apps using Azure AD Activity Logs API
@@ -238,16 +250,6 @@ Using custom policies, you can now add the Azure AD common endpoint as an identi
 **Product capability:** SSO
  
 Users can now access applications through internal URLs even when outside your corporate network by using the My Apps Secure Sign-in Extension for Azure AD. This will work with any application that you have published using Azure AD Application Proxy, on any browser that also has the Access Panel browser extension installed. The URL redirection functionality is automatically enabled once a user logs into the extension. The extension is available for download on [Edge](https://go.microsoft.com/fwlink/?linkid=845176), [Chrome](https://go.microsoft.com/fwlink/?linkid=866367), and [Firefox](https://go.microsoft.com/fwlink/?linkid=866366).
-
----
-
-### View legacy authentications through Sign-ins activity logs
-
-**Type:** New feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
- 
-With the introduction of the **Client App** field in the Sign-in activity logs, customers can now see users that are using legacy authentications. Customers will be able to access this information using the Sign-ins MS Graph API or through the Sign-in activity logs in Azure AD portal where you can use the **Client App** control to filter on legacy authentications. Check out the documentation for more details.
 
 ---
  

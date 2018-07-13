@@ -53,7 +53,7 @@ First you create a new Linux VM. You can also enable MSI on an existing VM if yo
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
 
-    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Alt image text](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Choose a **Subscription** for the virtual machine in the dropdown.
 5. To select a new **Resource Group** you would like the virtual machine to be created in, choose **Create New**. When complete, click **OK**.
@@ -111,7 +111,7 @@ If you don't already have one, now create a storage account. You can also skip t
 5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.
 6. Click **Create**.
 
-    ![Create new storage account](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Create new storage account](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## Create a blob container in the storage account
 
@@ -122,11 +122,11 @@ Because files require blob storage, you need to create a blob container in which
 3. Click **+ Container** on the top of the page, and a "New container" panel slides out.
 4. Give the container a name, select an access level, then click **OK**. The name you specified is also used later in the tutorial. 
 
-    ![Create storage container](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Create storage container](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Upload a file to the newly created container by clicking on the container name, then **Upload**, then select a file, then click **Upload**.
 
-    ![Upload text file](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Upload text file](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## Grant your User Assigned MSI access to an Azure Storage container
 
