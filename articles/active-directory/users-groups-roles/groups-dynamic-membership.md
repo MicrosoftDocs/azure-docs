@@ -232,7 +232,7 @@ Allowed operators
 
 #### Use underscore (\_) to add users based on proxyAddresses
 
-The underscore (\_) syntax matches occurrences of a specific value in a multivalued string collection property to add users to a dynamic group. It is used with the -any or -all operators. In a dynamic group membership rule, an underscore (\_) means "add every user that has the specified value in this string collection."
+The underscore (\_) syntax matches occurrences of a specific value in one of the multivalued string collection properties to add users to a dynamic group. It is used with the -any or -all operators.
 
 Here's an example of using the underscore (\_) in a rule to add members based on user.proxyAddress (it works the same for user.otherMails). This rule adds to the group any user with proxy address that contains "contoso."
 
