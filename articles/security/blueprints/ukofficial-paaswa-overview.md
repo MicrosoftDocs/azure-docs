@@ -72,11 +72,11 @@ This blueprint ensures that access to resources is protected through directory a
 The following technologies provide identity management capabilities in the Azure environment:
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) is Microsoft's multi-tenant cloud-based directory and identity management service. All users for the solution were created in Azure Active Directory, including users accessing the SQL Database.
-- Authentication to the operator facing web application and access for the administration of the Azure resources is performed using Azure AD. For more information, see [Integrating applications with Azure Active Directory]().
-- Database column encryption uses Azure AD to authenticate the application to Azure SQL Database. For more information, see [Always Encrypted: Protect sensitive data in SQL Database]().
+- Authentication to the operator facing web application and access for the administration of the Azure resources is performed using Azure AD. For more information, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+- Database column encryption uses Azure AD to authenticate the application to Azure SQL Database. For more information, see [Always Encrypted: Protect sensitive data in SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
 - The citizen facing web application is configured for public access. To allow for account creation and authentication through active directory or social network identity providers [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) can be integrated if required.
-- [Azure Active Directory Identity Protection]() detects potential vulnerabilities and risky accounts provides recommendations to enhance the security posture of your organization’s identities, configures automated responses to detected suspicious actions related to your organization’s identities, and investigates suspicious incidents and takes appropriate action to resolve them.
-- [Azure Role-based Access Control (RBAC)]() enables precisely focused access management for Azure. Subscription access is limited to the subscription administrator, and Azure Key Vault access is restricted only to users who require key management access.
+- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detects potential vulnerabilities and risky accounts provides recommendations to enhance the security posture of your organization’s identities, configures automated responses to detected suspicious actions related to your organization’s identities, and investigates suspicious incidents and takes appropriate action to resolve them.
+- [Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) enables precisely focused access management for Azure. Subscription access is limited to the subscription administrator, and Azure Key Vault access is restricted only to users who require key management access.
 - Through leveraging [Azure Active Directory Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) customers can enforce additional security controls on access to apps or users in their environment based on specific conditions such as location, device, state and sign in risk.
 - [Azure DDoS Protection](https://docs.microsoft.com/azure/security/security-paas-deployments#security-advantages-of-a-paas-cloud-service-model) combined with application design best practices, provides defence against DDoS attacks, with always-on traffic monitoring, and real-time mitigation of common network-level attacks. With a PaaS architecture, platform level DDoS protection is transparent to the customer and incorporated into the platform but it is important to note that the application security design responsibility lies with the customer.
 
@@ -88,9 +88,9 @@ Data is transit from outside and between Azure components is protected using [Tr
 
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.
 
-[Azure Advisor]() is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyses your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyses your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
 
-[Microsoft Antimalware]() is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. This by default is installed on the underlying PaaS virtual machine infrastructure and is managed by the Azure fabric transparently to the customer, ensuring
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. This by default is installed on the underlying PaaS virtual machine infrastructure and is managed by the Azure fabric transparently to the customer, ensuring
 
 ### PaaS services in this blueprint
 
@@ -126,8 +126,8 @@ The Azure SQL Database instance uses the following database security measures:
 - Use of Azure Active Directory for database administration
 - [Audit logs](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) to storage accounts
 - Metric [alerts](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) for failed DB connections
-- [SQL Threat Detection]()
-- Always Encrypted columns
+- [SQL Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)
+- [Always Encrypted columns](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
 
 ### Azure Storage
 
