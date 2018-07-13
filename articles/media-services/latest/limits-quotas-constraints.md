@@ -21,7 +21,7 @@ This article describes quotas and limitations in Azure Media Services v3.
 | Resource | Default Limit | 
 | --- | --- | 
 | Assets per Azure Media Services account | 1,000,000|
-| Dynamic Manifest Filter|100|
+| Dynamic Manifest Filters|100|
 | JobInputs per Job | 50  (fixed)|
 | JobOutputs per Job/TransformOutputs in a Transform | 20 (fixed) |
 | Files per JobInput|10 (fixed)|
