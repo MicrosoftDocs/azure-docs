@@ -104,5 +104,5 @@ Use this list for additional considerations and guidance for each component that
 While this article highlights some best practices for Azure MFA, there are other resources that you can also use while planning your MFA deployment. The list below has some key articles that can assist you during this process:
 
 * [Reports in Azure Multi-Factor Authentication](howto-mfa-reporting.md)
-* [The two-step verification registration experience](end-user/current/multi-factor-authentication-end-user-first-time.md)
+* [The two-step verification registration experience](../user-help/multi-factor-authentication-end-user-first-time.md)
 * [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)
