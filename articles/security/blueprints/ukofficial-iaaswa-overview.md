@@ -33,7 +33,7 @@ ms.author: jomolesk
 
  The Azure templates deliver a three-tier web application  architecture in an Azure cloud environment that supports UK OFFICIAL workloads. The architecture delivers a secure hybrid environment that  extends an on-premises network to Azure allowing web based workloads  to be accessed securely by corporate users or from the internet.
 
-![Three-Tier IaaS Web Application for UK OFFICIAL reference architecture diagram](images/ukofficial-iaas-architecture.png?raw=true "Three-Tier IaaS Web Application for UK OFFICIAL reference architecture diagram")
+![Three-Tier IaaS Web Application for UK OFFICIAL reference architecture diagram](images/ukofficial-iaaswa-architecture.png.png?raw=true "Three-Tier IaaS Web Application for UK OFFICIAL reference architecture diagram")
 
  This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
