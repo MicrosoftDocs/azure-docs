@@ -123,7 +123,7 @@ Cached datasets refer to PBIX files that had imported data as opposed to a live 
 
 #### Old dataset and reports
 
-Reports uploaded before October 2016 don't support the Download PBIX feature.
+Reports uploaded before October 2016 don't support the Download PBIX feature. 
 
 **Flow**
 
