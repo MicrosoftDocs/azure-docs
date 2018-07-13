@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -110,7 +110,7 @@ This error can be caused by the following reasons:
 
 This error can be resolved by completing one of the following tasks:
 
-If the module is an Azure module, see [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md) to learn how to update your modules in your automation account.
+If the module is an Azure module, see [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md) to learn how to update your modules in your automation account.
 
 If it is a seperate module, ensure the module in imported in your Automation Account.
 
