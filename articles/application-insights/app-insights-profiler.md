@@ -18,7 +18,7 @@ ms.author: mbullwin
 ---
 # Profile live Azure web apps with Application Insights
 
-*This feature of Azure Application Insights is generally available for the Web Apps feature of Azure App Service and is in preview for Azure compute resources. For information regarding [on premises use of profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
+This feature of Azure Application Insights is generally available for the Web Apps feature of Azure App Service and is in preview for Azure compute resources. For information regarding [on premises use of profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
 
 This article discusses the amount of time that's spent in each method of your live web application when you use [Application Insights](app-insights-overview.md). The Application Insights Profiler tool displays detailed profiles of live requests that were served by your app. Profiler highlights the *hot path* that uses the most time. Requests with various response times are profiled on a sampling basis. By using a variety of techniques, you can minimize the overhead that's associated with the application.
 
@@ -31,7 +31,7 @@ Once you have deployed a Web App, regardless of if you included the App Insights
 1. Go to the **App Services** pane in the Azure portal.
 2. Navigate to **Settings > Monitoring** pane.
 
-   ![Enable App Insights on App Services portal][./media/app-insights-profiler/AppInsights-AppServices.png]
+   ![Enable App Insights on App Services portal](./media/app-insights-profiler/AppInsights-AppServices.png)
 
 3. Either follow the instructions on the pane to create a new resource or select an existing App Insights resource to monitor your web app. Accept all default options. **Code level diagnostics** is on by default and enables Profiler.
 
@@ -265,9 +265,12 @@ Sometimes you might see Profiler timeout error message after an on-demand sessio
 ![Profiler timeout error][profiler-timeout]
 
 There could be two reasons why you see this error:
-* The on-demand profiler session was successful, but Application Insights took a longer time to process the collected data. If data did not finish being processed in 15 minutes, the portal will display a timeout message. Though after a while, Profiler traces will show up. If this happens, please just ignore the error message for now. We are actively working on a fix
 
-* Your web app has an older version of Profiler agent that does not have the on-demand feature. If you enabled Application Insights Profile previously, chances are you need to update your Profiler agent to start using the on-demand capability. Follow these steps to check and install the latest Profiler:
+ 1. The on-demand profiler session was successful, but Application Insights took a longer time to process the collected data. If data did not finish being processed in 15 minutes, the portal will display a timeout message. Though after a while, Profiler traces will show up. If this happens, please just ignore the error message for now. We are actively working on a fix
+
+ 2. Your web app has an older version of Profiler agent that does not have the on-demand feature. If you enabled Application Insights Profile previously, chances are you need to update your Profiler agent to start using the on-demand capability. Follow these steps to check and install the latest Profiler:
+
+To resolve this issue:
 
 1. Go to App Services App Settings and check if the following settings are set:
     * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for Application Insights.
