@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 07/13/2018
 ms.author: babanisa
 ---
 
@@ -70,8 +70,6 @@ CloudEvents v0.1 has the following properties available:
 For more information, see the [CloudEvents spec](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
 ## Configure Event Grid for CloudEvents
-
-Currently, Azure Event Grid has preview support for CloudEvents JSON format input and output in **West Central US**, **Central US**, and **North Europe**.
 
 You can use Event Grid for both input and output of events in CloudEvents schema. You can use CloudEvents for system events, like Blob Storage events and IoT Hub events, and custom events. It can also transform those events on the wire back and forth.
 
