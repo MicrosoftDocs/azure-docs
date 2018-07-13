@@ -224,7 +224,7 @@ set to **Function**, and choose **Create**.
 
    ![Name your function](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
 
-5. After the editor opens, replace the template code with this code, 
+5. After the editor opens, replace the template code with this sample code, 
 which removes the HTML and returns results to the caller:
 
    ``` CSharp
@@ -245,16 +245,16 @@ which removes the HTML and returns results to the caller:
 
       // Return cleaned text
       return req.CreateResponse(HttpStatusCode.OK, new { updatedBody });
-
    }
    ```
 
 6. When you're done, choose **Save**. To test your function, 
-choose **Test** under the arrow (**<**) icon at the editor's right edge. 
+at the editor's right edge, under the arrow (**<**) icon, 
+choose **Test**. 
 
    ![Open the "Test" pane](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
-7. In the **Test** pane, under **Request Body**, 
+7. In the **Test** pane, under **Request body**, 
 enter this line, and choose **Run**.
 
    ```json
@@ -263,7 +263,7 @@ enter this line, and choose **Run**.
 
    ![Test your function](./media/tutorial-process-email-attachments-workflow/function-run-test.png)
 
-   The **Output** window shows this result from the function:
+   The **Output** window shows the function's result:
 
    ```json
    {"updatedBody":"{\"name\": \"Testing my function\"}"}
@@ -271,11 +271,12 @@ enter this line, and choose **Run**.
 
 After checking that your function works, create your logic app. 
 Although this tutorial shows how to create a function that removes HTML from emails, 
-Logic Apps also has an **HTML to Text** connector.
+Logic Apps also provides an **HTML to Text** connector.
 
 ## Create your logic app
 
-1. On the main Azure menu, choose **Create a resource** > **Enterprise Integration** > **Logic App**.
+1. On the main Azure menu, select **Create a resource** > 
+**Integration** > **Logic App**.
 
    ![Create logic app](./media/tutorial-process-email-attachments-workflow/create-logic-app.png)
 
@@ -290,12 +291,12 @@ When you're done, choose **Pin to dashboard** > **Create**.
    | **Name** | LA-ProcessAttachment | The name for your logic app | 
    | **Subscription** | <*your-Azure-subscription-name*> | The same Azure subscription that you previously used | 
    | **Resource group** | LA-Tutorial-RG | The same Azure resource group that you previously used |
-   | **Location** | East US 2 | The same region that you previously used | 
-   | **Log Analytics** | Off | For this tutorial, keep the **Off** setting. | 
+   | **Location** | West US | The same region that you previously used | 
+   | **Log Analytics** | Off | For this tutorial, choose the **Off** setting. | 
    |||| 
 
-3. After Azure deploys your app, the Logic Apps Designer opens and shows a page 
-with an introduction video and templates for common logic app patterns. 
+3. After Azure deploys your app, the Logic Apps Designer opens and shows 
+a page with an introduction video and templates for common logic app patterns. 
 Under **Templates**, choose **Blank Logic App**.
 
    ![Choose blank logic app template](./media/tutorial-process-email-attachments-workflow/choose-logic-app-template.png)
@@ -308,9 +309,11 @@ For more information, see [Create your first logic app](../logic-apps/quickstart
 
 ## Monitor incoming email
 
-1. On the designer, enter "when email arrives" in the search box. 
+1. On the designer in the search box, enter "when new email arrives" as your filter. 
 Select this trigger for your email provider: 
-**<*your-email-provider*> - When a new email arrives**, for example:
+**<*your-email-provider*> - When a new email arrives**
+
+   For example:
 
    ![Select this trigger for email provider: "When a new email arrives"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
@@ -320,9 +323,9 @@ Select this trigger for your email provider:
    select Outlook.com. 
 
 2. If you're asked for credentials, sign in to your email account 
-so that Logic Apps can connect to your email account.
+so Logic Apps can connect to your email account.
 
-3. Now provide the criteria that the trigger uses to filter new email.
+3. Now provide the criteria the trigger uses to filter new email.
 
    1. Specify the folder, interval, and frequency for checking emails.
 
@@ -356,65 +359,60 @@ click inside the trigger's title bar.
 
 ## Check for attachments
 
-1. Under the trigger, choose **+ New step** > **Add a condition**.
+Now add a condition that selects only emails that have attachments.
 
-   When the condition shape appears, by default, 
-   either the parameters list or the dynamic content 
-   list appears and shows any parameters from the previous step 
-   that you can include as workflow inputs. 
-   Your browser width determines which list appears.
+1. Under the trigger, choose **New step** > **Add a condition**.
+
+   !["New step", "Add a condition"](./media/tutorial-process-email-attachments-workflow/add-condition-under-trigger.png)
 
 2. Rename the condition with a better description.
 
    1. On the condition's title bar, 
    choose **ellipses** (**...**) button > **Rename**.
 
-      For example, if your browser is in narrow view:
-
       ![Rename condition](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
-
-      If your browser is in wide view, 
-      and the dynamic content list blocks access to the ellipses button, 
-      close the list by choosing **Add dynamic content** inside the condition. 
-      
-      ![Close dynamic content list](./media/tutorial-process-email-attachments-workflow/close-dynamic-content-list.png)
 
    2. Rename your condition with this description: 
    ```If email has attachments and key subject phrase```
 
-3. Describe the condition by providing an expression. 
+3. Create a condition that checks for emails that have attachments. 
 
-   1. Inside the condition shape, choose **Edit in advanced mode**.
+   1. On the first row under **And**, click inside the left box. 
+   From the dynamic content list that appears, select the **Has Attachment** property.
 
-      ![Edit condition in advanced mode](./media/tutorial-process-email-attachments-workflow/edit-advanced-mode.png)
+      ![Build condition](./media/tutorial-process-email-attachments-workflow/build-condition.png)
 
-   2. In the text box, enter this expression:
+   2. In the middle box, keep the operator **is equal to**.
 
-      ```@equals(triggerBody()?['HasAttachment'], bool('true'))```
+   3. In the right box, enter **True** as the value to compare 
+   with the **Has Attachment** property value from the trigger.
 
-      This expression compares the **HasAttachment** property value from the trigger body, 
-      which is the email in this tutorial, with the Boolean object ```True```. 
+      ![Build condition](./media/tutorial-process-email-attachments-workflow/finished-condition.png)
+
       If both values are equal, the email has at least one attachment, 
       the condition passes, and the workflow continues.
 
-      Your condition now looks like this example:
+   In your underlying logic app definition, 
+   which you can view in the code editor window, 
+   this condition looks like this example:
 
-      ![Condition expression](./media/tutorial-process-email-attachments-workflow/condition-expression.png)
+   ```json
+   "Condition": {
+      "actions": { <actions-to-run-when-condition-passes> },
+      "expression": {
+         "and": [ {
+            "equals": [
+               "@triggerBody()?['HasAttachment']",
+                 "True"
+            ]
+         } ]
+      },
+      "runAfter": {},
+      "type": "If"
+   }
+   ```
 
-   3. Choose **Edit in basic mode**. Your expression now resolves as shown here:
-
-      ![Resolved expression](./media/tutorial-process-email-attachments-workflow/condition-expression-resolved.png)
-
-      > [!NOTE]
-      > To manually build an expression, 
-      > you must work in basic mode and have the dynamic list open 
-      > so that you can work with the expression builder. 
-      > Under **Expression**, you can select functions. 
-      > Under **Dynamic content**, you can select parameter 
-      > fields to use in those functions.
-      > This tutorial later shows how to manually build expressions.
-
-4. Save your logic app.
+4. Save your logic app. On the designer toolbar, choose **Save**.
 
 ### Test your condition
 
@@ -466,10 +464,12 @@ for the email and attachments.
 
 ## Call the RemoveHTMLFunction
 
-1. On the logic app menu, choose **Logic App Designer**. 
-In the **If true** branch, choose **Add an action**.
+1. On the logic app menu, select **Logic App Designer**. 
+In the **If true** branch, select **Add an action**.
 
-2. Search for "azure functions", 
+   ![Inside "If true", add action](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
+
+2. In the search box, find "azure functions", 
 and select this action: **Azure Functions – Choose an Azure function**
 
    ![Select action for "Azure Functions - Choose an Azure function"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
