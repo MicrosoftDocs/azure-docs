@@ -75,7 +75,8 @@ Reviewing how the Restful API gets used in the example application, let's look a
 
 ```
 **Request(…)**
-Below code snippet shows how to use the HttlClient submit your subscription key and data points to the endpoint of the Anomaly Detection API.
+<!-- Could you explain what Request(...) mean in this contenxt -->
+Below code snippet shows how HttpClient submit your subscription key and data points to the endpoint of the Anomaly Detection API.
 
 ```csharp
 	public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)
