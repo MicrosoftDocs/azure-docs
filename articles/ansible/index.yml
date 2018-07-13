@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: devops
   ms.topic: landing-page
-  ms.date: 01/18/2018
+  ms.date: 07/05/2018
   ms.author: tarcher
 abstract:
   description: Use <a href="http://www.ansible.com">Ansible</a> to automate cloud provisioning, configuration management, and application deployments.
@@ -49,6 +49,8 @@ sections:
     className: cardsD
     items:
     - title: Playbook roles
-      html: <p><a href="https://galaxy.ansible.com/Azure/azure_modules/">azure_module</a></p><p><a href="https://galaxy.ansible.com/Azure/azure_preview_modules/">azure_preview_module</a></p>
+      html: <p><a href="https://galaxy.ansible.com/Azure/azure_preview_modules/">azure_preview_module</a></p>
     - title: Releases and features
       html: <p><a href="./ansible-matrix.md">Features matrix for modules and roles</a></p>
+    - title: Tools
+      html: <p><a href="https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible">Visual Studio Code extension for Ansible</a></p>

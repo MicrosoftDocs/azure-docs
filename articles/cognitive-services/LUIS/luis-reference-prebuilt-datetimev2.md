@@ -214,7 +214,7 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
 
 ## Deprecated prebuilt datetime
 
-The `datetime` prebuilt entity is deprecated and replaced by [`datetimeV2`](#builtindatetimev2). 
+The `datetime` prebuilt entity is deprecated and replaced by **datetimeV2**. 
 
 To replace `datetime` with `datetimeV2` in your LUIS app, complete the following steps:
 

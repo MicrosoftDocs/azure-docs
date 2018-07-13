@@ -105,7 +105,7 @@ The Account administrator is the user that initially signed up for the Azure sub
 
 * To learn more about RBAC, see [What is role-based access control (RBAC)?](../role-based-access-control/overview.md)
 * To learn more about all the roles in Azure, see [Understand the different roles in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
-* For more information about Azure Active Directory, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) and [Assigning administrator roles in Azure Active Directory](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
+* For more information about Azure Active Directory, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md) and [Assigning administrator roles in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## Need help? Contact support.
 

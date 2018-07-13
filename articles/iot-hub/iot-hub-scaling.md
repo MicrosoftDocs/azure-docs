@@ -26,7 +26,7 @@ Each IoT Hub tier is available in three sizes, based around how much data throug
 
 The standard tier of IoT Hub enables all features, and is required for any IoT solutions that want to make use of the bi-directional communication capabilities. The basic tier enables a subset of the features and is intended for IoT solutions that only need uni-directional communication from devices to the cloud. Both tiers offer the same security and authentication features.
 
-Once you create your IoT hub you can upgrade from the basic tier to the standard tier without interrupting your existing operations. For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md).
+Once you create your IoT hub you can upgrade from the basic tier to the standard tier without interrupting your existing operations. For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md). Note that the partition limit for basic tier IoT Hub is 8. This limit will remains unchanged when you migrate from basic tier to standard tier.
 
 | Capability | Basic tier | Standard tier |
 | ---------- | ---------- | ------------- |

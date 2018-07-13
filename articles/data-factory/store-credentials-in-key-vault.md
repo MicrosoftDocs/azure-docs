@@ -21,9 +21,6 @@ You can store credentials for data stores and computes in an [Azure Key Vault](.
 
 Currently, all activity types except custom activity support this feature. For connector configuration specifically, check the "linked service properties" section in [each connector topic](copy-activity-overview.md#supported-data-stores-and-formats) for details.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [documentation for Data Factory version1](v1/data-factory-introduction.md).
-
 ## Prerequisites
 
 This feature relies on the data factory service identity. Learn how it works from [Data factory service identity](data-factory-service-identity.md) and make sure your data factory have an associated one.

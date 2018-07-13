@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 07/05/2018
 ms.author: jeedes
 
 ---
@@ -98,7 +98,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Single sign-on dialog box](./media/ciscocloud-tutorial/tutorial_ciscocloud_samlbase.png)
 
 3. On the **Cisco Cloud Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
@@ -114,19 +114,45 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Cisco Cloud Domain and URLs single sign-on information](./media/ciscocloud-tutorial/tutorial_ciscocloud_url1.png)
 
     In the **Sign-on URL** textbox, type a URL: `https://<subdomain>.cloudapps.cisco.com`
-	 
-	> [!NOTE] 
+
+	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Cisco Cloud Client support team](mailto:cpr-ops@cisco.com) to get these values.
 
-5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+5. Cisco Cloud application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page.
+ The following screenshot shows an example about it.
+
+	![Configure Single Sign-On](./media/ciscocloud-tutorial/attribute.png)
+
+6. Click **View and edit all other user attributes** checkbox in the **User Attributes** section to expand the attributes. Perform the following steps on each of the displayed attributes-
+
+	| Attribute Name | Attribute Value |
+    | ---------------| ----------------|
+	| country      |user.country |
+	| company      |user.companyname |
+
+	a. Click **Add attribute** to open the **Add Attribute** dialog.
+
+	![Configure Single Sign-On](./media/ciscocloud-tutorial/tutorial_attribute_04.png)
+
+	![Configure Single Sign-On](./media/ciscocloud-tutorial/tutorial_attribute_05.png)
+
+	b. In the **Name** textbox, type the attribute name shown for that row.
+
+	c. From the **Value** list, type the attribute value shown for that row.
+
+	d. Leave **Namespace** value as blank.
+
+	e. Click **Ok**.
+
+7. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
 	![The Certificate download link](./media/ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
 
-6. Click **Save** button.
+8. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/ciscocloud-tutorial/tutorial_general_400.png)
 
-7. To configure single sign-on on **Cisco Cloud** side, you need to send the **App Federation Metadata Url** to [Cisco Cloud support team](mailto:cpr-ops@cisco.com). They set this setting to have the SAML SSO connection set properly on both sides.
+9. To configure single sign-on on **Cisco Cloud** side, you need to send the **App Federation Metadata Url** to [Cisco Cloud support team](mailto:cpr-ops@cisco.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 

@@ -1,9 +1,9 @@
-﻿---
+---
 title: Collect Azure PaaS resource metrics with Log Analytics | Microsoft Docs
 description: Learn how to enable Azure PaaS resource metrics collection using PowerShell for retention and analysis in Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -11,9 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: magoedte
+ms.component: na
 ---
 
 # Configure collection of Azure PaaS resource metrics with Log Analytics

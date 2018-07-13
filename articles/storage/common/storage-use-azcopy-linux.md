@@ -32,8 +32,9 @@ There are two versions of AzCopy that you can download. AzCopy on Linux targets 
 
 > [!NOTE]
 > You might need to install .NET Core 2.1 dependencies highlighted in this [.NET Core Pre-requisites article](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) depending on your distribution. 
-> For RHEL 7 distributions, install ICU and libunwind
-> '''yum install -y libunwind icu'''
+>
+> For RHEL 7 distributions, install ICU and libunwind dependencies:
+> ```yum install -y libunwind icu```
 
 Installing AzCopy on Linux (v7.2 or later) is as easy as extracting a tar package and running the install script. 
 
@@ -721,4 +722,3 @@ For more information about Azure Storage and AzCopy, see the following resources
 * [AzCopy: Transfer data with restartable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: Using cross-account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Uploading/downloading files for Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-

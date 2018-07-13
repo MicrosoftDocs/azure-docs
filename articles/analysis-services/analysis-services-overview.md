@@ -68,11 +68,11 @@ This tier is for mission-critical production applications that require elastic u
 
 ## Availability by region
 
-Azure Analysis Services is supported in regions throughout the world. Supported plans and query replicas depend on the region you choose. Plan and query replica availability can change depending on need and available resources for each region. 
+Azure Analysis Services is supported in regions throughout the world. Supported plans and query replica availability depend on the region you choose. Plan and query replica availability can change depending on need and available resources for each region. 
 
 ### Americas
 
-|Region  | Supported plans | Query replicas |
+|Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canada Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
@@ -87,7 +87,7 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 
 ### Europe
 
-|Region  | Supported plans | Query replicas |
+|Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |North Europe     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |UK South   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
@@ -95,7 +95,7 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 
 ### Asia Pacific 
 
-|Region  | Supported plans | Query replicas |
+|Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |Australia Southeast     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japan East  |   B1, B2, S0, S1, S2, S4, D1       |    1     |

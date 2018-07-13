@@ -41,12 +41,6 @@
       href: billing-understand-reserved-instance-usage-ea.md
     - name: Manage reserved instances
       href: billing-manage-reserved-vm-instance.md
-  - name: REST Examples
-    items:
-    - name: Review enterprise costs
-      href: billing-review-enterprise-billing.md
-    - name: Review subscription use
-      href: billing-review-subscription-billing.md
 - name: Manage account
   items:
   - name: Free account 

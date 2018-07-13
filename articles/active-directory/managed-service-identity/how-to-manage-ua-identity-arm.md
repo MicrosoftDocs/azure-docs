@@ -10,7 +10,7 @@ editor:
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
@@ -66,7 +66,7 @@ To create a user assigned identity, use the following template. Replace the `<US
   "resources": [
     {
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-      "name": "[parameters('<USER ASSIGNED IDENTITY NAME>')]",
+      "name": "[parameters('resourceName')]",
       "apiVersion": "2015-08-31-PREVIEW",
       "location": "[resourceGroup().location]"
     }
@@ -74,7 +74,7 @@ To create a user assigned identity, use the following template. Replace the `<US
   "outputs": {
       "identityName": {
           "type": "string",
-          "value": "[parameters('<USER ASSIGNED IDENTITY NAME>')]"
+          "value": "[parameters('resourceName')]"
       }
   }
 }

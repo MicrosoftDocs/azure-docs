@@ -1,30 +1,32 @@
 ---
-title: Tutorial learning how to add utterances to a LUIS app using C# | Microsoft Docs
-description: In this tutorial, you learn to call a LUIS app using C#.
+title: Quickstart learning how to add utterances to a LUIS app using C# | Microsoft Docs
+description: In this quickstart, you learn to call a LUIS app using C#.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 02/20/2018
+ms.topic: quickstart
+ms.date: 06/27/2018
 ms.author: v-geberr
 #Customer intent: As a developer new to LUIS, I want to add an utterance to the LUIS app model using C#. 
 ---
 
-# Tutorial: Add utterances to a LUIS app using C# 
-In this tutorial, write a program to add an utterance to an intent using the Authoring APIs in C#.
+# Quickstart: Add utterances to a LUIS app using C# 
+In this quickstart, write a program to add an utterance to an intent using the Authoring APIs in C#.
 
 <!-- green checkmark -->
+<!--
 > [!div class="checklist"]
 > * Create Visual Studio console project 
 > * Add method to call LUIS API to add utterance and train app
 > * Add JSON file with example utterances for BookFlight intent
 > * Run console and see training status for utterances
+-->
 
 For more information, see the technical documentation for the [add example utterance to intent](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
 
 ## Prerequisites
 
@@ -309,5 +311,3 @@ When you are done with the tutorial, remove Visual Studio and the console applic
 ## Next steps
 > [!div class="nextstepaction"] 
 > [Build a LUIS app programmatically](luis-tutorial-node-import-utterances-csv.md) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -47,6 +47,8 @@
       items:
       - name: Change Tracking overview
         href: automation-change-tracking.md
+      - name: View file contents of tracked files
+        href: change-tracking-file-contents.md
     - name: Inventory
       items:
       - name: Manage a VM with inventory collection
@@ -195,10 +197,16 @@
           href: automation-migrate-account-subscription.md
     - name: Troubleshoot
       items:
-        - name: Troubleshoot common errors
-          href: automation-troubleshooting-automation-errors.md
-        - name: Troubleshoot Hybrid Runbook Worker
-          href: automation-troubleshooting-hybrid-runbook-worker.md
+        - name: Onboarding
+          href: troubleshoot/onboarding.md
+        - name: Runbooks
+          href: troubleshoot/runbooks.md
+        - name: Desired State Configuration (DSC)
+          href: troubleshoot/desired-state-configuration.md
+        - name: Hybrid Runbook Worker
+          href: troubleshoot/hybrid-runbook-worker.md
+        - name: Update Management
+          href: troubleshoot/update-management.md
 - name: Reference
   items:
   - name: Azure PowerShell

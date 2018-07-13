@@ -11,11 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: bwren
-
+ms.component: na
 ---
+
 # Common questions for transition from OMS portal to Azure portal for Log Analytics users
 Log Analytics initially used its own portal called the OMS portal to manage its configuration and analyze collected data.  All functionality from this portal has been moved to the Azure portal where it will continue to be developed.
 

@@ -31,13 +31,16 @@ You must have appropriate permissions to access any of the IoT Hub endpoints. Fo
 You can grant [permissions](#iot-hub-permissions) in the following ways:
 
 * **IoT hub-level shared access policies**. Shared access policies can grant any combination of [permissions](#iot-hub-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
+  
+  | Shared Access Policy | Permissions |
+  | -------------------- | ----------- |
+  | iothubowner | All permission |
+  | service | **ServiceConnect** permissions |
+  | device | **DeviceConnect** permissions |
+  | registryRead | **RegistryRead** permissions |
+  | registryReadWrite | **RegistryRead** and **RegistryWrite** permissions |
 
-  * **iothubowner**: Policy with all permissions.
-  * **service**: Policy with **ServiceConnect** permission.
-  * **device**: Policy with **DeviceConnect** permission.
-  * **registryRead**: Policy with **RegistryRead** permission.
-  * **registryReadWrite**: Policy with **RegistryRead** and RegistryWrite permissions.
-  * **Per-device security credentials**. Each IoT Hub contains an [identity registry][lnk-identity-registry]. For each device in this identity registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
+* **Per-Device Security Credentials**. Each IoT Hub contains an [identity registry][lnk-identity-registry]. For each device in this identity registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
 
 For example, in a typical IoT solution:
 
@@ -460,7 +463,7 @@ If you would like to try out some of the concepts described in this article, see
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-openssl]: https://www.openssl.org/
-[lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
+[lnk-selfsigned]: https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate
 
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens

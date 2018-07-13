@@ -206,9 +206,13 @@ The following fields are supported:
 - `type`
 - `location`
 - `tags`
-- `tags.tagName`
-- `tags[tagName]`
-  - This bracket syntax supports tag names that contain periods
+- `tags.<tagName>`
+  - Where **\<tagName\>** is the name of the tag to validate the condition for.
+  - Example: `tags.CostCenter` where **CostCenter** is the name of the tag.
+- `tags[<tagName>]`
+  - This bracket syntax supports tag names that contain periods.
+  - Where **\<tagName\>** is the name of the tag to validate the condition for.
+  - Example: `tags.[Acct.CostCenter]` where **Acct.CostCenter** is the name of the tag.
 - property aliases - for a list, see [Aliases](#aliases).
 
 ### Alternative Accessors
@@ -313,7 +317,7 @@ The list of aliases is always growing. To discover what aliases are currently su
 
 ## Initiatives
 
-Initiatives enable you group several related policy definitions to simplify assignments and management because you work with a group as a single item. For example, you can group all related tagging policy definitions in a single initiative. Rather than assigning each policy individually, you apply the initiative.
+Initiatives enable you to group several related policy definitions to simplify assignments and management because you work with a group as a single item. For example, you can group all related tagging policy definitions in a single initiative. Rather than assigning each policy individually, you apply the initiative.
 
 The following example illustrates how to create an initiative for handling two tags: `costCenter` and `productName`. It uses two built-in policies to apply the default tag value.
 

@@ -28,7 +28,7 @@ In this project, you learn:
 
 ## What you need
 
-Finish the [Getting Started Guide]({{"/docs/get-started/" | absolute_url }}) to:
+Finish the [Getting Started Guide](iot-hub-arduino-iot-devkit-az3166-get-started.md) to:
 
 * Have your DevKit connected to Wi-Fi
 * Prepare the development environment

@@ -30,7 +30,7 @@ Interactive testing is done from the **Test** panel of the website. You can ente
 See [batch testing](luis-concept-batch-test.md) if you are testing more than one utterance at a time.
 
 ## Endpoint testing
-You can test using the [endpoint](luis-glossary.md#endpoint) with a maximum of two versions of your app. With your main or live version of your app set as the **production** endpoint, add a second version to the **staging** endpoint. This approach gives you three versions of an utterance: the current model in the Test pane of the [LUIS][LUIS] website, and the two versions at the two different endpoints. 
+You can test using the [endpoint](luis-glossary.md#endpoint) with a maximum of two versions of your app. With your main or live version of your app set as the **production** endpoint, add a second version to the **staging** endpoint. This approach gives you three versions of an utterance: the current model in the Test pane of the [LUIS](luis-reference-regions.md) website, and the two versions at the two different endpoints. 
 
 All endpoint testing counts toward your usage quota. 
 
@@ -38,9 +38,9 @@ All endpoint testing counts toward your usage quota.
 If you test against an endpoint, and do not want the utterance logged, remember to use the `logging=false` query string configuration.
 
 ## Where to find utterances
-LUIS stores all logged utterances in the query log, available for download on the [LUIS][LUIS] website **Apps** list page, as well as the LUIS [authoring APIs](https://aka.ms/luis-authoring-apis). 
+LUIS stores all logged utterances in the query log, available for download on the [LUIS](luis-reference-regions.md) website **Apps** list page, as well as the LUIS [authoring APIs](https://aka.ms/luis-authoring-apis). 
 
-Any utterances LUIS is unsure of are listed in the **[Review endpoint utterances](label-suggested-utterances.md)** page of the [LUIS][LUIS] website. 
+Any utterances LUIS is unsure of are listed in the **[Review endpoint utterances](luis-how-to-review-endoint-utt.md)** page of the [LUIS](luis-reference-regions.md) website. 
 
 ![Review endpoint utterances](./media/luis-concept-test/review-endpoint-utterances.png)
  
@@ -53,5 +53,3 @@ Learn [best practices](luis-concept-best-practices.md).
 ## Next steps
 
 * Learn more about [testing](interactive-test.md) your utterances.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

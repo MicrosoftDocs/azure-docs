@@ -46,7 +46,7 @@ For this tutorial, we create a new Linux VM. You can also enable MSI on an exist
 2. Select **Compute**, and then select **Ubuntu Server 16.04 LTS**.
 3. Enter the virtual machine information. For **Authentication type**, select **SSH public key** or **Password**. The created credentials allow you to log in to the VM.
 
-   ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![Alt image text](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Choose a **Subscription** for the virtual machine in the dropdown.
 5. To select a new **Resource Group** you would like the virtual machine to be created in, choose **Create New**. When complete, click **OK**.
@@ -61,11 +61,11 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 3. You see **Managed Service Identity**. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
 4. Ensure you click **Save** to save the configuration.
 
-   ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Alt image text](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. If you wish to check which extensions are on this **Linux VM**, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforLinux** appears on the list.
 
-   ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+   ![Alt image text](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## Grant your VM access to Azure Data Lake Store
 
@@ -186,7 +186,7 @@ Congratulations!  You've authenticated to the Data Lake Store filesystem using a
 - For an overview of MSI, see [Managed Service Identity overview](msi-overview.md).
 - For management operations Data Lake Store uses Azure Resource Manager.  For more information on using a VM MSI to authenticate to Resource Manager, read [Use a Linux VM Managed Service Identity (MSI) to access Resource Manager](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - Learn more about [Authentication with Data Lake Store using Azure Active Directory](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
-- Learn more about [Filesystem operations on Azure Data Lake Store using REST API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) or the [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis.md).
+- Learn more about [Filesystem operations on Azure Data Lake Store using REST API](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) or the [WebHDFS FileSystem APIs](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Learn more about [Access Control in Data Lake Store](~/articles/data-lake-store/data-lake-store-access-control.md).
 
 Use the following comments section to provide feedback and help us refine and shape our content.

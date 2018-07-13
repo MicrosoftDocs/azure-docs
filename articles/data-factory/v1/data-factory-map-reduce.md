@@ -32,7 +32,7 @@ robots: noindex
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [transform data using MapReduce activity in Data Factory version 2](../transform-data-using-hadoop-map-reduce.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [transform data using MapReduce activity in Data Factory](../transform-data-using-hadoop-map-reduce.md).
 
 
 The HDInsight MapReduce activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes MapReduce programs on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.

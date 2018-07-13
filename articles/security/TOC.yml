@@ -10,6 +10,8 @@
     href: azure-log-audit.md
   - name: Azure network security
     href: azure-network-security.md
+  - name: Azure serverless platform security
+    href: abstract-serverless-platform-security.md
   - name: Enabling operational security
     href: azure-operational-security.md
   - name: Governance in Azure
@@ -51,6 +53,29 @@
     href: ../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json
 - name: Platform and infrastructure
   items:
+  - name: Infrastructure security
+    href: azure-security-infrastructure.md
+    items:
+    - name: Physical security
+      href: azure-physical-security.md
+    - name: Availability
+      href: azure-infrastructure-availability.md
+    - name: Components and boundaries
+      href: azure-infrastructure-components.md
+    - name: Network architecture
+      href: azure-infrastructure-network.md
+    - name: Production network
+      href: azure-production-network.md
+    - name: SQL Database
+      href: azure-infrastructure-sql.md
+    - name: Operations
+      href: azure-infrastructure-operations.md
+    - name: Monitoring
+      href: azure-infrastructure-monitoring.md
+    - name: Integrity
+      href: azure-infrastructure-integrity.md
+    - name: Data protection
+      href: azure-protection-of-customer-data.md
   - name: Microsoft Antimalware
     href: azure-security-antimalware.md
   - name: IaaS security
@@ -65,6 +90,8 @@
     items:
     - name: Choose Azure AD authentication
       href: azure-ad-choose-authn.md
+    - name: Security checklist
+      href: azure-ad-secure-steps.md
     - name: Best practices
       href: azure-security-identity-management-best-practices.md
     - name: Enforce MFA on subscription administrators
@@ -137,8 +164,16 @@
       href: azure-operational-security-checklist.md
 - name: Governance and compliance
   items:
-  - name: Financial services for regulated workloads
-    href: ./blueprints/financial-services-regulated-workloads.md
+  - name: FFIEC
+    items:
+    - name: Data analytics
+      href: ./blueprints/ffiec-analytics-overview.md
+    - name: Data warehouse
+      href: ./blueprints/ffiec-dw-overview.md
+    - name: IaaS web application
+      href: ./blueprints/ffiec-iaaswa-overview.md
+    - name: PaaS web application
+      href: ./blueprints/ffiec-paaswa-overview.md
   - name: GDPR
     items:
     - name: Data analytics
@@ -148,7 +183,7 @@
     - name: IaaS web application
       href: ./blueprints/gdpr-iaaswa-overview.md
     - name: PaaS web application
-      href: ./blueprints/gdpr-paaswa-overview.md  
+      href: ./blueprints/gdpr-paaswa-overview.md
   - name: FedRAMP
     items:
     - name: Data analytics
@@ -159,35 +194,30 @@
       href: ./blueprints/fedramp-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/fedramp-paaswa-overview.md
-  - name: PCI DSS
-    href: ./blueprints/payment-processing-blueprint.md
+  - name: TIC
     items:
-    - name: Requirements overview
-      href: ./blueprints/pci-dss-requirements-overview.md
-    - name: Requirement 1 - firewalls
-      href: ./blueprints/pci-dss-requirement-1-firewall.md
-    - name: Requirement 2 - passwords
-      href: ./blueprints/pci-dss-requirement-2-password.md
-    - name: Requirement 3 - CHD
-      href: ./blueprints/pci-dss-requirement-3-chd.md
-    - name: Requirement 4 - encryption
-      href: ./blueprints/pci-dss-requirement-4-encryption.md
-    - name: Requirement 5 - malware
-      href: ./blueprints/pci-dss-requirement-5-malware.md
-    - name: Requirement 6 - secure systems
-      href: ./blueprints/pci-dss-requirement-6-secure-system.md
-    - name: Requirement 7 - access
-      href: ./blueprints/pci-dss-requirement-7-access.md
-    - name: Requirement 8 - identity
-      href: ./blueprints/pci-dss-requirement-8-identity.md
-    - name: Requirement 9 - physical access
-      href: ./blueprints/pci-dss-requirement-9-physical-access.md
-    - name: Requirement 10 - monitoring
-      href: ./blueprints/pci-dss-requirement-10-monitoring.md
-    - name: Requirement 11 - testing
-      href: ./blueprints/pci-dss-requirement-11-testing.md
-    - name: Requirement 12 - policy
-      href: ./blueprints/pci-dss-requirement-12-policy.md
+    - name: Trusted Internet Connection with Azure
+      href: ./compliance/compliance-tic.md
+  - name: PCI DSS
+    items:
+    - name: Data analytics
+      href: ./blueprints/pcidss-analytics-overview.md
+    - name: Data warehouse
+      href: ./blueprints/pcidss-dw-overview.md
+    - name: IaaS web application
+      href: ./blueprints/pcidss-iaaswa-overview.md
+    - name: PaaS web application
+      href: ./blueprints/pcidss-paaswa-overview.md
+  - name: UK NHS
+    items:
+      - name: Data analytics
+        href: ./blueprints/uknhs-analytics-overview.md
+      - name: Data warehouse
+        href: ./blueprints/uknhs-datawarehouse-overview.md
+      - name: IaaS web application
+        href: ./blueprints/uknhs-iaaswa-overview.md
+      - name: PaaS web application
+        href: ./blueprints/uknhs-paaswa-overview.md
   - name: UK-OFFICIAL
     href: ./blueprints/uk-official-three-tier-applications-overview.md
     items:

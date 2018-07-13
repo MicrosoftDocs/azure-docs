@@ -19,15 +19,10 @@ ms.author: shlo
 
 # Pipelines and activities in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-create-pipelines.md)
-> * [Version 2 - Preview](concepts-pipelines-activities.md)
+> * [Version 1](v1/data-factory-create-pipelines.md)
+> * [Current version](concepts-pipelines-activities.md)
 
 This article helps you understand pipelines and activities in Azure Data Factory and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Pipelines in Data Factory version 1](v1/data-factory-create-pipelines.md).
->
-> This article assumes that you have gone through [Introduction to Azure Data Factory](introduction.md) and the [quickstart tutorial](quickstart-create-data-factory-powershell.md).
 
 ## Overview
 A data factory can have one or more pipelines. A pipeline is a logical grouping of activities that together perform a task. For example, a pipeline could contain a set of activities that ingest and clean log data, and then kick of a Spark job on an HDInsight cluster to analyze the log data. The beauty of this is that the pipeline allows you to manage the activities as a set instead of each one individually. For example, you can deploy and schedule the pipeline, instead of the activities independently.
@@ -60,6 +55,8 @@ Data transformation activity | Compute environment
 [Machine Learning activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) | Azure VM
 [Stored Procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse, or SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
+[Custom Code](transform-data-using-dotnet-custom-activity.md) | Azure Batch
+[Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 
 For more information, see the [data transformation activities](transform-data.md) article.
 

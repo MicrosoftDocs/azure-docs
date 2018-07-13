@@ -78,7 +78,7 @@ After LUIS returns the entities found in the user’s utterance, the client appl
 
 LUIS provides several ways to identify and categorize entities.
 
-* **Prebuilt Entities** LUIS has many prebuilt domain models including intents, utterances, and [prebuilt entities](pre-builtentities.md). You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. The prebuilt entities save you time.
+* **Prebuilt Entities** LUIS has many prebuilt domain models including intents, utterances, and [prebuilt entities](luis-prebuilt-entities.md). You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. The prebuilt entities save you time.
 
 * **Custom Entities** LUIS gives you several ways to identify your own custom [entities](luis-concept-entity-types.md) including machine-learned entities, specific or literal entities, and a combination of machine-learned and literal.
 
@@ -95,7 +95,7 @@ An example [utterance](luis-how-to-add-example-utterances.md) is text input from
 After your LUIS app is published and receives real user utterances, LUIS provides several methods to improve prediction accuracy: [active learning](#active-learning) of endpoint utterances, [phrase lists](#phrase-lists) for domain word inclusion, and [patterns](#patterns) to reduce the number of utterances needed.
 
 ### Active learning
-In the [active learning](label-suggested-utterances.md) process, LUIS allows you to adapt your LUIS app to real-world utterances by selecting utterances it received at the endpoint for your review. You can accept or correct the endpoint prediction, retrain, and republish. LUIS learns quickly with this iterative process, taking the minimum amount of your time and effort. 
+In the [active learning](luis-how-to-review-endoint-utt.md) process, LUIS allows you to adapt your LUIS app to real-world utterances by selecting utterances it received at the endpoint for your review. You can accept or correct the endpoint prediction, retrain, and republish. LUIS learns quickly with this iterative process, taking the minimum amount of your time and effort. 
 
 ### Phrase lists 
 LUIS provides [phrases lists](luis-concept-feature.md) so you can indicate important words or phrases to your model domain. LUIS uses these lists to add additional significance to those words and phrases that would otherwise not be found in the model.

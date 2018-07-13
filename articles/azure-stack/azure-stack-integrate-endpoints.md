@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 06/29/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords:
@@ -51,6 +51,8 @@ Internal infrastructure VIPs aren't listed because they’re not required for pu
 |  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
 |  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
 |  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-101000 (FTP)<br>990 (FTPS)|
+|VPN Gateways|     |     |[See the VPN gateway FAQ](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
+|     |     |     |     |
 
 ## Ports and URLs (outbound)
 
@@ -65,6 +67,9 @@ Azure Stack supports only transparent proxy servers. In a deployment where a tra
 |Registration|https://management.azure.com|HTTPS|443|
 |Usage|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
 |Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
+|NTP|     |UDP|123|
+|DNS|     |TCP<br>UDP|53|
+|     |     |     |     |
 
 
 

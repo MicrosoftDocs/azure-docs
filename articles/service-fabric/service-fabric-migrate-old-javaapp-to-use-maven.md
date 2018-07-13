@@ -49,8 +49,8 @@ Service Fabric Reliable Actor support for your application.
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-actors-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf-actors</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -59,7 +59,7 @@ Service Fabric Reliable Actor support for your application.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-actors-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-actors:1.0.0'
   }
   ```
 
@@ -70,8 +70,8 @@ Service Fabric Stateless Service support for your application.
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-services-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf-services</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -80,7 +80,7 @@ Service Fabric Stateless Service support for your application.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-services-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-services:1.0.0'
   }
   ```
 
@@ -92,8 +92,8 @@ Transport layer support for Service Fabric Java application. You do not need to 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-transport-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf-transport</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -102,7 +102,7 @@ Transport layer support for Service Fabric Java application. You do not need to 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-transport-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-transport:1.0.0'
   }
   ```
 
@@ -113,8 +113,8 @@ System level support for Service Fabric, which talks to native Service Fabric ru
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -123,7 +123,7 @@ System level support for Service Fabric, which talks to native Service Fabric ru
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf:1.0.0'
   }
   ```
 
@@ -175,15 +175,15 @@ configurations {
 
 dependencies {
     compile project(':Interface')
-    azuresf ('com.microsoft.servicefabric:sf-services-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-services:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"
@@ -248,15 +248,15 @@ configurations {
 }
 
 dependencies {
-    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"
@@ -321,15 +321,15 @@ configurations {
 
 dependencies {
     compile project(':MyactorInterface')
-    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"
@@ -421,15 +421,15 @@ configurations {
 
 dependencies {
     compile project(':MyactorInterface')
-    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"

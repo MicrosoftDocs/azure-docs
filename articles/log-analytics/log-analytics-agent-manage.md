@@ -3,7 +3,7 @@ title: Managing the Azure Log Analytics Agent | Microsoft Docs
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Microsoft Monitoring Agent (MMA) deployed on a machine.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -11,9 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
+ms.component: na
 ---
 
 # Managing and maintaining the Log Analytics agent for Windows and Linux

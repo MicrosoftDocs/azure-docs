@@ -39,10 +39,10 @@ Following are some pre-requisites needed for any POC with Azure AD Premium.
 | Pre-requisite | Resources |
 | --- | --- |
 | Azure AD tenant defined with a valid Azure subscription | [How to get an Azure Active Directory tenant](active-directory-howto-tenant.md)<br/>**Note:** If you already have an environment with Azure AD Premium licenses, you can get a zero cap subscription by navigating to https://aka.ms/accessaad <br/>Learn more at: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ and https://technet.microsoft.com/library/dn832618.aspx |
-| Domains defined and verified | [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Note:** Some workloads such as Power BI could have provisioned an azure AD tenant under the covers. To check if a given domain is associated to a tenant, navigate to https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. If you get a successful response, then the domain is already assigned to a tenant and take over might be needed. If so, contact Microsoft for further guidance. Learn more about the takeover options at: [What is Self-Service Signup for Azure?](active-directory-self-service-signup.md) |
+| Domains defined and verified | [Add a custom domain name to Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Note:** Some workloads such as Power BI could have provisioned an azure AD tenant under the covers. To check if a given domain is associated to a tenant, navigate to https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. If you get a successful response, then the domain is already assigned to a tenant and take over might be needed. If so, contact Microsoft for further guidance. Learn more about the takeover options at: [What is Self-Service Signup for Azure?](users-groups-roles/directory-self-service-signup.md) |
 | Azure AD Premium or EMS trial Enabled | [Azure Active Directory Premium free for one month](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | You have assigned Azure AD Premium or EMS licenses to PoC users | [License yourself and your users in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
-| Azure AD Global Admin credentials | [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
+| Azure AD Global Admin credentials | [Assigning administrator roles in Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) |
 | Optional but strongly recommended: Parallel lab environment as a fallback | [Prerequisites for Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 
 ## Directory Synchronization - Password Hash Sync (PHS) - New Installation
@@ -122,11 +122,11 @@ Approximate time to Complete: 10 minutes
 | Step | Resources |
 | --- | --- |
 | Go to licenses blade in Azure AD Management Portal | [Azure AD Management Portal: Licensing](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) |
-| Assign the licenses to the security group with POC users. | [Assign licenses to a group of users in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md) |
+| Assign the licenses to the security group with POC users. | [Assign licenses to a group of users in Azure Active Directory](users-groups-roles/licensing-groups-assign.md) |
 
 ### Considerations
 
-In case of any issues, go to [Scenarios, limitations, and known issues with using groups to manage licensing in Azure Active Directory](active-directory-licensing-group-advanced.md)
+In case of any issues, go to [Scenarios, limitations, and known issues with using groups to manage licensing in Azure Active Directory](users-groups-roles/licensing-group-advanced.md)
 
 ## SaaS Federated SSO Configuration
 
@@ -425,7 +425,7 @@ Approximate time to Complete: 10 minutes
 ### Considerations
 
 1. The PoC steps in this building block explicitly setting MFA for a user on all logins. There are other tools such as Conditional Access, and Identity Protection that engage MFA on more targeted scenarios. This will be something to consider when moving from POC to production.
-2. The PoC steps in this building block are explicitly using Phone Calls as the MFA method for expedience. As you transition from POC to production, we recommend using applications such as the [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) as your second factor whenever possible.
+2. The PoC steps in this building block are explicitly using Phone Calls as the MFA method for expedience. As you transition from POC to production, we recommend using applications such as the [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) as your second factor whenever possible.
 Learn more: [DRAFT NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## MFA Conditional Access for SaaS applications
@@ -465,24 +465,24 @@ Approximate time to Complete: 15 minutes
 
 | Pre-requisite | Resources |
 | --- | --- |
-| Identify the global admin that will be part of the POC for PIM | [Start using Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) |
-| Identify the global admin that will become the Security Administrator | [Start using Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)<br/> [Different administrative roles in Azure Active Directory PIM](active-directory-privileged-identity-management-roles.md) |
-| Optional: Confirm if the global admins have email access to exercise email notifications in PIM | [What is Azure AD Privileged Identity Management?: Configure the role activation settings](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)
+| Identify the global admin that will be part of the POC for PIM | [Start using Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md) |
+| Identify the global admin that will become the Security Administrator | [Start using Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md)<br/> [Different administrative roles in Azure Active Directory PIM](privileged-identity-management/pim-roles.md) |
+| Optional: Confirm if the global admins have email access to exercise email notifications in PIM | [What is Azure AD Privileged Identity Management?: Configure the role activation settings](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)
 
 
 ### Steps
 
 | Step | Resources |
 | --- | --- |
-| Login to https://portal.azure.com as a global admin (GA) and bootstrap the PIM blade. The Global Admin that performs this step is seeded as the security administrator.  Let's call this actor GA1 | [Using the security wizard in Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
-| Identify the global admin and move them from permanent to eligible. This should be a separate admin from the one used in step 1 for clarity. Let's call this actor GA2 | [Azure AD Privileged Identity Management: How to add or remove a user role](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[What is Azure AD Privileged Identity Management?: Configure the role activation settings](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
+| Login to https://portal.azure.com as a global admin (GA) and bootstrap the PIM blade. The Global Admin that performs this step is seeded as the security administrator.  Let's call this actor GA1 | [Using the security wizard in Azure AD Privileged Identity Management](privileged-identity-management/pim-security-wizard.md) |
+| Identify the global admin and move them from permanent to eligible. This should be a separate admin from the one used in step 1 for clarity. Let's call this actor GA2 | [Azure AD Privileged Identity Management: How to add or remove a user role](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[What is Azure AD Privileged Identity Management?: Configure the role activation settings](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Now, log in as GA2 to https://portal.azure.com and try changing "User Settings". Notice, some options are grayed out. | |
-| In a new tab and in the same session as step 3, navigate now to https://portal.azure.com and add the PIM blade to the dashboard. | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Add the Privileged Identity Management application](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
-| Request activation to the Global Administrator role | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Activate a role](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
+| In a new tab and in the same session as step 3, navigate now to https://portal.azure.com and add the PIM blade to the dashboard. | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Add the Privileged Identity Management application](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Request activation to the Global Administrator role | [How to activate or deactivate roles in Azure AD Privileged Identity Management: Activate a role](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | Note, that if GA2 never signed up for MFA, registration for Azure MFA will be necessary |  |
 | Go back to the original tab in step 3, and click the refresh button in the browser. Note that you now have access to change "User settings" | |
 | Optionally, if your global administrators have email enabled, you can check GA1 and GA2's inbox and see the notification of the role being activated |  |
-| 8	Check the audit history and observe the report to confirm the elevation of GA2 is shown. | [What is Azure AD Privileged Identity Management?: Review role activity](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| 8	Check the audit history and observe the report to confirm the elevation of GA2 is shown. | [What is Azure AD Privileged Identity Management?: Review role activity](privileged-identity-management/pim-configure.md#review-role-activity) |
 
 ### Considerations
 
@@ -550,7 +550,7 @@ Approximate time to complete: 20 minutes
 | --- | --- |
 | Device with user certificate provisioned (Windows, iOS or Android) from Enterprise PKI | [Deploy User Certificates](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Azure AD domain federated with ADFS | [Azure AD Connect and federation](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory Certificate Services Overview](https://technet.microsoft.com/library/hh831740.aspx)|
-| For iOS devices have Microsoft Authenticator app installed | [Get started with the Microsoft Authenticator app](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| For iOS devices have Microsoft Authenticator app installed | [Get started with the Microsoft Authenticator app](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 ### Steps
 

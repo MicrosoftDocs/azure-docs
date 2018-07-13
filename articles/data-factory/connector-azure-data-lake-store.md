@@ -1,5 +1,5 @@
 ---
-title: Copy data to/from Azure Data Lake Store using Data Factory | Microsoft Docs
+title: Copy data to/from Azure Data Lake Storage Gen1 using Data Factory | Microsoft Docs
 description: Learn how to copy data from supported source data stores to Azure Data Lake Store (or) from Data Lake Store to supported sink stores using Data Factory.
 services: data-factory
 author: linda33wj
@@ -15,15 +15,12 @@ ms.date: 04/27/2018
 ms.author: jingwang
 
 ---
-# Copy data to or from Azure Data Lake Store by using Azure Data Factory
+# Copy data to or from Azure Data Lake Storage Gen1 by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-azure-datalake-connector.md)
-> * [Version 2 - Preview](connector-azure-data-lake-store.md)
+> * [Version 1](v1/data-factory-azure-datalake-connector.md)
+> * [Current version](connector-azure-data-lake-store.md)
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data to and from Azure Data Lake Store. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Azure Data Lake Store connector in V1](v1/data-factory-azure-datalake-connector.md).
+This article outlines how to use the Copy Activity in Azure Data Factory to copy data to and from Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 

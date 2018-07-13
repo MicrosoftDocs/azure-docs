@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 07/11/2018
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -52,11 +52,14 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Brazil South | X | X |
 | North Europe | X | X |
 | West Europe |  | X |
+| France Central |  | X |
 | UK West |  | X |
 | UK South |  | X |
 | East Asia | X | X |
 | Southeast Asia | X | X |
 | Australia East |  | X |
+| Australia Central |  | X |
+| Australia Central 2 |  | X |
 | Australia Southeast |  | X |
 | Central India | X | X |
 | West India | X | X |

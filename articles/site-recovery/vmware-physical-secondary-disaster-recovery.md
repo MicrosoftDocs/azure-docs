@@ -8,7 +8,7 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 07/06/2018
 ms.author: raynew
 
 ---

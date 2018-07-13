@@ -50,6 +50,7 @@ sections:
     items:
     - html: <a href="/azure/iot-hub/tutorial-routing">Configure automated message routing in IoT Hub</a>
     - html: <a href="/azure/iot-hub/tutorial-device-twins">Configure your devices from a back-end service</a>
+    - html: <a href="/azure/iot-hub/tutorial-firmware-update">Implement a device firmware update process</a>
     - html: <a href="/azure/iot-hub/tutorial-connectivity">Use a simulated device to test connectivity with your IoT hub</a>
 - title: Reference
   items:

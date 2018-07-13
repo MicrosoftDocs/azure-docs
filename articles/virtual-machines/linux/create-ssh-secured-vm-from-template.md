@@ -1,9 +1,9 @@
 ---
 title: Create a Linux VM in Azure from a template | Microsoft Docs
-description: How to use the Azure CLI 2.0 to create a Linux VM from a Resource Manager template
+description: How to use the Azure CLI to create a Linux VM from a Resource Manager template
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---
 # How to create a Linux virtual machine with Azure Resource Manager templates
-This article shows you how to quickly deploy a Linux virtual machine (VM) with Azure Resource Manager templates and the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md).
+This article shows you how to quickly deploy a Linux virtual machine (VM) with Azure Resource Manager templates and the Azure CLI. 
 
 
 ## Templates overview

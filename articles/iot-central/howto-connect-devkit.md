@@ -77,7 +77,8 @@ Toggle settings
 | Type            | Display name | Field name | Data type |
 | --------------- | ------------ | ---------- | --------- |
 | Device property | Die number   | dieNumber  | number    |
-| Text            | Location     | location   | N/A       |
+| Device property | Device Location   | location  | location    |
+| Text            | Manufactured In     | manufacturedIn   | N/A       |
 
 
 ### Add a real device
@@ -86,8 +87,8 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
 
 ## Prepare the DevKit device
 
-> [!TIP]
-> For DevKit device troubleshooting guidance, see [IoT DevKit get started](https://microsoft.github.io/azure-iot-developer-kit/docs/get-started/).
+> [!NOTE]
+> If you have previously used the device and have wifi credentials stored and would like to reconfigure the device to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons on the board simultaneously. If it doesn't work, press **reset** button and try again.
 
 To prepare the DevKit device:
 
@@ -131,8 +132,7 @@ To prepare the DevKit device:
 
 1. Press the **Reset** button on your device.
 
-> [!NOTE]
-> To reconfigure the device to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons on the board simultaneously. If it doesn't work, press **reset** button and try again. 
+
 
 ## View the telemetry
 
@@ -148,19 +148,24 @@ You can view the telemetry measurements and reported property values, and config
 
 1. Use **Device Explorer** to navigate to the **Measurements** page for the real MXChip device you added:
 
-    ![Navigate to real device](media/howto-connect-devkit/realdevice.png)
+    ![Navigate to real device](media/howto-connect-devkit/realdevicenew.png)
 
 1. On the **Measurements** page, you can see the telemetry coming from the MXChip device:
 
-    ![View telemetry from real device](media/howto-connect-devkit/realtelemetry.png)
+    ![View telemetry from real device](media/howto-connect-devkit/devicetelemetrynew.png)
 
-1. On the **Properties** page, you can view the last die number reported by the device:
+1. On the **Properties** page, you can view the last die number and the device location reported by the device:
 
-    ![View device properties](media/howto-connect-devkit/deviceproperties.png)
+    ![View device properties](media/howto-connect-devkit/devicepropertynew.png)
 
 1. On the **Settings** page, you can update the settings on the MXChip device:
 
-    ![View device settings](media/howto-connect-devkit/settings.png)
+    ![View device settings](media/howto-connect-devkit/devicesettingsnew.png)
+
+1. On the **Dashboard** page, you can see the location map
+
+    ![View device dashboard](media/howto-connect-devkit/devicedashboardnew.png)
+
 
 ## Download the source code
 

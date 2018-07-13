@@ -18,7 +18,7 @@ ms.author: wolfma
 The current version of the Cognitive Services Speech SDK is `0.4.0`.
 
 We describe how to create a C++-based console application for Windows Desktop that makes use of the Speech SDK.
-The application is based on the [Microsoft Cognitive Services SDK NuGet Package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and Microsoft VisualStudio 2017.
+The application is based on the [Microsoft Cognitive Services SDK NuGet Package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and Microsoft Visual Studio 2017.
 
 > [!NOTE]
 > If you're looking for a quickstart for C++ and Linux, go [here](quickstart-cpp-linux.md).<br>
@@ -77,8 +77,8 @@ Replace your default starter code with the following one:
 [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-cpp/CppHelloSpeech.cpp#code)]
 
 > [!IMPORTANT]
-> Replace the subscription key with one that you obtained. <br>
-> Replace the region with your region from the [Speech Service REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis), e.g. replace with 'westus'.
+> Replace the subscription key with the one that you obtained. <br>
+> Replace the [region](regions.md) with the one associated with the subscription, for example, replace with `westus` for the free trial subscription.
 
 ![Add your subscription key](media/sdk/sub-key-recognize-speech-cpp.png)
 

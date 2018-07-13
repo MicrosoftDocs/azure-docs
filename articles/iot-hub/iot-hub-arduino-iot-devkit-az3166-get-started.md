@@ -270,7 +270,7 @@ The DevKit reboots and starts running the code.
 
 ## Test the project
 
-In VS Code, following these steps to open and set up the Serial Monitor:
+In VS Code, follow these steps to open and set up the Serial Monitor:
 
 1. Click the `COM[X]` word on the status bar to set the right COM port with `STMicroelectronics`:
   ![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
@@ -284,7 +284,7 @@ In VS Code, following these steps to open and set up the Serial Monitor:
 The sample application is running successfully when you see the following results:
 
 * The Serial Monitor displays the same information as the content in the screenshot below.
-* The LED on MXChip IoT DevKit is blinking.
+* The RGB LED on MXChip IoT DevKit is blinking.
 
 ![Final output in VS Code](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
 

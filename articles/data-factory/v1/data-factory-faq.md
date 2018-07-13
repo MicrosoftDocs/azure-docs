@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Azure Data Factory - Frequently Asked Questions
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [frequently asked question - Data Factory version 2](../frequently-asked-questions.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [frequently asked question - Data Factory](../frequently-asked-questions.md).
 
 ## General questions
 ### What is Azure Data Factory?

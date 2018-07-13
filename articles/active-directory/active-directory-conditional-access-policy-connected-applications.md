@@ -90,8 +90,8 @@ The option to *require a device to be marked as compliant* is the strongest form
 
 This option requires a device to be registered with Azure AD, and also to be marked as compliant by:
          
-- Intune 
-- A third-party mobile device managed system that manages Windows 10 devices via Azure AD integration 
+- Intune.
+- A third-party mobile device management (MDM) system that manages Windows 10 devices via Azure AD integration. Third-party MDM systems for device OS types other than Windows 10 are not supported.
  
 ![Device-based conditions](./media/active-directory-conditional-access-policy-connected-applications/46.png)
 

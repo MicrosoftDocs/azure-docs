@@ -8,7 +8,7 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/22/2018
+ms.date: 07/03/2018
 ms.author: hux  
 
 ---
@@ -42,7 +42,10 @@ GPv2 storage accounts expose the **Access Tier** attribute at the account level,
 
 ### Upgrade a storage account to GPv2
 
-Users can upgrade a GPv1 or Blob storage account to a GPv2 account at any time using PowerShell or Azure CLI. This change cannot be reversed, and no other changes are permitted.
+Users can upgrade a GPv1 or Blob storage account to a GPv2 account at any time using Azure portal, PowerShell, or Azure CLI. This change cannot be reversed, and no other changes are permitted.
+
+#### Upgrade with Azure portal
+To upgrade a GPv1 or Blob storage account to a GPv2 account using Azure portal, first sign into the [Azure portal](https://portal.azure.com) and select your storage account. Select **Settings** > **Configuration**. There you will see the **Upgrade** button along with a note regarding the upgrade process.
 
 #### Upgrade with PowerShell
 
@@ -258,9 +261,9 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 
 ## Migrating existing data
 
-A GPv1 account can be easily upgraded to GPv2 with no downtime or API changes, and without the need to migrate data. For this reason, it's strongly recommended that you migrate GPv1 accounts to GPv2 accounts, instead of to Blob storage accounts.
+A GPv1 or Blob storage account can be easily upgraded to GPv2 with no downtime or API changes, and without the need to migrate data. For this reason, it's strongly recommended that you migrate GPv1 accounts to GPv2 accounts, instead of to Blob storage accounts. For more information on upgrading to GPv2, see [Upgrade a storage account to GPv2](#upgrade-a-storage-account-to-gpv2).
 
-However, if you need to migrate to a Blob storage account and are unable to use GPv2 accounts, you can use the following instructions. 
+However, if you need to migrate from GPv1 to a Blob storage account and are unable to use GPv2 accounts, you can use the following instructions. 
 
 A Blob storage account is specialized for storing only block and append blobs. Existing general-purpose storage
 accounts, which allow you to store tables, queues, files, and disks, as well as blobs, cannot be converted to Blob storage accounts. To use the storage tiers, you need to create new Blob storage accounts and migrate your existing data into the newly created accounts. 

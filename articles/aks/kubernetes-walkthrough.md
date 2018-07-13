@@ -2,13 +2,13 @@
 title: Quickstart - Azure Kubernetes cluster for Linux
 description: Quickly learn to create a Kubernetes cluster for Linux containers in AKS with the Azure CLI.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 06/13/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
 
@@ -53,7 +53,7 @@ Output:
 
 ## Create AKS cluster
 
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node.
+Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. When deploying an AKS cluster, the container health monitoring solution can also be enabled. For more information on enabling the container health monitoring solution, see [Monitor Azure Kubernetes Service health][aks-monitor].
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -208,6 +208,9 @@ When the cluster is no longer needed, use the [az group delete][az-group-delete]
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
+> [!NOTE]
+> The only resource that is not removed when you delete the cluster is the service principal in the AD. You can [remove it](kubernetes-service-principal.md#additional-considerations) too. 
+
 ## Get the code
 
 In this quickstart, pre-created container images have been used to create a Kubernetes deployment. The related application code, Dockerfile, and Kubernetes manifest file are available on GitHub.
@@ -233,6 +236,8 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
+[aks-monitor]: https://aka.ms/coingfonboarding
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
@@ -240,5 +245,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 
