@@ -26,7 +26,7 @@ In this article, you'll learn how to integrate Azure Active Directory logs with 
 
 ## Prerequisites
 
-1. Azure Event Hub containing Azure AD activity logs. Follow [this tutorial](active-directory-reporting-azure-monitor-diagnostics-azure-event-hub.md) to learn how to route your activity logs to Event Hub. 
+1. Azure Event Hub containing Azure AD activity logs. Learn how to [stream your activity logs to Event Hub](active-directory-reporting-azure-monitor-diagnostics-azure-event-hub.md). 
 2. Use the following [instructions](https://github.com/Microsoft/AzureMonitorAddonForSplunk) to download the Azure monitor add-on for Splunk and configure your Splunk instance.
 
 ## Tutorial 
@@ -44,4 +44,4 @@ In this article, you'll learn how to integrate Azure Active Directory logs with 
 
 * [Interpret audit logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md)
 * [Interpret sign-in logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
-* [Frequently asked questions and known issues](active-directory-reporting-faq.md#frequently-asked-questions-about-azure-active-directory-logs-in-azure-monitor)
+* [Frequently asked questions and known issues](active-directory-reporting-azure-monitor-diagnostics-overview.md#frequently-asked-questions)
