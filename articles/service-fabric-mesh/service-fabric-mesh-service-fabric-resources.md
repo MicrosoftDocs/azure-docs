@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/26/2018
+ms.date: 07/12/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter 
 
@@ -32,16 +32,16 @@ Each resource is described declaratively in a resource file, which is a simple Y
 
 ### Applications and Services
 
-An Application resource is the unit of deployment, versioning and lifetime of a Mesh application. It is comprised of one, or more, of Service resources that represent a microservice. Each Service resource, in turn, is comprised of one, or more, code packages that describe everything needed to run the container image associated with the code package, including the following:
+An Application resource is the unit of deployment, versioning, and lifetime of a Mesh application. It is composed of one, or more, of Service resources that represent a microservice. Each Service resource, in turn, is composed of one, or more, code packages that describe everything needed to run the container image associated with the code package, including the following:
 
 - Container name, version, and registry
 - CPU and memory resources required for each container
 - Network endpoints
 - Volumes to mount in the container, referencing a separate volume resource.
 
-All the code packages defined as part of a Service resource are deployed and activated together as a group. The Service resource also describes how many instances of the service to run and also references other Resources (e.g. Network resource) it depends upon.
+All the code packages defined as part of a Service resource are deployed and activated together as a group. The Service resource also describes how many instances of the service to run and also references other Resources (for example, Network resource) it depends upon.
 
-If a Mesh Application is comprised of more than one Service, they are not guaranteed to run together on the same node. Also, during an upgrade of the Application, failure of upgrading a single Service will result in all Services being rolled back to their previous version.
+If a Mesh Application is composed of more than one Service, they are not guaranteed to run together on the same node. Also, during an upgrade of the Application, failure of upgrading a single Service will result in all Services being rolled back to their previous version.
 
 
 
@@ -66,8 +66,6 @@ If a Mesh Application is comprised of more than one Service, they are not guaran
       - name: mynetwork
 ```
 
-
-
 As alluded earlier, the lifecycle of each Application instance can be managed independently. For example, one Application instance can be upgraded independently from the other Application instances. Typically, you keep the number of services in an application fairly small, as the more services you put into an application, the more difficult it becomes to manage each service independently.
 
 ### Networks
@@ -88,7 +86,7 @@ Your application code remains portable even outside of Service Fabric Mesh and y
 
 ## Deployment
 
-When deploying to Service Fabric Mesh, Resources are deployed as Azure Resource Manager (ARM) templates to Azure through HTTP or the Azure CLI. 
+When deploying to Service Fabric Mesh, Resources are deployed as Azure Resource Manager templates to Azure through HTTP or the Azure CLI. 
 
 
 ## Next steps 
