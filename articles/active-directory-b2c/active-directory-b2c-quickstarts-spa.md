@@ -61,7 +61,7 @@ Click the **Login** button to start the Azure AD B2C **Sign Up or Sign In** work
 
 The sample is intended to support several sign-up options including creating a local account using an email address. For this quickstart, use a Facebook account. 
 
-### Sign up using a social provider
+### Sign up using a social identity provider
 
 Azure AD B2C presents a custom login page for a fictitious brand called Wingtip Toys for the sample web app. 
 
