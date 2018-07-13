@@ -15,25 +15,25 @@ ms.custom: mvc
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-In this quickstart, you will learn how to create and run a Trusted Platform Module (TPM) device simulator on a Windows development machine. This simulator will act as a [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) for a device. You will connect this simulated device to an IoT hub using a Device Provisioning Service instance. 
+In this quickstart, you will learn how to create and run a Trusted Platform Module (TPM) device simulator on a Windows development machine. This simulator will include a [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) for a device. 
 
-If you're unfamiliar with the process of auto-provisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+You will connect this simulated device to an IoT hub using a Device Provisioning Service instance. Sample code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be used to help enroll the device with a Device Provisioning Service instance.
 
-[!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
+If you're unfamiliar with the process of auto-provisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
 * Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
-* [Git installation](https://git-scm.com/download/)
+* Latest version of [Git](https://git-scm.com/download/) installed.
 
 
 <a id="setupdevbox"></a>
 
-## Prepare the TPM device simulator development environment 
+## Prepare a development environment for the Azure IoT C SDK
 
-In this section, you will prepare a development environment used to build a [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) device simulator sample.
+In this section, you will prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) and the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) device simulator sample.
 
 1. Download the latest release version of the [CMake build system](https://cmake.org/download/). From that same site, look up the cryptographic hash for the version of the binary distribution you chose. Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
 
@@ -45,7 +45,7 @@ In this section, you will prepare a development environment used to build a [TPM
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites and in place and the download is verified, install the CMake build system.
 
-2. Open a command prompt or Git Bash shell. Execute the following command to clone the GitHub repo for the device simulation code sample:
+2. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
     
     The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
 
@@ -61,9 +61,9 @@ In this section, you will prepare a development environment used to build a [TPM
     cd cmake
     ```
 
-## Build and run the TPM device simulator
+## Build the SDK and run the TPM device simulator
 
-In this section, you will build the TPM device simulator sample. This sample provides a TPM [attestation mechanism](concepts-security.md#attestation-mechanism) via Shared Access Signature (SAS) Token authentication.
+In this section, you will build the Azure IoT C SDK, which includes the TPM device simulator sample. This sample provides a TPM [attestation mechanism](concepts-security.md#attestation-mechanism) via Shared Access Signature (SAS) Token authentication.
 
 1. From the `cmake` folder you created in the azure-iot-sdk-c git repository, run the following command to build the sample. A Visual Studio solution for the simulated device will also be generated by this build command.
 
@@ -98,7 +98,7 @@ In this section, you will build the TPM device simulator sample. This sample pro
     .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
-    Initially, you will not see any output from the simulator. Let it continue to run simulating a device.
+    You will not see any output from the simulator. Let it continue to run simulating a TPM device.
 
 <a id="simulatetpm"></a>
 
@@ -106,7 +106,7 @@ In this section, you will build the TPM device simulator sample. This sample pro
 
 1. Launch Visual Studio and open the new solution file named `azure_iot_sdks.sln`. This solution file is located in the `cmake` folder you previously created in the root of the azure-iot-sdk-c git repository.
 
-2. On the Visual Studio menu, select **Build** > **Build** > **1 ALL_BUILD** to build the solution.
+2. On the Visual Studio menu, select **Build** > **Build** > **1 ALL_BUILD** to build all projects in the solution.
 
 3. In the *Solution Explorer* pane in Visual Studio, navigate to the folder **Provision\_Tools**. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. 
 
@@ -124,8 +124,8 @@ In this section, you will build the TPM device simulator sample. This sample pro
 3. On the **Add enrollment** page, enter the following information and click the **Save** button.
 
     - **Mechanism:** Select **TPM** as the identity attestation *Mechanism*.
-    - **Endorsement key:** Enter the *Endorsement key* you generated for your TPM device by running the Visual Studio solution.
-    - **Registration ID:** Enter the *Registration ID* you generated for your TPM device by running the Visual Studio solution.
+    - **Endorsement key:** Enter the *Endorsement key* you generated for your TPM device by running the the *tpm_device_provision* project.
+    - **Registration ID:** Enter the *Registration ID* you generated for your TPM device by running the *tpm_device_provision* project.
     - **IoT Edge device:** Select **Disable**.
     - **IoT Hub Device ID:** Enter **test-docs-device** to give the device an ID.
 
@@ -142,30 +142,60 @@ In this section, you will build the TPM device simulator sample. This sample pro
 
     ![Extract DPS endpoint information from the portal blade](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
-2. In the Visual Studio *Solution Explorer* on your machine, navigate to the folder **Provision\_Samples**. Select the sample project named **prov\_dev\_client\_sample** and open the file **prov\_dev\_client\_sample.c**.
+2. In the *Solution Explorer* pane of Visual Studio, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
-3. Assign the _ID Scope_ value to the `id_scope` constant. 
+3. Near the top of the file, find the `#define` statements for each device protocol as shown below. Make sure only `SAMPLE_AMQP` is uncommented.
+
+    Currently, the [MQTT protocol is not supported for TPM Individual Enrollment](https://github.com/Azure/azure-iot-sdk-c#provisioning-client-sdk).
+
+    ```c
+    //
+    // The protocol you wish to use should be uncommented
+    //
+    //#define SAMPLE_MQTT
+    //#define SAMPLE_MQTT_OVER_WEBSOCKETS
+    #define SAMPLE_AMQP
+    //#define SAMPLE_AMQP_OVER_WEBSOCKETS
+    //#define SAMPLE_HTTP
+    ```
+
+4. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied earlier. 
 
     ```c
     static const char* id_scope = "0ne00002193";
     ```
 
-4. In the `main()` function in the same file, make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_TPM`.
+5. In the `main()` function in the same file, make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_TPM` instead of `SECURE_DEVICE_TYPE_X509` as shown below.
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
     hsm_type = SECURE_DEVICE_TYPE_TPM;
+    //hsm_type = SECURE_DEVICE_TYPE_X509;
     ```
 
-   Comment out or delete the statement `hsm_type = SECURE_DEVICE_TYPE_X509;` that is present by default. 
+6. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. 
 
-5. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. Run the solution. 
+7. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.
 
-6. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **IoT Devices** blade. 
+    Successful output of the provisioning device client sample booting up and connecting to the Device Provisioning Service to get your IoT hub information will be similar to the following output:
+
+    ```cmd
+    Provisioning API Version: 1.2.7
+    Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
+
+    Registering... Press enter key to interrupt.
+
+    Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
+    Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
+    Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
+
+    Registration Information received from service:
+    test-docs-hub.azure-devices.net, deviceId: test-docs-device
+    ```
+
+8. Once the simulated device is provisioned to the IoT hub by your provisioning service, the device ID appears on the hub's **IoT Devices** page. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device/hub-registration.png) 
-
-    If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
 
 
 ## Clean up resources
@@ -173,9 +203,9 @@ In this section, you will build the TPM device simulator sample. This sample pro
 If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
 
 1. Close the device client sample output window on your machine.
-1. Close the TPM simulator window on your machine.
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** blade for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. Open the **IoT Devices** blade for your hub, select the *DEVICE ID* of the device you registered in this Quickstart, and then click **Delete** button at the top.
+2. Close the TPM simulator window on your machine.
+3. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** blade for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
+4. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. Open the **IoT Devices** blade for your hub, select the *DEVICE ID* of the device you registered in this Quickstart, and then click **Delete** button at the top.
 
 ## Next steps
 
