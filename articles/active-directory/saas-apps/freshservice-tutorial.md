@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 07/13/2017
 ms.author: jeedes
 
 ---
@@ -118,7 +118,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 4. On the **SAML Signing Certificate** section, copy **THUMBPRINT** value of certificate.
 
-	![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_certificate.png) 
+	![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_certificate.png)
+
+	a. Check **Show advanced certificate signing settings**.
+
+	b. Select **Sigining Algorithm** as **SHA-256**.
+
+	![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_sha.png)
 
 5. Click **Save** button.
 
