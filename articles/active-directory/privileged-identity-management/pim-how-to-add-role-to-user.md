@@ -48,11 +48,9 @@ Follow these steps to make a user eligible for an Azure AD directory role.
 
     ![Select a role](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
-1. In Add managed members, click **OK** to add the user to the role. When the role is assigned, a notification is displayed.
+1. In Add managed members, click **OK** to add the user to the role.
 
-    ![Add members to a role notification](./media/pim-how-to-add-role-to-user/pim-add-members-to-role-notification.png)
-
-    The user you selected will appear in the list as eligible for the role.
+     When the role is assigned, the user you selected will appear in the members list as eligible for the role.
 
     ![User eligible for a role](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
