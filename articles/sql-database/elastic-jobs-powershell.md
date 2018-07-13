@@ -30,7 +30,7 @@ In this tutorial you learn the steps required to run a query across multiple dat
 
 If you don't have already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-Install the latest preview **AzureRM.Sql** module to get the Elastic Job cmdlets. Run the following commands in PowerShell with  administrative access.
+Install the **AzureRM.Sql** 4.8.1-preview module to get the latest Elastic Job cmdlets. Run the following commands in PowerShell with  administrative access.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
