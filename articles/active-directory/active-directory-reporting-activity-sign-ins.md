@@ -86,6 +86,9 @@ By clicking an item in the list view, you get all available details about it in 
 > Customers can now troubleshoot conditional access policies through all sign-in reports. By clicking on the **Conditional access** tab for a sign-in record, customers can review the conditional access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
 > For more information, see the [Frequently asked questions about CA information in all sign-ins](active-directory-reporting-faq.md#conditional-access).
 
+![Sign-in activity](./media/active-directory-reporting-activity-sign-ins/ConditionalAccess.png "Sign-in activity")
+
+
 ## Filter sign-in activities
 
 To narrow down the reported data to a level that works for you, you can filter the sign-ins data using the following default fields:
