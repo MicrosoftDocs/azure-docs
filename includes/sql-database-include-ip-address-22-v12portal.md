@@ -7,8 +7,8 @@ author: dalechen
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: conceptual
-ms.date: 07/11/2018
+ms.topic: include
+ms.date: 07/13/2018
 ms.author: ninarn
 ---
 
