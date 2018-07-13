@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: marketplace
 ms.workload: 
 ms.tgt_pltfrm: 
-ms.devlang: 
+ms.devlang:
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
@@ -30,12 +30,7 @@ You can arrange for users to test your offer by accessing limited term software 
 
 |Requirements  |Details  |
 |---------|---------|
-|Free trial period and trial experience     |   Your customer may try your app for free for a limited time.
-
-Your customer is not required to pay any license or subscription fees for your offer. Your customers are not required to pay for the underlying Microsoft first-party product or service. All trial options are deployed to your Azure subscription. You have sole control of the cost optimization and management.
-
-You may choose a free trial or interactive demo. No matter what you choose, your free trial must provide the customer a pre-set amount of time to try your offer at no additional cost.
-      |
+|Free trial period and trial experience     |   Your customer may try your app for free for a limited time. Your customer is not required to pay any license or subscription fees for your offer. Your customers are not required to pay for the underlying Microsoft first-party product or service. All trial options are deployed to your Azure subscription. You have sole control of the cost optimization and management. You may choose a free trial or interactive demo. No matter what you choose, your free trial must provide the customer a pre-set amount of time to try your offer at no additional cost.|
 |Easily configurable, ready-to-use solution    |  Your app must be easy and quick to configure and set up.       |
 |Availability / uptime    |    Your SaaS app or platform must have an uptime of at least 99.9%.     |
 |Azure Active Directory     |    Your offer must allow Azure Active Directory (Azure AD) federated single sign-on (SSO) (Azure AD federated SSO) with consent enabled.     |
