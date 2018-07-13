@@ -119,6 +119,10 @@ Use the following template to start your batch file:
 ]
 ```
 
+The batch file uses the **startPos** and **endPos** properties to note the beginning and end of an entity. The values are zero-based and should not begin or end on a space. 
+
+This is different from the query logs, which use startIndex and endIndex properties. 
+
 
 ## Common errors importing a batch
 Common errors include: 
