@@ -125,7 +125,7 @@ Create as many sites as you need that correspond to your physical locations. For
 1. On the page for your virtual WAN, click **Sites**.
 2. Under **Unassociated sites**, you see a list of sites that haven't yet been connected to a hub.
 3. Select the sites that you want to associate.
-4. From the dropdown, select the region that your hub will associated with. You should associate your hub to the region where the VNets that you want to connect to reside.
+4. From the dropdown, select the region that your hub will be associated with. You should associate your hub to the region where the VNets that you want to connect to reside.
 5. Click **Confirm**. If you do not yet have a hub in this region, a virtual hub VNet will be automatically created. In this case, the **Create regional hubs** page appears.
 6. On the **Create regional hubs** page, input the address range for your hub VNet. This is the VNet that will contain your hub services. The range you enter here must be a private IP address range and cannot overlap any of your on-premises address spaces, or your VNet address spaces. A subsequent VPN end point will be created in the hub VNet. (Automatic hub and gateway creation is only available in the portal.)
 7. Click **Create**.
