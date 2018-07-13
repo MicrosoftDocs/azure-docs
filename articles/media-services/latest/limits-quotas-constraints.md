@@ -21,6 +21,7 @@ This article describes quotas and limitations in Azure Media Services v3.
 | Resource | Default Limit | 
 | --- | --- | 
 | Assets per Azure Media Services account | 1,000,000|
+| Dynamic Manifest Filter|100|
 | JobInputs per Job | 50  (fixed)|
 | JobOutputs per Job/TransformOutputs in a Transform | 20 (fixed) |
 | Files per JobInput|10 (fixed)|
@@ -34,8 +35,7 @@ This article describes quotas and limitations in Azure Media Services v3.
 | LiveOutputs in stopped state per LiveEvent |50|
 | Storage accounts | 100<sup>(4)</sup> (fixed) |
 | Streaming Endpoints in running state per Media Services account|2|
-| StreamingPolicies (predefined)| 1,000,000<sup>(3)</sup> |
-| StreamingPolicies (custom) | 100 |
+| StreamingPolicies <sup>(3)</sup> | | 100 |
 | Transforms per Media Services account | 100  (fixed)|
 | Unique StreamingLocators associated with an Asset at one time | 100<sup>(5)</sup> (fixed) |
 
