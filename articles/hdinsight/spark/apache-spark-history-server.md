@@ -46,7 +46,7 @@ The Spark History Server web UI looks like:
 Select your job ID then click **Data** on the tool menu to get the data view.
 
 Under this tab, you could:
-1. Check the **Inputs**, **Outputs** and **Table Operations** by selecting the tabs separately.
+1. Check the **Inputs**, **Outputs**, and **Table Operations** by selecting the tabs separately.
 
     ![Data tabs](./media/apache-spark-history-server/sparkui-data-tabs.png)
 
@@ -58,7 +58,7 @@ Under this tab, you could:
 
     ![Data save](./media/apache-spark-history-server/sparkui-data-save.png)
 
-4. Search by entering keywords in field **Search**, the search result will display immediatly.
+4. Search by entering keywords in field **Search**, the search result will display immediately.
 
     ![Data search](./media/apache-spark-history-server/sparkui-data-search.png)
 
@@ -71,7 +71,7 @@ Under this tab, you could:
 
     ![Data download row](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
-7. Copy full path or relative path by selecting the **Copy Full Path**, **Copy Relative Path** that expand from download menu. For azure data lake storage files, **Open in Azure Storage Explorer** will launch Azure Storage Explorer, and locate to the folder when sign in.
+7. Copy full path or relative path by selecting the **Copy Full Path**, **Copy Relative Path** that expands from download menu. For azure data lake storage files, **Open in Azure Storage Explorer** will launch Azure Storage Explorer, and locate to the folder when sign-in.
 
     ![Data copy path](./media/apache-spark-history-server/sparkui-data-copy-path.png)
 
@@ -96,14 +96,14 @@ Under this tab, you could:
 
 2. Filter by **Job ID** or check the graph for all jobs that is default view.
 
-    ![graph job id](./media/apache-spark-history-server/sparkui-graph-jobid.png)
+    ![graph job ID](./media/apache-spark-history-server/sparkui-graph-jobid.png)
 
-3. Filter with data flow by selecting Read/Written in **Display** to check the data read, written, or progress which is default selection. The stage display in color that depend on the data flow.
+3. Filter with data flow by selecting Read/Written in **Display** to check the data read, written, or progress that is default selection. The stage display in color that depends on the data flow.
 
     ![graph display](./media/apache-spark-history-server/sparkui-graph-display.png)
 
 4. Playback by clicking the **Playback** button and could stop anytime by clicking the stop button. The task display in color with different status when playback.
-    + Successed task display in green.
+    + Successes task display in green.
     + Running task display in light blue.
     + Retried task display in orange.
     + Failed task display in red.
@@ -116,7 +116,7 @@ Under this tab, you could:
     > Note: Playback for each job is allowed. When a job does not have any stage or haven’t complete, playback is not supported.
 
 
-5. Mouse scroll to zoom in/out the graph, and you could click **Zoom to fit** to make it fit to screen.
+5. Mouse scrolls to zoom in/out the graph, and you could click **Zoom to fit** to make it fit to screen.
  
     ![graph zoom to fit](./media/apache-spark-history-server/sparkui-graph-zoom2fit.png)
 
@@ -191,10 +191,10 @@ Under this tab, you could:
 
 `upload_shs_log.sh https://${account_name}.blob.core.windows.net/${blob_container }/${log_file}?{SAS_query_string} /var/log/spark2/spark-spark-org.apache.spark.deploy.history.HistoryServer-1-{head_node_alias}-spark2.out 100`
 
-For **head_node_alias**, it may be **hn0** or **hn1** for a cluster with 2 head nodes. We need to fill in the active head node alias.
+For **head_node_alias**, it may be **hn0** or **hn1** for a cluster with two head nodes. We need to fill in the active head node alias.
 
 For **SAS_query_string**, you can get it from ASE: 
-1.	Right click the container you want to use and choose **Get Shared Access Signature…**:
+1.	Right-click the container you want to use and choose **Get Shared Access Signature…**:
  
     ![get shared access signature](./media/apache-spark-history-server/sparkui-faq1-1.png)
 
