@@ -3,7 +3,7 @@ title: Provision a simulated TPM device to Azure IoT Hub using C | Microsoft Doc
 description: Azure Quickstart - Create and provision a simulated TPM device using C device SDK for Azure IoT Hub Device Provisioning Service
 author: dsk-2015
 ms.author: dkshir
-ms.date: 04/16/2018
+ms.date: 07/13/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
