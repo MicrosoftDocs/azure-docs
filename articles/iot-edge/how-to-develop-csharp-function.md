@@ -12,7 +12,7 @@ services: iot-edge
 
 # Use Visual Studio Code to develop and debug Azure functions for Azure IoT Edge
 
-This article shows you how to use [Visual Studio Code (VS Code)](https://code.visualstudio.com/) to debug your Azure functions on IoT Edge.
+This article shows you how to use [Visual Studio Code (VS Code)](https://code.visualstudio.com/) to debug your Azure functions on Azure IoT Edge.
 
 ## Prerequisites
 This article assumes that you use a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device. Or you can simulate your IoT Edge device on your development machine.
@@ -28,8 +28,8 @@ This article uses Visual Studio Code as the main development tool. Install VS Co
 * [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 To create a module, you need .NET to build the project folder, Docker to build the module image, and a container registry to hold the module image:
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
-* [Docker Community Edition](https://docs.docker.com/install/) on your development machine. 
+* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
+* [Docker Community Edition](https://docs.docker.com/install/) on your development machine 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
    > [!TIP]
@@ -68,7 +68,7 @@ There are four items within the solution:
     ![Build debug image](./media/how-to-debug-csharp-function/build-debug-image.png)
 
 2. Rebuild your solution. In the VS Code command palette, enter and run the command **Azure IoT Edge: Build IoT Edge solution**.
-3. In Azure IoT Hub Devices explorer, right-click an IoT Edge device ID, then select **Create deployment for Edge device**. Select the `deployment.json` file in the `config` folder. You'll see the deployment successfully created with a deployment ID in a VS Code-integrated terminal.
+3. In Azure IoT Hub Devices explorer, right-click an IoT Edge device ID, and then select **Create deployment for Edge device**. Select the `deployment.json` file in the `config` folder. You'll see the deployment successfully created with a deployment ID in a VS Code-integrated terminal.
 
 Check your container status in VS Code Docker explorer or by running the `docker images` command in the terminal.
 
