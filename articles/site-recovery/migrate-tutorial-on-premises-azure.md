@@ -120,7 +120,7 @@ In some scenarios, failover requires additional processing that takes around eig
 
 ## Next steps
 
-In this tutorial you migrated on-premises VMs to Azure VMs. Now you can configure disaster recovery for the Azure VMs.
-
-> [!div class="nextstepaction"]
-> [Set up disaster recovery](azure-to-azure-replicate-after-migration.md) for Azure VMs after migration from an on-premises site.
+In this tutorial you migrated on-premises VMs to Azure VMs. Now that you've successfully migrated VMs:
+- [Set up disaster recovery](azure-to-azure-replicate-after-migration.md) for the migrated VMs.
+- Take advantage of Azure's [Secure and well managed cloud](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) capabilities to manage your VMs in Azure.
+  
