@@ -11,27 +11,31 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# Create and provision a simulated TPM device using C device SDK for IoT Hub Device Provisioning Service
+# Quickstart: Create and provision a simulated TPM device using C device SDK for IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
+In this quickstart, you will learn how to create and run a Trusted Platform Module (TPM) device simulator on a Windows development machine. This simulator will act as a [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) for a device. You will connect this simulated device to an IoT hub using a Device Provisioning Service instance. 
 
-If you're unfamiliar with the process of auto-provisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+If you're unfamiliar with the process of auto-provisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
 
 [!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## Prerequisites
+
+* Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
+* [Git installation](https://git-scm.com/download/)
+
+
 <a id="setupdevbox"></a>
 
-## Prepare the development environment 
+## Prepare the TPM device simulator development environment 
 
-In this section, you will prepare a development environment used to build and run a [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) device simulator sample.
+In this section, you will prepare a development environment used to build a [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) device simulator sample.
 
-1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled for your Visual Studio installation.
-
-    It is important that Visual Studio with the 'Desktop development with C++' workload is installed on your machine, **before** starting the `cmake` installation. 
-
-2. Download the latest version of the [CMake build system](https://cmake.org/download/). From that same site, look up the cryptographic hash for the version of the binary distribution you chose. Make sure to verify the download. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
+1. Download the latest release version of the [CMake build system](https://cmake.org/download/). From that same site, look up the cryptographic hash for the version of the binary distribution you chose. Verify the downloaded binary using the corresponding cryptographic hash value. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
 
     ```PowerShell
     PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
@@ -39,11 +43,9 @@ In this section, you will prepare a development environment used to build and ru
     True
     ```
 
-    Once the download is verified, install the CMake buld system.
+    It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites and in place and the download is verified, install the CMake build system.
 
-3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
-
-4. Open a command prompt or Git Bash. Execute the following command to clone the GitHub repo for the device simulation code sample:
+2. Open a command prompt or Git Bash shell. Execute the following command to clone the GitHub repo for the device simulation code sample:
     
     The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
 
@@ -51,7 +53,7 @@ In this section, you will prepare a development environment used to build and ru
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
-5. Create a `cmake` folder in the root folder of your local copy of the git repository, and navigate to that folder. 
+3. Create a `cmake` folder in the root folder of your local copy of the git repository, and navigate to that folder. 
 
     ```cmd/sh
     cd azure-iot-sdk-c
@@ -59,7 +61,11 @@ In this section, you will prepare a development environment used to build and ru
     cd cmake
     ```
 
-6. The code sample uses a Windows TPM simulator to provide attestation via SAS Token authentication. Run the following command to build a version of the SDK specific to your development client platform and [attestation mechanism](concepts-security.md#attestation-mechanism) (TPM Simulator). It also generates a Visual Studio solution for the simulated device.
+## Build and run the TPM device simulator
+
+In this section, you will build the TPM device simulator sample. This sample provides a TPM [attestation mechanism](concepts-security.md#attestation-mechanism) via Shared Access Signature (SAS) Token authentication.
+
+1. From the `cmake` folder you created in the azure-iot-sdk-c git repository, run the following command to build the sample. A Visual Studio solution for the simulated device will also be generated by this build command.
 
     ```cmd/sh
     cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
@@ -83,7 +89,7 @@ In this section, you will prepare a development environment used to build and ru
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
 
-7. Navigate to the root folder of the git repository you cloned, and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator using the path shown below. This simulator listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
+2. Navigate to the root folder of the git repository you cloned, and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator using the path shown below. This simulator listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this quickstart. 
 
    If you are in the *cmake* folder, then run the following commands:
 
@@ -92,17 +98,19 @@ In this section, you will prepare a development environment used to build and ru
     .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
-    Let this simulator continue to run simulating a device.
+    Initially, you will not see any output from the simulator. Let it continue to run simulating a device.
 
 <a id="simulatetpm"></a>
 
-## Simulate TPM device
+## Simulate a TPM device
 
-1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
+1. Launch Visual Studio and open the new solution file named `azure_iot_sdks.sln`. This solution file is located in the `cmake` folder you previously created in the root of the azure-iot-sdk-c git repository.
 
-2. In the *Solution Explorer* pane in Visual Studio, navigate to the folder **Provision\_Tools**. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. 
+2. On the Visual Studio menu, select **Build** > **Build** > **1 ALL_BUILD** to build the solution.
 
-3. Run the solution. The output window displays the **_Registration ID_** and the **_Endorsement Key_** needed for device enrollment. Note down these values. 
+3. In the *Solution Explorer* pane in Visual Studio, navigate to the folder **Provision\_Tools**. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. 
+
+4. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. The app displays a **_Registration ID_** and an **_Endorsement Key_**. Copy these values. They will be used in the next section for device enrollment. 
 
 
 <a id="portalenrollment"></a>
@@ -111,39 +119,38 @@ In this section, you will prepare a development environment used to build and ru
 
 1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-2. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+2. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
-3. Under the **Add enrollment list entry**, enter the following information:
-    - Select **TPM** as the identity attestation *Mechanism*.
-    - Enter the *Registration ID* and *Endorsement key* for your TPM device.
-    - Optionally, you may provide the following information:
-        - Select an IoT hub linked with your provisioning service.
-        - Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
-        - Update the **Initial device twin state** with the desired initial configuration for the device.
-    - Once complete, click the **Save** button. 
+3. On the **Add enrollment** page, enter the following information and click the **Save** button.
+
+    - **Mechanism:** Select **TPM** as the identity attestation *Mechanism*.
+    - **Endorsement key:** Enter the *Endorsement key* you generated for your TPM device by running the Visual Studio solution.
+    - **Registration ID:** Enter the *Registration ID* you generated for your TPM device by running the Visual Studio solution.
+    - **IoT Edge device:** Select **Disable**.
+    - **IoT Hub Device ID:** Enter **test-docs-device** to give the device an ID.
 
     ![Enter device enrollment information in the portal blade](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
-   On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
+    On successful enrollment, the *Registration ID* of your device will appear in the list under the *Individual Enrollments* tab. 
 
 
 <a id="firstbootsequence"></a>
 
 ## Simulate first boot sequence for the device
 
-1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note down the **_ID Scope_** value.
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and copy the **_ID Scope_** value.
 
     ![Extract DPS endpoint information from the portal blade](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 2. In the Visual Studio *Solution Explorer* on your machine, navigate to the folder **Provision\_Samples**. Select the sample project named **prov\_dev\_client\_sample** and open the file **prov\_dev\_client\_sample.c**.
 
-3. Assign the _ID Scope_ value to the `id_scope` variable. 
+3. Assign the _ID Scope_ value to the `id_scope` constant. 
 
     ```c
-    static const char* id_scope = "[ID Scope]";
+    static const char* id_scope = "0ne00002193";
     ```
 
-4. In the **main()** function in the same file, make sure the **SECURE_DEVICE_TYPE** is set to TPM.
+4. In the `main()` function in the same file, make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_TPM`.
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
