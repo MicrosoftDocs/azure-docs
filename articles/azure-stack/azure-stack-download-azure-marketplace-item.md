@@ -131,7 +131,7 @@ There are two parts to this scenario:
 
    ![Azure Marketplace items popup](media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Select the item that you want to download and make a note of the *version*. (You can hold the *Ctrl* key to select mulitple images.) You'll reference the *version* when you import the item in the next procedure. 
+7. Select the item that you want to download and make a note of the *version*. (You can hold the *Ctrl* key to select multiple images.) You'll reference the *version* when you import the item in the next procedure. 
    
    You can also filter the list of images by using the **Add criteria** option.
 
