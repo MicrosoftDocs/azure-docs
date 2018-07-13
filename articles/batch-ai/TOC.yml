@@ -16,7 +16,7 @@
 - name: Tutorials
 - name: Samples
 - name: Concepts
-items:
+  items:
   - name: Batch AI resources
     href: resource-concepts.md
 - name: How-to guides
