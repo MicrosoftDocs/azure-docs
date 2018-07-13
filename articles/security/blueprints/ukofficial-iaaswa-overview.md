@@ -1,25 +1,19 @@
 ---
 
-title: Azure Security and Compliance Blueprint - UK-OFFICIAL Three-Tier Web Applications Automation
-description: Azure Security and Compliance Blueprint - UK-OFFICIAL Three-Tier Web Applications Automation
+title: Azure Security and Compliance Blueprint - Three-Tier IaaS Web Application for UK OFFICIAL
+description: Azure Security and Compliance Blueprint - Three-Tier IaaS Web Application for UK OFFICIAL
 services: security
-documentationcenter: na
 author: jomolesk
-manager: mbaldwin
-editor: tomsh
 
 ms.assetid: 9c32e836-0564-4906-9e15-f070d2707e63
 ms.service: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 
 ---
 
-# Azure Security and Compliance Blueprint - UK-OFFICAL Three-Tier Web Applications Automation
+# Azure Security and Compliance Blueprint - Three-Tier IaaS Web Application for UK OFFICIAL
 
 ## Overview
 
@@ -37,9 +31,9 @@ ms.author: jomolesk
 
 ## Architecture Diagram and Components
 
- The Azure templates deliver a three-tier web application  architecture in an Azure cloud environment that supports UK-OFFICIAL  workloads. The architecture delivers a secure hybrid environment that  extends an on-premises network to Azure allowing web based workloads  to be accessed securely by corporate users or from the internet.
+ The Azure templates deliver a three-tier web application  architecture in an Azure cloud environment that supports UK OFFICIAL workloads. The architecture delivers a secure hybrid environment that  extends an on-premises network to Azure allowing web based workloads  to be accessed securely by corporate users or from the internet.
 
-![alt text](images/diagram.png?raw=true "Azure UK-OFFICAL Three Tier Architecture")
+![Three-Tier IaaS Web Application for UK OFFICIAL reference architecture diagram](images/ukofficial-iaas-architecture.png?raw=true "Three-Tier IaaS Web Application for UK OFFICIAL reference architecture diagram")
 
  This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
@@ -222,15 +216,15 @@ The Crown Commercial Service (an agency that works to improve commercial and pro
 
 This blueprint aligns to the 14 cloud security  principles that are documented in the NCSC [Cloud Security  Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) to help ensure an environment that supports workloads classified as UK-OFFICIAL.
 
-The [Customer Responsibility Matrix](https://aka.ms/blueprintuk-gcrm) (Excel Workbook) lists  all 14 cloud security principles, and the matrix denotes, for each principle (or principle subpart), whether the principle implementation is the responsibility of Microsoft, the customer, or shared between the two.
+The [Customer Responsibility Matrix](https://aka.ms/ukofficial-crm) (Excel Workbook) lists  all 14 cloud security principles, and the matrix denotes, for each principle (or principle subpart), whether the principle implementation is the responsibility of Microsoft, the customer, or shared between the two.
 
-The [Principle Implementation Matrix](https://aka.ms/ukwebappblueprintpim) (Excel Workbook) lists all 14 cloud security principles, and the matrix denotes, for each principle (or principle subpart) that is designated a customer responsibility in the Customer Responsibilities Matrix, 1) if the blueprint automation implements the principle, and 2) a description of how the implementation aligns with the principle requirement(s). This content is also available [here](https://github.com/Azure/uk-official-three-tier-webapp/blob/master/principles-overview.md).
+The [Principle Implementation Matrix](https://aka.ms/ukofficial-iaaswa-pim) (Excel Workbook) lists all 14 cloud security principles, and the matrix denotes, for each principle (or principle subpart) that is designated a customer responsibility in the Customer Responsibilities Matrix, 1) if the blueprint automation implements the principle, and 2) a description of how the implementation aligns with the principle requirement(s).
 
 Furthermore, the Cloud Security Alliance (CSA) published the Cloud Control Matrix to support customers in the evaluation of cloud providers and to identify questions that should be  answered before moving to cloud services. In response, Microsoft Azure answered the CSA Consensus Assessment Initiative Questionnaire ([CSA CAIQ](https://www.microsoft.com/en-us/TrustCenter/Compliance/CSA)), which describes how Microsoft  addresses the suggested principles.
 
 ## Deploy the Solution
 
-There are two methods that deployment users may use to deploy this blueprint automation. The first method uses a PowerShell script, whereas the second method utilises Azure portal to deploy the reference architecture. Detailed deployment instructions are available [here](https://aka.ms/ukwebappblueprintrepo).
+There are two methods that deployment users may use to deploy this blueprint automation. The first method uses a PowerShell script, whereas the second method utilises Azure portal to deploy the reference architecture. Detailed deployment instructions are available [here](https://aka.ms/ukofficial-iaaswa-repo).
 
 ## Disclaimer
 
