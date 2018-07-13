@@ -33,6 +33,8 @@ If you don't have the Human Resources app from the [review endpoint utterances](
 
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `batchtest`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
+Train the app.
+
 ## Purpose of batch testing
 Batch testing allows you to validate a model's state with a known set of test utterances and labeled entities. In the JSON-formatted batch file, add the utterances and set the entity labels you need predicted inside the utterance. 
 
@@ -69,7 +71,7 @@ Requirements for batch testing:
         "entities": []
         },
         {
-        "text": "Can I apply for any database jobs with this resume?",
+        "text": "Please find database jobs open today in Seattle",
         "intent": "GetJobInformation",
         "entities": []
         }
@@ -166,6 +168,8 @@ The first fix is to add more utterances to **GetJobInformation**. The second fix
     Are there any babysitting jobs for 13 year olds in the city today?
     ```
 
+    Do not label the **Job** entity in the utterances. This will happen in a step later in the tutorial.
+
 4. Train the app by selecting **Train** in the top right navigation.
 
 ## Verify the fix worked
@@ -179,6 +183,92 @@ In order to verify that the utterances in the batch test are correctly predicted
 
     [ ![Screenshot of LUIS with batch results button highlighted](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png#lightbox)
 
+## Create batch file with entities 
+In order to verify entities in a batch test, the entities need to be noted in the batch. Only simple and composite entities (the machine-learned entities) are used.
+
+1. Create `HumanResources-entities-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/). Or download [the file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) from the LUIS-Samples Github repository.
+
+
+2. In the JSON-formatted batch file, add utterances with the **Intent** you want predicted in the test. 
+
+    ```JSON
+    [
+        {
+            "text": "Are there any janitorial jobs currently open?",
+            "intent": "GetJobInformation",
+            "entities": [{
+            "entity": "Job",
+            "startPos": 14,
+            "endPos": 23
+            }
+            ]
+        },
+        {
+            "text": "I would like a fullstack typescript programming with azure job",
+            "intent": "GetJobInformation",
+            "entities": [{
+            "entity": "Job",
+            "startPos": 15,
+            "endPos": 46
+            }
+            ]
+        },
+        {
+            "text": "Is there a database position open in Los Colinas?",
+            "intent": "GetJobInformation",
+            "entities": [{
+            "entity": "Job",
+            "startPos": 11,
+            "endPos": 18
+            }]
+        },
+        {
+            "text": "Please find database jobs open today in Seattle",
+            "intent": "GetJobInformation",
+            "entities": [{
+            "entity": "Job",
+            "startPos": 12,
+            "endPos": 19
+            }
+            ]
+        }
+    ]
+    ```
+
+<!--TBD: when will the patterns fix be in for batch testing? -->
+## Run the batch with entities
+
+1. Select **Test** in the top navigation bar. 
+
+    [ ![Screenshot of LUIS app with Test highlighted in top, right navigation bar](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
+
+2. Select **Batch testing panel** in the right-side panel. 
+
+    [ ![Screenshot of LUIS app with Batch test panel highlighted](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
+
+3. Select **Import dataset**.
+
+    [ ![Screenshot of LUIS app with Import dataset highlighted](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
+
+4. Choose the file system location of the `HumanResources-entities-batch.json` file.
+
+5. Name the dataset `entities` and select **Done**.
+
+    ![Select file](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
+
+6. Select the **Run** button. Wait until the test is done.
+
+    [ ![Screenshot of LUIS app with Run highlighted](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
+
+7. Select **See results**.
+
+8. Review results in the graph and legend.
+
+    [ ![Screenshot of LUIS app with batch test results](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
+
+
+## Review entity batch results
+### Entity test results
 
 ## What has this tutorial accomplished?
 This app prediction accuracy has increased by finding errors in the batch and correcting the model by adding more example utterances to the correct intent and training. 
