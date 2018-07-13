@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/11/2018
+ms.date: 07/12/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -39,13 +39,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Data Box Disk is in preview and you need to sign up for the service. Perform the following steps to sign up for Data Box service:
 
-1. Sign into the Azure portal at: [https://aka.ms/azuredatabox](https://aka.ms/azuredatabox).
+1. Sign into the Azure portal at: [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
 2. Pick the subscription that you want to enable for the preview. Answer the questions regarding data size, data residence country, time-frame, and data transfer frequency. Click **Sign me up!**.
 3. Once you are signed up and enabled for preview, you can order a Data Box Disk.
 
 ## Order Data Box Disk
 
-Perform the following steps in the [Azure portal](https://aka.ms/azuredatabox) to order Data Box Disk.
+Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfromdiskdocs) to order Data Box Disk.
 
 1. In the upper left corner of the portal, click **+ Create a resource**, and search for *Azure Data Box*. Click **Azure Data Box**.
     
@@ -77,7 +77,7 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredatabox) t
     |Resource group| Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together. |
     |Destination Azure region| Select a region for your storage account.<br> Currently, storage accounts in all US and West and North Europe regions are supported. |
     |Storage account(s)|Based on the specified Azure region, select from the filtered list of an existing storage account. <br>You can also create a new General purpose v1 or General purpose v2 account. |
-    |Estimated data size in TB| Enter an estimate in TB. <br>Based on the size, Microsoft sends you an appropriate number of 3.5 TB or 7 TB SSDs. <br>The maximum usable capacity of 5 disks is up to 35 TB. |
+    |Estimated data size in TB| Enter an estimate in TB. <br>Based on the data size, Microsoft sends you an appropriate number of 3.5 TB or 7 TB SSDs. <br>The maximum usable capacity of 5 disks is up to 35 TB. |
 
 13. Click **Next**. 
 
