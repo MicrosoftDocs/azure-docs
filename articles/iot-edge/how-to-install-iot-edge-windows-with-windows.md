@@ -47,8 +47,9 @@ Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.z
 Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
 Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
 rmdir C:\ProgramData\iotedge\iotedged-windows
-$env:Path += ";C:\ProgramData\iotedge"
-SETX /M PATH "$env:Path"
+$sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+$path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+Set-ItemProperty -Path $sysenv -Name Path -Value $path
 ```
 
 Install the vcruntime using (you can skip this step on an IoT core Edge device):
@@ -137,7 +138,7 @@ To retrieve your ip address, enter `ipconfig` in your PowerShell window and copy
 
 ![nat][img-nat]
 
-Update the **workload_uri** and **management_uri** in the **connect:** section of the configuration file. Replace **\<GATEWAY_ADDRESS\>** with the IP address that you copied. 
+Update the **workload_uri** and **management_uri** in the **connect:** section of the configuration file. Replace **\<GATEWAY_ADDRESS\>** with the vEthernet IP address that you copied.
 
 ```yaml
 connect:
@@ -145,7 +146,7 @@ connect:
   workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Enter the same addresses in the **listen:** section of the configuration, using your IP address as the gateway address.
+Enter the same addresses in the **listen:** section.
 
 ```yaml
 listen:
