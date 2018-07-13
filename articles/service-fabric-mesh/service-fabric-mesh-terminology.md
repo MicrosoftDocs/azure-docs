@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords:  
 author: rwike77
 ms.author: ryanwi
-ms.date: 06/26/2018
+ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt 
@@ -18,7 +18,7 @@ Azure Service Fabric Mesh is a fully managed service that enables developers to 
 
 Service Fabric is an open source distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric is the orchestrator that powers Service Fabric Mesh. Service Fabric provides options for how you can build and run your microservices applications. You can use any framework to write your services and choose where to run the application from multiple environment choices.
 
-## Deployment and application models
+## Deployment and application models 
 
 To deploy your services, you need to describe how they should run. Service Fabric supports three different deployment models:
 
