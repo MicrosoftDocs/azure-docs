@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2018
+ms.date: 07/13/2018
 ms.author: kumud
 ---
 
@@ -24,7 +24,7 @@ Azure Load Balancer uses health probes to determine which backend pool instance 
 
 Health probes govern whether new flows are established to healthy backend instances. When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance.  Established TCP connections continue after health probe failure.  Existing UDP flows will move the from the unhealthy instance to another instance in the backend pool.
 
-If all probes for a backend pool fail, Basic Load Balancers will time out all flows for the backend pool and Standard Load Balancers will permit flows to continue.
+If all probes for a backend pool fail, Basic Load Balancers will terminate all exisiting TCP flows to the backend pool whereas Standard Load balancer will permit established TCP flows to continue; no new flows will be sent to the backend pool.
 
 Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring. TCP or HTTP custom health probes must be configured when you use Cloud Services with IaaS VMs behind Load Balancer.
 
