@@ -37,7 +37,7 @@ By using the access panel, you can edit some of your profile settings and do the
 
 - View and start cloud-based applications that the Azure AD administrator has granted you access to. 
 
-- Self-manage groups. Administrators can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](users-groups-roles/groups-self-service-management.md) and [Manage your groups](fundamentals/active-directory-manage-groups.md).
+- Self-manage groups. Administrators can create and manage security groups and request security group memberships in Azure AD. For more information, see [Self-service group management for users in Azure AD](../users-groups-roles/groups-self-service-management.md) and [Manage your groups](../fundamentals/active-directory-manage-groups.md).
 
 
 
@@ -59,7 +59,7 @@ To reach the access panel, you must be authenticated through a work or school ac
 
 If you have a subscription for Azure or Office 365 and you have been using the Azure portal or an Office 365 application, you can view the list of applications without signing in again. If you are not authenticated, you are prompted to sign in by using the username and password for your account in Azure AD. If your organization has configured federation, typing the username is sufficient.
 
-When you are authenticated, you can interact with the applications that your administrator has integrated with the directory. To learn how to integrate applications with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
+When you are authenticated, you can interact with the applications that your administrator has integrated with the directory. To learn how to integrate applications with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## Web browser requirements
 
@@ -214,13 +214,13 @@ For example, if an application is configured to authenticate users by using AD F
 
 ## Next steps
 
-- To view a list of all topics that are related to application management, see the [article index for application management in Azure Active Directory](active-directory-apps-index.md).
+- To view a list of all topics that are related to application management, see the [article index for application management in Azure Active Directory](../active-directory-apps-index.md).
  
-- To learn how to integrate a SaaS app with Azure AD, see the [list of tutorials on how to integrate SaaS apps](saas-apps/tutorial-list.md).
+- To learn how to integrate a SaaS app with Azure AD, see the [list of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md).
  
-- To learn more about managing apps with Azure AD, see the [introduction to single sign-on and managing app access with Azure Active Directory](manage-apps/what-is-single-sign-on.md).
+- To learn more about managing apps with Azure AD, see the [introduction to single sign-on and managing app access with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
  
-- To learn more about user provisioning, see [automate user provisioning and deprovisioning to SaaS applications](active-directory-saas-app-provisioning.md).
+- To learn more about user provisioning, see [automate user provisioning and deprovisioning to SaaS applications](../active-directory-saas-app-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/01.png

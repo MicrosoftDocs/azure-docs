@@ -33,7 +33,7 @@ To sign in to your personal Microsoft account with your phone, follow these step
 
 1. Enable phone sign-in for your account.
 
-  - If you don't have the Microsoft Authenticator app yet, install and add your personal Microsoft account according to the steps on the [Microsoft Authenticator page](../../../../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md). Newly added accounts are automatically enabled, so you're good to go.
+  - If you don't have the Microsoft Authenticator app yet, install and add your personal Microsoft account according to the steps on the [Microsoft Authenticator page](microsoft-authenticator-app-how-to.md). Newly added accounts are automatically enabled, so you're good to go.
 
   - If you already use Microsoft Authenticator for two-step verification, select your account from the app home page, and select **Enable phone sign-in** from the drop-down menu.
 
@@ -86,4 +86,4 @@ At this time, we are not developing this functionality for the Microsoft Authent
 ## Next steps
 If you haven't downloaded the Microsoft Authenticator app, check it out. The app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), and phone sign-in is available on the Microsoft Authenticator app for [Android](http://go.microsoft.com/fwlink/?Linkid=825072) and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
-If you have questions about the app in general, take a look at the [Microsoft Authenticator FAQs](../../../../multi-factor-authentication/end-user/microsoft-authenticator-app-faq.md)
+If you have questions about the app in general, take a look at the [Microsoft Authenticator FAQs](microsoft-authenticator-app-faq.md)

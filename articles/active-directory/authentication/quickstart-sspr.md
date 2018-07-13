@@ -17,7 +17,7 @@ ms.reviewer: sahenry
 # Azure AD self-service password reset rapid deployment
 
 > [!IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, see [Help, I forgot my Azure AD password](../active-directory-passwords-update-your-own-password.md).
+> **Are you here because you're having problems signing in?** If so, see [Help, I forgot my Azure AD password](../user-help/active-directory-passwords-update-your-own-password.md).
 
 Self-service password reset (SSPR) offers a simple means for IT administrators to empower users to reset or unlock their passwords or accounts. The system includes detailed reporting that tracks when users access the system, along with notifications to alert you to misuse or abuse.
 
@@ -59,7 +59,7 @@ This guide assumes you already have a working trial or licensed Azure Active Dir
    * Notify users on password resets.
    * Notify all admins when other admins reset their password.
 
-At this point, you have configured SSPR for your Azure AD tenant. Your users can now use the instructions found in the articles [Register for self-service password reset](../active-directory-passwords-reset-register.md) and [Reset or change your password](../active-directory-passwords-update-your-own-password.md) to update their password without administrator intervention. You can stop here if you're cloud-only. Or you can continue to the next section to configure the synchronization of passwords to an on-premises Active Directory domain.
+At this point, you have configured SSPR for your Azure AD tenant. Your users can now use the instructions found in the articles [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md) and [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md) to update their password without administrator intervention. You can stop here if you're cloud-only. Or you can continue to the next section to configure the synchronization of passwords to an on-premises Active Directory domain.
 
 > [!TIP]
 > Test SSPR with a user rather than an administrator, because Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](concept-sspr-policy.md#administrator-password-policy-differences) article.
@@ -92,8 +92,8 @@ It's easy to disable self-service password reset. Open your Azure AD tenant and 
 The following articles provide additional information regarding password reset through Azure AD:
 
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
-* [Reset or change your password](../active-directory-passwords-update-your-own-password.md)
-* [Register for self-service password reset](../active-directory-passwords-reset-register.md)
+* [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md)
 * [Do you have a licensing question?](concept-sspr-licensing.md)
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)

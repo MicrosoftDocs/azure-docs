@@ -94,4 +94,4 @@ If you are not sure how you use multi-factor authentication, then you can always
 
 - [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md)
 
-- Try out the [Microsoft Authenticator app](../../../../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) to verify your sign-ins with app notifications, instead of receiving texts or calls.
+- Try out the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) to verify your sign-ins with app notifications, instead of receiving texts or calls.
