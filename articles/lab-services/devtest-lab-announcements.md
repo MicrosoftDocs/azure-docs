@@ -154,6 +154,13 @@ You can specify an announcement as part of an Azure Resource Manager template as
 }
 ```
 
+You can deploy an Azure Resource Manager template by using one of the following ways:
+
+- [Azure portal](resource-group-template-deploy-portal.md)
+- [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+- [Azure CLI](resource-group-template-deploy-cli.md)
+- [REST API](resource-group-template-deploy-rest.md)
+
 ## Next steps
 * If you change or set a lab policy, you might want to post an announcement to inform users. [Set policies and schedules](devtest-lab-set-lab-policy.md) provides information about applying restrictions and conventions across your subscription by using customized policies.
 * Explore the [DevTest Labs Azure Resource Manager QuickStart template gallery](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
