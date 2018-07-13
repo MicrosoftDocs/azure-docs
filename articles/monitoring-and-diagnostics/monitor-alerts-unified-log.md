@@ -115,7 +115,7 @@ APIs provided for Log alerts are RESTful and can be accessed via the Azure Resou
 
 For details as well as examples on using REST API, kindly refer to:
 - [Log Analytics Alert REST API](../log-analytics/log-analytics-api-alerts.md) -  to create and manage log search alert rules for Azure Log Analytics
-- [Azure Monitor Scheduled Query Rules REST API](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) - to create and manage log search alert rules for Azure Application Insights
+- [Azure Monitor Scheduled Query Rules REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) - to create and manage log search alert rules for Azure Application Insights
 
 ### Azure Resource Manager Template
 Users can also use the flexibility provided by [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) to create and update resources - for creating or updating Log alerts.

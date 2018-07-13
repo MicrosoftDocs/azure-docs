@@ -215,6 +215,10 @@
         href: service-fabric-image-store-connection-string.md
     - name: Service resources
       href: service-fabric-service-manifest-resources.md
+    - name: Periodic backup and restore
+      items:
+      - name: Understanding periodic backup configuration
+        href: service-fabric-backuprestoreservice-configure-periodic-backup.md 
   - name: Clusters
     href: service-fabric-deploy-anywhere.md
     items:

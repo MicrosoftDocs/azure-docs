@@ -25,19 +25,33 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 ## Prepare the development environment 
 
+In this section, you will prepare a development environment used to build and run a [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) device simulator sample.
+
 1. Make sure you have either Visual Studio 2015 or [Visual Studio 2017](https://www.visualstudio.com/vs/) installed on your machine. You must have ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled for your Visual Studio installation.
 
-2. Download and install the [CMake build system](https://cmake.org/download/). It is important that the Visual Studio with 'Desktop development with C++' workload is installed on your machine, **before** the `cmake` installation.
+    It is important that Visual Studio with the 'Desktop development with C++' workload is installed on your machine, **before** starting the `cmake` installation. 
+
+2. Download the latest version of the [CMake build system](https://cmake.org/download/). From that same site, look up the cryptographic hash for the version of the binary distribution you chose. Make sure to verify the download. The following example used Windows PowerShell to verify the cryptographic hash for version 3.11.4 of the x64 MSI distribution:
+
+    ```PowerShell
+    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    True
+    ```
+
+    Once the download is verified, install the CMake buld system.
 
 3. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-4. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
+4. Open a command prompt or Git Bash. Execute the following command to clone the GitHub repo for the device simulation code sample:
     
+    The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
-5. Create a folder in your local copy of this GitHub repo for CMake build process. 
+5. Create a `cmake` folder in the root folder of your local copy of the git repository, and navigate to that folder. 
 
     ```cmd/sh
     cd azure-iot-sdk-c
@@ -53,14 +67,32 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
     If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
-7. In a separate command prompt, navigate to the GitHub root folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
+    If the build succeeds, the last few output lines will look similar to the following output:
+
+    ```cmd/sh
+    $ cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
+    -- Building for: Visual Studio 15 2017
+    -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
+    -- The C compiler identification is MSVC 19.12.25835.0
+    -- The CXX compiler identification is MSVC 19.12.25835.0
+
+    ...
+
+    -- Configuring done
+    -- Generating done
+    -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
+    ```
+
+7. Navigate to the root folder of the git repository you cloned, and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator using the path shown below. This simulator listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
 
    If you are in the *cmake* folder, then run the following commands:
 
     ```cmd/sh
-    cd..
+    cd ..
     .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
+
+    Let this simulator continue to run simulating a device.
 
 <a id="simulatetpm"></a>
 
@@ -77,7 +109,7 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 ## Create a device enrollment entry in the portal
 
-1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
+1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
 2. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
 
