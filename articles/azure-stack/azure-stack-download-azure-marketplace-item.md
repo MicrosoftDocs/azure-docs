@@ -143,7 +143,7 @@ There are two parts to this scenario:
 ### Import the download and publish to Azure Stack Marketplace
 1. The files for virtual machine images or solution templates that you have [previously downloaded](#use-the-marketplace-syndication-tool-to-download-marketplace-items) must be made locally available to your Azure Stack environment.  
 
-2. Import the image to Azure Stack by using the **Add-AzsPlatformimage** cmdlet. When you use this cmdlet, replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. 
+2. Import the VHD image to Azure Stack by using the **Add-AzsPlatformimage** cmdlet. When you use this cmdlet, replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. 
 
    You can get the *publisher*, *offer*, and *sku* values of the image from the text file that downloads with the AZPKG file. The text file is stored in the destination location.
  
