@@ -26,7 +26,7 @@ The `web` service is an ASP.NET Core application with a web page that shows tria
 
 The `worker` service moves the triangle at a predefined interval in the space and sends location of the triangle to `web` service. It uses DNS to resolve the address of the `web` service.
 
-## Setup Service Fabric Mesh CLI 
+## Set up Service Fabric Mesh CLI 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this task. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
 ## Sign in to Azure

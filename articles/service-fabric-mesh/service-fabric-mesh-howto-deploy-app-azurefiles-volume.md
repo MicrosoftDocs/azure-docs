@@ -37,7 +37,7 @@ Windows: [https://seabreezequickstart.blob.core.windows.net/templates/azurefiles
 
 Follow the instructions in the [Azure Files documentation](/azure/storage/files/storage-how-to-create-file-share) to create a file share for the application to use.
 
-## Setup Service Fabric Mesh CLI
+## Set up Service Fabric Mesh CLI
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete these steps. If you choose to install and use the CLI locally, you must install the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].

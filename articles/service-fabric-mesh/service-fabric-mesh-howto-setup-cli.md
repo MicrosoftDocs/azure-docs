@@ -12,7 +12,7 @@ manager: timlt
 #Customer intent: As a developer, I need to prepare install the prerequisites to enable deployment to service fabric mesh.
 ---
 
-# Setup the Service Fabric Mesh CLI
+# Set up the Service Fabric Mesh CLI
 Service Fabric Mesh CLI is required to deploy and manage resources in Service Fabric Mesh. 
 
 For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI. You can install it in the Azure Cloud Shell or a local installation of Azure CLI. 

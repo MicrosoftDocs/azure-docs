@@ -22,7 +22,7 @@ manager: timlt
 
 If you don't already have an Azure account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Setup Service Fabric Mesh CLI 
+## Set up Service Fabric Mesh CLI 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
 ## Sign in to Azure

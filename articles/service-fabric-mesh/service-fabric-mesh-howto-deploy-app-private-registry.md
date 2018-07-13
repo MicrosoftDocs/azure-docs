@@ -23,7 +23,7 @@ This article shows how to deploy an Azure Service Fabric Mesh app that uses a pr
 
 ## Prerequisites
 
-### Setup Service Fabric Mesh CLI 
+### Set up Service Fabric Mesh CLI 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this task. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
 ### Install Docker
@@ -130,8 +130,7 @@ az acr credential show --name <acrName> --query username
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-The values provided by preceding commands is referenced as `<acrLoginServer>`,  , and `<acrPassword>` in the following command.
-
+The values provided by preceding commands is referenced as `<acrLoginServer>`, `<acrUserName>`,  and `<acrPassword>` in the following command.
 
 ## Deploy the template
 
@@ -140,7 +139,7 @@ Create the application and related resources using the following command, and pr
 The `registry-password` parameter in the template is a `securestring`. It will not be displayed in the deployment status and `az mesh service show` commands. Ensure that it is correctly specified in the following command.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}" 
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}"
 ```
 
 In a few minutes, your command should return with:
@@ -170,3 +169,7 @@ az group delete --resource-group myResourceGroup
 - View the Hello World sample application on [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/helloworld).
 - To learn more about Service Fabric Resource Model, see [Service Fabric Mesh Resource Model](service-fabric-mesh-service-fabric-resources.md).
 - To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md).
+
+[download-docker-server]: https://docs.docker.com/install/windows/docker-ee/
+[download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/

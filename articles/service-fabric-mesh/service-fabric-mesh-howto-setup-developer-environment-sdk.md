@@ -1,6 +1,6 @@
 ---
 title: Set up a Windows development environment for Service Fabric Mesh apps | Microsoft Docs
-description: Setup your Windows development environment so you can create a Service Fabric Mesh application and deploy it to Azure Service Fabric Mesh.
+description: Set up your Windows development environment so you can create a Service Fabric Mesh application and deploy it to Azure Service Fabric Mesh.
 services: Azure Service Fabric Mesh
 keywords:  
 author: tylermsft
@@ -100,14 +100,15 @@ After you install the runtime, SDKs, and Visual Studio tools, create a developme
 2. Open a new, elevated PowerShell window as an administrator. This step is necessary to load the Service Fabric modules you installed.
 3. Run the following PowerShell command to create a development cluster:
 
-```powershell
-. "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
-```
+    ```powershell
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
+    ```
+
 4. To start the local cluster manager tool, run the following PowerShell command:
 
-```powershell
-. "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
-```
+    ```powershell
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
+    ```
 
 You're now ready to create Service Fabric Mesh applications!
 

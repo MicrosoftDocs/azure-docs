@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter
 # Deploy a Service Fabric Mesh application to Service Fabric Mesh using a template
 This article shows how to deploy a .NET Core application to Service Fabric Mesh using a template. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a back-end service in the cluster. The front-end uses DNS to resolve the address of the back-end service.
 
-## Setup Service Fabric Mesh CLI 
+## Set up Service Fabric Mesh CLI 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this task. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
 ## Sign in to Azure
