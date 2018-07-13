@@ -1,6 +1,6 @@
 ---
-title: Tutorial Create an Azure Service Fabric Mesh application | Microsoft Docs
-description: Learn how to create an Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, and publish it to Azure.
+title: Tutorial- Create an Azure Service Fabric Mesh application | Microsoft Docs
+description: Learn how to create an Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, and publish it to Azure Service Fabric Mesh.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/6/2018
+ms.date: 07/12/2018
 ms.author: twhitney
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want learn how to publish a Service Fabric Mesh app to Azure.
 ---
 
-# Tutorial: Publish an Azure Service Fabric Mesh application
+# Tutorial: Publish an Service Fabric Mesh application to Service Fabric Mesh
 
-This tutorial is part three of a series and shows you how to deploy an Azure Service Fabric Mesh application to a new cluster in Azure directly from Visual Studio. 
+This tutorial is part three of a series and shows you how to deploy an Service Fabric Mesh application to Azure Service Fabric Mesh in Azure directly from Visual Studio. 
 
 In this tutorial you learn how to:
 > [!div class="checklist"]
@@ -44,7 +44,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Make sure that you've [set up your development environment](service-fabric-mesh-setup-developer-environment-sdk.md) which includes installing the Service Fabric runtime, SDK, Docker, and Visual Studio 2017.
+* Make sure that you've [set up your development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md) which includes installing the Service Fabric runtime, SDK, Docker, and Visual Studio 2017.
 
 ## Download the to-do sample application
 
@@ -120,7 +120,7 @@ az extension remove --name mesh
 2)  Install the Azure Service Fabric Mesh CLI extension module. For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI, however, at public preview it would ship as a part of the Azure CLI.
 
 ```cli
-az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.8.0-py2.py3-none-any.whl
+az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
 ```
 
 ## Check application deployment status

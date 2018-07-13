@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Service Fabric Mesh
-description: An overview of Azure Service Fabric Mesh. With Service Fabric Mesh, you can deploy and scale your application without worrying about the infrastructure needs of your application.
+title: Overview of Azure Service Fabric Mesh | Microsoft Docs
+description: Learn about Azure Service Fabric Mesh. With Service Fabric Mesh, you can deploy and scale your application without worrying about the infrastructure needs of your application.
 services: Azure Service Fabric Mesh
 keywords: 
 author: rwike77
@@ -8,7 +8,7 @@ ms.author: ryanwi
 ms.date: 06/27/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
-manager: timlt
+manager: timlt 
 #Customer intent: As a developer, I want to deploy and manage services in containers on a serverless platform.
 ---
 
@@ -22,7 +22,7 @@ This article provides an overview of the key benefits of Service Fabric Mesh.
 
 ## Great developer experience
 
-Tooling in Visual Studio and Visual Studio Code provides a powerful editing and debugging experience.  Multiple programing languages and frameworks are supported, giving you the ability to create applications that run any code.
+Service Fabric Mesh supports any programming language or framework that can be run in a container. Visual Studio 2017 and Visual Studio Code tooling support provides a powerful editing and debugging experience for .NET and .NET Core applications. 
 
 With Service Fabric Mesh you can:
 
@@ -38,7 +38,7 @@ Easily manage running applications, including application upgrades and versionin
 With Service Fabric Mesh you can:
 
 - Deploy and manage applications without having to explicitly provision and manage infrastructure.  Service Fabric Mesh provisions, upgrades, patches, and maintains the underlying infrastructure for you.
-- Setup continuous integration using the integrated tooling to easily package and deploy applications.
+- Set up continuous integration using the integrated tooling to easily package and deploy applications.
 - Leverage all the features of Azure Resource Manager resources (for example, audit trail and [role-based access control (RBAC)](/azure/role-based-access-control/overview)) because all the resources  (like Applications, Services, Secrets etc) you deploy to SF Mesh service in Azure are Azure Resource Manager resources. 
 - Deploy and manage resources using the [Azure portal](https://portal.azure.com), Resource Manager templates, or Azure CLI/PowerShell libraries.
 - Set up operational monitoring and alerting using [Application Insights](/azure/application-insights/) (or your tool of choice) to capture operational and diagnostic traces from the platform. 

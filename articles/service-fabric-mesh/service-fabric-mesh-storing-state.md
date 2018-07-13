@@ -1,14 +1,14 @@
 ---
 title: State storage options on Azure Service Fabric Mesh | Microsoft Docs
-description: Learn about reliably storing state in Service Fabric applications running on Azure Service Fabric Mesh.
+description: Learn about reliably storing state in Service Fabric Mesh applications running on Azure Service Fabric Mesh.
 services: service-fabric-mesh
 keywords:  
 author: rwike77
 ms.author: ryanwi
-ms.date: 06/19/2018
+ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
-manager: timlt
+manager: timlt 
 ---
 # State management with Service Fabric
 Service Fabric supports many different options for state storage. For a conceptual overview of the state management patterns and Service Fabric, see [Service Fabric Concepts: State](/azure/service-fabric/service-fabric-concepts-state). All these same concepts apply whether your services run inside or outside of Service Fabric Mesh. 
@@ -28,7 +28,8 @@ With Service Fabric Mesh, you can easily deploy a new application and connect it
   * Azure Files volume driver
     * A docker volume driver to mount an Azure Files share to a container
     * Gives you a less performant, but also cheaper full flexible and reliable data option, through any API, which supports file storage.
-
+    * [How-to guide: Deploy an app with Azure Files volume](service-fabric-mesh-howto-deploy-app-azurefiles-volume.md)
+    
 ## Next steps
 
 For information on the application model, see [Service Fabric resources](service-fabric-mesh-service-fabric-resources.md)

@@ -1,10 +1,10 @@
 ---
-title: Tutorial Debug an Azure Service Fabric Mesh application | Microsoft Docs
+title: Tutorial- Debug an Azure Service Fabric Mesh app | Microsoft Docs
 description: In this tutorial, debug an Azure Service Fabric Mesh application running on your local cluster.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
-manager: jeconnoc
+manager: jeconnoc 
 editor: ''
 ms.assetid:  
 ms.service: service-fabric-mesh
@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/6/2018
+ms.date: 07/12/2018
 ms.author: twhitney
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want learn how to debug a Service Fabric Mesh app that communicates with another service.
 ---
 
-# Tutorial: Debug an Azure Service Fabric Mesh application
+# Tutorial: Debug a Service Fabric Mesh application running locally
 
 This tutorial is part two of a series and shows you how to debug an Azure Service Fabric Mesh application on your local development cluster.
 
@@ -42,7 +42,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Make sure that you've [set up your development environment](service-fabric-mesh-setup-developer-environment-sdk.md) which includes installing the Service Fabric runtime, SDK, Docker, and Visual Studio 2017.
+* Make sure that you've [set up your development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md) which includes installing the Service Fabric runtime, SDK, Docker, and Visual Studio 2017.
 
 ## Download the to-do sample application
 

@@ -1,6 +1,6 @@
 ---
-title: Set up your development environment to build Service Fabric Mesh apps
-description: The prerequisites required before you can create a Service Fabric app and deploy it to Azure Service Fabric Mesh.
+title: Set up a Windows development environment for Service Fabric Mesh apps | Microsoft Docs
+description: Set up your Windows development environment so you can create a Service Fabric Mesh application and deploy it to Azure Service Fabric Mesh.
 services: Azure Service Fabric Mesh
 keywords:  
 author: tylermsft
@@ -8,11 +8,11 @@ ms.author: twhitney
 ms.date: 07/11/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
-manager: timlt 
+manager: timlt  
 #Customer intent: As a developer, I need to prepare install the prerequisites to enable service fabric mesh development in visual studio.
 ---
 
-# Set up your development environment to build Service Fabric apps
+# Set up your Windows development environment to build Service Fabric applications
 
 To build and run Azure Service Fabric apps on your Windows development machine, install the Service Fabric runtime, SDK, and tools.
 
@@ -56,7 +56,7 @@ Visual Studio 2017 is required to deploy Service Fabric apps. [Install version 1
 - ASP.NET and web development
 - Azure Development
 
- ## Docker
+## Docker
 
 Install Docker to support the containerized Service Fabric apps used by Service Fabric Mesh.
 
@@ -64,9 +64,9 @@ Install Docker to support the containerized Service Fabric apps used by Service 
 
 Download and install the latest version of [Docker Community Edition for Windows][download-docker]. 
 
-During the installation, select **Use Windows containers instead of Linux containers** when asked. You'll need to then log off and log back in. After logging back in, if you did not previously enable Hyper-V, you may be prompted to enable Hyper-V. You must enable Hyper-V and then restart your computer.
+During the installation, select **Use Windows containers instead of Linux containers** when asked. You'll need to then sign out and sign back in. After signing back in, if you did not previously enable Hyper-V, you may be prompted to enable Hyper-V. You must enable Hyper-V and then restart your computer.
 
-After your computer has restarted, Docker will prompt you to enable the **Containers** feature, enable it and restart your computer.
+After your computer has restarted, Docker will prompt you to enable the **Containers** feature, enable it, and restart your computer.
 
 ### Windows Server 2016
 
@@ -84,11 +84,9 @@ Restart your computer.
 
 Install the Service Fabric runtime, SDK, and tools in a dependent order.
 
-1. Download the [Service Fabric Runtime][download-runtime] executable, save it and manually run it with the **/AcceptEULA** flag on the command line, for example:
-`c:\users\<user name>\downloads\MicrosoftServiceFabric.6.3.162.9494.exe /AcceptEULA`
-2. Install the [Service Fabric SDK][download-sdk].
-3. Install the [Service Fabric Mesh SDK][download-sdkmesh].
-4. Install the [Visual Studio Service Fabric Tools (preview)][download-tools].
+1. Install the [Microsoft Azure Service Fabric SDK and runtime][download-sdk] using Web Platform Installer.
+2. Install the [Service Fabric Mesh SDK][download-sdkmesh] using Web Platform Installer.
+4. Install the [Visual Studio Service Fabric Tools (preview) extension][download-tools] from Visual Studio Marketplace.
 
 ## Build a cluster
 
@@ -96,32 +94,23 @@ For the best debugging performance when you create and run Service Fabric apps, 
 
 Docker **must** be running before you can build a cluster. Test that Docker is running by opening a terminal window and running `docker ps` to see if an error occurs. If the response does not indicate an error, Docker is running and you're ready to build a cluster.
 
-After you install the runtime, SDKs and Visual Studio tools, create a development cluster.
+After you install the runtime, SDKs, and Visual Studio tools, create a development cluster.
 
-1. Close your PowerShell window
-2. Open  new, elevated  PowerShell window. This step is necessary to load the Service Fabric modules you just installed.
-3. Run the following PowerShell commands to create a development cluster:
+1. Close your PowerShell window.
+2. Open a new, elevated PowerShell window as an administrator. This step is necessary to load the Service Fabric modules you installed.
+3. Run the following PowerShell command to create a development cluster:
 
-```powershell
-. "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
-```
+    ```powershell
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName
+    ```
 
-You're now ready to create Service Fabric Mesh apps!
+4. To start the local cluster manager tool, run the following PowerShell command:
 
-## Install the Service Fabric Mesh CLI
-The Azure Service Fabric Mesh CLI is used to deploy and manage resources.  It requires that you're running the Azure CLI version 2.0.35 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
+    ```powershell
+    . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
+    ```
 
-Remove any previous installation of the Azure Service Fabric Mesh CLI module.
-
-```azurecli
-az extension remove --name mesh
-```
-
-Install the Azure Service Fabric Mesh CLI extension module. For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI.
-
-```azurecli
-az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.8.0-py2.py3-none-any.whl
-```
+You're now ready to create Service Fabric Mesh applications!
 
 ## Next steps
 
@@ -131,7 +120,7 @@ Read through the [Create an Azure Service Fabric app](service-fabric-mesh-tutori
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows
 [download-docker-server]: https://docs.docker.com/install/windows/docker-ee/
 [download-runtime]: http://aka.ms/sfruntime
-[download-sdk]: http://aka.ms/sfsdk
-[download-sdkmesh]: http://aka.ms/sfmeshsdk
-[download-tools]: https://aka.ms/sfvstools
+[download-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK
+[download-sdkmesh]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-SDK-Mesh
+[download-tools]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.ServiceFabricMesh
 [download-visual-studio]: https://www.visualstudio.com/downloads/

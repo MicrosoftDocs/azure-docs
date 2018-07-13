@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA 
-ms.date: 07/6/2018
+ms.date: 07/12/2018
 ms.author: twhitney
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want to use visual studio to locally run an ASP.NET Core website on Service Fabric Mesh so that I can see it run.
 ---
 
-# Quickstart: Deploy a Service Fabric Mesh application
+# Quickstart: Create and deploy a web app to Azure Service Fabric Mesh
 
 Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking.
 
-In this quickstart you'll create a new Service Fabric Mesh application (an ASP.NET Core website), run it on the local development cluster, and then publish it to run on Azure.
+In this quickstart you'll create a new Service Fabric Mesh application consisting of an ASP.NET Core web app, run it on the local development cluster, and then publish it to run on Azure.
 
-You'll need an Azure subscription. If you don't have one, you can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. You will also need to [setup your developer environment](service-fabric-mesh-setup-developer-environment-sdk.md)
+You'll need an Azure subscription. If you don't have one, you can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. You will also need to [setup your developer environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -32,7 +32,7 @@ You'll need an Azure subscription. If you don't have one, you can easily create 
 
 Open Visual Studio and select **File** > **New** > **Project...**
 
-In the **New Project** dialog **Search** box at the top, type `mesh`. Select the **Service Fabric Mesh Application** template. (If you don't see the template, make sure that you installed the Mesh SDK and the VS tools preview as described in [set up your development environment](service-fabric-mesh-setup-developer-environment-sdk.md). 
+In the **New Project** dialog **Search** box at the top, type `mesh`. Select the **Service Fabric Mesh Application** template. (If you don't see the template, make sure that you installed the Mesh SDK and the VS tools preview as described in [set up your development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
 
 In the **Name** box, type **ServiceFabricMesh1** and in the **Location** box, set the folder path of where the files for the project will be stored.
 
@@ -123,6 +123,6 @@ Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 Alternatively, you can delete the resource group [from the Azure portal](https://portal.azure.com).
 
 ## Next steps
-To learn more about Service Fabric Mesh, read the overview:
+To learn more about creating and deploying Service Fabric Mesh applications, continue to the tutorial.
 > [!div class="nextstepaction"]
-> [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
+> [Create and deploy a multi-service web application](service-fabric-mesh-tutorial-create-dotnetcore.md)
