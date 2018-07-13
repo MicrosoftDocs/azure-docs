@@ -85,7 +85,7 @@ Open a web browser and navigate to the team project you just created in [Visual 
     
     ![Add a NuGet task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-nuget.png)
 
-7. Use the default NuGet configuration values.
+7. Expand **Advanced** and add `$(Build.SourcesDirectory)\packages` to **Destination directory**. Keep the remaining the default NuGet configuration values.
 
    ![Configure NuGet task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-nuget-config.png)
 
@@ -96,7 +96,7 @@ Open a web browser and navigate to the team project you just created in [Visual 
 9. Change the **MSBuild Arguments** to the following:
 
    ```
-   /p:CompilerTaskAssemblyFile="Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll"  /p:ASATargetsFilePath="$(Build.SourcesDirectory)\[Your solution name]\Package\Microsoft.Azure.StreamAnalytics.CICD.1.0.0\build\StreamAnalytics.targets"
+   /p:CompilerTaskAssemblyFile="Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll"  /p:ASATargetsFilePath="$(Build.SourcesDirectory)\packages\Microsoft.Azure.StreamAnalytics.CICD.1.0.0\build\StreamAnalytics.targets"
    ```
 
    ![Configure MSBuild task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-msbuild.png)
@@ -114,13 +114,18 @@ Open a web browser and navigate to the team project you just created in [Visual 
     |Resource Group  |  Enter a resource group name.   |
     |Template  | [Your solution path]\bin\Debug\Deploy\\[Your project name].JobTemplate.json   |
     |Template parameters  | [Your solution path]\bin\Debug\Deploy\\[Your project name].JobTemplate.parameters.json   |
-    |Override template parameters  | Type the template parameters to override in the textbox. Example, –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). This property is optional.    |
+    |Override template parameters  | Type the template parameters to override in the textbox. Example, –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). This property is optional, but your build will result in errors if key parameters are not overridden.    |
     
     ![Set properties](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-deploy-2.png)
 
 12. Click **Save & Queue** to test the build definition.
     
     ![Set override parameters](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-save-queue.png)
+
+### Failed build process
+You may receive errors for null deployment parameters if you did not override template parameters in the **Azure Resource Group Deployment** task of your build definition. Return to the build definition and override the null parameters to resolve the error.
+
+   ![Build process failed](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-process-failed.png)
 
 ### Commit and push changes to trigger a release
 Verify that the continuous integration pipeline is functioning by checking in some code changes to Team Services.    
