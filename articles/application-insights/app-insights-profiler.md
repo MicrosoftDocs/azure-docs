@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
-ms.date: 07/10/2018
+ms.date: 07/13/2018
 ms.author: mbullwin
 
 ---
@@ -320,9 +320,9 @@ If any of these settings are not set, go to the Application Insights enablement 
 [load-test-in-progress]: ./media/app-insights-profiler/load-test-inprogress.png
 [profiler-on-demand]: ./media/app-insights-profiler/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/app-insights-profiler/configure-profiler-entry.png
-[enable-app-insights]: ./media/app-insights-profiler/enable-app-insights-blade.png
-[update-site-extension]: ./media/app-insights-profiler/update-site-extension.png
-[change-and-save-appinsights]: ./media/app-insights-profiler/change-and-save-appinsights.png
-[app-settings-for-profiler]: ./media/app-insights-profiler/appsettings-for-profiler.png
-[check-for-extension-update]: ./media/app-insights-profiler/check-extension-update.png
+[enable-app-insights]: ./media/app-insights-profiler/enable-app-insights-blade-01.png
+[update-site-extension]: ./media/app-insights-profiler/update-site-extension-01.png
+[change-and-save-appinsights]: ./media/app-insights-profiler/change-and-save-appinsights-01.png
+[app-settings-for-profiler]: ./media/app-insights-profiler/appsettings-for-profiler-01.png
+[check-for-extension-update]: ./media/app-insights-profiler/check-extension-update-01.png
 [profiler-timeout]: ./media/app-insights-profiler/profiler-timeout.png
