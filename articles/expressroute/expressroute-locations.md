@@ -93,7 +93,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[InterCloud](https://www.intercloud.com/)** |Supported |Supported |Amsterdam, London, Paris, Singapore, Washington DC |
 | **Internet2** |Supported |Supported |Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Supported |Supported |Osaka, Tokyo |
-| **Internet Solutions - Cloud Connect** |Supported |Supported |Amsterdam, London |
+| **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Supported |Supported |Cape Town, Johannesburg, London |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Supported |Supported |Amsterdam, Dublin, London, Paris |
 | **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Supported |Supported | Silicon Valley, Toronto |
 | **Jisc** |Supported |Supported |London |

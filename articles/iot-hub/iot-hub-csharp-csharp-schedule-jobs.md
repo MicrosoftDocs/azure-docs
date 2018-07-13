@@ -290,7 +290,7 @@ To learn about deploying AI to edge devices with Azure IoT Edge, see [Getting st
 [lnk-twin-props]: iot-hub-csharp-csharp-twin-how-to-configure.md
 [lnk-c2d-methods]: iot-hub-csharp-csharp-direct-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
-[lnk-fwupdate]: iot-hub-csharp-csharp-firmware-update.md
+[lnk-fwupdate]: tutorial-firmware-update.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

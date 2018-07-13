@@ -21,7 +21,7 @@ Users have full control over [exporting](luis-how-to-start-new-app.md#export-app
 Delete example utterances used for training [LUIS](luis-reference-regions.md). If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
 
 ## Utterances in review
-You can delete utterances from the list of user utterances that LUIS suggests in the **[Review endpoint utterances page](label-suggested-utterances.md)**. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
+You can delete utterances from the list of user utterances that LUIS suggests in the **[Review endpoint utterances page](luis-how-to-review-endoint-utt.md)**. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 
 ## Accounts
 If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained for 60 days before the account and data are deleted permanently.
