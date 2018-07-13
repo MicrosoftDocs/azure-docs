@@ -72,7 +72,7 @@ The following actions are performed as part of the ForceDelete operation:
 * If the number of objects to be renamed is greater than 1000, an error is returned.
 * If one of the applications to be renamed is a multi-tenant app, an error is returned.
   
-![error when renaming multi-tenant app](./media/active-directory-domains-manage-azure-portal/forcedelete.png)
+![error when renaming multi-tenant app](./media/domains-manage/forcedelete.png)
  
 ### Frequently asked questions
 
@@ -102,5 +102,5 @@ Most management tasks for domain names in Azure Active Directory can also be com
 
 * [Add custom domain names](../fundamentals/add-custom-domain.md)
 * [Removie Exchange mail-enabled security groups in Exchange Admin Center on a custom domain name in Azure AD](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
- * [Update your applications reference to another domain in Azure AD](./develop/active-directory-integrating-applications.md#updating-an-application)
+* [Update your applications reference to another domain in Azure AD](../develop/active-directory-integrating-applications.md#updating-an-application)
 * [ForceDelete a custom domain name with Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete)
