@@ -38,7 +38,7 @@ The following figure shows how the Azure global infrastructure pairs region and 
 Geographically distributed datacenters enables Microsoft to be close to customers, to reduce network latency and allow for geo-redundant backup and failover.
 
 ## Physical security
-Microsoft designs, builds, and operates datacenters in a way that strictly controls physical access to the areas where customer data is stored. Microsoft understands the importance of protecting customer data, and is committed to helping secure the datacenters that contain your data. We have an entire division at Microsoft devoted to designing, building, and operating the physical facilities supporting Azure. This team is invested in maintaining state-of-the-art physical security.
+Microsoft designs, builds, and operates datacenters in a way that strictly controls physical access to the areas where your data is stored. Microsoft understands the importance of protecting your data, and is committed to helping secure the datacenters that contain your data. We have an entire division at Microsoft devoted to designing, building, and operating the physical facilities supporting Azure. This team is invested in maintaining state-of-the-art physical security.
 
 Microsoft takes a layered approach to physical security, to reduce the risk of unauthorized users gaining physical access to data and the datacenter resources. Datacenters managed by Microsoft have extensive layers of protection: access approval at the facility’s perimeter, at the building’s perimeter, inside the building, and on the datacenter floor. Layers of physical security are:
 
@@ -50,7 +50,7 @@ Microsoft takes a layered approach to physical security, to reduce the risk of u
 
 - **Inside the building.** After you enter the building, you must pass two-factor authentication with biometrics to continue moving through the datacenter. If your identity is validated, you can enter only the portion of the datacenter that you have approved access to. You can stay there only for the duration of the time approved.
 
-- **Datacenter floor.** You are only allowed onto the floor that you're approved to enter. You are required to pass a full body metal detection screening. To reduce the risk of unauthorized data entering or leaving the datacenter without our knowledge, only approved devices can make their way into the datacenter floor. Additionally, video cameras monitor the front and back of every server rack. When you exit the datacenter floor, you once again must pass through full body metal detection screening. To leave the datacenter, you're required to pass through an additional security scan.
+- **Datacenter floor.** You are only allowed onto the floor that you're approved to enter. You are required to pass a full body metal detection screening. To reduce the risk of unauthorized data entering or leaving the datacenter without our knowledge, only approved devices can make their way into the datacenter floor. Additionally, video cameras monitor the front and back of every server rack. When you exit the datacenter floor, you again must pass through full body metal detection screening. To leave the datacenter, you're required to pass through an additional security scan.
 
 Microsoft requires visitors to surrender badges upon departure from any Microsoft facility.
 
@@ -58,10 +58,10 @@ Microsoft requires visitors to surrender badges upon departure from any Microsof
 Periodically, we conduct physical security reviews of the facilities, to ensure the datacenters properly address Azure security requirements. The datacenter hosting provider personnel do not provide Azure service management. Personnel can't sign in to Azure systems and don't have physical access to the Azure collocation room and cages.
 
 ## Data bearing devices
-Microsoft uses best practice procedures and a wiping solution that is [NIST 800-88 compliant](https://csrc.nist.gov/publications/detail/sp/800-88/archive/2006-09-01). For hard drives that can’t be wiped, we use a destruction process that destroys it and renders the recovery of information impossible. This destruction process may be to disintegrate, shred, pulverize, or incinerate. We determine the means of disposal according to the asset type. We retain records of the destruction.  
+Microsoft uses best practice procedures and a wiping solution that is [NIST 800-88 compliant](https://csrc.nist.gov/publications/detail/sp/800-88/archive/2006-09-01). For hard drives that can’t be wiped, we use a destruction process that destroys it and renders the recovery of information impossible. This destruction process can be to disintegrate, shred, pulverize, or incinerate. We determine the means of disposal according to the asset type. We retain records of the destruction.  
 
 ## Equipment disposal
-Upon a system's end-of-life, Microsoft operational personnel follow rigorous data handling and hardware disposal procedures to assure that hardware containing customer data is not made available to untrusted parties. We use a secure erase approach for hard drives that support it. For hard drives that can’t be wiped, we use a destruction process that destroys the drive and renders the recovery of information impossible. The destruction process may be to disintegrate, shred, pulverize, or incinerate. We determine the means of disposal according to the asset type. We retain records of the destruction. All Azure services use approved media storage and disposal management services.
+Upon a system's end-of-life, Microsoft operational personnel follow rigorous data handling and hardware disposal procedures to assure that hardware containing your data is not made available to untrusted parties. We use a secure erase approach for hard drives that support it. For hard drives that can’t be wiped, we use a destruction process that destroys the drive and renders the recovery of information impossible. This destruction process can be to disintegrate, shred, pulverize, or incinerate. We determine the means of disposal according to the asset type. We retain records of the destruction. All Azure services use approved media storage and disposal management services.
 
 ## Compliance
 We design and manage the Azure infrastructure to meet a broad set of international and industry-specific compliance standards, such as ISO 27001, HIPAA, FedRAMP, SOC 1, and SOC 2. We also meet country-specific standards, including Australia IRAP, UK G-Cloud, and Singapore MTCS. Rigorous third-party audits, such as those done by the British Standards Institute, verify adherence to the strict security controls these standards mandate.
@@ -69,15 +69,15 @@ We design and manage the Azure infrastructure to meet a broad set of internation
 ## Next steps
 To learn more about what Microsoft does to help secure the Azure infrastructure, see:
 
-- [Availability of Azure infrastructure](azure-infrastructure-availability.md)
+- [Azure infrastructure availability](azure-infrastructure-availability.md)
 - [Azure information system components and boundaries](azure-infrastructure-components.md)
 - [Azure network architecture](azure-infrastructure-network.md)
 - [Azure production network](azure-production-network.md)
 - [Azure SQL Database security features](azure-infrastructure-sql.md)
 - [Azure production operations and management](azure-infrastructure-operations.md)
-- [Monitoring of Azure infrastructure](azure-infrastructure-monitoring.md)
-- [Integrity of Azure infrastructure](azure-infrastructure-integrity.md)
-- [Protection of customer data in Azure](azure-protection-of-customer-data.md)
+- [Azure infrastructure monitoring](azure-infrastructure-monitoring.md)
+- [Azure infrastructure integrity](azure-infrastructure-integrity.md)
+- [Azure customer data protection](azure-protection-of-customer-data.md)
 
 <!--Image references-->
 [1]: ./media/azure-physical-security/data-residency-boundary.png

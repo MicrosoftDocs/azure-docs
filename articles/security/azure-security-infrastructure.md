@@ -58,9 +58,9 @@ To learn more about what Microsoft does to help secure the Azure infrastructure,
 - [Azure production network](azure-production-network.md)
 - [Azure SQL Database security features](azure-infrastructure-sql.md)
 - [Azure production operations and management](azure-infrastructure-operations.md)
-- [Monitoring of Azure infrastructure](azure-infrastructure-monitoring.md)
+- [Azure infrastructure monitoring](azure-infrastructure-monitoring.md)
 - [Azure infrastructure integrity](azure-infrastructure-integrity.md)
-- [Protection of customer data in Azure](azure-protection-of-customer-data.md)
+- [Azure customer data protection](azure-protection-of-customer-data.md)
 
 <!--Image references-->
 [1]: ./media/azure-security-infrastructure/responsibility-zones.png

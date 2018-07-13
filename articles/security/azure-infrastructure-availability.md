@@ -26,12 +26,12 @@ The Microsoft Cloud Infrastructure and Operations team designs, builds, operates
 
 Uninterruptible power supplies and vast banks of batteries ensure that electricity remains continuous if a short-term power disruption occurs. Emergency generators provide backup power for extended outages and planned maintenance. If a natural disaster occurs, the datacenter can use onsite fuel reserves.
 
-High-speed and robust fiber optic networks connect datacenters with other major hubs and internet users. Compute nodes host workloads closer to users to reduce latency, provide geo-redundancy, and increase overall service resiliency. A team of engineers works around the clock to ensure services are persistently available to customers.
+High-speed and robust fiber optic networks connect datacenters with other major hubs and internet users. Compute nodes host workloads closer to users to reduce latency, provide geo-redundancy, and increase overall service resiliency. A team of engineers works around the clock to ensure services are persistently available.
 
 Microsoft ensures high availability through advanced monitoring and incident response, service support, and backup failover capability. Geographically distributed Microsoft operations centers operate 24/7/365. The Azure network is one of the largest in the world. The fiber optic and content distribution network connects datacenters and edge nodes to ensure high performance and reliability.
 
 ## Disaster recovery
-Azure keeps your data durable in two locations. You can choose the location of the backup site. In both locations, Azure constantly maintains three healthy replicas of customer data.
+Azure keeps your data durable in two locations. You can choose the location of the backup site. In both locations, Azure constantly maintains three healthy replicas of your data.
 
 ## Database availability
 Azure ensures that a database is internet accessible through an internet gateway with sustained database availability. Monitoring assesses the health and state of the active databases at five-minute time intervals.
@@ -46,8 +46,8 @@ To learn more about what Microsoft does to help secure the Azure infrastructure,
 - [Azure information system components and boundaries](azure-infrastructure-components.md)
 - [Azure network architecture](azure-infrastructure-network.md)
 - [Azure production network](azure-production-network.md)
-- [Microsoft Azure SQL Database security features](azure-infrastructure-sql.md)
+- [Azure SQL Database security features](azure-infrastructure-sql.md)
 - [Azure production operations and management](azure-infrastructure-operations.md)
-- [Monitoring of Azure infrastructure](azure-infrastructure-monitoring.md)
+- [Azure infrastructure monitoring](azure-infrastructure-monitoring.md)
 - [Azure infrastructure integrity](azure-infrastructure-integrity.md)
-- [Protection of customer data in Azure](azure-protection-of-customer-data.md)
+- [Azure customer data protection](azure-protection-of-customer-data.md)
