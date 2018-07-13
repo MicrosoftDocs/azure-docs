@@ -19,31 +19,12 @@ ms.custom: mvc, devcenter
 
 # Deploy an Azure Service Fabric Mesh app that uses a private container image registry
 
-Learn how to deploy an an Azure Service Fabric Mesh app that uses a private container image registry.
+This article shows how to deploy an an Azure Service Fabric Mesh app that uses a private container image registry.
 
 ## Prerequisites
 
-Before you begin:
-
-* If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-### Set up Service Fabric Mesh CLI
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-You can use the Azure Cloud Shell, or a local installation of the Azure CLI, to complete these steps. If you choose to install and use the CLI locally, install Azure CLI version 2.0.35 or later. Run `az --version` to see your version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install].
-
-Next, remove any previous installation of the Azure Service Fabric Mesh CLI module:
-
-```azurecli
-az extension remove --name mesh
-```
-
-Install the Azure Service Fabric Mesh CLI extension module. Azure Service Fabric Mesh CLI is written as an extension to Azure CLI.
-
-```azurecli
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
+### Setup Service Fabric Mesh CLI 
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this task. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
 ### Install Docker
 
@@ -80,11 +61,62 @@ az account set --subscription "<subscriptionName>"
 
 ## Create a container registry and push an image to it
 
-Create an Azure Container Registry by following the instructions in [Create a private Docker registry in Azure with the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md). Perform the steps up to the [List container images](../container-registry/container-registry-get-started-azure-cli.md#list-container-images) step. Then, `aci-helloworld:v1` should be present in the private container registry.
+Create an Azure Container Registry by following the instructions in [Create a private Docker registry in Azure with the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md). Perform the steps up to the [Log in to ACR](../container-registry/container-registry-get-started-azure-cli.md#log-in-to-acr) step. 
+
+### Push image to ACR
+
+To push an image to an Azure Container registry, you must first have an image. If you don't yet have any local container images, run the following command to pull an existing image from Docker Hub.
+
+```bash
+docker pull seabreeze/azure-mesh-helloworld:1.1-alpine
+```
+
+Before you can push an image to your registry, you must tag it with the fully qualified name of your ACR login server. Run the following command to obtain the full login server name of the ACR instance.
+
+```azurecli
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
+```
+
+Tag the image using the [docker tag][docker-tag] command. Replace `<acrLoginServer>` with the login server name of your ACR instance.
+
+```bash
+docker tag seabreeze/azure-mesh-helloworld:1.1-alpine <acrLoginServer>/azure-mesh-helloworld:1.1-alpine
+```
+### List container images
+
+The following example lists the repositories in a registry:
+
+```azurecli
+az acr repository list --name <acrName> --output table
+```
+
+Output:
+
+```bash
+Result
+----------------
+azure-mesh-helloworld
+```
+
+The following example lists the tags on the **azure-mesh-helloworld** repository.
+
+```azurecli
+az acr repository show-tags --name <acrName> --repository azure-mesh-helloworld --output table
+```
+
+Output:
+
+```bash
+Result
+--------
+1.1-alpine
+```
+
+This shows that `azure-mesh-helloworld:1.1-alpine` image is present in the private container registry.
 
 ## Retrieve credentials for the registry
 
-In order to deploy a container instance from the registry that was created, credentials must be provided during the deployment. Production scenarios should use a [service principal for container registry access](../container-registry/container-registry-auth-service-principal.md). For this article, enable the admin user on your registry with the following command:
+In order to deploy a container instance from the registry that was created, credentials must be provided during the deployment. Enable the admin user on your registry with the following command:
 
 ```azurecli-interactive
 az acr update --name <acrName> --admin-enabled true
@@ -93,47 +125,48 @@ az acr update --name <acrName> --admin-enabled true
 Get the registry server name, user name, and password by using the following commands:
 
 ```azurecli-interactive
-az acr list --resource-group <resourceGroupName> --query "[].{acrLoginServer:loginServer}" --output table
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 az acr credential show --name <acrName> --query username
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
+
+The values provided by preceding commands is referenced as `<acrLoginServer>`, `<acrUserName>` and `<acrPassword>` in the following command.
+
 
 ## Deploy the template
 
 Create the application and related resources using the following command, and provide the credentials from the previous step.
 
-The password parameter in the template is a string. It will be displayed on the screen, and in the deployment status, in clear-text.
+The `registry-password` parameter in the template is a `securestring`. It will not be displayed in the deployment status and `az mesh service show` commands. Please ensure that it is correctly specified in the following command.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group <resourceGroupName> --template-uri https://seabreezequickstart.blob.core.windows.net/templates/private-registry/sbz_rp.linux.json
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}" 
 ```
 
-After a brief delay, your command should return with `"provisioningState": "Succeeded"`. Once it does, get the public IP address by querying for the network resources created in this deployment.
+In a few minutes, your command should return with:
 
-## Obtain public IP address and connect to it
+`helloWorldPrivateRegistryApp has been deployed successfully on helloWorldPrivateRegistryNetwork with public ip address <IP Address>` 
 
-The network resource name for this example is `privateRegistryExampleNetwork`. You can get information about it, including the public IP address, with following command:
+## Open the application
+Once the application successfully deploys, get the public IP address for the service endpoint, and open it on a browser. It should display a web page with Service Fabric Mesh logo.
+
+The deployment command returns the public IP address of the service endpoint. You can also query the network resource to find the public IP address of the service endpoint.
+ 
+The network resource name for this application is `helloWorldPrivateRegistryNetwork`, fetch information about it using the following command. 
 
 ```azurecli-interactive
-az mesh network show --resource-group <resourceGroupName> --name privateRegistryExampleNetwork
+az mesh network show --resource-group myResourceGroup --name helloWorldPrivateRegistryNetwork
 ```
-
-Get the `publicIpAddress` property and connect to it using a browser. It should display a web page with a welcome message.
 
 ## Delete the resources
 
-To conserve resources, delete the resources frequently. To delete resources created for this example, delete the resource group in which they were deployed:
+To conserve the limited resources assigned for the preview program, delete the resources frequently. To delete resources related to this example, delete the resource group in which they were deployed.
 
 ```azurecli-interactive
-az group delete --resource-group <resourceGroupName> 
+az group delete --resource-group myResourceGroup 
 ```
 
-## Example JSON templates
-
-Linux: [https://seabreezequickstart.blob.core.windows.net/templates/private-registry/sbz_rp.linux.json](https://seabreezequickstart.blob.core.windows.net/templates/private-registry/sbz_rp.linux.json)
-
-
 ## Next steps
-
-For more information, see [Service Fabric resources](service-fabric-mesh-service-fabric-resources.md)
-See the [example JSON template for Linux](https://seabreezequickstart.blob.core.windows.net/templates/private-registry/sbz_rp.linux.json)
+- View the Hello World sample application on [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/helloworld).
+- To learn more about Service Fabric Resource Model, see [Service Fabric Mesh Resource Model](service-fabric-mesh-service-fabric-resources.md).
+- To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md).

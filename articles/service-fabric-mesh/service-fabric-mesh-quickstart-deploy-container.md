@@ -40,11 +40,11 @@ Create a resource group to deploy the application to. You can use an existing re
 az group create --name myResourceGroup --location eastus 
 ```
 
-## Deploy the application with one worker service
+## Deploy the application
 Create your application in the resource group using the `az mesh deployment create` command:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters '{ "location" :  { "value" : "eastus" } }' 
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
 ```
 The preceding command deploys a Linux using [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). If you want to deploy a Windows application, use [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Note that for Windows, container images are large compared to Linux, so it may take more time than deploying Linux application.
 
