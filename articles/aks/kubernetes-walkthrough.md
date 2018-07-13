@@ -209,7 +209,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> The only resource that is not removed when you delete the cluster is the service principal in the AD. You can [remove it](kubernetes-service-principal.md#additional-considerations) too. 
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
 
 ## Get the code
 
@@ -245,4 +245,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-
+[sp-delete]: kubernetes-service-principal.md#additional-considerations

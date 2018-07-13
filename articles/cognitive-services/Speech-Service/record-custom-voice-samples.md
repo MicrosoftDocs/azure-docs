@@ -88,7 +88,7 @@ A basic script format includes three columns:
 ![Sample script](media/custom-voice/script.png)
 
 > [!NOTE]
-> Most studios record in short segments, referred to as "takes," each ttake ypically containing ten to 24 utterances. Just noting the take number will be sufficient to find a given utterance later. Some studios may prefer longer recordings. In this case you'll want to note the time offset into the file (the time code). The studio will have a prominent time display.
+> Most studios record in short segments, referred to as "takes," each take typically containing ten to 24 utterances. Just noting the take number will be sufficient to find a given utterance later. Some studios may prefer to make longer recordings. In this case you'll want to note the time offset into the file (the time code). The studio will have a prominent time display.
 
 Leave enough space after each row to write notes. Be sure that no utterance is split between pages. Number the pages and print your script on one side of the paper.
 
@@ -100,7 +100,7 @@ Under copyright law, an actor's reading of copyrighted text may be a performance
 
 Fortunately, it is possible to avoid these issues entirely. There are many sources of text you can use without permission or license.
 
-|||
+|Text source|Description|
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|About 1100 sentences selected from out-of-copyright works specifically for use in speech synthesis projects. An excellent starting point.|
 |Works no longer<br>under copyright|Typically works published prior to 1923. For English, Project Gutenberg offers tens of thousands of such works. You may want to focus on newer works, as the language will be closer to modern English.|
@@ -124,7 +124,7 @@ Use a high-quality studio condenser microphone ("mic") intended for recording vo
 
 You may also use an analog microphone. Many rental houses offer "vintage" microphones renowned for their voice character. Note that professional analog gear uses balanced XLR connectors, rather than the 1/4" plug used in consumer equipment. If you go analog, you'll also need a preamp and a computer audio interface with these connectors.
 
-Install the microphone on a stand or boom and use a pop filter in frot of the microphone to eliminate noise from "plosive" sounds like "p" and "b." Some microphones come with a suspension mount that isolates them from vibrations in the stand, which is helpful.
+Install the microphone on a stand or boom and use a pop filter in front of the microphone to eliminate noise from "plosive" sounds like "p" and "b." Some microphones come with a suspension mount that isolates them from vibrations in the stand, which is helpful.
 
 The voice talent must stay at a consistent distance from the microphone. Use tape on the floor to mark where they should stand. If the talent prefers to sit, take special care to monitor mic distance and avoid chair noise.
 
@@ -139,7 +139,7 @@ Listen closely to a recording of silence in your "booth," figure out where any n
 > [!TIP]
 > In some cases, you may be able to use an equalizer or a noise reduction software plug-in to help remove noise from your recordings, though it is always best to stop it at its source when possible.
 
-Levels should be set so that most of the available dynamic range of digital recording is used without overdriving into distortion. That means loud, but not so loud that the audio distorts. Below is an example of the waveform of a good recording.
+Levels should be set so that most of the available dynamic range of digital recording is used without overdriving. That means loud, but not so loud that the audio distorts. Below is an example of the waveform of a good recording.
 
 ![good recording waveform](media/custom-voice/good-recording.png)
 
@@ -167,13 +167,13 @@ Direct the talent to pronounce words distinctly. Every word of the script should
 |never going to give you up|never gonna give you up|
 |there are four lights|there're four lights|
 |how's the weather today|how's th' weather today|
-|my little pony|my lil' pony|
+|say hello to my little friend|say hello to my lil' friend|
 
 Talent should *not* add distinct pauses between words. The sentence should still flow naturally, even while sounding a little formal. This fine distinction may take some practice to get right.
 
 ### The recording session
 
-Create a reference recording, or *match file,* of a typical utterance at the beginning of the session. Ask the talent to repeat this line every page or page and a half, and compare the new recording to the reference. This will help the talent remain consistent in volume, tempo, central pitch, and pitch peak and valley. Meanwhile, the engineer can use the match file as a reference for levels and overall consistency of sound. 
+Create a reference recording, or *match file,* of a typical utterance at the beginning of the session. Ask the talent to repeat this line every page or page and a half. Each time, compare the new recording to the reference. This technique helps the talent remain consistent in volume, tempo, pitch, and intonation. Meanwhile, the engineer can use the match file as a reference for levels and overall consistency of sound.
 
 The match file is especially important when resuming recording after a break, or on another day. You'll want to play it a few times for the talent and have them repeat it each time until they are matching well.
 

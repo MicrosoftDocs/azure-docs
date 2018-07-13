@@ -64,7 +64,7 @@ The field specified in **fieldname:searchterm** must be a searchable field. See 
 ## Fuzzy search example
 A fuzzy search finds matches in terms that have a similar construction. Per [Lucene documentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy searches are based on [Damerau-Levenshtein Distance](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
-To do a fuzzy search, append the tilde "~" symbol at the end of a single word with an optional parameter, a value between 0 and 2, that specifies the edit distance. For example, "blue~" or "blue~1" would return blue, blues, and glue.
+To do a fuzzy search, append the tilde `~` symbol at the end of a single word with an optional parameter, a value between 0 and 2, that specifies the edit distance. For example, `blue~` or `blue~1` would return blue, blues, and glue.
 
 **Example 3** -- Right-click the following query snippet. This query searches for jobs with the term associate (where it is misspelled):
 
