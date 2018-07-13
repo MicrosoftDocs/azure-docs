@@ -32,11 +32,6 @@
 ### [.NET](iot-hub-csharp-csharp-device-management-get-started.md)
 ### [Java](iot-hub-java-java-device-management-getstarted.md)
 ### [Python](iot-hub-python-python-device-management-get-started.md)
-## Use device jobs to update device firmware
-### [Node.js](iot-hub-node-node-firmware-update.md)
-### [.NET](iot-hub-csharp-csharp-firmware-update.md)
-### [Java](iot-hub-java-java-firmware-update.md)
-### [Python](iot-hub-python-python-firmware-update.md)
 
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 

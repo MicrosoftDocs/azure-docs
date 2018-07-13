@@ -21406,8 +21406,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-hub/iot-hub-csharp-node-firmware-update.md",
-            "redirect_url": "/azure/iot-hub/iot-hub-node-node-firmware-update",
+            "source_path": "articles/iot-hub/iot-hub-csharp-csharp-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-java-java-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-node-node-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-python-python-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
             "redirect_document_id": false
         },
         {
