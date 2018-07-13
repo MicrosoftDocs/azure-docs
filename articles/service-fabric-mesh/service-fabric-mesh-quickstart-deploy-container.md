@@ -14,7 +14,7 @@ manager: timlt
 ---
 # Quickstart: Deploy Hello World to Service Fabric Mesh
 
-[Service Fabric Mesh](service-fabric-mesh-overview.md) makes it easy to create and manage microservices applications in Azure, without having to provision virtual machines. In this quickstart, you will create a Hello World application in Azure and expose it to the internet. This operation is completed in a single command. Within just a couple minutes, you'll see this in your browser:
+[Service Fabric Mesh](service-fabric-mesh-overview.md) makes it easy to create and manage microservices applications in Azure, without having to provision virtual machines. In this quickstart, you will create a Hello World application in Azure and expose it to the internet. This operation is completed in a single command. Within just a couple minutes, you'll see this view in your browser:
 
 ![Hello world app in the browser][sfm-app-browser]
 
@@ -25,8 +25,8 @@ If you don't already have an Azure account, [create a free account](https://azur
 ## Setup Service Fabric Mesh CLI 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
-## Log in to Azure
-Log in to Azure and set your subscription.
+## Sign in to Azure
+Sign in to Azure and set your subscription.
 
 ```azurecli-interactive
 az login
@@ -46,37 +46,15 @@ Create your application in the resource group using the `az mesh deployment crea
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
 ```
-The preceding command deploys a Linux using [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). If you want to deploy a Windows application, use [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Note that for Windows, container images are large compared to Linux, so it may take more time than deploying Linux application.
+The preceding command deploys a Linux using [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). If you want to deploy a Windows application, use [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Windows container images are larger than Linux container images and may take more time to deploy.
 
-In a few minutes, your command should return with:
+In a few minutes, the command returns:
 
 `helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
 
 ## Open the application
-Once the application successfully deploys, get the public IP address for the service endpoint from the cli output, and open it on a browser. It should display a web page with Azure Service Fabric Mesh logo.
+Once the application successfully deploys, copy the public IP address for the service endpoint from the CLI output.  Open the IP address in a web browser.  A web page with the  Azure Service Fabric Mesh logo displays.
 
-The deployment command returns the public IP address of the service endpoint. Optionally, You can also query the network resource to find the public IP address of the service endpoint.
- 
-The network resource name for this application is `helloWorldNetwork`, fetch information about it using `az mesh network show` command: 
-
-```azurecli-interactive
-az mesh network show --resource-group myResourceGroup --name helloWorldNetwork
-```
-The command will return with information like the json snippet below when running the command in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
-
-```json
-    "publicIpAddress": "168.62.188.181",
-    "qosLevel": "Bronze"
-  },
-  "location": "eastus",
-  "name": "helloWorldNetwork",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "tags": {},
-  "type": "Microsoft.ServiceFabricMesh/networks"
-}
-```
-In the example above, the service endpoint IP address is 168.62.188.181.  
 ## Check the application details
 You can check the application's status using the `az mesh app show` command. This command provides useful information that you can follow up on.
 
@@ -84,14 +62,6 @@ The application name for this quickstart is `helloWorldApp`, to gather the detai
 
 ```azurecli-interactive
 az mesh app show --resource-group myResourceGroup --name helloWorldApp
-```
-
-## See all the applications you have currently deployed to your subscription
-
-You can use the `az mesh app list` command to get a list of applications you have deployed to your subscription.
-
-```azurecli-interactive
-az mesh app list --output table
 ```
 
 ## See the application logs
@@ -104,14 +74,7 @@ az mesh code-package-log get --resource-group myResourceGroup --application-name
 
 ## Clean up resources
 
-When you are ready to delete the application and network resources, run the `az mesh app delete` and `az mesh network delete` commands.
-
-```azurecli-interactive
-az mesh app delete -g myResourceGroup -n helloWorldApp
-az mesh network delete -g myResourceGroup -n helloWorldNetwork
-```
-
-If you no longer need any of the resources you created in this quickstart, you can execute the [az group delete][az-group-delete] command to remove the resource group and all the resources it contains.
+When you are ready to delete the application, run the [az group delete][az-group-delete] command to remove the resource group and the application and network resources it contains.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -119,9 +82,9 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-To learn more about Service Fabric Mesh, take a look at this tutorial.
+To learn more about creating and deploying Service Fabric Mesh applications, continue to the tutorial.
 > [!div class="nextstepaction"]
-> [Next steps](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> [Create and deploy a multi-service web application](service-fabric-mesh-tutorial-create-dotnetcore.md)
 
 <!-- Images -->
 [sfm-app-browser]: ./media/service-fabric-mesh-quickstart-deploy-container/HelloWorld.png
