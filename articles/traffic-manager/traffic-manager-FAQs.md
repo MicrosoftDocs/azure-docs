@@ -62,7 +62,7 @@ As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-o
 
 No. The DNS standards do not permit CNAMEs to co-exist with other DNS records of the same name. The apex (or root) of a DNS zone always contains two pre-existing DNS records; the SOA and the authoritative NS records. This means a CNAME record cannot be created at the zone apex without violating the DNS standards.
 
-Traffic Manager requires a DNS CNAME record to map the vanity DNS name. For example, you map www.contoso.com to the Traffic Manager profile DNS name contoso.trafficmanager.net. Additionally, the Traffic Manager profile returns a second DNS CNAME to indicate which endpoint the client should connect to.
+Traffic Manager requires a DNS CNAME record to map the vanity DNS name. For example, you map `www.contoso.com` to the Traffic Manager profile DNS name `contoso.trafficmanager.net`. Additionally, the Traffic Manager profile returns a second DNS CNAME to indicate which endpoint the client should connect to.
 
 To work around this issue, we recommend using an HTTP redirect to direct traffic from the naked domain name to a different URL, which can then use Traffic Manager. For example, the naked domain 'contoso.com' can redirect users to the CNAME 'www.contoso.com' that points to the Traffic Manager DNS name.
 

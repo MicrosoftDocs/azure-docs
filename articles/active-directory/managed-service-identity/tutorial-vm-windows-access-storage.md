@@ -54,7 +54,7 @@ In this section, you create a Windows VM that is later granted a Managed Identit
 5.	To select a new **Resource Group** you would like to virtual machine to be created in, choose **Create New**. When complete, click **OK**.
 6.	Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the settings blade, keep the defaults and click **OK**.
 
-    ![Alt image text](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alt image text](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## Enable Managed Identity on your VM
 
