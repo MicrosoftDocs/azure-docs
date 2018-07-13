@@ -44,7 +44,7 @@ az group create --name myResourceGroup --location eastus
 Create your application in the resource group using the `az mesh deployment create` command:
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters '{ "location" :  { "value" : "eastus" } }' 
 ```
 The preceding command deploys a Linux using [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). If you want to deploy a Windows application, use [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Note that for Windows, container images are large compared to Linux, so it may take more time than deploying Linux application.
 
@@ -53,9 +53,9 @@ In a few minutes, your command should return with:
 `helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
 
 ## Open the application
-Once the application successfully deploys, get the public IP address for the service endpoint, and open it on a browser. It should display a web page with Azure Service Fabric Mesh logo.
+Once the application successfully deploys, get the public IP address for the service endpoint from the cli output, and open it on a browser. It should display a web page with Azure Service Fabric Mesh logo.
 
-The deployment command returns the public IP address of the service endpoint. You can also query the network resource to find the public IP address of the service endpoint.
+The deployment command returns the public IP address of the service endpoint. Optionally, You can also query the network resource to find the public IP address of the service endpoint.
  
 The network resource name for this application is `helloWorldNetwork`, fetch information about it using `az mesh network show` command: 
 
