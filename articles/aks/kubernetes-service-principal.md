@@ -31,7 +31,7 @@ When deploying an AKS cluster with the `az aks create` command, you have the opt
 
 In the following example, an AKS cluster is created, and because an existing service principal is not specified, a service principal is created for the cluster. In order to complete this operation, your account must have the proper rights for creating a service principal.
 
-```azurecli
+```azurecli-interactive
 az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
@@ -43,7 +43,7 @@ An existing Azure AD service principal can be used or pre-created for use with a
 
 To create the service principal with the Azure CLI, use the [az ad sp create-for-rbac][az-ad-sp-create] command.
 
-```azurecli
+```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
 ```
 
@@ -80,11 +80,12 @@ When working with AKS and Azure AD service principals, keep the following in min
 * When specifying the service principal **Client ID**, use the value of the `appId` (as shown in this article) or the corresponding service principal `name` (for example,`https://www.contoso.org/example`).
 * On the master and node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`.
 * When you use the `az aks create` command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/aksServicePrincipal.json` on the machine used to run the command.
-* When deleting an AKS cluster which was created by `az aks create`, the service principal which was created automatically will not be deleted. The two commands below shows how to delete it. First, you have to find the id for the service principal and then you delete it.  
-`
-az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
-az ad app delete --id '99999999999999999999999999999999999'
-`
+* When deleting an AKS cluster that was created by `az aks create`, the service principal that was created automatically is not deleted. To delete the service principal, first get the ID for the service principal with [az ad app list][az-ad-app-list]. The following example queries for the cluster named *myAKSCluster* and then deletes the app ID with [az ad app delete][az-ad-app-delete]. Replace these names with your own values:
+
+    ```azurecli-interactive
+    az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
+    az ad app delete --id <appId>
+    ```
 
 ## Next steps
 
@@ -101,3 +102,5 @@ For more information about Azure Active Directory service principals, see the Az
 [install-azure-cli]: /cli/azure/install-azure-cli
 [service-principal]: ../active-directory/develop/active-directory-application-objects.md
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md
+[az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
+[az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
