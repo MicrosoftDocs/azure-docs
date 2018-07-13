@@ -1,5 +1,5 @@
 ---
-title: Deploy an application to Service Fabric Mesh on Azure | Microsoft Docs
+title: Deploy app from a private registry to Azure Service Fabric Mesh | Microsoft Docs
 description: Learn how to deploy an app that uses a private container registry to Service Fabric Mesh using the Azure CLI.
 services: service-fabric
 documentationcenter: .net
@@ -17,9 +17,9 @@ ms.author: ryanwi
 ms.custom: mvc, devcenter
 ---
 
-# Deploy an Azure Service Fabric Mesh app that uses a private container image registry
+# Deploy a Service Fabric Mesh app from a private container image registry
 
-This article shows how to deploy an an Azure Service Fabric Mesh app that uses a private container image registry.
+This article shows how to deploy an Azure Service Fabric Mesh app that uses a private container image registry.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Install Docker to support the containerized Service Fabric apps used by Service 
 
 Download and install the latest version of [Docker Community Edition for Windows][download-docker]. 
 
-During the installation, select **Use Windows containers instead of Linux containers** when asked. You'll need to then log off and log back in. After logging back in, if you did not previously enable Hyper-V, you may be prompted to enable Hyper-V. You must enable Hyper-V and then restart your computer.
+During the installation, select **Use Windows containers instead of Linux containers** when asked. You'll need to then sign out and sign back in. After logging back in, if you did not previously enable Hyper-V, you may be prompted to enable Hyper-V. You must enable Hyper-V and then restart your computer.
 
 After your computer has restarted, Docker will prompt you to enable the **Containers** feature, enable it and restart your computer.
 
@@ -50,9 +50,9 @@ Install-WindowsFeature Containers
 
 Restart your computer.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to Azure and set the active subscription:
+Sign in to Azure and set the active subscription:
 
 ```azurecli-interactive
 az login
@@ -130,14 +130,14 @@ az acr credential show --name <acrName> --query username
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-The values provided by preceding commands is referenced as `<acrLoginServer>`, `<acrUserName>` and `<acrPassword>` in the following command.
+The values provided by preceding commands is referenced as `<acrLoginServer>`,  , and `<acrPassword>` in the following command.
 
 
 ## Deploy the template
 
 Create the application and related resources using the following command, and provide the credentials from the previous step.
 
-The `registry-password` parameter in the template is a `securestring`. It will not be displayed in the deployment status and `az mesh service show` commands. Please ensure that it is correctly specified in the following command.
+The `registry-password` parameter in the template is a `securestring`. It will not be displayed in the deployment status and `az mesh service show` commands. Ensure that it is correctly specified in the following command.
 
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.private_registry.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}, \"registry-server\": {\"value\": \"<acrLoginServer>\"}, \"registry-username\": {\"value\": \"<acrUserName>\"}, \"registry-password\": {\"value\": \"<acrPassword>\"}}" 

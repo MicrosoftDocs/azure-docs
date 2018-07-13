@@ -1,5 +1,5 @@
 ---
-title: Deploy an application that uses an Azure Files volume to Service Fabric Mesh | Microsoft Docs
+title: Deploy an Service Fabric Mesh app that uses Azure Files volume| Microsoft Docs
 description: Learn how to deploy an application that uses the Azure Files volume to Service Fabric Mesh using the Azure CLI.
 services: service-fabric
 documentationcenter: .net
@@ -18,7 +18,7 @@ ms.author: ryanwi
 ms.custom: mvc, devcenter 
 ---
 
-# Deploy an application that uses the Azure Files volume
+# Deploy a Service Fabric Mesh application that uses the Azure Files volume
 This sample illustrates the use of storage volumes in a container running in Azure Service Fabric Mesh. As a part of this sample:
 
 - Create a file share with [Azure Files](/azure/storage/files/storage-files-introduction) 
@@ -88,4 +88,6 @@ The file may be downloaded using any tool that enables browsing an Azure Files f
 
 ## Next steps
 
-For more information, see [Service Fabric resources](service-fabric-mesh-service-fabric-resources.md)
+- View the Azure Files volume sample application on [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/azurefiles-volume).
+- To learn more about Service Fabric Resource Model, see [Service Fabric Mesh Resource Model](service-fabric-mesh-service-fabric-resources.md).
+- To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md).

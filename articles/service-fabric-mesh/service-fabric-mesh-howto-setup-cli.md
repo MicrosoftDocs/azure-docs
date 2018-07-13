@@ -1,6 +1,6 @@
 ---
-title: Set up your development environment to deploy Service Fabric Mesh apps using Azure CLI
-description: The prerequisites required for deploying apps to Azure Service Fabric Mesh.
+title: Set up the Azure Service Fabric Mesh CLI | Microsoft Docs
+description: Learn how to set up the Azure Service Fabric Mesh CLI.
 services: Azure Service Fabric Mesh
 keywords:  
 author: tylermsft
@@ -12,7 +12,7 @@ manager: timlt
 #Customer intent: As a developer, I need to prepare install the prerequisites to enable deployment to service fabric mesh.
 ---
 
-# Setup Service Fabric Mesh CLI
+# Setup the Service Fabric Mesh CLI
 Service Fabric Mesh CLI is required to deploy and manage resources in Service Fabric Mesh. 
 
 For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI. You can install it in the Azure Cloud Shell or a local installation of Azure CLI. 
@@ -32,5 +32,7 @@ Install the Azure Service Fabric Mesh CLI extension module using following comma
 ```azurecli-interactive
 az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
 ```
+
+You can also set up up your [Windows development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
 
 [azure-cli-install]: /cli/azure/install-azure-cli

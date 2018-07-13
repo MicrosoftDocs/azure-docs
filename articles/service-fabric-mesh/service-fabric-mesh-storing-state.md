@@ -1,11 +1,11 @@
 ---
 title: State storage options on Azure Service Fabric Mesh | Microsoft Docs
-description: Learn about reliably storing state in Service Fabric applications running on Azure Service Fabric Mesh.
+description: Learn about reliably storing state in Service Fabric Mesh applications running on Azure Service Fabric Mesh.
 services: service-fabric-mesh
 keywords:  
 author: rwike77
 ms.author: ryanwi
-ms.date: 06/19/2018
+ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt 

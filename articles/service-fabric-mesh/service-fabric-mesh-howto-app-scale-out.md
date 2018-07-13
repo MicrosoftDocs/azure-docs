@@ -1,5 +1,5 @@
 ---
-title: Scale services in an Azure Service Fabric application | Microsoft Docs
+title: Scale services in an Azure Service Fabric Mesh application | Microsoft Docs
 description: Learn how to independently scale services within an application running on Service Fabric Mesh using the Azure CLI.
 services: service-fabric
 documentationcenter: .net
@@ -29,8 +29,8 @@ The `worker` service moves the triangle at a predefined interval in the space an
 ## Setup Service Fabric Mesh CLI 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this task. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
-## Log in to Azure
-Log in to Azure and set your subscription.
+## Sign in to Azure
+Sign in to Azure and set your subscription.
 
 ```azurecli-interactive
 az login
@@ -51,7 +51,7 @@ Create your application in the resource group using the `deployment create` comm
 az mesh deployment create --resource-group <resourceGroupName> --template-uri https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
   
 ```
-The preceding command deploys a Linux using [mesh_rp.base.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json). If you want to deploy a Windows application, use [mesh_rp.base.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.windows.json). Note that for Windows, container images are large compared to Linux, so it may take more time than deploying Linux application.
+The preceding command deploys a Linux using [mesh_rp.base.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.linux.json). If you want to deploy a Windows application, use [mesh_rp.base.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.base.windows.json). Windows container images are larger than Linux container images and may take more time to deploy.
 
 In a few minutes, your command should return with:
 
@@ -76,7 +76,7 @@ Scale the `worker` service to three instances using the following command.
 az mesh deployment create --resource-group <resourceGroupName> --template-uri https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
   
 ```
-The preceding command deploys a Linux using [mesh_rp.scaleout.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.linux.json). If you want to deploy a Windows application, use [mesh_rp.scaleout.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.windows.json). Note that for Windows, container images are large compared to Linux, so it may take more time than deploying Linux application.
+The preceding command deploys a Linux using [mesh_rp.scaleout.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.linux.json). If you want to deploy a Windows application, use [mesh_rp.scaleout.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/visualobjects/mesh_rp.scaleout.windows.json). Windows container images are larger than Linux container images and may take more time to deploy.
 
 Once the application successfully deploys, the browser should be displaying a web page with three triangles moving through the space.
 

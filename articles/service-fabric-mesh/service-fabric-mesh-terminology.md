@@ -25,7 +25,7 @@ To deploy your services, you need to describe how they should run. Service Fabri
 ### Resource model
 Resources are anything that can be deployed individually to Service Fabric, including applications, services, networks, and volumes. Resources are defined using a YAML file or JSON file using the Azure Resource Model schema.
 
-The resource model is the simplest way to describe your Service Fabric applications. It's main focus is on simple deployment and management of containerized services.
+The resource model is the simplest way to describe your Service Fabric applications. Its main focus is on simple deployment and management of containerized services.
 
 Resources can be deployed anywhere Service Fabric runs.
 

@@ -1,6 +1,6 @@
 ---
-title: Tutorial Create an Azure Service Fabric Mesh application | Microsoft Docs
-description: Learn how to create an Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, and publish it to Azure.
+title: Tutorial- Create an Azure Service Fabric Mesh application | Microsoft Docs
+description: Learn how to create an Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, and publish it to Azure Service Fabric Mesh.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/6/2018
+ms.date: 07/12/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want learn how to publish a Service Fabric Mesh app to Azure.
 ---
 
-# Tutorial: Publish an Azure Service Fabric Mesh application
+# Tutorial: Publish an Service Fabric Mesh application to Service Fabric Mesh
 
-This tutorial is part three of a series and shows you how to deploy an Azure Service Fabric Mesh application to a new cluster in Azure directly from Visual Studio. 
+This tutorial is part three of a series and shows you how to deploy an Service Fabric Mesh application to Azure Service Fabric Mesh in Azure directly from Visual Studio. 
 
 In this tutorial you learn how to:
 > [!div class="checklist"]

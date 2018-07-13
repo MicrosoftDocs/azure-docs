@@ -1,5 +1,5 @@
 ---
-title: Deploy an application to Service Fabric Mesh on Azure | Microsoft Docs
+title: Deploy an app to Azure Service Fabric Mesh using a template | Microsoft Docs
 description: Learn how to deploy a .NET Core application to Service Fabric Mesh from a template using the Azure CLI.
 services: service-fabric
 documentationcenter: .net
@@ -17,14 +17,14 @@ ms.date: 07/12/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter 
 ---
-# Deploy a micro-services based .NET Core application to Service Fabric Mesh
+# Deploy a Service Fabric Mesh application to Service Fabric Mesh using a template
 This article shows how to deploy a .NET Core application to Service Fabric Mesh using a template. When you're finished, you have a voting application with an ASP.NET Core web front-end that saves voting results in a back-end service in the cluster. The front-end uses DNS to resolve the address of the back-end service.
 
 ## Setup Service Fabric Mesh CLI 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this task. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
-## Log in to Azure
-Log in to Azure and set your subscription.
+## Sign in to Azure
+Sign in to Azure and set your subscription.
 
 ```azurecli-interactive
 az login
@@ -45,7 +45,7 @@ Create your application in the resource group using the `deployment create` comm
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json --parameters "{\"location\": {\"value\": \"eastus\"}}"
 ```
 
-The preceding command deploys a Windows application using [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json). If you want to deploy a Linux application, use [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.linux.json).
+The preceding command deploys a Windows application using [mesh_rp.windows.json template](https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.windows.json). If you want to deploy a Linux application, use [mesh_rp.linux.json template](https://sfmeshsamples.blob.core.windows.net/templates/voting/mesh_rp.linux.json). Windows container images are larger than Linux container images and may take more time to deploy.
 
 In a few minutes, your command should return with:
 
