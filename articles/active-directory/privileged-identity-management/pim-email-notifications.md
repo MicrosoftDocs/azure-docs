@@ -20,7 +20,7 @@ ms.custom: pim
 
 # Email notifications in Azure AD PIM
 
-When key events occur in Azure AD Privileged Identity Management (PIM), email notifications are sent to the relevant administrator or user. For example, PIM sends emails for following events:
+When key events occur in Azure AD Privileged Identity Management (PIM), email notifications are sent to the relevant administrator or user. For example, PIM sends emails for the following events:
 
 - When a privileged role activation is pending approval
 - When a privileged role activation request is approved
@@ -28,23 +28,23 @@ When key events occur in Azure AD Privileged Identity Management (PIM), email no
 - When a privileged role is assigned
 - When Azure AD PIM is enabled
 
-Starting at the end of July 2018, email notifications sent through PIM will have a new visual design and sender email address. This update will impact both PIM for Azure AD and PIM for Azure resources. All events that previously triggered an email notification will continue to send out an email. This update is solely a visual change with no changes to functionality.
+Starting at the end of July 2018, email notifications sent through PIM will have a new sender email address and a new visual design. This update will impact both PIM for Azure AD and PIM for Azure resources. All events that previously triggered an email notification will continue to send out an email. This update is solely a visual change with no changes to functionality.
 
 ## Sender email address
 
 Starting at the end of July 2018, email notifications have the following address:
 
-- Email address:  azure-noreply@microsoft.com
+- Email address:  **azure-noreply@microsoft.com**
 - Display name: Microsoft Azure
 
 Previously, email notifications had the following address:
 
-- Email address:  azureadnotifications@microsoft.com
+- Email address:  **azureadnotifications@microsoft.com**
 - Display name: Microsoft Azure AD Notification Service
 
 ## PIM for Azure AD email
 
-Starting at the end of July 2018, the email design for PIM for Azure AD has an updated design. The following shows an example email that is sent when a user activates a privileged role for the fictional Contoso organization.
+Starting at the end of July 2018, the email notifications for PIM for Azure AD have an updated design. The following shows an example email that is sent when a user activates a privileged role for the fictional Contoso organization.
 
 ![New PIM for Azure AD email](./media/pim-email-notifications/email-directory-new.png)
 
@@ -54,7 +54,7 @@ Previously, when a user activated a privileged role, the email looked like the f
 
 ## PIM for Azure resources email
 
-Starting at the end of July 2018, the email design for PIM for Azure resources has an updated design. The following shows an example email that is sent when a user is assigned a privileged role for the fictional Contoso organization.
+Starting at the end of July 2018, the email notifications for PIM for Azure resources have an updated design. The following shows an example email that is sent when a user is assigned a privileged role for the fictional Contoso organization.
 
 ![New PIM for Azure resources email](./media/pim-email-notifications/email-resources-new.png)
 
