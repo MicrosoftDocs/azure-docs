@@ -266,11 +266,11 @@ Sometimes you might see Profiler timeout error message after an on-demand sessio
 
 There could be two reasons why you see this error:
 
- 1. The on-demand profiler session was successful, but Application Insights took a longer time to process the collected data. If data did not finish being processed in 15 minutes, the portal will display a timeout message. Though after a while, Profiler traces will show up. If this happens, please just ignore the error message for now. We are actively working on a fix
+1. The on-demand profiler session was successful, but Application Insights took a longer time to process the collected data. If data did not finish being processed in 15 minutes, the portal will display a timeout message. Though after a while, Profiler traces will show up. If this happens, please just ignore the error message for now. We are actively working on a fix
 
- 2. Your web app has an older version of Profiler agent that does not have the on-demand feature. If you enabled Application Insights Profile previously, chances are you need to update your Profiler agent to start using the on-demand capability. Follow these steps to check and install the latest Profiler:
-
-To resolve this issue:
+2. Your web app has an older version of Profiler agent that does not have the on-demand feature. If you enabled Application Insights Profile previously, chances are you need to update your Profiler agent to start using the on-demand capability.
+  
+Follow these steps to check and install the latest Profiler:
 
 1. Go to App Services App Settings and check if the following settings are set:
     * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for Application Insights.
