@@ -23,7 +23,7 @@ Azure is composed of a [globally distributed datacenter infrastructure](https://
 
 The infrastructure is designed to bring applications closer to users around the world, preserving data residency, and offering comprehensive compliance and resiliency options for customers. Azure has 52 regions worldwide, and is available in 140 countries.
 
-A region is a set of datacenters that are interconnected via a massive and resilient network. The network includes content distribution, load balancing, redundancy, and encryption by default. With more global regions than any other cloud provider, Azure gives you the flexibility to deploy applications where you need them.
+A region is a set of datacenters that is interconnected via a massive and resilient network. The network includes content distribution, load balancing, redundancy, and encryption by default. With more global regions than any other cloud provider, Azure gives you the flexibility to deploy applications where you need them.
 
 Azure regions are organized into geographies. An Azure geography ensures that data residency, sovereignty, compliance, and resiliency requirements are honored within geographical boundaries.
 
