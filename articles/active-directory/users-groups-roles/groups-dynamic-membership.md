@@ -98,6 +98,7 @@ The total length of the body of your advanced rule cannot exceed 2048 characters
 > Strings containing quotes " should be escaped using 'character, for example, user.department -eq \`"Sales".
 
 ## Supported expression rule operators
+
 The following table lists all the supported expression rule operators and their syntax to be used in the body of the advanced rule:
 
 | Operator | Syntax |
@@ -231,17 +232,11 @@ Allowed operators
 
 #### Use underscore (\_) to add users based on proxyAddresses
 
-The underscore (\_) syntax supports using a string collection (multi-valued properties with simple type elements) to select group members. It is used with the -any or -all operators. In a dynamic group membership rule, an underscore (\_) means "add every user that has the specified value in this string collection."
+The underscore (\_) syntax matches occurrences of a specific value in a multivalued string collection property to add users to a dynamic group. It is used with the -any or -all operators. In a dynamic group membership rule, an underscore (\_) means "add every user that has the specified value in this string collection."
 
 Here's an example of using the underscore (\_) in a rule to add members based on user.proxyAddress (it works the same for user.otherMails). This rule adds to the group any user with proxy address that contains "contoso."
 
 ```(user.proxyAddresses -any (_ -contains "contoso"))```
-
-A multi-valued property is an array, collection, container, or any other similar term to represent an array. A simple type element is one of the following: number, string, bool, or GUID. Complex types are objects (key/value pairs). Examples of each include:
-
-* **Department** is single-valued property with a simple type.
-* **assignedPlan**, which has **serviced** and **serviceStatus** nested properties, is a single-valued property with complex type elements.
-* **proxyAddresses** and **otherMails** are multi-valued properties with simple type elements.
 
 ## Multi-value properties
 
