@@ -60,7 +60,7 @@ To keep things simple, we recommend that users who install Azure AD Connect be s
 All networking software, physical devices, or anything else that limits the maximum time that connections can remain open should use a threshold of at least five minutes (300 seconds) for connectivity between the server where the Azure AD Connect client is installed and Azure Active Directory. This recommendation also applies to all previously released Microsoft Identity synchronization tools.
 
 **Q: Are single label domains (SLDs) supported?**  
-No, Azure AD Connect does not support on-premises forests or domains that use SLDs.
+While we strongly recommend against this network configuration ([see article](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains)), using Azure AD Connect sync with a single label domain is supported, as long as the network configuration for the single level domain is functioning correctly.
 
 **Q: Are Forests with disjoint AD domains supported?**  
 No, Azure AD Connect does not support on-premises forests that contain disjoint namespaces.

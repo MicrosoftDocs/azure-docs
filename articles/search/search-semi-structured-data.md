@@ -1,5 +1,5 @@
 ---
-title: Search semi-structured data in Azure cloud storage  in Azure Search | Microsoft Docs
+title: Tutorial for searching semi-structured data from Azure cloud storage in Azure Search | Microsoft Docs
 description: In this tutorial, learn how to search semi-structured Azure blob data using Azure Search.
 author: HeidiSteen
 manager: cgronlun
