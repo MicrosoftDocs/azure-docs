@@ -391,8 +391,9 @@ Browse to the deployed web app.
 ```bash 
 http://<app_name>.azurewebsites.net 
 ```
+
 > [!NOTE]
-> The web app takes longer to load because the container has to be downloaded and started after the container configuration is changed. If at first you see an error after a long time, just refresh the page.
+> The web app takes some time to start because the container has to be downloaded and run when the app is requested the first time. If at first you see an error after a long time, just refresh the page.
 
 You see previously registered guests that were saved to the Azure production database in the previous step.
 
