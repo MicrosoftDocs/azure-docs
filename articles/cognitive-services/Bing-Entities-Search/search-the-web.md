@@ -39,6 +39,8 @@ For an example request, see [Making your first request](./quick-start.md).
 ## The response
 
 The response contains a [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) object. If Bing finds an entity or place that's relevant, the object includes the `entities` field, `places` field, or both. Otherwise, the response object does not include either field.
+> [!NOTE]
+> Entity responses support multiple markets, but the Places response supports only US Business locations. 
 
 The `entities` field is an [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) object that contains a list of [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) objects (see the `value` field). The list may contain a single dominant entity, multiple disambiguation entities, or both. 
 
@@ -183,6 +185,8 @@ Places include restaurant, hotels, or local businesses. The [entityPresentationI
     "Restaurant"]
 }, ...
 ```
+> [!NOTE]
+> Entity responses support multiple markets, but the Places response supports only US Business locations. 
 
 Local aware entity queries such as *restaurant near me* require the user's location to provide accurate results. Your requests should always use the X-Search-Location and X-MSEdge-ClientIP headers to specify the user's location. If Bing thinks the query would benefit from the user's location, it sets the `askUserForLocation` field of [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) to **true**. 
 

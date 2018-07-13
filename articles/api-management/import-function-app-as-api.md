@@ -53,6 +53,24 @@ In this article, you learn how to:
     * **Unlimited**   
 7. Select **Create**.
 
+## Populate Azure Functions keys in Azure API Management
+
+If the imported Azure Functions are protected by keys, Azure API Management automatically creates **Named values** for them, but it does not populate the entries with secrets. For each entry you need to perform the steps below.  
+
+1. Navigate to the **Named values** tab in the API Management instance.
+2. Click on an entry and press **Show value** in the sidebar.
+
+    ![Named values](./media/import-function-app-as-api/apim-named-values.png)
+
+3. If the content resembles *code for {Azure Function name}*, head to the imported Azure Functions App and navigate to your Azure Function.
+4. Go the **Manage** section of the desired Azure Function and copy the relevant key, based on your Azure Function's authentication method.
+
+    ![Function app](./media/import-function-app-as-api/azure-functions-app-keys.png)
+
+5. Paste the key in the textbox from the **Named values** and click **Save**.
+
+    ![Function app](./media/import-function-app-as-api/apim-named-values-2.png)
+
 ## Test the new APIM API in the Azure portal
 
 Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.  
