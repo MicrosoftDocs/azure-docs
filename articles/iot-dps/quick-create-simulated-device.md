@@ -102,7 +102,7 @@ In this section, you will build the Azure IoT C SDK, which includes the TPM devi
 
 ## Read cryptographic keys from the TPM device
 
-In this section, you will build and execute a sample that will read the endorsement key and Registration ID from the TPM simulator you left running and listening over ports 2321 and 2322. These values will then be used with device enrollment in the Device Provisioning Service instance.
+In this section, you will build and execute a sample that will read the endorsement key and Registration ID from the TPM simulator you left running and listening over ports 2321 and 2322. These values will then be used with device enrollment with the Device Provisioning Service instance.
 
 1. Launch Visual Studio and open the new solution file named `azure_iot_sdks.sln`. This solution file is located in the `cmake` folder you previously created in the root of the azure-iot-sdk-c git repository.
 
@@ -116,7 +116,6 @@ In this section, you will build and execute a sample that will read the endorsem
 <a id="portalenrollment"></a>
 
 ## Create a device enrollment entry in the portal
-
 
 1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
@@ -139,7 +138,7 @@ In this section, you will build and execute a sample that will read the endorsem
 
 ## Simulate first boot sequence for the device
 
-In this section, you will configure sample code to use the [Advanced Message Queuing Protocol (AMQP)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) to send the device's boot sequence to your Device Provisioning Service instance. This will cause the device to be assigned to an IoT hub linked to the Device Provisioning Service instance.
+In this section, you will configure sample code to use the [Advanced Message Queuing Protocol (AMQP)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized and assigned to an IoT hub linked to the Device Provisioning Service instance.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and copy the **_ID Scope_** value.
 
