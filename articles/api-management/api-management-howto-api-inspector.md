@@ -45,7 +45,7 @@ In this tutorial, you learn how to:
     ![API tracing header](media/api-management-howto-api-inspector/api-management-tracing-header.png)
 
     > [!NOTE]
-    > If Ocp-Apim-Subscription-Key is not automatically populated, you can retrieve it by going to the Developer Portal and exposing the keys under your subscriptions in the profile administrative panel.
+    > If Ocp-Apim-Subscription-Key is not automatically populated, you can retrieve it by going to the Developer Portal and exposing the keys on the profile page.
 
 6. Click **"Send"** to make an API call. 
 7. Wait for the call to complete. 
