@@ -119,9 +119,9 @@ In this section, you will build and execute a sample that will read the endorsem
 
 1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-2. On the Device Provisioning Service summary page, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
+2. On the Device Provisioning Service summary, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
-3. On the **Add enrollment** page, enter the following information, and click the **Save** button.
+3. On **Add enrollment**, enter the following information, and click the **Save** button.
 
     - **Mechanism:** Select **TPM** as the identity attestation *Mechanism*.
     - **Endorsement key:** Enter the *Endorsement key* you generated for your TPM device by running the *tpm_device_provision* project.
@@ -195,7 +195,7 @@ In this section, you will configure sample code to use the [Advanced Message Que
     test-docs-hub.azure-devices.net, deviceId: test-docs-device
     ```
 
-8. Once the simulated device is provisioned to the IoT hub by your provisioning service, the device ID appears on the hub's **IoT Devices** page. 
+8. Once the simulated device is provisioned to the IoT hub by your provisioning service, the device ID appears with the hub's **IoT Devices**. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device/hub-registration.png) 
 
@@ -206,8 +206,8 @@ If you plan to continue working on and exploring the device client sample, do no
 
 1. Close the device client sample output window on your machine.
 2. Close the TPM simulator window on your machine.
-3. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** page for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
-4. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. Open the **IoT Devices** page for your hub, select the *DEVICE ID* of the device you registered in this Quickstart, and then click **Delete** button at the top.
+3. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. Open **Manage Enrollments** for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
+4. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. Open **IoT Devices** for your hub, select the *DEVICE ID* of the device you registered in this Quickstart, and then click **Delete** button at the top.
 
 ## Next steps
 
