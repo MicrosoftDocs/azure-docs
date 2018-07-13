@@ -174,18 +174,18 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 Next, specify the digest you wish to delete in the [az acr repository delete][az-acr-repository-delete] command. The format of the command is:
 
 ```azurecli
-az acr repository delete --name myregistry --image repository@digest
+az acr repository delete --name <acrName> --image <repositoryName>@<digest>
 ```
 
-For example, to delete the last manifest listed in the preceding output (with the tag "v1"):
+For example, to delete the last manifest listed in the preceding output (with the tag "v2"):
 
 ```console
-$ az acr repository delete --name myregistry --image acr-helloworld@sha256:7ca0e0ae50c95155dbb0e380f37d7471e98d2232ed9e31eece9f9fb9078f2728
-This operation will delete the manifest 'sha256:7ca0e0ae50c95155dbb0e380f37d7471e98d2232ed9e31eece9f9fb9078f2728' and all the following images: 'acr-helloworld:v1'.
+$ az acr repository delete --name myregistry --image acr-helloworld@sha256:3168a21b98836dda7eb7a846b3d735286e09a32b0aa2401773da518e7eba3b57
+This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d735286e09a32b0aa2401773da518e7eba3b57' and all the following images: 'acr-helloworld:v2'.
 Are you sure you want to continue? (y/n): y
 ```
 
-The "acr-helloworld:v1" image is deleted from the registry, as is any layer data unique to that image. If a manifest is associated with multiple tags, all associated tags are also deleted.
+The "acr-helloworld:v2" image is deleted from the registry, as is any layer data unique to that image. If a manifest is associated with multiple tags, all associated tags are also deleted.
 
 ## Delete untagged images
 
@@ -233,7 +233,7 @@ As you can see in the output of the last step in the sequence, there is now an o
 
 ### List untagged images
 
-You can list all untagged images in your repository using the following Azure CLI command. Replace the `<acrName>` and `<repositoryName>` values with those appropriate for your environment.
+You can list all untagged images in your repository using the following Azure CLI command. Replace `<acrName>` and `<repositoryName>` with values appropriate for your environment.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>  --query "[?tags==null].digest"
