@@ -280,7 +280,7 @@ fi
 
 **Azure CLI in PowerShell**
 
-The following PowerShell script deletes all untagged images from a repository. It requires the PowerShell and the Azure CLI. By default, the script performs no deletion. Change the `$enableDelete` value to `true` to enable image deletion.
+The following PowerShell script deletes all untagged images from a repository. It requires the PowerShell and the Azure CLI. By default, the script performs no deletion. Change the `$enableDelete` value to `$TRUE` to enable image deletion.
 
 > [!WARNING]
 > If you have systems that pull images by manifest digest (as opposed to image name), you should not run this script. Deleting untagged images will prevent those systems from pulling the images from your registry.
@@ -290,8 +290,8 @@ The following PowerShell script deletes all untagged images from a repository. I
 # Run only if you do not have systems
 # that pull images via manifest digest.
 
-# Change to 'true' to enable image delete
-$enableDelete = false
+# Change to '$TRUE' to enable image delete
+$enableDelete = $FALSE
 
 # Modify for your environment
 $registry = "myregistry"
