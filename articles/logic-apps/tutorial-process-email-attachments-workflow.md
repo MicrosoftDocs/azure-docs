@@ -1,24 +1,21 @@
 ---
-title: Build workflows to process emails and attachments - Azure Logic Apps | Microsoft Docs
-description: This tutorial shows how to create automated workflows for processing emails and attachments with Azure Logic Apps, Azure Storage, and Azure Functions
-author: ecfan
-manager: jeconnoc
-editor: 
+# required metadata
+title: Build workflows that process emails and attachments - Azure Logic Apps | Microsoft Docs
+description: This tutorial shows how to create automated workflows so you can process emails and attachments with Azure Logic Apps, Azure Storage, and Azure Functions
 services: logic-apps
-documentationcenter: 
-
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/12/2018
-ms.author: LADocs; estfan
+ms.date: 07/20/2018
+
+# optional metadta
+ms.reviewer: klam, LADocs
 ---
 
-# Process emails and attachments with a logic app
+# Process emails and attachments with Azure Logic Apps
 
 Azure Logic Apps helps you automate workflows and integrate data across Azure services, 
 Microsoft services, other software-as-a-service (SaaS) apps, and on-premises systems. 
@@ -79,47 +76,59 @@ an [Azure storage container](../storage/common/storage-introduction.md).
 with these settings:
 
    | Setting | Value | Description | 
-   | ------- | ----- | ----------- | 
+   |---------|-------|-------------| 
    | **Name** | attachmentstorageacct | The name for your storage account | 
    | **Deployment model** | Resource manager | The [deployment model](../azure-resource-manager/resource-manager-deployment-model.md) for managing resource deployment | 
    | **Account kind** | General purpose | The [storage account type](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
-   | **Performance** | Standard | This setting specifies the data types supported and media for storing data. See [Types of storage accounts](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
+   | **Location** | West US | The region where to store information about your storage account | 
    | **Replication** | Locally redundant storage (LRS) | This setting specifies how your data is copied, stored, managed, and synchronized. See [Replication](../storage/common/storage-introduction.md#replication). | 
+   | **Performance** | Standard | This setting specifies the data types supported and media for storing data. See [Types of storage accounts](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Secure transfer required** | Disabled | This setting specifies the security required for requests from connections. See [Require secure transfer](../storage/common/storage-require-secure-transfer.md). | 
    | **Subscription** | <*your-Azure-subscription-name*> | The name for your Azure subscription | 
    | **Resource group** | LA-Tutorial-RG | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize and manage related resources. <p>**Note:** A resource group exists inside a specific region. Although the items in this tutorial might not be available in all regions, try to use the same region when possible. | 
-   | **Location** | East US 2 | The region where to store information about your storage account | 
    | **Configure virtual networks** | Disabled | For this tutorial, keep the **Disabled** setting. | 
    |||| 
 
-   You can also use [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) 
+   To create your storage account, you can also use 
+   [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) 
    or [Azure CLI](../storage/common/storage-quickstart-create-storage-account-cli.md).
-  
+
 2. After Azure deploys your storage account, 
 get your storage account's access key:
 
-   1. On your storage account menu, under **Settings**, choose **Access keys**. 
-   2. Find **key1** under **Default keys** and your storage account name.
+   1. On your storage account menu, under **Settings**, 
+   select **Access keys**. 
+
+   2. Copy your storage account name and **key1**, 
+   and then save those values somewhere safe.
 
       ![Copy and save storage account name and key](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   You can also use [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az_storage_account_keys_list). 
+   To get your storage account's access key, you can also use 
+   [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 
+   or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az_storage_account_keys_list). 
 
-3. Create a storage container for your email attachments.
+3. Create a blob storage container for your email attachments.
    
-   1. On your storage account menu, on the **Overview** pane, 
-   choose **Blobs** under **Services**, then choose **+ Container**.
+   1. On your storage account menu, select **Overview**. 
+   Under **Services**, select **Blobs**.
 
-   2. Enter "attachments" as your container name. Under **Public access level**, 
-   select **Container (anonymous read access for containers and blobs)**, 
-   and choose **OK**.
+      ![Add blob storage container](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
-   You can also use [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer), 
+   2. After the **Containers** page opens, on the toolbar, select **Container**. 
+
+   3. Under **New container**, enter "attachments" as your container name. 
+   Under **Public access level**, select **Container (anonymous read access for containers and blobs)**, 
+   and then choose **OK**.
+
+      When you're done, you can find your storage container 
+      in your storage account here in the Azure portal:
+
+      ![Finished storage container](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
+
+   To create a storage container, you can also use 
+   [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer), 
    or [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_create). 
-   When you're done, you can find your storage container 
-   in your storage account here in the Azure portal:
-
-   ![Finished storage container](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
 Next, connect Storage Explorer to your storage account.
 
@@ -169,38 +178,49 @@ with these settings:
    | **Subscription** | <*your-Azure-subscription-name*> | The same Azure subscription that you previously used | 
    | **Resource Group** | LA-Tutorial-RG | The same Azure resource group that you previously used | 
    | **Hosting Plan** | Consumption Plan | This setting determines how to allocate and scale resources, such as computing power, for running your function app. See [hosting plans comparison](../azure-functions/functions-scale.md). | 
-   | **Location** | East US 2 | The same region that you previously used | 
+   | **Location** | West US | The same region that you previously used | 
    | **Storage** | cleantextfunctionstorageacct | Create a storage account for your function app. Use only lowercase letters and numbers. <p>**Note:** This storage account contains your function apps, and differs from your previously created storage account for email attachments. | 
-   | **Application Insights** | Off | Turns on application monitoring with [Application Insights](../application-insights/app-insights-overview.md), but for this tutorial, keep the **Off** setting. | 
+   | **Application Insights** | Off | Turns on application monitoring with [Application Insights](../application-insights/app-insights-overview.md), but for this tutorial, choose the **Off** setting. | 
    |||| 
 
    If your function app doesn't automatically open after deployment, 
-   find your app in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>. On the main Azure menu, choose **App Services**, and select your function app.
+   find your app in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>. On the main Azure menu, select **Function Apps**, 
+   and select your function app. 
 
-   ![Created function app](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
+   ![Select function app](./media/tutorial-process-email-attachments-workflow/select-function-app.png)
 
-   If **App Services** doesn't appear on the Azure menu, 
-   go to **More services** instead. In the search box, 
+   If **Function Apps** doesn't appear on the Azure menu, 
+   go to **All services** instead. In the search box, 
    find and select **Function Apps**. For more information, see 
    [Create your function](../azure-functions/functions-create-first-azure-function.md).
 
-   You can also use [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md), 
+   Otherwise, Azure automatically opens your function app as shown here:
+
+   ![Created function app](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
+
+   To create a function app, you can also use 
+   [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md), 
    or [PowerShell and Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md).
 
 2. Under **Function Apps**, expand **CleanTextFunctionApp**, 
 and select **Functions**. On the functions toolbar, 
-choose **+ New function**.
+select **New function**.
 
    ![Create new function](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
 3. Under **Choose a template below or go to the quickstart**, 
-select the **HttpTrigger - C#** function template.
+open the **Scenario** list, select **Core**. 
+In the **HTTP Trigger** template, select **C#**.
 
    ![Select function template](./media/tutorial-process-email-attachments-workflow/function-select-httptrigger-csharp-function-template.png)
 
-4. Under **Name your function**, enter ```RemoveHTMLFunction```. 
-Under **HTTP trigger** > **Authorization level**, 
-keep the default **Function** value, and choose **Create**.
+   > [!NOTE]
+   > This example provides you the C# sample code so you 
+   > can follow the example without having to know C#.
+
+4. In the **New Function** pane, under **Name**, 
+enter ```RemoveHTMLFunction```. Keep **Authorization level** 
+set to **Function**, and choose **Create**.
 
    ![Name your function](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
 
