@@ -21387,17 +21387,17 @@
         },
         {
             "source_path": "articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
@@ -21406,8 +21406,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-hub/iot-hub-csharp-node-firmware-update.md",
-            "redirect_url": "/azure/iot-hub/iot-hub-node-node-firmware-update",
+            "source_path": "articles/iot-hub/iot-hub-csharp-csharp-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-java-java-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-node-node-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-python-python-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
             "redirect_document_id": false
         },
         {
@@ -21422,12 +21437,12 @@
         },
         {
             "source_path": "articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-python-python-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
