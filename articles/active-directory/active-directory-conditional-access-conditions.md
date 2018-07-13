@@ -45,7 +45,7 @@ The users and groups condition is mandatory in a conditional access policy. In y
 
 ![Control](./media/active-directory-conditional-access-conditions/111.png)
 
-When you select **All users**, your policy is applied to all users in the directory. This includes guest users.
+When you select **All users**, your policy is applied to all users in the directory, including guest users.
 
 When you **Select users and groups**, you can set the following options:
 
@@ -53,7 +53,7 @@ When you **Select users and groups**, you can set the following options:
 
 * **Directory roles** targets a policy based on a user’s role assignment. This condition supports directory roles like *Global administrator* or *Password administrator*.
 
-* **Users and groups** targets specific sets of users. For example, you can select a group that contains all members of the HR department when you have an HR app selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups.
+* **Users and groups** targets specific sets of users. For example, you can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups.
 
 You can also exclude specific users or groups from a policy. One common use case is service accounts if your policy enforces multifactor authentication (MFA). 
 
@@ -63,7 +63,7 @@ Targeting specific sets of users is useful for the deployment of a new policy. I
 
 ## Cloud apps 
 
-A cloud app is a website or service. This includes websites protected by the Azure AD Application Proxy. For a detailed description of the supported cloud apps, see [cloud apps assignment](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments). 	
+A cloud app is a website or service. Websites protected by the Azure AD Application Proxy are also cloud apps. For a detailed description of supported cloud apps, see [cloud apps assignment](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments). 	
 
 The cloud apps condition is mandatory in a conditional access policy. In your policy, you can either select **All cloud apps** or select specific apps.
 
@@ -118,8 +118,8 @@ If you want to block access for unmanaged devices, implement [device-based condi
 
 ## Locations
 
-By using locations, you have the option to define conditions based on where a connection attempt was initiated. 
-     
+By using locations, you can define conditions based on where a connection was attempted. 
+
 ![Conditions](./media/active-directory-conditional-access-conditions/25.png)
 
 Common use cases for this condition are policies with the following protections:
@@ -151,7 +151,7 @@ Common use cases for this condition are policies with the following protections:
 
 - Block access from web applications but allow access from mobile and desktop applications.
 
-In addition to web SSO and modern authentication protocols, you can apply this condition to mail applications that use Microsoft Exchange ActiveSync, like the native mail apps on most smartphones. Currently, client apps that use legacy protocols need to be secured by using Azure AD Federation Services.
+You can apply this condition to web SSO and modern authentication protocols. You can also apply it to mail applications that use Microsoft Exchange ActiveSync. Examples are the native mail apps on most smartphones. Currently, client apps that use legacy protocols need to be secured by using Azure AD Federation Services.
 
 You can only select the client apps condition if **Microsoft Office 365 Exchange Online** is the only cloud app you've selected.
 
@@ -193,12 +193,12 @@ Conditional access now applies to older Microsoft Office clients that don't supp
 
 **Q:** Will this authentication block Microsoft Exchange Web Services?
 
-It depends on the authentication protocol that Exchange Web Services uses. If the Exchange Web Services application uses modern authentication, it will be covered by the **Mobile apps and desktop clients** client app. If the Exchange Web Services application uses basic authentication, it will be covered by the **Other clients** client app.
+It depends on the authentication protocol that Exchange Web Services uses. If the Exchange Web Services application uses modern authentication, it's covered by the **Mobile apps and desktop clients** client app. Basic authentication is covered by the **Other clients** client app.
 
 
 **Q:** What controls can I use for **Other clients**?
 
-Any control can be configured for **Other clients**. However, the end user experience will be blocked access for all cases. **Other clients** don't support controls like MFA, compliant device, and domain join. 
+Any control can be configured for **Other clients**. However, the end-user experience will be blocked access for all cases. **Other clients** don't support controls like MFA, compliant device, and domain join. 
  
 **Q:** What conditions can I use for **Other clients**?
 
