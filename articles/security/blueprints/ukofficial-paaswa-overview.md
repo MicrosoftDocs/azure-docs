@@ -20,7 +20,7 @@ Azure Blueprints consist of guidance documents and automation templates that dep
 
 This Azure Security and Compliance Blueprint provides guidance and automation scripts to deliver a Microsoft Azure [platform as a service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) hosted three-tier web application architecture appropriate for handling workloads classified as [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/251480/Government-Security-Classifications-April-2014.pdf). This security classification encompasses the majority of information created or processed by the public sector. This includes routine business operations and services, which if lost, stolen or published in the media, some of which could have damaging consequences. The typical threat profile for the OFFICIAL classification is much the same as a private business who provides valuable information and services. UK OFFICIAL anticipates the need to defend UK Government data or services against threat or compromise by attackers with bounded capabilities and resources such as (but is not limited to) hactivists, single-issue pressure groups, investigative journalists, competent individual hackers, and the majority of criminal individuals and groups.
 
-The architecture uses Azure [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) components to deliver an environment that allows customers to avoid the expense and complexity of buying and managing software licences, the underlying application infrastructure and middleware or the development tools, and other resources. Customers manage the applications and services that they develop, focusing on delivering business value, whilst Microsoft typically manages the other Azure resources such as virtual machines, storage and networking, putting more of the [division of responsibility](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) for infrastructure management on to the Azure platform. [Azure App Services](https://azure.microsoft.com/services/app-service/) offers auto-scaling, high availability, supports Windows and Linux, and enables automated deployments from GitHub, Visual Studio Team Services, or any Git repository as default services. Through using App Services, developers can concentrate on delivering business value without the overhead of managing infrastructure. It is possible to build greenfield new Java, PHP, Node.js, Python, HTML or C# web applications or also to migrate existing web applications to Azure App Services (although thorough due diligence and testing is to confirm performance is required).
+The architecture uses Azure [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) components to deliver an environment that allows customers to avoid the expense and complexity of buying and managing software licenses, the underlying application infrastructure and middleware or the development tools, and other resources. Customers manage the applications and services that they develop, focusing on delivering business value, whilst Microsoft typically manages the other Azure resources such as virtual machines, storage and networking, putting more of the [division of responsibility](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) for infrastructure management on to the Azure platform. [Azure App Services](https://azure.microsoft.com/services/app-service/) offers auto-scaling, high availability, supports Windows and Linux, and enables automated deployments from GitHub, Visual Studio Team Services, or any Git repository as default services. Through using App Services, developers can concentrate on delivering business value without the overhead of managing infrastructure. It is possible to build greenfield new Java, PHP, Node.js, Python, HTML or C# web applications or also to migrate existing web applications to Azure App Services (although thorough due diligence and testing to confirm performance is required).
 
 This blueprint focuses on the provisioning of a secure foundation [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) web-based interface for public and also back office users. This blueprint design scenario considers the use of Azure hosted web-based services where a public user can securely submit, view, and manage sensitive data; also that a back office or government operator can securely process the sensitive data that the public user has submitted. Use cases for this scenario could include:
 
@@ -28,7 +28,7 @@ This blueprint focuses on the provisioning of a secure foundation [platform as a
 - A citizen requesting a service through a web-based application, with a back office user validating and delivering the service; or
 - A citizen seeking and viewing public domain help information concerning a government service.
 
-Using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) templates and Azure Command Line Interface scripts, the blueprint deploys an environment that aligns to the UK National Cyber Security Centre (NCSC) 14 [Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) and the Center for Internet Security (CIS) [Critical Security Controls](https://www.cisecurity.org/critical-controls.cfm). The NCSC recommend their Cloud Security Principles be used by customers to evaluate the security properties of the service and to help understand the division of responsibility between the customer and supplier. Microsoft has provided information against each of these principles to help better understand the split of responsibilities. This architecture and corresponding Azure Resource Manager templates are supported by the Microsoft whitepaper, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). This architecture has been reviewed by the NCSC, and aligns with the UK NCSC 14 Cloud Security Principles, thus enabling public sector organisations to fast-track their ability to meet compliance obligations using cloud-based services globally and in the UK on the Microsoft Azure cloud. This template deploys the infrastructure for the workload. Application code and supporting business tier and data tier software must be installed and configured. Detailed deployment instructions are available [here](https://aka.ms/ukofficial-paaswa-repo/).
+Using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) templates and Azure Command Line Interface scripts, the blueprint deploys an environment that aligns to the UK National Cyber Security Centre (NCSC) 14 [Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) and the Center for Internet Security (CIS) [Critical Security Controls](https://www.cisecurity.org/critical-controls.cfm). The NCSC recommends their Cloud Security Principles be used by customers to evaluate the security properties of the service and to help understand the division of responsibility between the customer and supplier. Microsoft has provided information against each of these principles to help better understand the split of responsibilities. This architecture and corresponding Azure Resource Manager templates are supported by the Microsoft whitepaper, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). This architecture has been reviewed by the NCSC, and aligns with the UK NCSC 14 Cloud Security Principles, thus enabling public sector organizations to fast-track their ability to meet compliance obligations using cloud-based services globally and in the UK on the Microsoft Azure cloud. This template deploys the infrastructure for the workload. Application code and supporting business tier and data tier software must be installed and configured. Detailed deployment instructions are available [here](https://aka.ms/ukofficial-paaswa-repo/).
 
 This blueprint is a foundation architecture. Our customers can use this blueprint as a foundation for their OFFICIAL classification web-based workloads and expand on the templates and resources with their own requirements. This blueprint builds on the principles of the [UK-OFFICAL Three-Tier IaaS Web Applications blueprint](https://aka.ms/ukofficial-iaaswa) to offer our customers both [infrastructure as a service (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/) and PaaS implementation choices for hosting web-based workloads.
 
@@ -55,7 +55,7 @@ This solution uses the following Azure services. Details of the deployment archi
 - Application Insights
 - Log Analytics
 - Azure Resource Manager
-- Azure Security Centre
+- Azure Security Center
 - Azure SQL Database
 - Azure Storage
 
@@ -78,7 +78,7 @@ The following technologies provide identity management capabilities in the Azure
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detects potential vulnerabilities and risky accounts provides recommendations to enhance the security posture of your organization’s identities, configures automated responses to detected suspicious actions related to your organization’s identities, and investigates suspicious incidents and takes appropriate action to resolve them.
 - [Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) enables precisely focused access management for Azure. Subscription access is limited to the subscription administrator, and Azure Key Vault access is restricted only to users who require key management access.
 - Through leveraging [Azure Active Directory Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) customers can enforce additional security controls on access to apps or users in their environment based on specific conditions such as location, device, state and sign in risk.
-- [Azure DDoS Protection](https://docs.microsoft.com/azure/security/security-paas-deployments#security-advantages-of-a-paas-cloud-service-model) combined with application design best practices, provides defence against DDoS attacks, with always-on traffic monitoring, and real-time mitigation of common network-level attacks. With a PaaS architecture, platform level DDoS protection is transparent to the customer and incorporated into the platform but it is important to note that the application security design responsibility lies with the customer.
+- [Azure DDoS Protection](https://docs.microsoft.com/azure/security/security-paas-deployments#security-advantages-of-a-paas-cloud-service-model) combined with application design best practices, provides defense against DDoS attacks, with always-on traffic monitoring, and real-time mitigation of common network-level attacks. With a PaaS architecture, platform level DDoS protection is transparent to the customer and incorporated into the platform but it is important to note that the application security design responsibility lies with the customer.
 
 #### Data in transit
 
@@ -88,7 +88,7 @@ Data is transit from outside and between Azure components is protected using [Tr
 
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.
 
-[Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyses your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
 
 [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. This by default is installed on the underlying PaaS virtual machine infrastructure and is managed by the Azure fabric transparently to the customer, ensuring
 
@@ -96,7 +96,7 @@ Data is transit from outside and between Azure components is protected using [Tr
 
 #### Azure App Service
 
-Azure Web Apps provides a fully managed web hosting environment for web application developed in Java, PHP, Node.js Python, HTML and C# without having to manage infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from [Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services/) or any Git based repo.
+Azure Web Apps provides a fully managed web hosting environment for web application developed in Java, PHP, Node.js Python, HTML and C# without having to manage infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from [Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services/) or any Git-based repo.
 
 App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/) and can authenticate users with [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) or with social login ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), and [Microsoft authentication](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
 
@@ -165,7 +165,7 @@ Detailed information about securing Azure Storage can be found in the [security 
 
 #### Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) is a service in Azure that helps you collect and analyse data generated by resources in your cloud and on-premises environments.
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) is a service in Azure that helps you collect and analyze data generated by resources in your cloud and on-premises environments.
 
 #### Log Analytics in this blueprint
 
@@ -176,7 +176,7 @@ Detailed information about securing Azure Storage can be found in the [security 
 
 #### Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Used to monitor live web applications it will automatically detect performance anomalies, analyse performance, diagnose issues and to understand how user interact with the app. Application Insights can be deployed on platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It integrates with your DevOps process, and has connection points to a variety of development tools.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Used to monitor live web applications it will automatically detect performance anomalies, analyze performance, diagnose issues and to understand how users interact with the app. Application Insights can be deployed on platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It integrates with your DevOps process, and has connection points to a variety of development tools.
 
 #### Application Insights in this blueprint
 
@@ -202,7 +202,7 @@ The data flow diagram for this reference architecture is available for [download
 
 The Crown Commercial Service (an agency that works to improve commercial and procurement activity by the government) renewed the classification of Microsoft in-scope enterprise cloud services to G-Cloud v6, covering all its offerings at the OFFICIAL level. Details of Azure and G-Cloud can be found in the [Azure UK G-Cloud security assessment summary](https://www.microsoft.com/trustcenter/compliance/uk-g-cloud).
 
-This blueprint aligns to the 14 cloud security principles that are documented in the NCSC [Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) to help ensure an environment that supports workloads classified as UK OFFICIAL .
+This blueprint aligns to the 14 cloud security principles that are documented in the NCSC [Cloud Security Principles](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) to help ensure an environment that supports workloads classified as UK OFFICIAL.
 
 The [Azure Security and Compliance Blueprint - UK OFFICIAL Customer Responsibility Matrix](https://aka.ms/ukofficial-crm) (Excel Workbook) lists all 14 cloud security principles and denotes, for each principle (or principle subpart), whether the principle implementation is the responsibility of Microsoft, the customer, or shared between the two.
 
@@ -210,7 +210,7 @@ The [Azure Security and Compliance Blueprint - Three-Tier PaaS Web Application f
 
 Furthermore, the Cloud Security Alliance (CSA) published the Cloud Control Matrix to support customers in the evaluation of cloud providers and to identify questions that should be answered before moving to cloud services. In response, Microsoft Azure answered the CSA Consensus Assessment Initiative Questionnaire ([CSA CAIQ](https://www.microsoft.com/TrustCenter/Compliance/CSA)), which describes how Microsoft addresses the suggested principles.
 
-## Third Party Assessment
+## Third-party assessment
 
 This blueprint has been reviewed by the UK National Cyber Security Centre (NCSC) and aligns to the NCSC 14 Cloud Security Principles
 
@@ -222,7 +222,7 @@ The automation templates have been tested by the UK Customer Success Unit Azure 
 This Azure Security and Compliance Blueprint Automation is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available here.
 Quickstart
 
-Three approaches have been provided for deployment; A simple "express" [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) suitable for quickly building a test environment; a parameterised [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) approach providing greater configuration for workload environments; and an Azure Portal based deployment where the operator can specify the deployment parameters through the Azure portal. 
+Three approaches have been provided for deployment; A simple "express" [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) suitable for quickly building a test environment; a parameterized [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) approach providing greater configuration for workload environments; and an Azure portal based deployment where the operator can specify the deployment parameters through the Azure portal. 
 
 1.	Clone or download [this](https://aka.ms/ukofficial-paaswa-repo) GitHub repository to your local workstation.
 2.	Review [Method 1: Azure CLI 2 (Express version)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) and execute the provided commands.
@@ -237,7 +237,7 @@ Three approaches have been provided for deployment; A simple "express" [Azure CL
 
 ### Azure B2C
 
-[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/  may be implemented as a control to allow users to register, create an identity and enable authorisation and access control for the public web application.
+[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/  may be implemented as a control to allow users to register, create an identity and enable authorization and access control for the public web application.
 
 ## Disclaimer
 
