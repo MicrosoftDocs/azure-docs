@@ -85,7 +85,7 @@ Open a web browser and navigate to the team project you just created in [Visual 
     
     ![Add a NuGet task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-nuget.png)
 
-7. Expand **Advanced** and add `$(Build.SourcesDirectory)\packages` to **Destination directory**. Keep the remaining the default NuGet configuration values.
+7. Expand **Advanced** and add `$(Build.SourcesDirectory)\packages` to **Destination directory**. Keep the remaining default NuGet configuration values.
 
    ![Configure NuGet task](./media/stream-analytics-tools-for-visual-studio-cicd-vsts/build-nuget-config.png)
 
