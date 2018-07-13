@@ -195,45 +195,88 @@ When first writing and testing batch files, it is best to start with a few utter
 
     ```JSON
     [
-        {
-            "text": "Are there any janitorial jobs currently open?",
-            "intent": "GetJobInformation",
-            "entities": [{
-            "entity": "Job",
-            "startPos": 14,
-            "endPos": 23
-            }
-            ]
-        },
-        {
-            "text": "I would like a fullstack typescript programming with azure job",
-            "intent": "GetJobInformation",
-            "entities": [{
-            "entity": "Job",
-            "startPos": 15,
-            "endPos": 46
-            }
-            ]
-        },
-        {
-            "text": "Is there a database position open in Los Colinas?",
-            "intent": "GetJobInformation",
-            "entities": [{
-            "entity": "Job",
-            "startPos": 11,
-            "endPos": 18
-            }]
-        },
-        {
-            "text": "Please find database jobs open today in Seattle",
-            "intent": "GetJobInformation",
-            "entities": [{
-            "entity": "Job",
-            "startPos": 12,
-            "endPos": 19
-            }
-            ]
-        }
+    {
+        "text": "I'm a registered nurse. Here is my resume.",
+        "intent": "ApplyForJob",
+        "entities": [{
+        "entity": "Job",
+        "startPos": 6,
+        "endPos": 21
+        }]
+    },
+    {
+        "text": "I'm a database analyst. Here is my resume.",
+        "intent": "ApplyForJob",
+        "entities": [{
+        "entity": "Job",
+        "startPos": 6,
+        "endPos": 21
+        }]
+    },
+    {
+        "text": "I'm a SQL Server programmer. Here is my resume.",
+        "intent": "ApplyForJob",
+        "entities": [{
+        "entity": "Job",
+        "startPos": 6,
+        "endPos": 26
+        }]
+    },
+    {
+        "text": "I'm a registered nurse. Are there any open jobs.",
+        "intent": "GetJobInformation",
+        "entities": [{
+        "entity": "Job",
+        "startPos": 6,
+        "endPos": 21
+        }]
+    },
+    {
+        "text": "I'm a database analyst. Are there any open jobs.",
+        "intent": "GetJobInformation",
+        "entities": [{
+        "entity": "Job",
+        "startPos": 6,
+        "endPos": 21
+        }]
+    },
+    {
+        "text": "Are there any open jobs for a SQL Server programmer?",
+        "intent": "GetJobInformation",
+        "entities": [{
+        "entity": "Job",
+        "startPos": 30,
+        "endPos": 50
+        }]
+    },
+    {
+        "text": "Is there any open positions for a costume designer?",
+        "intent": "GetJobInformation",
+        "entities": [{
+        "entity": "Job",
+        "startPos": 34,
+        "endPos": 49
+        }]
+    },
+    {
+        "text": "Are there any open jobs for a SQL programmer?",
+        "intent": "GetJobInformation",
+        "entities": [{
+        "entity": "Job",
+        "startPos": 30,
+        "endPos": 42
+        }]
+    }
+    ,
+    {
+        "text": "Are there any open jobs with SQL?",
+        "intent": "GetJobInformation",
+        "entities": [{
+        "entity": "Job",
+        "startPos": 29,
+        "endPos": 31
+        }]
+    }
     ]
     ```
 
