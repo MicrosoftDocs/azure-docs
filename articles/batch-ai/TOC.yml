@@ -18,7 +18,7 @@
 - name: Concepts
 items:
   - name: Batch AI resources
-  - href: resource-concepts.md
+    href: resource-concepts.md
 - name: How-to guides
   items:
   - name: Migrate to updated API
