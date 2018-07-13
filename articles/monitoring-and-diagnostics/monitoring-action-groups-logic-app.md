@@ -184,7 +184,7 @@ Azure Service Health entries are part of the activity log. The process for creat
    1. Select **+** **New step** and then choose **Add a condition**. Set the following conditions to ensure that the logic app executes only when the input data matches the values below.  When entering the version value into the text box, put quotes around it ("0.1.1") to ensure that it's evaluted as a string and not a numeric type.  The system does not show the quotes if you return to the page, but the underlying code still maintains the string type.   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
-       - `version == 0.1.1`
+       - `version == "0.1.1"`
 
       !["Service Health payload condition"](media/monitoring-action-groups/service-health-payload-condition.png "Service Health payload condition")
 
