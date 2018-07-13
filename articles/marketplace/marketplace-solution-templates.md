@@ -26,6 +26,7 @@ These are transaction offers which are deployed and billed through the Marketpla
 
 Use the Azure app: solution template offer type when your solution requires additional deployment and configuration automation beyond a simple VM. You may automate the provisioning of one or more VMs using Azure apps: solution templates. You may also provision networking and storage resources. Azure apps: solution templates offer type provides automation benefits for single VMs and entire IaaS-based solutions.
 
+## Requirements for Solution Templates
 
 |Requirements |Details  |
 |---------|---------|
