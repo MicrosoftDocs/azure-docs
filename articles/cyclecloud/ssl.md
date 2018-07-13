@@ -2,7 +2,7 @@
 
 ## Enable SSL
 
-SSL can easily be enabled by editing the `CycleCloud Installation Dir/config/cycle_server.properties` file. Please note that when editing the `cycle_server.properties` file, it is important that you first look for pre-existing keyvalue definitions in the file. If there is more than one definition, the **last** one is in effect.
+SSL can easily be enabled by editing the `cycle_server.properties` file found within the CycleCloud installation directory. Please note that when editing the `cycle_server.properties` file, it is important that you first look for pre-existing keyvalue definitions in the file. If there is more than one definition, the **last** one is in effect.
 
 Open the `cycle_server.properties` file with a text editor and set the following values appropriately:
 
