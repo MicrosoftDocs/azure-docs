@@ -15,9 +15,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-In this quickstart, you will learn how to create and run a Trusted Platform Module (TPM) device simulator on a Windows development machine. This simulator will include a [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) for a device. 
-
-You will connect this simulated device to an IoT hub using a Device Provisioning Service instance. Sample code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be used to help enroll the device with a Device Provisioning Service instance.
+In this quickstart, you will learn how to create and run a Trusted Platform Module (TPM) device simulator on a Windows development machine. You will connect this simulated device to an IoT hub using a Device Provisioning Service instance. Sample code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be used to help enroll the device with a Device Provisioning Service instance and simulate a boot sequence for the device.
 
 If you're unfamiliar with the process of auto-provisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. 
 
@@ -102,7 +100,9 @@ In this section, you will build the Azure IoT C SDK, which includes the TPM devi
 
 <a id="simulatetpm"></a>
 
-## Simulate a TPM device
+## Read cryptographic keys from the TPM device
+
+In this section, you will build and execute a sample that will read the endorsement key and Registration ID from the TPM simulator you left running and listening over ports 2321 and 2322. These values will then be used with device enrollment in the Device Provisioning Service instance.
 
 1. Launch Visual Studio and open the new solution file named `azure_iot_sdks.sln`. This solution file is located in the `cmake` folder you previously created in the root of the azure-iot-sdk-c git repository.
 
@@ -117,9 +117,10 @@ In this section, you will build the Azure IoT C SDK, which includes the TPM devi
 
 ## Create a device enrollment entry in the portal
 
+
 1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-2. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
+2. On the Device Provisioning Service summary page, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
 3. On the **Add enrollment** page, enter the following information, and click the **Save** button.
 
@@ -137,6 +138,8 @@ In this section, you will build the Azure IoT C SDK, which includes the TPM devi
 <a id="firstbootsequence"></a>
 
 ## Simulate first boot sequence for the device
+
+In this section, you will configure sample code to use the [Advanced Message Queuing Protocol (AMQP)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) to send the device's boot sequence to your Device Provisioning Service instance. This will cause the device to be assigned to an IoT hub linked to the Device Provisioning Service instance.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and copy the **_ID Scope_** value.
 
