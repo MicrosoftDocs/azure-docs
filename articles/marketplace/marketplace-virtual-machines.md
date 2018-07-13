@@ -1,5 +1,5 @@
 ---  
-title: Virtual Machine Offer Publishing Guide
+title: Virtual Machine Offer Publishing Guide for Azure Marketplace
 description: This article describes the requirements to publish a virtual machine and a software free trial to be deployed from the Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
@@ -18,7 +18,7 @@ ms.author: ellacroi
 
 ---  
 
-#Virtual Machine Offer Publishing Guide
+# Virtual Machine Offer Publishing Guide
 
 Virtual Machine images are one of the main ways to publish a solution in the Azure Marketplace. Use this guide to understand the requirements for this offer. 
 
