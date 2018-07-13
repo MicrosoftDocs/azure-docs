@@ -106,3 +106,7 @@ This does not mean that the extension did not install. You should still be able 
 **When I scale out, I see that all my containers are affected, including my running ones**
 
 This is a bug and should be fixed in the next runtime refresh.
+
+## Next steps
+
+To learn more about Service Fabric Mesh, read the [overview](service-fabric-mesh-overview.md).
