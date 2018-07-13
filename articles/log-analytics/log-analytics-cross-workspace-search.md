@@ -86,7 +86,7 @@ Identifying an application in Application Insights can be accomplished with the 
     ```
 
 ### Performing a query across multiple resources
-You can query multiple resorces from any of your resource instences, these can be workspaces and apps combiled.
+You can query multiple resorces from any of your resource instances, these can be workspaces and apps combined.
     
 Example for query across two workspaces:    
     ```
