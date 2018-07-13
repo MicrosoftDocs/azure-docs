@@ -33,44 +33,76 @@ If you don't have the Human Resources app from the [pattern](luis-tutorial-batch
 If you want to keep the original Human Resources app, clone the version on the [Settings](luis-how-to-manage-versions.md#clone-a-version) page, and name it `roles`. Cloning is a great way to play with various LUIS features without affecting the original version. 
 
 ## The purpose of roles
-The purpose of roles is to extract contextually-related entities in an utterance. In the utterance, `Move Jill Jones from building and office A-1234 to building and office B-4567`, the origin and destination values are related to each other and use common language to denote each location. 
+The purpose of roles is to extract contextually-related entities in an utterance. In the utterance, `Move new employee Robert Williams from Sacramento and San Francisco`, the origin city and destination city values are related to each other and use common language to denote each location. 
 
-In the **MoveEmployee** intent created in the [hierarchical tutorial](luis-quickstart-intent-and-hier-entity.md), the origin and destination locations are contextually related but do not use roles. Instead, the related values are contained inside children of the hierarchical entity. When not using patterns, more example utterances need to be provided for LUIS to learn the intent and entities. 
+With patterns, fewer example utterances are provided to the intent because template utterances are provided. The template utterance can contain entities and entity roles, along with ignorable text.
 
-With patterns, fewer example utterances are provided to the intent because template utterances are used in the patterns. The template utterance can contain entities and entity roles, along with ignorable text.
+### Compare hierarchical entity to simple entity with roles
 
-## Create new entity with roles
+In the previous [hierarchical tutorial](luis-quickstart-intent-and-hier-entity.md), the **MoveEmployee** intent detected when to move an existing employee from one building and office to another. The example utterances had origin and destination locations but do not use roles. Instead, the origin and destination were children of the  hierarchical entity. 
+
+In this tutorial, the Human Resources app will detect utterances about moving new employees from one city to another. 
+
+|Tutorial|Example utterance|
+|--|--|
+|[Hierarchical (no roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from a-2349 to b-1298|
+|This tutorial (with roles)|Move Billy Patterson from Yuma to Denver.|
+
+### Simple entity for new employee name
+The name of the new employee, Billy Patterson, is not part of the list entity **Employee** yet. The new employee name needs to be detected first, in order to send the name to an external system to create the company credentials for the new hire. After that, the employee credentials would be added to the list entity **Employee**.
+
+### Simple entity with roles for relocation cities
+The new employee and his family need to be moved from his current city to a city where the fictitious company is located. Because a new employee can come from any city, the locations need to be discovered.
+
+The **NewEmployee** entity is a simple entity with no roles. The role names need to be unique across all entities. An easy way to make sure the roles are unique is to tie them to the containing entity through a naming strategy. The **NewEmployeeRelocation** entity is a simple entity with two roles: **NewEmployeeReloOrigin** and **NewEmployeeReloDestination**.
+
+### Simple entities need enough examples to be detected
+Because the example utterance `Move new employee Robert Williams from Sacramento and San Francisco` has only machine-learned entities, it is important to provide enough example utterances to the intent so the entities are detected. While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern will not match. 
+
+**While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern will not match.**
+
+If you have difficulty with simple entity detection because it is a name of some kind such as a city, consider adding a phrase list of similar values. This helps the detection of the city name by giving LUIS an additional signal about that type of word or phrase.
+
+## Create new entities
 1. Select **Build** in the top menu.
 
 2. Select **Entities** from the left navigation. 
 
 3. Select **Create new entity**.
 
-4. In the pop-up window, enter `Location`.
+4. In the pop-up window, enter `NewEmployee`.
 
-5. Select **Location** from the entity list.
+5. Select **Create new entity**.
 
-6. Enter the first role as `Origin` and select enter.
+6. In the pop-up window, enter `NewEmployeeRelocation`.
 
-7. Enter the second role as `Destination` and select enter.
+7. Enter the first role as `NewEmployeeReloOrigin` and select enter.
 
-## Remove hierarchical entity 
-A word or phrase is labeled with only one entity. In order to use the new, simple entity of `Location`, the `Locations` hierarchical entity needs to be removed from the composite entity **MoveEmployeeWorkOrder** and then delete the **Locations** entity. 
+8. Enter the second role as `NewEmployeeReloDestination` and select enter.
 
-1. Select **Entities** from the left navigation. 
+## Create new intent
+1. Select **Intents** from the left navigation.
 
-2. Select **MoveEmployeeWorkOrder**. This entity was created in the [composite entity tutorrial](luis-tutorial-composite-entity.md). 
+2. Select **Create new intent**. 
 
-3. Select the garbage can to the right of the child entity names `Locations::Origin` and `Locations::Destination`.
+3. Enter **NewEmployeeRelocationProcess** as the intent name in the pop-up dialog box.
 
-4. Select **+ Add child entity**, then add `Location`.
+4. Enter the following example utterances, labeling the new entities. The entity and role values are in bold.
 
-5. Select **Entities** from the left navigation. 
+    |Utterance|NewEmployee|NewEmployeeRelocation:<br>NewEmployeeReloOrigin|NewEmployeeRelocation:<br>NewEmployeeReloDestination|
+    |--|--|--|--|
+    |Move **Bob Jones** from **Seattle** to **Los Colinas**|Bob Jones|Seattle|Los Colinas|
+    |Move **Dave Cooper** from **Redmond** to **Seattle**|Dave Cooper|Redmond|Seattle|
+    |Move **Jim Smith** from **Toronto** to **Vancouver**|Jim Smith|Toronto|Vancouver|
+    |Move **Jill Benson** from **Boston** to **London**|Jill Benson|Boston|London|
+    |Move **Travis Hinton** from **Portland** to **Orlando**|Travis Hinton|Portland|Orlando|
+    |Move **Trevor Nottington** from **Spokane** to **Boise**|Trevor Nottington|Spokane|Boise|
+    |Move **Greg Williams** from **Orlando** to **Austin**|Greg Williams|Orlando|Austin|
+    |Move **Robert Gregson** from **Kansas City** to **Yuma**|Robert Gregson|Kansas City|Yuma|
+    |Move **Patti Owens** from **Bellevue** to **Rockford**|Patti Owens|Bellevue|Rockford|
+    |Move **Janet Bartlet** from **Tuscan** to **Santa Fe**|Janet Bartlet|Tuscan|Santa Fe|
 
-6. On the same row as **Locations**, select the far-right ellipsis {**...**}. Select **Delete**. This entity was created in the [hierarchical entity tutorrial](luis-quickstart-intent-and-hier-entity.md). 
-
-
-
+    Before adding the pattern, train and test the utterances to see how well the intent and entities are predicted. 
 
 ## Train the LUIS app
 The new intent and utterances require training. 
@@ -96,7 +128,7 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
 3. Publishing is complete when you see the green status bar at the top of the website confirming success.
 
-## Query the endpoint with a different utterance
+## Query the endpoint without pattern
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
     ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
@@ -104,9 +136,198 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 2. Go to the end of the URL in the address and enter ``. The last querystring parameter is `q`, the utterance **query**. 
 
     ```JSON
-
+{
+  "query": "Move Wayne Berry from Newark to Columbus",
+  "topScoringIntent": {
+    "intent": "NewEmployeeRelocationProcess",
+    "score": 0.5623783
+  },
+  "intents": [
+    {
+      "intent": "NewEmployeeRelocationProcess",
+      "score": 0.5623783
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.0123205138
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0110164294
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.0100413691
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.009376613
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.005493146
+    },
+    {
+      "intent": "None",
+      "score": 0.004052741
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.003984084
+    },
+    {
+      "intent": "OrgChart-Reports",
+      "score": 0.00239752117
+    },
+    {
+      "intent": "EmployeeFeedback",
+      "score": 0.00195183733
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00170500379
+    },
+    {
+      "intent": "OrgChart-Manager",
+      "score": 0.00156696246
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00125860469
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00114929758
+    }
+  ],
+  "entities": [
+    {
+      "entity": "wayne berry",
+      "type": "NewEmployee",
+      "startIndex": 5,
+      "endIndex": 15,
+      "score": 0.7210163
+    },
+    {
+      "entity": "newark",
+      "type": "NewEmployeeRelocation",
+      "startIndex": 22,
+      "endIndex": 27,
+      "score": 0.686152756
+    },
+    {
+      "entity": "columbus",
+      "type": "NewEmployeeRelocation",
+      "startIndex": 32,
+      "endIndex": 39,
+      "score": 0.564098954
+    }
+  ]
+}
     ```
 
+While all the entities were detected, the intent prediction score is only 50%. If your client application requires a higher number, this needs to be fixed.
+
+All of the city names so far have been a single word. Try a city name that is three words. 
+
+```JSON
+{
+  "query": "Move Wayne Berry from New York City to Columbus",
+  "topScoringIntent": {
+    "intent": "NewEmployeeRelocationProcess",
+    "score": 0.5974632
+  },
+  "intents": [
+    {
+      "intent": "NewEmployeeRelocationProcess",
+      "score": 0.5974632
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.0562561
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.0113906525
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.009032093
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.004364716
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.0038650122
+    },
+    {
+      "intent": "EmployeeFeedback",
+      "score": 0.00333929877
+    },
+    {
+      "intent": "None",
+      "score": 0.0027446
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00227597845
+    },
+    {
+      "intent": "OrgChart-Reports",
+      "score": 0.00185811857
+    },
+    {
+      "intent": "OrgChart-Manager",
+      "score": 0.00155583175
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.0014323442
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00126940908
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0007841544
+    }
+  ],
+  "entities": [
+    {
+      "entity": "wayne berry",
+      "type": "NewEmployee",
+      "startIndex": 5,
+      "endIndex": 15,
+      "score": 0.7087153
+    }
+  ]
+}
+```
+
+The relocation cities are not detected. Add a pattern to increase intent prediction score far above 50% and get the entities. 
+
+## Add a pattern that uses roles
+1. Select **Build** in the top navigation.
+
+2. Select **Patterns** in the left navigation.
+
+3. Select **NewEmployeeRelocationProcess** from the **Select an intent** drop-down list. 
+
+4. Enter the following pattern: `move {Employee} from {NewEmployeeRelocation:NewEmployeeReloOrigin} to {NewEmployeeRelocation:NewEmployeeReloDestination}`
+
+5. Train and publish the app again.
+
+## Query endpoint for pattern
+1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
+
+    ![Screenshot of Publish page with endpoint URL highlighted](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
+
+2. Go to the end of the URL in the address and enter ``. The last querystring parameter is `q`, the utterance **query**. 
+
+    ```JSON
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
