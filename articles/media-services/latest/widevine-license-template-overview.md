@@ -16,9 +16,9 @@ ms.date: 06/27/2018
 ms.author: juliako
 
 ---
-# Widevine license template overview
+# Widevine license template overview 
 
-You can use Azure Media Services to configure and request Google Widevine licenses. When the player tries to play your Widevine-protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, the service issues the license. It's sent to the client and is used to decrypt and play the specified content.
+Azure Media Services enables you to encrypt your content with **Google Widevine**. Media Services also provides a service for delivering Widevine licenses. You can use Azure Media Services APIs to configure Widevine licenses. When a player tries to play your Widevine-protected content, a request is sent to the license delivery service to obtain the license. If the license service approves the request, the service issues the license. It's sent to the client and is used to decrypt and play the specified content.
 
 A Widevine license request is formatted as a JSON message.  
 
@@ -70,7 +70,7 @@ A Widevine license request is formatted as a JSON message.
 | parse_only |Boolean, true or false |The license request is parsed, but no license is issued. However, values from the license request are returned in the response. |
 
 ## Content key specs
-If a preexisting policy exists, there is no need to specify any of the values in the content key spec. The preexisting policy associated with this content is used to determine the output protection, such as High-bandwidth Digital Content Protection (HDCP) and the Copy General Management System (CGMS). If a preexisting policy isn't registered with the Widevine license server, the content provider can inject the values into the license request.   
+If a pre-existing policy exists, there is no need to specify any of the values in the content key spec. The pre-existing policy associated with this content is used to determine the output protection, such as High-bandwidth Digital Content Protection (HDCP) and the Copy General Management System (CGMS). If a pre-existing policy isn't registered with the Widevine license server, the content provider can inject the values into the license request.   
 
 Each content_key_specs value must be specified for all tracks, regardless of the use_policy_overrides_exclusively option. 
 
@@ -91,7 +91,7 @@ Each content_key_specs value must be specified for all tracks, regardless of the
 | policy_overrides&#46;license_duration_seconds |int64 |Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0. |
 | policy_overrides&#46;rental_duration_seconds |int64 |Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0. |
 | policy_overrides&#46;playback_duration_seconds |int64 |The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0. |
-| policy_overrides&#46;renewal_server_url |string |All heartbeat (renewal) requests for this license are directed to the specified URL. This field is used only if can_renew is true. |
+| policy_overrides&#46;renewal_server_url |string |All heartbeat (renewal) requests for this license is directed to the specified URL. This field is used only if can_renew is true. |
 | policy_overrides&#46;renewal_delay_seconds |int64 |How many seconds after license_start_time before renewal is first attempted. This field is used only if can_renew is true. Default is 0. |
 | policy_overrides&#46;renewal_retry_interval_seconds |int64 |Specifies the delay in seconds between subsequent license renewal requests, in case of failure. This field is used only if can_renew is true. |
 | policy_overrides&#46;renewal_recovery_duration_seconds |int64 |The window of time in which playback can continue while renewal is attempted, yet unsuccessful due to back-end problems with the license server. A value of 0 indicates that there is no limit to the duration. This field is used only if can_renew is true. |
@@ -108,87 +108,94 @@ Each content_key_specs value must be specified for all tracks, regardless of the
 
 Media Services provides a class that lets you configure a Widevine license. To construct the license, pass JSON to [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate).
 
-To configure the template you can:
+To configure the template, you can:
 
-1.	Directly construct/hardcode a JSON string (which may be error-prone);
+### Directly construct a JSON string
+
+This method may be error-prone. It is recommended to use other method, described in [Define needed classes and serialize to JSON](#classes).
 
     ```csharp
-        ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
+    ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
     {
         WidevineTemplate = @"{""allowed_track_types"":""SD_HD"",""content_key_specs"":[{""track_type"":""SD"",""security_level"":1,""required_output_protection"":{""hdcp"":""HDCP_V2""}}],""policy_overrides"":{""can_play"":true,""can_persist"":true,""can_renew"":false}}"
     };
     ```
 
-2.	Construct needed classes with properties mapping to those JSON attributes and instantiate them before serializing them to JSON string. Below is an example of such classes and how they are instantiated and serialized.
+### <a id="classes"></a> Define needed classes and serialize to JSON
+
+#### Define classes
+
+The following example shows an example of definitions of classes that map to Widevine JSON schema. You can instantiate the classes before serializing them to JSON string.  
 
     ```csharp
-    public class policy_overrides
+    public class PolicyOverrides
     {
-        public bool can_play { get; set; }
-        public bool can_persist { get; set; }
-        public bool can_renew { get; set; }
-        public int rental_duration_seconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int playback_duration_seconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int license_duration_seconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
+        public bool CanPlay { get; set; }
+        public bool CanPersist { get; set; }
+        public bool CanRenew { get; set; }
+        public int RentalDurationSeconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
+        public int PlaybackDurationSeconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
+        public int LicenseDurationSeconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
     }
 
-    public class content_key_spec
+    public class ContentKeySpec
     {
-        public string track_type { get; set; }
-        public int security_level { get; set; }
-        public output_protection required_output_protection { get; set; }
+        public string TrackType { get; set; }
+        public int SecurityLevel { get; set; }
+        public OutputProtection RequiredOutputProtection { get; set; }
     }
 
-    public class output_protection
+    public class OutputProtection
     {
-        public string hdcp { get; set; }
+        public string HDCP { get; set; }
     }
 
-    public class widevine_template
+    public class WidevineTemplate
     {
-        public string allowed_track_types { get; set; }
-        public content_key_spec[] content_key_specs { get; set; }
-        public policy_overrides policy_overrides { get; set; }
+        public string AllowedTrackTypes { get; set; }
+        public ContentKeySpec[] ContentKeySpecs { get; set; }
+        public PolicyOverrides PolicyOverrides { get; set; }
     }
     ```
 
-### Configure the license
+#### Configure the license
 
 Use classes defined in the previous section to create JSON that is used to configure [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate):
 
 ```csharp
-void ConfigureLicense()
+private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTempate()
 {
-    widevine_template objwidevine_template = new widevine_template()
+    WidevineTemplate template = new WidevineTemplate()
     {
-        allowed_track_types = "SD_HD",
-        content_key_specs = new content_key_spec[]
+        AllowedTrackTypes = "SD_HD",
+        ContentKeySpecs = new ContentKeySpec[]
         {
-            new content_key_spec()
+            new ContentKeySpec()
             {
-                track_type = "SD",
-                security_level = 1,
-                required_output_protection = new output_protection()
+                TrackType = "SD",
+                SecurityLevel = 1,
+                RequiredOutputProtection = new OutputProtection()
                 {
-                hdcp = "HDCP_V2"
+                    HDCP = "HDCP_V2"
                 }
             }
         },
-        policy_overrides = new policy_overrides()
+        PolicyOverrides = new PolicyOverrides()
         {
-            can_play = true,
-            can_persist = true,
-            can_renew = false,
-            license_duration_seconds = 2592000,
-            playback_duration_seconds = 10800,
-            rental_duration_seconds = 604800,
+            CanPlay = true,
+            CanPersist = true,
+            CanRenew = false,
+            RentalDurationSeconds = 2592000,
+            PlaybackDurationSeconds = 10800,
+            LicenseDurationSeconds = 604800,
         }
     };
 
     ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
     {
-        WidevineTemplate = Newtonsoft.Json.JsonConvert.SerializeObject(objwidevine_template)
+        WidevineTemplate = Newtonsoft.Json.JsonConvert.SerializeObject(template)
     };
+    return objContentKeyPolicyWidevineConfiguration;
 }
 ```
 
