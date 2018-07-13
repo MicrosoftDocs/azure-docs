@@ -2,18 +2,27 @@
 
 ## Enable SSL
 
-SSL can easily be enabled by editing the `cycle_server.properties` file found within the CycleCloud installation directory. Please note that when editing the `cycle_server.properties` file, it is important that you first look for pre-existing keyvalue definitions in the file. If there is more than one definition, the **last** one is in effect.
-
-Open the `cycle_server.properties` file with a text editor and set the following values appropriately:
+SSL can easily be enabled by editing the `cycle_server.properties` file found within the CycleCloud installation directory. Open the `cycle_server.properties` file with a text editor and set the following values appropriately:
 
      # True if SSL is enabled
      webServerEnableHttps=true
 
+Please note that when editing the `cycle_server.properties` file, it is important that you first look for pre-existing keyvalue definitions in the file. If there is more than one definition, the **last** one is in effect.
+
 The default SSL port for CycleCloud is port 8443. If you'd like to run encrypted web communications on some other port, you can change the `webServerSslPort` property to the new port value. Please make sure the `webServerSslPort` and the `webServerPort` values **DO NOT CONFLICT**.
 
-Azure CycleCloud can also be configured to run using SSL encryption, providing
-encrypted communication between CycleCloud and any web browser via an
-*HTTPS* URL.
+After editing your `cycle_server.properties` file, you will need to restart CycleCloud for the encrypted communication channel to activate. On Windows:
+
+    C:\Program Files\CycleServer\cycle_server.cmd restart
+
+On Linux:
+
+    /opt/cycle_server/cycle_server restart
+
+Assuming you did not change the SSL port for CycleCloud when configuring it for encrypted communications, you can now go to `http://<my CycleCloud address>:8443/` to verify the SSL connection.
+
+> [!NOTE]
+> If the HTTPS URL does not work, check the`<CycleCloud Home>/logs/tomcat.log` and `<CycleCloud Home>/logs/cycle_server.log` for error messages that might indicate why the encrypted channel is not responding.
 
 ## Self-Generated Certificates
 
@@ -24,21 +33,21 @@ If you do not have a certificate from a Certificate Authority (CA) such as VeriS
 
 ## Working With CA-Generated Certificates
 
-Using a CA-generated certificate will allow web access to your CycleCloud installation without displaying the trusted certificate error. To use a CA certificate:
+Using a CA-generated certificate will allow web access to your CycleCloud installation without displaying the trusted certificate error. To start the process, first run:
 
       ./cycle_server keystore create_request <FQDN>
 
-You will be asked to provide a domain name, which is the "Common Name" field on the signed certificate. A `cycle_server.csr` file will be generated, which must be imported with the Certificate Authority response. The CA response certificate will likely be PKCS7 file, which can be imported with the file name:
+You will be asked to provide a domain name, which is the "Common Name" field on the signed certificate. This will generate a new self-signed certificate for the specified domain and write a cycle_server.csr file. You must provide the CSR to a certificate authority, and they will provide the final signed certificate (which will be referred to as server.crt below). You will also need the root certificates and any intermediate ones used in the chain between your new certificate and the root certificate. The CA should provide these for you. If they have provided them bundled as a single certificate file, you can import them with the following command:
 
-      ./cycle_server keystore import <ca-response.crt>
+      ./cycle_server keystore import server.crt
 
-If the response returns multiple file names, you can import them all at once by separating the file names with a space:
+If they provided multiple certificate files, you should import them all at once appending the names to that same command, separated by spaces:
 
-      ./cycle_server keystore import ca_cert_chain.crt server.crt
+      ./cycle_server keystore import server.crt ca_cert_chain.crt
 
 ### Import Existing Certificates
 
-If you have previously created a CA or self-signed Certificate, you can update the keystore to use it:
+If you have previously created a CA or self-signed certificate, you can update CycleCloud to use it with the following command:
 
       ./cycle_server keystore update
 
@@ -58,7 +67,7 @@ To enable Native HTTPS on Linux, add the `webServerEnableHttps` and `webServerUs
      # Use Native HTTPS connector
      webServerUseNativeHttps = true
 
-### Backwards compatibility for TLS 1.0 and 1.1
+## Backwards compatibility for TLS 1.0 and 1.1
 
 By default, the Java and Native HTTPS connectors will be configured to use only the
 TLS 1.2 protocol. If you need to offer TLS 1.0 or 1.1 protocols for older web clients, you may
@@ -72,23 +81,6 @@ attribute:
 Change the attribute to a `+` delimited list of protocols you wish to support.
 
     sslEnabledProtocols="TLSv1.0+TLSv1.1+TLSv1.2"
-
-## Testing
-
-With the modifications made to your cycle_server.properties file, you will need to restart CycleCloud for the encrypted communication channel to activate. On Windows:
-
-    C:\Program Files\CycleServer\cycle_server.cmd restart
-
-On Linux:
-
-    /opt/cycle_server/cycle_server restart
-
-Assuming you did not change the SSL port for CycleCloud when
-configuring it for encrypted communications, you can now go to
-`http://<my CycleCloud address>:8443/` to verify the SSL connection.
-
-> [!NOTE]
-> If the HTTPS URL does not work, check the`<CycleCloud Home>/logs/tomcat.log` and `<CycleCloud Home>/logs/cycle_server.log` for error messages that might indicate why the encrypted channel is not responding.
 
 ## Turning Off Unencrypted Communications
 
