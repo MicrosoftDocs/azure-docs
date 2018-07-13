@@ -11,7 +11,7 @@ ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
 # Directory integration between Azure MFA Server and Active Directory

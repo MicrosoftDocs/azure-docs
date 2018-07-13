@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ms.service: multi-factor-authentication
 ms.workload: identity

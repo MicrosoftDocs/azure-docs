@@ -11,7 +11,7 @@ ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: sahenry, richagi
+ms.reviewer: sahenry, michmcla
 
 ---
 # What are authentication methods?
@@ -173,4 +173,4 @@ If your organization is federated for SSO with Azure AD and you are going to be 
 
 [Enable self service password reset for your organization](quickstart-sspr.md)
 
-[Enable Azure Multi-Factor Authentication for your organization](quickstart-mfa.md)
+[Enable Azure Multi-Factor Authentication for your organization](howto-mfa-getstarted.md)
