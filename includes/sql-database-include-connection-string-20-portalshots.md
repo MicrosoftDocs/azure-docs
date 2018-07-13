@@ -1,12 +1,16 @@
-
-<!--
-includes/sql-database-include-connection-string-20-portalshots.md
-
-Latest Freshness check:  2018-07-11 , ninarn.
-
-## Connection string
--->
-
+---
+title: Obtain the connection string from the Azure portal
+description: Obtain the connection string from the Azure portal
+keywords: sql connection,connection string
+services: sql-database
+author: dalechen
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: conceptual
+ms.date: 07/11/2018
+ms.author: ninarn
+---
 
 ### Obtain the connection string from the Azure portal
 Use the [Azure portal](https://portal.azure.com/) to obtain the connection string that's necessary for your client program to interact with Azure SQL Database.

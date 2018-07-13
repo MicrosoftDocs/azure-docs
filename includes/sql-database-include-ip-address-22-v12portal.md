@@ -1,19 +1,16 @@
-
-<!--
-includes/sql-database-include-ip-address-22-v12portal.md
-
-Latest Freshness check:  2018-07-11 , ninarn.
-
-As of circa 2015-09-04, the following topics might include this include:
-articles/sql-database/sql-database-configure-firewall-settings.md
-articles/sql-database/sql-database-connect-query.md
-
-
-## Server-level firewall rules
-
-### Add a server-level firewall rule through the new Azure portal
--->
-
+---
+title: Server-level firewall rules
+description: Server-level firewall rules
+keywords: sql connection,connection string
+services: sql-database
+author: dalechen
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: conceptual
+ms.date: 07/11/2018
+ms.author: ninarn
+---
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
