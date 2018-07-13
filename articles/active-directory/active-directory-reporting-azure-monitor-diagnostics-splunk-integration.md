@@ -40,6 +40,10 @@ In this article, you'll learn how to integrate Azure Active Directory logs with 
 3. You'll see the Azure AD activity logs as shown in the following figure.
     ![Activity logs](./media/active-directory-reporting-azure-monitor-diagnostics-splunk-integration/activitylogs.png "Activity Logs")
 
+> [!NOTE]
+> If you cannot install an add-on in your Splunk instance (for example, if you're using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector using this [Azure Function which is triggered by new messages in the event hub](https://github.com/Microsoft/AzureFunctionforSplunkVS)." 
+>
+
 ## Next steps
 
 * [Interpret audit logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md)
