@@ -20,7 +20,7 @@ With Azure Active Directory (Azure AD), a Global Administrator can make **perman
 
 The Azure AD Privileged Identity Management (PIM) application also allows privileged role administrators to make permanent directory role assignments. Additionally, privileged role administrators can make users **eligible** for directory roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done. For information about the roles that you can manage using PIM, see [Directory roles you can manage using Azure AD PIM](pim-roles.md).
 
-## Make a user eligible for a directory role
+## Make a user eligible for a role
 
 Follow these steps to make a user eligible for an Azure AD directory role.
 
@@ -58,9 +58,9 @@ Follow these steps to make a user eligible for an Azure AD directory role.
 
 1. Now that the user is eligible for the role, let them know that they can activate it according to the instructions in [How to activate or deactivate a role](pim-how-to-activate-role.md).
 
-    Eligible administrators are asked to register for Azure Multi-Factor Authentication (MFA) during activation. If a user cannot register for Azure Multi-Factor Authentication (MFA), or is using a Microsoft account (usually @outlook.com), you need to make them permanent in all their roles.
+    Eligible administrators are asked to register for Azure Multi-Factor Authentication (MFA) during activation. If a user cannot register for MFA, or is using a Microsoft account (usually @outlook.com), you need to make them permanent in all their roles.
 
-## Make a directory role assignment permanent
+## Make a role assignment permanent
 
 By default, new users are only eligible for a directory role. Follow these steps if you want to make a role assignment permanent.
 
@@ -82,9 +82,9 @@ By default, new users are only eligible for a directory role. Follow these steps
 
     ![List of members with permanent change](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
-## Remove a user from a directory role
+## Remove a user from a role
 
-You can remove users from eligible role assignments, but make sure there is always at least one user who is a permanent Global Administrator. If you're not sure which users still need their role assignments, you can [start an access review for the role](pim-how-to-start-security-review.md).
+You can remove users from role assignments, but make sure there is always at least one user who is a permanent Global Administrator. If you're not sure which users still need their role assignments, you can [start an access review for the role](pim-how-to-start-security-review.md).
 
 Follow these steps to remove a specific user from a directory role.
 
@@ -96,7 +96,7 @@ Follow these steps to remove a specific user from a directory role.
 
     ![List of members](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
-1. Click a role you want to remove.
+1. Click a role assignment you want to remove.
 
 1. Click **More** and then **Remove**.
 
