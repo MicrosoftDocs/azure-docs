@@ -80,21 +80,33 @@ kubectl create -f helm-rbac.yaml
 
 ## Secure Tiller and Helm
 
-The Helm client and Tiller service authenticate and communicate with each other using SSL/TLS. This authentication method helps to secure the Kubernetes cluster and what services can be deployed. To improve security, you can generate your own signed certificates. Each Helm user would receive their own client certificate, and Tiller would be initialized in the Kubernetes cluster with certificates applied. For more information, see [Using SSL between Helm and Tiller][helm-ssl].
+The Helm client and Tiller service authenticate and communicate with each other using TLS/SSL. This authentication method helps to secure the Kubernetes cluster and what services can be deployed. To improve security, you can generate your own signed certificates. Each Helm user would receive their own client certificate, and Tiller would be initialized in the Kubernetes cluster with certificates applied. For more information, see [Using TLS/SSL between Helm and Tiller][helm-ssl].
 
 With an RBAC-enabled Kubernetes cluster, you can control the level of access Tiller has to the cluster. You can define the Kubernetes namespace that Tiller is deployed in, and restrict what namespaces Tiller can then deploy resources in. This approach lets you create Tiller instances in different namespaces and limit deployment boundaries, and scope the users of Helm client to certain namespaces. For more information, see [Helm role-based access controls][helm-rbac].
 
 ## Configure Helm
 
-Now install tiller using the [helm init][helm-init] command. If your cluster is not RBAC enabled, remove the `--service-account` argument and value:
+To deploy a basic Tiller into an AKS cluster, use the [helm init][helm-init] command. If your cluster is not RBAC enabled, remove the `--service-account` argument and value. If you configured TLS/SSL for Tiller and Helm, skip this basic initialization step and instead provide the required `--tiller-tls-` as shown in the next example.
 
 ```console
 helm init --service-account tiller
 ```
 
+If you configured TLS/SSL between Helm and Tiller provide the `--tiller-tls-` parameters and names of your own certificates, as shown in the following example:
+
+```console
+helm init \
+    --tiller-tls \
+    --tiller-tls-cert tiller.cert.pem \
+    --tiller-tls-key tiller.key.pem \
+    --tiller-tls-verify \
+    --tls-ca-cert ca.cert.pem \
+    --service-account tiller
+```
+
 ## Find Helm charts
 
-Helm charts are used to deploy applications into a Kubernetes cluster. To search for pre-created Helm charts, use the [helm search][helm-search] command.
+Helm charts are used to deploy applications into a Kubernetes cluster. To search for pre-created Helm charts, use the [helm search][helm-search] command:
 
 ```console
 helm search
@@ -149,13 +161,13 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## Run Helm charts
 
-To deploy Wordpress using a Helm chart, use the [helm install][helm-install] command, as shown in the following example:
+To install charts with Helm, use the [helm install][helm-install] command and specify the name of the chart to install. To see this in action, let's install a basic Wordpress deployment using a Helm chart. If you configured TLS/SSL, add the `--tls` parameter to use your Helm client certificate.
 
 ```console
 helm install stable/wordpress
 ```
 
-The following condensed example output shows the deployment status:
+The following condensed example output shows the deployment status of the Kubernetes resources created by the Helm chart:
 
 ```
 $ helm install stable/wordpress
@@ -200,14 +212,16 @@ wishful-mastiff-wordpress  LoadBalancer  10.1.217.64  <pending>    80:31751/TCP,
 ...
 ```
 
+It takes a minute or two for the *EXTERNAL-IP* address of the Wordpress service to be populated and allow you to access it with a web browser.
+
 ## List Helm releases
 
-To see a list of releases installed on your cluster, use the [helm list][helm-list] command. The following example shows the Wordpress release deployed in the previous step:
+To see a list of releases installed on your cluster, use the [helm list][helm-list] command. The following example shows the Wordpress release deployed in the previous step. If you configured TLS/SSL, add the `--tls` parameter to use your Helm client certificate.
 
 ```console
 $ helm list
 
-NAME        	   REVISION	 UPDATED                 	 STATUS  	 CHART          	NAMESPACE
+NAME             REVISION	 UPDATED                 	 STATUS  	 CHART          	NAMESPACE
 wishful-mastiff  1       	 Thu Jul 12 15:53:56 2018	 DEPLOYED	 wordpress-2.1.3  default
 ```
 
