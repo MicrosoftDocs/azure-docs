@@ -62,7 +62,7 @@ The set of optional claims available by default for applications to use are list
 | `enfpolids`                | Enforced policy IDs. A list of the policy IDs that were evaluated for the current user.  | JWT |  |  |
 | `vnet`                     | VNET specifier information.    | JWT        |           |      |
 | `fwd`                      | IP address.| JWT    |   | Adds the original IPv4 address of the requesting client (when inside a VNET) |
-| `ctry`                     | User’s country | JWT |           | |
+| `ctry`                     | User’s country | JWT |           | Azure AD returns the `ctry` optional claim if it's present and the value of the claim is a standard two-letter country code, such as FR, JP, SZ, and so on. |
 | `tenant_ctry`              | Resource tenant’s country | JWT | | |
 | `xms_pdl`		     | Preferred data location   | JWT | | For Multi-Geo tenants, this is the 3-letter code showing which geographic region the user is in.  For more details, see the [Azure AD Connect documentation about preferred data location](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> For example: `APC` for Asia Pacific. |
 | `xms_pl`                   | User preferred language  | JWT ||The user’s preferred language, if set.  Sourced from their home tenant, in guest access scenarios.  Formatted LL-CC (“en-us”). |

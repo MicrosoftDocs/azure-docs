@@ -73,4 +73,4 @@ UDR and routing functionality will be available by GA.
 
 ### Is there any licensing or pricing information for Virtual WAN?
  
-There is no additional charge. Current [Azure VPN and egress pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) remains in effect during Preview.
+There is no additional charge during Preview. Current [Azure VPN and egress pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) remains in effect during Preview.
