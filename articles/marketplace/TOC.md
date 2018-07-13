@@ -5,9 +5,12 @@
 ### Storefronts  
 #### [Comparing AppSource and Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
 
-### How to Publish in the storefronts on the marketplace  
+### How to Publish on the marketplace  
 #### [Determine the Listing Type for Your Solution](./determine-your-listing-type.md)  
-#### [Become a Publisher in the storefronts on the marketplace](./become-publisher.md)  
+#### [Become a Publisher on the marketplace](./become-publisher.md) 
+##### [Create a Microsoft Account](./guidelines.md)
+##### [Register in Dev Center](./register-dev-center.md)  
+#### [Billing Options for Azure Marketplace](./billing-options-azure-marketplace.md)  
 #### [Requirements by Listing Type](./listing-type-requirements.md) 
 
 ### Publishing Checklists  
@@ -20,13 +23,7 @@
 ### Publishing Guides  
 #### [Azure Marketplace Consulting Service](consulting-services.md)  
 #### [Azure Marketplace SaaS app technical publishing guide](marketplace-saas-applications-technical-publishing-guide.md) 
-
-### Guidelines  
-#### [Guidelines](./guidelines.md)  
-#### [Register in Dev Center](./register-dev-center.md)  
-#### [Add Bank and Tax Information](./add-bank-tax-info.md)  
-#### [Enable Trial using Azure AD](./enable-trial-using-azure-ad.md)  
-#### [Billing Options for Azure Marketplace](./billing-options-azure-marketplace.md)  
+#### [Enable your Marketplace Trial using Azure Active Directory](./enable-trial-using-azure-ad.md)  
 
 ### [Grow your business through marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Preferred Solutions](./preferred-solutions.md) 
