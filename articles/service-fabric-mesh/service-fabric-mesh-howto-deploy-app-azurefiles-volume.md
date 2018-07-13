@@ -22,7 +22,7 @@ ms.custom: mvc, devcenter
 This sample illustrates the use of storage volumes in a container running in Azure Service Fabric Mesh. As a part of this sample:
 
 - Create a file share with [Azure Files](/azure/storage/files/storage-files-introduction) 
-- Reference that share as a volume for a container instnace that we'll deploy
+- Reference that share as a volume for a container instance that we'll deploy
   - When the container starts, it mounts that share as a specific location within the container
 - The code running inside the container writes a text file to that location
 - Verify the file is written correctly in the share that backs the volume
@@ -34,6 +34,7 @@ Linux: [https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-v
 Windows: [https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.windows.json](https://seabreezequickstart.blob.core.windows.net/templates/azurefiles-volume/sbz_rp.windows.json)
 
 ## Create the Azure Files file share
+
 Follow the instructions in the [Azure Files documentation](/azure/storage/files/storage-how-to-create-file-share) to create a file share for the application to use.
 
 ## Setup Service Fabric Mesh CLI
