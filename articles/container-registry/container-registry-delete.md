@@ -15,9 +15,11 @@ ms.author: marsma
 
 To maintain the size of your Azure container registry, you should periodically delete stale image data. Because you can delete image data in several different ways, it's important to understand how each delete operation affects storage usage. This article first introduces the components of a Docker registry and container images, then covers several methods for deleting image data.
 
-## Registry and repository
+## Registry
 
 A container *registry* is a service that stores and distributes container images. Docker Hub is a public Docker container registry, while Azure Container Registry provides private Docker container registries in Azure.
+
+## Repository
 
 Container registries manage *repositories*, collections of container images with the same name, but different tags. For example, the following three images are in the "acr-helloworld" repository:
 
@@ -27,7 +29,7 @@ acr-helloworld:v1
 acr-helloworld:v2
 ```
 
-Repositories can also include [namespace](container-registry-best-practices.md#repository-namespaces) designations. Namespaces allow you group images using forward slash-delimited repository names, for example:
+Repositories names can also include [namespaces](container-registry-best-practices.md#repository-namespaces). Namespaces allow you group images using forward slash-delimited repository names, for example:
 
 ```
 acr-helloworld/test:v3
@@ -40,13 +42,19 @@ A container image includes several components, such as an image manifest, tags, 
 
 ### Tag
 
-An image's *tag* typically specifies its version. A single image within a repository can be assigned one or many tags, and may also be "untagged." That is, you can delete all tags for an image, while still leaving the image data (its layers) within the registry.
+An image's *tag* typically specifies its version. A single image within a repository can be assigned one or many tags, and may also be "untagged." That is, you can delete all tags from an image, while the image's data (its layers) remain the registry.
 
-The repository (or repository and namespace) plus a tag defines an image's name. You can push and pull an image by specifying its name in the push or pull operation.
+The repository (or repository and namespace) plus a tag defines an image's name. In the case of a private registry like Azure Container Registry, the image name also includes the fully qualified name of the registry host. The registry host for images in ACR is in the format *acrname.azurecr.io*. For example, the full name of the image in the 'test' namespace in the earlier section would be:
+
+```
+myregistry.azurecr.io/acr-helloworld/test:v3
+```
+
+You can push and pull an image by specifying its name in the push or pull operation.
 
 ### Layer
 
-Images are made up of one or more *layers*, each of which corresponds to a line in the Dockerfile that defines the image. Images within a repository can share layers, reducing the storage used by images that share layers. Network traffic is also minimized, since layers already existing in the local filesystem do not need to be pulled again; only new or modified layers are pulled from the registry.
+Images are made up of one or more *layers*, each corresponding to a line in the Dockerfile that defines the image. Images in a repository can share layers, reducing the storage used by images sharing layers. Network traffic is also minimized, since layers already existing in the local filesystem do not need to be pulled again. Only new or modified layers are pulled from the registry.
 
 ### Manifest
 
@@ -94,7 +102,7 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 ```
 
 > [!IMPORTANT]
-> If you repeatedly push identically tagged images, you can create orphaned images--images that are untagged, but still consume space in your registry. Untagged images are not shown in the Azure CLI or in the Azure portal when you list or view images by tag. However, their layers still exist and consume space in your registry. For information about deleting orphaned image data, see [Delete by manifest digest](#delete-by-manifest-digest).
+> If you repeatedly push modified images with identical tags, you create orphaned images--images that are untagged, but still consume space in your registry. Untagged images are not shown in the Azure CLI or in the Azure portal when you list or view images by tag. However, their layers still exist and consume space in your registry. The [Delete untagged images](#delete-untagged-images) section of this article discusses freeing space used by untagged images.
 
 ## Delete image data
 
@@ -125,7 +133,7 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> Deleting *by tag* shouldn't be confused with deleting a tag (untagging). You can delete a tag with the Azure CLI command [az acr repository untag][az-acr-repository-untag]. No space is freed when you untag an image because its [manifest](#manifest) and layer data remains in the registry--only the tag itself is deleted.
+> Deleting *by tag* shouldn't be confused with deleting a tag (untagging). You can delete a tag with the Azure CLI command [az acr repository untag][az-acr-repository-untag]. No space is freed when you untag an image because its [manifest](#manifest) and layer data remains in the registry. Only the tag itself is deleted.
 
 ## Delete by manifest digest
 
