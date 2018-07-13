@@ -154,13 +154,13 @@ Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
 
 ## Enabling Write Accelerator using the Azure portal
 
-You can enable Write Accelerator via the portal where you specify your disk caching settings: 
+You can enable Write Accelerator via the portal where you specify your disk caching settings:
 
 ![Write Accelerator on the Azure portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
 ## Enabling Write Accelerator using the Azure CLI
 
-You can use the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) to enable Write Accelerator. 
+You can use the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) to enable Write Accelerator.
 
 To enable Write Accelerator on an existing disk, use [az vm update](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), you may use the following examples if you replace the diskName, VMName, and ResourceGroup with your own values: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
