@@ -38,7 +38,7 @@ After creating a zone and delegating it to Azure DNS, you can then create record
 
 ## 1. Create an A record for your custom domain
 
-An A record is used to map a name to its IP address. In the following example we will assign @ as an A record to an IPv4 address:
+An A record is used to map a name to its IP address. In the following example we will assign \@ as an A record to an IPv4 address:
 
 ### Step 1
 

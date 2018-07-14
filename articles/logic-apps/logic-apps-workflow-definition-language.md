@@ -154,7 +154,7 @@ or constants. In your workflow definition,
 you can use an expression anywhere in a JSON 
 string value by prefixing the expression with the at-sign (\@). 
 When evaluating an expression that represents a JSON value, 
-the expression body is extracted by removing the @ character, 
+the expression body is extracted by removing the \@ character, 
 and always results in another JSON value. 
 
 For example, for the previously defined `customerName` property, 
@@ -168,7 +168,7 @@ function in an expression and assign that value to the `accountName` property:
 ```
 
 *String interpolation* also lets you use multiple expressions inside 
-strings that are wrapped by the @ character and curly braces ({}). 
+strings that are wrapped by the \@ character and curly braces ({}). 
 Here is the syntax:
 
 ```json
@@ -182,8 +182,8 @@ similar to the `concat()` function, for example:
 "customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
 ```
 
-If you have a literal string that starts with the @ character, 
-prefix the @ character with another @ character as an escape character: @@
+If you have a literal string that starts with the \@ character, 
+prefix the \@ character with another \@ character as an escape character: \@\@
 
 These examples show how expressions are evaluated:
 
@@ -191,8 +191,8 @@ These examples show how expressions are evaluated:
 |------------|--------| 
 | "Sophia Owen" | Return these characters: 'Sophia Owen' |
 | "array[1]" | Return these characters: 'array[1]' |
-| "\@@" | Return these characters as a one-character string: '@' |   
-| " \@" | Return these characters as a two-character string: ' @' |
+| "\@\@" | Return these characters as a one-character string: '\@' |   
+| " \@" | Return these characters as a two-character string: ' \@' |
 |||
 
 For these examples, suppose you define "myBirthMonth" 
@@ -211,9 +211,9 @@ These examples show how the following expressions are evaluated:
 | "\@{parameters('myBirthMonth')}" | Return this string: "January" |  
 | "\@parameters('myAge')" | Return this number: 42 |  
 | "\@{parameters('myAge')}" | Return this number as a string: "42" |  
-| "My age is @{parameters('myAge')}" | Return this string: "My age is 42" |  
+| "My age is \@{parameters('myAge')}" | Return this string: "My age is 42" |  
 | "\@concat('My age is ', string(parameters('myAge')))" | Return this string: "My age is 42" |  
-| "My age is @@{parameters('myAge')}" | Return this string, which includes the expression: "My age is @{parameters('myAge')}` | 
+| "My age is \@\@{parameters('myAge')}" | Return this string, which includes the expression: "My age is \@{parameters('myAge')}` | 
 ||| 
 
 When you're working visually in the Logic Apps Designer, 

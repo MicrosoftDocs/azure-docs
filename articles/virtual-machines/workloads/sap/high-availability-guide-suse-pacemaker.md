@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 07/13/2018
 ms.author: sedusch
 
 ---
@@ -35,6 +35,11 @@ The SBD device requires one additional virtual machine that acts as an iSCSI tar
 If you do not want to invest in one additional virtual machine, you can also use the Azure Fence agent. The downside is that a failover can take between 10 to 15 minutes if a resource stop fails or the cluster nodes cannot communicate which each other anymore.
 
 ![Pacemaker on SLES overview](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+
+>[!IMPORTANT]
+> Using a SBD device for your Pacemaker cluster, it is essential for the overall reliability of the complete cluster that the routing between the VMs involved and the VM(s) hosting the SBD device(s) is not passing through any other devices like [NVAs](https://azure.microsoft.com/solutions/network-appliances/). Otherwise issues with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. In order to avoid such obstacles, investigate routing rules of NVAs and [User Defined Routing rules](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) when planning and deploying SBD devices.
+>
+
 
 ## SBD fencing
 
