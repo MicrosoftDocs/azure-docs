@@ -45,10 +45,10 @@ There are two approaches to connect Apache Spark and Azure Cosmos DB:
 
 | Component | Version |
 |---------|-------|
-|Apache Spark| 2.3.0|
+|Apache Spark| 2.1.x, 2.2.x, 2.3.x |
 | Scala|2.11|
-| Databricks runtime version | 4.0 (includes Apache Spark 2.3.0, Scala 2.11 |
-| Azure Cosmos DB SQL Java SDK | 1.14.0, 1.15.0 |
+| Databricks runtime version | > 3.4 |
+| Azure Cosmos DB SQL Java SDK | 1.16.2 |
 
 ## Connect by using Python or pyDocumentDB SDK
 
@@ -197,7 +197,7 @@ Communication between spark and Azure Cosmos DB is significantly faster because 
 
 2. Once the cluster is created and is running, navigate to **Workspace** > **Create** > **Library**.  
 
-3. From the New Library dialog box, choose **Maven Coordinate** as the source, provide the coordinate value **com.microsoft.azure:azure-cosmosdb-spark_2.3.0_2.11:1.1.2**, and select **Create Library**. The Maven dependencies are resolved, and the package is added to your workspace.  
+3. From the New Library dialog box, choose **Maven Coordinate** as the source, provide the coordinate value **com.microsoft.azure:azure-cosmosdb-spark_2.3.0_2.11:1.2.0**, and select **Create Library**. The Maven dependencies are resolved, and the package is added to your workspace. In the above maven coordinate format, 2.3.0 represents the spark version, 2.11 represents the scala version, and 1.2.0 represents the Azure Cosmos DB connector version. 
 
 4. After the library is installed, attach it to the cluster you created earlier. 
 
@@ -258,13 +258,13 @@ Java SDK supports the following values for configuration mapping:
 
 |Setting  |Description  |
 |---------|---------|
-|query_maxdegreeofparallelism  | sets the number of concurrent operations run at the client side during parallel query execution. If it is set to a value that is greater than 0, it limits the number of concurrent operations to the assigned value. If it is set to less than 0, the system automatically decides the number of concurrent operations to run. As the Connector maps each collection partition with an executor, this value won't have any effect on the reading operation.        |
-|query_maxbuffereditemcount     |    sets the maximum number of items that can be buffered at the client side during parallel query execution. If it is set to a value that is greater than 0, it limits the number of buffered items to the assigned value. If it is set to less than 0, the system automatically decides the number of items to buffer.     |
-|query_enablescan    |   sets the option to enable scans on the queries which couldn't be served because indexing was opted out on the requested paths.       |
-|query_disableruperminuteusage  |  disables Request Units(RUs)/minute capacity to serve the query if regular provisioned RUs/second is exhausted.       |
+|query_maxdegreeofparallelism  | Sets the number of concurrent operations run at the client side during parallel query execution. If it is set to a value that is greater than 0, it limits the number of concurrent operations to the assigned value. If it is set to less than 0, the system automatically decides the number of concurrent operations to run. As the Connector maps each collection partition with an executor, this value won't have any effect on the reading operation.        |
+|query_maxbuffereditemcount     |    Sets the maximum number of items that can be buffered at the client side during parallel query execution. If it is set to a value that is greater than 0, it limits the number of buffered items to the assigned value. If it is set to less than 0, the system automatically decides the number of items to buffer.     |
+|query_enablescan    |   Sets the option to enable scans on the queries which couldn't be served because indexing was opted out on the requested paths.       |
+|query_disableruperminuteusage  |  Disables Request Units(RUs)/minute capacity to serve the query if regular provisioned RUs/second is exhausted.       |
 |query_emitverbosetraces   |   Sets the option to allow queries to emit out verbose traces for investigation.      |
 |query_pagesize  |   Sets the size of the query result page for each query request. To optimize for throughput, use a large page size to reduce the number of round trips to fetch queries results.      |
-|query_custom  |    Sets the Azure Cosmos DB query to override the default query when fetching data from Azure Cosmos DB. Note that when this value is provided, it will be used in place of a query with pushed down predicates as well.     |
+|query_custom  |  Sets the Azure Cosmos DB query to override the default query when fetching data from Azure Cosmos DB. Note that when this value is provided, it will be used in place of a query with pushed down predicates as well.     |
 
 Depending on the scenario, different configuration values should be used to optimize the performance and throughput. Note that the configuration key is currently case-insensitive, and the configuration value is always a string.
 
@@ -314,12 +314,23 @@ Java SDK supports the following values for configuration mapping:
 
 |Setting  |Description  |
 |---------|---------|
-|readchangefeed   |  indicates that the collection content is fetched from CosmosDB Change Feed. The default value is false.       |
-|changefeedqueryname |   a custom string to identify the query. The connector keeps track of the collection continuation tokens for different change feed queries separately. If readchangefeedis true, this is a required configuration which cannot take empty value.      |
-|rollingchangefeed  |   a boolean value indicating whether the change feed should be from the last query. The default value is false, which means the changes will be counted from the first read of the collection.      |
-|changefeedusenexttoken  |   a boolean value to support processing failure scenarios. It is used to indicate that the current change feed batch has been handled gracefully and the RDD should use the next continuation tokens to get the subsequent batch of changes.      |
-|changefeedcheckpointlocation  |   a path to local file storage to persist continuation tokens in case of node failures.      |
-|changefeedstartfromthebeginning  |  sets whether change feed should start from the beginning (true) or from the current point (false). By default, it starts from the current (false).       |
+|readchangefeed   |  Indicates that the collection content is fetched from CosmosDB Change Feed. The default value is false.       |
+|changefeedqueryname |   A custom string to identify the query. The connector keeps track of the collection continuation tokens for different change feed queries separately. If readchangefeedis true, this is a required configuration which cannot take empty value.      |
+|rollingchangefeed  |   A boolean value indicating whether the change feed should be from the last query. The default value is false, which means the changes will be counted from the first read of the collection.      |
+|changefeedusenexttoken  |   A boolean value to support processing failure scenarios. It is used to indicate that the current change feed batch has been handled gracefully and the RDD should use the next continuation tokens to get the subsequent batch of changes.      |
+|changefeedcheckpointlocation  |   A path to local file storage to persist continuation tokens in case of node failures.      |
+|changefeedstartfromthebeginning  |  Sets whether change feed should start from the beginning (true) or from the current point (false). By default, it starts from the current (false).       |
+
+Connection settings
+
+
+|Setting  |Description  |
+|---------|---------|
+|connectionmode   |  Sets the connection mode that the internal DocumentClient should use to communicate with Azure Cosmos DB. Allowed values are **DirectHttps** (default value) and **Gateway**. The DirectHttps connection mode routes the requests directly to the CosmosDB partitions and provides some latency advantage.       |
+|connectionmaxpoolsize   |  Sets the value of connection pool size that is used by internal DocumentClient. The default value is 100.       |
+|connectionidletimeout  |  Sets the timeout value for idle connections in seconds. The default value is 60.       |
+|query_maxretryattemptsonthrottledrequests    |  Sets the maximum number of retries. This value is used in case of a request failure due to rate limiting on the client. If it's not specified, the default value is 9.       |
+|query_maxretrywaittimeinseconds   |  Sets the maximum retry time in seconds. By default, it is 30 seconds.       |
 
 ### Write twitter data to Azure Cosmos DB 
 
@@ -408,8 +419,8 @@ Java SDK supports the following values for configuration mapping:
 
 |Setting  |Description  |
 |---------|---------|
-|WritingBatchSize  |   an integer string indicating the batch size to use when writing to CosmosDB collection. The connector sends createDocument/upsertDocument requests asynchronously in batch. The larger the batch size the more throughput we can achieve, as long as the cluster resources are available. On the other hand, specify a smaller number batch size to limit the rate and RU consumption. By default, writing batch size is 500.  |
-|Upsert   |  a boolean value string indicating whether upsertDocument should be used instead of CreateDocument when writing to CosmosDB collection.   |
+|WritingBatchSize  |   An integer string indicating the batch size to use when writing to CosmosDB collection. The connector sends createDocument/upsertDocument requests asynchronously in batch. The larger the batch size the more throughput we can achieve, as long as the cluster resources are available. On the other hand, specify a smaller number batch size to limit the rate and RU consumption. By default, writing batch size is 500.  |
+|Upsert   |  A boolean value string indicating whether upsertDocument should be used instead of CreateDocument when writing to CosmosDB collection.   |
 
 ## Considerations when using Java SDK
 
