@@ -316,13 +316,14 @@ Java SDK supports the following values for configuration mapping:
 |---------|---------|
 |readchangefeed   |  Indicates that the collection content is fetched from CosmosDB Change Feed. The default value is false.       |
 |changefeedqueryname |   A custom string to identify the query. The connector keeps track of the collection continuation tokens for different change feed queries separately. If readchangefeedis true, this is a required configuration which cannot take empty value.      |
-|rollingchangefeed  |   A boolean value indicating whether the change feed should be from the last query. The default value is false, which means the changes will be counted from the first read of the collection.      |
-|changefeedusenexttoken  |   A boolean value to support processing failure scenarios. It is used to indicate that the current change feed batch has been handled gracefully and the RDD should use the next continuation tokens to get the subsequent batch of changes.      |
 |changefeedcheckpointlocation  |   A path to local file storage to persist continuation tokens in case of node failures.      |
 |changefeedstartfromthebeginning  |  Sets whether change feed should start from the beginning (true) or from the current point (false). By default, it starts from the current (false).       |
+|rollingchangefeed  |   A boolean value indicating whether the change feed should be from the last query. The default value is false, which means the changes will be counted from the first read of the collection.      |
+|changefeedusenexttoken  |   A boolean value to support processing failure scenarios. It is used to indicate that the current change feed batch has been handled gracefully and the RDD should use the next continuation tokens to get the subsequent batch of changes.      |
 
-Connection settings
+### Connection settings
 
+Java SDK supports the following connection settings:
 
 |Setting  |Description  |
 |---------|---------|
