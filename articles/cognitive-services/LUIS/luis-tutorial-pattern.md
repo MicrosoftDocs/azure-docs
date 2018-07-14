@@ -52,6 +52,8 @@ The pattern is provided by way of a template utterance example, which includes s
 
 In order for a pattern to be matched to an utterance, the entities within the utterance have to match the entities in the template utterance first. However, the template doesn't help predict entities, only intents. 
 
+**While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern will not match.**
+
 Remember that employees were created in the [list entity tutorial](luis-quickstart-intent-and-list-entity.md).
 
 ## Create new intents and their utterances
