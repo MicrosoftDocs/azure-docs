@@ -61,7 +61,7 @@ such as Office 365 Outlook, Outlook.com, or Gmail. For other providers,
 <a href="http://storageexplorer.com/" target="_blank">free Microsoft Azure Storage Explorer</a>. 
 This tool helps you check that your storage container is correctly set up.
 
-## Sign in to the Azure portal
+## Sign in to Azure portal
 
 Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 with your Azure account credentials.
@@ -161,7 +161,7 @@ appear correctly in Storage Explorer:
 Next, create an [Azure function](../azure-functions/functions-overview.md) 
 that removes HTML from incoming email.
 
-## Create a function to clean HTML
+## Create function to clean HTML
 
 Now, use the code snippet provided by these steps to create 
 an Azure function that removes HTML from each incoming email. 
@@ -209,7 +209,7 @@ select **New function**.
    ![Create new function](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
 3. Under **Choose a template below or go to the quickstart**, 
-open the **Scenario** list, select **Core**. 
+open the **Scenario** list, and select **Core**. 
 In the **HTTP Trigger** template, select **C#**.
 
    ![Select function template](./media/tutorial-process-email-attachments-workflow/function-select-httptrigger-csharp-function-template.png)
@@ -311,7 +311,7 @@ For more information, see [Create your first logic app](../logic-apps/quickstart
 
 1. On the designer in the search box, enter "when new email arrives" as your filter. 
 Select this trigger for your email provider: 
-**<*your-email-provider*> - When a new email arrives**
+**When a new email arrives - <*your-email-provider*>**
 
    For example:
 
@@ -462,7 +462,7 @@ for the email and attachments.
 > you can add any appropriate action that you want to take 
 > for the **If false** branch.
 
-## Call the RemoveHTMLFunction
+## Call RemoveHTMLFunction
 
 This step adds your previously created Azure function 
 to your logic app and passes the email body content 
@@ -474,9 +474,9 @@ In the **If true** branch, select **Add an action**.
    ![Inside "If true", add action](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
 2. In the search box, find "azure functions", 
-and select this action: **Azure Functions – Choose an Azure function**
+and select this action: **Choose an Azure function - Azure Functions**
 
-   ![Select action for "Azure Functions - Choose an Azure function"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
+   ![Select action for "Choose an Azure function"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
 3. Select your previously created function app: **CleanTextFunctionApp**
 
@@ -496,24 +496,25 @@ and select this action: **Azure Functions – Choose an Azure function**
       ```{ "emailBody": ``` 
 
       While you work on this input in the next steps, 
-      an error about invalid JSON appears.
+      an error about invalid JSON appears until your 
+      input is correctly formatted as JSON.
       When you previously tested this function, 
       the input specified for this function used JavaScript Object Notation (JSON). 
-      So, the request body must use the same format too.
+      So, the request body must also use the same format.
 
-      Also, while your cursor is inside the **Request body** box, 
+      Also, when your cursor is inside the **Request body** box, 
       the dynamic content list appears so you can select 
       property values available from previous actions. 
       
    2. From the dynamic content list, under **When a new email arrives**, 
-   select the **Body** property. Following this property, 
-   Remember to add the closing curly brace: ```}```
+   select the **Body** property. After this property, 
+   remember to add the closing curly brace: ```}```
 
       ![Specify the request body for passing to the function](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing.png)
 
-When you're done, the input to your function looks like this example:
+   When you're done, the input to your function looks like this example:
 
-![Finished request body to pass to your function](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing-2.png)
+   ![Finished request body to pass to your function](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing-2.png)
 
 7. Save your logic app.
 
@@ -526,7 +527,7 @@ storage container so you can save the email body.
 choose **Add an action**. 
 
 2. Under **Choose an action**, find "create blob", 
-and select this action: **Azure Blob Storage – Create blob**
+and select this action: **Create blob - Azure Blob Storage**
 
    ![Add action to create blob for email body](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-email-body.png)
 
@@ -547,7 +548,7 @@ When you're done, choose **Create**.
 ```Create blob for email body```
 
 5. In the **Create blob** action, provide this 
-information, and select these parameters to create 
+information, and select these properties to create 
 the blob as shown and described:
 
    ![Provide blob information for email body](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
@@ -556,7 +557,7 @@ the blob as shown and described:
    | ------- | ----- | ----------- | 
    | **Folder path** | /attachments | The path and name for the container that you previously created. You can also browse and select a container. | 
    | **Blob name** | **From** field | Pass in the email sender name as the blob name. From either the parameter list or dynamic content list, select **From** under **When a new email arrives**. | 
-   | **Blob content** | **Content** field | Pass in the HTML-free email body as the blob content. From either the parameter list or dynamic content list, select **Body** under **Call RemoveHTMLFunction to clean email body**. |
+   | **Blob content** | **Content** field | Pass in the HTML-free email body as the blob content. From the dynamic content list, select **Body** under **Call RemoveHTMLFunction to clean email body**. |
    |||| 
 
 6. Save your logic app. 
@@ -615,7 +616,7 @@ This logic app uses a **for each** loop to
 process each attachment in the email.
 
 1. Under the **Create blob for email body** shape, 
-choose **… More**, and select this command: **Add a for each**
+choose **More**, and select this command: **Add a for each**
 
    ![Add "for each" loop](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
@@ -648,7 +649,7 @@ the task to perform on each found attachment.
    ![Add action to loop](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
 
 2. Under **Choose an action**, search for "blob", then select this action: 
-**Azure Blob Storage – Create blob**
+**Create blob - Azure Blob Storage**
 
    ![Add action to create blob](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
