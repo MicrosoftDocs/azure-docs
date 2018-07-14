@@ -39,96 +39,96 @@ First, create a stored procedure and set it up to run a logic that compares sequ
 
 2. Enter a stored procedure id and paste the following in the “Stored Procedure body”. Note that this code should replace any existing code in the stored procedure body. This code maintains one row per device ID and records the latest connection state of that device id by identifying the highest sequence number. 
 
-```javascript
-// SAMPLE STORED PROCEDURE
-function UpdateDevice(deviceId, moduleId, hubName, connectionState, connectionStateUpdatedTime, sequenceNumber) {
-  var collection = getContext().getCollection();
-  var response = {};
-  
-  var docLink = getDocumentLink(deviceId, moduleId);
+    ```javascript
+    // SAMPLE STORED PROCEDURE
+    function UpdateDevice(deviceId, moduleId, hubName, connectionState, connectionStateUpdatedTime, sequenceNumber) {
+      var collection = getContext().getCollection();
+      var response = {};
+      
+      var docLink = getDocumentLink(deviceId, moduleId);
 
-  var isAccepted = collection.readDocument(docLink, function(err, doc) {
-    if (err) {
-      console.log('Cannot find device ' + docLink + ' - ');
-      createDocument();
-    } else {
-      console.log('Document Found - ');
-      replaceDocument(doc);
-    }
-  });
-
-  function replaceDocument(document) {
-    console.log(
-      'Old Seq :' +
-        document.sequenceNumber +
-        ' New Seq: ' +
-        sequenceNumber +
-        ' - '
-    );
-    if (sequenceNumber > document.sequenceNumber) {
-      document.connectionState = connectionState;
-      document.connectionStateUpdatedTime = connectionStateUpdatedTime;
-      document.sequenceNumber = sequenceNumber;
-
-      console.log('replace doc - ');
-
-      isAccepted = collection.replaceDocument(docLink, document, function(
-        err,
-        updated
-      ) {
+      var isAccepted = collection.readDocument(docLink, function(err, doc) {
         if (err) {
-          getContext()
-            .getResponse()
-            .setBody(err);
+          console.log('Cannot find device ' + docLink + ' - ');
+          createDocument();
         } else {
-          getContext()
-            .getResponse()
-            .setBody(updated);
+          console.log('Document Found - ');
+          replaceDocument(doc);
         }
       });
-    } else {
-      getContext()
-        .getResponse()
-        .setBody('Old Event - current: ' + document.sequenceNumber + ' Incoming: ' + sequenceNumber);
-    }
-  }
-  function createDocument() {
-    document = {
-      id: deviceId + '-' + moduleId,
-      deviceId: deviceId,
-      moduleId: moduleId,
-      hubName: hubName,
-      connectionState: connectionState,
-      connectionStateUpdatedTime: connectionStateUpdatedTime,
-      sequenceNumber: sequenceNumber
-    };
-    console.log('Add new device - ' + collection.getAltLink());
-    isAccepted = collection.createDocument(
-      collection.getAltLink(),
-      document,
-      function(err, doc) {
-        if (err) {
-          getContext()
-            .getResponse()
-            .setBody(err);
+
+      function replaceDocument(document) {
+        console.log(
+          'Old Seq :' +
+            document.sequenceNumber +
+            ' New Seq: ' +
+            sequenceNumber +
+            ' - '
+        );
+        if (sequenceNumber > document.sequenceNumber) {
+          document.connectionState = connectionState;
+          document.connectionStateUpdatedTime = connectionStateUpdatedTime;
+          document.sequenceNumber = sequenceNumber;
+
+          console.log('replace doc - ');
+
+          isAccepted = collection.replaceDocument(docLink, document, function(
+            err,
+            updated
+          ) {
+            if (err) {
+              getContext()
+                .getResponse()
+                .setBody(err);
+            } else {
+              getContext()
+                .getResponse()
+                .setBody(updated);
+            }
+          });
         } else {
           getContext()
             .getResponse()
-            .setBody(doc);
+            .setBody('Old Event - current: ' + document.sequenceNumber + ' Incoming: ' + sequenceNumber);
         }
       }
-    );
-  }
+      function createDocument() {
+        document = {
+          id: deviceId + '-' + moduleId,
+          deviceId: deviceId,
+          moduleId: moduleId,
+          hubName: hubName,
+          connectionState: connectionState,
+          connectionStateUpdatedTime: connectionStateUpdatedTime,
+          sequenceNumber: sequenceNumber
+        };
+        console.log('Add new device - ' + collection.getAltLink());
+        isAccepted = collection.createDocument(
+          collection.getAltLink(),
+          document,
+          function(err, doc) {
+            if (err) {
+              getContext()
+                .getResponse()
+                .setBody(err);
+            } else {
+              getContext()
+                .getResponse()
+                .setBody(doc);
+            }
+          }
+        );
+      }
 
-  function getDocumentLink(deviceId, moduleId) {
-    return collection.getAltLink() + '/docs/' + deviceId + '-' + moduleId;
-  }
-}
-```
+      function getDocumentLink(deviceId, moduleId) {
+        return collection.getAltLink() + '/docs/' + deviceId + '-' + moduleId;
+      }
+    }
+    ```
 
 3. Save the stored procedure: 
 
-  ![save stored procedure](./media/iot-hub-how-to-order-connection-state-events/save-stored-procedure.png)
+    ![save stored procedure](./media/iot-hub-how-to-order-connection-state-events/save-stored-procedure.png)
 
 ## Create a logic app
 
@@ -200,9 +200,9 @@ Conditions help run specific actions after passing a specific condition, in your
    ![New step, add a condition](./media/iot-hub-how-to-order-connection-state-events/add-a-condition.png)
 
 2. Fill the condition as shown below to only execute this for Device Connected and Device Disconnected events:
-* Choose a value: **eventType**
-* Change is equal to" to **ends with**
-* Choose a value: **nected**
+  * Choose a value: **eventType**
+  * Change is equal to" to **ends with**
+  * Choose a value: **nected**
 
    ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
