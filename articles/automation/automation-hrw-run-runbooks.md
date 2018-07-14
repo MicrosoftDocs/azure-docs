@@ -162,7 +162,7 @@ The following section describes how to sign your runbooks for use on a Windows H
 
 The following example creates a self signed certificate as an example to use for signing runbooks.
 
-```powershell-interactive
+```azurepowershell-interactive
 # Create a self signed runbook that can be used for code signing
 $SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
                                         -Subject "CN=contoso.com" `
@@ -179,17 +179,16 @@ Export-Certificate -Cert $SigningCert -FilePath .\hybridworkersigningcertificate
 
 # Import the certificate into the trusted root store so the certificate chain can be validated
 Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
-```
 
-Retrieve the thumbprint of your certificate from `$SigningCert.Thumbprint` so you can use it later.
+# Retrieve the thumbprint for later use
+$SigningCert.Thumbprint
+```
 
 ### Configure the Hybrid Runbook Workers
 
-Copy the `hybridworkersigningcertificate.cer` to each hybrid worker in a group. Run the following script to import the certificate and configure the Hybrid Worker to use signature validation on runbooks.
+Copy the certificate created to each hybrid worker in a group. Run the following script to import the certificate and configure the Hybrid Worker to use signature validation on runbooks.
 
-```powershell-interactive
-# Copy over the hybridworkersigningcertificate.cer to each hybrid worker in a group
-
+```azurepowershell-interactive
 # Install the certificate into a location that will be used for validation.
 New-Item -Path Cert:\LocalMachine\AutomationHybridStore
 Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\AutomationHybridStore
@@ -205,12 +204,12 @@ Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocati
 
 Use the following sample PowerShell to sign your runbooks.
 
-```powershell-interactive
+```azurepowershell-interactive
 $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-Once the runbook has been signed, it must be imported into your Automation Account and published, to learn how to do this see [Importing a runbook from a file into Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+Once the runbook has been signed, it must be imported into your Automation Account and published with the signature block. To learn how import runbooks, see [Importing a runbook from a file into Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
 
 ## Troubleshoot
 
