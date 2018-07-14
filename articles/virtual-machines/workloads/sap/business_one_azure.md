@@ -1,5 +1,5 @@
 ---
-title: SAP Business One on Azure | Microsoft Docs
+title: SAP Business One on Azure Virtual Machines | Microsoft Docs
 description: SAP Business One on Azure.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -20,12 +20,12 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# SAP Business one on Azure
+# SAP Business One on Azure virtual Machines
 This document provides guidance to deploy SAP Business One on Azure Virtual Machines. The documentation is not a replacement for installation documentation of Business one for SAP. The documentation should cover basic planning and deployment guidelines for the Azure infrastructure to run Business One applications on.
 
 Business One supports two different databases:
 - SQL Server - see [SAP Note #928839 - Release Planning for Microsoft SQL Server](https://launchpad.support.sap.com/#/notes/928839)
-- SAP HANA - for exact SAP Business One support matrix for SAP HANA, checkout  the [SAP Product Availability Matrix 
+- SAP HANA - for exact SAP Business One support matrix for SAP HANA, checkout  the [SAP Product Availability Matrix](https://support.sap.com/pam)
 
 In regards to SQL Server, the basic deployment considerations as documented in the [Azure Virtual Machines DBMS deployment for SAP NetWeaver](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms-guide) applies. for SAP HANA, considerations are mentioned in this document.
 
@@ -40,6 +40,24 @@ To use this guide, you need basic knowledge of the following Azure components:
 
 Even if you are interested in business One only, the document [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide) can be a good source of information.
 
+The assumption is that you as the instance deploying SAP Business One are:
+
+- Familiar with installing SAP HANA on a given infrastructure like a VM
+- Familiar installing the SAP Business One application on an infrastructure like Azure VMs
+- Familiar with operating SAP Business One and the DBMS system chosen
+- Familiar with deploying infrastructure in Azure
+
+All these areas will not be covered in this document.
+
+Besides Azure documentation you should be aware of main SAP Notes which refer to Business One or which are central Notes from SAP for business One:
+
+- [528296 - General Overview Note for SAP Business One Releases and Related Products](https://launchpad.support.sap.com/#/notes/528296)
+- [2216195 - Release Updates Note for SAP Business One 9.2, version for SAP HANA](https://launchpad.support.sap.com/#/notes/2216195)
+- [2483583 - Central Note for SAP Business One 9.3](https://launchpad.support.sap.com/#/notes/2483583)
+- [2483615 - Release Updates Note for SAP Business One 9.3](https://launchpad.support.sap.com/#/notes/2483615)
+- [2483595 - Collective Note for SAP Business One 9.3 General Issues](https://launchpad.support.sap.com/#/notes/2483595)
+- [2027458 - Collective Consulting Note for SAP HANA-Related Topics of SAP Business One, version for SAP HANA](https://launchpad.support.sap.com/#/notes/2027458)
+
 
 ## Business One Architecture
 Business One is an application that has two tiers:
@@ -47,217 +65,96 @@ Business One is an application that has two tiers:
 - A client tier with a 'fat' client
 - A database tier that contains the database schema for a tenant
 
+A better overview which components are running in the client part and which parts are running in the server part is documented in [SAP Business One Administrator's Guide](https://help.sap.com/http.svc/rc/879bd9289df34a47af838e67d74ea302/9.3/en-US/AdministratorGuide_SQL.pdf) 
 
+Since there is a lot of interaction between the client tier and the DBMS tier, both tiers need to be located in Azure when deploying in Azure. it is usual that the users then RDS into one or multiple VMs running an RDS service for the Business One client components.
 
-Since there is a lot of interaction between the client tier and the DBMS tier, both tiers need to be located in Azure when deploying in Azure. 
+### Sizing VMs for SAP Business One
 
+In regards to the sizing of the client VM(s), the resource requirements are documented by SAP in the document [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). For Azure, you need to focus and calculate with the requirements stated in chapter 2.4 of the document.
 
-## Basic setup considerations
-The following sections describe basic setup considerations for deploying SAP HANA systems on Azure VMs.
+As Azure virtual machines for hosting the Business One client components and the DBMS host, only VMs that are SAP NetWeaver supported are allowed. To find the list of SAP NetWeaver supported Azure VMs, read [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
-### Connect into Azure virtual machines
-As documented in the [Azure virtual machines planning guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide), there are two basic methods for connecting into Azure VMs:
+Running SAP HANA as DBMS backend for Business One, only VMs which are listed for Business on HANA in the [HANA certifeid IaaS platform list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) are supported for HANA. The Business One client components are not affected by this stronger restriction for the SAP HANA as DBMS system.
 
-- Connect through the internet and public endpoints on a Jump VM or on the VM that is running SAP HANA.
-- Connect through a [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) or Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+### Operating system releases to use for SAP Business One
 
-Site-to-site connectivity via VPN or ExpressRoute is necessary for production scenarios. This type of connection is also needed for non-production scenarios that feed into production scenarios where SAP software is being used. The following image shows an example of cross-site connectivity:
+In principle it is always best to use the most recent operating system releases. Especially in the Linux space, new Azure functionality was introduced with different more recent minor releases of Suse and Red Hat. On the Windows side, using Windows Server 2016 is highly recommended.
 
-![Cross-site connectivity](media/virtual-machines-shared-sap-planning-guide/300-vpn-s2s.png)
 
+## Deploying infrastructure in Azure for SAP Business One
+In the next few chapters, the infrastructure pieces that matter for deploying SAP.
 
-### Choose Azure VM types
-The Azure VM types that can be used for production scenarios are listed in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). For non-production scenarios, a wider variety of native Azure VM types is available.
+### Azure network infrastructure
+The network infrastructure you need to deploy in Azure depends on whether you deploy a single Business One system for yourself. Or whether you are a hoster who hosts dozens of Business One systems for customers. There also might be slight changes in the design on whether how you connect to Azure. Going through different possibilities, one design where you have a VPN connectivity into Azure and where you extend your Active directory an VPN into Azure.
 
->[!NOTE]
-> For non-production scenarios, use the VM types that are listed in the [SAP note #1928533](https://launchpad.support.sap.com/#/notes/1928533). For the usage of Azure VMs for production scenarios, check for SAP HANA certified VMs in the SAP published [Certified IaaS Platforms list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+![Simple network configuration with Business One](./media/business_one_azure/simple_network_with_VPN.PNG)
 
-Deploy the VMs in Azure by using:
+The simple configuration presented introduces several security instances that allow to control and limit routing. It starts with 
 
-- The Azure portal.
-- Azure PowerShell cmdlets.
-- The Azure CLI.
+- The router/firewall on the customer on-premises side.
+- The next instance is the [Azure Network Security Group](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) that you can use to introduce routing and security rules for the Azure VNet that you run your SAP Business one configuration in.
+- In order to avoid that users of Business One client can as well see the the server that runs the Business One server which runs the database, you should separate the VM hosting the Business one client and the business one server in two different subnets within the VNet.
+- You would use Azure NSG assigned to the two different subnets again in order to limit access to the Business one server.
 
-You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) or with the automation released [here](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
+A more sophisticated version of an Azure network configuration is based on the Azure [documented best practices of hub and spoke architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). The architecture pattern of hub and spoke would change the first simple configuration to one like this:
 
-### Choose Azure Storage type
-Azure provides two types of storage that are suitable for Azure VMs that are running SAP HANA:
 
-- [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
-- [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+![Hub and spoke configuration with Business One](./media/business_one_azure/hub_spoke_network_with_VPN.PNG)
 
-Azure offers two deployment methods for VHDs on Azure Standard and Premium Storage. If the overall scenario permits, take advantage of [Azure managed disk](https://azure.microsoft.com/services/managed-disks/) deployments.
+For cases where the users are connecting through the internet without any private connectivity into Azure, the design of the network in Azure should be aligned with the principles documented in the Azure reference architecture for [DMZ between Azure and the Internet](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
-For a list of storage types and their SLAs in IOPS and storage throughput, review the [Azure documentation for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+### Business One database server
+For the database we differentiate between the usage of SQL Server and SAP HANA. Independent of the DBMS, you should read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) to get a general understanding of DBMS deployments in azure VMs and the related networking and storage topics.
 
-### Configuring the Storage for Azure virtual machines
+Though emphasized in the specific and generic database documents already, you should make yourself familiar with:
 
-So far as you bought SAP HANA appliances for on-premises, you never had to care about the I/O subsystems and its capabilities because the appliance vendor needs to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you also should be aware of some of those requirements to also understand the configuration requirements we suggest in the following sections. Or for cases where you are configuring the Virtual Machines you want run SAP HANA on. Some of the characteristics that are asked are resulting in the need to:
+- [Manage the availability of Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) and [Manage the availability of Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/manage-availability)
+- [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
-- Enable read/write volume on /hana/log of a 250MB/sec at minimum with 1MB I/O sizes
-- Enable read activity of at least 400MB/sec for /hana/data for 16MB and 64MB I/O sizes
-- Enable write activity of at least 250MB/sec for /hana/data with 16MB and 64MB I/O sizes
+These documents should help you to decide on the selection of storage types and high availability configuration.
 
-Given that low storage latency is critical for DBMS systems, even as those, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is mandatory to leverage Azure Premium Disks for /hana/data and /hana/log volumes. In order to achieve the minimum throughput of /hana/log and /hana/data as desired by SAP, you need to build a RAID 0 using MDADM or LVM over multiple Azure Premium Storage disks and use the RAID volumes as /hana/data and /hana/log volumes. As stripe sizes for the RAID 0 the recommendation is to use:
+In principle you should:
 
-- 64K or 128K for /hana/data
-- 32K for /hana/log
+- Use Azure [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) over [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
+- Use Azure Managed disks over unmanaged disks
+- Make sure that you have sufficient IOPS and I/O throughput configured with your disk configuration
+- Combine /hana/data and /hana/log volume in order to have a cost efficient storage configuration
 
-> [!NOTE]
-> You don't need to configure any redundancy level using RAID volumes since Azure Premium and Standard storage keep three images of a VHD. The usage of a RAID volume is purely to configure volumes that provide sufficient I/O throughput.
 
-Accumulating a number of Azure VHDs underneath a RAID, is accumulative from an IOPS and storage throughput side. So, if you put a RAID 0  over 3 x P30 Azure Premium Storage disks, it should give you three times the IOPS and three times the storage throughput of a single Azure Premium Storage P30 disk.
+#### SQL Server as DBMS
+For deploying SQL Server as DBMS for Business One, go along the document [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sqlserver). 
 
-Don't configure Premium Storage caching on the disks used for /hana/data and /hana/log. All the disks building those volumes should have caching of those disks set to 'None'.
+Rough sizing estimates for the DBMS side for SQL Server are:
 
-Also keep the overall VM I/O throughput in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
+| Number of users | vCPUs | Memory | Example VM types |
+| --- | --- | --- | --- |
+| up to 20 | 4 | 16 GB | D4s_v3, E4s_v3 |
+| up to 40 | 8 | 32 GB | D8s_v3, E8s_v3 |
+| up to 80 | 16 | 64 GB | D16s_v3, E16s_v3 |
+| up to 150 | 32 | 128 GB | D32s_v3, E32s_v3 |
 
-#### Cost conscious Azure Storage configuration
-The following table shows a configuration of VM types that customers commonly use to host SAP HANA on Azure VMs. There might be some VM types that might not meet all minimum criteria for SAP HANA. But so far those VMs seemed to perform fine for non-production scenarios. 
+The sizing listed above should give an idea where to start with. It may be that you need less  or more resources, in which case an adaption on azure is easy. Achange between VM types is possible with just a restart of the VM.
 
-> [!NOTE]
-> For production scenarios, check whether a certain VM type is supported for SAP HANA by SAP in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
 
+#### SAP HANA as DBMS
+Using SAP HANA as DBMS the following sections you should follow the considerations of the document [SAP HANA on Azure operations guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
 
-| VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data and /hana/log<br /> striped with LVM or MDADM | /hana/shared | /root volume | /usr/sap | hana/backup |
-| --- | --- | --- | --- | --- | --- | --- | -- |
-| DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
-| E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
-| E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| GS5 | 448 GiB | 2000 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| M32ts | 192 GiB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| M32ls | 256 GiB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 |1 x S30 |
-| M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
-| M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128s | 2000 GiB | 2000 MB/s |3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S40 |
-| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S50 |
+For high availability and disaster recovery configurations around SAP HANA as database for Business One in Azure, you should read the documentation [SAP HANA high availability for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview) and the documentation pointed to from that document.
 
+For SAP HANA backup and restore strategies, you should read the document [Backup guide for SAP HANA on Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide) and the documentation pointed to from that document.
 
-The disks recommended for the smaller VM types with 3 x P20 oversize the volumes regarding the space recommendations according to the [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). However the choice as displayed in the table was made to provide sufficient disk throughput for SAP HANA. If you need changes to the /hana/backup volume, which was sized for keeping backups that represent twice the memory volume, feel free to adjust.   
-Check whether the storage throughput for the different suggested volumes will meet the workload that you want to run. If the workload requires higher volumes for /hana/data and /hana/log, you need to increase the number of Azure Premium Storage VHDs. Sizing a volume with more VHDs than listed will increase the IOPS and I/O throughput within the limits of the Azure virtual machine type. 
-
-> [!NOTE]
-> The configurations above would NOT benefit from [Azure virtual machine single VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) since it does use a mixture of Azure Premium Storage and Azure Standard Storage. However, the selection was chosen in order to optimize costs.
-
-
-#### Azure Storage configuration to benefit for meeting single VM SLA
-If you want to benefit from [Azure virtual machine single VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/), you need to use Azure Premium Storage VHDs exclusively.
-
-> [!NOTE]
-> For production scenarios, check whether a certain VM type is supported for SAP HANA by SAP in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
-
-| VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data and /hana/log<br /> striped with LVM or MDADM | /hana/shared | /root volume | /usr/sap | hana/backup |
-| --- | --- | --- | --- | --- | --- | --- | -- |
-| DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P15 |
-| E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P15 |
-| E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P20 |
-| E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
-| GS5 | 448 GiB | 2000 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
-| M32ts | 192 GiB | 500 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P20 |
-| M32ls | 256 GiB | 500 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P20 |
-| M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 1 x P20 | 1 x P6 | 1 x P6 | 1 x P30 |
-| M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
-| M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
-| M128s | 2000 GiB | 2000 MB/s |3 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P40 |
-| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P50 |
-
-
-The disks recommended for the smaller VM types with 3 x P20 oversize the volumes regarding the space recommendations according to the [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). However the choice as displayed in the table was made to provide sufficient disk throughput for SAP HANA. If you need changes to the /hana/backup volume, which was sized for keeping backups that represent twice the memory volume, feel free to adjust.  
-Check whether the storage throughput for the different suggested volumes will meet the workload that you want to run. If the workload requires higher volumes for /hana/data and /hana/log, you need to increase the number of Azure Premium Storage VHDs. Sizing a volume with more VHDs than listed will increase the IOPS and I/O throughput within the limits of the Azure virtual machine type. 
-
-
-
-#### Storage solution with Azure Write Accelerator for Azure M-Series virtual machines
-Azure Write Accelerator is a functionality that is getting rolled out for M-Series VMs exclusively. As the name states, the purpose of the functionality is to improve I/O latency of Writes against the Azure Premium Storage. For SAP HANA, Write Accelerator is supposed to be used against the /hana/log volume only. Therefore the configurations shown so far need to be changed. The main change is the breakup between the /hana/data and /hana/log in order to use Azure Write Accelerator against the /hana/log volume only. 
-
-> [!IMPORTANT]
-> SAP HANA certification for Azure M-Series virtual machines is exclusively with Azure Write Accelerator for the /hana/log volume. As a result, production scenario SAP HANA deployments on Azure M-Series virtual machines are expected to be configured with Azure Write Accelerator for the /hana/log volume.  
-
-> [!NOTE]
-> For production scenarios, check whether a certain VM type is supported for SAP HANA by SAP in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
-
-The recommended configurations look like:
-
-| VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data | /hana/log | /hana/shared | /root volume | /usr/sap | hana/backup |
-| --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| M32ts | 192 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
-| M32ls | 256 GiB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
-| M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P30 |
-| M64s | 1000 GiB | 1000 MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
-| M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
-| M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P40 |
-| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 2 x P50 |
-
-Check whether the storage throughput for the different suggested volumes will meet the workload that you want to run. If the workload requires higher volumes for /hana/data and /hana/log, you need to increase the number of Azure Premium Storage VHDs. Sizing a volume with more VHDs than listed will increase the IOPS and I/O throughput within the limits of the Azure virtual machine type.
-
-Azure Write Accelerator only works in conjunction with [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). So at least the Azure Premium Storage disks forming the /hana/log volume need to be deployed as managed disks.
-
-There are limits of Azure Premium Storage VHDs per VM that can be supported by Azure Write Accelerator. The current limits are:
-
-- 16 VHDs for an M128xx VM
-- 8 VHDs for an M64xx VM
-- 4 VHDs for an M32xx VM
-
-More detailed instructions on how to enable Azure Write Accelerator can be found in the article [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
-
-Details and restrictions for Azure Write Accelerator can be found in the same documentation.
-
-
-### Set up Azure virtual networks
-When you have site-to-site connectivity into Azure via VPN or ExpressRoute, you must have at least one [Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) that is connected through a Virtual Gateway to the VPN or ExpressRoute circuit. The Virtual Gateway lives in a subnet in the Azure virtual network. To install SAP HANA, you create two additional subnets within the virtual network. One subnet hosts the VMs to run the SAP HANA instances. The other subnet runs Jumpbox or Management VMs to host SAP HANA Studio or other management software.
-
-When you install the VMs to run SAP HANA, the VMs need:
-
-- Two virtual NICs installed: one NIC to connect to the management subnet, and one NIC to connect from the on-premises network or other networks, to the SAP HANA instance in the Azure VM.
-- Static private IP addresses that are deployed for both virtual NICs.
-
-For an overview of the different methods for assigning IP addresses, see [IP address types and allocation methods in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
-
-For VMs running SAP HANA, you should work with static IP addresses assigned. Reason is that some configuration attributes for HANA reference IP addresses.
-
-[Azure Network Security Groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) are used to direct traffic that's routed to the SAP HANA instance or the Jumpbox. The NSGs are associated to the SAP HANA subnet and the Management subnet.
-
-The following image shows an overview of a rough deployment schema for SAP HANA:
-
-![Rough deployment schema for SAP HANA](media/hana-vm-operations/hana-simple-networking.PNG)
-
-
-To deploy SAP HANA in Azure without a site-to-site connection, access the SAP HANA instance though a public IP address. The IP address must be assigned to the Azure VM that's running your Jumpbox VM. In this basic scenario, the deployment relies on Azure built-in DNS services to resolve hostnames. In a more complex deployment where public-facing IP addresses are used, Azure built-in DNS services are especially important. Use Azure NSGs to limit the open ports or IP address ranges that can connect into the Azure subnets with assets that have public-facing IP addresses. The following image shows a rough schema for deploying SAP HANA without a site-to-site connection:
-  
-![Rough deployment schema for SAP HANA without a site-to-site connection](media/hana-vm-operations/hana-simple-networking2.PNG)
  
+### Business One client server
+For these components storage considerations are not the primary concern. nevertheless, you want to have a reliable platform. Therefore, you should use Azure Premium Storage for this VM, even for the base VHD. Sizing the VM, with the data given in [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). For Azure, you need to focus and calculate with the requirements stated in chapter 2.4 of the document. As you calculate the requirements you need to compare them against the following documents to find the ideal VM for you:
+
+- [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)
+- [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
+
+Compare number of CPUs and memory needed to what is documented by Microsoft. Also keep network throughput in mind when choosing the VMs.
 
 
-## Operations for deploying SAP HANA on Azure VMs
-The following sections describe some of the operations related to deploying SAP HANA systems on Azure VMs.
-
-### Back up and restore operations on Azure VMs
-The following documents describe how to back up and restore your SAP HANA deployment:
-
-- [SAP HANA backup overview](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
-- [SAP HANA file-level backup](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [SAP HANA storage snapshot benchmark](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
 
-### Start and restart VMs that contain SAP HANA
-A prominent feature of the Azure public cloud is that you're charged only for your computing minutes. For example, when you shut down a VM that is running SAP HANA, you're billed only for the storage costs during that time. Another feature is available when you specify static IP addresses for your VMs in your initial deployment. When you restart a VM that has SAP HANA, the VM restarts with its prior IP addresses. 
 
 
-### Use SAProuter for SAP remote support
-If you have a site-to-site connection between your on-premises locations and Azure, and you're running SAP components, then you're probably already running SAProuter. In this case, complete the following items for remote support:
-
-- Maintain the private and static IP address of the VM that hosts SAP HANA in the SAProuter configuration.
-- Configure the NSG of the subnet that hosts the HANA VM to allow traffic through TCP/IP port 3299.
-
-If you're connecting to Azure through the internet, and you don't have an SAP router for the VM with SAP HANA, then you need to install the component. Install SAProuter in a separate VM in the Management subnet. The following image shows a rough schema for deploying SAP HANA without a site-to-site connection and with SAProuter:
-
-![Rough deployment schema for SAP HANA without a site-to-site connection and SAProuter](media/hana-vm-operations/hana-simple-networking3.PNG)
-
-Be sure to install SAProuter in a separate VM and not in your Jumpbox VM. The separate VM must have a static IP address. To connect your SAProuter to the SAProuter that is hosted by SAP, contact SAP for an IP address. (The SAProuter that is hosted by SAP is the counterpart of the SAProuter instance that you install on your VM.) Use the IP address from SAP to configure your SAProuter instance. In the configuration settings, the only necessary port is TCP port 3299.
-
-For more information on how to set up and maintain remote support connections through SAProuter, see the [SAP documentation](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
-
-### High-availability with SAP HANA on Azure native VMs
-If you're running SUSE Linux 12 SP1 or later, you can establish a Pacemaker cluster with STONITH devices. You can use the devices to set up an SAP HANA configuration that uses synchronous replication with HANA System Replication and automatic failover. For more information about the setup procedure, see [SAP HANA High Availability guide for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
