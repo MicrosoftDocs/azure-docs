@@ -333,8 +333,8 @@ The chart opens with all the intents correctly predicted. Scroll down in the rig
 ## Fix the app based on entity batch results
 Fixing the app requires LUIS to correctly determine the variations of SQL jobs. There are several options for that fix. 
 
-    * Explicitly add more example utterances which use SQL and label those words as a Job entity. 
-    * Explicitly add more SQL jobs to the phrase list
+* Explicitly add more example utterances which use SQL and label those words as a Job entity. 
+* Explicitly add more SQL jobs to the phrase list
 
 Adding a pattern before the entity is correctly predicted is not going to fix the problem. This is because the pattern won't match until all the entities in the pattern are detected. 
 
