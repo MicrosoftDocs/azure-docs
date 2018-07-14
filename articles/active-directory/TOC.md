@@ -143,9 +143,9 @@
 ## Manage passwords
 ### [Passwords overview](authentication/active-directory-passwords-overview.md)
 ### User documents
-#### [Reset or change your password](active-directory-passwords-update-your-own-password.md)
+#### [Reset or change your password](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Password best practices](active-directory-secure-passwords.md)
-#### [Register for self-service password reset](active-directory-passwords-reset-register.md)
+#### [Register for self-service password reset](user-help/active-directory-passwords-reset-register.md)
 ### [SSPR How it works](authentication/concept-sspr-howitworks.md)
 ### [SSPR Deployment guide](authentication/howto-sspr-deployment.md)
 ### [SSPR and Windows 10](authentication/tutorial-sspr-windows.md)
@@ -174,8 +174,8 @@
 ### [Plan Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQs](device-management-faq.md)
 ### Tasks
-#### [Set up Azure AD registered Windows 10 devices](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Set up Azure AD joined devices](device-management-azuread-joined-devices-setup.md)
+#### [Set up Azure AD registered Windows 10 devices](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+#### [Set up Azure AD joined devices](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Set up hybrid Azure AD joined devices](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md)
 #### [Azure AD join during Windows 10 first-run experience](device-management-azuread-joined-devices-frx.md)
@@ -382,8 +382,8 @@
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## Delegate access to resources
-### [View members of an admin role](users-groups-roles//directory-manage-roles-portal.md)
 ### [Administrator roles](users-groups-roles/directory-assign-admin-roles.md)
+#### [View members of an admin role](users-groups-roles//directory-manage-roles-portal.md)
 #### [Assign admin role to a user](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Compare member and guest user permissions](fundamentals/users-default-permissions.md)
 ### [Administrator role security](users-groups-roles/directory-admin-roles-secure.md)  
@@ -447,7 +447,7 @@
 #### [FAQs](active-directory-identity-protection-faqs.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
+### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## Integrate other services with Azure AD 
 ### [Integrate LinkedIn with Azure AD](users-groups-roles/linkedin-integration.md)
@@ -477,7 +477,7 @@
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD for developers](./develop/active-directory-how-to-integrate.md)
-## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Resources
 ## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)

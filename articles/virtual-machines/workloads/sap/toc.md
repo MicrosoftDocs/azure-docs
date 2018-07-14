@@ -48,8 +48,19 @@
 ### SAP Multi-SID
 #### [Windows with Shared Disk for (A)SCS Instance](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [Windows with SOFS File Share for (A)SCS Instance](sap-ascs-ha-multi-sid-wsfc-file-share.md)
-## [Deployment guide](deployment-guide.md)
-## [DBMS deployment guide](dbms-guide.md)
+## [SAP NetWeaver Deployment guide](deployment-guide.md)
+## DBMS deployment guides for SAP workload
+### [General Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
+### [SQL Server Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_sqlserver.md)
+### [Oracle Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_oracle.md)
+### [IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_ibm.md)
+### [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_sapase.md)
+### [SAP MaxDB, liveCache and Content Server deployment on Azure](dbms_guide_maxdb.md)
+### [SAP HANA on Azure operations guide](hana-vm-operations.md)
+#### SAP HANA Availability in Azure Virtual Machines
+##### [SAP HANA on Azure Availability overview](sap-hana-availability-overview.md)
+##### [SAP HANA on Azure Availability within one Azure region](sap-hana-availability-one-region.md)
+##### [SAP HANA on Azure Availability across Azure regions](sap-hana-availability-across-regions.md)
 ## [Azure Site Recovery for SAP Disaster Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # AAD SAP Identity Integration and Single-Sign-On
 ## [Integration with SAP Cloud](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)

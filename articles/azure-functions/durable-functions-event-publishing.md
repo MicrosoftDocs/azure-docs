@@ -18,11 +18,11 @@ ms.author: tdykstra
 
 # Durable Functions publishing to Azure Event Grid (preview)
 
-This article shows how to set up Azure Durable Functions to publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid Topic](https://docs.microsoft.com/en-us/azure/event-grid/overview). 
+This article shows how to set up Azure Durable Functions to publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid Topic](https://docs.microsoft.com/azure/event-grid/overview). 
 
 Following are some scenarios where this feature is useful:
 
-* **DevOps scenarios like blue/green deployments**: You might want to know if any tasks are running before implementing the  [side-by-side deployment strategy](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#side-by-side-deployments).
+* **DevOps scenarios like blue/green deployments**: You might want to know if any tasks are running before implementing the  [side-by-side deployment strategy](https://docs.microsoft.com/azure/azure-functions/durable-functions-versioning#side-by-side-deployments).
 
 * **Advanced monitoring and diagnostics support**: You can keep track of orchestration status information in an external store optimized for queries, such as SQL database or CosmosDB.
 
@@ -31,19 +31,19 @@ Following are some scenarios where this feature is useful:
 ## Prerequisites
 
 * Install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc or later in your Durable Functions project.
-* Install [Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator).
-* Install [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+* Install [Azure Storage Emulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
+* Install [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
 ## Create a custom Event Grid topic
 
 Create an Event Grid topic for sending events from Durable Functions. The following instructions show how to create a topic by using Azure CLI. For information about how to do it by using PowerShell or the Azure portal, refer to the following articles:
 
-* [EventGrid Quickstarts: Create custom event - PowerShell](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-powershell)
-* [EventGrid Quickstarts: Create custom event - Azure portal](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-portal)
+* [EventGrid Quickstarts: Create custom event - PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
+* [EventGrid Quickstarts: Create custom event - Azure portal](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### Create a resource group
 
-Create a resource group with the `az group create` command. Currently, Event Grid doesn't support all regions. For information about which regions are supported, see the [Event Grid overview](https://docs.microsoft.com/en-us/azure/event-grid/overview). 
+Create a resource group with the `az group create` command. Currently, Event Grid doesn't support all regions. For information about which regions are supported, see the [Event Grid overview](https://docs.microsoft.com/azure/event-grid/overview). 
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -110,7 +110,7 @@ Set the app setting for the topic key in the Function App and `local.setting.jso
 }
 ```
 
-Make sure that [Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) is working. It's a good idea to run the `AzureStorageEmulator.exe clear all` command before executing.
+Make sure that [Storage Emulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator) is working. It's a good idea to run the `AzureStorageEmulator.exe clear all` command before executing.
 
 ## Create functions that listen for events
 
@@ -142,7 +142,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-Select `Add Event Grid Subscription`. This operation adds an Event Grid subscription for the Event Grid topic that you created. For more information, see [Concepts in Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/concepts)
+Select `Add Event Grid Subscription`. This operation adds an Event Grid subscription for the Event Grid topic that you created. For more information, see [Concepts in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
 
 ![Select the Event Grid Trigger link.](media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
@@ -257,10 +257,10 @@ The following list explains the lifecycle events schema:
 * **id**: Unique identifier for the Event Grid event.
 * **subject**: Path to the event subject. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` will be `Running`, `Completed`, `Failed`, and `Terminated`.  
 * **data**: Durable Functions Specific Parameters.
-    * **hubName**: [TaskHub](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-task-hubs) name.
+    * **hubName**: [TaskHub](https://docs.microsoft.com/azure/azure-functions/durable-functions-task-hubs) name.
     * **functionName**: Orchestrator function name.
     * **instanceId**: Durable Functions instanceId.
-    * **reason**: Additional data associated with the tracking event. For more information, see [Diagnostics in Durable Functions (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-diagnostics)
+    * **reason**: Additional data associated with the tracking event. For more information, see [Diagnostics in Durable Functions (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-diagnostics)
     * **runtimeStatus**: Orchestration Runtime Status. Running, Completed, Failed, Canceled. 
 * **eventType**: "orchestratorEvent"
 * **eventTime**: Event time (UTC).

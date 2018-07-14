@@ -36,9 +36,9 @@ If you're deploying in a tenant environment, here's one way to set this up:
 1.  Create a user per tenant and and using [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assign read-only permissions to all the VM’s belonging to a particular tenant. Then, use those credentials for discovery. RBAC ensures that the corresponding vCenter user will have access to only tenant specific VM’s.
 2. You set up RBAC for different tenant users as described in the following example for User#1 and User#2:
 
-    - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs in 
+    - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs in
     - Datacenter1 - give read-only permissions to User#1 and User#2. Don't propagate those permissions to all child objects, because you'll set permissions on individual VM's.
-    
+
       - VM1 (Tenant#1) (Read only permission to User#1)
       - VM2 (Tenant#1) (Read only permission to User#1)
       - VM3 (Tenant#2) (Read only permission to User#2)
@@ -122,6 +122,14 @@ Check that the OVA file is secure before you deploy it:
    Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. Make sure that the generated hash matches the following settings.
+
+    For OVA version 1.0.9.12
+
+    **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
     For OVA version 1.0.9.8
 

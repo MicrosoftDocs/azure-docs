@@ -43,7 +43,7 @@ We have samples to help get you started. For a walkthrough of the sample, see [I
 Create Power BI Embedded capacity within Microsoft Azure to move your application to production. For information on how to create capacity, see [Create Power BI Embedded capacity in the Azure portal](create-capacity.md).
 
 > [!IMPORTANT]
-> Because embed tokens are intended for developer testing only, the number of embed tokens a Power BI master account can generate is limited. A [capacity must be purchased](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) for production embedding scenarios. There is no limit to an embed token generation when a dedicated capacity is purchased. Go to [Get Available Features](https://msdn.microsoft.com/en-us/library/mt846473.aspx) to check for the current embedded usage in percentage.
+> Because embed tokens are intended for developer testing only, the number of embed tokens a Power BI master account can generate is limited. A [capacity must be purchased](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical) for production embedding scenarios. There is no limit to an embed token generation when a dedicated capacity is purchased. Go to [Get Available Features](https://msdn.microsoft.com/library/mt846473.aspx) to check for the current embedded usage in percentage.
 
 Manage your capacity within the Power BI admin portal. Assign a workspace admin to assist with your app workspaces. For more information, see [Manage capacities within Power BI Premium and Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 
