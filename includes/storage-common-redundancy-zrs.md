@@ -18,7 +18,7 @@ Consider ZRS for scenarios that require strong consistency, strong durability, a
 For more information about availability zones, see [Availability Zones overview](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
 ## Support coverage and regional availability
-ZRS currently supports standard [general-purpose v2 (GPv2)](../articles/storage/common/storage-account-options.md#general-purpose-v2) account types. ZRS is available for block blobs, non-disk page blobs, files, tables, and queues. Additionally, all of your [Storage Analytics](../articles/storage/common/storage-analytics.md) logs and [Storage Metrics](../articles/storage/common/storage-enable-and-view-metrics.md)
+ZRS currently supports standard [general-purpose v2 (GPv2)](../articles/storage/common/storage-account-options.md#general-purpose-v2-accounts) account types. ZRS is available for block blobs, non-disk page blobs, files, tables, and queues. Additionally, all of your [Storage Analytics](../articles/storage/common/storage-analytics.md) logs and [Storage Metrics](../articles/storage/common/storage-enable-and-view-metrics.md)
 
 ZRS is generally available in the following regions:
 
