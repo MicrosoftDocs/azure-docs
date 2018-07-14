@@ -248,7 +248,7 @@ The sum of *'TotalBillableRequests'*, across all entries for an API in the trans
 In order to estimate transaction costs for Blob storage accounts, you need to break down the transactions into three groups since they are priced differently.
 
 * Write transactions such as *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'*, and *'CopyBlob'*.
-* Delete transactions such as *'DeleteBlob'* and *'DeleteContainer'*.
+* Read transactions such as *'GetBlob'*.
 * All other transactions.
 
 In order to estimate transaction costs for GPv1 storage accounts, you need to aggregate all transactions irrespective of the operation/API.
