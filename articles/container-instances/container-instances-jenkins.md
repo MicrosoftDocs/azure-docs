@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 07/13/2018
 ms.author: marsma
 ---
 
@@ -90,7 +90,7 @@ Jenkins is now configured and ready to build and deploy code. For this example, 
 
 Now, a Jenkins build job is created to demonstrate Jenkins builds on an Azure container instance.
 
-1. Select **New Item**, give the build project a name such as **aci-java-demo**, select **Freestyle project**, and select **OK**.
+1. Select **New Item**, give the build project a name such as **aci-demo**, select **Freestyle project**, and select **OK**.
 
    ![Box for the name of the build job, and list of project types](./media/container-instances-jenkins/jenkins-new-job.png)
 
@@ -98,13 +98,9 @@ Now, a Jenkins build job is created to demonstrate Jenkins builds on an Azure co
 
    !["General" tab with configuration details](./media/container-instances-jenkins/jenkins-job-01.png)
 
-3. Under **Source Code Management**, select **Git** and enter **https://github.com/spring-projects/spring-petclinic.git** for the repository URL. This GitHub repo contains the sample application code.
+3. Under **Build**, select **Add build step** and select **Execute Shell**. Enter `echo "aci-demo"` as the command.
 
-   !["Source Code Management" tab with source code information](./media/container-instances-jenkins/jenkins-job-02.png)
-
-4. Under **Build**, select **Add build step** and select **Invoke top-level Maven targets**. Enter **package** as the build step goal.
-
-   !["Build" tab with selections for the build step](./media/container-instances-jenkins/jenkins-job-03.png)
+   !["Build" tab with selections for the build step](./media/container-instances-jenkins/jenkins-job-02.png)
 
 5. Select **Save**.
 
