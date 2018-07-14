@@ -134,84 +134,85 @@ In order to get a LUIS prediction in a chatbot or other application, you need to
 
     ```JSON
     {
-    "query": "who is the boss of jill jones?",
-    "topScoringIntent": {
-        "intent": "OrgChart-Manager",
-        "score": 0.353984952
-    },
-    "intents": [
-        {
-        "intent": "OrgChart-Manager",
-        "score": 0.353984952
+        "query": "who is the boss of jill jones?",
+        "topScoringIntent": {
+            "intent": "OrgChart-Manager",
+            "score": 0.353984952
         },
-        {
-        "intent": "OrgChart-Reports",
-        "score": 0.214128986
-        },
-        {
-        "intent": "EmployeeFeedback",
-        "score": 0.08434003
-        },
-        {
-        "intent": "MoveEmployee",
-        "score": 0.019131
-        },
-        {
-        "intent": "GetJobInformation",
-        "score": 0.004819009
-        },
-        {
-        "intent": "Utilities.Confirm",
-        "score": 0.0043958663
-        },
-        {
-        "intent": "Utilities.StartOver",
-        "score": 0.00312064588
-        },
-        {
-        "intent": "Utilities.Cancel",
-        "score": 0.002265454
-        },
-        {
-        "intent": "Utilities.Help",
-        "score": 0.00133465114
-        },
-        {
-        "intent": "None",
-        "score": 0.0011388344
-        },
-        {
-        "intent": "Utilities.Stop",
-        "score": 0.00111166481
-        },
-        {
-        "intent": "FindForm",
-        "score": 0.0008900076
-        },
-        {
-        "intent": "ApplyForJob",
-        "score": 0.0007836131
-        }
-    ],
-    "entities": [
-        {
-        "entity": "jill jones",
-        "type": "Employee",
-        "startIndex": 19,
-        "endIndex": 28,
-        "resolution": {
-            "values": [
-            "Employee-45612"
-            ]
-        }
-        },
-        {
-        "entity": "boss of jill jones",
-        "type": "builtin.keyPhrase",
-        "startIndex": 11,
-        "endIndex": 28
-        }
-    ]}
+        "intents": [
+            {
+                "intent": "OrgChart-Manager",
+                "score": 0.353984952
+            },
+            {
+                "intent": "OrgChart-Reports",
+                "score": 0.214128986
+            },
+            {
+                "intent": "EmployeeFeedback",
+                "score": 0.08434003
+            },
+            {
+                "intent": "MoveEmployee",
+                "score": 0.019131
+            },
+            {
+                "intent": "GetJobInformation",
+                "score": 0.004819009
+            },
+            {
+                "intent": "Utilities.Confirm",
+                "score": 0.0043958663
+            },
+            {
+                "intent": "Utilities.StartOver",
+                "score": 0.00312064588
+            },
+            {
+                "intent": "Utilities.Cancel",
+                "score": 0.002265454
+            },
+            {
+                "intent": "Utilities.Help",
+                "score": 0.00133465114
+            },
+            {
+                "intent": "None",
+                "score": 0.0011388344
+            },
+            {
+                "intent": "Utilities.Stop",
+                "score": 0.00111166481
+            },
+            {
+                "intent": "FindForm",
+                "score": 0.0008900076
+            },
+            {
+                "intent": "ApplyForJob",
+                "score": 0.0007836131
+            }
+        ],
+        "entities": [
+            {
+                "entity": "jill jones",
+                "type": "Employee",
+                "startIndex": 19,
+                "endIndex": 28,
+                "resolution": {
+                    "values": [
+                        "Employee-45612"
+                    ]
+                }
+            },
+            {
+                "entity": "boss of jill jones",
+                "type": "builtin.keyPhrase",
+                "startIndex": 11,
+                "endIndex": 28
+            }
+        ]
+    }
     ```
 
 Did this query succeed? For this training cycle it did succeed. The scores of the two top intents are close. Because LUIS training is not exactly the same each time, there is a bit of variation, these two scores could invert on the next training cycle. The result is that the wrong intent could be returned. 
@@ -268,88 +269,89 @@ Use patterns to make the correct intent's score significantly higher in percenta
 
     ```JSON
     {
-    "query": "who is the boss of jill jones?",
-    "topScoringIntent": {
-        "intent": "OrgChart-Manager",
-        "score": 0.9999989
-    },
-    "intents": [
-        {
-        "intent": "OrgChart-Manager",
-        "score": 0.9999989
+        "query": "who is the boss of jill jones?",
+        "topScoringIntent": {
+            "intent": "OrgChart-Manager",
+            "score": 0.9999989
         },
-        {
-        "intent": "OrgChart-Reports",
-        "score": 7.616303E-05
-        },
-        {
-        "intent": "EmployeeFeedback",
-        "score": 7.84204349E-06
-        },
-        {
-        "intent": "GetJobInformation",
-        "score": 1.20674213E-06
-        },
-        {
-        "intent": "MoveEmployee",
-        "score": 7.91245157E-07
-        },
-        {
-        "intent": "None",
-        "score": 3.875E-09
-        },
-        {
-        "intent": "Utilities.StartOver",
-        "score": 1.49E-09
-        },
-        {
-        "intent": "Utilities.Confirm",
-        "score": 1.34545453E-09
-        },
-        {
-        "intent": "Utilities.Help",
-        "score": 1.34545453E-09
-        },
-        {
-        "intent": "Utilities.Stop",
-        "score": 1.34545453E-09
-        },
-        {
-        "intent": "Utilities.Cancel",
-        "score": 1.225E-09
-        },
-        {
-        "intent": "FindForm",
-        "score": 1.123077E-09
-        },
-        {
-        "intent": "ApplyForJob",
-        "score": 5.625E-10
-        }
-    ],
-    "entities": [
-        {
-        "entity": "jill jones",
-        "type": "Employee",
-        "startIndex": 19,
-        "endIndex": 28,
-        "resolution": {
-            "values": [
-            "Employee-45612"
-            ]
-        },
-        "role": ""
-        },
-        {
-        "entity": "boss of jill jones",
-        "type": "builtin.keyPhrase",
-        "startIndex": 11,
-        "endIndex": 28
-        }
-    ]}
+        "intents": [
+            {
+                "intent": "OrgChart-Manager",
+                "score": 0.9999989
+            },
+            {
+                "intent": "OrgChart-Reports",
+                "score": 7.616303E-05
+            },
+            {
+                "intent": "EmployeeFeedback",
+                "score": 7.84204349E-06
+            },
+            {
+                "intent": "GetJobInformation",
+                "score": 1.20674213E-06
+            },
+            {
+                "intent": "MoveEmployee",
+                "score": 7.91245157E-07
+            },
+            {
+                "intent": "None",
+                "score": 3.875E-09
+            },
+            {
+                "intent": "Utilities.StartOver",
+                "score": 1.49E-09
+            },
+            {
+                "intent": "Utilities.Confirm",
+                "score": 1.34545453E-09
+            },
+            {
+                "intent": "Utilities.Help",
+                "score": 1.34545453E-09
+            },
+            {
+                "intent": "Utilities.Stop",
+                "score": 1.34545453E-09
+            },
+            {
+                "intent": "Utilities.Cancel",
+                "score": 1.225E-09
+            },
+            {
+                "intent": "FindForm",
+                "score": 1.123077E-09
+            },
+            {
+                "intent": "ApplyForJob",
+                "score": 5.625E-10
+            }
+        ],
+        "entities": [
+            {
+                "entity": "jill jones",
+                "type": "Employee",
+                "startIndex": 19,
+                "endIndex": 28,
+                "resolution": {
+                    "values": [
+                        "Employee-45612"
+                    ]
+                },
+                "role": ""
+            },
+            {
+                "entity": "boss of jill jones",
+                "type": "builtin.keyPhrase",
+                "startIndex": 11,
+                "endIndex": 28
+            }
+        ]
+    }
     ```
 
-The intent prediction is now significantly higher.
+The intent prediction is now significantly higher. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the ellipsis (***...***) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
