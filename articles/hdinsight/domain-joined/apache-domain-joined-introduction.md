@@ -19,7 +19,7 @@ ms.author: omidm
 
 In the past, Azure HDInsight supported only a single user: local admin. This worked great for smaller application teams or departments. As Hadoop-based workloads gained more popularity in the enterprise sector, the need for enterprise-grade capabilities like Active Directory-based authentication, multiuser support, and role-based access control became increasingly important. 
 
-You can create an HDInsight cluster that's joined to an Active Directory domain. You can then configure a list of employees from the enterprise who can authenticate through Azure Active Directory to log on to the HDInsight cluster. Anyone outside the enterprise cannot log on or access the HDInsight cluster. 
+You can create an HDInsight cluster that's joined to an Active Directory domain. You can then configure a list of employees from the enterprise who can authenticate through Azure Active Directory to log on to the HDInsight cluster. Anyone outside the enterprise can't log on or access the HDInsight cluster. 
 
 The enterprise admin can configure role-based access control (RBAC) for Hive security by using [Apache Ranger](http://hortonworks.com/apache/ranger/). Configuring RBAC restricts data access to only what's needed. Finally, the admin can audit the data access by employees and any changes done to access control policies. The admin can then achieve a high degree of governance of their corporate resources.
 

@@ -21,7 +21,7 @@ ms.author: omidm
 
 The standard Azure HDInsight cluster is a single-user cluster. It's suitable for most companies that have smaller application teams building large data workloads. Each user can create a dedicated cluster on demand and destroy it when it's not needed anymore. 
 
-Many enterprises have started moving toward a model in which clusters are managed by IT teams, and multiple application teams share clusters. These larger enterprises need multiuser access to each cluster in Azure HDInsight.
+Many enterprises have moved toward a model in which clusters are managed by IT teams, and multiple application teams share clusters. These larger enterprises need multiuser access to each cluster in Azure HDInsight.
 
 HDInsight relies on a popular identity provider--Active Directory--in a managed way. By integrating HDInsight with [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), you can access the clusters by using your domain credentials. 
 
@@ -30,7 +30,7 @@ The virtual machines (VMs) in HDInsight are domain joined to your provided domai
 
 ## Integrate HDInsight with Active Directory
 
-Open-source Hadoop relies on Kerberos for providing authentication and security. Therefore, HDInsight cluster nodes are domain-joined to a domain that's managed by Azure AD DS. Kerberos security is configured for the Hadoop components on the cluster. 
+Open-source Hadoop relies on Kerberos for authentication and security. Therefore, HDInsight cluster nodes are domain-joined to a domain that's managed by Azure AD DS. Kerberos security is configured for the Hadoop components on the cluster. 
 
 For each Hadoop component, a service principal is created automatically. A corresponding machine principal is also created for each machine that's joined to the domain. To store these service and machine principals, you must provide an organizational unit (OU) within the domain controller (Azure AD DS), where these principals are placed. 
 
