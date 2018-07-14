@@ -11,7 +11,6 @@
 ##### [Create a Microsoft Account](./guidelines.md)
 ##### [Register in Dev Center](./register-dev-center.md) 
 ##### [Billing Options for Azure Marketplace](./billing-options-azure-marketplace.md)  
-#### [Requirements by Listing Type](./listing-type-requirements.md) 
 
 ### Publishing Guide by Offer Type 
 #### [Virtual Machines](./marketplace-virtual-machines.md)
