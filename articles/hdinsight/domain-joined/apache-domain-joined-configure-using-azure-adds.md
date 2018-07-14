@@ -24,9 +24,9 @@ In this article, you learn how to configure a domain-joined HDInsight cluster by
 Enabling Azure AD DS is a prerequisite before you can create a domain-joined HDInsight cluster. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Only tenant administrators have the privileges to create an Azure AD DS instance. If you use Azure Data Lake Storage as the default storage for HDInsight, make sure that the default Azure AD tenant for Data Lake Storage is same as the domain for the HDInsight cluster. Because Hadoop relies on Kerberos and basic authentication, multi-factor authentication needs to be disabled for users that will have access to the cluster.
+> Only tenant administrators have the privileges to create an Azure AD DS instance. If you use Azure Data Lake Storage Gen2 as the default storage for HDInsight, make sure that the default Azure AD tenant for Data Lake Storage Gen2 is same as the domain for the HDInsight cluster. Because Hadoop relies on Kerberos and basic authentication, multi-factor authentication needs to be disabled for users who will access the cluster.
 
-After you provision the Azure AD DS instance, create a service account in Azure Active Directory (Azure AD, which will be synced to Azure AD DS) with the right permissions. If this service account already exists, reset its password and wait until it syncs to Azure AD DS. This reset will result in creation of the Kerberos password hash, and it might take up to 30 minutes to sync to Azure AD DS. 
+After you provision the Azure AD DS instance, create a service account in Azure Active Directory (Azure AD, which will be synced to Azure AD DS) with the right permissions. If this service account already exists, reset its password and wait until it syncs to Azure AD DS. This reset will result in the creation of the Kerberos password hash, and it might take up to 30 minutes to sync to Azure AD DS. 
 
 The service account should have the following privileges:
 
@@ -42,7 +42,7 @@ Secure LDAP is for an Azure AD DS managed domain. For more information, see [Con
 
 ## Create a domain-joined HDInsight cluster
 
-The next step is to create the HDInsight cluster by using Azure AD DS and the service account created in the previous section.
+The next step is to create the HDInsight cluster by using Azure AD DS and the service account that you created in the previous section.
 
 It's easier to place both the Azure AD DS instance and the HDInsight cluster in the same Azure virtual network. If you choose to put them in different virtual networks, you must peer those virtual networks so that HDInsight VMs have a line of sight to the domain controller for joining the VMs. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
 
@@ -51,17 +51,17 @@ When you create a domain-joined HDInsight cluster, you must supply the following
 - **Domain name**: The domain name that's associated with Azure AD DS. An example is contoso.onmicrosoft.com.
 - **Domain user name**: The service account in the managed domain that you created in the previous section. An example is hdiadmin@contoso.onmicrosoft.com. This domain user will be the administrator of this HDInsight cluster.
 - **Domain password**: The password of the service account.
-- **Organization unit**: The distinguished name of the OU that you want to use with the HDInsight cluster. An example is OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. If this OU does not exist, the HDInsight cluster tries to create the OU by using the privileges that the service account has. For example, if the service account is in the Azure AD DS Administrators group, it has the right permissions to create an OU. Otherwise, you might need to create the OU first and give the service account full control over that OU first. For more information, see [Create an OU on an Azure AD DS managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md)).
+- **Organizational unit**: The distinguished name of the OU that you want to use with the HDInsight cluster. An example is OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. If this OU does not exist, the HDInsight cluster tries to create the OU by using the privileges that the service account has. For example, if the service account is in the Azure AD DS Administrators group, it has the right permissions to create an OU. Otherwise, you might need to create the OU first and give the service account full control over that OU. For more information, see [Create an OU on an Azure AD DS managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 
     > [!IMPORTANT]
-    > It's important to include all of the DCs, separated by commas, after the OU (for example, OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com).
+    > Include all of the DCs, separated by commas, after the OU (for example, OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com).
 
 - **LDAPS URL**: An example is ldaps://contoso.onmicrosoft.com:636.
 
     > [!IMPORTANT]
     > Enter the complete URL, including "ldaps://" and the port number (:636).
 
-- **Access user group**: The security groups whose users you want to sync to the cluster. An example is HiveUsers. If you want to specify multiple user groups, separate them by commas.
+- **Access user group**: The security groups whose users you want to sync to the cluster. An example is HiveUsers. If you want to specify multiple user groups, separate them by using commas.
  
 The following screenshot shows the configurations in the Azure portal:
 
