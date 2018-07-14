@@ -125,10 +125,10 @@ function UpdateDevice(deviceId, moduleId, hubName, connectionState, connectionSt
   }
 }
 ```
+
 3. Save the stored procedure: 
 
   ![save stored procedure](./media/iot-hub-how-to-order-connection-state-events/save-stored-procedure.png)
-
 
 ## Create a logic app
 
@@ -293,7 +293,9 @@ You should see the following output that shows the sensor data and the messages 
 
    ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
-You have now run a sample application to collect sensor data and send it to your IoT hub. To stop the simulation and trigger a **Device Disconnected** event, click **Stop**.
+   Click **Stop** to stop the simulator and trigger a **Device Disconnected** event.
+
+You have now run a sample application to collect sensor data and send it to your IoT hub. 
 
 ### Observe events in Cosmos DB
 
@@ -329,8 +331,8 @@ To remove an Azure Cosmos DB account from the Azure portal, righ-click the accou
 
 ## Next steps
 
-* Learn more about [Reacting to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
+* Learn more about [Reacting to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md)
 * [Try the IoT Hub events tutorial](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* Learn about what else you can do with [Event Grid](../event-grid/overview.md).
+* Learn about what else you can do with [Event Grid](../event-grid/overview.md)
 
 

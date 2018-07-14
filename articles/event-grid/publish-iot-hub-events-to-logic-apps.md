@@ -49,7 +49,7 @@ First, create a logic app and add an Event grid trigger that monitors the resour
 
 4. In the Logic App Designer under **Templates**, choose **Blank Logic App** so that you can build your logic app from scratch.
 
-## Select a trigger
+### Select a trigger
 
 A trigger is a specific event that starts your logic app. For this tutorial, the trigger that sets off the workflow is receiving a request over HTTP.  
 
@@ -109,6 +109,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
   "metadataVersion": "1"
    }]
    ```
+
 5. You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section. 
 
 ### Create an action
