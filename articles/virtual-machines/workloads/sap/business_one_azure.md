@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# SAP Business One on Azure virtual Machines
+# SAP Business One on Azure Virtual Machines
 This document provides guidance to deploy SAP Business One on Azure Virtual Machines. The documentation is not a replacement for installation documentation of Business one for SAP. The documentation should cover basic planning and deployment guidelines for the Azure infrastructure to run Business One applications on.
 
 Business One supports two different databases:
