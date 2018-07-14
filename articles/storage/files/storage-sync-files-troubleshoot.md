@@ -750,7 +750,7 @@ Event ID 9016 provides ghosting results for a volume. For example, Free space pe
 
 Event ID 9029 provides ghosting session information. For example, Number of files attempted in the session, Number of files tiered in the session, Number of files already tiered, etc.
 
-<a id="monitor-tiering-activity"></a>**How to monitor recall activity on a server**
+<a id="monitor-recall-activity"></a>**How to monitor recall activity on a server**
 
 To monitor recall activity on a server, use Event ID 9005, 9006, 9007 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer). Note, these events are logged hourly.
 
