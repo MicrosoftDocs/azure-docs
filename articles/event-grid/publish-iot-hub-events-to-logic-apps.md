@@ -25,14 +25,13 @@ This article walks through a sample configuration that uses IoT Hub and Event gr
 
 * An email account from any email provider that is supported by Azure Logic Apps, like Office 365 Outlook, Outlook.com, or Gmail. This email account is used to send the event notifications. For a complete list of supported Logic App connectors, see the [Connectors overview](https://docs.microsoft.com/connectors/)
 * An active Azure account. If you don't have one, you can [create a free account](http://azure.microsoft.com/pricing/free-trial/).
-* An Iot hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md) for a walkthrough. 
+* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md) for a walkthrough. 
 
 ## Create a logic app
 
 First, create a logic app and add an Event grid trigger that monitors the resource group for your virtual machine. 
 
 ### Create a logic app resource
-
 
 1. In the [Azure portal](https://portal.azure.com), select **New** > **Enterprise Integration** > **Logic App**.
 
@@ -106,12 +105,11 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
     "hubName": "egtesthub1",
     "deviceId": "LogicAppTestDevice",
   },
-  "dataVersion": "",
+  "dataVersion": "1",
   "metadataVersion": "1"
    }]
    ```
 5. You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section. 
-
 
 ### Create an action
 
@@ -149,7 +147,6 @@ Before you leave the Logic Apps Designer, copy the URL that your logic apps is l
 
 3. Save this URL so that you can refer to it in the next section. 
 
-
 ## Configure subscription for IoT Hub events
 
 In this section, you configure your IoT Hub to publish events as they occur. 
@@ -179,7 +176,7 @@ You could save the event subscription here, and receive notifications for every 
 When you're done, the form should look like the following example: 
 
    ![Sample event subscription form](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
-
+   
 5. Select **Create** to save the event subscription.
 
 ## Create a new device
@@ -224,8 +221,7 @@ Even if you keep your IoT hub, you may want to delete the event subscription tha
 
 ## Next steps
 
-Learn more about [Reacting to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
-
-Learn about what else you can do with [Event Grid](overview.md).
+* Learn more about [Reacting to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
+* Learn about what else you can do with [Event Grid](overview.md).
 
 

@@ -59,7 +59,7 @@ The following example shows the schema of a device connected event:
     "deviceId": "LogicAppTestDevice",
     "moduleId" : "DeviceModuleID",
   }, 
-  "dataVersion": "", 
+  "dataVersion": "1", 
   "metadataVersion": "1" 
 }]
 ```
@@ -109,7 +109,7 @@ The following example shows the schema of a device created event:
     "hubName": "egtesthub1",
     "deviceId": "LogicAppTestDevice",
   },
-  "dataVersion": "",
+  "dataVersion": "1",
   "metadataVersion": "1"
 }]
 ```
@@ -125,11 +125,11 @@ The subject of IoT Events uses the format:
 ```json
 devices/{deviceId}
 ```
-### Limitations for Device Connected and Device Disconnected Events
+## Limitations for Device Connected and Device Disconnected Events
 
 To receive device connected and device disconnected events, you must open the D2C link or C2D link for your device. If your device is using MQTT protocol, IoT Hub will keep the C2D link open. For AMQP you can open the C2D link by calling the [Receive Async API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ReceiveAsync). The D2C link is open if you are sending telemetry. If the device connection is flickering, i.e. the device connects and disconnects frequently, we will not send every single connection state, but will publish the connection state that is snapshotted every minute. In case of IoT Hub outage, we will publish the device connection state as soon as the outage is over. If the device disconnects during that outage, the device disconnected event will be published within 10 minutes.
 
-### Tips for consuming events
+## Tips for consuming events
 
 Applications that handle IoT Hub events should follow these suggested practices:
 
@@ -141,6 +141,7 @@ Applications that handle IoT Hub events should follow these suggested practices:
 ## Next steps
 
 * [Try the IoT Hub events tutorial](../event-grid/publish-iot-hub-events-to-logic-apps.md)
+* [Learn how to order device connected and disconneced event](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * [Learn more about Event Grid][lnk-eg-overview]
 * [Compare the differences between routing IoT Hub events and messages][lnk-eg-compare]
 

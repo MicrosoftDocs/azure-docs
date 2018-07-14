@@ -18,16 +18,16 @@ ms.author: asrastog
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
 
-Azure Event Grid helps you identify the connection status of your IoT devices and easily integrate these in your business solutions. This article walks you through a set up which can be used to track and store the latest device connection state in Cosmos DB. We will use the sequence number available in the Device Connected and Device Disconnected events and store the latest state in Cosmos DB. A sequence number is strictly increasing, and the latest event will have a higher number than other events. This is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action, as Azure Event Grid doesn’t support ordering of events.
+Azure Event Grid helps you build event based applications and easily integrate IoT events in your business solutions. This article walks you through a set up which can be used to track and store the latest device connection state in Cosmos DB. We will use the sequence number available in the Device Connected and Device Disconnected events and store the latest state in Cosmos DB. We are going to use a stored procedure, which is an application logic that is executed against a collection in Cosmos DB.
 
-For this tutorial, we are going to use a stored procedure, which is an application logic that is executed against a collection in Cosmos DB. We will order the incoming device connected and device disconnected events to manage the current connection state of a device. One row is created per device connection state in Cosmos DB. 
+The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you are converting the string to hex, then the number will be a 256 bit number. The sequence number is strictly increasing, and the latest event will have a higher number than other events. This is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action, as Azure Event Grid doesn’t support ordering of events.
 
 ## Prerequisites
 
 * An active Azure account. If you don't have one, you can [create a free account](http://azure.microsoft.com/pricing/free-trial/).
 * An active Azure Cosmos DB SQL API account. If you haven't created one yet, see [Create a database account](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-a-database-account) for a walkthrough.
 * A collection in your database. See [Add a collection](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-collection) for a walkthrough.
-* An Iot hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md) for a walkthrough. 
+* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md) for a walkthrough. 
 
 ## Create a stored procedure
 
@@ -37,7 +37,7 @@ First, create a stored procedure and set it up to run a logic that compares sequ
 
    ![Create stored procedure](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
-2.  Enter a stored procedure id and paste the following in the “Stored Procedure body”. Note that this code should replace any existing code in the stored procedure          body. This code maintains one row per device ID and records the latest connection state of that device id by identifying the highest sequence number. 
+2. Enter a stored procedure id and paste the following in the “Stored Procedure body”. Note that this code should replace any existing code in the stored procedure body. This code maintains one row per device ID and records the latest connection state of that device id by identifying the highest sequence number. 
 
 ```javascript
 // SAMPLE STORED PROCEDURE
@@ -136,7 +136,6 @@ First, create a logic app and add an Event grid trigger that monitors the resour
 
 ### Create a logic app resource
 
-
 1. In the [Azure portal](https://portal.azure.com), select **New** > **Enterprise Integration** > **Logic App**.
 
    ![Create logic app](./media/iot-hub-how-to-order-connection-state-events/select-logic-app.png)
@@ -153,7 +152,7 @@ First, create a logic app and add an Event grid trigger that monitors the resour
 
 4. In the Logic App Designer under **Templates**, choose **Blank Logic App** so that you can build your logic app from scratch.
 
-## Select a trigger
+### Select a trigger
 
 A trigger is a specific event that starts your logic app. For this tutorial, the trigger that sets off the workflow is receiving a request over HTTP.  
 
@@ -185,14 +184,15 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
       "deviceId": "48e44e11-1437-4907-83b1-4a8d7e89859e",
       "moduleId": ""
     },
-    "dataVersion": "",
+    "dataVersion": "1",
     "metadataVersion": "1"
    }]
    ```
 
 5. You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section. 
 
-## Create a condition
+### Create a condition
+
 Conditions help run specific actions after passing a specific condition, in your the logic app workflow. Once the condition is met, a desired action can be defined. For this tutorial, the condition is to check whether eventType is device connected or device disconnected. The action will be to execute the stored procedure in your database. 
 
 1. Select **New step** then **Add a condition**. 
@@ -200,7 +200,6 @@ Conditions help run specific actions after passing a specific condition, in your
    ![New step, add a condition](./media/iot-hub-how-to-order-connection-state-events/add-a-condition.png)
 
 2. Fill the condition as shown below to only execute this for Device Connected and Device Disconnected events:
-
 * Choose a value: **eventType**
 * Change is equal to" to **ends with**
 * Choose a value: **nected**
@@ -246,13 +245,12 @@ In this section, you configure your IoT Hub to publish events as they occur.
    ![Create new event subscription](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
 4. Create the event subscription with the following values: 
-* **Event Type**: Uncheck Subscribe to all event types and select **Device Connected** and **Device Disconnected** from the menu.
-* **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
+   * **Event Type**: Uncheck Subscribe to all event types and select **Device Connected** and **Device Disconnected** from the menu.
+   * **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
    ![select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-* **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**
-
+   * **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**
    When you're done, the form should look like the following example: 
 
    ![Sample event subscription form](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
@@ -278,11 +276,12 @@ Now that your event subscription is set up, let's test by connecting a device.
 
 ### Start Raspberry Pi Simulator
 
-1. Let's use the Raspberry Pi web simulator to simulate device connection
+1. Let's use the Raspberry Pi web simulator to simulate device connection.
 
 [Start Raspberry Pi simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
 ### Run a sample applciation on the Raspberry Pi web simulator
+This will trigger a device connected event.
 
 1. In the coding area, replace the placeholder in Line 15 with your Azure IoT Hub device connection string.
 
@@ -294,7 +293,7 @@ You should see the following output that shows the sensor data and the messages 
 
    ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
-You have now run a sample application to collect sensor data and send it to your IoT hub.
+You have now run a sample application to collect sensor data and send it to your IoT hub. To stop the simulation and trigger a **Device Disconnected** event, click **Stop**.
 
 ### Observe events in Cosmos DB
 

@@ -48,7 +48,7 @@ The schema for DeviceConnected and DeviceDisconnected events have the same struc
     "deviceId": "LogicAppTestDevice",
     "moduleId" : "DeviceModuleID"
   }, 
-  "dataVersion": "", 
+  "dataVersion": "1", 
   "metadataVersion": "1" 
 }]
 ```
@@ -96,7 +96,7 @@ The schema for DeviceCreated and DeviceDeleted events have the same structure. T
     "hubName": "egtesthub1",
     "deviceId": "LogicAppTestDevice",
   },
-  "dataVersion": "",
+  "dataVersion": "1",
   "metadataVersion": "1"
 }]
 ```
@@ -116,15 +116,25 @@ All events contain the same top-level data:
 | dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
 | metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
-The contents of the data object are different for each event publisher. For IoT Hub events, the data object contains the following properties:
+For all IoT Hub events, the data object contains the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | hubName | string | Name of the IoT Hub where the device was created or deleted. |
 | deviceId | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+
+The contents of the data object are different for each event publisher. For **Device Connected** and **Device Disconnected** IoT Hub events, the data object contains the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
 | moduleId | string | The unique identifier of the module. This field is output only for module devices. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | object | Device connection state event information
 | sequenceNumber | string | A number which helps indicate order of device connected or device disconnected events. Latest event will have a sequence number that is higher than the previous event. This number may change by more than 1, but is strictly increasing. See [how to use sequence number](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
+
+The contents of the data object are different for each event publisher. For **Device Created** and **Device Deleted** IoT Hub events, the data object contains the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
 | twin | object | Information about the device twin, which is the cloud represenation of application device metadata. | 
 | deviceID | string | The unique identifier of the device twin. | 
 | etag | string | A validator for ensuring consistency of updates to a device twin. Each etag is guaranteed to be unique per device twin. |  
