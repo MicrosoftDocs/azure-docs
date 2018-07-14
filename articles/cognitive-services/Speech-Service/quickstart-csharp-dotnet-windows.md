@@ -90,7 +90,7 @@ In this section, you add a new platform to the configuration that matches your p
 
     ![Console output after successful recognition](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Console output after successful recognition")
 
-[!include[Download the sample](includes/speech-sdk-sample-download-h2.md)]
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/csharp-dotnet-windows` folder.
 
 ## Next steps

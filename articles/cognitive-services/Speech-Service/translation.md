@@ -15,7 +15,7 @@ ms.author: wolfma
 
 # Sample for translation
 
-[!include[Get a Subscription Key](includes/get-subscription-key.md)]
+[!include[Get a Subscription Key](../../../includes/cognitive-services-speech-service-get-subscription-key.md)]
 
 ## Top-level declarations
 
@@ -46,7 +46,7 @@ It uses file as input.
 
 [!code-java [Translation Using File Input](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/TranslationSamples.java#TranslationWithFileAsync)]
 
-[!include[Download the sample](includes/speech-sdk-sample-download-h2.md)]
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## Next steps
 

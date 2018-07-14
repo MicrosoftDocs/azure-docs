@@ -72,7 +72,7 @@ The result of the recognition is displayed on screen.
 
     ![Console output after successful recognition](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Console output after successful recognition")
 
-[!include[Download the sample](includes/speech-sdk-sample-download-h2.md)]
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/csharp-dotnetcore-windows` folder.
 
 ## Next steps

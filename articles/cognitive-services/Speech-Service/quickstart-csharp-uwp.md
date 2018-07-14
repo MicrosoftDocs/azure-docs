@@ -109,7 +109,7 @@ The application is based on the [Microsoft Cognitive Services Speech SDK NuGet P
 
     ![](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-[!include[Download the sample](includes/speech-sdk-sample-download-h2.md)]
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/csharp-uwp` folder.
 
 ## Next steps

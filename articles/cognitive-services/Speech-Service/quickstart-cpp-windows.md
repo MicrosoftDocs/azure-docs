@@ -85,7 +85,7 @@ In the license screen that pops up, accept the license:
 
    ![Console output after successful recognition](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
-[!include[Download the sample](includes/speech-sdk-sample-download-h2.md)]
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/cpp-windows` folder.
 
 ## Next steps

@@ -149,7 +149,7 @@ The text and graphical version of your UI should now look similar to this:
 
 This screenshot concludes the Android Quickstart. The full project sample code can be downloaded from the samples repository.
 
-[!include[Download the sample](includes/speech-sdk-sample-download-h2.md)]
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/java-android` folder.
 
 ## Next steps

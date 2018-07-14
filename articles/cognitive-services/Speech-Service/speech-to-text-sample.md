@@ -15,7 +15,7 @@ ms.author: wolfma
 
 # Sample for Speech-to-Text
 
-[!include[Get a Subscription Key](includes/get-subscription-key.md)]
+[!include[Get a Subscription Key](../../../includes/cognitive-services-speech-service-get-subscription-key.md)]
 
 ## Top-level declarations
 
@@ -59,7 +59,7 @@ The following code snippet continuously recognizes speech input from an audio fi
 
 [!code-java[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#recognitionContinuousWithFile)]
 
-[!include[Download the sample](includes/speech-sdk-sample-download-h2.md)]
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## Next steps
 

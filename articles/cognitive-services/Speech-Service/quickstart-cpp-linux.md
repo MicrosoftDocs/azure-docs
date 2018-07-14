@@ -125,7 +125,7 @@ Download and install the SDK as follows:
    We recognized: What's the weather
    ```
 
-[!include[Download the sample](includes/speech-sdk-sample-download-h2.md)]
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Look for this sample in the `quickstart/cpp-linux` folder.
 
 ## Next steps
