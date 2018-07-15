@@ -52,7 +52,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Detect and frame faces in an image on Windows/a></li>
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Detect and frame faces in an image on Windows</a></li>
     - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Detect and frame faces in an image on Android</a></li>
 #    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinPythonTutorial">Python Tutorial</a></li>
 - title: Reference
