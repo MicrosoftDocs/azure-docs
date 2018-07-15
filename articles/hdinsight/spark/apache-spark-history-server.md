@@ -14,28 +14,29 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: jejiang
 ---
-# Use Spark History Server to view completed and running Spark applications
+# Use Spark History Server to view Spark applications
 
-This article provides guidance on how to use Spark History Server to view completed and running spark applications. You could get the input/output data under Data tab, and check the data flow under Graph tab.
+This article provides guidance on how to use Spark History Server to view completed and running spark applications. Check the input/output data under Data tab, and check the data flow under Graph tab.
 
 ## Open the Spark History Server
 
 Spark History Server is the web UI for completed and running Spark applications. It is an extension of Spark's Web UI.
 
-**To open the Spark History Server Web UI**
+### To open the Spark History Server Web UI from Azure portal
 
 1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
-2. From **Quick Links**, click **Cluster Dashboard**, and then click **Spark History Server**
+2. From **Quick Links**, click **Cluster Dashboard**, and then click **Spark History Server**. When prompted, enter the admin credentials for the Spark cluster. 
 
     ![Spark History Server](./media/apache-spark-resource-manager/launch-history-server.png "Spark History Server")
 
-    When prompted, enter the admin credentials for the Spark cluster. You can also open the Spark History Server by browsing to the following URL:
+### To open the Spark History Server Web UI by url
+Open the Spark History Server by browsing to the following URL, replace <ClusterName> with Spark cluster name of customer.
 
     ```
     https://<ClusterName>.azurehdinsight.net/sparkhistory
     ```
 
-    Replace <ClusterName> with your Spark cluster name.
+
 
 The Spark History Server web UI looks like:
 
@@ -43,66 +44,63 @@ The Spark History Server web UI looks like:
 
 
 ## Open the Data tab from Spark History Server
-Select your job ID then click **Data** on the tool menu to get the data view.
+Select job ID then click **Data** on the tool menu to get the data view.
 
-Under this tab, you could:
-1. Check the **Inputs**, **Outputs**, and **Table Operations** by selecting the tabs separately.
++ Check the **Inputs**, **Outputs**, and **Table Operations** by selecting the tabs separately.
 
     ![Data tabs](./media/apache-spark-history-server/sparkui-data-tabs.png)
 
-2. Copy all rows by clicking button **Copy**.
++ Copy all rows by clicking button **Copy**.
 
     ![Data copy](./media/apache-spark-history-server/sparkui-data-copy.png)
 
-3. Save all rows by clicking button **CSV**.
++ Save all rows by clicking button **CSV**.
 
     ![Data save](./media/apache-spark-history-server/sparkui-data-save.png)
 
-4. Search by entering keywords in field **Search**, the search result will display immediately.
++ Search by entering keywords in field **Search**, the search result will display immediately.
 
     ![Data search](./media/apache-spark-history-server/sparkui-data-search.png)
 
-5. Click the column header to sort table, click the plug sign to expand a row to show more details, or click the minus sign to collect a row.
++ Click the column header to sort table, click the plug sign to expand a row to show more details, or click the minus sign to collect a row.
 
     ![Data table](./media/apache-spark-history-server/sparkui-data-table.png)
 
-
-6. Download single row by clicking button **Partition Download** that place at each row, and the selected row will download to local, otherwise, it will open a new tab to show the error messages.
++ Download single row by clicking button **Partition Download** that place at each row, and the selected row will download to local, otherwise, it will open a new tab to show the error messages.
 
     ![Data download row](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
-7. Copy full path or relative path by selecting the **Copy Full Path**, **Copy Relative Path** that expands from download menu. For azure data lake storage files, **Open in Azure Storage Explorer** will launch Azure Storage Explorer, and locate to the folder when sign-in.
++ Copy full path or relative path by selecting the **Copy Full Path**, **Copy Relative Path** that expands from download menu. For azure data lake storage files, **Open in Azure Storage Explorer** will launch Azure Storage Explorer, and locate to the folder when sign-in.
 
     ![Data copy path](./media/apache-spark-history-server/sparkui-data-copy-path.png)
 
-8. Click the number below the table to navigate pages when too many rows to display in one page. 
++ Click the number below the table to navigate pages when too many rows to display in one page. 
 
     ![Data page](./media/apache-spark-history-server/sparkui-data-page.png)
 
-9. Hover on the question mark beside Data to show the tooltip, and click it to get more information.
++ Hover on the question mark beside Data to show the tooltip, and click it to get more information.
 
     ![Data more info](./media/apache-spark-history-server/sparkui-data-more-info.png)
 
-10. Any issue please provide us feedback by clicking “Provide us feedback”
++ Send feedback with issues by clicking **Provide us feedback**.
 
     ![graph feedback](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
 
 ## Open the Graph tab from Spark History Server
-Select your job ID then click **Graph** on the tool menu to get the graph view.
+Select job ID then click **Graph** on the tool menu to get the graph view.
 
-Under this tab, you could:
-1. Take an overview of your job by the generated graph. 
++ Take an overview of your job by the generated graph. 
 
-2. Filter by **Job ID** or check the graph for all jobs that is default view.
++ Filter by **Job ID** or check the graph for all jobs that is default view.
 
     ![graph job ID](./media/apache-spark-history-server/sparkui-graph-jobid.png)
 
-3. Filter with data flow by selecting Read/Written in **Display** to check the data read, written, or progress that is default selection. The stage display in color that depends on the data flow.
++ Filter with data flow by selecting Read/Written in **Display** to check the data read, written, or progress that is default selection. The stage display in color that depends on the data flow.
 
     ![graph display](./media/apache-spark-history-server/sparkui-graph-display.png)
 
-4. Playback by clicking the **Playback** button and could stop anytime by clicking the stop button. The task display in color with different status when playback.
++ Playback by clicking the **Playback** button and could stop anytime by clicking the stop button. The task display in color with different status when playback.
     + Successes task display in green.
     + Running task display in light blue.
     + Retried task display in orange.
@@ -116,15 +114,15 @@ Under this tab, you could:
     > Note: Playback for each job is allowed. When a job does not have any stage or haven’t complete, playback is not supported.
 
 
-5. Mouse scrolls to zoom in/out the graph, and you could click **Zoom to fit** to make it fit to screen.
++ Mouse scrolls to zoom in/out the graph, or click **Zoom to fit** to make it fit to screen.
  
     ![graph zoom to fit](./media/apache-spark-history-server/sparkui-graph-zoom2fit.png)
 
-6. Hover on stage to see the tooltip when there are failed tasks, and click on stage to open stage page.
++ Hover on stage to see the tooltip when there are failed tasks, and click on stage to open stage page.
 
     ![graph tooltip](./media/apache-spark-history-server/sparkui-graph-tooltip.png)
 
-7. The graph node will display the following information of each stage.
++ The graph node will display the following information of each stage.
     + ID.
     + Name or description.
     + Total task number.
@@ -138,17 +136,37 @@ Under this tab, you could:
 
     >Note: For data size of read and write we use 1MB = 1000 KB = 1000 * 1000 Bytes.
 
-8. Any issue please provide us feedback by clicking **Provide us feedback**.
++ Send feedback with issues by clicking **Provide us feedback**.
 
     ![graph feedback](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
+
+## Turn off Data/Graph feature
+
+When meet the scenario that need turn off the Data/Graph tab, follow the steps:
+
+1. Open the cluster https://<clustername>.azurehdinsight.net/. Click **Spark2** in left panel.
+2. Click **Configs** tab.
+3. Expand the group **Custom spark2-defaults**.
+4. Click **Add Property**, add **spark.ui.enhancement.enabled=false**, save.
+5. The property sets to **false** now.
+6. Click **Save** to save the configuration.
+
+    ![feature turn off](./media/apache-spark-history-server/sparkui-turn-off.png)
+
+7. Restart server as required by clicking button **Restart**.
+
+    ![restart server](./media/apache-spark-history-server/sparkui-restart-server.png)
+
+8. Refresh history server, the Data and Graph tab will be turn off now.
+
 ## FAQ
 
-### Upload history server log
+### How to upload history server log
 
 **upload_shs_log.sh** is used for upload history server log to the blob storage specified by us(who is working on investigating the history server issues).
 
-    ```upload_shs_log.sh
+   ```python
     #!/usr/bin/env bash
 
     # Copyright (C) Microsoft Corporation. All rights reserved.
@@ -181,7 +199,7 @@ Under this tab, you could:
         -H "x-ms-date: $(date -u)" \
         -H "x-ms-blob-type: BlockBlob" \
         "$blob_link"
-    ```
+   ```
 
 **Usage**: 
 
@@ -191,7 +209,7 @@ Under this tab, you could:
 
 `upload_shs_log.sh https://${account_name}.blob.core.windows.net/${blob_container }/${log_file}?{SAS_query_string} /var/log/spark2/spark-spark-org.apache.spark.deploy.history.HistoryServer-1-{head_node_alias}-spark2.out 100`
 
-For **head_node_alias**, it may be **hn0** or **hn1** for a cluster with two head nodes. We need to fill in the active head node alias.
+For **head_node_alias**, it may be **hn0** or **hn1** for a cluster with two head nodes. Fill in the active head node alias.
 
 For **SAS_query_string**, you can get it from ASE: 
 1.	Right-click the container you want to use and choose **Get Shared Access Signature…**:
@@ -207,11 +225,11 @@ For **SAS_query_string**, you can get it from ASE:
     ![copy query string](./media/apache-spark-history-server/sparkui-faq1-3.png)
 
 
-### Upgrade jar file for hotfix scenario
+### How to upgrade jar file for hotfix scenario
 
 **upgrade_spark_enhancement.sh** is used for upgrade our **spark-enhancement*.jar** for hotfix scenario.
 
-    ```upload_shs_log.sh
+   ```python
     #!/usr/bin/env bash
 
     # Copyright (C) Microsoft Corporation. All rights reserved.
@@ -229,8 +247,7 @@ For **SAS_query_string**, you can get it from ASE:
 
     rm -f ${jars_folder}/spark-enhancement*
     wget -P ${jars_folder} "$jar_path" 
-    ```
-
+   ```
 
 **Usage**: 
 
