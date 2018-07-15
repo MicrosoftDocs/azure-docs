@@ -45,19 +45,18 @@ Choose voice talent whose natural voice you like. It is possible to create uniqu
 > [!TIP]
 > Generally, avoid using recognizable voices to create a custom voice—unless, of course, your goal is to produce a celebrity voice. Lesser-known voices are usually less distracting to users.
 
-The single most important factor for choosing voice talent is consistency. Ideally, all your recordings should sound like they were made on the same day in the same room. You can approach this ideal through good recording practices and engineering. 
+The single most important factor for choosing voice talent is consistency. Your recordings should all sound like they were made on the same day in the same room. You can approach this ideal through good recording practices and engineering. 
 
 Your voice talent is the other half of the equation. He or she must be able to speak with consistent rate, volume level, pitch, and tone. Clear diction is a must. Your talent also needs to be able to strictly control his or her pitch variation, emotional affect, and speech mannerisms.
 
 Recording custom voice samples can be more fatiguing than other kinds of voice work. Most voice talent can record for two or three hours a day. Limit sessions to three or four a week, with a day off in between if possible.
 
-Recordings made for a voice model should be emotionally neutral. That is, a sad utterance should not be read in a sad way. Mood can be added to the synthesized speech later. Work with your voice talent to develop a "persona" that defines the overall sound and emotional tone of the custom voice. In the process, you'll pinpoint what "neutral" sounds like for that persona.
+Recordings made for a voice model should be emotionally neutral. That is, a sad utterance should not be read in a sad way. Mood can be added to the synthesized speech later through prosody controls. Work with your voice talent to develop a "persona" that defines the overall sound and emotional tone of the custom voice. In the process, you'll pinpoint what "neutral" sounds like for that persona.
 
-A persona may have, for example, a naturally upbeat personality. So the voice may carry a note of optimism even when speaking neutrally. However, such a personality trait should be subtle and consistent. Listen to some existing voices to get an idea of what you're aiming for.
+A persona may have, for example, a naturally upbeat personality. So "their" voice may carry a note of optimism even when speaking neutrally. However, such a personality trait should be subtle and consistent. Listen to readings by existing voices to get an idea of what you're aiming for.
 
-### Legalities
-
-Usually, you'll want to own the voice recordings you make. Your voice talent should be amenable to a work-for-hire contract for the project.
+> [!TIP]
+> Usually, you'll want to own the voice recordings you make. Your voice talent should be amenable to a work-for-hire contract for the project.
 
 ## Creating a script
 
@@ -82,13 +81,13 @@ You can write your script in Microsoft Word. The script is for use during the re
 A basic script format includes three columns:
 
 * The number of the utterance, starting at 1. Numbering will make it easy for everyone in the studio to refer to a particular utterance ("let's try number 356 again"). You can use Word's paragraph numbering feature to number the rows of the table automatically.
-* A blank column where you'll write in the take number or time code of each utterance to help you find it in the finished recording.
+* A blank column where you'll write in the take number or time code of each utterance to help you find it in the finished recording.)
 * The text of the utterance itself.
 
 ![Sample script](media/custom-voice/script.png)
 
 > [!NOTE]
-> Most studios record in short segments, referred to as "takes," each take typically containing ten to 24 utterances. Just noting the take number will be sufficient to find a given utterance later. Some studios may prefer to make longer recordings. In this case you'll want to note the time offset into the file (the time code). The studio will have a prominent time display.
+> Most studios record in short segments known as *takes.* Each take typically contains ten to 24 utterances. Just noting the take number will be sufficient to find an utterance later. If you're recording in a studio that prefers to make longer recordings, you'll want to note the time code instead. The studio will have a prominent time display.
 
 Leave enough space after each row to write notes. Be sure that no utterance is split between pages. Number the pages and print your script on one side of the paper.
 
@@ -110,7 +109,7 @@ Fortunately, it is possible to avoid these issues entirely. There are many sourc
 
 ## Recording your script
 
-Preferably, you should record your script at a professional recording studio that specializes in voiceover work. They'll have a recording booth, the right equipment for the job, and the right people to operate it. It pays not to skimp on recording.
+Preferably, you should record your script at a professional recording studio that specializes in voice work. They'll have a recording booth, the right equipment, and the right people to operate it. It pays not to skimp on recording.
 
 Discuss your project with the studio's recording engineer and listen to his or her advice. The recording should have little or no dynamic range compression (maximum of 4:1). It is critical that the audio have consistent volume and a high signal-to-noise ratio, while being free of unwanted sounds.
 
@@ -118,38 +117,38 @@ Discuss your project with the studio's recording engineer and listen to his or h
 
 If you want to make the recording yourself, rather than going into a recording studio, here's a short primer. Thanks to the rise of home recording and podcasting, it's easier than ever to find good recording advice and resources online.
 
-Your "recording booth" should be a small room with no noticeable echo or "room tone" and which is as quiet and soundproof as possible. Drapes on the walls can be used to reduce echo and neutralize or "deaden" the sound of the room.
+Your "recording booth" should be a small room with no noticeable echo or "room tone." It should be as quiet and soundproof as possible. Drapes on the walls can be used to reduce echo and neutralize or "deaden" the sound of the room.
 
-Use a high-quality studio condenser microphone ("mic") intended for recording voice. Sennheiser, AKG, and even newer Zoom mics can yield good results. You can buy your mic, or rent one from a local audio-visual rental firm. Look for one with a USB interface. This type of mic conveniently combines the microphone element, preamp, and analog-to-digital converter into one package, simplifying hookup.
+Use a high-quality studio condenser microphone ("mic" for short) intended for recording voice. Sennheiser, AKG, and even newer Zoom mics can yield good results. You can buy a mic, or rent one from a local audio-visual rental firm. Look for one with a USB interface. This type of mic conveniently combines the microphone element, preamp, and analog-to-digital converter into one package, simplifying hookup.
 
 You may also use an analog microphone. Many rental houses offer "vintage" microphones renowned for their voice character. Note that professional analog gear uses balanced XLR connectors, rather than the 1/4" plug used in consumer equipment. If you go analog, you'll also need a preamp and a computer audio interface with these connectors.
 
-Install the microphone on a stand or boom and use a pop filter in front of the microphone to eliminate noise from "plosive" sounds like "p" and "b." Some microphones come with a suspension mount that isolates them from vibrations in the stand, which is helpful.
+Install the microphone on a stand or boom and install a pop filter in front of the microphone to eliminate noise from "plosive" sounds like "p" and "b." Some microphones come with a suspension mount that isolates them from vibrations in the stand, which is helpful.
 
 The voice talent must stay at a consistent distance from the microphone. Use tape on the floor to mark where they should stand. If the talent prefers to sit, take special care to monitor mic distance and avoid chair noise.
 
 Use a stand to hold the script. Avoid angling the stand so that it can reflect sound toward the microphone.
 
-The person actually doing the recording—the engineer—should be in a separate room from the talent, with some way to talk to the talent in the recording booth (a "talkback circuit").
+The person operating the recording equipment—the engineer—should be in a separate room from the talent, with some way to talk to the talent in the recording booth (a *talkback circuit).*
 
 The recording should contain as little noise as possible, with a goal of an 80 db signal-to-noise ratio or better.
 
 Listen closely to a recording of silence in your "booth," figure out where any noise is coming from, and eliminate the cause. Common sources of noise are air vents, fluorescent light ballasts, traffic on nearby roads, and equipment fans (even notebook PCs may have fans). Microphones and cables can pick up electrical noise from nearby AC wiring, usually a hum or buzz.
 
 > [!TIP]
-> In some cases, you may be able to use an equalizer or a noise reduction software plug-in to help remove noise from your recordings, though it is always best to stop it at its source when possible.
+> In some cases, you may be able to use an equalizer or a noise reduction software plug-in to help remove noise from your recordings, though it is always best to stop it at its source.
 
 Levels should be set so that most of the available dynamic range of digital recording is used without overdriving. That means loud, but not so loud that the audio distorts. Below is an example of the waveform of a good recording.
 
 ![good recording waveform](media/custom-voice/good-recording.png)
 
-You can see that most of the range (height) is used, but the highest peaks of the signal do not reach the top or bottom of the display. You can also see that the silence in the recording approximates a thin horizontal line, indicating a low noise floor. This recording has acceptable dynamic range and signal-to-noise ratio.
+Here, most of the range (height) is used, but the highest peaks of the signal do not reach the top or bottom of the window. You can also see that the silence in the recording approximates a thin horizontal line, indicating a low noise floor. This recording has acceptable dynamic range and signal-to-noise ratio.
 
-Record directly into the computer using a high-quality audio interface or a USB port, depending on the kind of mic you're using. Keep the audio chain simple: mic, preamp, audio interface, computer. Both [Avid Pro Tools](http://www.avid.com/en/pro-tools) and [Adobe Audition](https://www.adobe.com/products/audition.html) can be licensed monthly at reasonable cost. If your budget is extremely tight, try the free [Audacity](https://www.audacityteam.org/).
+Record directly into the computer using a high-quality audio interface or a USB port, depending on the mic you're using. For analog, keep the audio chain simple: mic, preamp, audio interface, computer. Both [Avid Pro Tools](http://www.avid.com/en/pro-tools) and [Adobe Audition](https://www.adobe.com/products/audition.html) can be licensed monthly at reasonable cost. If your budget is extremely tight, try the free [Audacity](https://www.audacityteam.org/).
 
 Record at 44.1 KHz 16 bit monophonic (CD quality) or better. Current state-of-the-art is 48 KHz 24-bit, if your equipment supports it. You will downsample your audio to 16 KHz 16-bit before you submit it to the Custom Voice portal. Still, it pays to have a high-quality original recording in the event edits are needed.
 
-Ideally, have different people serve in the roles of director, engineer, and talent. Don't try to do it all yourself! In a pinch, the director and engineer could be a single person.
+Ideally, have different people serve in the roles of director, engineer, and talent. Don't try to do it all yourself! In a pinch, the director and engineer can be one person.
 
 ### Before the session
 
