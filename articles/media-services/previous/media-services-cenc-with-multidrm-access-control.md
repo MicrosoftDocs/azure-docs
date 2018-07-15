@@ -1,5 +1,5 @@
 ---
-title: 'CENC with multi-DRM and access control: A reference design and implementation on Azure and Azure Media Services | Microsoft Docs'
+title: Content protection system with access control using Azure Media Services | Microsoft Docs
 description: Learn about how to license the Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
@@ -7,19 +7,21 @@ author: willzhan
 manager: cfowler
 editor: ''
 
-ms.assetid: 7814739b-cea9-4b9b-8370-538702e5c615
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
 
 ---
-# CENC with multi-DRM and access control: A reference design and implementation on Azure and Azure Media Services
- 
-## Introduction
+# Content protection with access control 
+
+This topic provides suggestions on how you can design and implement a content protection system with access control using Azure Media Services.
+
+## Overview
+
 Designing and building a digital rights management (DRM) subsystem for an over-the-top (OTT) or online streaming solution is a complex task. Operators/online video providers typically outsource this task to specialized DRM service providers. The goal of this document is to present a reference design and implementation of an end-to-end DRM subsystem in an OTT or online streaming solution.
 
 The targeted readers for this document are engineers who work in DRM subsystems of OTT or online streaming/multiscreen solutions or readers who are interested in DRM subsystems. The assumption is that readers are familiar with at least one of the DRM technologies on the market, such as PlayReady, Widevine, FairPlay, or Adobe Access.
@@ -211,8 +213,9 @@ Implementation includes the following steps:
     | **DRM** | **Browser** | **Result for entitled user** | **Result for unentitled user** |
     | --- | --- | --- | --- |
     | **PlayReady** |Microsoft Edge or Internet Explorer 11 on Windows 10 |Succeed |Fail |
-    | **Widevine** |Chrome on Windows 10 |Succeed |Fail |
-    | **FairPlay** |TBD | | |
+    | **Widevine** |Chrome, Firefox, Opera |Succeed |Fail |
+    | **FairPlay** |Safari on macOS      |Succeed |Fail |
+    | **AES-128** |Most modern browsers  |Succeed |Fail |
 
 For information on how to set up Azure AD for an ASP.NET MVC player app, see [Integrate an Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
