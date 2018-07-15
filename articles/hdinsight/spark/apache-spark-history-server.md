@@ -70,7 +70,7 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
     ![Data download row](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
-+ Copy full path or relative path by selecting the **Copy Full Path**, **Copy Relative Path** that expands from download menu. For azure data lake storage files, **Open in Azure Storage Explorer** will launch Azure Storage Explorer, and locate to the folder when sign in.
++ Copy full path or relative path by selecting the **Copy Full Path**, **Copy Relative Path** that expands from download menu. For azure data lake storage files, **Open in Azure Storage Explorer** will launch Azure Storage Explorer, and locate to the folder when sign-in.
 
     ![Data copy path](./media/apache-spark-history-server/sparkui-data-copy-path.png)
 
@@ -100,7 +100,7 @@ Select job ID then click **Graph** on the tool menu to get the graph view.
 
     ![graph display](./media/apache-spark-history-server/sparkui-graph-display.png)
 
-+ Play back by clicking the **Playback** button and could stop anytime by clicking the stop button. The task display in color with different status when play back.
++ Play back by clicking the **Playback** button and could stop anytime by clicking the stop button. The task display in color with different status when playback.
     + Successes task display in green.
     + Running task display in light blue.
     + Retried task display in orange.
