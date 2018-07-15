@@ -139,9 +139,9 @@ Select job ID then click **Graph** on the tool menu to get the graph view.
     ![graph feedback](./media/apache-spark-history-server/sparkui-graph-feedback.png)
 
 
-## Turn off Data/Graph feature
+## Revert to community version
 
-When meet the scenario that need turn off the Data/Graph tab, follow the steps:
+To revert to community version, follow the steps:
 
 1. Open the cluster https://<clustername>.azurehdinsight.net/. Click **Spark2** in left panel.
 2. Click **Configs** tab.
@@ -156,7 +156,7 @@ When meet the scenario that need turn off the Data/Graph tab, follow the steps:
 
     ![restart server](./media/apache-spark-history-server/sparkui-restart-server.png)
 
-8. Refresh the Spark history server web UI, the Data and Graph tab will be turned off now.
+8. Refresh the Spark history server web UI, it has been reverted to community version.
 
 ## FAQ
 
