@@ -55,7 +55,7 @@ In this section, you will enable and disable a system assigned identity using an
    > This example assumes variables such as `vmName`, `storageAccountName`, and `nicName` have been defined in the template.
    >
 
-   ![Screenshot of template - locate VM](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![Screenshot of template - locate VM](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 3. To enable system assigned identity, add the `"identity"` property at the same level as the `"type": "Microsoft.Compute/virtualMachines"` property. Use the following syntax:
 
@@ -95,7 +95,7 @@ In this section, you will enable and disable a system assigned identity using an
 
 5. When you're done, your template should look similar to the following:
 
-   ![Screenshot of template after update](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
+   ![Screenshot of template after update](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
 ### Assign a role the VM's system assigned identity
 

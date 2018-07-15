@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 07/13/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 ---
@@ -131,7 +131,7 @@ There are two parts to this scenario:
 
    ![Azure Marketplace items popup](media/azure-stack-download-azure-marketplace-item/image05.png)
 
-7. Select the item that you want to download and make a note of the *version*. (You can select multiple images by holding the *Ctrl* key.) You will reference the *version* when you import the item in the next procedure. 
+7. Select the item that you want to download and make a note of the *version*. (You can hold the *Ctrl* key to select multiple images.) You'll reference the *version* when you import the item in the next procedure. 
    
    You can also filter the list of images by using the **Add criteria** option.
 
@@ -143,20 +143,10 @@ There are two parts to this scenario:
 ### Import the download and publish to Azure Stack Marketplace
 1. The files for virtual machine images or solution templates that you have [previously downloaded](#use-the-marketplace-syndication-tool-to-download-marketplace-items) must be made locally available to your Azure Stack environment.  
 
-2. Import .VHD files to Azure Stack. To successfully import a virtual machine (VM) image, you must have the following information about the VM:
-   - The *version*, as noted in step 7 of the preceding procedure.
-   - The values for the VMs *publisher*, *offer*, and *sku*. To get these values, rename a copy of the **.azpkg** file to change its file extension to **.zip**. You can then use a text editor to open **DeploymentTemplates\CreateUiDefinition.json**. In the .json file, locate the *imageReference* section, which contains these values for the marketplace item. The following example demonstrates how this information appears:
+2. Import the VHD image to Azure Stack by using the **Add-AzsPlatformimage** cmdlet. When you use this cmdlet, replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. 
 
-     ```json  
-     "imageReference": {  
-        "publisher": "MicrosoftWindowsServer",  
-        "offer": "WindowsServer",  
-        "sku": "2016-Datacenter-Server-Core"  
-      }
-     ```  
-
-   Import the image to Azure Stack by using the **Add-AzsPlatformimage** cmdlet. When using this cmdlet, make sure to replace the *publisher*, *offer*, and other parameter values with the values of the image that you are importing. You can get the *publisher*, *offer*, and *sku* values of the image from the text file that is downloaded together with the AZPKG file and stored in the destination location. 
-
+   You can get the *publisher*, *offer*, and *sku* values of the image from the text file that downloads with the AZPKG file. The text file is stored in the destination location.
+ 
    In the following example script, values for the Windows Server 2016 Datacenter - Server Core virtual machine are used. 
 
    ```PowerShell  
