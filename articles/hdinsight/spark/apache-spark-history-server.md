@@ -156,7 +156,7 @@ To revert to community version, follow the steps:
 
     ![restart server](./media/apache-spark-history-server/sparkui-restart-server.png)
 
-8. Refresh the Spark history server web UI, it has been reverted to community version.
+8. Refresh the Spark history server web UI, it will be reverted to community version.
 
 ## FAQ
 
