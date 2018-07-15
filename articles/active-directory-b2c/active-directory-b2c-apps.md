@@ -114,7 +114,7 @@ Applications that contain long-running processes or that operate without the pre
 
 Although client credential flow is not currently supported by Azure AD B2C, you can set up client credential flow using Azure AD. An Azure AD B2C tenant shares some functionality with Azure AD enterprise tenants.  The client credential flow is supported using the Azure AD functionality of the Azure AD B2C tenant. 
 
-To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). A successful authentication results in the receipt of a token formatted so that it can be used by Azure AD as described in [Azure AD token reference](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims).
+To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). A successful authentication results in the receipt of a token formatted so that it can be used by Azure AD as described in [Azure AD token reference](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 
 ### Web API chains (on-behalf-of flow)
