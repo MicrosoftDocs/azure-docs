@@ -32,11 +32,9 @@ Spark History Server is the web UI for completed and running Spark applications.
 ### To open the Spark History Server Web UI by url
 Open the Spark History Server by browsing to the following URL, replace <ClusterName> with Spark cluster name of customer.
 
-    ```
-    https://<ClusterName>.azurehdinsight.net/sparkhistory
-    ```
-
-
+   ```
+   https://<ClusterName>.azurehdinsight.net/sparkhistory
+   ```
 
 The Spark History Server web UI looks like:
 
@@ -158,7 +156,7 @@ When meet the scenario that need turn off the Data/Graph tab, follow the steps:
 
     ![restart server](./media/apache-spark-history-server/sparkui-restart-server.png)
 
-8. Refresh history server, the Data and Graph tab will be turned off now.
+8. Refresh the Spark history server web UI, the Data and Graph tab will be turned off now.
 
 ## FAQ
 
