@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -35,7 +35,9 @@ Before you start, it's helpful to review the [VMware](vmware-azure-architecture.
 
 ## Prerequisites
 
-Devices exported by paravirtualized drivers aren't supported.
+- Devices exported by paravirtualized drivers aren't supported.
+> [!WARNING]
+> It is possible to migrate VMs on other virtualization platforms(other than VMware, Hyper-V) such as XenServer by treating the VMs like Physical servers. This approach however, hasn't been tested and validated by Microsoft and may or may not work. For example, VMs running on the XenServer platform may not run in  Azure unless XenServer tools and para-virtualized storage and network drivers are uninstalled from the VM before starting the migration.
 
 
 ## Create a Recovery Services vault
@@ -105,7 +107,7 @@ Run a failover for the machines you want to migrate.
 1. In **Settings** > **Replicated items** click the machine > **Failover**.
 2. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
 3. The encryption key setting isn't relevant for this scenario.
-4. Select **Shut down machine before beginning failover**. Site Recovery will attempt to do a shutdown of source virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
+4. Select **Shut down machine before beginning failover**. Site Recovery will attempt to shutdown virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 5. Check that the Azure VM appears in Azure as expected.
 6. In **Replicated items**, right-click the VM > **Complete Migration**. This finishes the migration process, stops replication for the VM, and stops Site Recovery billing for the VM.
 
