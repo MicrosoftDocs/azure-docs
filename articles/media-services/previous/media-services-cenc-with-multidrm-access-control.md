@@ -1,5 +1,5 @@
 ---
-title: Content protection system with access control using Azure Media Services | Microsoft Docs
+title: Design of a content protection system with access control using Azure Media Services | Microsoft Docs
 description: Learn about how to license the Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
@@ -16,9 +16,7 @@ ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
 
 ---
-# Content protection with access control 
-
-This topic provides suggestions on how you can design and implement a content protection system with access control using Azure Media Services.
+# Design of a content protection system with access control using Azure Media Services
 
 ## Overview
 
@@ -39,7 +37,8 @@ Microsoft is an active promoter of DASH and CENC together with some major indust
 *  [Announcing Google Widevine license delivery services in Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 * [Azure Media Services adds Google Widevine packaging for delivering a multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)  
 
-### Overview of this article
+### Goals of the article
+
 The goals of this article are to:
 
 * Provide a reference design of a DRM subsystem that uses CENC with multi-DRM.
@@ -60,7 +59,6 @@ The following table summarizes the native platform/native app and browsers suppo
 | **Windows 10 devices (Windows PC, Windows tablets, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Universal Windows Platform |DASH (for HLS, PlayReady isn't supported)<br/><br/>DASH, Smooth Streaming (for HLS, PlayReady isn't supported) |
 | **Android devices (phone, tablet, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), OS X clients and Apple TV** |FairPlay |Safari 8+/EME |HLS |
-
 
 Considering the current state of deployment for each DRM, a service typically wants to implement two or three DRMs to make sure you address all the types of endpoints in the best way.
 
