@@ -14,7 +14,7 @@ manager: mtillman
 ms.reviewer: sahenry
 
 ---
-# Self-service password reset in Azure AD deep dive
+# How it works: Azure AD self-service password reset
 
 How does self-service password reset (SSPR) work? What does that option mean in the interface? Continue reading to find out more about Azure Active Directory (Azure AD) SSPR.
 

@@ -11,7 +11,7 @@ ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: sahenry, richagi
+ms.reviewer: sahenry, michmcla
 
 # Customer intent: As an Azure AD administrator, I want to understand which Azure AD features I can use to secure sign-in and make the user authentication process safe and easy. 
 ---
@@ -54,4 +54,6 @@ The next step is to dive in and configure self-service password reset and Azure 
 
 To get started with self-service password reset, see the [enable SSPR quickstart article](quickstart-sspr.md).
 
-To get started with Azure Multi-Factor Authentication, see the [enable MFA quickstart article](quickstart-mfa.md)
+Learn more about self-service password reset in the article, [How it works: Azure AD self-service password reset](concept-sspr-howitworks.md)
+
+Learn more about Azure Multi-Factor Authentication in the article, [How it works: Azure Multi-Factor Authentication](concept-mfa-howitworks.md)

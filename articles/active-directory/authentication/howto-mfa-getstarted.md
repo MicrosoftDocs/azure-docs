@@ -11,7 +11,7 @@ ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
+ms.reviewer: michmcla
 
 ---
 # Deploy cloud-based Azure Multi-Factor Authentication
@@ -45,14 +45,33 @@ Once you enable the conditional access policy, users will be forced to enroll th
 
 ## Enable Multi-Factor Authentication with Conditional Access
 
-Sign in to the [Azure portal](https://portal.azure.com) using a Global Administrator account.
+Sign in to the [Azure portal](https://portal.azure.com) using a global administrator account.
 
+### Choose verification options
+
+Before enabling Azure Multi-Factor Authentication, your organization must determine what verification options they allow. For the purpose of this exercise, you enable call to phone and text message to phone as they are generic options that most are able to use. More information regarding authentication methods, and their usage, can be found in the article, [What are authentication methods?](concept-authentication-methods.md)
+
+1. Browse to **Azure Active Directory**, **Users**, **Multi-Factor Authentication**
+   ![Accessing the Multi-Factor Authentication portal from Azure AD Users blade in Azure portal](media/howto-mfa-getstarted/users-mfa.png) 
+2. In the new tab that opens browse to **service settings**
+3. Under **verification options**, check the following boxes for methods available to users
+   * Call to phone
+   * Text message to phone
+
+   ![Configuring verification methods in the Multi-Factor Authentication service settings tab](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
+
+4. Click on **Save**
+5. Close the **service settings** tab
+
+### Create conditional access policy
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using a global administrator account.
 1. Browse to **Azure Active Directory**, **Conditional access**
 1. Select **New policy**
 1. Provide a meaningful name for your policy
 1. Under **users and groups**
    * On the **Include** tab, select the **All users** radio button
-   * RECCOMENDED: On the **Exclude** tab, check the box for **Users and groups** and choose a group to be used for exclusions when users do not have access to their authentication methods.
+   * RECOMMENDED: On the **Exclude** tab, check the box for **Users and groups** and choose a group to be used for exclusions when users do not have access to their authentication methods.
    * Click **Done**
 1. Under **Cloud apps**, select the **All cloud apps** radio button
    * OPTIONALLY: On the **Exclude** tab, choose cloud apps that your organization does not require MFA for.
@@ -66,6 +85,19 @@ Sign in to the [Azure portal](https://portal.azure.com) using a Global Administr
 1. Skip the **Session** section
 1. Set the **Enable policy** toggle to **On**
 1. Click **Create**
+
+![Create a conditional access policy to enable MFA for Azure portal users in pilot group](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
+
+### Test Azure Multi-Factor Authentication
+
+To confirm that your conditional access policy works, test logging in to a resource that should not require MFA and then to the Azure portal that requires MFA.
+
+1. Open a new browser window in InPrivate or incognito mode and browse to [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
+   * Log in with the test user created as part of the prerequisites section of this article and note that it should not ask you to complete MFA.
+   * Close the browser window
+2. Open a new browser window in InPrivate or incognito mode and browse to [https://portal.azure.com](https://portal.azure.com).
+   * Log in with the test user created as part of the prerequisites section of this article and note that you should now be required to register for and use Azure Multi-Factor Authentication.
+   * Close the browser window
 
 ## Next steps
 
