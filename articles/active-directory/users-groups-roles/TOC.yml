@@ -4,8 +4,6 @@
   items:
   - name: What is Azure Active Directory?
     href: ../fundamentals/active-directory-whatis.md
-  - name: What is Azure Active Directory?
-    href: ../fundamentals/active-directory-whatis.md
   - name: About Azure identity management
     href: ../fundamentals/identity-fundamentals.md
   - name: Understand Azure identity solutions    
@@ -20,7 +18,7 @@
   items:
   - name: Add users to Azure AD
     href: ../fundamentals/add-users-azure-active-directory.md
-  - name: ASsign licenses to users  
+  - name: Assign licenses to users  
     href: ../fundamentals/get-started-azure-ad.md
   - name: Sign up for Azure AD Premium   
     href: ../fundamentals/active-directory-get-started-premium.md
@@ -34,11 +32,11 @@
     href: groups-naming-policy.md
 - name: Tutorials
   items:
-  - name: Create a dynamically populated group    
-    href: groups-dynamic-tutorial.md
   - name: Prepare your Azure Active Directory environment    
     href: groups-dynamic-tutorial.md
   - name: Create and manage groups and members    
+    href: groups-dynamic-tutorial.md
+  - name: Create a dynamically populated group    
     href: groups-dynamic-tutorial.md
 - name: Concepts
   items:

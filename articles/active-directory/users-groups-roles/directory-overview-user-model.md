@@ -7,14 +7,14 @@ manager: mtillman
 
 ms.author: curtand
 ms.reviewer: vince.Smith
-ms.date: 06/22/2018
+ms.date: 07/16/2018
 ms.topic: overview
 ms.service: active-directory
 ms.workload: identity
 services: active-directory
 ms.custom: it-pro
 
-#As a new Azure AD identity administrator, I want to understand the relationships between users and their groups, administrator roles, and licenses, so I can accomplish the top tasks associated with my job at scale.”
+#As a new Azure AD identity administrator, I want to understand relationships between my user management tools, so I can use groups, administrator roles, and licenses to perform my top identity management tasks at scale.”
 ---
 
 # What is user access management using groups, licensing, and roles?
