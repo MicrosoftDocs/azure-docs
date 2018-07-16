@@ -53,7 +53,7 @@ In a few minutes, the command returns:
 `helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
 
 ## Open the application
-Once the application successfully deploys, copy the public IP address for the service endpoint from the CLI output.  Open the IP address in a web browser.  A web page with the  Azure Service Fabric Mesh logo displays.
+Once the application successfully deploys, copy the public IP address for the service endpoint from the CLI output.  Open the IP address in a web browser. A web page with the Azure Service Fabric Mesh logo displays.
 
 ## Check the application details
 You can check the application's status using the `az mesh app show` command. This command provides useful information that you can follow up on.

@@ -63,9 +63,9 @@ The following table shows several properties, accessible through Transact SQL, t
 
 ![single sign-on](./media/sql-database-managed-instance/sso.png) 
 
-## vCore-based purchasing model (preview)
+## vCore-based purchasing model
 
-The vCore-based purchasing model (preview) gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+The vCore-based purchasing model gives you flexibility, control, transparency, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. The vCore model is also eligible for up to 30 percent savings with the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 A virtual core represents the logical CPU offered with an option to choose between generations of hardware.
 - Gen 4 Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors.
