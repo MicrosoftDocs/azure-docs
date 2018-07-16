@@ -2,201 +2,201 @@
   href: index.yml
 - name: Overview
   items:
-  - name: "What is Azure Active Directory?"
-  - href: ../fundamentals/active-directory-whatis.md
   - name: What is Azure Active Directory?
-  - href: ../fundamentals/active-directory-whatis.md
+    href: ../fundamentals/active-directory-whatis.md
+  - name: What is Azure Active Directory?
+    href: ../fundamentals/active-directory-whatis.md
   - name: About Azure identity management
-  - href: ../fundamentals/identity-fundamentals.md
+    href: ../fundamentals/identity-fundamentals.md
   - name: Understand Azure identity solutions    
-  - href: ../fundamentals/understand-azure-identity-solutions.md
+    href: ../fundamentals/understand-azure-identity-solutions.md
   - name: Choose a hybrid identity solution    
-  - href: ../choose-hybrid-identity-solution.md
+    href: ../choose-hybrid-identity-solution.md
   - name: Associate Azure subscriptions    
-  - href: ../fundamentals/active-directory-how-subscriptions-associated-directory.md
+    href: ../fundamentals/active-directory-how-subscriptions-associated-directory.md
   - name: Understand users, groups, licensing, roles    
-  - href: directory-overview-user-model.md
+    href: directory-overview-user-model.md
 - name: Quickstarts
   items:
   - name: Add users to Azure AD
-  - href: ../fundamentals/add-users-azure-active-directory.md
+    href: ../fundamentals/add-users-azure-active-directory.md
   - name: ASsign licenses to users  
-  - href: ../fundamentals/get-started-azure-ad.md
+    href: ../fundamentals/get-started-azure-ad.md
   - name: Sign up for Azure AD Premium   
-  - href: ../fundamentals/active-directory-get-started-premium.md
+    href: ../fundamentals/active-directory-get-started-premium.md
   - name: Assign licenses to users    
-  - href: ../fundamentals/license-users-groups.md
+    href: ../fundamentals/license-users-groups.md
   - name: Add a custom domain name    
-  - href: ../fundamentals/add-custom-domain.md
+    href: ../fundamentals/add-custom-domain.md
   - name: Enforce group expiration    
-  - href: groups-lifecycle.md
+    href: groups-lifecycle.md
   - name: Enforce group naming policy    
-  - href: groups-naming-policy.md
+    href: groups-naming-policy.md
 - name: Tutorials
   items:
   - name: Create a dynamically populated group    
-  - href: groups-dynamic-tutorial.md
+    href: groups-dynamic-tutorial.md
   - name: Prepare your Azure Active Directory environment    
-  - href: groups-dynamic-tutorial.md
+    href: groups-dynamic-tutorial.md
   - name: Create and manage groups and members    
-  - href: groups-dynamic-tutorial.md
+    href: groups-dynamic-tutorial.md
 - name: Concepts
   items:
   - name: Delegate Azure AD admin roles    
-  - href: roles-concept-delegation.md
+    href: roles-concept-delegation.md
   - name: Group-based licensing basics    
-  - href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md
+    href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md
   - name: Compare member and guest user permissions    
-  - href: ../fundamentals/users-default-permissions.md
+    href: ../fundamentals/users-default-permissions.md
   - name: Azure RBAC roles and Azure AD admin roles    
-  - href: ../../role-based-access-control/rbac-and-directory-admin-roles.md
+    href: ../../role-based-access-control/rbac-and-directory-admin-roles.md
   - name: Service limits and restrictions    
-  - href: directory-service-limits-restrictions.md
+    href: directory-service-limits-restrictions.md
 - name: How to
   items:
   - name: Manage users
     items: 
     - name: Add new users to Azure AD 
-    - href: ../fundamentals/add-users-azure-active-directory.md
+      href: ../fundamentals/add-users-azure-active-directory.md
     - name: Manage user profiles    
-    - href: ../fundamentals/active-directory-users-profile-azure-portal.md
+      href: ../fundamentals/active-directory-users-profile-azure-portal.md
     - name: Share accounts    
-    - href: active-directory-sharing-accounts.md
+      href: active-directory-sharing-accounts.md
     - name: Assign users to admin roles    
-    - href: ../fundamentals/active-directory-users-assign-role-azure-portal.md
+      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md
     - name: Restore a deleted user    
-    - href: ../fundamentals/active-directory-users-restore.md
+      href: ../fundamentals/active-directory-users-restore.md
     - name: Add users from another directory (B2B    
-    - href: ../b2b/what-is-b2b.md
+      href: ../b2b/what-is-b2b.md
     - name: Add a B2B user to a role    
-    - href: ../b2b/add-guest-to-role.md
+      href: ../b2b/add-guest-to-role.md
     - name: Dynamic groups and B2B users    
-    - href: ../b2b/use-dynamic-groups.md
+      href: ../b2b/use-dynamic-groups.md
   - name: Manage your directory
     items:
     - name: Administer your directory    
-    - href: fundamentals/active-directory-administer.md
+      href: fundamentals/active-directory-administer.md
     - name: Delete a directory    
-    - href: directory-delete-howto.md
+      href: directory-delete-howto.md
     - name: Multiple directories    
-    - href: licensing-directory-independence.md
+      href: licensing-directory-independence.md
     - name: Self-service signup    
-    - href: directory-self-service-signup.md
+      href: directory-self-service-signup.md
     - name: Take over an unmanaged directory    
-    - href: domains-admin-takeover.md
+      href: domains-admin-takeover.md
     - name: Azure AD Connect    
-    - href: ../connect/active-directory-aadconnect.md
+      href: ../connect/active-directory-aadconnect.md
     - name: Configure company branding    
-    - href: ../fundamentals/customize-branding.md
+      href: ../fundamentals/customize-branding.md
   - name: Manage groups and members    
   - items: 
     - name: Access management using groups    
-    - href: ../fundamentals/active-directory-manage-groups.md
+      href: ../fundamentals/active-directory-manage-groups.md
     - name: Manage groups in the Azure portal    
-    - href: ../fundamentals/active-directory-groups-create-azure-portal.md
+      href: ../fundamentals/active-directory-groups-create-azure-portal.md
     - name: Manage groups PowerShell for Graph (v2)   
-    - href: groups-settings-v2-cmdlets.md
+      href: groups-settings-v2-cmdlets.md
     - name: Manage groups PowerShell MSOnline    
-    - href: groups-settings-cmdlets.md
+      href: groups-settings-cmdlets.md
     - name: Manage group members    
-    - href: ../fundamentals/active-directory-groups-members-azure-portal.md
+      href: ../fundamentals/active-directory-groups-members-azure-portal.md
     - name: Manage group owners    
-    - href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md
+      href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md
     - name: Manage groups in other groups    
-    - href: ../fundamentals/active-directory-groups-membership-azure-portal.md
+      href: ../fundamentals/active-directory-groups-membership-azure-portal.md
     - name: Add group access to SaaS apps    
-    - href: groups-saasapps.md
+      href: groups-saasapps.md
     - name: Restore a deleted group    
-    - href: ../fundamentals/active-directory-groups-restore-azure-portal.md
+      href: ../fundamentals/active-directory-groups-restore-azure-portal.md
     - name: Manage group settings    
-    - href: ../fundamentals/active-directory-groups-settings-azure-portal.md 
+      href: ../fundamentals/active-directory-groups-settings-azure-portal.md 
     - name: Create dynamic group membership rules    
-    - href: groups-dynamic-membership.md
+      href: groups-dynamic-membership.md
     - name: Set up self-service groups    
-    - href: groups-self-service-management.md
+      href: groups-self-service-management.md
   - name: Assign licenses to users and groups
     items:
     - name: Assign licenses to users    
-    - href: ../fundamentals/get-started-azure-ad.md
+      href: ../fundamentals/get-started-azure-ad.md
     - name: Assign licenses to a group    
-    - href: licensing-groups-assign.md
+      href: licensing-groups-assign.md
     - name: Identify and resolve license problems in a group    
-    - href: licensing-groups-resolve-problems.md
+      href: licensing-groups-resolve-problems.md
     - name: Migrate individual licensed users to group-based licensing    
-    - href: licensing-groups-migrate-users.md
+      href: licensing-groups-migrate-users.md
     - name: Migrate users between product licenses    
-    - href: licensing-groups-change-licenses.md
+      href: licensing-groups-change-licenses.md
     - name: Additional scenarios for group-based licensing    
-    - href: licensing-group-advanced.md
+      href: licensing-group-advanced.md
     - name: Azure PowerShell examples for group-based licensing    
-    - href: licensing-ps-examples.md
+      href: licensing-ps-examples.md
     - name: Reference for products and service plans in Azure AD    
-    - href: licensing-service-plan-reference.md
+      href: licensing-service-plan-reference.md
   - name: Azure AD administrator roles    
   - items: 
     - name: Assign roles and permissions reference 
-    - href: directory-assign-admin-roles.md
+      href: directory-assign-admin-roles.md
     - name: View members of an admin role    
-    - href: directory-manage-roles-portal.md
+      href: directory-manage-roles-portal.md
     - name: Assign admin role to a user    
-    - href: ../fundamentals/active-directory-users-assign-role-azure-portal.md
+      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md
     - name: Administrator role security    
     - items:   
       - name: Secure administrator roles plan    
-      - href: directory-admin-roles-secure.md  
+        href: directory-admin-roles-secure.md  
       - name: Create emergency access administrator accounts    
-      - href: directory-emergency-access.md
+        href: directory-emergency-access.md
     - name: Administrative units    
-    - href: directory-administrative-units.md
+      href: directory-administrative-units.md
     - name: Configure token lifetimes   
-    - href: active-directory-configurable-token-lifetimes.md
+      href: active-directory-configurable-token-lifetimes.md
   - name: Integrate other services with Azure AD
     items: 
     - name: Integrate LinkedIn with Azure AD    
-    - href: linkedin-integration.md
+      href: linkedin-integration.md
   - name: Troubleshoot
     items:
     - name: Get support for Azure AD    
-    - href: ../fundamentals/active-directory-troubleshooting-support-howto.md
+      href: ../fundamentals/active-directory-troubleshooting-support-howto.md
     - name: Troubleshoot group membership    
-    - href: groups-troubleshooting.md
+      href: groups-troubleshooting.md
     - name: Troubleshoot group licensing    
-    - href: licensing-groups-resolve-problems.md
+      href: licensing-groups-resolve-problems.md
 - name: Reference
   items:
   - name: Code samples    
-  - href: https://azure.microsoft.com/resources/samples/?service=active-directory
+    href: https://azure.microsoft.com/resources/samples/?service=active-directory
   - name: Azure PowerShell cmdlets    
-  - href: /powershell/azure/overview
+    href: /powershell/azure/overview
   - name: .NET API    
-  - href: /active-directory/adal/microsoft.identitymodel.clients.activedirectory
+    href: /active-directory/adal/microsoft.identitymodel.clients.activedirectory
 - name: Related
   items:
   - name: Multi-Factor Authentication    
-  - href: ../authentication/multi-factor-authentication.md
+    href: ../authentication/multi-factor-authentication.md
   - name: Azure AD Connect    
-  - href: ./connect/active-directory-aadconnect.md
+    href: ./connect/active-directory-aadconnect.md
   - name: Azure AD Connect Health    
-  - href: ./connect-health/active-directory-aadconnect-health.md
+    href: ./connect-health/active-directory-aadconnect-health.md
   - name: Azure AD for developers    
-  - href: ./develop/active-directory-how-to-integrate.md
+    href: ./develop/active-directory-how-to-integrate.md
   - name: Azure AD Privileged Identity Management    
-  - href: ../privileged-identity-management/pim-configure.md
+    href: ../privileged-identity-management/pim-configure.md
 - name: Resources
   items:
   - name: Azure feedback forum    
-  - href: https://feedback.azure.com/forums/169401-azure-active-directory
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
   - name: Azure Roadmap    
-  - href: https://azure.microsoft.com/roadmap/?category=security-identity
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: MSDN forum    
-  - href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
   - name: Pricing    
-  - href: https://azure.microsoft.com/pricing/details/active-directory/
+    href: https://azure.microsoft.com/pricing/details/active-directory/
   - name: Pricing calculator    
-  - href: https://azure.microsoft.com/pricing/calculator/
+    href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates    
-  - href: https://azure.microsoft.com/updates/?product=active-directory
+    href: https://azure.microsoft.com/updates/?product=active-directory
   - name: Stack Overflow    
-  - href: http://stackoverflow.com/questions/tagged/azure-active-directory
+    href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Videos    
-  - href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
