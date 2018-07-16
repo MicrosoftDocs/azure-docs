@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
 
 ---
@@ -100,7 +100,21 @@ Select the message for more details. In the following image, you see an **Invali
 
 ### Deployment errors
 
-When the operation passes validation, but fails during deployment, you see the error in the notifications. Select the notification.
+When the operation passes validation, but fails during deployment, you get a deployment error.
+
+To see deployment error codes and messages with PowerShell, use:
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+To see deployment error codes and messages with Azure CLI, use:
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+In the portal, select the notification.
 
 ![notification error](./media/resource-manager-common-deployment-errors/notification.png)
 
