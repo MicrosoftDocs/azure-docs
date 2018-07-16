@@ -36,7 +36,7 @@ There are several reasons why you might need to use an alternate verification me
 
 - **Your app passwords aren't working.** App passwords replace your normal password for older desktop applications that don't support two-step verification. First, make sure you typed the password correctly. If that doesn't fix it, try signing in to [create a new app password](multi-factor-authentication-end-user-app-passwords.md) or contacting your administrator to [delete your existing app passwords](../authentication/howto-mfa-userdevicesettings.md) so you can create a new one.
 
-### Sign in using another verification method
+## Sign in using another verification method
 
 1. Sign into your account normally and choose the **Sign in another way** link on the **Two-step verification** page.
 
