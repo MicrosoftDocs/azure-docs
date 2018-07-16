@@ -90,6 +90,8 @@
     - href: ../fundamentals/customize-branding.md
   - name: Manage groups and members    
   - items: 
+    - name: Access management using groups    
+    - href: ../fundamentals/active-directory-manage-groups.md
     - name: Manage groups in the Azure portal    
     - href: ../fundamentals/active-directory-groups-create-azure-portal.md
     - name: Manage groups PowerShell for Graph (v2)   
@@ -131,7 +133,9 @@
     - name: Reference for products and service plans in Azure AD    
     - href: licensing-service-plan-reference.md
   - name: Azure AD administrator roles    
-  - href: directory-assign-admin-roles.md
+  - items: 
+    - name: Assign roles and permissions reference 
+    - href: directory-assign-admin-roles.md
     - name: View members of an admin role    
     - href: directory-manage-roles-portal.md
     - name: Assign admin role to a user    
