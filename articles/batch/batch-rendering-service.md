@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: hero-article
-ms.date: 05/10/2018
+ms.date: 07/16/2018
 ms.author: danlep
 ---
 
@@ -49,7 +49,7 @@ To use Batch Rendering, you need:
 
 - [Azure account](https://azure.microsoft.com/free/).
 - **Azure Batch account.** For guidance on creating a Batch account in the Azure portal, see [Create a Batch account with the Azure portal](batch-account-create-portal.md).
-- **Azure Storage account.** The assets used for your rendering job are typically stored in Azure Storage. You can create a storage account automatically when you set up your Batch account. You can also use an existing storage account. For storage account options in Batch, see the [Batch feature overview](batch-api-basics.md#azure-storage-account).
+- **Azure Storage account.** The assets used for your rendering job are typically stored in Azure Storage. You can create a storage account automatically when you set up your Batch account. You can also use an existing storage account. For storage account options in Batch, see the [Batch feature overview](batch-api-basics.md#azure-storage-account). A storage account is required to use the Batch plug-in for Maya.
 - **Environment variables.** If your solution modifies environment variables, make sure that the values of `AZ_BATCH_ACCOUNT_URL` and `AZ_BATCH_SOFTWARE_ENTITLEMENT_TOKEN` are kept intact and present when any of the licensed applications above is called. Otherwise, you are likely to encounter software activation issues.
 - **BatchLabs** (optional). [BatchLabs](https://azure.github.io/BatchLabs) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. While not required to use the Rendering service, it is a useful option to develop and debug your Batch solutions.
 
@@ -139,26 +139,17 @@ To load the plug-in in Maya:
 
 ### Authenticate access to your Batch and Storage accounts
 
-To use the plug-in, you need to authenticate using your Azure Batch and Azure Storage account keys. To retrieve your account keys:
+To use the plug-in, authenticate using Azure Active Directory. You need to know your Azure Active Directory domain name. To find the name, sign in to the [Azure portal](https://portal.azure.com) and hover over your account name in the upper right-hand side. The domain name is shown, similar to *contoso.onmicrosoft.com*.
+
+To authenticate access:
 
 1. Display the plug-in in Maya, and select the **Config** tab.
-2. Navigate to the [Azure portal](https://portal.azure.com).
-3. Select **Batch Accounts** from the left-hand menu. If necessary, click **More Services** and filter on _Batch_.
-4. Locate the desired Batch account in the list.
-5. Select the **Keys** menu item to display your account name, account URL, and access keys:
-    - Paste the Batch account URL into the **Service** field in the Batch plug-in.
-    - Paste the account name into the **Batch Account** field.
-    - Paste the primary account key into the **Batch Key** field.
-7. Select Storage Accounts from the left-hand menu. If necessary, click **More Services** and filter on _Storage_.
-8. Locate the desired Storage account in the list.
-9. Select the **Access Keys** menu item to display the storage account name and keys.
-    - Paste the Storage account name into the **Storage Account** field in the Batch plug-in.
-    - Paste the primary account key into the **Storage Key** field.
-10. Click **Authenticate** to ensure that the plug-in can access both accounts.
+2. Select **AzureActiveDirectory Authentication**
+3. Enter the name of your **AAD Domain**, and follow the on-screen instructions to authenticate. After you successfully authenticate, the **Authenticated** message appears.
+4. Under **Batch Account Settings**, select a **Subscription** and then select a **Batch Account**.
 
-Once you have successfully authenticated, the plug-in sets the status field to **Authenticated**: 
+After you complete the steps, the **Batch Account Configured** message appears. 
 
-![Authenticate your Batch and Storage accounts](./media/batch-rendering-service/authentication.png)
 
 ### Configure a pool for a render job
 
@@ -180,7 +171,7 @@ For more information on how charges accrue for Azure VMs, see the [Linux Pricing
 
 #### Specify the OS image to provision
 
-You can specify the type of OS image to use to provision compute nodes in the pool on the **Env** (Environment) tab. Batch currently supports the following image options for rendering jobs:
+You can specify the type of OS image to use to provision compute nodes in the pool on the **Env** (Environment) tab. Batch currently supports image options for rendering jobs including:
 
 |Operating System  |Image  |
 |---------|---------|
