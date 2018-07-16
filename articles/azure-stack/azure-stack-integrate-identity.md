@@ -157,7 +157,7 @@ The following information is required as input for the automation parameters:
 |Parameter|Description|Example|
 |---------|---------|---------|
 |CustomAdfsName|Name of the claims provider. It appears that way on the AD FS landing page.|Contoso|
-|CustomADFSFederationMetadataFile|Federation metadata file|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomADFSFederationMetadataFileContent|Metadata content|$using:federationMetadataFileContent|
 
 ### Create federation metadata file
 
