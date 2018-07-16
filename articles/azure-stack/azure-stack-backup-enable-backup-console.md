@@ -46,7 +46,7 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 6. Type the password again to **Confirm Password**.
 7. The **frequency in hours** determines how often backups are created. The default value is 12. Scheduler supports a maximum of 12 and a minimum of 4. 
 8. The **retention period in days** determines how many days of backups are preserved on the external location. The default value is 7. Scheduler supports a maximum of 14 and a minimum of 2. Backups older than the retention period get automatically deleted from the external location.
-    > [!Note]  
+    > [!Note]
     > If you want to archive backups older than the retention period, make sure to backup the files before the scheduler deletes the backups. If you reduce the backup frequency (e.g. from 7 days to 5 days), the scheduler will delete all backups older than the new retention period. Please make sure you are ok with the backups getting deleted before you update this value. 
 9. Provide a pre-shared key in the **Encryption Key** box. Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view this key from this interface. For more instructions to generate a pre-shared key, follow the scripts at [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
 7. Select **OK** to save your backup controller settings.
