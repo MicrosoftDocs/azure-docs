@@ -34,7 +34,7 @@ If you're not sure whether your organization has a trial or purchased subscripti
 2. Enter `Connect-MsolService` to authenticate as a user in your tenant.
 3. Enter `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`.
 
-This command retrieves a list of the subscriptions in your tenant. If there are no lines returned, you will need to obtain an Azure AD Premium P2 trial, purchase an Azure AD Premium P2 subscription or EMS E5 subscription to use Azure AD Privileged Identity Management.  To get a trial and start using Azure AD Privileged Identity Management, read [Get started with Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
+This command retrieves a list of the subscriptions in your tenant. If there are no lines returned, you will need to obtain an Azure AD Premium P2 trial, purchase an Azure AD Premium P2 subscription or EMS E5 subscription to use Azure AD Privileged Identity Management.  To get a trial and start using Azure AD Privileged Identity Management, read [Get started with Azure AD Privileged Identity Management](pim-getting-started.md).
 
 If this command returns a line in which SkuPartNumber is "AAD_PREMIUM_P2" or "EMSPREMIUM" and IsTrial is "True", this indicates an Azure AD Premium P2 trial is present in the tenant.  If the subscription status is not enabled, and you do not have an Azure AD Premium P2 or EMS E5 subscription purchase, then you must purchase an Azure AD Premium P2 subscription or EMS E5 subscription to continue using Azure AD Privileged Identity Management.
 
@@ -57,5 +57,5 @@ When an Azure AD Premium P2 subscription or EMS E5 subscription expires, or an o
 
 ## Next steps
 
-- [Get started with Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)
-- [Roles in Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-roles.md)
+- [Get started with Azure AD Privileged Identity Management](pim-getting-started.md)
+- [Roles in Azure AD Privileged Identity Management](pim-roles.md)

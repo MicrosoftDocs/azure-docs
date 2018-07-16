@@ -1,4 +1,4 @@
-﻿---
+---
 title: Getting Started with Cloud Foundry on Microsoft Azure | Microsoft Docs
 description: Run OSS or Pivotal Cloud Foundry on Microsoft Azure
 services: virtual-machines-linux

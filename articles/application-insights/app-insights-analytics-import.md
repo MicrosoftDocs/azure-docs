@@ -112,15 +112,16 @@ JSON format
 ]
 ```
  
-Each column is identified by the location, name and type. 
+Each column is identified by the location, name and type.
 
 * Location – For delimited file format it is the position of the mapped value. For JSON format, it is the jpath of the mapped key.
 * Name – the displayed name of the column.
 * Type – the data type of that column.
  
-In case a sample data was used and file format is delimited, the schema definition must map all columns and add new columns at the end. 
-
-JSON allows partial mapping of the data, therefore the schema definition of JSON format doesn’t have to map every key which is found in a sample data. It can also map columns which are not part of the sample data. 
+> [!NOTE]
+> In case sample data was used and the file format is delimited, the schema definition must map all columns and add new columns at the end.
+> 
+> JSON allows partial mapping of the data, therefore the schema definition with a JSON format doesn’t have to map every key which is found in the sample data. It can also map columns which are not part of the sample data. 
 
 ## Import data
 

@@ -66,11 +66,11 @@ An important benefit of using the Transact publishing option in the Marketplace 
 
 In this scenario, Microsoft bills and collects on your behalf. Microsoft billing removes the requirement for you to create your own procurement relationship with your customer. Single billing might save you time and resources. It also might help you focus on landing the sale instead of on collecting the bill. 
 
-## Enterprise Agreement
-If you are a Microsoft Enterprise Agreement customer, you can use the Enterprise Agreement to pay for Microsoft products. You can bill products, including your Azure usage. Using an Enterprise Agreement to pay is designed for organizations that want to license software and cloud services for three or more years. You spread out payments instead of making one upfront payment. If you use the Pay-As-You-Go Transact publishing option, the billing for your software licensing costs follows the quarterly Enterprise Agreement overage billing cycle.
+## Enterprise Agreement  
+If you're a Microsoft Enterprise Agreement customer, you can use your Enterprise Agreement to pay for Microsoft products. You can be billed for products, including for your Azure usage. Using your Enterprise Agreement to pay is designed for organizations that want to license software and cloud services for three or more years. You spread out payments instead of making one. upfront payment. If you use a Pay-As-You-Go publishing option, the billing for your software licensing costs follows the quarterly Enterprise Agreement overage billing cycle.  
 
 ### Monetary commitment
-If you are an Enterprise Agreement customer, you can add Azure to your agreement. You add Azure to your agreement by making an upfront monetary commitment to Azure. Your monetary commitment is consumed throughout the year. Your commitment includes any combination of usage of Azure services.
+If you're an Enterprise Agreement customer, you can add Azure to your agreement. You add Azure to your agreement by making an upfront monetary commitment to Azure. Your monetary commitment is consumed throughout the year. Your commitment includes any combination of usage of Azure services.
 
 ## Next steps
 Review the [Azure Marketplace and AppSource publishing guide](./marketplace-publishers-guide.md).

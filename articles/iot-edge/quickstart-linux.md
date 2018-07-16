@@ -74,7 +74,7 @@ The free level of IoT Hub works for this quickstart. If you've used IoT Hub in t
 1. Create an IoT hub in your new resource group. The following code creates a free **F1** hub in the resource group **IoTEdgeResources**. Replace *{hub_name}* with a unique name for your IoT hub.
 
    ```azurecli-interactive
-   az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
+   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
    If you get an error because there's already one free hub in your subscription, change the SKU to **S1**. 
@@ -248,12 +248,11 @@ If you want to continue on to the IoT Edge tutorials, you can use the device tha
 
 If you created your virtual machine and IoT hub in a new resource group, you can delete that group and all the associated resources. If there's anything in that resource group that you want to keep, then just delete the individual resources that you want to clean up. 
 
-To remove a resource group, follow these steps: 
+Remove the **IoTEdgeResources** group. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and click **Resource groups**.
-2. In the **Filter by name...** textbox, type the name of the resource group containing your IoT Hub. 
-3. To the right of your resource group in the result list, click **...** then **Delete resource group**.
-4. You will be asked to confirm the deletion of the resource group. Type the name of your resource group again to confirm, and then click **Delete**. After a few moments, the resource group and all of its contained resources are deleted.
+   ```azurecli-interactive
+   az group delete --name IoTEdgeResources 
+   ```
 
 ### Remove the IoT Edge runtime
 

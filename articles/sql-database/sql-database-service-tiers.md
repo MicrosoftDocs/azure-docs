@@ -6,14 +6,14 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
 
 ---
 # Azure SQL Database purchasing models and resources 
 
-Logical servers in [Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a vCore-based purchasing model (preview). 
+Logical servers in [Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a vCore-based purchasing model. 
 
 > [!NOTE]
 > [Managed Instances](sql-database-managed-instance.md) in Azure SQL Database only offer the vCore-based purchasing model.
@@ -21,7 +21,7 @@ Logical servers in [Azure SQL Database](sql-database-technical-overview.md) offe
 The following table and chart compare and contrast these two purchasing models.
 
 > [!IMPORTANT]
-> For vCore-based purchasing model (preview), see [vCore-based purchasing model](sql-database-service-tiers-vcore.md)
+> For vCore-based purchasing model, see [vCore-based purchasing model](sql-database-service-tiers-vcore.md)
 
 |**Purchasing model**|**Description**|**Best for**|
 |---|---|---|
@@ -31,13 +31,13 @@ The following table and chart compare and contrast these two purchasing models.
 
 ![pricing model](./media/sql-database-service-tiers/pricing-model.png)
 
-## vCore-based purchasing model  (preview)
+## vCore-based purchasing model 
 
-A virtual core represents the logical CPU offered with an option to choose between generations of hardware. The vCore-based purchasing model (preview) gives your flexibility, control, transparency of individual resource consumption and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. In the vCore-based purchasing model (preview), customers can choose between General Purpose and Business critical service tiers (preview) for both [single databases](sql-database-single-database-scale.md) and [elastic pools](sql-database-elastic-pool.md). 
+A virtual core represents the logical CPU offered with an option to choose between generations of hardware. The vCore-based purchasing model gives your flexibility, control, transparency of individual resource consumption and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to scale compute, memory, and storage based upon their workload needs. In the vCore-based purchasing model, customers can choose between General Purpose and Business critical service tiers for both [single databases](sql-database-single-database-scale.md) and [elastic pools](sql-database-elastic-pool.md). 
 
-The vCore-based purchasing model (preview) enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the performance level using the following rule of thumb: each 100 DTU in Standard tier requires at least 1 vCore in General Purpose tier; each 125 DTU in Premium tier requires at least 1 vCore in Business Critical tier.
+The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the performance level using the following rule of thumb: each 100 DTU in Standard tier requires at least 1 vCore in General Purpose tier; each 125 DTU in Premium tier requires at least 1 vCore in Business Critical tier.
 
-In the vCore-based purchasing model (preview), customers pay for:
+In the vCore-based purchasing model, customers pay for:
 - Compute (service tier + number of vCores + generation of hardware)*
 - Type and amount of data and log storage 
 - Number of IOs**
@@ -49,7 +49,7 @@ In the vCore-based purchasing model (preview), customers pay for:
 
 > [!IMPORTANT]
 > Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges, refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
-> **Region limitations:** The vCore-based purchasing model (preview) is not yet available in the following regions: West Europe, France Central, UK South, UK West and Australia Southeast.
+> **Region limitations:** The vCore-based purchasing model is not yet available in the following regions: West Europe, France Central, UK South, UK West and Australia Southeast.
 
 ## DTU-based purchasing model
 
@@ -184,5 +184,5 @@ The key metrics in the benchmark are throughput and response time.
 
 ## Next steps
 
-- For vCore-based purchasing model (preview), see [vCore-based purchasing model](sql-database-service-tiers-vcore.md)
+- For vCore-based purchasing model, see [vCore-based purchasing model](sql-database-service-tiers-vcore.md)
 - For the DTU-based purchasing model, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md).
