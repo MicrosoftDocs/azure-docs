@@ -1,6 +1,6 @@
 ---
-title: Access Azure Data Lake Storage Gen2 Preview data with DataBricks using Spark | Microsoft Docs
-description: Learn to run Spark queries on a DataBricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
+title: Access Azure Data Lake Storage Gen2 Preview data with Azure Databricks using Spark | Microsoft Docs
+description: Learn to run Spark queries on a Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
 services: hdinsight,storage
 tags: azure-portal
 author: dineshm
@@ -14,12 +14,12 @@ ms.date: 6/27/2018
 ms.author: dineshm
 ---
 
-# Tutorial: Access Azure Data Lake Storage Gen2 Preview data with DataBricks using Spark
+# Tutorial: Access Azure Data Lake Storage Gen2 Preview data with Azure Databricks using Spark
 
-In this tutorial, you learn how to run Spark queries on a DataBricks cluster to query data in Azure Data Lake Storage Gen2 Preview capable account.
+In this tutorial, you learn how to run Spark queries on a Azure Databricks cluster to query data in Azure Data Lake Storage Gen2 Preview capable account.
 
 > [!div class="checklist"]
-> * Create a DataBricks cluster
+> * Create a Databricks cluster
 > * Ingest unstructured data into a storage account
 > * Trigger an Azure Function to process data
 > * Running analytics on your data in Blob storage
@@ -43,11 +43,11 @@ To begin, create a new [Azure Data Lake Storage Gen2 account](quickstart-create-
 
 Both the account name and key are required for later steps in this tutorial. Open a text editor and set aside the account name and key for future reference.
 
-## Create a DataBricks cluster
+## Create a Databricks cluster
 
-The next step is to create a [DataBricks cluster](https://docs.azuredatabricks.net/) to create a data workspace.
+The next step is to create a [Databricks cluster](https://docs.azuredatabricks.net/) to create a data workspace.
 
-1. Create a [DataBricks service](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service).
+1. Create a [Databricks service](https://ms.portal.azure.com/#create/Microsoft.Databricks) and name it **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service).
 2. Click **Launch Workspace** to open the workspace in a new browser window.
 3. Click **Clusters** in the left-hand nav bar.
 4. Click **Create Cluster**.
@@ -81,9 +81,9 @@ set ACCOUNT_KEY=<ACCOUNT_KEY>
 azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
 
-### Use DataBricks Notebook to convert CSV to Parquet
+### Use Databricks Notebook to convert CSV to Parquet
 
-Re-open DataBricks in your browser and execute the following steps:
+Re-open Databricks in your browser and execute the following steps:
 
 1. Select **Azure Databricks** on the top left of the nav bar.
 2. Select **Notebook** under the **New** section on the bottom half of the page.
@@ -112,7 +112,7 @@ Re-open DataBricks in your browser and execute the following steps:
 
 ## Explore data using Hadoop Distributed File System
 
-Return to the DataBricks workspace and click on the **Recent** icon in the left navigation bar.
+Return to the Databricks workspace and click on the **Recent** icon in the left navigation bar.
 
 1. Click on the **Flight Data Analytics** notebook.
 2. Press **Ctrl + Alt + N** to create a new cell.

@@ -16,11 +16,9 @@ ms.author: nolachar
 
 # Tutorial: Create a WPF app to detect and frame faces in an image
 
-In this tutorial, you create a Windows Presentation Framework (WPF) application that uses the Face service. The app detects faces in an image, draws a frame around each face, and displays a description of the face on the status bar.
+In this tutorial, you create a Windows Presentation Framework (WPF) application that uses the Face service through its .NET client library. The app detects faces in an image, draws a frame around each face, and displays a description of the face on the status bar. The complete sample code is available on GitHub at [Azure-Samples/Cognitive-Face-CSharp-sample](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample).
 
 ![Screenshot showing detected faces framed with rectangles](../Images/getting-started-cs-detected.png)
-
-The Face service is a cloud API that you call through HTTPS REST requests. For ease-of-use in .NET applications, a .NET client library encapsulates the Face API REST requests. In this example, you use the client library to simplify your work.
 
 This tutorial shows you how to:
 
