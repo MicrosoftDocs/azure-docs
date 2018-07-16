@@ -318,8 +318,12 @@ Java SDK supports the following values for configuration mapping:
 |changefeedqueryname |   A custom string to identify the query. The connector keeps track of the collection continuation tokens for different change feed queries separately. If readchangefeedis true, this is a required configuration which cannot take empty value.      |
 |changefeedcheckpointlocation  |   A path to local file storage to persist continuation tokens in case of node failures.      |
 |changefeedstartfromthebeginning  |  Sets whether change feed should start from the beginning (true) or from the current point (false). By default, it starts from the current (false).       |
-|rollingchangefeed  |   A boolean value indicating whether the change feed should be from the last query. The default value is false, which means the changes will be counted from the first read of the collection.      |
-|changefeedusenexttoken  |   A boolean value to support processing failure scenarios. It is used to indicate that the current change feed batch has been handled gracefully and the RDD should use the next continuation tokens to get the subsequent batch of changes.      |
+|rollingchangefeed  |   A Boolean value indicating whether the change feed should be from the last query. The default value is false, which means the changes will be counted from the first read of the collection.      |
+|changefeedusenexttoken  |   A Boolean value to support processing failure scenarios. It is used to indicate that the current change feed batch has been handled gracefully and the RDD should use the next continuation tokens to get the subsequent batch of changes.      |
+| InferStreamSchema | A Boolean value that indicated whether the schema of the streaming data should be sampled at the start of streaming. By default, this value is set to true. If this parameter is set to true and the streaming data’s schema changes after the data is sampled, newly added properties will be dropped in the streaming data frame. 
+
+If you want the streaming data frame to be schema agnostic, set this parameter to false. In this mode, the body of the documents read from Azure Cosmos DB change feed are wrapped into a ‘body’ property in the resultant streaming data frame aside from system property values.
+ |
 
 ### Connection settings
 
@@ -421,7 +425,7 @@ Java SDK supports the following values for configuration mapping:
 |Setting  |Description  |
 |---------|---------|
 |WritingBatchSize  |   An integer string indicating the batch size to use when writing to CosmosDB collection. The connector sends createDocument/upsertDocument requests asynchronously in batch. The larger the batch size the more throughput we can achieve, as long as the cluster resources are available. On the other hand, specify a smaller number batch size to limit the rate and RU consumption. By default, writing batch size is 500.  |
-|Upsert   |  A boolean value string indicating whether upsertDocument should be used instead of CreateDocument when writing to CosmosDB collection.   |
+|Upsert   |  A Boolean value string indicating whether upsertDocument should be used instead of CreateDocument when writing to CosmosDB collection.   |
 
 ## Considerations when using Java SDK
 
