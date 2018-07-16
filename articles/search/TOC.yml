@@ -181,6 +181,8 @@
       href: search-explorer.md
     - name: Simple query syntax
       href: https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search
+    - name: Simple query examples
+      href: search-query-simple-examples.md
     - name: Lucene query syntax
       href: https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search
     - name: Lucene query examples
