@@ -36,6 +36,7 @@ Before you start, it's helpful to review the [VMware](vmware-azure-architecture.
 ## Prerequisites
 
 - Devices exported by paravirtualized drivers aren't supported.
+ 
 > [!WARNING]
 > It is possible to migrate VMs on other virtualization platforms(other than VMware, Hyper-V) such as XenServer by treating the VMs like Physical servers. This approach however, hasn't been tested and validated by Microsoft and may or may not work. For example, VMs running on the XenServer platform may not run in  Azure unless XenServer tools and para-virtualized storage and network drivers are uninstalled from the VM before starting the migration.
 
