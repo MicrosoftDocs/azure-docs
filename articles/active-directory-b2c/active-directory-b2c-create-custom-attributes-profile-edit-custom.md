@@ -12,7 +12,7 @@ ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
 ---
-# Azure Active Directory B2C: Create and use custom attributes in a custom profile edit policy
+# Azure Active Directory B2C: Use custom attributes in a custom profile edit policy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
