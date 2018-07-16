@@ -424,8 +424,13 @@ Java SDK supports the following values for configuration mapping:
 
 |Setting  |Description  |
 |---------|---------|
-|WritingBatchSize  |   An integer string indicating the batch size to use when writing to CosmosDB collection. The connector sends createDocument/upsertDocument requests asynchronously in batch. The larger the batch size the more throughput we can achieve, as long as the cluster resources are available. On the other hand, specify a smaller number batch size to limit the rate and RU consumption. By default, writing batch size is 500.  |
+| BulkImport | A Boolean value that indicates whether data should be imported by using the BulkExecutor library. By default, this value is set to true. |
+|WritingBatchSize  |   Indicates the batch size to use when writing data to Azure Cosmos DB collection.
+
+- If BulkImport parameter is set to true, then WritingBatchSize parameter indicates the batch size of documents supplied as input to the importAll API of the BulkExecutor library. By default, this value is set to 100K.
+- If BulkImport parameter is set to false, then WritingBatchSize parameter indicates the batch size to use when writing to Azure Cosmos DB collection. The connector sends createDocument/upsertDocument requests asynchronously in batch. The larger the batch size the more throughput we can achieve as long as the cluster resources are available. On the other hand, specify a smaller number batch size to limit the rate and RU consumption. By default, writing batch size is 500.  |
 |Upsert   |  A Boolean value string indicating whether upsertDocument should be used instead of CreateDocument when writing to CosmosDB collection.   |
+| WriteThroughputBudget |  An integer string that represents the number of RU\s that you want to allocate to the bulk ingestion spark job out of the total throughput allocated to the collection. |
 
 ## Considerations when using Java SDK
 
