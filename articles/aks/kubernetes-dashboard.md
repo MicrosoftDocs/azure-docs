@@ -38,6 +38,7 @@ If your AKS cluster uses RBAC, a *ClusterRoleBinding* must be created before you
 
 > [!WARNING]
 > This sample binding does not apply any additional authentication components and may lead to insecure use. The Kubernetes dashboard is open to anyone with access to the URL. Do not expose the Kubernetes dashboard publicly.
+>
 > You can use mechanisms such as bearer tokens or a username/password to control who can access the dashboard and what permissions they have. This allows for more secure use of the dashboard. For more information on using the different authentication methods, see the Kubernetes dashboard wiki on [access controls][dashboard-authentication].
 
 ```console
