@@ -18,19 +18,19 @@ ms.author: juliako
 ---
 # Use DRM dynamic encryption and license delivery service
 
-You can use Azure Media Services to deliver MPEG-DASH, Smooth Streaming, and HTTP Live Streaming (HLS) streams protected with [PlayReady digital rights management (DRM)](https://www.microsoft.com/playready/overview/). You can also use Media Services to deliver encrypted DASH streams with **Google Widevine** DRM licenses. Both PlayReady and Widevine are encrypted per the common encryption (ISO/IEC 23001-7 CENC) specification. Media Services enables you to encrypt your HLS content with **Apple FairPlay** (AES-128 CBC) as well. 
+You can use Azure Media Services to deliver MPEG-DASH, Smooth Streaming, and HTTP Live Streaming (HLS) streams protected with [PlayReady digital rights management (DRM)](https://www.microsoft.com/playready/overview/). You can also use Media Services to deliver encrypted DASH streams with **Google Widevine** DRM licenses. Both PlayReady and Widevine are encrypted per the common encryption (ISO/IEC 23001-7 CENC) specification. Media Services also enables you to encrypt your HLS content with **Apple FairPlay** (AES-128 CBC). 
 
 Furthermore, Media Services provides a service for delivering PlayReady, Widevine, and FairPlay DRM licenses. When a user requests DRM-protected content, the player application requests a license from the Media Services license service. If the player application is authorized, the Media Services license service issues a license to the player. A license contains the decryption key that can be used by the client player to decrypt and stream the content.
 
 This article is based on the [Encrypting with DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) sample. Among other things, the sample demonstrates how to:
 
-* Create an encoding Transform that uses a built-in preset for adaptive bitrate encoding and ingests a file directly from an [HTTPs source URL](job-input-from-http-how-to.md).
-* Sets the signing key used for verification of your token.
-* Sets the requirements (restrictions) on the content key policy that must be met to deliver keys with the specified configuration. 
+* Create an encoding Transform that uses a built-in preset for adaptive bitrate encoding and ingest a file directly from an [HTTPs source URL](job-input-from-http-how-to.md).
+* Set the signing key used for verification of your token.
+* Set the requirements (restrictions) on the content key policy that must be met to deliver keys with the specified configuration. 
 
     * Configuration 
     
-        In this sample, the [PlayReady](playready-license-template-overview.md) and [Widevine](widevine-license-template-overview.md) licenses are configured (so they can be delivered by the Media Services license delivery service). Even though, this sample app does not configure the [FairPlay](fairplay-license-overview.md) license, it contains a method that you can use to configure FairPlay. You can than add FairPlay configuration as another option.`
+        In this sample, the [PlayReady](playready-license-template-overview.md) and [Widevine](widevine-license-template-overview.md) licenses are configured so they can be delivered by the Media Services license delivery service. Even though, this sample app does not configure the [FairPlay](fairplay-license-overview.md) license, it contains a method that you can use to configure FairPlay. If you wish, you can add FairPlay configuration as another option.
 
     * Restriction
 
@@ -47,8 +47,14 @@ This article is based on the [Encrypting with DRM](https://github.com/Azure-Samp
 
     You can open a browser and paste the resulting URL to launch the Azure Media Player demo page with the URL and token filled out for you already.  
 
+    ![protect with drm](./media/protect-with-drm/playready_encrypted_url.png)
+
 > [!NOTE]
 > You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types), to see what makes sense to combine.
+
+The sample described in this example produces the following result:
+
+![protect with drm](./media/protect-with-drm/ams_player.png)
 
 ## Prerequisites
 
@@ -62,7 +68,7 @@ The following are required to complete the tutorial.
 
 ## Download code
 
-Clone a GitHub repository that contains the full .NET sample discussed in this topic to your machine using the following command:
+Clone a GitHub repository that contains the full .NET sample discussed in this article to your machine using the following command:
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
@@ -81,7 +87,7 @@ To start using Media Services APIs with .NET, you need to create an **AzureMedia
 
 ## Create an output asset  
 
-The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job. After the encoding is done, the output asset is published using the DRM encryption.  
+The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateOutputAsset)]
  
@@ -109,7 +115,7 @@ The **Job** usually goes through the following states: **Scheduled**, **Queued**
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
-## Create a ContentKey policy
+## Create a ContentKeyPolicy
 
 A content key provides secure access to your Assets. You need to create a content key policy that configures how the content key is delivered to end clients. The content key is associated with StreamingLocator. Media Services also provides the key delivery service that delivers encryption keys and licenses to authorized users. 
 
@@ -117,7 +123,7 @@ You need to set the requirements (restrictions) on the content key policy that m
 
 * Configuration 
 
-    The [PlayReady](playready-license-template-overview.md) and [Widevine](widevine-license-template-overview.md) licenses are configured (so they can be delivered by the Media Services license delivery service). Even though, this sample app does not configure the [FairPlay](fairplay-license-overview.md) license, it contains a method that you can use to configure FairPlay. You can than add FairPlay configuration as another option.`
+    The [PlayReady](playready-license-template-overview.md) and [Widevine](widevine-license-template-overview.md) licenses are configured so they can be delivered by the Media Services license delivery service. Even though, this sample app does not configure the [FairPlay](fairplay-license-overview.md) license, it contains a method that you can use to configure FairPlay. You can  add FairPlay configuration as another option.
 
 * Restriction
 
@@ -129,20 +135,25 @@ When a stream is requested by a player, Media Services uses the specified key to
 
 ## Create a StreamingLocator
 
-After the encoding is complete, and the content key policy is set, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. The process of creating the **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
+After the encoding is complete, and the content key policy is set, the next step is to make the video in the output Asset available to clients for playback. You accomplish this in two steps: 
 
-When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this tutorial, we are using one of the PredefinedStreamingPolicies, which tells Azure Media Services how to publish the content for streaming. In this example, we set StreamingLocator.StreamingPolicyName to the SecureStreaming policy. This policy indicates that want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If you also want to encrypt your stream with CBCS (FairPlay), use PredefinedStreamingPolicy.SecureStreamingWithFairPlay. 
+1. Create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)
+2. Build the streaming URLs that clients can use. 
+
+The process of creating the **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
+
+When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this tutorial, we are using one of the PredefinedStreamingPolicies, which tells Azure Media Services how to publish the content for streaming. In this example, we set StreamingLocator.StreamingPolicyName to the SecureStreaming policy. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If you also want to encrypt your stream with CBCS (FairPlay), use PredefinedStreamingPolicy.SecureStreamingWithFairPlay. 
 
 > [!IMPORTANT]
 > When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateStreamingLocator)]
 
-## Get a token
+## Get a test token
         
 In this tutorial, we specify for the content key policy to have a token restriction. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) formats and that is what we configure in the sample.
 
-The ContentKeyIdentifierClaim is used in the ContentKeyPolicy, which means that the token presented to the Key Delivery service must have the identifier of the ContentKey in it. In the sample, we don't specify a content key when creating the StreamingLocator, the system creates a random one for us. In order to generate the test token, we must get the ContentKeyId to put in the ContentKeyIdentifierClaim claim.
+The ContentKeyIdentifierClaim is used in the ContentKeyPolicy, which means that the token presented to the key delivery service must have the identifier of the ContentKey in it. In the sample, we don't specify a content key when creating the StreamingLocator, the system creates a random one for us. In order to generate the test token, we must get the ContentKeyId to put in the ContentKeyIdentifierClaim claim.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetToken)]
 
@@ -160,4 +171,4 @@ Generally, you should clean up everything except objects that you are planning t
 
 ## Next steps
 
-[Overview](content-protection-overview.md)
+Check out how to [protect with AES-128](protect-with-aes128.md)
