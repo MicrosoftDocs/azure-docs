@@ -56,9 +56,9 @@ DataFu can be downloaded and installed from the Maven repository. Use the follow
 
 3. Select __View all__ to view all the files.
 
-4. In the list of files, find the .jar file. Usually this is the largest file listed, as it includes all dependencies. Right-click the link and copy the link address.
+4. In the list of files, find the .jar file. Usually this file is the largest one listed, as it includes all dependencies. Right-click the link and copy the link address.
 
-### Download DataFu to HDinsight
+### Download DataFu to HDInsight
 
 1. Connect to your Linux-based HDInsight cluster using SSH. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
