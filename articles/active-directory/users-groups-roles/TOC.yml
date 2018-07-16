@@ -61,7 +61,7 @@
     - name: Manage user profiles    
       href: ../fundamentals/active-directory-users-profile-azure-portal.md
     - name: Share accounts    
-      href: active-directory-sharing-accounts.md
+      href: ../active-directory-sharing-accounts.md
     - name: Assign users to admin roles    
       href: ../fundamentals/active-directory-users-assign-role-azure-portal.md
     - name: Restore a deleted user    
@@ -75,7 +75,7 @@
   - name: Manage your directory
     items:
     - name: Administer your directory    
-      href: fundamentals/active-directory-administer.md
+      href: ../fundamentals/active-directory-administer.md
     - name: Delete a directory    
       href: directory-delete-howto.md
     - name: Multiple directories    
@@ -149,7 +149,7 @@
     - name: Administrative units    
       href: directory-administrative-units.md
     - name: Configure token lifetimes   
-      href: active-directory-configurable-token-lifetimes.md
+      href: ../active-directory-configurable-token-lifetimes.md
   - name: Integrate other services with Azure AD
     items: 
     - name: Integrate LinkedIn with Azure AD    
@@ -175,11 +175,11 @@
   - name: Multi-Factor Authentication    
     href: ../authentication/multi-factor-authentication.md
   - name: Azure AD Connect    
-    href: ./connect/active-directory-aadconnect.md
+    href: ../connect/active-directory-aadconnect.md
   - name: Azure AD Connect Health    
-    href: ./connect-health/active-directory-aadconnect-health.md
+    href: ../connect-health/active-directory-aadconnect-health.md
   - name: Azure AD for developers    
-    href: ./develop/active-directory-how-to-integrate.md
+    href: ../develop/active-directory-how-to-integrate.md
   - name: Azure AD Privileged Identity Management    
     href: ../privileged-identity-management/pim-configure.md
 - name: Resources
