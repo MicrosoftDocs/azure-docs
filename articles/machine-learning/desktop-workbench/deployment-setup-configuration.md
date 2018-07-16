@@ -75,7 +75,7 @@ When completing the environment setup:
 >import sys
 >! {sys.executable} -m azure.cli login
 >! {sys.executable} -m azure.cli ml -h
->`
+>```
 
 ### Environment Setup
 To start the setup process, you need to register a few environment providers by entering the following commands:
