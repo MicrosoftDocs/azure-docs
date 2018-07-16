@@ -194,7 +194,7 @@
       href: ./blueprints/gdpr-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/gdpr-paaswa-overview.md
- - name: HIPAA/HITRUST
+  - name: HIPAA/HITRUST
     items:
     - name: Health Data and AI
       href: ./blueprints/azure-health.md
