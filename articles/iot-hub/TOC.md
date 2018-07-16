@@ -200,7 +200,7 @@
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)
 ## [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot/)
 ## [Customer data requests](iot-hub-customer-data-requests.md)
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=internet-of-things)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=iot)
 ## [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 ## [DeviceExplorer tool](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
