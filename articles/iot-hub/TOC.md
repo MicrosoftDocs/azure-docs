@@ -180,7 +180,7 @@
 
 # Related
 ## Solutions 
-### [IoT solution accelerators](/azure/iot-suite) 
+### [IoT solution accelerators](/azure/iot-accelerators) 
 ### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## Platform Services 
 ### [IoT Hub](/azure/iot-hub) 
