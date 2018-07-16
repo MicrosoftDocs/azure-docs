@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: ""What is Azure Active Directory?"
+  - name: "What is Azure Active Directory?"
   - href: ../fundamentals/active-directory-whatis.md
   - name: What is Azure Active Directory?
   - href: ../fundamentals/active-directory-whatis.md
