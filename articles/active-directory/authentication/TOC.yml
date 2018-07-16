@@ -52,6 +52,12 @@
       href: https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba
     - name: MFA FAQ
       href: multi-factor-authentication-faq.md
+  - name: Azure AD password protection
+    items:
+    - name: Eliminate weak passwords in the cloud
+      href: concept-password-ban-bad.md
+    - name: Eliminate weak passwords on-premises
+      href: concept-password-ban-bad-on-premises.md
 - name: How-to guides
   items:
   - name: Password reset
@@ -62,10 +68,6 @@
       href: howto-sspr-authenticationdata.md
     - name: Password writeback
       href: howto-sspr-writeback.md
-    - name: Troubleshoot SSPR
-      href: active-directory-passwords-troubleshoot.md
-    - name: SSPR FAQ
-      href: active-directory-passwords-faq.md
   - name: Cloud-based MFA
     items:
     - name: Deploy cloud-based MFA
@@ -94,6 +96,41 @@
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
         href: howto-mfa-nps-extension-vpn.md
+  - name: Banned password lists
+    items:
+    - name: Configure the banned password list
+      href: howto-password-ban-bad.md
+    - name: Deploy Azure AD password protection
+      href: howto-password-ban-bad-on-premises.md
+    - name: Configure Azure AD password protection
+      href: howto-password-ban-bad-on-premises-operations.md
+    - name: Monitor Azure AD password protection
+      href: howto-password-ban-bad-on-premises-troubleshoot.md
+  - name: Azure AD smart lockout
+    href: howto-password-smart-lockout.md
+  - name: Windows Hello for Business
+    href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
+  - name: Certificate-based authentication
+    items:
+    - name: Get started with certificate auth
+      href: ../active-directory-certificate-based-authentication-get-started.md
+      items:
+      - name: CBA on Android Devices
+        href: ../active-directory-certificate-based-authentication-android.md
+      - name: CBA on iOS Devices
+        href: ../active-directory-certificate-based-authentication-ios.md
+  - name: Develop
+    items:
+    - name: Build MFA into custom apps
+      href: howto-mfa-sdk.md
+  - name: Reporting
+    items:
+    - name: SSPR Reports
+      href: howto-sspr-reporting.md
+    - name: MFA Reports
+      href: howto-mfa-reporting.md
+    - name: Data collection
+      href: howto-mfa-reporting-datacollection.md
   - name: MFA Server
     items:
     - name: Deploy MFA on-premises
@@ -134,37 +171,16 @@
         href: howto-mfaserver-nps-vpn.md
       - name: NPS extension errors
         href: howto-mfa-nps-extension-errors.md
-  - name: Windows Hello for Business
-    href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
-  - name: Certificate-based authentication
-    items:
-    - name: Get started with certificate auth
-      href: ../active-directory-certificate-based-authentication-get-started.md
-      items:
-      - name: CBA on Android Devices
-        href: ../active-directory-certificate-based-authentication-android.md
-      - name: CBA on iOS Devices
-        href: ../active-directory-certificate-based-authentication-ios.md
-  - name: Develop
-    items:
-    - name: Build MFA into custom apps
-      href: howto-mfa-sdk.md
-  - name: Reporting
-    items:
-    - name: SSPR Reports
-      href: howto-sspr-reporting.md
-    - name: MFA Reports
-      href: howto-mfa-reporting.md
-    - name: Data collection
-      href: howto-mfa-reporting-datacollection.md
   - name: Troubleshoot
     items:
-    - name: FAQ
+    - name: Troubleshoot SSPR
+      href: active-directory-passwords-troubleshoot.md
+    - name: SSPR FAQ
+      href: active-directory-passwords-faq.md
+    - name: MFA FAQ
       href: multi-factor-authentication-faq.md
-    - name: NPS extension errors
+    - name: NPS extension
       href: howto-mfa-nps-extension-errors.md
-    - name: Ask a question
-      href: https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required
 - name: Reference
   items:
   - name: MFA user guide

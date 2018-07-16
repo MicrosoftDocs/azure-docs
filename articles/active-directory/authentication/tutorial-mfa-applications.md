@@ -69,6 +69,7 @@ If you decide you no longer want to use the functionality you have configured as
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory**, **Conditional access**.
 1. Select the conditional access policy you created.
+1. Click **Delete**.
 
 ## Next steps
 
