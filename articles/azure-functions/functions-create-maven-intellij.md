@@ -40,7 +40,7 @@ To develop a functions app with Java and IntelliJ, you must have the following i
 > [!IMPORTANT] 
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
 
-It is highly reccommended, but optional , to install [Azure Functions Core Tools, version 2](functions-run-local.md#v2), which provide a local development environment for writing, running, and debugging Azure Functions. 
+It is highly reccommended to also install [Azure Functions Core Tools, version 2](functions-run-local.md#v2), which provide a local development environment for writing, running, and debugging Azure Functions. 
 
 
 ## Create a Functions project
@@ -63,14 +63,10 @@ Maven creates the project files in a new folder with a name of _artifactId_. The
 1. Select to import changes or make sure that [auto import](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html) is enables.
 1. Open the **Maven Projects** toolbar
 1. Under Lifecycle, double-click **package** to package and build the solution and create a target directory.
-1. Under Plugins -> azure-functions double-click **azure-functions:run** to start the azure functions local runtime
-    ![Maven toolbar for Azure Functions](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
-1. Click the link in the run output to navigate to `http://localhost:7071/api/hello`.  You should see the logs emit for a function run.  You can pass in a name as a query parameter to have it return a "Hello, {name}" message.
+1. Under Plugins -> azure-functions double-click **azure-functions:run** to start the azure functions local runtime.  
+  ![Maven toolbar for Azure Functions](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
-> [!NOTE]
-> If you're experiencing this exception: `javax.xml.bind.JAXBException` with Java 9, see the workaround on [GitHub](https://github.com/jOOQ/jOOQ/issues/6477).
-
-Close the run dialog when complete. Only one function host can be active and running locally at a time.
+Close the run dialog when you're done testing your function. Only one function host can be active and running locally at a time.
 
 ### Debug the function in IntelliJ
 
