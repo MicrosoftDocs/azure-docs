@@ -54,7 +54,7 @@ If you are prompted about accessing an untrusted repository, type **Y**. It migh
   ````
   In the **Sign in to your Account** screen that opens, enter your admin account and password to connect you to your service, and select **Sign in**.
 
-3. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md) to create group settings for this tenant.
+3. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](groups-settings-cmdlets.md) to create group settings for this tenant.
 
 ### Step 2: View the current settings
 
@@ -92,8 +92,8 @@ If you are prompted about accessing an untrusted repository, type **Y**. It migh
   
 That's it. You've set your naming policy and added your custom blocked words.
 
-
 ## Next steps
+
 In this quickstart, you’ve learned how to use PowerShell cmdlets to set the naming policy for your Azure AD tenant.
 
 For more information about technical constraints, adding a list of custom blocked words, or the end user experiences across Office 365 apps, advance to the next article to learn more about naming policy details.

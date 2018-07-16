@@ -65,10 +65,12 @@ Now that you're assigning guest users to their own groups by company, you can no
 
 ## Clean up resources
 Use the instructions in this tutorial to:
+
 1. Delete any groups you created.
 2. Remove any licenses you assigned.
 
 ## Next steps
+
 In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create a group of guest users
@@ -77,7 +79,7 @@ In this tutorial, you learned how to:
 
 Advance to the next article to learn more group-based licensing basics
 > [!div class="nextstepaction"]
-> [Next steps button](./fundamentals/active-directory-licensing-whatis-azure-portal.md)
+> [Next steps button](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 
 
 

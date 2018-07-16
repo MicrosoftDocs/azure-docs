@@ -23,6 +23,7 @@ In this quickstart, you set the expiration policy for your Office 365 groups. Wh
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
 ## Prerequisite
+
 You must be a Global administrator or User Account administrator in the tenant to set up group expiration.
 
 ## Turn on self-service for Office 365 groups
@@ -53,9 +54,9 @@ You must be a Global administrator or User Account administrator in the tenant t
 
 That's it! In this quickstart, you successfully set the expiration policy for the selected Office 365 groups.
 
-
 ## Next steps
+
 For more information about expiration including technical constraints, adding a list of custom blocked words, and end user experiences across Office 365 apps, see the following article containing those expiration policy details:
 
 > [!div class="nextstepaction"]
-> [Expiration policy all details](active-directory-groups-lifecycle-azure-portal.md)
+> [Expiration policy all details](groups-lifecycle.md)

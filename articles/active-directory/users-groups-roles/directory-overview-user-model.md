@@ -43,7 +43,7 @@ In Azure AD, when users join a licensed group, they're automatically assigned th
 If there are not enough available licenses, or an issue occurs like service plans that can't be assigned at the same time, you can see the licensing issue status for the group in the Azure portal.
 
 >[!NOTE]
->The group-based licensing feature currently is in public preview. Be prepared to revert or remove any changes. During the preview, the feature is available with any paid Azure Active Directory (Azure AD) license plan or trial. When the feature becomes generally available, some aspects of the feature might require one or more additional licenses. 
+>The group-based licensing feature currently is in public preview. Be prepared to revert or remove any changes. During the preview, the feature is available with any paid Azure Active Directory (Azure AD) license plan or trial. When the feature becomes generally available, some aspects of the feature might require one or more additional licenses.
 
 ## Assign roles to delegate permissions
 
@@ -61,4 +61,4 @@ You want to assign the least possible privilege to users to perform their tasks.
 
 If you're a beginning Azure AD administrator, get the basics down in Azure Active Directory Fundamentals.[Will be linked to the landing page for Fundamentals]
 
-Or you can start [creating groups](active-directory-groups-create-azure-portal.md), [assigning licenses](active-directory-licensing-whatis-azure-portal.md), or [assigning administrator roles](active-directory-assign-admin-roles-azure-portal.md).
+Or you can start [creating groups](../fundamentals/active-directory-groups-create-azure-portal.md), [assigning licenses](../fundamentals/active-directory-licensing-whatis-azure-portal.md), or [assigning administrator roles](directory-assign-admin-roles.md).
