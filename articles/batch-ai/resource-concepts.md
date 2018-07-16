@@ -34,19 +34,19 @@ A workspace in Batch AI is a top-level collection of the rest of the Batch AI re
 
 ## Cluster
 
-A cluster in Batch AI contains the compute resources for running jobs. All nodes in a cluster have same VM size and OS image. Batch AI offers many different options for creating clusters that are customized to different needs. Typically, you set up a different cluster for each category of processing power needed to complete a project. You can scale the Batch AI clusters up and down based on demand and budget.
+A cluster in Batch AI contains the compute resources for running jobs. All nodes in a cluster have same VM size and OS image. Batch AI offers many options for creating clusters that are customized to different needs. Typically, you set up a different cluster for each category of processing power needed to complete a project. Scale the Batch AI clusters up and down based on demand and budget.
 
 ## File server
 
-Optionally create a file server in Batch AI to store data, training scripts, and output logs. A Batch AI file server is a managed single-node NFS, which can be automatically mounted on cluster nodes to provide an easy and centrally accessible storage location for jobs. For most cases, only one file server is needed in a workspace, and you can separate data for your training jobs into different directories. If NFS is not appropriate for your workloads, Batch AI supports other storage options including Azure blob storage, Azure file shares, or custom storage solutions such as a Gluster or Lustre file system.
+Optionally create a file server in Batch AI to store data, training scripts, and output logs. A Batch AI file server is a managed single-node NFS, which can be automatically mounted on cluster nodes to provide an easy and centrally accessible storage location for jobs. For most cases, only one file server is needed in a workspace, and you can separate data for your training jobs into different directories. If NFS isn't appropriate for your workloads, Batch AI supports other storage options including Azure blob storage, Azure file shares, or custom storage such as a Gluster or Lustre file system.
 
 ## Experiment
 
-An experiment groups a collection of related jobs that you can query and manage together. Each workspace might have multiple experiments, where each experiment attempts to solve one specific problem.
+An experiment groups a collection of related jobs that you query and manage together. Each workspace might have multiple experiments, where each experiment attempts to solve one specific problem.
 
 ## Job
 
-A job is a single task or script that needs to be executed, for example to run a deep learning training job. Each job executes a specific script on a specified cluster in the workspace. (The script might be stored on a Batch AI file server or other storage solution.) Each Batch AI job has a framework type associated with it: TensorFlow, Horovod, CNTK, Caffe, Caffe2, pyTorch, Chainer, custom MPI, or custom. For each framework, the Batch AI service sets up the required infrastructure and manages the job processes. Each experiment can have multiple jobs that are similar, apart from a few changes to different parameters.
+A job is a single task or script that needs to be executed, for example to train a deep learning model. Each job executes a specific script on one cluster in the workspace. (The script might be stored on a Batch AI file server or other storage solution.) Each Batch AI job has a framework type associated with it: TensorFlow, Horovod, CNTK, Caffe, Caffe2, pyTorch, Chainer, custom MPI, or custom. For each framework, the Batch AI service sets up the required infrastructure and manages the job processes. Each experiment can have multiple jobs that are similar, apart from a few changes to different parameters.
 
 ## Next steps
 
