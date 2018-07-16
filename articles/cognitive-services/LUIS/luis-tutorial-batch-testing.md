@@ -38,15 +38,16 @@ Train the app.
 ## Purpose of batch testing
 Batch testing allows you to validate a model's state with a known set of test utterances and labeled entities. In the JSON-formatted batch file, add the utterances and set the entity labels you need predicted inside the utterance. 
 
-The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. For this tutorial, make sure you are not using the utterances from either example utterances (added to an intent), or endpoint utterances. 
+<!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. -->
+For this tutorial, make sure you are not using the example utterances, added to an intent. 
 
-To verify your batch test utterances against the example utterances and endpoint utterances, [export](luis-how-to-start-new-app.md#export-app) the app and [download](luis-how-to-start-new-app.md#export-endpoint-logs) the query log. Compare the app example utterance's and query log utterances to the batch test utterances. 
+To verify your batch test utterances against the example utterances, [export](luis-how-to-start-new-app.md#export-app) the app. Compare the app example utterance's to the batch test utterances. 
 
 Requirements for batch testing:
 
-* 1000 utterances per test. 
+* 1000 utterances per test maximum. 
 * No duplicates. 
-* Entity types allowed: simple and composite.
+* Entity types allowed: only machined-learned entities of simple and composite. Batch testing only applied to machined-learned intents and entities.
 
 ## Create a batch file with utterances
 1. Create `HumanResources-jobs-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/). Or download [the file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json) from the LUIS-Samples Github repository.
@@ -140,7 +141,7 @@ A seemingly quick fix would be to add these batch file utterances to the correct
 
 You might also wonder about removing utterances from **ApplyForJob** until the utterance quantity is the same as **GetJobInformation**. That may fix the test results but would hinder LUIS from predicting that intent accurately next time. 
 
-The first fix is to add more utterances to **GetJobInformation**. The second fix is to reduce the weight of the word `resume` toward the **ApplyForJob** intent. 
+The first fix is to add more utterances to **GetJobInformation**. The second fix is to reduce the weight of words like `resume` toward the **ApplyForJob** intent. 
 
 ### Add more utterances to **GetJobInformation**
 1. Close the batch test panel by selecting the **Test** button in the top navigation panel. 
@@ -187,9 +188,13 @@ In order to verify that the utterances in the batch test are correctly predicted
     [ ![Screenshot of LUIS with batch results button highlighted](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png#lightbox)
 
 ## Create batch file with entities 
-In order to verify entities in a batch test, the entities need to be noted in the batch. Only simple and composite entities (the machine-learned entities) are used.
+In order to verify entities in a batch test, the entities need to be noted in the batch. Only simple and composite entities (the machine-learned entities) are used. The non-machine-learned entities do not need to be tested because they are always found either through regular expressions, or explicit text matches.
+
+The variation in entity for total word count can impact the prediction quality. Make sure the training date supplied to the intent with labeled utterances includes a variety of lengths of entity. 
 
 When first writing and testing batch files, it is best to start with a few utterances and entities that you know work, as well as a few that you think may be incorrectly predicted. This helps you focus in on the problem areas quickly. After testing the **GetJobInformation** and **ApplyForJob** intents using several different Job names which were not predicted, this batch test file was developed to see if there is a prediction problem with certain values for **Job** entity. 
+
+The value of a **Job** entity, provided in the test utterances, is usually one or two words, with a few examples being more words. If your human resources app typically has job names of many words, the example utterances labeled with **Job** entity in this app would not work well.
 
 1. Create `HumanResources-entities-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/). Or download [the file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) from the LUIS-Samples Github repository.
 
@@ -328,7 +333,7 @@ The chart opens with all the intents correctly predicted. Scroll down in the rig
 
     ![Token view of entity predictions](./media/luis-tutorial-batch-testing/token-view-entities.png)
 
-    Reviewing the utterances below the chart reveals consistent error when the Job name includes `SQL`. Reviewing the example utterances and the Job phrase list, SQL is only used once, and only as part of a larger job name, `sql/oracle database administrator`.
+    Reviewing the utterances below the chart reveals a consistent error when the Job name includes `SQL`. Reviewing the example utterances and the Job phrase list, SQL is only used once, and only as part of a larger job name, `sql/oracle database administrator`.
 
 ## Fix the app based on entity batch results
 Fixing the app requires LUIS to correctly determine the variations of SQL jobs. There are several options for that fix. 
