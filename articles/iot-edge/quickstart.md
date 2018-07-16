@@ -291,46 +291,41 @@ Remove the **IoTEdgeResources** group.
 
 ### Remove the IoT Edge runtime
 
+If you plan on using the IoT Edge device for future testing, but want to stop the tempSensor module from sending data to your IoT hub while not in use, use the following command to stop the IoT Edge service. 
+
+   ```powershell
+   Stop-Service iotedge -NoWait
+   ```
+
+You can restart the service when you're ready to start testing again
+
+   ```powershell
+   Start-Service iotedge
+   ```
+
 If you want to remove the installations from your device, use the following commands.  
 
 Remove the IoT Edge runtime.
 
-   ```bash
-   sudo apt-get remove --purge iotedge
+   ```powershell
+   cmd /c sc delete iotedge
+   rm -r c:\programdata\iotedge
    ```
 
 When the IoT Edge runtime is removed, the containers that it created are stopped, but still exist on your device. View all containers.
 
-   ```bash
-   sudo docker ps -a
+   ```powershell
+   docker ps -a
    ```
 
 Delete the containers that were created on your device by the IoT Edge runtime. Change the name of the tempSensor container if you called it something different. 
 
-   ```bash
-   sudo docker rm -f tempSensor
-   sudo docker rm -f edgeHub
-   sudo docker rm -f edgeAgent
-   ```
-
-Remove the container runtime.
-
-   ```bash
-   sudo apt-get remove --purge moby
-   ```
-You can use the simulated device that you configured in this quickstart to test the IoT Edge tutorials. If you want to stop the tempSensor module from sending data to your IoT hub, use the following command to stop the IoT Edge service and delete the containers that were created on your device. When you want to use your machine as an IoT Edge device again, remember to start the service. 
-
    ```powershell
-   Stop-Service iotedge -NoWait
-   docker rm -f $(docker ps -aq)
+   docker rm -f tempSensor
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
    ```
-
-When you no longer need the Azure resources that you created, you can use the following command to delete the resource group that you created and any resources associated with it:
-
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources
-   ```
-
+   
 ## Next steps
 
 In this quickstart, you created a new IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a test device generating raw data about its environment. 
