@@ -47,7 +47,7 @@ There are several reasons why you might need to use an alternate verification me
 
 2. Choose your alternative verification method, and continue with the two-step verification process.
 
-3. After you're back in your account, add or change your verification method information. For more info about add or changing your methods, see the [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings) article.
+3. After you're back in your account, add or change your verification method information. For more info about add or changing your methods, see the [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md) article.
 
 ## I didn't find an answer to my problem
 
