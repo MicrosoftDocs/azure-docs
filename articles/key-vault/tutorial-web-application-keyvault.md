@@ -124,8 +124,8 @@ There are two NuGet packages that your web application needs to have installed. 
 3. Select the check box next to the search box. **Include prerelease**
 4. Search for the two NuGet packages listed below and accept for them to be added to your solution:
 
-    * [Microsoft.Azure.Services.AppAuthentication (preview)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - makes it easy to fetch access tokens for Service-to-Azure-Service authentication scenarios. 
-    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) - contains methods for interacting with Key Vault.
+    * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - makes it easy to fetch access tokens for Service-to-Azure-Service authentication scenarios. 
+    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - contains methods for interacting with Key Vault.
 
 5. Use the Solution Explorer to open `Program.cs` and replace the contents of the Program.cs file with the following code. Substitute ```<YourKeyVaultName>``` with the name of your key vault:
 
@@ -138,37 +138,33 @@ There are two NuGet packages that your web application needs to have installed. 
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureKeyVault;
     
-        namespace WebKeyVault
-        {
-        public class Program
-        {
+    namespace WebKeyVault
+    {
         public static void Main(string[] args)
         {
-        BuildWebHost(args).Run();
+            BuildWebHost(args).Run();
         }
-    
-            public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((ctx, builder) =>
+
+        public static IWebHost BuildWebHost(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((ctx, builder) =>
+            {
+                var keyVaultEndpoint = GetKeyVaultEndpoint();
+                if (!string.IsNullOrEmpty(keyVaultEndpoint))
                 {
-                    var keyVaultEndpoint = GetKeyVaultEndpoint();
-                    if (!string.IsNullOrEmpty(keyVaultEndpoint))
-                    {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                            keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-                    }
+                    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                    var keyVaultClient = new KeyVaultClient(
+                        new KeyVaultClient.AuthenticationCallback(
+                            azureServiceTokenProvider.KeyVaultTokenCallback));
+                    builder.AddAzureKeyVault(
+                        keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
                 }
-             )
-                .UseStartup<Startup>()
-                .Build();
-    
-            private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
-        }
-        }
+            }
+         ).UseStartup<Startup>()
+          .Build();
+
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
+    }
     ```
 
 6. Use Solution Explorer to navigate to the **Pages** section and open `About.cshtml`. Replace the contents of **About.cshtml.cs** with the code below:
@@ -202,7 +198,8 @@ There are two NuGet packages that your web application needs to have installed. 
 7. From the main menu, choose **Debug** > **Start without Debugging**. When the browser appears, navigate to the **About** page. The value for the AppSecret is displayed.
 
 >[!IMPORTANT]
-> If you get a HTTP Error 502.5 - Process Failure message verify the name of the Key Vault specified in `Program.cs`
+> If you get a HTTP Error 502.5 - Process Failure message
+> > then verify the name of the Key Vault specified in `Program.cs`
 
 ## Publish the web application to Azure
 

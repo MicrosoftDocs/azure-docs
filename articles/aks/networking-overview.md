@@ -121,10 +121,6 @@ The following screenshot from the Azure portal shows an example of configuring t
 
 The following questions and answers apply to the **Advanced** networking configuration.
 
-* *Can I configure Advanced networking with the Azure CLI?*
-
-  No. Advanced networking is currently available only when deploying AKS clusters in the Azure portal or with a Resource Manager template.
-
 * *Can I deploy VMs in my cluster subnet?*
 
   No. Deploying VMs in the subnet used by your Kubernetes cluster is not supported. VMs may be deployed in the same VNet, but in a different subnet.
