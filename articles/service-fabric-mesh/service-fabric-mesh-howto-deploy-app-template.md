@@ -1,7 +1,7 @@
 ---
 title: Deploy an app to Azure Service Fabric Mesh using a template | Microsoft Docs
 description: Learn how to deploy a .NET Core application to Service Fabric Mesh from a template using the Azure CLI.
-services: Azure Service Fabric Mesh
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: timlt

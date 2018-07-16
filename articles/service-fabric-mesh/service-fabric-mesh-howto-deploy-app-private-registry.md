@@ -1,7 +1,7 @@
 ---
 title: Deploy app from a private registry to Azure Service Fabric Mesh | Microsoft Docs
 description: Learn how to deploy an app that uses a private container registry to Service Fabric Mesh using the Azure CLI.
-services: Azure Service Fabric Mesh
+services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
 manager: jeconnoc
