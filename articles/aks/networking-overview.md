@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 07/16/2018
 ms.author: marsma
 ---
 
