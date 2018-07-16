@@ -60,7 +60,7 @@ The IP address plan for an AKS cluster consists of a VNet, at least one subnet f
 | Address range / Azure resource | Limits and sizing |
 | --------- | ------------- |
 | Virtual network | Azure VNet can be as large as /8 but may only have 16,000 configured IP addresses. |
-| Subnet | Must be large enough to accommodate the nodes and Pods. To calculate your minimum subnet size: (Number of nodes) + (Number of nodes * Pods per node). For a 50 node cluster: (50) + (50 * 30) = 1,550, your subnet would need to be a /21 or larger. When calculating the size of the subnet, be sure to take into account all Kubernetes and Azure resources that might be provisioned in your cluster. For example, if you deploy an internal Azure Load Balancer, its front-end IPs are allocated from the cluster subnet, not public IPs. |
+| Subnet | Must be large enough to accommodate the nodes, pods, and all Kubernetes and Azure resources that might be provisioned in your cluster. For example, if you deploy an internal Azure Load Balancer, its front-end IPs are allocated from the cluster subnet, not public IPs. <p/>To calculate *minimum* subnet size: `(number of nodes) + (number of nodes * pods per node)` <p/>Example for a 50 node cluster: `(50) + (50 * 30) = 1,550` (/21 or larger) |
 | Kubernetes service address range | This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. |
 | Kubernetes DNS service IP address | IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). |
 | Docker bridge address | IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Default of 172.17.0.1/16. |
