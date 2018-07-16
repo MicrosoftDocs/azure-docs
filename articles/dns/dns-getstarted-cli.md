@@ -17,9 +17,7 @@ A DNS zone is used to host the DNS records for a particular domain. To start hos
 
 Azure DNS now also supports private DNS zones (currently in public preview). To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md). For an example of how to create a private DNS zone, see [Get started with Azure DNS private zones using CLI](./private-dns-getstarted-cli.md).
 
-These instructions assume you have already installed and signed in to Azure CLI.
-
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
