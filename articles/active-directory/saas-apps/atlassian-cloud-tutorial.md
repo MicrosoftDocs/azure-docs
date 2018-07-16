@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 07/16/2018
 ms.author: jeedes
 
 ---
@@ -34,7 +34,7 @@ For more information about software as a service (SaaS) app integration with Azu
 To configure Azure AD integration with Atlassian Cloud, you need the following items:
 
 - An Azure AD subscription.
-- To enable Security Assertion Markup Language (SAML) single sign-on for Atlassian Cloud products, you need to set up Identity Manager. Learn more about [Identity Manager]( https://www.atlassian.com/enterprise/cloud/identity-manager).
+- To enable Security Assertion Markup Language (SAML) single sign-on for Atlassian Cloud products, you need to set up Atlassian Access. Learn more about [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 > [!NOTE]
 > When you test the steps in this tutorial, we recommend that you not use a production environment.
@@ -98,18 +98,18 @@ To configure Azure AD single sign-on with Atlassian Cloud, do the following:
 
 	![Atlassian Cloud domain and URLs single sign-on information](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
 	
-	a. In the **Identifier** box, type **`https://auth.atlassian.com/saml/<unique ID>`**.
+	a. In the **Identifier** box, type a URL with the following pattern: `https://auth.atlassian.com/saml/<unique ID>`.
 	
-	b. In the **Reply URL** box, type **`https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`**.
+	b. In the **Reply URL** box, type a URL with the following pattern: `https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`.
 
 	c. Check **Show advanced URL settings**.
 
-	d. In the **Relay State** box, type a URL with the following syntax: **`https://<instancename>.atlassian.net`**.
+	d. In the **Relay State** box, type a URL with the following pattern: `https://<instancename>.atlassian.net`.
 
 	> [!NOTE]
 	> The preceding values are not real. Update these values with the actual identifier and reply URL. You will get these real values from the Atlassian Cloud SAML Configuration screen which is explained later in the tutorial.
 
-4. To configure the application in SP-initiated mode, select the **Show advanced URL settings** and then, in the **Sign on URL** box, type a URL with the following syntax: **`https://<instancename>.atlassian.net`**.
+4. To configure the application in SP-initiated mode, select the **Show advanced URL settings** and then, in the **Sign on URL** box, type a URL with the following pattern: `https://<instancename>.atlassian.net`.
 
 	![Atlassian Cloud domain and URLs single sign-on information](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
 
