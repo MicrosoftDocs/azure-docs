@@ -156,11 +156,11 @@ Jobs are handled slightly different on Hybrid Runbook Workers than they are when
 
 ## Signing runbooks (Windows)
 
-The following section describes how to sign your runbooks for use on a Windows Hybrid Runbook Worker.
+Hybrid Runbook Workers can be configured to run only signed runbooks with some configuration. The following section describes how to setup your Hybrid Runbook Workers to run signed runbooks and how to sign your runbooks.
 
 ### Create Signing Certificate
 
-The following example creates a self signed certificate as an example to use for signing runbooks.
+The following example creates a self signed certificate that can be used for signing runbooks. The sample creates the certificate and exports it. The certificate is later imported into the Hybrid Runbook Workers later. The thumbprint is returned as well, this is used later to reference the certificate.
 
 ```azurepowershell-interactive
 # Create a self signed runbook that can be used for code signing
@@ -186,7 +186,7 @@ $SigningCert.Thumbprint
 
 ### Configure the Hybrid Runbook Workers
 
-Copy the certificate created to each hybrid worker in a group. Run the following script to import the certificate and configure the Hybrid Worker to use signature validation on runbooks.
+Copy the certificate created to each Hybrid Runbook Worker in a group. Run the following script to import the certificate and configure the Hybrid Worker to use signature validation on runbooks.
 
 ```azurepowershell-interactive
 # Install the certificate into a location that will be used for validation.
@@ -202,7 +202,7 @@ Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocati
 
 ### Sign your Runbooks using the certificate
 
-Use the following sample PowerShell to sign your runbooks.
+With the Hybrid Runbook workers configured to use only signed runbooks. You must sign runbooks that are to be used on the Hybrid Runbook Worker. Use the following sample PowerShell to sign your runbooks.
 
 ```azurepowershell-interactive
 $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
@@ -213,7 +213,7 @@ Once the runbook has been signed, it must be imported into your Automation Accou
 
 ## Troubleshoot
 
-If your runbooks are not completing successfully, review the the troubleshooting guide on [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
+If your runbooks are not completing successfully, review the troubleshooting guide on [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 
 ## Next steps
 
