@@ -206,9 +206,13 @@ The following fields are supported:
 - `type`
 - `location`
 - `tags`
-- `tags.tagName`
-- `tags[tagName]`
-  - This bracket syntax supports tag names that contain periods
+- `tags.<tagName>`
+  - Where **\<tagName\>** is the name of the tag to validate the condition for.
+  - Example: `tags.CostCenter` where **CostCenter** is the name of the tag.
+- `tags[<tagName>]`
+  - This bracket syntax supports tag names that contain periods.
+  - Where **\<tagName\>** is the name of the tag to validate the condition for.
+  - Example: `tags.[Acct.CostCenter]` where **Acct.CostCenter** is the name of the tag.
 - property aliases - for a list, see [Aliases](#aliases).
 
 ### Alternative Accessors
