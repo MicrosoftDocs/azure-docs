@@ -141,7 +141,9 @@
     - name: Assign admin role to a user    
     - href: ../fundamentals/active-directory-users-assign-role-azure-portal.md
     - name: Administrator role security    
-    - href: directory-admin-roles-secure.md  
+    - items:   
+      - name: Secure administrator roles plan    
+      - href: directory-admin-roles-secure.md  
       - name: Create emergency access administrator accounts    
       - href: directory-emergency-access.md
     - name: Administrative units    
