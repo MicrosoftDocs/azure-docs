@@ -5,8 +5,8 @@
   - name: What is Azure DNS?
     href: dns-overview.md
 - name: Quickstarts
-  items:
   expanded: true
+  items:
   - name: Name resolution - portal
     href: dns-getstarted-portal.md
   - name: Name resolution - PowerShell
