@@ -469,7 +469,7 @@ to your logic app and passes the email body content
 from email trigger to your function.
 
 1. On the logic app menu, select **Logic App Designer**. 
-In the **If true** branch, select **Add an action**.
+In the **If true** branch, choose **Add an action**.
 
    ![Inside "If true", add action](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
@@ -555,9 +555,13 @@ the blob as shown and described:
    | Setting | Value | Description | 
    | ------- | ----- | ----------- | 
    | **Folder path** | /attachments | The path and name for the container that you previously created. For this example, click the folder icon, and then select the "/attachments" container. | 
-   | **Blob name** | **From** field | For this example, use the sender's name as the blob's name. Click inside this box so that the dynamic content list appears, and then select the **From** fild under the **When a new email arrives** action. | 
-   | **Blob content** | **Content** field | For this example, use the HTML-free email body as the blob content. Click inside this box so that the dynamic content list appears, then select **Body** under the **Call RemoveHTMLFunction to clean email body** action. |
+   | **Blob name** | **From** field | For this example, use the sender's name as the blob's name. Click inside this box so that the dynamic content list appears, and then select the **From** field under the **When a new email arrives** action. | 
+   | **Blob content** | **Content** field | For this example, use the HTML-free email body as the blob content. Click inside this box so that the dynamic content list appears, and then select **Body** under the **Call RemoveHTMLFunction to clean email body** action. |
    |||| 
+
+   When you're done, the action looks like this example:
+
+   ![Finished "Create blob" action](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
 6. Save your logic app. 
 
@@ -615,7 +619,7 @@ To process each attachment in the email,
 add a **For each** loop to your logic app's workflow.
 
 1. Under the **Create blob for email body** shape, 
-choose **More**, and select this command: **Add a for each**
+select **More** > **Add a for each**.
 
    ![Add "for each" loop](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
@@ -623,13 +627,12 @@ choose **More**, and select this command: **Add a for each**
 ```For each email attachment```
 
 3. Now specify the data for the loop to process. 
-Click inside the **Select an output from previous steps** box. 
-From either the parameter list or the dynamic content list, 
-select **Attachments**. 
+Click inside the **Select an output from previous steps** box 
+so that the dynamic content list opens, and then select **Attachments**. 
 
    ![Select "Attachments"](./media/tutorial-process-email-attachments-workflow/select-attachments.png)
 
-   The **Attachments** field passes an array that 
+   The **Attachments** field passes in an array that 
    contains all the attachments included with an email. 
    The **For each** loop repeats actions on each item 
    that's passed in with the array.
@@ -639,15 +642,16 @@ select **Attachments**.
 Next, add the action that saves each attachment 
 as a blob in your **attachments** storage container.
 
-## Create blobs for attachments
+## Create blob for each attachment
 
-1. In the **For each** loop, 
+1. In the **For each email attachment** loop, 
 choose **Add an action** so you can specify 
 the task to perform on each found attachment.
 
    ![Add action to loop](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
 
-2. Under **Choose an action**, search for "blob", then select this action: 
+2. In the search box, enter "create blob" as your filter, 
+and then select this action: 
 **Create blob - Azure Blob Storage**
 
    ![Add action to create blob](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
@@ -663,10 +667,14 @@ create each blob as shown and described:
 
    | Setting | Value | Description | 
    | ------- | ----- | ----------- | 
-   | **Folder path** | /attachments | The path and name for the container you previously created. You can also browse to and select a container. | 
-   | **Blob name** | **Name** field | From either the parameter list or dynamic content list, select **Name** to pass in the attachment name for the blob name. | 
-   | **Blob content** | **Content** field | From either the parameter list or dynamic content list, select **Content** to pass in the attachment content for the blob content. |
+   | **Folder path** | /attachments | The path and name for the container that you previously created. For this example, click the folder icon, and then select the "/attachments" container. | 
+   | **Blob name** | **Name** field | For this example, use the attachment's name as the blob's name. Click inside this box so that the dynamic content list appears, and then select the **Name** field under the **When a new email arrives** action. | 
+   | **Blob content** | **Content** field | For this example, use the **Content** field as the blob content. Click inside this box so that the dynamic content list appears, and then select **Content** under the **When a new email arrives** action. |
    |||| 
+
+   When you're done, the action looks like this example:
+
+   ![Finished "Create blob" action](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment-done.png)
 
 5. Save your logic app. 
 
@@ -741,7 +749,7 @@ To add blank lines in an edit box, press Shift + Enter.
    ![Send email notification](./media/tutorial-process-email-attachments-workflow/send-email-notification.png)
 
    If you can't find an expected field in the list, 
-   select **See more** next to **When a new email arrives** 
+   choose **See more** next to **When a new email arrives** 
    in the dynamic content list or at the end of the parameters list.
 
    | Setting | Value | Notes | 
@@ -751,14 +759,15 @@ To add blank lines in an edit box, press Shift + Enter.
    | **Body** | ```Please review new applicant:``` <p>```Applicant name: ``` **From** <p>```Application file location: ``` **Path** <p>```Application email content: ``` **Body** | The content for the email body. From either the parameter list or dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** | 
    |||| 
 
-   If you happen to select a field that contains an array, 
-   such as **Content**, which is an array that contains attachments, 
-   the designer automatically adds a "For each" loop 
-   around the action that references that field. 
-   That way, your logic app can perform that action on each array item. 
-   To remove the loop, remove the field for the array, 
-   move the referencing action to outside the loop, 
-   choose the ellipses (**...**) on the loop's title bar, and choose **Delete**.
+   > [!NOTE] 
+   > When you select a field that contains an array, 
+   > such as the **Content** field, which is an array that contains attachments, 
+   > the designer automatically adds a "For each" loop 
+   > around the action that references that field. 
+   > That way, your logic app can perform that action on each array item. 
+   > To remove the loop, remove the field for the array, 
+   > move the referencing action to outside the loop, 
+   > choose the ellipses (**...**) on the loop's title bar, and choose **Delete**.
      
 6. Save your logic app. 
 
