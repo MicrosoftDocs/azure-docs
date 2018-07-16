@@ -1,6 +1,6 @@
 ---
-title: Azure network security overview | Microsoft Docs
-description: Learn about security options for controlling the flow of network traffic between Azure resources.
+title: Azure security groups overview | Microsoft Docs
+description: Learn about network and application security groups for controlling the flow of network traffic between Azure resources.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,9 +17,9 @@ ms.date: 09/19/2017
 ms.author: jdial
 
 ---
-# Network security
+# Security groups
 
-You can limit network traffic to resources in a virtual network using a network security group. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. 
+You can limit network traffic to resources in a virtual network using network and application security groups. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. An application security group allows you to group together virtual machines that have similar functions, such as web servers. You can specify an application security group as the source or destination in a network security group rule.
 
 ## Network security groups
 
