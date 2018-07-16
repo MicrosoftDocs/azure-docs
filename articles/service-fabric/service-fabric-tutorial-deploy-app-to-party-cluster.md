@@ -66,7 +66,7 @@ For this tutorial, you have two options for deployment of the Voting application
 
 ### Find the VotingWeb service endpoint for your Azure subscription
 
-If you are going to publish the Voting application to your own Azure subscription, find the endpoint of the front-end web service. If you are using a party cluster, port 8080 using by the Voting sample is automatically open in the party cluster and you will not need to configure it in the party cluster load balancer.
+If you are going to publish the Voting application to your own Azure subscription, find the endpoint of the front-end web service. If you are using a party cluster, port 8080 using by the Voting sample is automatically open and you will not need to configure it in the party cluster's load balancer.
 
 The front-end web service is listening on a specific port.  When the application deploys to a cluster in Azure, both the cluster and the application run behind an Azure load balancer.  The application port must be open using a rule in the Azure Load balancer for this cluster so that inbound traffic can get through to the web service.  The port (8080, for example) is found in the *VotingWeb/PackageRoot/ServiceManifest.xml* file in the **Endpoint** element:
 
@@ -88,7 +88,7 @@ Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download t
 ![PFX and connection endpoint](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 
 > [!Note]
-> There are a limited number of Party clusters available per hour. If you get an error when you try to sign up for a Party cluster, you can wait for a period and try again, or you can follow these steps in the [Deploy a .NET app](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) tutorial to create a Service Fabric cluster in your Azure subscription and deploy the application to it. If you don't already have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> There are a limited number of Party clusters available per hour. If you get an error when you try to sign up for a party cluster, you can wait for a period and try again, or you can follow these steps in the [Deploy a .NET app](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) tutorial to create a Service Fabric cluster in your Azure subscription and deploy the application to it. If you don't already have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 >
 
 On your Windows machine, install the PFX in *CurrentUser\My* certificate store.
@@ -110,13 +110,13 @@ Remember the thumbprint for a following step.
 > By default, the web front-end service is configured to listen on port 8080 for incoming traffic. Port 8080 is open in the Party Cluster.  If you need to change the application port, change it to one of the ports that are open in the Party Cluster.
 >
 
-## Deploy the application using Visual Studio
+### Publish the application using Visual Studio
 
 Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
 1. Right-click **Voting** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
-2. Copy the **Connection Endpoint** from the Party cluster page or from your Azure subscription into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and ensure that the *FindValue* and *ServerCertThumbprint* values match the thumbprint of the certificate installed in a previous step for a Party cluster or the certificate that matches your Azure subscription.
+2. Copy the **Connection Endpoint** from the Party cluster page or from your Azure subscription into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and ensure that the *FindValue* and *ServerCertThumbprint* values match the thumbprint of the certificate installed in a previous step for a party cluster or the certificate that matches your Azure subscription.
 
     ![Publish Dialog](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
@@ -124,7 +124,7 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 
 3. Click **Publish**.
 
-4. Open a browser and type in the cluster address followed by ':8080' (or other port if configured) to get to your Voting application in the cluster - for example, `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. You should now see the application running in the cluster in Azure. Try adding and deleting voting options in the web page, and voting for one or more of these options.
+4. Open a browser and type in the cluster address followed by ':8080' (or other port if configured) to get to your Voting application in the cluster - for example, `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. You should now see the application running in the cluster in Azure. In the Voting web page, try adding and deleting voting options, and voting for one or more of these options.
 
     ![Application front end](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
@@ -134,7 +134,7 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a Party cluster.
+> * Create a party cluster.
 > * Deploy an application to a remote cluster using Visual Studio.
 
 Advance to the next tutorial:

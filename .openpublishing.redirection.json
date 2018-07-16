@@ -21387,17 +21387,17 @@
         },
         {
             "source_path": "articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
@@ -21406,8 +21406,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-hub/iot-hub-csharp-node-firmware-update.md",
-            "redirect_url": "/azure/iot-hub/iot-hub-node-node-firmware-update",
+            "source_path": "articles/iot-hub/iot-hub-csharp-csharp-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-java-java-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-node-node-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-python-python-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
             "redirect_document_id": false
         },
         {
@@ -21422,12 +21437,12 @@
         },
         {
             "source_path": "articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-python-python-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
@@ -24561,6 +24576,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/security/blueprints/uk-official-three-tier-applications-overview.md",
+            "redirect_url": "/azure/security/blueprints/ukofficial-iaaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/uk-official-three-tier-applications-principles-overview.md",
+            "redirect_url": "/azure/security/blueprints/ukofficial-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md",
             "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
             "redirect_document_id": false
@@ -25259,6 +25284,11 @@
             "source_path": "articles/iot-suite/iot-suite-time-series-insights.md",
             "redirect_url": "/azure/iot-accelerators/iot-accelerators-time-series-insights",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-overview.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-connected-factory-deploy",
+          "redirect_document_id": false
         },
         {
           "source_path": "articles/iot-accelerators/iot-accelerators-predictive-overview.md",
@@ -26174,6 +26204,81 @@
         "source_path": "articles/cognitive-services/LUIS/luis-reference-cortana-prebuilt.md",
         "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
         "redirect_document_id": true
-        }
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-backup-and-recovery.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-faq.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-how-to.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-phone-signin-faq.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-app-passwords.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-app-passwords",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-manage-settings",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-signin.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-signin",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-troubleshoot.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/sign-in-experience-updates.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-reset-register.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-update-your-own-password.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-access-panel-introduction.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-saas-access-panel-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-access-panel-user-help.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-saas-access-panel-user-help",
+            "redirect_document_id": true
+        }        
     ]
 }

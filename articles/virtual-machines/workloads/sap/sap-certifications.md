@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 07/12/2018
 ms.author: rclaus
 ms.custom: 
 
@@ -58,7 +58,7 @@ References:
 
 | SAP Product | Guest OS | RDBMS | Virtual Machine Types |
 | --- | --- | --- | --- |
-| SAP Business One on SQL Server | Windows  | SQL Server | All NetWeaver certified VM types |
+| SAP Business One on SQL Server | Windows  | SQL Server | All NetWeaver certified VM types<br /> [SAP Note #928839](https://launchpad.support.sap.com/#/notes/928839) |
 | SAP BPC 10.01 MS SP08 | Windows and Linux | | All NetWeaver Certified VM types<br /> SAP Note #2451795 |
 | SAP Business Objects BI platform | Windows and Linux | | SAP Note #2145537 |
 | SAP Data Services 4.2 | | | SAP Note #2288344 |
