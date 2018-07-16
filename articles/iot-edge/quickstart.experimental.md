@@ -293,7 +293,7 @@ When the IoT Edge runtime is removed, the containers that it created are stopped
 
 Delete the containers that were created on your device by the IoT Edge runtime. Change the name of the tempSensor container if you called it something different. 
 
-   ```bash
+   ```powershell
    docker rm -f tempSensor
    docker rm -f edgeHub
    docker rm -f edgeAgent
