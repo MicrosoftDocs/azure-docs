@@ -235,6 +235,27 @@
         href: active-directory-b2c-language-customization-custom.md
       - name: Trust Framework definition
         href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
+      - name: Identity Framework Experience schema
+        items:
+        - name: Claims transformations
+          href: claims-transformations.md
+          items:
+          - name: Boolean
+            href: boolean-transformations.md
+          - name: Date
+            href: date-transformations.md
+          - name: General
+            href: general-transformations.md
+          - name: Integer
+            href: integer-transformations.md
+          - name: JSON
+            href: json-transformations.md
+          - name: Social accounts
+            href: social-transformations.md
+          - name: StringCollection
+            href: stringcollection-transformations.md
+          - name: String
+            href: string-transformations.md 
   - name: Reference
     items:
     - name: Code samples
