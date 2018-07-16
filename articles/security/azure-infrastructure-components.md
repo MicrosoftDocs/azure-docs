@@ -88,35 +88,41 @@ Employees (or contractors) of Microsoft are considered to be internal users. All
 
 | Role | Internal or external | Sensitivity level | Authorized privileges and functions performed | Access type
 | --- | --- | --- | --- | --- |
-| Azure Datacenter Engineer | Internal | No access to customer data | Manage the physical security of the premises; Conduct patrols in and out of the datacenter and monitor all entry points; Perform escort services into and out of the datacenter for certain non-cleared personnel who provide general services (dining, cleaning) or IT work within the datacenter; Conduct routine monitoring and maintenance of network hardware; Perform incident management and break-fix work using a variety of tools; Conduct routine monitoring and maintenance of the physical hardware in the datacenters; Access to environment on demand from property owners. Capable to perform forensic investigations, logging incident report, and require mandatory security training & policy requirements; Operational ownership and maintenance of critical security tools such as scanners and log collection. | Persistent access to the environment |
-| Microsoft Azure Incident Triage (Rapid Response Engineers) | Internal | Access to customer data | Manage communications between Infrastructure Operations, Support, and Azure Engineering teams; Triage platform incidents, deployment issues, and service requests. | Just in time access to the environment - with limited persistent access to non-customer systems |
-| Microsoft Azure Deployment Engineers | Internal | Access to customer data | Perform deployment/upgrades of platform components, software, and scheduled configuration changes in support of Microsoft Azure. | Just in time access to the environment - with limited persistent access to non-customer systems |
-| Microsoft Azure Customer Outage Support (Tenant) | Internal | Access to customer data | Debug and diagnose platform outages and faults for individual compute tenants and Microsoft Azure accounts; Analyze faults and drive critical fixes to platform/customer, drive technical improvements across support. | Just in time access to the environment - with limited persistent access to non-customer systems |
-| Microsoft Azure Live Site Engineers (Monitoring Engineers) & Incident | Internal | Access to customer data | Accountable for diagnosing and mitigating platform health by using diagnostic tools; Drive fixes for volume drivers, repair items resulting from outages and assist outage restoration actions. | Just in time access to the environment - with limited persistent access to non-customer systems |
-|Microsoft Azure Customers | External | N/A | N/A | N/A |
+| Azure datacenter engineer | Internal | No access to customer data | Manage the physical security of the premises. Conduct patrols in and out of the datacenter, and monitor all entry points. Escort into and out of the datacenter certain non-cleared personnel who provide general services (such as dining or cleaning) or IT work within the datacenter. Conduct routine monitoring and maintenance of network hardware. Perform incident management and break-fix work by using a variety of tools. Conduct routine monitoring and maintenance of the physical hardware in the datacenters. Access to environment on demand from property owners. Capable to perform forensic investigations, log incident reports, and require mandatory security training and policy requirements. Operational ownership and maintenance of critical security tools, such as scanners and log collection. | Persistent access to the environment. |
+| Azure incident triage (rapid response engineers) | Internal | Access to customer data | Manage communications among MCIO, support, and engineering teams. Triage platform incidents, deployment issues, and service requests. | Just-in-time access to the environment, with limited persistent access to non-customer systems. |
+| Azure deployment engineers | Internal | Access to customer data | Deploy and upgrade platform components, software, and scheduled configuration changes in support of Azure. | Just-in-time access to the environment, with limited persistent access to non-customer systems. |
+| Azure customer outage support (tenant) | Internal | Access to customer data | Debug and diagnose platform outages and faults for individual compute tenants and Azure accounts. Analyze faults. Drive critical fixes to the platform or customer, and drive technical improvements across support. | Just-in-time access to the environment, with limited persistent access to non-customer systems. |
+| Azure live site engineers (monitoring engineers) and incident | Internal | Access to customer data | Diagnose and mitigate platform health by using diagnostic tools. Drive fixes for volume drivers, repair items resulting from outages, and assist outage restoration actions. | Just-in-time access to the environment, with limited persistent access to non-customer systems. |
+|Azure customers | External | N/A | N/A | N/A |
 
-Azure uses unique identifiers to authenticate organizational users and customers (or processes acting on behalf of organizational users) to all assets/devices that are part of the Azure environment.
+Azure uses unique identifiers to authenticate organizational users and customers (or processes acting on behalf of organizational users). This applies to all assets and devices that are part of the Azure environment.
 
-**Microsoft Azure Internal Authentication**: Communications between Azure internal components are protected with TLS encryption. In most cases, the X.509 certificates are self-signed. Exceptions are made for certificates with connections that could be accessed from outside the Azure network, and for the FCs. FCs have certificates issued by a Microsoft Certificate of Authority (CA) that is backed by a trusted root CA. This allows FC public keys to be rolled over easily. Additionally, FC public keys are used by Microsoft developer tools so that when developers submit new application images, they are encrypted with an FC public key in order to protect any embedded secrets.
+### Azure internal authentication
 
-**Microsoft Azure Hardware Device Authentication**: The FC maintains a set of credentials (keys and/or passwords) used to authenticate itself to various hardware devices under its control. The system used for transporting, persisting, and use of these credentials is designed to prevent Azure developers, administrators, and backup services/personnel access to sensitive, confidential, or private information.
+Communications between Azure internal components are protected with TLS encryption. In most cases, the X.509 certificates are self-signed. Certificates with connections that could be accessed from outside the Azure network are an exception, as are certificates for the FCs. FCs have certificates issued by a Microsoft Certificate of Authority (CA) that is backed by a trusted root CA. This allows FC public keys to be rolled over easily. Additionally, Microsoft developer tools use FC public keys. When developers submit new application images, the images are encrypted with an FC public key in order to protect any embedded secrets.
 
-Encryption based on the FC’s master identity public key is used at FC setup and FC reconfiguration times to transfer the credentials used to access networking hardware devices. Credentials are retrieved and decrypted by the FC when it needs them.
+### Azure hardware device authentication
 
-**Network Devices**: Network service accounts are configured by the Azure Networking team to enable a Microsoft Azure client to authenticate to network devices (routers, switches, and load balancers).
+The FC maintains a set of credentials (keys and/or passwords) used to authenticate itself to various hardware devices under its control. Microsoft uses a system to prevent access to these credentials. Specifically, the transport, persistence, and use of these credentials is designed to prevent Azure developers, administrators, and backup services and personnel access to sensitive, confidential, or private information.
+
+Microsoft uses encryption based on the FC’s master identity public key. This occurs at FC setup and FC reconfiguration times, to transfer the credentials used to access networking hardware devices. When the FC needs the credentials, the FC retrieves and decrypts them.
+
+### Network devices
+
+The Azure networking team configures network service accounts to enable an Azure client to authenticate to network devices (routers, switches, and load balancers).
 
 ## Secure service administration
-Microsoft Azure operations personnel are required to use secure admin workstations (SAWs; customers may implement similar controls by using Privileged Access Workstations, or PAWs). The SAW approach is an extension of the well-established recommended practice to use separate admin and user accounts for administrative personnel. This practice uses an individually assigned administrative account that is separate from the user's standard user account. SAW builds on that account separation practice by providing a trustworthy workstation for those sensitive accounts.
+Azure operations personnel are required to use secure admin workstations (SAWs). Customers can implement similar controls by using privileged access workstations. With SAWs, administrative personnel use an individually assigned administrative account that is separate from the user's standard user account. The SAW builds on that account separation practice by providing a trustworthy workstation for those sensitive accounts.
 
 ## Next steps
-To learn more about what Microsoft does to secure the Azure infrastructure, see:
+To learn more about what Microsoft does to help secure the Azure infrastructure, see:
 
 - [Azure facilities, premises, and physical security](azure-physical-security.md)
-- [Availability of Azure infrastructure](azure-infrastructure-availability.md)
+- [Azure infrastructure availability](azure-infrastructure-availability.md)
 - [Azure network architecture](azure-infrastructure-network.md)
 - [Azure production network](azure-production-network.md)
-- [Microsoft Azure SQL Database security features](azure-infrastructure-sql.md)
+- [Azure SQL Database security features](azure-infrastructure-sql.md)
 - [Azure production operations and management](azure-infrastructure-operations.md)
-- [Monitoring of Azure infrastructure](azure-infrastructure-monitoring.md)
-- [Integrity of Azure infrastructure](azure-infrastructure-integrity.md)
-- [Protection of customer data in Azure](azure-protection-of-customer-data.md)
+- [Azure infrastructure monitoring](azure-infrastructure-monitoring.md)
+- [Azure infrastructure integrity](azure-infrastructure-integrity.md)
+- [Azure customer data protection](azure-protection-of-customer-data.md)
