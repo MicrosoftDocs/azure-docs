@@ -32,6 +32,58 @@ Required permissions | For permissions required to apply an update, see [account
 
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.2.0.0
+
+### Release status
+
+7/20/2018: Released for auto upgrade. Release for download will follow shortly.
+
+### New features and improvements
+
+- The Ping Federate integration in Azure AD Connect is now available for General Availability. [Learn more about how to federated Azure AD with Ping Federate](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- The PingFederate integration wizard will now automatically select the initial domain as primary.
+- Azure AD Connect now creates the backup of Azure AD trust in AD FS every time an update is made and stores it in a separate file for easy restore if required. [Learn more about the new functionality and Azure AD trust management in Azure AD Connect ](https://aka.ms/fedtrustinaadconnect).
+- New troubleshooting tooling helps troubleshooting changing primary email address and hiding account from global address list
+- AADConnect was updated to include the latest SQL Server 2012 Native Client
+- Added support for Windows Server Essentials 2019
+- The AAD Connect Health agent was updated to the latest version
+- During an upgrade, if the installer detects changes to the default sync rules, the admin is prompted with a warning before overwriting the modified rules. This will allow the user to take corrective actions and resume later. Old Behavior: If there was any modified out-of-box rule then manual upgrade was overwriting those rules without giving any warning to the user and sync scheduler was disabled without informing user. New Behavior: User will be prompted with warning before overwriting the modified out-of-box sync rules. User will have choice to stop the upgrade process and resume later after taking corrective action.
+- Updated AAD PowerShell and Azure AD Connect to use ADAL V3 
+- Provide a better handling of a FIPS compliance issue, providing an error message for MD5 hash generation in a FIPS compliant environment and a link to documentation that provides a work around for this issue.
+- AADConnect upgrade checks for and fails early if the AAD Connector is missing.
+- Updated the error message that is shown when the Windows Event Log service is not running to include the action to be taken.
+- Added detailed logging information when sync service installation fails at custom action to validate groups.
+- Added a link to better content for unsupported OS versions
+- UI update to improve federation tasks in the wizard, which are now under a separate sub group for federation. 
+- Device writeback now selects the RegisteredDevices OU for sync 
+- Wizard UI was updated, inmproving the message a customer will see when they choose a particular attribute as the source anchor 
+- Updated the user experience to make “continue without any verified domains” less confusing.
+- A new revamped ADSyncConfig Posh Module with new AD Permissions functions moved from the old ADSyncPrep.psm1 (which may be deprecated shortly)
+- Added additional check boxes for intranet/extranet verification in ADFS configuration
+- Updated the error stings when an issue with WAP server connectivity exist to make this better actionable
+- Updated an error in ADFS configuration to inform about the state of DNS resolution that caused the problem
+- Add progress bar to SCP configuration page for credentials validation
+
+### Fixed issues 
+
+- Fixed an issue where access token null was passed for PowerShell as credentials were missing in object  
+- Fixed a bug that would intermittently produce an error message for an auto-resolved SQL deadlock issue
+- Fixed several accessibility issues
+- Fixed a bug where AADConnect can not get registry setting information
+- Fixed a bug that created issues when the user goes forward/back in the wizard
+- Fixed a bug to prevent an error happening due to incorrect multi thread handing in the wizard
+- When Group Sync Filtering page encounters an LDAP error when resolving security groups, AADConnect now returns the exception with full fidelity.  The root cause for the referral exception is still unknown and will be addressed by a different bug.
+- Fixed a bug where permissions for STK and NGC keys were not correctly set.
+- Fixed a bug where permissions for Group Writeback were not set curretly
+- Recent improvements to the function Set-ADSyncRestrictedPermissions (included in AdSyncConfig.psm1) have created a hard dependency on the Active Directory PowerShell module, which is not installed by default in any version of Windows Server. AADConnect calls this function during installation and this one fails if the module is not present in the computer.  Dependencies to the Active Directory PowerShell module for the function Set-ADSyncRestrictedPermissions in AdSyncConfig.psm1 were removed.
+- Fixed a bug where 'Set-ADSyncRestrictedPermissions’ was not called correctly
+-  Adding support for permission granting on Group Writeback in AADConnect's installation wizard
+- When changing sign in method from Password Hash Sync to ADFS, Password Hash Sync was not disabled.
+- Added verification for IPv6 addresses in ADFS configuration
+- Updated the notification message to inform that an existing configuration exists.
+- Device writeback fails to detect container in untrusted forest. This has been updated to provide a better error message and a link to the appropriate documentation
+- Deselecting an OU and then synchronization/writeback corresponding to that OU gives a generic sync error. This has been changed to create a more understandable error message.
+
 ## 1.1.819.0
 
 ### Release status
