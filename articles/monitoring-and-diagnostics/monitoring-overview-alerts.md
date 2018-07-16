@@ -12,7 +12,7 @@ ms.component: alerts
 # What are classic alerts in Microsoft Azure?
 
 > [!NOTE]
-> This article describes how to create older, classic metric alerts. Azure Monitor now supports [newer, near-real time metric alerts and a new alerts experience](monitoring-overview-unified-alerts.md). 
+> This article describes how to create older, classic metric alerts. Azure Monitor now supports [newer, near-real time metric alerts, and a new alerts experience](monitoring-overview-unified-alerts.md). 
 >
 
 By using alerts, you can configure conditions over data and get notified when the conditions match the latest monitoring data.
@@ -21,7 +21,7 @@ By using alerts, you can configure conditions over data and get notified when th
 ## Alerts on Azure Monitor data
 There are two types of classic alerts available: metric alerts and activity log alerts.
 
-* **Classic metric alerts**: This alert triggers when the value of a specified metric crosses a threshold that you assign. The alert generates a notification when the alert is "activated" (when the threshold is crossed and the alert condition is met). It also generates an alert when it is "resolved" (when the threshold is crossed again and the condition is no longer met). 
+* **Classic metric alerts**: This alert triggers when the value of a specified metric crosses a threshold that you assign. The alert generates a notification when the it's "activated" (when the threshold is crossed and the alert condition is met). It also generates an alert when it is "resolved" (when the threshold is crossed again and the condition is no longer met). 
 
 * **Classic activity log alerts**: This streaming log alert triggers when an activity log event is generated that matches filter criteria that you've assigned. These alerts have only one state, "activated," because the alert engine simply applies the filter criteria to any new event. These alerts can notify you when a new Service Health incident occurs or when a user or application performs an operation in your subscription such as "Delete virtual machine."
 
@@ -42,7 +42,7 @@ Azure uses the following terms to describe classic alerts and their functions:
 ## How do I receive notifications from an Azure Monitor classic alert?
 Historically, Azure alerts from different services used their own built-in notification methods. 
 
-Now Azure Monitor offers a reusable notification grouping called *action groups*. Action groups specify a set of receivers for a notification. When an alert is activated that references the action group, all receivers receive that notification. This functionality enables you to reuse a grouping of receivers (for example, your on-call engineer list) across many alert objects. Action groups support notification through various methods. These methods can include posting to a webhook URL, sending emails, SMS messages, and a number of other actions. For more information, see [Action groups](monitoring-action-groups.md). 
+Now Azure Monitor offers reusable notification grouping called *action groups*. Action groups specify a set of receivers for a notification. When an alert is activated that references the action group, all receivers receive that notification. This functionality enables you to reuse a grouping of receivers (for example, your on-call engineer list) across many alert objects. Action groups support notification through various methods. These methods can include posting to a webhook URL, sending emails, SMS messages, and a number of other actions. For more information, see [Create and manage action groups in the Azure portal](monitoring-action-groups.md). 
 
 Older classic activity log alerts use action groups.
 
@@ -50,7 +50,7 @@ However, the older metric alerts don't use action groups. Instead, you can confi
 * Send email notifications to the service administrator, co-administrators, or to additional email addresses that you specify.
 * Call a webhook, which enables you to launch additional automation actions.
 
-Webhooks enables automation and remediation, for example, using the following services:
+Webhooks enable automation and remediation, for example, using the following services:
 - Azure Automation Runbook
 - Azure Functions
 - Azure Logic App
