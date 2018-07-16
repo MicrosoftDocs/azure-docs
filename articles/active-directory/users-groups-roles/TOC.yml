@@ -89,7 +89,7 @@
     - name: Configure company branding    
       href: ../fundamentals/customize-branding.md
   - name: Manage groups and members    
-  - items: 
+    items: 
     - name: Access management using groups    
       href: ../fundamentals/active-directory-manage-groups.md
     - name: Manage groups in the Azure portal    
@@ -133,7 +133,7 @@
     - name: Reference for products and service plans in Azure AD    
       href: licensing-service-plan-reference.md
   - name: Azure AD administrator roles    
-  - items: 
+    items: 
     - name: Assign roles and permissions reference 
       href: directory-assign-admin-roles.md
     - name: View members of an admin role    
@@ -141,7 +141,7 @@
     - name: Assign admin role to a user    
       href: ../fundamentals/active-directory-users-assign-role-azure-portal.md
     - name: Administrator role security    
-    - items:   
+      items:   
       - name: Secure administrator roles plan    
         href: directory-admin-roles-secure.md  
       - name: Create emergency access administrator accounts    
