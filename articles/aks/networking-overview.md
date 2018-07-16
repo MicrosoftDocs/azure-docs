@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 08/16/2018
 ms.author: marsma
 ---
 
@@ -81,7 +81,7 @@ The default maximum number of pods per node in an AKS cluster varies between bas
 Depending on your method of deployment, you may be able to modify the maximum number of pods per node in an AKS cluster.
 
 * **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command.
-* **Resource Manager template**: Specify the **maxPods** property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template.
+* **Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template.
 * **Azure portal**: You cannot modify the maximum number of pods per node when you deploy a cluster with the Azure portal. Advanced networking clusters are limited to 30 pods per node when deployed in the Azure portal.
 
 ## Deployment parameters
