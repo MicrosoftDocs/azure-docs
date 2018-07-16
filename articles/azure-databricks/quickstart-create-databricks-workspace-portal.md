@@ -59,6 +59,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     ![Databricks deployment tile](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks deployment tile")
 
 ## Create a Spark cluster in Databricks
+Note: New users are provided $200 credit and starts with a free plan. Before creating the cluster, please go to your profile and change your subscription to 'pay-as-you-go'. This will still keep your $200 credit and let you create the cluster. 
 
 1. In the Azure portal, go to the Databricks workspace that you created, and then click **Launch Workspace**.
 
