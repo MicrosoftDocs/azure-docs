@@ -162,7 +162,7 @@ Hybrid Runbook Workers can be configured to run only signed runbooks with some c
 
 The following example creates a self signed certificate that can be used for signing runbooks. The sample creates the certificate and exports it. The certificate is later imported into the Hybrid Runbook Workers later. The thumbprint is returned as well, this is used later to reference the certificate.
 
-```azurepowershell-interactive
+```powershell
 # Create a self signed runbook that can be used for code signing
 $SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
                                         -Subject "CN=contoso.com" `
@@ -188,7 +188,7 @@ $SigningCert.Thumbprint
 
 Copy the certificate created to each Hybrid Runbook Worker in a group. Run the following script to import the certificate and configure the Hybrid Worker to use signature validation on runbooks.
 
-```azurepowershell-interactive
+```powershell
 # Install the certificate into a location that will be used for validation.
 New-Item -Path Cert:\LocalMachine\AutomationHybridStore
 Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\AutomationHybridStore
@@ -204,7 +204,7 @@ Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocati
 
 With the Hybrid Runbook workers configured to use only signed runbooks. You must sign runbooks that are to be used on the Hybrid Runbook Worker. Use the following sample PowerShell to sign your runbooks.
 
-```azurepowershell-interactive
+```powershell
 $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
