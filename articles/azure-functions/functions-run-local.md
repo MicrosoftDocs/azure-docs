@@ -150,7 +150,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 To create the project without a local Git repository, use the `--no-source-control [-n]` option.
 
 > [!IMPORTANT]
-> By default, version 2.x of the Core Tools creates function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with [Visual Studio 2017](functions-develop-vs.md), are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you call `func init` and with subsequent commands.
+> By default, version 2.x of the Core Tools creates function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with [Visual Studio 2017](functions-develop-vs.md), are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you create and deploy functions.
 
 ## Register extensions
 
@@ -177,7 +177,7 @@ The file local.settings.json stores app settings, connection strings, and settin
     "CORS": "*"
   },
   "ConnectionStrings": {
-    "SQLConnectionString": "Value"
+    "SQLConnectionString": "<sqlclient-connection-string>"
   }
 }
 ```
@@ -271,8 +271,9 @@ You can also specify these options in the command using the following arguments:
 | Argument     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--language -l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x, do not use this option or choose the default language of your project. |
-| **`--template -t`** | The template name, which can be one of the  values:<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--template -t`** | Use the `func templates list` command to see the complete list of available templates for each supported language.   |
 | **`--name -n`** | The function name. |
+| **`--csx`** | (Version 2.x) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
 
 For example, to create a JavaScript HTTP trigger in a single command, run:
 
