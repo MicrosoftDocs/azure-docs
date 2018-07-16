@@ -42,8 +42,8 @@ You need:
 4. Add a friendly name for the setting to remind you of its purpose. For example, "Send to Azure storage account". 
 5. Check the **Archive to a storage account** checkbox and click **Storage account** to choose the Azure storage account. 
 6. Select an Azure subscription and storage account that you want to route the logs to, and click **OK** to close out of the configuration.
-7. Check the **Audit** checkbox to send audit logs to the storage account. 
-8. Check the **SignIn** checkbox to send sign-in logs to the storage account.
+7. Check the **AuditLogs** checkbox to send audit logs to the storage account. 
+8. Check the **SignInLogs** checkbox to send sign-in logs to the storage account.
 9. Use the slider to set retention on your log data. By default, this value is "0" and logs will be retained in the storage account indefinitely. Else, you can set a value and events older than the number of days selected will be automatically cleaned up.
 10. Click **Save** to save the setting.
     ![Diagnostics settings](./media/active-directory-reporting-azure-monitor-diagnostics-azure-storage-account/DiagnosticSettings.png "Diagnostics settings")
