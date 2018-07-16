@@ -172,11 +172,10 @@
 ## [Node.js (Service)](https://docs.microsoft.com/javascript/api/azure-iothub/)
 ## [C device SDK](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
-## [REST (Resource Provider)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
-## [REST (Device Identities)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
-## [REST (Device Twins)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
-## [REST (Device Messaging)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
-## [REST (Jobs)](https://docs.microsoft.com/rest/api/iothub/jobapi)
+## [REST (Device)](https://docs.microsoft.com/rest/api/iothub/device)
+## [REST (Service)](https://docs.microsoft.com/rest/api/iothub/service)
+## [REST (IoT Hub Resource)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+## [REST (Certificates)](https://docs.microsoft.com/rest/api/iothub/certificates)
 
 # Related
 ## Solutions 
