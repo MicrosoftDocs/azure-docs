@@ -11,12 +11,18 @@
   items:
   - name: Try the Speech service for free
     href: get-started.md
-  - name: Recognize speech in C#
-    href: quickstart-csharp-windows.md
+  - name: 'Recognize speech in C# (.NET on Windows)'
+    href: quickstart-csharp-dotnet-windows.md
+  - name: 'Recognize speech in C# (.NET Core on Windows)'
+    href: quickstart-csharp-dotnetcore-windows.md
+  - name: 'Recognize speech in a UWP app'
+    href: quickstart-csharp-uwp.md
   - name: Recognize speech in C++ for Windows
     href: quickstart-cpp-windows.md
   - name: Recognize speech in C++ for Linux
     href: quickstart-cpp-linux.md
+  - name: Recognize speech in Java for Android
+    href: quickstart-java-android.md
   - name: Get started with Speech Devices SDK
     href: speech-devices-sdk-qsg.md
 - name: How-to guides

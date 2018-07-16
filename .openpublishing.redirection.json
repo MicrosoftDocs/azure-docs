@@ -24586,6 +24586,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/security/blueprints/uk-official-three-tier-applications-overview.md",
+            "redirect_url": "/azure/security/blueprints/ukofficial-iaaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/uk-official-three-tier-applications-principles-overview.md",
+            "redirect_url": "/azure/security/blueprints/ukofficial-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md",
             "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
             "redirect_document_id": false
@@ -25284,6 +25294,11 @@
             "source_path": "articles/iot-suite/iot-suite-time-series-insights.md",
             "redirect_url": "/azure/iot-accelerators/iot-accelerators-time-series-insights",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-overview.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-connected-factory-deploy",
+          "redirect_document_id": false
         },
         {
           "source_path": "articles/iot-accelerators/iot-accelerators-predictive-overview.md",
