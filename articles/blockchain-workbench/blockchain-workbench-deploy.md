@@ -224,7 +224,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
     For **Use existing**:
 
-    The *use existing* option allows you to specify an Ethereum Proof-of-Authority (PoA) blockchain network. The requirements are:
+    The *use existing* option allows you to specify an Ethereum Proof-of-Authority (PoA) blockchain network. Endpoints have the following requirements.
 
     * The endpoint must be an Ethereum Proof-of-Authority (PoA) blockchain network.
     * The endpoint must be publicly accessible over the network.
