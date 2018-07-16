@@ -92,7 +92,7 @@
   - href: ../fundamentals/active-directory-manage-groups.md
     - name: Manage groups in the Azure portal    
     - href: ../fundamentals/active-directory-groups-create-azure-portal.md
-    - name: Manage groups PowerShell for Graph (v2    
+    - name: Manage groups PowerShell for Graph (v2)   
     - href: groups-settings-v2-cmdlets.md
     - name: Manage groups PowerShell MSOnline    
     - href: groups-settings-cmdlets.md
