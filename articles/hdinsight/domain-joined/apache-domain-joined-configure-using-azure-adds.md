@@ -24,7 +24,7 @@ In this article, you learn how to configure a domain-joined HDInsight cluster by
 Enabling Azure AD DS is a prerequisite before you can create a domain-joined HDInsight cluster. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Only tenant administrators have the privileges to create an Azure AD DS instance. If you use Azure Data Lake Storage Gen2 as the default storage for HDInsight, make sure that the default Azure AD tenant for Data Lake Storage Gen2 is same as the domain for the HDInsight cluster. Because Hadoop relies on Kerberos and basic authentication, multi-factor authentication needs to be disabled for users who will access the cluster.
+> Only tenant administrators have the privileges to create an Azure AD DS instance. If you use Azure Data Lake Storage Gen1 as the default storage for HDInsight, make sure that the default Azure AD tenant for Data Lake Storage Gen1 is same as the domain for the HDInsight cluster. Because Hadoop relies on Kerberos and basic authentication, multi-factor authentication needs to be disabled for users who will access the cluster.
 
 After you provision the Azure AD DS instance, create a service account in Azure Active Directory (Azure AD) with the right permissions. If this service account already exists, reset its password and wait until it syncs to Azure AD DS. This reset will result in the creation of the Kerberos password hash, and it might take up to 30 minutes to sync to Azure AD DS. 
 
