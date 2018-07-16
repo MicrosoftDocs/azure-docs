@@ -35,6 +35,7 @@ The Azure Stack 1807 update build number is **1.1807.XX.X**.
 ### New features
 This update includes the following improvements for Azure Stack.
 
+- <!-- 1658937 | ASDK, IS --> **Start backups on a pre-defined schedule** - As an appliance, Azure Stack can now automatically trigger infrastructure backups periodically to eliminate human intervention. Azure Stack will also automatically clean up the external share for backups that are older than the defined retention period. 
 
 
 ### Fixed issues
