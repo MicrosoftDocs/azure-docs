@@ -40,7 +40,7 @@ There are several reasons why you might need to use an alternate verification me
 
 1. Sign into your account normally and choose the **Sign in another way** link on the **Two-step verification** page.
 
-    ![Change sign in verification method](/media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
+    ![Change sign in verification method](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 
     >[!Note]
     >If you don't see the **Sign in another way** link, it means that you haven't set up any other verification methods. You'll have to contact your administrator for help signing into your account. After you sign in, make sure you add additional verification methods. For more info about adding verification methods, see the [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md) article.<br><br>If you see the link, but still don't see any other verification methods, you'll have to contact your administrator for help signing in to your account.
