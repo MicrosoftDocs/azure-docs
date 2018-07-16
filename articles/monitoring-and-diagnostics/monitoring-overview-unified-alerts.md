@@ -84,11 +84,11 @@ Alerts are available across several Azure monitoring services. For information a
 | **Monitor source** | **Signal type**  | **Description** | 
 |-------------|----------------|-------------|
 | Azure Monitor | Metric  | Also called [near-real-time metric alerts](monitoring-near-real-time-metric-alerts.md), they support evaluating metric conditions as frequently as once a minute and allow for multi-metric and multi-dimensional metric rules. A list of supported resource types is available in [Newer metric alerts for Azure services in the Azure portal](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).<br>[Classic metric alerts](monitoring-overview-alerts.md) are not supported in the new alerts experience. You can find them under Alerts (Classic) in the Azure portal. The classic alerts support some metric types that have not yet been moved to the newer alerts. For a full list, see [supported metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics). |
-| Log Analytics | Logs  | Receive notifications or run automated actions when a log search query meets certain criteria. Alerts in Log Analytics are [being copied into the new experience](monitoring-alerts-extend.md). A [preview of *Log Analytics logs as metrics*](monitoring-alerts-extend-tool.md) is available. The preview enables you to take certain types of logs and convert them to metrics, where you can then alert on them by using the new alerting experience. The preview is useful if you have non-Azure logs that you want to along with native Azure Monitor metrics. |
+| Log Analytics | Logs  | Receive notifications or run automated actions when a log search query meets certain criteria. Alerts in Log Analytics are [being copied into the new experience](monitoring-alerts-extend.md). A [preview of *Log Analytics logs as metrics*](monitoring-alerts-extend-tool.md) is available. The preview enables you to take certain types of logs and convert them to metrics, where you can then alert on them by using the new alerting experience. The preview is useful if you have non-Azure logs that you want to get along with native Azure Monitor metrics. |
 | Activity logs | Activity log | Contains the records of all create, update, and delete actions that were created by the selected target. |
-| Service health | Activity Log  | Not supported in unified alerts. See [Create activity log alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md).  |
+| Service health | Activity log  | Not supported in unified alerts. See [Create activity log alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md).  |
 | Application Insights | Logs  | Contains logs with the performance details of your application. By using the analytics query, you can define the conditions for the actions to be taken based on application data. |
-| Application Insights | Metric | Not supported in unified alerts. See [Metric alerts](../application-insights/app-insights-alerts.md) |
+| Application Insights | Metric | Not supported in unified alerts. See [Metric alerts](../application-insights/app-insights-alerts.md). |
 | Application Insights | Web availability tests | Not supported in unified alerts.  See [Web test alerts](../application-insights/app-insights-monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
 
 ## Enhanced unified alerts (public preview)
@@ -104,7 +104,7 @@ The new experience provides the following features that aren't available in the 
 - **Organize alerts with smart groups**: Smart groups automatically group together related alerts so you can manage them as a set instead of individually.
 
 ### Enable enhanced unified alerts
-Enable the new unified alert experience by selecting the banner at the top of the Alerts page. This process creates an alert store that includes the past 30 days of fired alerts across supported services. After the new experience is enabled, you can switch back and forth between the new and old experience by selecting this banner.
+Enable the new unified alerts experience by selecting the banner at the top of the Alerts page. This process creates an alert store that includes the past 30 days of fired alerts across supported services. After the new experience is enabled, you can switch back and forth between the new and old experience by selecting this banner.
 
 > [!NOTE]
 >  It might take a few minutes for the new experience to be enabled initially.
@@ -118,7 +118,7 @@ Enabling the new alert experience does not impact the configuration of action gr
 ### Smart groups
 Smart groups reduce noise by allowing you to manage related alerts as a single unit rather than as individual alerts. You can view the details of smart groups and set the state similarly to how you can with alerts. Each alert is a member of one and only one smart group.
 
-Smart groups are automatically created by using machine learning to combine related alerts that represent a single issue. When an alert is created, the algorithm adds it to a new smart group or an existing smart group based information such as historical patterns, similar properties, and similarity structure. 
+Smart groups are automatically created by using machine learning to combine related alerts that represent a single issue. When an alert is created, the algorithm adds it to a new smart group or an existing smart group based on information such as historical patterns, similar properties, and similar structure. 
 
 Currently, the algorithm only considers alerts from the same monitor service within a subscription. Smart groups can reduce up to 99% of alert noise through this consolidation. You can view the reason that alerts were included in a group in the smart group detail page.
 
@@ -166,7 +166,7 @@ Select the following values at the top of the Alerts page to open another page.
 |:---|:---|
 | Total alerts | The total number of alerts that match the selected criteria. Select this value to open the All Alerts view with no filter. |
 | Smart groups | The total number of smart groups that were created from the alerts that match the selected criteria. Select this value to open the smart groups list in the All Alerts view.
-| Total alert rules | The total number of alert rules in the selected subscription and resource group. Select this value to open the Rules view filtered on the selected subscriptions and resource group.
+| Total alert rules | The total number of alert rules in the selected subscription and resource group. Select this value to open the Rules view filtered on the selected subscription and resource group.
 
 
 ### All Alerts page 
@@ -174,7 +174,7 @@ By using the All Alerts page, you can view a list of alerts that were created wi
 
 ![All Alerts page](media/monitoring-overview-unified-alerts/all-alerts-page.png)
 
-You can filter the view by selecting the following values in the dropdowns at the top of the page.
+You can filter the view by selecting the following values in the dropdown menus at the top of the page.
 
 | Column | Description |
 |:---|:---|
@@ -188,7 +188,7 @@ You can filter the view by selecting the following values in the dropdowns at th
 | Monitor service | Select a service, or select *All* to include all services. Only alerts created by rules that use service as a target are included. |
 | Time range | Only alerts fired within the selected time window are included in the view. Supported values are the past hour, the past 24 hours, the past 7 days, and the past 30 days. |
 
-Select **Columns** at the top of the page to select which columns to display. You can remove any column except for 
+Select **Columns** at the top of the page to select which columns to display. 
 
 ### Alert detail page
 The Alert detail page is displayed when you select an alert. It provides details of the alert and enables you to change its state.
