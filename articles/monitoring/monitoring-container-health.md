@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2018
+ms.date: 07/16/2018
 ms.author: magoedte
 ---
 
@@ -351,9 +351,9 @@ The following table describes the information presented when you view Controller
 | Column | Description | 
 |--------|-------------|
 | Name | The name of the controller|
-| Status | Rollup status of the containers when it has completed running with status, such as *Terminated*, *Failed* *Stopped*, or *Paused*. If the container is running, but the status was either not properly presented or was not picked up by the agent and has not responded more than 30 minutes, the status is *Unknown*. Additional details of the status icon are provided in the table below.|
+| Status | Rollup status of the containers when it has completed running with status, such as *OK*, *Terminated*, *Failed* *Stopped*, or *Paused*. If the container is running, but the status was either not properly presented or was not picked up by the agent and has not responded more than 30 minutes, the status is *Unknown*. Additional details of the status icon are provided in the table below.|
 | AVG%, MIN%, MAX%, 50TH%, 90TH% | Roll up average of the average % of each entity for the selected metric and percentile. |
-| AVERAGE | Roll up of the average CPU millicore or memory performance of the container for the selected percentile.  The Average value is measured from the CPU/Memory limit set for a pod. |
+| AVG, MIN, MAX, 50TH, 90TH  | Roll up of the average CPU millicore or memory performance of the container for the selected percentile.  The Average value is measured from the CPU/Memory limit set for a pod. |
 | Containers | Total number of containers for the controller or pod. |
 | Restarts | Roll up of the restart count from containers. |
 | Uptime | Represents the time since a container started. |
@@ -367,7 +367,7 @@ The icons in the status field indicate the online status of containers:
 | ![Ready running status icon](./media/monitoring-container-health/container-health-ready-icon.png) | Running (Ready)|
 | ![Waiting or paused status icon](./media/monitoring-container-health/container-health-waiting-icon.png) | Waiting or Paused|
 | ![Last reported running status icon](./media/monitoring-container-health/container-health-grey-icon.png) | Last reported running but hasn't responded more than 30 minutes|
-| ![Terminated status icon](./media/monitoring-container-health/container-health-terminated-icon.png) | Successfully stopped or failed to stop|
+| ![Terminated status icon](./media/monitoring-container-health/container-health-green-icon.png) | Successfully stopped or failed to stop|
 
 The status icon shows a count based on what the pod provides. It shows the worse two states and when you hover over the status, it shows a roll up status from all pods in the container.  If there isn't a ready state, the status value will show a **(0)**.  
 
@@ -384,14 +384,14 @@ The following table describes the information presented when you view Containers
 | Column | Description | 
 |--------|-------------|
 | Name | The name of the controller|
-| Status | Roll up status of the containers, if any. Additional details of the status icon are provided in the table below.|
-| MIN % | Roll up average of the average % of each entity for the selected metric. |
-| MIN | Roll up of the average CPU millicore or memory performance of the container. The Average value is measured from the CPU/Memory limit set for a pod. |
+| Status | Status of the containers, if any. Additional details of the status icon are provided in the table below.|
+| AVG%, MIN%, MAX%, 50TH%, 90TH% | Roll up average of the average % of each entity for the selected metric and percentile. |
+| AVG, MIN, MAX, 50TH, 90TH  | Roll up of the average CPU millicore or memory performance of the container for the selected percentile.  The Average value is measured from the CPU/Memory limit set for a pod. |
 | Pod | Container where the pod resides.| 
 | Node |  Node where the container resides. | 
 | Restarts | Represents the time since a container started. |
 | Uptime | Represents the time since a container was started or rebooted. |
-| Trend MIN% | Bar graph trend representing average metric % of the container. |
+| Trend AVG%, MIN%, MAX%, 50TH%, 90TH% | Bar graph trend representing average metric % of the container. |
 
 The icons in the status field indicate the online status of pods:
  
