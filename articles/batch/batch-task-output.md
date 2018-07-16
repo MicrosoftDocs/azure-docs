@@ -123,3 +123,4 @@ You can also implement your own complete file movement solution. Use this approa
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com
 [storage_explorer]: http://storageexplorer.com/
+[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs 
