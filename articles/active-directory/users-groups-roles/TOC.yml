@@ -89,7 +89,7 @@
     - name: Configure company branding    
     - href: ../fundamentals/customize-branding.md
   - name: Manage groups and members    
-  - href: ../fundamentals/active-directory-manage-groups.md
+  - items: 
     - name: Manage groups in the Azure portal    
     - href: ../fundamentals/active-directory-groups-create-azure-portal.md
     - name: Manage groups PowerShell for Graph (v2)   
