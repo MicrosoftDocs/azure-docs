@@ -50,9 +50,9 @@ To successfully complete your "content protection" system/application design, yo
   
     You can create a player by using the [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/). Use the [Azure Media Player ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) to specify which DRM technology to use on different DRM platforms.
 
-    For testing AES or CENC (Widevine + PlayReady) encrypted content, you can use [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Make sure you click on "Advanced options" and check AES and provide the token.
+    For testing AES or CENC (Widevine and/or PlayReady) encrypted content, you can use [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Make sure you click on "Advanced options" and check your encryption options.
 
-    If you want to test FairPlay encrypted content, use [this test player](http://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, MS Edge/IE11 for PlayReady, Safari on maOS for FairPlay.
+    If you want to test FairPlay encrypted content, use [this test player](http://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, MS Edge/IE11 for PlayReady, Safari on macOS for FairPlay.
 
 3. Secure Token Service (STS), which issues JSON Web Token (JWT) as access token for backend resource access. You can use the AMS license delivery services as the backend resource. An STS has to define the following:
 
@@ -86,7 +86,7 @@ You can use Media Services to deliver your content encrypted dynamically with AE
 
 In Media Services v3, a content key is associated with StreamingLocator (see [this example](protect-with-aes128.md)). If using the Media Services key delivery service, you should auto generate the content key. You should generate the content key yourself if you are using you own key delivery service, or if you need to handle a high availability scenario where you need to have the same content key in two datacenters.
 
-When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service or the key delivery service you specified. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES clear key or DRM encryption. To decrypt the stream, the player requests the key from Media Services key delivery service or the key delivery service you specified. To decide whether or not the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
 
 ## AES-128 clear key vs. DRM
 
@@ -118,18 +118,6 @@ With a token-restricted content key policy, the content key is sent only to a cl
 
 When you configure the token restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the secure token service that issues the token. The audience, sometimes called scope, describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
-## Streaming URLs
-
-If your asset was encrypted with more than one DRM, use an encryption tag in the streaming URL: (format='m3u8-aapl', encryption='xxx').
-
-The following considerations apply:
-
-* Encryption type doesn't have to be specified in the URL if only one encryption was applied to the asset.
-* Encryption type is case insensitive.
-* The following encryption types can be specified:
-  * **cenc**: For PlayReady or Widevine (common encryption)
-  * **cbcs-aapl**: For FairPlay (AES CBC encryption)
-  * **cbc**: For AES envelope encryption
 
 ## Next steps
 
