@@ -58,7 +58,8 @@ Maven creates the project files in a new folder with a name of _artifactId_. The
 
 ## Run functions locally in the IDE
 
-> [!NOTE]  [Azure Functions Core Tools, version 2](functions-run-local.md#v2) must be installed to run and debug functions locally.
+> [!NOTE]
+> [Azure Functions Core Tools, version 2](functions-run-local.md#v2) must be installed to run and debug functions locally.
 
 1. Select to import changes or make sure that [auto import](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html) is enables.
 1. Open the **Maven Projects** toolbar
