@@ -179,7 +179,7 @@ The Delete Container operation will fail if it is at least one blob with a locke
 
 **What happens if I try to delete a storage account with a WORM container that has a *locked* time-based retention policy or legal hold?**
 
-The storage account deletion will fail if there is at least one WORM container with a legal hold or a blob with an active retention interval.  All WORM containers must be deleted before the storage account can be deleted.  See the previous question for information on container deletion.
+The storage account deletion will fail if there is at least one WORM container with a legal hold or a blob with an active retention interval.  All WORM containers must be deleted before the storage account can be deleted.  See the preceding question for information on container deletion.
 
 **Can I move the data across different blob tiers (hot, cool, cold) when the blob is in the immutable state?**
 
