@@ -1,3 +1,18 @@
+---
+title: include file
+description: include file
+services: cognitive-services
+author: wolfma61
+manager: onano
+
+ms.service: cognitive-services
+ms.technology: Speech
+ms.topic: include
+ms.date: 07/16/2018
+ms.author: wolfma
+ms.custom: include file
+---
+
 | Programming language | Platform                                                                      | API Reference
 | -                    | -                                                                             | -
 | C#, .NET Standard    | Windows, UWP, .NET Standard (Windows)                                         | [Browse](https://aka.ms/csspeech/csharpref)
