@@ -9,7 +9,7 @@ manager: jeconnoc
 ms.service: app-service
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 07/11/2018
+ms.date: 07/13/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -72,7 +72,7 @@ Sign in to your Docker Hub account. Follow the prompt to enter your Docker Hub c
 docker login
 ```
 
-Tag your image and push it to your Docker Hub account. Replace *\<dockerhub_id>* with your Docker Hub ID.
+Tag your image and push it to a new _public_ repository your Docker Hub account, to a repository called `flask-quickstart`. Replace *\<dockerhub_id>* with your Docker Hub ID.
 
 ```bash
 docker tag flask-quickstart <dockerhub_id>/flask-quickstart
@@ -80,7 +80,7 @@ docker push <dockerhub_id>/flask-quickstart
 ```
 
 > [!NOTE]
-> `docker push` by default creates a new public repository if the specified repository is not found. This quickstart assumes you're using a public repository in Docker Hub. If you prefer to push to a private repository, you need to configure your Docker Hub credentials in Azure App Service later. See [Use a private image](#use-a-private-image).
+> `docker push` creates a public repository if the specified repository is not found. This quickstart assumes a public repository in Docker Hub. If you prefer to push to a private repository, you need to configure your Docker Hub credentials in Azure App Service later. See [Create a web app](#create-a-web-app).
 
 Once the image push is complete, you're ready to use it in your Azure web app.
 
@@ -137,11 +137,11 @@ http://<app_name>.azurewebsites.net/
 ![Sample app running in Azure](media/quickstart-python/hello-world-in-browser.png)
 
 > [!NOTE]
-> The web app takes some time to start because the container has to be downloaded and run when the app is requested the first time. If at first you see an error after a long time, just refresh the page.
+> The web app takes some time to start because the Docker Hub image has to be downloaded and run when the app is requested for the first time. If at first you see an error after a long time, just refresh the page.
 
 **Congratulations!** You've deployed a custom Docker image running a Python app to Web App for Containers.
 
-## Update locally and redeploy the code
+## Update locally and redeploy
 
 Using a local text editor, open the `app/main.py` file in the Python app, and make a small change to the text next to the `return` statement:
 
@@ -163,7 +163,7 @@ In the Cloud Shell, restart the app. Restarting the app ensures that all setting
 az webapp restart --resource-group myResourceGroup --name <app_name>
 ```
 
-Switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
+Wait about 15 seconds for App Service to pull the updated image. Switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
 ![Updated sample app running in Azure](media/quickstart-python/hello-azure-in-browser.png)
 

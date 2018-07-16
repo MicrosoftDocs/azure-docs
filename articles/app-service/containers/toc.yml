@@ -19,7 +19,7 @@
     href: quickstart-nodejs.md
   - name: Create Java app
     href: quickstart-java.md
-  - name: Create Java app
+  - name: Create Python app
     href: quickstart-python.md
   - name: Create Ruby app
     href: quickstart-ruby.md
