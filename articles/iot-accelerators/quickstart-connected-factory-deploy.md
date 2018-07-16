@@ -101,9 +101,9 @@ A **Factory locations** panel that shows the status, location, and current produ
 
 You can navigate through the solution hierarchy and view OEE values and KPIs at each level:
 
-1. In **Factory Locations**, click **Beijing**. You see the production lines at this location.
+1. In **Factory Locations**, click **Mumbai**. You see the production lines at this location.
 
-1. Click **Production Line 2**. You see the stations on this production line.
+1. Click **Production Line 1**. You see the stations on this production line.
 
 1. Click **Packaging**. You see the OPC UA nodes published by this station.
 
@@ -113,7 +113,7 @@ You can navigate through the solution hierarchy and view OEE values and KPIs at 
 
 ### Map
 
-If your subscription has access to the [Bing Maps API][lnk-faq], the *Factories* map shows you the geographical location and status of all the factories in the solution. To drill into the location details, click the locations displayed on the map.
+If your subscription has access to the [Bing Maps API](iot-accelerators-faq-cf.md), the *Factories* map shows you the geographical location and status of all the factories in the solution. To drill into the location details, click the locations displayed on the map.
 
 [![Map](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 
