@@ -63,7 +63,7 @@ The following are common use cases for the Text to Speech API.
 * Voice prompting for in-car applications such as navigation
 * Conversational user interfaces in concert with the Speech to Text API
 
-If you need to an unsupported dialect or just want a unique voice for your application, the Text to Speech API supports [custom voice models](how-to-customize-voice-font.md).
+If you need an unsupported dialect or just want a unique voice for your application, the Text to Speech API supports [custom voice models](how-to-customize-voice-font.md).
 
 ## Speech Translation
 

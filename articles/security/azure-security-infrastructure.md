@@ -1,5 +1,5 @@
 ---
-title: Security of Azure infrastructure | Microsoft Docs
+title: Azure infrastructure security | Microsoft Docs
 description: The article describes how Microsoft ensures security of our Azure datacenters.
 services: security
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 07/06/2018
 ms.author: terrylan
 
 ---
 
-# Security of Azure infrastructure
+# Azure infrastructure security
 Microsoft Azure runs in datacenters managed and operated by Microsoft. These geographically dispersed datacenters comply with key industry standards, such as ISO/IEC 27001:2013 and NIST SP 800-53, for security and reliability. The datacenters are managed, monitored, and administered by Microsoft operations staff. The operations staff has years of experience in delivering the world’s largest online services with 24 x 7 continuity.
 
 This series of articles provides information on what Microsoft does to secure the Azure infrastructure. The articles address:
@@ -52,14 +52,14 @@ Be sure that you understand the division of responsibility between you and Micro
 To learn more about what Microsoft does to secure the Azure infrastructure, see:
 
 - [Azure facilities, premises, and physical security](azure-physical-security.md)
-- [Availability of Azure infrastructure](azure-infrastructure-availability.md)
+- [Azure infrastructure availability](azure-infrastructure-availability.md)
 - [Azure information system components and boundaries](azure-infrastructure-components.md)
 - [Azure network architecture](azure-infrastructure-network.md)
 - [Azure production network](azure-production-network.md)
 - [Microsoft Azure SQL Database security features](azure-infrastructure-sql.md)
 - [Azure production operations and management](azure-infrastructure-operations.md)
 - [Monitoring of Azure infrastructure](azure-infrastructure-monitoring.md)
-- [Integrity of Azure infrastructure](azure-infrastructure-integrity.md)
+- [Azure infrastructure integrity](azure-infrastructure-integrity.md)
 - [Protection of customer data in Azure](azure-protection-of-customer-data.md)
 
 <!--Image references-->

@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 07/15/2018
 ms.author: apimpm
 
 ---
@@ -30,7 +30,8 @@ In this article, you learn how to:
 ## Prerequisites
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ Make sure there is a Function App in your subscription. For more information, see [Create a Function App](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
++ Make sure there is a Azure Function App in your subscription. For more information, see [Create a Function App](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
++ [Create OpenAPI definition](../azure-functions/functions-openapi-definition.md) of your Azure Function App
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -52,6 +53,24 @@ In this article, you learn how to:
     * **Starter**
     * **Unlimited**   
 7. Select **Create**.
+
+## Populate Azure Functions keys in Azure API Management
+
+If the imported Azure Functions are protected by keys, Azure API Management automatically creates **Named values** for them, but it does not populate the entries with secrets. For each entry you need to perform the steps below.  
+
+1. Navigate to the **Named values** tab in the API Management instance.
+2. Click on an entry and press **Show value** in the sidebar.
+
+    ![Named values](./media/import-function-app-as-api/apim-named-values.png)
+
+3. If the content resembles *code for {Azure Function name}*, head to the imported Azure Functions App and navigate to your Azure Function.
+4. Go the **Manage** section of the desired Azure Function and copy the relevant key, based on your Azure Function's authentication method.
+
+    ![Function app](./media/import-function-app-as-api/azure-functions-app-keys.png)
+
+5. Paste the key in the textbox from the **Named values** and click **Save**.
+
+    ![Function app](./media/import-function-app-as-api/apim-named-values-2.png)
 
 ## Test the new APIM API in the Azure portal
 

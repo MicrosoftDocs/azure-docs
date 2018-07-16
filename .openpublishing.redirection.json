@@ -8620,6 +8620,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/mongodb-ttl.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/time-to-live",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/hdinsight/hdinsight-storm-twitter-trending.md",
             "redirect_url": "https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-example-topology",
             "redirect_document_id": false
@@ -9731,7 +9736,12 @@
         },
         {
             "source_path": "articles/machine-learning/machine-learning-data-science-create-features-blob.md",
-            "redirect_url": "/azure/machine-learning/team-data-science-process/create-features-blob",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/machine-learning/team-data-science-process/create-features-blob.md",
+            "redirect_url": "/azure/machine-learning/team-data-science-process/explore-data-blob",
             "redirect_document_id": false
         },
         {
@@ -11505,6 +11515,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md",
+            "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/virtual-network/virtual-network-routes-troubleshoot-portal.md",
             "redirect_url": "/azure/virtual-network/diagnose-network-routing-problem",
             "redirect_document_id": false
@@ -12653,6 +12668,11 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-update-vmss-sku.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade-primary-nodetype-vm",
             "redirect_document_id": false
         },
         {
@@ -21372,17 +21392,17 @@
         },
         {
             "source_path": "articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
@@ -21391,8 +21411,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-hub/iot-hub-csharp-node-firmware-update.md",
-            "redirect_url": "/azure/iot-hub/iot-hub-node-node-firmware-update",
+            "source_path": "articles/iot-hub/iot-hub-csharp-csharp-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-java-java-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-node-node-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-python-python-firmware-update.md",
+            "redirect_url": "/azure/iot-hub/tutorial-firmware-update",
             "redirect_document_id": false
         },
         {
@@ -21407,12 +21442,12 @@
         },
         {
             "source_path": "articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-python-python-twin-how-to-configure.md",
-            "redirect_url": "/azure/iot-hub/tutorial-routing",
+            "redirect_url": "/azure/iot-hub/tutorial-device-twins",
             "redirect_document_id": false
         },
         {
@@ -22706,6 +22741,86 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/privileged-identity-management/active-directory-securing-privileged-access.md",
+            "redirect_url": "/azure/active-directory/users-groups-roles/directory-admin-roles-secure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/privileged-identity-management/index.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/subscription-requirements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-configure.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-getting-started.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-activate-role.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-activate-role",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-change-default-settings.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-change-default-settings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-complete-review.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-complete-review",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-configure-security-alerts.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-give-access-to-pim.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-give-access-to-pim",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-require-mfa",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-start-security-review.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-how-to-use-audit-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-roles.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-privileged-identity-management-security-wizard.md",
+            "redirect_url": "/azure/active-directory/privileged-identity-management/pim-security-wizard",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
             "redirect_url": "/azure/cosmos-db/storage-explorer",
             "redirect_document_id": true
@@ -23191,6 +23306,26 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/network-watcher/network-watcher-nsg-flow-logging-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-nsg-flow-logging-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-packet-capture-manage-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-packet-capture-manage-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-security-group-view-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-security-group-view-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-troubleshoot-manage-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-troubleshoot-manage-cli",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-cli-nodejs.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli",
             "redirect_document_id": true
@@ -23269,11 +23404,6 @@
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
             "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/active-directory/privileged-identity-management/active-directory-securing-privileged-access.md",
-            "redirect_url": "/azure/active-directory/admin-roles-best-practices",
-            "redirect_document_id": false
         },
         {
             "source_path": "articles/media-services/hybrid-design-drm-sybsystem.md",
@@ -24396,6 +24526,91 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/security/blueprints/financial-services-regulated-workloads.md",
+            "redirect_url": "/azure/security/blueprints/ffiec-paaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/payment-processing-blueprint.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirements-overview.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-1-firewall.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-2-password.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-3-chd.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-4-encryption.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-5-malware.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-6-secure-system.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-7-access.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-8-identity.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-9-physical-access.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-10-monitoring.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-11-testing.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/pci-dss-requirement-12-policy.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/uk-official-three-tier-applications-overview.md",
+            "redirect_url": "/azure/security/blueprints/ukofficial-iaaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/uk-official-three-tier-applications-principles-overview.md",
+            "redirect_url": "/azure/security/blueprints/ukofficial-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md",
             "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
             "redirect_document_id": false
@@ -24503,11 +24718,6 @@
         {
             "source_path": "articles/active-directory/active-directory-enable-sso-scenario.md",
             "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/active-directory/privileged-identity-management/index.md",
-            "redirect_url": "/azure/active-directory/privileged-identity-management/subscription-requirements",
             "redirect_document_id": false
         },
         {
@@ -24851,6 +25061,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-hub/iot-hub-security-x509-create-certificates.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-security-x509-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/index.md",
             "redirect_url": "/azure/iot-accelerators",
             "redirect_document_id": false
@@ -25096,9 +25311,29 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-overview.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-connected-factory-deploy",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-predictive-overview.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-predictive-maintenance-deploy",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-suite/securing-iot-ground-up.md",
             "redirect_url": "/azure/iot-fundamentals/iot-security-ground-up",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-deploy.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-device-simulation-deploy",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-explore.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-device-simulation-deploy",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
@@ -25921,6 +26156,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-gateway/application-gateway-ssl-portal.md",
+            "redirect_url": "/azure/application-gateway/create-ssl-portal",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Manage-Keys.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-manage-keys",
             "redirect_document_id": true
@@ -25936,16 +26176,26 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/batch/batch-get-task-counts.md",
+            "redirect_url": "/azure/batch/batch-get-resource-counts",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Plan-your-app.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-plan-your-app",
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/azure-functions/scripts/functions-cli-create-function-app-github.md",
+            "redirect_url": "/azure/azure-functions/scripts/functions-cli-create-function-app-github-continuous",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/LUIS/Cortana-Prebuilt-App.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app",
-            "redirect_document_id": true
+            "redirect_document_id": true 
         },
-        {        
+        {
             "source_path": "articles/cloud-shell/features-powershell.md",
             "redirect_url": "/azure/cloud-shell/features",
             "redirect_document_id": false
@@ -25954,6 +26204,111 @@
             "source_path": "articles/cloud-shell/persisting-shell-storage-powershell.md",
             "redirect_url": "/azure/cloud-shell/persisting-shell-storage",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path": "articles/cognitive-services/LUIS/luis-tutorial-interchangeable-phrase-list.md",
+            "redirect_url": "/azure/cognitive-services/LUIS/luis-quickstart-primary-and-secondary-data",
+            "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/Create-new-app.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-start-new-app",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/Label-Suggested-Utterances.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endoint-utt",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
+        "redirect_document_id": true
+        },
+        {
+        "source_path": "articles/cognitive-services/LUIS/luis-reference-cortana-prebuilt.md",
+        "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
+        "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-backup-and-recovery.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-faq.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-how-to.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-how-to",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/microsoft-authenticator-app-phone-signin-faq.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-app-passwords.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-app-passwords",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-manage-settings",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-signin.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-signin",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/multi-factor-authentication-end-user-troubleshoot.md",
+            "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/authentication/end-user/current/sign-in-experience-updates.md",
+            "redirect_url": "/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-reset-register.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-reset-register",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-passwords-update-your-own-password.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-passwords-update-your-own-password",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-access-panel-introduction.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-saas-access-panel-introduction",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-access-panel-user-help.md",
+            "redirect_url": "/azure/active-directory/user-help/active-directory-saas-access-panel-user-help",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/hdinsight/kafka/apache-kafka-azure-functions.md",
+            "redirect_url": "/azure/hdinsight/kafka/apache-kafka-introduction",
+            "redirect_document_id": false
+        }     
     ]
 }

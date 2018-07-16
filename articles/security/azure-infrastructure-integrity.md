@@ -1,5 +1,5 @@
 ---
-title: Integrity of Azure infrastructure
+title: Azure infrastructure integrity
 description: This article addresses integrity of the Azure infrastructure.
 services: security
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 07/06/2018
 ms.author: terrylan
 
 ---
 
-# Integrity of Azure infrastructure   
+# Azure infrastructure integrity
 
 ## Software Installation
 All components in the software stack that are installed in the Azure environment are custom built following the Microsoft’s Security Development Lifecycle (SDL) process. All software components (including OS images and SQL Database) are deployed as part of the Change and Release Management process. The OS that runs on all nodes is a customized version of Windows Server 2008 or Windows Server 2012. The exact version is chosen by the FC according to the role it intends for the OS to play. In addition, the Host OS does not allow installation of any unauthorized software components.
@@ -55,7 +55,7 @@ Azure ensures that the application/service deployed is reachable via standard we
 To learn more about what Microsoft does to secure the Azure infrastructure, see:
 
 - [Azure facilities, premises, and physical security](azure-physical-security.md)
-- [Availability of Azure infrastructure](azure-infrastructure-availability.md)
+- [Azure infrastructure availability](azure-infrastructure-availability.md)
 - [Azure information system components and boundaries](azure-infrastructure-components.md)
 - [Azure network architecture](azure-infrastructure-network.md)
 - [Azure production network](azure-production-network.md)

@@ -52,7 +52,7 @@ For this tutorial, we create a new Windows VM. You can also enable MSI on an exi
 5.	To select a new **Resource Group** you would like to virtual machine to be created in, choose **Create New**. When complete, click **OK**.
 6.	Select the size for the VM. To see more sizes, select **View all** or change the **Supported disk type** filter. On the settings blade, keep the defaults and click **OK**.
 
-    ![Alt image text](~/articles/active-directory/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Alt image text](../managed-service-identity/media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## Enable MSI on your VM
 
@@ -63,11 +63,11 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 3. To register and enable the MSI, select **Yes**, if you wish to disable it, choose No.
 4. Ensure you click **Save** to save the configuration.
 
-    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Alt image text](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. If you wish to check which extensions are on the VM, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforWindows** appears in the list.
 
-    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
+    ![Alt image text](../managed-service-identity/media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## Create a storage account 
 
@@ -80,7 +80,7 @@ If you don't already have one, you will now create a storage account. You can al
 5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.
 6. Click **Create**.
 
-    ![Create new storage account](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Create new storage account](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## Create a blob container in the storage account
 
@@ -91,7 +91,7 @@ Later we will upload and download a file to the new storage account. Because fil
 3. Click **+ Container** on the top of the page, and a "New container" panel slides out.
 4. Give the container a name, select an access level, then click **OK**. The name you specified will be used later in the tutorial. 
 
-    ![Create storage container]~/articles/active-directory/(media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Create storage container](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## Grant your VM's MSI access to use a storage SAS 
 
@@ -105,7 +105,7 @@ Azure Storage does not natively support Azure AD authentication.  However, you c
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
 7. Finally, under **Select** choose your Windows Virtual Machine in the dropdown, then click **Save**. 
 
-    ![Alt image text](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
+    ![Alt image text](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager 
 

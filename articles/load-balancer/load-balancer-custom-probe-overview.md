@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/8/2018
+ms.date: 07/13/2018
 ms.author: kumud
 ---
 
 # Understand Load Balancer probes
 
-Azure Load Balancer uses health probes to determine which backend pool instance should receive new flows. When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance and existing flows on that instance are unaffected.  When all backend pool instances probe down, all existing flows will time out on all instances in the backend pool.
+Azure Load Balancer uses health probes to determine which backend pool instance should receive new flows.   You can use health probes to detect the failure of an application on a backend instance.  You can also use the health probe response from your application to signal to Load Balancer whether to continue to send new flows or stop sending new flows to a backend instance to manage load or planned downtime.
 
-Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring. TCP or HTTP custom health probes must be configured when you use VMs behind Load Balancer.
+Health probes govern whether new flows are established to healthy backend instances. When a health probe fails, Load Balancer stops sending new flows to the respective unhealthy instance.  Established TCP connections continue after health probe failure.  Existing UDP flows will move the from the unhealthy instance to another instance in the backend pool.
+
+If all probes for a backend pool fail, Basic Load Balancers will terminate all exisiting TCP flows to the backend pool whereas Standard Load balancer will permit established TCP flows to continue; no new flows will be sent to the backend pool.  All existing UDP flows will terminate for Basic and Standard Load Balancers when all probes for a backend pool fail.
+
+Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring. TCP or HTTP custom health probes must be configured when you use Cloud Services with IaaS VMs behind Load Balancer.
 
 ## Understand probe count and timeout
 

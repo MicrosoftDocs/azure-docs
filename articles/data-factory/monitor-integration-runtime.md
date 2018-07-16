@@ -4,7 +4,7 @@ description: Learn how to monitor different types of integration runtime in Azur
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: 
+manager: craigg
 editor: 
 
 ms.service: data-factory
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2017
+ms.date: 07/16/2018
 ms.author: douglasl
 
 ---
@@ -189,6 +189,24 @@ Azure-SSIS integration runtime is a fully managed cluster of Azure virtual machi
 | Started | The nodes of your Azure-SSIS integration runtime have been allocated/prepared and they are ready for you to deploy/execute SSIS packages. |
 | Stopping  | The nodes of your Azure-SSIS integration runtime are being released. |
 | Stopped | The nodes of your Azure-SSIS integration runtime have been released and billing has stopped. |
+
+### Monitor the Azure-SSIS integration runtime in the Azure portal
+
+The following screenshots show how to select the Azure-SSIS IR to monitor, and provide an example of the information that's displayed.
+
+![Select the Azure-SSIS integration runtime to monitor](media/monitor-integration-runtime/monitor-azure-ssis-ir-image1.png)
+
+![View information about the Azure-SSIS integration runtime](media/monitor-integration-runtime/monitor-azure-ssis-ir-image2.png)
+
+### Monitor the Azure-SSIS integration runtime with PowerShell
+
+Use a script like the following example to check the status of the Azure-SSIS IR.
+
+```powershell
+Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+```
+
+### More info about the Azure-SSIS integration runtime
 
 See the following articles to learn more about Azure-SSIS integration runtime:
 
