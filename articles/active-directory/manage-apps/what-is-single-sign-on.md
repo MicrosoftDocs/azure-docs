@@ -12,7 +12,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
@@ -42,8 +42,7 @@ When users sign in to an application, they go through an authentication process 
 Azure AD supports three different ways to sign in to applications:
 
 * **Federated single sign-on** enables applications to redirect to Azure AD for user authentication instead of prompting for its own password. Federated single sign-on is supported for applications that support protocols such as SAML 2.0, WS-Federation, or OpenID Connect, and is the richest mode of single sign-on.
-* **Password-based single sign-on** enables secure application password storage and replay using a web browser extension or mobile app. Password-based single sign-on uses the existing 
-*  process provided by the application, but enables an administrator to manage the passwords and does not require the user to know the password.
+* **Password-based single sign-on** enables secure application password storage and replay using a web browser extension or mobile app. Password-based single sign-on uses the existing process provided by the application, but enables an administrator to manage the passwords and does not require the user to know the password.
 * **Existing single sign-on** enables Azure AD to leverage any existing single sign-on that has been set up for the application, but enables these applications to be linked to the Office 365 or Azure AD access panel portals, and also enables additional reporting in Azure AD when the applications are launched there.
 
 Once a user has authenticated with an application, they also need to have an account record provisioned at the application that tells the application where the permissions and level of access are inside the application. The provisioning of this account record can either occur automatically, or it can occur manually by an administrator before the user is provided single sign-on access.
@@ -191,7 +190,7 @@ These links use the same access control mechanisms as the access panel and Offic
 ## Related articles
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Set up Cloud Discovery](/cloud-app/security/set-up-cloud-discovery)
+* [Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
 * [Introduction to Managing Access to Apps](what-is-access-management.md)
 * [Comparing Capabilities for Managing External Identities in Azure AD](../active-directory-b2b-compare-b2c.md)
 

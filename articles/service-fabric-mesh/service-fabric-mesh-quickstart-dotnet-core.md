@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Deploy an app to Azure Service Fabric Mesh | Microsoft Docs
 description: This quickstart shows you how to create an ASP.NET Core website and publish it to Azure Service Fabric Mesh.
-services: service--fabric-mesh
+services: service-fabric-mesh
 documentationcenter: .net
 author: tylermsft
 manager: jeconnoc

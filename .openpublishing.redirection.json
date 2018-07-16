@@ -12671,6 +12671,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-update-vmss-sku.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-cluster-upgrade-primary-nodetype-vm",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-enable-azure-disk-encryption-linux.md",
             "redirect_url": "/azure/service-fabric/service-fabric-cluster-creation-via-portal",
             "redirect_document_id": false
@@ -23301,6 +23306,26 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/network-watcher/network-watcher-nsg-flow-logging-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-nsg-flow-logging-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-packet-capture-manage-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-packet-capture-manage-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-security-group-view-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-security-group-view-cli",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-troubleshoot-manage-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/network-watcher-troubleshoot-manage-cli",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-cli-nodejs.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli",
             "redirect_document_id": true
@@ -26279,6 +26304,11 @@
             "source_path": "articles/active-directory/active-directory-saas-access-panel-user-help.md",
             "redirect_url": "/azure/active-directory/user-help/active-directory-saas-access-panel-user-help",
             "redirect_document_id": true
-        }        
+        },
+        {
+            "source_path": "articles/hdinsight/kafka/apache-kafka-azure-functions.md",
+            "redirect_url": "/azure/hdinsight/kafka/apache-kafka-introduction",
+            "redirect_document_id": false
+        }     
     ]
 }
