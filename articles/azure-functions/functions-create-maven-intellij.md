@@ -1,14 +1,14 @@
 ---
-title: Create your first function in Azure with Java and IntelliJ| Microsoft Docs
-description: Create and publish a simple HTTP triggered function to Azure with Java and IntelliJ.
+title: Create an Azure function app with Java and IntelliJ| Microsoft Docs
+description: How-to guide to create and publish a simple HTTP triggered serverless app using Java and IntelliJ to Azure Functions.
 services: functions
 documentationcenter: na
 author: jeffhollan
-manager: cfowler
+manager: jpconnock
 keywords: azure functions, functions, event processing, compute, serverless architecture, java
 ms.service: functions
 ms.devlang: multiple
-ms.topic: quickstart
+ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.devlang: java
 ms.workload: na
@@ -22,14 +22,15 @@ ms.custom: mvc, devcenter
 > [!NOTE] 
 > Java for Azure Functions is currently in preview.
 
-This quickstart guides through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with IntelliJ IDEA (via Maven), testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function app running in Azure.
+This article shows you how to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with IntelliJ IDEA and Apache Maven, test and debug it on your own computer from the IDE, and deploy it to Azure Functions. 
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Prerequisites
-To develop functions app with Java, you must have the following installed:
+## Set up your development environment
+
+To develop a functions app with Java and IntelliJ, you must have the following installed:
 
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
 -  [Apache Maven](https://maven.apache.org), version 3.0 or above.
@@ -39,13 +40,10 @@ To develop functions app with Java, you must have the following installed:
 > [!IMPORTANT] 
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
 
-## Install the Azure Functions Core Tools
+It is highly reccommended, but optional , to install [Azure Functions Core Tools, version 2](functions-run-local.md#v2), which provide a local development environment for writing, running, and debugging Azure Functions. 
 
-The Azure Functions Core Tools provide a local development environment for writing, running, and debugging Azure Functions from the terminal or command prompt. 
 
-Install [version 2 of the Core Tools](functions-run-local.md#v2) on your local computer before continuing.
-
-## Create a new Functions project
+## Create a Functions project
 
 1. In IntelliJ IDEA, click to **Create New Project**.  
 1. Select to create from **Maven**
@@ -56,36 +54,11 @@ Install [version 2 of the Core Tools](functions-run-local.md#v2) on your local c
     ![IntelliJ Maven create](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Click **Next** and enter details for current project, and eventually **Finish**.
 
-Maven creates the project files in a new folder with a name of _artifactId_. The ready to run generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the request:
+Maven creates the project files in a new folder with a name of _artifactId_. The generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the triggering HTTP request.
 
-```java
-public class Function {
-    /**
-     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
-     * 1. curl -d "HTTP Body" {your host}/api/hello
-     * 2. curl {your host}/api/hello?name=HTTP%20Query
-     */
-    @FunctionName("hello")
-    public HttpResponseMessage<String> hello(
-            @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext context) {
-        context.getLogger().info("Java HTTP trigger processed a request.");
+## Run functions locally in the IDE
 
-        // Parse query parameter
-        String query = request.getQueryParameters().get("name");
-        String name = request.getBody().orElse(query);
-
-        if (name == null) {
-            return request.createResponse(400, "Please pass a name on the query string or in the request body");
-        } else {
-            return request.createResponse(200, "Hello, " + name);
-        }
-    }
-}
-
-```
-
-## Run the function locally
+> [!NOTE]  [Azure Functions Core Tools, version 2](functions-run-local.md#v2) must be installed to run and debug functions locally.
 
 1. Select to import changes or make sure that [auto import](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html) is enables.
 1. Open the **Maven Projects** toolbar
@@ -99,7 +72,7 @@ public class Function {
 
 Close the run dialog when complete. Only one function host can be active and running locally at a time.
 
-## Debug the function in IntelliJ
+### Debug the function in IntelliJ
 
 You can debug functions in IntelliJ by attaching to the function host after startup.  Run the Azure Function locally using the steps above, and then in the **Run** menu select **Attach to local process**.  You should see a process on port 5005 available.  After attaching you can have breakpoints hit and debug inside your function app.
 
@@ -107,7 +80,7 @@ When finished stop the debugger and the running process. Only one function host 
 
 ## Deploy the function to Azure
 
-The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing using the Terminal.
+The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing using your computer's command prompt.
 
 ```azurecli
 az login
@@ -130,8 +103,6 @@ When the deploy is complete, you see the URL you can use to access your Azure fu
 ```
 
 ## Next steps
-
-You've created a Java function app with a simple HTTP trigger and deployed it to Azure Functions.
 
 - Review the  [Java Functions developer guide](functions-reference-java.md) for more information on developing Java functions.
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
