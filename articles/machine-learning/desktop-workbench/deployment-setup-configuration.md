@@ -69,6 +69,14 @@ When completing the environment setup:
 - You are prompted to sign in to Azure. To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the provided code to authenticate.
 - During the authentication process, you are prompted for an account to authenticate with. Important: Select an account that has a valid Azure subscription and sufficient permissions to create resources in the account. When the log-in is complete, your subscription information is presented and you are prompted whether you wish to continue with the selected account.
 
+>[!NOTE]
+> In a Jupyter notebook on a Linux DSVM, you can access the Azure CLI and Azure ML CLI with the command format below.  **This is for a Jupyter notebook on a Linux DSVM, specifically**.  These commands access the current Python kernel in the notebook (e.g. the conda `py35` environment)
+>```
+>import sys
+>! {sys.executable} -m azure.cli login
+>! {sys.executable} -m azure.cli ml -h
+>`
+
 ### Environment Setup
 To start the setup process, you need to register a few environment providers by entering the following commands:
 
