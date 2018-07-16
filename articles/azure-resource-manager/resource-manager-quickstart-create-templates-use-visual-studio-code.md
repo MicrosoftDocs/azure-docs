@@ -137,7 +137,3 @@ In this tutorial, you learned how to create a template using Visual Studio Code,
 
 > [!div class="nextstepaction"]
 > [Create a template with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
-
-* To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-* To learn about the properties for a storage account, see [storage accounts template reference](/azure/templates/microsoft.storage/storageaccounts).
-* To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
