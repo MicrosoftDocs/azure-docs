@@ -376,10 +376,6 @@ In the previous step, you ran the pipeline on-demand. You can also create a sche
     select * from catalog.executions
     ```
 
-## Monitor the activity in the Azure portal
-
-## Monitor the activity with PowerShell
-
 ## Next steps
 See the following blog post:
 -   [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)
