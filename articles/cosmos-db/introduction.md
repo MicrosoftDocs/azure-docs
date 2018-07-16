@@ -63,6 +63,10 @@ As a globally distributed, multi-model database service, Azure Cosmos DB makes i
     * Rapidly iterate the schema of your application without worrying about database schema and/or index management.
     * Azure Cosmos DB’s database engine is fully schema-agnostic – it automatically indexes all the data it ingests without requiring any schema or indexes and serves blazing fast queries. 
 
+* **Low cost of ownership**
+    * Five to ten times more cost effective than a non-managed solution or an on-prem NoSQL solution.
+    * Three times cheaper than AWS DynamoDB or Google Spanner.
+
 ## Capability comparison
 
 Azure Cosmos DB provides the best capabilities of traditional relational and non-relational databases.
