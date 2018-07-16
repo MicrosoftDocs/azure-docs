@@ -34,7 +34,7 @@ In this tutorial, you enable users to reset their passwords from the Windows 10 
 
 ## Configure Reset password link using Intune
 
-Deploying the configuration change to enable password reset from the login screen using Intune is the most flexible method. Intune allows you to deploy the configuration change to a specific group of machines you define.
+Deploying the configuration change to enable password reset from the login screen using Intune is the most flexible method. Intune allows you to deploy the configuration change to a specific group of machines you define. This method requires Intune enrollment of the device.
 
 ### Create a device configuration policy in Intune
 

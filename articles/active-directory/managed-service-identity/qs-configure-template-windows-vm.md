@@ -45,7 +45,7 @@ Regardless of the option you choose, template syntax is the same during initial 
 
 In this section, you will enable and disable a system assigned identity using an Azure Resource Manager template.
 
-### Enable system assigned identity during creation of an Azure VM, or on an existing VM
+### Enable system assigned identity during creation of an Azure VM or on an existing VM
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also ensure that your account belongs to a role that gives you write permissions on the VM (for example, the role of “Virtual Machine Contributor”).
 
@@ -97,16 +97,68 @@ In this section, you will enable and disable a system assigned identity using an
 
    ![Screenshot of template after update](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
-### Disable a system assigned identity from an Azure VM
+### Assign a role the VM's system assigned identity
 
-> [!NOTE]
-> Disabling Managed Service Identity from a Virtual Machine is currently not supported. In the meantime, you can switch between using System Assigned and User Assigned Identities.
+After you have enabled system assigned identity on your VM, you may want to grant it a role such as **Reader** access to the resource group in which it was created.
+
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also, ensure that your account belongs to a role that gives you write permissions on the VM (for example, the role of “Virtual Machine Contributor”).
+ 
+2. Load the template into an [editor](#azure-resource-manager-templates) and add the following information to give your VM **Reader** access to the resource group in which it was created.  Your template structure may vary depending on the editor and the deployment model you choose.
+   
+   Under the `parameters` section add the following:
+
+    ```JSON
+    "builtInRoleType": {
+          "type": "string",
+          "defaultValue": "Reader"
+        },
+        "rbacGuid": {
+          "type": "string"
+        }
+    ```
+
+    Under the `variables` section add the following:
+
+    ```JSON
+    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+    ```
+
+    Under the `resources` section add the following:
+
+    ```JSON
+    {
+        "apiVersion": "2017-09-01",
+         "type": "Microsoft.Authorization/roleAssignments",
+         "name": "[parameters('rbacGuid')]",
+         "properties": {
+                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+                "principalId": "[reference(variables('vmResourceId'), '2017-12-01', 'Full').identity.principalId]",
+                "scope": "[resourceGroup().id]"
+          },
+          "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+            ]
+    }
+    ```
+
+### Disable a system assigned identity from an Azure VM
 
 If you have a VM that no longer needs a managed service identity:
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also ensure that your account belongs to a role that gives you write permissions on the VM (for example, the role of “Virtual Machine Contributor”).
 
-2. Change the identity type to `UserAssigned`.
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachines` resource of interest within the `resources` section. If you have a VM that only has system assigned identity, you can disable it by changing the the identity type to `None`.  If your VM has both system and user assigned identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user assigned identities.  The following example shows you how remove a system assigned identity from a VM with no user assigned identities:
+   
+   ```JSON
+    {
+      "apiVersion": "2017-12-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "identity": { 
+          "type": "None"
+    }
+   ```
 
 ## User assigned identity
 
