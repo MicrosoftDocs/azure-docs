@@ -54,8 +54,9 @@ If you plan to deploy multiple Managed Instances inside the subnet and need to o
 
 - Azure uses five IP addresses in the subnet for its own needs 
 - Each General Purpose instance needs two addresses 
+- Each Business Critical instance needs four addresses
 
-**Example**: You plan to have eight Managed Instances. That means you need 5 + 8 * 2 = 21 IP addresses. As IP ranges are defined in power of 2, you need the IP range of 32 (2^5) IP addresses. Therefore, you need to reserve the subnet with subnet mask of /27. 
+**Example**: You plan to have three General Purpose and two Business Critical Managed Instances. That means you need 5 + 3 * 2 + 2 * 4 = 19 IP addresses. As IP ranges are defined in power of 2, you need the IP range of 32 (2^5) IP addresses. Therefore, you need to reserve the subnet with subnet mask of /27. 
 
 ## Create a new virtual network for Managed Instances 
 

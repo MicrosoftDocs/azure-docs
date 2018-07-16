@@ -124,11 +124,21 @@ The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the 
 2. Then, select "Create or update an Asset".
 3. Press **Send**.
 
-    The following **PUT** operation is sent.
+    * The following **PUT** operation is sent:
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
+        ```
+    * The operation has the following  body:
+
+        ```json
+        {
+        "properties": {
+            "description": "My Asset",
+            "alternateId" : "some GUID"
+         }
+        }
+        ```
 
 ### Create a transform
 
@@ -145,11 +155,30 @@ You can use a built-in EncoderNamedPreset or use custom presets.
 2. Then, select "Create Transform".
 3. Press **Send**.
 
-    The following **PUT** operation is sent.
+    * The following **PUT** operation is sent.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
+        ```
+    * The operation has the following body:
+
+        ```json
+        {
+        "properties": {
+            "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+            "outputs": [
+                    {
+                    "onError": "StopProcessingJob",
+                    "relativePriority": "Normal",
+                    "preset": {
+                        "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+                        "presetName": "H264MultipleBitrate720p"
+                        }
+                    }
+                ]
+            }
+        }
+        ```
 
 ### Create a job
 
@@ -161,11 +190,32 @@ In this example, the job's input is based on an HTTPS URL ("https://nimbuscdn-ni
 2. Then, select "Create or Update Job".
 3. Press **Send**.
 
-    The following **PUT** operation is sent.
+    * The following **PUT** operation is sent.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
+        ```
+    * The operation has the following body:
+
+        ```json
+        {
+        "properties": {
+            "input": {
+            "@odata.type": "#Microsoft.Media.JobInputHttp",
+            "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
+            "files": [
+                    "Ignite-short.mp4"
+                ]
+            },
+            "outputs": [
+                {
+                    "@odata.type": "#Microsoft.Media.JobOutputAsset",
+                    "assetName": "testAsset1"
+                }
+            ]
+        }
+        }
+        ```
 
 The job takes some time to complete and when it does you want to be notified. To see the progress of the job, we recommend to use Event Grid. It is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
 
@@ -188,11 +238,22 @@ Your Media Service account has a quota for the number of StreamingPolicy entries
 2. Then, select "Create a Streaming Policy".
 3. Press **Send**.
 
-    The following **PUT** operation is sent.
+    * The following **PUT** operation is sent.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        ```
+    * The operation has the following body:
+
+        ```json
+        {
+            "properties":{
+            "assetName": "testAsset1",
+            "streamingPolicyName": "Predefined_ClearStreamingOnly"
+            }
+        
+        }
+        ```
 
 ### List paths and build streaming URLs
 
@@ -204,11 +265,43 @@ Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/stream
 2. Then, select "List Paths".
 3. Press **Send**.
 
-    The following **POST** operation is sent.
+    * The following **POST** operation is sent.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
+        ```
+        
+        * The operation has the following body:
+
+        ```json
+        {
+        "streamingPaths": [
+            {
+                "streamingProtocol": "Hls",
+                "encryptionScheme": "NoEncryption",
+                "paths": [
+                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)"
+                ]
+            },
+            {
+                "streamingProtocol": "Dash",
+                "encryptionScheme": "NoEncryption",
+                "paths": [
+                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=mpd-time-csf)"
+                ]
+            },
+            {
+                "streamingProtocol": "SmoothStreaming",
+                "encryptionScheme": "NoEncryption",
+                "paths": [
+                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest"
+                ]
+            }
+        ],
+        "downloadPaths": []
+        }
+        ```
+        
 4. Note one of the paths you want to use for streaming, you will use it in the next section. In this case, the following paths were returned:
     
     ```

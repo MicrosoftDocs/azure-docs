@@ -1,12 +1,12 @@
 ---
 title: 'Azure SQL Database service - vCore | Microsoft Docs'
-description: The vCore-based purchasing model (preview) enables you to independently scale compute and storage resources, match on-premises performance, and optimize price.  
+description: The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price.  
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/15/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
 
@@ -25,11 +25,9 @@ The following table helps you understand the differences between these two tiers
 |Storage|Premium remote storage, 5 GB – 4 TB|Local SSD storage, 5 GB – 4 TB|
 |IO throughput (approximate)|500 IOPS per vCore with 7000 maximum IOPS|5000 IOPS per core with 200000 maximum IOPS|
 |Availability|1 replica, no read-scale|3 replicas, 1 [read-scale](sql-database-read-scale-out.md), zone redundant HA|
-|Backups|RA-GRS, 7-35 days (7 days by default)|RA-GRS, 7-35 days (7 days by default)*|
+|Backups|RA-GRS, 7-35 days (7 days by default)|RA-GRS, 7-35 days (7 days by default)|
 |In-Memory|N/A|Supported|
 |||
-
-\* During preview, the backups retention period is not configurable and is fixed to 7 days.
 
 > [!IMPORTANT]
 > If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
@@ -62,7 +60,7 @@ Storage for database backups is allocated to support the Point in Time Restore (
 
 ## Azure Hybrid Use Benefit
 
-In the vCore-based purchasing model (preview), you can exchange your existing licenses for discounted rates on SQL Database using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). This Azure benefit allows you to use your on-premises SQL Server licenses to save up to 30% on Azure SQL Database using your on-premises SQL Server licenses with Software Assurance.
+In the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database using the [Azure Hybrid Use Benefit for SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). This Azure benefit allows you to use your on-premises SQL Server licenses to save up to 30% on Azure SQL Database using your on-premises SQL Server licenses with Software Assurance.
 
 ![pricing](./media/sql-database-service-tiers/pricing.png)
 

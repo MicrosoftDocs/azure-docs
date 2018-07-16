@@ -41,8 +41,11 @@ To successfully complete your "content protection" system/application design, yo
   > [!NOTE]
   > You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
   
-  The following article show steps for encrypting content with AES: [Protect with AES encryption](protect-with-aes128.md)
- 
+  The following articles show steps for encrypting content with AES and/or DRM: 
+  
+  * [Protect with AES encryption](protect-with-aes128.md)
+  * [Protect with DRM](protect-with-drm.md)
+
 2. Player with AES or DRM client. A video player app based on a player SDK (either native or browser-based) needs to meet the following requirements:
   * The player SDK supports the needed DRM clients
   * The player SDK supports the required streaming protocols: Smooth, DASH, and/or HLS
@@ -121,7 +124,10 @@ When you configure the token restricted policy, you must specify the primary ver
 
 ## Next steps
 
-[How to protect with AES encryption in Media Services v3](protect-with-aes128.md)
+Check out the following articles:
+
+  * [Protect with AES encryption](protect-with-aes128.md)
+  * [Protect with DRM](protect-with-drm.md)
 
 Additional information can be found in [DRM reference design and implementation](../previous/media-services-cenc-with-multidrm-access-control.md)
 
