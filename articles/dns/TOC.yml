@@ -6,11 +6,12 @@
     href: dns-overview.md
 - name: Quickstarts
   items:
+  expanded: true
   - name: Name resolution - portal
     href: dns-getstarted-portal.md
-  - name: Create DNS zone and record - PowerShell
+  - name: Name resolution - PowerShell
     href: dns-getstarted-powershell.md
-  - name: Create DNS zone and record - CLI
+  - name: Name resolution - CLI
     href: dns-getstarted-cli.md
 - name: Tutorials
   items:
