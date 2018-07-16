@@ -730,6 +730,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-howto-assign-access-portal.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/msi-howto-assign-access-powershell.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/howto-assign-access-powershell",
             "redirect_document_id": true
