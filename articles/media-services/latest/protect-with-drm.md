@@ -52,7 +52,7 @@ This article is based on the [Encrypting with DRM](https://github.com/Azure-Samp
 > [!NOTE]
 > You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types), to see what makes sense to combine.
 
-The sample described in this example produces the following result:
+The sample described in this article produces the following result:
 
 ![protect with drm](./media/protect-with-drm/ams_player.png)
 
