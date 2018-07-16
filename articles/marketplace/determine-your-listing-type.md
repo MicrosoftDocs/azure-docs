@@ -83,4 +83,3 @@ Be sure to review the storefront and offer type eligibility requirements in this
 *	Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
 *	Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
 *	Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.
-
