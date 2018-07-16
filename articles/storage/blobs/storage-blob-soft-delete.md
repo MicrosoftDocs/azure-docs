@@ -188,7 +188,7 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
-To find the currrent soft delete retention policy, use folloiwng command:
+To find the currrent soft delete retention policy, use the following command:
 
 ```azurepowershell-interactive
    $account = Get-AzureRmStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
