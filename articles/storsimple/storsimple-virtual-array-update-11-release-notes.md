@@ -30,7 +30,7 @@ Update 1.1 corresponds to the software version **10.0.10307.0**.
 > [!IMPORTANT]
 > - Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime. For detailed instructions on how to apply the update, go to [Install Update 1.1](storsimple-virtual-array-install-update-11.md).
 >
-> - Update 1.1 is only available to you via the Azure portal if your device is running Update 0.6 or Update 1.0.
+> - Update 1.1 is available to you via the Azure portal only if your device is running Update 1.0.
 
 ## What's new in Update 1.1
 

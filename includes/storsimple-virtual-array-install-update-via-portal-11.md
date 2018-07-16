@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: storsimple
 ms.topic: include
-ms.date: 06/22/2018
+ms.date: 07/18/2018
 ms.author: alkohli
 ms.custom: include file
 ---
@@ -43,9 +43,9 @@ ms.custom: include file
 
     ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal-11/azupdate16m1.png)
 
-8. If you started with a virtual array running software version Update 1 (10.0.10296.0) or Update 0.6 (10.0.10293.0), you are now running Update 1.1 and are done. You can skip the remaining steps. 
+8. If you started with a virtual array running software version Update 1 (10.0.10296.0), you are now running Update 1.1 and are done. You can skip the remaining steps. 
 
-    If you started with a virtual array running a software version prior to Update 0.6 (10.0.10293.0), you are now updated to Update 0.6. You see another message indicating that updates are available. Repeat steps 4-7 to install Update 1.1.
+    If you started with a virtual array running software version Update 0.6 (10.0.10293.0), you are now updated to Update 1.0. You see another message indicating that updates are available. Repeat steps 4-7 to install Update 1.1.
 
-    ![update device](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate17.png)
+    
 
