@@ -76,7 +76,9 @@
   - name: Protect content
     items:
     - name: With AES-128 - .NET
-      href: protect-with-aes128.md     
+      href: protect-with-aes128.md    
+    - name: With DRM - .NET
+      href: protect-with-drm.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
