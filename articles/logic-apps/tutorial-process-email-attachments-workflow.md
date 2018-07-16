@@ -526,13 +526,12 @@ storage container so you can save the email body.
 1. In the **If true** block and under your Azure function, 
 choose **Add an action**. 
 
-2. Under **Choose an action**, find "create blob", 
+2. In the search box, enter "create blob" as your filter, 
 and select this action: **Create blob - Azure Blob Storage**
 
    ![Add action to create blob for email body](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-email-body.png)
 
-3. If you don't have a connection to an Azure storage account, 
-create a connection to your storage account with these 
+3. Create a connection to your storage account with these 
 settings as shown and described here. 
 When you're done, choose **Create**.
 
@@ -548,16 +547,16 @@ When you're done, choose **Create**.
 ```Create blob for email body```
 
 5. In the **Create blob** action, provide this 
-information, and select these properties to create 
+information, and select these fields to create 
 the blob as shown and described:
 
    ![Provide blob information for email body](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
 
    | Setting | Value | Description | 
    | ------- | ----- | ----------- | 
-   | **Folder path** | /attachments | The path and name for the container that you previously created. You can also browse and select a container. | 
-   | **Blob name** | **From** field | Pass in the email sender name as the blob name. From either the parameter list or dynamic content list, select **From** under **When a new email arrives**. | 
-   | **Blob content** | **Content** field | Pass in the HTML-free email body as the blob content. From the dynamic content list, select **Body** under **Call RemoveHTMLFunction to clean email body**. |
+   | **Folder path** | /attachments | The path and name for the container that you previously created. For this example, click the folder icon, and then select the "/attachments" container. | 
+   | **Blob name** | **From** field | For this example, use the sender's name as the blob's name. Click inside this box so that the dynamic content list appears, and then select the **From** fild under the **When a new email arrives** action. | 
+   | **Blob content** | **Content** field | For this example, use the HTML-free email body as the blob content. Click inside this box so that the dynamic content list appears, then select **Body** under the **Call RemoveHTMLFunction to clean email body** action. |
    |||| 
 
 6. Save your logic app. 
@@ -612,8 +611,8 @@ Next, add a loop to process all the email attachments.
 
 ## Process attachments
 
-This logic app uses a **for each** loop to 
-process each attachment in the email.
+To process each attachment in the email, 
+add a **For each** loop to your logic app's workflow.
 
 1. Under the **Create blob for email body** shape, 
 choose **More**, and select this command: **Add a for each**
