@@ -30,7 +30,12 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 - [Visual Studio Code](https://code.visualstudio.com/).
-- Resource Manager Tools extension.  See [Install the extension](./resource-manager-create-templates-use-visual-studio-code.md#install-the-extension)
+- Resource Manager Tools extension. To install, use these steps:
+
+    1. Open Visual Studio Code.
+    2. Press **CTRL+SHIFT+X** to open the Extensions pane
+    3. Search for **Azure Resource Manager Tools**, and then select **Install**.
+    4. Select **Reload** to finish the extension installation.
 
 ## Open a Quickstart template
 
@@ -64,14 +69,14 @@ To learn how to edit a template using Visual Studio Code, you add one more eleme
 
     ```json
     "outputs": {
-    "storageAccountName": {
+      "storageAccountName": {
         "type": "string",
         "value": "[variables('storageAccountName')]"
-    },
-    "storageUri": {
+      },
+      "storageUri": {
         "type": "string",
         "value": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
-    }
+      }
     }
     ```
 
