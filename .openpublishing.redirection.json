@@ -25286,6 +25286,11 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-accelerators/iot-accelerators-connected-factory-overview.md",
+          "redirect_url": "/azure/iot-accelerators/quickstart-connected-factory-deploy",
+          "redirect_document_id": false
+        },
+        {
           "source_path": "articles/iot-accelerators/iot-accelerators-predictive-overview.md",
           "redirect_url": "/azure/iot-accelerators/quickstart-predictive-maintenance-deploy",
           "redirect_document_id": false
