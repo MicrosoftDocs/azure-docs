@@ -1,0 +1,46 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Active Directory Users, Groups, Roles, Licenses Documentation
+metadata:
+  document_id: 
+  title: Azure Active Directory users, groups, roles, and licenses documentation
+  description: Learn how to use users, groups, roles, and licenses to manage authentication to Azure cloud services in your tenant.
+  services: active-directory
+  ms.component: users-groups-roles
+  author: curtand
+  manager: mtillman
+  ms.service: active-directory
+  ms.topic: landing-page
+  ms.date: 07/12/2018
+  ms.author: curtand
+abstract:
+  description: User management is the basis of identity management in Azure Active Directory. Some users need SaaS app access, and some users need permissions for Azure AD management tasks. If you're in a large organization, you can assign licenses to groups instead of individually, or delegate permissions to distribute the work of Azure AD management. To accomplish your top tasks more quickly and at scale, you should understand the relationships between users and their groups, administrator roles, and licenses. 
+sections:
+- title: 5-Minute quickstarts
+  items:
+  - type: paragraph
+    text: Learn how to manage group administrative settings in Azure Active Directory
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Set Office 365 groups to expire in Azure Active Directory</a>
+    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Add naming policy for Office 365 groups in Azure Active Directory</a>
+
+- title: Step-by-step tutorials
+  items:
+  - type: paragraph
+    text: Learn how to set up dynamically populated groups in Azure Active Directory
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial.md">Create a dynamically populated group</a>
+  
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Reference links
+      html: <p><a href="https://azure.microsoft.com/resources/samples/?service=active-directory">Code samples</a></p><p><a href="/powershell/azure/overview">Azure PowerShell cmdlets</a></p><p><a href="/powershell/azure/overview">Azure PowerShell cmdlets</a></p><p><a href="/powershell/azure/overview">Azure PowerShell cmdlets</a></p><p><a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">.NET API</a></p>
+
