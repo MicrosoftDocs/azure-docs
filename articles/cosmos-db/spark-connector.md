@@ -141,7 +141,6 @@ df.show()
 ```
 
 ## Considerations when using pyDocumentDB SDK
-
 Connecting spark to Azure Cosmos DB by using pyDocumentDB SDK is recommended in the following scenarios:
 
 * You want to use Python.  
@@ -174,7 +173,7 @@ Communication between spark and Azure Cosmos DB is significantly faster because 
 
 3. Open a command prompt and install Tweepy and pyDocumentdb modules by running the following commands:
 
-   ```
+   ```bash
    pip install tweepy==3.3.0
    pip install pyDocumentDB
    ```
@@ -185,7 +184,7 @@ Communication between spark and Azure Cosmos DB is significantly faster because 
 
 6. Save the config.py file. Open command prompt and run the python application by using the following command:
 
-   ```
+   ```bash
    Python driver.py
    ```
 
@@ -320,9 +319,7 @@ Java SDK supports the following values for configuration mapping:
 |changefeedstartfromthebeginning  |  Sets whether change feed should start from the beginning (true) or from the current point (false). By default, it starts from the current (false).       |
 |rollingchangefeed  |   A Boolean value indicating whether the change feed should be from the last query. The default value is false, which means the changes will be counted from the first read of the collection.      |
 |changefeedusenexttoken  |   A Boolean value to support processing failure scenarios. It is used to indicate that the current change feed batch has been handled gracefully and the RDD should use the next continuation tokens to get the subsequent batch of changes.      |
-| InferStreamSchema | A Boolean value that indicated whether the schema of the streaming data should be sampled at the start of streaming. By default, this value is set to true. If this parameter is set to true and the streaming data’s schema changes after the data is sampled, newly added properties will be dropped in the streaming data frame. 
-
-If you want the streaming data frame to be schema agnostic, set this parameter to false. In this mode, the body of the documents read from Azure Cosmos DB change feed are wrapped into a ‘body’ property in the resultant streaming data frame aside from system property values.
+| InferStreamSchema | A Boolean value that indicated whether the schema of the streaming data should be sampled at the start of streaming. By default, this value is set to true. If this parameter is set to true and the streaming data’s schema changes after the data is sampled, newly added properties will be dropped in the streaming data frame. <br/> If you want the streaming data frame to be schema agnostic, set this parameter to false. In this mode, the body of the documents read from Azure Cosmos DB change feed are wrapped into a ‘body’ property in the resultant streaming data frame aside from system property values.
  |
 
 ### Connection settings
@@ -425,10 +422,7 @@ Java SDK supports the following values for configuration mapping:
 |Setting  |Description  |
 |---------|---------|
 | BulkImport | A Boolean value that indicates whether data should be imported by using the BulkExecutor library. By default, this value is set to true. |
-|WritingBatchSize  |   Indicates the batch size to use when writing data to Azure Cosmos DB collection.
-
-- If BulkImport parameter is set to true, then WritingBatchSize parameter indicates the batch size of documents supplied as input to the importAll API of the BulkExecutor library. By default, this value is set to 100K.
-- If BulkImport parameter is set to false, then WritingBatchSize parameter indicates the batch size to use when writing to Azure Cosmos DB collection. The connector sends createDocument/upsertDocument requests asynchronously in batch. The larger the batch size the more throughput we can achieve as long as the cluster resources are available. On the other hand, specify a smaller number batch size to limit the rate and RU consumption. By default, writing batch size is set to 500.  |
+|WritingBatchSize  |   Indicates the batch size to use when writing data to Azure Cosmos DB collection. <br/> If BulkImport parameter is set to true, then WritingBatchSize parameter indicates the batch size of documents supplied as input to the importAll API of the BulkExecutor library. By default, this value is set to 100K. <br/> If BulkImport parameter is set to false, then WritingBatchSize parameter indicates the batch size to use when writing to Azure Cosmos DB collection. The connector sends createDocument/upsertDocument requests asynchronously in batch. The larger the batch size the more throughput we can achieve as long as the cluster resources are available. On the other hand, specify a smaller number batch size to limit the rate and RU consumption. By default, writing batch size is set to 500.  |
 |Upsert   |  A Boolean value string indicating whether upsertDocument should be used instead of CreateDocument when writing to CosmosDB collection.   |
 | WriteThroughputBudget |  An integer string that represents the number of RU\s that you want to allocate to the bulk ingestion spark job out of the total throughput allocated to the collection. |
 
