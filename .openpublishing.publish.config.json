@@ -72,12 +72,6 @@
       }
     },
     {
-      "path_to_root": "users-groups-roles",
-      "url": "https://github.com/Azure/active-directory/users-groups-roles",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-        {
       "path_to_root": "azure-docs-json-samples",
       "url": "https://github.com/Azure/azure-docs-json-samples",
       "branch": "master",
