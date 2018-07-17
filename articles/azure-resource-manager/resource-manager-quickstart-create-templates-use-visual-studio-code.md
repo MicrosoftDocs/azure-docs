@@ -88,14 +88,14 @@ To learn how to edit a template using Visual Studio Code, you add one more eleme
 
 ## Deploy the template
 
-There are many methods for deploying templates.  In this quickstart, you use the Cloud shell from the Azure portal. The Cloud shell supports both CLI and Azure PowerShell. The instructions provided here use CLI.
+There are many methods for deploying templates.  In this quickstart, you use the Cloud shell from the Azure portal. The Cloud shell supports both Azure CLI and Azure PowerShell. The instructions provided here use CLI.
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 2. Select **Cloud Shell** from the upper right corner as shown in the following image:
 
     ![Azure portal Cloud shell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
 
-3. Select the down arrow and then select **Bash** to switch to CLI from Azure PowerShell.
+3. Select the down arrow and then select **Bash** to switch to CLI from PowerShell.
 
     ![Azure portal Cloud shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
 4. Select **Restart** to restart the shell.

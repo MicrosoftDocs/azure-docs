@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/11/2018
+ms.date: 07/17/2018
 ms.topic: quickstart
 ms.author: jgao
 
@@ -85,7 +85,7 @@ In this section, you open the saved template from the template library, edit the
 
     ![Azure Resource Manager templates](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template.png)
 
-4. Add a **variables** element, and then add one variable:
+4. Add a **variables** element, and then add one variable as shown in the following screenshot:
 
     ```json
     "variables": {
@@ -94,10 +94,10 @@ In this section, you open the saved template from the template library, edit the
     ```
     ![Azure Resource Manager templates](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-    Two functions are used here: concat() and uniqueString(). The uniqueString is helpful for creating a unique name for a resource.
+    Two functions are used here: *concat()* and *uniqueString()*. The uniqueString() is helpful for creating a unique name for a resource.
 
 5. Remove the **name** parameter highlighted in the previous screenshot.
-6. Update the name element of the **Microsoft.Storage/storageAccounts** resource to use the newly define variable:
+6. Update the name element of the **Microsoft.Storage/storageAccounts** resource to use the newly defined variable instead of the parameter:
 
     ```json
     "name": "[variables('storageAccountName')]",
@@ -162,7 +162,6 @@ In this section, you open the saved template from the template library, edit the
     - **Subsription**: select your Azure subscription.
     - **Resource group**: name your resource group with a unique name.
     - **Location**: select a location for the resource group.
-    - **Name**: name your storage account with a unique name.
     - **Location**: select a location for the storage account.  You can use the same location as the resource group.
     - **Account Type**: Enter **Standard_LRS** for this quickstart.
     - **Kind**: Enter **Storage** for this quickstart.
@@ -187,7 +186,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to generate a template from the Azure portal, and how to deploy the template using the portal. The template used in this Quickstart is a simple template with one Azure resource. When the template is complex, it is easier to use Visual Studio Code or Visual Studio to develop the template. 
+In this tutorial, you learned how to generate a template from the Azure portal, and how to deploy the template using the portal. The template used in this Quickstart is a simple template with one Azure resource. When the template is complex, it is easier to use Visual Studio Code or Visual Studio to develop the template.
 
 > [!div class="nextstepaction"]
 > [Create templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
