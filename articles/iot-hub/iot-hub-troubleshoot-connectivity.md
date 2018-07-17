@@ -50,16 +50,11 @@ After Diagnostic Logs and alert for connected devices are turned on, you could s
 
 1. Go to **Log Analytics** in Azure portal
 1. Click **Log Search**
-1. To isolate diagnostic logs for IoT Hub, enter this query
+1. To isolate connectivity error logs for IoT Hub, enter this query in the box, then press **Run**
 
     ```
     search *
     | where ( Type == "AzureDiagnostics" and ResourceType == "IOTHUBS")
-    ```
-
-1. To isolate only errors on connection and disconnections, also enter
-
-    ```
     | where ( Category == "Connections" and Level == "Error")
     ```
 
