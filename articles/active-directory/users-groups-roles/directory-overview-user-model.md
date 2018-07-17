@@ -14,14 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro
 
-#As a new Azure AD identity administrator, I want to understand relationships between my user management tools, so I can use groups, administrator roles, and licenses to perform my top identity management tasks at scale.”
+#As a new Azure AD identity administrator, I want to understand relationships between my user management tools, so I can use groups, administrator roles, and licenses to perform my top identity user management tasks at scale.”
 ---
 
-# What is user access management using groups, licensing, and roles?
+# What tools does Azure Active Directory provide to manage users as my company grows?
 
-User management is the basis of identity management in Azure Active Directory (Azure AD). The users that you manage belong to groups and need licenses to use online services. Some users need SaaS app access, and some users need permissions for Azure AD management tasks. If you're in a large organization, you can assign licenses to groups instead of individually, or delegate permissions to distribute the work of Azure AD management. To accomplish your top tasks more quickly and at scale, you should understand the relationships between users and their groups, administrator roles, and licenses.
-
-This article introduces new Azure AD administrators to the relationship between top identity management tasks for users and their groups, licenses, and administrator roles.
+User management is the basis of identity management in Azure Active Directory (Azure AD). As you organization grows, you can use Azure AD groups as a user management tool and a licensing tool, and Azure AD an administrative management tool. The users that you manage belong to groups and need licenses to use online services. You can assign licenses to groups instead of individuals, or delegate permissions to distribute the overhead of Azure AD management. These tools help you accomplish your top tasks more quickly and accommodate growth. This article introduces new Azure AD administrators to the relationship between top identity management tasks for users and their groups, licenses, and administrator roles.
 
 ## Assign users to groups
 
@@ -47,7 +45,7 @@ If there are not enough available licenses, or an issue occurs like service plan
 
 ## Assign roles to delegate permissions
 
-You want to assign the least possible privilege to users to perform their tasks. You probably don't want to assign the Global Administrator role, for example, to every application owner. But if you don't, you force application management responsibilities onto Global Administrators. You can now use new Azure AD admin roles to distribute the work of application management with more granularity:
+You want to assign the least possible privilege to users to perform their tasks. You probably don't want to assign the Global Administrator role, for example, to every application owner. But if you don't, you force application management responsibilities onto Global Administrators. Here's an example of how you can use new Azure AD admin roles to distribute the work of application management with more granularity:
 
 * The **Application Administrator**, who can manage enterprise applications, application registrations and configure proxy application settings. They can view conditional access policies and devices, but not manage them. In scope for the role is the ability to configure single sign-on, managing and updating claims. 
  
