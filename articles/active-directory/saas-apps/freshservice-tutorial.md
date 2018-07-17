@@ -146,11 +146,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. Select **SAML SSO**.
 
-    c. In the **SAML Login URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal.
+    c. In the **SAML Login URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
 
-    d. In the **Logout URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
+    d. In the **Logout URL** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal.
 
-    e. In **Security Certificate Fingerprint** textbox, paste the **THUMBPRINT** value of certificate which you have copied from Azure portal.
+    e. In **Security Certificate Fingerprint** textbox, paste the **THUMBPRINT** value of certificate, which you have copied from Azure portal.
 
 	f. Click **Save**
 
