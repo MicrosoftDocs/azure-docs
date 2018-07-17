@@ -9,7 +9,7 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/17/2018
 ms.author: v-jerkin
 ---
 
@@ -19,7 +19,7 @@ The Cognitive Services Speech Software Development Kit (SDK) provides your appli
 
 [!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
-[!include[License Notice](includes/license-notice.md)]
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Get the Windows SDK
 
@@ -53,14 +53,19 @@ To create an application, copy or move the required binaries (and libraries) int
 
 The Java SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries as well as required Android permissions for using it.
 It is hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
+The consume the package from your Android Studio project make the following changes:
 
-* In your Android Studio project, add
+* In the project-level `build.gradle` file, add the following into the `repository` section:
+
+  ```text
+  maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
+  ```
+
+* In the module-level `build.gradle` file, add the following into the `dependencies` section:
 
   ```text
   implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.5.0'
   ```
-
-  in the `dependencies` section of your module-level `build.gradle` file.
 
 The Java SDK is also part of the [Speech Devices SDK](speech-devices-sdk.md).
 

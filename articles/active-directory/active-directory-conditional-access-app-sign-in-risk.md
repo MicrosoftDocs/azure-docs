@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/03/2018
+ms.date: 07/16/2018
 ms.author: markvi
 ms.reviewer: calebb
 #Customer intent: As an IT admin, I want to configure a policy to handle suspicious sign-ins, so that they can be automatically handled.
@@ -70,7 +70,7 @@ This section shows how to create the required conditional access policy. In your
 | Grant | Block access |
  
 
-![Create policy](./media/active-directory-conditional-access-app-sign-in-risk/115.png)
+![Create policy](./media/active-directory-conditional-access-app-sign-in-risk/130.png)
 
  
 
@@ -122,6 +122,26 @@ This section shows how to create the required conditional access policy. In your
     a. Click **All cloud apps**.
 
     b. Click **Done**.
+
+10. Click **Conditions**. 
+
+    ![Access controls](./media/active-directory-conditional-access-app-sign-in-risk/19.png)
+
+11. On the **Conditions** page:
+
+    ![Sign-in risk level](./media/active-directory-conditional-access-app-sign-in-risk/21.png)
+
+    a. Click **Sign-in risk**.
+ 
+    b. As **Configure**, click **Yes**.
+
+    c. As sign-in risk level, select **Medium**.
+
+    d. Click **Select**.
+
+    e. On the **Conditions** page, click **Done**.
+
+
 
 10. In the **Access controls** section, click **Grant**.
 
