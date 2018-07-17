@@ -444,10 +444,10 @@ items:
         href: monitor-accounts.md
     - name : Backup and restore
       items:
-    - name: Online backup and restore
-      href: online-backup-and-restore.md
-    - name: Regional failover
-      href: regional-failover.md
+      - name: Online backup and restore
+        href: online-backup-and-restore.md
+      - name: Regional failover
+        href: regional-failover.md
     - name : Automate
       items:
       - name: Stored procedures, triggers, and UDFs
