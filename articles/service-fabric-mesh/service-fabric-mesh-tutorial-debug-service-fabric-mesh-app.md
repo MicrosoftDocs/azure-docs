@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter
 
 # Tutorial: Debug a Service Fabric Mesh application running locally
 
-This tutorial is part two of a series and shows you how to debug an Azure Service Fabric Mesh application on your local development cluster.
+This tutorial is part two of a series and shows you how to debug an Azure Service Fabric Mesh web application on your local development cluster.
 
 In this tutorial you will learn:
 
@@ -52,13 +52,13 @@ If you did not create the to-do sample application in [part one of this tutorial
 git clone https://github.com/azure-samples/service-fabric-mesh
 ```
 
-The application is under the `basicservicefabricmeshapp` directory.
+The application is under the `src\todolistapp` directory.
 
 ## Build and debug on your local cluster
 
 A Docker image is automatically built and deployed to your local cluster as soon as your project loads. This process may take a while. To monitor the progress in the Visual Studio **Output** pane, set the Output pane **Show output from:** drop-down to **Service Fabric Tools**.
 
-Press **F5** to compile and run your service locally. Whenever the project is run and debugged locally, Visual Studio will:
+Press **F5** to compile and run your service locally. When the project is run and debugged locally, Visual Studio will:
 
 * Make sure that Docker for Windows is running and set to use Windows as the container operating system.
 * Download any missing Docker base images. This part may take some time
@@ -93,4 +93,4 @@ In this part of the tutorial, you learned:
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Publish the application](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> [Publish a Service Fabric Mesh web application](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
