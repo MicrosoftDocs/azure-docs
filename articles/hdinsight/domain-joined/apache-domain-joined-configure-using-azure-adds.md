@@ -3,15 +3,12 @@ title: Configure a domain-joined HDInsight cluster by using Azure AD DS
 description: Learn how to set up and configure a domain-joined HDInsight cluster by using Azure Active Directory Domain Services
 services: hdinsight
 author: omidm1
+ms.author: omidm
 manager: jhubbard
 editor: cgronlun
-
-
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.author: omidm
-
+ms.date: 07/17/2018
 ---
 # Configure a domain-joined HDInsight cluster by using Azure Active Directory Domain Services
 
@@ -51,17 +48,17 @@ When you create a domain-joined HDInsight cluster, you must supply the following
 - **Domain name**: The domain name that's associated with Azure AD DS. An example is contoso.onmicrosoft.com.
 - **Domain user name**: The service account in the managed domain that you created in the previous section. An example is hdiadmin@contoso.onmicrosoft.com. This domain user will be the administrator of this HDInsight cluster.
 - **Domain password**: The password of the service account.
-- **Organizational unit**: The distinguished name of the OU that you want to use with the HDInsight cluster. An example is OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. If this OU does not exist, the HDInsight cluster tries to create the OU by using the privileges that the service account has. For example, if the service account is in the Azure AD DS Administrators group, it has the right permissions to create an OU. Otherwise, you might need to create the OU first and give the service account full control over that OU. For more information, see [Create an OU on an Azure AD DS managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
+- **Organizational unit**: The distinguished name of the OU that you want to use with the HDInsight cluster. An example is OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com. If this OU does not exist, the HDInsight cluster tries to create the OU by using the privileges that the service account has. For example, if the service account is in the Azure AD DS Administrators group, it has the right permissions to create an OU. Otherwise, you might need to create the OU first and give the service account full control over that OU. For more information, see [Create an OU on an Azure AD DS managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
 
     > [!IMPORTANT]
-    > Include all of the DCs, separated by commas, after the OU (for example, OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com).
+    > Include all of the DCs, separated by commas, after the OU (for example, OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com).
 
 - **LDAPS URL**: An example is ldaps://contoso.onmicrosoft.com:636.
 
     > [!IMPORTANT]
     > Enter the complete URL, including "ldaps://" and the port number (:636).
 
-- **Access user group**: The security groups whose users you want to sync to the cluster. An example is HiveUsers. If you want to specify multiple user groups, separate them by using commas.
+- **Access user group**: The security groups whose users you want to sync to the cluster. For example, HiveUsers. If you want to specify multiple user groups, separate them by semicolon ‘;’.
  
 The following screenshot shows the configurations in the Azure portal:
 
