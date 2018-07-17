@@ -70,7 +70,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 Notice the elements that are included in an Azure Stream Analytics project.
 
-   <img src="./media/stream-analytics-quick-create-vs/stream-analytics-project.png" alt="Azure Stream Analytics project elements" size="200px"/>
+   <img src="./media/stream-analytics-quick-create-vs/stream-analytics-project.png" alt="Azure Stream Analytics project elements" size="100px"/>
 
 ## Choose the required subscription
 
