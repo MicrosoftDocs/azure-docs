@@ -42,9 +42,7 @@ For this article, you need a free [LUIS](luis-reference-regions.md#luis-website)
 > The complete Go solution including an example `utterances.json` file are available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/go).
 
 ## Add utterances and train using the Authoring API with Go
-You can add example utterances to an existing intent and train the app with Go.
-
-1. Create a new file named `add-utterances.go`. Add the following code:
+You can add example utterances to an existing intent and train the app with Go. Create a new file named `add-utterances.go`. Add the following code:
 
    [!code-go[Go code that adds utterance and trains app](~/samples-luis/documentation-samples/authoring-api-samples/go/add-utterances.go?range=35-136)]
 
@@ -58,7 +56,7 @@ The `text` field contains the text of the utterance. The `intentName` field must
 
 If the entityLabels list is not empty, the `startCharIndex` and `endCharIndex` need to mark the entity referred to in the `entityName` field. Both indexes are zero-based counts meaning 6 in the top example refers to the "S" of Seattle and not the space before the capital S.
 
-```json
+```JSON
 [
     {
         "text": "go lang 1",
