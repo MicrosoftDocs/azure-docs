@@ -8,7 +8,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: v-geberr
 ---
 
@@ -39,15 +39,15 @@ Train the app.
 Batch testing allows you to validate a model's state with a known set of test utterances and labeled entities. In the JSON-formatted batch file, add the utterances and set the entity labels you need predicted inside the utterance. 
 
 <!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. -->
-For this tutorial, make sure you are not using the example utterances, added to an intent. 
+For this tutorial, make sure you are not using the example utterances already added to an intent. 
 
 To verify your batch test utterances against the example utterances, [export](luis-how-to-start-new-app.md#export-app) the app. Compare the app example utterance's to the batch test utterances. 
 
 Requirements for batch testing:
 
-* 1000 utterances per test maximum. 
+* Maximum of 1000 utterances per test. 
 * No duplicates. 
-* Entity types allowed: only machined-learned entities of simple and composite. Batch testing only applied to machined-learned intents and entities.
+* Entity types allowed: only machined-learned entities of simple and composite. Batch testing is only useful for machined-learned intents and entities.
 
 ## Create a batch file with utterances
 1. Create `HumanResources-jobs-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/). Or download [the file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json) from the LUIS-Samples Github repository.
@@ -116,15 +116,15 @@ While hovering over the chart, a mouse wheel can enlarge or reduce the display i
 
 The chart is in four quadrants, with two of the sections displayed in red. **These are the sections to focus on**. 
 
-### ApplyForJob test results
-The **ApplyForJob** test results displayed in the filter show that 1 of the four predictions was successful. Select the name **False positive** above the top right quadrant to see the utterances below the chart. 
+### GetJobInformation test results
+The **GetJobInformation** test results displayed in the filter show that 1 of the four predictions was successful. Select the name **False positive** above the top right quadrant to see the utterances below the chart. 
 
 <!--
 ![LUIS batch test utterances](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
 -->
 
 
-The three utterances had a top intent of **ApplyForJob**. The intent stated in the batch file had a lower score. Why did this happen? The two intents are very closely related in terms of word choice and word arrangement. Additionally, there are almost three times as many examples for **ApplyForJob** than **GetJobInformation**. This unevenness of example utterances weighs in **ApplyForJob** intent's favor. 
+The three utterances had a top intent of **GetJobInformation**. The intent stated in the batch file had a lower score. Why did this happen? The two intents are very closely related in terms of word choice and word arrangement. Additionally, there are almost three times as many examples for **ApplyForJob** than **GetJobInformation**. This unevenness of example utterances weighs in **ApplyForJob** intent's favor. 
 
 Notice that both intents have the same count of errors: 
 
