@@ -88,7 +88,7 @@ In the next few chapters, the infrastructure pieces that matter for deploying SA
 ### Azure network infrastructure
 The network infrastructure you need to deploy in Azure depends on whether you deploy a single Business One system for yourself. Or whether you are a hoster who hosts dozens of Business One systems for customers. There also might be slight changes in the design on whether how you connect to Azure. Going through different possibilities, one design where you have a VPN connectivity into Azure and where you extend your Active Directory through [VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design) or [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) into Azure.
 
-![Simple network configuration with Business One](./media/business-one-azure/simple_network_with_VPN.PNG)
+![Simple network configuration with Business One](./media/business-one-azure/simple-network-with-VPN.PNG)
 
 The simplified configuration presented introduces several security instances that allow to control and limit routing. It starts with 
 
@@ -100,7 +100,7 @@ The simplified configuration presented introduces several security instances tha
 A more sophisticated version of an Azure network configuration is based on the Azure [documented best practices of hub and spoke architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). The architecture pattern of hub and spoke would change the first simplified configuration to one like this:
 
 
-![Hub and spoke configuration with Business One](./media/business-one-azure/hub_spoke_network_with_VPN.PNG)
+![Hub and spoke configuration with Business One](./media/business-one-azure/hub-spoke-network-with-VPN.PNG)
 
 For cases where the users are connecting through the internet without any private connectivity into Azure, the design of the network in Azure should be aligned with the principles documented in the Azure reference architecture for [DMZ between Azure and the Internet](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
