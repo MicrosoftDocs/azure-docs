@@ -128,6 +128,6 @@ This article describes the Azure AD audit log schema in Azure Monitor. Each indi
 
 ## Next Steps
 
-* [Interpret sign-in logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Interpret sign-in logs schema in Azure monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 * [Read more about Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Frequently asked questions and known issues](active-directory-reporting-azure-monitor-diagnostics-overview.md#frequently-asked-questions)
+* [Frequently asked questions and known issues](reporting-azure-monitor-diagnostics-overview.md#frequently-asked-questions)

@@ -38,7 +38,7 @@ You need:
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. Click on **Azure Active Directory** -> **Activity** -> **Audit logs**. 
 3. Click **Export Settings** to open the Diagnostic Settings blade. Click **Edit setting** if you want to change existing settings or click **Add diagnostic setting** to add a new one. You can have up to three settings. 
-    ![Export settings](./media/active-directory-reporting-azure-monitor-diagnostics-azure-event-hub/ExportSettings.png "Export settings")
+    ![Export settings](./media/reporting-azure-monitor-diagnostics-azure-event-hub/ExportSettings.png "Export settings")
 
 4. Check the **Stream to an event hub** checkbox and click **Event Hub/Configure**.
 5. Select an Azure subscription and Event Hubs namespace you want to route the logs to. The subscription and Event Hubs namespace must both be associated with the Active Directory tenant that the logs stream from. You can also specify an event hub within the Event Hubs namespace to which logs should be sent. If no event hub is specified, an event hub will be created in the namespace with the default name **insights-logs-audit**.
@@ -46,10 +46,10 @@ You need:
 7. Check the **AuditLogs** checkbox to send audit logs to the storage account. 
 8. Check the **SignInLogs** checkbox to send sign-in logs to the storage account.
 9. Click **Save** to save the setting.
-    ![Diagnostics settings](./media/active-directory-reporting-azure-monitor-diagnostics-azure-event-hub/DiagnosticSettings.png "Diagnostic settings")
+    ![Diagnostics settings](./media/reporting-azure-monitor-diagnostics-azure-event-hub/DiagnosticSettings.png "Diagnostic settings")
 
 10. After about 15 minutes, verify that events appear in your event hub. To do this, navigate to the event hub from the portal and verify that the **incoming messages** count is greater than zero. 
-    ![Audit logs](./media/active-directory-reporting-azure-monitor-diagnostics-azure-event-hub/InsightsLogsAudit.png "Audit logs")
+    ![Audit logs](./media/reporting-azure-monitor-diagnostics-azure-event-hub/InsightsLogsAudit.png "Audit logs")
 
 
 ## Access data from Event Hubs
@@ -68,6 +68,6 @@ Once data appears in the event hub, you can access it in two ways.
 
 ## Next steps
 
-* [Integrate Azure Active Directory logs with Splunk using Azure Monitor Diagnostics](active-directory-reporting-azure-monitor-diagnostics-splunk-integration.md)
-* [Interpret audit logs schema in Azure monitor diagnostics](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md)
-* [Interpret sign-in logs schema in Azure monitor diagnostics](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Integrate Azure Active Directory logs with Splunk using Azure Monitor Diagnostics](reporting-azure-monitor-diagnostics-splunk-integration.md)
+* [Interpret audit logs schema in Azure monitor diagnostics](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Interpret sign-in logs schema in Azure monitor diagnostics](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)

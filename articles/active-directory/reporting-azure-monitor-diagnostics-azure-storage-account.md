@@ -37,7 +37,7 @@ You need:
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. Click on **Azure Active Directory** -> **Activity** -> **Audit logs**. 
 3. Click **Export Settings** to open the Diagnostic Settings blade. Click **Edit setting** if you want to change existing settings or click **Add diagnostic setting** to add a new one. You can have a maximum of three settings. 
-    ![Export settings](./media/active-directory-reporting-azure-monitor-diagnostics-azure-storage-account/ExportSettings.png "Export settings")
+    ![Export settings](./media/reporting-azure-monitor-diagnostics-azure-storage-account/ExportSettings.png "Export settings")
 
 4. Add a friendly name for the setting to remind you of its purpose. For example, "Send to Azure storage account". 
 5. Check the **Archive to a storage account** checkbox and click **Storage account** to choose the Azure storage account. 
@@ -46,14 +46,14 @@ You need:
 8. Check the **SignInLogs** checkbox to send sign-in logs to the storage account.
 9. Use the slider to set retention on your log data. By default, this value is "0" and logs will be retained in the storage account indefinitely. Else, you can set a value and events older than the number of days selected will be automatically cleaned up.
 10. Click **Save** to save the setting.
-    ![Diagnostics settings](./media/active-directory-reporting-azure-monitor-diagnostics-azure-storage-account/DiagnosticSettings.png "Diagnostics settings")
+    ![Diagnostics settings](./media/reporting-azure-monitor-diagnostics-azure-storage-account/DiagnosticSettings.png "Diagnostics settings")
 
 11. After about 15 minutues, verify that the logs are pushed into your storage account. Go to the Azure portal, click **Storage accounts**, choose the storage account you used earlier and click **Blobs**. 
 12. For **Audit logs**, click **insights-log-audit**. For **Sign-in logs**, click **insights-logs-signin**.
-    ![Storage account](./media/active-directory-reporting-azure-monitor-diagnostics-azure-storage-account/StorageAccount.png "Storage account")
+    ![Storage account](./media/reporting-azure-monitor-diagnostics-azure-storage-account/StorageAccount.png "Storage account")
 
 ## Next steps
 
-* [Interpret audit logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md)
-* [Interpret sign-in logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
-* [Frequently asked questions and known issues](active-directory-reporting-azure-monitor-diagnostics-overview.md#frequently-asked-questions)
+* [Interpret audit logs schema in Azure monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Interpret sign-in logs schema in Azure monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Frequently asked questions and known issues](reporting-azure-monitor-diagnostics-overview.md#frequently-asked-questions)

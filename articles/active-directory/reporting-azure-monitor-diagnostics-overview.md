@@ -91,13 +91,13 @@ This section contains the frequently asked questions and known issues with Azure
 
 **Q: Where should I start?** 
 
-**A:** Start with the [Overview](active-directory-reporting-azure-monitor-diagnostics-overview.md) to get an idea about what you need to deploy this feature. Once you're familiar with the pre-requisites, check out the tutorials to help you configure and route your logs to Event Hubs.
+**A:** Start with the [Overview](reporting-azure-monitor-diagnostics-overview.md) to get an idea about what you need to deploy this feature. Once you're familiar with the pre-requisites, check out the tutorials to help you configure and route your logs to Event Hubs.
 
 ---
 
 **Q: Which logs are included?**
 
-**A:** Both sign-ins and audit logs are available for routing through this feature, although B2C related audit events are currently not included. Read the [Audit log schema](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md) and [Sign-in log schema](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md) to find out which types of logs and which feature-based logs are currently supported. 
+**A:** Both sign-ins and audit logs are available for routing through this feature, although B2C related audit events are currently not included. Read the [Audit log schema](reporting-azure-monitor-diagnostics-audit-log-schema.md) and [Sign-in log schema](reporting-azure-monitor-diagnostics-sign-in-log-schema.md) to find out which types of logs and which feature-based logs are currently supported. 
 
 ---
 
@@ -115,13 +115,13 @@ This section contains the frequently asked questions and known issues with Azure
 
 **Q: How much will it cost to store my data?**
 
-**A:** The storage cost depends on the size of your logs as well as the retention period you choose. For an approximate estimate of the costs for tenants depending on the volume of logs generated, check out the [Overview](active-directory-reporting-azure-monitor-diagnostics-overview.md).
+**A:** The storage cost depends on the size of your logs as well as the retention period you choose. For an approximate estimate of the costs for tenants depending on the volume of logs generated, check out the [Overview](reporting-azure-monitor-diagnostics-overview.md).
 
 ---
 
 **Q: How much will it cost to stream my data to Event Hubs?**
 
-**A:** The streaming cost depends on the number of messages you receive per minute. Read the [Overview](active-directory-reporting-azure-monitor-diagnostics-overview.md) to learn more about how the cost is calculated as well as find an approximate estimate based on the number of messages. 
+**A:** The streaming cost depends on the number of messages you receive per minute. Read the [Overview](reporting-azure-monitor-diagnostics-overview.md) to learn more about how the cost is calculated as well as find an approximate estimate based on the number of messages. 
 
 ---
 
@@ -140,6 +140,6 @@ This section contains the frequently asked questions and known issues with Azure
 
 ## Next Steps
 
-* [Archive activity logs to storage account](active-directory-reporting-azure-monitor-diagnostics-azure-storage-account.md)
-* [Route activity logs to Event Hub](active-directory-reporting-azure-monitor-diagnostics-azure-event-hub.md)
+* [Archive activity logs to storage account](reporting-azure-monitor-diagnostics-azure-storage-account.md)
+* [Route activity logs to Event Hub](reporting-azure-monitor-diagnostics-azure-event-hub.md)
 * [Read more about Azure Diagnostic Logs](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)

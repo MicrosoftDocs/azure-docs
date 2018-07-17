@@ -46,6 +46,6 @@ In this article, you'll learn how to integrate Azure Active Directory logs with 
 
 ## Next steps
 
-* [Interpret audit logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-audit-log-schema.md)
-* [Interpret sign-in logs schema in Azure monitor](active-directory-reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
-* [Frequently asked questions and known issues](active-directory-reporting-azure-monitor-diagnostics-overview.md#frequently-asked-questions)
+* [Interpret audit logs schema in Azure monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Interpret sign-in logs schema in Azure monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Frequently asked questions and known issues](reporting-azure-monitor-diagnostics-overview.md#frequently-asked-questions)
