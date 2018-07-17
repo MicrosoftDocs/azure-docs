@@ -20,7 +20,7 @@ The body of the POST request for Text to Speech may be plain text (ASCII or UTF8
 
 The regional Text to Speech endpoints are shown here. Use the one appropriate to your subscription.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ## Specify a voice
 
