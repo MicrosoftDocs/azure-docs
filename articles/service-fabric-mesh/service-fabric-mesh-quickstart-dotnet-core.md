@@ -108,7 +108,7 @@ The application was deployed successfully and it can be accessed at http://...
 
 Open a web browser and navigate to the URL to see the website running in Azure:
 
-![Running Service Fabric Mesh Web application](media/service-fabric-mesh-tutorial-deploy-dotnetcore/DeployedWebProject.png)
+![Running Service Fabric Mesh Web application](media/service-fabric-mesh-tutorial-deploy-dotnetcore/deployed-web-project.png)
 
 ## Clean up resources
 
