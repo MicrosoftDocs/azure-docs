@@ -98,7 +98,7 @@ This article describes the Azure AD audit log schema in Azure Monitor. Each indi
 } 
 ```
 
-| Field Name | Description |
+| Field name | Description |
 |------------|-------------|
 | time       | Date and time (UTC) |
 | operationName | Name of the operation |
@@ -117,7 +117,7 @@ This article describes the Azure AD audit log schema in Azure Monitor. Each indi
 | properties | Lists the supported properties related to an audit log. For more information see the below table. | 
 
 
-| Property Name | Description |
+| Property name | Description |
 |---------------|-------------|
 | AuditEventCategory | Type of audit event. Can be *User Management*, *Application Management* etc.|
 | Identity Type | *Application* or *User* |
@@ -126,7 +126,7 @@ This article describes the Azure AD audit log schema in Azure Monitor. Each indi
 | Target Resource Name | Name of the target resource. For example, this may be an application name, a role name, a user principal name or a service principal name |
 | additionalTargets | Lists any additional properties for specific operations. For example, for an update operation, the old values and the new values are listed under *targetUpdatedProperties* | 
 
-## Next Steps
+## Next steps
 
 * [Interpret sign-in logs schema in Azure monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 * [Read more about Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)

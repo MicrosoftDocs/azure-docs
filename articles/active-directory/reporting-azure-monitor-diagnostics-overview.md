@@ -138,7 +138,7 @@ This section contains the frequently asked questions and known issues with Azure
 ---
 
 
-## Next Steps
+## Next steps
 
 * [Archive activity logs to storage account](reporting-azure-monitor-diagnostics-azure-storage-account.md)
 * [Route activity logs to Event Hub](reporting-azure-monitor-diagnostics-azure-event-hub.md)

@@ -144,7 +144,7 @@ This article describes the Azure AD sign-in log schema in Azure Monitor. Most of
         } 
     } 
 ```
-| Field Name | Description |
+| Field name | Description |
 |------------|-------------|
 | Time | Date and time in UTC |
 | ResourceId | This value is unmapped, and you can safely ignore this field.  |
@@ -163,7 +163,7 @@ This article describes the Azure AD sign-in log schema in Azure Monitor. Most of
 | Location | Provides the location of the sign-in activity |
 | Properties | Lists all the properties associated with sign-ins. For more information, read the [MS Graph API Reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). This schema uses the attribute names as in the sign-in resource, for readability.
 
-## Next Steps
+## Next steps
 
 * [Interpret audit logs schema in Azure monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 * [Read more about Azure Diagnostic Logs](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
