@@ -37,7 +37,7 @@ This build includes the following improvements and fixes for Azure Stack.
 
 - <!-- 2496385 | ASDK, IS --> **Added data transfer time into the total backup time.**
 
--	<!-- 1702130 | ASDK, IS --> **Backup external capacity now shows the correct capacity of the external share.** (currently hard-code to 10G)
+-	<!-- 1702130 | ASDK, IS --> **Backup external capacity now shows the correct capacity of the external share.** (Currently hard-code to 10 GB.)
  
 ### Fixed issues
 

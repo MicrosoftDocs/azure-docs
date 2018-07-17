@@ -39,16 +39,21 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 2496385 | ASDK, IS --> **Added data transfer time into the total backup time.**
 
--	<!-- 1702130 | ASDK, IS --> **Backup external capacity now shows the correct capacity of the external share.** (currently hard-code to 10G)
+-	<!-- 1702130 | ASDK, IS --> **Backup external capacity now shows the correct capacity of the external share.** (Previously hard-code to 10 GB.)
+
+- <!-- 2508488 |  IS   -->   Expand capacity by [adding additional scale unit nodes](azure-stack-add-scale-node.md).
+
 
 
 ### Fixed issues
 
 - <!-- 448955 | IS ASDK --> You can now successfully query activity logs for systems that are deployed in a UTC+N time zone.    
 
-- <!-- 2319627 |  ASDK, IS --> Pre-check for backup configuration parameters (Path/Username/Password/Encryption Key) does not set invalid settings to the backup configuration. (Previously invalid settings were set into the backup and backup would would then fail when tirggered.)
+- <!-- 2319627 |  ASDK, IS --> Pre-check for backup configuration parameters (Path/Username/Password/Encryption Key) no longer sets incorrect settings to the backup configuration. (Previously, incorrect settings were set into the backup and backup would would then fail when tirggered.)
 
 - <!-- 2215948 |  ASDK, IS --> The backup list now refreshes when you manually delete the backup from the external share.
+
+- <!-- 2332636 - IS -->  Update to this version no longer resets the default owner of the default provider subscription to the built-in CloudAdmin user.
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
@@ -87,11 +92,7 @@ The following are post-installation known issues for this build version.
 
 - <!-- 2551834 - IS, ASDK --> When you select **Tags** for a storage account in either the admin or user portals, the information fails to load and does not display.  
 
-  To view the unavailable information, use the [Get-AzureRmTag](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0) PowerShell cmdlet.
-
-
-- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
-  Workaround:  To resolve this issue after you install this update, use step 3 from the [Trigger automation to configure claims provider trust in Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedure to reset the owner of the default provider subscription.   
+  To view the unavailable information, use the [Get-AzureRmTag](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0) PowerShell cmdlet. 
 
 - <!-- TBD - IS ASDK --> Some administrative subscription types are not available.  When you upgrade Azure Stack to this version, the two subscription types that were [introduced with version 1804](azure-stack-update-1804.md#new-features) are not visible in the console. This is expected. The unavailable subscription types are *Metering subscription*, and *Consumption subscription*. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
 
