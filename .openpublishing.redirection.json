@@ -24871,7 +24871,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/active-directory/pp/msi-tutorial-linux-vm-access-storage",
+            "source_path": "articles/active-directory/pp/msi-tutorial-linux-vm-access-storage.md",
             "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage",
             "redirect_document_id": false
         },
