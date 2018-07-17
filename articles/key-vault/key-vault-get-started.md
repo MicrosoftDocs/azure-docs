@@ -25,9 +25,6 @@ This article helps you get started with Azure Key Vault using PowerShell and wal
 
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
-> [!NOTE]
-> This article does not include instructions on how to write an Azure application. You can use the [Azure Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343) for these steps.
-
 For Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli2.md).
 
 ## Requirements
