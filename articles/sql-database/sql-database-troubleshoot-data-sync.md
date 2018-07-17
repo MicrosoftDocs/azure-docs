@@ -188,7 +188,7 @@ After you create or re-create a key for an agent, you try to submit the key thro
 
 ![Sync Error dialog box - Can't submit agent key](media/sql-database-troubleshoot-data-sync/sync-error-cant-submit-agent-key.png)
 
-- **Prerequisites**. Before you proceed, check the  prerequisites:
+- **Prerequisites**. Before you proceed, check the following prerequisites:
 
   - The SQL Data Sync Windows service is running.
 
