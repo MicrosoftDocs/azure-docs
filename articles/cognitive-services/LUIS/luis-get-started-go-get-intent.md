@@ -35,7 +35,6 @@ For this article, you need a free [LUIS](luis-reference-regions.md#luis-website)
 > The complete Go solution is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/endpoint-api-samples/go).
 
 ## Create LUIS endpoint key
-<a name="create-luis-subscription-key">
 
 1. You first need to create a [Language Understanding API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
