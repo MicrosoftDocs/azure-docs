@@ -2,12 +2,12 @@
 title: Using Azure Import/Export to export data from Azure Blobs | Microsoft Docs
 description: Learn how to create export jobs in Azure portal to transfer data from Azure Blobs.
 author: alkohli
-manager: jeconnoc
+manager: twooley
 services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
 
 ---
@@ -90,7 +90,8 @@ Perform the following steps to create an export job in the Azure portal.
     - Review the details of the job.
     - Make a note of the job name and provided Azure datacenter shipping address for shipping disks to Azure. 
 
-        > [!NOTE] Always send the disks to the datacenter noted in the Azure portal. If the disks are shipped to the wrong datacenter, the job will not be processed.
+        > [!NOTE] 
+        > Always send the disks to the datacenter noted in the Azure portal. If the disks are shipped to the wrong datacenter, the job will not be processed.
 
     - Click **OK** to complete export job creation.
 
