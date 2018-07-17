@@ -222,12 +222,12 @@ Microsoft is creating a new method to help partners better track Azure usage tha
 
 As a Microsoft partner, you can associate Azure usage with any Azure resources you provision on a customer's behalf.  This can be done via the Azure Marketplace, the QuickStart repo, private github repos and even 1 on 1 customer engagements.  To enable this, there are two approaches available:
 
- 1. Azure Resource Manager Templates: Azure Resource Managertemplates or solution templates to deploy the Azure services to run the partner’s software. Partners can create Azure Resource Manager template that defines the infrastructure and configuration of your Azure solution. Creating an Azure Resource Managertemplate allows you and your customers repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. 
+ 1. Azure Resource Manager Templates: Azure Resource Manager templates or solution templates to deploy the Azure services to run the partner’s software. Partners can create Azure Resource Manager template that defines the infrastructure and configuration of your Azure solution. Creating an Azure Resource Manager template allows you and your customers repeatedly deploy your solution throughout its lifecycle and have confidence your resources are deployed in a consistent state. 
 
- 2. Azure Resource Manager APIs: partners can call the Azure Resource Manager APIs directly to either deploy an Azure Resource Managertemplate or to generate the API calls to directly provision Azure services. 
+ 2. Azure Resource Manager APIs: partners can call the Azure Resource Manager APIs directly to either deploy an Azure Resource Manager template or to generate the API calls to directly provision Azure services. 
 
 ## Method 1: Azure Resource Manager Templates 
-Today many partner solutions are deployed on a customer’s subscription using Azure Resource Manager templates.  If you already have a Azure Resource Managertemplate available in the Azure Marketplace, on GitHub or as a QuickStart, the process of modifying your template to enable this new tracking method should be straight forward.  If you are not using an Azure Resource Manager template today here are a few links to help you better understand Azure Resource Manager templates and how to create one: 
+Today many partner solutions are deployed on a customer’s subscription using Azure Resource Manager templates.  If you already have a Azure Resource Manager template available in the Azure Marketplace, on GitHub or as a QuickStart, the process of modifying your template to enable this new tracking method should be straight forward.  If you are not using an Azure Resource Manager template today here are a few links to help you better understand Azure Resource Manager templates and how to create one: 
 
 *	[Create and deploy your first Azure Resource Manager template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template)
 *	[Guide to create a solution template for Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
@@ -240,8 +240,8 @@ Adding the GUID is a single modification of the main template file:
  3. Add a new resource in the main template file. The resource only needs to be in the mainTemplate.json or azuredeploy.json, not in any nested or linked templates.
  4. Enter the GUID after the “pid-” as shown above.
 
-<ul>It should look something like this example:  
-  “pid-eb7927c8-dd66-43e1-b0cf-c346a422063” </ul>
+   It should look something like this example:
+   `pid-eb7927c8-dd66-43e1-b0cf-c346a422063`
 
  5. Check template for any errors
  6. Republish the template in the appropriate repositories
@@ -270,7 +270,7 @@ Adding the GUID is a single modification of the main template file:
 
 In some cases, partners prefer to make calls directly against the Azure Resource Manager REST APIs to deploy Azure services. [Azure supports multiple SDKs](https://docs.microsoft.com/en-us/azure/#pivot=sdkstools) to enable this.  You can use one of the SDKs, or call the REST APIs directly to deploy resources.
 
-If you are using an Azure Resource Managertemplate, you should tag your solution using the instructions above.  If you are not using an Azure Resource Manager template and making direct API calls you can still tag your deployment to associate usage of Azure resources. 
+If you are using an Azure Resource Manager template, you should tag your solution using the instructions above.  If you are not using an Azure Resource Manager template and making direct API calls you can still tag your deployment to associate usage of Azure resources. 
 
 **How to tag a deployment using the Azure Resource Manager APIs:**
 For this approach, when designing your API calls you will include a GUID in the user agent header in the request. The GUID should be added for each Offer or SKU.  The string will need to be formatted with the prefix pid- and then include the partner generated GUID.   
@@ -451,7 +451,7 @@ Customers are currently able to track their usage of individual resources or cus
 This new method of connecting the deployment and usage to a partner’s solution is intended to provide a mechanism to link a partner solution to Azure usage.  DPOR is intended to associate a consulting (Systems Integrator) or management (Managed Service Provider) partner with a customer’s Azure subscription.   
 
 
-## Next Steps
+## Next steps
 Visit [Go to Market Services](https://partner.microsoft.com/reach-customers/gtm) to learn more about Marketplace services. 
 
 ---
