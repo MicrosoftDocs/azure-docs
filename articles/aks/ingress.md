@@ -87,7 +87,7 @@ If your cluster is not RBAC enabled, instead use the following command:
 
 ```console
 helm install stable/cert-manager \
-  --set ingressShim.defaultIssuerName=letsencrypt-prod \
+  --set ingressShim.defaultIssuerName=letsencrypt-staging \
   --set ingressShim.defaultIssuerKind=ClusterIssuer \
   --set rbac.create=false \
   --set serviceAccount.create=false
