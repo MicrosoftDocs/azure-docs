@@ -85,17 +85,13 @@ The following template demonstrates:
 
 1. Sign in to [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Get the GUID id of a user, group, or application. For example, you can use the [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) command to list Azure AD users.
+1. Get the unique identifier of a user, group, or application. For example, you can use the [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) command to list Azure AD users.
 
     ```azurepowershell
     Get-AzureRmADUser
     ```
 
-1. Use a tool to create a GUID with the following format to identify the role assignment.
-
-    ```
-    11111111-1111-1111-1111-111111111111
-    ```
+1. Use a GUID tool to generate a unique identifier that will be used for the role assignment. The identifier has the format: `11111111-1111-1111-1111-111111111111`
 
 1. Create an example resource group.
 
@@ -109,10 +105,10 @@ The following template demonstrates:
     New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     ```
 
-    You are asked to specify the required parameters. The following shows an example of the output:
+    You are asked to specify the required parameters. The following shows an example of the output.
 
     ```Output
-    PS C:\Azure\Templates> New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    PS /home/user> New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     
     cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
     Supply values for the following parameters:
@@ -120,7 +116,6 @@ The following template demonstrates:
     principalId: 22222222-2222-2222-2222-222222222222
     builtInRoleType: Reader
     roleNameGuid: 11111111-1111-1111-1111-111111111111
-    
     
     DeploymentName          : rbac-rg
     ResourceGroupName       : ExampleGroup
@@ -145,17 +140,13 @@ The following template demonstrates:
 
 1. Sign in to [Azure CLI](/cli/azure/authenticate-azure-cli).
 
-1. Get the GUID id of a user, group, or application. For example, you can use the [az ad user list](/cli/azure/ad/user#az-ad-user-list) command to list Azure AD users.
+1. Get the unique identifier of a user, group, or application. For example, you can use the [az ad user list](/cli/azure/ad/user#az-ad-user-list) command to list Azure AD users.
 
     ```azurecli
     az ad user list
     ```
 
-1. Use a tool to create a GUID with the following format to identify the role assignment.
-
-    ```
-    11111111-1111-1111-1111-111111111111
-    ```
+1. Use a GUID tool to generate a unique identifier that will be used for the role assignment. The identifier has the format: `11111111-1111-1111-1111-111111111111`
 
 1. Create an example resource group.
 
@@ -169,7 +160,7 @@ The following template demonstrates:
     az group deployment create --resource-group ExampleGroup --template-file rbac-rg.json
     ```
 
-    You are asked to specify the required parameters. The following shows an example of the output:
+    You are asked to specify the required parameters. The following shows an example of the output.
 
     ```Output
     C:\Azure\Templates>az group deployment create --resource-group ExampleGroup --template-file rbac-rg.json
@@ -245,3 +236,4 @@ The following template demonstrates:
 
 - [Create and deploy your first Azure Resource Manager template](../azure-resource-manager/resource-manager-create-first-template.md)
 - [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
+- [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/?term=rbac)
