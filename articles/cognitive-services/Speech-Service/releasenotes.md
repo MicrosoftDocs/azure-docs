@@ -38,11 +38,11 @@ ms.author: wolfma
 
 * Recognition events: NoMatch event type is merged into the Error event.
 * SpeechOutputFormat in C# is renamed to OutputFormat to keep aligned with C++.
-* The return type of some methods of the AudioInputStream interface slightly changed:
+* The return type of some methods of the `AudioInputStream` interface slightly changed:
    * In Java, the `read` method now returns `long` instead of `int`.
-   * In C#, the `Read` method now returns `uint` instead of `int.
-   * In C++, the `Read` and `GetFormat` methods now return `size\_t` instead of `int`.
-* C++: instances of audio input streams can now only be passed as a `shared\_ptr`.
+   * In C#, the `Read` method now returns `uint` instead of `int`.
+   * In C++, the `Read` and `GetFormat` methods now return `size_t` instead of `int`.
+* C++: instances of audio input streams can now only be passed as a `shared_ptr`.
 
 **Bug fixes**
 
