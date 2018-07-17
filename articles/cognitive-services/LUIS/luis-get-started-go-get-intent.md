@@ -65,13 +65,21 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
 
 You can use Go to access the same results you saw in the browser window in the previous step. 
 
-1. Create a new console application in Visual Studio. Copy the code that follows and save it into an *.go file:
+1. Create a new Go named `endpoint.go` file with the following code.
     
-   [!code-go[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/go/endpoint.go?range=29-81)]
+   [!code-go[Go code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/go/endpoint.go?range=29-81)]
 
-2. From a command prompt in the directory where you created the Go file, enter `go build endpoint.go` to compile the Go file. The command prompt does not return any information for a successful build
+2. From a command prompt in the directory where you created the Go file, enter `go build endpoint.go` to compile the Go file. The command prompt does not return any information for a successful build.
 
-3. Run the Go application from the command line by entering the following in the command prompt: `endpoint -endpointKey b881189129024709a272286c6301b72b -region westus`. The command prompt response is: 
+3. Run the Go application from the command line by entering the following in the command prompt: 
+
+```CMD
+endpoint -appID <your-app-id> -endpointKey <add-your-endpoint-key> -version <your-version-id> -region westus
+```
+
+Replace `<your-app-id>` with the value of your app ID. Replace `<add-your-endpoint-key>` with the value of your endpoint key. Replace `<your-version-id>` with the value of your version ID, the default is `0.1`. 
+
+The command prompt response is: 
 
     ```cmd
     appID has value df67dcdb-c37d-46af-88e1-8b97951ca1c2
@@ -98,7 +106,7 @@ You can use Go to access the same results you saw in the browser window in the p
     ```
 
 ## Clean up resources
-The two resources created in this tutorial are the LUIS endpoint key and the Go project. Delete the LUIS endpoint key from the Azure portal. Close the Visual Studio project and remove the directory from the file system. 
+The two resources created in this quickstart are the LUIS endpoint key and the Go project. Delete the LUIS endpoint key from the Azure portal. Close the Go file and remove it from the file system. 
 
 ## Next steps
 > [!div class="nextstepaction"]

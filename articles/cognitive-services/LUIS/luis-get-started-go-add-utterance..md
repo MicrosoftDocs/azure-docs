@@ -7,7 +7,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 06/27/2018
+ms.date: 07/17/2018
 ms.author: v-geberr
 #Customer intent: As a developer new to LUIS, I want to add an utterance to the LUIS app model using Go. 
 ---
@@ -32,137 +32,26 @@ For this article, you need a free [LUIS](luis-reference-regions.md#luis-website)
 
 * [Go](https://golang.org/) installed. 
 * Your LUIS **[authoring key](luis-concept-keys.md#authoring-key)**. You can find this key under Account Settings in the [LUIS](luis-reference-regions.md) website.
-* Your existing LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard. The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running this code. The code in this article does not create the intents and entities. It adds the utterances for existing intents and entities. 
+* Import [TravelAgent - Sample 1
+](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/Examples-BookFlight/travel-agent-sample-01.json) app from Github repository. Get the new app ID from **Settings** page in LUIS website. 
 * The **version ID** within the application that receives the utterances. The default ID is "0.1"
 * Create a new file named `add-utterances.go` project in VSCode.
 
 > [!NOTE] 
 > The complete Go solution including an example `utterances.json` file are available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/go).
 
-## Write the Go code
-The **add-utterances.go** file should be:
+## Add utterances and train using the Authoring API with Go
+You can add example utterances to an existing intent and train the app with Go.
 
-```Go
-package main
-/*
+1. Create a new Go file named `add-utterances.go` with the following code. A Go file has the `.go` extension.  
 
-	build endpoint.go from command line
-	> go build add-utterance.go
-
-	add utterances from file, train, and get training status from command line
-	> add-utterance -authoringKey xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -region westus -appID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -version myversion -utteranceFile utterances.json
-
-
-*/
-
-import (
-	"fmt"
-	"flag"
-	"net/http"
-	"io/ioutil"
-	"log"
-	"bytes"
-)
-
-func httpRequest(httpVerb string, url string, authoringKey string, body string){
-
-		client := &http.Client{}
-	
-		request, err := http.NewRequest(httpVerb, url, nil)
-		request.Header.Add("Ocp-Apim-Subscription-Key", authoringKey)
-
-		response, err := client.Do(request)
-		if err != nil {
-			log.Fatal(err)
-		} else {
-			defer response.Body.Close()
-			contents, err := ioutil.ReadAll(response.Body)
-			if err != nil {
-				log.Fatal(err)
-			}
-			fmt.Println("   ", response.StatusCode)
-			fmt.Println(string(contents))
-		}
-}
-
-func main() {
-	
-	var appID = flag.String("appID", "", "LUIS appID")
-	var authoringKey = flag.String("authoringKey", "", "LUIS authoring key")
-	var version = flag.String("version", "", "LUIS app version")
-	var region = flag.String("region", "", "LUIS app publish region")
-
-	var exampleUtterances = flag.String("utteranceFile", "utterances.json", "JSON file of utterances to train model")
-	var train = flag.Bool("train", true, "train the app")
-	var trainStatus = flag.Bool("status", true, "get training status")
-
-	flag.Parse()
-
-	if len(*exampleUtterances) != 0{
-		fmt.Println("add example utterances requested")
-		addUtterance(*authoringKey, *appID, *region, *version, *exampleUtterances)
-	}
-
-	if *train == true {
-		fmt.Println("training selected")
-		requestTraining(*authoringKey, *appID, *region, *version)
-	} 
-
-	if *trainStatus == true {
-		fmt.Println("training status selected")
-		getTrainingStatus(*authoringKey, *appID, *region, *version)
-	}
-
-}
-func addUtterance(authoringKey string, appID string, region string, version string, fileOfLabeledExampleUtterances string){
-
-    exampleUtterancesAsBytes, err := ioutil.ReadFile(fileOfLabeledExampleUtterances) // just pass the file name
-    if err != nil {
-        fmt.Print(err)
-	}
-	fmt.Println(string(exampleUtterancesAsBytes))
-
-	var authoringUrl = fmt.Sprintf("https://%s.api.cognitive.microsoft.com/luis/api/v2.0/apps/%s/versions/%s/examples", region, appID, version)
-
-	client := &http.Client{}
-		
-	request, err := http.NewRequest("POST", authoringUrl, bytes.NewBuffer(exampleUtterancesAsBytes))
-	request.Header.Add("Ocp-Apim-Subscription-Key", authoringKey)
-
-	response, err := client.Do(request)
-	if err != nil {
-		log.Fatal(err)
-	} else {
-		defer response.Body.Close()
-		contents, err := ioutil.ReadAll(response.Body)
-		if err != nil {
-			log.Fatal(err)
-		}
-		fmt.Println("   ", response.StatusCode)
-		fmt.Println(string(contents))
-	}
-}
-func requestTraining(authoringKey string, appID string, region string, version string){
-
-	trainApp("POST", authoringKey, appID, region, version)
-}
-func getTrainingStatus(authoringKey string, appID string, region string, version string){
-
-	trainApp("GET", authoringKey, appID, region, version)
-}
-func trainApp(httpVerb string, authoringKey string, appID string, region string, version string){
-
-	var authoringUrl = fmt.Sprintf("https://%s.api.cognitive.microsoft.com/luis/api/v2.0/apps/%s/versions/%s/train", region, appID, version)
-
-	httpRequest(httpVerb,authoringUrl, authoringKey, "")
-}
-```
+   [!code-go[Go code that adds utterance and trains app](~/samples-luis/documentation-samples/authoring-api-samples/go/add-utterances.go?range=35-136)]
 
 ## Specify utterances to add
 Create and edit the file `utterances.json` to specify the **array of utterances** you want to add to the LUIS app. The intent and entities **must** already be in the LUIS app.
 
 > [!NOTE]
-> The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.go`. The code in this article does not create the intents and entities. It only adds the utterances for existing intents and entities.
+> The LUIS `TravelAgent - Sample 1` application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.go`. The code in this article does not create the intents and entities. It only adds the utterances for existing intents and entities.
 
 The `text` field contains the text of the utterance. The `intentName` field must correspond to the name of an intent in the LUIS app. The `entityLabels` field is required. If you don't want to label any entities, provide an empty list as shown in the following example:
 
@@ -189,167 +78,52 @@ If the entityLabels list is not empty, the `startCharIndex` and `endCharIndex` n
 ]
 ```
 
-## Add an utterance from the command line
+## Add an utterance from the command line, train, and get status
+Run the Go code from a command prompt to add an utterance, train the app, and get the training status.
 
-Build and run the application from a command line with Go. Make sure the utterances.json file is also in this directory.
+1. From a command prompt in the directory where you created the Go file, enter `go build add-utterances.go` to compile the Go file. The command prompt does not return any information for a successful build.
 
-Calling add-utterances.go with only the utterance.json as an argument adds but does not train LUIS on the new utterances.
+3. Run the Go application from the command line by entering the following in the command prompt: 
 
-```
-add-utterances utterances.json
-```
+    ```CMD
+    add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region westus -utteranceFile utterances.json
 
-This command-line displays the results of calling the add utterances API. The `response` field is in this format for utterances that was added. The `hasError` is false, indicating the utterance was added.  
+    ```
 
-```json
-    "response": [
+    Replace `<add-your-authoring-key>` with the value of your authoring key (also known as the starter key). Replace `<your-app-id>` with the value of your app ID.
+
+    This command-prompt displays the results:
+
+    ```CMD
+    add example utterances requested
+    [
         {
-            "value": {
-                "UtteranceText": "go to seattle",
-                "ExampleId": -5123383
-            },
-            "hasError": false
-        },
+            "text": "go lang 1",
+            "intentName": "None",
+            "entityLabels": []
+        }
+    ,
         {
-            "value": {
-                "UtteranceText": "book a flight",
-                "ExampleId": -169157
-            },
-            "hasError": false
+            "text": "go lang 2",
+            "intentName": "None",
+            "entityLabels": []
         }
     ]
-```
+        201
+    [{"value":{"ExampleId":77783998,"UtteranceText":"go lang 1"},"hasError":false},{"value":{"ExampleId":77783999,"UtteranceText":"go lang 2"},"hasError":false}]
+    training selected
+        202
+    {"statusId":9,"status":"Queued"}
+    training status selected
+        200
+    [{"modelId":"c52d6509-9261-459e-90bc-b3c872ee4a4b","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"5119cbe8-97a1-4c1f-85e6-6449f3a38d77","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"01e6b6bc-9872-47f9-8a52-da510cddfafe","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"33b409b2-32b0-4b0c-9e91-31c6cfaf93fb","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"1fb210be-2a19-496d-bb72-e0c2dd35cbc1","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"3d098beb-a1aa-423f-a0ae-ce08ced216d6","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"cce854f8-8f8f-4ed9-a7df-44dfea562f62","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"4d97bf0d-5213-4502-9712-2d6e77c96045","details":{"statusId":3,"status":"InProgress","exampleCount":24}}]
+    ```
 
-## Add an utterance and train from the command line
-Call add-utterance with the `-train` argument to send a request to train. 
-
-```
-add-utterances -train utterances.json
-```
-
-> [!NOTE]
-> Duplicate utterances aren't added again, but don't cause an error. The `response` contains the ID of the original utterance.
-
-The following JSON shows the result of a successful request to train:
-
-```json
-{
-    "request": null,
-    "response": {
-        "statusId": 9,
-        "status": "Queued"
-    }
-}
-```
-
-After the request to train is queued, it can take a moment to complete training.
-
-## Get training status from the command line
-Call the app with the `-status` argument to check the training status and display status details.
-
-````
-add-utterances -status
-````
-
-```
-Requested training status.
-[
-   {
-      "modelId": "eb2f117c-e10a-463e-90ea-1a0176660acc",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "c1bdfbfc-e110-402e-b0cc-2af4112289fb",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "863023ec-2c96-4d68-9c44-34c1cbde8bc9",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "82702162-73ba-4ae9-a6f6-517b5244c555",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "37121f4c-4853-467f-a9f3-6dfc8cad2763",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "de421482-753e-42f5-a765-ad0a60f50d69",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "80f58a45-86f2-4e18-be3d-b60a2c88312e",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "c9eb9772-3b18-4d5f-a1e6-e0c31f91b390",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "2afec2ff-7c01-4423-bb0e-e5f6935afae8",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   },
-   {
-      "modelId": "95a81c87-0d7b-4251-8e07-f28d180886a1",
-      "details": {
-         "statusId": 0,
-         "status": "Success",
-         "exampleCount": 33,
-         "trainingDateTime": "2017-11-20T18:09:11Z"
-      }
-   }
-]
-```
+    You can verify the example utterances were add by refreshing the LUIS website for the **None** intent. 
 
 ## Clean up resources
-When you are done with the tutorial, remove Visual Studio and the console application if you don't need them anymore. 
+When you are done with the quickstart, remove the files created in this quickstart and the console application if you don't need them anymore. 
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Build a LUIS app programmatically](luis-tutorial-node-import-utterances-csv.md) 
+> [Build an app with a custom domain](luis-quickstart-intents-only.md) 
