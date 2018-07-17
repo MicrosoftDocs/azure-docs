@@ -265,7 +265,7 @@ public class ToDoController : Controller
 }
 ```
 
-This tutorial does not implement add, delete, and so on to keep the focus on communicating with another service.
+This tutorial does not implement add, delete, and so on, to keep the focus on communicating with another service.
 
 ## Create the web page that displays to-do items
 

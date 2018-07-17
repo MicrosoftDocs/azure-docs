@@ -76,7 +76,7 @@ Under **Resource group**, select **\<Create New Resource Group...>**. The **Crea
 
 ![Visual studio Service Fabric Mesh new resource group dialog](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-Back in the **Publish Service Fabric Application** dialog, under **Azure Container Registry**, select **\<Create New Container Registry...>**. In the **Create Container Registry** dialog, use a unique name for the **Container registry name**. Specify a **Location** (this quickstart uses **East US**). Select the **Resource group** that you created in the previous step in the drop-down, e.g. **sfmeshTutorial1RG**. Set the **SKU** to **Basic** and then click **Create** to return to the publish dialog.
+Back in the **Publish Service Fabric Application** dialog, under **Azure Container Registry**, select **\<Create New Container Registry...>**. In the **Create Container Registry** dialog, use a unique name for the **Container registry name**. Specify a **Location** (this quickstart uses **East US**). Select the **Resource group** that you created in the previous step in the drop-down, for example, **sfmeshTutorial1RG**. Set the **SKU** to **Basic** and then click **Create** to return to the publish dialog.
 
 If you get an error that a resource provider has not been registered for your subscription, you can register it. First see if the resource provider is available for your subscription:
 
@@ -112,7 +112,7 @@ Open a web browser and navigate to the URL to see the website running in Azure:
 
 ## Clean up resources
 
-When no longer needed, delete all of the resources you created for this quickstart. Since you created a new resource group to host both the ACR and Service Fabric Mesh service resources, you can safely delete this resource group which is an easy way to delete all of the resources  associated with it.
+When no longer needed, delete all of the resources you created for this quickstart. Since you created a new resource group to host both the ACR and Service Fabric Mesh service resources, you can safely delete this resource group, which is an easy way to delete all of the resources  associated with it.
 
 ```azurecli
 az group delete --resource-group sfmeshTutorial1RG
