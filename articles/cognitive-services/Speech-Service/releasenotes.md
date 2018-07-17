@@ -42,7 +42,7 @@ ms.author: wolfma
    * In Java, the `read` method now returns `long` instead of `int`.
    * In C#, the `Read` method now returns `uint` instead of `int.
    * In C++, the `Read` and `GetFormat` methods now return `size\_t` instead of `int`.
-* C++: audio input streams can now only be passed as a `shared\_ptr`.
+* C++: instances of audio input streams can now only be passed as a `shared\_ptr`.
 
 **Bug fixes**
 
