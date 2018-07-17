@@ -2,13 +2,13 @@
 title: Use Azure Cosmos DB explorer to manage your data  | Microsoft Docs
 description: Azure Cosmos DB explorer is a standalone web-based interface that allows you to view and manage the data stored in Azure Cosmos DB.
 services: cosmos-db
-author: 
+author: deborahc
 manager: kfile
 
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.author: 
+ms.date: 07/16/2018
+ms.author: Deborah.Chen
 
 ---
 
@@ -45,3 +45,8 @@ Azure Cosmos DB explorer is a standalone web-based interface that allows you to 
 ## Known issues
 
 Currently the **Open Full Screen** experience that allows you to share temporary read-write or read access is not yet supported for Azure Cosmos DB Gremlin and Table API accounts. You can still view your Gremlin and Table API accounts by passing the connection string to Azure Cosmos DB Explorer. 
+
+## Next steps
+Now that you have learned how to get started with Azure Cosmos DB explorer to manage your data, next you can:
+
+* Start defining [queries](sql-api-sql-query-reference.md) using SQL syntax and perform [server side programming](programming.md) by using stored procedures, UDFs, triggers. 
