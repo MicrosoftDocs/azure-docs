@@ -595,6 +595,7 @@ Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negativ
 {
     "id": 0,
     "averageScore": 0.87,
+    "sentimentType": "Positive",
     "instances": [
     {
         "start": "00:00:23",
@@ -604,6 +605,7 @@ Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negativ
 }, {
     "id": 1,
     "averageScore": 0.11,
+    "sentimentType": "Positive",
     "instances": [
     {
         "start": "00:00:13",
