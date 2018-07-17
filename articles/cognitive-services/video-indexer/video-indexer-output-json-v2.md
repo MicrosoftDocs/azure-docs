@@ -188,8 +188,8 @@ Example:
 
 Attribute | Description
 ---|---
-id|ID of the block.
-instances||A list of time ranges of this block.|
+id|ID of the block.|
+instances|A list of time ranges of this block.|
 
 #### transcript
 
