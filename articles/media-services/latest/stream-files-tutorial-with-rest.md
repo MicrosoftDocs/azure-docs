@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 07/16/2018
 ms.author: juliako
 ---
 
@@ -73,16 +73,17 @@ This section configures the Postman.
     > [!Note]
     > Update access variables with values you got from the **Access the Media Services API** section above.
 
-7. Close the dialog.
-8. Select the **Azure Media Service v3 Environment** environment from the dropdown.
+7. Double-ckick on the selected file and enter values that you got by following the [accing API](#access-the-media-services-api) steps.
+8. Close the dialog.
+9. Select the **Azure Media Service v3 Environment** environment from the dropdown.
 
     ![Choose env](./media/develop-with-postman/choose-env.png)
    
 ### Configure the collection
 
 1. Click **Import** to import the collection file.
-1. Browse to the `Media Services v3 (2018-03-30-preview).postman_collection.json` file that was downloaded when you cloned `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`
-3. Choose the **Media Services v3 (2018-03-30-preview).postman_collection.json** file.
+1. Browse to the `Media Services v3.postman_collection.json` file that was downloaded when you cloned `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`
+3. Choose the **Media Services v3.postman_collection.json** file.
 
     ![Import a file](./media/develop-with-postman/postman-import-collection.png)
 
@@ -164,16 +165,16 @@ You can use a built-in EncoderNamedPreset or use custom presets.
 
         ```json
         {
-        "properties": {
-            "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
-            "outputs": [
+            "properties": {
+                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "outputs": [
                     {
                     "onError": "StopProcessingJob",
-                    "relativePriority": "Normal",
+                "relativePriority": "Normal",
                     "preset": {
                         "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
-                        "presetName": "H264MultipleBitrate720p"
-                        }
+                        "presetName": "AdaptiveStreaming"
+                    }
                     }
                 ]
             }
@@ -208,10 +209,10 @@ In this example, the job's input is based on an HTTPS URL ("https://nimbuscdn-ni
                 ]
             },
             "outputs": [
-                {
-                    "@odata.type": "#Microsoft.Media.JobOutputAsset",
-                    "assetName": "testAsset1"
-                }
+            {
+                "@odata.type": "#Microsoft.Media.JobOutputAsset",
+                "assetName": "testAsset1"
+            }
             ]
         }
         }
@@ -235,7 +236,7 @@ When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/str
 Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
 
 1. In the left window of the Postman, select "Streaming Policies".
-2. Then, select "Create a Streaming Policy".
+2. Then, select "Create a Streaming Locator".
 3. Press **Send**.
 
     * The following **PUT** operation is sent.
@@ -248,10 +249,9 @@ Your Media Service account has a quota for the number of StreamingPolicy entries
         ```json
         {
             "properties":{
-            "assetName": "testAsset1",
-            "streamingPolicyName": "Predefined_ClearStreamingOnly"
+            "assetName": "{{assetName}}",
+            "streamingPolicyName": "{{streamingPolicyName}}"
             }
-        
         }
         ```
 
@@ -271,66 +271,34 @@ Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/stream
         https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
         ```
         
-        * The operation has the following body:
-
-        ```json
-        {
-        "streamingPaths": [
-            {
-                "streamingProtocol": "Hls",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)"
-                ]
-            },
-            {
-                "streamingProtocol": "Dash",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=mpd-time-csf)"
-                ]
-            },
-            {
-                "streamingProtocol": "SmoothStreaming",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest"
-                ]
-            }
-        ],
-        "downloadPaths": []
-        }
-        ```
+        * The operation has no body:
         
 4. Note one of the paths you want to use for streaming, you will use it in the next section. In this case, the following paths were returned:
     
     ```
-    {
-        "streamingPaths": [
-            {
-                "streamingProtocol": "Hls",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)"
-                ]
-            },
-            {
-                "streamingProtocol": "Dash",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=mpd-time-csf)"
-                ]
-            },
-            {
-                "streamingProtocol": "SmoothStreaming",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest"
-                ]
-            }
-        ],
-        "downloadPaths": []
-    }
+    "streamingPaths": [
+        {
+            "streamingProtocol": "Hls",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)"
+            ]
+        },
+        {
+            "streamingProtocol": "Dash",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=mpd-time-csf)"
+            ]
+        },
+        {
+            "streamingProtocol": "SmoothStreaming",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest"
+            ]
+        }
+    ]
     ```
 
 #### Build the streaming URLs
@@ -348,7 +316,7 @@ In this section, let's build an HLS streaming URL. URLs consist of the following
 As a result, the following HLS URL was built
 
 ```
-https://amsaccount-usw22.streaming.media.azure.net/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)
+https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)
 ```
 
 ## Test the streaming URL
