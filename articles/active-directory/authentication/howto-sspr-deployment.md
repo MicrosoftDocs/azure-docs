@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/17/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -43,7 +43,7 @@ Many customers find that the easiest way to get users to use SSPR is with an ema
 * **Sign-up reminder**: An email template for a few days to a few weeks after deployment to remind users to register and confirm their authentication data.
 * **SSPR Posters**: Posters you can customize and display around your organization in the days and weeks leading up to and after your roll out.
 * **SSPR Table tents**: Table cards you can place in the lunch room, conference rooms, or on desks to encourage your users to complete registration.
-* **SSPR Stickers**: Sticker templates you can have printed for users to place on their laptops, monitors, keyboards, or cell phones to remember how to access SSPR.
+* **SSPR Stickers**: Sticker templates you can customize and print to place laptops, monitors, keyboards, or cell phones to remember how to access SSPR.
 
 ![SSPR Email Samples][Email]
 
