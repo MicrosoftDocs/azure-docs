@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 07/17/2018
 ---
 # Customize server configuration parameters by using Azure CLI
 You can list, show, and update configuration parameters for an Azure Database for MySQL server by using Azure CLI, the Azure command-line utility. A subset of engine configurations is exposed at the server-level and can be modified. 
@@ -50,7 +50,7 @@ This code resets the **slow\_query\_log** configuration to the default value **O
 
 ## Populating the time zone tables
 
-The time zone tables on your server can be populated using the `az_load_timezone` stored procedure.
+The time zone tables on your server can be populated by calling the `az_load_timezone` stored procedure.
 
 ```sql
 CALL mysql.az_load_timezone();

@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 07/17/2018
 ---
 
 # How to configure server parameters in Azure Database for MySQL by using the Azure portal
@@ -69,7 +69,7 @@ Other server parameters that are not listed here are set to their MySQL out-of-b
 
 ## Populating the time zone tables
 
-The time zone tables on your server can be populated using the `az_load_timezone` stored procedure.
+The time zone tables on your server can be populated by calling the `az_load_timezone` stored procedure.
 
 ```sql
 CALL mysql.az_load_timezone();
