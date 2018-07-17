@@ -51,17 +51,17 @@ Service Fabric is an open source platform technology that several different serv
 ## Environment, framework, and deployment model support matrix
 Different environments have different level of support for frameworks and deployment models. The following table describes the supported framework and deployment model combinations.
 
-|Frameworks\Deployment model |Resource model |Manifest model | Compose|
-|---|---|---|---|
-|Reliable Actors and Reliable Services |Not supported |Supported |Not supported |
-|Any other framework or language |Supported in containers |Supported as processes and in containers |Supported in containers |
+| Type of Application | Described By | Application Frameworks | Azure Service Fabric Mesh | Azure Service Fabric Ubuntu | Azure Service Fabric Windows | Azure Service Fabric Red Hat | Service Fabric Standalone Windows 
+|---|---|---|---|---|---|---|---|
+| Service Fabric Mesh Applications | Resource Model (YAML & JSON) | - Containers |Supported |Not supported |Not supported |Not supported |Not supported |
+|Service Fabric Native Applications | Native Application Model (XML) | - Guest Exe <br>   - Containers <br> - Reliable Services <br> - Reliable Actors | Not Supported| Supported|Supported|Supported|Supported|
 
-The following table describes the supported environment and deployment model combinations.
+The following table describes the different application models and the tooling that exists for them against Service Fabric.
 
-|Environment\Deployment model |Resource model |Manifest model |Compose |
-|---|---|---|---|
-|Azure Service Fabric Mesh |Supported |Not supported|Not supported |
-|All other environments |Supported (Some resources have prerequisites to work in an environment) |Supported |Limited Support |
+| Type of Application | Described By | Application Frameworks | Visual Studio 2017 | Visual Studio 2015 | Eclipse | VS Code | SFCTL | AZ CLI | Powershell
+|---|---|---|---|---|---|---|---|---|---|
+| Service Fabric Mesh Applications | Resource Model (YAML & JSON) | - Containers |Supported |Not supported |Not supported |Not supported |Not supported | Supported - Mesh environment only | Not Supported
+|Service Fabric Native Applications | Native Application Model (XML) | - Guest Exe <br>   - Containers <br> - Reliable Services <br> - Reliable Actors | Supported| Supported|Supported|Supported|Supported|Supported|Supported|
 
 ## Next steps
 
