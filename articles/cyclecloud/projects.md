@@ -1,6 +1,4 @@
-# Projects - kimli
-
-# Projects - mike
+# Projects
 
 A **project** is a collection of resources which define node configurations. Projects contain **specs**. When a node starts, it is configured by processing and running a sequence of specs.
 
@@ -25,7 +23,7 @@ A **locker** is a reference to a storage account container and credential. Nodes
 
 Azure CycleCloud uses a shorthand for storage accounts, so `https://mystorage.blob.core.windows.net/mycontainer` can be written as `az://mystorage/mycontainer`.
 
-The node will download each project it references from the locker using the [**POGO**](https://review.docs.microsoft.com/en-us/cycle/pogo-overview?branch=master) tool:
+The node will download each project it references from the locker using the [**POGO**](https://docs.microsoft.com/en-us/cycle/pogo-overview) tool:
 
       pogo get az://mystorage/mycontainer/projects/okta/1.3.0/bind
 
@@ -43,9 +41,7 @@ and mirror:
 
 projects to lockers.  
 
-Specs are made up of python, shell, or powershell scripts
-
-
+Specs are made up of python, shell, or powershell scripts.
 
 ## Create a New Project
 
@@ -93,7 +89,7 @@ Uploading your project contents will zip the chef directories and sync both chef
 
 Use `project download` to download all blobs referenced in the project.ini to your local blobs directory. The command uses the [locker] parameter and will attempt to download blobs listed in project.ini from the locker to local storage. An error will be returned if the files cannot be located.
 
-# Project Setup
+## Project Setup
 
 ## Specs
 
@@ -213,7 +209,7 @@ The runlist defined in the project would be ignored, and the above would be used
 > [!NOTE]
 > runlists are specific to chef and do not apply otherwise.
 
-# File Locations
+## File Locations
 
 The zipped chef files will be downloaded during the bootstrapping phase of node startup. They are downloaded to `$JETPACK_HOME/system/chef/tarballs` and unzipped to `$JETPACK_HOME/system/chef/chef-repo/`, and used when converging the node.
 

@@ -29,7 +29,7 @@ out a `type`, pogo will infer the type from the URL.
 
 The common settings listed below apply to all types of endpoints.
 
-# Common Settings
+## Common Settings
 
 | Setting     | Description                                                                                                                                                                                                                                |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

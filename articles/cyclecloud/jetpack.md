@@ -54,7 +54,7 @@ unknown and are logged to CycleCloud. Checks are stored in
 
 To delay a HealthCheck related termination, use the `jetpack keepalive` command.
 
-# Jetpack Command Line Tool
+## Jetpack Command Line Tool
 
 The **Jetpack** command-line tool, located at `/opt/cycle/jetpack/bin/jetpack`
 or `C:\cycle\jetpack\bin\jetpack`, provides a useful set of subcommands for
@@ -68,7 +68,7 @@ manipulating the current VM and interacting with Azure CycleCloud.
 | `jetpack log`       | Log a message to CycleCloud cluster UI.                  |
 | `jetpack send`      | Send an arbitrary AMQP message to the CycleCloud server. |
 
-# Jetpack Subcommands
+## Jetpack Subcommands
 
 ## jetpack config
 
@@ -136,7 +136,7 @@ To send a trivial error message:
 
     $ jetpack log 'the machine cannot process jobs' --level error --priority low
 
-# jetpack send
+## jetpack send
 
 `jetpack send` is an advanced command that you can use to send an arbitrary AMQP message
 to CycleCloud. It is most useful if you have created a CycleCloud plugin that

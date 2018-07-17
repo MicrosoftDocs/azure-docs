@@ -72,7 +72,7 @@ Custom configuration sections can be used in order to download objects from anot
 | user        | Local system user that will use this configuration. Configuration file is placed in this user’s home directory (`filename` is ignored when this is used) |
 | username    | Access_key/username for Azure.                                                                                                                           |
 
-# Attribute Reference
+## Attribute Reference
 
 ## CycleServer Cookbook
 

@@ -42,7 +42,7 @@ are displayed at the top of the rule form:
 * Send alert emails to: One or more email addresses to receive notifications. For multiple addresses, separate each address with a comma. Note that this requires SMTP to be configured in CycleCloud.
 * Priority: The relative priority of this message. See above for descriptions of these priorities.
 
-# Query­-Based Alerting Rules
+## Query­-Based Alerting Rules
 
 Query­-based rules are the most common type, and are highly customizable. Queries are written using CycleCloud's SQL­-like query language.
 
@@ -110,7 +110,7 @@ regions:
     {% endfor %}
     </ul>
 
-# Email Configuration and Logging Levels
+## Email Configuration and Logging Levels
 
 Logging in CycleCloud can be configured to output different levels of detail. The available levels are:
 

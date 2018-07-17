@@ -118,7 +118,7 @@ to remove the data_backups directory in the /mycontainer/my/path/data_backups/ b
 
     pogo del --recursive http://mystorageaccount.blob.core.windows.net/mycontainer/my/path/data_backups/
 
-# Other pogo Commands
+## Other pogo Commands
 
 ### config
 

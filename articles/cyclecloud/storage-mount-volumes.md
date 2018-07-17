@@ -101,7 +101,7 @@ You can manually define ephemeral volumes using the following syntax, although i
     [[node master]]
     DisableAutomaticEphemeral = true  # No ephemeral disks will be automatically attached to this instance
 
-# Mounting Configuration Options
+## Mounting Configuration Options
 
 | Option                | Definition                                                                                                                                                                                                                                                                                               |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -11,7 +11,7 @@ Azure CycleCloud comes with a set of pre-installed templates that can be used to
 * [Auto Scaling](https://docs.microsoft.com/en-us/azure/cyclecloud/autoscale)
 * [Terminate a Cluster](https://docs.microsoft.com/en-us/azure/cyclecloud/end-cluster)
 
-# Nodes and Node Arrays
+## Nodes and Node Arrays
 
 A *node* is a single virtual machine. A *node array* is a collection of nodes with the same configuration, and can be automatically or manually scaled to pre-defined limits using `MaxCount` (limits the number of instances to start) and `MaxCoreCount` (limits the number of cores started).
 
