@@ -166,7 +166,7 @@ You discover that the agent isn't running on a computer that hosts SQL Server. W
 
 - **Cause**. A likely cause of this error is that the password on the local server has changed since you created the agent and agent password.
 
- - **Resolution**. Update the agent's password to your current server password:
+- **Resolution**. Update the agent's password to your current server password:
 
   1. Locate the SQL Data Sync client agent service.  
     a. Select **Start**.  
@@ -188,12 +188,15 @@ After you create or re-create a key for an agent, you try to submit the key thro
 
 ![Sync Error dialog box - Can't submit agent key](media/sql-database-troubleshoot-data-sync/sync-error-cant-submit-agent-key.png)
 
-Before you proceed, check the following prerequisites:
+- **Prerequisites**. Before you proceed, check the following prerequisites:
 
--   The SQL Data Sync Windows service is running.  
--   The service account for SQL Data Sync Windows service has network access.    
--   The outbound 1433 port is open in your local firewall rule.
--   The local ip is added to the server or database firewall rule for the sync metadata database.
+  - The SQL Data Sync Windows service is running.
+
+  - The service account for SQL Data Sync Windows service has network access.
+
+  - The outbound 1433 port is open in your local firewall rule.
+
+  - The local ip is added to the server or database firewall rule for the sync metadata database.
 
 - **Cause**. The agent key uniquely identifies each local agent. The key must meet two conditions:
 
