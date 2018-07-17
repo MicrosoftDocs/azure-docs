@@ -1,6 +1,6 @@
 ---
-title: Quickstart learning how to call a Language Understanding (LUIS) app using C# | Microsoft Docs
-description: In this quickstart, you learn to call a LUIS app using C#.
+title: Quickstart learning how to call a Language Understanding (LUIS) app using Go | Microsoft Docs
+description: In this quickstart, you learn to call a LUIS app using Go.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
@@ -9,10 +9,10 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: v-geberr
-#Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using C#. 
+#Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using Go. 
 ---
 
-# Quickstart: Call a LUIS endpoint using C#
+# Quickstart: Call a LUIS endpoint using Go
 In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
 
 <!-- green checkmark -->
@@ -20,7 +20,7 @@ In this quickstart, pass utterances to a LUIS endpoint and get intent and entiti
 > [!div class="checklist"]
 > * Create LUIS subscription and copy key value for later use
 > * View LUIS endpoint results from browser to public sample IoT app
-> * Create Visual Studio C# console app to make HTTPS call to LUIS endpoint
+> * Create Visual Studio Go console app to make HTTPS call to LUIS endpoint
 -->
 
 <!-- link to free account -->
@@ -50,9 +50,9 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
     ![JSON result detects the intent TurnOff](./media/luis-get-started-cs-get-intent/turn-off-living-room.png)
 
 
-## Consume a LUIS result using the Endpoint API with C# 
+## Consume a LUIS result using the Endpoint API with Go 
 
-You can use C# to access the same results you saw in the browser window in the previous step. 
+You can use Go to access the same results you saw in the browser window in the previous step. 
 
 1. Create a new console application in Visual Studio. Copy the code that follows and save it into an *.cs file:
     
@@ -66,7 +66,7 @@ You can use C# to access the same results you saw in the browser window in the p
 ![Console window displays JSON result from LUIS](./media/luis-get-started-cs-get-intent/console-turn-on.png)
 
 ## Clean up resources
-The two resources created in this tutorial are the LUIS endpoint key and the C# project. Delete the LUIS endpoint key from the Azure portal. Close the Visual Studio project and remove the directory from the file system. 
+The two resources created in this tutorial are the LUIS endpoint key and the Go project. Delete the LUIS endpoint key from the Azure portal. Close the Visual Studio project and remove the directory from the file system. 
 
 ## Next steps
 > [!div class="nextstepaction"]
