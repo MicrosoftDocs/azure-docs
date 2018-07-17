@@ -51,7 +51,7 @@ The [Custom Speech Service (CRIS)](https://www.cris.ai/) allows the customizatio
 
 The following code snippet continuously recognizes speech input from an audio file in the default language (`en-US`), the supported format is single-channel (mono) WAV / PCM with a sampling rate of 16 KHz.
 
-[!include[Sample Audio](includes/sample-audio.md)]
+[!include[Sample Audio](../../../includes/cognitive-services-speech-service-sample-audio.md)]
 
 [!code-csharp[Continuous Speech Recognition](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#recognitionContinuousWithFile)]
 

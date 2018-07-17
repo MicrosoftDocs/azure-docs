@@ -37,7 +37,7 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [dbbest_website]:https://www.dbbest.com/technologies/azure-database-service-mysql-postgresql//
 [pragmatic-works_website]:https://pragmaticworks.com//
 [infosys_website]:https://www.infosys.com/
-[credativ_website]:https://credativ.com
+[credativ_website]:https://www.credativ.com/postgresql-competence-center/microsoft-azure
 
 <!--Get Started Links-->
 <!--Datasheet Links-->
