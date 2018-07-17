@@ -31,9 +31,11 @@ To manage access, you one of the following need:
 
 In RBAC, to grant access, you create a role assignment.
 
-### Create a role assignment at a resource group scope
+### Example template to create a role assignment
 
-To create a role assignment at a resource group scope, use [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create):
+The following template demonstrates the following:
+- Assign an RBAC role at the resource group scope
+- Specify the Owner, Contributor, and Reader roles as parameters
 
 ```json
 {
@@ -84,6 +86,17 @@ To create a role assignment at a resource group scope, use [az role assignment c
   ]
 }
 ```
+
+### Deploy template using Azure CLI
+
+
+1. Create a new file named rbac-rg.json.
+
+1. Copy the previous template to rbac-rg.json.
+
+
+### Create a role assignment at a subscription scope
+
 
 ## Next steps
 
