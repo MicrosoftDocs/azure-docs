@@ -21,58 +21,93 @@ The following code publishes an existing knowledge base, using the [Publish](htt
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```python
-# -*- coding: utf-8 -*-
+``` Node.js
+'use strict';
 
-import http.client, urllib.parse, json, time
+let fs = require ('fs');
+let https = require ('https');
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
 
-# Replace this with a valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
+// Replace this with a valid subscription key.
+let subscriptionKey = 'ENTER KEY HERE';
 
-# Replace this with a valid knowledge base ID.
-kb = 'ENTER ID HERE';
+// NOTE: Replace this with a valid knowledge base ID.
+let kb = 'ENTER ID HERE';
 
-host = 'westus.api.cognitive.microsoft.com'
-service = '/qnamaker/v4.0'
-method = '/knowledgebases/'
+let host = 'westus.api.cognitive.microsoft.com';
+let service = '/qnamaker/v4.0';
+let method = '/knowledgebases/';
 
-def pretty_print (content):
-# Note: We convert content to and from an object so we can pretty-print it.
-	return json.dumps(json.loads(content), indent=4)
-
-def publish_kb (path, content):
-	print ('Calling ' + host + path + '.')
-	headers = {
-		'Ocp-Apim-Subscription-Key': subscriptionKey,
-		'Content-Type': 'application/json',
-		'Content-Length': len (content)
-	}
-	conn = http.client.HTTPSConnection(host)
-	conn.request ("POST", path, content, headers)
-	response = conn.getresponse ()
-
-	if response.status == 204:
-		return json.dumps({'result' : 'Success.'})
-	else:
-		return response.read ()
-
-path = service + method + kb
-result = publish_kb (path, '')
-print (pretty_print(result))
-```
-
-## The publish a knowledge base response
-
-A successful response is returned in JSON, as shown in the following example:
-
-```json
-{
-  "result": "Success."
+let pretty_print = function (s) {
+    return JSON.stringify(JSON.parse(s), null, 4);
 }
+
+// callback is the function to call when we have the entire response.
+let response_handler = function (callback, response) {
+    let body = '';
+    response.on ('data', function (d) {
+        body += d;
+    });
+    response.on ('end', function () {
+// Call the callback function with the status code, headers, and body of the response.
+        callback ({ status : response.statusCode, headers : response.headers, body : body });
+    });
+    response.on ('error', function (e) {
+        console.log ('Error: ' + e.message);
+    });
+};
+
+// Get an HTTP response handler that calls the specified callback function when we have the entire response.
+let get_response_handler = function (callback) {
+// Return a function that takes an HTTP response, and is closed over the specified callback.
+// This function signature is required by https.request, hence the need for the closure.
+    return function (response) {
+        response_handler (callback, response);
+    }
+}
+
+// callback is the function to call when we have the entire response from the POST request.
+let post = function (path, content, callback) {
+    let request_params = {
+        method : 'POST',
+        hostname : host,
+        path : path,
+        headers : {
+            'Content-Type' : 'application/json',
+            'Content-Length' : content.length,
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
+
+// Pass the callback function to the response handler.
+    let req = https.request (request_params, get_response_handler (callback));
+    req.write (content);
+    req.end ();
+}
+
+// callback is the function to call when we have the response from the /knowledgebases POST method.
+let publish_kb = function (path, req, callback) {
+    console.log ('Calling ' + host + path + '.');
+// Send the POST request.
+    post (path, req, function (response) {
+// Extract the data we want from the POST response and pass it to the callback function.
+        if (response.status == '204') {
+            let result = {'result':'Success'};
+            callback (JSON.stringify(result));
+        }
+        else {
+            callback (response.body);
+        }
+    });
+}
+
+var path = service + method + kb;
+publish_kb (path, '', function (result) {
+    console.log (pretty_print(result));
+});
 ```
 
 ## Next steps
