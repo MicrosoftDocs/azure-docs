@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/17/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,7 +29,7 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
       * Registration:  https://aka.ms/ssprsetup
       * Reset: https://aka.ms/sspr
 1. Educate your users.
-   * This document goes over sample communication, password portals, enforcing registration, and populating authentication data.
+   * This following sections of this document go over sample communication, password portals, enforcing registration, and populating authentication data.
    * The Azure Active Directory product group has created a [step-by-step deployment plan](https://aka.ms/SSPRDeploymentPlan) that organizations can use in parallel with the documentation found on this site to make a business case and plan for deployment of self-service password reset.
 1. Enable self-service password reset for your entire organization.
    * When you're ready, enable password reset for all users by setting the **Self Service Password Reset Enabled** switch to **All**.
@@ -43,6 +43,7 @@ Many customers find that the easiest way to get users to use SSPR is with an ema
 * **Sign-up reminder**: An email template for a few days to a few weeks after deployment to remind users to register and confirm their authentication data.
 * **SSPR Posters**: Posters you can customize and display around your organization in the days and weeks leading up to and after your roll out.
 * **SSPR Table tents**: Table cards you can place in the lunch room, conference rooms, or on desks to encourage your users to complete registration.
+* **SSPR Stickers**: Sticker templates you can customize and print to place laptops, monitors, keyboards, or cell phones to remember how to access SSPR.
 
 ![SSPR Email Samples][Email]
 

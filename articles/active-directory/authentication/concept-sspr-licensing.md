@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/17/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,6 +19,8 @@ ms.reviewer: sahenry
 Azure Active Directory (Azure AD) comes in four editions: Free, Basic, Premium P1, and Premium P2. There are several different features that make up self-service password reset, including change, reset, unlock, and writeback, that are available in the different editions of Azure AD. This article tries to explain the differences. More details of the features included in each Azure AD edition can be found on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Compare editions and features
+
+Azure AD self-service password reset is licensed per user, to maintain compliance organizations are required to assign the appropriate license to their users.
 
 * Self-Service Password Change for cloud users
    * I am a **cloud-only user** and know my password.
