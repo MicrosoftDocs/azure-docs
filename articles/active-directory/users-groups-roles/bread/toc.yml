@@ -38,7 +38,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: Azure AD Connect
+  - name: Connect
     tocHref: /azure/active-directory/connect/
     topicHref: /azure/active-directory/index
     items:
@@ -50,7 +50,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: Azure AD Connect Health
+  - name: Connect Health
     tocHref: /azure/active-directory/connect-health/
     topicHref: /azure/active-directory/index
     items:
@@ -62,7 +62,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: Azure AD B2B collaboration
+  - name: B2B collaboration
     tocHref: /azure/active-directory/b2b/
     topicHref: /azure/active-directory/index
     items:
@@ -74,7 +74,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: Azure AD Privileged Identity Management
+  - name: Privileged Identity Management
     tocHref: /azure/active-directory/privileged-identity-management/
     topicHref: /azure/active-directory/index
     items:
@@ -86,7 +86,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:  
-  - name: Azure AD Authentication
+  - name: Authentication
     tocHref: /azure/active-directory/authentication/
     topicHref: /azure/active-directory/index
     items:
