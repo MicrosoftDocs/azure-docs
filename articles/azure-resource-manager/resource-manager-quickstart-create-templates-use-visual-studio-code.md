@@ -56,7 +56,7 @@ The template used in this quickstart is called [Create a standard storage accoun
 
 To learn how to edit a template using Visual Studio Code, you add one more element into the outputs section.
 
-1. From Visual Studio Code, add one more output:
+1. From Visual Studio Code, add one more output to the exported template:
 
     ```json
     "storageUri": {
@@ -88,25 +88,30 @@ To learn how to edit a template using Visual Studio Code, you add one more eleme
 
 ## Deploy the template
 
-There are many methods for deploying templates.  In this quickstart, you use Cloud Shell from the Azure portal.
+There are many methods for deploying templates.  In this quickstart, you use the Cloud shell from the Azure portal. The Cloud shell supports both CLI and Azure PowerShell. The instructions provided here use CLI.
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-2. Click **Cloud Shell** from the upper right corner as shown in the following image:
+2. Select **Cloud Shell** from the upper right corner as shown in the following image:
 
     ![Azure portal Cloud shell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
-3. Click **Upload file** from the Cloud shell:
+
+3. Select the down arrow and then select **Bash** to switch to CLI from Azure PowerShell.
+
+    ![Azure portal Cloud shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
+4. Select **Restart** to restart the shell.
+5. Select **Upload/download files**, and then select **Upload**.
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
 4. Select the file you saved earlier in the quickstart. The default name is **azuredeploy.json**.
-5. From the Cloud shell, run the **ls** command to verify the file is uploaded successfully.
+5. From the Cloud shell, run the **ls** command to verify the file is uploaded successfully. You can also use the **cat** command to verify the template content.
 
     ![Azure portal Cloud shell list file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
 6. From the Cloud shell, run the following commands:
 
-    ```powershell
-    New-AzureRmResourceGroup -Name <ResourceGroupName> -Location <AzureLocation>
+    ```cli
+    az group create --name <ResourceGroupName> --location <AzureLocation>
 
-    New-AzureRmResourceGroupDeployment -Name <DeployName> -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFileName>    
+    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
     ```
     Here is the screenshot of a sample deployment:
 
@@ -123,8 +128,8 @@ There are many methods for deploying templates.  In this quickstart, you use Clo
 
 7. Run the following PowerShell command to list the newly created storage account:
 
-    ```powershell
-    Get-AzureRmStorageAccount -Name <StorageAccountName>  -ResourceGroupName <ResourceGroupName>
+    ```cli
+    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
     ```
 
 ## Clean up resources
@@ -141,4 +146,4 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 In this tutorial, you learned how to create a template using Visual Studio Code, and how to deploy the template using the Azure portal Cloud shell. The template used in this Quickstart only contains one Azure resource.  In the next tutorial, you develop a template with multiple resources.  Some of the resources have dependent resources.
 
 > [!div class="nextstepaction"]
-> [Create a template with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Create templates by using Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)

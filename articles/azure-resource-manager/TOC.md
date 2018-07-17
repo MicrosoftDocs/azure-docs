@@ -6,7 +6,7 @@
 
 # Quickstarts
 ## [Create templates - portal](resource-manager-quickstart-create-templates-use-the-portal.md)
-## [Create templates - Visual Studio Code](resource-manager-quickstart-create-templates-use-visual-studio-code.md)
+## [Create templates - VSCode](resource-manager-quickstart-create-templates-use-visual-studio-code.md)
 ## [Create templates - Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Concepts

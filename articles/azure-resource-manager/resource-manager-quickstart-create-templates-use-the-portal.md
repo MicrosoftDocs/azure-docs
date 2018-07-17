@@ -21,15 +21,11 @@ ms.author: jgao
 
 Learn how to create your first Azure Resource Manager template by generating one using the Azure portal, and how to edit and deploy the template from the portal.
 
-> [!NOTE]
-> The exported templates only work with deploying them back to the same Azure subscription. Otherwise, the templates require some edits.
-
 Resource Manager templates are JSON files that define the resources you need to deploy for your solution. To create a template, you don't have to always start from scratch. In this tutorial, you learn how to generate a template from the Azure portal. You can then customize the template and deploy it.
 
 The instructions in this tutorial create an Azure Storage account. You can use the same process to create other Azure resources.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-
 
 ## Generate a template using the portal
 
@@ -47,6 +43,9 @@ In this section, you create a storage account using the Azure portal. Before you
     You can use the default values for the rest of the properties.
 
     ![Create an Azure storage account configuration using the Azure portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account.png)
+
+    > [!NOTE]
+    > Some of the exported templates require some edits before you can deploy them.
 
 4. Select **Automation options** at the bottom of the screen. The portal shows the template on the **Template** tab:
 
@@ -191,4 +190,4 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 In this tutorial, you learned how to generate a template from the Azure portal, and how to deploy the template using the portal. The template used in this Quickstart is a simple template with one Azure resource. When the template is complex, it is easier to use Visual Studio Code or Visual Studio to develop the template. 
 
 > [!div class="nextstepaction"]
-> [Create a template by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
+> [Create templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
