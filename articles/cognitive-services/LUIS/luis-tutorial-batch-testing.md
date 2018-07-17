@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 * Create a batch test file 
 * Run a batch test
 * Review test results
-* Fix errors for intents
+* Fix errors 
 * Retest the batch
 
 For this article, you need a free [LUIS](luis-reference-regions.md#luis-website) account in order to author your LUIS application.
@@ -36,7 +36,7 @@ If you want to keep the original Human Resources app, clone the version on the [
 Train the app.
 
 ## Purpose of batch testing
-Batch testing allows you to validate a model's state with a known set of test utterances and labeled entities. In the JSON-formatted batch file, add the utterances and set the entity labels you need predicted inside the utterance. 
+Batch testing allows you to validate a model's state with a known set of  labeled utterances and entities. In the JSON-formatted batch file, add the utterances and set the entity labels you need predicted inside the utterance. 
 
 <!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. -->
 For this tutorial, make sure you are not using the example utterances already added to an intent. 
@@ -117,31 +117,26 @@ While hovering over the chart, a mouse wheel can enlarge or reduce the display i
 The chart is in four quadrants, with two of the sections displayed in red. **These are the sections to focus on**. 
 
 ### GetJobInformation test results
-The **GetJobInformation** test results displayed in the filter show that 1 of the four predictions was successful. Select the name **False positive** above the top right quadrant to see the utterances below the chart. 
+The **GetJobInformation** test results displayed in the filter show that 2 of the four predictions were successful. Select the name **False positive** above the top right quadrant to see the utterances below the chart. 
 
-<!--
 ![LUIS batch test utterances](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
--->
 
-
-The three utterances had a top intent of **GetJobInformation**. The intent stated in the batch file had a lower score. Why did this happen? The two intents are very closely related in terms of word choice and word arrangement. Additionally, there are almost three times as many examples for **ApplyForJob** than **GetJobInformation**. This unevenness of example utterances weighs in **ApplyForJob** intent's favor. 
+Why are two of the utterances predicted as **ApplyForJob**, instead of the correct intent **GetJobInformation**? The two intents are very closely related in terms of word choice and word arrangement. Additionally, there are almost three times as many examples for **ApplyForJob** than **GetJobInformation**. This unevenness of example utterances weighs in **ApplyForJob** intent's favor. 
 
 Notice that both intents have the same count of errors: 
 
 ![LUIS batch test filter errors](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
 
-The utterance corresponding the top point in the **False positive** section is `Can I apply for any database jobs with this resume?`. The word `resume` has only been used in **ApplyForJob**. 
-
-The other two points in the chart had much lower scores for the wrong intent, meaning they are closer to the correct intent. 
+The utterances corresponding the top point in the **False positive** section are `Can I apply for any database jobs with this resume?` and `Can I apply for any database jobs with this resume?`. For the first utterance, the word `resume` has only been used in **ApplyForJob**. For the second utterance, the word `apply` has only be used in the **ApplyForJob** intent.
 
 ## Fix the app based on batch results
-The goal of this section is to have the three utterances that were incorrectly predicted for **ApplyForJob** to be correctly predicted for **GetJobInformation**, after the app is fixed. 
+The goal of this section is to have all the utterances correctly predicted for **GetJobInformation** by fixing the app. 
 
 A seemingly quick fix would be to add these batch file utterances to the correct intent. That is not what you want to do though. You want LUIS to correctly predict these utterances without adding them as examples. 
 
 You might also wonder about removing utterances from **ApplyForJob** until the utterance quantity is the same as **GetJobInformation**. That may fix the test results but would hinder LUIS from predicting that intent accurately next time. 
 
-The first fix is to add more utterances to **GetJobInformation**. The second fix is to reduce the weight of words like `resume` toward the **ApplyForJob** intent. 
+The first fix is to add more utterances to **GetJobInformation**. The second fix is to reduce the weight of words like `resume` and `apply` toward the **ApplyForJob** intent. 
 
 ### Add more utterances to **GetJobInformation**
 1. Close the batch test panel by selecting the **Test** button in the top navigation panel. 
@@ -154,23 +149,23 @@ The first fix is to add more utterances to **GetJobInformation**. The second fix
 
 3. Add more utterances that are varied for length, word choice, and word arrangement, making sure to include the terms `resume` and `c.v.`:
 
-    ```JSON
-    Is there a new job in the warehouse for a stocker?
-    Where are the roofing jobs today?
-    I heard there was a medical coding job that requires a resume.
-    I would like a job helping college kids write their c.v.s. 
-    Here is my resume, looking for a new post at the community college using computers.
-    What positions are available in child and home care?
-    Is there an intern desk at the newspaper?
-    My C.v. shows I'm good at analyzing procurement, budgets, and lost money. Is there anything for this type of work?
-    Where are the earth drilling jobs right now?
-    I've worked 8 years as an EMS driver. Any new jobs?
-    New food handling jobs?
-    How many new yard work jobs are available?
-    Is there a new HR post for labor relations and negotiations?
-    I have a masters in library and archive management. Any new positions?
-    Are there any babysitting jobs for 13 year olds in the city today?
-    ```
+    |Example utterances for **GetJobInformation** intent|
+    |--|
+    |Does the new job in the warehouse for a stocker require that I apply with a resume?|
+    |Where are the roofing jobs today?|
+    |I heard there was a medical coding job that requires a resume.|
+    |I would like a job helping college kids write their c.v.s. |
+    |Here is my resume, looking for a new post at the community college using computers.|
+    |What positions are available in child and home care?|
+    |Is there an intern desk at the newspaper?|
+    |My C.v. shows I'm good at analyzing procurement, budgets, and lost money. Is there anything for this type of work?|
+    |Where are the earth drilling jobs right now?|
+    |I've worked 8 years as an EMS driver. Any new jobs?|
+    |New food handling jobs require application?|
+    |How many new yard work jobs are available?|
+    |Is there a new HR post for labor relations and negotiations?|
+    |I have a masters in library and archive management. Any new positions?|
+    |Are there any babysitting jobs for 13 year olds in the city today?|
 
     Do not label the **Job** entity in the utterances. This will happen in a step later in the tutorial.
 
@@ -185,10 +180,10 @@ In order to verify that the utterances in the batch test are correctly predicted
 
 3. Select **See results**. The intents should all have green icons to the left of the intent names. 
 
-    [ ![Screenshot of LUIS with batch results button highlighted](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png#lightbox)
+    ![Screenshot of LUIS with batch results button highlighted](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
 ## Create batch file with entities 
-In order to verify entities in a batch test, the entities need to be noted in the batch. Only simple and composite entities (the machine-learned entities) are used. The non-machine-learned entities do not need to be tested because they are always found either through regular expressions, or explicit text matches.
+In order to verify entities in a batch test, the entities need to be labeled in the batch. Only simple and composite entities (the machine-learned entities) are used. The non-machine-learned entities do not need to be tested because they are always found either through regular expressions, or explicit text matches.
 
 The variation in entity for total word count can impact the prediction quality. Make sure the training date supplied to the intent with labeled utterances includes a variety of lengths of entity. 
 
@@ -199,92 +194,92 @@ The value of a **Job** entity, provided in the test utterances, is usually one o
 1. Create `HumanResources-entities-batch.json` in a text editor such as [VSCode](https://code.visualstudio.com/). Or download [the file](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) from the LUIS-Samples Github repository.
 
 
-2. In the JSON-formatted batch file, add utterances with the **Intent** you want predicted in the test. 
+2. In the JSON-formatted batch file, add an array of objects that include utterances with the **Intent** you want predicted in the test as well as locations of any entities in the utterance. Since an entity is token based, make sure to start and stop each entity on a character. Do not begin or end the utterance on a space. This will cause an error during the batch file import.  
 
     ```JSON
     [
-    {
-        "text": "I'm a registered nurse. Here is my resume.",
-        "intent": "ApplyForJob",
-        "entities": [{
-        "entity": "Job",
-        "startPos": 6,
-        "endPos": 21
-        }]
-    },
-    {
-        "text": "I'm a database analyst. Here is my resume.",
-        "intent": "ApplyForJob",
-        "entities": [{
-        "entity": "Job",
-        "startPos": 6,
-        "endPos": 21
-        }]
-    },
-    {
-        "text": "I'm a SQL Server programmer. Here is my resume.",
-        "intent": "ApplyForJob",
-        "entities": [{
-        "entity": "Job",
-        "startPos": 6,
-        "endPos": 26
-        }]
-    },
-    {
-        "text": "I'm a registered nurse. Are there any open jobs.",
-        "intent": "GetJobInformation",
-        "entities": [{
-        "entity": "Job",
-        "startPos": 6,
-        "endPos": 21
-        }]
-    },
-    {
-        "text": "I'm a database analyst. Are there any open jobs.",
-        "intent": "GetJobInformation",
-        "entities": [{
-        "entity": "Job",
-        "startPos": 6,
-        "endPos": 21
-        }]
-    },
-    {
-        "text": "Are there any open jobs for a SQL Server programmer?",
-        "intent": "GetJobInformation",
-        "entities": [{
-        "entity": "Job",
-        "startPos": 30,
-        "endPos": 50
-        }]
-    },
-    {
-        "text": "Is there any open positions for a costume designer?",
-        "intent": "GetJobInformation",
-        "entities": [{
-        "entity": "Job",
-        "startPos": 34,
-        "endPos": 49
-        }]
-    },
-    {
-        "text": "Are there any open jobs for a SQL programmer?",
-        "intent": "GetJobInformation",
-        "entities": [{
-        "entity": "Job",
-        "startPos": 30,
-        "endPos": 42
-        }]
-    }
-    ,
-    {
-        "text": "Are there any open jobs with SQL?",
-        "intent": "GetJobInformation",
-        "entities": [{
-        "entity": "Job",
-        "startPos": 29,
-        "endPos": 31
-        }]
-    }
+        {
+            "text": "I'm a registered nurse. Here is my resume.",
+            "intent": "ApplyForJob",
+            "entities": [{
+            "entity": "Job",
+            "startPos": 6,
+            "endPos": 21
+            }]
+        },
+        {
+            "text": "I'm a database analyst. Here is my resume.",
+            "intent": "ApplyForJob",
+            "entities": [{
+            "entity": "Job",
+            "startPos": 6,
+            "endPos": 21
+            }]
+        },
+        {
+            "text": "I'm a SQL Server programmer. Here is my resume.",
+            "intent": "ApplyForJob",
+            "entities": [{
+            "entity": "Job",
+            "startPos": 6,
+            "endPos": 26
+            }]
+        },
+        {
+            "text": "I'm a registered nurse. Are there any open jobs.",
+            "intent": "GetJobInformation",
+            "entities": [{
+            "entity": "Job",
+            "startPos": 6,
+            "endPos": 21
+            }]
+        },
+        {
+            "text": "I'm a database analyst. Are there any open jobs.",
+            "intent": "GetJobInformation",
+            "entities": [{
+            "entity": "Job",
+            "startPos": 6,
+            "endPos": 21
+            }]
+        },
+        {
+            "text": "Are there any open jobs for a SQL Server programmer?",
+            "intent": "GetJobInformation",
+            "entities": [{
+            "entity": "Job",
+            "startPos": 30,
+            "endPos": 50
+            }]
+        },
+        {
+            "text": "Is there any open positions for a costume designer?",
+            "intent": "GetJobInformation",
+            "entities": [{
+            "entity": "Job",
+            "startPos": 34,
+            "endPos": 49
+            }]
+        },
+        {
+            "text": "Are there any open jobs for a SQL programmer?",
+            "intent": "GetJobInformation",
+            "entities": [{
+            "entity": "Job",
+            "startPos": 30,
+            "endPos": 42
+            }]
+        }
+        ,
+        {
+            "text": "Are there any open jobs with SQL?",
+            "intent": "GetJobInformation",
+            "entities": [{
+            "entity": "Job",
+            "startPos": 29,
+            "endPos": 31
+            }]
+        }
     ]
     ```
 
@@ -307,17 +302,15 @@ The value of a **Job** entity, provided in the test utterances, is usually one o
 
 5. Name the dataset `entities` and select **Done**.
 
-    ![Select file](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
-
 6. Select the **Run** button. Wait until the test is done.
 
     [ ![Screenshot of LUIS app with Run highlighted](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
 
 7. Select **See results**.
 
-8. Review results in the graph and legend.
+8. Review entity prediction results in the graph and legend.
 
-    [ ![Screenshot of LUIS app with batch test results](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
+    ![Screenshot of LUIS app with batch test results](./media/luis-tutorial-batch-testing/hr-entities-batch-results.png)
 
 
 ## Review entity batch results
@@ -329,10 +322,10 @@ The chart opens with all the intents correctly predicted. Scroll down in the rig
 
     The chart changed to display the entity predictions. 
 
-2. Select **False Negative** in the lower, left quadrant of the chart. Then use the keyboard key combination control + E to switch into the token view. 
+2. Select **False Negative** in the lower, left quadrant of the chart. Then use the keyboard combination control + E to switch into the token view. 
 
-    ![Token view of entity predictions](./media/luis-tutorial-batch-testing/token-view-entities.png)
-
+    [ ![Token view of entity predictions](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
+    
     Reviewing the utterances below the chart reveals a consistent error when the Job name includes `SQL`. Reviewing the example utterances and the Job phrase list, SQL is only used once, and only as part of a larger job name, `sql/oracle database administrator`.
 
 ## Fix the app based on entity batch results
@@ -341,10 +334,12 @@ Fixing the app requires LUIS to correctly determine the variations of SQL jobs. 
 * Explicitly add more example utterances which use SQL and label those words as a Job entity. 
 * Explicitly add more SQL jobs to the phrase list
 
-Adding a pattern before the entity is correctly predicted is not going to fix the problem. This is because the pattern won't match until all the entities in the pattern are detected. 
+These tasks are left for you to do.
+
+Adding a [pattern](luis-concept-patterns.md) before the entity is correctly predicted is not going to fix the problem. This is because the pattern won't match until all the entities in the pattern are detected. 
 
 ## What has this tutorial accomplished?
-This app prediction accuracy has increased by finding errors in the batch and correcting the model. 
+The app prediction accuracy has increased by finding errors in the batch and correcting the model. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. Select **My apps** in the top left menu. Select the ellipsis **...** to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
