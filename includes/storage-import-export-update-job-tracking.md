@@ -6,7 +6,7 @@ services: storage
 
 ms.service: storage
 ms.topic: include
-ms.date: 06/13/2018
+ms.date: 07/17/2018
 ms.author: alkohli
 ms.custom: include file
 
@@ -14,7 +14,8 @@ ms.custom: include file
 
 After shipping the disks, return to the **Import/Export** page on the Azure portal. 
 
-> [!IMPORTANT] If the tracking number is not updated within 2 weeks of creating the job, the job expires. 
+> [!IMPORTANT] 
+> If the tracking number is not updated within 2 weeks of creating the job, the job expires. 
 
 To update the tracking number, perform the following steps.
  
