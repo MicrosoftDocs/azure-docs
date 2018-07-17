@@ -321,6 +321,10 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 ## Test the streaming URL
 
+
+> [!NOTE]
+> Make sure the streaming endpoint from which you want to stream is running.
+
 To test the stream, this article uses Azure Media Player. 
 
 1. Open a web browser and navigate to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
