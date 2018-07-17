@@ -31,11 +31,11 @@ For this article, you need a free [LUIS](luis-reference-regions.md#luis-website)
 * [Go](https://golang.org/) installed. 
 * Your existing LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard.  
 
-
 > [!NOTE] 
 > The complete Go solution is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/endpoint-api-samples/go).
 
 <a name="create-luis-subscription-key">
+
 ## Create LUIS endpoint key
 1. You first need to create a [Language Understanding API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -49,7 +49,7 @@ For this article, you need a free [LUIS](luis-reference-regions.md#luis-website)
 
 ## Understand what LUIS returns
 
-To understand what a LUIS app returns, you can paste the URL of a sample LUIS app into a browser window. The sample app is an IoT app that detects whether the user wants to turn on or turn off lights.
+To understand what a LUIS app returns, you can paste the URL of a sample LUIS app into a browser window. The sample app is an [IoT app](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) that detects whether the user wants to turn on or turn off lights.
 
 1. The endpoint of the sample app is in this format: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Copy the URL and substitute your endpoint key for the value of the `subscription-key` field.
 
@@ -65,25 +65,25 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
 
 You can use Go to access the same results you saw in the browser window in the previous step. 
 
-1. Create a new Go named `endpoint.go` file with the following code.
+1. Create a new file named `endpoint.go`. Add the following code:
     
    [!code-go[Go code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/go/endpoint.go?range=29-81)]
 
-2. From a command prompt in the directory where you created the Go file, enter `go build endpoint.go` to compile the Go file. The command prompt does not return any information for a successful build.
+2. With a command prompt in the same directory as where you created the file, enter `go build endpoint.go` to compile the Go file. The command prompt does not return any information for a successful build.
 
 3. Run the Go application from the command line by entering the following in the command prompt: 
 
 ```CMD
-endpoint -appID <your-app-id> -endpointKey <add-your-endpoint-key> -version <your-version-id> -region westus
+endpoint -appID df67dcdb-c37d-46af-88e1-8b97951ca1c2 -endpointKey <add-your-endpoint-key> -version 0.1 -region westus
 ```
 
-Replace `<your-app-id>` with the value of your app ID. Replace `<add-your-endpoint-key>` with the value of your endpoint key. Replace `<your-version-id>` with the value of your version ID, the default is `0.1`. 
+Replace `<add-your-endpoint-key>` with the value of your endpoint key.  
 
 The command prompt response is: 
 
     ```cmd
     appID has value df67dcdb-c37d-46af-88e1-8b97951ca1c2
-    endpointKey has value b881189129024709a272286c6301b72b
+    endpointKey has value xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     region has value westus
     utterance has value turn on the bedroom light
     response

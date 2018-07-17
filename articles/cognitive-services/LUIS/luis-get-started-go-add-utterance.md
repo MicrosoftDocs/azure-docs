@@ -13,7 +13,7 @@ ms.author: v-geberr
 ---
 
 # Quickstart: Add utterances to a LUIS app using Go 
-In this quickstart, write a program to add an utterance to an intent using the Authoring APIs in Go.
+In this quickstart, write a program to add an utterance to an intent in an app, train the app, and get training status using the Authoring APIs with Go.
 
 <!-- green checkmark -->
 <!--
@@ -34,7 +34,7 @@ For this article, you need a free [LUIS](luis-reference-regions.md#luis-website)
 * Your LUIS **[authoring key](luis-concept-keys.md#authoring-key)**. You can find this key under Account Settings in the [LUIS](luis-reference-regions.md) website.
 * Import [TravelAgent - Sample 1
 ](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/Examples-BookFlight/travel-agent-sample-01.json) app from Github repository. Get the new app ID from **Settings** page in LUIS website. 
-* The **version ID** within the application that receives the utterances. The default ID is "0.1"
+* The **version ID** within the application that receives the utterances. The default ID is `0.1`.
 * Create a new file named `add-utterances.go` project in VSCode.
 
 > [!NOTE] 
@@ -43,7 +43,7 @@ For this article, you need a free [LUIS](luis-reference-regions.md#luis-website)
 ## Add utterances and train using the Authoring API with Go
 You can add example utterances to an existing intent and train the app with Go.
 
-1. Create a new Go file named `add-utterances.go` with the following code. A Go file has the `.go` extension.  
+1. Create a new file named `add-utterances.go`. Add the following code:
 
    [!code-go[Go code that adds utterance and trains app](~/samples-luis/documentation-samples/authoring-api-samples/go/add-utterances.go?range=35-136)]
 
@@ -60,19 +60,14 @@ If the entityLabels list is not empty, the `startCharIndex` and `endCharIndex` n
 ```json
 [
     {
-        "text": "go to Seattle",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 12
-            }
-        ]
-    },
+        "text": "go lang 1",
+        "intentName": "None",
+        "entityLabels": []
+    }
+,
     {
-        "text": "book a flight",
-        "intentName": "BookFlight",
+        "text": "go lang 2",
+        "intentName": "None",
         "entityLabels": []
     }
 ]
@@ -90,7 +85,7 @@ Run the Go code from a command prompt to add an utterance, train the app, and ge
 
     ```
 
-    Replace `<add-your-authoring-key>` with the value of your authoring key (also known as the starter key). Replace `<your-app-id>` with the value of your app ID.
+    Replace `<add-your-authoring-key>` with the value of your authoring key (also known as the starter key). Replace `<your-app-id>` with the value of your app ID. Replace `<your-version-id>` with the value of your version. Default version is `0.1`.
 
     This command-prompt displays the results:
 
@@ -119,10 +114,12 @@ Run the Go code from a command prompt to add an utterance, train the app, and ge
     [{"modelId":"c52d6509-9261-459e-90bc-b3c872ee4a4b","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"5119cbe8-97a1-4c1f-85e6-6449f3a38d77","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"01e6b6bc-9872-47f9-8a52-da510cddfafe","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"33b409b2-32b0-4b0c-9e91-31c6cfaf93fb","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"1fb210be-2a19-496d-bb72-e0c2dd35cbc1","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"3d098beb-a1aa-423f-a0ae-ce08ced216d6","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"cce854f8-8f8f-4ed9-a7df-44dfea562f62","details":{"statusId":3,"status":"InProgress","exampleCount":24}},{"modelId":"4d97bf0d-5213-4502-9712-2d6e77c96045","details":{"statusId":3,"status":"InProgress","exampleCount":24}}]
     ```
 
-    You can verify the example utterances were add by refreshing the LUIS website for the **None** intent. 
+    This response includes the HTTP status code for each of the three HTTP calls as well as any JSON response returned in the body of the response. 
+
+    You can verify the example utterances were added by refreshing the LUIS website for the **None** intent. 
 
 ## Clean up resources
-When you are done with the quickstart, remove the files created in this quickstart and the console application if you don't need them anymore. 
+When you are done with the quickstart, remove the files created in this quickstart and the LUIS application. 
 
 ## Next steps
 > [!div class="nextstepaction"] 
