@@ -173,7 +173,7 @@ Enabling this option will allow you to view transfer metrics (how many
 files, how fast the transfer was, how long it took, the source
 destination, etc.) from within the CycleCloud UI.
 
-# pogo Options
+## pogo Options
 
 In addition to command-specific options, pogo supports several common
 options across all commands. These options must come *before* the
@@ -196,7 +196,7 @@ command name.
 >[!Note]
 > Currently, pogo only supports the use of a proxy with S3 endpoints.
 
-# Troubleshooting
+## Troubleshooting
 
 A file was not uploaded to a directory:
 

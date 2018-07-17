@@ -23,7 +23,7 @@ A **locker** is a reference to a storage account container and credential. Nodes
 
 Azure CycleCloud uses a shorthand for storage accounts, so `https://mystorage.blob.core.windows.net/mycontainer` can be written as `az://mystorage/mycontainer`.
 
-The node will download each project it references from the locker using the [**POGO**](https://docs.microsoft.com/en-us/cycle/pogo-overview) tool:
+The node will download each project it references from the locker using the [**POGO**](https://docs.microsoft.com/en-us/azure/cyclecloud/pogo-overview) tool:
 
       pogo get az://mystorage/mycontainer/projects/okta/1.3.0/bind
 

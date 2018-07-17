@@ -118,7 +118,7 @@ Deploy the CycleCloud VM using the edited `params-cyclecloud.json`:
 
 ## Log into the CycleCloud Application Server
 
-To connect to the CycleCloud webserver, retrieve the FQDN of the CycleServer VM from the Azure Portal, then browse to https://cycleserverfqdn/. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser.
+To connect to the CycleCloud webserver, retrieve the FQDN (Fully Qualified Domain Name) of the CycleServer VM from the Azure Portal, then browse to https://cycleserver[fqdn]/. The installation uses a self-signed SSL certificate, which may show up with a warning in your browser.
 
 Login to the webserver using the `cycleadmin` user and the `cyclecloudAdminPW` password defined in the `params-cyclecloud.json` parameters file.
 

@@ -29,7 +29,7 @@ You will need the following:
 - A Network Security Group set up to allow CycleCloud to communicate with Azure
 - A [Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for CycleCloud
 
-Azure uses a subscription ID and authentication certificate for account validation. You can download these in a .publishsettings format by logging into [this Azure service](https://windows.azure.com/download/publishprofile.aspx). This format easily integrates with CycleCloud.
+Azure uses a subscription ID and authentication certificate for account validation. You can download these in a .publishsettings format using `Get-AzurePublishSettingsFile`. This format easily integrates with CycleCloud.
 
 ### Creating the Azure Application Registration
 
@@ -67,7 +67,7 @@ To give CycleCloud the required access to your Azure Application Registration, y
 5. In Step 2, search for "MyAzureApplication" and select the appropriate item. Click **Select**.
 
 > [!NOTE]
->You must be the owner or have owner rights of the subscription to assign the Contributor role. 
+>You must be the owner or have owner rights of the subscription to assign the Contributor role.
 
 ### Creating a Network Security Group
 
