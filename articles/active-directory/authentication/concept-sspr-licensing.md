@@ -20,6 +20,8 @@ Azure Active Directory (Azure AD) comes in four editions: Free, Basic, Premium P
 
 ## Compare editions and features
 
+Azure AD self-service password reset is licensed per user, to maintain compliance organizations are required to assign the appropriate license to their users.
+
 * Self-Service Password Change for cloud users
    * I am a **cloud-only user** and know my password.
       * I would like to **change** my password to something new.

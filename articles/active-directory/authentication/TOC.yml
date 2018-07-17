@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is authentication
+  - name: What is authentication?
     href: overview-authentication.md
 - name: Quickstart
   items:
@@ -21,6 +21,7 @@
   - name: Integrate Azure Identity Protection
     href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
+  expanded: true
   items:
   - name: Authentication methods
     href: concept-authentication-methods.md
@@ -32,7 +33,7 @@
       href: concept-sspr-customization.md
     - name: Password reset policies
       href: concept-sspr-policy.md
-    - name: What license do I need
+    - name: What license do I need?
       href: concept-sspr-licensing.md
     - name: On-premises integration
       href: concept-sspr-writeback.md
@@ -40,7 +41,7 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
-    - name: What version is right
+    - name: What version is right?
       href: concept-mfa-whichversion.md
     - name: License your users
       href: concept-mfa-licensing.md
@@ -62,11 +63,11 @@
   items:
   - name: Password reset
     items:
-    - name: SSPR Deployment guide
+    - name: Deploy password reset
       href: howto-sspr-deployment.md
-    - name: SSPR Data requirements
+    - name: Pre-register authentication data
       href: howto-sspr-authenticationdata.md
-    - name: Password writeback
+    - name: Enable password writeback
       href: howto-sspr-writeback.md
   - name: Cloud-based MFA
     items:
@@ -189,26 +190,18 @@
     href: https://azure.microsoft.com/resources/samples/?service=active-directory
   - name: Azure PowerShell cmdlets
     href: /powershell/azure/overview
-  - name: Java API Reference
-    href: /java/api
-  - name: .NET API
-    href: /active-directory/adal/microsoft.identitymodel.clients.activedirectory
   - name: Service limits and restrictions
     href: ../users-groups-roles/directory-service-limits-restrictions.md
 - name: Resources
   items:
   - name: Azure feedback forum
     href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=active-directory
+    href: ../fundamentals/whats-new.md
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Videos

@@ -29,7 +29,7 @@ To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service
       * Registration:  https://aka.ms/ssprsetup
       * Reset: https://aka.ms/sspr
 1. Educate your users.
-   * This document goes over sample communication, password portals, enforcing registration, and populating authentication data.
+   * This following sections of this document go over sample communication, password portals, enforcing registration, and populating authentication data.
    * The Azure Active Directory product group has created a [step-by-step deployment plan](https://aka.ms/SSPRDeploymentPlan) that organizations can use in parallel with the documentation found on this site to make a business case and plan for deployment of self-service password reset.
 1. Enable self-service password reset for your entire organization.
    * When you're ready, enable password reset for all users by setting the **Self Service Password Reset Enabled** switch to **All**.

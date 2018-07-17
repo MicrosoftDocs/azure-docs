@@ -66,9 +66,9 @@ It's easy to disable self-service password reset. Open your Azure AD tenant and 
 
 ## Next steps
 
-In this quickstart, you’ve learned how to quickly configure self-service password reset for your cloud-only users. To complete these steps, continue to the Azure portal:
+In this quickstart, you’ve learned how to quickly configure self-service password reset for your cloud-only users. To find out how to complete a more detailed roll out, continue to our roll out guide.
 
 > [!div class="nextstepaction"]
-> [Enable self-service password reset](howto-sspr-deployment.md)
+> [Roll out self-service password reset](howto-sspr-deployment.md)
 
 [Authentication]: ./media/quickstart-sspr/sspr-authentication-methods.png "Azure AD authentication methods available and the quantity required"
