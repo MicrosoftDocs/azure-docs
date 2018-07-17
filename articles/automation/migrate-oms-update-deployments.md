@@ -47,7 +47,7 @@ To create a new update deployment, go to the Azure portal, select the Automation
 
 ![Schedule update deployment](media/migrate-oms-update-deployments/schedule-update-deployment.png)
 
-The **New Update Deployment** pane opens. Enter values for the properties described in the following table:
+The **New Update Deployment** pane opens. Enter values for the properties described in the following table and then click **Create**:
 
 For Machines to update, select the saved search used by the existing OMS deployment.
 
