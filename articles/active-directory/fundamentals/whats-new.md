@@ -55,6 +55,7 @@ Also at that time, email notifications will start to use the following address:
 
 For an example of some of the new e-mail designs, see [Email notifications in Azure AD PIM](https://go.microsoft.com/fwlink/?linkid=2005832).
 
+---
 
 ### View legacy authentications through Sign-ins activity logs
 
